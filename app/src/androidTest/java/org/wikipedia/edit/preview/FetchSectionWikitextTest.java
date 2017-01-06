@@ -5,6 +5,7 @@ import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
 
@@ -21,13 +22,13 @@ import static org.junit.Assert.assertNotNull;
 
         new WikitextClient().request(wiki, title, sectionId, new WikitextClient.Callback() {
             @Override
-            public void success(@NonNull Call<Wikitext> call, @NonNull String wikitext) {
+            public void success(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull String wikitext) {
                 assertNotNull(wikitext);
                 latch.countDown();
             }
 
             @Override
-            public void failure(@NonNull Call<Wikitext> call, @NonNull Throwable caught) {
+            public void failure(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull Throwable caught) {
                 throw new RuntimeException(caught);
             }
         });

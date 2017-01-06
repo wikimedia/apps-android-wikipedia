@@ -35,6 +35,7 @@ import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.edit.preview.EditPreviewFragment;
 import org.wikipedia.edit.preview.Wikitext;
 import org.wikipedia.edit.preview.WikitextClient;
@@ -471,6 +472,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                             return;
                         }
                         progressDialog.dismiss();
+
+                        // TODO: The view shown here states "cannot connect to the Internet" regardless
+                        // of the actual cause of failure (which could also be an API error or malformed
+                        // response). Update this to provide more specificity and accuracy. (T154805)
                         ViewAnimations.crossFade(sectionText, sectionError);
                         sectionError.setVisibility(View.VISIBLE);
                     }
@@ -620,13 +625,16 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         if (sectionWikitext == null) {
             new WikitextClient().request(title.getWikiSite(), title, sectionID, new WikitextClient.Callback() {
                 @Override
-                public void success(@NonNull Call<Wikitext> call, @NonNull String wikitext) {
+                public void success(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull String wikitext) {
                     sectionWikitext = wikitext;
                     displaySectionText();
                 }
 
                 @Override
-                public void failure(@NonNull Call<Wikitext> call, @NonNull Throwable throwable) {
+                public void failure(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull Throwable throwable) {
+                    // TODO: The view shown here states "cannot connect to the Internet" regardless
+                    // of the actual cause of failure (which could also be an API error or malformed
+                    // response). Update this to provide more specificity and accuracy. (T154805)
                     ViewAnimations.crossFade(sectionProgress, sectionError);
                     // Not sure why this is required, but without it tapping retry hides langLinksError
                     // FIXME: INVESTIGATE WHY THIS HAPPENS!
