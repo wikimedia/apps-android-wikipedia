@@ -195,6 +195,12 @@ public class MwPageLead implements PageLead {
 
         @Override
         @Nullable
+        public String getWikiBaseItem() {
+            return null;
+        }
+
+        @Override
+        @Nullable
         public String getFirstAllowedEditorRole() {
             return protection != null ? protection.getFirstAllowedEditorRole() : null;
         }

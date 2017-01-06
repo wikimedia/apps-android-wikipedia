@@ -42,6 +42,7 @@ public class PageProperties implements Parcelable {
     private final String leadImageName;
     @Nullable private final String titlePronunciationUrl;
     @Nullable private final Location geo;
+    @Nullable private final String wikiBaseItem;
 
     /**
      * True if the user who first requested this page can edit this page
@@ -78,6 +79,7 @@ public class PageProperties implements Parcelable {
 
         isMainPage = core.isMainPage();
         isDisambiguationPage = core.isDisambiguation();
+        wikiBaseItem = core.getWikiBaseItem();
     }
 
     /**
@@ -123,6 +125,7 @@ public class PageProperties implements Parcelable {
 
         isMainPage = json.has("mainpage");
         isDisambiguationPage = json.has("disambiguation");
+        wikiBaseItem = json.optString("wikibase_item");
     }
 
     public int getPageId() {
@@ -188,6 +191,11 @@ public class PageProperties implements Parcelable {
         return leadImageName;
     }
 
+    @Nullable
+    public String getWikiBaseItem() {
+        return wikiBaseItem;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -209,6 +217,7 @@ public class PageProperties implements Parcelable {
         parcel.writeInt(isDisambiguationPage ? 1 : 0);
         parcel.writeString(leadImageUrl);
         parcel.writeString(leadImageName);
+        parcel.writeString(wikiBaseItem);
     }
 
     private PageProperties(Parcel in) {
@@ -226,6 +235,7 @@ public class PageProperties implements Parcelable {
         isDisambiguationPage = in.readInt() == 1;
         leadImageUrl = in.readString();
         leadImageName = in.readString();
+        wikiBaseItem = in.readString();
     }
 
     public static final Parcelable.Creator<PageProperties> CREATOR
@@ -265,7 +275,8 @@ public class PageProperties implements Parcelable {
                 && isDisambiguationPage == that.isDisambiguationPage
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)
                 && TextUtils.equals(leadImageUrl, that.leadImageUrl)
-                && TextUtils.equals(leadImageName, that.leadImageName);
+                && TextUtils.equals(leadImageName, that.leadImageName)
+                && TextUtils.equals(wikiBaseItem, that.wikiBaseItem);
     }
 
     @Override
@@ -280,6 +291,7 @@ public class PageProperties implements Parcelable {
         result = 31 * result + (isDisambiguationPage ? 1 : 0);
         result = 31 * result + (leadImageUrl != null ? leadImageUrl.hashCode() : 0);
         result = 31 * result + (leadImageName != null ? leadImageName.hashCode() : 0);
+        result = 31 * result + (wikiBaseItem != null ? wikiBaseItem.hashCode() : 0);
         result = 31 * result + (canEdit ? 1 : 0);
         result = 31 * result + pageId;
         result = 31 * result + namespace.code();
@@ -302,6 +314,7 @@ public class PageProperties implements Parcelable {
             json.put("displaytitle", displayTitleText);
             json.put(JSON_NAME_TITLE_PRONUNCIATION_URL, titlePronunciationUrl);
             json.put(JSON_NAME_GEO, GeoMarshaller.marshal(geo));
+            json.put("wikibase_item", wikiBaseItem);
             if (editProtectionStatus == null) {
                 json.put("protection", new JSONArray());
             } else {

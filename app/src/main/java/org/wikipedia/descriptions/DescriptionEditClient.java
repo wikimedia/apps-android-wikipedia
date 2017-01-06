@@ -3,13 +3,18 @@ package org.wikipedia.descriptions;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.login.User;
+import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.mwapi.MwServiceError;
+
+import java.util.Arrays;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -20,7 +25,8 @@ import retrofit2.http.POST;
 /**
  * Data Client to submit a new or updated description to wikidata.org.
  */
-class DescriptionEditClient {
+public class DescriptionEditClient {
+    private static List<String> ENABLED_LANGUAGES = Arrays.asList("en");
     private static final String ABUSEFILTER_DISALLOWED = "abusefilter-disallowed";
     private static final String ABUSEFILTER_WARNING = "abusefilter-warning";
 
@@ -31,6 +37,12 @@ class DescriptionEditClient {
         void success(@NonNull Call<DescriptionEdit> call);
         void abusefilter(@NonNull Call<DescriptionEdit> call, String info);
         void failure(@NonNull Call<DescriptionEdit> call, @NonNull Throwable caught);
+    }
+
+    public static boolean isEditAllowed(@NonNull Page page) {
+        return ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode())
+                && page.getPageProperties() != null
+                && !TextUtils.isEmpty(page.getPageProperties().getWikiBaseItem());
     }
 
     /**
