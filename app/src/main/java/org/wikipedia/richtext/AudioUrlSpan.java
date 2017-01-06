@@ -8,12 +8,12 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.drawable.AppLevelListDrawable;
 import org.wikipedia.drawable.CircularProgressDrawable;
-import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.media.AvPlayer;
 
 public class AudioUrlSpan extends AnimatedImageSpan {
@@ -40,7 +40,7 @@ public class AudioUrlSpan extends AnimatedImageSpan {
     }
 
     public void setTint(@ColorInt int color) {
-        DrawableUtil.setTint(getDrawable(), color);
+        DrawableCompat.setTint(getDrawable(), color);
     }
 
     @Override

@@ -11,14 +11,13 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
-
-import org.wikipedia.drawable.DrawableUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +95,7 @@ public class AppTextViewWithImages extends AppTextView {
     @NonNull @VisibleForTesting
     Drawable getFormattedDrawable(@DrawableRes int drawableId, float size, @ColorInt int color) {
         Drawable drawable = ContextCompat.getDrawable(getContext(), drawableId);
-        DrawableUtil.setTint(drawable, color);
+        DrawableCompat.setTint(drawable, color);
 
         float ratio = drawable.getIntrinsicWidth() / drawable.getIntrinsicHeight();
         drawable.setBounds(0, 0, Math.round(size), Math.round(size * ratio));

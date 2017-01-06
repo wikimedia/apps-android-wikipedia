@@ -14,6 +14,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.Layout;
 import android.text.Spanned;
 import android.text.StaticLayout;
@@ -21,7 +22,6 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
-import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
@@ -245,7 +245,7 @@ public final class SnippetImage {
         final int top = bottom - height;
 
         Drawable d = ContextCompat.getDrawable(context, R.drawable.wp_wordmark);
-        DrawableUtil.setTint(d, Color.LTGRAY);
+        DrawableCompat.setTint(d, Color.LTGRAY);
 
         int left = WIDTH - HORIZONTAL_PADDING - width;
         if (isArticleRTL) {

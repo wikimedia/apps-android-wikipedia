@@ -10,6 +10,7 @@ import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +27,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
 import org.wikipedia.page.NoDimBottomSheetDialog;
@@ -206,7 +206,7 @@ public class ShareHandler {
     }
 
     private void showShareOnboarding(MenuItem shareItem) {
-        DrawableUtil.setTint(shareItem.getIcon(), getColor(SHARE_TOOL_TIP_COLOR));
+        DrawableCompat.setTint(shareItem.getIcon(), getColor(SHARE_TOOL_TIP_COLOR));
         postShowShareToolTip(shareItem);
     }
 
