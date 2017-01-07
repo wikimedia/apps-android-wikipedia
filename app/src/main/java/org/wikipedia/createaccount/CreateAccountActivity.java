@@ -15,8 +15,8 @@ import android.widget.TextView;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
-import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
+import com.mobsandgeeks.saripaar.annotation.Pattern;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -50,7 +50,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     private CreateAccountInfoClient createAccountInfoClient;
     private CreateAccountClient createAccountClient;
 
-    @NotEmpty
+    @Pattern(regex = "[^#<>\\[\\]|{}\\/@]*", messageResId = R.string.create_account_username_error)
     private EditText usernameEdit;
     private PasswordTextInput passwordInput;
     @Password()

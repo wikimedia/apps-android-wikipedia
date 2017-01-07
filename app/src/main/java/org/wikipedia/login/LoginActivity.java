@@ -16,6 +16,10 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.mobsandgeeks.saripaar.ValidationError;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Pattern;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
@@ -27,7 +31,10 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 
+import java.util.List;
+
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
 
 public class LoginActivity extends ThemedActionBarActivity {
     public static final int RESULT_LOGIN_SUCCESS = 1;
@@ -37,6 +44,7 @@ public class LoginActivity extends ThemedActionBarActivity {
     public static final String EDIT_SESSION_TOKEN = "edit_session_token";
     public static final String ACTION_CREATE_ACCOUNT = "action_create_account";
 
+    @Pattern(regex = "[^#<>\\[\\]|{}\\/@]*", messageResId = R.string.create_account_username_error)
     private EditText usernameText;
     private EditText passwordText;
     private View loginButton;
@@ -46,6 +54,7 @@ public class LoginActivity extends ThemedActionBarActivity {
     private String loginSource;
     private LoginClient loginClient;
     private boolean wentStraightToCreateAccount;
+    private Validator validator;
 
     public static Intent newIntent(@NonNull Context context, @NonNull String source) {
         return newIntent(context, source, null);
@@ -67,6 +76,31 @@ public class LoginActivity extends ThemedActionBarActivity {
         passwordText = ((PasswordTextInput) findViewById(R.id.login_password_input)).getEditText();
         View createAccountLink = findViewById(R.id.login_create_account_link);
 
+        // We enable the login button as soon as the username and password fields are filled
+        // Tapping does further validation
+        validator = new Validator(this);
+        validator.setValidationListener(new Validator.ValidationListener() {
+            @Override
+            public void onValidationSucceeded() {
+                doLogin();
+            }
+
+            @Override
+            public void onValidationFailed(List<ValidationError> errors) {
+                for (ValidationError error : errors) {
+                    View view = error.getView();
+                    String message = error.getCollatedErrorMessage(view.getContext());
+                    if (view instanceof EditText) {
+                        //Request focus on the EditText before setting error, so that error is visible
+                        view.requestFocus();
+                        setErrorPopup((EditText) view, message);
+                    } else {
+                        throw new RuntimeException("This should not be happening");
+                    }
+                }
+            }
+        });
+
         // Don't allow user to attempt login until they've put in a username and password
         new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
@@ -79,7 +113,7 @@ public class LoginActivity extends ThemedActionBarActivity {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    doLogin();
+                    validator.validate();
                     return true;
                 }
                 return false;
@@ -90,7 +124,7 @@ public class LoginActivity extends ThemedActionBarActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doLogin();
+                validator.validate();
             }
         });
 
