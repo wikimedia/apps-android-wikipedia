@@ -280,11 +280,6 @@ public class WikiSite implements Parcelable {
         return authority.split("\\.")[0];
     }
 
-    @NonNull
-    private static String authorityToDesktop(@NonNull String authority) {
-        return authority.replaceFirst("\\.m\\.", ".");
-    }
-
     /** @param authority Host and optional port. */
     @NonNull private String authorityToMobile(@NonNull String authority) {
         String subdomain = languageCodeToSubdomain(languageCode);
