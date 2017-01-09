@@ -101,7 +101,7 @@
   <string name="zero_interstitial_continue">Mont kuit</string>
   <string name="zero_interstitial_cancel">Chom amañ</string>
   <string name="zero_learn_more" fuzzy="true">N\'eus ket mizoù da baeañ evit ar roadennoù an arolad Wikipedia-mañ.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Gouzout hiroc\'h</string>
+  <string name="zero_learn_more_learn_more">Gouzout hiroc\'h</string>
   <string name="zero_learn_more_dismiss">Disteurel</string>
   <string name="edit_preview_fetching_dialog_message">O klask un alberz…</string>
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
@@ -222,6 +222,8 @@
   <string name="preference_summary_show_link_previews">Diskwel un alberz buan eus ar pennadoù en ur skrivañ war al liammoù.</string>
   <string name="nav_item_donate">Skoazellañ Wikimedia</string>
   <string name="error_voice_search_not_available">Ho tigarez, ne c\'haller ket digejañ ar gomz.</string>
+  <string name="location_service_disabled">Diweredekaet eo ar servijoù lec\'hiañ.</string>
+  <string name="enable_location_service">Gweredekaat</string>
   <string name="crash_report_dialog_title">Hon digarezit, c\'hwitet eo an arload ar wech diwezhañ</string>
   <string name="crash_report_dialog_text">Ha c\'hoant ho peus da gas un danevell implij da HockeyApp - ur pourchaser servijoù tredeour - abalamour ma c\'hallo Wikimedia kompren war ho tarvoud ha reizhañ an draen degaset gantañ ?</string>
   <string name="crash_report_dialog_dont_send_button">Lezel a-gostez</string>
@@ -236,6 +238,9 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
   <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
   <string name="article_menu_bar_navigate">Merdeiñ el lec\'h ma oa ar pennad</string>
+  <string name="article_header_edit_hint">Kemmañ...</string>
+  <string name="article_header_edit_description">Kemmañ titl an deskrivadur</string>
+  <string name="article_header_edit_lead_section">Kemmañ ar raklavar</string>
   <string name="nav_item_reading_lists">Ma rolloù</string>
   <string name="reading_list_untitled">Hep titl</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
@@ -287,10 +292,33 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="feed_featured_image_share_subject">Skeudenn dibabet e Wikimedia Commons</string>
   <string name="feed">Ergerzhet</string>
   <string name="view_card_footer_button">Gwelet muioc\'h</string>
+  <string name="most_read_list_card_title">Gizioù ar mare</string>
   <string name="view_static_card_icon_content_description">Arlun ar gartenn</string>
   <string name="view_card_news_title">Er C\'heleier</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">dec\'hzo</item>
-    <item quantity="other">%d devezhzo</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Dec\'h</item>
+    <item quantity="other">%d devezh zo</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">Hiziv</string>
+  <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
+  <string name="description_edit_header">O kemmañ</string>
+  <string name="description_edit_text_hint">Skrivañ un deskrivadur !</string>
+  <string name="description_edit_save">Enrollañ</string>
+  <string name="description_edit_add_description">Ouzhpennañ un tamm diverrañ</string>
+  <string name="description_edit_edit_description">Kemmañ an deskrivadur</string>
+  <string name="description_edit_cancel_hint">Nullañ</string>
+  <string name="description_edit_help_title">Skoazell : deskrivadurioù an titloù</string>
+  <string name="description_edit_help_about_wikidata">Diwar-benn Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Sturlevr Wikidata evit skrivañ deskrivadurioù</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_success_saved">Enrollet eo an deskrivadur ervat !</string>
+  <string name="description_edit_success_encouragement">Emaoc\'h o paouez gwellaat Wikipedia evit mad an holl</string>
+  <string name="description_edit_success_done">Graet</string>
+  <string name="description_edit_success_did_you_know">Ha gouzout a raec\'h ?</string>
+  <string name="description_edit_tutorial_title_descriptions">Deskrivadurioù an titl</string>
+  <string name="description_edit_tutorial_button_label_continue">Kenderc\'hel</string>
+  <string name="description_edit_tutorial_keep_it_short">Krak ha berr</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Kregiñ da aozañ</string>
+  <string name="description_edit_tutorial_promise">Stagañ a ran ganti ha reiñ a ran ma ger da chom hep drougimplij an arc\'hwel-mañ</string>
 </resources>

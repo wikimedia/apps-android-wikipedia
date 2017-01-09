@@ -294,4 +294,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Opis zapisany!</string>
   <string name="description_edit_success_done">Gotowe</string>
+  <string name="description_edit_tutorial_button_label_continue">Kontynuuj</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
 </resources>

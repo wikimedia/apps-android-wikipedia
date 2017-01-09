@@ -317,4 +317,11 @@
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
   <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך היישום הזה. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמך ^1 בפעם הבאה</string>
+  <string name="description_edit_tutorial_title_descriptions">תיאורי כותרת</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">סיכום הערך שעוזר לקוראים להבין את הנושא במבט אחד</string>
+  <string name="description_edit_tutorial_button_label_continue">המשך</string>
+  <string name="description_edit_tutorial_keep_it_short">זה אמור להיות קצר</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
+  <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
+  <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
 </resources>

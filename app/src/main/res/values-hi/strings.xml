@@ -316,4 +316,11 @@
   <string name="description_edit_success_done">पूर्ण</string>
   <string name="description_edit_success_did_you_know">क्या आप जानते थे?</string>
   <string name="description_edit_success_article_edit_hint">आप इस एप में भी लेखों को सम्पादित कर सकते हैं। अगली बार ^1 आइकॉन पर क्लिक कर टाइपो और छोटे वाक्य सुधारने का प्रयास करें</string>
+  <string name="description_edit_tutorial_title_descriptions">शीर्षक वर्णन</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">लेख का सारांकन करें ताकि पाठक को विषय एक झलक में समझ आ जाये</string>
+  <string name="description_edit_tutorial_button_label_continue">जारी रखें</string>
+  <string name="description_edit_tutorial_keep_it_short">इसे छोटा रखें</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">एक लाइन, दो से बारह शब्दों की उपयुक्त है</string>
+  <string name="description_edit_tutorial_button_label_start_editing">संपादन शुरू करें</string>
+  <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस फीचर का दुरुपयोग नहीं करूँगा(गी)।</string>
 </resources>

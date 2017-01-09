@@ -317,4 +317,11 @@
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>
   <string name="description_edit_success_article_edit_hint">Со прилогов можете да уредувате и статии. Следен пат, пробајте да исправите мали гршеки при пишување и реченици стискајќи на иконата ^1</string>
+  <string name="description_edit_tutorial_title_descriptions">Описи на насловите</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Дава караток опис на статијата, давајќи им претстава на читателите за што се работи</string>
+  <string name="description_edit_tutorial_button_label_continue">Продолжи</string>
+  <string name="description_edit_tutorial_keep_it_short">Мора да биде кратко</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
+  <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
 </resources>

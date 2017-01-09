@@ -317,4 +317,11 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="description_edit_success_done">Rampung</string>
   <string name="description_edit_success_did_you_know">Sampéyan ngerti?</string>
   <string name="description_edit_success_article_edit_hint">Sampeyan uga bisa ngowahi artikel ing aplikasi iki. Coba mbenakake kesalahan ketik lan kalimat cilik kanthi ngeklik ing lambang ^1 sabanjuré</string>
+  <string name="description_edit_tutorial_title_descriptions">Katrangan judul</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Ngringkes artikel kanggo nonton ngerti subyek ing mirit</string>
+  <string name="description_edit_tutorial_button_label_continue">Banjuraké</string>
+  <string name="description_edit_tutorial_keep_it_short">Tansah iku singkat</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Saenipun siji line, antarane loro kanggo rolas tembung</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
+  <string name="description_edit_tutorial_promise">Miturut miwiti, aku janji ora kanggo nyalahi panggunaan fitur iki.</string>
 </resources>

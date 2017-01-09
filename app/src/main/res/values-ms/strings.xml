@@ -315,4 +315,11 @@
   <string name="description_edit_success_done">Siap</string>
   <string name="description_edit_success_did_you_know">Tahukah anda?</string>
   <string name="description_edit_success_article_edit_hint">Anda juga boleh menyunting rencana dalam aplikasi ini. Cuba betulkan kesilapan menaip dan ayat kecil dengan klik pada ikon ^1 lain kali</string>
+  <string name="description_edit_tutorial_title_descriptions">Huraian tajuk</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Meringkaskan rencana untuk membantu pembaca memahami subjek dengan pantas</string>
+  <string name="description_edit_tutorial_button_label_continue">Teruskan</string>
+  <string name="description_edit_tutorial_keep_it_short">Mengekalkannya pendek</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
+  <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
 </resources>

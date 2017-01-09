@@ -317,4 +317,11 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="description_edit_success_done">Fertig</string>
   <string name="description_edit_success_did_you_know">Schon gewusst?</string>
   <string name="description_edit_success_article_edit_hint">Du kannst auch Artikel innerhalb dieser App bearbeiten. Korrigiere Tippfehler und kleine Sätze, indem du das nächste Mal auf das Symbol ^1 klickst.</string>
+  <string name="description_edit_tutorial_title_descriptions">Titelbeschreibungen</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Fasst einen Artikel zusammen, um Lesern im Überblick beim Verstehen des Themas zu helfen</string>
+  <string name="description_edit_tutorial_button_label_continue">Fortfahren</string>
+  <string name="description_edit_tutorial_keep_it_short">Halte sie kurz</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweise eine Zeile, zwischen zwei und zwölf Wörtern</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
+  <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
 </resources>

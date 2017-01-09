@@ -317,4 +317,11 @@
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
   <string name="description_edit_success_article_edit_hint">Вы также можете редактировать статьи в этом приложении. Попробуйте исправлять опечатки и небольшие предложения, нажав в следующий раз на иконку ^1</string>
+  <string name="description_edit_tutorial_title_descriptions">Описание названия</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Резюмирует статью, чтобы помочь читателям понять тему с первого взгляда</string>
+  <string name="description_edit_tutorial_button_label_continue">Продолжить</string>
+  <string name="description_edit_tutorial_keep_it_short">Будьте кратки</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна линия, от двух до двенадцати слов</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
+  <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
 </resources>

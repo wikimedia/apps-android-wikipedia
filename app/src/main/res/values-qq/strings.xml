@@ -466,7 +466,9 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
   <string name="description_edit_tutorial_title_descriptions">Heading for a tutorial about editing page title descriptions.</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Summary of what page title descriptions are for.</string>
-  <string name="description_edit_tutorial_button_label_continue">Label for a button the user can push to continue to the next page of the tutorial.</string>
+  <string name="description_edit_tutorial_button_label_continue">Label for a button the user can push to continue to the next page of the tutorial.
+
+{{Identical|Continue}}</string>
   <string name="description_edit_tutorial_keep_it_short">An instruction for the user to keep descriptions short.</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>

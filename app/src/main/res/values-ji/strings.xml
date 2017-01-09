@@ -158,6 +158,7 @@
   <string name="gallery_error_draw_failed">מען קען נישט צייכענען דאס בילד</string>
   <string name="license_title">ליצענץ פאר %s</string>
   <string name="gallery_menu_share">טיילן</string>
+  <string name="gallery_save_progress">אראָפלאָדנדיק טעקע…</string>
   <string name="gallery_save_success">טעקע דערפאלגרייך געשפייכלערט.</string>
   <string name="gallery_error_video_failed">קען נישט שפילן ווידעא.</string>
   <string name="err_cannot_save_file">קען נישט אויפהיטן טעקע</string>
@@ -183,6 +184,10 @@
   <string name="crash_report_activity_title">אפליקאציע פֿעלער</string>
   <string name="crash_report_relaunch">אנהייבן פונדאסניי</string>
   <string name="crash_report_quit">פֿארלאזן</string>
+  <string name="article_header_edit_hint">רעדאַקטירן...</string>
+  <string name="article_header_edit_description">רעדאקטירן טיטל־באשרײבונג</string>
+  <string name="article_header_edit_lead_section">רעדאקטירן אריינפֿיר</string>
+  <string name="nav_item_reading_lists">מיינע ליסטעס</string>
   <string name="reading_list_item_count_singular">איין ארטיקל</string>
   <string name="reading_list_item_count_plural">%d ארטיקלען</string>
   <string name="reading_list_sort">סארטירן</string>
@@ -191,8 +196,13 @@
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
   <string name="reading_lists_onboarding_example3">ליידיג פלאץ!</string>
   <string name="reading_lists_onboarding_got_it">פארשטאנען</string>
+  <string name="user_option_sync_label">פרעפֿערענצן</string>
+  <string name="view_featured_image_card_download">אַראָפלאָדן</string>
+  <string name="menu_feed_card_dismiss">באהאלטן די קארטע</string>
+  <string name="view_continue_reading_card_subtitle_today">הײנט</string>
+  <string name="view_announcement_card_negative_action">ניין, א דאנק</string>
   <string name="description_edit_save">אויפֿהיטן</string>
-  <string name="description_edit_add_description" fuzzy="true">צולייגן באַשרייבונג</string>
+  <string name="description_edit_add_description">צולייגן קורצע באַשרייבונג</string>
   <string name="description_edit_edit_description">רעדאקטירט באשרייבונג</string>
   <string name="description_edit_cancel_hint">אַנולירן</string>
   <string name="description_edit_help_title">קעפל באַשרייבונגען</string>

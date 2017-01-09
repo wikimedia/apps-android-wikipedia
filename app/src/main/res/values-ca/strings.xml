@@ -317,4 +317,8 @@ Voleu començar de nou o sortir?</string>
   <string name="description_edit_success_done">Fet</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
   <string name="description_edit_success_article_edit_hint">També podeu modificar articles amb aquesta aplicació. Proveu de corregir errors i frases curtes clicant a la icona ^1 la propera vegada.</string>
+  <string name="description_edit_tutorial_title_descriptions">Descripcions del títol</string>
+  <string name="description_edit_tutorial_button_label_continue">Continua</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
+  <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
 </resources>

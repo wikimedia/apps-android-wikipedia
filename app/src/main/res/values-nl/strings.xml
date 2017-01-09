@@ -298,10 +298,11 @@
     <item quantity="other">%d dagen geleden</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Vandaag</string>
+  <string name="view_announcement_card_negative_action">Nee, bedankt</string>
   <string name="description_edit_header">Bezig met bewerken</string>
   <string name="description_edit_text_hint">Geef een beschrijving op!</string>
   <string name="description_edit_save">Opslaan</string>
-  <string name="description_edit_add_description" fuzzy="true">Beschrijving toevoegen</string>
+  <string name="description_edit_add_description">Korte beschrijving toevoegen</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
   <string name="description_edit_cancel_hint">Annuleren</string>
   <string name="description_edit_help_about_wikidata">Over Wikidata</string>
@@ -311,4 +312,8 @@
   <string name="description_edit_success_done">Afgerond</string>
   <string name="description_edit_success_did_you_know">Wist u dat?</string>
   <string name="description_edit_success_article_edit_hint">In deze app kunt u ook pagina\'s bewerken. Corrigeer typefouten en voeg zinnen toe door volgende keer op het pictogram ^1 te klikken.</string>
+  <string name="description_edit_tutorial_button_label_continue">Doorgaan</string>
+  <string name="description_edit_tutorial_keep_it_short">Houd het kort</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealiter één regel, tussen twee en twaalf woorden</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
 </resources>

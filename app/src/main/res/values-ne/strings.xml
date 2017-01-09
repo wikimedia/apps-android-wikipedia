@@ -14,7 +14,7 @@
   <string name="menu_clear_all_history">इतिहास खाली गर्नुहोस्</string>
   <string name="page_does_not_exist_error">यो पृष्ठ अवस्थित छैन।</string>
   <string name="dialog_title_clear_history">ब्राउजिङ् इतिहास खाली गर्नुहोस्</string>
-  <string name="dialog_message_clear_history">यस कार्यले तपाईंको सबै ब्राउजिङ् इतिहास मेट्नेछ, साथै हाल खुल्ला रहेका ट्याबहरू बन्द गर्नेछ। तपाईं निश्चित हुनुहुन्छ?</string>
+  <string name="dialog_message_clear_history">यसले तपाईँको सबै हेरेको इतिहास मेटाउने छ,हाल खुल्ला सबै ट्याबहरू बन्द हुनेछन्। निश्चित हुनुहुन्छ ?</string>
   <string name="nav_item_saved_pages">बचत गरिएका पृष्ठहरू</string>
   <string name="share_via">यसमार्फत् आदान-प्रदान गर्नुहोस्</string>
   <string name="search_redirect_from">%s बाट पुनःनिर्देशित भएको</string>
@@ -40,7 +40,7 @@
   <string name="talk_page_link_text">वार्तालाप गर्नुहोस्</string>
   <string name="content_license_html">अन्यथा उल्लेख नभएसम्म सामग्रीहरू &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गत् उपलब्ध छ</string>
   <string name="edit_save_action_license_logged_in">बचत गरेर तपाईं &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;प्रयोगका शर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>
-  <string name="edit_save_action_license_anon">बचत गरेर तपाईं &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;प्रयोगका शर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ। सम्पादनहरूको श्रेय तपाईंको यन्त्रको IP ठेगानालाईं जानेछ। यदि तपाईंले &lt;a href=\"https://#login\"&gt;लग इन&lt;/a&gt;, गर्नुभयो भने तपाईंको गोपनीयता अझ सुरक्षित हुनेछ।</string>
+  <string name="edit_save_action_license_anon">बचत गरेर तपाईं &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;प्रयोगका शर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ। सम्पादनको श्रेय तपाईँको यन्त्रको IP ठेगानालाई दिइने छ। यदि तपाईँ &lt;a href=\"https://#login\"&gt;लग इन &lt;/a&gt;, गर्नु भयो भने तपाईँको बढी गोपनीयता रहने छ।</string>
   <string name="preference_title_language">विकिपिडियाको भाषा</string>
   <string name="preference_languages_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_filter_hint">खोज्नुहोस्</string>
@@ -54,7 +54,7 @@
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
   <string name="dialog_message_edit_failed_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="dialog_message_edit_failed_cancel">रद्द गर्नुहोस्</string>
-  <string name="dialog_message_leaving_edit">तपाईंका परिवर्तनहरू अझसम्म बचत गरिएका छैनन्। के तपाईं यो पृष्ठ छाड्ने कुरामा निश्चित हुनुहुन्छ?</string>
+  <string name="dialog_message_leaving_edit">तपाईँका परिवर्तन अझै सङ्ग्रह गरिएको छैन। यो पृष्ठ छोड्न निश्चित हुनुहुन्छ?</string>
   <string name="dialog_message_leaving_edit_leave">छोड्नुहोस्</string>
   <string name="dialog_message_leaving_edit_stay">रहनुहोस्</string>
   <string name="menu_show_toc">विषयसूची</string>
@@ -74,12 +74,12 @@
   <string name="preference_title_logout">लग आउट गर्नुहोस्</string>
   <string name="toast_logout_complete">लग आउट गरियो</string>
   <string name="history_empty_title">यहाँ कुनै भर्खरैका पृष्ठहरू छैनन्!</string>
-  <string name="history_empty_message">तपार्इंले शायद सबै मेट्नुभयो। अबदेखि तपार्इंले कुनै पृष्ठ हेर्नुभयो भने उक्त पृष्ठलार्इ यहाँ फेला पार्न सक्नुहुन्छ।</string>
+  <string name="history_empty_message">तपाईँले सायद सबै मेट्नुभयो। Next time you go to a page you can get back to it from here.</string>
   <string name="delete_selected_history">हटाउनुहोस्</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपिडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">प्रयोगकर्ताको नाम</string>
-  <string name="login_create_account_link">खाता छैन? विकिपिडियामा संलग्न हुनुहोस्</string>
-  <string name="create_account_login_link">के तपाईंसँग पहिलेदेखि नै खाता छ? लग इन गर्नुहोस्</string>
+  <string name="login_create_account_link">खाता छैन? विकिपिडियामा सामेल हुनुहोस्</string>
+  <string name="create_account_login_link">पहिले देखिको खाता छ? लग इन गर्नुहोस्।</string>
   <string name="create_account_activity_title">खाता खोल्नुहोस्</string>
   <string name="dialog_create_account_checking_progress">रुजू गर्दै</string>
   <string name="create_account_email_hint">इमेल (वैकल्पिक)</string>
@@ -97,7 +97,7 @@
   <string name="zero_webpage_title">विकिपिडिया शून्यबारे प्रायः सोधिने प्रश्नहरू</string>
   <string name="zero_wikipedia_zero_heading">विकिपिडिया शून्य</string>
   <string name="zero_interstitial_title">विकिपिडिया शून्य छोड्दै</string>
-  <string name="zero_interstitial_leave_app">डाटा शुल्क लाग्न सक्नेछ। बाह्य साइटमा जाने कार्य जारी राख्ने?</string>
+  <string name="zero_interstitial_leave_app">डेटाको पैसा लाग्न सक्छ। बाहिरी वेबसाइटमा जरी राख्ने हो?</string>
   <string name="zero_interstitial_continue">छाड्नुहोस्</string>
   <string name="zero_interstitial_cancel">यहाँ रहनुहोस्</string>
   <string name="zero_learn_more">तपाईंको वायरलेस प्रदायकले विकिपिडिया सामग्रीमा निःशुल्क पहुँच उपलब्ध गराएको छ!</string>
@@ -112,7 +112,7 @@
   <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईंले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
   <string name="preference_title_auto_upload_crash_reports">क्र्यास प्रतिवेदन पठाउनुहोस्</string>
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp / एक तेस्रो-पक्ष सेवा प्रदायकलार्इ स्वतः पठाउन अनुप्रयोगलार्इ अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपार्इंको क्र्यासको समीक्षा गर्न र समस्याको समाधान गर्न सक्छौं।</string>
-  <string name="editing_error_spamblacklist">ब्लक गरिएका डोमेनहरूका लिङ्कहरू (%s) पत्ता लाग्यो। कृपया तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
+  <string name="editing_error_spamblacklist">बन्देज गरिएको डोमेन (%s) मा लिङ् भेटियो। तिनीहरूलाई हटाउनुहोस् र पुनः प्यास गर्नुहोस्</string>
   <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="history_search_empty_message">तपाईंको क्वेरीसँग मिल्ने कुनै पृष्ठहरू फेला परेनन्।</string>
   <string name="error_can_not_process_link">यो लिङ्क प्रदर्शन गर्न सकेन</string>
@@ -140,7 +140,7 @@
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="edit_how_page_improved">तपाईंले कसरी पृष्ठमा सुधार ल्याउनुभयो?</string>
   <string name="edit_next">अर्को</string>
-  <string name="edit_done">बचत गर्नुहोस्</string>
+  <string name="edit_done">सङ्ग्रह गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_summary_tag_typo">टाइपो सुधार गरियो</string>
   <string name="edit_summary_tag_grammar">व्याकरण सुधार गरियो</string>
@@ -261,13 +261,13 @@
   <string name="reading_lists_onboarding_page_delete">सुझाव: कुनै पृष्ठलाई यो अध्ययन सूचीबाट हटाउन बायाँ वा दायाँतिर स्वाइप गर्नुहोस्।</string>
   <string name="user_option_sync_label">प्राथमिकताहरू</string>
   <string name="view_continue_reading_card_title">पढ्ने कार्य जारी राख्नुहोस्</string>
-  <string name="view_because_you_read_card_title">किनकी तपाईंले यो पढ्नुभएको थियो</string>
+  <string name="view_because_you_read_card_title">किनभने तपाईंले यो पढ्नुभएको थियो</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
   <string name="view_random_card_subtitle">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएको कुनै लेख पढ्नुहोस्</string>
   <string name="view_main_page_card_title">विकिपिडियामा आज</string>
   <string name="view_main_page_card_subtitle">%s को मुख्य पृष्ठ</string>
   <string name="view_featured_image_card_title">आजको तस्बिर</string>
-  <string name="view_featured_image_card_download">डाउनलोड गर्नुहोस्</string>
+  <string name="view_featured_image_card_download">डाउनलोड</string>
   <string name="menu_feed_card_dismiss">यो कार्ड लुकाउनुहोस्</string>
   <string name="menu_feed_card_dismissed">कार्ड लुकाइयो।</string>
   <string name="menu_feed_overflow_label">थप विकल्पहरू</string>
@@ -284,6 +284,6 @@
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="description_edit_header">सम्पादन गर्दै</string>
   <string name="description_edit_text_hint">कुनै विवरण लेख्नुहोस्!</string>
-  <string name="description_edit_save">बचत गर्नुहोस्</string>
+  <string name="description_edit_save">सङ्ग्रह गर्नुहोस्</string>
   <string name="description_edit_add_description">छोटो विवरण थप्नुहोस्</string>
 </resources>

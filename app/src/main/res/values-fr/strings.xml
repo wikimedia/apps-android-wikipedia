@@ -318,4 +318,11 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="description_edit_success_done">Fait</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
   <string name="description_edit_success_article_edit_hint">Vous pouvez aussi modifier des articles dans cette application. Essayez de corriger des fautes et de petites phrases en cliquant sur l’icône ^1 la prochaine fois</string>
+  <string name="description_edit_tutorial_title_descriptions">Descriptions du titre</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Résume un article pour aider le lecteur à en comprendre le sujet d\'un coup d\'œil.</string>
+  <string name="description_edit_tutorial_button_label_continue">Continuer</string>
+  <string name="description_edit_tutorial_keep_it_short">Soyez bref</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
+  <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
 </resources>

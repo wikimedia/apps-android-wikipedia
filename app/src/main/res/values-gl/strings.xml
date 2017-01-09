@@ -317,4 +317,11 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="description_edit_success_done">Feito</string>
   <string name="description_edit_success_did_you_know">Sabía que...?</string>
   <string name="description_edit_success_article_edit_hint">Tamén pode editar artigos dentro desta aplicación. A próxima vez intente amañar erros e pequenas frases premendo na icona ^1.</string>
+  <string name="description_edit_tutorial_title_descriptions">Descrición de títulos</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Resume un artigo para axudar ós lectores a comprender o tema dunha ollada</string>
+  <string name="description_edit_tutorial_button_label_continue">Continuar</string>
+  <string name="description_edit_tutorial_keep_it_short">Que sexa curto</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente unha liña, entre dúas e unha ducia de palabras</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Comezar a editar</string>
+  <string name="description_edit_tutorial_promise">Ó comezar, comprométome a non abusar desta funcionalidade.</string>
 </resources>

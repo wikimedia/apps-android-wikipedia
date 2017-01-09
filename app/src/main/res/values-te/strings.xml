@@ -197,4 +197,9 @@
   <string name="format_error_server_code">కోడ్: \"%s\"</string>
   <string name="nav_item_donate">వికీపీడియాకి తోడ్పడండి</string>
   <string name="crash_report_dialog_send_button">పంపించు</string>
+  <string name="description_edit_edit_description">వివరణను మార్చు</string>
+  <string name="description_edit_cancel_hint">రద్దుచేయి</string>
+  <string name="description_edit_help_about_wikidata">వికీడేటా గురించి</string>
+  <string name="description_edit_tutorial_title_descriptions">శీర్షిక వివరణలు</string>
+  <string name="description_edit_tutorial_button_label_continue">కొనసాగించు</string>
 </resources>

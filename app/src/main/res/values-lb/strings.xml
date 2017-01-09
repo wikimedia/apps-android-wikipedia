@@ -312,4 +312,10 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="description_edit_success_done">Fäerdeg</string>
   <string name="description_edit_success_did_you_know">Wousst Dir?</string>
   <string name="description_edit_success_article_edit_hint">Dir kënnt och Artikele mat dëser App änneren. Probéiert déi nächste Kéier fir Tippfeeler a kuerz Sätz duerch klicken op d\'Symbol ^1 ze verbesseren</string>
+  <string name="description_edit_tutorial_title_descriptions">Beschreiwung vum Titel</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Resuméiert en Artikel fir de Lieser ze hëllefen de Sujet op ee Bléck ze verstoen.</string>
+  <string name="description_edit_tutorial_button_label_continue">Virufueren</string>
+  <string name="description_edit_tutorial_keep_it_short">Haalt se kuerz</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
 </resources>

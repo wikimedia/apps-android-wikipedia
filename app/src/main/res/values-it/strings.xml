@@ -310,4 +310,6 @@ Vuoi riavviarla o uscire?</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevate?</string>
+  <string name="description_edit_tutorial_button_label_continue">Continua</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
 </resources>

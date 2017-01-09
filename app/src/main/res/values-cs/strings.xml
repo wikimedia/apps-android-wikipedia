@@ -304,7 +304,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="description_edit_header">Editování</string>
   <string name="description_edit_text_hint">Udělejte popis!</string>
   <string name="description_edit_save">Uložit</string>
-  <string name="description_edit_add_description" fuzzy="true">Přidat popis</string>
+  <string name="description_edit_add_description">Přidat stručný popis</string>
   <string name="description_edit_success_saved">Popis byl uložen!</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím</string>
   <string name="description_edit_success_done">Hotovo</string>

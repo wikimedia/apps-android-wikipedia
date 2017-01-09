@@ -91,7 +91,7 @@
   <string name="create_account_button">खाते बनवा</string>
   <string name="preferences_general_heading">सर्वसामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप नेविप्र(एफएक्यू)</string>
-  <string name="zero_charged_verbiage" fuzzy="true">विकीपिडीया झीरो बंद आहे</string>
+  <string name="zero_charged_verbiage">विकीपिडीयावर मुक्त पोहोच सध्या सक्रिय नाही.</string>
   <string name="zero_warn_when_leaving">जर विकिपीडिया झिरो सोडत असाल तर इशारा द्या</string>
   <string name="zero_warn_when_leaving_summary">विकिपीडिया झीरो पार्टनरशिपमार्फत जर आपला मोबाईल ऑपरेटर डाटा पोहोच दर झुगारत असेल तर, ही मांडणी चेक्ड् असण्याने आपण विकिपीडिया अॲप कधी सोडत आहात व आपणास चार्जेस लागतील ते आपणास कळू शकते.</string>
   <string name="zero_webpage_title">विकिपीडीया झीरो एफएक्यू</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">डाटा चार्जेस लागू शकतील.बाह्य संकेतस्थळास सुरू ठेउ?</string>
   <string name="zero_interstitial_continue">सोडा</string>
   <string name="zero_interstitial_cancel">येथेच रहा</string>
-  <string name="zero_learn_more" fuzzy="true">या विकिपीडिया अॲपसाठी डाटा चार्जेस लागणार नाहीत.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">अधिक वाचा</string>
+  <string name="zero_learn_more">आपल्या बिनतारी कॅरियरने विकिपीडियाच्या आशयास मुक्त पोहोच दिली आहे!</string>
+  <string name="zero_learn_more_learn_more">अधिक शिका</string>
   <string name="zero_learn_more_dismiss">खारीज करा</string>
   <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे…</string>
   <string name="send_feedback">अॅपबद्दलची प्रतिक्रिया पाठवा</string>
@@ -198,6 +198,8 @@
   <string name="gallery_fair_use_license">उचीत वापर</string>
   <string name="gallery_uploader_unknown">अपभारक माहित नाही</string>
   <string name="menu_new_tab">नविन कळ</string>
+  <string name="menu_close_all_tabs">सर्व कळी बंद करा</string>
+  <string name="close_all_tabs_confirm">आपण याची निश्चिती करता काय कि सर्व कळी बंद करावयाच्या आहेत?</string>
   <string name="button_close_tab">कळ बंद करा</string>
   <string name="tool_tip_select_text">मजकूरात कोठेही, त्याची प्रत करण्यास किंवा त्यास कोणास पाठविण्यासाठी झोतात आणण्यास, दाबून धरुन ठेवा.</string>
   <string name="tool_tip_share">एखादे आवडते तथ्य प्रकाशझोतात आणल्यावर, त्यास आपल्या आवडत्या नेटवर्कवर सहभाग करण्याच्या प्रयत्न करा.</string>
@@ -217,6 +219,8 @@
   <string name="preference_summary_show_link_previews">दुव्यांवर थपकवल्यास लेखांची जलद झलक दाखवा.</string>
   <string name="nav_item_donate">विकिपीडियास साहाय्य करा</string>
   <string name="error_voice_search_not_available">माफ करा, ध्वनी ओळख उपलब्ध नाही</string>
+  <string name="location_service_disabled">स्थाननिर्धारण सेवा अक्षम करण्यात आलेली आहे.</string>
+  <string name="enable_location_service">कार्यान्वित करा</string>
   <string name="crash_report_dialog_title">माफ करा, मागील वेळी अॲप क्रॲश झाले होते</string>
   <string name="crash_report_dialog_dont_send_button">पुढे जा</string>
   <string name="crash_report_dialog_always_send_button">नेहमी पाठवा</string>
@@ -230,6 +234,9 @@
   <string name="article_menu_bar_bookmark">हा लेख वाचनयादीत जोडा</string>
   <string name="article_menu_bar_share">लेखदुवा सहभागा</string>
   <string name="article_menu_bar_navigate">या लेखाच्या स्थळास न्याहाळा</string>
+  <string name="article_header_edit_hint">संपादन...</string>
+  <string name="article_header_edit_description">शीर्षकाचे वर्णन संपादित करा</string>
+  <string name="article_header_edit_lead_section">प्रास्ताविक संपादित करा</string>
   <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_untitled">विनाशिर्षक</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
@@ -269,9 +276,37 @@
   <string name="user_option_sync_label">पसंतीक्रम</string>
   <string name="view_continue_reading_card_title">वाचन सुरू ठेवा</string>
   <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
+  <string name="view_random_card_title">रैंडमाइझर</string>
   <string name="view_main_page_card_title">विकिपीडियावर आज</string>
   <string name="view_main_page_card_subtitle">%s वरील मुख्य पान</string>
+  <string name="view_featured_image_card_title">आजचे चित्र</string>
+  <string name="view_featured_image_card_download">अधिभारण करा</string>
   <string name="menu_feed_card_dismiss">हा पत्ता लपवा</string>
   <string name="menu_feed_card_dismissed">पत्ता लपला आहे.</string>
   <string name="menu_feed_overflow_label">अधिक पर्याय</string>
+  <string name="feed">शोध करा</string>
+  <string name="view_card_footer_button">अधिक बघा</string>
+  <string name="view_card_news_title">बातम्यांमध्ये</string>
+  <string name="view_continue_reading_card_subtitle_today">आज</string>
+  <string name="view_announcement_card_negative_action">नाही धन्यवाद</string>
+  <string name="description_edit_header">संपादन</string>
+  <string name="description_edit_text_hint">वर्णन टाका</string>
+  <string name="description_edit_save">जतन करा</string>
+  <string name="description_edit_add_description">थोडक्यात वर्णन जोडा</string>
+  <string name="description_edit_edit_description">वर्णन संपादित करा</string>
+  <string name="description_edit_cancel_hint">रद्द करा</string>
+  <string name="description_edit_help_title">सहाय्य:शीर्षक वर्णन</string>
+  <string name="description_edit_help_about_wikidata">विकिडाटा बद्दल</string>
+  <string name="description_edit_help_wikidata_guide">वर्णन लिहिण्यासाठी विकिडाटा मार्गदर्शक</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_success_saved">वर्णन जतन केले आहे!</string>
+  <string name="description_edit_success_encouragement">आपण नुकताच सर्वांसाठी विकिपीडिया सुधरविला आहे</string>
+  <string name="description_edit_success_done">झाले</string>
+  <string name="description_edit_success_did_you_know">आपणास माहित आहे का ?</string>
+  <string name="description_edit_tutorial_title_descriptions">शीर्षक वर्णन</string>
+  <string name="description_edit_tutorial_button_label_continue">चालू ठेवा</string>
+  <string name="description_edit_tutorial_keep_it_short">ते थोडक्यात ठेवा</string>
+  <string name="description_edit_tutorial_button_label_start_editing">संपादन चालू करा</string>
+  <string name="description_edit_tutorial_promise">सुरुवात करण्याने, मी शपथ घेतो कि या फिचरचा गैरवापर करणार नाही.</string>
 </resources>
