@@ -1,8 +1,5 @@
 package org.wikipedia.test;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,29 +9,26 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.pageimages.PageImage;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
 @RunWith(TestRunner.class) public class ParcelableTest {
     @Test public void testPageTitle() throws Throwable {
         PageTitle title = new PageTitle(null, "Test", WikiSite.forLanguageCode("en"));
-        parcelAndTestObjects(title);
+        TestParcelUtil.test(title);
     }
 
     @Test public void testPageTitleTalk() throws Throwable {
         WikiSite wiki = WikiSite.forLanguageCode("en");
         PageTitle origTitle = new PageTitle("Talk", "India", wiki);
-        parcelAndTestObjects(origTitle);
+        TestParcelUtil.test(origTitle);
     }
 
     @Test public void testWikiSite() throws Throwable {
         WikiSite wiki = WikiSite.forLanguageCode("en");
-        parcelAndTestObjects(wiki);
+        TestParcelUtil.test(wiki);
     }
 
     @Test public void testPageProperties() throws Throwable {
         PageProperties props = new PageProperties(new JSONObject("{\"protection\":{\"edit\":[\"autoconfirmed\"],\"move\":[\"sysop\"]},\"id\":15580374,\"displaytitle\":\"Something\",\"revision\":615503846,\"lastmodified\":\"\",\"editable\":false,\"mainpage\":false}"));
-        parcelAndTestObjects(props);
+        TestParcelUtil.test(props);
     }
 
     @Test public void testHistoryEntry() throws Throwable {
@@ -42,7 +36,7 @@ import static org.hamcrest.Matchers.is;
         PageTitle title = new PageTitle("Talk", "India", wiki);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
 
-        parcelAndTestObjects(historyEntry);
+        TestParcelUtil.test(historyEntry);
     }
 
     @Test public void testPageImage() throws Throwable {
@@ -50,16 +44,6 @@ import static org.hamcrest.Matchers.is;
         PageTitle title = new PageTitle("Talk", "India", wiki);
         PageImage pageImage = new PageImage(title, "Testing image");
 
-        parcelAndTestObjects(pageImage);
-    }
-
-    private void parcelAndTestObjects(Parcelable p) throws Throwable {
-        Parcel parcel = Parcel.obtain();
-        p.writeToParcel(parcel, 0);
-
-        parcel.setDataPosition(0);
-        Parcelable.Creator<?> creator = (Parcelable.Creator<?>) p.getClass().getField("CREATOR").get(null);
-        Parcelable newObject = (Parcelable) creator.createFromParcel(parcel);
-        assertThat(p, is(newObject));
+        TestParcelUtil.test(pageImage);
     }
 }
