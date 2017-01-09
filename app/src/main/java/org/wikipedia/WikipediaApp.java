@@ -42,6 +42,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.login.User;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.PageCache;
@@ -90,6 +91,7 @@ public class WikipediaApp extends Application {
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
     private ContentObserver readingListPageObserver;
+    private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
 
     private Database database;
     private EditTokenStorage editTokenStorage;
@@ -204,6 +206,8 @@ public class WikipediaApp extends Application {
 
         UserOptionContentResolver.registerAppSyncObserver(this);
         registerReadingListPageObserver();
+
+        notificationReceiver.startPollTask(this);
     }
 
     public RefWatcher getRefWatcher() {

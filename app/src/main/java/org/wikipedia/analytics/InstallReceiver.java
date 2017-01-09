@@ -15,7 +15,6 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 
 public final class InstallReceiver extends BroadcastReceiver {
-    private static final String BOOT_ACTION = "android.intent.action.BOOT_COMPLETED";
     private static final String INSTALL_ACTION = "com.android.vending.INSTALL_REFERRER";
     private static final String REFERRER_KEY = "referrer";
 
@@ -31,7 +30,7 @@ public final class InstallReceiver extends BroadcastReceiver {
                 //     `adb shell am broadcast -a com.android.vending.INSTALL_REFERRER -n org.wikipedia.dev/org.wikipedia.analytics.InstallReceiver --es "referrer" "referrer_url=gibberish&campaign_id=foo&install_id=bar"`
                 installReferrer(ctx, intent);
                 break;
-            case BOOT_ACTION:
+            case Intent.ACTION_BOOT_COMPLETED:
                 // `adb shell am broadcast -a android.intent.action.BOOT_COMPLETED`
                 recordChannelId(ctx);
                 break;

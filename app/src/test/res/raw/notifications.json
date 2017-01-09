@@ -1,0 +1,64 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "notifications": {
+      "list": [
+        {
+          "wiki": "enwiki",
+          "id": "87425134",
+          "type": "edit-thank",
+          "category": "edit-thank",
+          "timestamp": {
+            "utciso8601": "2016-09-07T18:16:25Z",
+            "utcunix": "1473272185",
+            "unix": "1473272185",
+            "utcmw": "20160907181625",
+            "mw": "20160907141625",
+            "date": "7 September"
+          },
+          "title": {
+            "full": "PageTitle",
+            "namespace": "User",
+            "namespace-key": 2,
+            "text": "PageTitle"
+          },
+          "agent": {
+            "id": 19707259,
+            "name": "User1"
+          },
+          "revid": 738229987,
+          "read": "20170105211531",
+          "targetpages": []
+        },
+        {
+          "wiki": "wikidatawiki",
+          "id": "100609428",
+          "type": "reverted",
+          "category": "reverted",
+          "timestamp": {
+            "utciso8601": "2017-01-05T17:10:56Z",
+            "utcunix": "1483636256",
+            "unix": "1483636256",
+            "utcmw": "20170105171056",
+            "mw": "20170105171056",
+            "date": "Today"
+          },
+          "title": {
+            "full": "Q1140626",
+            "namespace": "",
+            "namespace-key": 0,
+            "text": "Q1140626"
+          },
+          "agent": {
+            "id": 0,
+            "name": "User2"
+          },
+          "revid": 424546621,
+          "read": "20170105172611",
+          "targetpages": []
+        }
+      ],
+      "continue": null
+    }
+  }
+}

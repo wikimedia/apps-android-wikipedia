@@ -1,0 +1,18 @@
+{
+  "error": {
+    "code": "no-such-entity",
+    "info": "Could not find such an entity. (Invalid id: User talk:Mhollo)",
+    "id": "User talk:Mhollo",
+    "messages": [
+      {
+        "name": "wikibase-api-no-such-entity",
+        "parameters": [],
+        "html": {
+          "*": "Could not find such an entity."
+        }
+      }
+    ],
+    "*": "See https://www.wikidata.org/w/api.php for API usage."
+  },
+  "servedby": "mw1202"
+}

@@ -1,0 +1,27 @@
+{
+  "wiki": "wikidatawiki",
+  "id": "100609428",
+  "type": "reverted",
+  "category": "reverted",
+  "timestamp": {
+    "utciso8601": "2017-01-05T17:10:56Z",
+    "utcunix": "1483636256",
+    "unix": "1483636256",
+    "utcmw": "20170105171056",
+    "mw": "20170105171056",
+    "date": "Today"
+  },
+  "title": {
+    "full": "Q1140626",
+    "namespace": "",
+    "namespace-key": 0,
+    "text": "Q1140626"
+  },
+  "agent": {
+    "id": 0,
+    "name": "User1"
+  },
+  "revid": 424546621,
+  "read": "20170105172611",
+  "targetpages": []
+}
