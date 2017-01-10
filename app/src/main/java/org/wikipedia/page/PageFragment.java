@@ -43,7 +43,7 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.NightModeHandler;
+import org.wikipedia.bridge.DarkModeMarshaller;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -365,9 +365,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         };
 
-        // make sure styles get injected before the NightModeHandler and other handlers
+        // make sure styles get injected before the DarkModeMarshaller and other handlers
         if (app.isCurrentThemeDark()) {
-            new NightModeHandler(bridge).turnOn(true);
+            new DarkModeMarshaller(bridge).turnOn(true);
         }
 
         errorView.setRetryClickListener(new View.OnClickListener() {

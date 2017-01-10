@@ -12,7 +12,7 @@ module.exports = function ( grunt ) {
         "js/editaction.js",
         "js/issues.js",
         "js/loader.js",
-        "js/night.js",
+        "js/dark.js",
         "js/preview.js",
         "js/rtlsupport.js",
         "js/sections.js",
@@ -58,7 +58,7 @@ module.exports = function ( grunt ) {
                         "js/editaction.js",
                         "js/issues.js",
                         "js/loader.js",
-                        "js/night.js",
+                        "js/dark.js",
                         "js/preview.js",
                         "js/rtlsupport.js",
                         "js/sections.js"
@@ -72,7 +72,7 @@ module.exports = function ( grunt ) {
                     "preview.js": [
                         "js/loader.js",
                         "js/bridge.js",
-                        "js/night.js",
+                        "js/dark.js",
                         "js/actions.js",
                         "js/preview.js",
                         "js/rtlsupport.js",

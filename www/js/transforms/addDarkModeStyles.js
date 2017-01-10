@@ -1,8 +1,8 @@
 var transformer = require("../transformer");
-var night = require("../night");
+var dark = require("../dark");
 
 transformer.register( "addDarkModeStyles", function( content ) {
-	if ( window.isNightMode ) {
-		night.setImageBackgroundsForDarkMode ( content );
+	if ( window.isDarkMode ) {
+		dark.setImageBackgroundsForDarkMode ( content );
 	}
 } );

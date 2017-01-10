@@ -1,4 +1,5 @@
 var bridge = require("./bridge");
+var constant = require("./constant");
 var loader = require("./loader");
 var utilities = require("./utilities");
 
@@ -53,16 +54,15 @@ function isNotInTable( element ) {
 	return !utilities.isNestedInTable( element );
 }
 
-function toggle( nightCSSURL, hasPageLoaded ) {
-	window.isNightMode = !window.isNightMode;
+function toggle( darkCSSURL, hasPageLoaded ) {
+	window.isDarkMode = !window.isDarkMode;
 
 	// Remove the <style> tag if it exists, add it otherwise
-	var nightStyle = document.querySelector( "link[href='" + nightCSSURL + "']" );
-	console.log( nightCSSURL );
-	if ( nightStyle ) {
-		nightStyle.parentElement.removeChild( nightStyle );
+	var darkStyle = document.querySelector( "link[href='" + darkCSSURL + "']" );
+	if ( darkStyle ) {
+		darkStyle.parentElement.removeChild( darkStyle );
 	} else {
-		loader.addStyleLink( nightCSSURL );
+		loader.addStyleLink( darkCSSURL );
 	}
 
 	if ( hasPageLoaded ) {
@@ -73,8 +73,8 @@ function toggle( nightCSSURL, hasPageLoaded ) {
 	}
 }
 
-bridge.registerListener( 'toggleNightMode', function( payload ) {
-	toggle( payload.nightStyleURL, payload.hasPageLoaded );
+bridge.registerListener( 'toggleDarkMode', function( payload ) {
+	toggle( constant.DARK_STYLE_FILENAME, payload.hasPageLoaded );
 } );
 
 module.exports = {

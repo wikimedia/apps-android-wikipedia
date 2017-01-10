@@ -23,7 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.NightModeHandler;
+import org.wikipedia.bridge.DarkModeMarshaller;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.edit.summaries.EditSummaryTag;
@@ -186,7 +186,7 @@ public class EditPreviewFragment extends Fragment {
             isWebViewSetup = true;
             L10nUtil.setupDirectionality(parentActivity.getPageTitle().getWikiSite().languageCode(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().isCurrentThemeDark()) {
-                new NightModeHandler(bridge).turnOn(false);
+                new DarkModeMarshaller(bridge).turnOn(false);
             }
 
             new LinkHandler(getActivity(), bridge) {

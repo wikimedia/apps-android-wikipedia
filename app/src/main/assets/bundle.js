@@ -91,7 +91,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":24}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":25}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -130,120 +130,12 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],3:[function(require,module,exports){
-var transformer = require('./transformer');
-
-transformer.register( 'displayDisambigLink', function( content ) {
-    var hatnotes = content.querySelectorAll( "div.hatnote" );
-    if ( hatnotes.length > 0 ) {
-        var container = document.getElementById( "issues_container" );
-        var wrapper = document.createElement( 'div' );
-        var i = 0,
-            len = hatnotes.length;
-        for (; i < len; i++) {
-            wrapper.appendChild( hatnotes[i] );
-        }
-        container.appendChild( wrapper );
-    }
-    return content;
-} );
-
-},{"./transformer":13}],4:[function(require,module,exports){
-var actions = require('./actions');
-var bridge = require('./bridge');
-
-actions.register( "edit_section", function( el, event ) {
-    bridge.sendMessage( 'editSectionClicked', { sectionID: el.getAttribute( 'data-id' ) } );
-    event.preventDefault();
-} );
-
-},{"./actions":1,"./bridge":2}],5:[function(require,module,exports){
-var transformer = require('./transformer');
-
-transformer.register( 'displayIssuesLink', function( content ) {
-    var issues = content.querySelectorAll( "table.ambox:not([class*='ambox-multiple_issues']):not([class*='ambox-notice'])" );
-    if ( issues.length > 0 ) {
-        var el = issues[0];
-        var container = document.getElementById( "issues_container" );
-        var wrapper = document.createElement( 'div' );
-        el.parentNode.replaceChild( wrapper, el );
-        var i = 0,
-            len = issues.length;
-        for (; i < len; i++) {
-            wrapper.appendChild( issues[i] );
-        }
-        container.appendChild( wrapper );
-    }
-    return content;
-} );
-
-},{"./transformer":13}],6:[function(require,module,exports){
-function addStyleLink( href ) {
-    var link = document.createElement( "link" );
-    link.setAttribute( "rel", "stylesheet" );
-    link.setAttribute( "type", "text/css" );
-    link.setAttribute( "charset", "UTF-8" );
-    link.setAttribute( "href", href );
-    document.getElementsByTagName( "head" )[0].appendChild( link );
-}
-
 module.exports = {
-	addStyleLink: addStyleLink
-};
-},{}],7:[function(require,module,exports){
-var bridge = require( "./bridge" );
-var transformer = require("./transformer");
-
-bridge.registerListener( "requestImagesList", function( payload ) {
-    var imageURLs = [];
-    var images = document.querySelectorAll( "img" );
-    for ( var i = 0; i < images.length; i++ ) {
-        if (images[i].width < payload.minsize || images[i].height < payload.minsize) {
-            continue;
-        }
-        imageURLs.push( images[i].src );
-    }
-    bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
-} );
-
-// reusing this function
-function replaceImageSrc( payload ) {
-    var images = document.querySelectorAll( "img[src='" + payload.originalURL + "']" );
-    for ( var i = 0; i < images.length; i++ ) {
-        var img = images[i];
-        img.setAttribute( "src", payload.newURL );
-        img.setAttribute( "data-old-src", payload.originalURL );
-        img.removeAttribute( "srcset" );
-    }
+    DARK_STYLE_FILENAME: "file:///android_asset/dark.css"
 }
-bridge.registerListener( "replaceImageSrc", replaceImageSrc );
-
-bridge.registerListener( "replaceImageSources", function( payload ) {
-    for ( var i = 0; i < payload.img_map.length; i++ ) {
-        replaceImageSrc( payload.img_map[i] );
-    }
-} );
-
-bridge.registerListener( "setPageProtected", function( payload ) {
-    var el = document.getElementsByTagName( "html" )[0];
-    if (!el.classList.contains("page-protected") && payload.protect) {
-        el.classList.add("page-protected");
-    }
-    else if (el.classList.contains("page-protected") && !payload.protect) {
-        el.classList.remove("page-protected");
-    }
-    if (!el.classList.contains("no-editing") && payload.noedit) {
-        el.classList.add("no-editing");
-    }
-    else if (el.classList.contains("no-editing") && !payload.noedit) {
-        el.classList.remove("no-editing");
-    }
-} );
-
-bridge.registerListener( "setDecorOffset", function( payload ) {
-    transformer.setDecorOffset(payload.offset);
-} );
-},{"./bridge":2,"./transformer":13}],8:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var bridge = require("./bridge");
+var constant = require("./constant");
 var loader = require("./loader");
 var utilities = require("./utilities");
 
@@ -298,16 +190,15 @@ function isNotInTable( element ) {
 	return !utilities.isNestedInTable( element );
 }
 
-function toggle( nightCSSURL, hasPageLoaded ) {
-	window.isNightMode = !window.isNightMode;
+function toggle( darkCSSURL, hasPageLoaded ) {
+	window.isDarkMode = !window.isDarkMode;
 
 	// Remove the <style> tag if it exists, add it otherwise
-	var nightStyle = document.querySelector( "link[href='" + nightCSSURL + "']" );
-	console.log( nightCSSURL );
-	if ( nightStyle ) {
-		nightStyle.parentElement.removeChild( nightStyle );
+	var darkStyle = document.querySelector( "link[href='" + darkCSSURL + "']" );
+	if ( darkStyle ) {
+		darkStyle.parentElement.removeChild( darkStyle );
 	} else {
-		loader.addStyleLink( nightCSSURL );
+		loader.addStyleLink( darkCSSURL );
 	}
 
 	if ( hasPageLoaded ) {
@@ -318,15 +209,128 @@ function toggle( nightCSSURL, hasPageLoaded ) {
 	}
 }
 
-bridge.registerListener( 'toggleNightMode', function( payload ) {
-	toggle( payload.nightStyleURL, payload.hasPageLoaded );
+bridge.registerListener( 'toggleDarkMode', function( payload ) {
+	toggle( constant.DARK_STYLE_FILENAME, payload.hasPageLoaded );
 } );
 
 module.exports = {
 	setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"./bridge":2,"./loader":6,"./utilities":24}],9:[function(require,module,exports){
+},{"./bridge":2,"./constant":3,"./loader":8,"./utilities":25}],5:[function(require,module,exports){
+var transformer = require('./transformer');
+
+transformer.register( 'displayDisambigLink', function( content ) {
+    var hatnotes = content.querySelectorAll( "div.hatnote" );
+    if ( hatnotes.length > 0 ) {
+        var container = document.getElementById( "issues_container" );
+        var wrapper = document.createElement( 'div' );
+        var i = 0,
+            len = hatnotes.length;
+        for (; i < len; i++) {
+            wrapper.appendChild( hatnotes[i] );
+        }
+        container.appendChild( wrapper );
+    }
+    return content;
+} );
+
+},{"./transformer":14}],6:[function(require,module,exports){
+var actions = require('./actions');
+var bridge = require('./bridge');
+
+actions.register( "edit_section", function( el, event ) {
+    bridge.sendMessage( 'editSectionClicked', { sectionID: el.getAttribute( 'data-id' ) } );
+    event.preventDefault();
+} );
+
+},{"./actions":1,"./bridge":2}],7:[function(require,module,exports){
+var transformer = require('./transformer');
+
+transformer.register( 'displayIssuesLink', function( content ) {
+    var issues = content.querySelectorAll( "table.ambox:not([class*='ambox-multiple_issues']):not([class*='ambox-notice'])" );
+    if ( issues.length > 0 ) {
+        var el = issues[0];
+        var container = document.getElementById( "issues_container" );
+        var wrapper = document.createElement( 'div' );
+        el.parentNode.replaceChild( wrapper, el );
+        var i = 0,
+            len = issues.length;
+        for (; i < len; i++) {
+            wrapper.appendChild( issues[i] );
+        }
+        container.appendChild( wrapper );
+    }
+    return content;
+} );
+
+},{"./transformer":14}],8:[function(require,module,exports){
+function addStyleLink( href ) {
+    var link = document.createElement( "link" );
+    link.setAttribute( "rel", "stylesheet" );
+    link.setAttribute( "type", "text/css" );
+    link.setAttribute( "charset", "UTF-8" );
+    link.setAttribute( "href", href );
+    document.getElementsByTagName( "head" )[0].appendChild( link );
+}
+
+module.exports = {
+	addStyleLink: addStyleLink
+};
+},{}],9:[function(require,module,exports){
+var bridge = require( "./bridge" );
+var transformer = require("./transformer");
+
+bridge.registerListener( "requestImagesList", function( payload ) {
+    var imageURLs = [];
+    var images = document.querySelectorAll( "img" );
+    for ( var i = 0; i < images.length; i++ ) {
+        if (images[i].width < payload.minsize || images[i].height < payload.minsize) {
+            continue;
+        }
+        imageURLs.push( images[i].src );
+    }
+    bridge.sendMessage( "imagesListResponse", { "images": imageURLs });
+} );
+
+// reusing this function
+function replaceImageSrc( payload ) {
+    var images = document.querySelectorAll( "img[src='" + payload.originalURL + "']" );
+    for ( var i = 0; i < images.length; i++ ) {
+        var img = images[i];
+        img.setAttribute( "src", payload.newURL );
+        img.setAttribute( "data-old-src", payload.originalURL );
+        img.removeAttribute( "srcset" );
+    }
+}
+bridge.registerListener( "replaceImageSrc", replaceImageSrc );
+
+bridge.registerListener( "replaceImageSources", function( payload ) {
+    for ( var i = 0; i < payload.img_map.length; i++ ) {
+        replaceImageSrc( payload.img_map[i] );
+    }
+} );
+
+bridge.registerListener( "setPageProtected", function( payload ) {
+    var el = document.getElementsByTagName( "html" )[0];
+    if (!el.classList.contains("page-protected") && payload.protect) {
+        el.classList.add("page-protected");
+    }
+    else if (el.classList.contains("page-protected") && !payload.protect) {
+        el.classList.remove("page-protected");
+    }
+    if (!el.classList.contains("no-editing") && payload.noedit) {
+        el.classList.add("no-editing");
+    }
+    else if (el.classList.contains("no-editing") && !payload.noedit) {
+        el.classList.remove("no-editing");
+    }
+} );
+
+bridge.registerListener( "setDecorOffset", function( payload ) {
+    transformer.setDecorOffset(payload.offset);
+} );
+},{"./bridge":2,"./transformer":14}],10:[function(require,module,exports){
 var bridge = require("./bridge");
 
 /*
@@ -348,7 +352,7 @@ function addIPAonClick( content ) {
 module.exports = {
     addIPAonClick: addIPAonClick
 };
-},{"./bridge":2}],10:[function(require,module,exports){
+},{"./bridge":2}],11:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "displayPreviewHTML", function( payload ) {
@@ -357,7 +361,7 @@ bridge.registerListener( "displayPreviewHTML", function( payload ) {
     content.innerHTML = payload.html;
 } );
 
-},{"./bridge":2}],11:[function(require,module,exports){
+},{"./bridge":2}],12:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -373,7 +377,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],12:[function(require,module,exports){
+},{"./bridge":2}],13:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 var clickHandlerSetup = require("./onclick");
@@ -675,7 +679,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./onclick":9,"./transformer":13}],13:[function(require,module,exports){
+},{"./bridge":2,"./onclick":10,"./transformer":14}],14:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -706,16 +710,16 @@ Transformer.prototype.setDecorOffset = function(offset) {
 };
 
 module.exports = new Transformer();
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 var transformer = require("../transformer");
-var night = require("../night");
+var dark = require("../dark");
 
 transformer.register( "addDarkModeStyles", function( content ) {
-	if ( window.isNightMode ) {
-		night.setImageBackgroundsForDarkMode ( content );
+	if ( window.isDarkMode ) {
+		dark.setImageBackgroundsForDarkMode ( content );
 	}
 } );
-},{"../night":8,"../transformer":13}],15:[function(require,module,exports){
+},{"../dark":4,"../transformer":14}],16:[function(require,module,exports){
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 
@@ -755,7 +759,7 @@ transformer.register( "addImageOverflowXContainers", function( content ) {
         images[i].addEventListener('load', maybeAddImageOverflowXContainer, false);
     }
 } );
-},{"../transformer":13,"../utilities":24}],16:[function(require,module,exports){
+},{"../transformer":14,"../utilities":25}],17:[function(require,module,exports){
 var transformer = require("../transformer");
 
 /*
@@ -895,7 +899,7 @@ transformer.register( "hideTables", function( content ) {
 module.exports = {
     handleTableCollapseOrExpandClick: handleTableCollapseOrExpandClick
 };
-},{"../transformer":13}],17:[function(require,module,exports){
+},{"../transformer":14}],18:[function(require,module,exports){
 var transformer = require("../transformer");
 var collapseTables = require("./collapseTables");
 
@@ -941,7 +945,7 @@ transformer.register( "hideRefs", function( content ) {
         bottomDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
     }
 } );
-},{"../transformer":13,"./collapseTables":16}],18:[function(require,module,exports){
+},{"../transformer":14,"./collapseTables":17}],19:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "anchorPopUpMediaTransforms", function( content ) {
@@ -974,7 +978,7 @@ transformer.register( "anchorPopUpMediaTransforms", function( content ) {
 	}
 } );
 
-},{"../../transformer":13}],19:[function(require,module,exports){
+},{"../../transformer":14}],20:[function(require,module,exports){
 var transformer = require("../../transformer");
 var bridge = require("../../bridge");
 
@@ -1023,7 +1027,7 @@ transformer.register( "hideIPA", function( content ) {
         containerSpan.onclick = ipaClickHandler;
     }
 } );
-},{"../../bridge":2,"../../transformer":13}],20:[function(require,module,exports){
+},{"../../bridge":2,"../../transformer":14}],21:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "hideRedLinks", function( content ) {
@@ -1036,7 +1040,7 @@ transformer.register( "hideRedLinks", function( content ) {
 		redLink.parentNode.replaceChild( replacementSpan, redLink );
 	}
 } );
-},{"../../transformer":13}],21:[function(require,module,exports){
+},{"../../transformer":14}],22:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 // Move the first non-empty paragraph (and related elements) to the top of the section.
@@ -1120,7 +1124,7 @@ function addTrailingNodes( span, nodes, startIndex ) {
     }
 }
 
-},{"../../transformer":13}],22:[function(require,module,exports){
+},{"../../transformer":14}],23:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "setDivWidth", function( content ) {
@@ -1138,7 +1142,7 @@ transformer.register( "setDivWidth", function( content ) {
         }
     }
 } );
-},{"../transformer":13}],23:[function(require,module,exports){
+},{"../transformer":14}],24:[function(require,module,exports){
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 
@@ -1231,7 +1235,7 @@ transformer.register( "widenImages", function( content ) {
         images[i].addEventListener('load', maybeWidenImage, false);
     }
 } );
-},{"../transformer":13,"../utilities":24}],24:[function(require,module,exports){
+},{"../transformer":14,"../utilities":25}],25:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -1326,4 +1330,4 @@ module.exports = {
     firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}]},{},[2,7,24,13,14,15,16,17,22,23,18,19,20,21,1,3,4,5,6,8,10,11,12]);
+},{}]},{},[2,9,25,14,15,16,17,18,23,24,19,20,21,22,1,5,6,7,8,4,11,12,13]);

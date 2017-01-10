@@ -91,7 +91,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":7}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":8}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -130,20 +130,12 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],3:[function(require,module,exports){
-function addStyleLink( href ) {
-    var link = document.createElement( "link" );
-    link.setAttribute( "rel", "stylesheet" );
-    link.setAttribute( "type", "text/css" );
-    link.setAttribute( "charset", "UTF-8" );
-    link.setAttribute( "href", href );
-    document.getElementsByTagName( "head" )[0].appendChild( link );
-}
-
 module.exports = {
-	addStyleLink: addStyleLink
-};
+    DARK_STYLE_FILENAME: "file:///android_asset/dark.css"
+}
 },{}],4:[function(require,module,exports){
 var bridge = require("./bridge");
+var constant = require("./constant");
 var loader = require("./loader");
 var utilities = require("./utilities");
 
@@ -198,16 +190,15 @@ function isNotInTable( element ) {
 	return !utilities.isNestedInTable( element );
 }
 
-function toggle( nightCSSURL, hasPageLoaded ) {
-	window.isNightMode = !window.isNightMode;
+function toggle( darkCSSURL, hasPageLoaded ) {
+	window.isDarkMode = !window.isDarkMode;
 
 	// Remove the <style> tag if it exists, add it otherwise
-	var nightStyle = document.querySelector( "link[href='" + nightCSSURL + "']" );
-	console.log( nightCSSURL );
-	if ( nightStyle ) {
-		nightStyle.parentElement.removeChild( nightStyle );
+	var darkStyle = document.querySelector( "link[href='" + darkCSSURL + "']" );
+	if ( darkStyle ) {
+		darkStyle.parentElement.removeChild( darkStyle );
 	} else {
-		loader.addStyleLink( nightCSSURL );
+		loader.addStyleLink( darkCSSURL );
 	}
 
 	if ( hasPageLoaded ) {
@@ -218,15 +209,28 @@ function toggle( nightCSSURL, hasPageLoaded ) {
 	}
 }
 
-bridge.registerListener( 'toggleNightMode', function( payload ) {
-	toggle( payload.nightStyleURL, payload.hasPageLoaded );
+bridge.registerListener( 'toggleDarkMode', function( payload ) {
+	toggle( constant.DARK_STYLE_FILENAME, payload.hasPageLoaded );
 } );
 
 module.exports = {
 	setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"./bridge":2,"./loader":3,"./utilities":7}],5:[function(require,module,exports){
+},{"./bridge":2,"./constant":3,"./loader":5,"./utilities":8}],5:[function(require,module,exports){
+function addStyleLink( href ) {
+    var link = document.createElement( "link" );
+    link.setAttribute( "rel", "stylesheet" );
+    link.setAttribute( "type", "text/css" );
+    link.setAttribute( "charset", "UTF-8" );
+    link.setAttribute( "href", href );
+    document.getElementsByTagName( "head" )[0].appendChild( link );
+}
+
+module.exports = {
+	addStyleLink: addStyleLink
+};
+},{}],6:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "displayPreviewHTML", function( payload ) {
@@ -235,7 +239,7 @@ bridge.registerListener( "displayPreviewHTML", function( payload ) {
     content.innerHTML = payload.html;
 } );
 
-},{"./bridge":2}],6:[function(require,module,exports){
+},{"./bridge":2}],7:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -251,7 +255,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],7:[function(require,module,exports){
+},{"./bridge":2}],8:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -346,4 +350,4 @@ module.exports = {
     firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}]},{},[3,2,4,1,5,6]);
+},{}]},{},[5,2,4,1,6,7]);
