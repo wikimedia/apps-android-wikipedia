@@ -47,8 +47,7 @@ class EditClient {
                     Edit.Result result = response.body().edit();
                     if ("Success".equals(result.status())) {
                         try {
-                            // TODO: remove when the server reflects the updated page content
-                            // immediately after submitting the edit, instead of a short while after.
+                            // TODO: get edit revision and request that revision
                             Thread.sleep(TimeUnit.SECONDS.toMillis(2));
                             cb.success(call, new EditSuccessResult(result.newRevId()));
                         } catch (InterruptedException e) {
