@@ -94,11 +94,7 @@ public class PageProperties implements Parcelable {
         titlePronunciationUrl = json.optString(JSON_NAME_TITLE_PRONUNCIATION_URL, null);
         geo = GeoUnmarshaller.unmarshal(json.optString(JSON_NAME_GEO, null));
 
-        // Mediawiki API is stupid!
-        if (!(json.opt("protection") instanceof JSONArray)
-            && json.optJSONObject("protection") != null
-            && json.optJSONObject("protection").has("edit")
-                ) {
+        if (json.optJSONObject("protection") != null && json.optJSONObject("protection").has("edit")) {
             editProtectionStatus = json.optJSONObject("protection").optJSONArray("edit").optString(0);
         } else {
             editProtectionStatus = null;
