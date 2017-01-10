@@ -84,9 +84,4 @@ public class MwApiResultPage {
             this.source = source;
         }
     }
-
-    static class PageProps {
-        @Nullable private String disambiguation;
-        @Nullable private String mainpage;
-    }
 }
