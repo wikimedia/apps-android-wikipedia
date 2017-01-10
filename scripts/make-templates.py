@@ -157,18 +157,6 @@ def render_template(template, filename, **kwargs):
     return _actual_render
 
 
-# Render things into a simple key value JSON dict
-# Useful for the iOS side of things
-def render_simple_json(key, filename):
-    def _actual_render(wikis):
-        data = dict([(wiki.lang, wiki.props[key]) for wiki in wikis.wikis])
-        out = codecs.open(filename, u"w", u"utf-8")
-        out.write(json.dumps(data))
-        out.close()
-        return wikis
-    return _actual_render
-
-
 # Kinda like reduce(), but special cases first function
 def chain(*funcs):
     res = funcs[0]()
@@ -186,8 +174,5 @@ chain(
     postprocess_wikis,
     render_template(u"basichash.java.jinja", u"SpecialAliasData", key=u"special_alias"),
     render_template(u"basichash.java.jinja", u"FileAliasData", key=u"file_alias"),
-    render_simple_json(u"special_alias", u"specialalias.json"),
-    render_simple_json(u"file_alias", u"filealias.json"),
     render_template(u"basichash.java.jinja", u"MainPageNameData", key=u"main_page_name"),
-    render_simple_json(u"main_page_name", u"mainpages.json")
 )

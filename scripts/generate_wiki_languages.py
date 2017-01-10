@@ -4,7 +4,6 @@
 import itertools
 import urllib
 import urllib2
-import json
 import lxml
 import lxml.builder as lb
 import unicodecsv
@@ -82,14 +81,3 @@ resources.set(TOOLS + 'ignore', 'MissingTranslation')
 with open('languages_list.xml', 'w') as f:
     f.write(lxml.etree.tostring(resources, pretty_print=True,
                                 xml_declaration=True, encoding='utf-8'))
-
-# Generate the JSON, for iOS
-langs_json = []
-
-# Start from 1, to skip the headers
-for i in xrange(1, len(lang_keys)):
-    langs_json.append({'code': lang_keys[i],
-                       'name': lang_local_names[i],
-                       'canonical_name': lang_eng_names[i]})
-
-open("languages_list.json", "w").write(json.dumps(langs_json, indent=4))
