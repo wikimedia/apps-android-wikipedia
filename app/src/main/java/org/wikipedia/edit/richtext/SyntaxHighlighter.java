@@ -36,10 +36,23 @@ public class SyntaxHighlighter {
     private EditText textBox;
     private List<SyntaxRule> syntaxRules;
 
-    private SyntaxHighlightTask currentTask = null;
     private Handler handler;
 
     @Nullable private OnSyntaxHighlightListener syntaxHighlightListener;
+
+    private Runnable syntaxHighlightCallback = new Runnable() {
+        private SyntaxHighlightTask currentTask;
+
+        @Override public void run() {
+            if (context != null) {
+                if (currentTask != null) {
+                    currentTask.cancel();
+                }
+                currentTask = new SyntaxHighlightTask(textBox.getText());
+                currentTask.execute();
+            }
+        }
+    };
 
     public SyntaxHighlighter(Context context, EditText textBox) {
         this(context, textBox, null);
@@ -55,67 +68,15 @@ public class SyntaxHighlighter {
 
         // create our list of syntax rules for Wikipedia markup:
 
-        // TODO: for now, only highlight templates. Later on, we'll reevaluate colors/styles for other syntax elements.
+        syntaxRules.add(new SyntaxRule("{{", "}}", new TemplateStyle()));
+        syntaxRules.add(new SyntaxRule("[[", "]]", new InternalLinkStyle()));
+        syntaxRules.add(new SyntaxRule("[", "]", new ExternalLinkStyle()));
+        syntaxRules.add(new SyntaxRule("<", ">", new RefStyle()));
+        syntaxRules.add(new SyntaxRule("'''''", "'''''", new BoldItalicStyle()));
+        syntaxRules.add(new SyntaxRule("'''", "'''", new BoldStyle()));
+        syntaxRules.add(new SyntaxRule("''", "''", new ItalicStyle()));
 
-        // template:
-        syntaxRules.add(new SyntaxRule("{{", "}}", new SyntaxRule.SyntaxRuleStyle() {
-            @Override
-            public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.syntax_highlight_template_color)),
-                                       Color.TRANSPARENT, spanStart, syntaxItem);
-            }
-        }));
-
-        // internal link:
-        syntaxRules.add(new SyntaxRule("[[", "]]", new SyntaxRule.SyntaxRuleStyle() {
-            @Override
-            public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.link_color)),
-                                                 Color.TRANSPARENT, spanStart, syntaxItem);
-            }
-        }));
-
-        // external link:
-        syntaxRules.add(new SyntaxRule("[", "]", new SyntaxRule.SyntaxRuleStyle() {
-            @Override
-            public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.link_color)),
-                                                 Color.TRANSPARENT, spanStart, syntaxItem);
-            }
-        }));
-
-        // ref:
-        syntaxRules.add(new SyntaxRule("<", ">", new SyntaxRule.SyntaxRuleStyle() {
-            @Override
-            public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(getColor(R.color.dark_green),
-                                                 Color.TRANSPARENT, spanStart, syntaxItem);
-            }
-        }));
-
-        // bold italic:
-        syntaxRules.add(new SyntaxRule("'''''", "'''''", new SyntaxRule.SyntaxRuleStyle() {
-            @Override
-            public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new StyleSpanEx(Typeface.BOLD_ITALIC, spanStart, syntaxItem);
-            }
-        }));
-
-        // bold:
-        syntaxRules.add(new SyntaxRule("'''", "'''", new SyntaxRule.SyntaxRuleStyle() {
-            @Override
-            public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new StyleSpanEx(Typeface.BOLD, spanStart, syntaxItem);
-            }
-        }));
-
-        // italic:
-        syntaxRules.add(new SyntaxRule("''", "''", new SyntaxRule.SyntaxRuleStyle() {
-            @Override
-            public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new StyleSpanEx(Typeface.ITALIC, spanStart, syntaxItem);
-            }
-        }));
+        // TODO: reevaluate colors/styles for other syntax elements.
 
         /*
         // section level 4:
@@ -180,19 +141,6 @@ public class SyntaxHighlighter {
         }
     }
 
-    private Runnable syntaxHighlightCallback = new Runnable() {
-        @Override
-        public void run() {
-            if (context != null) {
-                if (currentTask != null) {
-                    currentTask.cancel();
-                }
-                currentTask = new SyntaxHighlightTask(textBox.getText());
-                currentTask.execute();
-            }
-        }
-    };
-
     private class SyntaxHighlightTask extends SaneAsyncTask<List<SpanExtents>> {
         SyntaxHighlightTask(Editable text) {
             this.text = text;
@@ -213,7 +161,7 @@ public class SyntaxHighlighter {
              */
 
             for (int i = 0; i < text.length();) {
-                SpanExtents newSpanInfo = null;
+                SpanExtents newSpanInfo;
                 boolean incrementDone = false;
 
                 for (SyntaxRule syntaxItem : syntaxRules) {
@@ -323,5 +271,51 @@ public class SyntaxHighlighter {
 
     @ColorInt private int getColor(@ColorRes int id) {
         return ContextCompat.getColor(context, id);
+    }
+
+    private class TemplateStyle implements SyntaxRule.SyntaxRuleStyle {
+        @Override public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
+            return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.syntax_highlight_template_color)),
+                    Color.TRANSPARENT, spanStart, syntaxItem);
+        }
+    }
+
+    private class InternalLinkStyle implements SyntaxRule.SyntaxRuleStyle {
+        @Override public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
+            return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.link_color)),
+                    Color.TRANSPARENT, spanStart, syntaxItem);
+        }
+    }
+
+    private class ExternalLinkStyle implements SyntaxRule.SyntaxRuleStyle {
+        @Override public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
+            return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.link_color)),
+                    Color.TRANSPARENT, spanStart, syntaxItem);
+        }
+    }
+
+    private class RefStyle implements SyntaxRule.SyntaxRuleStyle {
+        @Override public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
+            return new ColorSpanEx(getColor(R.color.dark_green), Color.TRANSPARENT, spanStart,
+                    syntaxItem);
+        }
+    }
+
+    private class BoldItalicStyle implements SyntaxRule.SyntaxRuleStyle {
+        @Override public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
+            return new StyleSpanEx(Typeface.BOLD_ITALIC, spanStart, syntaxItem);
+        }
+    }
+
+    private class BoldStyle implements SyntaxRule.SyntaxRuleStyle {
+        @Override public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
+            return new StyleSpanEx(Typeface.BOLD, spanStart, syntaxItem);
+        }
+    }
+
+    private class ItalicStyle implements SyntaxRule.SyntaxRuleStyle {
+        @Override public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
+            return new StyleSpanEx(Typeface.ITALIC, spanStart, syntaxItem);
+        }
     }
 }
