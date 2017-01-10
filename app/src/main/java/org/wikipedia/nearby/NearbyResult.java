@@ -8,13 +8,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Data object for the nearby results. Contains the list of nearby pages the API has returned to us.
  */
 class NearbyResult implements Parcelable {
     private final JSONObject jsonObject;
-    private final ArrayList<NearbyPage> list;
+    private final List<NearbyPage> list;
 
     /** empty result */
     NearbyResult() {
@@ -41,7 +42,7 @@ class NearbyResult implements Parcelable {
         }
     }
 
-    public ArrayList<NearbyPage> getList() {
+    public List<NearbyPage> getList() {
         return list;
     }
 
