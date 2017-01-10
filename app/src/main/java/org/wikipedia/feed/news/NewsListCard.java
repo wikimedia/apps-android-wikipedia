@@ -20,10 +20,6 @@ public class NewsListCard extends ListCard<NewsItemCard> {
         this.age = age;
     }
 
-    @NonNull @Override public String title() {
-        return "";
-    }
-
     @NonNull @Override public CardType type() {
         return CardType.NEWS_LIST;
     }

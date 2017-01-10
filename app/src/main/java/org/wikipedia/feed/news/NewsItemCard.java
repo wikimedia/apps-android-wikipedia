@@ -50,11 +50,6 @@ public class NewsItemCard extends Card {
         return newsItem.links();
     }
 
-    // Unused
-    @NonNull @Override public String title() {
-        return "";
-    }
-
     /* Remove the in-Wikitext thumbnail caption, which will almost certainly not apply here */
     @NonNull private CharSequence removeImageCaption(@NonNull Spanned text) {
         Object[] spans = RichTextUtil.getSpans(text, 0, text.length());

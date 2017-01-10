@@ -7,7 +7,9 @@ import android.support.annotation.Nullable;
 import org.wikipedia.model.BaseModel;
 
 public abstract class Card extends BaseModel {
-    @NonNull public abstract String title();
+    @NonNull public String title() {
+        return "";
+    }
 
     @Nullable public String subtitle() {
         return null;

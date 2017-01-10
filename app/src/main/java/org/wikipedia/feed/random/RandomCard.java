@@ -13,12 +13,6 @@ public class RandomCard extends Card {
         this.wiki = wiki;
     }
 
-    @Override
-    @NonNull
-    public String title() {
-        return "";
-    }
-
     @NonNull @Override public CardType type() {
         return CardType.RANDOM;
     }
