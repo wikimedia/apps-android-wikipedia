@@ -6,6 +6,6 @@ import org.wikipedia.feed.model.Card;
 
 public class MainPageClient extends DummyClient {
     @Override public Card getNewCard(WikiSite wiki) {
-        return new MainPageCard(wiki);
+        return new MainPageCard();
     }
 }
