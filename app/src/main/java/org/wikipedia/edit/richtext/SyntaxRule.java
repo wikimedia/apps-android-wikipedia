@@ -1,5 +1,7 @@
 package org.wikipedia.edit.richtext;
 
+import org.wikipedia.model.BaseModel;
+
 /**
  * Represents a single syntax highlighting rule.
  *
@@ -10,18 +12,20 @@ package org.wikipedia.edit.richtext;
  *                     |
  *                 spanStyle
  */
-public class SyntaxRule {
+public class SyntaxRule extends BaseModel {
     private final String startSymbol;
+    private final String endSymbol;
+    private final SyntaxRuleStyle spanStyle;
+    private final boolean sameStartEnd;
+
     public String getStartSymbol() {
         return startSymbol;
     }
 
-    private final String endSymbol;
     public String getEndSymbol() {
         return endSymbol;
     }
 
-    private final SyntaxRuleStyle spanStyle;
     public SyntaxRuleStyle getSpanStyle() {
         return spanStyle;
     }
@@ -30,7 +34,6 @@ public class SyntaxRule {
      * Whether the start symbol is the same as the end symbol
      * (for faster processing)
      */
-    private final boolean sameStartEnd;
     public boolean isStartEndSame() {
         return sameStartEnd;
     }
@@ -40,12 +43,5 @@ public class SyntaxRule {
         this.endSymbol = endSymbol;
         this.spanStyle = spanStyle;
         sameStartEnd = startSymbol.equals(endSymbol);
-    }
-
-    /**
-     * Interface for creating a Span style when this rule is matched.
-     */
-    public interface SyntaxRuleStyle {
-        SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem);
     }
 }
