@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
@@ -114,6 +116,7 @@ public class MwPageLead implements PageLead {
         @SuppressWarnings("unused") @Nullable private Thumb thumb;
         @SuppressWarnings("unused") @Nullable private Protection protection;
         @SuppressWarnings("unused") @Nullable private List<Section> sections;
+        @SuppressWarnings("unused") @Nullable private PageProps pageprops;
 
         /** Converter */
         public PageProperties toPageProperties(@NonNull WikiSite wiki) {
@@ -196,7 +199,7 @@ public class MwPageLead implements PageLead {
         @Override
         @Nullable
         public String getWikiBaseItem() {
-            return null;
+            return pageprops != null && pageprops.getWikiBaseItem() != null ? pageprops.getWikiBaseItem() : null;
         }
 
         @Override
@@ -247,6 +250,15 @@ public class MwPageLead implements PageLead {
 
         public String getUrl() {
             return url;
+        }
+    }
+
+    static class PageProps {
+        @SuppressWarnings("unused") @SerializedName("wikibase_item") @Nullable
+        private String wikiBaseItem;
+
+        @Nullable String getWikiBaseItem() {
+            return wikiBaseItem;
         }
     }
 }
