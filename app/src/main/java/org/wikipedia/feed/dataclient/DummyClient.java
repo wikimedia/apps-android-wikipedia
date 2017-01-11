@@ -9,20 +9,13 @@ import org.wikipedia.feed.model.Card;
 import java.util.Collections;
 
 /** A dummy client for providing static cards (main page, random) on tap to the FeedCoordinator. */
-public abstract class DummyClient<T extends Card> implements FeedClient {
-    @Override
-    public void request(@NonNull Context context, @NonNull WikiSite wiki, int age,
-                        @NonNull final FeedClient.Callback cb) {
-        try {
-            cb.success(Collections.singletonList(getNewCard(wiki)));
-        } catch (Throwable t) {
-            cb.error(t);
-        }
+public abstract class DummyClient implements FeedClient {
+    @Override public void request(@NonNull Context context, @NonNull WikiSite wiki, int age,
+                                  @NonNull FeedClient.Callback cb) {
+        cb.success(Collections.singletonList(getNewCard(wiki)));
     }
 
-    @Override
-    public void cancel() {
-    }
+    @Override public void cancel() { }
 
-    public abstract T getNewCard(WikiSite wiki);
+    public abstract Card getNewCard(WikiSite wiki);
 }
