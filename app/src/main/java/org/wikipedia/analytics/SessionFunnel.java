@@ -8,6 +8,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RbSwitch;
+import org.wikipedia.util.ReleaseUtil;
 
 public class SessionFunnel extends Funnel {
     /**
@@ -25,7 +26,7 @@ public class SessionFunnel extends Funnel {
     private long restSectionsStartTime;
 
     public SessionFunnel(WikipediaApp app) {
-        super(app, SCHEMA_NAME, REVISION, app.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
+        super(app, SCHEMA_NAME, REVISION, ReleaseUtil.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
 
         sessionData = Prefs.getSessionData();
         if (sessionData.getStartTime() == 0) {

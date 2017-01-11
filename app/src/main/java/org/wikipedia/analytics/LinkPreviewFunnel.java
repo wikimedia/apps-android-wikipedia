@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ReleaseUtil;
 
 public class LinkPreviewFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLinkPreview";
@@ -13,7 +14,7 @@ public class LinkPreviewFunnel extends TimedFunnel {
     private final int source;
 
     public LinkPreviewFunnel(WikipediaApp app, int source) {
-        super(app, SCHEMA_NAME, REV_ID, app.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
+        super(app, SCHEMA_NAME, REV_ID, ReleaseUtil.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
         this.source = source;
     }
 

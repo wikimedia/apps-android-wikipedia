@@ -5,6 +5,7 @@ import org.wikipedia.alphaupdater.AlphaUpdateChecker;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.snippet.SharedImageCleanupTask;
 import org.wikipedia.settings.RemoteConfigRefreshTask;
+import org.wikipedia.util.ReleaseUtil;
 
 public class RecurringTasksExecutor {
     private final WikipediaApp app;
@@ -26,7 +27,7 @@ public class RecurringTasksExecutor {
                 for (RecurringTask task: allTasks) {
                     task.runIfNecessary();
                 }
-                if (WikipediaApp.getInstance().isAlphaRelease()) {
+                if (ReleaseUtil.isAlphaRelease()) {
                     new AlphaUpdateChecker(app).runIfNecessary();
                 }
                 return null;

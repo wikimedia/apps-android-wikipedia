@@ -4,9 +4,9 @@ import android.net.Uri;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.dataclient.OkHttpConnectionFactory;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import okhttp3.Request;
@@ -22,7 +22,7 @@ import okhttp3.Response;
 public class EventLoggingEvent {
     private static final String EVENTLOG_URL_PROD = "https://meta.wikimedia.org/beacon/event";
     private static final String EVENTLOG_URL_DEV = "http://deployment.wikimedia.beta.wmflabs.org/beacon/event";
-    private static final String EVENTLOG_URL = WikipediaApp.getInstance().isPreBetaRelease()
+    private static final String EVENTLOG_URL = ReleaseUtil.isPreBetaRelease()
             ? EVENTLOG_URL_DEV : EVENTLOG_URL_PROD;
 
     private final JSONObject data;

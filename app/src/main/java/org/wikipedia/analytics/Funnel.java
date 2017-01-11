@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.UUID;
@@ -130,7 +131,7 @@ import java.util.UUID;
 
         int rate = getSampleRate();
         if (rate != SAMPLE_LOG_DISABLE) {
-            boolean chosen = app.getEventLogSamplingID() % rate == 0 || app.isDevRelease();
+            boolean chosen = app.getEventLogSamplingID() % rate == 0 || ReleaseUtil.isDevRelease();
 
             if (chosen) {
                 JSONObject eventData = new JSONObject();

@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
@@ -16,6 +15,7 @@ import org.wikipedia.json.SessionUnmarshaller;
 import org.wikipedia.json.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.util.Collections;
@@ -122,7 +122,7 @@ public final class Prefs {
     }
 
     public static boolean isShowDeveloperSettingsEnabled() {
-        return getBoolean(R.string.preference_key_show_developer_settings, isDevRelease());
+        return getBoolean(R.string.preference_key_show_developer_settings, ReleaseUtil.isDevRelease());
     }
 
     public static void setShowDeveloperSettingsEnabled(boolean enabled) {
@@ -332,7 +332,7 @@ public final class Prefs {
     public static Level getRetrofitLogLevel() {
         String prefValue = getString(R.string.preference_key_retrofit_log_level, null);
         if (prefValue == null) {
-            return isDevRelease() ? Level.BASIC : Level.NONE;
+            return ReleaseUtil.isDevRelease() ? Level.BASIC : Level.NONE;
         }
         switch (prefValue) {
             case "BASIC":
@@ -493,10 +493,6 @@ public final class Prefs {
 
     public static void setLastDescriptionEditTime(long time) {
         setLong(R.string.preference_key_last_description_edit_time, time);
-    }
-
-    private static boolean isDevRelease() {
-        return WikipediaApp.getInstance().isDevRelease();
     }
 
     private Prefs() { }

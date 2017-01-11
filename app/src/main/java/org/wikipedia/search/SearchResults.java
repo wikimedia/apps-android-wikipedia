@@ -3,10 +3,10 @@ package org.wikipedia.search;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.Constants;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.MwApiResultPage;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -78,7 +78,7 @@ public class SearchResults {
     @NonNull
     public static SearchResults filter(SearchResults searchResults, String title,
                                        boolean requireThumbnail) {
-        final boolean verbose = WikipediaApp.getInstance().isDevRelease();
+        final boolean verbose = ReleaseUtil.isDevRelease();
         List<SearchResult> filteredResults = new ArrayList<>();
         List<SearchResult> results = searchResults.getResults();
         for (int i = 0; i < results.size() && filteredResults.size() < Constants.MAX_SUGGESTION_RESULTS; i++) {

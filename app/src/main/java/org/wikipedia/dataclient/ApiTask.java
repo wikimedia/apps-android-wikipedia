@@ -7,14 +7,14 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.Map;
 
 public abstract class ApiTask<T> extends SaneAsyncTask<T> {
-    private static final boolean VERBOSE = WikipediaApp.getInstance().isDevRelease();
+    private static final boolean VERBOSE = ReleaseUtil.isDevRelease();
     private final Api api;
 
     @VisibleForTesting

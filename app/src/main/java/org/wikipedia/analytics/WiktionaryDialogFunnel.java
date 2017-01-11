@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ReleaseUtil;
 
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppWiktionaryPopup
 public class WiktionaryDialogFunnel extends TimedFunnel {
@@ -13,7 +14,7 @@ public class WiktionaryDialogFunnel extends TimedFunnel {
     private final String text;
 
     public WiktionaryDialogFunnel(WikipediaApp app, String text) {
-        super(app, SCHEMA_NAME, REV_ID, app.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
+        super(app, SCHEMA_NAME, REV_ID, ReleaseUtil.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
         this.text = text;
     }
 

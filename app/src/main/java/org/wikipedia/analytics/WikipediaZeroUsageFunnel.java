@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ReleaseUtil;
 
 // https://meta.wikimedia.org/wiki/Schema:WikipediaZeroUsage
 public class WikipediaZeroUsageFunnel extends TimedFunnel {
@@ -14,7 +15,7 @@ public class WikipediaZeroUsageFunnel extends TimedFunnel {
     private final String net;
 
     public WikipediaZeroUsageFunnel(WikipediaApp app, String xcs, String net) {
-        super(app, SCHEMA_NAME, REV_ID, app.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
+        super(app, SCHEMA_NAME, REV_ID, ReleaseUtil.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
         this.xcs = xcs;
         this.net = net;
     }

@@ -3,6 +3,7 @@ package org.wikipedia.settings;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.util.ReleaseUtil;
 
 import java.util.Random;
 
@@ -60,7 +61,7 @@ public final class RbSwitch {
             Prefs.setRbTicket(ticket);
         }
 
-        if (WikipediaApp.getInstance().isProdRelease()) {
+        if (ReleaseUtil.isProdRelease()) {
             return isAdmitted(ticket, "restbaseProdPercent");
         } else {
             return isAdmitted(ticket, "restbaseBetaPercent");

@@ -37,6 +37,7 @@ import org.wikipedia.server.ServiceError;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
@@ -597,7 +598,7 @@ public class PageDataClient implements PageLoadStrategy {
                     .put("string_table_other", localizedStrings.get(R.string.table_other))
                     .put("string_table_close", localizedStrings.get(R.string.table_close))
                     .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
-                    .put("isBeta", app.isPreProdRelease()) // True for any non-production release type
+                    .put("isBeta", ReleaseUtil.isPreProdRelease()) // True for any non-production release type
                     .put("siteLanguage", model.getTitle().getWikiSite().languageCode())
                     .put("siteBaseUrl", model.getTitle().getWikiSite().scheme() + "://" + model.getTitle().getWikiSite().host())
                     .put("isMainPage", page.isMainPage())

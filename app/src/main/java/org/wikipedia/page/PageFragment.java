@@ -73,6 +73,7 @@ import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
@@ -500,7 +501,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onCloseTabRequested(int position) {
-            if (!app.isDevRelease() && (position < 0 || position >= tabList.size())) {
+            if (!ReleaseUtil.isDevRelease() && (position < 0 || position >= tabList.size())) {
                 // According to T109998, the position may possibly be out-of-bounds, but we can't
                 // reproduce it. We'll handle this case, but only for non-dev builds, so that we
                 // can investigate the issue further if we happen upon it ourselves.

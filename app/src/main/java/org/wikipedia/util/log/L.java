@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ReleaseUtil;
 
 /** Logging utility like {@link Log} but with implied tags. */
 public final class L {
@@ -107,7 +107,7 @@ public final class L {
     }
 
     public static void logRemoteErrorIfProd(@NonNull Throwable t) {
-        if (WikipediaApp.getInstance().isProdRelease()) {
+        if (ReleaseUtil.isProdRelease()) {
             logRemoteError(t);
         } else {
             throw new RuntimeException(t);

@@ -101,26 +101,6 @@ public class WikipediaApp extends Application {
     private CrashReporter crashReporter;
     private RefWatcher refWatcher;
 
-    public boolean isProdRelease() {
-        return ReleaseUtil.isProdRelease();
-    }
-
-    public boolean isPreProdRelease() {
-        return ReleaseUtil.isPreProdRelease();
-    }
-
-    public boolean isAlphaRelease() {
-        return ReleaseUtil.isAlphaRelease();
-    }
-
-    public boolean isPreBetaRelease() {
-        return ReleaseUtil.isPreBetaRelease();
-    }
-
-    public boolean isDevRelease() {
-        return ReleaseUtil.isDevRelease();
-    }
-
     public SessionFunnel getSessionFunnel() {
         return sessionFunnel;
     }
@@ -169,7 +149,7 @@ public class WikipediaApp extends Application {
 
         // HockeyApp exception handling interferes with the test runner, so enable it only for
         // beta and stable releases
-        if (!isPreBetaRelease()) {
+        if (!ReleaseUtil.isPreBetaRelease()) {
             initExceptionHandling();
         }
 
@@ -481,13 +461,13 @@ public class WikipediaApp extends Application {
     }
 
     public void putCrashReportProperty(String key, String value) {
-        if (!isPreBetaRelease()) {
+        if (!ReleaseUtil.isPreBetaRelease()) {
             crashReporter.putReportProperty(key, value);
         }
     }
 
     public void checkCrashes(@NonNull Activity activity) {
-        if (!isPreBetaRelease()) {
+        if (!ReleaseUtil.isPreBetaRelease()) {
             crashReporter.checkCrashes(activity);
         }
     }
