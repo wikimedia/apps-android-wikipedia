@@ -22,12 +22,6 @@ import static org.wikipedia.util.UriUtil.handleExternalLink;
 public abstract class LinkHandler implements CommunicationBridge.JSEventListener, LinkMovementMethodExt.UrlHandler {
     private final Context context;
 
-    public LinkHandler(Context context, CommunicationBridge bridge) {
-        this(context);
-
-        bridge.addListener("linkClicked", this);
-    }
-
     public LinkHandler(Context context) {
         this.context = context;
     }
