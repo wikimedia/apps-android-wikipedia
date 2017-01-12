@@ -47,7 +47,7 @@ function addStyleLink( href ) {
 }
 
 module.exports = {
-	addStyleLink: addStyleLink
+    addStyleLink: addStyleLink
 };
 },{}],3:[function(require,module,exports){
 var bridge = require( "./bridge" );

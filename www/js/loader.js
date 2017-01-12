@@ -8,5 +8,5 @@ function addStyleLink( href ) {
 }
 
 module.exports = {
-	addStyleLink: addStyleLink
+    addStyleLink: addStyleLink
 };
