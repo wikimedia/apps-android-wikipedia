@@ -41,7 +41,8 @@ import org.wikipedia.edit.preview.Wikitext;
 import org.wikipedia.edit.preview.WikitextClient;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.edit.summaries.EditSummaryFragment;
-import org.wikipedia.edit.token.EditTokenStorage;
+import org.wikipedia.edit.token.EditToken;
+import org.wikipedia.edit.token.EditTokenClient;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
@@ -274,10 +275,9 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private void doSave() {
         captchaHandler.hideCaptcha();
         editSummaryFragment.saveSummary();
-        app.getEditTokenStorage().get(title.getWikiSite(), new EditTokenStorage.TokenRetrievedCallback() {
+        new EditTokenClient().request(title.getWikiSite(), new EditTokenClient.Callback() {
             @Override
-            public void onTokenRetrieved(final String token) {
-
+            public void success(@NonNull Call<EditToken> call, @NonNull String token) {
                 String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
                 // Summaries are plaintext, so remove any HTML that's made its way into the summary
@@ -355,14 +355,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             }
 
             @Override
-            public void onTokenFailed(Throwable caught) {
-                if (isFinishing()) {
-                    return;
-                }
-                if (!(caught instanceof ApiException)) {
-                    throw new RuntimeException(caught);
-                }
-                showRetryDialog();
+            public void failure(@NonNull Call<EditToken> call, @NonNull Throwable caught) {
+                // This is a simple, static API call and an API error is highly unlikely.
+                // In the event of failure, it's likely a network issue.
+                FeedbackUtil.showError(EditSectionActivity.this, caught);
             }
         });
     }
