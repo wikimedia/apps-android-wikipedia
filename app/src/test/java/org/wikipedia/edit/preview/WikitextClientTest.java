@@ -1,0 +1,88 @@
+package org.wikipedia.edit.preview;
+
+import android.support.annotation.NonNull;
+
+import com.google.gson.stream.MalformedJsonException;
+
+import org.junit.Test;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwApiErrorException;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.test.MockWebServerTest;
+
+import retrofit2.Call;
+
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+
+public class WikitextClientTest extends MockWebServerTest {
+    private WikitextClient subject = new WikitextClient();
+    private PageTitle title = new PageTitle(null, "TEST", new WikiSite("fake.wikipedia.org"));
+
+    @Test public void testRequestSuccessHasResults() throws Throwable {
+        String expected = "\\o/\n\ntest12\n\n3";
+        enqueueFromFile("wikitext.json");
+
+        WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
+        Call<MwQueryResponse<Wikitext>> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackSuccess(call, cb, expected);
+    }
+
+    @Test public void testRequestResponseApiError() throws Throwable {
+        enqueueFromFile("api_error.json");
+
+        WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
+        Call<MwQueryResponse<Wikitext>> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackFailure(call, cb, MwApiErrorException.class);
+    }
+
+    @Test public void testRequestResponse404() throws Throwable {
+        enqueue404();
+
+        WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
+        Call<MwQueryResponse<Wikitext>> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackFailure(call, cb, RetrofitException.class);
+    }
+
+    @Test public void testRequestResponseMalformed() throws Throwable {
+        server().enqueue("(-(-_(-_-)_-)-)");
+
+        WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
+        Call<MwQueryResponse<Wikitext>> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackFailure(call, cb, MalformedJsonException.class);
+    }
+
+    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse<Wikitext>> call,
+                                       @NonNull WikitextClient.Callback cb,
+                                       @NonNull String expected) {
+        verify(cb).success(eq(call), eq(expected));
+        //noinspection unchecked
+        verify(cb, never()).failure(any(Call.class), any(Throwable.class));
+    }
+
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<Wikitext>> call,
+                                       @NonNull WikitextClient.Callback cb,
+                                       @NonNull Class<? extends Throwable> throwable) {
+        //noinspection unchecked
+        verify(cb, never()).success(any(Call.class), any(String.class));
+        verify(cb).failure(eq(call), isA(throwable));
+    }
+
+    private Call<MwQueryResponse<Wikitext>> request(@NonNull WikitextClient.Callback cb) {
+        return subject.request(service(WikitextClient.Service.class), title, 0, cb);
+    }
+}
