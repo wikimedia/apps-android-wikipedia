@@ -9,20 +9,22 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwApiException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.MwApiResultPage;
 import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
+import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
+import org.wikipedia.server.mwapi.MwApiResponsePage;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -45,8 +47,7 @@ public class BecauseYouReadClient implements FeedClient {
         this.responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
     }
 
-    @Override
-    public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
+    @Override public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
                         @NonNull final FeedClient.Callback cb) {
         cancel();
         readMoreTopicTask = new MainPageReadMoreTopicTask(context, age) {
@@ -68,8 +69,7 @@ public class BecauseYouReadClient implements FeedClient {
         readMoreTopicTask.execute();
     }
 
-    @Override
-    public void cancel() {
+    @Override public void cancel() {
         if (readMoreTopicTask != null) {
             readMoreTopicTask.cancel();
             readMoreTopicTask = null;
@@ -92,11 +92,15 @@ public class BecauseYouReadClient implements FeedClient {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
                     MwQueryResponse<Pages> pages = response.body();
-                    if (pages.success() && pages.query() != null && pages.query().results(entry.getTitle().getWikiSite()) != null) {
+                    if (pages.success() && pages.query().results(entry.getTitle().getWikiSite()) != null) {
                         SearchResults results = SearchResults.filter(pages.query().results(entry.getTitle().getWikiSite()), entry.getTitle().getText(), false);
-                        List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results, entry.getTitle().getWikiSite());
-
+                        List<BecauseYouReadItemCard> itemCards = new ArrayList<>();
+                        for (SearchResult result : results.getResults()) {
+                            itemCards.add(new BecauseYouReadItemCard(result.getPageTitle()));
+                        }
                         cb.success(Collections.singletonList((Card) new BecauseYouReadCard(entry, itemCards)));
+                    } else if (pages.hasError()) {
+                        cb.error(new MwApiException(pages.getError()));
                     } else {
                         cb.error(new IOException("Error fetching suggestions."));
                     }
@@ -112,6 +116,15 @@ public class BecauseYouReadClient implements FeedClient {
         });
     }
 
+    static class Pages {
+        @SuppressWarnings("unused")
+        @SerializedName("pages")
+        private List<MwApiResponsePage> pages;
+        public SearchResults results(WikiSite wiki) {
+            return new SearchResults(pages, wiki);
+        }
+    }
+
     private interface MwApiSearchClient {
         @GET("w/api.php?format=json&formatversion=2&action=query"
                 + "&prop=pageterms|pageimages|pageprops&ppprop=mainpage|disambiguation"
@@ -119,16 +132,6 @@ public class BecauseYouReadClient implements FeedClient {
                 + "&gsrinfo=&gsrprop=redirecttitle&gsrlimit=" + Constants.SUGGESTION_REQUEST_ITEMS
                 + "&piprop=thumbnail&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE
                 + "&pilimit=" + Constants.SUGGESTION_REQUEST_ITEMS)
-        @NonNull
-        Call<MwQueryResponse<Pages>> get(@Query("gsrsearch") String morelikeQuery);
-    }
-
-    public class Pages {
-        @SuppressWarnings("unused")
-        @SerializedName("pages")
-        private MwApiResultPage[] pages;
-        public SearchResults results(WikiSite wiki) {
-            return new SearchResults(Arrays.asList(pages), wiki);
-        }
+        @NonNull Call<MwQueryResponse<Pages>> get(@Query("gsrsearch") String morelikeQuery);
     }
 }

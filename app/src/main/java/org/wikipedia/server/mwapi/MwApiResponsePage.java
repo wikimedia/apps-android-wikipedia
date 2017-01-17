@@ -18,6 +18,12 @@ public class MwApiResponsePage extends BaseModel {
     @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private List<LangLink> langlinks;
     @SuppressWarnings("unused") @Nullable private List<Revision> revisions;
+    @SuppressWarnings("unused") @Nullable private Terms terms;
+    @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
+
+    @NonNull public String title() {
+        return title;
+    }
 
     @Nullable public List<LangLink> langLinks() {
         return langlinks;
@@ -25,6 +31,14 @@ public class MwApiResponsePage extends BaseModel {
 
     @Nullable public List<Revision> revisions() {
         return revisions;
+    }
+
+    @Nullable public String thumbUrl() {
+        return thumbnail != null ? thumbnail.source : null;
+    }
+
+    @Nullable public String description() {
+        return terms != null && terms.description() != null ? terms.description().get(0) : null;
     }
 
     public static class Revision {
@@ -41,10 +55,25 @@ public class MwApiResponsePage extends BaseModel {
         @NonNull public String lang() {
             return lang;
         }
-
         @SerializedName("*") @SuppressWarnings("unused,NullableProblems") @NonNull private String localizedTitle;
         @NonNull public String localizedTitle() {
             return localizedTitle;
+        }
+    }
+
+    static class Terms {
+        @SuppressWarnings("unused") private List<String> description;
+        List<String> description() {
+            return description;
+        }
+    }
+
+    static class Thumbnail {
+        @SuppressWarnings("unused") private String source;
+        @SuppressWarnings("unused") private int width;
+        @SuppressWarnings("unused") private int height;
+        String source() {
+            return source;
         }
     }
 }

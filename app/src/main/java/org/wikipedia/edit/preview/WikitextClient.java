@@ -7,7 +7,7 @@ import android.support.annotation.VisibleForTesting;
 import com.google.gson.JsonParseException;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiErrorException;
+import org.wikipedia.dataclient.mwapi.MwApiException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -35,7 +35,7 @@ public class WikitextClient {
             public void onResponse(Call<MwQueryResponse<Wikitext>> call, Response<MwQueryResponse<Wikitext>> response) {
                 if (response.isSuccessful()) {
                     if (response.body().hasError()) {
-                        cb.failure(call, new MwApiErrorException(response.body().getError()));
+                        cb.failure(call, new MwApiException(response.body().getError()));
                         return;
                     } else if (response.body().query().wikitext() == null) {
                         Throwable t = new JsonParseException("Error parsing wikitext from query response");

@@ -6,12 +6,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import org.wikipedia.page.MwApiResultPage;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.server.mwapi.MwApiResponsePage;
 
-public class SearchResult extends MwApiResultPage implements Parcelable {
+public class SearchResult implements Parcelable {
     private PageTitle pageTitle;
     private final String redirectFrom;
+
+    public SearchResult(@NonNull MwApiResponsePage page, @NonNull WikiSite wiki) {
+        this(new PageTitle(page.title(), wiki, page.thumbUrl(), page.description()));
+    }
 
     public SearchResult(@NonNull PageTitle pageTitle) {
         this(pageTitle, null);
@@ -20,9 +25,6 @@ public class SearchResult extends MwApiResultPage implements Parcelable {
     public SearchResult(@NonNull PageTitle pageTitle, @Nullable String redirectFrom) {
         this.pageTitle = pageTitle;
         this.redirectFrom = redirectFrom;
-        this.title(pageTitle.getText());
-        this.thumbUrl(pageTitle.getThumbUrl());
-        this.description(pageTitle.getDescription());
     }
 
     @NonNull

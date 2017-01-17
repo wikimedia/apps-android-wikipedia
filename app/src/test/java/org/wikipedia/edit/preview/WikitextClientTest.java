@@ -6,7 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiErrorException;
+import org.wikipedia.dataclient.mwapi.MwApiException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.page.PageTitle;
@@ -43,7 +43,7 @@ public class WikitextClientTest extends MockWebServerTest {
         Call<MwQueryResponse<Wikitext>> call = request(cb);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, MwApiErrorException.class);
+        assertCallbackFailure(call, cb, MwApiException.class);
     }
 
     @Test public void testRequestResponse404() throws Throwable {
