@@ -320,7 +320,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="description_edit_tutorial_title_descriptions">Deskripsi judul</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Merangkum sebuah artikel untuk membantu pembaca memahami subjek sekilas</string>
   <string name="description_edit_tutorial_button_label_continue">Lanjutkan</string>
-  <string name="description_edit_tutorial_keep_it_short">Tetap singkat</string>
+  <string name="description_edit_tutorial_keep_it_short">Jagalah agar singkat</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>

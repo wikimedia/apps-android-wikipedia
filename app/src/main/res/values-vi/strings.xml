@@ -51,7 +51,7 @@
   <string name="edit_section_error_retry">Thử lại</string>
   <string name="dialog_saving_in_progress">Đang lưu…</string>
   <string name="edit_saved_successfully">Đã lưu sửa đổi!</string>
-  <string name="dialog_message_edit_failed">Thất bại khi sửa đổi!</string>
+  <string name="dialog_message_edit_failed">Sửa đổi thất bại!</string>
   <string name="dialog_message_edit_failed_retry">Thử lại</string>
   <string name="dialog_message_edit_failed_cancel">Hủy bỏ</string>
   <string name="dialog_message_leaving_edit">Các thay đổi của bạn chưa được lưu. Bạn có chắc chắn muốn rời bỏ trang này?</string>
@@ -73,7 +73,7 @@
   <string name="login_success_toast">Đã đăng nhập thành công!</string>
   <string name="preference_title_logout">Đăng xuất</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
-  <string name="history_empty_title">Đây không có trang gần đây.</string>
+  <string name="history_empty_title">Không có trang gần đây tại đây!</string>
   <string name="history_empty_message">Có lẽ bạn đã xóa toàn bộ. Lần sau xem một trang, trang sẽ xuất hiện tại đây để truy cập sau.</string>
   <string name="delete_selected_history">Xóa</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -90,7 +90,7 @@
   <string name="create_account_next">Tiếp</string>
   <string name="create_account_button">Mở tài khoản</string>
   <string name="preferences_general_heading">Tổng quát</string>
-  <string name="wikipedia_app_faq">Câu hỏi thường hỏi về ứng dụng Wikipedia</string>
+  <string name="wikipedia_app_faq">Câu hỏi thường gặp về ứng dụng Wikipedia</string>
   <string name="zero_charged_verbiage">Không còn có thể truy cập Wikipedia miễn phí.</string>
   <string name="zero_warn_when_leaving">Cảnh báo khi ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do có quan hệ đối tác với Wikipedia Miễn phí, chọn hộp này để giúp bạn biết khi bạn sắp thoát ứng dụng Wikipedia và sẽ bị tính phí.</string>
@@ -117,7 +117,7 @@
   <string name="history_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>
-  <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>
+  <string name="page_protected_sysop">Trang này đã bị khóa toàn bộ.</string>
   <string name="page_protected_other">Trang này đã bị khóa ở mức độ sau: %s</string>
   <string name="page_protected_can_not_edit">Bạn không có quyền sửa đổi trang này.</string>
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
@@ -153,8 +153,8 @@
   <string name="find_previous">Tìm trước</string>
   <string name="abusefilter_title_warn">Sửa đổi này có vẻ không có tính xây dựng. Bạn có chắc chắn muốn lưu nó?</string>
   <string name="abusefilter_title_disallow">Bạn không thể lưu sửa đổi này. Vui lòng quay lại và thay đổi nó.</string>
-  <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này là có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
-  <string name="abusefilter_text_disallow">Một bộ lọc đã tự động nhận ra sửa đổi này là có thể không mang tính xây dựng hoặc là sự phá hoại.&lt;br /&gt;&lt;br /&gt;Là một bách khoa toàn thư, Wikipedia chỉ chấp nhận các nội dung trung lập và nổi bật.</string>
+  <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
+  <string name="abusefilter_text_disallow">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng hoặc là sự phá hoại.&lt;br /&gt;&lt;br /&gt;Là một bách khoa toàn thư, Wikipedia chỉ chấp nhận các nội dung trung lập và nổi bật.</string>
   <string name="dialog_page_issues">Vấn đề trang</string>
   <string name="button_page_issues">Vấn đề trang</string>
   <string name="text_size_select">Kích thước chữ</string>

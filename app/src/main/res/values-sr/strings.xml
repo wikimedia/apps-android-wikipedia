@@ -274,4 +274,6 @@
   <string name="description_edit_text_hint">Додај опис!</string>
   <string name="description_edit_save">Сачувај</string>
   <string name="description_edit_add_description" fuzzy="true">Додај опис</string>
+  <string name="description_edit_tutorial_button_label_continue">Настави</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Почни уређивање</string>
 </resources>

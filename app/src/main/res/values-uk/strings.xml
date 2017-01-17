@@ -318,4 +318,11 @@
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Чи знаєте ви?</string>
   <string name="description_edit_success_article_edit_hint">Ви також можете редагувати статті з цього додатка. Спробуйте виправити невеличкі помилки друку та невеликі речення, натиснувши на іконку ^1 наступного разу</string>
+  <string name="description_edit_tutorial_title_descriptions">Описи назви</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Резюмує статтю, щоб допомогти читачам зрозуміти тему з першого погляду</string>
+  <string name="description_edit_tutorial_button_label_continue">Продовжити</string>
+  <string name="description_edit_tutorial_keep_it_short">Будьте лаконічні</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
+  <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
 </resources>

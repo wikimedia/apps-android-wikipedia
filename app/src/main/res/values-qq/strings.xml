@@ -415,6 +415,16 @@ Shown in the preferences screen along with the following:
   <string name="reading_lists_onboarding_page_delete">Message for a tooltip that gives the user a hint that they can remove an page from a reading list by swiping it left or right.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>
+  <string name="notification_button_view_page">Button label for navigating to the page that is the subject of the notification.</string>
+  <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
+  <string name="notification_button_view_edit_history">Button label for navigating to the edit history of the page that is the subject of the notification.</string>
+  <string name="notification_generic_title">Title for any general notification from Wikipedia.</string>
+  <string name="notification_talk_title">Title for notification when the user receives a new message on their Talk page.</string>
+  <string name="notification_talk">Text of notification when the user receives a new message on their Talk page. The \"%1$s\" symbol corresponds to the user who left the message, and the \"%2$s\" symbol is the title of the talk page of the user.</string>
+  <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
+  <string name="notification_reverted">Text of notification when an edit made by the user is reverted. The \"%1$s\" symbol corresponds to the user who reverted the edit, and the \"%2$s\" symbol is the title of the page that was edited.</string>
+  <string name="notification_thanks_title">Title for notification when the user receives a Thanks from another user.</string>
+  <string name="notification_thanks">Text of notification when the user receives a Thanks from another user. The \"%1$s\" symbol corresponds to the user who sent the thanks, and the \"%2$s\" symbol is the title of the page for which the user was thanked.</string>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
@@ -430,16 +440,6 @@ Shown in the preferences screen along with the following:
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
   <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.
 {{Identical|Explore}}</string>
-  <string name="notification_button_view_page">Button label for navigating to the page that is the subject of the notification.</string>
-  <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
-  <string name="notification_button_view_edit_history">Button label for navigating to the edit history of the page that is the subject of the notification.</string>
-  <string name="notification_generic_title">Title for any general notification from Wikipedia.</string>
-  <string name="notification_talk_title">Title for notification when the user receives a new message on their Talk page.</string>
-  <string name="notification_talk">Text of notification when the user receives a new message on their Talk page. The \"%1$s\" symbol corresponds to the user who left the message, and the \"%2$s\" symbol is the title of the talk page of the user.</string>
-  <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
-  <string name="notification_reverted">Text of notification when an edit made by the user is reverted. The \"%1$s\" symbol corresponds to the user who reverted the edit, and the \"%2$s\" symbol is the title of the page that was edited.</string>
-  <string name="notification_thanks_title">Title for notification when the user receives a Thanks from another user.</string>
-  <string name="notification_thanks">Text of notification when the user receives a Thanks from another user. The \"%1$s\" symbol corresponds to the user who sent the thanks, and the \"%2$s\" symbol is the title of the page for which the user was thanked.</string>
   <string name="view_card_footer_button">Feed card button label for requesting more similar cards.</string>
   <string name="most_read_list_card_title">Feed card title for recently popular articles.
 {{Identical|Trending}}</string>

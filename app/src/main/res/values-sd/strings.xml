@@ -300,7 +300,9 @@
   <string name="description_edit_header">ترميم ڪندي</string>
   <string name="description_edit_text_hint">ڪو تفصيل لکو!</string>
   <string name="description_edit_save">سانڍيو</string>
-  <string name="description_edit_add_description" fuzzy="true">تفصيل شامل ڪريو</string>
+  <string name="description_edit_add_description">مختصر تفصيل شامل ڪريو</string>
+  <string name="description_edit_edit_description">تشريح سنواريو</string>
+  <string name="description_edit_cancel_hint">رد</string>
   <string name="description_edit_success_saved">تشريح سانڍجي وئي!</string>
   <string name="description_edit_success_encouragement">توھان وڪيپيڊيا کي ھر ڪنھن لاءِ بھتر بڻايو</string>
   <string name="description_edit_success_done">ٿي ويو</string>

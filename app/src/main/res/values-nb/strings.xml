@@ -317,4 +317,11 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="description_edit_success_done">Ferdig</string>
   <string name="description_edit_success_did_you_know">Visste du at?</string>
   <string name="description_edit_success_article_edit_hint">Du kan også redigere artikler med denne appen. Prøv å fikse skrivefeil og små setninger ved å trykke på ^1-ikonet neste gang</string>
+  <string name="description_edit_tutorial_title_descriptions">Tittelbeskrivelser</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Lager et sammendrag av en artikkel for at leserne raskt skal forstå hva den handler om</string>
+  <string name="description_edit_tutorial_button_label_continue">Fortsett</string>
+  <string name="description_edit_tutorial_keep_it_short">Hold det kort</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Ideelt éi linje, mellom to og tolv ord</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
+  <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
 </resources>

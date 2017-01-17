@@ -100,7 +100,7 @@
   <string name="zero_interstitial_leave_app">Төлөбүр ирдэниэн сөп. Туора сиргэ тахсаҕын дуо?</string>
   <string name="zero_interstitial_continue">Таҕыс</string>
   <string name="zero_interstitial_cancel">Хаал</string>
-  <string name="zero_learn_more" fuzzy="true">Бикипиэдьийэ дьибилгэтин туһанан хачайдыырга төлөбүр ирдэммэт.</string>
+  <string name="zero_learn_more">Эн суотабай хампаанньаҥ Бикипиэдьийэҕэ босхо киирэри көҥүллүүр!</string>
   <string name="zero_learn_more_learn_more">Бу туһунан сиһилии</string>
   <string name="zero_learn_more_dismiss">Сап</string>
   <string name="edit_preview_fetching_dialog_message">Хачайданар...</string>
@@ -220,6 +220,7 @@
   <string name="preference_summary_show_link_previews">Сигэни баттаатахха эрдэ көрдөрүүнү көрдөр.</string>
   <string name="nav_item_donate">Бикипиэдьийэни өйөө!</string>
   <string name="error_voice_search_not_available">Хомойуох иһин, саҥаны билии сатаммат эбит.</string>
+  <string name="location_service_disabled">Геолокация арахса сылдьар.</string>
   <string name="enable_location_service">Холбоммут</string>
   <string name="crash_report_dialog_title">Хомойуох иһин, ааспыкка дьибилгэт моһуогура сылдьыбыт</string>
   <string name="crash_report_dialog_text">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо Бикимиэдьийэ саахал туһунан тута билиэ этэ уонна алҕаһы түргэнник көннөрүө этэ.</string>
@@ -235,6 +236,9 @@
   <string name="article_menu_bar_bookmark">Ыстатыйаны ааҕыы тиһилигэр киллэр</string>
   <string name="article_menu_bar_share">Ыстатыйа сигэтин тарҕат</string>
   <string name="article_menu_bar_navigate">Ыстатыйа баар сиригэр көс</string>
+  <string name="article_header_edit_hint">Уларыт...</string>
+  <string name="article_header_edit_description">Бас туһунан суругу уларыт</string>
+  <string name="article_header_edit_lead_section">Киириини уларыт</string>
   <string name="nav_item_reading_lists">Тиһилигим</string>
   <string name="reading_list_untitled">Аата суох</string>
   <string name="reading_list_save_to">Ааҕар тиһиликкэ киллэр</string>
@@ -289,12 +293,29 @@
   <string name="most_read_list_card_title">Трендэ</string>
   <string name="view_static_card_icon_content_description">Карточка иконката</string>
   <string name="view_card_news_title">Сонуннарга</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">бэҕэһээ</item>
-    <item quantity="other">%d күн ынараа өттүгэр</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Бэҕэһээ</item>
+    <item quantity="other">%d хонук ынараа өттүгэр</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">бүгүн</string>
+  <string name="view_continue_reading_card_subtitle_today">Бүгүн</string>
+  <string name="view_announcement_card_negative_action">Суох, махтанабын</string>
   <string name="description_edit_header">Уларытыы</string>
+  <string name="description_edit_text_hint">Ойуулааһыны суруй!</string>
   <string name="description_edit_save">Бигэргэт</string>
-  <string name="description_edit_add_description" fuzzy="true">Быһаарыы эбии</string>
+  <string name="description_edit_add_description">Кылгас быһаарыы эбии</string>
+  <string name="description_edit_edit_description">Быһаарыыны уларытыы</string>
+  <string name="description_edit_cancel_hint">Таҕыс</string>
+  <string name="description_edit_help_title">Көмө: баһы ойуулааһын</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_success_saved">Бигэргэтилиннэ!</string>
+  <string name="description_edit_success_encouragement">Бикипиэдьийэни тупсаҕай гынан биэрдиҥ</string>
+  <string name="description_edit_success_done">Оҥоһулунна</string>
+  <string name="description_edit_success_did_you_know">Билэҕин дуо?</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Кылгастык тиэмэни арыйар, ааҕааччыга тута өйдүүрүгэр көмө буолар</string>
+  <string name="description_edit_tutorial_button_label_continue">Салгыы</string>
+  <string name="description_edit_tutorial_keep_it_short">Кылгастык суруй</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Биир сурааһын, иккиттэн уон иккигэ диэри тыл буолара ордук</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Уларытыыны саҕалаа</string>
+  <string name="description_edit_tutorial_promise">Саҕалыырбар бу кыаҕы сөпкө туһаныам диэн мэктиэлиибин.</string>
 </resources>

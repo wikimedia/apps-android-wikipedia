@@ -100,7 +100,7 @@
   <string name="zero_interstitial_leave_app">Cobrança de dados podem ser aplicadas. Deseja continuar para um site externo?</string>
   <string name="zero_interstitial_continue">Sair</string>
   <string name="zero_interstitial_cancel">Ficar</string>
-  <string name="zero_learn_more">Sua operadora sem fio forneceu acesso gratuito ao conteúdo da Wikipedia!</string>
+  <string name="zero_learn_more">Sua operadora sem fio forneceu acesso gratuito ao conteúdo da Wikipédia!</string>
   <string name="zero_learn_more_learn_more">Saiba mais</string>
   <string name="zero_learn_more_dismiss">Ignorar</string>
   <string name="edit_preview_fetching_dialog_message">Processando pré-visualização…</string>
@@ -262,10 +262,15 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="reading_list_name_hint">Nome da lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
   <string name="reading_list_save_for_offline">Disponível para leitura offline</string>
+  <string name="reading_list_item_deleted">%s removido da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s apagado</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
+  <string name="reading_list_delete_confirm">Tem certeza de que deseja excluir esta lista de leitura?</string>
+  <string name="reading_lists_empty">Não existem listas de leitura aqui.</string>
+  <string name="reading_lists_empty_message">Organize os artigos em que navega em listas de leitura! Ao ler um artigo, toque rapidamente no ícone de marcador, localizado abaixo da barra de ferramentas, para adicioná-lo a uma lista de leitura.</string>
+  <string name="reading_lists_onboarding_intro">Crie listas de leitura de artigos que deseja ler mais tarde, mesmo quando você estiver offline!</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares para visitar</string>
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
@@ -275,6 +280,7 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="view_continue_reading_card_title">Continue lendo</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
+  <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_card_subtitle">Ler um artigo aleatório da Wikipédia</string>
   <string name="view_main_page_card_title">Hoje na Wikipédia</string>
   <string name="view_main_page_card_subtitle">Página principal em %s</string>
@@ -289,10 +295,33 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="most_read_list_card_title">Tendências</string>
   <string name="view_static_card_icon_content_description">Ícone do cartão</string>
   <string name="view_card_news_title">Eventos recentes</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Ontem</item>
+    <item quantity="other">%d dias atrás</item>
+  </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hoje</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
   <string name="description_edit_header">Editando</string>
+  <string name="description_edit_text_hint">Escreva uma descrição!</string>
   <string name="description_edit_save">Salvar</string>
+  <string name="description_edit_add_description">Adicionar uma breve descrição</string>
+  <string name="description_edit_edit_description">Editar descrição</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
+  <string name="description_edit_help_title">Ajuda: descrição do título</string>
+  <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Guia do Wikidata para escrever descrições</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/pt-br</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_success_saved">Descrição salvada!</string>
+  <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
   <string name="description_edit_success_done">Concluído</string>
+  <string name="description_edit_success_did_you_know">Você sabia?</string>
+  <string name="description_edit_success_article_edit_hint">Você também pode editar artigos dentro desta aplicação. Tente corrigir erros tipográficos e frases pequenas clicando no ícone ^1 da próxima vez</string>
+  <string name="description_edit_tutorial_title_descriptions">Descrições do título</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Resume um artigo para ajudar os leitores a entender o assunto de relance</string>
+  <string name="description_edit_tutorial_button_label_continue">Continuar</string>
+  <string name="description_edit_tutorial_keep_it_short">Mantenha-o curto</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre dois a doze palavras</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
+  <string name="description_edit_tutorial_promise">Ao começar, eu prometo não fazer mau uso, esta funcionalidade.</string>
 </resources>

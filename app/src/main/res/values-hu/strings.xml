@@ -298,6 +298,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Ma</string>
   <string name="view_announcement_card_negative_action">Nem, köszönöm</string>
+  <string name="description_edit_header">Szerkesztés</string>
   <string name="description_edit_text_hint">Készíts leírást!</string>
   <string name="description_edit_save">Mentés</string>
   <string name="description_edit_add_description">Adj meg egy rövid leírást</string>
@@ -312,4 +313,11 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="description_edit_success_done">Kész</string>
   <string name="description_edit_success_did_you_know">Tudtad?</string>
   <string name="description_edit_success_article_edit_hint">Szerkesztheted is a szócikkeket ebben az alkalmazásban. Próbáld ki legközelebb elírások és rövid mondatok javításával a ^1 ikonra kattintva</string>
+  <string name="description_edit_tutorial_title_descriptions">Cím leírások</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Összefoglalja a cikket, hogy az olvasói első pillantásra lássák a témáját.</string>
+  <string name="description_edit_tutorial_button_label_continue">Folytatás</string>
+  <string name="description_edit_tutorial_keep_it_short">Legyen rövid</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Ideális esetben egy sor, két-tizenkét szó között.</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
+  <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
 </resources>

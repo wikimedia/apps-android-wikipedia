@@ -91,7 +91,7 @@
   <string name="create_account_button">Krouiñ ur gont</string>
   <string name="preferences_general_heading">Hollek</string>
   <string name="wikipedia_app_faq">Arload FAG Wikipedia</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero n\'a ket en-dro</string>
+  <string name="zero_charged_verbiage">N\'hallit ket mui mont digoust war Wikipedia.</string>
   <string name="zero_warn_when_leaving">Roit da c\'houzout ma kuitait Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">M\'en deus savet hoc\'h oberataer hezoug ur c\'henemglev gant Wikipedia Zero ha ma tilez e vizoù liammet ouzh an implij eus Wikipedia e vo en roet deoc\'h da c\'houzout pa vezit o kuitaat an arload Wikipedia. E riskl emaoc\'h, a-hend-all, da baeañ mizoù roadennoù.</string>
   <string name="zero_webpage_title">FAG Wikipedia Zero</string>
@@ -100,7 +100,7 @@
   <string name="zero_interstitial_leave_app">Gallout a ra bezañ mizoù da baeañ evit ar roadennoù. Mont d\'al lec\'hienn diavaez ?</string>
   <string name="zero_interstitial_continue">Mont kuit</string>
   <string name="zero_interstitial_cancel">Chom amañ</string>
-  <string name="zero_learn_more" fuzzy="true">N\'eus ket mizoù da baeañ evit ar roadennoù an arolad Wikipedia-mañ.</string>
+  <string name="zero_learn_more">Ho pourvezer Internet a grata deoc\'h ur moned digoust da Wikipedia !</string>
   <string name="zero_learn_more_learn_more">Gouzout hiroc\'h</string>
   <string name="zero_learn_more_dismiss">Disteurel</string>
   <string name="edit_preview_fetching_dialog_message">O klask un alberz…</string>
@@ -316,9 +316,12 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="description_edit_success_encouragement">Emaoc\'h o paouez gwellaat Wikipedia evit mad an holl</string>
   <string name="description_edit_success_done">Graet</string>
   <string name="description_edit_success_did_you_know">Ha gouzout a raec\'h ?</string>
+  <string name="description_edit_success_article_edit_hint">Gant an arload-mañ e c\'hallit kemmañ pennadoù ivez. Kentañ tro, grit un taol-esae gant reizhadennoù tipografiezh pe frazennoù berr en ur glikañ war an arlun ^1.</string>
   <string name="description_edit_tutorial_title_descriptions">Deskrivadurioù an titl</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Grit un tamm diverrañ d\'ar pennad da skoazellañ al lennerien da gompren an danvez diwar ar c\'hentañ sell.</string>
   <string name="description_edit_tutorial_button_label_continue">Kenderc\'hel</string>
   <string name="description_edit_tutorial_keep_it_short">Krak ha berr</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">D\'ar gwellañ ul linenn, etre daou ha daouzek ger.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Kregiñ da aozañ</string>
   <string name="description_edit_tutorial_promise">Stagañ a ran ganti ha reiñ a ran ma ger da chom hep drougimplij an arc\'hwel-mañ</string>
 </resources>
