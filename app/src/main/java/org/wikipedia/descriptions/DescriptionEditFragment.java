@@ -40,7 +40,7 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
 
-    public interface SuccessCallback {
+    public interface Callback {
         void onDescriptionEditSuccess();
     }
 
@@ -54,6 +54,9 @@ public class DescriptionEditFragment extends Fragment {
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
+            if (!User.isLoggedIn()) {
+                Prefs.incrementTotalAnonDescriptionsEdited();
+            }
             Prefs.setLastDescriptionEditTime(new Date().getTime());
             WikipediaApp.getInstance().listenForNotifications();
 
@@ -133,8 +136,8 @@ public class DescriptionEditFragment extends Fragment {
         getActivity().finish();
     }
 
-    private SuccessCallback callback() {
-        return FragmentUtil.getCallback(this, SuccessCallback.class);
+    private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 
     private class EditViewCallback implements DescriptionEditView.Callback {

@@ -114,6 +114,11 @@
             android:key="@string/preference_key_zero_config_hash"
             android:title="@string/preference_key_zero_config_hash" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_total_anon_descriptions_edited"
+            android:title="@string/preference_key_total_anon_descriptions_edited" />
+
         <!-- TODO: expose in wildcard preference. -->
         <org.wikipedia.settings.LongPreference
             style="@style/LongPreference"

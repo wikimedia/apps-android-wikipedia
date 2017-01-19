@@ -1,11 +1,13 @@
 package org.wikipedia.page.leadimages;
 
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -18,15 +20,19 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditClient;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
+import org.wikipedia.login.LoginActivity;
+import org.wikipedia.login.User;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
@@ -243,12 +249,12 @@ public class LeadImagesHandler {
         articleHeaderView.setCallback(new ArticleHeaderView.Callback() {
             @Override
             public void onDescriptionClicked() {
-                startDescriptionEditActivity();
+                verifyLoggedInForDescriptionEdit();
             }
 
             @Override
             public void onEditDescription() {
-                startDescriptionEditActivity();
+                verifyLoggedInForDescriptionEdit();
             }
 
             @Override
@@ -256,6 +262,23 @@ public class LeadImagesHandler {
                 parentFragment.getEditHandler().startEditingSection(0, null);
             }
         });
+    }
+
+    private void verifyLoggedInForDescriptionEdit() {
+        if (!User.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= parentFragment.getResources().getInteger(R.integer.description_max_anon_edits)) {
+            new AlertDialog.Builder(parentFragment.getContext())
+                    .setMessage(R.string.description_edit_anon_limit)
+                    .setPositiveButton(R.string.menu_login, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            parentFragment.startActivity(LoginActivity.newIntent(parentFragment.getContext(), LoginFunnel.SOURCE_EDIT));
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+        } else {
+            startDescriptionEditActivity();
+        }
     }
 
     private void startDescriptionEditActivity() {

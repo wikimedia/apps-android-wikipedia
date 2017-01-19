@@ -483,4 +483,5 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
+  <string name="description_edit_anon_limit">Dialog message that informs the user that they must log in before making edits to additional descriptions.</string>
 </resources>

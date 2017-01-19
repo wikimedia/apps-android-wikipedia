@@ -14,7 +14,7 @@ import org.wikipedia.page.PageTitle;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment>
-        implements DescriptionEditFragment.SuccessCallback {
+        implements DescriptionEditFragment.Callback {
     private static final String EXTRA_TITLE = "title";
 
     public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title) {

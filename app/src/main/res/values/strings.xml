@@ -356,6 +356,7 @@
     <string name="description_edit_help_wikidata_guide">Wikidata guide for writing descriptions</string>
     <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
     <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+    <string name="description_edit_anon_limit">Thanks for your continued interest in editing descriptions! To make additional edits, please log in to your Wikipedia account.</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->

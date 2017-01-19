@@ -495,5 +495,13 @@ public final class Prefs {
         setLong(R.string.preference_key_last_description_edit_time, time);
     }
 
+    public static int getTotalAnonDescriptionsEdited() {
+        return getInt(R.string.preference_key_total_anon_descriptions_edited, 0);
+    }
+
+    public static void incrementTotalAnonDescriptionsEdited() {
+        setInt(R.string.preference_key_total_anon_descriptions_edited, getTotalAnonDescriptionsEdited() + 1);
+    }
+
     private Prefs() { }
 }

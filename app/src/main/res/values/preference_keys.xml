@@ -51,4 +51,5 @@
     <string name="preference_key_memory_leak_test">memoryLeakTest</string>
     <string name="preference_key_description_edit_tutorial_enabled">descriptionEditTutorialEnabled</string>
     <string name="preference_key_last_description_edit_time">lastDescriptionEditTime</string>
+    <string name="preference_key_total_anon_descriptions_edited">totalAnonDescriptionsEdited</string>
 </resources>
