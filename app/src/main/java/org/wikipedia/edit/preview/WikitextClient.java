@@ -61,7 +61,7 @@ public class WikitextClient {
         void failure(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull Throwable caught);
     }
 
-    private interface Service {
+    @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&prop=revisions&rvprop=content&rvlimit=1")
         Call<MwQueryResponse<Wikitext>> request(@NonNull @Query("titles") String title, @Query("rvsection") int section);
     }

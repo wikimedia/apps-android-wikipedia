@@ -1,0 +1,22 @@
+{
+  "continue": {
+    "rvcontinue": "20170117145345|760522071",
+    "continue": "||"
+  },
+  "query": {
+    "pages": {
+      "46498401": {
+        "pageid": 46498401,
+        "ns": 2,
+        "title": "User:Mhollo/sandbox",
+        "revisions": [
+          {
+            "contentformat": "text/x-wiki",
+            "contentmodel": "wikitext",
+            "*": "\\o/\n\ntest12\n\n3"
+          }
+        ]
+      }
+    }
+  }
+}
