@@ -43,7 +43,6 @@ import org.wikipedia.richtext.ParagraphSpan;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.AppTextView;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
@@ -54,6 +53,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfEmpty;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.L10nUtil.isLangRTL;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
@@ -163,12 +163,12 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     public void setTitle(@Nullable CharSequence text) {
-        title = StringUtil.emptyIfNull(text);
+        title = defaultIfEmpty(text, "");
         updateText();
     }
 
     public void setSubtitle(@Nullable CharSequence text) {
-        subtitle = StringUtil.emptyIfNull(text);
+        subtitle = defaultIfEmpty(text, "");
         updateText();
     }
 

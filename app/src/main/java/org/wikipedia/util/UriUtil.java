@@ -17,6 +17,7 @@ import org.wikipedia.zero.WikipediaZeroHandler;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.zero.WikipediaZeroHandler.showZeroExitInterstitialDialog;
 
 public final class UriUtil {
@@ -83,7 +84,7 @@ public final class UriUtil {
                 .getWikipediaZeroHandler();
 
         if (!zeroHandler.isZeroEnabled()) {
-            if (!StringUtil.emptyIfNull(zeroHandler.getXCarrier()).equals("")) {
+            if (!defaultString(zeroHandler.getXCarrier()).equals("")) {
                 // User is potentially zero-rated based on IP, but not on a whitelisted wiki (this
                 // is rare)
                 zeroHandler.getZeroFunnel().logExtLink();

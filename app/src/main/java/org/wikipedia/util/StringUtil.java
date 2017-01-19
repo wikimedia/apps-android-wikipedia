@@ -10,58 +10,15 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
-// TODO: Replace with Apache Commons Lang StringUtils.
 public final class StringUtil {
     private static final String CSV_DELIMITER = ",";
 
-    public static boolean isBlank(@Nullable String str) {
-        return str == null || !TextUtils.isGraphic(str);
-    }
-
-    public static String defaultIfBlank(@Nullable String value, @Nullable String defaultValue) {
-        return isBlank(value) ? defaultValue : value;
-    }
-
-    @NonNull
-    public static String emptyIfNull(@Nullable String value) {
-        return defaultIfNull(value, "");
-    }
-
-    @NonNull
-    public static CharSequence emptyIfNull(@Nullable CharSequence value) {
-        return defaultIfNull(value, "");
-    }
-
-    @Nullable
-    public static String defaultIfNull(@Nullable String value, @Nullable String defaultValue) {
-        return value == null ? defaultValue : value;
-    }
-
-    @Nullable
-    public static CharSequence defaultIfNull(@Nullable CharSequence value,
-            @Nullable CharSequence defaultValue) {
-        return value == null ? defaultValue : value;
-    }
-
-    public static boolean equals(@Nullable CharSequence lhs, @Nullable CharSequence rhs) {
-        return lhs == rhs || lhs != null && lhs.equals(rhs);
-    }
-
     @NonNull
     public static String listToCsv(@NonNull List<String> list) {
-        return listToDelimitedString(list, CSV_DELIMITER);
-    }
-
-    @NonNull
-    public static String listToDelimitedString(@NonNull Iterable<String> list,
-                                               @NonNull String delimiter) {
-        return TextUtils.join(delimiter, list);
+        return TextUtils.join(CSV_DELIMITER, list);
     }
 
     /** @return Nonnull immutable list. */
@@ -77,30 +34,12 @@ public final class StringUtil {
         return Arrays.asList(TextUtils.split(delimitedString, delimiter));
     }
 
-    @NonNull
-    public static String[] removeNulls(@NonNull String[] args) {
-        List<String> list = new ArrayList<>(Arrays.asList(args));
-        list.removeAll(Collections.<String>singleton(null));
-        return list.toArray(new String[list.size()]);
-    }
-
-    /**
-     * Compares two strings properly, even when one of them is null - without throwing up
-     *
-     * @param str1 The first string
-     * @param str2 Guess?
-     * @return true if they are both equal (even if both are null)
-     */
-    public static boolean compareStrings(@Nullable String str1, @Nullable String str2) {
-        return (str1 == null ? str2 == null : str1.equals(str2));
-    }
-
     /**
      * Creates an MD5 hash of the provided string and returns its ASCII representation
      * @param s String to hash
      * @return ASCII MD5 representation of the string passed in
      */
-    public static String md5string(String s) {
+    @NonNull public static String md5string(@NonNull String s) {
         StringBuilder hexStr = new StringBuilder();
         try {
             // Create MD5 Hash
@@ -124,7 +63,7 @@ public final class StringUtil {
      * @param str CharSequence to be trimmed.
      * @return The trimmed CharSequence.
      */
-    public static CharSequence trim(CharSequence str) {
+    @NonNull public static CharSequence strip(@Nullable CharSequence str) {
         if (str == null || str.length() == 0) {
             return "";
         }
@@ -148,30 +87,20 @@ public final class StringUtil {
         return String.format("x%08x", i);
     }
 
-    public static String addUnderscores(String text) {
+    public static String addUnderscores(@NonNull String text) {
         return text.replace(" ", "_");
     }
 
-    public static String removeUnderscores(String text) {
+    public static String removeUnderscores(@NonNull String text) {
         return text.replace("_", " ");
     }
 
-    public static boolean hasSectionAnchor(String text) {
+    public static boolean hasSectionAnchor(@NonNull String text) {
         return text.contains("#");
     }
 
     public static String removeSectionAnchor(String text) {
         return text.substring(0, text.indexOf("#"));
-    }
-
-    @NonNull
-    public static Collection<String> prefix(@Nullable String prefix,
-                                            @NonNull Collection<? extends CharSequence> strs) {
-        List<String> ret = new ArrayList<>(strs.size());
-        for (CharSequence str : strs) {
-            ret.add(prefix + str);
-        }
-        return ret;
     }
 
     public static String sanitizeText(@NonNull String selectedText) {
@@ -212,5 +141,4 @@ public final class StringUtil {
     }
 
     private StringUtil() { }
-
 }

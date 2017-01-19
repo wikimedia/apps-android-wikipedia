@@ -16,7 +16,6 @@ import org.wikipedia.json.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.StringUtil;
 
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -25,6 +24,7 @@ import java.util.Set;
 
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.getInt;
@@ -349,13 +349,13 @@ public final class Prefs {
 
     @NonNull
     public static String getRestbaseUriFormat() {
-        return StringUtil.defaultIfBlank(getString(R.string.preference_key_restbase_uri_format, null),
+        return defaultIfBlank(getString(R.string.preference_key_restbase_uri_format, null),
                 "%1$s://%2$s/api/rest_v1/");
     }
 
     @NonNull
     public static Uri getMediaWikiBaseUri() {
-        return Uri.parse(StringUtil.defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null),
+        return Uri.parse(defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null),
                 Constants.WIKIPEDIA_URL));
     }
 

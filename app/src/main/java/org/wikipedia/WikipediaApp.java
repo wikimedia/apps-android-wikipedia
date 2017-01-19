@@ -74,9 +74,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class WikipediaApp extends Application {
     private static final int EVENT_LOG_TESTING_ID = new Random().nextInt(Integer.MAX_VALUE);
@@ -220,8 +220,8 @@ public class WikipediaApp extends Application {
     public String getAcceptLanguage(@Nullable WikiSite wiki) {
         String wikiLang = wiki == null || "meta".equals(wiki.languageCode())
                 ? ""
-                : emptyIfNull(wiki.languageCode());
-        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, emptyIfNull(getAppLanguageCode()),
+                : defaultString(wiki.languageCode());
+        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, defaultString(getAppLanguageCode()),
                 appLanguageState.getSystemLanguageCode());
     }
 

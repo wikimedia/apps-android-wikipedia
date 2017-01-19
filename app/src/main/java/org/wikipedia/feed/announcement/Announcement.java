@@ -9,12 +9,13 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.StringUtil;
 
 import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 class Announcement extends BaseModel {
     public static final String SURVEY = "survey";
@@ -85,7 +86,7 @@ class Announcement extends BaseModel {
     }
 
     @NonNull String footerCaption() {
-        return StringUtil.emptyIfNull(footerCaption);
+        return defaultString(footerCaption);
     }
 
     boolean hasImageUrl() {
@@ -93,7 +94,7 @@ class Announcement extends BaseModel {
     }
 
     @NonNull String imageUrl() {
-        return StringUtil.emptyIfNull(imageUrl);
+        return defaultString(imageUrl);
     }
 
     static class Action {

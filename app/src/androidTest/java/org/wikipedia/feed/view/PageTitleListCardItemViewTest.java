@@ -18,13 +18,13 @@ import org.wikipedia.test.view.TestStr;
 import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.mock;
 import static org.wikipedia.feed.view.PageTitleListCardItemView.Callback;
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 @SmallTest public class PageTitleListCardItemViewTest extends ViewTest {
     private PageTitleListCardItemView subject;
@@ -76,16 +76,16 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
 
     @Theory public void testSetTitle(@TestedOnBool boolean nul) {
         setUpTypical();
-        CharSequence text = nul ? null : "text";
+        String text = nul ? null : "text";
         subject.setTitle(text);
-        assertThat(subject.titleView.getText().toString(), is(emptyIfNull(text)));
+        assertThat(subject.titleView.getText().toString(), is(defaultString(text)));
     }
 
     @Theory public void testSetSubtitle(@TestedOnBool boolean nul) {
         setUpTypical();
-        CharSequence text = nul ? null : "Text";
+        String text = nul ? null : "Text";
         subject.setSubtitle(text);
-        assertThat(subject.subtitleView.getText().toString(), is(emptyIfNull(text)));
+        assertThat(subject.subtitleView.getText().toString(), is(defaultString(text)));
     }
 
     @Theory public void testSetSubtitleCapitalization() {

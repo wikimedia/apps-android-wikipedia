@@ -2,12 +2,12 @@ package org.wikipedia.page;
 
 import android.support.annotation.NonNull;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.json.GsonUtil;
-import org.wikipedia.util.StringUtil;
 
-import static org.wikipedia.util.StringUtil.compareStrings;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /**
  * Gson POJO for one section of a page.
@@ -63,9 +63,9 @@ public class Section {
         Section other = (Section) o;
         return getId() == other.getId()
                 && getLevel() == other.getLevel()
-                && compareStrings(getHeading(), other.getHeading())
-                && compareStrings(getAnchor(), other.getAnchor())
-                && compareStrings(getContent(), other.getContent());
+                && StringUtils.equals(getHeading(), other.getHeading())
+                && StringUtils.equals(getAnchor(), other.getAnchor())
+                && StringUtils.equals(getContent(), other.getContent());
     }
 
     @Override
@@ -101,15 +101,15 @@ public class Section {
     }
 
     @NonNull public String getHeading() {
-        return StringUtil.emptyIfNull(line);
+        return defaultString(line);
     }
 
     @NonNull public String getAnchor() {
-        return StringUtil.emptyIfNull(anchor);
+        return defaultString(anchor);
     }
 
     @NonNull public String getContent() {
-        return StringUtil.emptyIfNull(text);
+        return defaultString(text);
     }
 
     public void setContent(String content) {

@@ -3,7 +3,7 @@ package org.wikipedia.media;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.util.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 
 class State {
     private enum LoadState {
@@ -95,6 +95,6 @@ class State {
     }
 
     private boolean isPathIdentical(@Nullable String path) {
-        return StringUtil.equals(this.path, path);
+        return StringUtils.equals(this.path, path);
     }
 }

@@ -4,7 +4,8 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
-import org.wikipedia.util.StringUtil;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 public class ImageLicense {
     private static final String CREATIVE_COMMONS_PREFIX = "cc";
@@ -37,13 +38,13 @@ public class ImageLicense {
     }
 
     public boolean isLicenseCC() {
-        return StringUtil.emptyIfNull(license).toLowerCase().startsWith(CREATIVE_COMMONS_PREFIX)
-                || StringUtil.emptyIfNull(licenseShortName).toLowerCase().startsWith(CREATIVE_COMMONS_PREFIX);
+        return defaultString(license).toLowerCase().startsWith(CREATIVE_COMMONS_PREFIX)
+                || defaultString(licenseShortName).toLowerCase().startsWith(CREATIVE_COMMONS_PREFIX);
     }
 
     public boolean isLicensePD() {
-        return StringUtil.emptyIfNull(license).toLowerCase().startsWith(PUBLIC_DOMAIN_PREFIX)
-                || StringUtil.emptyIfNull(licenseShortName).toLowerCase().startsWith(PUBLIC_DOMAIN_PREFIX);
+        return defaultString(license).toLowerCase().startsWith(PUBLIC_DOMAIN_PREFIX)
+                || defaultString(licenseShortName).toLowerCase().startsWith(PUBLIC_DOMAIN_PREFIX);
     }
 
     /**

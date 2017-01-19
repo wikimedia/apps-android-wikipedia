@@ -3,6 +3,7 @@ package org.wikipedia.edit.token;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.settings.Prefs;
@@ -78,7 +79,7 @@ public class EditTokenStorage {
     }
 
     private String makeString(Iterable<String> list) {
-        return StringUtil.listToDelimitedString(list, DELIMITER);
+        return TextUtils.join(DELIMITER, list);
     }
 
     private List<String> makeList(String str) {

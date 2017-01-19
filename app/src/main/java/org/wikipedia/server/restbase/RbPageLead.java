@@ -18,11 +18,12 @@ import org.wikipedia.page.Section;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageLeadProperties;
 import org.wikipedia.server.Protection;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /**
  * Gson POJO for loading the first stage of page content.
@@ -108,7 +109,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     }
 
     @NonNull @Override public Namespace getNamespace(@NonNull WikiSite wiki) {
-        return guessNamespace(wiki, StringUtil.emptyIfNull(normalizedtitle));
+        return guessNamespace(wiki, defaultString(normalizedtitle));
     }
 
     @Override

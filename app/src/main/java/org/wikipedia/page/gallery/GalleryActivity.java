@@ -56,7 +56,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.wikipedia.util.StringUtil.trim;
+import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
@@ -513,7 +513,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             descriptionStr = StringUtil.fromHtml(item.getMetadata().get("ObjectName"));
         }
         if (descriptionStr.length() > 0) {
-            descriptionText.setText(trim(descriptionStr));
+            descriptionText.setText(strip(descriptionStr));
             descriptionText.setVisibility(View.VISIBLE);
         } else {
             descriptionText.setVisibility(View.GONE);
@@ -533,6 +533,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         String creditStr = "";
         if (item.getMetadata().containsKey("Artist")) {
+            // todo: is it intentional to convert to a String?
             creditStr = StringUtil.fromHtml(item.getMetadata().get("Artist")).toString().trim();
         }
         // if we couldn't find a attribution string, then default to unknown
