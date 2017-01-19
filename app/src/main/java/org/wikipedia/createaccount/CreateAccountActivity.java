@@ -18,8 +18,6 @@ import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
@@ -50,6 +48,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     public static final String LOGIN_SESSION_TOKEN = "login_session_token";
 
     private CreateAccountInfoClient createAccountInfoClient;
+    private CreateAccountClient createAccountClient;
 
     @NotEmpty
     private EditText usernameEdit;
@@ -97,6 +96,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
         wiki = WikipediaApp.getInstance().getWikiSite();
         createAccountInfoClient = new CreateAccountInfoClient();
+        createAccountClient = new CreateAccountClient();
 
         captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getWikiSite(),
                 progressDialog, primaryContainer, getString(R.string.create_account_activity_title),
@@ -247,64 +247,49 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     }
 
     public void doCreateAccount(@NonNull String token) {
+        progressDialog.show();
+
         String email = null;
         if (emailEdit.getText().length() != 0) {
             email = emailEdit.getText().toString();
         }
-
         String password = passwordEdit.getText().toString();
-        String passwordRepeat = passwordInput.isPasswordVisible() ? password : passwordRepeatEdit.getText().toString();
+        String repeat = passwordInput.isPasswordVisible() ? password : passwordRepeatEdit.getText().toString();
 
-        new CreateAccountTask(usernameEdit.getText().toString(), passwordEdit.getText().toString(),
-                passwordRepeat, token, email) {
-            @Override
-            public void onBeforeExecute() {
-                progressDialog.show();
-            }
+        createAccountClient.request(wiki, usernameEdit.getText().toString(),
+                password, repeat, token, email,
+                captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
+                captchaHandler.isActive() ? captchaHandler.captchaWord() : "null",
+                new CreateAccountClient.Callback() {
+                    @Override
+                    public void success(@NonNull Call<CreateAccountResponse> call, @NonNull CreateAccountSuccessResult result) {
+                        if (!progressDialog.isShowing()) {
+                            // no longer attached to activity!
+                            return;
+                        }
+                        createAccountResult = result;
+                        progressDialog.dismiss();
+                        captchaHandler.cancelCaptcha();
+                        funnel.logSuccess();
+                        hideSoftKeyboard(CreateAccountActivity.this);
+                        Intent resultIntent = new Intent();
+                        resultIntent.putExtra("username", result.getUsername());
+                        resultIntent.putExtra("password", passwordEdit.getText().toString());
+                        setResult(RESULT_ACCOUNT_CREATED, resultIntent);
+                        finish();
+                    }
 
-            @Override
-            public RequestBuilder buildRequest(Api api) {
-                if (captchaHandler.isActive()) {
-                    return captchaHandler.populateBuilder(super.buildRequest(api));
-                }
-                return super.buildRequest(api);
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                L.d("Caught " + caught.toString());
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                FeedbackUtil.showError(CreateAccountActivity.this, caught);
-            }
-
-            @Override
-            public void onFinish(final CreateAccountResult result) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                createAccountResult = result;
-                if (result instanceof CreateAccountSuccessResult) {
-                    progressDialog.dismiss();
-                    captchaHandler.cancelCaptcha();
-                    funnel.logSuccess();
-                    hideSoftKeyboard(CreateAccountActivity.this);
-                    Intent resultIntent = new Intent();
-                    resultIntent.putExtra("username", ((CreateAccountSuccessResult) result).getUsername());
-                    resultIntent.putExtra("password", passwordEdit.getText().toString());
-                    setResult(RESULT_ACCOUNT_CREATED, resultIntent);
-                    finish();
-                } else {
-                    progressDialog.dismiss();
-                    captchaHandler.cancelCaptcha();
-                    handleError(result.getMessage());
-                }
-            }
-        }.execute();
+                    @Override
+                    public void failure(@NonNull Call<CreateAccountResponse> call, @NonNull Throwable caught) {
+                        L.e(caught.toString());
+                        if (!progressDialog.isShowing()) {
+                            // no longer attached to activity!
+                            return;
+                        }
+                        progressDialog.dismiss();
+                        FeedbackUtil.showError(CreateAccountActivity.this, caught);
+                    }
+                });
     }
 
     @Override
