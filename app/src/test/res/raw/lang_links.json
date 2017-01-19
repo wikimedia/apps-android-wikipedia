@@ -1,0 +1,26 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "pages": {
+      "13118744": {
+        "pageid": 13118744,
+        "ns": 0,
+        "title": "Scientology",
+        "langlinks": [
+          {
+            "lang": "af",
+            "*": "Sciëntologie"
+          },
+          {
+            "lang": "ar",
+            "*": "سينتولوجيا"
+          },
+          {
+            "lang": "arz",
+            "*": "سيينتولوجيا"
+          }
+        ]
+      }
+    }
+  }
+}
