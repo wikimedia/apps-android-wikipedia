@@ -1,0 +1,6 @@
+{
+  "createaccount": {
+    "status": "FAIL",
+    "message": "Username entered already in use.\nPlease choose a different name."
+  }
+}
