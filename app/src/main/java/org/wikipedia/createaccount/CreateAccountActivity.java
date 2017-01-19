@@ -27,11 +27,15 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 
 import java.util.List;
+
+import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
@@ -44,6 +48,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String LOGIN_SESSION_TOKEN = "login_session_token";
+
+    private CreateAccountInfoClient createAccountInfoClient;
 
     @NotEmpty
     private EditText usernameEdit;
@@ -60,16 +66,13 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     private TextView createAccountButton;
     private TextView createAccountButtonCaptcha;
-
     private ProgressDialog progressDialog;
-
     private CaptchaHandler captchaHandler;
 
     private CreateAccountResult createAccountResult;
-
     private Validator validator;
-
     private CreateAccountFunnel funnel;
+    private WikiSite wiki;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +94,9 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
+
+        wiki = WikipediaApp.getInstance().getWikiSite();
+        createAccountInfoClient = new CreateAccountInfoClient();
 
         captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getWikiSite(),
                 progressDialog, primaryContainer, getString(R.string.create_account_activity_title),
@@ -218,15 +224,10 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     }
 
     public void getCreateAccountInfo() {
-        new CreateAccountInfoTask() {
+        createAccountInfoClient.request(wiki, new CreateAccountInfoClient.Callback() {
             @Override
-            public void onCatch(Throwable caught) {
-                handleError(caught.getMessage());
-                L.e(caught);
-            }
-
-            @Override
-            public void onFinish(CreateAccountInfoResult result) {
+            public void success(@NonNull Call<MwQueryResponse<CreateAccountInfo>> call,
+                                @NonNull CreateAccountInfoResult result) {
                 if (result.token() == null) {
                     handleError(getString(R.string.create_account_generic_error));
                 } else if (result.hasCaptcha()) {
@@ -235,7 +236,14 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                     doCreateAccount(result.token());
                 }
             }
-        }.execute();
+
+            @Override
+            public void failure(@NonNull Call<MwQueryResponse<CreateAccountInfo>> call,
+                                @NonNull Throwable caught) {
+                handleError(caught.getMessage());
+                L.e(caught);
+            }
+        });
     }
 
     public void doCreateAccount(@NonNull String token) {
@@ -248,7 +256,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         String passwordRepeat = passwordInput.isPasswordVisible() ? password : passwordRepeatEdit.getText().toString();
 
         new CreateAccountTask(usernameEdit.getText().toString(), passwordEdit.getText().toString(),
-                              passwordRepeat, token, email) {
+                passwordRepeat, token, email) {
             @Override
             public void onBeforeExecute() {
                 progressDialog.show();
