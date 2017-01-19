@@ -18,6 +18,7 @@ import org.wikipedia.server.PageLeadProperties;
 import org.wikipedia.server.Protection;
 import org.wikipedia.util.log.L;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -223,10 +224,8 @@ public class MwPageLead implements PageLead {
             return disambiguation;
         }
 
-        @Override
-        @Nullable
-        public List<Section> getSections() {
-            return sections;
+        @Override @NonNull public List<Section> getSections() {
+            return sections == null ? Collections.<Section>emptyList() : sections;
         }
     }
 

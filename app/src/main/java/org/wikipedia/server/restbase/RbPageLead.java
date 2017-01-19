@@ -22,6 +22,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -211,10 +212,8 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         return disambiguation;
     }
 
-    @Override
-    @Nullable
-    public List<Section> getSections() {
-        return sections;
+    @Override @NonNull public List<Section> getSections() {
+        return sections == null ? Collections.<Section>emptyList() : sections;
     }
 
     public void setLeadImageThumbWidth(int leadImageThumbWidth) {
