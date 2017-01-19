@@ -1,0 +1,115 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "authmanagerinfo": {
+      "canauthenticatenow": "",
+      "cancreateaccounts": "",
+      "preservedusername": "",
+      "requests": [
+        {
+          "id": "CaptchaAuthenticationRequest",
+          "metadata": {
+            "type": "image",
+            "mime": "image/png"
+          },
+          "required": "required",
+          "provider": "CaptchaAuthenticationRequest",
+          "account": "CaptchaAuthenticationRequest",
+          "fields": {
+            "captchaId": {
+              "type": "hidden",
+              "value": "389780711",
+              "label": "CAPTCHA ID",
+              "help": "This value should be sent back unchanged."
+            },
+            "captchaInfo": {
+              "type": "null",
+              "value": "/w/index.php?title=Special:Captcha/image&wpCaptchaId=389780711",
+              "label": "To help protect against automated account creation, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):",
+              "help": "Description of the CAPTCHA."
+            },
+            "captchaWord": {
+              "type": "string",
+              "label": "CAPTCHA",
+              "help": "Solution of the CAPTCHA."
+            }
+          }
+        },
+        {
+          "id": "MediaWiki\\Auth\\PasswordAuthenticationRequest",
+          "metadata": {},
+          "required": "primary-required",
+          "provider": "Password-based authentication",
+          "account": "",
+          "fields": {
+            "username": {
+              "type": "string",
+              "label": "Username",
+              "help": "Username for authentication."
+            },
+            "password": {
+              "type": "password",
+              "label": "Password",
+              "help": "Password for authentication.",
+              "sensitive": ""
+            },
+            "retype": {
+              "type": "password",
+              "label": "Retype password:",
+              "help": "Password again to confirm.",
+              "sensitive": ""
+            }
+          }
+        },
+        {
+          "id": "CampaignsAuthenticationRequest",
+          "metadata": {},
+          "required": "optional",
+          "provider": "CampaignsAuthenticationRequest",
+          "account": "CampaignsAuthenticationRequest",
+          "fields": {
+            "campaign": {
+              "type": "hidden",
+              "value": "",
+              "label": "Campaign",
+              "help": "Identifies the campaign leading to an account creation.",
+              "optional": ""
+            }
+          }
+        },
+        {
+          "id": "MediaWiki\\Auth\\UsernameAuthenticationRequest",
+          "metadata": {},
+          "required": "required",
+          "provider": "MediaWiki\\Auth\\UsernameAuthenticationRequest",
+          "account": "MediaWiki\\Auth\\UsernameAuthenticationRequest",
+          "fields": {
+            "username": {
+              "type": "string",
+              "label": "Username",
+              "help": "Username for authentication."
+            }
+          }
+        },
+        {
+          "id": "MediaWiki\\Auth\\UserDataAuthenticationRequest",
+          "metadata": {},
+          "required": "required",
+          "provider": "MediaWiki\\Auth\\UserDataAuthenticationRequest",
+          "account": "MediaWiki\\Auth\\UserDataAuthenticationRequest",
+          "fields": {
+            "email": {
+              "type": "string",
+              "label": "Email",
+              "help": "Email address",
+              "optional": ""
+            }
+          }
+        }
+      ]
+    },
+    "tokens": {
+      "createaccounttoken": "0a696a98f61c08f0c9491cf15453e3a0587fa3b6+\\"
+    }
+  }
+}

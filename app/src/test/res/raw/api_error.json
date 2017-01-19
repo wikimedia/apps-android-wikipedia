@@ -1,0 +1,8 @@
+{
+  "error": {
+    "code": "unknown_action",
+    "info": "Unrecognized value for parameter \"action\": oscillate.",
+    "*": "See https://en.wikipedia.org/w/api.php for API usage."
+  },
+  "servedby": "mw1286"
+}
