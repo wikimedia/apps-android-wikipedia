@@ -23,7 +23,7 @@ import static org.mockito.Mockito.verify;
 
 public class WikitextClientTest extends MockWebServerTest {
     private WikitextClient subject = new WikitextClient();
-    private PageTitle title = new PageTitle(null, "TEST", new WikiSite("fake.wikipedia.org"));
+    private PageTitle title = new PageTitle(null, "TEST", WikiSite.forLanguageCode("test"));
 
     @Test public void testRequestSuccessHasResults() throws Throwable {
         String expected = "\\o/\n\ntest12\n\n3";

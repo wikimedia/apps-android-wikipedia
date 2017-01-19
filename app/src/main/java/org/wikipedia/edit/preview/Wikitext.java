@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.server.mwapi.MwApiResponsePage;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -24,6 +23,6 @@ public class Wikitext extends BaseModel {
                 || page.revisions().get(0) == null) {
             return null;
         }
-        return new ArrayList<>(page.revisions()).get(0).content();
+        return page.revisions().get(0).content();
     }
 }

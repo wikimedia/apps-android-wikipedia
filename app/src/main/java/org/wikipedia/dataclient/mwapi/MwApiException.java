@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.server.mwapi.MwServiceError;
 
 public class MwApiException extends RuntimeException {
-    @SuppressWarnings("unused") @NonNull private MwServiceError error;
+    @SuppressWarnings("unused") @NonNull private final MwServiceError error;
 
     public MwApiException(@NonNull MwServiceError error) {
         this.error = error;
