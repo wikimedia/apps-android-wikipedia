@@ -40,9 +40,7 @@ import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageCache;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -78,8 +76,6 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     @Nullable private PageTitle pageTitle;
-    @Nullable private Page page;
-    private boolean cacheOnLoad;
     @Nullable private WikiSite wiki;
 
     private ViewGroup toolbarContainer;
@@ -244,29 +240,7 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
             int age = getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0);
             loadGalleryItemFor(featuredImage, age);
         } else {
-            // find our Page in the page cache...
-            app.getPageCache().get(pageTitle, 0, new PageCache.CacheGetListener() {
-                @Override
-                public void onGetComplete(Page page, int sequence) {
-                    GalleryActivity.this.page = page;
-                    if (page != null && page.getGalleryCollection() != null
-                            && page.getGalleryCollection().getItemList().size() > 0) {
-                        applyGalleryCollection(page.getGalleryCollection());
-                        cacheOnLoad = false;
-                    } else {
-                        // fetch the gallery from the network...
-                        fetchGalleryCollection();
-                        cacheOnLoad = true;
-                    }
-                }
-
-                @Override
-                public void onGetError(Throwable e, int sequence) {
-                    L.e("Failed to get page from cache.", e);
-                    fetchGalleryCollection();
-                    cacheOnLoad = true;
-                }
-            });
+            fetchGalleryCollection();
         }
     }
 
@@ -461,11 +435,6 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
             @Override
             public void onGalleryResult(GalleryCollection result) {
                 updateProgressBar(false, true, 0);
-                // save it to our current page, for later use
-                if (cacheOnLoad && page != null) {
-                    page.setGalleryCollection(result);
-                    app.getPageCache().put(pageTitle, page);
-                }
                 applyGalleryCollection(result);
             }
             @Override

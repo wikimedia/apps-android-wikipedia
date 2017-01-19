@@ -377,7 +377,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
                 }
                 pageFragment.closeFindInPage();
                 if (position == TabPosition.CURRENT_TAB) {
-                    pageFragment.loadPage(title, entry, PageLoadStrategy.Cache.FALLBACK, true);
+                    pageFragment.loadPage(title, entry, true);
                 } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
                     pageFragment.openInNewBackgroundTabFromMenu(title, entry);
                 } else {

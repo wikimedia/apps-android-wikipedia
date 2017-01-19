@@ -557,7 +557,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void openInNewForegroundTabFromMenu(PageTitle title, HistoryEntry entry) {
         openInNewTabFromMenu(title, entry, getForegroundTabPosition());
-        loadPage(title, entry, PageLoadStrategy.Cache.FALLBACK, false);
+        loadPage(title, entry, true, false);
     }
 
     public void openInNewTabFromMenu(PageTitle title,
@@ -567,19 +567,18 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabFunnel.logOpenInNew(tabList.size());
     }
 
-    public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
-                         boolean pushBackStack) {
-        loadPage(title, entry, cachePreference, pushBackStack, 0);
+    public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack) {
+        loadPage(title, entry, pushBackStack, 0);
     }
 
-    public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
-                         boolean pushBackStack, int stagedScrollY) {
-        loadPage(title, entry, cachePreference, pushBackStack, stagedScrollY, false);
+    public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack,
+                         int stagedScrollY) {
+        loadPage(title, entry, pushBackStack, stagedScrollY, false);
     }
 
-    public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
-                         boolean pushBackStack, boolean pageRefreshed) {
-        loadPage(title, entry, cachePreference, pushBackStack, 0, pageRefreshed);
+    public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack,
+                         boolean pageRefreshed) {
+        loadPage(title, entry, pushBackStack, 0, pageRefreshed);
     }
 
     /**
@@ -589,11 +588,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      * request, etc.
      * @param title Title of the new page to load.
      * @param entry HistoryEntry associated with the new page.
-     * @param cachePreference Whether to try loading the page from cache or from network.
      * @param pushBackStack Whether to push the new page onto the backstack.
      */
-    public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
-                         boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
+    public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack,
+                         int stagedScrollY, boolean pageRefreshed) {
         // update the time spent reading of the current page, before loading the new one
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
@@ -613,7 +611,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         this.pageRefreshed = pageRefreshed;
 
         closePageScrollFunnel();
-        pageDataClient.load(pushBackStack, cachePreference, stagedScrollY);
+        pageDataClient.load(pushBackStack, stagedScrollY);
         updateBookmark();
     }
 
@@ -668,7 +666,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             pageDataClient.backFromEditing(data);
             FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
             // and reload the page...
-            loadPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false);
+            loadPage(model.getTitleOriginal(), model.getCurEntry(), false);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL
                 && resultCode == RESULT_OK) {
             PrefsOnboardingStateMachine.getInstance().setDescriptionEditTutorial();
@@ -919,7 +917,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorState = false;
 
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
-        loadPage(model.getTitle(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false, true);
+        loadPage(model.getTitle(), model.getCurEntry(), false, true);
     }
 
     private ToCHandler tocHandler;
