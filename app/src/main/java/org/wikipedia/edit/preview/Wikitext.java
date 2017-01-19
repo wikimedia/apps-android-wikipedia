@@ -1,8 +1,7 @@
 package org.wikipedia.edit.preview;
 
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
-import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.server.mwapi.MwApiResponsePage;
 
@@ -11,18 +10,20 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Wikitext extends BaseModel {
-    @SuppressWarnings("unused,NullableProblems") @NonNull @Required private Query query;
-    @NonNull protected String wikitext() {
-        return query.wikitext();
-    }
+    @SuppressWarnings("unused,NullableProblems,MismatchedQueryAndUpdateOfCollection") @Nullable
+    private Map<String, MwApiResponsePage> pages;
 
-    private static class Query {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private Map<String, MwApiResponsePage> pages;
-        @NonNull String wikitext() {
-            Iterator<Map.Entry<String, MwApiResponsePage>> i = pages.entrySet().iterator();
-            MwApiResponsePage page = i.next().getValue();
-            ArrayList<MwApiResponsePage.Revision> revisions =  new ArrayList<>(page.revisions());
-            return revisions.get(0).content();
+    @Nullable String wikitext() {
+        if (pages == null) {
+            return null;
         }
+        Iterator<Map.Entry<String, MwApiResponsePage>> i = pages.entrySet().iterator();
+        MwApiResponsePage page = i.next().getValue();
+        if (page == null
+                || page.revisions() == null
+                || page.revisions().get(0) == null) {
+            return null;
+        }
+        return new ArrayList<>(page.revisions()).get(0).content();
     }
 }
