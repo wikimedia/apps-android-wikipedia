@@ -50,8 +50,9 @@ public class NearbyUnitTest {
     }
 
     @Test public void testSortWithNullLocations() throws Throwable {
-        nearbyPages.add(new NearbyPage("d"));
-        nearbyPages.add(new NearbyPage("e"));
+        final Location location = null;
+        nearbyPages.add(new NearbyPage("d", location));
+        nearbyPages.add(new NearbyPage("e", location));
         calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
         assertThat("a", is(nearbyPages.get(0).getTitle()));
@@ -63,7 +64,8 @@ public class NearbyUnitTest {
     }
 
     @Test public void testCompare() throws Throwable {
-        NearbyPage nullLocPage = new NearbyPage("nowhere");
+        final Location location = null;
+        NearbyPage nullLocPage = new NearbyPage("nowhere", location);
 
         calcDistances(nearbyPages);
         nullLocPage.setDistance(getDistance(nullLocPage.getLocation()));

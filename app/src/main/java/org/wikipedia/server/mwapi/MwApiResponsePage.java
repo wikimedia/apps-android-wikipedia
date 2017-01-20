@@ -2,14 +2,11 @@ package org.wikipedia.server.mwapi;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,7 +19,6 @@ public class MwApiResponsePage extends BaseModel {
     @SuppressWarnings("unused") @Nullable private List<LangLink> langlinks;
     @SuppressWarnings("unused") @Nullable private List<Revision> revisions;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
-    @SuppressWarnings("unused") @Nullable private List<Coordinates> coordinates;
     @SuppressWarnings("unused") @Nullable private Terms terms;
 
     @NonNull public String title() {
@@ -43,38 +39,6 @@ public class MwApiResponsePage extends BaseModel {
 
     @Nullable public String description() {
         return terms != null && terms.description() != null ? terms.description().get(0) : null;
-    }
-
-    @Nullable public List<Coordinates> coordinates() {
-        // TODO: Handle null values in lists during deserialization, perhaps with a new
-        // @RequiredElements annotation and corresponding TypeAdapter
-        if (coordinates != null && coordinates.contains(null)) {
-            coordinates.removeAll(Collections.singleton(null));
-        }
-        return coordinates;
-    }
-
-    @VisibleForTesting public void setTitle(@NonNull String title) {
-        this.title = title;
-    }
-
-    public static class Coordinates {
-        // Use Double object type rather than primitive type so that the presence of the fields can
-        // be checked correctly by the RequiredFieldsCheckOnReadTypeAdapter.
-        @SuppressWarnings("unused") @Required @NonNull private Double lat;
-        @SuppressWarnings("unused") @Required @NonNull private Double lon;
-
-        public Coordinates(double lat, double lon) {
-            this.lat = lat;
-            this.lon = lon;
-        }
-
-        public double lat() {
-            return lat;
-        }
-        public double lon() {
-            return lon;
-        }
     }
 
     public static class Revision {
