@@ -128,9 +128,12 @@ public class CaptchaHandler {
         handleCaptcha(false);
     }
 
-    private void handleCaptcha(final boolean isReload) {
+    private void handleCaptcha(boolean isReload) {
         if (captchaResult == null) {
             return;
+        }
+        if (!isReload) {
+            ViewAnimations.crossFade(primaryView, captchaContainer);
         }
         captchaImage.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(captchaResult.getCaptchaUrl(wiki))
@@ -159,9 +162,6 @@ public class CaptchaHandler {
 
                         // In case there was a captcha attempt before
                         captchaText.setText("");
-                        if (!isReload) {
-                            ViewAnimations.crossFade(primaryView, captchaContainer);
-                        }
                     }
                 })
                 .build());
