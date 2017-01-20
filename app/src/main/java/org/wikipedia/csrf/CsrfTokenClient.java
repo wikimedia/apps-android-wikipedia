@@ -1,4 +1,4 @@
-package org.wikipedia.edit.token;
+package org.wikipedia.csrf;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
@@ -11,20 +11,20 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
 
-public class EditTokenClient {
+public class CsrfTokenClient {
     @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
-    @NonNull public Call<EditToken> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
+    @NonNull public Call<CsrfToken> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
         Service service = cachedService.service(wiki);
         return request(service, cb);
     }
 
-    @VisibleForTesting @NonNull Call<EditToken> request(@NonNull Service service,
+    @VisibleForTesting @NonNull Call<CsrfToken> request(@NonNull Service service,
                                                         @NonNull final Callback cb) {
-        Call<EditToken> call = service.editToken();
-        call.enqueue(new retrofit2.Callback<EditToken>() {
+        Call<CsrfToken> call = service.request();
+        call.enqueue(new retrofit2.Callback<CsrfToken>() {
             @Override
-            public void onResponse(Call<EditToken> call, Response<EditToken> response) {
+            public void onResponse(Call<CsrfToken> call, Response<CsrfToken> response) {
                 if (response.isSuccessful()) {
                     cb.success(call, response.body().token());
                 } else {
@@ -33,7 +33,7 @@ public class EditTokenClient {
             }
 
             @Override
-            public void onFailure(Call<EditToken> call, Throwable t) {
+            public void onFailure(Call<CsrfToken> call, Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -41,12 +41,12 @@ public class EditTokenClient {
     }
 
     public interface Callback {
-        void success(@NonNull Call<EditToken> call, @NonNull String token);
-        void failure(@NonNull Call<EditToken> call, @NonNull Throwable caught);
+        void success(@NonNull Call<CsrfToken> call, @NonNull String token);
+        void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable caught);
     }
 
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&meta=tokens&type=csrf")
-        Call<EditToken> editToken();
+        Call<CsrfToken> request();
     }
 }

@@ -1,4 +1,4 @@
-package org.wikipedia.edit.token;
+package org.wikipedia.csrf;
 
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 import retrofit2.Call;
 
-public class EditTokenStorage {
+public class CsrfTokenStorage {
     private static final String DELIMITER = ";";
 
     private final Map<String, String> tokenJar = new HashMap<>();
@@ -25,7 +25,7 @@ public class EditTokenStorage {
         void onTokenFailed(Throwable caught);
     }
 
-    public EditTokenStorage() {
+    public CsrfTokenStorage() {
         List<String> wikis = makeList(Prefs.getEditTokenWikis());
         for (String wiki : wikis) {
             tokenJar.put(wiki, Prefs.getEditTokenForWiki(wiki));
@@ -49,15 +49,15 @@ public class EditTokenStorage {
             return;
         }
 
-        new EditTokenClient().request(wiki, new EditTokenClient.Callback() {
+        new CsrfTokenClient().request(wiki, new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<EditToken> call, @NonNull String token) {
+            public void success(@NonNull Call<CsrfToken> call, @NonNull String token) {
                 token(wiki, token);
                 callback.onTokenRetrieved(token);
             }
 
             @Override
-            public void failure(@NonNull Call<EditToken> call, @NonNull Throwable caught) {
+            public void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable caught) {
                 callback.onTokenFailed(caught);
             }
         });

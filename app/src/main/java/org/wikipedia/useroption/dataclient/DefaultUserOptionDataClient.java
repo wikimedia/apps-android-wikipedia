@@ -6,12 +6,12 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.csrf.CsrfToken;
+import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
-import org.wikipedia.edit.token.EditToken;
-import org.wikipedia.edit.token.EditTokenClient;
 import org.wikipedia.server.ServiceError;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.util.log.L;
@@ -69,11 +69,11 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     }
 
     @NonNull private String getToken() throws IOException {
-        if (app().getEditTokenStorage().token(wiki) == null) {
+        if (app().getCsrfTokenStorage().token(wiki) == null) {
             requestToken();
         }
 
-        String token = app().getEditTokenStorage().token(wiki);
+        String token = app().getCsrfTokenStorage().token(wiki);
         if (token == null) {
             throw new IOException("No token for " + wiki.authority());
         }
@@ -81,14 +81,14 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     }
 
     private void requestToken() {
-        new EditTokenClient().request(wiki, new EditTokenClient.Callback() {
+        new CsrfTokenClient().request(wiki, new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<EditToken> call, @NonNull String token) {
-                app().getEditTokenStorage().token(wiki, token);
+            public void success(@NonNull Call<CsrfToken> call, @NonNull String token) {
+                app().getCsrfTokenStorage().token(wiki, token);
             }
 
             @Override
-            public void failure(@NonNull Call<EditToken> call, @NonNull Throwable caught) {
+            public void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable caught) {
                 // Don't worry about it; will be retried next time.
                 L.w(caught);
             }
@@ -127,7 +127,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         public void check(@NonNull WikiSite wiki) throws IOException {
             if (!success(options)) {
                 if (badToken()) {
-                    app().getEditTokenStorage().token(wiki, null);
+                    app().getCsrfTokenStorage().token(wiki, null);
                 }
 
                 throw new IOException("Bad response for wiki " + wiki.host() + " = " + result());

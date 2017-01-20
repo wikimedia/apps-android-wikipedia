@@ -7,8 +7,8 @@ import android.support.test.filters.SmallTest;
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.csrf.CsrfTokenStorage;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.edit.token.EditTokenStorage;
 import org.wikipedia.testlib.TestLatch;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
@@ -39,7 +39,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
                             public void success(@NonNull LoginResult result) {
                                 completionLatch.countDown();
                                 assertThat(result.getStatus(), equalTo("PASS"));
-                                WikipediaApp.getInstance().getEditTokenStorage().get(TEST_WIKI, callback);
+                                WikipediaApp.getInstance().getCsrfTokenStorage().get(TEST_WIKI, callback);
                             }
 
                             @Override
@@ -52,7 +52,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         completionLatch.await();
     }
 
-    private EditTokenStorage.TokenRetrievedCallback callback = new EditTokenStorage.TokenRetrievedCallback() {
+    private CsrfTokenStorage.TokenRetrievedCallback callback = new CsrfTokenStorage.TokenRetrievedCallback() {
         @Override
         public void onTokenRetrieved(String token) {
             assertThat(token.equals("+\\"), is(false));

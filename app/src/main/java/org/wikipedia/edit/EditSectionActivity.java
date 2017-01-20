@@ -35,14 +35,14 @@ import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
+import org.wikipedia.csrf.CsrfToken;
+import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.edit.preview.EditPreviewFragment;
 import org.wikipedia.edit.preview.Wikitext;
 import org.wikipedia.edit.preview.WikitextClient;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.edit.summaries.EditSummaryFragment;
-import org.wikipedia.edit.token.EditToken;
-import org.wikipedia.edit.token.EditTokenClient;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
@@ -275,9 +275,9 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private void doSave() {
         captchaHandler.hideCaptcha();
         editSummaryFragment.saveSummary();
-        new EditTokenClient().request(title.getWikiSite(), new EditTokenClient.Callback() {
+        new CsrfTokenClient().request(title.getWikiSite(), new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<EditToken> call, @NonNull String token) {
+            public void success(@NonNull Call<CsrfToken> call, @NonNull String token) {
                 String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
                 // Summaries are plaintext, so remove any HTML that's made its way into the summary
@@ -355,7 +355,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             }
 
             @Override
-            public void failure(@NonNull Call<EditToken> call, @NonNull Throwable caught) {
+            public void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable caught) {
                 // This is a simple, static API call and an API error is highly unlikely.
                 // In the event of failure, it's likely a network issue.
                 FeedbackUtil.showError(EditSectionActivity.this, caught);
@@ -386,7 +386,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private void retry() {
         // looks like our session expired.
-        app.getEditTokenStorage().clearAllTokens();
+        app.getCsrfTokenStorage().clearAllTokens();
         app.getCookieManager().clearAllCookies();
 
         User user = User.getUser();

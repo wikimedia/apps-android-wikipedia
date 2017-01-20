@@ -1,14 +1,15 @@
-package org.wikipedia.edit.token;
+package org.wikipedia.csrf;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.model.BaseModel;
 
-public class EditToken extends BaseModel {
+public class CsrfToken extends BaseModel {
     @SuppressWarnings("unused,NullableProblems") @NonNull private Query query;
 
-    @VisibleForTesting EditToken(String token) {
+    @VisibleForTesting
+    CsrfToken(String token) {
         Tokens tokens = new Tokens(token);
         this.query = new Query(tokens);
     }

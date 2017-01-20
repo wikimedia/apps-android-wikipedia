@@ -6,11 +6,11 @@ import android.text.TextUtils;
 
 import com.google.gson.JsonParseException;
 
+import org.wikipedia.csrf.CsrfToken;
+import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
-import org.wikipedia.edit.token.EditToken;
-import org.wikipedia.edit.token.EditTokenClient;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
@@ -26,7 +26,7 @@ import retrofit2.http.Query;
 public final class NotificationClient {
     @NonNull private final WikiSite wiki;
     @NonNull private final Service service;
-    @NonNull private final EditTokenClient editTokenClient;
+    @NonNull private final CsrfTokenClient editTokenClient;
 
     public interface Callback {
         void success(@NonNull List<Notification> notifications);
@@ -43,7 +43,7 @@ public final class NotificationClient {
     private NotificationClient(@NonNull WikiSite wiki) {
         this.wiki = wiki;
         service = RetrofitFactory.newInstance(wiki).create(Service.class);
-        editTokenClient = new EditTokenClient();
+        editTokenClient = new CsrfTokenClient();
     }
 
     @VisibleForTesting
@@ -82,9 +82,9 @@ public final class NotificationClient {
 
     public void markRead(List<Notification> notifications) {
         final String idListStr = TextUtils.join("|", notifications);
-        editTokenClient.request(wiki, new EditTokenClient.Callback() {
+        editTokenClient.request(wiki, new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<EditToken> call, @NonNull String token) {
+            public void success(@NonNull Call<CsrfToken> call, @NonNull String token) {
                 requestMarkRead(service, token, idListStr).enqueue(new retrofit2.Callback<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>>() {
                     @Override
                     public void onResponse(Call<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> call, Response<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> response) {
@@ -99,7 +99,7 @@ public final class NotificationClient {
             }
 
             @Override
-            public void failure(@NonNull Call<EditToken> call, @NonNull Throwable t) {
+            public void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable t) {
                 L.e(t);
             }
         });

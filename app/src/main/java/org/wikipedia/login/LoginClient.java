@@ -43,7 +43,7 @@ public class LoginClient {
         cancel();
 
         // HACK: T124384
-        WikipediaApp.getInstance().getEditTokenStorage().clearAllTokens();
+        WikipediaApp.getInstance().getCsrfTokenStorage().clearAllTokens();
 
         tokenCall = cachedService.service(wiki).requestLoginToken();
         tokenCall.enqueue(new Callback<MwQueryResponse<LoginToken>>() {

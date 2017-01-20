@@ -14,9 +14,9 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.csrf.CsrfToken;
+import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.edit.token.EditToken;
-import org.wikipedia.edit.token.EditTokenClient;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient;
@@ -49,7 +49,7 @@ public class DescriptionEditFragment extends Fragment {
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
-    @Nullable private Call<EditToken> editTokenCall;
+    @Nullable private Call<CsrfToken> editTokenCall;
     @Nullable private Call<DescriptionEdit> descriptionEditCall;
 
     private Runnable successRunnable = new Runnable() {
@@ -157,14 +157,14 @@ public class DescriptionEditFragment extends Fragment {
 
         /** fetch edit token from Wikidata */
         private void requestEditToken() {
-            editTokenCall = new EditTokenClient().request(wikiData,
-                    new EditTokenClient.Callback() {
-                        @Override public void success(@NonNull Call<EditToken> call,
+            editTokenCall = new CsrfTokenClient().request(wikiData,
+                    new CsrfTokenClient.Callback() {
+                        @Override public void success(@NonNull Call<CsrfToken> call,
                                                       @NonNull String editToken) {
                             postDescription(editToken);
                         }
 
-                        @Override public void failure(@NonNull Call<EditToken> call,
+                        @Override public void failure(@NonNull Call<CsrfToken> call,
                                                       @NonNull Throwable caught) {
                             L.w("could not get edit token: ", caught);
                             if (retries < MAX_RETRIES && User.getUser() != null) {
@@ -192,7 +192,7 @@ public class DescriptionEditFragment extends Fragment {
          */
         private void refreshLoginTokens(User user, @NonNull RetryCallback retryCallback) {
             WikipediaApp app = WikipediaApp.getInstance();
-            app.getEditTokenStorage().clearAllTokens();
+            app.getCsrfTokenStorage().clearAllTokens();
             app.getCookieManager().clearAllCookies();
 
             login(user, retryCallback);
