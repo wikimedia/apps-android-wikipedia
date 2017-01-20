@@ -13,11 +13,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.server.PageLeadProperties;
-import org.wikipedia.util.StringUtil;
 
 import java.text.ParseException;
 import java.util.Date;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DateUtil.getIso8601DateFormat;
 
 /**
@@ -58,7 +58,7 @@ public class PageProperties implements Parcelable {
         pageId = core.getId();
         namespace = core.getNamespace(wiki);
         revisionId = core.getRevision();
-        displayTitleText = StringUtil.emptyIfNull(core.getDisplayTitle());
+        displayTitleText = defaultString(core.getDisplayTitle());
         titlePronunciationUrl = core.getTitlePronunciationUrl();
         geo = core.getGeo();
         editProtectionStatus = core.getFirstAllowedEditorRole();

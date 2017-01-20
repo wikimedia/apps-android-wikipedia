@@ -21,7 +21,7 @@ import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.views.AppTextView;
 
-import static org.wikipedia.util.StringUtil.emptyIfNull;
+import static org.apache.commons.lang3.StringUtils.defaultIfEmpty;
 
 @SmallTest public class LeadingSpanTest extends ViewTest {
     private TextView textView;
@@ -70,7 +70,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         int flags = text == null
                 ? Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 : Spannable.SPAN_INCLUSIVE_EXCLUSIVE;
-        Spannable spannable = new SpannableString(emptyIfNull(text));
+        Spannable spannable = new SpannableString(defaultIfEmpty(text, ""));
         spannable.setSpan(new LeadingSpan(leadingScalar), 0, spannable.length(), flags);
         return spannable;
     }

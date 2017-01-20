@@ -24,7 +24,7 @@ import org.wikipedia.language.AppLanguageState;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.wikipedia.util.StringUtil.emptyIfNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 public class LanguagePreferenceDialog extends AppCompatDialog {
     private ListView languagesList;
@@ -141,8 +141,8 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
             this.languageCodes.clear();
             filter = filter.toLowerCase();
             for (String code : originalLanguageCodes) {
-                String localizedName = emptyIfNull(app.getAppLanguageLocalizedName(code));
-                String canonicalName = emptyIfNull(app.getAppLanguageCanonicalName(code));
+                String localizedName = defaultString(app.getAppLanguageLocalizedName(code));
+                String canonicalName = defaultString(app.getAppLanguageCanonicalName(code));
                 if (code != null && code.contains(filter)
                         || localizedName.toLowerCase().contains(filter)
                         || canonicalName.toLowerCase().contains(filter)) {

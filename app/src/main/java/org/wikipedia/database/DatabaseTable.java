@@ -9,10 +9,9 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.util.log.L;
-
-import static org.wikipedia.util.StringUtil.removeNulls;
 
 public abstract class DatabaseTable<T> {
     protected static final int INITIAL_DB_VERSION = 1;
@@ -68,7 +67,7 @@ public abstract class DatabaseTable<T> {
      * replaced with "IS NULL" in getPrimaryKeySelection(T obj, String[] selectionKeys).)
      */
     public String[] getPrimaryKeySelectionArgs(@NonNull T obj) {
-        return removeNulls(getUnfilteredPrimaryKeySelectionArgs(obj));
+        return ArrayUtils.removeAllOccurences(getUnfilteredPrimaryKeySelectionArgs(obj), null);
     }
 
     /**

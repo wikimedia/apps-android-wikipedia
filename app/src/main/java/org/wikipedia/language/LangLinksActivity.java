@@ -36,8 +36,8 @@ import java.util.Locale;
 
 import retrofit2.Call;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class LangLinksActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
@@ -243,8 +243,8 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             filter = filter.toLowerCase();
             for (PageTitle entry : originalLanguageEntries) {
                 String languageCode = entry.getWikiSite().languageCode();
-                String canonicalName = emptyIfNull(app.getAppLanguageCanonicalName(languageCode));
-                String localizedName = emptyIfNull(app.getAppLanguageLocalizedName(languageCode));
+                String canonicalName = defaultString(app.getAppLanguageCanonicalName(languageCode));
+                String localizedName = defaultString(app.getAppLanguageLocalizedName(languageCode));
                 if (canonicalName.toLowerCase().contains(filter)
                         || localizedName.toLowerCase().contains(filter)) {
                     languageEntries.add(entry);

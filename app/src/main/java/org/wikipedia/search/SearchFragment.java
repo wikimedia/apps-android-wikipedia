@@ -34,13 +34,14 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public class SearchFragment extends Fragment implements BackPressedHandler,
         SearchResultsFragment.Callback, RecentSearchesFragment.Parent {
@@ -315,7 +316,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
         query = term;
 
-        if (StringUtil.isBlank(term) && !force) {
+        if (isBlank(term) && !force) {
             return;
         }
 

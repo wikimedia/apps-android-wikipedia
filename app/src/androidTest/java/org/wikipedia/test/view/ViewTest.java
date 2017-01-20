@@ -32,10 +32,10 @@ import java.util.Locale;
 
 import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static butterknife.ButterKnife.findById;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 @RunWith(Theories.class) public abstract class ViewTest {
     @SuppressWarnings("WeakerAccess")
@@ -138,7 +138,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
 
     protected void assertText(@NonNull View subject, @IdRes int id, @StringRes int text) {
         TextView textView = findById(subject, id);
-        assertThat(textView.getText().toString(), is(emptyIfNull(str(text))));
+        assertThat(textView.getText().toString(), is(defaultString(str(text))));
     }
 
     @Nullable protected Uri frescoUri(@DrawableRes int id) {

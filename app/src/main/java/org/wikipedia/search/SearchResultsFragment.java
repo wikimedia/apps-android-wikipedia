@@ -37,6 +37,8 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 public class SearchResultsFragment extends Fragment {
     public interface Callback {
         void onSearchResultCopyLink(@NonNull PageTitle title);
@@ -166,7 +168,7 @@ public class SearchResultsFragment extends Fragment {
         cancelSearchTask();
         currentSearchTerm = term;
 
-        if (StringUtil.isBlank(term)) {
+        if (isBlank(term)) {
             clearResults();
             return;
         }

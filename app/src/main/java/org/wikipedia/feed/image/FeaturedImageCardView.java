@@ -13,13 +13,14 @@ import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.richtext.RichTextUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
@@ -44,7 +45,7 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         super.setCard(card);
         // TODO: superimpose text onto image thumb
         image(card.image());
-        description(StringUtil.defaultIfNull(card.description(), ""));  //Can check language before doing this if we want
+        description(defaultString(card.description()));  //Can check language before doing this if we want
         header(card);
         footer();
         onClickListener(new CardClickListener());

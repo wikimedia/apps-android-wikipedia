@@ -16,13 +16,13 @@ import org.wikipedia.test.view.TestStr;
 import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.wikipedia.descriptions.DescriptionEditView.Callback;
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 @SmallTest public class DescriptionEditViewTest extends ViewTest {
     private DescriptionEditView subject;
@@ -88,21 +88,21 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         defaultSetUp();
         String expected = nul ? null : "text";
         subject.setDescription(expected);
-        assertThat(subject.getDescription(), is(emptyIfNull(expected)));
+        assertThat(subject.getDescription(), is(defaultString(expected)));
     }
 
     @Theory public void testSetTitle(@TestedOnBool boolean nul) {
         defaultSetUp();
         String expected = nul ? null : "text";
         subject.setTitle(expected);
-        assertThat(subject.pageTitleText.getText().toString(), is(emptyIfNull(expected)));
+        assertThat(subject.pageTitleText.getText().toString(), is(defaultString(expected)));
     }
 
     @Theory public void testSetDescription(@TestedOnBool boolean nul) {
         defaultSetUp();
         String expected = nul ? null : "text";
         subject.setDescription(expected);
-        assertThat(subject.pageDescriptionText.getText().toString(), is(emptyIfNull(expected)));
+        assertThat(subject.pageDescriptionText.getText().toString(), is(defaultString(expected)));
     }
 
     private void defaultSetUp() {

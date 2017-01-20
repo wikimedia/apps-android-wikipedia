@@ -27,7 +27,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.net.URL;
@@ -36,6 +35,7 @@ import okhttp3.Headers;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class WikipediaZeroHandler implements OnHeaderCheckListener {
@@ -98,9 +98,9 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         final Uri customPartnerInfoUrl = zeroConfig.getPartnerInfoUrl();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
-        alert.setTitle(!(StringUtil.emptyIfNull(customExitTitle).equals("")) ? customExitTitle
+        alert.setTitle(!(defaultString(customExitTitle).equals("")) ? customExitTitle
                 : context.getString(R.string.zero_interstitial_title));
-        alert.setMessage(!(StringUtil.emptyIfNull(customExitWarning).equals("")) ? customExitWarning
+        alert.setMessage(!(defaultString(customExitWarning).equals("")) ? customExitWarning
                 : context.getString(R.string.zero_interstitial_leave_app));
         alert.setPositiveButton(context.getString(R.string.zero_interstitial_continue),
                 new DialogInterface.OnClickListener() {
@@ -222,7 +222,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
                         zeroConfig = config;
                         zeroEnabled = true;
                         zeroFunnel = new WikipediaZeroUsageFunnel(app, zeroCarrierString,
-                                StringUtil.emptyIfNull(zeroCarrierMetaString));
+                                defaultString(zeroCarrierMetaString));
                         app.getBus().post(new WikipediaZeroEnterEvent());
                         if (zeroConfig.hashCode() != Prefs.zeroConfigHashCode()) {
                             notifyEnterZeroNetwork(app, zeroConfig);

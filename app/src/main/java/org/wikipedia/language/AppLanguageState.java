@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
@@ -12,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import static org.wikipedia.util.StringUtil.defaultIfNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /** Language lookup and state management for the application language and most recently used article
  * and application languages. */
@@ -59,7 +60,7 @@ public class AppLanguageState {
     }
 
     public boolean isSystemLanguageCode(@Nullable String code) {
-        return StringUtil.equals(code, SYSTEM_LANGUAGE_CODE);
+        return StringUtils.equals(code, SYSTEM_LANGUAGE_CODE);
     }
 
     @NonNull
@@ -119,7 +120,7 @@ public class AppLanguageState {
         // Null value is used to indicate that system language should be used.
         String systemLanguageCodeString = String.valueOf(SYSTEM_LANGUAGE_CODE);
 
-        String csv = defaultIfNull(Prefs.getMruLanguageCodeCsv(), systemLanguageCodeString);
+        String csv = defaultString(Prefs.getMruLanguageCodeCsv(), systemLanguageCodeString);
 
         List<String> list = new ArrayList<>(StringUtil.csvToList(csv));
 

@@ -9,7 +9,8 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.StringUtil;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /** UI code for app settings used by PreferenceFragment. */
 public class SettingsPreferenceLoader extends BasePreferenceLoader {
@@ -49,7 +50,7 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
                 langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
-                        String name = StringUtil.emptyIfNull(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
+                        String name = defaultString(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
                         if (!findPreference(R.string.preference_key_language).getSummary().equals(name)) {
                             findPreference(R.string.preference_key_language).setSummary(name);
                             getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);

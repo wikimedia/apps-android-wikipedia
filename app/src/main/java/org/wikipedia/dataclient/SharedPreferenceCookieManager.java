@@ -2,6 +2,7 @@ package org.wikipedia.dataclient;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.login.User;
 import org.wikipedia.settings.Prefs;
@@ -179,6 +180,6 @@ public final class SharedPreferenceCookieManager extends CookieManager {
     }
 
     private String makeString(@NonNull Iterable<String> list) {
-        return StringUtil.listToDelimitedString(list, DELIMITER);
+        return TextUtils.join(DELIMITER, list);
     }
 }

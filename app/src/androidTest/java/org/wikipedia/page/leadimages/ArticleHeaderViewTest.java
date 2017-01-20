@@ -27,6 +27,7 @@ import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.views.FaceAndColorDetectImageView.OnImageLoadListener;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfEmpty;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
@@ -36,7 +37,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 @SmallTest public class ArticleHeaderViewTest extends ViewTest {
     private ArticleHeaderView subject;
@@ -210,14 +210,14 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         setUpTypical();
         CharSequence text = nul ? null : "text";
         setTitle(text);
-        assertThat(subject.title, is(emptyIfNull(text)));
+        assertThat(subject.title, is(defaultIfEmpty(text, "")));
     }
 
     @Theory public void testSetSubtitle(@TestedOnBool boolean nul) {
         setUpTypical();
         CharSequence text = nul ? null : "text";
         setSubtitle(text);
-        assertThat(subject.subtitle, is(emptyIfNull(text)));
+        assertThat(subject.subtitle, is(defaultIfEmpty(text, "")));
     }
 
     @Theory public void testHasSubtitle(@TestedOnBool boolean nul) {

@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.wikipedia.util.StringUtil.emptyIfNull;
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 public final class ShareUtil {
     public static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
@@ -226,7 +226,7 @@ public final class ShareUtil {
     private static boolean isIntentActivityBlacklisted(@Nullable ResolveInfo intentActivity,
                                                        @Nullable String packageNameBlacklistRegex) {
         return intentActivity != null
-                && getPackageName(intentActivity).matches(emptyIfNull(packageNameBlacklistRegex));
+                && getPackageName(intentActivity).matches(defaultString(packageNameBlacklistRegex));
     }
 
     private static LabeledIntent buildLabeledIntent(Intent intent, ResolveInfo intentActivity) {
