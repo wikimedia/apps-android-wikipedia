@@ -1,0 +1,8 @@
+{
+  "batchcomplete": "",
+  "warnings": {
+    "pageimages": {
+      "*": "\"pilimit\" may not be over 50 (set to 100) for users."
+    }
+  }
+}
