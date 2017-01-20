@@ -7,7 +7,7 @@ import android.support.annotation.VisibleForTesting;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.page.gallery.GalleryCollection;
+import org.wikipedia.gallery.GalleryCollection;
 import org.wikipedia.settings.RbSwitch;
 
 import java.util.ArrayList;

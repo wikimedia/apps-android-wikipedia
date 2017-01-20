@@ -89,7 +89,7 @@
                 android:textIsSelectable="true"
                 tools:text="Lorem ipsum"/>
 
-            <org.wikipedia.page.gallery.GalleryThumbnailScrollView
+            <org.wikipedia.gallery.GalleryThumbnailScrollView
                 android:id="@+id/link_preview_thumbnail_gallery"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/linkPreviewImageSize"
