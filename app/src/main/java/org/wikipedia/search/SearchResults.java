@@ -4,8 +4,8 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.MwApiResultPage;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.server.mwapi.MwApiResponsePage;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
@@ -32,10 +32,10 @@ public class SearchResults {
     /**
      * Constructor for a list of Retrofit results from BecauseYouReadTask.
      */
-    public SearchResults(List<MwApiResultPage> pages, WikiSite wiki) {
+    public SearchResults(List<MwApiResponsePage> pages, WikiSite wiki) {
         List<SearchResult> searchResults = new ArrayList<>();
-        for (MwApiResultPage page : pages) {
-            searchResults.add(page.toSearchResult(wiki));
+        for (MwApiResponsePage page : pages) {
+            searchResults.add(new SearchResult(page, wiki));
         }
         this.results = searchResults;
         this.continueOffset = null;
