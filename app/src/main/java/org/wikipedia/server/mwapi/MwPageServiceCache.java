@@ -8,38 +8,39 @@ import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 
 import retrofit2.Retrofit;
 
+// todo: can this class be replaced by WikiCachedService?
 /**
  * It's good to cache the Retrofit web service since it's a memory intensive object.
  * Keep the same instance around as long as we're dealing with the same domain.
  */
-public final class MwPageEndpointsCache {
-    public static final MwPageEndpointsCache INSTANCE = new MwPageEndpointsCache();
+public final class MwPageServiceCache {
+    public static final MwPageServiceCache INSTANCE = new MwPageServiceCache();
 
     @Nullable private WikiSite wiki;
-    private MwPageService.MwPageEndpoints cachedWebService;
+    private MwPageService.Service service;
 
     public static Retrofit retrofit(@NonNull WikiSite wiki) {
         return RetrofitFactory.newInstance(wiki);
     }
 
-    private MwPageEndpointsCache() {
+    private MwPageServiceCache() {
     }
 
-    public MwPageService.MwPageEndpoints getMwPageEndpoints(WikiSite newWikiSite) {
+    public MwPageService.Service getService(WikiSite newWikiSite) {
         if (!newWikiSite.equals(wiki)) {
-            cachedWebService = createMwService(newWikiSite);
+            service = createService(newWikiSite);
             wiki = newWikiSite;
         }
-        return cachedWebService;
+        return service;
     }
 
     public void update() {
         if (wiki != null) {
-            cachedWebService = createMwService(wiki);
+            service = createService(wiki);
         }
     }
 
-    private MwPageService.MwPageEndpoints createMwService(WikiSite wiki) {
-        return retrofit(wiki).create(MwPageService.MwPageEndpoints.class);
+    private MwPageService.Service createService(WikiSite wiki) {
+        return retrofit(wiki).create(MwPageService.Service.class);
     }
 }

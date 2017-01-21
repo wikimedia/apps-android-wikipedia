@@ -14,11 +14,11 @@ import retrofit2.Retrofit;
  * It's good to cache the Retrofit web service since it's a memory intensive object.
  * Keep the same instance around as long as we're dealing with the same domain.
  */
-public final class RbPageEndpointsCache {
-    public static final RbPageEndpointsCache INSTANCE = new RbPageEndpointsCache();
+public final class RbPageServiceCache {
+    public static final RbPageServiceCache INSTANCE = new RbPageServiceCache();
 
     private WikiSite wiki;
-    private RbPageService.RbEndpoints cachedWebService;
+    private RbPageService.Service service;
     private Retrofit retrofit;
 
     public static Retrofit retrofit(@NonNull WikiSite wiki) {
@@ -27,29 +27,28 @@ public final class RbPageEndpointsCache {
         return RetrofitFactory.newInstance(endpoint, wiki);
     }
 
-    private RbPageEndpointsCache() {
-    }
-
     public Retrofit getRetrofit() {
         return retrofit;
     }
 
-    public RbPageService.RbEndpoints getRbEndpoints(WikiSite newWikiSite) {
+    public RbPageService.Service getService(WikiSite newWikiSite) {
         if (!newWikiSite.equals(wiki)) {
-            cachedWebService = createRbService(newWikiSite);
+            service = createService(newWikiSite);
             wiki = newWikiSite;
         }
-        return cachedWebService;
+        return service;
     }
 
     public void update() {
         if (wiki != null) {
-            cachedWebService = createRbService(wiki);
+            service = createService(wiki);
         }
     }
 
-    private RbPageService.RbEndpoints createRbService(WikiSite wiki) {
+    private RbPageService.Service createService(WikiSite wiki) {
         retrofit = retrofit(wiki);
-        return retrofit.create(RbPageService.RbEndpoints.class);
+        return retrofit.create(RbPageService.Service.class);
     }
+
+    private RbPageServiceCache() { }
 }

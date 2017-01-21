@@ -3,8 +3,8 @@ package org.wikipedia.settings;
 import android.content.SharedPreferences;
 
 import org.wikipedia.R;
-import org.wikipedia.server.mwapi.MwPageEndpointsCache;
-import org.wikipedia.server.restbase.RbPageEndpointsCache;
+import org.wikipedia.server.mwapi.MwPageServiceCache;
+import org.wikipedia.server.restbase.RbPageServiceCache;
 
 public class DeveloperSettingsFragment extends PreferenceLoaderFragment {
     public static DeveloperSettingsFragment newInstance() {
@@ -16,9 +16,9 @@ public class DeveloperSettingsFragment extends PreferenceLoaderFragment {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             if (getString(R.string.preference_key_restbase_uri_format).equals(key)) {
-                RbPageEndpointsCache.INSTANCE.update();
+                RbPageServiceCache.INSTANCE.update();
             } else if (getString(R.string.preference_key_mediawiki_base_uri).equals(key)) {
-                MwPageEndpointsCache.INSTANCE.update();
+                MwPageServiceCache.INSTANCE.update();
             }
         }
     };

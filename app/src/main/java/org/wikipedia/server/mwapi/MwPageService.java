@@ -9,7 +9,7 @@ import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.server.ServiceError;
-import org.wikipedia.server.restbase.RbPageEndpointsCache;
+import org.wikipedia.server.restbase.RbPageServiceCache;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
@@ -27,19 +27,19 @@ import retrofit2.http.Query;
  * Retrofit web service client for MediaWiki PHP API.
  */
 public class MwPageService implements PageService {
-    private final MwPageEndpoints webService;
+    private final Service service;
     private final Retrofit retrofit;
     private WikipediaZeroHandler responseHeaderHandler;
 
     public MwPageService(final WikiSite wiki) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        webService = MwPageEndpointsCache.INSTANCE.getMwPageEndpoints(wiki);
-        retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
+        service = MwPageServiceCache.INSTANCE.getService(wiki);
+        retrofit = RbPageServiceCache.INSTANCE.getRetrofit(); // todo: why does MW depend on RB?
     }
 
     @Override
     public void pageSummary(String title, final PageSummary.Callback cb) {
-        Call<MwPageSummary> call = webService.pageSummary(title);
+        Call<MwPageSummary> call = service.pageSummary(title);
         call.enqueue(new Callback<MwPageSummary>() {
             /**
              * Invoked for a received HTTP response.
@@ -71,7 +71,7 @@ public class MwPageService implements PageService {
     @Override
     public void pageLead(String title, int leadImageThumbWidth, boolean noImages,
                          final PageLead.Callback cb) {
-        Call<MwPageLead> call = webService.pageLead(title, leadImageThumbWidth, optional(noImages));
+        Call<MwPageLead> call = service.pageLead(title, leadImageThumbWidth, optional(noImages));
         call.enqueue(new Callback<MwPageLead>() {
             @Override
             public void onResponse(Call<MwPageLead> call, Response<MwPageLead> response) {
@@ -92,7 +92,7 @@ public class MwPageService implements PageService {
 
     @Override
     public void pageRemaining(String title, boolean noImages, final PageRemaining.Callback cb) {
-        Call<MwPageRemaining> call = webService.pageRemaining(title, optional(noImages));
+        Call<MwPageRemaining> call = service.pageRemaining(title, optional(noImages));
         call.enqueue(new Callback<MwPageRemaining>() {
             @Override
             public void onResponse(Call<MwPageRemaining> call, Response<MwPageRemaining> response) {
@@ -113,7 +113,7 @@ public class MwPageService implements PageService {
 
     @Override
     public MwPageCombo pageCombo(String title, boolean noImages) throws IOException {
-        Response<MwPageCombo> rsp = webService.pageCombo(title, optional(noImages)).execute();
+        Response<MwPageCombo> rsp = service.pageCombo(title, optional(noImages)).execute();
         if (rsp.isSuccessful() && !rsp.body().hasError()) {
             return rsp.body();
         }
@@ -136,9 +136,9 @@ public class MwPageService implements PageService {
     }
 
     /**
-     * Retrofit endpoints for MW API endpoints.
+     * Retrofit service for MW API endpoints.
      */
-    interface MwPageEndpoints {
+    interface Service {
         /**
          * Gets the lead section and initial metadata of a given title.
          *

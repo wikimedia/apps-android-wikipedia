@@ -32,19 +32,19 @@ import retrofit2.http.Query;
  * Retrofit web service client for RESTBase Nodejs API.
  */
 public class RbPageService implements PageService {
-    private final RbEndpoints webService;
+    private final Service service;
     private Retrofit retrofit;
     private WikipediaZeroHandler responseHeaderHandler;
 
     public RbPageService(final WikiSite wiki) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        webService = RbPageEndpointsCache.INSTANCE.getRbEndpoints(wiki);
-        retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
+        service = RbPageServiceCache.INSTANCE.getService(wiki);
+        retrofit = RbPageServiceCache.INSTANCE.getRetrofit();
     }
 
     @Override
     public void pageSummary(final String title, final PageSummary.Callback cb) {
-        Call<RbPageSummary> call = webService.pageSummary(title);
+        Call<RbPageSummary> call = service.pageSummary(title);
         call.enqueue(new Callback<RbPageSummary>() {
             /**
              * Invoked for a received HTTP response.
@@ -83,7 +83,7 @@ public class RbPageService implements PageService {
     @Override
     public void pageLead(String title, final int leadImageThumbWidth, boolean noImages,
                          final PageLead.Callback cb) {
-        Call<RbPageLead> call = webService.pageLead(title, optional(noImages));
+        Call<RbPageLead> call = service.pageLead(title, optional(noImages));
         call.enqueue(new Callback<RbPageLead>() {
             @Override
             public void onResponse(Call<RbPageLead> call, Response<RbPageLead> response) {
@@ -109,7 +109,7 @@ public class RbPageService implements PageService {
 
     @Override
     public void pageRemaining(String title, boolean noImages, final PageRemaining.Callback cb) {
-        Call<RbPageRemaining> call = webService.pageRemaining(title, optional(noImages));
+        Call<RbPageRemaining> call = service.pageRemaining(title, optional(noImages));
         call.enqueue(new Callback<RbPageRemaining>() {
             @Override
             public void onResponse(Call<RbPageRemaining> call, Response<RbPageRemaining> response) {
@@ -132,7 +132,7 @@ public class RbPageService implements PageService {
 
     @Override
     public RbPageCombo pageCombo(String title, boolean noImages) throws IOException {
-        Response<RbPageCombo> rsp = webService.pageCombo(title, optional(noImages)).execute();
+        Response<RbPageCombo> rsp = service.pageCombo(title, optional(noImages)).execute();
         if (rsp.isSuccessful() && !rsp.body().hasError()) {
             return rsp.body();
         }
@@ -147,7 +147,7 @@ public class RbPageService implements PageService {
      * of a wiki page.
      */
     public void define(String title, final DefinitionCallback cb) {
-        Call<Map<String, RbDefinition.Usage[]>> call = webService.define(title);
+        Call<Map<String, RbDefinition.Usage[]>> call = service.define(title);
         call.enqueue(new Callback<Map<String, RbDefinition.Usage[]>>() {
             @Override
             public void onResponse(@NonNull Call<Map<String, RbDefinition.Usage[]>> call,
@@ -193,9 +193,9 @@ public class RbPageService implements PageService {
     }
 
     /**
-     * Retrofit endpoints for mobile content service endpoints.
+     * Retrofit service for mobile content service endpoints.
      */
-    interface RbEndpoints {
+    interface Service {
         String ACCEPT_HEADER_MOBILE_SECTIONS = "accept: application/json; charset=utf-8; "
                 + "profile=\"https://www.mediawiki.org/wiki/Specs/mobile-sections/0.8.0\"";
         String ACCEPT_HEADER_DEFINITION = "accept: application/json; charset=utf-8; "
