@@ -8,13 +8,13 @@ import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.page.PageService;
+import org.wikipedia.dataclient.page.PageServiceFactory;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
-import org.wikipedia.server.PageService;
-import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.UriUtil;

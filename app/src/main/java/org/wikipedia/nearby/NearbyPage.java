@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.server.mwapi.NearbyPageMwResponse;
+import org.wikipedia.dataclient.mwapi.NearbyPageMwResponse;
 
 import java.util.List;
 

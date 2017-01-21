@@ -2,8 +2,8 @@ package org.wikipedia.edit.preview;
 
 import android.support.annotation.Nullable;
 
+import org.wikipedia.dataclient.mwapi.MwApiResponsePage;
 import org.wikipedia.model.BaseModel;
-import org.wikipedia.server.mwapi.MwApiResponsePage;
 
 import java.util.Iterator;
 import java.util.Map;

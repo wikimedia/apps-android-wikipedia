@@ -4,8 +4,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwApiResponsePage;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.mwapi.MwApiResponsePage;
 
 import java.util.ArrayList;
 import java.util.Iterator;

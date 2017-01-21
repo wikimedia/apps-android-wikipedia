@@ -1,4 +1,4 @@
-package org.wikipedia.server.restbase;
+package org.wikipedia.dataclient.restbase.page;
 
 
 import android.support.annotation.NonNull;
@@ -6,13 +6,14 @@ import android.support.annotation.NonNull;
 import com.google.gson.JsonParseException;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageRemaining;
+import org.wikipedia.dataclient.page.PageService;
+import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.server.PageLead;
-import org.wikipedia.server.PageRemaining;
-import org.wikipedia.server.PageService;
-import org.wikipedia.server.PageSummary;
-import org.wikipedia.server.ServiceError;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 

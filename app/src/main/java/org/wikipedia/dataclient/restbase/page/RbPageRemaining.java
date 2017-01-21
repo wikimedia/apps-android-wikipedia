@@ -1,10 +1,10 @@
-package org.wikipedia.server.restbase;
+package org.wikipedia.dataclient.restbase.page;
 
 import android.support.annotation.Nullable;
 
+import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.Section;
-import org.wikipedia.server.PageRemaining;
 
 import java.util.List;
 

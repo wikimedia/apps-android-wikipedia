@@ -1,8 +1,9 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.dataclient.mwapi.page;
 
 import android.support.annotation.Nullable;
 
-import org.wikipedia.server.PageSummary;
+import org.wikipedia.dataclient.mwapi.MwServiceError;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.util.log.L;
 
 /**

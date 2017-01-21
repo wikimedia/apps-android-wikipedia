@@ -1,4 +1,4 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.dataclient.mwapi.page;
 
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -8,14 +8,15 @@ import android.support.annotation.VisibleForTesting;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwServiceError;
+import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageLeadProperties;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
-import org.wikipedia.server.PageLead;
-import org.wikipedia.server.PageLeadProperties;
-import org.wikipedia.server.Protection;
 import org.wikipedia.util.log.L;
 
 import java.util.Collections;

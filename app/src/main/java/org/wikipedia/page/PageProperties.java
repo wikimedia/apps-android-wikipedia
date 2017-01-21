@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.server.PageLeadProperties;
+import org.wikipedia.dataclient.page.PageLeadProperties;
 
 import java.text.ParseException;
 import java.util.Date;

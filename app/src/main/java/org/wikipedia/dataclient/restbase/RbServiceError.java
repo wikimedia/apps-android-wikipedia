@@ -1,6 +1,6 @@
-package org.wikipedia.server.restbase;
+package org.wikipedia.dataclient.restbase;
 
-import org.wikipedia.server.ServiceError;
+import org.wikipedia.dataclient.ServiceError;
 
 /**
  * Gson POJO for a RESTBase API error.

@@ -7,9 +7,9 @@ import com.google.gson.JsonParseException;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.dataclient.retrofit.RbCachedService;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.restbase.RbPageSummary;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;

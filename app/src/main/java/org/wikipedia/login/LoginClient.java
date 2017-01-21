@@ -9,8 +9,8 @@ import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.server.mwapi.MwServiceError;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;

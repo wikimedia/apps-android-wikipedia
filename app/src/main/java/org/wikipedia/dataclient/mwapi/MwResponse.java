@@ -2,8 +2,6 @@ package org.wikipedia.dataclient.mwapi;
 
 import android.support.annotation.Nullable;
 
-import org.wikipedia.server.mwapi.MwServiceError;
-
 public abstract class MwResponse {
     @SuppressWarnings("unused") @Nullable private MwServiceError error;
 

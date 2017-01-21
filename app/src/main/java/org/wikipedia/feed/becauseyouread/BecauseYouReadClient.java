@@ -10,6 +10,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwApiResponsePage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -19,7 +20,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
-import org.wikipedia.server.mwapi.MwApiResponsePage;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 

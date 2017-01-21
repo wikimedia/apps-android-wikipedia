@@ -1,6 +1,6 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.dataclient.mwapi.page;
 
-import org.wikipedia.server.PageCombo;
+import org.wikipedia.dataclient.page.PageCombo;
 
 /**
  * Combines MwPageLead and MwPageRemaining Gson POJOs for mobileview API.
