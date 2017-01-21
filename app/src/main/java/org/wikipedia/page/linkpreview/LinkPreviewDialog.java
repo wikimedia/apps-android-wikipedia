@@ -26,8 +26,6 @@ import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageCache;
-import org.wikipedia.page.PageContainerLongPressHandler;
-import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.gallery.GalleryCollection;
@@ -391,12 +389,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         public void onCatch(Throwable caught) {
             // Don't worry about showing a notification to the user if this fails.
             L.w("Failed to fetch gallery collection.", caught);
-        }
-    }
-
-    private class LongPressHandler extends PageContainerLongPressHandler {
-        LongPressHandler(@NonNull PageFragment.Callback callback) {
-            super(callback);
         }
     }
 
