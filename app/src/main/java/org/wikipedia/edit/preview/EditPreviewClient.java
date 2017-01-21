@@ -4,10 +4,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwApiException;
 import org.wikipedia.dataclient.restbase.page.RbPageServiceCache;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.page.PageTitle;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -17,8 +20,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 class EditPreviewClient {
-    @NonNull private final MwCachedService<Service> cachedService
-            = new MwCachedService<>(Service.class);
+    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
     @NonNull private final Retrofit retrofit = RbPageServiceCache.INSTANCE.getRetrofit();
 
     Call<EditPreview> request(@NonNull WikiSite wiki, @NonNull PageTitle title,
@@ -35,13 +37,12 @@ class EditPreviewClient {
             @Override
             public void onResponse(Call<EditPreview> call, Response<EditPreview> response) {
                 if (response.isSuccessful()) {
-                    EditPreview preview = response.body();
-                    if (preview.hasPreviewResult()) {
-                        cb.success(call, preview.result());
-                    } else if (preview.info() != null) {
-                        cb.failure(call, new RuntimeException(preview.info()));
+                    if (response.body().success() && response.body().hasPreviewResult()) {
+                        cb.success(call, response.body().result());
+                    } else if (response.body().hasError()) {
+                        cb.failure(call, new MwApiException(response.body().getError()));
                     } else {
-                        cb.failure(call, new RuntimeException("Received unrecognized edit preview response"));
+                        cb.failure(call, new IOException("An unknown error occurred."));
                     }
                 } else {
                     cb.failure(call, RetrofitException.httpError(response, retrofit));
@@ -61,10 +62,9 @@ class EditPreviewClient {
         void failure(@NonNull Call<EditPreview> call, @NonNull Throwable caught);
     }
 
-    private interface Service {
+    @VisibleForTesting interface Service {
         @FormUrlEncoded
-        @POST("w/api.php?action=parse&format=json&sectionpreview=true&pst=true&mobileformat=true"
-                + "&prop=text")
+        @POST("w/api.php?action=parse&format=json&sectionpreview=true&pst=true&mobileformat=true&prop=text")
         Call<EditPreview> previewEdit(@NonNull @Field("title") String title,
                                       @NonNull @Field("text") String text);
     }
