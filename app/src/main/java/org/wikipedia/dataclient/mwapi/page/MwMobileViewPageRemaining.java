@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Gson POJO for loading remaining page content.
  */
-public class MwPageRemaining implements PageRemaining {
+public class MwMobileViewPageRemaining implements PageRemaining {
     @SuppressWarnings("unused") @Nullable private Mobileview mobileview;
 
     @Override

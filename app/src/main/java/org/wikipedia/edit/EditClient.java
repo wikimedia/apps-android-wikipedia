@@ -6,7 +6,7 @@ import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.page.PageTitle;
@@ -52,7 +52,7 @@ class EditClient {
                     } else if (response.body().hasError()) {
                         RuntimeException e = response.body().badLoginState()
                                 ? new UserNotLoggedInException()
-                                : new MwApiException(response.body().getError());
+                                : new MwException(response.body().getError());
                         cb.failure(call, e);
                     } else {
                         cb.failure(call, new IOException("An unknown error occurred."));

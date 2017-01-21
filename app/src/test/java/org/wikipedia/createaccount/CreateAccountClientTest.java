@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.test.MockWebServerTest;
 
@@ -48,7 +48,7 @@ public class CreateAccountClientTest extends MockWebServerTest {
         Call<CreateAccountResponse> call = request(cb);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, MwApiException.class);
+        assertCallbackFailure(call, cb, MwException.class);
     }
 
     @Test public void testRequestResponse404() throws Throwable {

@@ -9,7 +9,7 @@ import org.wikipedia.util.log.L;
 /**
  * Useful for link previews coming from MW API.
  */
-public class MwPageSummary implements PageSummary {
+public class MwQueryPageSummary implements PageSummary {
     @SuppressWarnings("unused") private MwServiceError error;
     @SuppressWarnings("unused") @Nullable private MwQuery query;
 

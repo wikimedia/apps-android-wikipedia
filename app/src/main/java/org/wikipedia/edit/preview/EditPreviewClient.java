@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.restbase.page.RbPageServiceCache;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -40,7 +40,7 @@ class EditPreviewClient {
                     if (response.body().success() && response.body().hasPreviewResult()) {
                         cb.success(call, response.body().result());
                     } else if (response.body().hasError()) {
-                        cb.failure(call, new MwApiException(response.body().getError()));
+                        cb.failure(call, new MwException(response.body().getError()));
                     } else {
                         cb.failure(call, new IOException("An unknown error occurred."));
                     }

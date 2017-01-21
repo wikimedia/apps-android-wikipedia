@@ -7,14 +7,14 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiResponsePage;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
 
 public class SearchResult implements Parcelable {
     private PageTitle pageTitle;
     private final String redirectFrom;
 
-    public SearchResult(@NonNull MwApiResponsePage page, @NonNull WikiSite wiki) {
+    public SearchResult(@NonNull MwQueryPage page, @NonNull WikiSite wiki) {
         this(new PageTitle(page.title(), wiki, page.thumbUrl(), page.description()));
     }
 

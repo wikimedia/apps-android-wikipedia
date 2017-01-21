@@ -2,7 +2,7 @@ package org.wikipedia.dataclient.restbase;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.dataclient.mwapi.page.MwPageLead;
+import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageLead;
 import org.wikipedia.dataclient.restbase.page.RbPageLead;
 import org.wikipedia.server.BasePageLeadTest;
 import org.wikipedia.test.TestRunner;
@@ -42,8 +42,8 @@ public class RbPageLeadTest extends BasePageLeadTest {
      */
     @Test
     public void testError() throws Exception {
-        MwPageLead pageLead = unmarshal(MwPageLead.class, getErrorJson());
-        MwPageLead.Mobileview props = pageLead.getMobileview();
+        MwMobileViewPageLead pageLead = unmarshal(MwMobileViewPageLead.class, getErrorJson());
+        MwMobileViewPageLead.Mobileview props = pageLead.getMobileview();
         verifyError(pageLead, props);
     }
 }

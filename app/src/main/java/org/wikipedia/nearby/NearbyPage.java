@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.dataclient.mwapi.NearbyPageMwResponse;
+import org.wikipedia.dataclient.mwapi.MwQueryNearbyPage;
 
 import java.util.List;
 
@@ -17,10 +17,10 @@ class NearbyPage {
     /** calculated externally */
     private int distance;
 
-    NearbyPage(@NonNull NearbyPageMwResponse page) {
+    NearbyPage(@NonNull MwQueryNearbyPage page) {
         title = page.title();
         thumbUrl = page.thumbUrl();
-        List<NearbyPageMwResponse.Coordinates> coordinates = page.coordinates();
+        List<MwQueryNearbyPage.Coordinates> coordinates = page.coordinates();
         if (coordinates != null && !coordinates.isEmpty()) {
             location = new Location(title);
             location.setLatitude(page.coordinates().get(0).lat());

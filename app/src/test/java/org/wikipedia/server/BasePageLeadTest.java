@@ -3,7 +3,7 @@ package org.wikipedia.server;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.dataclient.mwapi.MwServiceError;
-import org.wikipedia.dataclient.mwapi.page.MwPageLead;
+import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageLead;
 import org.wikipedia.dataclient.page.PageLeadProperties;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -95,7 +95,7 @@ public abstract class BasePageLeadTest {
                 + "}}";
     }
 
-    protected void verifyError(MwPageLead pageLead, MwPageLead.Mobileview mv) {
+    protected void verifyError(MwMobileViewPageLead pageLead, MwMobileViewPageLead.Mobileview mv) {
         assertThat(mv, equalTo(null));
         MwServiceError error = pageLead.getError();
         assertThat(pageLead.hasError(), is(true));

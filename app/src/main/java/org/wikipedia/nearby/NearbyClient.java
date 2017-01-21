@@ -5,7 +5,7 @@ import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -54,7 +54,7 @@ class NearbyClient {
                     if (response.body().success()) {
                         cb.success(call, new NearbyResult(wiki, response.body().query().list()));
                     } else if (response.body().hasError()) {
-                        cb.failure(call, new MwApiException(response.body().getError()));
+                        cb.failure(call, new MwException(response.body().getError()));
                     } else {
                         cb.success(call, new NearbyResult(wiki, new ArrayList<NearbyPage>()));
                     }

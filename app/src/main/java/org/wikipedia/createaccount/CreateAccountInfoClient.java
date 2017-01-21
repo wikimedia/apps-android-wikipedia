@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -41,7 +41,7 @@ class CreateAccountInfoClient {
                         String captchaId = response.body().query().captchaId();
                         cb.success(call, new CreateAccountInfoResult(token, captchaId));
                     } else if (response.body().hasError()) {
-                        cb.failure(call, new MwApiException(response.body().getError()));
+                        cb.failure(call, new MwException(response.body().getError()));
                     } else {
                         cb.failure(call, new IOException("An unknown error occurred."));
                     }

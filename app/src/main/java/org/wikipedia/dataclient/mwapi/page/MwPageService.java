@@ -39,8 +39,8 @@ public class MwPageService implements PageService {
 
     @Override
     public void pageSummary(String title, final PageSummary.Callback cb) {
-        Call<MwPageSummary> call = service.pageSummary(title);
-        call.enqueue(new Callback<MwPageSummary>() {
+        Call<MwQueryPageSummary> call = service.pageSummary(title);
+        call.enqueue(new Callback<MwQueryPageSummary>() {
             /**
              * Invoked for a received HTTP response.
              * <p/>
@@ -48,7 +48,7 @@ public class MwPageService implements PageService {
              * Call {@link Response#isSuccessful()} to determine if the response indicates success.
              */
             @Override
-            public void onResponse(Call<MwPageSummary> call, Response<MwPageSummary> response) {
+            public void onResponse(Call<MwQueryPageSummary> call, Response<MwQueryPageSummary> response) {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
                     cb.success(response.body());
@@ -62,7 +62,7 @@ public class MwPageService implements PageService {
              * exception occurred creating the request or processing the response.
              */
             @Override
-            public void onFailure(Call<MwPageSummary> call, Throwable t) {
+            public void onFailure(Call<MwQueryPageSummary> call, Throwable t) {
                 cb.failure(t);
             }
         });
@@ -71,10 +71,10 @@ public class MwPageService implements PageService {
     @Override
     public void pageLead(String title, int leadImageThumbWidth, boolean noImages,
                          final PageLead.Callback cb) {
-        Call<MwPageLead> call = service.pageLead(title, leadImageThumbWidth, optional(noImages));
-        call.enqueue(new Callback<MwPageLead>() {
+        Call<MwMobileViewPageLead> call = service.pageLead(title, leadImageThumbWidth, optional(noImages));
+        call.enqueue(new Callback<MwMobileViewPageLead>() {
             @Override
-            public void onResponse(Call<MwPageLead> call, Response<MwPageLead> response) {
+            public void onResponse(Call<MwMobileViewPageLead> call, Response<MwMobileViewPageLead> response) {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
                     cb.success(response.body());
@@ -84,7 +84,7 @@ public class MwPageService implements PageService {
             }
 
             @Override
-            public void onFailure(Call<MwPageLead> call, Throwable t) {
+            public void onFailure(Call<MwMobileViewPageLead> call, Throwable t) {
                 cb.failure(t);
             }
         });
@@ -92,10 +92,10 @@ public class MwPageService implements PageService {
 
     @Override
     public void pageRemaining(String title, boolean noImages, final PageRemaining.Callback cb) {
-        Call<MwPageRemaining> call = service.pageRemaining(title, optional(noImages));
-        call.enqueue(new Callback<MwPageRemaining>() {
+        Call<MwMobileViewPageRemaining> call = service.pageRemaining(title, optional(noImages));
+        call.enqueue(new Callback<MwMobileViewPageRemaining>() {
             @Override
-            public void onResponse(Call<MwPageRemaining> call, Response<MwPageRemaining> response) {
+            public void onResponse(Call<MwMobileViewPageRemaining> call, Response<MwMobileViewPageRemaining> response) {
                 if (response.isSuccessful()) {
                     RbSwitch.INSTANCE.onMwSuccess();
                     cb.success(response.body());
@@ -105,15 +105,15 @@ public class MwPageService implements PageService {
             }
 
             @Override
-            public void onFailure(Call<MwPageRemaining> call, Throwable t) {
+            public void onFailure(Call<MwMobileViewPageRemaining> call, Throwable t) {
                 cb.failure(t);
             }
         });
     }
 
     @Override
-    public MwPageCombo pageCombo(String title, boolean noImages) throws IOException {
-        Response<MwPageCombo> rsp = service.pageCombo(title, optional(noImages)).execute();
+    public MwMobileViewPageCombo pageCombo(String title, boolean noImages) throws IOException {
+        Response<MwMobileViewPageCombo> rsp = service.pageCombo(title, optional(noImages)).execute();
         if (rsp.isSuccessful() && !rsp.body().hasError()) {
             return rsp.body();
         }
@@ -143,7 +143,7 @@ public class MwPageService implements PageService {
          * Gets the lead section and initial metadata of a given title.
          *
          * @param title the page title with prefix if necessary
-         * @return a Retrofit Call which provides the populated MwPageLead object in #success
+         * @return a Retrofit Call which provides the populated MwMobileViewPageLead object in #success
          */
          /*
           Here's the rationale for this API call:
@@ -162,7 +162,7 @@ public class MwPageService implements PageService {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=extracts%7Cpageimages"
                 + "&redirects=true&exsentences=5&explaintext=true&piprop=thumbnail%7Cname"
                 + "&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
-        Call<MwPageSummary> pageSummary(@Query("titles") String title);
+        Call<MwQueryPageSummary> pageSummary(@Query("titles") String title);
 
         /**
          * Gets the lead section and initial metadata of a given title.
@@ -177,9 +177,9 @@ public class MwPageService implements PageService {
                 + "%7Cdescription%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection"
                 + "%7Ceditable%7Cpageprops&pageprops=wikibase_item&onlyrequestedsections=1"
                 + "&sections=0&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
-        Call<MwPageLead> pageLead(@Query("page") String title,
-                                  @Query("thumbsize") int leadImageThumbWidth,
-                                  @Query("noimages") Boolean noImages);
+        Call<MwMobileViewPageLead> pageLead(@Query("page") String title,
+                                            @Query("thumbsize") int leadImageThumbWidth,
+                                            @Query("noimages") Boolean noImages);
 
         /**
          * Gets the remaining sections of a given title.
@@ -190,8 +190,8 @@ public class MwPageService implements PageService {
         @GET("w/api.php?action=mobileview&format=json&prop="
                 + "text%7Csections&onlyrequestedsections=1&sections=1-"
                 + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
-        Call<MwPageRemaining> pageRemaining(@Query("page") String title,
-                                            @Query("noimages") Boolean noImages);
+        Call<MwMobileViewPageRemaining> pageRemaining(@Query("page") String title,
+                                                      @Query("noimages") Boolean noImages);
 
         /**
          * Gets all page content of a given title -- for refreshing a saved page
@@ -205,7 +205,7 @@ public class MwPageService implements PageService {
                 + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
                 + "%7Cpageprops&pageprops=wikibase_item&onlyrequestedsections=1&sections=all"
                 + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
-        Call<MwPageCombo> pageCombo(@Query("page") String title,
-                                    @Query("noimages") Boolean noImages);
+        Call<MwMobileViewPageCombo> pageCombo(@Query("page") String title,
+                                              @Query("noimages") Boolean noImages);
     }
 }

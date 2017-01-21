@@ -6,7 +6,7 @@ import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 
@@ -56,7 +56,7 @@ class CreateAccountClient {
                             cb.failure(call, new CreateAccountException(result.message()));
                         }
                     } else if (response.body().hasError()) {
-                        cb.failure(call, new MwApiException(response.body().getError()));
+                        cb.failure(call, new MwException(response.body().getError()));
                     } else {
                         cb.failure(call, new IOException("An unknown error occurred."));
                     }

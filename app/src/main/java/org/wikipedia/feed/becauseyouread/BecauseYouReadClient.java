@@ -9,8 +9,8 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiException;
-import org.wikipedia.dataclient.mwapi.MwApiResponsePage;
+import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -100,7 +100,7 @@ public class BecauseYouReadClient implements FeedClient {
                         }
                         cb.success(Collections.singletonList((Card) new BecauseYouReadCard(entry, itemCards)));
                     } else if (pages.hasError()) {
-                        cb.error(new MwApiException(pages.getError()));
+                        cb.error(new MwException(pages.getError()));
                     } else {
                         cb.error(new IOException("Error fetching suggestions."));
                     }
@@ -119,7 +119,7 @@ public class BecauseYouReadClient implements FeedClient {
     static class Pages {
         @SuppressWarnings("unused")
         @SerializedName("pages")
-        private List<MwApiResponsePage> pages;
+        private List<MwQueryPage> pages;
         public SearchResults results(WikiSite wiki) {
             return new SearchResults(pages, wiki);
         }

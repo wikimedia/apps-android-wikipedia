@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Gson POJO for loading the first stage of page content.
  */
-public class MwPageLead implements PageLead {
+public class MwMobileViewPageLead implements PageLead {
     @SuppressWarnings("unused") private MwServiceError error;
     @SuppressWarnings("unused") private Mobileview mobileview;
 

@@ -6,7 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.page.PageTitle;
@@ -56,7 +56,7 @@ public class LangLinksClientTest extends MockWebServerTest {
         Call<MwQueryResponse<LangLinks>> call = request(cb);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, MwApiException.class);
+        assertCallbackFailure(call, cb, MwException.class);
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {

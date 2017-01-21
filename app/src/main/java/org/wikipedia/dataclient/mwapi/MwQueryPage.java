@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * A class representing a standard page object as returned by the MediaWiki API.
  */
-public class MwApiResponsePage extends BaseModel {
+public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") private int pageid;
     @SuppressWarnings("unused") private int ns;
     @SuppressWarnings("unused,NullableProblems") @NonNull private String title;

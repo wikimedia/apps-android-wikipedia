@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwApiException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -45,7 +45,7 @@ class LangLinksClient {
                         cb.success(call, response.body().query().langLinks());
                     } else if (response.body().hasError()) {
                         String errorTitle = response.body().getError().getTitle();
-                        cb.failure(call, new MwApiException(response.body().getError()));
+                        cb.failure(call, new MwException(response.body().getError()));
                         L.e("API error fetching langlinks: " + errorTitle);
                     } else {
                         cb.failure(call, new IOException("An unknown error occurred."));

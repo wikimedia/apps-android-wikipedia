@@ -8,7 +8,7 @@ import org.wikipedia.json.annotations.Required;
 import java.util.Collections;
 import java.util.List;
 
-public class NearbyPageMwResponse extends MwApiResponsePage {
+public class MwQueryNearbyPage extends MwQueryPage {
     @SuppressWarnings("unused") @Nullable private List<Coordinates> coordinates;
 
     @Nullable public List<Coordinates> coordinates() {
