@@ -2,45 +2,43 @@ package org.wikipedia.edit;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 
-import org.json.JSONObject;
+class EditAbuseFilterResult extends EditResult {
+    static final int TYPE_WARNING = 1;
+    static final int TYPE_ERROR = 2;
 
-public class EditAbuseFilterResult extends EditResult {
-    public static final int TYPE_WARNING = 1;
-    public static final int TYPE_ERROR = 2;
+    @Nullable private final String code;
+    @Nullable private final String info;
+    @Nullable private final String warning;
 
-    private final String code;
-    private final String info;
-    private final String warning;
-
-    public EditAbuseFilterResult(JSONObject result) {
+    EditAbuseFilterResult(@Nullable String code, @Nullable String info, @Nullable String warning) {
         super("Failure");
-        this.code = result.optString("code");
-        this.info = result.optString("info");
-        this.warning = result.optString("warning");
+        this.code = code;
+        this.info = info;
+        this.warning = warning;
     }
 
-    protected EditAbuseFilterResult(Parcel in) {
+    private EditAbuseFilterResult(Parcel in) {
         super(in);
         code = in.readString();
         info = in.readString();
         warning = in.readString();
     }
 
-    public String getCode() {
+    @Nullable public String getCode() {
         return code;
     }
 
-    public String getInfo() {
+    @Nullable public String getInfo() {
         return info;
     }
 
-    public String getWarning() {
+    @Nullable public String getWarning() {
         return warning;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    @Override public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeString(code);
         dest.writeString(info);
@@ -48,11 +46,11 @@ public class EditAbuseFilterResult extends EditResult {
     }
 
     public int getType() {
-        if (code.startsWith("abusefilter-warning")) {
+        if (code != null && code.startsWith("abusefilter-warning")) {
             return TYPE_WARNING;
-        } else if (code.startsWith("abusefilter-disallowed")) {
+        } else if (code != null && code.startsWith("abusefilter-disallowed")) {
             return TYPE_ERROR;
-        } else if (info.startsWith("Hit AbuseFilter")) {
+        } else if (info != null && info.startsWith("Hit AbuseFilter")) {
             // This case is here because, unfortunately, an admin can create an abuse filter which
             // emits an arbitrary error code over the API.
             // TODO: More properly handle the case where the AbuseFilter throws an arbitrary error.

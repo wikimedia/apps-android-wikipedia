@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -54,6 +55,8 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
+
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 
@@ -108,6 +111,19 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private EditFunnel funnel;
 
     private ProgressDialog progressDialog;
+
+    private Runnable successRunnable = new Runnable() {
+        @Override public void run() {
+            progressDialog.dismiss();
+
+            //Build intent that includes the section we were editing, so we can scroll to it later
+            Intent data = new Intent();
+            data.putExtra(EXTRA_SECTION_ID, sectionID);
+            setResult(EditHandler.RESULT_REFRESH_PAGE, data);
+            hideSoftKeyboard(EditSectionActivity.this);
+            finish();
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -300,14 +316,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                                 }
                                 if (result instanceof EditSuccessResult) {
                                     funnel.logSaved(((EditSuccessResult) result).getRevID());
-                                    progressDialog.dismiss();
-
-                                    //Build intent that includes the section we were editing, so we can scroll to it later
-                                    Intent data = new Intent();
-                                    data.putExtra(EXTRA_SECTION_ID, sectionID);
-                                    setResult(EditHandler.RESULT_REFRESH_PAGE, data);
-                                    hideSoftKeyboard(EditSectionActivity.this);
-                                    finish();
+                                    // TODO: remove the artificial delay and use the new revision
+                                    // ID returned to request the updated version of the page once
+                                    // revision support for mobile-sections is added to RESTBase
+                                    // See https://github.com/wikimedia/restbase/pull/729
+                                    new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(2));
                                 } else if (result instanceof CaptchaResult) {
                                     if (captchaHandler.isActive()) {
                                         // Captcha entry failed!

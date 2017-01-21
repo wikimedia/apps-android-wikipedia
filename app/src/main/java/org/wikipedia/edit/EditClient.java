@@ -4,15 +4,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwApiException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.page.PageTitle;
 
-import java.util.concurrent.TimeUnit;
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -21,59 +20,45 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 class EditClient {
-    @NonNull private final MwCachedService<Service> cachedService
-            = new MwCachedService<>(Service.class);
+    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
-    @SuppressWarnings("checkstyle:parameternumber")
-    public Call<Edit> request(@NonNull WikiSite wiki, @NonNull PageTitle title, int section,
-                        @NonNull String text, @NonNull String token, @NonNull String summary,
-                        boolean loggedIn, @Nullable String captchaId, @Nullable String captchaWord,
-                        @NonNull Callback cb) {
-        Service service = cachedService.service(wiki);
-        return request(service, title, section, text, token, summary, loggedIn, captchaId, captchaWord, cb);
+    public interface Callback {
+        void success(@NonNull Call<Edit> call, @NonNull EditResult result);
+        void failure(@NonNull Call<Edit> call, @NonNull Throwable caught);
     }
 
     @SuppressWarnings("checkstyle:parameternumber")
-    @VisibleForTesting Call<Edit> request(@NonNull Service service, @NonNull PageTitle title, int section,
+    public Call<Edit> request(@NonNull WikiSite wiki, @NonNull PageTitle title, int section,
+                              @NonNull String text, @NonNull String token, @NonNull String summary,
+                              boolean loggedIn, @Nullable String captchaId, @Nullable String captchaWord,
+                              @NonNull Callback cb) {
+        return request(cachedService.service(wiki), title, section, text, token, summary, loggedIn,
+                captchaId, captchaWord, cb);
+    }
+
+    @VisibleForTesting @SuppressWarnings("checkstyle:parameternumber")
+    Call<Edit> request(@NonNull Service service, @NonNull PageTitle title, int section,
                        @NonNull String text, @NonNull String token, @NonNull String summary,
                        boolean loggedIn, @Nullable String captchaId, @Nullable String captchaWord,
                        @NonNull final Callback cb) {
-        Call<Edit> call = service.edit(title.getPrefixedText(), section, text,
-                token, summary, loggedIn ? "user" : null, captchaId, captchaWord);
+        Call<Edit> call = service.edit(title.getPrefixedText(), section, text, token, summary,
+                loggedIn ? "user" : null, captchaId, captchaWord);
         call.enqueue(new retrofit2.Callback<Edit>() {
             @Override
             public void onResponse(Call<Edit> call, Response<Edit> response) {
-                if (response.isSuccessful() && response.body().hasEditResult()) {
-                    Edit.Result result = response.body().edit();
-                    if ("Success".equals(result.status())) {
-                        try {
-                            // TODO: get edit revision and request that revision
-                            Thread.sleep(TimeUnit.SECONDS.toMillis(2));
-                            cb.success(call, new EditSuccessResult(result.newRevId()));
-                        } catch (InterruptedException e) {
-                            cb.failure(call, e);
-                        }
-                    } else if (result.hasErrorCode()) {
-                        try {
-                            JSONObject json = new JSONObject(GsonMarshaller.marshal(result));
-                            cb.success(call, new EditAbuseFilterResult(json));
-                        } catch (JSONException e) {
-                            cb.failure(call, e);
-                        }
-                    } else if (result.hasSpamBlacklistResponse()) {
-                        cb.success(call, new EditSpamBlacklistResult(result.spamblacklist()));
-                    } else if (result.hasCaptchaResponse()) {
-                        cb.success(call, new CaptchaResult(result.captchaId()));
+                if (response.isSuccessful()) {
+                    if (response.body().hasEditResult()) {
+                        handleEditResult(response.body().edit(), call, cb);
+                    } else if (response.body().hasError()) {
+                        RuntimeException e = response.body().badLoginState()
+                                ? new UserNotLoggedInException()
+                                : new MwApiException(response.body().getError());
+                        cb.failure(call, e);
                     } else {
-                        cb.failure(call, new RuntimeException("Received unrecognized edit response"));
+                        cb.failure(call, new IOException("An unknown error occurred."));
                     }
-                } else if ("assertuserfailed".equals(response.body().code())) {
-                    cb.failure(call, new UserNotLoggedInException());
-                } else if (response.body().info() != null) {
-                    String info = response.body().info();
-                    cb.failure(call, new RuntimeException(info));
                 } else {
-                    cb.failure(call, new RuntimeException("Received unrecognized edit response"));
+                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
                 }
             }
 
@@ -85,9 +70,19 @@ class EditClient {
         return call;
     }
 
-    @VisibleForTesting interface Callback {
-        void success(@NonNull Call<Edit> call, @NonNull EditResult result);
-        void failure(@NonNull Call<Edit> call, @NonNull Throwable caught);
+    private void handleEditResult(@NonNull Edit.Result result, @NonNull Call<Edit> call,
+                                  @NonNull Callback cb) {
+        if (result.editSucceeded()) {
+            cb.success(call, new EditSuccessResult(result.newRevId()));
+        } else if (result.hasEditErrorCode()) {
+            cb.success(call, new EditAbuseFilterResult(result.code(), result.info(), result.warning()));
+        } else if (result.hasSpamBlacklistResponse()) {
+            cb.success(call, new EditSpamBlacklistResult(result.spamblacklist()));
+        } else if (result.hasCaptchaResponse()) {
+            cb.success(call, new CaptchaResult(result.captchaId()));
+        } else {
+            cb.failure(call, new IOException("Received unrecognized edit response"));
+        }
     }
 
     @VisibleForTesting interface Service {
