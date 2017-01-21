@@ -29,6 +29,7 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_NEWS = 16;
     public static final int SOURCE_FEED_MAIN_PAGE = 17;
     public static final int SOURCE_FEED_RANDOM = 18;
+    public static final int SOURCE_GALLERY = 19; // Or should we just use SOURCE_INTERNAL_LINK as before?  Some of these things seem not like the others.
 
     @NonNull private final PageTitle title;
     @NonNull private final Date timestamp;

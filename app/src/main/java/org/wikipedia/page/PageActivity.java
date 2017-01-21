@@ -409,9 +409,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         bottomSheetPresenter.dismiss(getSupportFragmentManager());
     }
 
-    public void showAddToListDialog(PageTitle title, AddToReadingListDialog.InvokeSource source) {
-        bottomSheetPresenter.show(getSupportFragmentManager(),
-                AddToReadingListDialog.newInstance(title, source, listDialogDismissListener));
+    public void showAddToListDialog(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
+        bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, source, listDialogDismissListener);
     }
 
     @Override
@@ -707,14 +706,14 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (settingsActivityRequested(requestCode)) {
             handleSettingsActivityResult(resultCode);
-        } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryFilePageSelected(requestCode, resultCode)) {
-            handleLangLinkOrFilePageResult(data);
+        } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
+            handleLangLinkOrPageResult(data);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
-    private void handleLangLinkOrFilePageResult(final Intent data) {
+    private void handleLangLinkOrPageResult(final Intent data) {
         tabsContainerView.post(new Runnable() {
             @Override
             public void run() {
@@ -807,8 +806,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         return requestCode == Constants.ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT;
     }
 
-    private boolean galleryFilePageSelected(int requestCode, int resultCode) {
-        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT;
+    private boolean galleryPageSelected(int requestCode, int resultCode) {
+        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED;
     }
 
     private boolean languageChanged(int resultCode) {

@@ -143,7 +143,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
             openSearchFragment(SearchInvokeSource.VOICE, searchQuery);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
-                && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT) {
+                && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {

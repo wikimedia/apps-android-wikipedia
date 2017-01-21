@@ -38,14 +38,19 @@ import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
@@ -60,8 +65,8 @@ import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
-public class GalleryActivity extends ThemedActionBarActivity {
-    public static final int ACTIVITY_RESULT_FILEPAGE_SELECT = 1;
+public class GalleryActivity extends ThemedActionBarActivity implements LinkPreviewDialog.Callback {
+    public static final int ACTIVITY_RESULT_PAGE_SELECTED = 1;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_FILENAME = "filename";
@@ -71,6 +76,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
+    @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     @Nullable private PageTitle pageTitle;
     @Nullable private Page page;
     private boolean cacheOnLoad;
@@ -369,6 +375,11 @@ public class GalleryActivity extends ThemedActionBarActivity {
         setControlsShowing(!controlsShowing);
     }
 
+    public void showLinkPreview(@NonNull PageTitle title) {
+        bottomSheetPresenter.show(getSupportFragmentManager(),
+                LinkPreviewDialog.newInstance(title, HistoryEntry.SOURCE_GALLERY, null));
+    }
+
     /**
      * LinkMovementMethod for handling clicking of links in the description or metadata
      * text fields. For internal links, this activity will close, and pass the page title as
@@ -383,14 +394,14 @@ public class GalleryActivity extends ThemedActionBarActivity {
             WikiSite appWikiSite = app.getWikiSite();
             if (url.startsWith("/wiki/")) {
                 PageTitle title = appWikiSite.titleForInternalLink(url);
-                finishWithPageResult(title);
+                showLinkPreview(title);
             } else {
                 Uri uri = Uri.parse(url);
                 String authority = uri.getAuthority();
                 if (authority != null && WikiSite.supportedAuthority(authority)
                     && uri.getPath().startsWith("/wiki/")) {
                     PageTitle title = appWikiSite.titleForUri(uri);
-                    finishWithPageResult(title);
+                    showLinkPreview(title);
                 } else {
                     // if it's a /w/ URI, turn it into a full URI and go external
                     if (url.startsWith("/w/")) {
@@ -407,12 +418,31 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * by the activity that originally launched us.
      * @param resultTitle PageTitle to pass as the activity result.
      */
-    public void finishWithPageResult(PageTitle resultTitle) {
-        HistoryEntry historyEntry = new HistoryEntry(resultTitle,
-                HistoryEntry.SOURCE_INTERNAL_LINK);
+    public void finishWithPageResult(@NonNull PageTitle resultTitle) {
+        finishWithPageResult(resultTitle, new HistoryEntry(resultTitle, HistoryEntry.SOURCE_GALLERY));
+    }
+
+    public void finishWithPageResult(@NonNull PageTitle resultTitle, @NonNull HistoryEntry historyEntry) {
         Intent intent = PageActivity.newIntent(GalleryActivity.this, historyEntry, resultTitle);
-        setResult(ACTIVITY_RESULT_FILEPAGE_SELECT, intent);
+        setResult(ACTIVITY_RESULT_PAGE_SELECTED, intent);
         finish();
+    }
+
+    @Override public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
+        finishWithPageResult(title, entry);
+    }
+
+    @Override public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
+        ClipboardUtil.setPlainText(this, null, title.getCanonicalUri());
+        FeedbackUtil.showMessage(this, R.string.address_copied);
+    }
+
+    @Override public void onLinkPreviewAddToList(@NonNull PageTitle title) {
+        bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU);
+    }
+
+    @Override public void onLinkPreviewShareLink(@NonNull PageTitle title) {
+        ShareUtil.shareText(this, title);
     }
 
     /**

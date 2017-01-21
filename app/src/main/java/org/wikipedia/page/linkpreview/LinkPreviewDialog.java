@@ -218,7 +218,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
-                && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT) {
+                && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
