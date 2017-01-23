@@ -1,4 +1,4 @@
-package org.wikipedia.page.gallery;
+package org.wikipedia.gallery;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;

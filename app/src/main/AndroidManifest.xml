@@ -131,7 +131,7 @@
                   android:windowSoftInputMode="stateVisible|adjustResize"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
-        <activity android:name=".page.gallery.GalleryActivity"
+        <activity android:name=".gallery.GalleryActivity"
                   android:configChanges="orientation|screenSize"
                   android:theme="@style/FullScreen"
                 />

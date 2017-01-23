@@ -1,4 +1,4 @@
-package org.wikipedia.page.gallery;
+package org.wikipedia.gallery;
 
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;

@@ -1,4 +1,4 @@
-package org.wikipedia.page.gallery;
+package org.wikipedia.gallery;
 
 import android.app.Activity;
 import android.app.DownloadManager;

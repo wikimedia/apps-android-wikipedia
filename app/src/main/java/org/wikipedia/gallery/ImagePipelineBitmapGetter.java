@@ -1,4 +1,4 @@
-package org.wikipedia.page.gallery;
+package org.wikipedia.gallery;
 
 import android.content.Context;
 import android.graphics.Bitmap;
