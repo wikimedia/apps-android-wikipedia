@@ -91,7 +91,7 @@
   <string name="create_account_button">Luo tunnus</string>
   <string name="preferences_general_heading">Perusasetukset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ei ole käytössä</string>
+  <string name="zero_charged_verbiage">Ilmainen pääsy Wikipediaan ei ole enää käytössä.</string>
   <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving_summary">Jos matkapuhelinoperaattorisi luopuu tiedonsiirtomaksuista Wikipedia Zero -yhteistyön kautta, tämän asetuksen ollessa päällä saat huomautuksen, jos aiot poistua Wikipedia-sovelluksesta ja tiedonsiirrosta voidaan periä maksua.</string>
   <string name="zero_webpage_title">Usein kysyttyjä kysymyksiä Wikipedia Zerosta</string>
@@ -276,6 +276,16 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_lists_onboarding_got_it">Selvä</string>
   <string name="reading_lists_onboarding_page_delete">Vinkki: Pyyhi mikä tahansa sivu vasemmalle tai oikealle poistaaksesi sen tästä lukulistasta.</string>
   <string name="user_option_sync_label">Asetukset</string>
+  <string name="notification_button_view_page">Tarkastele sivua</string>
+  <string name="notification_button_view_user">Keskustele käyttäjän kanssa</string>
+  <string name="notification_button_view_edit_history">Tarkastele muokkaushistoriaa</string>
+  <string name="notification_generic_title">Ilmoitus Wikipediassa</string>
+  <string name="notification_talk_title">Uusi viesti Wikipediassa</string>
+  <string name="notification_talk">%1$s jätti viestin keskustelusivullesi \"%2$s\"</string>
+  <string name="notification_reverted_title">Kumottu muokkaus</string>
+  <string name="notification_reverted">%1$s kumosi muokkauksesi artikkeliin \"%2$s\".</string>
+  <string name="notification_thanks_title">Olet saanut kiitosta!</string>
+  <string name="notification_thanks">%1$s kiitti sinua muokkauksestasi sivuun \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
@@ -310,4 +320,8 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
   <string name="description_edit_success_article_edit_hint">Voit myös muokata artikkeleja tästä sovelluksesta käsin. Kokeile kirjoitusvirheiden ja lyhyiden lauseiden korjaamista ensi kerralla napauttamalla ^1-kuvaketta.</string>
+  <string name="description_edit_tutorial_button_label_continue">Jatka</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
+  <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
 </resources>

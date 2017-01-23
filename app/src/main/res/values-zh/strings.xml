@@ -278,6 +278,16 @@
   <string name="reading_lists_onboarding_got_it">明白了</string>
   <string name="reading_lists_onboarding_page_delete">小建议：向左或向右滑动任意页面以将其从此阅读列表中移除。</string>
   <string name="user_option_sync_label">参数设置</string>
+  <string name="notification_button_view_page">查看页面</string>
+  <string name="notification_button_view_user">与用户讨论</string>
+  <string name="notification_button_view_edit_history">查看编辑历史</string>
+  <string name="notification_generic_title">维基百科上的通知</string>
+  <string name="notification_talk_title">维基百科上的新消息</string>
+  <string name="notification_talk">%1$s在您的讨论页“%2$s”上留下了一条消息</string>
+  <string name="notification_reverted_title">回退的编辑</string>
+  <string name="notification_reverted">您对条目“%2$s”的编辑被%1$s回退。</string>
+  <string name="notification_thanks_title">您已被感谢！</string>
+  <string name="notification_thanks">%1$s感谢了您对页面“%2$s”的编辑</string>
   <string name="view_continue_reading_card_title">继续阅读</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>

@@ -278,6 +278,16 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_lists_onboarding_got_it">Forstået</string>
   <string name="reading_lists_onboarding_page_delete">Tip: Stryg en side til venstre eller højre for at fjerne den fra denne læseliste.</string>
   <string name="user_option_sync_label">Indstillinger</string>
+  <string name="notification_button_view_page">Vis side</string>
+  <string name="notification_button_view_user">Tal med bruger</string>
+  <string name="notification_button_view_edit_history">Vis redigeringshistorik</string>
+  <string name="notification_generic_title">Notifikation på Wikipedia</string>
+  <string name="notification_talk_title">Ny besked på Wikipedia</string>
+  <string name="notification_talk">%1$s efterlod en besked på din diskussionsside \"%2$s\"</string>
+  <string name="notification_reverted_title">Omgjorde redigering</string>
+  <string name="notification_reverted">Din redigering til artiklen \"%2$s\" blev omgjort af %1$s.</string>
+  <string name="notification_thanks_title">Du er blevet takket!</string>
+  <string name="notification_thanks">%1$s takkede dig for din redigering på siden \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Fortsæt læsning</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
@@ -317,4 +327,11 @@ Vil du starte forfra eller afslutte?</string>
   <string name="description_edit_success_done">Færdig</string>
   <string name="description_edit_success_did_you_know">Vidste du at?</string>
   <string name="description_edit_success_article_edit_hint">Du kan også redigere artikler i denne app. Prøv at rette stavefejl og små sætninger ved at klikke på ^1-ikonet næste gang</string>
+  <string name="description_edit_tutorial_title_descriptions">Titelbeskrivelser</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Opsummerer en artikel for at hjælpe læsere med at forstå emnet på et øjeblik</string>
+  <string name="description_edit_tutorial_button_label_continue">Fortsæt</string>
+  <string name="description_edit_tutorial_keep_it_short">Hold det kort</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
+  <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
 </resources>

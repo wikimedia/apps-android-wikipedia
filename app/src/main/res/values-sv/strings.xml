@@ -278,6 +278,16 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Svep en sida åt vänster eller höger för att ta bort den från denna läslista.</string>
   <string name="user_option_sync_label">Inställningar</string>
+  <string name="notification_button_view_page">Visa sida</string>
+  <string name="notification_button_view_user">Diskutera med användare</string>
+  <string name="notification_button_view_edit_history">Visa redigeringshistorik</string>
+  <string name="notification_generic_title">Avisering på Wikipedia</string>
+  <string name="notification_talk_title">Nytt meddelande på Wikipedia</string>
+  <string name="notification_talk">%1$s lämnade ett meddelande på din diskussionssida \"%2$s\"</string>
+  <string name="notification_reverted_title">Ogjord redigering</string>
+  <string name="notification_reverted">Din redigering på artikeln \"%2$s\" gjordes ogjord av %1$s.</string>
+  <string name="notification_thanks_title">Du har tackats!</string>
+  <string name="notification_thanks">%1$s tackade dig för din redigering på sidan \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Fortsätt läs</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Randomiserare</string>

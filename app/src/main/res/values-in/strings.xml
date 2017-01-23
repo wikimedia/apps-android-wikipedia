@@ -278,6 +278,16 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_lists_onboarding_got_it">Mengerti</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Geser beberapa halaman ke kiri dan kanan untuk menghapusnya dari daftar bacaan ini.</string>
   <string name="user_option_sync_label">Preferensi</string>
+  <string name="notification_button_view_page">Lihat halaman</string>
+  <string name="notification_button_view_user">Bicara ke pengguna</string>
+  <string name="notification_button_view_edit_history">Lihat riwayat suntingan</string>
+  <string name="notification_generic_title">Pemberitahuan di Wikipedia</string>
+  <string name="notification_talk_title">Pesan baru di Wikipedia</string>
+  <string name="notification_talk">%1$s meninggalkan sebuah pesan di halaman pembicaraan Anda dengan judul \"%2$s\"</string>
+  <string name="notification_reverted_title">Suntingan yang dibalikkan</string>
+  <string name="notification_reverted">Suntingan Anda pada artikel \"%2$s\" telah dibalikkan oleh %1$s.</string>
+  <string name="notification_thanks_title">Anda telah menerima ucapan terima kasih!</string>
+  <string name="notification_thanks">%1$s berterima kasih untuk suntingan Anda pada halaman \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>

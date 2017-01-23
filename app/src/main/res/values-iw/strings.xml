@@ -278,6 +278,16 @@
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="reading_lists_onboarding_page_delete">עצה: החלקה של כל דף שמאלה או ימינה תסיר אותו מרשימת הקריאה הזאת.</string>
   <string name="user_option_sync_label">העדפות</string>
+  <string name="notification_button_view_page">הצגת דף</string>
+  <string name="notification_button_view_user">לדבר עם משתמש</string>
+  <string name="notification_button_view_edit_history">הצגת היסטוריית העריכה</string>
+  <string name="notification_generic_title">התראה בוויקיפדיה</string>
+  <string name="notification_talk_title">הודעה חדשה בוויקיפדיה</string>
+  <string name="notification_talk">%1$s השאיר הודעה בדך השיחה שלך \"%2$s\"</string>
+  <string name="notification_reverted_title">עריכה משוחזרת</string>
+  <string name="notification_reverted">העריכה שלך בערך \"%2$s\" שוחזרה על־ידי %1$s.</string>
+  <string name="notification_thanks_title">קיבלת תודה!</string>
+  <string name="notification_thanks">%1$s הודה לך על העריכה שלך בדף \"%2$s\"</string>
   <string name="view_continue_reading_card_title">להמשיך לקרוא</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>

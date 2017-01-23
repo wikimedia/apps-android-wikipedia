@@ -278,6 +278,16 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_lists_onboarding_page_delete">Tipp: Wische eine beliebige Seite nach links oder rechts, um sie aus dieser Leseliste zu entfernen.</string>
   <string name="user_option_sync_label">Einstellungen</string>
+  <string name="notification_button_view_page">Seite ansehen</string>
+  <string name="notification_button_view_user">Mit dem Benutzer diskutieren</string>
+  <string name="notification_button_view_edit_history">Versionsgeschichte ansehen</string>
+  <string name="notification_generic_title">Benachrichtigung auf Wikipedia</string>
+  <string name="notification_talk_title">Neue Nachricht auf Wikipedia</string>
+  <string name="notification_talk">%1$s hinterließ eine Nachricht auf deiner Diskussionsseite „%2$s“</string>
+  <string name="notification_reverted_title">Zurückgesetzte Bearbeitung</string>
+  <string name="notification_reverted">Deine Bearbeitung an dem Artikel „%2$s“ wurde von %1$s rückgängig gemacht.</string>
+  <string name="notification_thanks_title">Du hast ein Dankeschön erhalten!</string>
+  <string name="notification_thanks">%1$s hat sich für deine Bearbeitung auf der Seite „%2$s“ bedankt</string>
   <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
   <string name="view_because_you_read_card_title">Weil du liest</string>
   <string name="view_random_card_title">Zufallsgenerator</string>

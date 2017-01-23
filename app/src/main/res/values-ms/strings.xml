@@ -276,6 +276,16 @@
   <string name="reading_lists_onboarding_got_it">Faham</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Geser beberapa laman ke kiri atau kanan untuk memadamkannya dari senarai bacaan ini.</string>
   <string name="user_option_sync_label">Keutamaan</string>
+  <string name="notification_button_view_page">Lihat laman</string>
+  <string name="notification_button_view_user">Bincang ke pengguna</string>
+  <string name="notification_button_view_edit_history">Lihat sejarah penyuntingan</string>
+  <string name="notification_generic_title">Pemberitahuan pada Wikipedia</string>
+  <string name="notification_talk_title">Mesej baru pada Wikipedia</string>
+  <string name="notification_talk">%1$s meninggalkan mesej di halaman perbincangan anda di \"%2$s\"</string>
+  <string name="notification_reverted_title">Suntingan yang dibatalkan</string>
+  <string name="notification_reverted">Suntingan anda pada rencana \"%2$s\" telah dibatalkan oleh %1$s.</string>
+  <string name="notification_thanks_title">Anda telah dihargai!</string>
+  <string name="notification_thanks">%1$s menghargai anda untuk suntingan anda pada laman \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Teruskan membaca</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>

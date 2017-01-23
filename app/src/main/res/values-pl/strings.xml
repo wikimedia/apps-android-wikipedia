@@ -261,6 +261,8 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="reading_lists_onboarding_example2">Ulubione zwierzęta</string>
   <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="user_option_sync_label">Preferencje</string>
+  <string name="notification_button_view_page">Zobacz stronę</string>
+  <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>

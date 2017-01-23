@@ -278,6 +278,16 @@
   <string name="reading_lists_onboarding_got_it">Entendílo</string>
   <string name="reading_lists_onboarding_page_delete">Conseyu: barre cualquier páxina a la izquierda o a la derecha pa quitala d\'esta llista de llectura.</string>
   <string name="user_option_sync_label">Preferencies</string>
+  <string name="notification_button_view_page">Ver la páxina</string>
+  <string name="notification_button_view_user">Falar col usuariu</string>
+  <string name="notification_button_view_edit_history">Ver l\'historial d\'ediciones</string>
+  <string name="notification_generic_title">Avisu en Wikipedia</string>
+  <string name="notification_talk_title">Mensaxe nuevu en Wikipedia</string>
+  <string name="notification_talk">%1$s dexó un mensaxe na to páxina d\'alderique «%2$s»</string>
+  <string name="notification_reverted_title">Edición revertida</string>
+  <string name="notification_reverted">%1$s revertió la to edición del artículu «%2$s».</string>
+  <string name="notification_thanks_title">¡Diéronte les gracies!</string>
+  <string name="notification_thanks">%1$s agradecióte la edición de la páxina «%2$s»</string>
   <string name="view_continue_reading_card_title">Siguir lleyendo</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
