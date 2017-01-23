@@ -274,6 +274,16 @@
   <string name="reading_lists_onboarding_got_it">سمجھي ويئو</string>
   <string name="reading_lists_onboarding_page_delete">ٽپ:ڪنھن صفحي کي پڙھڻ جي فھرست مان ھٽائڻ لاءِ ان کي کاٻي يا ساڄي پاسي ڇڪيو.</string>
   <string name="user_option_sync_label">ترجيحون</string>
+  <string name="notification_button_view_page">صفحو ڏسو</string>
+  <string name="notification_button_view_user">يوزر سان ڳالھ</string>
+  <string name="notification_button_view_edit_history">ترميمي سوانح ڏسو</string>
+  <string name="notification_generic_title">وڪيپيڊيا تي اطلاع</string>
+  <string name="notification_talk_title">وڪيپيڊيا تي نئون پيغام</string>
+  <string name="notification_talk">%1$s توھان جي بحث صفحي \"%2$s\" تي پيغام ڇڏيو</string>
+  <string name="notification_reverted_title">ورايل ترميم</string>
+  <string name="notification_reverted">\"%2$s\" مضمون تي توھان جي ترميم %1$s پاران ورائي وئي.</string>
+  <string name="notification_thanks_title">توھان جي مھرباني ادا ڪئي وئي آھي!</string>
+  <string name="notification_thanks">مضمون \"%2$s\" تي توھان جي ترميم لاءِ %1$s توھان جي مھرباني ادا ڪئي</string>
   <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
@@ -303,9 +313,19 @@
   <string name="description_edit_add_description">مختصر تفصيل شامل ڪريو</string>
   <string name="description_edit_edit_description">تشريح سنواريو</string>
   <string name="description_edit_cancel_hint">رد</string>
+  <string name="description_edit_help_title">مدد:عنوان جي تشريح</string>
+  <string name="description_edit_help_about_wikidata">وڪيڊيٽا بابت</string>
+  <string name="description_edit_help_wikidata_guide">تشريحون لکڻ لاءِ وڪيڊيٽا رھنما (گائيڊ)</string>
   <string name="description_edit_success_saved">تشريح سانڍجي وئي!</string>
   <string name="description_edit_success_encouragement">توھان وڪيپيڊيا کي ھر ڪنھن لاءِ بھتر بڻايو</string>
   <string name="description_edit_success_done">ٿي ويو</string>
   <string name="description_edit_success_did_you_know">ڇا توهان کي ڄاڻ هئي؟</string>
   <string name="description_edit_success_article_edit_hint">توھان ھن ايپ ۾ بہ مضمون سنواري سگھو ٿا. مٿين دفعي ^1 تي ٽڙڪ ڪرڻ سان توھان ھجي جو غلطيون ۽ ننڍا جملا ٺيڪ ڪري سگھو ٿا</string>
+  <string name="description_edit_tutorial_title_descriptions">فائيل جون تشريحون</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">پڙھندڙن کي پھرين جھلڪ ۾ موضوع سمجھڻ ۾ مدد ڪرڻ لاءِ مضمون جو تت ڪري ٿو</string>
+  <string name="description_edit_tutorial_button_label_continue">جاري رکو</string>
+  <string name="description_edit_tutorial_keep_it_short">ان کي ننڍو رکو</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">خيالي ھڪ سٽ، ٻن کان ٻارھن اکرن جي وچ ۾</string>
+  <string name="description_edit_tutorial_button_label_start_editing">سنوارڻ شروع ڪريو</string>
+  <string name="description_edit_tutorial_promise">شرپع ڪرڻ سان، مان واعدو ٿو ڪريان مان ھن خوبي جو غلط استعمال نہ ڪندس.</string>
 </resources>

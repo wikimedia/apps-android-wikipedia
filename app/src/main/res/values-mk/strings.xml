@@ -278,6 +278,16 @@
   <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="reading_lists_onboarding_page_delete">Совет: Повлечете ја било која страница налево или надесно за да ја отстраните од списоков.</string>
   <string name="user_option_sync_label">Поставки</string>
+  <string name="notification_button_view_page">Погл. страницата</string>
+  <string name="notification_button_view_user">Разговарајте со корисникот</string>
+  <string name="notification_button_view_edit_history">Историја на уредувањата</string>
+  <string name="notification_generic_title">Известување на Википедија</string>
+  <string name="notification_talk_title">Нова порака на Википедија</string>
+  <string name="notification_talk">%1$s ви остави порака на вашата страница за разговор „%2$s“</string>
+  <string name="notification_reverted_title">Отповикано уредување</string>
+  <string name="notification_reverted">Вашето уредување на статијата „%2$s“ е отповикано од %1$s.</string>
+  <string name="notification_thanks_title">Добивте благодарност!</string>
+  <string name="notification_thanks">%1$s ви благодари за вашето уредување на страницатга „%2$s“</string>
   <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>

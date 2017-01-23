@@ -192,6 +192,13 @@
   <string name="reading_list_untitled">தலைப்பு இல்லாதவை</string>
   <string name="reading_list_added_view_button" fuzzy="true">பார்வையிடுக</string>
   <string name="reading_list_sort">வரிசைபடுத்துக</string>
+  <string name="notification_button_view_page">பக்கத்தைப் பார்க்கவும்</string>
+  <string name="notification_button_view_user">பயனரிடம் பேசவும்</string>
+  <string name="notification_generic_title">விக்கிபீடியாவில் அறிவிப்பு</string>
+  <string name="notification_talk_title">விக்கிபீடியாவில் புதிய செய்தி</string>
   <string name="description_edit_success_done">முடிந்தது</string>
   <string name="description_edit_success_did_you_know">உங்களுக்கு தெரியுமா?</string>
+  <string name="description_edit_tutorial_title_descriptions">தலைப்பின் விவரங்கள்</string>
+  <string name="description_edit_tutorial_button_label_continue">தொடரவும்</string>
+  <string name="description_edit_tutorial_button_label_start_editing">தொகுக்கக் துவங்கவும்</string>
 </resources>

@@ -278,6 +278,16 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_lists_onboarding_got_it">Kaout anezhañ</string>
   <string name="reading_lists_onboarding_page_delete">Alioù : Lakaat ur bajenn da riklañ a-zehoù pe a-gleiz evit lemel anezhi eus ar roll lenn-se.</string>
   <string name="user_option_sync_label">Penndibaboù</string>
+  <string name="notification_button_view_page">Gwelet ar bajenn</string>
+  <string name="notification_button_view_user">Komz gant an implijer</string>
+  <string name="notification_button_view_edit_history">Gwelet istor ar c\'hemmoù</string>
+  <string name="notification_generic_title">Kemennadenn war Wikipedia</string>
+  <string name="notification_talk_title">Kemennadenn nevez war Wikipedia</string>
+  <string name="notification_talk">Lezet ez eus bet ur gemennadenn war ho pajenn gaozeal \"%2$s\" gant %1$s</string>
+  <string name="notification_reverted_title">Kemm distaolet</string>
+  <string name="notification_reverted">Distaolet eo bet gant %1$s ar c\'hemm graet ganeoc\'h e %2$s\".</string>
+  <string name="notification_thanks_title">Trugarekaet oc\'h bet !</string>
+  <string name="notification_thanks">Trugarekaet oc\'h bet gant %1$s evit ar c\'hemm graet ganeoc\'h war ar bajenn %2$s</string>
   <string name="view_continue_reading_card_title">Kenderc\'hel da lenn</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
   <string name="view_random_card_title">Dre zegouezh</string>

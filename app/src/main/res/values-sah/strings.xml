@@ -276,6 +276,16 @@
   <string name="reading_lists_onboarding_got_it">Бу өйдөнөр</string>
   <string name="reading_lists_onboarding_page_delete">Сүбэ: тарбаххынан ханнык баҕарар сирэйи туора сот - оччоҕо ааҕыы испииһэгиттэн сүтүө.</string>
   <string name="user_option_sync_label">Туруоруулар</string>
+  <string name="notification_button_view_page">Сирэйи көрүү</string>
+  <string name="notification_button_view_user">Кыттааччыга сурук</string>
+  <string name="notification_button_view_edit_history">Уларытыы устуоруйатын көрүү</string>
+  <string name="notification_generic_title">Бикипиэдьийэҕэ биллэрии</string>
+  <string name="notification_talk_title">Бикипиэдьийэҕэ саҥа сурук</string>
+  <string name="notification_talk">%1$s Эн ырытар тус сирэйгэр сурук хаалларбыт: «%2$s»</string>
+  <string name="notification_reverted_title">Төннөрүллүбүт уларытыы</string>
+  <string name="notification_reverted">«%2$s» ыстатыйаҕа оҥорбут уларытыыгын %1$s кыттааччы суох гыммыт.</string>
+  <string name="notification_thanks_title">Эйиэхэ махтамыттар!</string>
+  <string name="notification_thanks">%1$s кыттааччы «%2$s» сирэйи тупсарыыҥ иһин Эйиэхэ махтаммыт</string>
   <string name="view_continue_reading_card_title">Салгыы ааҕыы</string>
   <string name="view_because_you_read_card_title">Тоҕо диэтэххэ ыстатыйаны аахпыккын</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -312,6 +322,7 @@
   <string name="description_edit_success_encouragement">Бикипиэдьийэни тупсаҕай гынан биэрдиҥ</string>
   <string name="description_edit_success_done">Оҥоһулунна</string>
   <string name="description_edit_success_did_you_know">Билэҕин дуо?</string>
+  <string name="description_edit_tutorial_title_descriptions">Баһын ойуулааһын</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Кылгастык тиэмэни арыйар, ааҕааччыга тута өйдүүрүгэр көмө буолар</string>
   <string name="description_edit_tutorial_button_label_continue">Салгыы</string>
   <string name="description_edit_tutorial_keep_it_short">Кылгастык суруй</string>

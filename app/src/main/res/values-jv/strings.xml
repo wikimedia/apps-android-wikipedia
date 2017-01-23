@@ -278,6 +278,16 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="reading_lists_onboarding_got_it">Tak</string>
   <string name="reading_lists_onboarding_page_delete">Tip: Gesek kaca ngiwa utawa nengen kanggo nyopot saka maca dhaftar iki.</string>
   <string name="user_option_sync_label">Pilihan</string>
+  <string name="notification_button_view_page">Tuduhna kaca</string>
+  <string name="notification_button_view_user">Rembugan kanggo panganggo</string>
+  <string name="notification_button_view_edit_history">Deleng sujarah suntingan</string>
+  <string name="notification_generic_title">Wara-wara ing Wikipedia</string>
+  <string name="notification_talk_title">Pesen anyar ing Wikipedia</string>
+  <string name="notification_talk">%1$s ngiwa pesen ing kaca parembugan sampeyan ing judhul \"%2$s\"</string>
+  <string name="notification_reverted_title">Besutan diwurungaké</string>
+  <string name="notification_reverted">Besutan sampeyan kanggo artikel \"%2$s\" diwurungaké dening %1$s.</string>
+  <string name="notification_thanks_title">Panjenengan wis matur nuwun!</string>
+  <string name="notification_thanks">%1$s wis matur nuwun kanggo besutan panjenengan ing kaca \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Terus maca</string>
   <string name="view_because_you_read_card_title">Amarga maca</string>
   <string name="view_random_card_title">Artikel acak</string>
