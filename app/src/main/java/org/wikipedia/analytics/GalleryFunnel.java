@@ -38,7 +38,9 @@ public class GalleryFunnel extends TimedFunnel {
     private void logGalleryAction(String action, PageTitle currentPageTitle, String currentMediaTitle) {
         log(
                 "action", action,
-                "pageTitle", currentPageTitle.getDisplayText(),
+                "pageTitle", currentPageTitle != null
+                        ? currentPageTitle.getDisplayText()
+                        : "FeedFeaturedImage",
                 "imageTitle", currentMediaTitle
         );
     }
