@@ -89,6 +89,18 @@
             Descriptions are stored and maintained on Wikidata, a project of the Wikimedia Foundation which provides a free, collaborative, multilingual, secondary database supporting Wikipedia and other projects.
         </p>
     ]]></string>
+
+    <string name="description_edit_revert_help_body"><![CDATA[
+        Thanks for editing Wikipedia!<br />
+        We know you tried your best, but one of the reviewers had a concern. Possible reasons your edit was reverted include:
+        <p>
+            • your contribution didn\'t follow one of the <a href="%1$s">guidelines</a>.
+        </p>
+        <p>
+            • your contribution looked like an experiment or vandalism.
+        </p>
+        If you are interested, see the <a href="%2$s">history of edits</a>.
+    ]]></string>
     <!-- /Description editing -->
 
 </resources>

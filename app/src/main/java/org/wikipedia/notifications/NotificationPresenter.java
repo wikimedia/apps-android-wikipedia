@@ -13,8 +13,10 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ShareUtil;
 
 public final class NotificationPresenter {
@@ -28,14 +30,10 @@ public final class NotificationPresenter {
         @DrawableRes int icon = R.mipmap.launcher;
         @ColorInt int color = ContextCompat.getColor(context, R.color.foundation_gray);
 
-        Uri pageUri = uriForPath(n, n.isFromWikidata() && n.title().isMainNamespace()
-                ? n.title().text() : n.title().full());
         Uri historyUri = uriForPath(n, "Special:History/" + n.title().full());
         Uri agentUri = uriForPath(n, "User:" + n.agent().name());
 
-        PendingIntent pageIntent = PendingIntent.getActivity(context, REQUEST_CODE_PAGE,
-                ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, pageUri), null,
-                        context), PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent pageIntent = PageActivity.newIntent(context, n.title().full());
 
         PendingIntent historyIntent = PendingIntent.getActivity(context, REQUEST_CODE_HISTORY,
                 ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, historyUri), null,
@@ -46,7 +44,6 @@ public final class NotificationPresenter {
                         context), PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-                .setContentIntent(pageIntent)
                 .setAutoCancel(true);
 
         switch (n.type()) {
@@ -58,6 +55,7 @@ public final class NotificationPresenter {
                 builder.addAction(0, context.getString(R.string.notification_button_view_user), agentIntent);
                 break;
             case Notification.TYPE_REVERTED:
+                pageIntent.putExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER, n.title().text());
                 description = context.getString(R.string.notification_reverted, n.agent().name(), n.title().full());
                 icon = R.drawable.ic_rotate_left_white_24dp;
                 title = R.string.notification_reverted_title;
@@ -75,7 +73,8 @@ public final class NotificationPresenter {
                 break;
         }
 
-        builder.setStyle(new NotificationCompat.BigTextStyle().bigText(description))
+        builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_PAGE, pageIntent, PendingIntent.FLAG_UPDATE_CURRENT))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(description))
                 .setContentText(description)
                 .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
                         ? icon : R.mipmap.launcher)
