@@ -15,11 +15,17 @@ class Edit extends MwPostResponse {
         return edit != null;
     }
 
+    boolean badLoginState() {
+        return "assertuserfailed".equals(code());
+    }
+
     class Result {
         @SuppressWarnings("unused") @Nullable private String result;
         @SuppressWarnings("unused") private int newrevid;
         @SuppressWarnings("unused") @Nullable private Captcha captcha;
         @SuppressWarnings("unused") @Nullable private String code;
+        @SuppressWarnings("unused") @Nullable private String info;
+        @SuppressWarnings("unused") @Nullable private String warning;
         @SuppressWarnings("unused") @Nullable private String spamblacklist;
 
         @Nullable String status() {
@@ -30,16 +36,32 @@ class Edit extends MwPostResponse {
             return newrevid;
         }
 
+        boolean editSucceeded() {
+            return "Success".equals(result);
+        }
+
         @Nullable String captchaId() {
             return captcha == null ? null : captcha.id();
         }
 
-        boolean hasErrorCode() {
+        boolean hasEditErrorCode() {
             return code != null;
         }
 
         boolean hasCaptchaResponse() {
             return captcha != null;
+        }
+
+        @Nullable String code() {
+            return code;
+        }
+
+        @Nullable String info() {
+            return info;
+        }
+
+        @Nullable String warning() {
+            return warning;
         }
 
         @Nullable String spamblacklist() {
