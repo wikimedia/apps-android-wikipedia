@@ -100,7 +100,7 @@ class EditClient {
                         @NonNull @Field("token") String token,
                         @NonNull @Field("summary") String summary,
                         @Nullable @Field("assert") String user,
-                        @Nullable @Field("captchaId") String captchaId,
-                        @Nullable @Field("captchaWord") String captchaWord);
+                        @Nullable @Field("captchaid") String captchaId,
+                        @Nullable @Field("captchaword") String captchaWord);
     }
 }
