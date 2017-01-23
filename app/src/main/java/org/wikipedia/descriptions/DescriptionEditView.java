@@ -10,6 +10,7 @@ import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -18,16 +19,20 @@ import android.widget.TextView;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.FeedbackUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
 public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_header) TextView headerText;
     @BindView(R.id.view_description_edit_page_title) TextView pageTitleText;
     @BindView(R.id.view_description_edit_save_button) View saveButton;
+    @BindView(R.id.view_description_edit_cancel_button) View cancelButton;
+    @BindView(R.id.view_description_edit_help_button) View helpButton;
     @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
     @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
@@ -118,6 +123,17 @@ public class DescriptionEditView extends LinearLayout {
         setError(null);
     }
 
+    @OnEditorAction(R.id.view_description_edit_text)
+    protected boolean descriptionTextEditorAction(int id) {
+        if (id == EditorInfo.IME_ACTION_DONE) {
+            if (saveButton.isEnabled() && callback != null) {
+                callback.onSaveClick();
+            }
+            return true;
+        }
+        return false;
+    }
+
     @VisibleForTesting void setTitle(@Nullable CharSequence text) {
         pageTitleText.setText(text);
     }
@@ -130,6 +146,7 @@ public class DescriptionEditView extends LinearLayout {
         inflate(getContext(), R.layout.view_description_edit, this);
         ButterKnife.bind(this);
 
+        FeedbackUtil.setToolbarButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
     }
 

@@ -119,6 +119,8 @@
                 android:id="@+id/view_description_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
                 android:hint="@string/description_edit_text_hint"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -129,7 +131,7 @@
             android:layout_margin="4dp"
             android:padding="12dp"
             android:layout_gravity="end"
-            android:contentDescription="@string/description_edit_save"
+            android:contentDescription="@string/description_edit_help_title"
             app:srcCompat="@drawable/ic_help_black_24dp"
             android:tint="@color/dark_gray"
             android:clickable="true"
