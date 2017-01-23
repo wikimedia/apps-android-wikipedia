@@ -1,0 +1,11 @@
+{
+  "edit": {
+    "captcha": {
+      "type": "image",
+      "mime": "image/png",
+      "id": "547159230",
+      "url": "/w/index.php?title=Special:Captcha/image&wpCaptchaId=547159230"
+    },
+    "result": "Failure"
+  }
+}
