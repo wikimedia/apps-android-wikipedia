@@ -23,6 +23,7 @@ public class PageImagesTask extends PageQueryTask<String> {
     public void buildQueryParams(RequestBuilder builder) {
         builder.param("prop", "pageimages")
                .param("piprop", "thumbnail")
+               .param("pilicense", "any")
                .param("pithumbsize", Integer.toString(thumbSize))
                .param("pilimit", Integer.toString(thumbsCount));
     }

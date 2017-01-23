@@ -161,7 +161,7 @@ public class MwPageService implements PageService {
         @Headers("x-analytics: preview=1")
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=extracts%7Cpageimages"
                 + "&redirects=true&exsentences=5&explaintext=true&piprop=thumbnail%7Cname"
-                + "&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
+                + "&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
         Call<MwPageSummary> pageSummary(@Query("titles") String title);
 
         /**

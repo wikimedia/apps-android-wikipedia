@@ -51,6 +51,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
                 .param("prop", "pageterms|pageimages")
                 .param("wbptterms", "description") // only interested in Wikidata description
                 .param("piprop", "thumbnail")
+                .param("pilicense", "any")
                 .param("pithumbsize", Integer.toString(Constants.PREFERRED_THUMB_SIZE))
                 .param("pilimit", NUM_RESULTS_PER_QUERY)
                 .param("continue", ""); // to avoid warning about new continuation syntax

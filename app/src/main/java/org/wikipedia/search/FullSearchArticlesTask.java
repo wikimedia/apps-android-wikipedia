@@ -52,6 +52,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 .param("gsrprop", "redirecttitle")
                 .param("gsrlimit", maxResultsString)
                 .param("piprop", "thumbnail") // for thumbnail URLs
+                .param("pilicense", "any")
                 .param("pithumbsize", Integer.toString(Constants.PREFERRED_THUMB_SIZE))
                 .param("pilimit", maxResultsString);
         if (continueOffset != null) {

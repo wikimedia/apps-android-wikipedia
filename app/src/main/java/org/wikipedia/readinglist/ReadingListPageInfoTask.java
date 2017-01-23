@@ -26,6 +26,7 @@ public class ReadingListPageInfoTask extends PageQueryTask<Void> {
     public void buildQueryParams(RequestBuilder builder) {
         builder.param("prop", "pageimages|pageterms")
                 .param("piprop", "thumbnail")
+                .param("pilicense", "any")
                 .param("pithumbsize", Integer.toString(thumbSize))
                 .param("pilimit", Integer.toString(pageCount));
     }

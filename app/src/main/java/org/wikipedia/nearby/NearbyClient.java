@@ -73,7 +73,7 @@ class NearbyClient {
 
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&prop=coordinates|pageimages|pageterms"
-                + "&colimit=50&piprop=thumbnail&pilimit=50&wbptterms=description"
+                + "&colimit=50&piprop=thumbnail&pilicense=any&pilimit=50&wbptterms=description"
                 + "&generator=geosearch&ggslimit=50&continue=")
         Call<MwQueryResponse<Nearby>> request(@NonNull @Query("ggscoord") String coord,
                                               @Query("ggsradius") double radius,
