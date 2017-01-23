@@ -9,10 +9,6 @@ import org.wikipedia.bridge.CommunicationBridge;
  */
 public abstract class ReferenceHandler implements CommunicationBridge.JSEventListener {
 
-    public ReferenceHandler(CommunicationBridge bridge) {
-        bridge.addListener("referenceClicked", this);
-    }
-
     /**
      * Called when a reference link was clicked.
      */

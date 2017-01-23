@@ -331,41 +331,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
-        linkHandler = new LinkHandler(getActivity(), bridge) {
-            @Override
-            public void onPageLinkClicked(String anchor) {
-                dismissBottomSheet();
-                JSONObject payload = new JSONObject();
-                try {
-                    payload.put("anchor", anchor);
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
-                bridge.sendMessage("handleReference", payload);
-            }
-
-            @Override
-            public void onInternalLinkClicked(PageTitle title) {
-                handleInternalLink(title);
-            }
-
-            @Override
-            public WikiSite getWikiSite() {
-                return model.getTitle().getWikiSite();
-            }
-        };
-
-        new ReferenceHandler(bridge) {
-            @Override
-            protected void onReferenceClicked(String refHtml) {
-                if (!isAdded()) {
-                    Log.d("PageFragment", "Detached from activity, so stopping reference click.");
-                    return;
-                }
-                showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml));
-            }
-        };
-
         // make sure styles get injected before the DarkModeMarshaller and other handlers
         if (app.isCurrentThemeDark()) {
             new DarkModeMarshaller(bridge).turnOn(true);
@@ -1059,9 +1024,39 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void setupMessageHandlers() {
+        linkHandler = new LinkHandler(getActivity()) {
+            @Override public void onPageLinkClicked(String anchor) {
+                dismissBottomSheet();
+                JSONObject payload = new JSONObject();
+                try {
+                    payload.put("anchor", anchor);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+                bridge.sendMessage("handleReference", payload);
+            }
+
+            @Override public void onInternalLinkClicked(PageTitle title) {
+                handleInternalLink(title);
+            }
+
+            @Override public WikiSite getWikiSite() {
+                return model.getTitle().getWikiSite();
+            }
+        };
+        bridge.addListener("linkClicked", linkHandler);
+
+        bridge.addListener("referenceClicked", new ReferenceHandler() {
+            @Override protected void onReferenceClicked(String refHtml) {
+                if (!isAdded()) {
+                    Log.d("PageFragment", "Detached from activity, so stopping reference click.");
+                    return;
+                }
+                showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml));
+            }
+        });
         bridge.addListener("ipaSpan", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
+            @Override public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String text = messagePayload.getString("contents");
                     final int textSize = 30;
@@ -1078,8 +1073,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         });
         bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
+            @Override public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String href = decodeURL(messagePayload.getString("href"));
                     if (href.startsWith("/wiki/")) {
@@ -1098,8 +1092,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         });
         bridge.addListener("mediaClicked", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
+            @Override public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String href = decodeURL(messagePayload.getString("href"));
                     String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));

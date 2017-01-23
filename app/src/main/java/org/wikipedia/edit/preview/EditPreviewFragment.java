@@ -189,7 +189,7 @@ public class EditPreviewFragment extends Fragment {
                 new DarkModeMarshaller(bridge).turnOn(false);
             }
 
-            new LinkHandler(getActivity(), bridge) {
+            bridge.addListener("linkClicked", new LinkHandler(getActivity()) {
                 @Override
                 public void onPageLinkClicked(String href) {
                     // TODO: also need to handle references, issues, disambig, ... in preview eventually
@@ -262,7 +262,7 @@ public class EditPreviewFragment extends Fragment {
                 public WikiSite getWikiSite() {
                     return parentActivity.getPageTitle().getWikiSite();
                 }
-            };
+            });
             bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {
                 @Override
                 public void onMessage(String messageType, JSONObject messagePayload) {
