@@ -120,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:hint="@string/description_edit_text_hint"/>
         </android.support.design.widget.TextInputLayout>
 
