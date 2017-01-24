@@ -44,10 +44,6 @@ public final class ViewUtil {
         return false;
     }
 
-    public static void setPadding(@NonNull View view, int padding) {
-        view.setPadding(padding, padding, padding, padding);
-    }
-
     public static void setTopPaddingDp(@NonNull View view, int padding) {
         view.setPadding(view.getPaddingLeft(), (int) (padding * DimenUtil.getDensityScalar()),
                 view.getPaddingRight(), view.getPaddingBottom());
