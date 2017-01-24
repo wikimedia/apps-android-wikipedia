@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu_article_header_edit_description"
+    <item android:id="@+id/menu_page_header_edit_description"
         android:title="@string/article_header_edit_description" />
-    <item android:id="@+id/menu_article_header_edit_lead_section"
+    <item android:id="@+id/menu_page_header_edit_lead_section"
         android:title="@string/article_header_edit_lead_section" />
 </menu>

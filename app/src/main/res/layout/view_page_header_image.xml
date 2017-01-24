@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/view_article_header_image_placeholder"
+        android:id="@+id/view_page_header_image_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
@@ -12,14 +12,14 @@
         android:contentDescription="@null" />
 
     <org.wikipedia.views.FaceAndColorDetectImageView
-        android:id="@+id/view_article_header_image_image"
+        android:id="@+id/view_page_header_image_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:actualImageScaleType="focusCrop"
         android:contentDescription="@null" />
 
     <View
-        android:id="@+id/view_article_header_image_gradient"
+        android:id="@+id/view_page_header_image_gradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"/>

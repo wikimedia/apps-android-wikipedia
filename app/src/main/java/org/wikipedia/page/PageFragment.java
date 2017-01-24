@@ -55,8 +55,8 @@ import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
-import org.wikipedia.page.leadimages.ArticleHeaderView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
+import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.snippet.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
@@ -355,8 +355,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler = new ToCHandler(this, tocDrawer, bridge);
 
         // TODO: initialize View references in onCreateView().
-        ArticleHeaderView articleHeaderView = findById(getView(), R.id.page_header_view);
-        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, articleHeaderView);
+        PageHeaderView pageHeaderView = findById(getView(), R.id.page_header_view);
+        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, pageHeaderView);
         toolbarHideHandler = getSearchBarHideHandler();
         toolbarHideHandler.setScrollView(webView);
 

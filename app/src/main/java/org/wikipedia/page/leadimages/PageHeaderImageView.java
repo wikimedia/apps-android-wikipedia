@@ -24,27 +24,27 @@ import butterknife.ButterKnife;
 
 import static org.wikipedia.util.GradientUtil.getCubicGradient;
 
-public class ArticleHeaderImageView extends FrameLayout {
-    @BindView(R.id.view_article_header_image_image) FaceAndColorDetectImageView image;
-    @BindView(R.id.view_article_header_image_gradient) View gradientView;
+public class PageHeaderImageView extends FrameLayout {
+    @BindView(R.id.view_page_header_image_image) FaceAndColorDetectImageView image;
+    @BindView(R.id.view_page_header_image_gradient) View gradientView;
 
-    public ArticleHeaderImageView(Context context) {
+    public PageHeaderImageView(Context context) {
         super(context);
         init();
     }
 
-    public ArticleHeaderImageView(Context context, AttributeSet attrs) {
+    public PageHeaderImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public ArticleHeaderImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PageHeaderImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ArticleHeaderImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public PageHeaderImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
@@ -86,7 +86,7 @@ public class ArticleHeaderImageView extends FrameLayout {
         // Clip the Ken Burns zoom animation applied to the image.
         setClipChildren(true);
 
-        inflate(getContext(), R.layout.view_article_header_image, this);
+        inflate(getContext(), R.layout.view_page_header_image, this);
         ButterKnife.bind(this);
 
         @ColorInt int color = ContextCompat.getColor(getContext(), R.color.new_lead_gradient_start);

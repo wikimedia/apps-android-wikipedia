@@ -13,7 +13,7 @@ import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
 import org.wikipedia.Constants;
-import org.wikipedia.page.leadimages.ArticleHeaderView.Callback;
+import org.wikipedia.page.leadimages.PageHeaderView.Callback;
 import org.wikipedia.test.theories.TestedOnBool;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
@@ -38,8 +38,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
 
-@SmallTest public class ArticleHeaderViewTest extends ViewTest {
-    private ArticleHeaderView subject;
+@SmallTest public class PageHeaderViewTest extends ViewTest {
+    private PageHeaderView subject;
 
     @Theory public void testLayout(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,
                                    // @TestedOn(ints = {HEIGHT_DP_L, WIDTH_DP_S}) int heightDp,
@@ -312,7 +312,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         setUp(widthDp, layoutDirection, fontScale, theme);
 
         Uri imageUri = frescoUri(image.id());
-        subject = new ArticleHeaderView(ctx());
+        subject = new PageHeaderView(ctx());
         subject.loadImage(imageUri == null ? null : imageUri.toString());
         setTitle(str(title));
         setSubtitle(str(subtitle));

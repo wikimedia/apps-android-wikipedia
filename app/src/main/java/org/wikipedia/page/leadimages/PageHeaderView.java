@@ -58,15 +58,16 @@ import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.L10nUtil.isLangRTL;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
-public class ArticleHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
-    @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;
-    @BindView(R.id.view_article_header_image_gradient) View gradient;
-    @BindView(R.id.view_article_title_text) AppTextView titleText;
-    @BindView(R.id.view_article_subtitle_text) AppTextView subtitleText;
-    @BindView(R.id.view_article_header_divider) View divider;
-    @BindView(R.id.view_article_header_container) LinearLayout container;
-    @BindView(R.id.view_article_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
-    @BindView(R.id.view_article_header_edit_pencil) View editPencil;
+public class PageHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
+    @BindView(R.id.view_page_header_image)
+    PageHeaderImageView image;
+    @BindView(R.id.view_page_header_image_gradient) View gradient;
+    @BindView(R.id.view_page_title_text) AppTextView titleText;
+    @BindView(R.id.view_page_subtitle_text) AppTextView subtitleText;
+    @BindView(R.id.view_page_header_divider) View divider;
+    @BindView(R.id.view_page_header_container) LinearLayout container;
+    @BindView(R.id.view_page_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
+    @BindView(R.id.view_page_header_edit_pencil) View editPencil;
 
     @Nullable private Callback callback;
     @VisibleForTesting @NonNull CharSequence title = "";
@@ -83,23 +84,23 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         void onEditLeadSection();
     }
 
-    public ArticleHeaderView(Context context) {
+    public PageHeaderView(Context context) {
         super(context);
         init();
     }
 
-    public ArticleHeaderView(Context context, AttributeSet attrs) {
+    public PageHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public ArticleHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PageHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public ArticleHeaderView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public PageHeaderView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
@@ -219,10 +220,10 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         updateScroll(scrollY);
     }
 
-    @OnClick(R.id.view_article_header_edit_pencil) void onEditClick() {
+    @OnClick(R.id.view_page_header_edit_pencil) void onEditClick() {
         if (allowDescriptionEdit) {
             PopupMenu menu = new PopupMenu(editPencil.getContext(), editPencil);
-            menu.getMenuInflater().inflate(R.menu.menu_article_header_edit, menu.getMenu());
+            menu.getMenuInflater().inflate(R.menu.menu_page_header_edit, menu.getMenu());
             menu.setOnMenuItemClickListener(new EditMenuClickListener());
             menu.show();
         } else {
@@ -323,7 +324,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_article_header, this);
+        inflate(getContext(), R.layout.view_page_header, this);
         ButterKnife.bind(this);
         FeedbackUtil.setToolbarButtonLongPressToast(editPencil);
         hide();
@@ -389,12 +390,12 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.menu_article_header_edit_description:
+                case R.id.menu_page_header_edit_description:
                     if (callback != null) {
                         callback.onEditDescription();
                     }
                     return true;
-                case R.id.menu_article_header_edit_lead_section:
+                case R.id.menu_page_header_edit_lead_section:
                     if (callback != null) {
                         callback.onEditLeadSection();
                     }
