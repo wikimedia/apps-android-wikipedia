@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:id="@+id/view_article_header_container"
+        android:id="@+id/view_page_header_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <org.wikipedia.views.StatusBarBlankView
-            android:id="@+id/view_article_header_status_bar_placeholder"
+            android:id="@+id/view_page_header_status_bar_placeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <org.wikipedia.page.leadimages.ArticleHeaderImageView
-            android:id="@+id/view_article_header_image"
+        <org.wikipedia.page.leadimages.PageHeaderImageView
+            android:id="@+id/view_page_header_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <org.wikipedia.views.AppTextView
             style="@style/RtlAwareTextView"
-            android:id="@+id/view_article_title_text"
+            android:id="@+id/view_page_title_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="12dp"
@@ -36,7 +36,7 @@
 
         <org.wikipedia.views.AppTextView
             style="@style/RtlAwareTextView"
-            android:id="@+id/view_article_subtitle_text"
+            android:id="@+id/view_page_subtitle_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
@@ -54,7 +54,7 @@
             tools:text="Subtitle" />
 
         <View
-            android:id="@+id/view_article_header_divider"
+            android:id="@+id/view_page_header_divider"
             android:layout_width="53.5dp"
             android:layout_height="1dp"
             android:layout_marginTop="20dp"
@@ -64,7 +64,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/view_article_header_edit_pencil"
+        android:id="@+id/view_page_header_edit_pencil"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"

@@ -58,7 +58,7 @@ public class LeadImagesHandler {
     @NonNull private final CommunicationBridge bridge;
     @NonNull private final ObservableWebView webView;
 
-    @NonNull private final ArticleHeaderView articleHeaderView;
+    @NonNull private final PageHeaderView pageHeaderView;
     private View image;
 
     private int displayHeightDp;
@@ -66,13 +66,13 @@ public class LeadImagesHandler {
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
                              @NonNull ObservableWebView webView,
-                             @NonNull ArticleHeaderView articleHeaderView) {
-        this.articleHeaderView = articleHeaderView;
+                             @NonNull PageHeaderView pageHeaderView) {
+        this.pageHeaderView = pageHeaderView;
         this.parentFragment = parentFragment;
         this.bridge = bridge;
         this.webView = webView;
 
-        image = articleHeaderView.getImage();
+        image = pageHeaderView.getImage();
 
         initDisplayDimensions();
 
@@ -89,11 +89,11 @@ public class LeadImagesHandler {
      * The only way to "show" the lead image view is by calling the beginLayout function.
      */
     public void hide() {
-        articleHeaderView.hide();
+        pageHeaderView.hide();
     }
 
     @Nullable public Bitmap getLeadImageBitmap() {
-        return isLeadImageEnabled() ? articleHeaderView.copyBitmap() : null;
+        return isLeadImageEnabled() ? pageHeaderView.copyBitmap() : null;
     }
 
     public boolean isLeadImageEnabled() {
@@ -103,7 +103,7 @@ public class LeadImagesHandler {
     }
 
     public void setAnimationPaused(boolean paused) {
-        articleHeaderView.setAnimationPaused(paused);
+        pageHeaderView.setAnimationPaused(paused);
     }
 
     /**
@@ -139,13 +139,13 @@ public class LeadImagesHandler {
 
         // set the page title text, and honor any HTML formatting in the title
         loadLeadImage();
-        articleHeaderView.setTitle(StringUtil.fromHtml(getPage().getDisplayTitle()));
-        articleHeaderView.setSubtitle(StringUtils.capitalize(getTitle().getDescription()));
-        articleHeaderView.setLocale(getPage().getTitle().getWikiSite().languageCode());
-        articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
+        pageHeaderView.setTitle(StringUtil.fromHtml(getPage().getDisplayTitle()));
+        pageHeaderView.setSubtitle(StringUtils.capitalize(getTitle().getDescription()));
+        pageHeaderView.setLocale(getPage().getTitle().getWikiSite().languageCode());
+        pageHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
 
         // TODO: remove pre-beta condition when ready.
-        articleHeaderView.setAllowDescriptionEdit(ReleaseUtil.isPreBetaRelease()
+        pageHeaderView.setAllowDescriptionEdit(ReleaseUtil.isPreBetaRelease()
                 && DescriptionEditClient.isEditAllowed(getPage()));
 
         layoutViews(listener, sequence);
@@ -164,12 +164,12 @@ public class LeadImagesHandler {
         }
 
         if (isMainPage()) {
-            articleHeaderView.hide();
+            pageHeaderView.hide();
         } else {
             if (!isLeadImageEnabled()) {
-                articleHeaderView.showText();
+                pageHeaderView.showText();
             } else {
-                articleHeaderView.showTextImage();
+                pageHeaderView.showTextImage();
             }
         }
 
@@ -182,7 +182,7 @@ public class LeadImagesHandler {
         if (isMainPage()) {
             padding = Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar());
         } else {
-            padding = Math.round(articleHeaderView.getHeight() / DimenUtil.getDensityScalar());
+            padding = Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar());
         }
 
         setWebViewPaddingTop(padding);
@@ -216,9 +216,9 @@ public class LeadImagesHandler {
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
             String fullUrl = getTitle().getWikiSite().scheme() + ":" + url;
-            articleHeaderView.loadImage(fullUrl);
+            pageHeaderView.loadImage(fullUrl);
         } else {
-            articleHeaderView.loadImage(null);
+            pageHeaderView.loadImage(null);
         }
     }
 
@@ -237,8 +237,8 @@ public class LeadImagesHandler {
     }
 
     private void initArticleHeaderView() {
-        articleHeaderView.setOnImageLoadListener(new ImageLoadListener());
-        articleHeaderView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+        pageHeaderView.setOnImageLoadListener(new ImageLoadListener());
+        pageHeaderView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             @SuppressWarnings("checkstyle:parameternumber")
             public void onLayoutChange(View v, int left, int top, int right, int bottom,
@@ -246,7 +246,7 @@ public class LeadImagesHandler {
                 updatePadding();
             }
         });
-        articleHeaderView.setCallback(new ArticleHeaderView.Callback() {
+        pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onDescriptionClicked() {
                 verifyLoggedInForDescriptionEdit();
@@ -293,7 +293,7 @@ public class LeadImagesHandler {
     }
 
     private void initWebView() {
-        webView.addOnScrollChangeListener(articleHeaderView);
+        webView.addOnScrollChangeListener(pageHeaderView);
 
         webView.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override
@@ -341,12 +341,12 @@ public class LeadImagesHandler {
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
         @Override
         public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
-            articleHeaderView.post(new Runnable() {
+            pageHeaderView.post(new Runnable() {
                 @Override
                 public void run() {
                     if (isFragmentAdded()) {
                         if (faceLocation != null) {
-                            articleHeaderView.setImageFocus(faceLocation);
+                            pageHeaderView.setImageFocus(faceLocation);
                         }
                         startKenBurnsAnimation();
                     }
