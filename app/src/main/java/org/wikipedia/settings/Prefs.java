@@ -184,6 +184,18 @@ public final class Prefs {
         remove(R.string.preference_key_login_user_id);
     }
 
+    @NonNull public static String getLoginUserIdLang() {
+        return getString(R.string.preference_key_login_user_id_lang, "");
+    }
+
+    public static void setLoginUserIdLang(@NonNull String lang) {
+        setString(R.string.preference_key_login_user_id_lang, lang);
+    }
+
+    public static void removeLoginUserIdLang() {
+        remove(R.string.preference_key_login_user_id_lang);
+    }
+
     @Nullable
     public static String getLoginUsername() {
         return getString(R.string.preference_key_login_username, null);

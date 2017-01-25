@@ -35,6 +35,7 @@ import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.dataclient.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
@@ -43,6 +44,7 @@ import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.login.User;
+import org.wikipedia.login.UserIdClient;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
@@ -73,6 +75,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
+import retrofit2.Call;
+
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
@@ -97,6 +101,7 @@ public class WikipediaApp extends Application {
     private CsrfTokenStorage csrfTokenStorage;
     private String userAgent;
     private WikiSite wiki;
+    @NonNull private UserIdClient idClient = new UserIdClient();
 
     private CrashReporter crashReporter;
     private RefWatcher refWatcher;
@@ -260,7 +265,11 @@ public class WikipediaApp extends Application {
 
     @NonNull
     public String getAppOrSystemLanguageCode() {
-        return appLanguageState.getAppOrSystemLanguageCode();
+        String code = appLanguageState.getAppOrSystemLanguageCode();
+        if (User.isLoggedIn() && !User.getUser().getUserIDLang().equals(code)) {
+            updateUserIdForLanguage(code);
+        }
+        return code;
     }
 
     @NonNull
@@ -271,6 +280,28 @@ public class WikipediaApp extends Application {
     public void setAppLanguageCode(@Nullable String code) {
         appLanguageState.setAppLanguageCode(code);
         resetWikiSite();
+    }
+
+    private void updateUserIdForLanguage(@NonNull final String code) {
+        final WikiSite wikiSite = WikiSite.forLanguageCode(code);
+        idClient.request(wikiSite, new UserIdClient.Callback() {
+            @Override
+            public void success(@NonNull Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call,
+                                int userId) {
+                User user = User.getUser();
+                if (user != null) {
+                    user.setUserID(userId);
+                    user.setUserIDLang(code);
+                    L.v("Found user ID " + userId + " for " + code);
+                }
+            }
+
+            @Override
+            public void failure(@NonNull Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call,
+                                @NonNull Throwable caught) {
+                L.e("Failed to get user ID for " + wikiSite.languageCode(), caught);
+            }
+        });
     }
 
     @Nullable

@@ -24,7 +24,7 @@ public class UserTest {
     public void setUp() {
         User.disableStorage();
 
-        User user = new User("name", "pwd", USER_ID, GROUPS);
+        User user = new User("name", "pwd", USER_ID, "test", GROUPS);
         User.setUser(user);
     }
 
@@ -35,6 +35,7 @@ public class UserTest {
         assertThat(user.getUsername(), is("name"));
         assertThat(user.getPassword(), is("pwd"));
         assertThat(user.getUserID(), is(USER_ID));
+        assertThat(user.getUserIDLang(), is("test"));
         assertThat(user.getGroupMemberships(), is(GROUPS));
     }
 

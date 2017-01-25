@@ -194,8 +194,8 @@ public class LoginActivity extends ThemedActionBarActivity {
                 logLoginStart();
             }
             if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_CREATED) {
-                usernameText.setText(data.getStringExtra("username"));
-                passwordText.setText(data.getStringExtra("password"));
+                usernameText.setText(data.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME));
+                passwordText.setText(data.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_PASSWORD));
                 funnel.logCreateAccountSuccess();
                 FeedbackUtil.showMessage(this,
                         R.string.create_account_account_created_toast);

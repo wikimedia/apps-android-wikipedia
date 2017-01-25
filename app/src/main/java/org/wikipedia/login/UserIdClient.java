@@ -1,0 +1,68 @@
+package org.wikipedia.login;
+
+import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
+
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.retrofit.MwCachedService;
+import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.useroption.dataclient.UserInfo;
+
+import java.io.IOException;
+
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.http.GET;
+
+public class UserIdClient {
+    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
+
+    public interface Callback {
+        void success(@NonNull Call<MwQueryResponse<QueryUserInfo>> call, int userId);
+        void failure(@NonNull Call<MwQueryResponse<QueryUserInfo>> call, @NonNull Throwable caught);
+    }
+
+    public Call<MwQueryResponse<QueryUserInfo>> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
+        return request(cachedService.service(wiki), cb);
+    }
+
+    public Call<MwQueryResponse<QueryUserInfo>> request(@NonNull Service service, @NonNull final Callback cb) {
+        Call<MwQueryResponse<QueryUserInfo>> call = service.request();
+        call.enqueue(new retrofit2.Callback<MwQueryResponse<QueryUserInfo>>() {
+            @Override
+            public void onResponse(Call<MwQueryResponse<QueryUserInfo>> call, Response<MwQueryResponse<QueryUserInfo>> response) {
+                if (response.isSuccessful()) {
+                    if (response.body().success()) {
+                        cb.success(call, response.body().query().userInfo().id());
+                    } else if (response.body().hasError()) {
+                        cb.failure(call, new MwException(response.body().getError()));
+                    } else {
+                        cb.failure(call, new IOException("An unknown error occurred."));
+                    }
+                } else {
+                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MwQueryResponse<QueryUserInfo>> call, Throwable caught) {
+                cb.failure(call, caught);
+            }
+        });
+        return call;
+    }
+
+    public class QueryUserInfo {
+        @SuppressWarnings("unused,NullableProblems") @NonNull private UserInfo userinfo;
+        @NonNull UserInfo userInfo() {
+            return userinfo;
+        }
+    }
+
+    @VisibleForTesting interface Service {
+        @GET("w/api.php?action=query&format=json&formatversion=2&meta=userinfo")
+        @NonNull Call<MwQueryResponse<QueryUserInfo>> request();
+    }
+}

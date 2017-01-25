@@ -95,7 +95,7 @@ public class LoginClient {
                             // The server could do some transformations on user names, e.g. on some
                             // wikis is uppercases the first letter.
                             String actualUserName = loginResult.getUser().getUsername();
-                            getGroupMemberships(wiki, actualUserName, loginResult, cb);
+                            getExtendedInfo(wiki, actualUserName, loginResult, cb);
                         } else if ("UI".equals(loginResult.getStatus())) {
                             //TODO: Don't just assume this is a 2FA UI result
                             cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
@@ -118,20 +118,22 @@ public class LoginClient {
         });
     }
 
-    private void getGroupMemberships(@NonNull WikiSite wiki, @NonNull String userName,
-                                     @NonNull final LoginResult loginResult,
-                                     @NonNull final LoginCallback cb) {
-        GroupMembershipClient groupClient = new GroupMembershipClient();
-        groupClient.request(wiki, userName, new GroupMembershipClient.GroupMembershipCallback() {
+    private void getExtendedInfo(@NonNull final WikiSite wiki, @NonNull String userName,
+                                 @NonNull final LoginResult loginResult, @NonNull final LoginCallback cb) {
+        UserExtendedInfoClient infoClient = new UserExtendedInfoClient();
+        infoClient.request(wiki, userName, new UserExtendedInfoClient.Callback() {
             @Override
-            public void success(@NonNull Set<String> groups) {
+            public void success(@NonNull Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call,
+                                int id, @NonNull Set<String> groups) {
                 final User user = loginResult.getUser();
-                User.setUser(new User(user, groups));
+                User.setUser(new User(user, id, wiki.languageCode(), groups));
                 cb.success(loginResult);
+                L.v("Found user ID " + id + " for " + wiki.languageCode());
             }
 
             @Override
-            public void error(@NonNull Throwable caught) {
+            public void failure(@NonNull Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call,
+                              @NonNull Throwable caught) {
                 L.e("Login suceeded but getting group information failed. " + caught);
                 cb.error(caught);
             }
@@ -222,7 +224,7 @@ public class LoginClient {
                 User user = null;
                 String userMessage = null;
                 if ("PASS".equals(status)) {
-                    user = new User(userName, password, 0);
+                    user = new User(userName, password);
                 } else if ("FAIL".equals(status)) {
                     userMessage = message;
                 } else if ("UI".equals(status)) {
