@@ -19,6 +19,7 @@
         android:paddingBottom="24dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
+        android:textIsSelectable="true"
         tools:text="Reference text"
         android:textColor="@color/foundation_gray"
         android:textColorLink="@color/foundation_blue"
