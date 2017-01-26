@@ -20,6 +20,7 @@ import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.view.ActionMode;
@@ -45,6 +46,7 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.gallery.GalleryActivity;
@@ -227,6 +229,12 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @NonNull
+    public static Intent newIntent(@NonNull Context context, @NonNull String title) {
+        PageTitle pageTitle = new PageTitle(title, WikipediaApp.getInstance().getWikiSite());
+        return newIntent(context, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK), pageTitle);
+    }
+
+    @NonNull
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull HistoryEntry entry,
                                    @NonNull PageTitle title) {
@@ -258,6 +266,9 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             loadPageInForegroundTab(title, historyEntry);
+            if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
+                showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER));
+            }
         } else if (ACTION_SHOW_TAB_LIST.equals(intent.getAction())) {
             showTabList();
         } else if (ACTION_RESUME_READING.equals(intent.getAction())) {
@@ -841,6 +852,15 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
                 new ComponentName(this, WidgetProviderFeaturedPage.class));
         widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         sendBroadcast(widgetIntent);
+    }
+
+    private void showDescriptionEditRevertDialog(@NonNull String qNumber) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.notification_reverted_title)
+                .setView(new DescriptionEditRevertHelpView(this, qNumber))
+                .setPositiveButton(android.R.string.ok, null)
+                .create()
+                .show();
     }
 
     @VisibleForTesting

@@ -24,6 +24,8 @@ public final class Constants {
     public static final String INTENT_SEARCH_FROM_WIDGET = "searchFromWidget";
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
 
+    public static final String INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber";
+
     public static final int PROGRESS_BAR_MAX_VALUE = 10_000;
 
     public static final int MAX_SUGGESTION_RESULTS = 3;
