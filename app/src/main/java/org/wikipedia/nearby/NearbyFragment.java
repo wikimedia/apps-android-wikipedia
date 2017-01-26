@@ -78,7 +78,6 @@ public class NearbyFragment extends Fragment {
     @Nullable private MapboxMap mapboxMap;
     private Icon markerIconPassive;
 
-    private WikiSite wiki;
     private NearbyClient client;
     private NearbyResult lastResult;
 
@@ -92,7 +91,6 @@ public class NearbyFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        wiki = WikipediaApp.getInstance().getWikiSite();
         client = new NearbyClient();
         disableTelemetry();
     }
@@ -213,7 +211,7 @@ public class NearbyFragment extends Fragment {
                     public boolean onMarkerClick(@NonNull Marker marker) {
                         NearbyPage page = findNearbyPageFromMarker(marker);
                         if (page != null) {
-                            PageTitle title = new PageTitle(page.getTitle(), wiki, page.getThumbUrl());
+                            PageTitle title = new PageTitle(page.getTitle(), lastResult.getWiki(), page.getThumbUrl());
                             onLoadPage(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
                             return true;
                         } else {
@@ -338,6 +336,7 @@ public class NearbyFragment extends Fragment {
             currentLocation = fromLatLng(mapboxMap.getCameraPosition().target);
             onLoading();
 
+            WikiSite wiki = WikipediaApp.getInstance().getWikiSite();
             client.request(wiki, currentLocation.getLatitude(),
                     currentLocation.getLongitude(), getMapRadius(), new NearbyClient.Callback() {
                         @Override public void success(@NonNull Call<MwQueryResponse<Nearby>> call,

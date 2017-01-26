@@ -6,6 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwApiException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -143,6 +144,7 @@ public class NearbyClientTest extends MockWebServerTest {
     }
 
     private Call<MwQueryResponse<Nearby>> request(@NonNull NearbyClient.Callback cb) {
-        return subject.request(service(NearbyClient.Service.class), 0, 0, 0, cb);
+        return subject.request(WikiSite.forLanguageCode("test"),
+                service(NearbyClient.Service.class), 0, 0, 0, cb);
     }
 }

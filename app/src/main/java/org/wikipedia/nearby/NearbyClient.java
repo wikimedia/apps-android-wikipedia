@@ -30,10 +30,11 @@ class NearbyClient {
     public Call<MwQueryResponse<Nearby>> request(@NonNull WikiSite wiki, double latitude,
                                                  double longitude, double radius,
                                                  @NonNull Callback cb) {
-        return request(cachedService.service(wiki), latitude, longitude, radius, cb);
+        return request(wiki, cachedService.service(wiki), latitude, longitude, radius, cb);
     }
 
-    @VisibleForTesting Call<MwQueryResponse<Nearby>> request(@NonNull Service service,
+    @VisibleForTesting Call<MwQueryResponse<Nearby>> request(@NonNull final WikiSite wiki,
+                                                             @NonNull Service service,
                                                              double latitude, double longitude,
                                                              double radius,
                                                              @NonNull final Callback cb) {
@@ -51,11 +52,11 @@ class NearbyClient {
                     // Accordingly, let's assume that we just got an empty result set unless the
                     // API explicitly tells us we have an error.
                     if (response.body().success()) {
-                        cb.success(call, new NearbyResult(response.body().query().list()));
+                        cb.success(call, new NearbyResult(wiki, response.body().query().list()));
                     } else if (response.body().hasError()) {
                         cb.failure(call, new MwApiException(response.body().getError()));
                     } else {
-                        cb.success(call, new NearbyResult(new ArrayList<NearbyPage>()));
+                        cb.success(call, new NearbyResult(wiki, new ArrayList<NearbyPage>()));
                     }
                 } else {
                     cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
