@@ -89,10 +89,22 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         WikiSite wiki = WikiSite.forLanguageCode("en");
         PageProperties props = mock(PageProperties.class);
         when(props.getWikiBaseItem()).thenReturn("Q123");
+        when(props.canEdit()).thenReturn(true);
         Page page = new Page(new PageTitle("Test", wiki, null, null, props),
                 Collections.<Section>emptyList(), props);
 
         assertThat(DescriptionEditClient.isEditAllowed(page), is(true));
+    }
+
+    @Test public void testIsEditAllowedPageProtected() {
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        PageProperties props = mock(PageProperties.class);
+        when(props.getWikiBaseItem()).thenReturn("Q123");
+        when(props.canEdit()).thenReturn(false);
+        Page page = new Page(new PageTitle("Test", wiki, null, null, props),
+                Collections.<Section>emptyList(), props);
+
+        assertThat(DescriptionEditClient.isEditAllowed(page), is(false));
     }
 
     @Test public void testIsEditAllowedNoWikiBaseItem() {

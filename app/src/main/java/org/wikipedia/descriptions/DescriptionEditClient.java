@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.login.User;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.mwapi.MwServiceError;
 
@@ -40,9 +41,11 @@ public class DescriptionEditClient {
     }
 
     public static boolean isEditAllowed(@NonNull Page page) {
-        return ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode())
-                && page.getPageProperties() != null
-                && !TextUtils.isEmpty(page.getPageProperties().getWikiBaseItem());
+        PageProperties props = page.getPageProperties();
+        return props != null
+                && props.canEdit()
+                && !TextUtils.isEmpty(props.getWikiBaseItem())
+                && ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode());
     }
 
     /**
