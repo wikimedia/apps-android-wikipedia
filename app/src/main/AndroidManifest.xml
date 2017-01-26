@@ -153,7 +153,7 @@
 
         <activity android:name=".descriptions.DescriptionEditActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize" />
+            android:windowSoftInputMode="adjustResize" />
 
         <activity android:name=".descriptions.DescriptionEditSuccessActivity"
             android:theme="@style/AppTheme.TranslucentDark"

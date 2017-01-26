@@ -25,7 +25,6 @@ import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.User;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.Date;
@@ -63,7 +62,6 @@ public class DescriptionEditFragment extends Fragment {
             if (getActivity() == null)  {
                 return;
             }
-            DeviceUtil.hideSoftKeyboard(getActivity());
             editView.setSaveState(false);
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(getContext()),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
