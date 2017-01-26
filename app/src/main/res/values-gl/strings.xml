@@ -278,6 +278,16 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_lists_onboarding_page_delete">Consello: Desprace calquera páxina á esquerda ou á dereita para eliminala desta páxina de lectura.</string>
   <string name="user_option_sync_label">Preferencias</string>
+  <string name="notification_button_view_page">Ollar a páxina</string>
+  <string name="notification_button_view_user">Conversar co usuario</string>
+  <string name="notification_button_view_edit_history">Ver o historial de edicións</string>
+  <string name="notification_generic_title">Notificación na Wikipedia</string>
+  <string name="notification_talk_title">Mensaxe nova na Wikipedia</string>
+  <string name="notification_talk">%1$s deixou unha mensaxe na túa páxina de Conversa \"%2$s\"</string>
+  <string name="notification_reverted_title">Edición revertida</string>
+  <string name="notification_reverted">A túa edición no artigo \"%2$s\" foi revertida por %1$s.</string>
+  <string name="notification_thanks_title">Déronche as grazas!</string>
+  <string name="notification_thanks">%1$s agradeceu a túa edición na páxina \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
