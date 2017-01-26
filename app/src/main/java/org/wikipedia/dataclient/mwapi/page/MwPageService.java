@@ -1,15 +1,15 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.dataclient.mwapi.page;
 
 import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageRemaining;
+import org.wikipedia.dataclient.page.PageService;
+import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageServiceCache;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.server.PageLead;
-import org.wikipedia.server.PageRemaining;
-import org.wikipedia.server.PageService;
-import org.wikipedia.server.PageSummary;
-import org.wikipedia.server.ServiceError;
-import org.wikipedia.server.restbase.RbPageServiceCache;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 

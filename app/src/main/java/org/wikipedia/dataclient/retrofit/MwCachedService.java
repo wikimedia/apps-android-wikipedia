@@ -3,7 +3,7 @@ package org.wikipedia.dataclient.retrofit;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.server.mwapi.MwPageServiceCache;
+import org.wikipedia.dataclient.mwapi.page.MwPageServiceCache;
 
 import retrofit2.Retrofit;
 

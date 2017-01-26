@@ -1,11 +1,11 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.dataclient.mwapi;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.server.ServiceError;
+import org.wikipedia.dataclient.ServiceError;
 
 import java.util.Collections;
 import java.util.List;

@@ -3,8 +3,8 @@ package org.wikipedia.settings;
 import android.content.SharedPreferences;
 
 import org.wikipedia.R;
-import org.wikipedia.server.mwapi.MwPageServiceCache;
-import org.wikipedia.server.restbase.RbPageServiceCache;
+import org.wikipedia.dataclient.mwapi.page.MwPageServiceCache;
+import org.wikipedia.dataclient.restbase.page.RbPageServiceCache;
 
 public class DeveloperSettingsFragment extends PreferenceLoaderFragment {
     public static DeveloperSettingsFragment newInstance() {

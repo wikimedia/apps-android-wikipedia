@@ -1,4 +1,4 @@
-package org.wikipedia.server.restbase;
+package org.wikipedia.dataclient.restbase.page;
 
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -8,6 +8,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageLeadProperties;
+import org.wikipedia.dataclient.page.Protection;
+import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.login.User;
 import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
@@ -15,9 +19,6 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
-import org.wikipedia.server.PageLead;
-import org.wikipedia.server.PageLeadProperties;
-import org.wikipedia.server.Protection;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 

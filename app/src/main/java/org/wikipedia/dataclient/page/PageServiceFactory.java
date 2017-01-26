@@ -1,11 +1,11 @@
-package org.wikipedia.server;
+package org.wikipedia.dataclient.page;
 
 import android.support.annotation.NonNull;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.page.MwPageService;
+import org.wikipedia.dataclient.restbase.page.RbPageService;
 import org.wikipedia.page.Namespace;
-import org.wikipedia.server.mwapi.MwPageService;
-import org.wikipedia.server.restbase.RbPageService;
 import org.wikipedia.settings.RbSwitch;
 
 /**

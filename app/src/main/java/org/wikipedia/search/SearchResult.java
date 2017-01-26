@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwApiResponsePage;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.mwapi.MwApiResponsePage;
 
 public class SearchResult implements Parcelable {
     private PageTitle pageTitle;

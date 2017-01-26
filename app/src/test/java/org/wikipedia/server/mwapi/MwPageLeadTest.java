@@ -2,6 +2,7 @@ package org.wikipedia.server.mwapi;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wikipedia.dataclient.mwapi.page.MwPageLead;
 import org.wikipedia.server.BasePageLeadTest;
 import org.wikipedia.test.TestRunner;
 

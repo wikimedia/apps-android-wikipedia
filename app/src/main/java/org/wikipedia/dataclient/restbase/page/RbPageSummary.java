@@ -1,10 +1,11 @@
-package org.wikipedia.server.restbase;
+package org.wikipedia.dataclient.restbase.page;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.log.L;
 
 /**

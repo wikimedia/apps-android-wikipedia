@@ -1,4 +1,4 @@
-package org.wikipedia.server;
+package org.wikipedia.dataclient.page;
 
 import android.location.Location;
 import android.support.annotation.NonNull;

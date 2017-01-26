@@ -8,11 +8,11 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfToken;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
-import org.wikipedia.server.ServiceError;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.util.log.L;
 

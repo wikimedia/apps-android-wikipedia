@@ -4,8 +4,8 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwApiResponsePage;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.mwapi.MwApiResponsePage;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 

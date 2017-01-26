@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.server.restbase.RbPageSummary;
 
 /**
  * An RbPageSummary plus a "normalizedtitle" field, injected by RESTBase for all page summary

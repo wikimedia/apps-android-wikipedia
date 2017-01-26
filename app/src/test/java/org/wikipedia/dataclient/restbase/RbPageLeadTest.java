@@ -1,9 +1,10 @@
-package org.wikipedia.server.restbase;
+package org.wikipedia.dataclient.restbase;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wikipedia.dataclient.mwapi.page.MwPageLead;
+import org.wikipedia.dataclient.restbase.page.RbPageLead;
 import org.wikipedia.server.BasePageLeadTest;
-import org.wikipedia.server.mwapi.MwPageLead;
 import org.wikipedia.test.TestRunner;
 
 import static org.wikipedia.json.GsonUnmarshaller.unmarshal;

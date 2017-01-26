@@ -7,10 +7,10 @@ import com.google.gson.JsonParseException;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomSummaryClient.Callback;
 import org.wikipedia.random.RandomSummaryClient.Service;
-import org.wikipedia.server.restbase.RbPageSummary;
 import org.wikipedia.test.MockWebServerTest;
 
 import java.io.IOException;

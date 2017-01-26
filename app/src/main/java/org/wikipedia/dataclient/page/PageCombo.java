@@ -1,4 +1,4 @@
-package org.wikipedia.server;
+package org.wikipedia.dataclient.page;
 
 /**
  * Combines PageLead and PageRemaining Gson POJIs for mobileview API.

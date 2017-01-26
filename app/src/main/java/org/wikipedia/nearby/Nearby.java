@@ -3,7 +3,7 @@ package org.wikipedia.nearby;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.server.mwapi.NearbyPageMwResponse;
+import org.wikipedia.dataclient.mwapi.NearbyPageMwResponse;
 
 import java.util.ArrayList;
 import java.util.List;

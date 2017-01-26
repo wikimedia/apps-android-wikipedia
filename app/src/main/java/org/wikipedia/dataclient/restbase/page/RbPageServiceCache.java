@@ -1,4 +1,4 @@
-package org.wikipedia.server.restbase;
+package org.wikipedia.dataclient.restbase.page;
 
 import android.support.annotation.NonNull;
 

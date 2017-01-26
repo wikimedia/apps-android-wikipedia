@@ -1,4 +1,4 @@
-package org.wikipedia.server;
+package org.wikipedia.dataclient;
 
 /**
  * The API reported an error in the payload.

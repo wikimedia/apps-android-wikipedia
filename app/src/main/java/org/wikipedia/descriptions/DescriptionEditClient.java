@@ -6,12 +6,12 @@ import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.login.User;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.mwapi.MwServiceError;
 
 import java.util.Arrays;
 import java.util.List;

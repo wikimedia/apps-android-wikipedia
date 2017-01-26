@@ -1,4 +1,4 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.dataclient.mwapi;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

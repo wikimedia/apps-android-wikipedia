@@ -6,13 +6,12 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.StaticCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomSummaryClient;
-import org.wikipedia.server.restbase.RbPageSummary;
-
 import org.wikipedia.util.log.L;
 
 import retrofit2.Call;

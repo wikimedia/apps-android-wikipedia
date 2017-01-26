@@ -1,4 +1,4 @@
-package org.wikipedia.server.restbase;
+package org.wikipedia.dataclient.restbase;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,7 +12,7 @@ public class RbDefinition {
     @Required @NonNull private Map<String, Usage[]> usagesByLang;
     @SuppressWarnings("unused") @Nullable private RbServiceError error;
 
-    RbDefinition(@NonNull Map<String, RbDefinition.Usage[]> usages) {
+    public RbDefinition(@NonNull Map<String, RbDefinition.Usage[]> usages) {
         usagesByLang = usages;
     }
 
