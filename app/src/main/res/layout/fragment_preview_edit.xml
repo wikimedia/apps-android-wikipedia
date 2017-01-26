@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/edit_preview_container"
             android:orientation="vertical"
@@ -53,7 +54,8 @@
             <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/cc_logo"
+                    app:srcCompat="@drawable/ic_license_cc"
+                    android:tint="@color/dark_gray"
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@string/cc_logo" />
 
@@ -63,9 +65,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
+                    style="@style/RtlAwareTextView"
                     tools:text="Sample section license text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/foundation_gray"
+                    android:textColor="@color/dark_gray"
                     android:textColorLink="?attr/link_color"/>
 
         </LinearLayout>

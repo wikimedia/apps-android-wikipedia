@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +31,7 @@ import butterknife.OnTextChanged;
 public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_header) TextView headerText;
     @BindView(R.id.view_description_edit_page_title) TextView pageTitleText;
+    @BindView(R.id.view_description_edit_license_text) TextView licenseText;
     @BindView(R.id.view_description_edit_save_button) View saveButton;
     @BindView(R.id.view_description_edit_cancel_button) View cancelButton;
     @BindView(R.id.view_description_edit_help_button) View helpButton;
@@ -146,6 +148,7 @@ public class DescriptionEditView extends LinearLayout {
         inflate(getContext(), R.layout.view_description_edit, this);
         ButterKnife.bind(this);
 
+        licenseText.setText(StringUtil.fromHtml(getContext().getString(R.string.description_edit_license_notice)));
         FeedbackUtil.setToolbarButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
     }

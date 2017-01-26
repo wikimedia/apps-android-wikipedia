@@ -349,9 +349,9 @@
 
     <!-- Description editing -->
     <string name="description_edit_header">Editing</string>
-    <string name="description_edit_text_hint">Write a description!</string>
+    <string name="description_edit_text_hint">Title description</string>
     <string name="description_edit_save">Save</string>
-    <string name="description_edit_add_description">Add short description</string>
+    <string name="description_edit_add_description">Add title description</string>
     <string name="description_edit_edit_description">Edit description</string>
     <string name="description_edit_cancel_hint">Cancel</string>
     <string name="description_edit_help_title">Help: title descriptions</string>
@@ -360,6 +360,7 @@
     <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
     <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
     <string name="description_edit_anon_limit">Thanks for your continued interest in editing descriptions! To make additional edits, please log in to your Wikipedia account.</string>
+    <string name="description_edit_license_notice"><![CDATA[By changing the title description, I agree to the <a href="https://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and to irrevocably release my contributions under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0</a> license.]]></string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
