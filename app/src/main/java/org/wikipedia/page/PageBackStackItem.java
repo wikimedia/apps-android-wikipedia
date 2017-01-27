@@ -1,15 +1,18 @@
 package org.wikipedia.page;
 
-import org.wikipedia.history.HistoryEntry;
+import android.support.annotation.NonNull;
 
-public class PageBackStackItem {
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.model.BaseModel;
+
+public class PageBackStackItem extends BaseModel {
     private final PageTitle title;
     public PageTitle getTitle() {
         return title;
     }
 
-    private final HistoryEntry historyEntry;
-    public HistoryEntry getHistoryEntry() {
+    @NonNull private final HistoryEntry historyEntry;
+    @NonNull public HistoryEntry getHistoryEntry() {
         return historyEntry;
     }
 
@@ -21,7 +24,7 @@ public class PageBackStackItem {
         this.scrollY = scrollY;
     }
 
-    public PageBackStackItem(PageTitle title, HistoryEntry historyEntry) {
+    public PageBackStackItem(PageTitle title, @NonNull HistoryEntry historyEntry) {
         this.title = title;
         this.historyEntry = historyEntry;
     }
