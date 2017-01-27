@@ -3,6 +3,7 @@ package org.wikipedia.dataclient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.test.TestParcelUtil;
 import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -36,5 +37,10 @@ import static org.hamcrest.Matchers.not;
         assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("wiki")));
         assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki")));
         assertThat(new PageTitle("wiki/wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki/wiki")));
+    }
+
+    @Test public void testCtorParcel() throws Throwable {
+        WikiSite wiki = WikiSite.forLanguageCode("test");
+        TestParcelUtil.test(wiki);
     }
 }

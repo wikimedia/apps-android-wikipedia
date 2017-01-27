@@ -21,11 +21,6 @@ import org.wikipedia.pageimages.PageImage;
         TestParcelUtil.test(origTitle);
     }
 
-    @Test public void testWikiSite() throws Throwable {
-        WikiSite wiki = WikiSite.forLanguageCode("en");
-        TestParcelUtil.test(wiki);
-    }
-
     @Test public void testPageProperties() throws Throwable {
         PageProperties props = new PageProperties(new JSONObject("{\"protection\":{\"edit\":[\"autoconfirmed\"],\"move\":[\"sysop\"]},\"id\":15580374,\"displaytitle\":\"Something\",\"revision\":615503846,\"lastmodified\":\"\",\"editable\":false,\"mainpage\":false}"));
         TestParcelUtil.test(props);
