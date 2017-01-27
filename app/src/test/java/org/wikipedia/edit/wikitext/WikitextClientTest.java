@@ -1,4 +1,4 @@
-package org.wikipedia.edit.preview;
+package org.wikipedia.edit.wikitext;
 
 import android.support.annotation.NonNull;
 
