@@ -44,8 +44,8 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
         assertThat(ns, is(namespace));
     }
 
-    // Uri is a roboelectric mocked class which is unavailable at static time; defer evaluation
-    // until TestRunner is executed
+    // SparseArray is a Roboelectric mocked class which is unavailable at static time; defer
+    // evaluation until TestRunner is executed
     private enum DeferredParam {
         NULL() {
             @Nullable @Override

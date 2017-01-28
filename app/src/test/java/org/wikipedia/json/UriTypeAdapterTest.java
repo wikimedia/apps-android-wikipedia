@@ -19,10 +19,8 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
 @RunWith(ParameterizedRobolectricTestRunner.class) public class UriTypeAdapterTest {
     @Parameters(name = "{0}") public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][] {{DeferredParam.NULL},
-                {DeferredParam.STRING},
-                {DeferredParam.OPAQUE},
-                {DeferredParam.HIERARCHICAL}});
+        return Arrays.asList(new Object[][] {{DeferredParam.NULL}, {DeferredParam.STRING},
+                {DeferredParam.OPAQUE}, {DeferredParam.HIERARCHICAL}});
     }
 
     @Nullable private final Uri uri;
