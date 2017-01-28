@@ -35,6 +35,19 @@ import static org.wikipedia.util.UriUtil.decodeURL;
 public class PageTitle implements Parcelable {
     private static final String LANGUAGE_CODE_KEY = "languageCode";
 
+    public static final Parcelable.Creator<PageTitle> CREATOR
+            = new Parcelable.Creator<PageTitle>() {
+        @Override
+        public PageTitle createFromParcel(Parcel in) {
+            return new PageTitle(in);
+        }
+
+        @Override
+        public PageTitle[] newArray(int size) {
+            return new PageTitle[size];
+        }
+    };
+
     /**
      * The localised namespace of the page as a string, or null if the page is in mainspace.
      *
@@ -142,6 +155,26 @@ public class PageTitle implements Parcelable {
         this.properties = properties;
     }
 
+    public PageTitle(JSONObject json) {
+        this.namespace = json.optString("namespace", null);
+        this.text = json.optString("text", null);
+        this.fragment = json.optString("fragment", null);
+        if (json.has("site")) {
+            if (json.has(LANGUAGE_CODE_KEY)) {
+                wiki = new WikiSite(json.optString("site"), json.optString(LANGUAGE_CODE_KEY));
+            } else {
+                // TODO: remove in September 2016.
+                wiki = new WikiSite(json.optString("site"));
+            }
+        } else {
+            L.logRemoteErrorIfProd(new RemoteLogException("wiki is null").put("json", json.toString()));
+            wiki = WikipediaApp.getInstance().getWikiSite();
+        }
+        this.properties = json.has("properties") ? new PageProperties(json.optJSONObject("properties")) : null;
+        this.thumbUrl = json.optString("thumbUrl", null);
+        this.description = json.optString("description", null);
+    }
+
     @Nullable
     public String getNamespace() {
         return namespace;
@@ -160,7 +193,7 @@ public class PageTitle implements Parcelable {
         return wiki;
     }
 
-    public String getText() {
+    @NonNull public String getText() {
         return text.replace(" ", "_");
     }
 
@@ -176,8 +209,7 @@ public class PageTitle implements Parcelable {
         this.thumbUrl = thumbUrl;
     }
 
-    @Nullable
-    public String getDescription() {
+    @Nullable public String getDescription() {
         return description;
     }
 
@@ -185,7 +217,7 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
-    public String getDisplayText() {
+    @NonNull public String getDisplayText() {
         return getPrefixedText().replace("_", " ");
     }
 
@@ -214,20 +246,6 @@ public class PageTitle implements Parcelable {
         return md5string(toIdentifierJSON().toString());
     }
 
-    /** Please keep the ID stable. */
-    private JSONObject toIdentifierJSON() {
-        try {
-            JSONObject json = new JSONObject();
-            json.put("namespace", getNamespace());
-            json.put("text", getText());
-            json.put("fragment", getFragment());
-            json.put("site", wiki.authority());
-            return json;
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public JSONObject toJSON() {
         try {
             JSONObject json = toIdentifierJSON();
@@ -239,40 +257,6 @@ public class PageTitle implements Parcelable {
             json.put("description", getDescription());
             return json;
         } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public PageTitle(JSONObject json) {
-        this.namespace = json.optString("namespace", null);
-        this.text = json.optString("text", null);
-        this.fragment = json.optString("fragment", null);
-        if (json.has("site")) {
-            if (json.has(LANGUAGE_CODE_KEY)) {
-                wiki = new WikiSite(json.optString("site"), json.optString(LANGUAGE_CODE_KEY));
-            } else {
-                // TODO: remove in September 2016.
-                wiki = new WikiSite(json.optString("site"));
-            }
-        } else {
-            L.logRemoteErrorIfProd(new RemoteLogException("wiki is null").put("json", json.toString()));
-            wiki = WikipediaApp.getInstance().getWikiSite();
-        }
-        this.properties = json.has("properties") ? new PageProperties(json.optJSONObject("properties")) : null;
-        this.thumbUrl = json.optString("thumbUrl", null);
-        this.description = json.optString("description", null);
-    }
-
-    private String getUriForDomain(String domain) {
-        try {
-            return String.format(
-                    "%1$s://%2$s/wiki/%3$s%4$s",
-                    getWikiSite().scheme(),
-                    domain,
-                    URLEncoder.encode(getPrefixedText(), "utf-8"),
-                    (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
-            );
-        } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }
@@ -330,36 +314,7 @@ public class PageTitle implements Parcelable {
         return namespace().talk();
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Parcelable.Creator<PageTitle> CREATOR
-            = new Parcelable.Creator<PageTitle>() {
-        @Override
-        public PageTitle createFromParcel(Parcel in) {
-            return new PageTitle(in);
-        }
-
-        @Override
-        public PageTitle[] newArray(int size) {
-            return new PageTitle[size];
-        }
-    };
-
-    private PageTitle(Parcel in) {
-        namespace = in.readString();
-        text = in.readString();
-        fragment = in.readString();
-        wiki = in.readParcelable(WikiSite.class.getClassLoader());
-        properties = in.readParcelable(PageProperties.class.getClassLoader());
-        thumbUrl = in.readString();
-        description = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int flags) {
+    @Override public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(namespace);
         parcel.writeString(text);
         parcel.writeString(fragment);
@@ -369,8 +324,7 @@ public class PageTitle implements Parcelable {
         parcel.writeString(description);
     }
 
-    @Override
-    public boolean equals(Object o) {
+    @Override public boolean equals(Object o) {
         if (!(o instanceof PageTitle)) {
             return false;
         }
@@ -380,15 +334,55 @@ public class PageTitle implements Parcelable {
         return other.getPrefixedText().equals(getPrefixedText()) && other.wiki.equals(wiki);
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         int result = getPrefixedText().hashCode();
         result = 31 * result + wiki.hashCode();
         return result;
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return getPrefixedText();
+    }
+
+    @Override public int describeContents() {
+        return 0;
+    }
+
+    /** Please keep the ID stable. */
+    private JSONObject toIdentifierJSON() {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("namespace", getNamespace());
+            json.put("text", getText());
+            json.put("fragment", getFragment());
+            json.put("site", wiki.authority());
+            return json;
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String getUriForDomain(String domain) {
+        try {
+            return String.format(
+                    "%1$s://%2$s/wiki/%3$s%4$s",
+                    getWikiSite().scheme(),
+                    domain,
+                    URLEncoder.encode(getPrefixedText(), "utf-8"),
+                    (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
+            );
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private PageTitle(Parcel in) {
+        namespace = in.readString();
+        text = in.readString();
+        fragment = in.readString();
+        wiki = in.readParcelable(WikiSite.class.getClassLoader());
+        properties = in.readParcelable(PageProperties.class.getClassLoader());
+        thumbUrl = in.readString();
+        description = in.readString();
     }
 }
