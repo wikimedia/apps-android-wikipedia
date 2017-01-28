@@ -2,6 +2,8 @@ package org.wikipedia.dataclient;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.TestParcelUtil;
 import org.wikipedia.test.TestRunner;
@@ -11,6 +13,26 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
 @RunWith(TestRunner.class) public class WikiSiteTest {
+    @Test public void testCtorParcel() throws Throwable {
+        WikiSite subject = WikiSite.forLanguageCode("test");
+        TestParcelUtil.test(subject);
+    }
+
+    @Test public void testCtorAuthorityDefaultScheme() {
+        WikiSite subject = new WikiSite("wikipedia.org");
+        assertThat(subject.secureScheme(), is(true));
+    }
+
+    @Test public void testUnmarshal() {
+        WikiSite wiki = WikiSite.forLanguageCode("test");
+        assertThat(GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki)), is(wiki));
+    }
+
+    @Test public void testUnmarshalScheme() {
+        WikiSite wiki = new WikiSite(false, "wikipedia.org", "");
+        assertThat(GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki)), is(wiki));
+    }
+
     @Test public void testEquals() {
         assertThat(WikiSite.forLanguageCode("en"), is(WikiSite.forLanguageCode("en")));
 
@@ -37,10 +59,5 @@ import static org.hamcrest.Matchers.not;
         assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("wiki")));
         assertThat(new PageTitle("wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki")));
         assertThat(new PageTitle("wiki/wiki", wiki), is(wiki.titleForInternalLink("/wiki/wiki/wiki")));
-    }
-
-    @Test public void testCtorParcel() throws Throwable {
-        WikiSite wiki = WikiSite.forLanguageCode("test");
-        TestParcelUtil.test(wiki);
     }
 }
