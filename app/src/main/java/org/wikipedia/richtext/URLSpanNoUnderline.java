@@ -24,10 +24,6 @@ public class URLSpanNoUnderline extends URLSpan {
         super(url);
     }
 
-    public URLSpanNoUnderline(Parcel parcel) {
-        super(parcel);
-    }
-
     @Override public void updateDrawState(TextPaint paint) {
         super.updateDrawState(paint);
         paint.setUnderlineText(false);
@@ -44,5 +40,9 @@ public class URLSpanNoUnderline extends URLSpan {
     @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
     @Override public boolean equals(Object other) {
         return EqualsBuilder.reflectionEquals(this, other);
+    }
+
+    protected URLSpanNoUnderline(Parcel parcel) {
+        super(parcel);
     }
 }

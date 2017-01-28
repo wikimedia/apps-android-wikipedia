@@ -43,8 +43,7 @@ public class WikiSite implements Parcelable {
         }
     };
 
-    @SerializedName("domain")
-    @NonNull private final Uri uri;
+    @SerializedName("domain") @NonNull private final Uri uri;
     @NonNull private final String languageCode; // possibly empty
 
     /**
@@ -77,10 +76,6 @@ public class WikiSite implements Parcelable {
                 .scheme(secureScheme ? "https" : "http")
                 .encodedAuthority(authority)
                 .build(), languageCode);
-    }
-
-    public WikiSite(@NonNull Parcel in) {
-        this(in.<Uri>readParcelable(Uri.class.getClassLoader()), in.readString());
     }
 
     public WikiSite(@NonNull Uri uri, @NonNull String languageCode) {
@@ -260,6 +255,10 @@ public class WikiSite implements Parcelable {
     public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeParcelable(uri, 0);
         dest.writeString(languageCode);
+    }
+
+    protected WikiSite(@NonNull Parcel in) {
+        this(in.<Uri>readParcelable(Uri.class.getClassLoader()), in.readString());
     }
 
     @NonNull

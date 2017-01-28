@@ -24,10 +24,6 @@ public class URLSpanBoldNoUnderline extends URLSpanNoUnderline {
         super(url);
     }
 
-    public URLSpanBoldNoUnderline(Parcel parcel) {
-        super(parcel);
-    }
-
     @Override public void updateDrawState(TextPaint paint) {
         super.updateDrawState(paint);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
@@ -44,5 +40,9 @@ public class URLSpanBoldNoUnderline extends URLSpanNoUnderline {
     @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
     @Override public boolean equals(Object other) {
         return EqualsBuilder.reflectionEquals(this, other);
+    }
+
+    protected URLSpanBoldNoUnderline(Parcel parcel) {
+        super(parcel);
     }
 }
