@@ -13,9 +13,8 @@ import org.wikipedia.zero.ZeroConfig;
 import java.io.IOException;
 
 class ZeroConfigTypeAdapter extends TypeAdapter<ZeroConfig> {
-    @Override
-    public void write(JsonWriter out, ZeroConfig value) throws IOException {
-        out.value(value.toString());
+    @Override public void write(JsonWriter out, ZeroConfig value) throws IOException {
+        throw new UnsupportedOperationException();
     }
 
     @Override
