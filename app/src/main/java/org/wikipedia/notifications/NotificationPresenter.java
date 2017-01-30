@@ -44,6 +44,8 @@ public final class NotificationPresenter {
                         context), PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
+                .setDefaults(NotificationCompat.DEFAULT_ALL)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
 
         switch (n.type()) {
@@ -60,6 +62,7 @@ public final class NotificationPresenter {
                 icon = R.drawable.ic_rotate_left_white_24dp;
                 title = R.string.notification_reverted_title;
                 color = ContextCompat.getColor(context, R.color.foundation_red);
+                builder.setPriority(NotificationCompat.PRIORITY_MAX);
                 builder.addAction(0, context.getString(R.string.notification_button_view_edit_history), historyIntent);
                 break;
             case Notification.TYPE_EDIT_THANK:

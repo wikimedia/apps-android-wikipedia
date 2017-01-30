@@ -299,6 +299,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
 
     private NotificationCompat.Builder createNotification(@NonNull Context context) {
         return (NotificationCompat.Builder) new NotificationCompat.Builder(context)
+                .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setContentTitle(context.getString(R.string.zero_wikipedia_zero_heading))
                 .setContentIntent(PendingIntent
