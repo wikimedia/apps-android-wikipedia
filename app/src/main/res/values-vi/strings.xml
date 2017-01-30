@@ -117,7 +117,7 @@
   <string name="history_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>
-  <string name="page_protected_sysop">Trang này đã bị khóa toàn bộ.</string>
+  <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>
   <string name="page_protected_other">Trang này đã bị khóa ở mức độ sau: %s</string>
   <string name="page_protected_can_not_edit">Bạn không có quyền sửa đổi trang này.</string>
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>

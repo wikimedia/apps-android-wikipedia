@@ -278,6 +278,16 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_lists_onboarding_got_it">Entesos</string>
   <string name="reading_lists_onboarding_page_delete">Consell: Llisqueu el dit a dreta o a esquerra per a eliminar l\'article d\'aquesta llista de lectura.</string>
   <string name="user_option_sync_label">Preferències</string>
+  <string name="notification_button_view_page">Mostra la pàgina</string>
+  <string name="notification_button_view_user">Parla amb l\'usuari</string>
+  <string name="notification_button_view_edit_history">Mostra l\'historial de modificacions</string>
+  <string name="notification_generic_title">Notificació a la Viquipèdia</string>
+  <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>
+  <string name="notification_talk">%1$s ha deixat un missatge a la vostra pàgina de discussió «%2$s»</string>
+  <string name="notification_reverted_title">Modificació revertida</string>
+  <string name="notification_reverted">La vostra modificació a l\'article «%2$s» ha estat revertida per %1$s.</string>
+  <string name="notification_thanks_title">Us han agraït!</string>
+  <string name="notification_thanks">%1$s ha agraït la vostra modificació a la pàgina «%2$s»</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Com has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>
@@ -318,7 +328,10 @@ Voleu començar de nou o sortir?</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
   <string name="description_edit_success_article_edit_hint">També podeu modificar articles amb aquesta aplicació. Proveu de corregir errors i frases curtes clicant a la icona ^1 la propera vegada.</string>
   <string name="description_edit_tutorial_title_descriptions">Descripcions del títol</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Resumeix un article per ajudar els lectors a entendre el tema d\'un cop d\'ull</string>
   <string name="description_edit_tutorial_button_label_continue">Continua</string>
+  <string name="description_edit_tutorial_keep_it_short">Sigueu breu</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
 </resources>

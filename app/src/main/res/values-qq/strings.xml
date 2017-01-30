@@ -335,7 +335,8 @@ Shown in the preferences screen along with the following:
   <string name="error_response_malformed">Generic error message that tells the user that the response from the server was not formatted correctly.</string>
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API response from the server.</string>
-  <string name="format_error_server_code">Message displayed to the user that shows the actual error code received from the server. The \"%s\" symbol is replaced with the API error code.</string>
+  <string name="format_error_server_code">Message displayed to the user that shows the actual error code received from the server. The \"%s\" symbol is replaced with the API error code.
+{{Identical|Code}}</string>
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>

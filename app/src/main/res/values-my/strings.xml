@@ -276,6 +276,16 @@
   <string name="reading_lists_onboarding_got_it">ရပြီဟေ့</string>
   <string name="reading_lists_onboarding_page_delete">Tip: မည်သည့်စာမျက်နှာမဆို ဘယ် သို့ ညာဖက်သို့ ပွတ်ဆွဲခြင်းဖြင့် ဤစာဖတ်စာရင်းမှ ဖယ်ရှားပါ။</string>
   <string name="user_option_sync_label">ရွေးချယ်စရာများ</string>
+  <string name="notification_button_view_page">စာမျက်နှာကို ကြည့်ရန်</string>
+  <string name="notification_button_view_user">အသုံးပြုသူနှင့် ဆွေးနွေးရန်</string>
+  <string name="notification_button_view_edit_history">တည်းဖြတ်မှုမှတ်တမ်းအား ကြည့်ရန်</string>
+  <string name="notification_generic_title">ဝီကီပီးဒီးယားရှိ အသိပေးချက်</string>
+  <string name="notification_talk_title">ဝီကီပီးဒီးယားရှိ စာတိုအသစ်</string>
+  <string name="notification_talk">သင့်ဆွေးနွေးချက် စာမျက်နှာရှိ  \"%2$s\" တွင် %1$s က စာတိုအသစ် ချန်ထားခဲ့သည်</string>
+  <string name="notification_reverted_title">တည်းဖြတ်မှု နောက်ပြန်ပြင်ခဲ့ခြင်း</string>
+  <string name="notification_reverted">\"%2$s\" ဆောင်းပါးရှိ သင့်တည်းဖြတ်မှုအား %1$s က နောက်ပြန်ပြင်ခဲ့သည်။</string>
+  <string name="notification_thanks_title">သင့်အား ကျေးဇူးတင်ခဲ့သည်!</string>
+  <string name="notification_thanks">\"%2$s\" စာမျက်နှာရှိ သင့်တည်းဖြတ်မှုအတွက် %1$s က ကျေးဇူးတင်ခဲ့သည်</string>
   <string name="view_continue_reading_card_title">ဆက်လက်ဖတ်ရှုရန်</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
