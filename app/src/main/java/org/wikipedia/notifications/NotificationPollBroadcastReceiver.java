@@ -23,15 +23,13 @@ import java.util.concurrent.TimeUnit;
 public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
 
-    private static final long POLL_INTERVAL_MILLIS
-            = TimeUnit.MINUTES.toMillis(R.integer.notification_poll_interval_minutes);
-
     @Override
     public void onReceive(Context context, Intent intent) {
         if (TextUtils.equals(intent.getAction(), ACTION_POLL)) {
 
             if (User.isLoggedIn()
-                    && lastDescriptionEditedWithin(R.integer.notification_poll_timeout_days)) {
+                    && lastDescriptionEditedWithin(context.getResources()
+                    .getInteger(R.integer.notification_poll_timeout_days))) {
                 pollNotifications(context);
             } else {
                 stopPollTask(context);
@@ -41,23 +39,22 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     public void startPollTask(@NonNull Context context) {
-        Intent alarmIntent = new Intent(context, NotificationPollBroadcastReceiver.class);
-        boolean isAlarmUp = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_NO_CREATE) != null;
-        if (!isAlarmUp) {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-            alarmIntent.setAction(ACTION_POLL);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
-            alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                    SystemClock.elapsedRealtime(), POLL_INTERVAL_MILLIS, pendingIntent);
-        }
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime(),
+                context.getResources().getInteger(R.integer.notification_poll_interval_minutes),
+                getAlarmPendingIntent(context));
     }
 
     public void stopPollTask(@NonNull Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent alarmIntent = new Intent(context, NotificationPollBroadcastReceiver.class);
-        alarmIntent.setAction(ACTION_POLL);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
-        alarmManager.cancel(pendingIntent);
+        alarmManager.cancel(getAlarmPendingIntent(context));
+    }
+
+    @NonNull private PendingIntent getAlarmPendingIntent(@NonNull Context context) {
+        Intent intent = new Intent(context, NotificationPollBroadcastReceiver.class);
+        intent.setAction(ACTION_POLL);
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     private void pollNotifications(@NonNull final Context context) {
