@@ -25,6 +25,7 @@ import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.User;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.Date;
@@ -252,7 +253,8 @@ public class DescriptionEditFragment extends Fragment {
         private void editFailed(@NonNull Throwable caught) {
             if (editView != null) {
                 editView.setSaveState(false);
-                editView.setError(caught.getMessage());
+                FeedbackUtil.showError(getActivity(), caught);
+                L.e(caught);
             }
         }
 
