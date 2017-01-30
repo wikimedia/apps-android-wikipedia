@@ -12,13 +12,20 @@ import java.util.Map;
 public final class FileAliasData {
     @NonNull private static final Map<String, String> DATA_MAP = Collections.unmodifiableMap(newMap());
 
+    @NonNull public static String valueFor(String key) {
+        if (DATA_MAP.containsKey(key)) {
+            return DATA_MAP.get(key);
+        }
+        return DATA_MAP.get("en");
+    }
+
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
         final int size = 297;
         Map<String, String> map = new HashMap<>(size);
         map.put("en", "File");
-        map.put("sv", "Fil");
         map.put("ceb", "Payl");
+        map.put("sv", "Fil");
         map.put("de", "Datei");
         map.put("nl", "Bestand");
         map.put("fr", "Fichier");
@@ -36,8 +43,8 @@ public final class FileAliasData {
         map.put("uk", "Файл");
         map.put("ca", "Fitxer");
         map.put("fa", "پرونده");
-        map.put("nb", "Fil");
         map.put("ar", "ملف");
+        map.put("nb", "Fil");
         map.put("sh", "Datoteka");
         map.put("fi", "Tiedosto");
         map.put("hu", "Fájl");
@@ -66,8 +73,8 @@ public final class FileAliasData {
         map.put("gl", "Ficheiro");
         map.put("nn", "Fil");
         map.put("uz", "Fayl");
-        map.put("la", "Fasciculus");
         map.put("el", "Αρχείο");
+        map.put("la", "Fasciculus");
         map.put("be", "Файл");
         map.put("simple", "File");
         map.put("vo", "Ragiv");
@@ -88,18 +95,18 @@ public final class FileAliasData {
         map.put("tg", "Акс");
         map.put("te", "దస్త్రం");
         map.put("tl", "Talaksan");
-        map.put("pms", "Figura");
         map.put("sq", "Skeda");
+        map.put("pms", "Figura");
         map.put("br", "Restr");
-        map.put("ky", "Файл");
         map.put("be-tarask", "Файл");
+        map.put("ky", "Файл");
         map.put("ht", "Fichye");
         map.put("zh-yue", "File");
         map.put("jv", "Gambar");
         map.put("ast", "Ficheru");
         map.put("lb", "Fichier");
-        map.put("ml", "പ്രമാണം");
         map.put("bn", "চিত্র");
+        map.put("ml", "പ്രമാണം");
         map.put("mr", "चित्र");
         map.put("af", "Lêer");
         map.put("pnb", "فائل");
@@ -107,8 +114,8 @@ public final class FileAliasData {
         map.put("is", "Mynd");
         map.put("ga", "Íomhá");
         map.put("cv", "Ӳкерчĕк");
-        map.put("ba", "Файл");
         map.put("fy", "Ofbyld");
+        map.put("ba", "Файл");
         map.put("sw", "Picha");
         map.put("lmo", "Archivi");
         map.put("my", "File");
@@ -135,9 +142,9 @@ public final class FileAliasData {
         map.put("nap", "Fiùra");
         map.put("wa", "Imådje");
         map.put("gd", "Faidhle");
+        map.put("azb", "فایل");
         map.put("bug", "Berkas");
         map.put("yi", "טעקע");
-        map.put("azb", "فایل");
         map.put("am", "ስዕል");
         map.put("map-bms", "Gambar");
         map.put("si", "ගොනුව");
@@ -149,27 +156,27 @@ public final class FileAliasData {
         map.put("sah", "Билэ");
         map.put("vec", "File");
         map.put("os", "Файл");
+        map.put("ilo", "Papeles");
         map.put("sa", "सञ्चिका");
         map.put("mrj", "Файл");
-        map.put("ilo", "Papeles");
         map.put("mai", "फाइल");
         map.put("hif", "file");
-        map.put("nah", "Īxiptli");
         map.put("mhr", "Файл");
         map.put("roa-tara", "File");
         map.put("xmf", "ფაილი");
+        map.put("nah", "Īxiptli");
         map.put("eml", "File");
         map.put("pam", "File");
         map.put("bh", "चित्र");
         map.put("ps", "دوتنه");
-        map.put("sd", "عڪس");
         map.put("nso", "Seswantšho");
-        map.put("se", "Fiila");
-        map.put("hak", "檔案");
-        map.put("mi", "File");
         map.put("diq", "Dosya");
+        map.put("hak", "檔案");
+        map.put("se", "Fiila");
+        map.put("mi", "File");
         map.put("bcl", "Ladawan");
         map.put("nds-nl", "Bestaand");
+        map.put("sd", "عڪس");
         map.put("gan", "文檔");
         map.put("glk", "فاىل");
         map.put("vls", "Ofbeeldienge");
@@ -177,18 +184,18 @@ public final class FileAliasData {
         map.put("bo", "File");
         map.put("wuu", "File");
         map.put("fiu-vro", "Pilt");
-        map.put("co", "File");
         map.put("szl", "Plik");
+        map.put("co", "File");
         map.put("vep", "Fail");
-        map.put("csb", "Òbrôzk");
         map.put("sc", "File");
         map.put("lrc", "جانیا");
         map.put("tk", "Faýl");
+        map.put("csb", "Òbrôzk");
         map.put("crh", "Fayl");
+        map.put("zh-classical", "檔案");
         map.put("km", "ឯកសារ");
         map.put("gv", "Coadan");
         map.put("kv", "Файл");
-        map.put("zh-classical", "檔案");
         map.put("frr", "Datei");
         map.put("as", "চিত্ৰ");
         map.put("lad", "Dosya");
@@ -206,13 +213,14 @@ public final class FileAliasData {
         map.put("rm", "Datoteca");
         map.put("pcd", "Fichier");
         map.put("myv", "Артовкс");
+        map.put("ug", "ھۆججەت");
         map.put("lij", "Immaggine");
+        map.put("lez", "Файл");
         map.put("mt", "Stampa");
         map.put("fur", "Figure");
         map.put("gn", "Ta'ãnga");
-        map.put("lez", "Файл");
-        map.put("ug", "ھۆججەت");
         map.put("dsb", "Dataja");
+        map.put("gom", "फायल");
         map.put("dv", "ފައިލު");
         map.put("cbk-zam", "Archivo");
         map.put("ext", "Archivu");
@@ -222,26 +230,25 @@ public final class FileAliasData {
         map.put("mwl", "Fexeiro");
         map.put("ln", "Fichier");
         map.put("gag", "Dosye");
-        map.put("gom", "फायल");
         map.put("sn", "File");
+        map.put("nv", "Eʼelyaaígíí");
         map.put("frp", "Fichiér");
         map.put("pag", "File");
         map.put("pi", "पटिमा");
-        map.put("nv", "Eʼelyaaígíí");
         map.put("av", "Файл");
         map.put("xal", "Боомг");
         map.put("pfl", "Dadai");
         map.put("krc", "Файл");
+        map.put("lo", "ຮູບ");
         map.put("haw", "Waihona");
         map.put("kaa", "Su'wret");
-        map.put("bxr", "Файл");
-        map.put("lo", "ຮູບ");
         map.put("olo", "Failu");
+        map.put("bxr", "Файл");
         map.put("rw", "File");
         map.put("pdc", "Feil");
         map.put("pap", "File");
-        map.put("to", "File");
         map.put("bjn", "Barakas");
+        map.put("to", "File");
         map.put("kl", "Fiileq");
         map.put("nov", "File");
         map.put("arc", "ܠܦܦܐ");
@@ -254,9 +261,9 @@ public final class FileAliasData {
         map.put("tpi", "Fail");
         map.put("ig", "Usòrò");
         map.put("na", "File");
-        map.put("lbe", "Сурат");
         map.put("ab", "Афаил");
-        map.put("roa-rup", "File");
+        map.put("lbe", "Сурат");
+        map.put("roa-rup", "Fișier");
         map.put("jbo", "datnyvei");
         map.put("ty", "Fichier");
         map.put("kg", "Fisye");
@@ -266,24 +273,24 @@ public final class FileAliasData {
         map.put("wo", "Dencukaay");
         map.put("srn", "Gefre");
         map.put("zu", "File");
+        map.put("bi", "File");
         map.put("ltg", "Fails");
         map.put("chr", "File");
+        map.put("tcy", "ಫೈಲ್");
         map.put("sm", "File");
         map.put("om", "File");
-        map.put("tcy", "ಫೈಲ್");
-        map.put("bi", "File");
         map.put("tn", "File");
         map.put("chy", "File");
         map.put("xh", "File");
         map.put("tw", "File");
-        map.put("rmy", "Chitro");
         map.put("cu", "Дѣло");
+        map.put("rmy", "Chitro");
         map.put("tum", "File");
         map.put("pih", "File");
         map.put("rn", "File");
         map.put("pnt", "Αρχείον");
-        map.put("ch", "Litratu");
         map.put("ss", "File");
+        map.put("ch", "Litratu");
         map.put("bm", "Fichier");
         map.put("ady", "File");
         map.put("mo", "Fișier");
@@ -295,8 +302,8 @@ public final class FileAliasData {
         map.put("ee", "File");
         map.put("ak", "File");
         map.put("ks", "فَیِل");
-        map.put("ik", "File");
         map.put("sg", "Fichier");
+        map.put("ik", "File");
         map.put("ve", "File");
         map.put("dz", "File");
         map.put("ff", "Fichier");
@@ -314,13 +321,6 @@ public final class FileAliasData {
         map.put("kr", "File");
         map.put("test", "File");
         return map;
-    }
-
-    @NonNull public static String valueFor(String key) {
-        if (DATA_MAP.containsKey(key)) {
-            return DATA_MAP.get(key);
-        }
-        return DATA_MAP.get("en");
     }
 
     private FileAliasData() { }
