@@ -1,4 +1,4 @@
-package org.wikipedia.edit.preview;
+package org.wikipedia.edit.wikitext;
 
 
 import android.support.annotation.NonNull;
@@ -22,7 +22,7 @@ public class WikitextClient {
     @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public Call<MwQueryResponse<Wikitext>> request(@NonNull final WikiSite wiki, @NonNull final PageTitle title,
-                                  final int sectionID, @NonNull final Callback cb) {
+                                                   final int sectionID, @NonNull final Callback cb) {
         Service service = cachedService.service(wiki);
         return request(service, title, sectionID, cb);
     }
