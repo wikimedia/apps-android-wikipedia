@@ -30,7 +30,8 @@ public final class NotificationPresenter {
         @DrawableRes int icon = R.mipmap.launcher;
         @ColorInt int color = ContextCompat.getColor(context, R.color.foundation_gray);
 
-        Uri historyUri = uriForPath(n, "Special:History/" + n.title().full());
+        Uri historyUri = uriForPath(n, "Special:History/"
+                + (n.isFromWikidata() ? n.title().text() : n.title().full()));
         Uri agentUri = uriForPath(n, "User:" + n.agent().name());
 
         Intent pageIntent = PageActivity.newIntent(context, n.title().full());
