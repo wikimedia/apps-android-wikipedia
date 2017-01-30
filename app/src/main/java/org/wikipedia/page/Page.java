@@ -17,14 +17,12 @@ import java.util.List;
  * Represents a particular page along with its full contents.
  */
 public class Page {
-    @VisibleForTesting
-    static final int MEDIAWIKI_ORIGIN = 0;
-    @VisibleForTesting
-    static final int RESTBASE_ORIGIN = 1;
+    @VisibleForTesting static final int MEDIAWIKI_ORIGIN = 0;
+    @VisibleForTesting static final int RESTBASE_ORIGIN = 1;
 
-    private final PageTitle title;
-    private final List<Section> sections;
-    private final PageProperties pageProperties;
+    @NonNull private final PageTitle title;
+    @NonNull private final List<Section> sections;
+    @NonNull private final PageProperties pageProperties;
 
     /**
      * The media gallery collection associated with this page.
@@ -32,7 +30,7 @@ public class Page {
      * the page cache because the page itself is cached. Subsequent instances of the Gallery
      * activity will then be able to retrieve the page's gallery collection from cache.
      */
-    private GalleryCollection galleryCollection;
+    @Nullable private GalleryCollection galleryCollection;
 
     /**
      * An indicator what payload version the page content was originally retrieved from.
@@ -42,10 +40,11 @@ public class Page {
      */
     private int version = MEDIAWIKI_ORIGIN;
 
-    public GalleryCollection getGalleryCollection() {
+    @Nullable public GalleryCollection getGalleryCollection() {
         return galleryCollection;
     }
-    public void setGalleryCollection(GalleryCollection collection) {
+
+    public void setGalleryCollection(@Nullable GalleryCollection collection) {
         galleryCollection = collection;
     }
 
@@ -77,11 +76,11 @@ public class Page {
         return version == RESTBASE_ORIGIN;
     }
 
-    public PageTitle getTitle() {
+    @NonNull public PageTitle getTitle() {
         return title;
     }
 
-    public List<Section> getSections() {
+    @NonNull public List<Section> getSections() {
         return sections;
     }
 
@@ -89,12 +88,11 @@ public class Page {
         return pageProperties.getDisplayTitle();
     }
 
-    @Nullable
-    public String getTitlePronunciationUrl() {
+    @Nullable public String getTitlePronunciationUrl() {
         return getPageProperties().getTitlePronunciationUrl();
     }
 
-    public PageProperties getPageProperties() {
+    @NonNull public PageProperties getPageProperties() {
         return pageProperties;
     }
 
@@ -102,8 +100,7 @@ public class Page {
         return getTitle().namespace() == Namespace.MAIN;
     }
 
-    @Override
-    public boolean equals(Object o) {
+    @Override public boolean equals(Object o) {
         if (!(o instanceof Page)) {
             return false;
         }
@@ -114,16 +111,14 @@ public class Page {
                 && pageProperties.equals(other.pageProperties);
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         int result = title.hashCode();
         result = 31 * result + sections.hashCode();
         result = 31 * result + pageProperties.hashCode();
         return result;
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return "Page{"
                 + "title=" + title
                 + ", sections=" + sections

@@ -42,8 +42,7 @@ public class DescriptionEditClient {
 
     public static boolean isEditAllowed(@NonNull Page page) {
         PageProperties props = page.getPageProperties();
-        return props != null
-                && props.canEdit()
+        return props.canEdit()
                 && !TextUtils.isEmpty(props.getWikiBaseItem())
                 && ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode());
     }
