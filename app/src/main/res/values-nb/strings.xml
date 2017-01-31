@@ -278,6 +278,16 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="reading_lists_onboarding_got_it">Forstått</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Skyv en side til venstre eller høyre for å fjerne den fra denne leselista.</string>
   <string name="user_option_sync_label">Innstillinger</string>
+  <string name="notification_button_view_page">Vis side</string>
+  <string name="notification_button_view_user">Snakk med brukeren</string>
+  <string name="notification_button_view_edit_history">Vis redigeringshistorikk</string>
+  <string name="notification_generic_title">Varsel på Wikipedia</string>
+  <string name="notification_talk_title">Ny melding på Wikipedia</string>
+  <string name="notification_talk">%1$s la igjen enbeskjed på diskusjonssiden din: «%2$s»</string>
+  <string name="notification_reverted_title">Tilbakestilt redigering</string>
+  <string name="notification_reverted">Redigeringen din på artikkelen «%2$s» ble tilbakestilt av %1$s.</string>
+  <string name="notification_thanks_title">Du er blitt takket!</string>
+  <string name="notification_thanks">%1$s takket deg for redigeringen din på siden «%2$s»</string>
   <string name="view_continue_reading_card_title">Fortsett å lese</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>

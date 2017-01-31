@@ -238,8 +238,8 @@
   <string name="article_menu_bar_bookmark">একটি পড়ার তালিকা এই নিবন্ধটি যোগ করে</string>
   <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
   <string name="article_menu_bar_navigate">নিবন্ধের অবস্থান থেকে পরিভ্রমণ করুন</string>
-  <string name="article_header_edit_hint">সম্পাদনা করা</string>
-  <string name="article_header_edit_description">বিবরণ সম্পাদনা করুন</string>
+  <string name="article_header_edit_hint">সম্পাদনা…</string>
+  <string name="article_header_edit_description">শিরোনামের বিবরণ সম্পাদনা করুন</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা</string>
   <string name="nav_item_reading_lists">আমার তালিকা</string>
   <string name="reading_list_untitled">শিরোনামহীন</string>
@@ -286,7 +286,8 @@
   <string name="notification_talk">%1$sআলাপ পাতায় তোমার বার্তা লিখ%2$s</string>
   <string name="notification_reverted_title">পুনরায় সম্পাদনা করা</string>
   <string name="notification_reverted">তোমার সম্পাদন করা প্রবন্ধে %2$sপুনঃসম্পাদিত করেছে%1$s</string>
-  <string name="notification_thanks_title">আপনাকে ধন্যবাদ জানান হয়েছে</string>
+  <string name="notification_thanks_title">আপনাকে ধন্যবাদ জানানো হয়েছে!</string>
+  <string name="notification_thanks">\"%2$s\" পাতায় সম্পাদনার জ‍ন‍্য তোমাকে ধন‍্যবাদ জানিয়েছে %1$s</string>
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
@@ -321,7 +322,7 @@
   <string name="description_edit_help_wikidata_guide">বিবরণ লেখার জন্য উইকিউপাত্তের নির্দেশিকা</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/bn</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
-  <string name="description_edit_success_saved">বিবরণ রক্ষা করা হয়েছে</string>
+  <string name="description_edit_success_saved">বিবরণ সংরক্ষণ করা হয়েছে!</string>
   <string name="description_edit_success_encouragement">এইমাত্র আপনি উইকিপিড়িয়াকে আরো উত্তম করেছেন সবার জন‍্য</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
   <string name="description_edit_success_did_you_know">আপনি জানেন কি?</string>

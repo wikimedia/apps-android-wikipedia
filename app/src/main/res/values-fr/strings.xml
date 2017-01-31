@@ -103,7 +103,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="zero_interstitial_cancel">Rester ici</string>
   <string name="zero_learn_more">Votre fournisseur d’accès a accordé un accès libre au contenu de Wikipédia !</string>
   <string name="zero_learn_more_learn_more">En savoir plus</string>
-  <string name="zero_learn_more_dismiss">Rejeter</string>
+  <string name="zero_learn_more_dismiss">Fermer</string>
   <string name="edit_preview_fetching_dialog_message">Récupération de l’aperçu…</string>
   <string name="send_feedback">Envoyer un avis sur l’application</string>
   <string name="nav_item_random">Aléatoire</string>
@@ -325,7 +325,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Description enregistrée !</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleur pour tout le monde</string>
-  <string name="description_edit_success_done">Fait</string>
+  <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
   <string name="description_edit_success_article_edit_hint">Vous pouvez aussi modifier des articles dans cette application. Essayez de corriger des fautes et de petites phrases en cliquant sur l’icône ^1 la prochaine fois</string>
   <string name="description_edit_tutorial_title_descriptions">Descriptions du titre</string>
