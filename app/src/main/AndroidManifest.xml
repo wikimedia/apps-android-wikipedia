@@ -48,6 +48,10 @@
         android:name=".WikipediaApp"
         android:theme="@style/AppTheme">
 
+        <!-- Multi-window support on Samsung devices -->
+        <uses-library android:required="false" android:name="com.sec.android.app.multiwindow" />
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
+
         <!--
         The following is used for determining the distribution channel.
         Set "value" to "Google Play" for Google Play Store.
@@ -63,6 +67,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
             <intent-filter android:label="@string/intent_share_search_label">
                 <action android:name="android.intent.action.SEND" />
