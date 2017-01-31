@@ -31,7 +31,6 @@ import org.wikipedia.gallery.GalleryCollectionFetchTask;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
-import org.wikipedia.page.PageCache;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.util.FeedbackUtil;
@@ -231,33 +230,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
                 linkPreviewOnLoadCallback);
     }
 
-    private void loadContentFromCache() {
-        L.v("Loading link preview from cache");
-        getApplication().getPageCache()
-                .get(pageTitle, 0, new PageCache.CacheGetListener() {
-                    @Override
-                    public void onGetComplete(Page page, int sequence) {
-                        if (!isAdded()) {
-                            return;
-                        }
-                        if (page != null) {
-                            displayPreviewFromCachedPage(page);
-                        } else {
-                            loadContentFromSavedPage();
-                        }
-                    }
-
-                    @Override
-                    public void onGetError(Throwable e, int sequence) {
-                        if (!isAdded()) {
-                            return;
-                        }
-                        L.e("Failed to get page from cache.", e);
-                        loadContentFromSavedPage();
-                    }
-                });
-    }
-
     private void loadContentFromSavedPage() {
         L.v("Loading link preview from Saved Pages");
         new LoadSavedPageTask(pageTitle) {
@@ -299,7 +271,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
                 layoutPreview();
             } else {
                 pageSummary.logError("Page summary request failed");
-                loadContentFromCache();
+                loadContentFromSavedPage();
+                FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
             }
         }
 
@@ -311,10 +284,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             L.e("Link preview fetch error: " + throwable);
         }
     };
-
-    private WikipediaApp getApplication() {
-        return WikipediaApp.getInstance();
-    }
 
     private PopupMenu.OnMenuItemClickListener menuListener = new PopupMenu.OnMenuItemClickListener() {
         @Override

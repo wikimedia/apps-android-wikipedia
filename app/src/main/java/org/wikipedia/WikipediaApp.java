@@ -46,7 +46,6 @@ import org.wikipedia.login.User;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
-import org.wikipedia.page.PageCache;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListRow;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
@@ -120,17 +119,6 @@ public class WikipediaApp extends Application {
         return zeroHandler;
     }
 
-    /**
-     * Our page cache, which discards the eldest entries based on access time.
-     * This will allow the user to go "back" smoothly (the previous page is guaranteed
-     * to be in cache), but also to go "forward" smoothly (if the user clicks on a link
-     * that was already visited within a short time).
-     */
-    private PageCache pageCache;
-    public PageCache getPageCache() {
-        return pageCache;
-    }
-
     public WikipediaApp() {
         INSTANCE = this;
     }
@@ -180,7 +168,6 @@ public class WikipediaApp extends Application {
         Fresco.initialize(this, config);
 
         zeroHandler = new WikipediaZeroHandler(this);
-        pageCache = new PageCache(this);
 
         // TODO: remove this code after all logged in users also have a system account or August 2016.
         AccountUtil.createAccountForLoggedInUser();

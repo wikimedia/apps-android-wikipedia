@@ -16,22 +16,6 @@ import java.util.List;
  * for viewing.
  */
 public interface PageLoadStrategy {
-
-    /**
-     * Indicates what type of cache strategy should the current request take.
-     */
-    enum Cache {
-        /**
-         * Page should be retrieved from cache if possible, only use network connection if necessary
-         */
-        PREFERRED,
-
-        /**
-         * Page should try to be loaded from network connection, only try cache as a fallback
-         */
-        FALLBACK
-    }
-
     @SuppressWarnings("checkstyle:parameternumber")
     void setUp(@NonNull PageViewModel model,
                @NonNull PageFragment fragment,
@@ -42,7 +26,7 @@ public interface PageLoadStrategy {
                @NonNull LeadImagesHandler leadImagesHandler,
                @NonNull List<PageBackStackItem> backStack);
 
-    void load(boolean pushBackStack, @NonNull Cache cachePreference, int stagedScrollY);
+    void load(boolean pushBackStack, int stagedScrollY);
 
     boolean isLoading();
 

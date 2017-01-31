@@ -92,11 +92,6 @@ public class PageDataClient implements PageLoadStrategy {
     private int sectionTargetFromIntent;
     private String sectionTargetFromTitle;
 
-    /**
-     * Whether to write the page contents to cache as soon as it's loaded.
-     */
-    private boolean cacheOnComplete = true;
-
     private ErrorCallback networkErrorCallback;
 
     // copied fields
@@ -145,7 +140,7 @@ public class PageDataClient implements PageLoadStrategy {
     }
 
     @Override
-    public void load(boolean pushBackStack, @NonNull Cache cachePreference, int stagedScrollY) {
+    public void load(boolean pushBackStack, int stagedScrollY) {
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
@@ -172,7 +167,6 @@ public class PageDataClient implements PageLoadStrategy {
             JSONObject wrapper = new JSONObject();
             // whatever we pass to this event will be passed back to us by the WebView!
             wrapper.put("sequence", sequenceNumber.get());
-            wrapper.put("cachePreference", cachePreference.name());
             wrapper.put("stagedScrollY", stagedScrollY);
             bridge.sendMessage("beginNewPage", wrapper);
         } catch (JSONException e) {
@@ -193,8 +187,7 @@ public class PageDataClient implements PageLoadStrategy {
         PageBackStackItem item = backStack.get(backStack.size() - 1);
         // display the page based on the backstack item, stage the scrollY position based on
         // the backstack item.
-        fragment.loadPage(item.getTitle(), item.getHistoryEntry(), Cache.PREFERRED, false,
-                item.getScrollY());
+        fragment.loadPage(item.getTitle(), item.getHistoryEntry(), false, item.getScrollY());
         L.d("Loaded page " + item.getTitle().getDisplayText() + " from backstack");
     }
 
@@ -284,7 +277,6 @@ public class PageDataClient implements PageLoadStrategy {
     protected void commonSectionFetchOnCatch(Throwable caught, int startSequenceNum) {
         ErrorCallback callback = networkErrorCallback;
         networkErrorCallback = null;
-        cacheOnComplete = false;
         state = STATE_COMPLETE_FETCH;
         if (fragment.callback() != null) {
             fragment.callback().onPageInvalidateOptionsMenu();
@@ -328,7 +320,7 @@ public class PageDataClient implements PageLoadStrategy {
             public void onMessage(JSONObject payload) {
                 try {
                     stagedScrollY = payload.getInt("stagedScrollY");
-                    loadOnWebViewReady(Cache.valueOf(payload.getString("cachePreference")));
+                    loadOnWebViewReady();
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }
@@ -413,15 +405,10 @@ public class PageDataClient implements PageLoadStrategy {
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
             fragment.setupToC(model, isFirstPage());
-
-            //add the page to cache!
-            if (cacheOnComplete) {
-                app.getPageCache().put(model.getTitleOriginal(), model.getPage());
-            }
         }
     }
 
-    private void loadOnWebViewReady(Cache cachePreference) {
+    private void loadOnWebViewReady() {
         // stage any section-specific link target from the title, since the title may be
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
@@ -429,94 +416,19 @@ public class PageDataClient implements PageLoadStrategy {
         L10nUtil.setupDirectionality(model.getTitle().getWikiSite().languageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
-        switch (cachePreference) {
-            case PREFERRED:
-                loadFromCache(new ErrorCallback() {
-                    @Override
-                    public void call(Throwable cacheError) {
-                        loadFromNetwork(new ErrorCallback() {
-                            @Override
-                            public void call(final Throwable networkError) {
-                                loadSavedPage(new ErrorCallback() {
-                                    @Override
-                                    public void call(Throwable savedError) {
-                                        fragment.onPageLoadError(networkError);
-                                    }
-                                });
-                            }
-                        });
+        loadFromNetwork(new ErrorCallback() {
+            @Override public void call(final Throwable networkError) {
+                loadSavedPage(new ErrorCallback() {
+                    @Override public void call(Throwable savedError) {
+                        fragment.onPageLoadError(networkError);
                     }
                 });
-                break;
-            case FALLBACK:
-                loadFromNetwork(new ErrorCallback() {
-                    @Override
-                    public void call(final Throwable networkError) {
-                        loadFromCache(new ErrorCallback() {
-                            @Override
-                            public void call(Throwable cacheError) {
-                                loadSavedPage(new ErrorCallback() {
-                                    @Override
-                                    public void call(Throwable savedError) {
-                                        fragment.onPageLoadError(networkError);
-                                    }
-                                });
-                            }
-                        });
-                    }
-                });
-                break;
-            default:
-                throw new IllegalStateException("Unknown cache preference=" + cachePreference);
-        }
-    }
-
-    private void loadFromCache(final ErrorCallback errorCallback) {
-        app.getPageCache()
-                .get(model.getTitleOriginal(), sequenceNumber.get(), new PageCache.CacheGetListener() {
-                    @Override
-                    public void onGetComplete(Page page, int sequence) {
-                        if (!sequenceNumber.inSync(sequence)) {
-                            return;
-                        }
-                        if (page != null) {
-                            L.d("Using page from cache: " + model.getTitleOriginal().getDisplayText());
-                            model.setPage(page);
-                            model.setTitle(page.getTitle());
-                            // Update our history entry, in case the Title was changed (i.e. normalized)
-                            final HistoryEntry curEntry = model.getCurEntry();
-                            model.setCurEntry(
-                                    new HistoryEntry(model.getTitle(), curEntry.getSource()));
-                            // load the current title's thumbnail from sqlite
-                            updateThumbnail(PageImage.DATABASE_TABLE.getImageUrlForTitle(app, model.getTitle()));
-                            // don't re-cache the page after loading.
-                            cacheOnComplete = false;
-                            state = STATE_COMPLETE_FETCH;
-                            setState(state);
-                            performActionForState(state);
-                            if (fragment.isAdded()) {
-                                fragment.onPageLoadComplete();
-                            }
-                        } else {
-                            errorCallback.call(null);
-                        }
-                    }
-
-                    @Override
-                    public void onGetError(Throwable e, int sequence) {
-                        L.e("Failed to get page from cache.", e);
-                        if (!sequenceNumber.inSync(sequence)) {
-                            return;
-                        }
-                        errorCallback.call(e);
-                    }
-                });
+            }
+        });
     }
 
     private void loadFromNetwork(final ErrorCallback errorCallback) {
         networkErrorCallback = errorCallback;
-        // and make sure to write it to cache when it's loaded.
-        cacheOnComplete = true;
         setState(STATE_NO_FETCH);
         performActionForState(state);
     }
