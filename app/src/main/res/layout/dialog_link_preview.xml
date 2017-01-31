@@ -5,104 +5,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    app:behavior_peekHeight="@dimen/bottomSheetPeekHeight">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:minHeight="@dimen/bottomSheetPeekHeight"
+        android:background="?attr/link_preview_background_color"
+        android:animateLayoutChanges="true">
+
+        <LinearLayout
+            android:id="@+id/link_preview_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:minHeight="64dp">
+            <com.facebook.drawee.view.SimpleDraweeView
+                style="@style/SimpleDraweeViewPlaceholder.Article"
+                android:id="@+id/link_preview_thumbnail"
+                android:layout_width="@dimen/defaultListItemSize"
+                android:layout_height="@dimen/defaultListItemSize"
+                android:layout_margin="16dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@null"
+                android:background="@drawable/view_list_card_item_image_background"/>
+            <TextView
+                android:id="@+id/link_preview_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                style="@style/RtlAwareTextView"
+                android:textColor="?attr/link_preview_text_color"
+                android:paddingBottom="4dp"
+                android:textSize="20sp"
+                android:fontFamily="serif"
+                android:lineSpacingMultiplier="0.9"
+                android:maxLines="3"
+                android:ellipsize="end"
+                tools:text="Lorem ipsum" />
+            <ImageView
+                android:id="@+id/link_preview_overflow_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:padding="12dp"
+                android:background="?attr/actionBarItemBackground"
+                android:contentDescription="@string/abc_action_menu_overflow_description"
+                app:srcCompat="@drawable/ic_more_vert_white_24dp"
+                android:tint="?attr/link_preview_text_color"/>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:background="@drawable/link_preview_top_shadow"/>
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/list_separator_light"/>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/link_preview_extract"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:minHeight="@dimen/bottomSheetPeekHeight"
-            android:orientation="vertical"
-            android:background="?attr/link_preview_background_color"
-            android:animateLayoutChanges="true">
+            android:layout_height="wrap_content"
+            style="@style/RtlAwareTextView"
+            android:paddingTop="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="?attr/link_preview_text_color"
+            android:textIsSelectable="true"
+            tools:text="Lorem ipsum"/>
 
-            <LinearLayout
-                android:id="@+id/link_preview_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:background="?attr/selectableItemBackground"
-                android:minHeight="64dp">
-                <com.facebook.drawee.view.SimpleDraweeView
-                    style="@style/SimpleDraweeViewPlaceholder.Article"
-                    android:id="@+id/link_preview_thumbnail"
-                    android:layout_width="@dimen/defaultListItemSize"
-                    android:layout_height="@dimen/defaultListItemSize"
-                    android:layout_margin="16dp"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@null"
-                    android:background="@drawable/view_list_card_item_image_background"/>
-                <TextView
-                    android:id="@+id/link_preview_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    style="@style/RtlAwareTextView"
-                    android:textColor="?attr/link_preview_text_color"
-                    android:paddingBottom="4dp"
-                    android:textSize="20sp"
-                    android:fontFamily="serif"
-                    android:lineSpacingMultiplier="0.9"
-                    android:maxLines="3"
-                    android:ellipsize="end"
-                    tools:text="Lorem ipsum" />
-                <ImageView
-                    android:id="@+id/link_preview_overflow_button"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center_vertical"
-                    android:padding="12dp"
-                    android:background="?attr/actionBarItemBackground"
-                    android:contentDescription="@string/abc_action_menu_overflow_description"
-                    app:srcCompat="@drawable/ic_more_vert_white_24dp"
-                    android:tint="?attr/link_preview_text_color"/>
-            </LinearLayout>
+        <org.wikipedia.gallery.GalleryThumbnailScrollView
+            android:id="@+id/link_preview_thumbnail_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:background="@color/list_separator_light"/>
-
-            <TextView
-                android:id="@+id/link_preview_extract"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:paddingTop="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:textSize="16sp"
-                android:lineSpacingMultiplier="1.3"
-                android:textColor="?attr/link_preview_text_color"
-                android:textIsSelectable="true"
-                tools:text="Lorem ipsum"/>
-
-            <org.wikipedia.gallery.GalleryThumbnailScrollView
-                android:id="@+id/link_preview_thumbnail_gallery"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/linkPreviewImageSize"
-                android:layout_marginTop="12dp"
-                android:layout_gravity="center_horizontal"
-                android:visibility="gone" />
-
-            <View
-                android:id="@+id/link_preview_bottom_padding"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"/>
-        </LinearLayout>
-
+        <View
+            android:id="@+id/link_preview_bottom_padding"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"/>
     </LinearLayout>
 
     <ProgressBar
@@ -110,5 +99,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/link_preview_directions_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="@color/gray_highlight"
+            android:background="?attr/link_preview_button_background"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textSize="@dimen/abc_text_size_menu_material"
+            android:text="@string/button_get_directions"/>
+        <TextView
+            android:id="@+id/link_preview_go_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="?attr/link_color"
+            android:background="?attr/link_preview_button_background"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textSize="@dimen/abc_text_size_menu_material"
+            android:text="@string/button_continue_to_article"/>
+
+    </LinearLayout>
 
 </FrameLayout>
