@@ -178,7 +178,7 @@ public class MwPageService implements PageService {
                 + "%7Ceditable%7Cpageprops&pageprops=wikibase_item&onlyrequestedsections=1"
                 + "&sections=0&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
         Call<MwMobileViewPageLead> pageLead(@Query("page") String title,
-                                            @Query("thumbsize") int leadImageThumbWidth,
+                                            @Query("thumbwidth") int leadImageThumbWidth,
                                             @Query("noimages") Boolean noImages);
 
         /**
