@@ -313,7 +313,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
                 Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
                 new LeadingSpan(leadingScalar),
                 new ParagraphSpan(paragraphScalar),
-                TextUtils.isEmpty(subtitle) ? descriptionClickSpan : new ForegroundColorSpan(getColor(R.color.foundation_gray)),
+                TextUtils.isEmpty(subtitle) ? descriptionClickSpan : new ForegroundColorSpan(getColor(R.color.dark_gray)),
                 TextUtils.isEmpty(subtitle) ? new StyleSpan(Typeface.ITALIC) : null);
     }
 
@@ -368,7 +368,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
         public void updateDrawState(TextPaint ds) {
             super.updateDrawState(ds);
             ds.setColor(getColor(TextUtils.isEmpty(subtitle)
-                    ? R.color.foundation_blue : R.color.foundation_gray));
+                    ? R.color.foundation_blue : R.color.dark_gray));
             ds.setUnderlineText(false);
         }
     }
