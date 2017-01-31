@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
                 android:gravity="top|start"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionNone"
                 android:scrollbars="vertical"
                 android:textColor="?attr/edit_text_color"
                 />
