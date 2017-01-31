@@ -361,7 +361,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                                     // If it's not an API exception, we have no idea what's wrong.
                                     // Show the user a generic error message.
                                     L.w(caught);
-                                    showRetryDialog();
+                                    showRetryDialog(caught);
                                 }
                             }
                         });
@@ -376,9 +376,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         });
     }
 
-    private void showRetryDialog() {
+    private void showRetryDialog(@NonNull Throwable t) {
         final AlertDialog retryDialog = new AlertDialog.Builder(EditSectionActivity.this)
-                .setMessage(R.string.dialog_message_edit_failed)
+                .setTitle(R.string.dialog_message_edit_failed)
+                .setMessage(t.getLocalizedMessage())
                 .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
