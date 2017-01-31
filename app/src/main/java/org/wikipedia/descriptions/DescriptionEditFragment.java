@@ -26,6 +26,7 @@ import org.wikipedia.login.User;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.Date;
@@ -240,7 +241,7 @@ public class DescriptionEditFragment extends Fragment {
                         @Override public void abusefilter(@NonNull Call<DescriptionEdit> call,
                                                           String info) {
                             editView.setSaveState(false);
-                            editView.setError(info);
+                            editView.setError(StringUtil.fromHtml(info));
                         }
 
                         @Override public void failure(@NonNull Call<DescriptionEdit> call,
