@@ -52,6 +52,7 @@ public class WikiSite implements Parcelable {
         }
     };
 
+    // todo: remove @SerializedName. this is now in the TypeAdapter and a "uri" case may be added
     @SerializedName("domain") @NonNull private final Uri uri;
     @NonNull private final String languageCode; // possibly empty
 
@@ -85,6 +86,12 @@ public class WikiSite implements Parcelable {
                 .scheme(secureScheme ? "https" : "http")
                 .encodedAuthority(authority)
                 .build(), languageCode);
+    }
+
+    /** This method cannot resolve multi-dialect wikis like Simplified and Traditional Chinese as
+     the variant is unavailable. */
+    public WikiSite(@NonNull Uri uri) {
+        this(uri, authorityToLanguageCode(uri.getAuthority()));
     }
 
     public WikiSite(@NonNull Uri uri, @NonNull String languageCode) {
