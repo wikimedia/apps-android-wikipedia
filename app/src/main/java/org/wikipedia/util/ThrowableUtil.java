@@ -9,6 +9,8 @@ import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
 import org.mediawiki.api.json.ApiException;
 import org.wikipedia.R;
+import org.wikipedia.createaccount.CreateAccountException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.login.LoginClient;
 
 import java.net.UnknownHostException;
@@ -50,20 +52,20 @@ public final class ThrowableUtil {
             result = new AppError(getApiError(context, (ApiException) inner),
                                   getApiErrorMessage(context, (ApiException) inner));
         } else if (isNetworkError(e)) {
-            // it's a network error...
             result = new AppError(context.getString(R.string.error_network_error),
                                   context.getString(R.string.format_error_server_message,
                                       inner.getLocalizedMessage()));
-        } else if (inner instanceof LoginClient.LoginFailedException) {
+        } else if (inner instanceof LoginClient.LoginFailedException
+                || inner instanceof CreateAccountException
+                || inner instanceof MwException) {
             result = new AppError(inner.getLocalizedMessage(), "");
         } else if (ThrowableUtil.throwableContainsException(e, JSONException.class)) {
-            // it's a json exception
             result = new AppError(context.getString(R.string.error_response_malformed),
                                   inner.getLocalizedMessage());
         } else {
             // everything else has fallen through, so just treat it as an "unknown" error
             result = new AppError(context.getString(R.string.error_unknown),
-                                  inner.getLocalizedMessage());
+                    inner.getLocalizedMessage());
         }
         return result;
     }

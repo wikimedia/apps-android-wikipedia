@@ -335,7 +335,7 @@ public class EditPreviewFragment extends Fragment {
 
                 L.d(caught);
                 final AlertDialog retryDialog = new AlertDialog.Builder(getActivity())
-                        .setMessage(R.string.error_network_error)
+                        .setMessage(caught.getLocalizedMessage())
                         .setPositiveButton(R.string.dialog_message_edit_failed_retry,
                                 new DialogInterface.OnClickListener() {
                                     @Override
