@@ -29,6 +29,15 @@ import java.util.Locale;
  *     <li>Simple English Wikipedia (beta cluster mirror): HTTP / simple.wikipedia.beta.wmflabs.org / simple</li>
  *     <li>Development: HTTP / 192.168.1.11:8080 / (none)</li>
  * </ul>
+ *
+ * <strong>As shown above, the language code or mapping is part of the authority:</strong>
+ * <ul>
+ *     <lh>Validity: authority / language code</lh>
+ *     <li>Correct: "test.wikipedia.org" / "test"</li>
+ *     <li>Correct: "wikipedia.org", ""</li>
+ *     <li>Correct: "no.wikipedia.org", "nb"</li>
+ *     <li>Incorrect: "wikipedia.org", "test"</li>
+ * </ul>
  */
 public class WikiSite implements Parcelable {
     public static final Parcelable.Creator<WikiSite> CREATOR = new Parcelable.Creator<WikiSite>() {
@@ -138,7 +147,7 @@ public class WikiSite implements Parcelable {
      *     <li>Võro Wikipedia: fiu-vro.m.wikipedia.org</li>
      *     <li>Simple English Wikipedia: simple.m.wikipedia.org</li>
      *     <li>Simple English Wikipedia (beta cluster mirror): simple.m.wikipedia.beta.wmflabs.org</li>
-     *     <li>Development: m.192.168.1.11:8080</li>
+     *     <li>Development: m.192.168.1.11</li>
      * </ul>
      */
     @NonNull
@@ -146,6 +155,7 @@ public class WikiSite implements Parcelable {
         return authorityToMobile(host());
     }
 
+    /**  @return the port if specified or -1 if invalid or not present */
     public int port() {
         return uri.getPort();
     }
@@ -162,7 +172,7 @@ public class WikiSite implements Parcelable {
      * @return The canonical URL. e.g., https://en.wikipedia.org.
      */
     public String url() {
-        return scheme() + "://" + authority();
+        return uri.toString();
     }
 
     /**
@@ -274,9 +284,17 @@ public class WikiSite implements Parcelable {
         }
     }
 
-    @NonNull
-    private static String authorityToLanguageCode(@NonNull String authority) {
-        return authority.split("\\.")[0];
+    @NonNull private static String authorityToLanguageCode(@NonNull String authority) {
+        String[] parts = authority.split("\\.");
+        final int minLengthForSubdomain = 3;
+        if (parts.length < minLengthForSubdomain
+                || parts.length == minLengthForSubdomain && parts[0].equals("m")) {
+            // ""
+            // wikipedia.org
+            // m.wikipedia.org
+            return "";
+        }
+        return parts[0];
     }
 
     /** @param authority Host and optional port. */
