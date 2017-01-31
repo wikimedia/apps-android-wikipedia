@@ -1,0 +1,49 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "normalized": [
+      {
+        "fromencoded": false,
+        "from": "Barack_Obama",
+        "to": "Barack Obama"
+      },
+      {
+        "fromencoded": false,
+        "from": "Joe_Biden",
+        "to": "Joe Biden"
+      }
+    ],
+    "pages": [
+      {
+        "pageid": 145422,
+        "ns": 0,
+        "title": "Joe Biden",
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Official_portrait_of_Vice_President_Joe_Biden.jpg/255px-Official_portrait_of_Vice_President_Joe_Biden.jpg",
+          "width": 255,
+          "height": 320
+        },
+        "terms": {
+          "description": [
+            "47th Vice President of the United States"
+          ]
+        }
+      },
+      {
+        "pageid": 534366,
+        "ns": 0,
+        "title": "Barack Obama",
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg",
+          "width": 256,
+          "height": 320
+        },
+        "terms": {
+          "description": [
+            "44th President of the United States of America"
+          ]
+        }
+      }
+    ]
+  }
+}
