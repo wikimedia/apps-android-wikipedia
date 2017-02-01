@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.CacheControl;
 import okhttp3.CookieJar;
 import okhttp3.Interceptor;
 import okhttp3.JavaNetCookieJar;
@@ -24,8 +26,13 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     private static final long HTTP_CACHE_SIZE = 64 * 1024 * 1024;
-    private static final Cache HTTP_CACHE = new Cache(WikipediaApp.getInstance().getCacheDir(), HTTP_CACHE_SIZE);
-    private static OkHttpClient CLIENT;
+    @NonNull private static final Cache HTTP_CACHE = new Cache(WikipediaApp.getInstance().getCacheDir(),
+            HTTP_CACHE_SIZE);
+    @NonNull private static final OkHttpClient CLIENT = createClient();
+
+    @NonNull public static OkHttpClient getClient() {
+        return CLIENT;
+    }
 
     @Override
     public HttpURLConnection create(URL url) throws IOException {
@@ -36,14 +43,6 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     public HttpURLConnection create(URL url, Proxy proxy) throws IOException {
         throw new UnsupportedOperationException(
                 "Per-connection proxy is not supported. Use OkHttpClient's setProxy instead.");
-    }
-
-    @NonNull
-    public static OkHttpClient getClient() {
-        if (CLIENT == null) {
-            CLIENT = createClient();
-        }
-        return CLIENT;
     }
 
     @NonNull
@@ -60,7 +59,67 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .cache(HTTP_CACHE)
                 .addInterceptor(loggingInterceptor)
                 .addInterceptor(new CommonHeaderInterceptor())
+                .addInterceptor(new DefaultMaxStaleInterceptor())
+                .addNetworkInterceptor(new CacheResponseInterceptor())
                 .build();
+    }
+
+    /** Sets a default max-stale cache-control argument on all requests that do not specify one */
+    private static class DefaultMaxStaleInterceptor implements Interceptor {
+        @Override public Response intercept(Interceptor.Chain chain) throws IOException {
+            Request req = chain.request();
+
+            int maxStaleSeconds = req.cacheControl().maxStaleSeconds() < 0
+                    ? Integer.MAX_VALUE
+                    : req.cacheControl().maxStaleSeconds();
+            CacheControl cacheControl = newCacheControlBuilder(req.cacheControl())
+                    .maxStale(maxStaleSeconds, TimeUnit.SECONDS)
+                    .build();
+            req = req.newBuilder().cacheControl(cacheControl).build();
+
+            return chain.proceed(req);
+        }
+
+        private CacheControl.Builder newCacheControlBuilder(CacheControl cacheControl) {
+            CacheControl.Builder builder = new CacheControl.Builder();
+            if (cacheControl.noCache()) {
+                builder.noCache();
+            }
+            if (cacheControl.noStore()) {
+                builder.noStore();
+            }
+            if (cacheControl.maxAgeSeconds() >= 0) {
+                builder.maxAge(cacheControl.maxAgeSeconds(), TimeUnit.SECONDS);
+            }
+            if (cacheControl.maxStaleSeconds() >= 0) {
+                builder.maxStale(cacheControl.maxStaleSeconds(), TimeUnit.SECONDS);
+            }
+            if (cacheControl.minFreshSeconds() >= 0) {
+                builder.minFresh(cacheControl.minFreshSeconds(), TimeUnit.SECONDS);
+            }
+            if (cacheControl.onlyIfCached()) {
+                builder.onlyIfCached();
+            }
+            if (cacheControl.noTransform()) {
+                builder.noTransform();
+            }
+            return builder;
+        }
+    }
+
+    /** Allow response caching expressly strictly forbidden */
+    private static class CacheResponseInterceptor implements Interceptor {
+        @Override public Response intercept(Interceptor.Chain chain) throws IOException {
+            Request req = chain.request();
+            Response rsp = chain.proceed(req);
+            // todo: add !rsp.cacheControl().mustRevalidate() when mobile-sections-* doesn't respond
+            //       with must-revalidate
+            if (!rsp.cacheControl().noStore()) {
+                rsp = rsp.newBuilder().removeHeader("cache-control").build();
+            }
+
+            return rsp;
+        }
     }
 
     // If adding a new header here, make sure to duplicate it in the MWAPI header builder
