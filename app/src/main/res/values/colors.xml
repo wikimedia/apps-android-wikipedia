@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="darkest_gray">#2F3133</color>
-    <color name="dark_gray">#71777D</color>
-    <color name="foundation_gray">#9AA0A7</color>
-    <color name="light_gray">#C8CCD1</color>
-    <color name="lightest_gray">#EAECF0</color>
+    <!-- https://phabricator.wikimedia.org/M82 -->
+    <color name="base100">#fff</color> <!-- B AAA: Base background, Highlight from grey -->
+    <color name="base90">#f8f9fa</color> <!-- B AAA: Button / 3D widget background -->
+    <color name="base80">#eaecf0</color> <!-- B AAA: Disabled text input background -->
+    <color name="base70">#c8ccd1</color> <!-- B AAA: Disabled button / 3D widget background -->
+    <color name="base50">#a2a9b1</color> <!-- B AAA: Highlighted border -->
+    <color name="base30">#72777d</color> <!-- B&W AA: Disabled elements text, Placeholder text, Active border -->
+    <color name="base20">#54595d</color> <!-- W AAA: Emphasized secondary text at level AAA need -->
+    <color name="base10">#222</color> <!-- W AAA: Copy color, Buttons / widgets text -->
+    <color name="base0">#000</color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
 
-    <color name="dark_blue">#2A4B8D</color>
-    <color name="foundation_blue">#3366CC</color>
-    <color name="light_blue">#EAF3FF</color>
+    <!-- Accent -->
+    <color name="accent90">#eaf3ff</color> <!-- B AAA: Hovered buttons, Active menu, Items background -->
+    <color name="accent50">#36c</color> <!-- W AA Progressive: Primary buttons, Links, Page accents, Focus outlines -->
+    <color name="accent30">#2a4b8d</color> <!-- W AAA: Active buttons, Active links -->
+    <color name="red90">#fee7e6</color> <!-- B AAA -->
+    <color name="red50">#d33</color> <!-- B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
+    <color name="red30">#b32424</color> <!-- W AAA: Destructive active buttons and links -->
 
-    <color name="dark_green">#296054</color>
-    <color name="foundation_green">#00AF89</color>
-    <color name="light_green">#D5FDF4</color>
+    <!-- Supplementary -->
+    <color name="green90">#d5fdf4</color> <!-- B AAA: -->
+    <color name="green50">#00af89</color> <!-- B AA: Secondary link highlight, Positive messages -->
+    <color name="green30">#14866d</color> <!-- W AA: -->
+    <color name="yellow90">#ac6600</color> <!-- B AAA: -->
+    <color name="yellow50">#fc3</color> <!-- B AAA: Warning messages -->
+    <color name="yellow30">#fef6e7</color> <!-- W AA: -->
 
-    <color name="dark_red">#873636</color>
-    <color name="foundation_red">#CC3333</color>
-    <color name="light_red">#FFE7E6</color>
+    <!-- Legacy -->
+    <color name="darkest_gray">@color/base10</color>
+    <color name="dark_gray">@color/base30</color>
+    <color name="foundation_gray">@color/base50</color>
+    <color name="light_gray">@color/base70</color>
+    <color name="lightest_gray">@color/base80</color>
 
-    <color name="dark_yellow">#7B4E10</color>
-    <color name="foundation_yellow">#FFCC33</color>
-    <color name="light_yellow">#FEF6E7</color>
+    <color name="dark_blue">@color/accent30</color>
+    <color name="foundation_blue">@color/accent50</color>
+    <color name="light_blue">@color/accent90</color>
+
+    <color name="dark_green">@color/green30</color>
+    <color name="foundation_green">@color/green50</color>
+    <color name="light_green">@color/green90</color>
+
+    <color name="dark_red">@color/red30</color>
+    <color name="foundation_red">@color/red50</color>
+    <color name="light_red">@color/red90</color>
+
+    <color name="dark_yellow">@color/yellow30</color>
+    <color name="foundation_yellow">@color/yellow50</color>
+    <color name="light_yellow">@color/yellow90</color>
 
     <!-- TODO: consolidate and map all of the below colors to all of the above colors. -->
 
