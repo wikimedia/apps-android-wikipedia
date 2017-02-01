@@ -83,7 +83,10 @@ public class NewsFragment extends Fragment {
         WikiSite wiki = GsonUnmarshaller.unmarshal(WikiSite.class, getActivity().getIntent().getStringExtra(EXTRA_WIKI));
 
         Uri imageUri = item.featureImage();
-        int height = imageUri == null ? 0 : newsFeatureImageHeightForDevice();
+        int height = imageUri == null ? DimenUtil.getContentTopOffsetPx(getContext()) : newsFeatureImageHeightForDevice();
+        if (imageUri == null) {
+            toolbar.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.actionbar_background));
+        }
         DimenUtil.setViewHeight(image, height);
         image.loadImage(imageUri);
         text.setText(stripHtml(item.story()));
