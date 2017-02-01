@@ -302,11 +302,6 @@ public class WikipediaApp extends Application {
         return appLanguageState.getAppLanguageCanonicalName(code);
     }
 
-    @NonNull
-    public ContentObserver getReadingListPageObserver() {
-        return readingListPageObserver;
-    }
-
     public Database getDatabase() {
         return database;
     }
