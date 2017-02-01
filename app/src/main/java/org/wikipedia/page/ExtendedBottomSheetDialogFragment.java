@@ -2,10 +2,8 @@ package org.wikipedia.page;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -40,24 +38,6 @@ public class ExtendedBottomSheetDialogFragment extends BottomSheetDialogFragment
 
     protected void disableBackgroundDim() {
         getDialog().getWindow().setDimAmount(0f);
-    }
-
-    protected void startExpanded() {
-        /*
-        HACK: We'd like some of our bottom sheets to be fully expanded when opened (as
-        opposed to expanded to the peek height). In order to do this, however, we have to
-        call setState() only *after* the dialog is created and laid out.
-        https://code.google.com/p/android/issues/detail?id=202174
-        TODO: remove when this is improved in the library.
-        */
-        getDialog().getWindow().getDecorView().post(new Runnable() {
-            @Override
-            public void run() {
-                FrameLayout bottomSheet = (FrameLayout) getDialog().getWindow().getDecorView().findViewById(android.support.design.R.id.design_bottom_sheet);
-                BottomSheetBehavior<?> behavior = BottomSheetBehavior.from(bottomSheet);
-                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }
-        });
     }
 
     private void setWindowLayout() {

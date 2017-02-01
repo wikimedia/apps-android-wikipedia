@@ -30,6 +30,7 @@ import org.wikipedia.gallery.GalleryCollection;
 import org.wikipedia.gallery.GalleryCollectionFetchTask;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.savedpages.LoadSavedPageTask;
@@ -41,7 +42,8 @@ import org.wikipedia.views.ViewUtil;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
-public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogInterface.OnDismissListener {
+public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
+        implements DialogInterface.OnDismissListener {
     public interface Callback {
         void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
                                    boolean inNewTab);
@@ -105,16 +107,9 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(STYLE_NO_TITLE, R.style.LinkPreviewDialog);
-        setContentPeekHeight((int) getResources().getDimension(R.dimen.bottomSheetPeekHeight));
-    }
-
-    @Override
-    protected View inflateDialogView(LayoutInflater inflater, ViewGroup container) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         WikipediaApp app = WikipediaApp.getInstance();
-        boolean shouldLoadImages = app.isImageDownloadEnabled();
         pageTitle = getArguments().getParcelable("title");
         entrySource = getArguments().getInt("entrySource");
         location = getArguments().getParcelable("location");
@@ -124,12 +119,11 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         toolbarView = rootView.findViewById(R.id.link_preview_toolbar);
         toolbarView.setOnClickListener(goToPageListener);
 
-        View overlayRootView = addOverlay(inflater, R.layout.dialog_link_preview_overlay);
-        goButton = (TextView) overlayRootView.findViewById(R.id.link_preview_go_button);
+        goButton = (TextView) rootView.findViewById(R.id.link_preview_go_button);
         goButton.setOnClickListener(goToPageListener);
         goButton.setText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
 
-        TextView directionsButton = (TextView) overlayRootView.findViewById(R.id.link_preview_directions_button);
+        TextView directionsButton = (TextView) rootView.findViewById(R.id.link_preview_directions_button);
         if (location != null) {
             directionsButton.setOnClickListener(getDirectionsListener);
         } else {
@@ -154,7 +148,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         thumbnailView = (SimpleDraweeView) rootView.findViewById(R.id.link_preview_thumbnail);
 
         thumbnailGallery = (GalleryThumbnailScrollView) rootView.findViewById(R.id.link_preview_thumbnail_gallery);
-        if (shouldLoadImages) {
+        if (app.isImageDownloadEnabled()) {
             new GalleryThumbnailFetchTask(pageTitle).execute();
             thumbnailGallery.setGalleryViewListener(galleryViewListener);
         }
@@ -342,15 +336,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         public void onGalleryResult(GalleryCollection result) {
             if (!result.getItemList().isEmpty()) {
                 thumbnailGallery.setGalleryCollection(result);
-
-                // When the visibility is immediately changed, the images flicker. Add a short delay.
-                final int animationDelayMillis = 100;
-                thumbnailGallery.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        thumbnailGallery.setVisibility(View.VISIBLE);
-                    }
-                }, animationDelayMillis);
             }
         }
 
