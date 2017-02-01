@@ -4,7 +4,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.3'
+        classpath 'com.android.tools.build:gradle:2.2.0'
         classpath 'com.facebook.testing.screenshot:plugin:0.4.2'
         classpath 'com.github.JakeWharton:sdk-manager-plugin:1d07987'
         classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.7.1'
