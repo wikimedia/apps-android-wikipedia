@@ -132,11 +132,6 @@ public class PageDataClient implements PageLoadStrategy {
                 (ViewGroup) fragment.getView().findViewById(R.id.bottom_content_container));
 
         this.backStack = backStack;
-
-        // if we already have pages in the backstack (whether it's from savedInstanceState, or
-        // from being stored in the activity's fragment backstack), then load the topmost page
-        // on the backstack.
-        loadFromBackStack();
     }
 
     @Override

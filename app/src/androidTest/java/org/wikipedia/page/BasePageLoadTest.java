@@ -55,8 +55,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
             public void run() {
                 getActivity().loadPage(pageTitle, new HistoryEntry(pageTitle,
                         HistoryEntry.SOURCE_RANDOM),
-                        TabsProvider.TabPosition.CURRENT_TAB,
-                        false);
+                        TabsProvider.TabPosition.CURRENT_TAB);
             }
         });
     }

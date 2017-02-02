@@ -25,7 +25,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -256,7 +255,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         handleIntent(intent);
     }
 
-    private void handleIntent(Intent intent) {
+    private void handleIntent(@NonNull Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
             WikiSite wiki = new WikiSite(intent.getData().getAuthority());
             PageTitle title = wiki.titleForUri(intent.getData());
@@ -269,10 +268,9 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
                 showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER));
             }
-        } else if (ACTION_SHOW_TAB_LIST.equals(intent.getAction())) {
-            showTabList();
-        } else if (ACTION_RESUME_READING.equals(intent.getAction())) {
-            loadMainPageIfNoTabs();
+        } else if (ACTION_SHOW_TAB_LIST.equals(intent.getAction())
+                || ACTION_RESUME_READING.equals(intent.getAction())) {
+            // do nothing, since this will be handled indirectly by PageFragment.
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getWikiSite());
@@ -282,7 +280,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
         } else {
-            loadMainPageIfNoTabs();
+            loadMainPageInCurrentTab();
         }
     }
 
@@ -319,12 +317,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         loadPage(title, entry, TabPosition.CURRENT_TAB);
     }
 
-    public void loadPage(PageTitle title,
-                         HistoryEntry entry,
-                         TabPosition position) {
-        loadPage(title, entry, position, false);
-    }
-
     /**
      * Load a new page, and put it on top of the backstack, optionally allowing state loss of the
      * fragment manager. Useful for when this function is called from an AsyncTask result.
@@ -332,13 +324,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
      * @param entry HistoryEntry associated with this page.
      * @param position Whether to open this page in the current tab, a new background tab, or new
      *                 foreground tab.
-     * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void loadPage(final PageTitle title,
                          final HistoryEntry entry,
-                         final TabPosition position,
-                         final boolean mustBeEmpty) {
+                         final TabPosition position) {
         if (isDestroyed()) {
             return;
         }
@@ -363,18 +353,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
                 }
                 // Close the link preview, if one is open.
                 hideLinkPreview();
-                //is the new title the same as what's already being displayed?
-                if (position == TabPosition.CURRENT_TAB
-                        && !pageFragment.getCurrentTab().getBackStack().isEmpty()
-                        && pageFragment.getCurrentTab().getBackStack()
-                        .get(pageFragment.getCurrentTab().getBackStack().size() - 1).getTitle()
-                        .equals(title) || mustBeEmpty && !pageFragment.getCurrentTab().getBackStack().isEmpty()) {
-                    //if we have a section to scroll to, then pass it to the fragment
-                    if (!TextUtils.isEmpty(title.getFragment())) {
-                        pageFragment.scrollToSection(title.getFragment());
-                    }
-                    return;
-                }
+
                 pageFragment.closeFindInPage();
                 if (position == TabPosition.CURRENT_TAB) {
                     pageFragment.loadPage(title, entry, true);
@@ -393,18 +372,21 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     public void loadMainPageInForegroundTab() {
-        loadMainPage(TabPosition.NEW_TAB_FOREGROUND, false);
+        loadMainPage(TabPosition.NEW_TAB_FOREGROUND);
+    }
+
+    private void loadMainPageInCurrentTab() {
+        loadMainPage(TabPosition.CURRENT_TAB);
     }
 
     /**
      * Go directly to the Main Page of the current Wiki, optionally allowing state loss of the
      * fragment manager. Useful for when this function is called from an AsyncTask result.
-     * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
-    public void loadMainPage(TabPosition position, boolean mustBeEmpty) {
+    public void loadMainPage(TabPosition position) {
         PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getWikiSite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
-        loadPage(title, historyEntry, position, mustBeEmpty);
+        loadPage(title, historyEntry, position);
     }
 
     public void showLinkPreview(PageTitle title, int entrySource) {
@@ -606,7 +588,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
-        loadPage(title, entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND : TabPosition.CURRENT_TAB, false);
+        loadPage(title, entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND : TabPosition.CURRENT_TAB);
     }
 
     @Override
@@ -636,17 +618,16 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         pageFragment.getShareHandler().showWiktionaryDefinition(term);
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void showTabList() {
-        if (isDestroyed()) {
-            return;
-        }
-        tabsContainerView.post(new Runnable() {
-            @Override
-            public void run() {
-                pageFragment.showTabList();
-            }
-        });
+    @Override
+    public boolean shouldLoadFromBackStack() {
+        return getIntent() != null
+                && (ACTION_SHOW_TAB_LIST.equals(getIntent().getAction())
+                || ACTION_RESUME_READING.equals(getIntent().getAction()));
+    }
+
+    @Override
+    public boolean shouldShowTabList() {
+        return getIntent() != null && ACTION_SHOW_TAB_LIST.equals(getIntent().getAction());
     }
 
     private void copyLink(@NonNull String url) {
@@ -666,10 +647,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     private boolean shouldRecreateMainActivity() {
         return getIntent().getAction() == null
                 || getIntent().getAction().equals(Intent.ACTION_VIEW);
-    }
-
-    private void loadMainPageIfNoTabs() {
-        loadMainPage(TabPosition.CURRENT_TAB, true);
     }
 
     private class EventBusMethods {

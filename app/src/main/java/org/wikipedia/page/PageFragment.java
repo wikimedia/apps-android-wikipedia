@@ -17,6 +17,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -125,6 +126,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPagePopFragment();
         @Nullable AppCompatActivity getActivity();
         void onPageInvalidateOptionsMenu();
+        boolean shouldLoadFromBackStack();
+        boolean shouldShowTabList();
     }
 
     public static final int TOC_ACTION_SHOW = 0;
@@ -372,6 +375,16 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         pageDataClient.setUp(model, this, refreshView, webView, bridge, toolbarHideHandler,
                 leadImagesHandler, getCurrentTab().getBackStack());
+
+        if (callback() != null) {
+            if (savedInstanceState != null || callback().shouldLoadFromBackStack()) {
+                pageDataClient.loadFromBackStack();
+            }
+
+            if (callback().shouldShowTabList()) {
+                showTabList();
+            }
+        }
     }
 
     private void initWebViewListeners() {
@@ -542,10 +555,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabsProvider.invalidate();
     }
 
-    public void showTabList() {
-        tabsProvider.enterTabMode(true);
-    }
-
     public void openInNewBackgroundTabFromMenu(PageTitle title, HistoryEntry entry) {
         if (noPagesOpen()) {
             openInNewForegroundTabFromMenu(title, entry);
@@ -557,7 +566,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void openInNewForegroundTabFromMenu(PageTitle title, HistoryEntry entry) {
         openInNewTabFromMenu(title, entry, getForegroundTabPosition());
-        loadPage(title, entry, true, false);
+        pageDataClient.loadFromBackStack();
     }
 
     public void openInNewTabFromMenu(PageTitle title,
@@ -568,6 +577,18 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack) {
+        //is the new title the same as what's already being displayed?
+        if (!getCurrentTab().getBackStack().isEmpty()
+                && getCurrentTab().getBackStack().get(getCurrentTab().getBackStack().size() - 1)
+                .getTitle().equals(title)) {
+            if (model.getPage() == null) {
+                pageDataClient.loadFromBackStack();
+            } else if (!TextUtils.isEmpty(title.getFragment())) {
+                scrollToSection(title.getFragment());
+            }
+            return;
+        }
+
         loadPage(title, entry, pushBackStack, 0);
     }
 
@@ -978,6 +999,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private void showPageInfoDialog(boolean startAtDisambig) {
         showBottomSheet(new PageInfoDialog(this, pageInfo, startAtDisambig));
+    }
+
+    private void showTabList() {
+        // Doesn't seem to be a way around doing a post() here...
+        // Without post(), the tab picker layout is inflated with wrong dimensions.
+        webView.post(new Runnable() {
+            @Override
+            public void run() {
+                tabsProvider.enterTabMode(true);
+            }
+        });
     }
 
     private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
