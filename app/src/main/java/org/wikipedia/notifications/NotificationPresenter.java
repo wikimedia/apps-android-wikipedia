@@ -25,10 +25,10 @@ public final class NotificationPresenter {
     private static final int REQUEST_CODE_AGENT = 2;
 
     public static void showNotification(@NonNull Context context, Notification n) {
-        @StringRes int title = R.string.notification_generic_title;
-        String description = "";
-        @DrawableRes int icon = R.mipmap.launcher;
-        @ColorInt int color = ContextCompat.getColor(context, R.color.foundation_gray);
+        @StringRes int title;
+        String description;
+        @DrawableRes int icon;
+        @ColorInt int color;
 
         Uri historyUri = uriForPath(n, "Special:History/"
                 + (n.isFromWikidata() ? n.title().text() : n.title().full()));
@@ -74,7 +74,7 @@ public final class NotificationPresenter {
                 builder.addAction(0, context.getString(R.string.notification_button_view_user), agentIntent);
                 break;
             default:
-                break;
+                return;
         }
 
         builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_PAGE, pageIntent, PendingIntent.FLAG_UPDATE_CURRENT))
