@@ -23,7 +23,6 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditClient;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.gallery.GalleryActivity;
@@ -285,11 +284,9 @@ public class LeadImagesHandler {
         if (isDescriptionEditTutorialEnabled()) {
             parentFragment.startActivityForResult(DescriptionEditTutorialActivity.newIntent(parentFragment.getContext()),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
-            return;
+        } else {
+            parentFragment.startDescriptionEditActivity();
         }
-
-        parentFragment.startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), getTitle()),
-                Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
     private void initWebView() {

@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.useroption.dataclient.UserInfo;
+import org.wikipedia.util.log.L;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -54,7 +55,10 @@ class UserExtendedInfoClient {
                     final MwQueryResponse<QueryResult> body = response.body();
                     final QueryResult query = body.query();
                     if (response.body().success()) {
-                        cb.success(call, query.id(), query.getGroupsFor(userName));
+                        // noinspection ConstantConditions
+                        int userId = query.id();
+                        cb.success(call, userId, query.getGroupsFor(userName));
+                        L.v("Found user ID: " + userId);
                     } else if (response.body().hasError()) {
                         // noinspection ConstantConditions
                         cb.failure(call, new LoginClient.LoginFailedException(

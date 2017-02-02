@@ -36,7 +36,7 @@ public class DescriptionEditClient {
 
     public interface Callback {
         void success(@NonNull Call<DescriptionEdit> call);
-        void abusefilter(@NonNull Call<DescriptionEdit> call, String info);
+        void abusefilter(@NonNull Call<DescriptionEdit> call, @Nullable String code, @Nullable String info);
         void failure(@NonNull Call<DescriptionEdit> call, @NonNull Throwable caught);
     }
 
@@ -111,9 +111,9 @@ public class DescriptionEditClient {
                              @NonNull Callback cb) {
         MwServiceError error = body.getError();
         if (error != null && error.hasMessageName(ABUSEFILTER_DISALLOWED)) {
-            cb.abusefilter(call, error.getMessageHtml(ABUSEFILTER_DISALLOWED));
+            cb.abusefilter(call, ABUSEFILTER_DISALLOWED, error.getMessageHtml(ABUSEFILTER_DISALLOWED));
         } else if (error != null && error.hasMessageName(ABUSEFILTER_WARNING)) {
-            cb.abusefilter(call, error.getMessageHtml(ABUSEFILTER_WARNING));
+            cb.abusefilter(call, ABUSEFILTER_WARNING, error.getMessageHtml(ABUSEFILTER_WARNING));
         } else {
             String info = body.info();
             RuntimeException exception = new RuntimeException(info != null

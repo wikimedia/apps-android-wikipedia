@@ -11,11 +11,11 @@ import org.wikipedia.page.PageTitle;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";
-    private static final int REV_ID = 9003125;
+    private static final int REV_ID = 16256587;
 
     private final PageTitle title;
 
-    public EditFunnel(WikipediaApp app, PageTitle title) {
+    public EditFunnel(@NonNull WikipediaApp app, @NonNull PageTitle title) {
         super(app, SCHEMA_NAME, REV_ID, title.getWikiSite());
         this.title = title;
     }

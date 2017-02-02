@@ -14,6 +14,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.DescriptionEditFunnel;
 import org.wikipedia.csrf.CsrfToken;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
@@ -46,12 +47,14 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private static final String ARG_TITLE = "title";
+    private static final String ARG_USER_ID = "userId";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
     @Nullable private Call<CsrfToken> editTokenCall;
     @Nullable private Call<DescriptionEdit> descriptionEditCall;
+    @Nullable private DescriptionEditFunnel funnel;
 
     private Runnable successRunnable = new Runnable() {
         @Override public void run() {
@@ -71,10 +74,11 @@ public class DescriptionEditFragment extends Fragment {
     };
 
     @NonNull
-    public static DescriptionEditFragment newInstance(@NonNull PageTitle title) {
+    public static DescriptionEditFragment newInstance(@NonNull PageTitle title, int userId) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
+        args.putInt(ARG_USER_ID, userId);
         instance.setArguments(args);
         return instance;
     }
@@ -82,6 +86,11 @@ public class DescriptionEditFragment extends Fragment {
     @Override public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageTitle = GsonUnmarshaller.unmarshal(PageTitle.class, getArguments().getString(ARG_TITLE));
+        DescriptionEditFunnel.Type type = pageTitle.getDescription() == null
+                ? DescriptionEditFunnel.Type.NEW
+                : DescriptionEditFunnel.Type.EXISTING;
+        funnel = new DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type);
+        funnel.logStart();
     }
 
     @Nullable
@@ -93,6 +102,9 @@ public class DescriptionEditFragment extends Fragment {
 
         editView.setPageTitle(pageTitle);
         editView.setCallback(new EditViewCallback());
+        if (funnel != null) {
+            funnel.logReady();
+        }
         return view;
     }
 
@@ -153,6 +165,9 @@ public class DescriptionEditFragment extends Fragment {
 
             cancelCalls();
             requestEditToken();
+            if (funnel != null) {
+                funnel.logSaveAttempt();
+            }
         }
 
         /** fetch edit token from Wikidata */
@@ -236,17 +251,29 @@ public class DescriptionEditFragment extends Fragment {
                             // to determine whether the change has propagated to the relevant
                             // RESTBase endpoints.
                             new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4));
+                            if (funnel != null) {
+                                funnel.logSaved();
+                            }
                         }
 
                         @Override public void abusefilter(@NonNull Call<DescriptionEdit> call,
-                                                          String info) {
+                                                          @Nullable String code,
+                                                          @Nullable String info) {
                             editView.setSaveState(false);
-                            editView.setError(StringUtil.fromHtml(info));
+                            if (info != null) {
+                                editView.setError(StringUtil.fromHtml(info));
+                            }
+                            if (funnel != null) {
+                                funnel.logAbuseFilterWarning(code);
+                            }
                         }
 
                         @Override public void failure(@NonNull Call<DescriptionEdit> call,
                                                       @NonNull Throwable caught) {
                             editFailed(caught);
+                            if (funnel != null) {
+                                funnel.logError(caught.getMessage());
+                            }
                         }
                     });
         }

@@ -691,12 +691,16 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL
                 && resultCode == RESULT_OK) {
             PrefsOnboardingStateMachine.getInstance().setDescriptionEditTutorial();
-            startActivityForResult(DescriptionEditActivity.newIntent(getContext(), getTitle()),
-                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            startDescriptionEditActivity();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
                 && resultCode == RESULT_OK) {
             refreshPage();
         }
+    }
+
+    public void startDescriptionEditActivity() {
+        startActivityForResult(DescriptionEditActivity.newIntent(getContext(), getTitle()),
+                Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
     @Override
