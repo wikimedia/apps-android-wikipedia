@@ -118,7 +118,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     }
 
     private static class PostResponse extends MwPostResponse {
-        private String options;
+        @SuppressWarnings("unused") private String options;
 
         public String result() {
             return options;
@@ -136,10 +136,9 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     }
 
     private static class QueryUserInfo {
-        @SerializedName("userinfo")
-        private UserInfo userInfo;
+        @SuppressWarnings("unused") @SerializedName("userinfo") private UserInfo userInfo;
 
-        public UserInfo userInfo() {
+        UserInfo userInfo() {
             return userInfo;
         }
     }

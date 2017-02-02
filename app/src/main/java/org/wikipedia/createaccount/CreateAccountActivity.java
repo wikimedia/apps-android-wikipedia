@@ -46,6 +46,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String LOGIN_SESSION_TOKEN = "login_session_token";
+    public static final String CREATE_ACCOUNT_RESULT_USERNAME = "username";
+    public static final String CREATE_ACCOUNT_RESULT_PASSWORD = "password";
 
     private CreateAccountInfoClient createAccountInfoClient;
     private CreateAccountClient createAccountClient;
@@ -262,21 +264,14 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                 captchaHandler.isActive() ? captchaHandler.captchaWord() : "null",
                 new CreateAccountClient.Callback() {
                     @Override
-                    public void success(@NonNull Call<CreateAccountResponse> call, @NonNull CreateAccountSuccessResult result) {
+                    public void success(@NonNull Call<CreateAccountResponse> call,
+                                        @NonNull final CreateAccountSuccessResult result) {
                         if (!progressDialog.isShowing()) {
                             // no longer attached to activity!
                             return;
                         }
-                        createAccountResult = result;
-                        progressDialog.dismiss();
-                        captchaHandler.cancelCaptcha();
-                        funnel.logSuccess();
-                        hideSoftKeyboard(CreateAccountActivity.this);
-                        Intent resultIntent = new Intent();
-                        resultIntent.putExtra("username", result.getUsername());
-                        resultIntent.putExtra("password", passwordEdit.getText().toString());
-                        setResult(RESULT_ACCOUNT_CREATED, resultIntent);
-                        finish();
+                        finishWithUserResult(result);
+
                     }
 
                     @Override
@@ -310,5 +305,19 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             progressDialog.dismiss();
         }
         super.onStop();
+    }
+
+    private void finishWithUserResult(@NonNull CreateAccountSuccessResult result) {
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_USERNAME, result.getUsername());
+        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, passwordEdit.getText().toString());
+        setResult(RESULT_ACCOUNT_CREATED, resultIntent);
+
+        createAccountResult = result;
+        progressDialog.dismiss();
+        captchaHandler.cancelCaptcha();
+        funnel.logSuccess();
+        hideSoftKeyboard(CreateAccountActivity.this);
+        finish();
     }
 }

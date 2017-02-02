@@ -49,8 +49,7 @@ class CreateAccountClient {
                 if (response.isSuccessful()) {
                     if (response.body().hasResult()) {
                         CreateAccountResponse result = response.body();
-                        String status = result.status();
-                        if ("PASS".equals(status)) {
+                        if ("PASS".equals(result.status())) {
                             cb.success(call, new CreateAccountSuccessResult(result.user()));
                         } else {
                             cb.failure(call, new CreateAccountException(result.message()));

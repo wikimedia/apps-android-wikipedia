@@ -2,16 +2,17 @@ package org.wikipedia.createaccount;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
-public class CreateAccountSuccessResult extends CreateAccountResult implements Parcelable {
-    private final String username;
+class CreateAccountSuccessResult extends CreateAccountResult implements Parcelable {
+    private String username;
 
-    public CreateAccountSuccessResult(String username) {
+    CreateAccountSuccessResult(@NonNull String username) {
         super("PASS", "Account created");
         this.username = username;
     }
 
-    public String getUsername() {
+    String getUsername() {
         return username;
     }
 
@@ -21,7 +22,7 @@ public class CreateAccountSuccessResult extends CreateAccountResult implements P
         parcel.writeString(username);
     }
 
-    protected CreateAccountSuccessResult(Parcel in) {
+    private CreateAccountSuccessResult(Parcel in) {
         super(in);
         username = in.readString();
     }

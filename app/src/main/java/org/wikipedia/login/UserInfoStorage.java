@@ -11,6 +11,7 @@ class UserInfoStorage {
         Prefs.setLoginUsername(user.getUsername());
         Prefs.setLoginPassword(user.getPassword());
         Prefs.setLoginUserId(user.getUserID());
+        Prefs.setLoginUserIdLang(user.getUserIDLang());
         Prefs.setLoginGroups(user.getGroupMemberships());
     }
 
@@ -22,6 +23,7 @@ class UserInfoStorage {
                     Prefs.getLoginUsername(),
                     Prefs.getLoginPassword(),
                     Prefs.getLoginUserId(),
+                    Prefs.getLoginUserIdLang(),
                     Prefs.getLoginGroups()
             );
         }
@@ -32,6 +34,7 @@ class UserInfoStorage {
         Prefs.removeLoginUsername();
         Prefs.removeLoginPassword();
         Prefs.removeLoginUserId();
+        Prefs.removeLoginUserIdLang();
         Prefs.removeLoginGroups();
     }
 }
