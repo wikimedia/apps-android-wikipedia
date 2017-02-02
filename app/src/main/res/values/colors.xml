@@ -24,9 +24,9 @@
     <color name="green90">#d5fdf4</color> <!-- B AAA: -->
     <color name="green50">#00af89</color> <!-- B AA: Secondary link highlight, Positive messages -->
     <color name="green30">#14866d</color> <!-- W AA: -->
-    <color name="yellow90">#ac6600</color> <!-- B AAA: -->
+    <color name="yellow90">#fef6e7</color> <!-- W AA: -->
     <color name="yellow50">#fc3</color> <!-- B AAA: Warning messages -->
-    <color name="yellow30">#fef6e7</color> <!-- W AA: -->
+    <color name="yellow30">#ac6600</color> <!-- B AAA: -->
 
     <!-- Legacy -->
     <color name="darkest_gray">@color/base10</color>
