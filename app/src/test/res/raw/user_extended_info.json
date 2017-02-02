@@ -1,0 +1,19 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "users": [
+      {
+        "userid": 24531888,
+        "name": "MHolloway (WMF)",
+        "implicitgroups": [
+          "*",
+          "user"
+        ]
+      }
+    ],
+    "userinfo": {
+      "id": 24531888,
+      "name": "MHolloway (WMF)"
+    }
+  }
+}
