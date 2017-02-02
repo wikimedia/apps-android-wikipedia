@@ -6,6 +6,7 @@ import android.support.annotation.VisibleForTesting;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.zero.ZeroConfig;
 
@@ -16,6 +17,7 @@ public final class GsonUtil {
             .setDateFormat(DATE_FORMAT)
             .registerTypeHierarchyAdapter(Uri.class, new UriTypeAdapter().nullSafe())
             .registerTypeHierarchyAdapter(Namespace.class, new NamespaceTypeAdapter().nullSafe())
+            .registerTypeAdapter(WikiSite.class, new WikiSiteTypeAdapter().nullSafe())
             .registerTypeAdapter(ZeroConfig.class, new ZeroConfigTypeAdapter().nullSafe())
             .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory());
 
