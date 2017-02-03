@@ -33,7 +33,6 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
@@ -142,10 +141,7 @@ public class LeadImagesHandler {
         pageHeaderView.setSubtitle(StringUtils.capitalize(getTitle().getDescription()));
         pageHeaderView.setLocale(getPage().getTitle().getWikiSite().languageCode());
         pageHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
-
-        // TODO: remove pre-beta condition when ready.
-        pageHeaderView.setAllowDescriptionEdit(ReleaseUtil.isPreBetaRelease()
-                && DescriptionEditClient.isEditAllowed(getPage()));
+        pageHeaderView.setAllowDescriptionEdit(DescriptionEditClient.isEditAllowed(getPage()));
 
         layoutViews(listener, sequence);
     }

@@ -13,6 +13,7 @@ import org.wikipedia.login.User;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ReleaseUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +28,7 @@ import retrofit2.http.POST;
  * Data Client to submit a new or updated description to wikidata.org.
  */
 public class DescriptionEditClient {
-    private static List<String> ENABLED_LANGUAGES = Arrays.asList("en");
+    private static List<String> ENABLED_LANGUAGES = Arrays.asList("ru", "he", "ca");
     private static final String ABUSEFILTER_DISALLOWED = "abusefilter-disallowed";
     private static final String ABUSEFILTER_WARNING = "abusefilter-warning";
 
@@ -44,7 +45,7 @@ public class DescriptionEditClient {
         PageProperties props = page.getPageProperties();
         return props.canEdit()
                 && !TextUtils.isEmpty(props.getWikiBaseItem())
-                && ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode());
+                && (ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode()) || ReleaseUtil.isPreBetaRelease());
     }
 
     /**
