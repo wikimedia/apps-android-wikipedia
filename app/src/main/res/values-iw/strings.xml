@@ -188,7 +188,7 @@
   <string name="gallery_menu_save">שמירה למכשיר</string>
   <string name="gallery_save_progress">הורדת קובץ…</string>
   <string name="gallery_save_success">הקובץ נשמר בהצלחה.</string>
-  <string name="gallery_error_video_failed">לא היה אפשר לנכן את הסרטון.</string>
+  <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
   <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות. נא לנסות שוב ולאפשר את ההרשאה המבוקשת.</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
   <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>
@@ -312,9 +312,9 @@
   <string name="view_continue_reading_card_subtitle_today">היום</string>
   <string name="view_announcement_card_negative_action">לא, תודה</string>
   <string name="description_edit_header">עריכה</string>
-  <string name="description_edit_text_hint">נא לכתוב תיאור!</string>
+  <string name="description_edit_text_hint" fuzzy="true">נא לכתוב תיאור!</string>
   <string name="description_edit_save">שמירה</string>
-  <string name="description_edit_add_description">הוספת תיאור קצר</string>
+  <string name="description_edit_add_description" fuzzy="true">הוספת תיאור קצר</string>
   <string name="description_edit_edit_description">עריכת התיאור</string>
   <string name="description_edit_cancel_hint">ביטול</string>
   <string name="description_edit_help_title">עזרה: תיאורי כותרות</string>

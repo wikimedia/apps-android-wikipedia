@@ -151,6 +151,7 @@
   <string name="page_similar_titles">ഇതുപോലുള്ള താളുകൾ</string>
   <string name="search_did_you_mean">ഉദ്ദേശിച്ചത്  \"%s\" എന്നാണോ?</string>
   <string name="button_clear_all_recent_searches">അടുത്തകാലത്തുള്ള തിരയലുകൾ ഒഴിവാക്കുക.</string>
+  <string name="table_other">കൂടുതൽ വിവരങ്ങൾ</string>
   <string name="table_close">അടയ്ക്കുക</string>
   <string name="dialog_close_description">അടയ്ക്കുക</string>
   <string name="preference_title_show_images">ചിത്രങ്ങൾ പ്രദർശിപ്പിക്കുക</string>
@@ -160,9 +161,11 @@
   <string name="gallery_menu_share">പങ്കുവയ്ക്കുക</string>
   <string name="gallery_share_error">ചിത്രം പങ്കുവയ്ക്കാൻ കഴിഞ്ഞില്ല: %s</string>
   <string name="gallery_menu_save">ഡിവൈസിലേക്ക് സേവ് ചെയ്യുക</string>
+  <string name="err_cannot_save_file">പ്രമാണം സംരക്ഷിക്കാനാകില്ല</string>
   <string name="menu_new_tab">പുതിയ ടാബ്</string>
   <string name="menu_close_all_tabs">എല്ലാ ടാബുകളും അടയ്ക്കുക</string>
   <string name="close_all_tabs_confirm">എല്ലാടാബുകളും അടയ്ക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?</string>
+  <string name="button_continue_to_article">ലേഖനം വായിക്കുക</string>
   <string name="crash_report_dialog_dont_send_button">മറികടക്കുക</string>
   <string name="crash_report_quit">അടയ്ക്കുക</string>
   <string name="article_menu_bar_share">ലേഖനത്തിന്റെ കണ്ണി പങ്കുവയ്ക്കുക</string>
@@ -186,6 +189,15 @@
   <string name="notification_button_view_page">താൾ കാണുക</string>
   <string name="notification_button_view_edit_history">തിരുത്തലുകളുടെ നാൾവഴി കാണുക</string>
   <string name="view_continue_reading_card_title">വായന തുടരുക</string>
+  <string name="view_announcement_card_negative_action">വേണ്ട, നന്ദി</string>
+  <string name="description_edit_header">തിരുത്തുന്നു</string>
+  <string name="description_edit_text_hint" fuzzy="true">ഒരു വിവരണം എഴുതുക!</string>
+  <string name="description_edit_save">സേവ് ചെയ്യുക</string>
+  <string name="description_edit_add_description" fuzzy="true">ഹ്രസ്വ വിവരണം ചേർക്കുക</string>
+  <string name="description_edit_edit_description">വിവരണം തിരുത്തുക</string>
+  <string name="description_edit_cancel_hint">റദ്ദാക്കുക</string>
+  <string name="description_edit_success_done">ചെയ്തു</string>
+  <string name="description_edit_success_did_you_know">താങ്കൾക്കറിയാമോ?</string>
   <string name="description_edit_tutorial_button_label_continue">തുടരുക</string>
   <string name="description_edit_tutorial_button_label_start_editing">തിരുത്തി തുടങ്ങുക</string>
 </resources>

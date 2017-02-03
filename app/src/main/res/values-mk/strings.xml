@@ -312,9 +312,9 @@
   <string name="view_continue_reading_card_subtitle_today">Денес</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
   <string name="description_edit_header">Уредување</string>
-  <string name="description_edit_text_hint">Напишете опис!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Напишете опис!</string>
   <string name="description_edit_save">Зачувај</string>
-  <string name="description_edit_add_description">Додај краток опис</string>
+  <string name="description_edit_add_description" fuzzy="true">Додај краток опис</string>
   <string name="description_edit_edit_description">Уреди опис</string>
   <string name="description_edit_cancel_hint">Откажи</string>
   <string name="description_edit_help_title">Помош: описи на наслови</string>

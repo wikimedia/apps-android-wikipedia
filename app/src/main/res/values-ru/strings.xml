@@ -312,9 +312,9 @@
   <string name="view_continue_reading_card_subtitle_today">Сегодня</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="description_edit_header">Редактирование</string>
-  <string name="description_edit_text_hint">Написать описание!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Написать описание!</string>
   <string name="description_edit_save">Сохранить</string>
-  <string name="description_edit_add_description">Добавить короткое описание</string>
+  <string name="description_edit_add_description" fuzzy="true">Добавить короткое описание</string>
   <string name="description_edit_edit_description">Править описание</string>
   <string name="description_edit_cancel_hint">Отмена</string>
   <string name="description_edit_help_title">Справка: описания заголовков</string>

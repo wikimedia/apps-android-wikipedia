@@ -312,9 +312,9 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="view_continue_reading_card_subtitle_today">Dina iki</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
   <string name="description_edit_header">Pambesut</string>
-  <string name="description_edit_text_hint">Nulis gambaran!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Nulis gambaran!</string>
   <string name="description_edit_save">Simpen</string>
-  <string name="description_edit_add_description">Tambah panyadra singkat</string>
+  <string name="description_edit_add_description" fuzzy="true">Tambah panyadra singkat</string>
   <string name="description_edit_edit_description">Sunting gambaran</string>
   <string name="description_edit_cancel_hint">Batal</string>
   <string name="description_edit_help_title">Bantuan: gambaran judul</string>

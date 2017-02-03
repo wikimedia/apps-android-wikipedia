@@ -312,9 +312,9 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="view_continue_reading_card_subtitle_today">Hoxe</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="description_edit_header">Editando</string>
-  <string name="description_edit_text_hint">Escribe unha descrición!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Escribe unha descrición!</string>
   <string name="description_edit_save">Gardar</string>
-  <string name="description_edit_add_description">Engadir unha descrición curta</string>
+  <string name="description_edit_add_description" fuzzy="true">Engadir unha descrición curta</string>
   <string name="description_edit_edit_description">Editar a descrición</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
   <string name="description_edit_help_title">Axudaː descricións dos títulos</string>

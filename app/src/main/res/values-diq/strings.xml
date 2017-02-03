@@ -175,7 +175,7 @@
   <string name="view_continue_reading_card_subtitle_today">Ewro</string>
   <string name="view_announcement_card_negative_action">Nê, teşekur</string>
   <string name="description_edit_header">Vurnayış</string>
-  <string name="description_edit_text_hint">Yew şınasnayış bınusê</string>
+  <string name="description_edit_text_hint" fuzzy="true">Yew şınasnayış bınusê</string>
   <string name="description_edit_save">Qeyd kerê</string>
   <string name="description_edit_add_description" fuzzy="true">Şınasnayış cı ke</string>
   <string name="description_edit_success_done">Temam</string>

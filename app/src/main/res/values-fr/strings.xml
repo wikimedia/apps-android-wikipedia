@@ -313,9 +313,9 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="view_continue_reading_card_subtitle_today">Aujourd’hui</string>
   <string name="view_announcement_card_negative_action">Non merci</string>
   <string name="description_edit_header">Modification</string>
-  <string name="description_edit_text_hint">Écrire une description !</string>
+  <string name="description_edit_text_hint" fuzzy="true">Écrire une description !</string>
   <string name="description_edit_save">Enregistrer</string>
-  <string name="description_edit_add_description">Ajouter une courte description</string>
+  <string name="description_edit_add_description" fuzzy="true">Ajouter une courte description</string>
   <string name="description_edit_edit_description">Modifier la description</string>
   <string name="description_edit_cancel_hint">Annuler</string>
   <string name="description_edit_help_title">Descriptions des titres Aide:</string>

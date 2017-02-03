@@ -312,9 +312,9 @@
   <string name="view_continue_reading_card_subtitle_today">আজ</string>
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
   <string name="description_edit_header">সম্পাদনা করছেন</string>
-  <string name="description_edit_text_hint">একটি বিবরণ লিখুন!</string>
+  <string name="description_edit_text_hint" fuzzy="true">একটি বিবরণ লিখুন!</string>
   <string name="description_edit_save">সংরক্ষণ</string>
-  <string name="description_edit_add_description">সংক্ষিপ্ত বিবরণ যোগ করুন</string>
+  <string name="description_edit_add_description" fuzzy="true">সংক্ষিপ্ত বিবরণ যোগ করুন</string>
   <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
   <string name="description_edit_help_title">সাহায্য: শিরোনামের বিবরণ</string>

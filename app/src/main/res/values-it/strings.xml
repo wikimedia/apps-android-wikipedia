@@ -305,9 +305,9 @@ Vuoi riavviarla o uscire?</string>
   <string name="view_continue_reading_card_subtitle_today">Oggi</string>
   <string name="view_announcement_card_negative_action">No, grazie</string>
   <string name="description_edit_header">Modifica</string>
-  <string name="description_edit_text_hint">Scrivi una descrizione!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Scrivi una descrizione!</string>
   <string name="description_edit_save">Salva</string>
-  <string name="description_edit_add_description">Aggiungi una breve descrizione</string>
+  <string name="description_edit_add_description" fuzzy="true">Aggiungi una breve descrizione</string>
   <string name="description_edit_edit_description">Modifica descrizione</string>
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>

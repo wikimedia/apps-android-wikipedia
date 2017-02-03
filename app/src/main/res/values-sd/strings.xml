@@ -308,9 +308,9 @@
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
   <string name="description_edit_header">ترميم ڪندي</string>
-  <string name="description_edit_text_hint">ڪو تفصيل لکو!</string>
+  <string name="description_edit_text_hint" fuzzy="true">ڪو تفصيل لکو!</string>
   <string name="description_edit_save">سانڍيو</string>
-  <string name="description_edit_add_description">مختصر تفصيل شامل ڪريو</string>
+  <string name="description_edit_add_description" fuzzy="true">مختصر تفصيل شامل ڪريو</string>
   <string name="description_edit_edit_description">تشريح سنواريو</string>
   <string name="description_edit_cancel_hint">رد</string>
   <string name="description_edit_help_title">مدد:عنوان جي تشريح</string>

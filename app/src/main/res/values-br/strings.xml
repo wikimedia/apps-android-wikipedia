@@ -312,9 +312,9 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="view_continue_reading_card_subtitle_today">Hiziv</string>
   <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
   <string name="description_edit_header">O kemmañ</string>
-  <string name="description_edit_text_hint">Skrivañ un deskrivadur !</string>
+  <string name="description_edit_text_hint" fuzzy="true">Skrivañ un deskrivadur !</string>
   <string name="description_edit_save">Enrollañ</string>
-  <string name="description_edit_add_description">Ouzhpennañ un tamm diverrañ</string>
+  <string name="description_edit_add_description" fuzzy="true">Ouzhpennañ un tamm diverrañ</string>
   <string name="description_edit_edit_description">Kemmañ an deskrivadur</string>
   <string name="description_edit_cancel_hint">Nullañ</string>
   <string name="description_edit_help_title">Skoazell : deskrivadurioù an titloù</string>

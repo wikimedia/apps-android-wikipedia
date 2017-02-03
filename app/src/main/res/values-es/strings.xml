@@ -279,6 +279,15 @@
   <string name="reading_lists_onboarding_page_delete">Consejo: desliza cualquier página a la izquierda o a la derecha para quitarla de esta lista de lectura.</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_page">Ver página</string>
+  <string name="notification_button_view_user">Discute con el usuario</string>
+  <string name="notification_button_view_edit_history">Ver el historial de la página</string>
+  <string name="notification_generic_title">Notificación en Wikipedia</string>
+  <string name="notification_talk_title">Mensaje nuevo en Wikipedia</string>
+  <string name="notification_talk">%1$s ha dejado un mensaje en tu página de discusión «%2$s»</string>
+  <string name="notification_reverted_title">Edición revertida</string>
+  <string name="notification_reverted">Tu edición en el artículo «%2$s» fue revertida por %1$s.</string>
+  <string name="notification_thanks_title">¡Te han dado las gracias!</string>
+  <string name="notification_thanks">%1$s te ha dado las gracias por tu edición en la página «%2$s»</string>
   <string name="view_continue_reading_card_title">Continuar leyendo</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
@@ -303,9 +312,9 @@
   <string name="view_continue_reading_card_subtitle_today">Hoy</string>
   <string name="view_announcement_card_negative_action">No, gracias</string>
   <string name="description_edit_header">Editando</string>
-  <string name="description_edit_text_hint">Escribe una descripción.</string>
+  <string name="description_edit_text_hint" fuzzy="true">Escribe una descripción.</string>
   <string name="description_edit_save">Guardar</string>
-  <string name="description_edit_add_description">Añadir una breve descripción</string>
+  <string name="description_edit_add_description" fuzzy="true">Añadir una breve descripción</string>
   <string name="description_edit_edit_description">Editar descripción</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
   <string name="description_edit_help_title">Ayuda: descripción de títulos</string>

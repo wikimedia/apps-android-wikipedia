@@ -310,9 +310,9 @@
   <string name="view_continue_reading_card_subtitle_today">ယနေ့</string>
   <string name="view_announcement_card_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
   <string name="description_edit_header">တည်းဖြတ်ခြင်း</string>
-  <string name="description_edit_text_hint">ဖော်ပြချက်တစ်ခု ရေးသားရန်!</string>
+  <string name="description_edit_text_hint" fuzzy="true">ဖော်ပြချက်တစ်ခု ရေးသားရန်!</string>
   <string name="description_edit_save">သိမ်းရန်</string>
-  <string name="description_edit_add_description">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
+  <string name="description_edit_add_description" fuzzy="true">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
   <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
   <string name="description_edit_cancel_hint">မလုပ်တော့</string>
   <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>

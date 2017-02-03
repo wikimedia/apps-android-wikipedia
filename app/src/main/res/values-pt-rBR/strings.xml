@@ -312,9 +312,9 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="view_continue_reading_card_subtitle_today">Hoje</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
   <string name="description_edit_header">Editando</string>
-  <string name="description_edit_text_hint">Escreva uma descrição!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Escreva uma descrição!</string>
   <string name="description_edit_save">Salvar</string>
-  <string name="description_edit_add_description">Adicionar uma breve descrição</string>
+  <string name="description_edit_add_description" fuzzy="true">Adicionar uma breve descrição</string>
   <string name="description_edit_edit_description">Editar descrição</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
   <string name="description_edit_help_title">Ajuda: descrição do título</string>

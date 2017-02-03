@@ -254,7 +254,7 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_sort">Zoradiť</string>
   <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>
   <string name="reading_list_sort_by_name_desc">Zoradiť podľa názvu (v opačnom poradí)</string>
-  <string name="reading_list_sort_by_recent">Zoradiť podľa nedávno navštívených</string>
+  <string name="reading_list_sort_by_recent">Zoradiť podľa času poslednej návštevy</string>
   <string name="reading_list_sort_by_recent_desc">Zoradiť podľa nedávno navštívených (v opačnom poradí)</string>
   <string name="reading_list_menu_edit">Upraviť podrobnosti zoznamu na prečítanie</string>
   <string name="reading_list_menu_delete">Odstrániť zoznam na prečítanie</string>
@@ -312,9 +312,9 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
   <string name="description_edit_header">Upravovanie</string>
-  <string name="description_edit_text_hint">Napíšte popis!</string>
+  <string name="description_edit_text_hint" fuzzy="true">Napíšte popis!</string>
   <string name="description_edit_save">Uložiť</string>
-  <string name="description_edit_add_description">Pridať stručný popis</string>
+  <string name="description_edit_add_description" fuzzy="true">Pridať stručný popis</string>
   <string name="description_edit_edit_description">Upraviť popis</string>
   <string name="description_edit_cancel_hint">Zrušiť</string>
   <string name="description_edit_help_title">Pomocník: popis</string>

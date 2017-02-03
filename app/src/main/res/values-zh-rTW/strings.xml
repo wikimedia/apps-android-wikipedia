@@ -312,9 +312,9 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="description_edit_header">編輯中</string>
-  <string name="description_edit_text_hint">寫一段描述！</string>
+  <string name="description_edit_text_hint" fuzzy="true">寫一段描述！</string>
   <string name="description_edit_save">儲存</string>
-  <string name="description_edit_add_description">增加簡短描述</string>
+  <string name="description_edit_add_description" fuzzy="true">增加簡短描述</string>
   <string name="description_edit_edit_description">編輯描述</string>
   <string name="description_edit_cancel_hint">取消</string>
   <string name="description_edit_help_title">協助：標題描述</string>

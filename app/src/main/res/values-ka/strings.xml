@@ -292,9 +292,9 @@
   <string name="view_continue_reading_card_subtitle_today">დღეს</string>
   <string name="view_announcement_card_negative_action">არა, გმადლობთ</string>
   <string name="description_edit_header">რედაქტირება</string>
-  <string name="description_edit_text_hint">დაწერეთ აღწერა!</string>
+  <string name="description_edit_text_hint" fuzzy="true">დაწერეთ აღწერა!</string>
   <string name="description_edit_save">დამახსოვრება</string>
-  <string name="description_edit_add_description">დაამატეთ მოკლე აღწერა</string>
+  <string name="description_edit_add_description" fuzzy="true">დაამატეთ მოკლე აღწერა</string>
   <string name="description_edit_edit_description">აღწერის რედაქტირება</string>
   <string name="description_edit_cancel_hint">გაუქმება</string>
   <string name="description_edit_help_about_wikidata">ვიკიმონაცემების შესახებ</string>
