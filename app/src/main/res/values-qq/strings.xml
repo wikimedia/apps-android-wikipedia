@@ -489,4 +489,20 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
   <string name="description_edit_anon_limit">Dialog message that informs the user that they must log in before making edits to additional descriptions.</string>
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Where possible, please make URLs point to the correct language translation of the page.</string>
+  <string name="description_edit_help_about_title">Heading for a dialog window that provides detailed information about Wikidata descriptions.</string>
+  <string name="description_edit_help_description">Informative message that summarizes the purpose of descriptions.</string>
+  <string name="description_edit_help_tips">Heading for a list of tips for creating effective descriptions.</string>
+  <string name="description_edit_help_tips_description">A quick overview of some guidelines for creating descriptions.</string>
+  <string name="description_edit_help_tips_examples">Heading for a list of example descriptions.</string>
+  <string name="description_edit_help_tips_example1">An example description of a notable work of art, music, or literature.</string>
+  <string name="description_edit_help_tips_example1_hint">Title description for the article mentioned in {{msg-wikimedia|Wikipedia-android-strings-description edit help tips example1"}}</string>
+  <string name="description_edit_help_tips_example2">An example description of a notable landmark or geological feature.</string>
+  <string name="description_edit_help_tips_example2_hint">Title description for the article mentioned in {{msg-wikimedia|Wikipedia-android-strings-description edit help tips example2"}}</string>
+  <string name="description_edit_help_more_info">Heading for further information about descriptions.</string>
+  <string name="description_edit_help_meta_info">Meta information about Wikidata descriptions and their role in Wikimedia Foundation projects.</string>
+  <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
+  <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
+  <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag in its exact form)</string>
+  <string name="description_edit_revert_reason2">Reason for an edit being reverted, because it looks like vandalism.</string>
+  <string name="description_edit_revert_history">Message that allows the user to go to the edit history associated with the article. (Please preserve the anchor tag in its exact form)</string>
 </resources>

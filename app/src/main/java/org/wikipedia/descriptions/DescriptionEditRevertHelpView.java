@@ -3,6 +3,7 @@ package org.wikipedia.descriptions;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.text.method.LinkMovementMethod;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -27,9 +28,16 @@ public class DescriptionEditRevertHelpView extends ScrollView {
         ButterKnife.bind(this);
         helpText.setMovementMethod(new LinkMovementMethod());
 
-        helpText.setText(StringUtil.fromHtml(String.format(getContext().getString(R.string.description_edit_revert_help_body),
-                getContext().getString(R.string.wikidata_description_guide_url),
-                getHistoryUri(qNumber))));
+        String helpStr = getString(R.string.description_edit_revert_help_body)
+                .replaceAll(":revertSubtitle", getString(R.string.description_edit_revert_subtitle))
+                .replaceAll(":revertIntro", getString(R.string.description_edit_revert_intro))
+                .replaceAll(":revertReason1",
+                        String.format(getString(R.string.description_edit_revert_reason1), getString(R.string.wikidata_description_guide_url)))
+                .replaceAll(":revertReason2", getString(R.string.description_edit_revert_reason2))
+                .replaceAll(":revertHistory",
+                        String.format(getString(R.string.description_edit_revert_history), getHistoryUri(qNumber)));
+
+        helpText.setText(StringUtil.fromHtml(helpStr));
     }
 
     private Uri getHistoryUri(@NonNull String qNumber) {
@@ -40,5 +48,9 @@ public class DescriptionEditRevertHelpView extends ScrollView {
                 .appendPath("Special:History")
                 .appendPath(qNumber)
                 .build();
+    }
+
+    private String getString(@StringRes int id) {
+        return getContext().getString(id);
     }
 }

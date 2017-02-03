@@ -380,4 +380,27 @@
     <string name="description_edit_tutorial_button_label_start_editing">Start editing</string>
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
     <!-- /Description editing tutorial -->
+
+    <!-- Description editing help -->
+    <string name="description_edit_help_about_title">About</string>
+    <string name="description_edit_help_description">Title descriptions summarize an article to help readers understand the subject at a glance.</string>
+    <string name="description_edit_help_tips">Tips for creating descriptions</string>
+    <string name="description_edit_help_tips_description">Descriptions should ideally fit on one line, and are between two to twelve words long. They are not capitalized unless the first word is a proper noun.</string>
+    <string name="description_edit_help_tips_examples">For example:</string>
+    <string name="description_edit_help_tips_example1">painting by Leonardo da Vinci</string>
+    <string name="description_edit_help_tips_example1_hint">title description for an article about the Mona Lisa</string>
+    <string name="description_edit_help_tips_example2">Earth\'s highest mountain</string>
+    <string name="description_edit_help_tips_example2_hint">title description for an article about Mount Everest</string>
+    <string name="description_edit_help_more_info">More information</string>
+    <string name="description_edit_help_meta_info">Descriptions are stored and maintained on Wikidata, a project of the Wikimedia Foundation which provides a free, collaborative, multilingual, secondary database supporting Wikipedia and other projects.</string>
+    <!-- /Description editing help -->
+
+    <!-- Description editing revert help -->
+    <string name="description_edit_revert_subtitle">Thanks for editing Wikipedia!</string>
+    <string name="description_edit_revert_intro">We know you tried your best, but one of the reviewers had a concern. Possible reasons your edit was reverted include:</string>
+    <string name="description_edit_revert_reason1"><![CDATA[your contribution didn\'t follow one of the <a href="%1$s">guidelines</a>.]]></string>
+    <string name="description_edit_revert_reason2">your contribution looked like an experiment or vandalism.</string>
+    <string name="description_edit_revert_history"><![CDATA[If you are interested, see the <a href="%1$s">history of edits</a>.]]></string>
+    <!-- /Description editing revert help -->
+
 </resources>

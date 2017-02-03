@@ -56,50 +56,50 @@
     <!-- Description editing -->
     <string name="description_edit_help_body"><![CDATA[
         <p>
-            <font color=\'#3366cc\'><strong>About</strong></font>
+            <font color=\'#3366cc\'><strong>:helpAboutTitle</strong></font>
         </p>
         <p>
-            Title descriptions summarize an article to help readers understand the subject at a glance.
+            :helpAboutDescription
             <br/>
         </p>
         <p>
-            <font color=\'#3366cc\'><strong>Tips for creating descriptions</strong></font>
+            <font color=\'#3366cc\'><strong>:helpTipsTitle</strong></font>
         </p>
         <p>
-            Descriptions should ideally fit on one line, and are between two to twelve words long. They are not capitalized unless the first word is a proper noun.
+            :helpTipsDescription
         </p>
         <p>
-            For example:
+            :helpTipsExamples
         </p>
         <p>
-            <strong><em>painting by Leonardo da Vinci</em></strong>
+            <strong><em>:helpTipsExample1</em></strong>
             <br/>
-            title description for an article about the Mona Lisa
+            :helpTipsExample1Hint
         </p>
         <p>
-            <strong><em>Earth\'s highest mountain</em></strong>
+            <strong><em>:helpTipsExample2</em></strong>
             <br/>
-            title description for an article about Mount Everest
+            :helpTipsExample2Hint
             <br/>
         </p>
         <p>
-            <font color=\'#3366cc\'><strong>More information</strong></font>
+            <font color=\'#3366cc\'><strong>:helpMoreInfo</strong></font>
         </p>
         <p>
-            Descriptions are stored and maintained on Wikidata, a project of the Wikimedia Foundation which provides a free, collaborative, multilingual, secondary database supporting Wikipedia and other projects.
+            :helpMetaInfo
         </p>
     ]]></string>
 
     <string name="description_edit_revert_help_body"><![CDATA[
-        Thanks for editing Wikipedia!<br />
-        We know you tried your best, but one of the reviewers had a concern. Possible reasons your edit was reverted include:
+        :revertSubtitle<br />
+        :revertIntro
         <p>
-            • your contribution didn\'t follow one of the <a href="%1$s">guidelines</a>.
+            • :revertReason1
         </p>
         <p>
-            • your contribution looked like an experiment or vandalism.
+            • :revertReason2
         </p>
-        If you are interested, see the <a href="%2$s">history of edits</a>.
+        :revertHistory
     ]]></string>
     <!-- /Description editing -->
 

@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -65,6 +66,22 @@ public class DescriptionEditHelpView extends ScrollView {
     private void init() {
         inflate(getContext(), R.layout.view_description_edit_help, this);
         ButterKnife.bind(this);
-        helpText.setText(StringUtil.fromHtml(getContext().getString(R.string.description_edit_help_body)));
+        String helpStr = getString(R.string.description_edit_help_body)
+                .replaceAll(":helpAboutTitle", getString(R.string.description_edit_help_about_title))
+                .replaceAll(":helpAboutDescription", getString(R.string.description_edit_help_description))
+                .replaceAll(":helpTipsTitle", getString(R.string.description_edit_help_tips))
+                .replaceAll(":helpTipsDescription", getString(R.string.description_edit_help_tips_description))
+                .replaceAll(":helpTipsExamples", getString(R.string.description_edit_help_tips_examples))
+                .replaceAll(":helpTipsExample1Hint", getString(R.string.description_edit_help_tips_example1_hint))
+                .replaceAll(":helpTipsExample1", getString(R.string.description_edit_help_tips_example1))
+                .replaceAll(":helpTipsExample2Hint", getString(R.string.description_edit_help_tips_example2_hint))
+                .replaceAll(":helpTipsExample2", getString(R.string.description_edit_help_tips_example2))
+                .replaceAll(":helpMoreInfo", getString(R.string.description_edit_help_more_info))
+                .replaceAll(":helpMetaInfo", getString(R.string.description_edit_help_meta_info));
+        helpText.setText(StringUtil.fromHtml(helpStr));
+    }
+
+    private String getString(@StringRes int id) {
+        return getContext().getString(id);
     }
 }
