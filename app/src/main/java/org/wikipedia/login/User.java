@@ -5,9 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.util.ArraySet;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class User {
@@ -21,8 +21,7 @@ public class User {
         }
     }
 
-    @Nullable
-    public static User getUser() {
+    @Nullable public static User getUser() {
         if (CURRENT_USER == null && STORAGE != null) {
             CURRENT_USER = STORAGE.getUser();
         }
@@ -43,31 +42,34 @@ public class User {
     /**
      * Call this before instrumentation tests run
      */
-    @VisibleForTesting
-    public static void disableStorage() {
+    @VisibleForTesting public static void disableStorage() {
         STORAGE = null;
     }
 
     @NonNull private final String username;
     @NonNull private final String password;
-    private int userID;
-    @NonNull private String userIDLang = "";
+    @NonNull private Map<String, Integer> ids;
     @NonNull private final Set<String> groups;
 
     public User(@NonNull String username, @NonNull String password) {
-        this(username, password, 0, "", null);
+        this(username, password, null, null);
     }
 
-    public User(@NonNull User other, int id, @NonNull String userIDLang, @Nullable Set<String> groups) {
-        this(other.username, other.password, id, userIDLang, groups);
+    public User(@NonNull User other, @Nullable Map<String, Integer> ids, @Nullable Set<String> groups) {
+        this(other.username, other.password, ids, groups);
     }
 
-    public User(@NonNull String username, @NonNull String password, int userID,
-                @NonNull String userIDLang, @Nullable Set<String> groups) {
+    public User(@NonNull String username, @NonNull String password, @Nullable Map<String, Integer> ids,
+                @Nullable Set<String> groups) {
         this.username = username;
         this.password = password;
-        this.userID = userID;
-        this.userIDLang = userIDLang;
+
+        if (ids != null) {
+            this.ids = new HashMap<>(ids);
+        } else {
+            this.ids = Collections.emptyMap();
+        }
+
         if (groups != null) {
             this.groups = Collections.unmodifiableSet(new ArraySet<>(groups));
         } else {
@@ -75,38 +77,36 @@ public class User {
         }
     }
 
-    @NonNull
-    public String getUsername() {
+    @NonNull public String getUsername() {
         return username;
     }
 
-    @NonNull
-    public String getPassword() {
+    @NonNull public String getPassword() {
         return password;
     }
 
-    public int getUserID() {
-        return userID;
+    public boolean hasIdForLang(@NonNull String code) {
+        return ids.containsKey(code);
     }
 
-    @NonNull public String getUserIDLang() {
-        return StringUtils.defaultString(userIDLang);
+    public void putIdForLanguage(@NonNull String code, int id) {
+        ids.put(code, id);
     }
 
-    public void setUserID(int id) {
-        this.userID = id;
+    public int getIdForLanguage(@NonNull String code) {
+        Integer id = ids.get(code);
+        return id == null ? 0 : id;
     }
 
-    public void setUserIDLang(@NonNull String code) {
-        this.userIDLang = code;
+    @NonNull Map<String, Integer> getIdMap() {
+        return ids;
     }
 
     public boolean isAllowed(@NonNull Set<String> allowedGroups) {
         return !allowedGroups.isEmpty() && !Collections.disjoint(allowedGroups, groups);
     }
 
-    @NonNull
-    Set<String> getGroupMemberships() {
+    @NonNull Set<String> getGroupMemberships() {
         return groups;
     }
 }

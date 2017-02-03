@@ -151,13 +151,9 @@ public class EditFunnel extends Funnel {
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
         if (User.isLoggedIn()) {
-            if (User.getUser().getUserID() == 0) {
-                // Means we are logged in, but before we started counting UserID.
-                // Send -1 to record these
-                preprocessData(eventData, "userID", -1);
-            } else {
-                preprocessData(eventData, "userID", User.getUser().getUserID());
-            }
+            // noinspection ConstantConditions
+            preprocessData(eventData, "userID",
+                    User.getUser().getIdForLanguage(title.getWikiSite().languageCode()));
         }
         preprocessData(eventData, "pageNS", title.getNamespace());
         return super.preprocessData(eventData);

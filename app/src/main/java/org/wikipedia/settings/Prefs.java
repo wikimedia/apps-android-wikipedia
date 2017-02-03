@@ -5,6 +5,8 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.gson.reflect.TypeToken;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.analytics.SessionData;
@@ -19,8 +21,10 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ReleaseUtil;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import okhttp3.logging.HttpLoggingInterceptor.Level;
@@ -173,28 +177,18 @@ public final class Prefs {
         remove(R.string.preference_key_login_password);
     }
 
-    public static int getLoginUserId() {
-        return getInt(R.string.preference_key_login_user_id, 0);
+    @NonNull
+    public static Map<String, Integer> getLoginUserIds() {
+        TypeToken<HashMap<String, Integer>> type = new TypeToken<HashMap<String, Integer>>(){};
+        return GsonUnmarshaller.unmarshal(type, getString(R.string.preference_key_login_user_id_map, "{}"));
     }
 
-    public static void setLoginUserId(int id) {
-        setInt(R.string.preference_key_login_user_id, id);
+    public static void setLoginUserIds(@Nullable Map<String, Integer> ids) {
+        setString(R.string.preference_key_login_user_id_map, GsonMarshaller.marshal(ids));
     }
 
-    public static void removeLoginUserId() {
-        remove(R.string.preference_key_login_user_id);
-    }
-
-    @NonNull public static String getLoginUserIdLang() {
-        return getString(R.string.preference_key_login_user_id_lang, "");
-    }
-
-    public static void setLoginUserIdLang(@NonNull String lang) {
-        setString(R.string.preference_key_login_user_id_lang, lang);
-    }
-
-    public static void removeLoginUserIdLang() {
-        remove(R.string.preference_key_login_user_id_lang);
+    public static void removeLoginUserIds() {
+        remove(R.string.preference_key_login_user_id_map);
     }
 
     @Nullable

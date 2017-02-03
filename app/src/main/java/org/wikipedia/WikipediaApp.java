@@ -263,8 +263,9 @@ public class WikipediaApp extends Application {
     @NonNull
     public String getAppOrSystemLanguageCode() {
         String code = appLanguageState.getAppOrSystemLanguageCode();
-        if (User.isLoggedIn() && !User.getUser().getUserIDLang().equals(code)) {
-            updateUserIdForLanguage(code);
+        // noinspection ConstantConditions
+        if (User.isLoggedIn() && !User.getUser().hasIdForLang(code)) {
+            getIdForLanguage(code);
         }
         return code;
     }
@@ -279,17 +280,15 @@ public class WikipediaApp extends Application {
         resetWikiSite();
     }
 
-    private void updateUserIdForLanguage(@NonNull final String code) {
+    private void getIdForLanguage(@NonNull final String code) {
         final WikiSite wikiSite = WikiSite.forLanguageCode(code);
         idClient.request(wikiSite, new UserIdClient.Callback() {
             @Override
-            public void success(@NonNull Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call,
-                                int userId) {
+            public void success(@NonNull Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call, int id) {
                 User user = User.getUser();
                 if (user != null) {
-                    user.setUserID(userId);
-                    user.setUserIDLang(code);
-                    L.v("Found user ID " + userId + " for " + code);
+                    user.putIdForLanguage(code, id);
+                    L.v("Found user ID " + id + " for " + code);
                 }
             }
 
