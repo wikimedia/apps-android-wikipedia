@@ -34,7 +34,7 @@ def getDate() {
 }
 
 def computeVersionName(label) {
-    return "2.4.${android.defaultConfig.versionCode}-${label}-${date}"
+    return "2.5.${android.defaultConfig.versionCode}-${label}-${date}"
 }
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_7
@@ -54,7 +54,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 184
+        versionCode 185
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
         vectorDrawables.useSupportLibrary = true
