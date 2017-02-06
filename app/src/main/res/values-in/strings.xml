@@ -67,6 +67,8 @@
   <string name="nav_item_login">Masuk log ke Wikipedia</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
+  <string name="login_2fa_hint">Kode Otentikasi Dua Faktor</string>
+  <string name="login_2fa_other_workflow_error_msg">Otentikasi dua faktor diperlukan! Silakan kembali ke aktivitas utama dan masuk log dengan token 2FA Anda, kemudian coba lagi.</string>
   <string name="menu_login">Masuk log</string>
   <string name="login_activity_title">Masuk log ke Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang masuk log…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Ulangi kata sandi</string>
   <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
   <string name="create_account_email_error">Alamat surel tidak sah</string>
+  <string name="create_account_username_error">Karakter tidak sah dalam nama pengguna</string>
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_next">Selanjutnya</string>
   <string name="create_account_button">Buat akun baru</string>
@@ -312,9 +315,9 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
   <string name="view_announcement_card_negative_action">Tidak, terima kasih</string>
   <string name="description_edit_header">Menyunting</string>
-  <string name="description_edit_text_hint" fuzzy="true">Tuliskan deskripsi!</string>
+  <string name="description_edit_text_hint">Deskripsi judul</string>
   <string name="description_edit_save">Simpan</string>
-  <string name="description_edit_add_description" fuzzy="true">Tambah deskripsi singkat</string>
+  <string name="description_edit_add_description">Tambah deskripsi judul</string>
   <string name="description_edit_edit_description">Sunting deskripsi</string>
   <string name="description_edit_cancel_hint">Batal</string>
   <string name="description_edit_help_title">Bantuan: deskripsi judul</string>
@@ -322,16 +325,34 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="description_edit_help_wikidata_guide">Panduan Wikidata untuk menulis deskripsi</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Terima kasih atas kepercayaan Anda dalam menyunting deskripsi! Untuk melakukan penyuntingan tambahan, silakan masuk log ke akun Wikipedia Anda.</string>
+  <string name="description_edit_license_notice">Dengan mengubah deskripsi judul, saya setuju terhadap &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Deskripsi disimpan!</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
   <string name="description_edit_success_did_you_know">Tahukah Anda?</string>
   <string name="description_edit_success_article_edit_hint">Anda juga dapat menyunting artikel dalam aplikasi ini. Coba memperbaiki kesalahan ketik dan kalimat kecil dengan mengklik ikon ^1 lain kali</string>
   <string name="description_edit_tutorial_title_descriptions">Deskripsi judul</string>
-  <string name="description_edit_tutorial_title_descriptions_summary">Merangkum sebuah artikel untuk membantu pembaca memahami subjek sekilas</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Meringkaskan sebuah artikel untuk membantu pembaca memahami subjek dengan sekilas</string>
   <string name="description_edit_tutorial_button_label_continue">Lanjutkan</string>
   <string name="description_edit_tutorial_keep_it_short">Jagalah agar singkat</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
+  <string name="description_edit_help_about_title">Tentang</string>
+  <string name="description_edit_help_description">Deskripsi judul meringkaskan sebuah artikel untuk membantu pembaca memahami subjek dengan sekilas.</string>
+  <string name="description_edit_help_tips">Tips untuk membuat deskripsi</string>
+  <string name="description_edit_help_tips_description">Deskripsi idealnya harus ditampilkan di satu baris, dan antara 2-12 kata. Deskripsi tidak dikapitalisasi kecuali kata pertama adalah kata benda.</string>
+  <string name="description_edit_help_tips_examples">Sebagai contoh:</string>
+  <string name="description_edit_help_tips_example1">lukisan karya Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">deskripsi judul untuk artikel tentang Mona Lisa</string>
+  <string name="description_edit_help_tips_example2">gunung tertinggi di Bumi</string>
+  <string name="description_edit_help_tips_example2_hint">deskripsi judul untuk artikel tentang Gunung Everest</string>
+  <string name="description_edit_help_more_info">Informasi lebih lanjut</string>
+  <string name="description_edit_help_meta_info">Deskripsi disimpan dan dipelihara di Wikidata, sebuah proyek dari Wikimedia Foundation yang menyediakan basis data bebas, kolaboratif, multibahasa, sekunder yang mendukung Wikipedia dan proyek-proyek lainnya.</string>
+  <string name="description_edit_revert_subtitle">Terima kasih telah menyunting di Wikipedia!</string>
+  <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
+  <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">kontribusi Anda tampak seperti uji coba atau vandalisme.</string>
+  <string name="description_edit_revert_history">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>
 </resources>

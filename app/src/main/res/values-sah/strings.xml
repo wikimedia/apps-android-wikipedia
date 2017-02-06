@@ -67,6 +67,7 @@
   <string name="nav_item_login">Бикипиэдьийэҕэ киирии</string>
   <string name="login_username_hint">Бэлиэ-аат</string>
   <string name="login_password_hint">Аһарык</string>
+  <string name="login_2fa_hint">Икки суол тургутуулаах куод</string>
   <string name="menu_login">Киирии</string>
   <string name="login_activity_title">Бикипиэдьийэҕэ киирии</string>
   <string name="login_in_progress_dialog_message">Киирии...</string>
@@ -329,4 +330,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Биир сурааһын, иккиттэн уон иккигэ диэри тыл буолара ордук</string>
   <string name="description_edit_tutorial_button_label_start_editing">Уларытыыны саҕалаа</string>
   <string name="description_edit_tutorial_promise">Саҕалыырбар бу кыаҕы сөпкө туһаныам диэн мэктиэлиибин.</string>
+  <string name="description_edit_help_about_title">Бу туһунан</string>
+  <string name="description_edit_help_tips_examples">Холобур:</string>
+  <string name="description_edit_help_more_info">Сиһилии</string>
+  <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
 </resources>

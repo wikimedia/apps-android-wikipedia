@@ -67,6 +67,8 @@
   <string name="nav_item_login">ウィキペディアにログイン</string>
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
+  <string name="login_2fa_hint">2段階認証コード</string>
+  <string name="login_2fa_other_workflow_error_msg">2段階認証が必要です!　メイン画面に戻り2段階認証のトークンを使ってログインしてから、リトライしてください。</string>
   <string name="menu_login">ログイン</string>
   <string name="login_activity_title">ウィキペディアにログイン</string>
   <string name="login_in_progress_dialog_message">ログイン中…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">パスワード (再入力)</string>
   <string name="create_account_passwords_mismatch_error">パスワードが一致しません</string>
   <string name="create_account_email_error">無効なメールアドレスです</string>
+  <string name="create_account_username_error">利用者名に無効な文字が使用されています</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_next">次へ</string>
   <string name="create_account_button">アカウント作成</string>
@@ -300,6 +303,6 @@
   <string name="description_edit_header">編集中</string>
   <string name="description_edit_text_hint" fuzzy="true">要約欄を記入してください</string>
   <string name="description_edit_save">保存</string>
-  <string name="description_edit_add_description" fuzzy="true">説明を追加</string>
+  <string name="description_edit_add_description">説明を追加</string>
   <string name="description_edit_success_done">完了</string>
 </resources>

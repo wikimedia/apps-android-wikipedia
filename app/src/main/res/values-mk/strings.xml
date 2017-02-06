@@ -67,6 +67,8 @@
   <string name="nav_item_login">Најава на Википедија</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
+  <string name="login_2fa_hint">Код за двочинителска заверка</string>
+  <string name="login_2fa_other_workflow_error_msg">Се бара двочинителска заверка! Навратете се на главната активност и најавете се со вашата 2FA-шифра, па обидете се повторно.</string>
   <string name="menu_login">Најава</string>
   <string name="login_activity_title">Најава на Википедија</string>
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Повторете ја лозинката</string>
   <string name="create_account_passwords_mismatch_error">Лозинките не се совпаѓаат</string>
   <string name="create_account_email_error">Неважечка е-пошта</string>
+  <string name="create_account_username_error">Неважечки знаци или корисничко име</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_next">Следно</string>
   <string name="create_account_button">Направи сметка</string>
@@ -312,9 +315,9 @@
   <string name="view_continue_reading_card_subtitle_today">Денес</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
   <string name="description_edit_header">Уредување</string>
-  <string name="description_edit_text_hint" fuzzy="true">Напишете опис!</string>
+  <string name="description_edit_text_hint">Опис на насловот</string>
   <string name="description_edit_save">Зачувај</string>
-  <string name="description_edit_add_description" fuzzy="true">Додај краток опис</string>
+  <string name="description_edit_add_description">Додај опис на насловот</string>
   <string name="description_edit_edit_description">Уреди опис</string>
   <string name="description_edit_cancel_hint">Откажи</string>
   <string name="description_edit_help_title">Помош: описи на наслови</string>
@@ -322,6 +325,8 @@
   <string name="description_edit_help_wikidata_guide">Водич за пишување описи на Википодатоците</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/mk?uselang=mk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English?uselang=mk</string>
+  <string name="description_edit_anon_limit">Ви благодариме за постојаниот интерес за уредување на описите! За да направите уште уредувања, ќе мора да се најавите со вашата сметка на Википедија.</string>
+  <string name="description_edit_license_notice">Менувајќи го описот на насловот, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt; и дек &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.mk\"&gt;Криејтив комонс CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Описот е зачуван!</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
@@ -334,4 +339,20 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
+  <string name="description_edit_help_about_title">За описите</string>
+  <string name="description_edit_help_description">Описите на насловите на статиите даваат краток преглед за да им помогнат на читателите да ја разберат содржината.</string>
+  <string name="description_edit_help_tips">Совети за создавање описи</string>
+  <string name="description_edit_help_tips_description">Описите по можност треба да бидат во еден ред, и да се состојат од два до дванаесет збора. Не се ставаат први почетни букви, освен ако зборот не е лична именка.</string>
+  <string name="description_edit_help_tips_examples">На пример:</string>
+  <string name="description_edit_help_tips_example1">слика на Леонардо да Винчи</string>
+  <string name="description_edit_help_tips_example1_hint">опис на насловот на статијата за Мона Лиза</string>
+  <string name="description_edit_help_tips_example2">Највисока планина во светот</string>
+  <string name="description_edit_help_tips_example2_hint">опис на насловот на статија за Монт Еверест</string>
+  <string name="description_edit_help_more_info">Повеќе информации</string>
+  <string name="description_edit_help_meta_info">Описите се складираат и одржуваат на Википодатоците — проект на Фондацијата Викимедија, кој овозможува слободна, соработна, повеќејазична база на податоци што ја поддржува Википедија и другите проекти.</string>
+  <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
+  <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
+  <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
+  <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
 </resources>

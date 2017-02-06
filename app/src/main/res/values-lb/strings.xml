@@ -66,6 +66,7 @@
   <string name="nav_item_login">Op Wikipedia aloggen</string>
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
+  <string name="login_2fa_hint">Code fir Authentifikatioun mat zwee Elementer</string>
   <string name="menu_login">Aloggen</string>
   <string name="login_activity_title">Op Wikipedia aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
@@ -85,6 +86,7 @@
   <string name="create_account_password_repeat_hint">Passwuert widderhuelen</string>
   <string name="create_account_passwords_mismatch_error">D\'Passwierder sinn net déi selwescht</string>
   <string name="create_account_email_error">Net-valabel E-Mail-Adress</string>
+  <string name="create_account_username_error">Net valabel Zeechen am Benotzernumm</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
   <string name="create_account_next">Weider</string>
   <string name="create_account_button">Benotzerkont uleeën</string>
@@ -305,9 +307,9 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="view_continue_reading_card_subtitle_today">Haut</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
   <string name="description_edit_header">Änneren</string>
-  <string name="description_edit_text_hint" fuzzy="true">Eng Beschreiwung schreiwen!</string>
+  <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_save">Späicheren</string>
-  <string name="description_edit_add_description" fuzzy="true">Kuerz Beschreiwung derbäisetzen</string>
+  <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
   <string name="description_edit_edit_description">Beschreiwung änneren</string>
   <string name="description_edit_cancel_hint">Ofbriechen</string>
   <string name="description_edit_help_title">Hëllef:Titelbeschreiwungen</string>
@@ -326,4 +328,11 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="description_edit_tutorial_keep_it_short">Haalt se kuerz</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
+  <string name="description_edit_help_about_title">Iwwer</string>
+  <string name="description_edit_help_tips_examples">Zum Beispill:</string>
+  <string name="description_edit_help_tips_example1">Bild vum Leonardo da vinci</string>
+  <string name="description_edit_help_tips_example2">Héchste Bierg vun der Welt</string>
+  <string name="description_edit_help_tips_example2_hint">Titelbeschreiwung fir en Artikel iwwer de Mount Everest</string>
+  <string name="description_edit_help_more_info">Méi Informatiounen</string>
+  <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
 </resources>

@@ -86,6 +86,7 @@
   <string name="create_account_password_repeat_hint">Salasanan vaihto</string>
   <string name="create_account_passwords_mismatch_error">Salasanat eivät täsmää</string>
   <string name="create_account_email_error">Virheellinen sähköpostiosoite</string>
+  <string name="create_account_username_error">Käyttäjänimi sisältää kelpaamattomia merkkejä</string>
   <string name="create_account_generic_error">Tunnusta ei voitu luoda</string>
   <string name="create_account_next">Seuraava</string>
   <string name="create_account_button">Luo tunnus</string>
@@ -318,10 +319,22 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
   <string name="description_edit_success_saved">Kuvaus tallennettu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
+  <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
   <string name="description_edit_success_article_edit_hint">Voit myös muokata artikkeleja tästä sovelluksesta käsin. Kokeile kirjoitusvirheiden ja lyhyiden lauseiden korjaamista ensi kerralla napauttamalla ^1-kuvaketta.</string>
   <string name="description_edit_tutorial_button_label_continue">Jatka</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
+  <string name="description_edit_help_about_title">Tietoja</string>
+  <string name="description_edit_help_tips">Vinkkejä kuvausten luontiin</string>
+  <string name="description_edit_help_tips_examples">Esimerkiksi:</string>
+  <string name="description_edit_help_tips_example1">Leonardo da Vincin maalaus</string>
+  <string name="description_edit_help_tips_example1_hint">Mona Lisaa käsittelevän artikkelin otsikon kuvaus</string>
+  <string name="description_edit_help_tips_example2">Maapallon korkein vuori</string>
+  <string name="description_edit_help_tips_example2_hint">Mount Everestiä käsittelevän artikkelin otsikon kuvaus</string>
+  <string name="description_edit_help_more_info">Lisätietoja</string>
+  <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
+  <string name="description_edit_revert_reason2">muokkauksesi vaikutti kokeilulta tai vandalismilta.</string>
+  <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
 </resources>

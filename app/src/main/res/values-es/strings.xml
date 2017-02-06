@@ -86,6 +86,7 @@
   <string name="create_account_password_repeat_hint">Repetir contraseña</string>
   <string name="create_account_passwords_mismatch_error">Las contraseñas no coinciden</string>
   <string name="create_account_email_error">Dirección de correo electrónico no válida.</string>
+  <string name="create_account_username_error">Caracteres no válidos en el nombre de usuario</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear cuenta</string>
@@ -312,9 +313,9 @@
   <string name="view_continue_reading_card_subtitle_today">Hoy</string>
   <string name="view_announcement_card_negative_action">No, gracias</string>
   <string name="description_edit_header">Editando</string>
-  <string name="description_edit_text_hint" fuzzy="true">Escribe una descripción.</string>
+  <string name="description_edit_text_hint">Descripción de título</string>
   <string name="description_edit_save">Guardar</string>
-  <string name="description_edit_add_description" fuzzy="true">Añadir una breve descripción</string>
+  <string name="description_edit_add_description">Añade descripción de título</string>
   <string name="description_edit_edit_description">Editar descripción</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
   <string name="description_edit_help_title">Ayuda: descripción de títulos</string>
@@ -322,6 +323,8 @@
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir descripciones</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/es</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">¡Gracias por tu continuo interés en la edición de descripciones! Para realizar cambios adicionales, inicia sesión en tu cuenta de Wikipedia.</string>
+  <string name="description_edit_license_notice">Al cambiar la descripción de título, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Descripción guardada</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
@@ -334,4 +337,20 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
+  <string name="description_edit_help_about_title">Acerca de</string>
+  <string name="description_edit_help_description">Las descripciones de título resumen un artículo para ayudar a que los lectores entiendan el tema rápidamente.</string>
+  <string name="description_edit_help_tips">Consejos para crear descripciones</string>
+  <string name="description_edit_help_tips_description">Idealmente, las descripciones deberían caber en una línea, y tener entre dos y doce palabras. No están en mayúsculas, a menos que la primera palabra sea un sustantivo propio.</string>
+  <string name="description_edit_help_tips_examples">Por ejemplo:</string>
+  <string name="description_edit_help_tips_example1">pintura de Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">descripción de título para un artículo sobre la Mona Lisa</string>
+  <string name="description_edit_help_tips_example2">La montaña más alta de la tierra</string>
+  <string name="description_edit_help_tips_example2_hint">descripción de título para un artículo sobre el Monte Everest</string>
+  <string name="description_edit_help_more_info">Más información</string>
+  <string name="description_edit_help_meta_info">Las descripciones se almacenan y mantienen en Wikidata, un proyecto de la Fundación Wikimedia que proporciona una base de datos secundaria, libre, colaborativa y multilingüe, que apoya a Wikipedia y a otros proyectos.</string>
+  <string name="description_edit_revert_subtitle">¡Gracias por la edición de Wikipedia!</string>
+  <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
+  <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">tu contribución se veía como un experimento o vandalismo.</string>
+  <string name="description_edit_revert_history">Si estás interesado, consulta el &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
 </resources>

@@ -16,6 +16,7 @@
   <string name="dialog_message_clear_history" fuzzy="true">Vai tiešām vēlaties notīrīt visu vēsturi?</string>
   <string name="nav_item_saved_pages">Saglabātās lapas</string>
   <string name="share_via">Dalīties, izmantojot</string>
+  <string name="search_redirect_from">Pāradresēts no %s</string>
   <string name="menu_page_show_tabs">Rādīt cilnes</string>
   <string name="menu_page_other_languages">Mainīt valodu</string>
   <string name="menu_page_find_in_page">Atrast lapā</string>
@@ -55,6 +56,7 @@
   <string name="nav_item_login">Pieslēgties Vikipēdijai</string>
   <string name="login_username_hint">Lietotājvārds</string>
   <string name="login_password_hint">Parole</string>
+  <string name="login_2fa_hint">Divpakāpju autentifikācijas kods</string>
   <string name="menu_login">Pieslēgties</string>
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
   <string name="preference_title_logout">Iziet</string>
@@ -69,6 +71,7 @@
   <string name="create_account_password_repeat_hint">Atkārtojiet paroli</string>
   <string name="create_account_passwords_mismatch_error">Paroles nesakrīt</string>
   <string name="create_account_email_error">Nederīga e-pasta adrese</string>
+  <string name="create_account_username_error">Nederīgas rakstzīmes lietotājvārdā</string>
   <string name="create_account_generic_error">Neizdevās izveidot kontu</string>
   <string name="create_account_next">Tālāk</string>
   <string name="create_account_button">Izveidot kontu</string>
@@ -83,6 +86,7 @@
   <string name="zero_interstitial_cancel">Palikt šeit</string>
   <string name="zero_learn_more_learn_more">Uzzini vairāk</string>
   <string name="zero_learn_more_dismiss">Paslēpt</string>
+  <string name="send_feedback">Sūtīt atsauksmes par lietotni</string>
   <string name="nav_item_random">Nejaušs raksts</string>
   <string name="create_account_account_created_toast">Konts izveidots!</string>
   <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
@@ -177,7 +181,10 @@
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="user_option_sync_label">Izvēles</string>
   <string name="notification_button_view_page">Skatīt lapu</string>
+  <string name="notification_button_view_edit_history">Skatīt labojumu vēsturi</string>
+  <string name="notification_reverted_title">Atcelts labojums</string>
   <string name="view_continue_reading_card_title">Turpini lasīt</string>
+  <string name="view_because_you_read_card_title">Jo tu lasīji</string>
   <string name="view_random_card_title">Nejauša lapa</string>
   <string name="view_random_card_subtitle">Lasi nejaušu Vikipēdijas lapu</string>
   <string name="view_main_page_card_title">Šodien Vikipēdijā</string>
@@ -208,4 +215,6 @@
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
   <string name="description_edit_tutorial_button_label_continue">Turpināt</string>
   <string name="description_edit_tutorial_button_label_start_editing">Sākt labošanu</string>
+  <string name="description_edit_help_tips_examples">Piemēram:</string>
+  <string name="description_edit_help_more_info">Vairāk informācijas</string>
 </resources>

@@ -67,6 +67,7 @@
   <string name="nav_item_login">Zaloguj się do Wikipedii</string>
   <string name="login_username_hint">Nazwa użytkownika</string>
   <string name="login_password_hint">Hasło</string>
+  <string name="login_2fa_hint">Kod uwierzytelniania dwuskładnikowego</string>
   <string name="menu_login">Zaloguj się</string>
   <string name="login_activity_title">Logowanie do Wikipedii</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
@@ -86,6 +87,7 @@
   <string name="create_account_password_repeat_hint">Powtórz hasło</string>
   <string name="create_account_passwords_mismatch_error">Hasła nie są identyczne</string>
   <string name="create_account_email_error">Nieprawidłowy adres e-mail</string>
+  <string name="create_account_username_error">Nieprawidłowe znaki w nazwie użytkownika</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="create_account_button">Utwórz konto</string>
@@ -285,9 +287,9 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="view_continue_reading_card_subtitle_today">Dzisiaj</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
   <string name="description_edit_header">Edycja</string>
-  <string name="description_edit_text_hint" fuzzy="true">Podaj opis!</string>
+  <string name="description_edit_text_hint">Opis tytułu</string>
   <string name="description_edit_save">Zapisz</string>
-  <string name="description_edit_add_description" fuzzy="true">Dodaj krótki opis</string>
+  <string name="description_edit_add_description">Dodaj opis tytułu</string>
   <string name="description_edit_edit_description">Edytuj opis</string>
   <string name="description_edit_cancel_hint">Anuluj</string>
   <string name="description_edit_help_about_wikidata">O Wikidanych</string>
@@ -299,4 +301,12 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="description_edit_tutorial_button_label_continue">Kontynuuj</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
+  <string name="description_edit_help_tips">Jak tworzyć opisy</string>
+  <string name="description_edit_help_tips_examples">Na przykład:</string>
+  <string name="description_edit_help_tips_example1">obraz Leonarda da Vinci</string>
+  <string name="description_edit_help_tips_example2">najwyższy szczyt Ziemi</string>
+  <string name="description_edit_help_more_info">Więcej informacji</string>
+  <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
+  <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
+  <string name="description_edit_revert_history">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
 </resources>

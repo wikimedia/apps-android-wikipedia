@@ -67,6 +67,8 @@
   <string name="nav_item_login">Mlebu menyang Wikipedia</string>
   <string name="login_username_hint">Jeneng panganggo</string>
   <string name="login_password_hint">Tembung wadi</string>
+  <string name="login_2fa_hint">Kode Bukti Asli Loro-Faktor</string>
+  <string name="login_2fa_other_workflow_error_msg">Bukti asli loro-faktor dibutuhake! Mangga bali kanggo kegiatan utama lan mlebu karo token 2FA sampeyan, banjur coba maneh.</string>
   <string name="menu_login">Mlebu</string>
   <string name="login_activity_title">Mlebu menyang Wikipedia</string>
   <string name="login_in_progress_dialog_message">Mrosès mlebu log panjenengan...</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Balèni gawé tembung wadi</string>
   <string name="create_account_passwords_mismatch_error">Tembung sandhiné ora padha</string>
   <string name="create_account_email_error">Alamat email ora sah</string>
+  <string name="create_account_username_error">Menawa ana aksara ilegal ing jeneng panganggo</string>
   <string name="create_account_generic_error">Ora bisa gawé akun</string>
   <string name="create_account_next">Sabanjuré</string>
   <string name="create_account_button">Gawé akun</string>
@@ -312,9 +315,9 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="view_continue_reading_card_subtitle_today">Dina iki</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
   <string name="description_edit_header">Pambesut</string>
-  <string name="description_edit_text_hint" fuzzy="true">Nulis gambaran!</string>
+  <string name="description_edit_text_hint">Katrangan judhul</string>
   <string name="description_edit_save">Simpen</string>
-  <string name="description_edit_add_description" fuzzy="true">Tambah panyadra singkat</string>
+  <string name="description_edit_add_description">Tambah panyadra judhul</string>
   <string name="description_edit_edit_description">Sunting gambaran</string>
   <string name="description_edit_cancel_hint">Batal</string>
   <string name="description_edit_help_title">Bantuan: gambaran judul</string>
@@ -322,6 +325,8 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="description_edit_help_wikidata_guide">Tuntunan Wikidata kanggo nulis gambaran</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
+  <string name="description_edit_license_notice">Miturut ngganti panyadra judhul, aku setuju kanggo ugi wonten &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Katemtuan Panggunaan&lt;/a&gt;, lan kanggo nerbitaké panganggo saya ing lisènsi &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Andharan disimpen!</string>
   <string name="description_edit_success_encouragement">Sampeyan mung saiki nggawe Wikipedia luwih kanggo semua orang</string>
   <string name="description_edit_success_done">Rampung</string>
@@ -334,4 +339,20 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Saenipun siji line, antarane loro kanggo rolas tembung</string>
   <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
   <string name="description_edit_tutorial_promise">Miturut miwiti, aku janji ora kanggo nyalahi panggunaan fitur iki.</string>
+  <string name="description_edit_help_about_title">Bab</string>
+  <string name="description_edit_help_description">Panyadra judhul ngringkes artikel kanggo nonton ngerti subyek ing mirit.</string>
+  <string name="description_edit_help_tips">Tips kanggo nggawe katrangan</string>
+  <string name="description_edit_help_tips_description">Katrangan saenipun kudu pas ing sak baris, lan antarane loro kanggo rolas tembung dawa. Lagi ora gede kajaba tembung kapisan tembung sing suwene.</string>
+  <string name="description_edit_help_tips_examples">Tuladhane:</string>
+  <string name="description_edit_help_tips_example1">lukisan dening Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">panyadra judhul kanggo artikel bab Mona Lisa</string>
+  <string name="description_edit_help_tips_example2">gunung paling dhuwur ing bumi</string>
+  <string name="description_edit_help_tips_example2_hint">panyadra judhul kanggo artikel bab Gunung Everest</string>
+  <string name="description_edit_help_more_info">Katérangan liya</string>
+  <string name="description_edit_help_meta_info">Katrangan sing disimpen lan dipelihara ing Wikidata, proyèk Wikimedia Foundation kang menehi panyimpenan data bébas, bareng, multi, sekunder ndhukung Wikipedia lan proyèk liyané.</string>
+  <string name="description_edit_revert_subtitle">Matur nuwun kanggo mbesut ing Wikipedia!</string>
+  <string name="description_edit_revert_intro">Kita ngerti sampeyan nampa paling, nanging salah siji sing pengulas wis badhan. Alesanipun saged besutan panjenengan iki dibalèkaké kalebu:</string>
+  <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">kontribusi panjenengan kapandeng kaya pacoban utawa vandalisme.</string>
+  <string name="description_edit_revert_history">Yen kasengsem, ndeleng &lt;a href=\"%1$s\"&gt;sujarah besutan&lt;/a&gt;.</string>
 </resources>

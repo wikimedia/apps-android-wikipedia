@@ -312,9 +312,9 @@ Voleu començar de nou o sortir?</string>
   <string name="view_continue_reading_card_subtitle_today">Avui</string>
   <string name="view_announcement_card_negative_action">No, gràcies</string>
   <string name="description_edit_header">Modificació</string>
-  <string name="description_edit_text_hint" fuzzy="true">Escriviu una descripció!</string>
+  <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_save">Desa</string>
-  <string name="description_edit_add_description" fuzzy="true">Afegeix una descripció curta</string>
+  <string name="description_edit_add_description">Afegeix una descripció de títol</string>
   <string name="description_edit_edit_description">Modifica la descripció</string>
   <string name="description_edit_cancel_hint">Cancel·la</string>
   <string name="description_edit_help_title">Ajuda: descripcions dels títols</string>
@@ -334,4 +334,7 @@ Voleu començar de nou o sortir?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
+  <string name="description_edit_help_tips_examples">Per exemple:</string>
+  <string name="description_edit_help_tips_example1">quadre de Leonardo da Vinci</string>
+  <string name="description_edit_help_more_info">Més informació</string>
 </resources>

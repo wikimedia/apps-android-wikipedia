@@ -86,6 +86,7 @@
   <string name="create_account_password_repeat_hint">重複輸入密碼</string>
   <string name="create_account_passwords_mismatch_error">密碼不符合</string>
   <string name="create_account_email_error">無效的 Email 地址</string>
+  <string name="create_account_username_error">用戶名稱中含有無效字元</string>
   <string name="create_account_generic_error">無法建立帳號</string>
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">建立帳號</string>
@@ -312,9 +313,9 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="description_edit_header">編輯中</string>
-  <string name="description_edit_text_hint" fuzzy="true">寫一段描述！</string>
+  <string name="description_edit_text_hint">標題描述</string>
   <string name="description_edit_save">儲存</string>
-  <string name="description_edit_add_description" fuzzy="true">增加簡短描述</string>
+  <string name="description_edit_add_description">增加標題描述</string>
   <string name="description_edit_edit_description">編輯描述</string>
   <string name="description_edit_cancel_hint">取消</string>
   <string name="description_edit_help_title">協助：標題描述</string>
@@ -334,4 +335,12 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">原則上為一行，介於2至12個字之間</string>
   <string name="description_edit_tutorial_button_label_start_editing">開始編輯</string>
   <string name="description_edit_tutorial_promise">開始後，我保證不做出濫用此功能。</string>
+  <string name="description_edit_help_about_title">關於</string>
+  <string name="description_edit_help_tips_examples">例如：</string>
+  <string name="description_edit_help_tips_example1">李奧納多·達文西的繪畫</string>
+  <string name="description_edit_help_tips_example1_hint">有關蒙娜麗莎條目的標題描述</string>
+  <string name="description_edit_help_tips_example2">地球第一高峰</string>
+  <string name="description_edit_help_tips_example2_hint">有關聖母峰條目的標題描述</string>
+  <string name="description_edit_help_more_info">更多訊息</string>
+  <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
 </resources>

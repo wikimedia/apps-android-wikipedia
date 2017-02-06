@@ -39,7 +39,7 @@
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="talk_page_link_text">Обсуждение</string>
   <string name="content_license_html">Содержимое доступно в соответствии &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
-  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования\" &gt;&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования\"&gt; &lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете иметь более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
@@ -67,6 +67,8 @@
   <string name="nav_item_login">Войти в Википедию</string>
   <string name="login_username_hint">Имя пользователя</string>
   <string name="login_password_hint">Пароль</string>
+  <string name="login_2fa_hint">Код двухфакторной аутентификации</string>
+  <string name="login_2fa_other_workflow_error_msg">Требуется двухфакторная аутентификация! Пожалуйста, вернитесь к основной деятельности и войти в систему с помощью вашего 2FA-токена, а затем повторите попытку.</string>
   <string name="menu_login">Войти</string>
   <string name="login_activity_title">Войти в Википедию</string>
   <string name="login_in_progress_dialog_message">Вход в систему…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Повторите пароль</string>
   <string name="create_account_passwords_mismatch_error">Пароли не совпадают</string>
   <string name="create_account_email_error">Недопустимый адрес электронной почты</string>
+  <string name="create_account_username_error">Недопустимые символы в имени участника</string>
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_next">Далее</string>
   <string name="create_account_button">Создать учётную запись</string>
@@ -239,7 +242,7 @@
   <string name="article_menu_bar_share">Поделиться ссылкой на статью</string>
   <string name="article_menu_bar_navigate">Перейдите к местоположению статьи</string>
   <string name="article_header_edit_hint">Править…</string>
-  <string name="article_header_edit_description">Редактировать описание заголовка</string>
+  <string name="article_header_edit_description">Изменить описание</string>
   <string name="article_header_edit_lead_section">Редактировать введение</string>
   <string name="nav_item_reading_lists">Мои списки</string>
   <string name="reading_list_untitled">Без названия</string>
@@ -312,26 +315,44 @@
   <string name="view_continue_reading_card_subtitle_today">Сегодня</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="description_edit_header">Редактирование</string>
-  <string name="description_edit_text_hint" fuzzy="true">Написать описание!</string>
+  <string name="description_edit_text_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
-  <string name="description_edit_add_description" fuzzy="true">Добавить короткое описание</string>
+  <string name="description_edit_add_description">Добавить описание</string>
   <string name="description_edit_edit_description">Править описание</string>
   <string name="description_edit_cancel_hint">Отмена</string>
-  <string name="description_edit_help_title">Справка: описания заголовков</string>
+  <string name="description_edit_help_title">Справка: короткие описания</string>
   <string name="description_edit_help_about_wikidata">О Викиданных</string>
   <string name="description_edit_help_wikidata_guide">Руководство для Викиданных по созданию описаний</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ru</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
+  <string name="description_edit_anon_limit">Благодарим Вас за изменения описаний! Для того, чтобы вводить дополнительные изменения, необходимо войти в Ваш аккаунт на Википедии.</string>
+  <string name="description_edit_license_notice">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru\"&gt;yсловиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию  по лицензии &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.ru\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
   <string name="description_edit_success_article_edit_hint">Вы также можете редактировать статьи в этом приложении. Попробуйте исправлять опечатки и небольшие предложения, нажав в следующий раз на иконку ^1</string>
-  <string name="description_edit_tutorial_title_descriptions">Описание названия</string>
+  <string name="description_edit_tutorial_title_descriptions">Описания</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Резюмирует статью, чтобы помочь читателям понять тему с первого взгляда</string>
   <string name="description_edit_tutorial_button_label_continue">Продолжить</string>
   <string name="description_edit_tutorial_keep_it_short">Будьте кратки</string>
-  <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна линия, от двух до двенадцати слов</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
+  <string name="description_edit_help_about_title">О кратких описаниях</string>
+  <string name="description_edit_help_description">Краткие описания помогают читателям понять тему статьи с первого взгляда.</string>
+  <string name="description_edit_help_tips">Советы по созданию описаний</string>
+  <string name="description_edit_help_tips_description">Описание — не полноценное предложение, а небольшая порция информации. В большинстве случаев длина описания составляет от двух до двенадцати слов, и желательно должна помещаться на одну строку. Описания следует начинать со строчной (маленькой) буквы, за исключением случаев, когда использование прописной (заглавной) буквы вызвано правилами языка. Точку в конце ставить не следует.</string>
+  <string name="description_edit_help_tips_examples">Например:</string>
+  <string name="description_edit_help_tips_example1">картина Леонардо да Винчи</string>
+  <string name="description_edit_help_tips_example1_hint">краткое описание статьи о Мона Лизе</string>
+  <string name="description_edit_help_tips_example2">Самая высокая гора Земли</string>
+  <string name="description_edit_help_tips_example2_hint">краткое описание статьи о горе Эверест</string>
+  <string name="description_edit_help_more_info">Подробная информация</string>
+  <string name="description_edit_help_meta_info">Описания хранятся в Викиданных. Викиданные (Wikidata) — это проект Фонда Викимедиа: свободная, совместно наполняемая, многоязычная, вторичная база данных, в которой собрана структурированная информация для обеспечения поддержки Википедии, Викисклада, других проектов Викимедиа и не только их.</string>
+  <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
+  <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то не правильно. Возможные причины для отмения правки:</string>
+  <string name="description_edit_revert_reason1">Ваше изменение не следовало один из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">Ваше изменение выглядело как эксперимент или вандализм.</string>
+  <string name="description_edit_revert_history">Если вы заинтересованы, просмотрите &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
 </resources>

@@ -67,6 +67,8 @@
   <string name="nav_item_login">위키백과에 로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
+  <string name="login_2fa_hint">2요소 인증 코드</string>
+  <string name="login_2fa_other_workflow_error_msg">2요소 인증이 필요합니다! 주요 활동으로 돌아간 다음 당신의 2FA 토큰으로 로그인하고 다시 시도하십시오.</string>
   <string name="menu_login">로그인</string>
   <string name="login_activity_title">위키백과에 로그인</string>
   <string name="login_in_progress_dialog_message">로그인 중…</string>
@@ -305,9 +307,9 @@
   <string name="view_continue_reading_card_subtitle_today">오늘</string>
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
   <string name="description_edit_header">편집 중</string>
-  <string name="description_edit_text_hint" fuzzy="true">설명을 입력하십시오!</string>
+  <string name="description_edit_text_hint">제목 설명</string>
   <string name="description_edit_save">저장</string>
-  <string name="description_edit_add_description" fuzzy="true">짧은 설명 추가</string>
+  <string name="description_edit_add_description">제목 설명 추가</string>
   <string name="description_edit_edit_description">설명 편집</string>
   <string name="description_edit_cancel_hint">취소</string>
   <string name="description_edit_help_title">도움말: 제목 설명</string>
@@ -323,4 +325,9 @@
   <string name="description_edit_tutorial_button_label_continue">계속</string>
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
+  <string name="description_edit_help_about_title">정보</string>
+  <string name="description_edit_help_tips_examples">예를 들어:</string>
+  <string name="description_edit_help_more_info">자세한 정보</string>
+  <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
+  <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
 </resources>

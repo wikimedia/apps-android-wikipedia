@@ -214,4 +214,6 @@
   <string name="description_edit_success_done">ಆಂಡ್</string>
   <string name="description_edit_success_did_you_know">ಈರೆಗ್ ತೆರಿದ್‍ಂಡಾ?</string>
   <string name="description_edit_tutorial_button_label_continue">ಮುಂದುವರೆಸಾಲೆ</string>
+  <string name="description_edit_help_about_title">ಎಂಕ್ಲೆನ ಬಗ್ಗೆ</string>
+  <string name="description_edit_help_tips_examples">ಉದಾಹರಣೆಗ್</string>
 </resources>
