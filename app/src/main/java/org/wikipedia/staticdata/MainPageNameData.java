@@ -12,13 +12,20 @@ import java.util.Map;
 public final class MainPageNameData {
     @NonNull private static final Map<String, String> DATA_MAP = Collections.unmodifiableMap(newMap());
 
+    @NonNull public static String valueFor(String key) {
+        if (DATA_MAP.containsKey(key)) {
+            return DATA_MAP.get(key);
+        }
+        return DATA_MAP.get("en");
+    }
+
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
         final int size = 297;
         Map<String, String> map = new HashMap<>(size);
         map.put("en", "Main Page");
-        map.put("sv", "Portal:Huvudsida");
         map.put("ceb", "Unang Panid");
+        map.put("sv", "Portal:Huvudsida");
         map.put("de", "Wikipedia:Hauptseite");
         map.put("nl", "Hoofdpagina");
         map.put("fr", "Wikipédia:Accueil principal");
@@ -36,8 +43,8 @@ public final class MainPageNameData {
         map.put("uk", "Головна сторінка");
         map.put("ca", "Portada");
         map.put("fa", "صفحهٔ اصلی");
-        map.put("nb", "Portal:Forside");
         map.put("ar", "الصفحة الرئيسية");
+        map.put("nb", "Portal:Forside");
         map.put("sh", "Glavna stranica");
         map.put("fi", "Wikipedia:Etusivu");
         map.put("hu", "Kezdőlap");
@@ -66,8 +73,8 @@ public final class MainPageNameData {
         map.put("gl", "Portada");
         map.put("nn", "Hovudside");
         map.put("uz", "Bosh Sahifa");
-        map.put("la", "Vicipaedia:Pagina prima");
         map.put("el", "Πύλη:Κύρια");
+        map.put("la", "Vicipaedia:Pagina prima");
         map.put("be", "Галоўная старонка");
         map.put("simple", "Main Page");
         map.put("vo", "Cifapad");
@@ -88,18 +95,18 @@ public final class MainPageNameData {
         map.put("tg", "Саҳифаи Аслӣ");
         map.put("te", "మొదటి పేజీ");
         map.put("tl", "Unang Pahina");
-        map.put("pms", "Intrada");
         map.put("sq", "Faqja kryesore");
+        map.put("pms", "Intrada");
         map.put("br", "Degemer");
-        map.put("ky", "Башбарак");
         map.put("be-tarask", "Галоўная старонка");
+        map.put("ky", "Башбарак");
         map.put("ht", "Paj Prensipal");
         map.put("zh-yue", "頭版");
         map.put("jv", "Tepas");
         map.put("ast", "Portada");
         map.put("lb", "Haaptsäit");
-        map.put("ml", "പ്രധാന താൾ");
         map.put("bn", "প্রধান পাতা");
+        map.put("ml", "പ്രധാന താൾ");
         map.put("mr", "मुखपृष्ठ");
         map.put("af", "Tuisblad");
         map.put("pnb", "پہلا صفہ");
@@ -107,8 +114,8 @@ public final class MainPageNameData {
         map.put("is", "Forsíða");
         map.put("ga", "Príomhleathanach");
         map.put("cv", "Тĕп страницă");
-        map.put("ba", "Баш бит");
         map.put("fy", "Haadside");
+        map.put("ba", "Баш бит");
         map.put("sw", "Mwanzo");
         map.put("lmo", "Pagina principala");
         map.put("my", "ဗဟိုစာမျက်နှာ");
@@ -135,9 +142,9 @@ public final class MainPageNameData {
         map.put("nap", "Paggena prencepale");
         map.put("wa", "Mwaisse pådje");
         map.put("gd", "Prìomh-Dhuilleag");
+        map.put("azb", "آنا صفحه");
         map.put("bug", "Mappadecéŋ");
         map.put("yi", "הויפט זייט");
-        map.put("azb", "آنا صفحه");
         map.put("am", "ዋናው ገጽ");
         map.put("map-bms", "Kaca Utama");
         map.put("si", "මුල් පිටුව");
@@ -149,27 +156,27 @@ public final class MainPageNameData {
         map.put("sah", "Сүрүн сирэй");
         map.put("vec", "Pajina prinsipałe");
         map.put("os", "Сæйраг фарс");
+        map.put("ilo", "Umuna a Panid");
         map.put("sa", "मुख्यपृष्ठम्");
         map.put("mrj", "Тӹнг ӹлӹштӓш");
-        map.put("ilo", "Umuna a Panid");
         map.put("mai", "सम्मुख पन्ना");
         map.put("hif", "Pahila Panna");
-        map.put("nah", "Calīxatl");
         map.put("mhr", "Тӱҥ лаштык");
         map.put("roa-tara", "Pagene Prengepále");
         map.put("xmf", "დუდხასჷლა");
+        map.put("nah", "Calīxatl");
         map.put("eml", "PP");
         map.put("pam", "Pun Bulung");
         map.put("bh", "मुख्य पन्ना");
         map.put("ps", "لومړی مخ");
-        map.put("sd", "مُک صفحو");
         map.put("nso", "Letlakala la pele");
-        map.put("se", "Portála:Ovdasiidu");
-        map.put("hak", "Thèu-Ya̍p");
-        map.put("mi", "Hau Kāinga");
         map.put("diq", "Perra Seri");
+        map.put("hak", "Thèu-Ya̍p");
+        map.put("se", "Portála:Ovdasiidu");
+        map.put("mi", "Hau Kāinga");
         map.put("bcl", "Panginot na Pahina");
         map.put("nds-nl", "Veurblad");
+        map.put("sd", "مُک صفحو");
         map.put("gan", "封面");
         map.put("glk", "گتˇ ولگ");
         map.put("vls", "Voorblad");
@@ -177,18 +184,18 @@ public final class MainPageNameData {
         map.put("bo", "གཙོ་ངོས།");
         map.put("wuu", "封面");
         map.put("fiu-vro", "Pääleht");
-        map.put("co", "Pagina maestra");
         map.put("szl", "Przodniŏ zajta");
+        map.put("co", "Pagina maestra");
         map.put("vep", "Pälehtpol’");
-        map.put("csb", "Przédnô starna");
         map.put("sc", "Pàgina printzipale");
         map.put("lrc", "سأرآسوٙنە");
         map.put("tk", "Baş Sahypa");
+        map.put("csb", "Przédnô starna");
         map.put("crh", "Baş Saife");
+        map.put("zh-classical", "維基大典:卷首");
         map.put("km", "ទំព័រដើម");
         map.put("gv", "Ard-ghuillag");
         map.put("kv", "Медшӧр лист бок");
-        map.put("zh-classical", "維基大典:卷首");
         map.put("frr", "Wikipedia:Hoodsid");
         map.put("as", "বেটুপাত");
         map.put("lad", "La Primera Hoja");
@@ -206,13 +213,14 @@ public final class MainPageNameData {
         map.put("rm", "Wikipedia:Pagina principala");
         map.put("pcd", "Accueul");
         map.put("myv", "Прявтлопа");
+        map.put("ug", "ئۇيغۇرچە ۋىكىپىدىيە");
         map.put("lij", "Pagina prinçipâ");
+        map.put("lez", "Кьилин ччин");
         map.put("mt", "Il-Paġna prinċipali");
         map.put("fur", "Pagjine principâl");
         map.put("gn", "Ape");
-        map.put("lez", "Кьилин ччин");
-        map.put("ug", "ئۇيغۇرچە ۋىكىپىدىيە");
         map.put("dsb", "Głowny bok");
+        map.put("gom", "मुखेल पान");
         map.put("dv", "މައި ޞަފްޙާ");
         map.put("cbk-zam", "El Primero Pagina");
         map.put("ext", "Página prencipal");
@@ -222,26 +230,25 @@ public final class MainPageNameData {
         map.put("mwl", "Páigina Percipal");
         map.put("ln", "Lokásá ya libosó");
         map.put("gag", "Baş yaprak");
-        map.put("gom", "मुखेल पान");
         map.put("sn", "Peji Rekutanga");
+        map.put("nv", "Íiyisíí Naaltsoos");
         map.put("frp", "Vouiquipèdia:Reçua principâla");
         map.put("pag", "Arapan ya Bolong");
         map.put("pi", "पमुख पत्त Pamukha patta");
-        map.put("nv", "Íiyisíí Naaltsoos");
         map.put("av", "БетӀераб гьумер");
         map.put("xal", "Нүр халх");
         map.put("pfl", "Wikipedia:Haubdsaid");
         map.put("krc", "Баш бет");
+        map.put("lo", "ໜ້າຫຼັກ");
         map.put("haw", "Ka papa kinohi");
         map.put("kaa", "Bas bet");
-        map.put("bxr", "Нюур хуудаһан");
-        map.put("lo", "ໜ້າຫຼັກ");
         map.put("olo", "Piäsivu");
+        map.put("bxr", "Нюур хуудаһан");
         map.put("rw", "Intangiriro");
         map.put("pdc", "Haaptblatt");
         map.put("pap", "Página Prinsipal");
-        map.put("to", "Peesi tali fiefia");
         map.put("bjn", "Tungkaran Tatambaian");
+        map.put("to", "Peesi tali fiefia");
         map.put("kl", "Saqqaa");
         map.put("nov", "Chefi pagine");
         map.put("arc", "ܦܐܬܐ ܪܝܫܝܬܐ");
@@ -254,8 +261,8 @@ public final class MainPageNameData {
         map.put("tpi", "Fran pes");
         map.put("ig", "Ihü Mbu");
         map.put("na", "Bwiema peij");
-        map.put("lbe", "Агьаммур лажин");
         map.put("ab", "Ихадоу адаҟьа");
+        map.put("lbe", "Агьаммур лажин");
         map.put("roa-rup", "Prota frãndzã");
         map.put("jbo", "uikipedi'as:ralju");
         map.put("ty", "Fa’ari’ira’a");
@@ -266,24 +273,24 @@ public final class MainPageNameData {
         map.put("wo", "Xët wu njëkk");
         map.put("srn", "Fesipapira");
         map.put("zu", "Ikhasi Elikhulu");
+        map.put("bi", "Nambawan Pej");
         map.put("ltg", "Suoku puslopa");
         map.put("chr", "ᎤᎵᎮᎵᏍᏗ");
+        map.put("tcy", "ಮುಖ್ಯ ಪುಟ");
         map.put("sm", "Itūlau Muamua");
         map.put("om", "Fuula Dura");
-        map.put("tcy", "ಮುಖ್ಯ ಪುಟ");
-        map.put("bi", "Nambawan Pej");
         map.put("tn", "Main Page");
         map.put("chy", "Va'ohtama");
         map.put("xh", "Iphepha Elingundoqo");
         map.put("tw", "Main Page");
-        map.put("rmy", "Sherutni patrin");
         map.put("cu", "Главьна страница");
+        map.put("rmy", "Sherutni patrin");
         map.put("tum", "Main Page");
         map.put("pih", "Mien Paij");
         map.put("rn", "Main Page");
         map.put("pnt", "Αρχικόν σελίδα");
-        map.put("ch", "Fanhaluman");
         map.put("ss", "Likhasi Lelikhulu");
+        map.put("ch", "Fanhaluman");
         map.put("bm", "Nyɛ fɔlɔ");
         map.put("ady", "НэкӀубгъо шъхьаӀ");
         map.put("mo", "Паӂина принчипалэ");
@@ -295,8 +302,8 @@ public final class MainPageNameData {
         map.put("ee", "Axa do Ŋgɔ");
         map.put("ak", "Krataafa Titiriw");
         map.put("ks", "اہم صَفہٕ");
-        map.put("ik", "Makpiġaaq Kanna");
         map.put("sg", "Gä nzönî");
+        map.put("ik", "Makpiġaaq Kanna");
         map.put("ve", "Hayani");
         map.put("dz", "མ་ཤོག།");
         map.put("ff", "Hello jaɓɓorgo");
@@ -314,13 +321,6 @@ public final class MainPageNameData {
         map.put("kr", "Main Page");
         map.put("test", "Main Page");
         return map;
-    }
-
-    @NonNull public static String valueFor(String key) {
-        if (DATA_MAP.containsKey(key)) {
-            return DATA_MAP.get(key);
-        }
-        return DATA_MAP.get("en");
     }
 
     private MainPageNameData() { }

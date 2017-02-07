@@ -12,13 +12,20 @@ import java.util.Map;
 public final class SpecialAliasData {
     @NonNull private static final Map<String, String> DATA_MAP = Collections.unmodifiableMap(newMap());
 
+    @NonNull public static String valueFor(String key) {
+        if (DATA_MAP.containsKey(key)) {
+            return DATA_MAP.get(key);
+        }
+        return DATA_MAP.get("en");
+    }
+
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
         final int size = 297;
         Map<String, String> map = new HashMap<>(size);
         map.put("en", "Special");
-        map.put("sv", "Special");
         map.put("ceb", "Espesyal");
+        map.put("sv", "Special");
         map.put("de", "Spezial");
         map.put("nl", "Speciaal");
         map.put("fr", "Spécial");
@@ -36,8 +43,8 @@ public final class SpecialAliasData {
         map.put("uk", "Спеціальна");
         map.put("ca", "Especial");
         map.put("fa", "ویژه");
-        map.put("nb", "Spesial");
         map.put("ar", "خاص");
+        map.put("nb", "Spesial");
         map.put("sh", "Posebno");
         map.put("fi", "Toiminnot");
         map.put("hu", "Speciális");
@@ -66,8 +73,8 @@ public final class SpecialAliasData {
         map.put("gl", "Especial");
         map.put("nn", "Spesial");
         map.put("uz", "Maxsus");
-        map.put("la", "Specialis");
         map.put("el", "Ειδικό");
+        map.put("la", "Specialis");
         map.put("be", "Адмысловае");
         map.put("simple", "Special");
         map.put("vo", "Patikos");
@@ -88,18 +95,18 @@ public final class SpecialAliasData {
         map.put("tg", "Вижа");
         map.put("te", "ప్రత్యేక");
         map.put("tl", "Natatangi");
-        map.put("pms", "Special");
         map.put("sq", "Speciale");
+        map.put("pms", "Special");
         map.put("br", "Dibar");
-        map.put("ky", "Атайын");
         map.put("be-tarask", "Спэцыяльныя");
+        map.put("ky", "Атайын");
         map.put("ht", "Espesyal");
         map.put("zh-yue", "Special");
         map.put("jv", "Astamiwa");
         map.put("ast", "Especial");
         map.put("lb", "Spezial");
-        map.put("ml", "പ്രത്യേകം");
         map.put("bn", "বিশেষ");
+        map.put("ml", "പ്രത്യേകം");
         map.put("mr", "विशेष");
         map.put("af", "Spesiaal");
         map.put("pnb", "خاص");
@@ -107,8 +114,8 @@ public final class SpecialAliasData {
         map.put("is", "Kerfissíða");
         map.put("ga", "Speisialta");
         map.put("cv", "Ятарлă");
-        map.put("ba", "Махсус");
         map.put("fy", "Wiki");
+        map.put("ba", "Махсус");
         map.put("sw", "Maalum");
         map.put("lmo", "Special");
         map.put("my", "Special");
@@ -135,9 +142,9 @@ public final class SpecialAliasData {
         map.put("nap", "Speciàle");
         map.put("wa", "Sipeciås");
         map.put("gd", "Sònraichte");
+        map.put("azb", "اؤزل");
         map.put("bug", "Istimewa");
         map.put("yi", "באַזונדער");
-        map.put("azb", "اؤزل");
         map.put("am", "ልዩ");
         map.put("map-bms", "Astamiwa");
         map.put("si", "විශේෂ");
@@ -149,27 +156,27 @@ public final class SpecialAliasData {
         map.put("sah", "Аналлаах");
         map.put("vec", "Speciale");
         map.put("os", "Сæрмагонд");
+        map.put("ilo", "Espesial");
         map.put("sa", "विशेषः");
         map.put("mrj", "Спецӹлӹштӓш");
-        map.put("ilo", "Espesial");
         map.put("mai", "विशेष");
         map.put("hif", "khaas");
-        map.put("nah", "Nōncuahquīzqui");
         map.put("mhr", "Лӱмын ыштыме");
         map.put("roa-tara", "Speciale");
         map.put("xmf", "სპეციალური");
+        map.put("nah", "Nōncuahquīzqui");
         map.put("eml", "Speciale");
         map.put("pam", "Special");
         map.put("bh", "विशेष");
         map.put("ps", "ځانگړی");
-        map.put("sd", "خاص");
         map.put("nso", "Special");
-        map.put("se", "Erenoamáš");
-        map.put("hak", "特殊");
-        map.put("mi", "Special");
         map.put("diq", "Bağse");
+        map.put("hak", "特殊");
+        map.put("se", "Erenoamáš");
+        map.put("mi", "Special");
         map.put("bcl", "Espesyal");
         map.put("nds-nl", "Spesiaal");
+        map.put("sd", "خاص");
         map.put("gan", "特別");
         map.put("glk", "خاص");
         map.put("vls", "Specioal");
@@ -177,18 +184,18 @@ public final class SpecialAliasData {
         map.put("bo", "Special");
         map.put("wuu", "Special");
         map.put("fiu-vro", "Tallituslehekülg");
-        map.put("co", "Speciale");
         map.put("szl", "Szpecyjalna");
+        map.put("co", "Speciale");
         map.put("vep", "Specialine");
-        map.put("csb", "Specjalnô");
         map.put("sc", "Ispetziale");
         map.put("lrc", "ڤیجە");
         map.put("tk", "Ýörite");
+        map.put("csb", "Specjalnô");
         map.put("crh", "Mahsus");
+        map.put("zh-classical", "特殊");
         map.put("km", "ពិសេស");
         map.put("gv", "Er lheh");
         map.put("kv", "Отсасян");
-        map.put("zh-classical", "特殊");
         map.put("frr", "Spezial");
         map.put("as", "বিশেষ");
         map.put("lad", "Especial");
@@ -206,13 +213,14 @@ public final class SpecialAliasData {
         map.put("rm", "Spezial");
         map.put("pcd", "Spécial");
         map.put("myv", "Башка тевень");
+        map.put("ug", "ئالاھىدە");
         map.put("lij", "Speçiale");
+        map.put("lez", "Служебная");
         map.put("mt", "Speċjali");
         map.put("fur", "Speciâl");
         map.put("gn", "Mba'echĩchĩ");
-        map.put("lez", "Служебная");
-        map.put("ug", "ئالاھىدە");
         map.put("dsb", "Specialne");
+        map.put("gom", "विशेश");
         map.put("dv", "ޚާއްސަ");
         map.put("cbk-zam", "Especial");
         map.put("ext", "Especial");
@@ -222,26 +230,25 @@ public final class SpecialAliasData {
         map.put("mwl", "Special");
         map.put("ln", "Spécial");
         map.put("gag", "Maasus");
-        map.put("gom", "विशेश");
         map.put("sn", "Special");
+        map.put("nv", "Special");
         map.put("frp", "Spèciâl");
         map.put("pag", "Special");
         map.put("pi", "विसेस");
-        map.put("nv", "Special");
         map.put("av", "Служебная");
         map.put("xal", "Көдлхнә");
         map.put("pfl", "Schbezial");
         map.put("krc", "Къуллукъ");
+        map.put("lo", "ພິເສດ");
         map.put("haw", "Papa nui");
         map.put("kaa", "Arnawlı");
-        map.put("bxr", "Тусхай");
-        map.put("lo", "ພິເສດ");
         map.put("olo", "Erikoine");
+        map.put("bxr", "Тусхай");
         map.put("rw", "Special");
         map.put("pdc", "Spezial");
         map.put("pap", "Special");
-        map.put("to", "Special");
         map.put("bjn", "Istimiwa");
+        map.put("to", "Special");
         map.put("kl", "Immikkut");
         map.put("nov", "Special");
         map.put("arc", "ܕܝܠܢܝܐ");
@@ -254,8 +261,8 @@ public final class SpecialAliasData {
         map.put("tpi", "Sipesol");
         map.put("ig", "Ihü kárírí");
         map.put("na", "Special");
-        map.put("lbe", "Къуллугъирал лажин");
         map.put("ab", "Цастәи");
+        map.put("lbe", "Къуллугъирал лажин");
         map.put("roa-rup", "Special");
         map.put("jbo", "rirci");
         map.put("ty", "Spécial");
@@ -266,24 +273,24 @@ public final class SpecialAliasData {
         map.put("wo", "Jagleel");
         map.put("srn", "Spesyal");
         map.put("zu", "Special");
+        map.put("bi", "Special");
         map.put("ltg", "Seviškuo");
         map.put("chr", "Special");
+        map.put("tcy", "ವಿಸೇಸೊ");
         map.put("sm", "Special");
         map.put("om", "Special");
-        map.put("tcy", "ವಿಸೇಸೊ");
-        map.put("bi", "Special");
         map.put("tn", "Special");
         map.put("chy", "Special");
         map.put("xh", "Special");
         map.put("tw", "Special");
-        map.put("rmy", "Uzalutno");
         map.put("cu", "Нарочьна");
+        map.put("rmy", "Uzalutno");
         map.put("tum", "Special");
         map.put("pih", "Special");
         map.put("rn", "Special");
         map.put("pnt", "Ειδικόν");
-        map.put("ch", "Espesiat");
         map.put("ss", "Special");
+        map.put("ch", "Espesiat");
         map.put("bm", "Spécial");
         map.put("ady", "Special");
         map.put("mo", "Special");
@@ -295,8 +302,8 @@ public final class SpecialAliasData {
         map.put("ee", "Special");
         map.put("ak", "Soronko");
         map.put("ks", "خاص");
-        map.put("ik", "Special");
         map.put("sg", "Spécial");
+        map.put("ik", "Special");
         map.put("ve", "Special");
         map.put("dz", "Special");
         map.put("ff", "Spécial");
@@ -314,13 +321,6 @@ public final class SpecialAliasData {
         map.put("kr", "Special");
         map.put("test", "Special");
         return map;
-    }
-
-    @NonNull public static String valueFor(String key) {
-        if (DATA_MAP.containsKey(key)) {
-            return DATA_MAP.get(key);
-        }
-        return DATA_MAP.get("en");
     }
 
     private SpecialAliasData() { }
