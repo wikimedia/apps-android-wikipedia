@@ -121,7 +121,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
             boolean restbase = req.url().toString().contains("/rest_v1/");
             if (!rsp.cacheControl().noStore()
                     && (!rsp.cacheControl().mustRevalidate() || restbase)) {
-                CacheControl cacheControl = cacheControlWithDefaultMaximumStale(req.cacheControl());
+                CacheControl cacheControl = cacheControlWithDefaultMaximumStale(rsp.cacheControl());
                 rsp = rsp.newBuilder().header("Cache-Control", cacheControl.toString()).build();
             }
 
