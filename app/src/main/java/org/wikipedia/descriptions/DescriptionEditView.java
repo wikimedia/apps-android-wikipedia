@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -149,6 +150,7 @@ public class DescriptionEditView extends LinearLayout {
         ButterKnife.bind(this);
 
         licenseText.setText(StringUtil.fromHtml(getContext().getString(R.string.description_edit_license_notice)));
+        licenseText.setMovementMethod(new LinkMovementMethod());
         FeedbackUtil.setToolbarButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
     }
