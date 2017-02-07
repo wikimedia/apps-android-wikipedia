@@ -14,7 +14,7 @@ import android.support.v4.app.NotificationCompat;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
-import org.wikipedia.dataclient.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.recurring.RecurringTask;
 
 import java.io.IOException;

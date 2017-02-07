@@ -5,7 +5,7 @@ import android.net.Uri;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.dataclient.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 

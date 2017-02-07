@@ -1,10 +1,11 @@
-package org.wikipedia.dataclient;
+package org.wikipedia.dataclient.okhttp;
 
 import android.support.annotation.NonNull;
 
 import com.github.kevinsawicki.http.HttpRequest;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.settings.Prefs;
 
 import java.io.IOException;

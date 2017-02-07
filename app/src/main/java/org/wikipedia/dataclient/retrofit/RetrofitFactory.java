@@ -3,8 +3,8 @@ package org.wikipedia.dataclient.retrofit;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 
 import java.io.IOException;

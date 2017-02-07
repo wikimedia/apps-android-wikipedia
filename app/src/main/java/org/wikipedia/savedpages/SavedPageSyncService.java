@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.page.PageService;
 import org.wikipedia.dataclient.page.PageServiceFactory;
 import org.wikipedia.page.Page;
