@@ -64,46 +64,50 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .build();
     }
 
+    @NonNull private static CacheControl cacheControlWithDefaultMaximumStale(@NonNull CacheControl cacheControl) {
+        int maxStaleSeconds = cacheControl.maxStaleSeconds() < 0
+                ? Integer.MAX_VALUE
+                : cacheControl.maxStaleSeconds();
+        return newCacheControlBuilder(cacheControl)
+                .maxStale(maxStaleSeconds, TimeUnit.SECONDS)
+                .build();
+    }
+
+    @NonNull private static CacheControl.Builder newCacheControlBuilder(@NonNull CacheControl cacheControl) {
+        CacheControl.Builder builder = new CacheControl.Builder();
+        if (cacheControl.noCache()) {
+            builder.noCache();
+        }
+        if (cacheControl.noStore()) {
+            builder.noStore();
+        }
+        if (cacheControl.maxAgeSeconds() >= 0) {
+            builder.maxAge(cacheControl.maxAgeSeconds(), TimeUnit.SECONDS);
+        }
+        if (cacheControl.maxStaleSeconds() >= 0) {
+            builder.maxStale(cacheControl.maxStaleSeconds(), TimeUnit.SECONDS);
+        }
+        if (cacheControl.minFreshSeconds() >= 0) {
+            builder.minFresh(cacheControl.minFreshSeconds(), TimeUnit.SECONDS);
+        }
+        if (cacheControl.onlyIfCached()) {
+            builder.onlyIfCached();
+        }
+        if (cacheControl.noTransform()) {
+            builder.noTransform();
+        }
+        return builder;
+    }
+
     /** Sets a default max-stale cache-control argument on all requests that do not specify one */
     private static class DefaultMaxStaleInterceptor implements Interceptor {
-        @Override public Response intercept(Interceptor.Chain chain) throws IOException {
+        @Override public Response intercept(Chain chain) throws IOException {
             Request req = chain.request();
 
-            int maxStaleSeconds = req.cacheControl().maxStaleSeconds() < 0
-                    ? Integer.MAX_VALUE
-                    : req.cacheControl().maxStaleSeconds();
-            CacheControl cacheControl = newCacheControlBuilder(req.cacheControl())
-                    .maxStale(maxStaleSeconds, TimeUnit.SECONDS)
-                    .build();
+            CacheControl cacheControl = cacheControlWithDefaultMaximumStale(req.cacheControl());
             req = req.newBuilder().cacheControl(cacheControl).build();
 
             return chain.proceed(req);
-        }
-
-        private CacheControl.Builder newCacheControlBuilder(CacheControl cacheControl) {
-            CacheControl.Builder builder = new CacheControl.Builder();
-            if (cacheControl.noCache()) {
-                builder.noCache();
-            }
-            if (cacheControl.noStore()) {
-                builder.noStore();
-            }
-            if (cacheControl.maxAgeSeconds() >= 0) {
-                builder.maxAge(cacheControl.maxAgeSeconds(), TimeUnit.SECONDS);
-            }
-            if (cacheControl.maxStaleSeconds() >= 0) {
-                builder.maxStale(cacheControl.maxStaleSeconds(), TimeUnit.SECONDS);
-            }
-            if (cacheControl.minFreshSeconds() >= 0) {
-                builder.minFresh(cacheControl.minFreshSeconds(), TimeUnit.SECONDS);
-            }
-            if (cacheControl.onlyIfCached()) {
-                builder.onlyIfCached();
-            }
-            if (cacheControl.noTransform()) {
-                builder.noTransform();
-            }
-            return builder;
         }
     }
 
@@ -112,10 +116,13 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
         @Override public Response intercept(Interceptor.Chain chain) throws IOException {
             Request req = chain.request();
             Response rsp = chain.proceed(req);
-            // todo: add !rsp.cacheControl().mustRevalidate() when mobile-sections-* doesn't respond
-            //       with must-revalidate
-            if (!rsp.cacheControl().noStore()) {
-                rsp = rsp.newBuilder().removeHeader("cache-control").build();
+            // todo: remove restbase exception when endpoint doesn't respond with
+            //       must-revalidate
+            boolean restbase = req.url().toString().contains("/rest_v1/");
+            if (!rsp.cacheControl().noStore()
+                    && (!rsp.cacheControl().mustRevalidate() || restbase)) {
+                CacheControl cacheControl = cacheControlWithDefaultMaximumStale(req.cacheControl());
+                rsp = rsp.newBuilder().header("Cache-Control", cacheControl.toString()).build();
             }
 
             return rsp;
