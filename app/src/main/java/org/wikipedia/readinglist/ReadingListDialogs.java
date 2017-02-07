@@ -3,8 +3,11 @@ package org.wikipedia.readinglist;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SwitchCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,6 +17,8 @@ import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 
+import java.util.List;
+
 public final class ReadingListDialogs {
 
     public interface EditDialogListener {
@@ -21,29 +26,56 @@ public final class ReadingListDialogs {
         void onDelete();
     }
 
-    public static AlertDialog createEditDialog(Context context, final ReadingList readingList,
-                                               boolean showDescription,
+    private interface TitleTextCallback {
+        void onMatchesExistingTitle(@NonNull String title);
+        void onDoesNotMatchExistingTitle();
+    }
+
+    private static class TitleTextWatcher implements TextWatcher {
+        @NonNull private List<String> titles;
+        @NonNull private TitleTextCallback cb;
+
+        TitleTextWatcher(@NonNull List<String> titles, @NonNull TitleTextCallback cb) {
+            this.titles = titles;
+            this.cb = cb;
+        }
+
+        @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        @Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            for (String title : titles) {
+                if (title.equals(charSequence.toString())) {
+                    cb.onMatchesExistingTitle(title);
+                    return;
+                }
+            }
+            cb.onDoesNotMatchExistingTitle();
+        }
+
+        @Override public void afterTextChanged(Editable editable) {
+        }
+    }
+
+    public static AlertDialog createEditDialog(final Context context, final ReadingList readingList,
+                                               boolean showDescription, @NonNull final List<String> otherTitles,
                                                @NonNull final EditDialogListener listener) {
         final View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_reading_list_edit, null);
         final EditText titleView = (EditText) rootView.findViewById(R.id.reading_list_title);
+        final TextInputLayout titleContainer = (TextInputLayout) rootView.findViewById(R.id.reading_list_title_container);
         final EditText descriptionView = (EditText) rootView.findViewById(R.id.reading_list_description);
         final View deleteView = rootView.findViewById(R.id.reading_list_delete_link);
         deleteView.setVisibility(showDescription ? View.VISIBLE : View.GONE);
         final SwitchCompat saveOfflineSwitch = (SwitchCompat) rootView.findViewById(R.id.reading_list_offline_switch);
         descriptionView.setVisibility(showDescription ? View.VISIBLE : View.GONE);
         saveOfflineSwitch.setVisibility(showDescription ? View.VISIBLE : View.GONE);
+        titleContainer.setErrorEnabled(true);
 
         // TODO: move this to XML once the attribute becomes available.
         final int switchPaddingDp = 4;
         saveOfflineSwitch.setSwitchPadding((int) (switchPaddingDp * DimenUtil.getDensityScalar()));
 
-        titleView.setText(readingList.getTitle());
-        titleView.selectAll();
-
-        descriptionView.setText(readingList.getDescription());
-        saveOfflineSwitch.setChecked(readingList.getSaveOffline());
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context)
+        final AlertDialog alertDialog = new AlertDialog.Builder(context)
                 .setView(rootView)
                 .setPositiveButton(R.string.reading_list_edit_ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -58,9 +90,35 @@ public final class ReadingListDialogs {
                         DeviceUtil.hideSoftKeyboard(titleView);
                         DeviceUtil.hideSoftKeyboard(descriptionView);
                     }
-                });
+                }).create();
 
-        final AlertDialog alertDialog = builder.create();
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                titleView.addTextChangedListener(new TitleTextWatcher(otherTitles, new TitleTextCallback() {
+                    @Override
+                    public void onMatchesExistingTitle(@NonNull String title) {
+                        titleContainer.setError(context.getString(R.string.reading_list_title_exists, title));
+                        alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
+
+                    }
+
+                    @Override
+                    public void onDoesNotMatchExistingTitle() {
+                        titleContainer.setError(null);
+                        alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(true);
+                    }
+                }));
+
+                titleView.setText(readingList.getTitle());
+                titleView.selectAll();
+
+                descriptionView.setText(readingList.getDescription());
+                saveOfflineSwitch.setChecked(readingList.getSaveOffline());
+
+            }
+        });
+
         alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
@@ -68,6 +126,7 @@ public final class ReadingListDialogs {
                 DeviceUtil.hideSoftKeyboard(descriptionView);
             }
         });
+
         if (!showDescription) {
             alertDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         }

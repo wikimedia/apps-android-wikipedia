@@ -34,7 +34,6 @@ import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -54,7 +53,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
     @BindView(R.id.empty_container) View emptyContainer;
     @BindView(R.id.pager) ViewPager pager;
-    private List<ReadingList> readingLists = new ArrayList<>();
+    private ReadingLists readingLists = new ReadingLists();
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
 
     @BindView(R.id.list_detail_view) ReadingListDetailView listDetailView;
@@ -78,8 +77,8 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        readingListSortMode = Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
-        readingListPageSortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC);
+        readingListSortMode = Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC);
+        readingListPageSortMode = Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
     }
 
     @Override
@@ -151,11 +150,11 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         MenuItem sortByNameItem = menu.findItem(R.id.menu_sort_by_name);
         MenuItem sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent);
         if (pager.getCurrentItem() == PAGE_READING_LISTS) {
-            sortByNameItem.setTitle(readingListSortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
-            sortByRecentItem.setTitle(readingListSortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+            sortByNameItem.setTitle(readingListSortMode == ReadingLists.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
+            sortByRecentItem.setTitle(readingListSortMode == ReadingLists.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
         } else {
-            sortByNameItem.setTitle(readingListPageSortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
-            sortByRecentItem.setTitle(readingListPageSortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+            sortByNameItem.setTitle(readingListPageSortMode == ReadingLists.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
+            sortByRecentItem.setTitle(readingListPageSortMode == ReadingLists.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
         }
     }
 
@@ -163,10 +162,10 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_sort_by_name:
-                setSortMode(ReadingList.SORT_BY_NAME_ASC, ReadingList.SORT_BY_NAME_DESC);
+                setSortMode(ReadingLists.SORT_BY_NAME_ASC, ReadingLists.SORT_BY_NAME_DESC);
                 return true;
             case R.id.menu_sort_by_recent:
-                setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC);
+                setSortMode(ReadingLists.SORT_BY_RECENT_DESC, ReadingLists.SORT_BY_RECENT_ASC);
                 return true;
             case R.id.menu_search_lists:
                 ((AppCompatActivity) getActivity())
@@ -204,7 +203,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
                 new CallbackTask.Callback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> rows) {
-                readingLists = rows;
+                readingLists.set(rows);
                 sortLists();
                 updateEmptyMessage();
             }
@@ -288,7 +287,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             if (actionMode != null) {
                 actionMode.finish();
             }
-            listDetailView.setReadingList(readingList);
+            listDetailView.setReadingListInfo(readingList, readingLists.getTitlesExcept(readingList.getTitle()));
             listDetailView.setSort(readingListPageSortMode);
             pager.setCurrentItem(PAGE_LIST_DETAIL);
 
@@ -413,7 +412,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     private void sortLists() {
-        ReadingList.sortReadingLists(readingLists, readingListSortMode);
+        readingLists.sort(readingListSortMode);
         adapter.notifyDataSetChanged();
     }
 
