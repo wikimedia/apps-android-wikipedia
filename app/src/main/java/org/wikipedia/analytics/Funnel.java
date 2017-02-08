@@ -147,7 +147,7 @@ import java.util.UUID;
                 new EventLoggingEvent(
                         schemaName,
                         revision,
-                        app.getUserAgent(),
+                        getDBNameForWikiSite(wiki == null ? app.getWikiSite() : wiki),
                         preprocessData(eventData)
                 ).log();
             }
