@@ -47,13 +47,11 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
         // TODO: consider using okhttp3.CookieJar implementation instead of JavaNetCookieJar wrapper
         CookieJar cookieJar = new JavaNetCookieJar(cookieManager);
 
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.setLevel(Prefs.getRetrofitLogLevel());
-
         return new OkHttpClient.Builder()
                 .cookieJar(cookieJar)
                 .cache(HTTP_CACHE)
-                .addInterceptor(loggingInterceptor)
+                .addInterceptor(new HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
+                .addInterceptor(new ResponseLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
                 .addInterceptor(new CommonHeaderRequestInterceptor())
                 .addInterceptor(new DefaultMaxStaleInterceptor())
                 .addNetworkInterceptor(new CacheResponseInterceptor())
