@@ -16,6 +16,7 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @SmallTest public class PasswordTextInputTest extends ViewTest {
     private PasswordTextInput subject;
@@ -28,7 +29,7 @@ import static org.mockito.Mockito.verify;
 
     @Theory public void testIsPasswordVisible(@TestedOnBool boolean visible) {
         if (visible) {
-            subject.passwordVisibilityToggleRequested();
+            toggleVisibility();
         }
         assertThat(subject.isPasswordVisible(), is(visible));
     }
@@ -37,12 +38,21 @@ import static org.mockito.Mockito.verify;
                                                       @TestedOnBool boolean visible) {
         OnShowPasswordClickListener listener = nul ? null : mock(OnShowPasswordClickListener.class);
         if (visible) {
-            subject.passwordVisibilityToggleRequested();
+            toggleVisibility();
         }
         subject.setOnShowPasswordListener(listener);
-        subject.passwordVisibilityToggleRequested();
+        toggleVisibility();
         if (listener != null) {
             verify(listener).onShowPasswordClick(eq(!visible));
         }
+    }
+
+    private void toggleVisibility() {
+        runOnMainSync(new Runnable() {
+            @Override
+            public void run() {
+                subject.passwordVisibilityToggleRequested();
+            }
+        });
     }
 }
