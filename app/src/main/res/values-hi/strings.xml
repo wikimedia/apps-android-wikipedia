@@ -183,7 +183,6 @@
   <string name="license_title">%s के लिए लाइसेंस</string>
   <string name="gallery_menu_share">साझा करें</string>
   <string name="gallery_share_error">%s चित्र की साँझा नहीं किया जा सका</string>
-  <string name="gallery_menu_save">डिवाइस पर सहेजें</string>
   <string name="gallery_save_progress">फ़ाइल को डाउनलोड किया जा रहा है…</string>
   <string name="gallery_save_success">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
   <string name="gallery_error_video_failed">वीडियो को चलाया नहीं जा सका।</string>

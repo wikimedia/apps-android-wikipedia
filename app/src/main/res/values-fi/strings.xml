@@ -187,7 +187,6 @@
   <string name="license_title">Lisenssi %s:lle</string>
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
-  <string name="gallery_menu_save">Tallenna laitteeseen</string>
   <string name="gallery_save_progress">Ladataan tiedostoa…</string>
   <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>

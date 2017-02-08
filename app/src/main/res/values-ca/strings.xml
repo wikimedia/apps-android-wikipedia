@@ -186,7 +186,6 @@
   <string name="license_title">Llicència de %s</string>
   <string name="gallery_menu_share">Comparteix</string>
   <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
-  <string name="gallery_menu_save">Desa al dispositiu</string>
   <string name="gallery_save_progress">S\'està baixant el fitxer…</string>
   <string name="gallery_save_success">La imatge s\'ha desat correctament.</string>
   <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>

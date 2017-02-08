@@ -188,7 +188,6 @@
   <string name="license_title">%s için lisans</string>
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
-  <string name="gallery_menu_save">Cihaza kaydet</string>
   <string name="gallery_save_progress">Dosya indiriliyor…</string>
   <string name="gallery_save_success">Dosya başarıyla kaydedildi.</string>
   <string name="gallery_error_video_failed">Video oynatılamadı.</string>

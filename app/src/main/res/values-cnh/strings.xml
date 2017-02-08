@@ -156,7 +156,6 @@
   <string name="license_title">%s caruuk caah license biafang</string>
   <string name="gallery_menu_share">Hrawmh</string>
   <string name="gallery_share_error">Hmanthlak a hrawmh kholo: %s</string>
-  <string name="gallery_menu_save">Seh ah khong</string>
   <string name="gallery_save_success" fuzzy="true">Hmanthlak a khon khawh cang.</string>
   <string name="gallery_error_video_failed">Video a langh kholo.</string>
   <string name="err_cannot_save_file">File a khong kholo</string>

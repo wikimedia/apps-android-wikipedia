@@ -160,7 +160,6 @@
   <string name="license_title" fuzzy="true">Lisensyang teksto para sa %s na aklatan</string>
   <string name="gallery_menu_share">Ibahagi</string>
   <string name="gallery_share_error">Hindi maibahagi ang larawan: %s</string>
-  <string name="gallery_menu_save">Itala (save) sa aparato</string>
   <string name="gallery_save_success" fuzzy="true">Matagumpay na naitala ang larawan.</string>
   <string name="gallery_error_video_failed">Hindi mai-play ang video.</string>
   <string name="err_cannot_save_file">Hindi maitala ang talakasan</string>

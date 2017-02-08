@@ -188,7 +188,6 @@
   <string name="license_title">Licens for %s</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
-  <string name="gallery_menu_save">Gem til enhed</string>
   <string name="gallery_save_progress">Downloader fil…</string>
   <string name="gallery_save_success">Filen er gemt.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>

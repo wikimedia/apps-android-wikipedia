@@ -185,7 +185,6 @@
   <string name="license_title">Licentie voor %s</string>
   <string name="gallery_menu_share">Delen</string>
   <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
-  <string name="gallery_menu_save">Opslaan op apparaat</string>
   <string name="gallery_save_progress">Bestand downloaden…</string>
   <string name="gallery_save_success">Het bestand is opgeslagen.</string>
   <string name="gallery_error_video_failed">De video kan niet afgespeeld worden.</string>

@@ -171,7 +171,6 @@
   <string name="license_title" fuzzy="true">%s లైబ్రరీకి లైసెన్స్ వచనం</string>
   <string name="gallery_menu_share">పంచుకోండి</string>
   <string name="gallery_share_error">చిత్రాన్ని భాగ్యపరచలేకపోయాము : %s</string>
-  <string name="gallery_menu_save">పరికరానికి భద్రపరుచు</string>
   <string name="gallery_save_success" fuzzy="true">బొమ్మ విజయవంతంగా భద్రపరచబడింది.</string>
   <string name="gallery_error_video_failed">దృశ్యకాన్ని ప్రదర్శించలేకపోతున్నాము.</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>

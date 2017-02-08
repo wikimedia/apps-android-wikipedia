@@ -187,7 +187,6 @@
   <string name="license_title">Licenza per %s</string>
   <string name="gallery_menu_share">Condividi</string>
   <string name="gallery_share_error">Impossibile condividere l\'immagine: %s</string>
-  <string name="gallery_menu_save">Salva sul dispositivo</string>
   <string name="gallery_save_progress">Scaricamento del file…</string>
   <string name="gallery_save_success">File salvato correttamente.</string>
   <string name="gallery_error_video_failed">Impossibile riprodurre il video.</string>

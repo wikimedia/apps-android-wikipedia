@@ -182,7 +182,6 @@
   <string name="license_title">%s साठी परवाना</string>
   <string name="gallery_menu_share">सहभाग करा</string>
   <string name="gallery_share_error">चित्र सहभागी करु शकलो नाही:%s</string>
-  <string name="gallery_menu_save">उपकरणात जतन करा</string>
   <string name="gallery_save_progress">संचिका अधिभारण करीत आहे…</string>
   <string name="gallery_save_success">संचिका यशस्वीरित्या जतन केली.</string>
   <string name="gallery_error_video_failed">व्हिडिओ चालवता आला नाही.</string>

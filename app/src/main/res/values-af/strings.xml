@@ -163,7 +163,6 @@
   <string name="license_title" fuzzy="true">Lisensie teks vir die %s biblioteek</string>
   <string name="gallery_menu_share">Deel</string>
   <string name="gallery_share_error">Kon nie beeld deel nie: %s</string>
-  <string name="gallery_menu_save">Stoor na toestel</string>
   <string name="gallery_save_success" fuzzy="true">Beeld suksesvol gestoor.</string>
   <string name="gallery_error_video_failed">Kon nie die video speel nie.</string>
   <string name="err_cannot_save_file">Kan nie die lêer stoor nie</string>

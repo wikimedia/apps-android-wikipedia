@@ -185,7 +185,6 @@
   <string name="license_title">Licence pro %s</string>
   <string name="gallery_menu_share">Sdílet</string>
   <string name="gallery_share_error">Není možno sdílet obrázek: %s</string>
-  <string name="gallery_menu_save">Uložit na zařízení</string>
   <string name="gallery_save_progress">Stahování souboru…</string>
   <string name="gallery_save_success">Soubor úspěšně uložen.</string>
   <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>

@@ -184,7 +184,6 @@
   <string name="license_title">ترخيص %s</string>
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
-  <string name="gallery_menu_save">الحفظ في الجهاز</string>
   <string name="gallery_save_progress">جارٍ تنزيل الملف…</string>
   <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>

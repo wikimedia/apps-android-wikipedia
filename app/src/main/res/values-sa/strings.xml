@@ -181,7 +181,6 @@
   <string name="license_title" fuzzy="true">%s इत्यस्मै सङ्ग्रहालयाय अधिकारपाठः</string>
   <string name="gallery_menu_share">वितरतु</string>
   <string name="gallery_share_error">चित्रस्य वितरणं न जातम् : %s</string>
-  <string name="gallery_menu_save">यन्त्रे रक्ष्यताम्</string>
   <string name="gallery_save_success">चित्रं सफलतया रक्षितम् ।</string>
   <string name="gallery_error_video_failed">चलच्चित्रम् आरब्धुं न शक्तम् ।</string>
   <string name="gallery_save_image_write_permission_rationale">चित्राणि सङ्ग्रहे रक्षयितुं भवतः/भवत्याः सङ्ग्रहाकस्य अनुमतिः आवश्यकी । कृपया पुनः प्रयत्नं कृत्वा अनुमतिं ददातु ।</string>

@@ -176,7 +176,6 @@
   <string name="license_title">ლიცენზია %s-თვის</string>
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
-  <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
   <string name="gallery_save_progress">ფაილის ჩამოტვირთვა…</string>
   <string name="gallery_save_success">ფაილი წარმატებით შეინახა.</string>
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>

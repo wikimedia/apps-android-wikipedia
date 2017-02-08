@@ -188,7 +188,6 @@
   <string name="license_title">רישיון עבור %s</string>
   <string name="gallery_menu_share">שיתוף</string>
   <string name="gallery_share_error">לא היה ניתן לשתף את התמונה: %s</string>
-  <string name="gallery_menu_save">שמירה למכשיר</string>
   <string name="gallery_save_progress">הורדת קובץ…</string>
   <string name="gallery_save_success">הקובץ נשמר בהצלחה.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>

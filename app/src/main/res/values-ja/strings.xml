@@ -188,7 +188,6 @@
   <string name="license_title">%sのライセンス</string>
   <string name="gallery_menu_share">共有</string>
   <string name="gallery_share_error">画像が共有できませんでした: %s</string>
-  <string name="gallery_menu_save">デバイスに保存</string>
   <string name="gallery_save_progress">ファイルをダウンロードしています…</string>
   <string name="gallery_save_success">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>

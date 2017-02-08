@@ -188,7 +188,6 @@
   <string name="license_title">Lisènsi kanggo %s</string>
   <string name="gallery_menu_share">Nuduhake</string>
   <string name="gallery_share_error">Ora bisa nuduhake gambar: %s</string>
-  <string name="gallery_menu_save">Nyimpen kanggo piranti</string>
   <string name="gallery_save_progress">Ngundhuh berkas...</string>
   <string name="gallery_save_success">Berkas kasil disimpen.</string>
   <string name="gallery_error_video_failed">Ora bisa muter video.</string>

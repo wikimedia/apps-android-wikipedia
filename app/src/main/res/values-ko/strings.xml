@@ -186,7 +186,6 @@
   <string name="license_title">%s의 라이선스</string>
   <string name="gallery_menu_share">공유</string>
   <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>
-  <string name="gallery_menu_save">장치에 저장</string>
   <string name="gallery_save_progress">파일을 내려받고 있습니다…</string>
   <string name="gallery_save_success">파일 저장에 성공했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>

@@ -185,7 +185,6 @@
   <string name="license_title">Licența pentru %s</string>
   <string name="gallery_menu_share">Distribuie</string>
   <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
-  <string name="gallery_menu_save">Salvează în dispozitiv</string>
   <string name="gallery_save_progress">Se descarcă fișierul…</string>
   <string name="gallery_save_success">Fișier salvat cu succes.</string>
   <string name="gallery_error_video_failed">Filmul nu a putut fi redat.</string>

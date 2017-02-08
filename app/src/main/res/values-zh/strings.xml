@@ -188,7 +188,6 @@
   <string name="license_title">%s的许可协议</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图像：%s</string>
-  <string name="gallery_menu_save">保存至设备</string>
   <string name="gallery_save_progress">下载文件…</string>
   <string name="gallery_save_success">文件保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>

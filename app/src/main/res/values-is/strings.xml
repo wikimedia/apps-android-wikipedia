@@ -179,7 +179,6 @@
   <string name="license_title" fuzzy="true">Leyfistexti fyrir %s safnið</string>
   <string name="gallery_menu_share">Deila</string>
   <string name="gallery_share_error">Gat ekki deilt myndinni: %s</string>
-  <string name="gallery_menu_save">Vista á tæki</string>
   <string name="gallery_save_progress">Sæki skrá…</string>
   <string name="gallery_save_success">Tókst að vista skrána.</string>
   <string name="gallery_error_video_failed">Tókst ekki að spila myndskeiðið.</string>

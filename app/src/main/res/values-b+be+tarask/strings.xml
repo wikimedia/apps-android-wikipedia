@@ -177,7 +177,6 @@
   <string name="license_title" fuzzy="true">Тэкст ліцэнзіі бібліятэкі %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
-  <string name="gallery_menu_save">Захаваць на прыстасаваньне</string>
   <string name="gallery_save_progress">Загрузка файлу…</string>
   <string name="gallery_save_success">Файл захаваны пасьпяхова.</string>
   <string name="gallery_error_video_failed">Не атрымалася прайграць відэа.</string>

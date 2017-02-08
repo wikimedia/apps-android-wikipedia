@@ -184,7 +184,6 @@
   <string name="license_title">%s لاءِ لائسنس</string>
   <string name="gallery_menu_share">ونڊيو</string>
   <string name="gallery_share_error">ونڊجي نہ سگھيو عڪس: %s</string>
-  <string name="gallery_menu_save">آلي ۾ سانڍيو</string>
   <string name="gallery_save_progress">فائيل ڊائونلوڊ ڪندي…</string>
   <string name="gallery_save_success">فائيل ڪاميابيءَ سان سانڍجي ويو.</string>
   <string name="gallery_error_video_failed">وڊيو هلائي نہ سگھيو.</string>

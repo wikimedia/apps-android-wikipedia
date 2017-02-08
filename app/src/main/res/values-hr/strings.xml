@@ -184,7 +184,6 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="license_title">Licenca za %s</string>
   <string name="gallery_menu_share">Podijeli</string>
   <string name="gallery_share_error">Nije moguće podijeliti sliku: %s</string>
-  <string name="gallery_menu_save">Spremi na uređaj</string>
   <string name="gallery_save_progress">Preuzimanje datoteke…</string>
   <string name="gallery_save_success">Datoteka je uspješno spremljena.</string>
   <string name="gallery_error_video_failed">Nije moguće reproducirati video.</string>

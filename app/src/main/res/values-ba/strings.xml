@@ -185,7 +185,6 @@
   <string name="license_title">%s өсөн лицензия</string>
   <string name="gallery_menu_share">Уртаҡлашырға</string>
   <string name="gallery_share_error">%s һүрәте менән  уртаҡлашып булманы</string>
-  <string name="gallery_menu_save">Ҡорамалда һаҡлау</string>
   <string name="gallery_save_progress">Файл күсереү</string>
   <string name="gallery_save_success">Файл уңышлы һаҡланды.</string>
   <string name="gallery_error_video_failed">Видеоны күрһәтеп булмай</string>

@@ -183,7 +183,6 @@
   <string name="license_title">A(z) %s licence</string>
   <string name="gallery_menu_share">Megosztás</string>
   <string name="gallery_share_error">A kép megosztása sikertelen: %s</string>
-  <string name="gallery_menu_save">Mentés az eszközre</string>
   <string name="gallery_save_progress">Fájl letöltése folyamatban…</string>
   <string name="gallery_save_success">A fájl sikeresen mentve.</string>
   <string name="gallery_error_video_failed">A videó lejátszása sikertelen.</string>

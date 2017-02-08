@@ -185,7 +185,6 @@
   <string name="license_title">Aotre-imoplijout evit %s</string>
   <string name="gallery_menu_share">Rannañ</string>
   <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>
-  <string name="gallery_menu_save">Enrollañ en ardivink</string>
   <string name="gallery_save_progress">Pellgargañ ar restr...</string>
   <string name="gallery_save_success">Restr enrollet mat.</string>
   <string name="gallery_error_video_failed">Ne c\'haller ket lenn ar video.</string>

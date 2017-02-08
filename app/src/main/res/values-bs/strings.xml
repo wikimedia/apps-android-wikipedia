@@ -188,7 +188,6 @@
   <string name="license_title">Licenca za %s</string>
   <string name="gallery_menu_share">Podijeli</string>
   <string name="gallery_share_error">Ne mogu podijeliti sliku: %s</string>
-  <string name="gallery_menu_save">Sačuvaj na uređaj</string>
   <string name="gallery_save_progress">Preuzimam datoteku...</string>
   <string name="gallery_save_success">Datoteka je uspješno sačuvana.</string>
   <string name="gallery_error_video_failed">Ne mogu reproducirati videozapis.</string>

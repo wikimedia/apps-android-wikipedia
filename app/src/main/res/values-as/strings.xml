@@ -170,7 +170,6 @@
   <string name="license_title" fuzzy="true">%s পুথিভঁৰালৰ বাবে অনুজ্ঞাপত্ৰ পাঠ্য</string>
   <string name="gallery_menu_share">শ্বেয়াৰ কৰক</string>
   <string name="gallery_share_error">ছবিখন শ্বেয়াৰ কৰিব পৰা নগ\'ল: %s</string>
-  <string name="gallery_menu_save">সঁজুলিত সাঁচি থওক</string>
   <string name="gallery_save_success" fuzzy="true">ছবিখন সফলতাৰে সঞ্চিত হ\'ল।</string>
   <string name="gallery_error_video_failed">ভিডিঅ\'টো চলাব পৰা নগ\'ল।</string>
   <string name="err_cannot_save_file">ফাইল সাঁচিব পৰা নগ\'ল</string>

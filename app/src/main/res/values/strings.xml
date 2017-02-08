@@ -203,7 +203,6 @@
     <string name="license_title">License for %s</string>
     <string name="gallery_menu_share">Share</string>
     <string name="gallery_share_error">Could not share image: %s</string>
-    <string name="gallery_menu_save">Save to device</string>
     <string name="gallery_save_progress">Downloading file…</string>
     <string name="gallery_save_success">File saved successfully.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>

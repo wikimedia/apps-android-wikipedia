@@ -188,7 +188,6 @@
   <string name="license_title">Lesen untuk %s</string>
   <string name="gallery_menu_share">Kongsi</string>
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
-  <string name="gallery_menu_save">Simpan ke dalam peranti</string>
   <string name="gallery_save_progress">Memuat turun fail...</string>
   <string name="gallery_save_success">Fail berjaya disimpan.</string>
   <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>

@@ -188,7 +188,6 @@
   <string name="license_title">Llicencia pa %s</string>
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">Nun pudo compartise la imaxe: %s</string>
-  <string name="gallery_menu_save">Guardar nel preséu</string>
   <string name="gallery_save_progress">Descargando ficheru…</string>
   <string name="gallery_save_success">Ficheru guardáu correutamente.</string>
   <string name="gallery_error_video_failed">Nun pudo reproducise\'l videu.</string>

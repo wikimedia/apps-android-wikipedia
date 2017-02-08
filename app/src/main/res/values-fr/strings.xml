@@ -189,7 +189,6 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="license_title">Licence pour la bibliothèque %s</string>
   <string name="gallery_menu_share">Partager</string>
   <string name="gallery_share_error">Impossible de partager l’image : %s</string>
-  <string name="gallery_menu_save">Enregistrer sur l’appareil</string>
   <string name="gallery_save_progress">Téléchargement du fichier…</string>
   <string name="gallery_save_success">Fichier bien enregistré.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>

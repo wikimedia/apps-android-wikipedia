@@ -162,7 +162,6 @@
   <string name="license_title">Licéncia per la bibliotèca %s</string>
   <string name="gallery_menu_share">Partejar</string>
   <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
-  <string name="gallery_menu_save">Enregistrar sus l’aparelh</string>
   <string name="gallery_save_progress">Telecargament del fichièr...</string>
   <string name="gallery_save_success">Fichièr enregistrat corrèctament.</string>
   <string name="gallery_error_video_failed">Impossible de jogar la vidèo.</string>

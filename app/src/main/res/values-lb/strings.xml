@@ -185,7 +185,6 @@
   <string name="license_title">Lizenz fir %s</string>
   <string name="gallery_menu_share">Deelen</string>
   <string name="gallery_share_error">Bild konnt net gedeelt ginn: %s</string>
-  <string name="gallery_menu_save">Um Apparat späicheren</string>
   <string name="gallery_save_progress">Fichier gëtt erofgelueden…</string>
   <string name="gallery_save_success">Fichier gespäichert.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>

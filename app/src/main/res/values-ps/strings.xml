@@ -138,7 +138,6 @@
   <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
   <string name="license_title">د %s منښتليک</string>
   <string name="gallery_menu_share">شريکول</string>
-  <string name="gallery_menu_save">وزلې کې خوندي کول</string>
   <string name="gallery_save_progress">دوتنه ښکته کېږي…</string>
   <string name="gallery_save_success">دوتنه برياليتوب سره خوندي شوه.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>

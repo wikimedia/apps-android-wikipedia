@@ -184,7 +184,6 @@
   <string name="license_title">%s лиссиэнсийэтэ</string>
   <string name="gallery_menu_share">Тарҕат</string>
   <string name="gallery_share_error">Ойууну тарҕатар табыллыбата: %s</string>
-  <string name="gallery_menu_save">Тэрили харай</string>
   <string name="gallery_save_progress">Билэни хачайдаа...</string>
   <string name="gallery_save_success">Ойуу сөпкө харалынна.</string>
   <string name="gallery_error_video_failed">Видеону көрдөрөр табыллыбата.</string>

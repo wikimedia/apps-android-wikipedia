@@ -188,7 +188,6 @@
   <string name="license_title">Lizenz für %s</string>
   <string name="gallery_menu_share">Teilen</string>
   <string name="gallery_share_error">Bild konnte nicht geteilt werden: %s</string>
-  <string name="gallery_menu_save">In Gerät speichern</string>
   <string name="gallery_save_progress">Lade Datei herunter …</string>
   <string name="gallery_save_success">Datei erfolgreich gespeichert.</string>
   <string name="gallery_error_video_failed">Das Video konnte nicht abgespielt werden.</string>

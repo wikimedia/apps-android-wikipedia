@@ -131,7 +131,6 @@
   <string name="preference_title_show_images">แสดงรูปภาพ</string>
   <string name="gallery_menu_share">แบ่งปัน</string>
   <string name="gallery_share_error">ไม่สามารถแบ่งปันรูปภาพ: %s</string>
-  <string name="gallery_menu_save">บันทึกไปยังอุปกรณ์</string>
   <string name="gallery_save_progress">กำลังดาวน์โหลดไฟล์...</string>
   <string name="gallery_save_success">บันทึกไฟล์เสร็จสมบูรณ์</string>
   <string name="gallery_error_video_failed">ไม่สามารถเล่นวีดีโอได้</string>

@@ -185,7 +185,6 @@
   <string name="license_title">Lisens for %s</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
-  <string name="gallery_menu_save">Lagre på enheten</string>
   <string name="gallery_save_progress">Laster ned fil…</string>
   <string name="gallery_save_success">Filen ble lagret.</string>
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>

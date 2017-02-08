@@ -180,7 +180,6 @@
   <string name="license_title">%s ਲਈ ਲਸੰਸ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
-  <string name="gallery_menu_save">ੳੁਪਕਰਨ \'ਚ ਸੰਭਾਲੋ</string>
   <string name="gallery_save_progress">ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਹੋ ਰਹੀ ਹੈ...</string>
   <string name="gallery_save_success">ਫਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਸਾਂਭੀ ਗਈ।</string>
   <string name="gallery_error_video_failed">ਵੀਡੀਓ ਨਹੀਂ ਚਲਾ ਸਕੇ।</string>

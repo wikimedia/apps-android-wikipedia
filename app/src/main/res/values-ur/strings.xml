@@ -184,7 +184,6 @@
   <string name="license_title">اجازتنامہ برائے %s لائبریری</string>
   <string name="gallery_menu_share">دوسروں کو بھیجیں</string>
   <string name="gallery_share_error">تصویر دوسروں کو بھیجی نہیں جا سکی: %s</string>
-  <string name="gallery_menu_save">آلے پر محفوظ کریں</string>
   <string name="gallery_save_progress">ملف کا ڈاؤنلوڈ جاری ہے …</string>
   <string name="gallery_save_success">ملف  کامیابی سے محفوظ ہو گیا۔</string>
   <string name="gallery_error_video_failed">ویڈیو کو چلایا نہیں جا سکا۔</string>

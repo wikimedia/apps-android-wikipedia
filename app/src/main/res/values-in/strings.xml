@@ -188,7 +188,6 @@
   <string name="license_title">Lisensi untuk %s</string>
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagikan gambar: %s</string>
-  <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
   <string name="gallery_save_progress">Mengunduh berkas…</string>
   <string name="gallery_save_success">Berkas berhasil disimpan.</string>
   <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>

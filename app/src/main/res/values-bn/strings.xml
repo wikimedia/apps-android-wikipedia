@@ -185,7 +185,6 @@
   <string name="license_title">%s-এর জন্য লাইসেন্স</string>
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
-  <string name="gallery_menu_save">ডিভাইসে সংরক্ষণ করুন</string>
   <string name="gallery_save_progress">ফাইল ডাউনলোড হচ্ছে…</string>
   <string name="gallery_save_success">ফাইল সফলভাবে সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>

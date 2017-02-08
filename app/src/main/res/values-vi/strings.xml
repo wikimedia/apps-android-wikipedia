@@ -188,7 +188,6 @@
   <string name="license_title">Giấy phép của %s</string>
   <string name="gallery_menu_share">Chia sẻ</string>
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
-  <string name="gallery_menu_save">Lưu vào thiết bị</string>
   <string name="gallery_save_progress">Đang tải tập tin về…</string>
   <string name="gallery_save_success">Đã lưu tập tin thành công.</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>

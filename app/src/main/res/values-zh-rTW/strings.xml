@@ -188,7 +188,6 @@
   <string name="license_title">%s 的授權條款</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">無法分享圖片：%s</string>
-  <string name="gallery_menu_save">儲存至裝置</string>
   <string name="gallery_save_progress">正在下載檔案…</string>
   <string name="gallery_save_success">已成功儲存檔案。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>

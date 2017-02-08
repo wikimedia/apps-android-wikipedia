@@ -185,7 +185,6 @@
   <string name="license_title">Ліцензія для %s</string>
   <string name="gallery_menu_share">Поділитися</string>
   <string name="gallery_share_error">Не вдалось поділитися зображенням: %s</string>
-  <string name="gallery_menu_save">Зберегти на пристрій</string>
   <string name="gallery_save_progress">Завантаження файлу…</string>
   <string name="gallery_save_success">Файл успішно збережено!</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>

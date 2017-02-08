@@ -183,7 +183,6 @@
   <string name="license_title">%s အတွက် လိုင်စင်</string>
   <string name="gallery_menu_share">မျှဝေ</string>
   <string name="gallery_share_error">%s အား မျှဝေ၍ မရနိုင်</string>
-  <string name="gallery_menu_save">စက်သို့ သိမ်းရန်</string>
   <string name="gallery_save_progress">ဖိုင်ဆွဲချနေသည်...</string>
   <string name="gallery_save_success">ဖိုင်အား အောင်မြင်စွာ သိမ်းပြီး။</string>
   <string name="gallery_error_video_failed">ဗီဒီယိုကို ဖွင့်၍ မရနိုင်ပါ။</string>
