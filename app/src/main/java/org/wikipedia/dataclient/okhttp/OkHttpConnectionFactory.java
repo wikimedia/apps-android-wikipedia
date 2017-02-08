@@ -51,10 +51,12 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .cookieJar(cookieJar)
                 .cache(HTTP_CACHE)
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
-                .addInterceptor(new ResponseLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
+                .addNetworkInterceptor(new StripMustRevalidateResponseInterceptor())
                 .addInterceptor(new CommonHeaderRequestInterceptor())
-                .addInterceptor(new DefaultMaxStaleInterceptor())
-                .addNetworkInterceptor(new CacheResponseInterceptor())
+                .addInterceptor(new DefaultMaxStaleRequestInterceptor())
+                .addInterceptor(new CacheIfErrorInterceptor())
+                // this interceptor should appear last since it examines the final cache and network responses
+                .addInterceptor(new ResponseLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
                 .build();
     }
 }
