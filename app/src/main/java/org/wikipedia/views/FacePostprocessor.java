@@ -44,7 +44,12 @@ public class FacePostprocessor extends BasePostprocessor {
             copyWithWhiteBackground(destBitmap, sourceBitmap);
             Bitmap testBmp = new565ScaledBitmap(sourceBitmap);
             Palette colorPalette = Palette.from(testBmp).generate();
-            PointF facePos = detectFace(testBmp);
+            PointF facePos = null;
+            try {
+                facePos = detectFace(testBmp);
+            } catch (OutOfMemoryError e) {
+                L.logRemoteErrorIfProd(e);
+            }
             int defaultColor = ContextCompat.getColor(WikipediaApp.getInstance(), R.color.dark_gray);
             listener.get().onImageLoaded(destBitmap.getHeight(), facePos,
                     extractMainColor(colorPalette, defaultColor));
