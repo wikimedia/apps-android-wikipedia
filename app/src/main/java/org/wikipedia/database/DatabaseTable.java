@@ -9,8 +9,8 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import org.apache.commons.lang3.ArrayUtils;
 import org.wikipedia.database.column.Column;
+import org.wikipedia.util.ArrayUtils;
 import org.wikipedia.util.log.L;
 
 public abstract class DatabaseTable<T> {
