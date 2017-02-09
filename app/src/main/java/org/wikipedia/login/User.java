@@ -3,11 +3,11 @@ package org.wikipedia.login;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.support.v4.util.ArraySet;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 
 public class User {
@@ -69,7 +69,7 @@ public class User {
         this.userID = userID;
         this.userIDLang = userIDLang;
         if (groups != null) {
-            this.groups = Collections.unmodifiableSet(new HashSet<>(groups));
+            this.groups = Collections.unmodifiableSet(new ArraySet<>(groups));
         } else {
             this.groups = Collections.emptySet();
         }

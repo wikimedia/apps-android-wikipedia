@@ -1,5 +1,7 @@
 package org.wikipedia.login;
 
+import android.support.v4.util.ArraySet;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +9,6 @@ import org.wikipedia.test.TestRunner;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -18,7 +19,7 @@ import static org.hamcrest.Matchers.nullValue;
 public class UserTest {
     private static final int USER_ID = 333;
     private static final Set<String> GROUPS
-            = Collections.unmodifiableSet(new HashSet<>(Arrays.asList("*", "user", "autoconfirmed")));
+            = Collections.unmodifiableSet(new ArraySet<>(Arrays.asList("*", "user", "autoconfirmed")));
 
     @Before
     public void setUp() {

@@ -2,6 +2,7 @@ package org.wikipedia.readinglist.page;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.util.ArraySet;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -14,7 +15,6 @@ import org.wikipedia.readinglist.page.database.ReadingListPageTable;
 import org.wikipedia.util.ValidateUtil;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 
 public class ReadingListPageRow extends BaseModel {
@@ -104,7 +104,7 @@ public class ReadingListPageRow extends BaseModel {
 
     protected ReadingListPageRow(@NonNull Builder<?> builder) {
         key = builder.key;
-        listKeys = new HashSet<>(builder.listKeys);
+        listKeys = new ArraySet<>(builder.listKeys);
         wiki = builder.wiki;
         namespace = builder.namespace;
         title = builder.title;
@@ -118,7 +118,7 @@ public class ReadingListPageRow extends BaseModel {
     @SuppressWarnings("unchecked")
     public static class Builder<Clazz extends Builder<Clazz>> {
         private String key;
-        private Set<String> listKeys = new HashSet<>();
+        private Set<String> listKeys = new ArraySet<>();
         private WikiSite wiki;
         private Namespace namespace;
         private String title;
@@ -146,13 +146,13 @@ public class ReadingListPageRow extends BaseModel {
         }
 
         public Clazz listKeys(@NonNull String listKey) {
-            listKeys = new HashSet<>();
+            listKeys = new ArraySet<>();
             listKeys.add(listKey);
             return (Clazz) this;
         }
 
         public Clazz listKeys(@NonNull Set<String> listKeys) {
-            this.listKeys = new HashSet<>(listKeys);
+            this.listKeys = new ArraySet<>(listKeys);
             return (Clazz) this;
         }
 

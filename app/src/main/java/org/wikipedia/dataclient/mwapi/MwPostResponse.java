@@ -15,3 +15,4 @@ public abstract class MwPostResponse extends MwResponse {
         return "badtoken".equals(code());
     }
 }
+

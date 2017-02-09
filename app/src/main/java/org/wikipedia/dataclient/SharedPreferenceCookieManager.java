@@ -2,6 +2,7 @@ package org.wikipedia.dataclient;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.util.ArraySet;
 import android.text.TextUtils;
 
 import org.wikipedia.login.User;
@@ -16,7 +17,6 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -84,7 +84,7 @@ public final class SharedPreferenceCookieManager extends CookieManager {
             throw new IllegalArgumentException("Argument is null");
         }
 
-        HashSet<String> domainsModified = new HashSet<>();
+        ArraySet<String> domainsModified = new ArraySet<>();
 
         for (String headerKey : responseHeaders.keySet()) {
             if (headerKey == null || !headerKey.equalsIgnoreCase("Set-Cookie")) {
