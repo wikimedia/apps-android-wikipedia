@@ -208,7 +208,7 @@
   <string name="view_continue_reading_card_subtitle_today">ಇನಿ</string>
   <string name="description_edit_header">ಸಂಪೊಲಿಪು</string>
   <string name="description_edit_save">ಒರಿಪಾಲೆ</string>
-  <string name="description_edit_add_description" fuzzy="true">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
+  <string name="description_edit_add_description">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
   <string name="description_edit_cancel_hint">ವಜಾ ಮಲ್ಪುಲೆ</string>
   <string name="description_edit_help_about_wikidata">ವಿಕಿಡಾಟ ತಾ ಬಗ್ಗೆ</string>
   <string name="description_edit_success_done">ಆಂಡ್</string>

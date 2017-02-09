@@ -212,6 +212,7 @@
   <string name="reading_lists_onboarding_example2">Animals favorits</string>
   <string name="reading_lists_onboarding_example3">Espaci !</string>
   <string name="user_option_sync_label">Preferéncias</string>
+  <string name="notification_talk">%1$s a daissat un messatge sus vòstra pagina de discussion « %2$s »</string>
   <string name="view_continue_reading_card_title">Contuniar de legir</string>
   <string name="view_because_you_read_card_title">Perqué legissètz</string>
   <string name="view_random_card_title">A l\'azard</string>
@@ -234,9 +235,9 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Uei</string>
   <string name="view_announcement_card_negative_action">Non mercé</string>
-  <string name="description_edit_text_hint" fuzzy="true">Apondre una descripcion !</string>
+  <string name="description_edit_text_hint">Descripcion del títol</string>
   <string name="description_edit_save">Enregistrar</string>
-  <string name="description_edit_add_description" fuzzy="true">Apondre una descripcion brèva</string>
+  <string name="description_edit_add_description">Apondre una descripcion del títol</string>
   <string name="description_edit_edit_description">Modificar la descripcion</string>
   <string name="description_edit_cancel_hint">Anullar</string>
   <string name="description_edit_help_title">Ajuda:descripcions dei títols</string>
@@ -247,4 +248,7 @@
   <string name="description_edit_success_saved">Descripcion enregistrada !</string>
   <string name="description_edit_success_done">Fach</string>
   <string name="description_edit_success_did_you_know">O sabiatz ?</string>
+  <string name="description_edit_help_about_title">A prepaus</string>
+  <string name="description_edit_help_tips_examples">Per exemple :</string>
+  <string name="description_edit_help_more_info">Mai d’informacions</string>
 </resources>

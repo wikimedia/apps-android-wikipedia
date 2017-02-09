@@ -67,6 +67,8 @@
   <string name="nav_item_login">Acceder a Wikipedia</string>
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
+  <string name="login_2fa_hint">Autenticación en dous factores</string>
+  <string name="login_2fa_other_workflow_error_msg">Autenticación en dous factores obrigatoriaǃ Por favor, volva á actividade principal e conéctese co seu identificador 2FA, despois inténteo de novo.</string>
   <string name="menu_login">Acceder ao sistema</string>
   <string name="login_activity_title">Iniciar sesión na Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Repita o contrasinal</string>
   <string name="create_account_passwords_mismatch_error">Os contrasinais non coinciden</string>
   <string name="create_account_email_error">O enderezo de correo electrónico non é válido</string>
+  <string name="create_account_username_error">Caracteres non válidos no nome de usuario</string>
   <string name="create_account_generic_error">Non se puido crear a conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Crear unha conta</string>
@@ -312,9 +315,9 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="view_continue_reading_card_subtitle_today">Hoxe</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="description_edit_header">Editando</string>
-  <string name="description_edit_text_hint" fuzzy="true">Escribe unha descrición!</string>
+  <string name="description_edit_text_hint">Descrición de título</string>
   <string name="description_edit_save">Gardar</string>
-  <string name="description_edit_add_description" fuzzy="true">Engadir unha descrición curta</string>
+  <string name="description_edit_add_description">Engadir unha descrición de título</string>
   <string name="description_edit_edit_description">Editar a descrición</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
   <string name="description_edit_help_title">Axudaː descricións dos títulos</string>
@@ -322,6 +325,8 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir as descricións</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Grazas polo seu contínuo interés en editar descriciónsǃ Para facer edicións adicionais, por favor, comece sesión na súa conta de Wikipedia.</string>
+  <string name="description_edit_license_notice">Ao cambiar a descrición de título, acepto os &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termos de uso&lt;/a&gt; e a liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Descrición gardadaǃ</string>
   <string name="description_edit_success_encouragement">Acaba de mellorar Wikipedia para todo o mundo</string>
   <string name="description_edit_success_done">Feito</string>
@@ -334,4 +339,20 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente unha liña, entre dúas e unha ducia de palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comezar a editar</string>
   <string name="description_edit_tutorial_promise">Ó comezar, comprométome a non abusar desta funcionalidade.</string>
+  <string name="description_edit_help_about_title">Acerca de</string>
+  <string name="description_edit_help_description">As descricións de título resumen un artigo para axudar ós lectores a entender o tema rapidamente.</string>
+  <string name="description_edit_help_tips">Consellos para crear descricións</string>
+  <string name="description_edit_help_tips_description">As descricións deberían coller nunha liña, e ter entre dúas e doce palabras. Non usan maiúsculas, a non ser que a primeira palabra sexa un nome propio.</string>
+  <string name="description_edit_help_tips_examples">Por exemploː</string>
+  <string name="description_edit_help_tips_example1">cadro de Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">descrición de título para un artigo sobre a Mona Lisa</string>
+  <string name="description_edit_help_tips_example2">a montaña máis alta da Terra</string>
+  <string name="description_edit_help_tips_example2_hint">descrición de título para un artigo sobre o Monte Everest</string>
+  <string name="description_edit_help_more_info">Máis información</string>
+  <string name="description_edit_help_meta_info">As descricións gárdanse e mantéñense en Wikidata, un proxecto da Fundación Wikimedia que proporciona unha base de datos secundaria, libre, colaborativa e multilingüe, que dá soporte a Wikipedia e outros proxectos.</string>
+  <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
+  <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
+  <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">a súa contribución semella unha proba ou vandalismo.</string>
+  <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
 </resources>

@@ -277,4 +277,7 @@
   <string name="description_edit_add_description" fuzzy="true">Додај опис</string>
   <string name="description_edit_tutorial_button_label_continue">Настави</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почни уређивање</string>
+  <string name="description_edit_help_about_title">О</string>
+  <string name="description_edit_help_tips_examples">На пример:</string>
+  <string name="description_edit_help_more_info">Више информација</string>
 </resources>

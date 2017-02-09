@@ -68,6 +68,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="nav_item_login">Connexion à Wikipédia</string>
   <string name="login_username_hint">Nom d’utilisateur</string>
   <string name="login_password_hint">Mot de passe</string>
+  <string name="login_2fa_hint">Code d’authentification à deux facteurs</string>
+  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs obligatoire ! Veuillez revenir à l’activité principale et connectez-vous avec votre jeton 2FA, puis réessayez.</string>
   <string name="menu_login">Connexion</string>
   <string name="login_activity_title">Se connecter à Wikipédia</string>
   <string name="login_in_progress_dialog_message">Connexion en cours…</string>
@@ -87,6 +89,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="create_account_password_repeat_hint">Répéter le mot de passe</string>
   <string name="create_account_passwords_mismatch_error">Les mots de passe ne correspondent pas</string>
   <string name="create_account_email_error">Adresse de courriel non valide</string>
+  <string name="create_account_username_error">Caractères non valides dans le nom d’utilisateur</string>
   <string name="create_account_generic_error">Impossible de créer le compte</string>
   <string name="create_account_next">Suivant</string>
   <string name="create_account_button">Créer un compte</string>
@@ -313,9 +316,9 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="view_continue_reading_card_subtitle_today">Aujourd’hui</string>
   <string name="view_announcement_card_negative_action">Non merci</string>
   <string name="description_edit_header">Modification</string>
-  <string name="description_edit_text_hint" fuzzy="true">Écrire une description !</string>
+  <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_save">Enregistrer</string>
-  <string name="description_edit_add_description" fuzzy="true">Ajouter une courte description</string>
+  <string name="description_edit_add_description">Ajouter une description du titre</string>
   <string name="description_edit_edit_description">Modifier la description</string>
   <string name="description_edit_cancel_hint">Annuler</string>
   <string name="description_edit_help_title">Descriptions des titres Aide:</string>
@@ -323,6 +326,8 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="description_edit_help_wikidata_guide">Guide de Wikidata pour écrire des descriptions</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier des descriptions ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
+  <string name="description_edit_license_notice">En modifiant la description du titre, j’accepte les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Description enregistrée !</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleur pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
@@ -335,4 +340,20 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
+  <string name="description_edit_help_about_title">À propos</string>
+  <string name="description_edit_help_description">Les descriptions de titre résument un article pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
+  <string name="description_edit_help_tips">Conseils pour créer des descriptions</string>
+  <string name="description_edit_help_tips_description">Les descriptions devraient, dans l’idéal, tenir en une ligne, et comporter entre deux et douze mots. Elles ne sont pas mises en majuscule sauf si le premier mot est un nom propre.</string>
+  <string name="description_edit_help_tips_examples">Par exemple :</string>
+  <string name="description_edit_help_tips_example1">peint par Léonard de Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">description de titre pour un article sur La Joconde</string>
+  <string name="description_edit_help_tips_example2">La plus haute montagne sur terre</string>
+  <string name="description_edit_help_tips_example2_hint">description de titre pour un article sur le mont Everest</string>
+  <string name="description_edit_help_more_info">Plus d’information</string>
+  <string name="description_edit_help_meta_info">Les descriptions sont stockées et mises à jour dans Wikidata, un projet de la Fondation Wikimédia qui fournit une base de données libre, collaborative, multilingue et secondaire supportant Wikipédia et d’autres projets.</string>
+  <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
+  <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
+  <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">votre contribution ressemblait à une expérience ou à du vandalisme.</string>
+  <string name="description_edit_revert_history">Si vous êtes intéressé, voyez l’&lt;a href=\"%1$s\"&gt;historique des modifications&lt;/a&gt;.</string>
 </resources>

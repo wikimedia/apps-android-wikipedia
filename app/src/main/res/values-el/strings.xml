@@ -81,6 +81,7 @@
   <string name="create_account_password_repeat_hint">Επανάληψη κωδικού</string>
   <string name="create_account_passwords_mismatch_error">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
   <string name="create_account_email_error">Άκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου</string>
+  <string name="create_account_username_error">Μη έγκυροι χαρακτήρες στο username</string>
   <string name="create_account_generic_error">Δεν ήταν δυνατή η δημιουργία λογαριασμού</string>
   <string name="create_account_next">Επόμενο</string>
   <string name="create_account_button">Δημιουργία λογαριασμού</string>
@@ -223,4 +224,8 @@
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="view_card_news_title">Στις ειδήσεις</string>
+  <string name="description_edit_help_about_title">Σχετικά</string>
+  <string name="description_edit_help_tips_examples">Για παράδειγμα:</string>
+  <string name="description_edit_help_tips_example2">Το ψηλότερο βουνό της γης</string>
+  <string name="description_edit_help_more_info">Περισσότερες πληροφορίες</string>
 </resources>

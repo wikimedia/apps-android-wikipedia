@@ -90,10 +90,10 @@
   <string name="create_account_next">הבא</string>
   <string name="create_account_button">יצירת חשבון</string>
   <string name="preferences_general_heading">כללי</string>
-  <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
+  <string name="wikipedia_app_faq">שו\"ת אפליקציית ויקיפדיה</string>
   <string name="zero_charged_verbiage">גישה בחינם לוויקיפדיה כבר אינה פעילה.</string>
   <string name="zero_warn_when_leaving">להזהיר בעת עזיבת ויקיפדיה אפס</string>
-  <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על תקשורת נתונים ביישומון ויקיפדיה במסגרת שותפות \"ויקיפדיה אפס\", הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מיישומון ויקיפדיה ושייתכן שיחולו חיובים.</string>
+  <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על תקשורת נתונים באפליקציית ויקיפדיה במסגרת שותפות \"ויקיפדיה אפס\", הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מאפליקציית ויקיפדיה ושייתכן שיחולו חיובים.</string>
   <string name="zero_webpage_title">שו\"ת ויקיפדיה אפס</string>
   <string name="zero_wikipedia_zero_heading">ויקיפדיה אפס</string>
   <string name="zero_interstitial_title">יציאה מוויקיפדיה אפס</string>
@@ -104,14 +104,14 @@
   <string name="zero_learn_more_learn_more">מידע נוסף</string>
   <string name="zero_learn_more_dismiss">סגירה</string>
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
-  <string name="send_feedback">שליחת משוב על היישומון</string>
+  <string name="send_feedback">לשלוח משוב על האפליקציה</string>
   <string name="nav_item_random">אקראי</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="preferences_privacy_settings_heading">פרטיות</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
-  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישומון כדי לשפר את היישומון</string>
-  <string name="preference_title_auto_upload_crash_reports">שליחת דיווחי קריסה</string>
-  <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
+  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך באפליקציה כדי לשפר אותה</string>
+  <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
+  <string name="preference_summary_auto_upload_crash_reports">לאפשר לאפליקציה לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
   <string name="history_search_list_hint">חיפוש בהיסטוריה</string>
   <string name="history_search_empty_message">לא נמצאו דפים התואמים לשאילתה שלך.</string>
@@ -123,7 +123,7 @@
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
-  <string name="about_description">אודות יישום ויקיפדיה</string>
+  <string name="about_description">אודות אפליקציית ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
@@ -131,7 +131,7 @@
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
   <string name="about_translators_heading">מתרגמים</string>
-  <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">האפליקציה הזה תורגמה על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
@@ -166,7 +166,7 @@
   <string name="search_recent_header">חיפוש אחרונים:</string>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
-  <string name="error_browser_not_found">לא ניתן לפתוח אתר אינטרנט (לא נמצא יישום דפדפן).</string>
+  <string name="error_browser_not_found">לא ניתן לפתוח אתר אינטרנט (לא נמצאה אפליקציית דפדפן).</string>
   <string name="table_infobox">עובדות מהירות</string>
   <string name="table_other">מידע נוסף</string>
   <string name="table_close">סגירה</string>
@@ -217,20 +217,20 @@
   <string name="text_copied">הטקסט הועתק ללוח.</string>
   <string name="button_continue_to_article">לקרוא את הערך</string>
   <string name="button_get_directions">לקבל כיוונים</string>
-  <string name="error_no_maps_app">לא מצאתי שום יישום שנותן כיוונים.</string>
+  <string name="error_no_maps_app">לא מצאתי שום אפליקציה שנותנת כיוונים.</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="nav_item_donate">לתמוך בוויקיפדיה</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>
-  <string name="crash_report_dialog_title">סליחה, היישום קרס בפעם הקומת</string>
+  <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>
   <string name="crash_report_dialog_always_send_button">לשלוח תמיד</string>
   <string name="crash_report_dialog_send_button">לשלוח</string>
-  <string name="crash_report_activity_title">שגיאת יישום</string>
-  <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדים אירעה שגיאה והוא נעצר.
+  <string name="crash_report_activity_title">שגיאת אפליקציה</string>
+  <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, באפליקציית ויקיפדיה אירעה שגיאה והיא נעצרה.
 
 האם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
@@ -326,7 +326,7 @@
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור לכולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
-  <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך היישום הזה. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמך ^1 בפעם הבאה</string>
+  <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך האפליקציה הזאת. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמל ^1 בפעם הבאה</string>
   <string name="description_edit_tutorial_title_descriptions">תיאורי כותרת</string>
   <string name="description_edit_tutorial_title_descriptions_summary">סיכום הערך שעוזר לקוראים להבין את הנושא במבט אחד</string>
   <string name="description_edit_tutorial_button_label_continue">המשך</string>

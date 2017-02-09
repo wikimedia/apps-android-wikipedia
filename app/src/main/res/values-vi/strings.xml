@@ -67,6 +67,8 @@
   <string name="nav_item_login">Đăng nhập vào Wikipedia</string>
   <string name="login_username_hint">Tên người dùng</string>
   <string name="login_password_hint">Mật khẩu</string>
+  <string name="login_2fa_hint">Mã Xác thực dùng Hai Nhân tố</string>
+  <string name="login_2fa_other_workflow_error_msg">Yêu cầu xác thực dùng hai nhân tố! Xin hãy quay lại hoạt động chính, đăng nhập bằng mã xác thực dùng hai nhân tố, và thử lại.</string>
   <string name="menu_login">Đăng nhập</string>
   <string name="login_activity_title">Đăng nhập vào Wikipedia</string>
   <string name="login_in_progress_dialog_message">Đang đăng nhập bạn vào…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Lặp lại mật khẩu</string>
   <string name="create_account_passwords_mismatch_error">Mật khẩu không khớp</string>
   <string name="create_account_email_error">Địa chỉ thư điện tử không hợp lệ</string>
+  <string name="create_account_username_error">Ký tự không hợp lệ trong tên người dùng</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_next">Tiếp</string>
   <string name="create_account_button">Mở tài khoản</string>
@@ -236,6 +239,9 @@
   <string name="article_menu_bar_bookmark">Thêm bài này vào một danh sách đọc</string>
   <string name="article_menu_bar_share">Chia sẻ liên kết đến bài</string>
   <string name="article_menu_bar_navigate">Chuyển đến vị trí của bài</string>
+  <string name="article_header_edit_hint">Sửa đổi…</string>
+  <string name="article_header_edit_description">Sửa miêu tả tiêu đề</string>
+  <string name="article_header_edit_lead_section">Sửa lời đầu</string>
   <string name="nav_item_reading_lists">Danh sách của tôi</string>
   <string name="reading_list_untitled">Không tên</string>
   <string name="reading_list_save_to">Lưu vào danh sách đọc</string>
@@ -273,6 +279,16 @@
   <string name="reading_lists_onboarding_got_it">Được rồi</string>
   <string name="reading_lists_onboarding_page_delete">Mẹo: Vuốt trang nào đó về một bên để xóa nó khỏi danh sách đọc này.</string>
   <string name="user_option_sync_label">Tùy chọn</string>
+  <string name="notification_button_view_page">Xem trang</string>
+  <string name="notification_button_view_user">Thảo luận với người dùng</string>
+  <string name="notification_button_view_edit_history">Xem lịch sử sửa đổi</string>
+  <string name="notification_generic_title">Thông báo tại Wikipedia</string>
+  <string name="notification_talk_title">Tin nhắn mới tại Wikipedia</string>
+  <string name="notification_talk">%1$s nhắn tin cho bạn tại trang thảo luận “%2$s”</string>
+  <string name="notification_reverted_title">Sửa đổi bị lùi lại</string>
+  <string name="notification_reverted">Sửa đổi của bạn tại bài “%2$s” bị %1$s lùi lại.</string>
+  <string name="notification_thanks_title">Cảm ơn!</string>
+  <string name="notification_thanks">%1$s cảm ơn bạn vì sửa đổi của bạn tại trang “%2$s”</string>
   <string name="view_continue_reading_card_title">Đọc tiếp</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
   <string name="view_random_card_title">Ngẫu nhiên</string>
@@ -295,8 +311,45 @@
     <item quantity="other">%d ngày trước</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hôm nay</string>
+  <string name="view_announcement_card_negative_action">Thôi</string>
   <string name="description_edit_header">Đang sửa</string>
-  <string name="description_edit_text_hint" fuzzy="true">Đặt miêu tả!</string>
+  <string name="description_edit_text_hint">Miêu tả tiêu đề</string>
   <string name="description_edit_save">Lưu</string>
-  <string name="description_edit_add_description" fuzzy="true">Thêm miêu tả</string>
+  <string name="description_edit_add_description">Thêm miêu tả tiêu đề</string>
+  <string name="description_edit_edit_description">Sửa miêu tả</string>
+  <string name="description_edit_cancel_hint">Hủy bỏ</string>
+  <string name="description_edit_help_title">Trợ giúp: miêu tả tiêu đề</string>
+  <string name="description_edit_help_about_wikidata">Giới thiệu về Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Hướng dẫn viết miêu tả tại Wikidata</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/vi</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Cảm ơn bạn vì sự quan tâm đến việc sửa miêu tả! Để thực hiện thêm sửa đổi nữa, xin hãy đăng nhập vào tài khoản Wikipedia của bạn.</string>
+  <string name="description_edit_license_notice">Với việc lưu trang, tôi chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.vi\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">Đã lưu miêu tả!</string>
+  <string name="description_edit_success_encouragement">Bạn vừa cải thiện Wikipedia cho mọi người</string>
+  <string name="description_edit_success_done">Xong</string>
+  <string name="description_edit_success_did_you_know">Bạn có biết?</string>
+  <string name="description_edit_success_article_edit_hint">Bạn cũng có thể sửa đổi các bài viết dùng ứng dụng này. Hãy bấm nút ^1 lần sau để sửa các lỗi chính tả và câu ngắn.</string>
+  <string name="description_edit_tutorial_title_descriptions">Miêu tả tiêu đề</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Tóm lược bài để giúp độc giả dễ dàng hiểu đề tài</string>
+  <string name="description_edit_tutorial_button_label_continue">Tiếp tục</string>
+  <string name="description_edit_tutorial_keep_it_short">Làm ngắn gọn</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Cố gắng viết một dòng có 2–12 từ mà thôi</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Bắt đầu sửa đổi</string>
+  <string name="description_edit_tutorial_promise">Với việc bắt đầu sửa đổi, tôi hứa không lạm dụng tính năng này.</string>
+  <string name="description_edit_help_about_title">Giới thiệu</string>
+  <string name="description_edit_help_description">Các miêu tả tiêu đề tóm lược bài viết để giúp độc giả dễ dàng hiểu đề tài.</string>
+  <string name="description_edit_help_tips">Cách viết miêu tả hữu ích</string>
+  <string name="description_edit_help_tips_description">Cố gắng viết miêu tả có một dòng từ 2 đến 12 từ mà thôi. Chỉ viết hoa chữ đầu tiên nếu từ đầu tiên là danh từ riêng.</string>
+  <string name="description_edit_help_tips_examples">Ví dụ:</string>
+  <string name="description_edit_help_tips_example1">bài thơ của Nguyễn Du</string>
+  <string name="description_edit_help_tips_example1_hint">miêu tả tiêu đề của bài về Truyện Kiều</string>
+  <string name="description_edit_help_tips_example2">đỉnh núi cao nhất trên Trái Đất</string>
+  <string name="description_edit_help_tips_example2_hint">miêu tả tiêu đề của bài về đỉnh Everest</string>
+  <string name="description_edit_help_more_info">Thêm thông tin</string>
+  <string name="description_edit_help_meta_info">Các miêu tả được lưu và bảo quản tại Wikidata, một dự án trực thuộc Quỹ Wikimedia cung cấp cơ sở dữ liệu mở, theo mô hình cộng tác, có sẵn trong nhiều ngôn ngữ, hỗ trợ Wikipedia và các dự án liên quan.</string>
+  <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
+  <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">đóng góp của bạn nhìn giống thử nghiệm hoặc phá hoại.</string>
+  <string name="description_edit_revert_history">Bạn có thể xem &lt;a href=\"%1$s\"&gt;lịch sử sửa đổi&lt;/a&gt;.</string>
 </resources>

@@ -67,6 +67,8 @@
   <string name="nav_item_login">Logga in på Wikipedia</string>
   <string name="login_username_hint">Användarnamn</string>
   <string name="login_password_hint">Lösenord</string>
+  <string name="login_2fa_hint">Tvåstegsverifieringskod</string>
+  <string name="login_2fa_other_workflow_error_msg">Tvåstegsverifiering krävs! Gå tillbaka till huvudaktiviteten och logga in med din tvåstegsverifieringskod och försök igen.</string>
   <string name="menu_login">Logga in</string>
   <string name="login_activity_title">Logga in på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Loggar in dig…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Upprepa lösenord</string>
   <string name="create_account_passwords_mismatch_error">Lösenorden matchar inte</string>
   <string name="create_account_email_error">Ogiltig e-postadress</string>
+  <string name="create_account_username_error">Ogiltiga tecken i användarnamnet</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_next">Nästa</string>
   <string name="create_account_button">Skapa konto</string>
@@ -312,9 +315,9 @@ Vill du starta om eller avsluta?</string>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
   <string name="description_edit_header">Redigerar</string>
-  <string name="description_edit_text_hint" fuzzy="true">Skriv en beskrivning!</string>
+  <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Spara</string>
-  <string name="description_edit_add_description" fuzzy="true">Lägg till kort beskrivning</string>
+  <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
   <string name="description_edit_edit_description">Redigera beskrivning</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
   <string name="description_edit_help_title">Hjälp: Titelbeskrivningar</string>
@@ -322,6 +325,8 @@ Vill du starta om eller avsluta?</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide för att skriva beskrivningar</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/sv</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Tack för ditt fortsatta intresse för att redigera beskrivningar! För att redigera mera, logga in på ditt Wikipedia-konto.</string>
+  <string name="description_edit_license_notice">Genom att ändra titelbeskrivningen samtycker jag till &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Beskrivningen sparades!</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
@@ -334,4 +339,20 @@ Vill du starta om eller avsluta?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst en rad, mellan två till tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
+  <string name="description_edit_help_about_title">Om</string>
+  <string name="description_edit_help_description">Titelbeskrivningar sammanfattar en artikel för att hjälpa läsare att förstå ämnet på ett ögonblick.</string>
+  <string name="description_edit_help_tips">Tips för att skapa beskrivningar</string>
+  <string name="description_edit_help_tips_description">Beskrivningar bör helst vara en rad och är mellan två och tolv ord långt. De inleds inte med en versal om det första ordet inte är ett egennamn.</string>
+  <string name="description_edit_help_tips_examples">Till exempel:</string>
+  <string name="description_edit_help_tips_example1">målning av Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">titelbeskrivning av en artikel om Mona Lisa</string>
+  <string name="description_edit_help_tips_example2">Jordens högsta berg</string>
+  <string name="description_edit_help_tips_example2_hint">titelbeskrivning av en artikel om Mount Everest</string>
+  <string name="description_edit_help_more_info">Mer information</string>
+  <string name="description_edit_help_meta_info">Beskrivningar lagras och underhålls på Wikidata, ett projekt av Wikimedia Foundation som tillhandahåller en gratis, gemensam och flerspråkig sekundär databas för att stödja Wikipedia och andra projekt.</string>
+  <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
+  <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
+  <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
+  <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
 </resources>

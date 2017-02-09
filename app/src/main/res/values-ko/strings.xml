@@ -88,6 +88,7 @@
   <string name="create_account_password_repeat_hint">비밀번호 다시 입력</string>
   <string name="create_account_passwords_mismatch_error">비밀번호가 일치하지 않습니다</string>
   <string name="create_account_email_error">이메일 주소가 잘못되었습니다</string>
+  <string name="create_account_username_error">사용자 이름에 유효하지 않은 문자가 있습니다</string>
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
   <string name="create_account_next">다음</string>
   <string name="create_account_button">계정 만들기</string>

@@ -469,7 +469,7 @@ Shown in the preferences screen along with the following:
 {{Identical|Cancel}}</string>
   <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
   <string name="description_edit_help_about_wikidata">Menu label for navigating to a page describing Wikidata.</string>
-  <string name="description_edit_help_wikidata_guide">Manu label for navigating to the official Wikidata guide for composing descriptions.</string>
+  <string name="description_edit_help_wikidata_guide">Menu label for navigating to the official Wikidata guide for composing descriptions.</string>
   <string name="wikidata_about_url">URL that points to an introduction page about Wikidata in this language.</string>
   <string name="wikidata_description_guide_url">URL that points to a page on Wikidata that contains guidelines for writing descriptions. Preferably the URL should link directly to the section that lists specific guidelines.</string>
   <string name="description_edit_anon_limit">Dialog message that informs the user that they must log in before making edits to additional descriptions.</string>

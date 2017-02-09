@@ -67,6 +67,7 @@
   <string name="nav_item_login">Accedi a Wikipedia</string>
   <string name="login_username_hint">Nome utente</string>
   <string name="login_password_hint">Password</string>
+  <string name="login_2fa_hint">Codice autenticazione a due fattori</string>
   <string name="menu_login">Entra</string>
   <string name="login_activity_title">Accedi a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accesso in corso…</string>
@@ -86,6 +87,7 @@
   <string name="create_account_password_repeat_hint">Reinserisci la password</string>
   <string name="create_account_passwords_mismatch_error">Le password non corrispondono</string>
   <string name="create_account_email_error">Indirizzo email non valido</string>
+  <string name="create_account_username_error">Caratteri non validi nel nome utente</string>
   <string name="create_account_generic_error">Impossibile creare l\'account</string>
   <string name="create_account_next">Successivo</string>
   <string name="create_account_button">Crea un\'utenza</string>
@@ -305,9 +307,9 @@ Vuoi riavviarla o uscire?</string>
   <string name="view_continue_reading_card_subtitle_today">Oggi</string>
   <string name="view_announcement_card_negative_action">No, grazie</string>
   <string name="description_edit_header">Modifica</string>
-  <string name="description_edit_text_hint" fuzzy="true">Scrivi una descrizione!</string>
+  <string name="description_edit_text_hint">Descrizione del titolo</string>
   <string name="description_edit_save">Salva</string>
-  <string name="description_edit_add_description" fuzzy="true">Aggiungi una breve descrizione</string>
+  <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>
   <string name="description_edit_edit_description">Modifica descrizione</string>
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
@@ -319,4 +321,10 @@ Vuoi riavviarla o uscire?</string>
   <string name="description_edit_success_did_you_know">Lo sapevate?</string>
   <string name="description_edit_tutorial_button_label_continue">Continua</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
+  <string name="description_edit_help_tips">Consigli per creare descrizioni</string>
+  <string name="description_edit_help_tips_examples">Per esempio:</string>
+  <string name="description_edit_help_tips_example1">dipinto da Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example2">La montagna più alta della terra</string>
+  <string name="description_edit_help_more_info">Ulteriori informazioni</string>
+  <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
 </resources>

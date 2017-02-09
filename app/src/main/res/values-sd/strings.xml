@@ -67,6 +67,7 @@
   <string name="nav_item_login">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_username_hint">يُوزرنانءُ</string>
   <string name="login_password_hint">ڳجھولفظ</string>
+  <string name="login_2fa_hint">ٽو-فيڪٽر آٿينٽيڪيشن ڪوڊ</string>
   <string name="menu_login">داخل ٿيو</string>
   <string name="login_activity_title">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>
@@ -86,6 +87,7 @@
   <string name="create_account_password_repeat_hint">ڳجھولفظ ورجايو</string>
   <string name="create_account_passwords_mismatch_error">ڳجھالفظ نٿا ملن</string>
   <string name="create_account_email_error">ناقابل ڪار برق ٽپال پتو</string>
+  <string name="create_account_username_error">يوزنانءَ ۾ ناقابلڪار نشانيون</string>
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
   <string name="create_account_button">کاتو کوليو</string>
@@ -308,9 +310,9 @@
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
   <string name="description_edit_header">ترميم ڪندي</string>
-  <string name="description_edit_text_hint" fuzzy="true">ڪو تفصيل لکو!</string>
+  <string name="description_edit_text_hint">عنوان  جي تشريح</string>
   <string name="description_edit_save">سانڍيو</string>
-  <string name="description_edit_add_description" fuzzy="true">مختصر تفصيل شامل ڪريو</string>
+  <string name="description_edit_add_description">عنوان جي تشريح شامل ڪريو</string>
   <string name="description_edit_edit_description">تشريح سنواريو</string>
   <string name="description_edit_cancel_hint">رد</string>
   <string name="description_edit_help_title">مدد:عنوان جي تشريح</string>
@@ -328,4 +330,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">خيالي ھڪ سٽ، ٻن کان ٻارھن اکرن جي وچ ۾</string>
   <string name="description_edit_tutorial_button_label_start_editing">سنوارڻ شروع ڪريو</string>
   <string name="description_edit_tutorial_promise">شرپع ڪرڻ سان، مان واعدو ٿو ڪريان مان ھن خوبي جو غلط استعمال نہ ڪندس.</string>
+  <string name="description_edit_help_about_title">بابت</string>
+  <string name="description_edit_help_tips">تشريح وجھڻ لاءِ ٽوٽڪا</string>
+  <string name="description_edit_help_tips_examples">مثال طور:</string>
+  <string name="description_edit_help_more_info">وڌيڪ معلومات</string>
+  <string name="description_edit_revert_subtitle">وڪيپيڊيا ترميم ڪرڻ لاءِ مھرباني!</string>
 </resources>
