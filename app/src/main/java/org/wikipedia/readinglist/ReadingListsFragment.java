@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
@@ -57,6 +58,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
 
     @BindView(R.id.list_detail_view) ReadingListDetailView listDetailView;
+    private ImageView detailViewBackButton;
     private ReadingListAdapter adapter = new ReadingListAdapter();
     private ReadingListPagerAdapter pagerAdapter = new ReadingListPagerAdapter();
 
@@ -91,6 +93,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         View view = inflater.inflate(R.layout.fragment_reading_lists, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        detailViewBackButton = (ImageView) listDetailView.findViewById(R.id.reading_list_detail_back_button);
         listDetailView.setActionListener(actionListener);
         listDetailView.setOnItemActionListener(itemActionListener);
 
@@ -282,6 +285,9 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
         @Override
         public void onClick(View v) {
+            if (actionMode != null) {
+                actionMode.finish();
+            }
             listDetailView.setReadingList(readingList);
             listDetailView.setSort(readingListPageSortMode);
             pager.setCurrentItem(PAGE_LIST_DETAIL);
@@ -415,6 +421,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
+            detailViewBackButton.setVisibility(View.INVISIBLE);
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -431,6 +438,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
             actionMode = null;
+            detailViewBackButton.setVisibility(View.VISIBLE);
             if (pager.getCurrentItem() == PAGE_READING_LISTS) {
                 updateLists();
             } else if (pager.getCurrentItem() == PAGE_LIST_DETAIL) {
