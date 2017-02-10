@@ -33,7 +33,7 @@ public abstract class FeedCoordinatorBase {
     @NonNull private final List<Card> cards = new ArrayList<>();
     private int currentAge;
     private List<FeedClient> pendingClients = new ArrayList<>();
-    private FeedClient.Callback exhaustionClientCallback = new ExhaustionClientCallback();
+    private FeedClient.Callback callback = new ClientRequestCallback();
     private Card progressCard = new ProgressCard();
 
     private Set<String> hiddenCards = Collections.newSetFromMap(new LinkedHashMap<String, Boolean>() {
@@ -112,12 +112,24 @@ public abstract class FeedCoordinatorBase {
 
     private void requestNextCard(@NonNull WikiSite wiki) {
         if (pendingClients.isEmpty()) {
+            removeProgressCard();
             return;
         }
-        pendingClients.remove(0).request(context, wiki, currentAge, exhaustionClientCallback);
+        pendingClients.remove(0).request(context, wiki, currentAge, callback);
     }
 
-    private class ExhaustionClientCallback implements FeedClient.Callback {
+    private void removeProgressCard() {
+        int pos = cards.indexOf(progressCard);
+        if (pos < 0) {
+            return;
+        }
+        cards.remove(progressCard);
+        if (updateListener != null) {
+            updateListener.remove(progressCard, pos);
+        }
+    }
+
+    private class ClientRequestCallback implements FeedClient.Callback {
         @Override
         public void success(@NonNull List<? extends Card> cardList) {
             for (Card card : cardList) {
