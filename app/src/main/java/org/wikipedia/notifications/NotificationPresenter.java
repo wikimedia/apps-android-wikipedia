@@ -64,7 +64,6 @@ public final class NotificationPresenter {
                 title = R.string.notification_reverted_title;
                 color = ContextCompat.getColor(context, R.color.foundation_red);
                 builder.setPriority(NotificationCompat.PRIORITY_MAX);
-                builder.addAction(0, context.getString(R.string.notification_button_view_edit_history), historyIntent);
                 break;
             case Notification.TYPE_EDIT_THANK:
                 description = context.getString(R.string.notification_thanks, n.agent().name(), n.title().full());
