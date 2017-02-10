@@ -164,7 +164,18 @@ public class DescriptionEditFragment extends Fragment {
             editView.setSaveState(true);
 
             cancelCalls();
-            requestEditToken();
+
+            if (User.isLoggedIn()) {
+                refreshLoginTokens(User.getUser(), new RetryCallback() {
+                    @Override
+                    public void retry() { // success callback
+                        requestEditToken();
+                    }
+                });
+            } else {
+                requestEditToken();
+            }
+
             if (funnel != null) {
                 funnel.logSaveAttempt();
             }
