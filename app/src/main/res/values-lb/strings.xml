@@ -331,6 +331,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="description_edit_help_about_title">Iwwer</string>
   <string name="description_edit_help_tips_examples">Zum Beispill:</string>
   <string name="description_edit_help_tips_example1">Bild vum Leonardo da vinci</string>
+  <string name="description_edit_help_tips_example1_hint">Titelbeschreiwung fir en Artikel iwwer d\'Mona Lisa</string>
   <string name="description_edit_help_tips_example2">Héchste Bierg vun der Welt</string>
   <string name="description_edit_help_tips_example2_hint">Titelbeschreiwung fir en Artikel iwwer de Mount Everest</string>
   <string name="description_edit_help_more_info">Méi Informatiounen</string>

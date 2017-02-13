@@ -202,4 +202,6 @@
   <string name="description_edit_help_about_wikidata">వికీడేటా గురించి</string>
   <string name="description_edit_tutorial_title_descriptions">శీర్షిక వివరణలు</string>
   <string name="description_edit_tutorial_button_label_continue">కొనసాగించు</string>
+  <string name="description_edit_help_about_title">గురించి</string>
+  <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
 </resources>

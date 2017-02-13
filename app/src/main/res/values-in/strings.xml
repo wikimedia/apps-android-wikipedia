@@ -351,7 +351,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="description_edit_help_more_info">Informasi lebih lanjut</string>
   <string name="description_edit_help_meta_info">Deskripsi disimpan dan dipelihara di Wikidata, sebuah proyek dari Wikimedia Foundation yang menyediakan basis data bebas, kolaboratif, multibahasa, sekunder yang mendukung Wikipedia dan proyek-proyek lainnya.</string>
   <string name="description_edit_revert_subtitle">Terima kasih telah menyunting di Wikipedia!</string>
-  <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
+  <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memiliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi Anda tampak seperti uji coba atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>

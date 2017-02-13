@@ -86,6 +86,7 @@
   <string name="create_account_password_repeat_hint">Repetiu la contrasenya</string>
   <string name="create_account_passwords_mismatch_error">Les contrasenyes no coincideixen</string>
   <string name="create_account_email_error">Correu electrònic no vàlid</string>
+  <string name="create_account_username_error">Caràcters no vàlids en el nom d\'usuari</string>
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_next">Següent</string>
   <string name="create_account_button">Crea un compte</string>
@@ -334,7 +335,9 @@ Voleu començar de nou o sortir?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
+  <string name="description_edit_help_about_title">Quant a</string>
   <string name="description_edit_help_tips_examples">Per exemple:</string>
   <string name="description_edit_help_tips_example1">quadre de Leonardo da Vinci</string>
   <string name="description_edit_help_more_info">Més informació</string>
+  <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
 </resources>

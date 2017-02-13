@@ -67,6 +67,8 @@
   <string name="nav_item_login">Vikipedi\'de oturum aç</string>
   <string name="login_username_hint">Kullanıcı adı</string>
   <string name="login_password_hint">Parola</string>
+  <string name="login_2fa_hint">İki Faktörlü Kimlik Doğrulama Kodu</string>
+  <string name="login_2fa_other_workflow_error_msg">İki faktörlü kimlik doğrulaması gerekli. Lütfen ana faaliyetinize dönün ve 2FKD anahtarınızla giriş yapıp, ardından tekrar deneyin.</string>
   <string name="menu_login">Oturum aç</string>
   <string name="login_activity_title">Vikipedi\'ye giriş yap</string>
   <string name="login_in_progress_dialog_message">Oturum açılıyor…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Parolayı tekrarla</string>
   <string name="create_account_passwords_mismatch_error">Parolalar eşleşmiyor</string>
   <string name="create_account_email_error">Geçersiz e-posta adresi</string>
+  <string name="create_account_username_error">Kullanıcı adında geçersiz karakterler</string>
   <string name="create_account_generic_error">Hesap oluşturulamadı</string>
   <string name="create_account_next">İleri</string>
   <string name="create_account_button">Hesap oluştur</string>
@@ -310,9 +313,9 @@
   <string name="view_continue_reading_card_subtitle_today">Bugün</string>
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
   <string name="description_edit_header">Değiştiriliyor</string>
-  <string name="description_edit_text_hint" fuzzy="true">Bir açıklama yazın!</string>
+  <string name="description_edit_text_hint">Başlık tanımı</string>
   <string name="description_edit_save">Kaydet</string>
-  <string name="description_edit_add_description" fuzzy="true">Kısa tanım ekle</string>
+  <string name="description_edit_add_description">Başlık tanımı ekle</string>
   <string name="description_edit_edit_description">Tanımı düzenle</string>
   <string name="description_edit_cancel_hint">İptal</string>
   <string name="description_edit_help_title">Yardım: Başlık tanımları</string>
@@ -320,6 +323,8 @@
   <string name="description_edit_help_wikidata_guide">Tanım yazımı için Vikiveri rehberi</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/tr</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Tanımları düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
+  <string name="description_edit_license_notice">Başlık tanımını değiştirerek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_success_saved">tanıtım kaydedildi</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Tamam</string>
@@ -332,4 +337,20 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlatırken, bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
+  <string name="description_edit_help_about_title">Hakkında</string>
+  <string name="description_edit_help_description">Başlık tanımları, okuyucuların bir bakışta konuyu anlamalarına yardımcı olmak için bir makaleyi özetler.</string>
+  <string name="description_edit_help_tips">Tanım yazmak için ipuçları</string>
+  <string name="description_edit_help_tips_description">Tanımların bir satıra sığacak şekilde, iki ila on iki kelimeden uzunluğunda olması tercih edilir. Özel isim olmadıkça büyük harf kullanılmaz.</string>
+  <string name="description_edit_help_tips_examples">Örneğin:</string>
+  <string name="description_edit_help_tips_example1">Leonardo da Vinci tablosu</string>
+  <string name="description_edit_help_tips_example1_hint">Mona Lisa hakkındaki bir makale için başlık tanımı</string>
+  <string name="description_edit_help_tips_example2">Dünya\'nın en yüksek dağı</string>
+  <string name="description_edit_help_tips_example2_hint">Everest Dağı hakkındaki bir makale için başlık tanımı</string>
+  <string name="description_edit_help_more_info">Daha fazla bilgi</string>
+  <string name="description_edit_help_meta_info">Tanımlar; Wikimedia Vakfı\'nın bir projesi olan, ücretsiz, iş birlikçi, çok dilli, Vikipedi ve diğer projelerini destekleyen ikincil veritabanı Vikiveri\'de saklanır ve oradan sağlanır.</string>
+  <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
+  <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama incleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
+  <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
+  <string name="description_edit_revert_reason2">katkınız bir deneme ya da vandalizm gibi görünüyordu.</string>
+  <string name="description_edit_revert_history">Eğer ilgeliniyorsanız, &lt;a href=\"%1$s\"&gt;değişiklik geçmişine&lt;/a&gt; bakabilirsiniz.</string>
 </resources>

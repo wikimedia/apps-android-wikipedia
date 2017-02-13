@@ -494,7 +494,7 @@ Shown in the preferences screen along with the following:
 {{Identical|About}}</string>
   <string name="description_edit_help_description">Informative message that summarizes the purpose of descriptions.</string>
   <string name="description_edit_help_tips">Heading for a list of tips for creating effective descriptions.</string>
-  <string name="description_edit_help_tips_description">A quick overview of some guidelines for creating descriptions.</string>
+  <string name="description_edit_help_tips_description">A quick overview of some guidelines for creating descriptions. These can be adapted to your language; for example, if your language doesn\'t have small and capital letters, you don\'t have to mention it.</string>
   <string name="description_edit_help_tips_examples">Heading for a list of example descriptions.</string>
   <string name="description_edit_help_tips_example1">An example description of a notable work of art, music, or literature.</string>
   <string name="description_edit_help_tips_example1_hint">Title description for the article mentioned in {{msg-wikimedia|Wikipedia-android-strings-description edit help tips example1\"}}</string>

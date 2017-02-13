@@ -279,10 +279,13 @@
   <string name="reading_lists_onboarding_got_it">알겠습니다</string>
   <string name="reading_lists_onboarding_page_delete">알림: 이 읽기 목록에서 삭제하려면, 페이지 왼쪽이나 오른쪽으로 미세요.</string>
   <string name="user_option_sync_label">환경 설정</string>
+  <string name="notification_button_view_page">문서 보기</string>
+  <string name="notification_button_view_user">사용자와 대화하기</string>
   <string name="notification_button_view_edit_history">편집 역사 보기</string>
   <string name="notification_generic_title">위키백과에서의 알림</string>
   <string name="notification_talk_title">위키백과에서의 새 메시지</string>
   <string name="notification_talk">%1$s님이 당신의 토론 문서 \"%2$s\"에 글을 남겼습니다</string>
+  <string name="notification_reverted_title">되돌려진 편집</string>
   <string name="notification_thanks_title">당신은 감사를 받았습니다!</string>
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었기 때문입니다</string>
@@ -328,6 +331,7 @@
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
   <string name="description_edit_help_about_title">정보</string>
   <string name="description_edit_help_tips_examples">예를 들어:</string>
+  <string name="description_edit_help_tips_example2">지구상에서 가장 높은 산</string>
   <string name="description_edit_help_more_info">자세한 정보</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>

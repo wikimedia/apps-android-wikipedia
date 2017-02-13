@@ -67,6 +67,8 @@
   <string name="nav_item_login">Aniciar sesión en Wikipedia</string>
   <string name="login_username_hint">Nome d\'usuariu</string>
   <string name="login_password_hint">Contraseña</string>
+  <string name="login_2fa_hint">Códigu d\'autenticación de dos factores</string>
+  <string name="login_2fa_other_workflow_error_msg">¡Ríquese autenticación de dos factores! Torna a l\'actividá principal y anicia sesión cola to clave d\'autenticación de dos factores, llueu vuelve a tentalo.</string>
   <string name="menu_login">Aniciar sesión</string>
   <string name="login_activity_title">Aniciar sesión en Wikipedia</string>
   <string name="login_in_progress_dialog_message">Aniciando sesión en...</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Repetir contraseña</string>
   <string name="create_account_passwords_mismatch_error">Les contraseñes nun casen</string>
   <string name="create_account_email_error">Direición de corréu inválida</string>
+  <string name="create_account_username_error">Hai caráuteres inválidos nel nome d\'usuariu</string>
   <string name="create_account_generic_error">Nun pudo crease la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear una cuenta</string>
@@ -312,9 +315,9 @@
   <string name="view_continue_reading_card_subtitle_today">Güei</string>
   <string name="view_announcement_card_negative_action">Non, gracies</string>
   <string name="description_edit_header">Editando</string>
-  <string name="description_edit_text_hint" fuzzy="true">Escribe una descripción</string>
+  <string name="description_edit_text_hint">Descripción del títulu</string>
   <string name="description_edit_save">Guardar</string>
-  <string name="description_edit_add_description" fuzzy="true">Amestar una descripción curtia</string>
+  <string name="description_edit_add_description">Amestar una descripción del títulu</string>
   <string name="description_edit_edit_description">Editar la descripción</string>
   <string name="description_edit_cancel_hint">Encaboxar</string>
   <string name="description_edit_help_title">Ayuda: descripción de títulos</string>
@@ -322,6 +325,8 @@
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata pa escribir descripciones</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">¡Gracies pol to interés continuáu na edición de descripciones! Pa realizar más cambeos, anicia sesión na to cuenta de Wikipedia.</string>
+  <string name="description_edit_license_notice">Al camudar la descripción del títulu, aceptes les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condiciones d\'usu&lt;/a&gt; y a lliberar ensin torgues les tos contribuciones baxo los términos de la llicencia &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Guardóse la descripción</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
@@ -334,4 +339,20 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente, una llinia; ente dos y doce palabres</string>
   <string name="description_edit_tutorial_button_label_start_editing">Principiar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, prometo a nun faer mal usu d\'esta carauterística.</string>
+  <string name="description_edit_help_about_title">Tocante a</string>
+  <string name="description_edit_help_description">Les descripciones de títulos resumen un artículu p\'ayudar a que los llectores entiendan la tema d\'una güeyada.</string>
+  <string name="description_edit_help_tips">Gabitos pa crear descripciones</string>
+  <string name="description_edit_help_tips_description">Idealmente, les descripciones tendríen de caber n\'una llinia, y tener ente dos y dolce palabres. Nun tán en mayúscules, nun siendo que la primera palabra sía un nome propiu.</string>
+  <string name="description_edit_help_tips_examples">Por casu:</string>
+  <string name="description_edit_help_tips_example1">pintura de Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">descripción del títulu pa un artículu sobro la Mona Lisa</string>
+  <string name="description_edit_help_tips_example2">El monte más altu de la tierra</string>
+  <string name="description_edit_help_tips_example2_hint">descripción del títulu pa un artículu sobro\'l Monte Everest</string>
+  <string name="description_edit_help_more_info">Más información</string>
+  <string name="description_edit_help_meta_info">Les descripciones almacénense y caltienense\'n Wikidata, un proyectu de la Fundación Wikimedia qu\'apurre una base de datos secundaria, llibre, collaborativa y multillingüe, que da encontu a Wikipedia y a otros proyectos.</string>
+  <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
+  <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
+  <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">la to contribución paecía un esperimentu o vandalismu.</string>
+  <string name="description_edit_revert_history">Si tas interesáu, consulta &lt;a href=\"%1$s\"&gt;l\'historial d\'ediciones&lt;/a&gt;.</string>
 </resources>

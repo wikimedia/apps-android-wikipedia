@@ -282,8 +282,12 @@
     <item quantity="other">%d दिन अघि</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">आज</string>
+  <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
   <string name="description_edit_header">सम्पादन गर्दै</string>
   <string name="description_edit_text_hint" fuzzy="true">कुनै विवरण लेख्नुहोस्!</string>
   <string name="description_edit_save">सङ्ग्रह गर्नुहोस्</string>
   <string name="description_edit_add_description" fuzzy="true">छोटो विवरण थप्नुहोस्</string>
+  <string name="description_edit_cancel_hint">रद्द गर्नुहोस्</string>
+  <string name="description_edit_success_done">भयो</string>
+  <string name="description_edit_tutorial_button_label_continue">जारी राख्नुहोस्</string>
 </resources>
