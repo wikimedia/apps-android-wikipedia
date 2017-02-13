@@ -38,6 +38,7 @@ public class DescriptionEditClient {
     public interface Callback {
         void success(@NonNull Call<DescriptionEdit> call);
         void abusefilter(@NonNull Call<DescriptionEdit> call, @Nullable String code, @Nullable String info);
+        void invalidLogin(@NonNull Call<DescriptionEdit> call, @NonNull Throwable caught);
         void failure(@NonNull Call<DescriptionEdit> call, @NonNull Throwable caught);
     }
 
@@ -111,14 +112,17 @@ public class DescriptionEditClient {
     private void handleError(@NonNull Call<DescriptionEdit> call, @NonNull DescriptionEdit body,
                              @NonNull Callback cb) {
         MwServiceError error = body.getError();
-        if (error != null && error.hasMessageName(ABUSEFILTER_DISALLOWED)) {
+        String info = body.info();
+        RuntimeException exception = new RuntimeException(info != null
+                ? info : "An unknown error occurred");
+
+        if (body.badLoginState() || body.badToken()) {
+            cb.invalidLogin(call, exception);
+        } else if (error != null && error.hasMessageName(ABUSEFILTER_DISALLOWED)) {
             cb.abusefilter(call, ABUSEFILTER_DISALLOWED, error.getMessageHtml(ABUSEFILTER_DISALLOWED));
         } else if (error != null && error.hasMessageName(ABUSEFILTER_WARNING)) {
             cb.abusefilter(call, ABUSEFILTER_WARNING, error.getMessageHtml(ABUSEFILTER_WARNING));
         } else {
-            String info = body.info();
-            RuntimeException exception = new RuntimeException(info != null
-                    ? info : "An unknown error occurred");
             cb.failure(call, RetrofitException.unexpectedError(exception));
         }
     }

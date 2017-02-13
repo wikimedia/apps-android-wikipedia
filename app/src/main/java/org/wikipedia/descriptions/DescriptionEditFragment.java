@@ -163,18 +163,10 @@ public class DescriptionEditFragment extends Fragment {
             editView.setError(null);
             editView.setSaveState(true);
 
+            retries = 0;
             cancelCalls();
 
-            if (User.isLoggedIn()) {
-                refreshLoginTokens(User.getUser(), new RetryCallback() {
-                    @Override
-                    public void retry() { // success callback
-                        requestEditToken();
-                    }
-                });
-            } else {
-                requestEditToken();
-            }
+            requestEditToken();
 
             if (funnel != null) {
                 funnel.logSaveAttempt();
@@ -193,17 +185,7 @@ public class DescriptionEditFragment extends Fragment {
                         @Override public void failure(@NonNull Call<CsrfToken> call,
                                                       @NonNull Throwable caught) {
                             L.w("could not get edit token: ", caught);
-                            if (retries < MAX_RETRIES && User.getUser() != null) {
-                                retries++;
-                                refreshLoginTokens(User.getUser(), new RetryCallback() {
-                                    @Override public void retry() {
-                                        L.i("retrying...");
-                                        requestEditToken();
-                                    }
-                                });
-                            } else {
-                                editFailed(caught);
-                            }
+                            retryWithLogin(caught);
                         }
                     });
         }
@@ -211,17 +193,24 @@ public class DescriptionEditFragment extends Fragment {
         /**
          * Refresh all tokens/cookies, then retry the previous request.
          * This is needed when the edit token was not retrieved because the login session expired.
-         *
-         * @param user user info to be able to log in
-         * @param retryCallback a repeat of the action which failed before
-         * @throws IllegalArgumentException if user is not logged in
          */
-        private void refreshLoginTokens(User user, @NonNull RetryCallback retryCallback) {
-            WikipediaApp app = WikipediaApp.getInstance();
-            app.getCsrfTokenStorage().clearAllTokens();
-            app.getCookieManager().clearAllCookies();
+        private void retryWithLogin(@NonNull Throwable caught) {
+            if (retries < MAX_RETRIES && User.getUser() != null) {
+                retries++;
 
-            login(user, retryCallback);
+                WikipediaApp app = WikipediaApp.getInstance();
+                app.getCsrfTokenStorage().clearAllTokens();
+                app.getCookieManager().clearAllCookies();
+
+                login(User.getUser(), new RetryCallback() {
+                    @Override public void retry() {
+                        L.i("retrying...");
+                        requestEditToken();
+                    }
+                });
+            } else {
+                editFailed(caught);
+            }
         }
 
         private void login(@NonNull final User user, @NonNull final RetryCallback retryCallback) {
@@ -277,6 +266,11 @@ public class DescriptionEditFragment extends Fragment {
                             if (funnel != null) {
                                 funnel.logAbuseFilterWarning(code);
                             }
+                        }
+
+                        @Override public void invalidLogin(@NonNull Call<DescriptionEdit> call,
+                                                           @NonNull Throwable caught) {
+                            retryWithLogin(caught);
                         }
 
                         @Override public void failure(@NonNull Call<DescriptionEdit> call,

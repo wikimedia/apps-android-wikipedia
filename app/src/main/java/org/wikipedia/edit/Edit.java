@@ -15,10 +15,6 @@ class Edit extends MwPostResponse {
         return edit != null;
     }
 
-    boolean badLoginState() {
-        return "assertuserfailed".equals(code());
-    }
-
     class Result {
         @SuppressWarnings("unused") @Nullable private String result;
         @SuppressWarnings("unused") private int newrevid;
