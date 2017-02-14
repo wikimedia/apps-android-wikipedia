@@ -7,6 +7,7 @@ import com.google.gson.stream.MalformedJsonException;
 import org.junit.Test;
 import org.wikipedia.captcha.CaptchaClient.Callback;
 import org.wikipedia.captcha.CaptchaClient.Service;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.test.MockWebServerTest;
 
@@ -31,6 +32,16 @@ public class CaptchaClientTest extends MockWebServerTest {
 
         server().takeRequest();
         assertCallbackSuccess(call, cb, expected);
+    }
+
+    @Test public void testRequestResponseApiError() throws Throwable {
+        enqueueFromFile("api_error.json");
+
+        Callback cb = mock(Callback.class);
+        Call<Captcha> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackFailure(call, cb, MwException.class);
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {

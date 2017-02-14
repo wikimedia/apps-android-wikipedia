@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
@@ -51,13 +52,13 @@ public class CsrfTokenStorage {
 
         new CsrfTokenClient().request(wiki, new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<CsrfToken> call, @NonNull String token) {
+            public void success(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull String token) {
                 token(wiki, token);
                 callback.onTokenRetrieved(token);
             }
 
             @Override
-            public void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable caught) {
+            public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull Throwable caught) {
                 callback.onTokenFailed(caught);
             }
         });

@@ -29,6 +29,15 @@ public class EntityClientTest extends MockWebServerTest {
         verify(cb, never()).failure(any(Throwable.class));
     }
 
+    @Test public void testRequestResponseApiError() throws Throwable {
+        enqueueFromFile("api_error.json");
+        EntityClient.LabelCallback cb = mock(EntityClient.LabelCallback.class);
+        request(cb, "Q123", "en");
+        server().takeRequest();
+        verify(cb, never()).success(any(String.class));
+        verify(cb).failure(any(Throwable.class));
+    }
+
     @Test public void testRequestLabelInvalidLang() throws Throwable {
         enqueueFromFile("wikidata_entity_label.json");
         EntityClient.LabelCallback cb = mock(EntityClient.LabelCallback.class);

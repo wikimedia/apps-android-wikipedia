@@ -6,6 +6,7 @@ import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -123,7 +124,8 @@ public class DescriptionEditClient {
         } else if (error != null && error.hasMessageName(ABUSEFILTER_WARNING)) {
             cb.abusefilter(call, ABUSEFILTER_WARNING, error.getMessageHtml(ABUSEFILTER_WARNING));
         } else {
-            cb.failure(call, RetrofitException.unexpectedError(exception));
+            // noinspection ConstantConditions
+            cb.failure(call, new MwException(error));
         }
     }
 

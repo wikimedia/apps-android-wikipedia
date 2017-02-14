@@ -83,12 +83,12 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     private void requestToken() {
         new CsrfTokenClient().request(wiki, new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<CsrfToken> call, @NonNull String token) {
+            public void success(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull String token) {
                 app().getCsrfTokenStorage().token(wiki, token);
             }
 
             @Override
-            public void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable caught) {
+            public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull Throwable caught) {
                 // Don't worry about it; will be retried next time.
                 L.w(caught);
             }

@@ -293,7 +293,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         editSummaryFragment.saveSummary();
         new CsrfTokenClient().request(title.getWikiSite(), new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<CsrfToken> call, @NonNull String token) {
+            public void success(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull String token) {
                 String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
                 // Summaries are plaintext, so remove any HTML that's made its way into the summary
@@ -368,7 +368,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             }
 
             @Override
-            public void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable caught) {
+            public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull Throwable caught) {
                 // This is a simple, static API call and an API error is highly unlikely.
                 // In the event of failure, it's likely a network issue.
                 FeedbackUtil.showError(EditSectionActivity.this, caught);

@@ -6,7 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.descriptions.DescriptionEditClient.Callback;
 import org.wikipedia.descriptions.DescriptionEditClient.Service;
 import org.wikipedia.page.Page;
@@ -66,6 +66,16 @@ public class DescriptionEditClientTest extends MockWebServerTest {
                 "This action has been automatically identified as harmful, and therefore disallowed.\nIf you believe your action was constructive, please inform an administrator of what you were trying to do.");
     }
 
+    @Test public void testRequestResponseApiError() throws Throwable {
+        enqueueFromFile("api_error.json");
+
+        Callback cb = mock(Callback.class);
+        Call<DescriptionEdit> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackFailure(call, cb, MwException.class);
+    }
+
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueueFromFile("description_edit_unknown_site.json");
 
@@ -73,7 +83,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         Call<DescriptionEdit> call = request(cb);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, RetrofitException.class);
+        assertCallbackFailure(call, cb, MwException.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {

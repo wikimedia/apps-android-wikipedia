@@ -7,6 +7,8 @@ import com.google.gson.stream.MalformedJsonException;
 import org.junit.Test;
 import org.wikipedia.csrf.CsrfTokenClient.Callback;
 import org.wikipedia.csrf.CsrfTokenClient.Service;
+import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.test.MockWebServerTest;
 
@@ -22,23 +24,32 @@ import static org.mockito.Mockito.verify;
 public class CsrfTokenClientTest extends MockWebServerTest {
     @NonNull private final CsrfTokenClient subject = new CsrfTokenClient();
 
-    @Test
-    public void testRequestSuccess() throws Throwable {
+    @Test public void testRequestSuccess() throws Throwable {
         String expected = "b6f7bd58c013ab30735cb19ecc0aa08258122cba+\\";
         enqueueFromFile("edittoken.json");
 
         Callback cb = mock(Callback.class);
-        Call<CsrfToken> call = request(cb);
+        Call<MwQueryResponse<CsrfToken>> call = request(cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb, expected);
+    }
+
+    @Test public void testRequestResponseApiError() throws Throwable {
+        enqueueFromFile("api_error.json");
+
+        Callback cb = mock(Callback.class);
+        Call<MwQueryResponse<CsrfToken>> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackFailure(call, cb, MwException.class);
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
 
         Callback cb = mock(Callback.class);
-        Call<CsrfToken> call = request(cb);
+        Call<MwQueryResponse<CsrfToken>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, RetrofitException.class);
@@ -48,27 +59,29 @@ public class CsrfTokenClientTest extends MockWebServerTest {
         server().enqueue("'");
 
         Callback cb = mock(Callback.class);
-        Call<CsrfToken> call = request(cb);
+        Call<MwQueryResponse<CsrfToken>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackSuccess(@NonNull Call<CsrfToken> call, @NonNull Callback cb,
+    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse<CsrfToken>> call,
+                                       @NonNull Callback cb,
                                        @NonNull String expected) {
         verify(cb).success(eq(call), eq(expected));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackFailure(@NonNull Call<CsrfToken> call, @NonNull Callback cb,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<CsrfToken>> call,
+                                       @NonNull Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
         verify(cb, never()).success(any(Call.class), any(String.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<CsrfToken> request(@NonNull Callback cb) {
+    private Call<MwQueryResponse<CsrfToken>> request(@NonNull Callback cb) {
         return subject.request(service(Service.class), cb);
     }
 }
