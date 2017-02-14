@@ -14,6 +14,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.UnsupportedEncodingException;
@@ -284,7 +285,7 @@ public class PageTitle implements Parcelable {
     }
 
     public String getPrefixedText() {
-        return namespace == null ? getText() : namespace + ":" + getText();
+        return namespace == null ? getText() : StringUtil.addUnderscores(namespace) + ":" + getText();
     }
 
     /**
