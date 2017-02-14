@@ -263,6 +263,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                 progressDialog.dismiss();
                 firstStepToken = token;
                 twoFactorText.setVisibility(View.VISIBLE);
+                twoFactorText.requestFocus();
                 FeedbackUtil.showError(LoginActivity.this, caught);
             }
 
