@@ -28,17 +28,17 @@ import retrofit2.http.Query;
 
 public class DefaultUserOptionDataClient implements UserOptionDataClient {
     @NonNull private final WikiSite wiki;
-    @NonNull private final Client client;
+    @NonNull private final Service service;
 
     public DefaultUserOptionDataClient(@NonNull WikiSite wiki) {
         this.wiki = wiki;
-        client = RetrofitFactory.newInstance(wiki).create(Client.class);
+        service = RetrofitFactory.newInstance(wiki).create(Service.class);
     }
 
     @NonNull
     @Override
     public UserInfo get() throws IOException {
-        Response<MwQueryResponse<QueryUserInfo>> rsp = client.get().execute();
+        Response<MwQueryResponse<QueryUserInfo>> rsp = service.get().execute();
         if (rsp.isSuccessful() && rsp.body().success()) {
             //noinspection ConstantConditions
             return rsp.body().query().userInfo();
@@ -51,7 +51,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
     @Override
     public void post(@NonNull UserOption option) throws IOException {
-        Response<PostResponse> rsp = client.post(getToken(), option.key(), option.val()).execute();
+        Response<PostResponse> rsp = service.post(getToken(), option.key(), option.val()).execute();
         if (rsp.isSuccessful()) {
             rsp.body().check(wiki);
             return;
@@ -65,7 +65,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
     @Override
     public void delete(@NonNull String key) throws IOException {
-        client.delete(getToken(), key).execute().body().check(wiki);
+        service.delete(getToken(), key).execute().body().check(wiki);
     }
 
     @NonNull private String getToken() throws IOException {
@@ -99,7 +99,8 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         return WikipediaApp.getInstance();
     }
 
-    private interface Client {
+    // todo: rename service
+    private interface Service {
         String ACTION = "w/api.php?format=json&formatversion=2&action=";
 
         @GET(ACTION + "query&meta=userinfo&uiprop=options")
