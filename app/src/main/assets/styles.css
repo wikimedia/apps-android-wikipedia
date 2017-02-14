@@ -133,18 +133,10 @@ body {
 }
 .content .thumb {
   margin: 0.6em 0;
-  /* bug 20030 */
 }
 .content .thumb .thumbinner {
   margin: 0 auto;
   max-width: 100% !important;
-}
-.content .thumb .noresize {
-  width: 100%;
-  overflow-x: auto;
-}
-.content .thumb .noresize img {
-  max-width: none !important;
 }
 .content .thumbcaption {
   margin: 0.5em 0 0;
@@ -156,6 +148,9 @@ body {
 }
 .content .thumbborder {
   border: 1px solid #c8ccd1;
+}
+.content .magnify {
+  display: none;
 }
 .content img {
   vertical-align: middle;
@@ -180,8 +175,12 @@ body {
   max-width: 100% !important;
   height: auto !important;
 }
-.content div.magnify {
-  display: none;
+.content .noresize {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.content .noresize a > img {
+  max-width: none !important;
 }
 h1 {
   font-size: 1.7em;
