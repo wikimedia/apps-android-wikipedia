@@ -18,12 +18,10 @@ import android.view.ViewGroup;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.BuildConfig;
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
@@ -31,7 +29,6 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.login.LoginActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
@@ -70,6 +67,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
+        void onLoginRequested();
         @NonNull View getOverflowMenuAnchor();
     }
 
@@ -353,8 +351,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private class OverflowCallback implements ExploreOverflowView.Callback {
         @Override
         public void loginClick() {
-            startActivityForResult(LoginActivity.newIntent(getContext(), LoginFunnel.SOURCE_NAV),
-                    Constants.ACTIVITY_REQUEST_LOGIN);
+            if (getCallback() != null) {
+                getCallback().onLoginRequested();
+            }
         }
 
         @Override

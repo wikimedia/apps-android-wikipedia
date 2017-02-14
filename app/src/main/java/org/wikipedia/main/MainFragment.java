@@ -31,6 +31,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
+import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -272,6 +273,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         startActivityForResult(GalleryActivity.newIntent(getActivity(), card.age(),
                 card.filename(), card.baseImage(), card.wikiSite(),
                 GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE), Constants.ACTIVITY_REQUEST_GALLERY);
+    }
+
+    @Override
+    public void onLoginRequested() {
+        startActivityForResult(LoginActivity.newIntent(getContext(), LoginFunnel.SOURCE_NAV),
+                Constants.ACTIVITY_REQUEST_LOGIN);
     }
 
     @NonNull
