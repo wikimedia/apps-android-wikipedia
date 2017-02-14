@@ -10,6 +10,9 @@
     <string name="no">No</string>
 
     <string name="search_hint">Search Wikipedia</string>
+    <string name="search_hint_search_history">Search history</string>
+    <string name="search_hint_search_my_lists">Search my lists</string>
+    <string name="search_hint_search_reading_list">Search reading list</string>
     <string name="nav_item_history">History</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>

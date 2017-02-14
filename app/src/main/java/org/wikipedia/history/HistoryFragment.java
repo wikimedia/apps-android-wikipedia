@@ -393,6 +393,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             historyEmptyMessage.setVisibility(View.VISIBLE);
             actionMode = null;
         }
+
+        @Override
+        protected String getSearchHintString() {
+            return getContext().getResources().getString(R.string.search_hint_search_history);
+        }
     }
 
     @Nullable private Callback callback() {

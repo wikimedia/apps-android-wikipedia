@@ -18,7 +18,8 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
         mode.setTag(ACTION_MODE_TAG);
         mode.getMenuInflater().inflate(R.menu.menu_action_mode_search, menu);
         searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search_view));
-        searchView.setIconifiedByDefault(false);
+        searchView.setIconified(false);
+        searchView.setQueryHint(getSearchHintString());
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -33,6 +34,8 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
         });
         return true;
     }
+
+    protected abstract String getSearchHintString();
 
     protected abstract void onQueryChange(String s);
 
