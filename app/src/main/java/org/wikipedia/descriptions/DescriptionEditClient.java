@@ -44,8 +44,7 @@ public class DescriptionEditClient {
 
     public static boolean isEditAllowed(@NonNull Page page) {
         PageProperties props = page.getPageProperties();
-        return props.canEdit()
-                && !TextUtils.isEmpty(props.getWikiBaseItem())
+        return !TextUtils.isEmpty(props.getWikiBaseItem())
                 && (ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode()) || ReleaseUtil.isPreBetaRelease());
     }
 
