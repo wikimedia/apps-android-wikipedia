@@ -36,11 +36,18 @@ import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static org.wikipedia.readinglist.ReadingList.SORT_BY_NAME_ASC;
+import static org.wikipedia.readinglist.ReadingList.SORT_BY_NAME_DESC;
+import static org.wikipedia.readinglist.ReadingList.SORT_BY_RECENT_ASC;
+import static org.wikipedia.readinglist.ReadingList.SORT_BY_RECENT_DESC;
 
 public class ReadingListDetailView extends LinearLayout {
     @BindView(R.id.reading_list_title) TextView titleView;
@@ -127,10 +134,7 @@ public class ReadingListDetailView extends LinearLayout {
     }
 
     public void setSort(int sortMode) {
-        if (readingList == null) {
-            return;
-        }
-        readingList.setSort(sortMode);
+        sortPages(sortMode);
         adapter.notifyDataSetChanged();
     }
 
@@ -182,6 +186,45 @@ public class ReadingListDetailView extends LinearLayout {
             public void onError(Throwable e) {
             }
         });
+    }
+
+    private void sortPages(int sortMode) {
+        switch (sortMode) {
+            case SORT_BY_NAME_ASC:
+                Collections.sort(displayedPages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return lhs.title().compareTo(rhs.title());
+                    }
+                });
+                break;
+            case SORT_BY_NAME_DESC:
+                Collections.sort(displayedPages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return rhs.title().compareTo(lhs.title());
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_ASC:
+                Collections.sort(displayedPages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return ((Long) lhs.atime()).compareTo(rhs.atime());
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_DESC:
+                Collections.sort(displayedPages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return ((Long) rhs.atime()).compareTo(lhs.atime());
+                    }
+                });
+                break;
+            default:
+                break;
+        }
     }
 
     private class EditButtonClickListener implements OnClickListener {
@@ -261,7 +304,7 @@ public class ReadingListDetailView extends LinearLayout {
     private final class ReadingListPageItemAdapter extends RecyclerView.Adapter<ReadingListPageItemHolder> {
         @Override
         public int getItemCount() {
-            return displayedPages == null ? 0 : displayedPages.size();
+            return displayedPages.size();
         }
 
         @Override

@@ -21,7 +21,6 @@ public final class ReadingList extends ReadingListRow {
 
     @NonNull private final List<ReadingListPage> pages;
     private boolean emptyListSavePagesState = true;
-    private int sortMode = SORT_BY_NAME_ASC;
 
     public static ReadingList fromCursor(@NonNull Cursor cursor) {
         ReadingListRow list = ReadingList.DATABASE_TABLE.fromCursor(cursor);
@@ -73,7 +72,6 @@ public final class ReadingList extends ReadingListRow {
             }
         }
         pages.add(0, page);
-        sortPages();
     }
 
     public void setTitle(@NonNull String title) {
@@ -105,54 +103,9 @@ public final class ReadingList extends ReadingListRow {
         return true;
     }
 
-    public void setSort(int sortMode) {
-        this.sortMode = sortMode;
-        sortPages();
-    }
-
-    private void sortPages() {
-        switch (sortMode) {
-            case SORT_BY_NAME_ASC:
-                Collections.sort(pages, new Comparator<ReadingListPage>() {
-                    @Override
-                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
-                        return lhs.title().compareTo(rhs.title());
-                    }
-                });
-                break;
-            case SORT_BY_NAME_DESC:
-                Collections.sort(pages, new Comparator<ReadingListPage>() {
-                    @Override
-                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
-                        return rhs.title().compareTo(lhs.title());
-                    }
-                });
-                break;
-            case SORT_BY_RECENT_ASC:
-                Collections.sort(pages, new Comparator<ReadingListPage>() {
-                    @Override
-                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
-                        return ((Long) lhs.atime()).compareTo(rhs.atime());
-                    }
-                });
-                break;
-            case SORT_BY_RECENT_DESC:
-                Collections.sort(pages, new Comparator<ReadingListPage>() {
-                    @Override
-                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
-                        return ((Long) rhs.atime()).compareTo(lhs.atime());
-                    }
-                });
-                break;
-            default:
-                break;
-        }
-    }
-
     private ReadingList(@NonNull Builder builder) {
         super(builder);
         pages = new ArrayList<>(builder.pages);
-        sortPages();
     }
 
     public static class Builder extends ReadingListRow.Builder<Builder> {
