@@ -8,11 +8,16 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -51,7 +56,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         image(imageUri);
 
         header(card);
-        footer();
+        footer(card);
     }
 
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_text_container})
@@ -91,12 +96,36 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         header(header);
     }
 
-    private void footer() {
-        footer(new ActionFooterView(getContext())
-                .actionIcon(R.drawable.ic_bookmark_border_black_24dp)
-                .actionText(R.string.view_featured_article_footer_save_button_label)
-                .onActionListener(new CardSaveListener())
-                .onShareListener(new CardShareListener()));
+    private void footer(@NonNull FeaturedArticleCard card) {
+        PageTitle title = new PageTitle(card.articleTitle(), card.wikiSite());
+        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(title),
+                new CallbackTask.Callback<ReadingListPage>() {
+                    @Override
+                    public void success(@Nullable ReadingListPage page) {
+                        boolean listContainsTitle = page != null;
+
+                        int actionIcon = listContainsTitle
+                                ? R.drawable.ic_bookmark_white_24dp
+                                : R.drawable.ic_bookmark_border_black_24dp;
+
+                        int actionText = listContainsTitle
+                                ? R.string.view_featured_article_footer_saved_button_label
+                                : R.string.view_featured_article_footer_save_button_label;
+
+                        ActionFooterView footer = new ActionFooterView(getContext())
+                                .actionIcon(actionIcon)
+                                .actionText(actionText)
+                                .onActionListener(new CardSaveListener())
+                                .onShareListener(new CardShareListener());
+
+                        if (listContainsTitle) {
+                            footer.actionIconColor(R.color.foundation_blue);
+                            footer.actionTextColor(R.color.foundation_blue);
+                        }
+
+                        footer(footer);
+                    }
+                });
     }
 
     private void image(@Nullable Uri uri) {

@@ -648,7 +648,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
     }
 
-    // TODO: Update bookmark icon on the page action toolbar
     public void updateBookmark() {
         ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
                 new CallbackTask.Callback<ReadingListPage>() {
