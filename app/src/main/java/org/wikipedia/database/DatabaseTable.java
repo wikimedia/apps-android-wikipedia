@@ -28,13 +28,11 @@ public abstract class DatabaseTable<T> {
 
     protected abstract ContentValues toContentValues(T obj);
 
-    @NonNull
-    public String getTableName() {
+    @NonNull public String getTableName() {
         return tableName;
     }
 
-    @NonNull
-    public Column<?>[] getColumnsAdded(int version) {
+    @NonNull public Column<?>[] getColumnsAdded(int version) {
         return new Column<?>[0];
     }
 
@@ -80,6 +78,10 @@ public abstract class DatabaseTable<T> {
 
     protected abstract int getDBVersionIntroducedAt();
 
+    protected int getDBVersionDroppedAt() {
+        return 0;
+    }
+
     public void upgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
         if (fromVersion < getDBVersionIntroducedAt()) {
             createTables(db);
@@ -87,6 +89,11 @@ public abstract class DatabaseTable<T> {
 
         for (int ver = Math.max(getDBVersionIntroducedAt(), fromVersion) + 1; ver <= toVersion; ++ver) {
             L.i("ver=" + ver);
+
+            if (ver == getDBVersionDroppedAt()) {
+                dropTable(db);
+                break;
+            }
 
             for (Column<?> column : getColumnsAdded(ver)) {
                 String alterTableString = "ALTER TABLE " + tableName + " ADD COLUMN " + column;
@@ -98,8 +105,7 @@ public abstract class DatabaseTable<T> {
         }
     }
 
-    @NonNull
-    public Uri getBaseContentURI() {
+    @NonNull public Uri getBaseContentURI() {
         return baseContentURI;
     }
 
@@ -110,5 +116,10 @@ public abstract class DatabaseTable<T> {
         L.i("Creating table=" + getTableName());
         Column<?>[] cols = getColumnsAdded(getDBVersionIntroducedAt());
         db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", cols) + " )");
+    }
+
+    private void dropTable(@NonNull SQLiteDatabase db) {
+        db.execSQL("DROP TABLE IF EXISTS " + getTableName());
+        L.i("Dropped table=" + getTableName());
     }
 }
