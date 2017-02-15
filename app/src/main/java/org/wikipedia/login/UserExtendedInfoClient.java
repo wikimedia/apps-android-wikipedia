@@ -3,6 +3,7 @@ package org.wikipedia.login;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.support.v4.util.ArraySet;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -14,7 +15,6 @@ import org.wikipedia.util.log.L;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -123,7 +123,7 @@ class UserExtendedInfoClient {
 
             @Nullable Set<String> getGroupsFor(@NonNull String userName) {
                 if (userName.equals(name) && implicitGroups != null) {
-                    Set<String> groups = new HashSet<>();
+                    Set<String> groups = new ArraySet<>();
                     groups.addAll(Arrays.asList(implicitGroups));
                     return Collections.unmodifiableSet(groups);
                 } else {

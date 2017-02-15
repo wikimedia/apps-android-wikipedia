@@ -2,6 +2,7 @@ package org.wikipedia.json;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.util.ArraySet;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -16,7 +17,6 @@ import org.wikipedia.json.annotations.Required;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -44,7 +44,7 @@ class RequiredFieldsCheckOnReadTypeAdapterFactory implements TypeAdapterFactory 
 
     @NonNull private Set<Field> collectRequiredFields(@NonNull Class<?> clazz) {
         Field[] fields = clazz.getDeclaredFields();
-        Set<Field> required = new HashSet<>();
+        Set<Field> required = new ArraySet<>();
         for (Field field : fields) {
             if (field.isAnnotationPresent(Required.class)) {
                 required.add(field);

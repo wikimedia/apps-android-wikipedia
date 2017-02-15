@@ -2,6 +2,7 @@ package org.wikipedia.database.contract;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.util.ArraySet;
 
 import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.column.CodeEnumColumn;
@@ -18,7 +19,6 @@ import org.wikipedia.readinglist.page.database.disk.DiskColumns;
 import org.wikipedia.readinglist.page.database.disk.DiskStatus;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 @SuppressWarnings("checkstyle:interfaceistype")
@@ -34,7 +34,7 @@ public final class ReadingListPageContract {
         CsvColumn<Set<String>> LIST_KEYS = new CsvColumn<Set<String>>(TABLE_PAGE, "listKeys",
                 "text not null") {
             @NonNull @Override protected Set<String> val(@NonNull Collection<String> strs) {
-                return new HashSet<>(strs);
+                return new ArraySet<>(strs);
             }
 
             @NonNull @Override protected Collection<String> put(@NonNull Set<String> row) {
