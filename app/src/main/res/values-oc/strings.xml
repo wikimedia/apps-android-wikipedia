@@ -222,6 +222,7 @@
   <string name="reading_list_edit_ok">D\'acòrdi</string>
   <string name="reading_list_edit_cancel">Anullar</string>
   <string name="reading_list_delete_confirm">Sètz segur que volètz suprimir aquesta lista de lectura ?</string>
+  <string name="reading_lists_empty">Pas cap de lista de lectura aicí.</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example2">Animals favorits</string>
   <string name="reading_lists_onboarding_example3">Espaci !</string>
@@ -234,6 +235,8 @@
   <string name="notification_talk_title">Messatge novèl sus Wikipèdia</string>
   <string name="notification_talk">%1$s a daissat un messatge sus vòstra pagina de discussion « %2$s »</string>
   <string name="notification_reverted_title">Modificacion anullada</string>
+  <string name="notification_thanks_title">Vos an mercejat !</string>
+  <string name="notification_thanks">%1$s vos a mercejat per vòstra modificacion sus la pagina « %2$s »</string>
   <string name="view_continue_reading_card_title">Contunhar de legir</string>
   <string name="view_because_you_read_card_title">Perque avètz legit</string>
   <string name="view_random_card_title">A l\'azard</string>

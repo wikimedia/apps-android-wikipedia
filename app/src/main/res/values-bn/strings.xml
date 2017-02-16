@@ -282,9 +282,9 @@
   <string name="notification_button_view_edit_history">সম্পাদনার ইতিহাস দেখাও</string>
   <string name="notification_generic_title">উইকিপিড়িয়ার বিজ্ঞপ্তি</string>
   <string name="notification_talk_title">উইকিপিড়িয়ার নতুন বার্তা</string>
-  <string name="notification_talk">%1$sআলাপ পাতায় তোমার বার্তা লিখ%2$s</string>
+  <string name="notification_talk">%1$s আপনার আলাপ পাতার \"%2$s\"-এ একটি বার্তা দিয়েছেন</string>
   <string name="notification_reverted_title">পুনরায় সম্পাদনা করা</string>
-  <string name="notification_reverted">তোমার সম্পাদন করা প্রবন্ধে %2$sপুনঃসম্পাদিত করেছে%1$s</string>
+  <string name="notification_reverted">\"%2$s\"-এ করা আপনার সম্পাদনা %1$s কর্তৃক বাতিল করা হয়েছে।</string>
   <string name="notification_thanks_title">আপনাকে ধন্যবাদ জানানো হয়েছে!</string>
   <string name="notification_thanks">\"%2$s\" পাতায় সম্পাদনার জ‍ন‍্য তোমাকে ধন‍্যবাদ জানিয়েছে %1$s</string>
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
@@ -322,9 +322,10 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/bn</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
   <string name="description_edit_success_saved">বিবরণ সংরক্ষণ করা হয়েছে!</string>
-  <string name="description_edit_success_encouragement">এইমাত্র আপনি উইকিপিড়িয়াকে আরো উত্তম করেছেন সবার জন‍্য</string>
+  <string name="description_edit_success_encouragement">আপনি উইকিপিড়িয়াকে আরো উত্তম করেছেন সবার জন্য</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
   <string name="description_edit_success_did_you_know">আপনি জানেন কি?</string>
+  <string name="description_edit_success_article_edit_hint">আপনি এই অ্যাপটির মাধ্যমেও নিবন্ধ সম্পাদনা করতে পারেন। পরবর্তীতে ^1 আইকনটিতে ক্লিক করে বানান এবং ছোট বাক্য ঠিক করতে চেষ্টা করুন</string>
   <string name="description_edit_tutorial_title_descriptions">শিরোনামের বিবরণ</string>
   <string name="description_edit_tutorial_title_descriptions_summary">পাঠককে এক নজরে বিষয় বুঝতে সাহায্য করার জন্য একটি নিবন্ধের সংক্ষিপ্ত বিবরণ লিখুন</string>
   <string name="description_edit_tutorial_button_label_continue">অগ্রসর হোন</string>

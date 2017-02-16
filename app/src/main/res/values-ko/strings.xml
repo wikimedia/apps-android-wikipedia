@@ -329,9 +329,12 @@
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
   <string name="description_edit_help_about_title">정보</string>
+  <string name="description_edit_help_tips">설명 작성에 대한 도움말</string>
   <string name="description_edit_help_tips_examples">예를 들어:</string>
+  <string name="description_edit_help_tips_example1">레오나르도 다 빈치의 그림</string>
   <string name="description_edit_help_tips_example2">지구상에서 가장 높은 산</string>
   <string name="description_edit_help_more_info">자세한 정보</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
+  <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
 </resources>
