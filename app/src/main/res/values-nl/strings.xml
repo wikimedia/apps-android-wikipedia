@@ -67,6 +67,8 @@
   <string name="nav_item_login">Aanmelden bij Wikipedia</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wachtwoord</string>
+  <string name="login_2fa_hint">Tweetrapsauthenticatie Code</string>
+  <string name="login_2fa_other_workflow_error_msg">Tweetrapsauthenticatie vereist! Keer terug naar de belangrijkste activiteit en log in met uw 2FA token en proberen het vervolgens opnieuw.</string>
   <string name="menu_login">Aanmelden</string>
   <string name="login_activity_title">Aanmelden bij Wikipedia</string>
   <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
   <string name="create_account_passwords_mismatch_error">Wachtwoorden komen niet overeen</string>
   <string name="create_account_email_error">Ongeldig e-mailadres</string>
+  <string name="create_account_username_error">Ongeldige tekens in de gebruikersnaam</string>
   <string name="create_account_generic_error">Het was niet mogelijk een account aan te maken</string>
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Registreren</string>
@@ -310,9 +313,9 @@
   <string name="view_continue_reading_card_subtitle_today">Vandaag</string>
   <string name="view_announcement_card_negative_action">Nee, bedankt</string>
   <string name="description_edit_header">Bezig met bewerken</string>
-  <string name="description_edit_text_hint" fuzzy="true">Geef een beschrijving op!</string>
+  <string name="description_edit_text_hint">Titelbeschrijving</string>
   <string name="description_edit_save">Opslaan</string>
-  <string name="description_edit_add_description" fuzzy="true">Korte beschrijving toevoegen</string>
+  <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
   <string name="description_edit_cancel_hint">Annuleren</string>
   <string name="description_edit_help_title">Hulp: titelbeschrijvingen</string>
@@ -332,4 +335,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealiter één regel, tussen twee en twaalf woorden</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
+  <string name="description_edit_help_about_title">Over</string>
+  <string name="description_edit_help_tips_examples">Bijvoorbeeld:</string>
+  <string name="description_edit_help_tips_example1">schilderij van Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">titelbeschrijving voor een artikel over de Mona Lisa</string>
+  <string name="description_edit_help_tips_example2_hint">titelbeschrijving voor een artikel over de Mount Everest</string>
+  <string name="description_edit_help_more_info">Meer informatie</string>
+  <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
 </resources>

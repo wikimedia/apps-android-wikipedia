@@ -86,7 +86,7 @@
   <string name="create_account_password_repeat_hint">أعد كلمة السر</string>
   <string name="create_account_passwords_mismatch_error">كلمتا السر لا تتطابقان</string>
   <string name="create_account_email_error">عنوان البريد الإلكتروني غير صحيح</string>
-  <string name="create_account_username_error">أحرف غير صالحة في اسم المستخدم</string>
+  <string name="create_account_username_error">أحرف غير صالحة في إسم المستخدم</string>
   <string name="create_account_generic_error">تعذّر إنشاء الحساب</string>
   <string name="create_account_next">التالي</string>
   <string name="create_account_button">أنشئ حسابًا</string>
@@ -237,7 +237,7 @@
   <string name="article_menu_bar_bookmark">أضف هذه المقالة لقائمة قراءة</string>
   <string name="article_menu_bar_share">شارك وصلة المقالة</string>
   <string name="article_menu_bar_navigate">انتقل إلى موقع هذه المقالة</string>
-  <string name="article_header_edit_hint">تعديل...</string>
+  <string name="article_header_edit_hint">تحرير...</string>
   <string name="nav_item_reading_lists">قوائمي</string>
   <string name="reading_list_untitled">غير معنونة</string>
   <string name="reading_list_save_to">احفظ في قائمة القراءة</string>
@@ -275,9 +275,11 @@
   <string name="reading_lists_onboarding_got_it">فهمت</string>
   <string name="reading_lists_onboarding_page_delete">تلميح: اسحب أي صفحة إلى اليسار أو اليمين كي تزيلها من قائمة المطالعة.</string>
   <string name="user_option_sync_label">تفضيلات</string>
-  <string name="notification_button_view_page">عرض الصفحة</string>
+  <string name="notification_button_view_page">أعرض الصفحة</string>
   <string name="notification_button_view_user">التحدث مع المستخدم</string>
-  <string name="notification_button_view_edit_history">عرض تاريخ التعديل</string>
+  <string name="notification_button_view_edit_history">عرض تاريخ التعديل
+
+عرض تاريخ التحرير</string>
   <string name="notification_generic_title">الإشعارات على ويكيبيديا</string>
   <string name="notification_talk_title">رسالة جديدة على ويكيبيديا</string>
   <string name="view_continue_reading_card_title">واصل القراءة</string>
