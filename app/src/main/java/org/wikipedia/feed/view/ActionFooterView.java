@@ -1,9 +1,11 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
+import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -31,9 +33,17 @@ public class ActionFooterView extends FrameLayout {
         return this;
     }
 
+    public void actionIconColor(@ColorRes int color) {
+        actionIcon.setColorFilter(ContextCompat.getColor(getContext(), color));
+    }
+
     public ActionFooterView actionText(@StringRes int resId) {
         actionText.setText(getResources().getString(resId));
         return this;
+    }
+
+    public void actionTextColor(@ColorRes int color) {
+        actionText.setTextColor(ContextCompat.getColor(getContext(), color));
     }
 
     public ActionFooterView onActionListener(@Nullable OnClickListener listener) {

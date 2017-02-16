@@ -47,6 +47,7 @@
     <!-- Experimental English-only features -->
     <string name="view_featured_article_card_title">Featured article</string>
     <string name="view_featured_article_footer_save_button_label">Save</string>
+    <string name="view_featured_article_footer_saved_button_label">Saved</string>
 
     <!-- /The Feed -->
 
