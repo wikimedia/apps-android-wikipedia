@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.PasswordTextInput;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.EditText;
@@ -20,7 +19,6 @@ import com.mobsandgeeks.saripaar.annotation.Pattern;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.captcha.CaptchaHandler;
@@ -285,12 +283,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                         FeedbackUtil.showError(CreateAccountActivity.this, caught);
                     }
                 });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
-                || super.onOptionsItemSelected(item);
     }
 
     @Override

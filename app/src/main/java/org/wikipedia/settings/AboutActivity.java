@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.method.LinkMovementMethod;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -65,12 +63,6 @@ public class AboutActivity extends ThemedActionBarActivity {
         }
 
         makeEverythingClickable((ViewGroup) findViewById(R.id.about_container));
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
-                || super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -1,11 +1,9 @@
 package org.wikipedia.settings;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.util.StringUtil;
 
@@ -36,12 +34,6 @@ public class LicenseActivity extends ThemedActionBarActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
-                || super.onOptionsItemSelected(item);
     }
 
     @Override

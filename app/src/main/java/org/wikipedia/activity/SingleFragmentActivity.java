@@ -7,7 +7,6 @@ import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.view.MenuItem;
 
 import org.wikipedia.R;
 
@@ -24,12 +23,6 @@ public abstract class SingleFragmentActivity<T extends Fragment> extends ThemedA
         if (!isFragmentCreated()) {
             addFragment(createFragment());
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
-                || super.onOptionsItemSelected(item);
     }
 
     protected void addFragment(T fragment) {

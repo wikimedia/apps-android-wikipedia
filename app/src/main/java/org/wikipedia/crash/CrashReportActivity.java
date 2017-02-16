@@ -2,9 +2,9 @@ package org.wikipedia.crash;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.SingleFragmentActivity;
 
 public class CrashReportActivity extends SingleFragmentActivity<CrashReportFragment>
@@ -23,7 +23,7 @@ public class CrashReportActivity extends SingleFragmentActivity<CrashReportFragm
     @Override
     public void onStartOver() {
         int flags = Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK;
-        Intent intent = ActivityUtil.getLaunchIntent(this).addFlags(flags);
+        Intent intent = getLaunchIntent().addFlags(flags);
         startActivity(intent);
         finish();
     }
@@ -31,5 +31,9 @@ public class CrashReportActivity extends SingleFragmentActivity<CrashReportFragm
     @Override
     public void onQuit() {
         finish();
+    }
+
+    @Nullable private Intent getLaunchIntent() {
+        return getPackageManager().getLaunchIntentForPackage(getPackageName());
     }
 }
