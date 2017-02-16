@@ -47,7 +47,6 @@ import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
@@ -649,20 +648,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
                 || getIntent().getAction().equals(Intent.ACTION_VIEW);
     }
 
-    private class EventBusMethods {
-        @Subscribe
-        public void onChangeTextSize(ChangeTextSizeEvent event) {
-            if (pageFragment != null && pageFragment.getWebView() != null) {
-                pageFragment.updateFontSize();
-            }
-        }
-
-        @Subscribe
-        public void onChangeTheme(ThemeChangeEvent event) {
-            PageActivity.this.recreate();
-        }
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -864,5 +849,13 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Nullable private SearchFragment searchFragment() {
         return (SearchFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.activity_page_container);
+    }
+
+    private class EventBusMethods {
+        @Subscribe public void onChangeTextSize(ChangeTextSizeEvent event) {
+            if (pageFragment != null && pageFragment.getWebView() != null) {
+                pageFragment.updateFontSize();
+            }
+        }
     }
 }

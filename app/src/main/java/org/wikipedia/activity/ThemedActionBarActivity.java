@@ -1,6 +1,5 @@
 package org.wikipedia.activity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,14 +13,13 @@ import com.squareup.otto.Subscribe;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.events.WikipediaZeroEnterEvent;
+import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.settings.Prefs;
 
 import java.lang.reflect.Field;
 
 public abstract class ThemedActionBarActivity extends BaseActivity {
-    private boolean mDestroyed;
     private EventBusMethods busMethods;
 
     @Override
@@ -31,6 +29,8 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
         busMethods = new EventBusMethods();
         WikipediaApp.getInstance().getBus().register(busMethods);
 
+        // todo: move this down into subclasses or always support all orientations and move this up
+        //       to BaseActivity
         requestFullUserOrientation();
 
         setTheme();
@@ -41,6 +41,7 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
         }
         forceOverflowMenuIcon(this);
 
+        // todo: move up to BaseActivity or down
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(WikipediaApp.getInstance()).run();
     }
@@ -52,23 +53,15 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
 
         // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
         // less probable.
+        // todo: can we move this method up to BaseActivity? however, CrashReportActivity should not
+        //       call this method
         Prefs.crashedBeforeActivityCreated(false);
     }
 
-    @Override
-    public void onDestroy() {
+    @Override public void onDestroy() {
         WikipediaApp.getInstance().getBus().unregister(busMethods);
+        busMethods = null;
         super.onDestroy();
-        mDestroyed = true;
-    }
-
-    @Override
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public boolean isDestroyed() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            return super.isDestroyed();
-        }
-        return mDestroyed;
     }
 
     protected void setTheme() {
@@ -101,8 +94,8 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
         } catch (NoSuchFieldException ignore) { }
     }
 
-    // Hack for https://phabricator.wikimedia.org/T78117: onKeyDown + onKeyUp
-    // Consider removing once updating appcompat-v7.
+    // Hack for https://phabricator.wikimedia.org/T78117 (Dec 2014): onKeyDown + onKeyUp
+    // todo: Consider removing once updating appcompat-v7.
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -126,13 +119,8 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
     }
 
     private class EventBusMethods {
-        @Subscribe
-        public void onZeroEnter(WikipediaZeroEnterEvent event) {
-            if (Prefs.isZeroTutorialEnabled()) {
-                Prefs.setZeroTutorialEnabled(false);
-                WikipediaApp.getInstance().getWikipediaZeroHandler()
-                        .showZeroTutorialDialog(ThemedActionBarActivity.this);
-            }
+        @Subscribe public void onThemeChange(ThemeChangeEvent event) {
+            ThemedActionBarActivity.this.recreate();
         }
     }
 }
