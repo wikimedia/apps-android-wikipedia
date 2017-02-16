@@ -119,8 +119,8 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
     }
 
     private class EventBusMethods {
-        @Subscribe public void onThemeChange(ThemeChangeEvent event) {
-            ThemedActionBarActivity.this.recreate();
+        @Subscribe public void on(ThemeChangeEvent event) {
+            recreate();
         }
     }
 }
