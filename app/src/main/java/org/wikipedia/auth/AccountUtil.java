@@ -3,7 +3,6 @@ package org.wikipedia.auth;
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -56,7 +55,6 @@ public final class AccountUtil {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     public static void removeAccount() {
         Account account = account();
         if (account != null) {

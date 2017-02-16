@@ -2,7 +2,6 @@ package org.wikipedia.views;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -26,12 +25,11 @@ import org.wikipedia.util.DimenUtil;
 import java.lang.reflect.Field;
 
 public final class ViewUtil {
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    @SuppressWarnings("deprecation")
     public static void setBackgroundDrawable(View view, Drawable drawable) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackground(drawable);
         } else {
+            //noinspection deprecation
             view.setBackgroundDrawable(drawable);
         }
     }

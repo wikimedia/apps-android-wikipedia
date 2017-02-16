@@ -1,6 +1,5 @@
 package org.wikipedia;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.database.ContentObserver;
@@ -581,7 +580,6 @@ public class WikipediaApp extends Application {
         };
     }
 
-    @TargetApi(Build.VERSION_CODES.KITKAT)
     private void enableWebViewDebugging() {
         if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);

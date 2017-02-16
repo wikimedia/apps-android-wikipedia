@@ -115,7 +115,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     };
 
     @Override
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();

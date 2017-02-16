@@ -1,7 +1,6 @@
 package org.wikipedia.main;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
@@ -183,7 +182,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     public void handleIntent(Intent intent) {
         IntentFunnel funnel = new IntentFunnel(WikipediaApp.getInstance());
         if (Intent.ACTION_SEND.equals(intent.getAction())

@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -119,9 +118,7 @@ public class FindInPageActionProvider extends ActionProvider {
         return fragment.getWebView() != null;
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void findInPage(String s) {
-        // to make it stop complaining
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             fragment.getWebView().setFindListener(new FindListener() {
                 @Override
