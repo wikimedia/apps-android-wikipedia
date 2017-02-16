@@ -51,7 +51,7 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
                         String name = defaultString(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
-                        if (!findPreference(R.string.preference_key_language).getSummary().equals(name)) {
+                        if (getActivity() != null && !findPreference(R.string.preference_key_language).getSummary().equals(name)) {
                             findPreference(R.string.preference_key_language).setSummary(name);
                             getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
                         }
