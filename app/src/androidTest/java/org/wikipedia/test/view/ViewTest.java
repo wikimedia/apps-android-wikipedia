@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
-import android.os.LocaleList;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -24,6 +23,7 @@ import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.util.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -94,7 +94,6 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         this.fontScale = fontScale;
         this.theme = theme;
         ctx = new ContextThemeWrapper(getTargetContext(), theme.getResourceId());
-        Locale.setDefault(locale);
         config();
     }
 
@@ -164,21 +163,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         Configuration cfg = new Configuration(ctx.getResources().getConfiguration());
         cfg.screenWidthDp = widthDp;
         cfg.fontScale = fontScale.multiplier();
-        setConfigLocale(cfg, locale);
-
-        ctx.getResources().updateConfiguration(cfg, null);
-    }
-
-    private void setConfigLocale(@NonNull Configuration config, @NonNull Locale locale) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            config.setLocales(new LocaleList(locale));
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            config.setLocale(locale);
-            config.setLayoutDirection(locale);
-        } else {
-            //noinspection deprecation
-            config.locale = locale;
-        }
+        ResourceUtil.setLocale(ctx, cfg, locale);
     }
 
     // todo: identify method name by @Theory / @Test annotation instead of depth and remove repeated
