@@ -20,7 +20,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -30,7 +29,6 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.dataclient.WikiSite;
@@ -305,12 +303,6 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
             progressBar.setProgress(value);
         }
         progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
-                || super.onOptionsItemSelected(item);
     }
 
     @Override

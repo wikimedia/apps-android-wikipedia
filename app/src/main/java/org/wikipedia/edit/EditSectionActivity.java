@@ -30,7 +30,6 @@ import org.mediawiki.api.json.ApiException;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
@@ -573,8 +572,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 clickNextButton();
                 return true;
             default:
-                return ActivityUtil.defaultOnOptionsItemSelected(this, item)
-                        || super.onOptionsItemSelected(item);
+                return super.onOptionsItemSelected(item);
         }
     }
 

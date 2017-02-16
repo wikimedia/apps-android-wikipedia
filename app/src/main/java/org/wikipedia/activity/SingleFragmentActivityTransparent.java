@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 
 import org.wikipedia.R;
 
@@ -15,22 +13,17 @@ import org.wikipedia.R;
  *
  * Set a theme on the activity in AndroidManifest.xml to specify a background tint.
  */
-public abstract class SingleFragmentActivityTransparent<T extends Fragment> extends AppCompatActivity {
+public abstract class SingleFragmentActivityTransparent<T extends Fragment> extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(getLayout());
         findViewById(getContainerId()).setBackground(null);
 
         if (!isFragmentCreated()) {
             addFragment(createFragment());
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
-                || super.onOptionsItemSelected(item);
     }
 
     protected void addFragment(T fragment) {
