@@ -32,9 +32,9 @@
   <string name="nearby_distance_in_kilometers">%.2f కిలోమీటర్లు</string>
   <string name="last_updated_text">%s కి ఆఖరుగా తాజాపరచబడింది</string>
   <string name="talk_page_link_text">చర్చ</string>
-  <string name="content_license_html">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
-  <string name="edit_save_action_license_logged_in">భద్రపర్చడం ద్వారా &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
-  <string name="edit_save_action_license_anon">భద్రపరచటంతో, మీరు  &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
+  <string name="content_license_html">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
+  <string name="edit_save_action_license_logged_in">భద్రపర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
+  <string name="edit_save_action_license_anon">భద్రపరచటంతో, మీరు  &lt;a href=\"%1$s\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
   <string name="preference_title_language">వికీపీడియా భాష</string>
   <string name="preference_languages_filter_hint">వెతుకు</string>
   <string name="langlinks_filter_hint">వెతుకు</string>

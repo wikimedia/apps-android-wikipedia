@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">Указать местоположение на карте</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="talk_page_link_text">Обсуждение</string>
-  <string name="content_license_html">Содержимое доступно в соответствии &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
-  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования\"&gt; &lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете иметь более высокий уровень конфиденциальности.</string>
+  <string name="content_license_html">Содержимое доступно в соответствии &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
+  <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt; &lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете иметь более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
@@ -325,7 +325,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ru</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
   <string name="description_edit_anon_limit">Благодарим Вас за изменения описаний! Для того, чтобы вводить дополнительные изменения, необходимо войти в Ваш аккаунт на Википедии.</string>
-  <string name="description_edit_license_notice">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru\"&gt;yсловиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию  по лицензии &lt;a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.ru\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;yсловиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию  по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>

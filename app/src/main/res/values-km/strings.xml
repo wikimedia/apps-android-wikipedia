@@ -23,7 +23,7 @@
   <string name="nearby_distance_in_meters">%d ម</string>
   <string name="nearby_distance_in_kilometers">%.2f គ.ម</string>
   <string name="last_updated_text">បន្ទាន់សម័យចុង​ក្រោយ​នៅ %s</string>
-  <string name="content_license_html">ខ្លឹមសារអត្ថបទផ្ដល់ជូនក្រោមអាជ្ញាបណ្ឌ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; លើកលែងតែមានបញ្ជាក់ផ្សេងពីនេះ</string>
+  <string name="content_license_html">ខ្លឹមសារអត្ថបទផ្ដល់ជូនក្រោមអាជ្ញាបណ្ឌ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; លើកលែងតែមានបញ្ជាក់ផ្សេងពីនេះ</string>
   <string name="preference_title_language">ភាសាវិគីភីឌា</string>
   <string name="preference_languages_filter_hint">ស្វែងរក</string>
   <string name="langlinks_filter_hint">ស្វែងរក</string>

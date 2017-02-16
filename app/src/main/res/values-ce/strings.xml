@@ -22,7 +22,7 @@
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="last_updated_text">ТӀаьххьарлера карлаяккхар: %1$s</string>
-  <string name="content_license_html">Чулацам тӀекхочуш бу &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (кхиниг билгалйина яцахь)</string>
+  <string name="content_license_html">Чулацам тӀекхочуш бу &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (кхиниг билгалйина яцахь)</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="preference_languages_filter_hint">Лахар</string>
   <string name="langlinks_filter_hint">Лахар</string>

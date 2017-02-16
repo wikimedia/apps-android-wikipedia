@@ -35,8 +35,8 @@
   <string name="nearby_zoom_to_location">Zoom egin mapa bateko kokapenean</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
   <string name="talk_page_link_text">Esan</string>
-  <string name="content_license_html">Edukia eskuragarri &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
-  <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
+  <string name="content_license_html">Edukia eskuragarri &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
+  <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="preference_title_language">Wikipediaren hizkuntza</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
   <string name="langlinks_filter_hint">Bilatu</string>

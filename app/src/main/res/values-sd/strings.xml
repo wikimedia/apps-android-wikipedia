@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">نقشي تي ڪو مقام وڏو ڪري ڏسو</string>
   <string name="last_updated_text">آخري ترميم %s</string>
   <string name="talk_page_link_text">بحث</string>
-  <string name="content_license_html">مواد موجود آهي &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت نه ته ٻي صورت ۾ نوٽ ٿيل آهي.</string>
-  <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
-  <string name="edit_save_action_license_anon">سانڍڻ سان، توهان &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
+  <string name="content_license_html">مواد موجود آهي &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت نه ته ٻي صورت ۾ نوٽ ٿيل آهي.</string>
+  <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
+  <string name="edit_save_action_license_anon">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻولي</string>
   <string name="preference_languages_filter_hint">ڳوليو</string>
   <string name="langlinks_filter_hint">ڳوليو</string>

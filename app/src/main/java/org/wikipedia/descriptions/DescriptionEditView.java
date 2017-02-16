@@ -149,7 +149,10 @@ public class DescriptionEditView extends LinearLayout {
         inflate(getContext(), R.layout.view_description_edit, this);
         ButterKnife.bind(this);
 
-        licenseText.setText(StringUtil.fromHtml(getContext().getString(R.string.description_edit_license_notice)));
+        licenseText.setText(StringUtil.fromHtml(String
+                .format(getContext().getString(R.string.description_edit_license_notice),
+                        getContext().getString(R.string.terms_of_use_url),
+                        getContext().getString(R.string.cc_0_url))));
         licenseText.setMovementMethod(new LinkMovementMethod());
         FeedbackUtil.setToolbarButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);

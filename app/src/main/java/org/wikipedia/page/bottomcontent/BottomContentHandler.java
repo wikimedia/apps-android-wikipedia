@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -269,8 +270,10 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private void setupAttribution() {
         Page page = parentFragment.getPage();
-        pageLicenseText.setText(StringUtil.fromHtml(parentFragment.getContext().getString(R.string.content_license_html)));
-        pageLicenseText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
+        pageLicenseText.setText(StringUtil.fromHtml(String
+                .format(parentFragment.getContext().getString(R.string.content_license_html),
+                        parentFragment.getContext().getString(R.string.cc_by_sa_3_url))));
+        pageLicenseText.setMovementMethod(new LinkMovementMethod());
 
         // Don't display last updated message for main page or file pages, because it's always wrong
         if (page.isMainPage() || page.isFilePage()) {

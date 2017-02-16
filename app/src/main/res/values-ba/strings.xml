@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">Картала урынды күрһәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
   <string name="talk_page_link_text">Әңгәмә</string>
-  <string name="content_license_html">Эстәлек &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһына ярашлы ҡулланыла</string>
-  <string name="edit_save_action_license_logged_in">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru ҡулланыу шарттарына ризалыҡ бирәһегеҙ\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Үҙгәрештәрҙе һаҡлап, һеҙ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru ҡулланыу шарттары\"&gt; &lt;/a&gt; менән килешәһегеҙ, шулай уҡ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt; лицензияһы буйынса баҫманы кире таптырып алмаҫҡа килешәһегеҙ. Төҙәтмәләр һеҙҙең ҡоролманың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
+  <string name="content_license_html">Эстәлек &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһына ярашлы ҡулланыла</string>
+  <string name="edit_save_action_license_logged_in">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Үҙгәрештәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\"&gt; &lt;/a&gt; менән килешәһегеҙ, шулай уҡ &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; лицензияһы буйынса баҫманы кире таптырып алмаҫҡа килешәһегеҙ. Төҙәтмәләр һеҙҙең ҡоролманың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
   <string name="preference_title_language">Википедия теле</string>
   <string name="preference_languages_filter_hint">Эҙләү</string>
   <string name="langlinks_filter_hint">Эҙләү</string>

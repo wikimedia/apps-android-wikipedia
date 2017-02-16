@@ -36,9 +36,9 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Facer zoom a un loco sur le carta</string>
   <string name="last_updated_text">Ultime actualisation %s</string>
-  <string name="content_license_html">Content is available under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; unless otherwise noted</string>
-  <string name="edit_save_action_license_logged_in">By saving, you agree to the &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
-  <string name="edit_save_action_license_anon">By saving, you agree to the &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
+  <string name="content_license_html">Content is available under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; unless otherwise noted</string>
+  <string name="edit_save_action_license_logged_in">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
+  <string name="edit_save_action_license_anon">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
   <string name="preference_title_language">Lingua de Wikipedia</string>
   <string name="preference_languages_filter_hint">Cercar</string>
   <string name="langlinks_filter_hint">Cercar</string>

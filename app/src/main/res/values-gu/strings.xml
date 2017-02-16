@@ -21,7 +21,7 @@
   <string name="nearby_distance_in_meters">%d મી.</string>
   <string name="nearby_distance_in_kilometers">%.2f કિમી</string>
   <string name="last_updated_text">%s એ છેલ્લું અદ્યતન કરાયું</string>
-  <string name="content_license_html">અન્ય કશું સૂચવાયું ન હોય ત્યાં સુધી વિગતો &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; હેઠળ ઉપલબ્ધ છે</string>
+  <string name="content_license_html">અન્ય કશું સૂચવાયું ન હોય ત્યાં સુધી વિગતો &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; હેઠળ ઉપલબ્ધ છે</string>
   <string name="preference_title_language">વિકિપીડિયા ભાષા</string>
   <string name="preference_languages_filter_hint">શોધ</string>
   <string name="langlinks_filter_hint">શોધ</string>

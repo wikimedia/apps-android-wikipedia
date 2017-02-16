@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">Přibližte se na místo v mapě</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="talk_page_link_text">Diskuse</string>
-  <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
-  <string name="edit_save_action_license_logged_in">Uložením souhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Uložením souhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budou přiřazeny IP adrese vašeho zařízení. Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
+  <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
+  <string name="edit_save_action_license_logged_in">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budou přiřazeny IP adrese vašeho zařízení. Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>

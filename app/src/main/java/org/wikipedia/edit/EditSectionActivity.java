@@ -253,11 +253,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private void updateEditLicenseText() {
         TextView editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
-        if (User.isLoggedIn()) {
-            editLicenseText.setText(StringUtil.fromHtml(getString(R.string.edit_save_action_license_logged_in)));
-        } else {
-            editLicenseText.setText(StringUtil.fromHtml(getString(R.string.edit_save_action_license_anon)));
-        }
+        editLicenseText.setText(StringUtil.fromHtml(String.format(getString(User.isLoggedIn()
+                        ? R.string.edit_save_action_license_logged_in
+                        : R.string.edit_save_action_license_anon),
+                getString(R.string.terms_of_use_url),
+                getString(R.string.cc_by_sa_3_url))));
 
         editLicenseText.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
             @Override

@@ -35,9 +35,9 @@
   <string name="nearby_zoom_to_location">ขยายไปยังตำแหน่งในแผนที่</string>
   <string name="last_updated_text">ปรับปรุงครั้งล่าสุดเมื่อ %s</string>
   <string name="talk_page_link_text">พูดคุย</string>
-  <string name="content_license_html">เนื้อหาอนุญาตให้เผยแพร่ภายใต้ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; เว้นแต่ระบุไว้เป็นอย่างอื่น</string>
-  <string name="edit_save_action_license_logged_in">ในการบันทึกนี้ คุณได้ยอมรับ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">ในการบันทึกนี้ คุณได้ยอมรับ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;
+  <string name="content_license_html">เนื้อหาอนุญาตให้เผยแพร่ภายใต้ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; เว้นแต่ระบุไว้เป็นอย่างอื่น</string>
+  <string name="edit_save_action_license_logged_in">ในการบันทึกนี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="edit_save_action_license_anon">ในการบันทึกนี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;
 การแก้ไขจะถูกส่งผ่านที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ &lt;a href=\"https://#login\"&gt;ลงชื่อเข้าใช้&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
   <string name="preference_languages_filter_hint">ค้นหา</string>

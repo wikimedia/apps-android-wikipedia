@@ -38,8 +38,8 @@
   <string name="nearby_zoom_to_location">Zoom op eng Plaz op der Kaart</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="talk_page_link_text">Diskussioun</string>
-  <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
-  <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
+  <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
+  <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
   <string name="preference_title_language">Wikipedia-Sprooch</string>
   <string name="preference_languages_filter_hint">Sichen</string>
   <string name="langlinks_filter_hint">Sichen</string>

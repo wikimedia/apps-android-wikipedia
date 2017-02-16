@@ -31,9 +31,9 @@
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Наздиккунӣ ба як маконе дар харита</string>
   <string name="last_updated_text">Охирин рӯзи барӯзшавӣ %1$s</string>
-  <string name="content_license_html">Мӯҳтаво таҳти &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ва ё ғайр дастрас аст</string>
-  <string name="edit_save_action_license_logged_in">Бо захира намудан, Шумо ба &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; иҷозатнома розӣ ҳастед.</string>
-  <string name="edit_save_action_license_anon">Бо захиракуни, шумо ба &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти иҷозатномаи &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; розӣ ҳастед. Вироишот ба нишонаи IP ин дастгоҳ сабт мешавад. Агар шумо &lt;a href=\"https://#login\"&gt;вуруд шавад&lt;/a&gt;, шумо бештар ҳарми шахсиятро пайдо мекунед.</string>
+  <string name="content_license_html">Мӯҳтаво таҳти &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ва ё ғайр дастрас аст</string>
+  <string name="edit_save_action_license_logged_in">Бо захира намудан, Шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; иҷозатнома розӣ ҳастед.</string>
+  <string name="edit_save_action_license_anon">Бо захиракуни, шумо ба &lt;a href=\"%1$s\"&gt;Шартҳои Истифода&lt;/a&gt;, ва паҳнкунии саҳми худ таҳти иҷозатномаи &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; розӣ ҳастед. Вироишот ба нишонаи IP ин дастгоҳ сабт мешавад. Агар шумо &lt;a href=\"https://#login\"&gt;вуруд шавад&lt;/a&gt;, шумо бештар ҳарми шахсиятро пайдо мекунед.</string>
   <string name="preference_title_language">Забони Википедиа</string>
   <string name="preference_languages_filter_hint">Ҷустуҷӯ</string>
   <string name="langlinks_filter_hint">Ҷустуҷӯ</string>

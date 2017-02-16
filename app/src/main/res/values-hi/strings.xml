@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">नक़्शे पर किसी स्थान तक ज़ूम करें</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट हुई।</string>
   <string name="talk_page_link_text">वार्ता</string>
-  <string name="content_license_html">सामग्री &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
-  <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>
-  <string name="edit_save_action_license_anon">इसको सहेजते हुये आप &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदानों को अपरिवर्तनीय रूप से मुद्राधिकार नियम &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हो। यह सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हो तो अधिक सुरक्षा प्रदान की जायेगी।</string>
+  <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
+  <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>
+  <string name="edit_save_action_license_anon">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदानों को अपरिवर्तनीय रूप से मुद्राधिकार नियम &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हो। यह सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हो तो अधिक सुरक्षा प्रदान की जायेगी।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">खोज</string>
   <string name="langlinks_filter_hint">खोज</string>

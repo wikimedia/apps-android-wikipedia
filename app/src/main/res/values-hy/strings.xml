@@ -34,8 +34,8 @@
   <string name="nearby_distance_in_kilometers">%.2f կմ</string>
   <string name="nearby_zoom_to_location">Վայրը մեծացնել քարտեզի վրա</string>
   <string name="last_updated_text">Վերջին անգամ թարմացվել է %s</string>
-  <string name="content_license_html">Բովանդակությունը հասանելի է &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո, եթե այլ բան նշված չէ</string>
-  <string name="edit_save_action_license_logged_in">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները անվերադարձ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; արտոնագրի ներքո հրապարակելուն։</string>
+  <string name="content_license_html">Բովանդակությունը հասանելի է &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո, եթե այլ բան նշված չէ</string>
+  <string name="edit_save_action_license_logged_in">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները անվերադարձ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; արտոնագրի ներքո հրապարակելուն։</string>
   <string name="preference_title_language">Վիքիպեդիայի լեզուն</string>
   <string name="preference_languages_filter_hint">Որոնել</string>
   <string name="langlinks_filter_hint">Որոնել</string>

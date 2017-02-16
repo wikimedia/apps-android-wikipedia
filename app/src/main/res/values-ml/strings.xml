@@ -38,7 +38,7 @@
   <string name="nearby_zoom_to_location">ഭൂപടത്തിൽ കാണുന്ന സ്ഥലത്തേക്ക് വലുതാക്കുക.</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
   <string name="talk_page_link_text">സംവാദം</string>
-  <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
+  <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"%1$s\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷ</string>
   <string name="preference_languages_filter_hint">തിരയുക</string>
   <string name="langlinks_filter_hint">തിരയുക</string>

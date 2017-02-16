@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">Swmiwch i\'r lleoliad ar y map</string>
   <string name="last_updated_text">Diweddarwyd ddiwethaf%1$s</string>
   <string name="talk_page_link_text">Sgwrs</string>
-  <string name="content_license_html">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
-  <string name="edit_save_action_license_logged_in">Drwy arbed, rydych yn cytuno i &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ol ar drwydded &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Drwy arbed, rydych yn cytuno i &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Dermau Defnyddio&lt;/a&gt;, ac yn rhyddhau, yn ddi-droi\'n ol, eich cyfraniadau dan drwydded &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bydd y golygiadau\'n cael eu tadogi i gyfeiriad IP eich dyfais. Ond os ydych yn mewngofnodi, bydd eich golygiadau\'n breifat.</string>
+  <string name="content_license_html">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
+  <string name="edit_save_action_license_logged_in">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ol ar drwydded &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau Defnyddio&lt;/a&gt;, ac yn rhyddhau, yn ddi-droi\'n ol, eich cyfraniadau dan drwydded &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bydd y golygiadau\'n cael eu tadogi i gyfeiriad IP eich dyfais. Ond os ydych yn mewngofnodi, bydd eich golygiadau\'n breifat.</string>
   <string name="preference_title_language">Wicipedia pa iaith?</string>
   <string name="preference_languages_filter_hint">Chwilio</string>
   <string name="langlinks_filter_hint">Chwilier</string>
