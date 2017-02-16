@@ -484,6 +484,10 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
+                if (getActivity() == null) {
+                    return;
+                }
+
                 langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
                 formatLangButtonText();
                 if (!TextUtils.isEmpty(query)) {
