@@ -96,8 +96,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         app.getBus().unregister(this);
     }
 
-    @Subscribe
-    public void onWebViewInvalidated(WebViewInvalidateEvent event) {
+    @Subscribe public void on(WebViewInvalidateEvent event) {
         updatingFont = false;
         updateButtonState();
     }

@@ -63,7 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private class EventBusMethods {
         // todo: reevaluate lifecycle. the bus is active when this activity is paused and we show ui
-        @Subscribe public void onZeroEnter(WikipediaZeroEnterEvent event) {
+        @Subscribe public void on(WikipediaZeroEnterEvent event) {
             if (Prefs.isZeroTutorialEnabled()) {
                 Prefs.setZeroTutorialEnabled(false);
                 WikipediaApp.getInstance().getWikipediaZeroHandler()

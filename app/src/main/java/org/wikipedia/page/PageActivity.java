@@ -845,7 +845,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private class EventBusMethods {
-        @Subscribe public void onChangeTextSize(ChangeTextSizeEvent event) {
+        @Subscribe public void on(ChangeTextSizeEvent event) {
             if (pageFragment != null && pageFragment.getWebView() != null) {
                 pageFragment.updateFontSize();
             }
