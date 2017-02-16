@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.view.PageTitleListCardItemView;
+import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -112,7 +112,7 @@ public class NewsFragment extends Fragment {
         links.setNestedScrollingEnabled(false);
     }
 
-    protected static class RecyclerAdapter extends DefaultRecyclerAdapter<NewsLinkCard, PageTitleListCardItemView> {
+    protected static class RecyclerAdapter extends DefaultRecyclerAdapter<NewsLinkCard, ListCardItemView> {
         @Nullable private Callback callback;
 
         RecyclerAdapter(@NonNull List<NewsLinkCard> items, @NonNull Callback callback) {
@@ -120,19 +120,19 @@ public class NewsFragment extends Fragment {
             this.callback = callback;
         }
 
-        @Override public DefaultViewHolder<PageTitleListCardItemView> onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new DefaultViewHolder<>(new PageTitleListCardItemView(parent.getContext()));
+        @Override public DefaultViewHolder<ListCardItemView> onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new DefaultViewHolder<>(new ListCardItemView(parent.getContext()));
         }
 
         @Override
-        public void onBindViewHolder(DefaultViewHolder<PageTitleListCardItemView> holder, int position) {
+        public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int position) {
             NewsLinkCard card = item(position);
             holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_NEWS));
             holder.getView().setCallback(callback);
         }
     }
 
-    private class Callback implements PageTitleListCardItemView.Callback {
+    private class Callback implements ListCardItemView.Callback {
         @Override
         public void onSelectPage(@NonNull HistoryEntry entry) {
             startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));

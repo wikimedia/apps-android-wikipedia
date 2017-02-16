@@ -19,7 +19,7 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecyclerAdapter<Card, T> {
     public interface Callback extends ItemTouchHelperSwipeAdapter.Callback,
-            PageTitleListCardItemView.Callback, CardHeaderView.Callback,
+            ListCardItemView.Callback, CardHeaderView.Callback,
             FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
             AnnouncementCardView.Callback {
         void onRequestMore();
