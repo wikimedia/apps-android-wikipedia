@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -27,8 +28,9 @@ public final class ReadingListDialogs {
     }
 
     private interface TitleTextCallback {
-        void onMatchesExistingTitle(@NonNull String title);
-        void onDoesNotMatchExistingTitle();
+        void onEntryMatchesExistingTitle(@NonNull String title);
+        void onEntryEmpty();
+        void onEntryOk();
     }
 
     private static class TitleTextWatcher implements TextWatcher {
@@ -44,13 +46,17 @@ public final class ReadingListDialogs {
         }
 
         @Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            for (String title : titles) {
-                if (title.equals(charSequence.toString())) {
-                    cb.onMatchesExistingTitle(title);
-                    return;
-                }
+            if (StringUtils.isEmpty(charSequence)) {
+                cb.onEntryEmpty();
+                return;
             }
-            cb.onDoesNotMatchExistingTitle();
+
+            if (titles.contains(charSequence.toString())) {
+                cb.onEntryMatchesExistingTitle(charSequence.toString());
+                return;
+            }
+
+            cb.onEntryOk();
         }
 
         @Override public void afterTextChanged(Editable editable) {
@@ -96,17 +102,22 @@ public final class ReadingListDialogs {
             @Override
             public void onShow(DialogInterface dialogInterface) {
                 titleView.addTextChangedListener(new TitleTextWatcher(otherTitles, new TitleTextCallback() {
-                    @Override
-                    public void onMatchesExistingTitle(@NonNull String title) {
-                        titleContainer.setError(context.getString(R.string.reading_list_title_exists, title));
-                        alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
-
+                    @Override public void onEntryMatchesExistingTitle(@NonNull String title) {
+                        setError(context.getString(R.string.reading_list_title_exists, title));
                     }
 
-                    @Override
-                    public void onDoesNotMatchExistingTitle() {
+                    @Override public void onEntryEmpty() {
+                        setError(context.getString(R.string.reading_list_entry_empty));
+                    }
+
+                    @Override public void onEntryOk() {
                         titleContainer.setError(null);
                         alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(true);
+                    }
+
+                    private void setError(@NonNull String error) {
+                        titleContainer.setError(error);
+                        alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(false);
                     }
                 }));
 
