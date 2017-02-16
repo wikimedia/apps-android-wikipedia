@@ -2,4 +2,4 @@
 set -euo pipefail
 
 scripts/missing-qq.py
-time gradlew connectedAlphaReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=org.wikipedia.test.TranslationTests
+time ./gradlew connectedAlphaReleaseAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=org.wikipedia.test.TranslationTests
