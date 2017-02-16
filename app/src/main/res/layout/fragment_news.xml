@@ -40,6 +40,6 @@
         android:id="@+id/view_news_fullscreen_toolbar"
         android:theme="@style/AppTheme.ToolbarTheme"
         android:layout_width="match_parent"
-        android:layout_height="96dp"/>
+        android:layout_height="wrap_content"/>
 
 </FrameLayout>
