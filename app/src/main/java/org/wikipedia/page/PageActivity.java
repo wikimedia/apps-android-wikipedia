@@ -716,7 +716,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         if (!isCabOpen()) {
             conditionallyInjectCustomCabMenu(mode);
         }
-        freezeToolbar();
         super.onSupportActionModeStarted(mode);
     }
 
@@ -731,7 +730,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         if (!isCabOpen()) {
             conditionallyInjectCustomCabMenu(mode);
         }
-        freezeToolbar();
         super.onActionModeStarted(mode);
     }
 
@@ -746,10 +744,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         if (currentActionMode.shouldInjectCustomMenu()) {
             currentActionMode.injectCustomMenu(pageFragment);
         }
-    }
-
-    private void freezeToolbar() {
-        // TODO: remove this, if necessary
     }
 
     private void registerBus() {
