@@ -1,6 +1,5 @@
 package org.wikipedia.descriptions;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -15,18 +14,14 @@ public class DescriptionEditTutorialActivity
         extends SingleFragmentActivity<DescriptionEditTutorialFragment>
         implements DescriptionEditTutorialFragment.Callback {
 
-    public static Intent newIntent(@NonNull Context context) {
+    @NonNull public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, DescriptionEditTutorialActivity.class);
     }
 
-    @TargetApi(18) @Override public void onCreate(Bundle savedInstanceState) {
+    @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Setting this in the manifest will not suffice since any manifest screenOrientation
-        // setting is overridden by the call to ActivityUtil.requestFullUserOrientation() in the
-        // base ActionBarActivity's onCreate().
-        setRequestedOrientation(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2
-                ? ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT
-                : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        setPortraitOrientation();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
@@ -34,12 +29,21 @@ public class DescriptionEditTutorialActivity
         }
     }
 
+    @Override public void onStartEditingClick() {
+        setResult(RESULT_OK);
+        finish();
+    }
+
     @Override protected DescriptionEditTutorialFragment createFragment() {
         return DescriptionEditTutorialFragment.newInstance();
     }
 
-    @Override public void onStartEditingClick() {
-        setResult(RESULT_OK);
-        finish();
+    private void setPortraitOrientation() {
+        int orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            orientation = ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT;
+        }
+
+        setRequestedOrientation(orientation);
     }
 }

@@ -1,6 +1,5 @@
 package org.wikipedia.drawable;
 
-import android.annotation.TargetApi;
 import android.content.res.ColorStateList;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
@@ -40,7 +39,6 @@ public class AppLevelListDrawable extends LevelListDrawable {
         return invalidate;
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private boolean updateLevelTint(Drawable drawable) {
         boolean invalidate = false;
         if (drawable != null) {
