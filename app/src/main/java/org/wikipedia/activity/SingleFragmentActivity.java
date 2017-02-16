@@ -1,12 +1,9 @@
 package org.wikipedia.activity;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.ColorRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 
 import org.wikipedia.R;
 
@@ -54,9 +51,4 @@ public abstract class SingleFragmentActivity<T extends Fragment> extends ThemedA
         return getFragment() != null;
     }
 
-    protected void setStatusBarColor(@ColorRes int color) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, color));
-        }
-    }
 }
