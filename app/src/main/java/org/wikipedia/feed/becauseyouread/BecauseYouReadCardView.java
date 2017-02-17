@@ -8,9 +8,9 @@ import android.view.View;
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.CardLargeHeaderView;
+import org.wikipedia.feed.view.ListCardItemView;
+import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
-import org.wikipedia.feed.view.PageTitleListCardItemView;
-import org.wikipedia.feed.view.PageTitleRecyclerAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -70,13 +70,13 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
         }
     }
 
-    private class RecyclerAdapter extends PageTitleRecyclerAdapter<BecauseYouReadItemCard> {
+    private class RecyclerAdapter extends ListCardRecyclerAdapter<BecauseYouReadItemCard> {
         RecyclerAdapter(@NonNull List<BecauseYouReadItemCard> items) {
             super(items);
         }
 
         @Override
-        public void onBindViewHolder(DefaultViewHolder<PageTitleListCardItemView> holder, int i) {
+        public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int i) {
             BecauseYouReadItemCard card = item(i);
             holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
             holder.getView().setCallback(getCallback());

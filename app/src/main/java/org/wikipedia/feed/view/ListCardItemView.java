@@ -23,7 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PageTitleListCardItemView extends FrameLayout {
+public class ListCardItemView extends FrameLayout {
     public interface Callback {
         void onSelectPage(@NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry);
@@ -37,7 +37,7 @@ public class PageTitleListCardItemView extends FrameLayout {
     @Nullable private Callback callback;
     @Nullable private HistoryEntry entry;
 
-    public PageTitleListCardItemView(Context context) {
+    public ListCardItemView(Context context) {
         super(context);
 
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -56,12 +56,12 @@ public class PageTitleListCardItemView extends FrameLayout {
         });
     }
 
-    @NonNull public PageTitleListCardItemView setCallback(@Nullable Callback callback) {
+    @NonNull public ListCardItemView setCallback(@Nullable Callback callback) {
         this.callback = callback;
         return this;
     }
 
-    @NonNull public PageTitleListCardItemView setHistoryEntry(@NonNull HistoryEntry entry) {
+    @NonNull public ListCardItemView setHistoryEntry(@NonNull HistoryEntry entry) {
         this.entry = entry;
         setTitle(entry.getTitle().getDisplayText());
         setSubtitle(entry.getTitle().getDescription());

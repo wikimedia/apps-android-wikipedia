@@ -24,10 +24,10 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.mock;
-import static org.wikipedia.feed.view.PageTitleListCardItemView.Callback;
+import static org.wikipedia.feed.view.ListCardItemView.Callback;
 
 @SmallTest public class PageTitleListCardItemViewTest extends ViewTest {
-    private PageTitleListCardItemView subject;
+    private ListCardItemView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,
                                   @NonNull FontScale fontScale, @NonNull PrimaryTestImg image,
@@ -104,7 +104,7 @@ import static org.wikipedia.feed.view.PageTitleListCardItemView.Callback;
                        @NonNull TestStr title, @NonNull TestStr subtitle) {
         setUp(widthDp, layoutDirection, fontScale, theme);
 
-        subject = new PageTitleListCardItemView(ctx());
+        subject = new ListCardItemView(ctx());
         if (!image.isNull()) {
             subject.setImage(frescoUri(image.id()).toString());
         }

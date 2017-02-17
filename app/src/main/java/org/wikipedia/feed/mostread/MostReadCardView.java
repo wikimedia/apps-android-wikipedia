@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
+import org.wikipedia.feed.view.ListCardItemView;
+import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
-import org.wikipedia.feed.view.PageTitleListCardItemView;
-import org.wikipedia.feed.view.PageTitleRecyclerAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -37,13 +37,13 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
         header(header);
     }
 
-    private class RecyclerAdapter extends PageTitleRecyclerAdapter<MostReadItemCard> {
+    private class RecyclerAdapter extends ListCardRecyclerAdapter<MostReadItemCard> {
         RecyclerAdapter(@NonNull List<MostReadItemCard> items) {
             super(items);
         }
 
         @Override
-        public void onBindViewHolder(DefaultViewHolder<PageTitleListCardItemView> holder, int position) {
+        public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int position) {
             MostReadItemCard card = item(position);
             holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_MOST_READ));
             holder.getView().setCallback(getCallback());
