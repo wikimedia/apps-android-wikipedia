@@ -2,6 +2,7 @@ package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.view.View;
 
@@ -75,11 +76,14 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
             super(items);
         }
 
+        @Nullable @Override protected ListCardItemView.Callback callback() {
+            return getCallback();
+        }
+
         @Override
         public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int i) {
             BecauseYouReadItemCard card = item(i);
             holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
-            holder.getView().setCallback(getCallback());
         }
     }
 }
