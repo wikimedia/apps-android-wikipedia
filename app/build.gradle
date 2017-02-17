@@ -192,7 +192,6 @@ dependencies {
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
-    compile 'com.jakewharton:disklrucache:2.0.2'
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:4.0.1@aar') {
         transitive = true
     }
