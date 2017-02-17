@@ -6,11 +6,9 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -65,7 +63,7 @@ public class ReadingListDetailView extends LinearLayout {
     private String currentSearchQuery;
 
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
-    private Bitmap deleteIcon = getDeleteBitmap();
+    private Bitmap deleteIcon = ResourceUtil.bitmapFromVectorDrawable(getContext(), R.drawable.ic_delete_white_24dp);
 
     public interface ReadingListItemActionListener {
         void onClick(ReadingList readingList, ReadingListPage page);
@@ -418,14 +416,4 @@ public class ReadingListDetailView extends LinearLayout {
         }
     }
 
-    private Bitmap getDeleteBitmap() {
-        Drawable vectorDrawable = VectorDrawableCompat.create(getResources(), R.drawable.ic_delete_white_24dp, null);
-        int width = vectorDrawable.getIntrinsicWidth();
-        int height = vectorDrawable.getIntrinsicHeight();
-        vectorDrawable.setBounds(0, 0, width, height);
-        Bitmap bm = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bm);
-        vectorDrawable.draw(canvas);
-        return bm;
-    }
 }

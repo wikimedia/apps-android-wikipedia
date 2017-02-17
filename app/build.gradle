@@ -192,7 +192,7 @@ dependencies {
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
-    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:4.0.1@aar') {
+    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0-beta.2@aar') {
         transitive = true
     }
     compile 'net.hockeyapp.android:HockeySDK:4.0.1'

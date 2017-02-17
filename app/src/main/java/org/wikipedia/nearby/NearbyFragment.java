@@ -1,10 +1,7 @@
 package org.wikipedia.nearby;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.PointF;
 import android.location.Location;
@@ -13,27 +10,26 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Icon;
 import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
-import com.mapbox.mapboxsdk.constants.MapboxConstants;
 import com.mapbox.mapboxsdk.constants.MyLocationTracking;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Projection;
-import com.mapbox.mapboxsdk.telemetry.MapboxEventManager;
+import com.mapbox.services.android.telemetry.MapboxTelemetry;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -47,6 +43,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -92,7 +89,10 @@ public class NearbyFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         client = new NearbyClient();
-        disableTelemetry();
+
+        Mapbox.getInstance(getContext().getApplicationContext(),
+                getString(R.string.mapbox_public_token));
+        MapboxTelemetry.getInstance().setTelemetryEnabled(false);
     }
 
     @Override
@@ -100,8 +100,9 @@ public class NearbyFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_nearby, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        VectorDrawableCompat markerIconDrawable = VectorDrawableCompat.create(getResources(), R.drawable.ic_map_marker, null);
-        markerIconPassive = IconFactory.getInstance(getContext()).fromDrawable(markerIconDrawable);
+        markerIconPassive = IconFactory.getInstance(getContext())
+                .fromBitmap(ResourceUtil.bitmapFromVectorDrawable(getContext(),
+                        R.drawable.ic_map_marker));
 
         mapView.onCreate(savedInstanceState);
 
@@ -110,13 +111,19 @@ public class NearbyFragment extends Fragment {
         if (savedInstanceState != null) {
             currentLocation = savedInstanceState.getParcelable(NEARBY_CURRENT_LOCATION);
             if (currentLocation != null) {
-                lastResult =  GsonUnmarshaller.unmarshal(NearbyResult.class, savedInstanceState.getString(NEARBY_LAST_RESULT));
+                lastResult = GsonUnmarshaller.unmarshal(NearbyResult.class, savedInstanceState.getString(NEARBY_LAST_RESULT));
             }
         }
 
         onLoading();
         initializeMap();
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        mapView.onStart();
+        super.onStart();
     }
 
     @Override
@@ -129,6 +136,12 @@ public class NearbyFragment extends Fragment {
     public void onResume() {
         mapView.onResume();
         super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        mapView.onStop();
+        super.onStop();
     }
 
     @Override
@@ -181,8 +194,6 @@ public class NearbyFragment extends Fragment {
     }
 
     private void initializeMap() {
-        mapView.setStyleUrl("asset://mapstyle.json");
-
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
@@ -414,26 +425,6 @@ public class NearbyFragment extends Fragment {
         location.setLongitude(latLng.getLongitude());
         location.setAltitude(latLng.getAltitude());
         return location;
-    }
-
-    @SuppressLint("CommitPrefEdits")
-    private void disableTelemetry() {
-        // setTelemetryEnabled() does not write to shared prefs unless a change is detected.
-        // However, it is initialized to false and then defaulted to true when retrieving from
-        // shared prefs later. This means either calling setTelemetryEnabled(true) first or writing
-        // to Mapbox's private shared prefs directly. setTelemetryEnabled(true) would start the
-        // service at least briefly so the latter approach is used.
-
-        // Lint recommends editor.apply() instead of commit() because it blocks but we really want
-        // to be certain that telemetry isn't enabled.
-
-        SharedPreferences prefs = getContext().getSharedPreferences(MapboxConstants.MAPBOX_SHARED_PREFERENCES_FILE,
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean(MapboxConstants.MAPBOX_SHARED_PREFERENCE_KEY_TELEMETRY_ENABLED, false);
-        editor.commit();
-
-        MapboxEventManager.getMapboxEventManager().setTelemetryEnabled(false);
     }
 
     private void onLoading() {

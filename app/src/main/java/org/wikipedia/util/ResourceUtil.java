@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
@@ -13,6 +16,7 @@ import android.support.annotation.ArrayRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.util.TypedValue;
 
 import org.wikipedia.R;
@@ -49,6 +53,18 @@ public final class ResourceUtil {
         } else {
             return context.getResources().getIdentifier("ic_tab_list_" + numTabs, "drawable", context.getPackageName());
         }
+    }
+
+    @NonNull
+    public static Bitmap bitmapFromVectorDrawable(@NonNull Context context, @DrawableRes int id) {
+        Drawable vectorDrawable = VectorDrawableCompat.create(context.getResources(), id, null);
+        int width = vectorDrawable.getIntrinsicWidth();
+        int height = vectorDrawable.getIntrinsicHeight();
+        vectorDrawable.setBounds(0, 0, width, height);
+        Bitmap bm = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bm);
+        vectorDrawable.draw(canvas);
+        return bm;
     }
 
     /**
