@@ -9,10 +9,6 @@
         <!-- https://www.apache.org/licenses/ -->
         (<a href="asset:///android_asset/licenses/CommonsLang3">license</a>),
 
-        <a href="https://github.com/JakeWharton/DiskLruCache">DiskLruCache</a>
-        <!-- https://raw.githubusercontent.com/JakeWharton/DiskLruCache/master/LICENSE.txt -->
-        (<a href="asset:///android_asset/licenses/DiskLruCache">license</a>),
-
         <a href="http://frescolib.org/">Fresco</a>
         <!-- https://raw.githubusercontent.com/facebook/fresco/master/LICENSE -->
         (<a href="asset:///android_asset/licenses/Fresco">license</a>),
