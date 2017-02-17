@@ -274,9 +274,9 @@ Please test the URL to make sure it works</string>
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="wiktionary_no_definitions_found">Message shown when a user requests a definition from Wiktionary but no definition is found.</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
-  
-  
-  
+
+
+
 
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="alpha_update_notification_text">Text for notification when new alpha update is available.
@@ -380,6 +380,7 @@ Shown in the preferences screen along with the following:
 {{Identical|Untitled}}</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
+  <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
   <string name="reading_list_added_to_named">Message shown when an article is added to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_added_to_unnamed">Message shown when an article is added to an untitled reading list.</string>
   <string name="reading_list_already_exists">Message shown when an article already exists in the selected reading list.</string>

@@ -44,10 +44,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static org.wikipedia.readinglist.ReadingList.SORT_BY_NAME_ASC;
-import static org.wikipedia.readinglist.ReadingList.SORT_BY_NAME_DESC;
-import static org.wikipedia.readinglist.ReadingList.SORT_BY_RECENT_ASC;
-import static org.wikipedia.readinglist.ReadingList.SORT_BY_RECENT_DESC;
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_ASC;
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_DESC;
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_RECENT_ASC;
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_RECENT_DESC;
 
 public class ReadingListDetailView extends LinearLayout {
     @BindView(R.id.reading_list_title) TextView titleView;
@@ -64,7 +64,6 @@ public class ReadingListDetailView extends LinearLayout {
     private String currentSearchQuery;
 
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
-    private EditButtonClickListener editButtonListener = new EditButtonClickListener();
     private Bitmap deleteIcon = getDeleteBitmap();
 
     public interface ReadingListItemActionListener {
@@ -100,9 +99,9 @@ public class ReadingListDetailView extends LinearLayout {
         init();
     }
 
-    public void setReadingList(@NonNull ReadingList readingList) {
+    public void setReadingListInfo(@NonNull ReadingList readingList, @NonNull List<String> otherTitles) {
         this.readingList = readingList;
-        editButton.setOnClickListener(editButtonListener);
+        editButton.setOnClickListener(new EditButtonClickListener(otherTitles));
 
         contentsListView.setLayoutManager(new LinearLayoutManager(getContext()));
         contentsListView.setAdapter(adapter);
@@ -228,9 +227,15 @@ public class ReadingListDetailView extends LinearLayout {
     }
 
     private class EditButtonClickListener implements OnClickListener {
-        @Override
-        public void onClick(View v) {
-            ReadingListDialogs.createEditDialog(getContext(), readingList, true, new ReadingListDialogs.EditDialogListener() {
+        @NonNull private List<String> otherTitles;
+
+        EditButtonClickListener(@NonNull List<String> existingTitles) {
+            this.otherTitles = existingTitles;
+        }
+
+        @Override public void onClick(View v) {
+            ReadingListDialogs.createEditDialog(getContext(), readingList, true, otherTitles,
+                    new ReadingListDialogs.EditDialogListener() {
                 @Override
                 public void onModify(String newTitle, String newDescription, boolean saveOffline) {
                     if (actionListener != null) {

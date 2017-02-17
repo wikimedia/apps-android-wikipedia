@@ -67,7 +67,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View onboardingButton;
     private InvokeSource invokeSource;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
-    private List<ReadingList> readingLists = new ArrayList<>();
+    private ReadingLists readingLists = new ReadingLists();
     @Nullable private DialogInterface.OnDismissListener dismissListener;
 
     public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source) {
@@ -161,9 +161,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> rows) {
-                readingLists = rows;
-                ReadingList.sortReadingLists(readingLists,
-                        Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
+                readingLists.set(rows);
+                readingLists.sort(Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC));
                 adapter.notifyDataSetChanged();
             }
         });
@@ -188,7 +187,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .description(null)
                 .pages(new ArrayList<ReadingListPage>())
                 .build();
-        AlertDialog dialog = ReadingListDialogs.createEditDialog(getContext(), list, false,
+        AlertDialog dialog = ReadingListDialogs.createEditDialog(getContext(), list, false, readingLists.getTitles(),
                 new ReadingListDialogs.EditDialogListener() {
                     @Override
                     public void onModify(String newTitle, String newDescription, boolean saveOffline) {
