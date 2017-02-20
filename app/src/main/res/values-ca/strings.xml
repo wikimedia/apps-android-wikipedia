@@ -245,6 +245,8 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_untitled">Sense títol</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_create_new">Crea\'n una nova</string>
+  <string name="reading_list_title_exists">La llista de lectura «%s» ja existeix.</string>
+  <string name="reading_list_entry_empty">Introduïu un títol.</string>
   <string name="reading_list_added_to_named">Afegit a %s.</string>
   <string name="reading_list_added_to_unnamed">Afegit a la llista de lectura.</string>
   <string name="reading_list_already_exists">L\'article ja és a la llista.</string>
@@ -335,8 +337,10 @@ Voleu començar de nou o sortir?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="description_edit_help_about_title">Quant a</string>
+  <string name="description_edit_help_tips">Consells per a crear descripcions</string>
   <string name="description_edit_help_tips_examples">Per exemple:</string>
   <string name="description_edit_help_tips_example1">quadre de Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example2">La muntanya més alta de la Terra</string>
   <string name="description_edit_help_more_info">Més informació</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
 </resources>

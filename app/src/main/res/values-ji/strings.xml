@@ -202,7 +202,7 @@
   <string name="view_continue_reading_card_subtitle_today">הײנט</string>
   <string name="view_announcement_card_negative_action">ניין, א דאנק</string>
   <string name="description_edit_save">אויפֿהיטן</string>
-  <string name="description_edit_add_description" fuzzy="true">צולייגן קורצע באַשרייבונג</string>
+  <string name="description_edit_add_description">צולייגן טיטל־באַשרייבונג</string>
   <string name="description_edit_edit_description">רעדאקטירט באשרייבונג</string>
   <string name="description_edit_cancel_hint">אַנולירן</string>
   <string name="description_edit_help_title">קעפל באַשרייבונגען</string>

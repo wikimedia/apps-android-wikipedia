@@ -247,6 +247,8 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_untitled">Namnlös</string>
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>
+  <string name="reading_list_title_exists">Läslistan \"%s\" finns redan.</string>
+  <string name="reading_list_entry_empty">Ange en titel.</string>
   <string name="reading_list_added_to_named">Lades till i %s.</string>
   <string name="reading_list_added_to_unnamed">Lades till i läslista.</string>
   <string name="reading_list_already_exists">Denna artikel är redan i den listan.</string>

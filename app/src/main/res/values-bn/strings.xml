@@ -239,7 +239,7 @@
   <string name="article_menu_bar_navigate">নিবন্ধের অবস্থান থেকে পরিভ্রমণ করুন</string>
   <string name="article_header_edit_hint">সম্পাদনা…</string>
   <string name="article_header_edit_description">শিরোনামের বিবরণ সম্পাদনা করুন</string>
-  <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা</string>
+  <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা করুন</string>
   <string name="nav_item_reading_lists">আমার তালিকা</string>
   <string name="reading_list_untitled">শিরোনামহীন</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
@@ -278,15 +278,15 @@
   <string name="reading_lists_onboarding_page_delete">পরামর্শি: যে কোন পাতা পড়ার তালিকা থেকে মুছে ফেলার জন্য সেই পাতা বাম বা ডান দিকে টেনে আনুন।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_button_view_page">পাতা দেখাও</string>
-  <string name="notification_button_view_user">ব‍্যাবহারকারীর সঙ্গে আলাপ</string>
+  <string name="notification_button_view_user">ব‍্যবহারকারীর সঙ্গে আলাপ করুন</string>
   <string name="notification_button_view_edit_history">সম্পাদনার ইতিহাস দেখাও</string>
-  <string name="notification_generic_title">উইকিপিড়িয়ার বিজ্ঞপ্তি</string>
-  <string name="notification_talk_title">উইকিপিড়িয়ার নতুন বার্তা</string>
+  <string name="notification_generic_title">উইকিপিডিয়ার বিজ্ঞপ্তি</string>
+  <string name="notification_talk_title">উইকিপিডিয়ার নতুন বার্তা</string>
   <string name="notification_talk">%1$s আপনার আলাপ পাতার \"%2$s\"-এ একটি বার্তা দিয়েছেন</string>
-  <string name="notification_reverted_title">পুনরায় সম্পাদনা করা</string>
+  <string name="notification_reverted_title">সম্পাদনা বাতিল হয়েছে</string>
   <string name="notification_reverted">\"%2$s\"-এ করা আপনার সম্পাদনা %1$s কর্তৃক বাতিল করা হয়েছে।</string>
   <string name="notification_thanks_title">আপনাকে ধন্যবাদ জানানো হয়েছে!</string>
-  <string name="notification_thanks">\"%2$s\" পাতায় সম্পাদনার জ‍ন‍্য তোমাকে ধন‍্যবাদ জানিয়েছে %1$s</string>
+  <string name="notification_thanks">\"%2$s\" পাতায় সম্পাদনার জ‍ন্য %1$s আপনাকে ধন্যবাদ জানিয়েছেন</string>
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
@@ -311,9 +311,9 @@
   <string name="view_continue_reading_card_subtitle_today">আজ</string>
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
   <string name="description_edit_header">সম্পাদনা করছেন</string>
-  <string name="description_edit_text_hint" fuzzy="true">একটি বিবরণ লিখুন!</string>
+  <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">সংরক্ষণ</string>
-  <string name="description_edit_add_description" fuzzy="true">সংক্ষিপ্ত বিবরণ যোগ করুন</string>
+  <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
   <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
   <string name="description_edit_help_title">সাহায্য: শিরোনামের বিবরণ</string>
@@ -322,7 +322,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/bn</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
   <string name="description_edit_success_saved">বিবরণ সংরক্ষণ করা হয়েছে!</string>
-  <string name="description_edit_success_encouragement">আপনি উইকিপিড়িয়াকে আরো উত্তম করেছেন সবার জন্য</string>
+  <string name="description_edit_success_encouragement">আপনি এইমাত্র সবার জন্য উইকিপিডিয়াকে আরো উত্তম করলেন</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
   <string name="description_edit_success_did_you_know">আপনি জানেন কি?</string>
   <string name="description_edit_success_article_edit_hint">আপনি এই অ্যাপটির মাধ্যমেও নিবন্ধ সম্পাদনা করতে পারেন। পরবর্তীতে ^1 আইকনটিতে ক্লিক করে বানান এবং ছোট বাক্য ঠিক করতে চেষ্টা করুন</string>
@@ -332,5 +332,7 @@
   <string name="description_edit_tutorial_keep_it_short">এটি সংক্ষিপ্ত রাখুন</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
-  <string name="description_edit_tutorial_promise">শুউরুতেই আমি পণ করছি আমি আর ভুল করবো না</string>
+  <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
+  <string name="description_edit_help_about_title">পরিচিতি</string>
+  <string name="description_edit_help_tips_examples">উদাহরণস্বরূপ:</string>
 </resources>

@@ -67,6 +67,7 @@
   <string name="nav_item_login">Kevreañ ouzh Wikipedia</string>
   <string name="login_username_hint">Anv implijer</string>
   <string name="login_password_hint">Ger-tremen</string>
+  <string name="login_2fa_hint">Kod gwiriañ dezhañ daou faktor</string>
   <string name="menu_login">Kevreañ</string>
   <string name="login_activity_title">Kevreañ ouzh Wikipedia</string>
   <string name="login_in_progress_dialog_message">O kevreañ ouzh…</string>
@@ -244,6 +245,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_list_untitled">Hep titl</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>
+  <string name="reading_list_entry_empty">Merkit un titl.</string>
   <string name="reading_list_added_to_named">Ouzhpennet da%s</string>
   <string name="reading_list_added_to_unnamed">Ouzhpennet d\'ar roll lenn.</string>
   <string name="reading_list_already_exists">Ar pennad-mañ zo er roll-se dija.</string>
@@ -311,9 +313,9 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="view_continue_reading_card_subtitle_today">Hiziv</string>
   <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
   <string name="description_edit_header">O kemmañ</string>
-  <string name="description_edit_text_hint" fuzzy="true">Skrivañ un deskrivadur !</string>
+  <string name="description_edit_text_hint">Deskrivadur an titl</string>
   <string name="description_edit_save">Enrollañ</string>
-  <string name="description_edit_add_description" fuzzy="true">Ouzhpennañ un tamm diverrañ</string>
+  <string name="description_edit_add_description">Ouzhpennañ deskrivadur an titl</string>
   <string name="description_edit_edit_description">Kemmañ an deskrivadur</string>
   <string name="description_edit_cancel_hint">Nullañ</string>
   <string name="description_edit_help_title">Skoazell : deskrivadurioù an titloù</string>
@@ -333,4 +335,9 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">D\'ar gwellañ ul linenn, etre daou ha daouzek ger.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Kregiñ da aozañ</string>
   <string name="description_edit_tutorial_promise">Stagañ a ran ganti ha reiñ a ran ma ger da chom hep drougimplij an arc\'hwel-mañ</string>
+  <string name="description_edit_help_about_title">Diwar-benn</string>
+  <string name="description_edit_help_tips_examples">Da skouer :</string>
+  <string name="description_edit_help_tips_example2">Menez uhelañ ar bed</string>
+  <string name="description_edit_help_more_info">Muioc\'h a ditouroù</string>
+  <string name="description_edit_revert_subtitle">Trugarez evit kemer perzh e Wikipedia !</string>
 </resources>
