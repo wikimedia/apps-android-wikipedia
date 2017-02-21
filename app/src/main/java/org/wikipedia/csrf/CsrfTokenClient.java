@@ -28,7 +28,7 @@ public class CsrfTokenClient {
                 if (response.isSuccessful()) {
                     cb.success(call, response.body().token());
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
+                    cb.failure(call, RetrofitException.httpError(response));
                 }
             }
 

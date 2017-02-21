@@ -47,7 +47,7 @@ public class UserIdClient {
                         cb.failure(call, new IOException("An unknown error occurred."));
                     }
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
+                    cb.failure(call, RetrofitException.httpError(response));
                 }
             }
 

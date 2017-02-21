@@ -5,7 +5,6 @@ import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.restbase.page.RbPageServiceCache;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.page.PageTitle;
@@ -14,14 +13,12 @@ import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 class EditPreviewClient {
     @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-    @NonNull private final Retrofit retrofit = RbPageServiceCache.INSTANCE.getRetrofit();
 
     Call<EditPreview> request(@NonNull WikiSite wiki, @NonNull PageTitle title,
                               @NonNull String wikitext, @NonNull Callback cb) {
@@ -45,7 +42,7 @@ class EditPreviewClient {
                         cb.failure(call, new IOException("An unknown error occurred."));
                     }
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, retrofit));
+                    cb.failure(call, RetrofitException.httpError(response));
                 }
             }
 

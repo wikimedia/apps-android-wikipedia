@@ -31,7 +31,7 @@ class ZeroConfigClient {
     @VisibleForTesting Call<ZeroConfig> request(@NonNull Service service, @NonNull String userAgent,
                                                 @NonNull Callback cb) {
         Call<ZeroConfig> call = service.get(userAgent);
-        call.enqueue(new CallbackAdapter(cachedService, cb));
+        call.enqueue(new CallbackAdapter(cb));
         return call;
     }
 
@@ -49,10 +49,8 @@ class ZeroConfigClient {
 
     private static class CallbackAdapter implements retrofit2.Callback<ZeroConfig> {
         @NonNull private Callback cb;
-        @NonNull private MwCachedService<Service> cachedService;
 
-        CallbackAdapter(@NonNull MwCachedService<Service> service, @NonNull Callback cb) {
-            this.cachedService = service;
+        CallbackAdapter(@NonNull Callback cb) {
             this.cb = cb;
         }
 
@@ -66,7 +64,7 @@ class ZeroConfigClient {
                 }
                 cb.success(call, response.body());
             } else {
-                cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
+                cb.failure(call, RetrofitException.httpError(response));
             }
         }
 
