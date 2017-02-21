@@ -68,7 +68,7 @@
     <color name="page_info_heading">#555</color>
     <color name="actionbar_background">@color/darkest_gray</color>
     <color name="actionbar_highlight">#808080</color>
-    <color name="search_text_hint">#808080</color>
+    <color name="search_text_hint">#32ffffff</color>
     <color name="lead_gradient_start">#b8000000</color>
     <color name="new_lead_gradient_start">#50000000</color>
     <color name="main_toolbar_background">@color/actionbar_background</color>

@@ -444,5 +444,17 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
                 listDetailView.setSearchQuery(null);
             }
         }
+
+        @Override
+        protected String getSearchHintString() {
+            switch (pager.getCurrentItem()) {
+                case PAGE_READING_LISTS:
+                    return getContext().getResources().getString(R.string.search_hint_search_my_lists);
+                case PAGE_LIST_DETAIL:
+                    return getContext().getResources().getString(R.string.search_hint_search_reading_list);
+                default:
+                    throw new IllegalArgumentException("Received unknown page ID " + pager.getCurrentItem());
+            }
+        }
     }
 }

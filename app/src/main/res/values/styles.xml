@@ -42,8 +42,8 @@
     </style>
 
     <style name="AppTheme.ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
-        <item name="background">@color/actionbar_background</item>
-        <item name="backgroundSplit">@color/actionbar_background</item>
+        <item name="background">@color/foundation_blue</item>
+        <item name="backgroundSplit">@color/foundation_blue</item>
         <item name="titleTextStyle">@style/AppTheme.ActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/AppTheme.ActionModeSubtitleStyle</item>
     </style>

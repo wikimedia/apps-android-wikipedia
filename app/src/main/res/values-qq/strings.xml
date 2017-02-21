@@ -11,7 +11,10 @@
 {{Identical|Yes}}</string>
   <string name="no">Negative answer to a dialog box.
 {{Identical|No}}</string>
-  <string name="search_hint">Placeholder text for the search textbox</string>
+  <string name="search_hint">Hint text for the search box</string>
+  <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
+  <string name="search_hint_search_my_lists">Hint text for the search box when searching the set of reading lists</string>
+  <string name="search_hint_search_reading_list">Hint text for the search box when searching for pages in a single reading list</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.
 {{Identical|History}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
