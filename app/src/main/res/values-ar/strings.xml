@@ -276,9 +276,7 @@
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_button_view_page">أعرض الصفحة</string>
   <string name="notification_button_view_user">التحدث مع المستخدم</string>
-  <string name="notification_button_view_edit_history">عرض تاريخ التعديل
-
-عرض تاريخ التحرير</string>
+  <string name="notification_button_view_edit_history">عرض تاريخ التعديل</string>
   <string name="notification_generic_title">الإشعارات على ويكيبيديا</string>
   <string name="notification_talk_title">رسالة جديدة على ويكيبيديا</string>
   <string name="view_continue_reading_card_title">واصل القراءة</string>

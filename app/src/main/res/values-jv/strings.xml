@@ -247,6 +247,8 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="reading_list_untitled">Tanpa judul</string>
   <string name="reading_list_save_to">Simpen dhaftar maca</string>
   <string name="reading_list_create_new">Nggawe anyar</string>
+  <string name="reading_list_title_exists">Dhaftar maca \"%s\" wis ana.</string>
+  <string name="reading_list_entry_empty">Mangga ketik judhul.</string>
   <string name="reading_list_added_to_named">Ditambahake kanggo %s.</string>
   <string name="reading_list_added_to_unnamed">Ditambahake menyang dhaptar maca.</string>
   <string name="reading_list_already_exists">Artikel iki wis ing dhaftar.</string>

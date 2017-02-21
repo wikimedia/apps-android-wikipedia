@@ -86,6 +86,7 @@
   <string name="create_account_password_repeat_hint">Zopakujte heslo</string>
   <string name="create_account_passwords_mismatch_error">Heslá sa nezhodujú</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
+  <string name="create_account_username_error">Neplatné znaky v používateľskom mene</string>
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
   <string name="create_account_next">Ďalej</string>
   <string name="create_account_button">Vytvoriť účet</string>
@@ -311,9 +312,9 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
   <string name="description_edit_header">Upravovanie</string>
-  <string name="description_edit_text_hint" fuzzy="true">Napíšte popis!</string>
+  <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_save">Uložiť</string>
-  <string name="description_edit_add_description" fuzzy="true">Pridať stručný popis</string>
+  <string name="description_edit_add_description">Pridať popis článku</string>
   <string name="description_edit_edit_description">Upraviť popis</string>
   <string name="description_edit_cancel_hint">Zrušiť</string>
   <string name="description_edit_help_title">Pomocník: popis</string>
@@ -333,4 +334,9 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
+  <string name="description_edit_help_tips_examples">Napríklad:</string>
+  <string name="description_edit_help_tips_example1">obraz od Leonarda da Vinciho</string>
+  <string name="description_edit_help_tips_example2">najvyššia hora na Zemi</string>
+  <string name="description_edit_help_more_info">Viac informácií</string>
+  <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
 </resources>

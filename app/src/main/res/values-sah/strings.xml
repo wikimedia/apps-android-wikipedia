@@ -330,7 +330,13 @@
   <string name="description_edit_tutorial_button_label_start_editing">Уларытыыны саҕалаа</string>
   <string name="description_edit_tutorial_promise">Саҕалыырбар бу кыаҕы сөпкө туһаныам диэн мэктиэлиибин.</string>
   <string name="description_edit_help_about_title">Бу туһунан</string>
+  <string name="description_edit_help_tips">Ойуулаһыыны оҥорууга сүбэлэр</string>
+  <string name="description_edit_help_tips_description">Ойуулааһын - толору этии буолбатах, отой кылгас быһаарыы. Уһуна үксүгэр икки сүһүөхтэн уон икки сүһүөххэ диэри буолар, биир устуруокаҕа батара ордук. Таба суруйуу быраабылата атыны ирдээбэт түгэнигэр ойуулааһыны кыра буукубаттан саҕалыыр куолу. Туочука туруоруллубат.</string>
   <string name="description_edit_help_tips_examples">Холобур:</string>
+  <string name="description_edit_help_tips_example1">Леонардо да Винчи хартыыната</string>
+  <string name="description_edit_help_tips_example1_hint">Мона Лиза туһунан ыстатыйа ис хоһооно</string>
+  <string name="description_edit_help_tips_example2">Сир саамай үрдүк хайата</string>
+  <string name="description_edit_help_tips_example2_hint">Эверест чыпчаалын туһунан ыстатыйа ис хоһооно</string>
   <string name="description_edit_help_more_info">Сиһилии</string>
   <string name="description_edit_revert_subtitle">Бикипиэдьийэни тупсарбыккар махтал!</string>
 </resources>

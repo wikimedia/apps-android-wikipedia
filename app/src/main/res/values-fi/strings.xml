@@ -246,6 +246,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_create_new">Luo uusi</string>
+  <string name="reading_list_entry_empty">Syötä otsikko.</string>
   <string name="reading_list_added_to_named">Lisätty listalle %s.</string>
   <string name="reading_list_added_to_unnamed">Lisätty lukulistaan.</string>
   <string name="reading_list_already_exists">Tämä artikkeli on jo listalla.</string>

@@ -247,6 +247,8 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_untitled">Unbenannt</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
   <string name="reading_list_create_new">Neue erstellen</string>
+  <string name="reading_list_title_exists">Die Leseliste „%s“ ist bereits vorhanden.</string>
+  <string name="reading_list_entry_empty">Bitte einen Titel eingeben.</string>
   <string name="reading_list_added_to_named">Zu %s hinzugefügt.</string>
   <string name="reading_list_added_to_unnamed">Zur Leseliste hinzugefügt.</string>
   <string name="reading_list_already_exists">Dieser Artikel ist bereits in dieser Liste.</string>
