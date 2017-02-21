@@ -95,10 +95,10 @@
         :revertSubtitle<br />
         :revertIntro
         <p>
-            • :revertReason1
+            ^1
         </p>
         <p>
-            • :revertReason2
+            ^2
         </p>
         :revertHistory
     ]]></string>

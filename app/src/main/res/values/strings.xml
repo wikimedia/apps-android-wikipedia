@@ -404,7 +404,7 @@
     <string name="description_edit_revert_intro">We know you tried your best, but one of the reviewers had a concern. Possible reasons your edit was reverted include:</string>
     <string name="description_edit_revert_reason1"><![CDATA[your contribution didn\'t follow one of the <a href="%1$s">guidelines</a>.]]></string>
     <string name="description_edit_revert_reason2">your contribution looked like an experiment or vandalism.</string>
-    <string name="description_edit_revert_history"><![CDATA[If you are interested, see the <a href="%1$s">history of edits</a>.]]></string>
+    <string name="description_edit_revert_history"><![CDATA[If you are interested, see the <a href="%1$s">edit history</a>.]]></string>
     <!-- /Description editing revert help -->
 
 </resources>
