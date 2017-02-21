@@ -12,12 +12,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.Spanned;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 
 public final class NotificationPresenter {
     private static final int REQUEST_CODE_PAGE = 0;
@@ -26,7 +28,7 @@ public final class NotificationPresenter {
 
     public static void showNotification(@NonNull Context context, Notification n) {
         @StringRes int title;
-        String description;
+        Spanned description;
         @DrawableRes int icon;
         @ColorInt int color;
 
@@ -51,7 +53,7 @@ public final class NotificationPresenter {
 
         switch (n.type()) {
             case Notification.TYPE_EDIT_USER_TALK:
-                description = context.getString(R.string.notification_talk, n.agent().name(), n.title().full());
+                description = StringUtil.fromHtml(context.getString(R.string.notification_talk, n.agent().name(), n.title().full()));
                 icon = R.drawable.ic_chat_white_24dp;
                 title = R.string.notification_talk_title;
                 color = ContextCompat.getColor(context, R.color.foundation_blue);
@@ -59,14 +61,14 @@ public final class NotificationPresenter {
                 break;
             case Notification.TYPE_REVERTED:
                 pageIntent.putExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER, n.title().text());
-                description = context.getString(R.string.notification_reverted, n.agent().name(), n.title().full());
+                description = StringUtil.fromHtml(context.getString(R.string.notification_reverted, n.agent().name(), n.title().full()));
                 icon = R.drawable.ic_rotate_left_white_24dp;
                 title = R.string.notification_reverted_title;
                 color = ContextCompat.getColor(context, R.color.foundation_red);
                 builder.setPriority(NotificationCompat.PRIORITY_MAX);
                 break;
             case Notification.TYPE_EDIT_THANK:
-                description = context.getString(R.string.notification_thanks, n.agent().name(), n.title().full());
+                description = StringUtil.fromHtml(context.getString(R.string.notification_thanks, n.agent().name(), n.title().full()));
                 icon = R.drawable.ic_favorite_white_24dp;
                 title = R.string.notification_thanks_title;
                 color = ContextCompat.getColor(context, R.color.foundation_green);
