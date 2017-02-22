@@ -66,9 +66,6 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
     @Nullable private ActionMode actionMode;
 
-    private int readingListSortMode;
-    private int readingListPageSortMode;
-
     @NonNull public static ReadingListsFragment newInstance() {
         return new ReadingListsFragment();
     }
@@ -77,8 +74,6 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        readingListSortMode = Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC);
-        readingListPageSortMode = Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
     }
 
     @Override
@@ -149,13 +144,11 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         super.onPrepareOptionsMenu(menu);
         MenuItem sortByNameItem = menu.findItem(R.id.menu_sort_by_name);
         MenuItem sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent);
-        if (pager.getCurrentItem() == PAGE_READING_LISTS) {
-            sortByNameItem.setTitle(readingListSortMode == ReadingLists.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
-            sortByRecentItem.setTitle(readingListSortMode == ReadingLists.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
-        } else {
-            sortByNameItem.setTitle(readingListPageSortMode == ReadingLists.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
-            sortByRecentItem.setTitle(readingListPageSortMode == ReadingLists.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
-        }
+        int sortMode = pager.getCurrentItem() == PAGE_READING_LISTS
+                ? Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC)
+                : Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
+        sortByNameItem.setTitle(sortMode == ReadingLists.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
+        sortByRecentItem.setTitle(sortMode == ReadingLists.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
     }
 
     @Override
@@ -288,7 +281,6 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
                 actionMode.finish();
             }
             listDetailView.setReadingListInfo(readingList, readingLists.getTitlesExcept(readingList.getTitle()));
-            listDetailView.setSort(readingListPageSortMode);
             pager.setCurrentItem(PAGE_LIST_DETAIL);
 
             if (!readingList.getPages().isEmpty()
@@ -392,27 +384,29 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     private void setSortMode(int sortModeAsc, int sortModeDesc) {
         if (pager.getCurrentItem() == PAGE_READING_LISTS) {
-            if (readingListSortMode != sortModeAsc) {
-                readingListSortMode = sortModeAsc;
+            int sortMode = Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC);
+            if (sortMode != sortModeAsc) {
+                sortMode = sortModeAsc;
             } else {
-                readingListSortMode = sortModeDesc;
+                sortMode = sortModeDesc;
             }
             sortLists();
-            Prefs.setReadingListSortMode(readingListSortMode);
+            Prefs.setReadingListSortMode(sortMode);
         } else if (pager.getCurrentItem() == PAGE_LIST_DETAIL) {
-            if (readingListPageSortMode != sortModeAsc) {
-                readingListPageSortMode = sortModeAsc;
+            int sortMode = Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
+            if (sortMode != sortModeAsc) {
+                sortMode = sortModeAsc;
             } else {
-                readingListPageSortMode = sortModeDesc;
+                sortMode = sortModeDesc;
             }
-            listDetailView.setSort(readingListPageSortMode);
-            Prefs.setReadingListPageSortMode(readingListPageSortMode);
+            Prefs.setReadingListPageSortMode(sortMode);
+            listDetailView.updateSort();
         }
         getActivity().supportInvalidateOptionsMenu();
     }
 
     private void sortLists() {
-        readingLists.sort(readingListSortMode);
+        readingLists.sort(Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC));
         adapter.notifyDataSetChanged();
     }
 

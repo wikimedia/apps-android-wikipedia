@@ -29,6 +29,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -130,10 +131,11 @@ public class ReadingListDetailView extends LinearLayout {
         descriptionView.setText(readingList.getDescription());
         offlineView.setImageResource(readingList.getSaveOffline() ? R.drawable.ic_cloud_download_black_24dp : R.drawable.ic_cloud_off_black_24dp);
         setSearchQuery(currentSearchQuery);
+        updateSort();
     }
 
-    public void setSort(int sortMode) {
-        sortPages(sortMode);
+    public void updateSort() {
+        sortPages(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
         adapter.notifyDataSetChanged();
     }
 
