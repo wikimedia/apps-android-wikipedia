@@ -97,7 +97,7 @@ public class DescriptionEditClient {
                     }
                 } else {
                     cb.failure(call,
-                            RetrofitException.httpError(response, cachedService.retrofit()));
+                            RetrofitException.httpError(response));
                 }
             }
 

@@ -28,7 +28,7 @@ class CaptchaClient {
                 if (response.isSuccessful()) {
                     cb.success(call, new CaptchaResult(response.body().captchaId()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
+                    cb.failure(call, RetrofitException.httpError(response));
                 }
             }
 

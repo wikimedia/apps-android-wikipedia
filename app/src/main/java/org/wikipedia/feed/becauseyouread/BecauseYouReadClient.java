@@ -30,7 +30,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -83,7 +82,6 @@ public class BecauseYouReadClient implements FeedClient {
     private void getSuggestionsForTitle(@NonNull WikiSite wiki,
                                         @NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
-        final Retrofit retrofit = cachedService.retrofit(wiki);
         readMoreCall = cachedService.service(wiki).get(MORELIKE + entry.getTitle().getDisplayText());
         readMoreCall.enqueue(new retrofit2.Callback<MwQueryResponse<Pages>>() {
             @Override
@@ -105,7 +103,7 @@ public class BecauseYouReadClient implements FeedClient {
                         cb.error(new IOException("Error fetching suggestions."));
                     }
                 } else {
-                    cb.error(RetrofitException.httpError(response, retrofit));
+                    cb.error(RetrofitException.httpError(response));
                 }
             }
 

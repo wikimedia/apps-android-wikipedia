@@ -44,7 +44,7 @@ public class WikitextClient {
                     }
                     cb.success(call, response.body().query().wikitext());
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
+                    cb.failure(call, RetrofitException.httpError(response));
                 }
             }
 

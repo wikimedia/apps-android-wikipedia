@@ -23,7 +23,6 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
@@ -34,13 +33,11 @@ import retrofit2.http.Query;
  */
 public class RbPageService implements PageService {
     private final Service service;
-    private Retrofit retrofit;
     private WikipediaZeroHandler responseHeaderHandler;
 
     public RbPageService(final WikiSite wiki) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
         service = RbPageServiceCache.INSTANCE.getService(wiki);
-        retrofit = RbPageServiceCache.INSTANCE.getRetrofit();
     }
 
     @Override
@@ -63,7 +60,7 @@ public class RbPageService implements PageService {
                     }
                     cb.success(response.body());
                 } else {
-                    Throwable throwable = RetrofitException.httpError(response, retrofit);
+                    Throwable throwable = RetrofitException.httpError(response);
                     RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                     cb.failure(throwable);
                 }
@@ -94,7 +91,7 @@ public class RbPageService implements PageService {
                     pageLead.setLeadImageThumbWidth(leadImageThumbWidth);
                     cb.success(pageLead);
                 } else {
-                    Throwable throwable = RetrofitException.httpError(response, retrofit);
+                    Throwable throwable = RetrofitException.httpError(response);
                     RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                     cb.failure(throwable);
                 }
@@ -117,7 +114,7 @@ public class RbPageService implements PageService {
                 if (response.isSuccessful()) {
                     cb.success(response.body());
                 } else {
-                    Throwable throwable = RetrofitException.httpError(response, retrofit);
+                    Throwable throwable = RetrofitException.httpError(response);
                     RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                     cb.failure(throwable);
                 }
@@ -161,7 +158,7 @@ public class RbPageService implements PageService {
                     responseHeaderHandler.onHeaderCheck(response);
                     cb.success(new RbDefinition(response.body()));
                 } else {
-                    Throwable throwable = RetrofitException.httpError(response, retrofit);
+                    Throwable throwable = RetrofitException.httpError(response);
                     RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                     cb.failure(throwable);
                 }

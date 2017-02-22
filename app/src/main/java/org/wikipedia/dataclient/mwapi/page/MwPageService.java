@@ -8,7 +8,6 @@ import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageService;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.dataclient.restbase.page.RbPageServiceCache;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
@@ -18,7 +17,6 @@ import java.io.IOException;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Query;
@@ -28,13 +26,11 @@ import retrofit2.http.Query;
  */
 public class MwPageService implements PageService {
     private final Service service;
-    private final Retrofit retrofit;
     private WikipediaZeroHandler responseHeaderHandler;
 
     public MwPageService(final WikiSite wiki) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
         service = MwPageServiceCache.INSTANCE.getService(wiki);
-        retrofit = RbPageServiceCache.INSTANCE.getRetrofit(); // todo: why does MW depend on RB?
     }
 
     @Override
@@ -53,7 +49,7 @@ public class MwPageService implements PageService {
                     responseHeaderHandler.onHeaderCheck(response);
                     cb.success(response.body());
                 } else {
-                    cb.failure(RetrofitException.httpError(response, retrofit));
+                    cb.failure(RetrofitException.httpError(response));
                 }
             }
 
@@ -79,7 +75,7 @@ public class MwPageService implements PageService {
                     responseHeaderHandler.onHeaderCheck(response);
                     cb.success(response.body());
                 } else {
-                    cb.failure(RetrofitException.httpError(response, retrofit));
+                    cb.failure(RetrofitException.httpError(response));
                 }
             }
 
@@ -100,7 +96,7 @@ public class MwPageService implements PageService {
                     RbSwitch.INSTANCE.onMwSuccess();
                     cb.success(response.body());
                 } else {
-                    cb.failure(RetrofitException.httpError(response, retrofit));
+                    cb.failure(RetrofitException.httpError(response));
                 }
             }
 

@@ -59,7 +59,7 @@ class NearbyClient {
                         cb.success(call, new NearbyResult(wiki, new ArrayList<NearbyPage>()));
                     }
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
+                    cb.failure(call, RetrofitException.httpError(response));
                 }
             }
 
