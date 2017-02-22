@@ -2,10 +2,12 @@ package org.wikipedia.feed.news;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;
 import org.wikipedia.util.DateUtil;
@@ -46,12 +48,15 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
             super(items);
         }
 
+        @Nullable @Override protected FeedAdapter.Callback callback() {
+            return getCallback();
+        }
+
         @Override
         public void onBindViewHolder(DefaultViewHolder<HorizontalScrollingListCardItemView> holder, int i) {
             final NewsItemCard card = item(i);
             holder.getView().setText(card.text());
             holder.getView().setImage(card.image());
-            holder.getView().setCallback(getCallback());
             holder.getView().setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {

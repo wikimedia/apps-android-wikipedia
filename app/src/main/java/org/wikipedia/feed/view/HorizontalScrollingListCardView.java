@@ -2,6 +2,7 @@ package org.wikipedia.feed.view;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
@@ -44,9 +45,21 @@ public abstract class HorizontalScrollingListCardView<T extends Card> extends Li
             super(items);
         }
 
+        @Nullable protected abstract FeedAdapter.Callback callback();
+
         @Override public DefaultViewHolder<HorizontalScrollingListCardItemView> onCreateViewHolder(ViewGroup parent,
                                                                                          int viewType) {
             return new DefaultViewHolder<>(new HorizontalScrollingListCardItemView(parent.getContext()));
+        }
+
+        @Override public void onViewAttachedToWindow(DefaultViewHolder<HorizontalScrollingListCardItemView> holder) {
+            super.onViewAttachedToWindow(holder);
+            holder.getView().setCallback(callback());
+        }
+
+        @Override public void onViewDetachedFromWindow(DefaultViewHolder<HorizontalScrollingListCardItemView> holder) {
+            holder.getView().setCallback(null);
+            super.onViewDetachedFromWindow(holder);
         }
     }
 }

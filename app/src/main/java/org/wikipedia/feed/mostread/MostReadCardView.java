@@ -2,6 +2,7 @@ package org.wikipedia.feed.mostread;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
@@ -42,11 +43,14 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
             super(items);
         }
 
+        @Nullable @Override protected ListCardItemView.Callback callback() {
+            return getCallback();
+        }
+
         @Override
         public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int position) {
             MostReadItemCard card = item(position);
             holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_MOST_READ));
-            holder.getView().setCallback(getCallback());
         }
     }
 }
