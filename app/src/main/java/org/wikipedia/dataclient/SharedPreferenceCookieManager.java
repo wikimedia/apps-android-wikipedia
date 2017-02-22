@@ -58,7 +58,7 @@ public final class SharedPreferenceCookieManager extends CookieManager {
             // For sites outside the wikipedia.org domain, like wikidata.org,
             // transfer the centralauth cookies from wikipedia.org, too, if the user is logged in
             if (User.isLoggedIn()
-                    && domain.equals("www.wikidata.org") && domainSpec.equals("wikipedia.org")) {
+                    && domain.equals("www.wikidata.org") && domainSpec.endsWith("wikipedia.org")) {
                 cookiesList.addAll(makeCookieList(cookieJar.get(domainSpec), CENTRALAUTH_PREFIX));
             }
 
