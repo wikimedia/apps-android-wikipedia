@@ -67,7 +67,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     @BindView(R.id.view_page_header_divider) View divider;
     @BindView(R.id.view_page_header_container) LinearLayout container;
     @BindView(R.id.view_page_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
-    @BindView(R.id.view_page_header_edit_pencil) View editPencil;
+    @BindView(R.id.view_page_header_edit_pencil) ImageView editPencil;
 
     @Nullable private Callback callback;
     @VisibleForTesting @NonNull CharSequence title = "";
@@ -175,6 +175,11 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
     public boolean hasSubtitle() {
         return !TextUtils.isEmpty(subtitle);
+    }
+
+    public void setProtected(boolean isProtected) {
+        editPencil.setImageDrawable(ContextCompat.getDrawable(getContext(), isProtected
+                ? R.drawable.ic_edit_lock_24px : R.drawable.ic_mode_edit_white_24dp));
     }
 
     public void setLocale(@NonNull String locale) {

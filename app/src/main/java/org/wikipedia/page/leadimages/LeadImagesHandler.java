@@ -141,6 +141,7 @@ public class LeadImagesHandler {
         pageHeaderView.setSubtitle(StringUtils.capitalize(getTitle().getDescription()));
         pageHeaderView.setLocale(getPage().getTitle().getWikiSite().languageCode());
         pageHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
+        pageHeaderView.setProtected(getPage().isProtected());
         pageHeaderView.setAllowDescriptionEdit(DescriptionEditClient.isEditAllowed(getPage()));
 
         layoutViews(listener, sequence);
@@ -244,12 +245,12 @@ public class LeadImagesHandler {
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onDescriptionClicked() {
-                verifyLoggedInForDescriptionEdit();
+                verifyDescriptionEditable();
             }
 
             @Override
             public void onEditDescription() {
-                verifyLoggedInForDescriptionEdit();
+                verifyDescriptionEditable();
             }
 
             @Override
@@ -257,6 +258,14 @@ public class LeadImagesHandler {
                 parentFragment.getEditHandler().startEditingSection(0, null);
             }
         });
+    }
+
+    private void verifyDescriptionEditable() {
+        if (getPage() != null && getPage().getPageProperties().canEdit()) {
+            verifyLoggedInForDescriptionEdit();
+        } else {
+            parentFragment.getEditHandler().showUneditableDialog();
+        }
     }
 
     private void verifyLoggedInForDescriptionEdit() {

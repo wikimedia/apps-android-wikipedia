@@ -34,6 +34,10 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     }
 
     public void startEditingSection(int sectionID, @Nullable String highlightText) {
+        if (!currentPage.getPageProperties().canEdit()) {
+            showUneditableDialog();
+            return;
+        }
         Section section = currentPage.getSections().get(sectionID);
         Intent intent = new Intent(fragment.getActivity(), EditSectionActivity.class);
         intent.setAction(EditSectionActivity.ACTION_EDIT_SECTION);
@@ -45,17 +49,12 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION);
     }
 
-    private void showUneditableDialog() {
+    public void showUneditableDialog() {
         new AlertDialog.Builder(fragment.getActivity())
                 .setCancelable(false)
                 .setTitle(R.string.page_protected_can_not_edit_title)
                 .setMessage(R.string.page_protected_can_not_edit)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
+                .setPositiveButton(android.R.string.ok, null)
                 .show();
         funnel.log(currentPage.getPageProperties().getEditProtectionStatus());
     }
@@ -83,10 +82,6 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                             }
                         })
                         .show();
-                return;
-            }
-            if (!currentPage.getPageProperties().canEdit()) {
-                showUneditableDialog();
                 return;
             }
             startEditingSection(messagePayload.optInt("sectionID"), null);
