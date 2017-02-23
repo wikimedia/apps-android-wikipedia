@@ -7,6 +7,9 @@
   <string name="yes">Да</string>
   <string name="no">Нет</string>
   <string name="search_hint">Поиск по Википедии</string>
+  <string name="search_hint_search_history">Журнал поиска</string>
+  <string name="search_hint_search_my_lists">Поиск в моих списках</string>
+  <string name="search_hint_search_reading_list">Поиск в списке для чтения</string>
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Не удаётся подключиться к Интернету.</string>
   <string name="page_error_retry">Повторить</string>
@@ -137,7 +140,7 @@
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лицензия</string>
   <string name="about_app_license">Исходный код доступен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt; под лицензией &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Если не указано иное, содержимое доступно в соответствии с лицензией &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
   <string name="edit_abandon_confirm">Страница была изменена. Вы уверены, что хотите выйти без сохранения изменений?</string>
   <string name="user_blocked_from_editing_title">Заблокирован</string>
@@ -247,6 +250,8 @@
   <string name="reading_list_untitled">Без названия</string>
   <string name="reading_list_save_to">Сохранить в список для чтения</string>
   <string name="reading_list_create_new">Создать новый</string>
+  <string name="reading_list_title_exists">Список для чтения «%s» уже существует.</string>
+  <string name="reading_list_entry_empty">Пожалуйста, введите заголовок.</string>
   <string name="reading_list_added_to_named">Добавлено в %s.</string>
   <string name="reading_list_added_to_unnamed">Добавлено в список для чтения.</string>
   <string name="reading_list_already_exists">Эта статья уже находится в данном списке.</string>
@@ -285,11 +290,11 @@
   <string name="notification_button_view_edit_history">Посмотреть историю редактирования</string>
   <string name="notification_generic_title">Уведомление в Википедии</string>
   <string name="notification_talk_title">Новое сообщение в Википедии</string>
-  <string name="notification_talk">%1$s оставил сообщение на вашей странице обсуждения «%2$s»</string>
+  <string name="notification_talk" fuzzy="true">%1$s оставил сообщение на вашей странице обсуждения «%2$s»</string>
   <string name="notification_reverted_title">Откаченная правка</string>
-  <string name="notification_reverted">Ваша правка в статье «%2$s» была отменена участником %1$s.</string>
+  <string name="notification_reverted" fuzzy="true">Ваша правка в статье «%2$s» была отменена участником %1$s.</string>
   <string name="notification_thanks_title">Вас поблагодарили!</string>
-  <string name="notification_thanks">Участник %1$s поблагодарил вас за вашу правку на странице «%2$s»</string>
+  <string name="notification_thanks" fuzzy="true">Участник %1$s поблагодарил вас за вашу правку на странице «%2$s»</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -325,7 +330,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ru</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
   <string name="description_edit_anon_limit">Благодарим Вас за изменения описаний! Для того, чтобы вводить дополнительные изменения, необходимо войти в Ваш аккаунт на Википедии.</string>
-  <string name="description_edit_license_notice">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;yсловиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию  по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;yсловиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию  по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
@@ -353,5 +358,5 @@
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то не правильно. Возможные причины для отмения правки:</string>
   <string name="description_edit_revert_reason1">Ваше изменение не следовало один из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Ваше изменение выглядело как эксперимент или вандализм.</string>
-  <string name="description_edit_revert_history">Если вы заинтересованы, просмотрите &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history" fuzzy="true">Если вы заинтересованы, просмотрите &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
 </resources>

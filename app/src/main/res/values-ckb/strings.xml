@@ -106,7 +106,7 @@
   <string name="about_contributors_heading">بەشداربووان</string>
   <string name="about_translators_heading">وەرگێڕەکان</string>
   <string name="about_app_license_heading">مۆڵەت</string>
-  <string name="about_wmf">بەرھەمی &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;دامەزراوەی ویکیمیدیا&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">بەرھەمی &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;دامەزراوەی ویکیمیدیا&lt;/a&gt;</string>
   <string name="about_activity_title">سه‌باره‌ت</string>
   <string name="edit_abandon_confirm">پەڕەکە گۆڕدراوە. دڵنیای کە دەتەوێت بچیە دەرەوە بەبێ پاشەکەوتکردنی گۆڕانکارییەکان؟</string>
   <string name="user_blocked_from_editing_title">بەربەستکراو</string>

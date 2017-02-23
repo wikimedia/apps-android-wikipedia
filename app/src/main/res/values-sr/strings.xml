@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">Зумирај локацију на мапи</string>
   <string name="last_updated_text">Последње ажурирање: %s</string>
   <string name="talk_page_link_text">Разговор</string>
-  <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
+  <string name="content_license_html" fuzzy="true">Садржај је доступан под лиценцом &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
   <string name="edit_save_action_license_logged_in">Чувањем измена слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Чувањем измена слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Чувањем измена слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање ваших доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
   <string name="preference_title_language">Језик Википедије</string>
   <string name="preference_languages_filter_hint">Претрага</string>
   <string name="langlinks_filter_hint">Претражи</string>
@@ -127,7 +127,7 @@
   <string name="about_translators_translatewiki">Апликацију су превели добровољци сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
   <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Ауторство-Делити под истим условима&lt;/a&gt; осим ако није другачије наведено.</string>
-  <string name="about_wmf">Производ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Производ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Заиста желите да изађете без чувања измена?</string>
   <string name="user_blocked_from_editing_title">Блокиран</string>

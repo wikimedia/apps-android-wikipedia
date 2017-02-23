@@ -7,6 +7,9 @@
   <string name="yes">Kyllä</string>
   <string name="no">Ei</string>
   <string name="search_hint">Hae Wikipediasta</string>
+  <string name="search_hint_search_history">Hae historiasta</string>
+  <string name="search_hint_search_my_lists">Hae omista luetteloista</string>
+  <string name="search_hint_search_reading_list">Etsi lukuluettelosta</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
@@ -38,7 +41,7 @@
   <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
   <string name="talk_page_link_text">Keskustelu</string>
-  <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
+  <string name="content_license_html" fuzzy="true">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="edit_save_action_license_anon">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kieli</string>
@@ -136,7 +139,7 @@
   <string name="about_translators_translatewiki">Tämän sovelluksen ovat kääntäneet &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netin&lt;/a&gt; vapaaehtoiset kääntäjät.</string>
   <string name="about_app_license_heading">Lisenssi</string>
   <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritistä&lt;/a&gt; ja &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nimeä–Tarttuva -lisenssillä&lt;/a&gt;.</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationin&lt;/a&gt; tuote</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationin&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
   <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
   <string name="user_blocked_from_editing_title">Estetty</string>
@@ -246,6 +249,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_create_new">Luo uusi</string>
+  <string name="reading_list_title_exists">Lukuluettelo \"%s\" on jo olemassa.</string>
   <string name="reading_list_entry_empty">Syötä otsikko.</string>
   <string name="reading_list_added_to_named">Lisätty listalle %s.</string>
   <string name="reading_list_added_to_unnamed">Lisätty lukulistaan.</string>
@@ -285,11 +289,11 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="notification_button_view_edit_history">Tarkastele muokkaushistoriaa</string>
   <string name="notification_generic_title">Ilmoitus Wikipediassa</string>
   <string name="notification_talk_title">Uusi viesti Wikipediassa</string>
-  <string name="notification_talk">%1$s jätti viestin keskustelusivullesi \"%2$s\"</string>
+  <string name="notification_talk" fuzzy="true">%1$s jätti viestin keskustelusivullesi \"%2$s\"</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
-  <string name="notification_reverted">%1$s kumosi muokkauksesi artikkeliin \"%2$s\".</string>
+  <string name="notification_reverted" fuzzy="true">%1$s kumosi muokkauksesi artikkeliin \"%2$s\".</string>
   <string name="notification_thanks_title">Olet saanut kiitosta!</string>
-  <string name="notification_thanks">%1$s kiitti sinua muokkauksestasi sivuun \"%2$s\"</string>
+  <string name="notification_thanks" fuzzy="true">%1$s kiitti sinua muokkauksestasi sivuun \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
@@ -324,7 +328,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-opas kuvauksien kirjoittamiseen</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/fi</string>
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tilillesi.</string>
-  <string name="description_edit_license_notice">Muuttamalla otsikkokuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lisenssin ehtojen mukaisesti.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Muuttamalla otsikkokuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lisenssin ehtojen mukaisesti.</string>
   <string name="description_edit_success_saved">Kuvaus tallennettu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
@@ -347,5 +351,5 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme että yritit parhaasi mutta yhdellä arvioijalla on huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason2">muokkauksesi vaikutti kokeilulta tai vandalismilta.</string>
-  <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history" fuzzy="true">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
 </resources>

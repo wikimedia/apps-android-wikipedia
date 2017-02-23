@@ -38,7 +38,7 @@
   <string name="nearby_zoom_to_location">نقشي تي ڪو مقام وڏو ڪري ڏسو</string>
   <string name="last_updated_text">آخري ترميم %s</string>
   <string name="talk_page_link_text">بحث</string>
-  <string name="content_license_html">مواد موجود آهي &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت نه ته ٻي صورت ۾ نوٽ ٿيل آهي.</string>
+  <string name="content_license_html" fuzzy="true">مواد موجود آهي &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت نه ته ٻي صورت ۾ نوٽ ٿيل آهي.</string>
   <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
   <string name="edit_save_action_license_anon">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻولي</string>
@@ -133,7 +133,7 @@
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">لائسنس</string>
   <string name="about_app_license">سورس ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; جي تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; موجود آھي. جيسيتائين ٻي صورت ۾ وضاحت ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز انتساب-ھڪجھڙي ڀاڱيداري لائسنس جي تحت موجود آھي&lt;/a&gt;.</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;وڪي‌ذريعات پيڙهڪا&lt;/a&gt; جي مصنوعات</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;وڪي‌ذريعات پيڙهڪا&lt;/a&gt; جي مصنوعات</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو ترميم ٿي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
   <string name="user_blocked_from_editing_title">بندشيل</string>
@@ -282,11 +282,11 @@
   <string name="notification_button_view_edit_history">ترميمي سوانح ڏسو</string>
   <string name="notification_generic_title">وڪيپيڊيا تي اطلاع</string>
   <string name="notification_talk_title">وڪيپيڊيا تي نئون پيغام</string>
-  <string name="notification_talk">%1$s توھان جي بحث صفحي \"%2$s\" تي پيغام ڇڏيو</string>
+  <string name="notification_talk" fuzzy="true">%1$s توھان جي بحث صفحي \"%2$s\" تي پيغام ڇڏيو</string>
   <string name="notification_reverted_title">ورايل ترميم</string>
-  <string name="notification_reverted">\"%2$s\" مضمون تي توھان جي ترميم %1$s پاران ورائي وئي.</string>
+  <string name="notification_reverted" fuzzy="true">\"%2$s\" مضمون تي توھان جي ترميم %1$s پاران ورائي وئي.</string>
   <string name="notification_thanks_title">توھان جي مھرباني ادا ڪئي وئي آھي!</string>
-  <string name="notification_thanks">مضمون \"%2$s\" تي توھان جي ترميم لاءِ %1$s توھان جي مھرباني ادا ڪئي</string>
+  <string name="notification_thanks" fuzzy="true">مضمون \"%2$s\" تي توھان جي ترميم لاءِ %1$s توھان جي مھرباني ادا ڪئي</string>
   <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
@@ -343,5 +343,5 @@
   <string name="description_edit_revert_subtitle">وڪيپيڊيا ترميم ڪرڻ لاءِ مھرباني!</string>
   <string name="description_edit_revert_reason1">توھان جي ڀاڱيداريءَ &lt;a href=\"%1$s\"&gt;ھدايتن&lt;/a&gt; مان ڪنھن ھڪ جي پيروي نہ ڪئي.</string>
   <string name="description_edit_revert_reason2">توھان جي ڀاڱيداري ڪو تجربو يا تخريبڪاري وانگر لڳي</string>
-  <string name="description_edit_revert_history">جيڪڏھن کي توھان کي دلچسپي آھي، تہ پوءِ &lt;a href=\"%1$s\"&gt;ترميمن جي سوانح&lt;/a&gt; ڏسو.</string>
+  <string name="description_edit_revert_history" fuzzy="true">جيڪڏھن کي توھان کي دلچسپي آھي، تہ پوءِ &lt;a href=\"%1$s\"&gt;ترميمن جي سوانح&lt;/a&gt; ڏسو.</string>
 </resources>

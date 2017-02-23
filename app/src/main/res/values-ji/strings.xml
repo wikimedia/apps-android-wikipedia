@@ -38,7 +38,7 @@
   <string name="nearby_zoom_to_location">פֿארגרעסערן צו א לאקאציע אויף דער מאפע</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
   <string name="talk_page_link_text">רעדן</string>
-  <string name="content_license_html">אינהאלט איז פֿאראן אונטער &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אחוץ ווען געוויזן אנדערשט</string>
+  <string name="content_license_html" fuzzy="true">אינהאלט איז פֿאראן אונטער &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אחוץ ווען געוויזן אנדערשט</string>
   <string name="preference_title_language">וויקיפעדיע־שפראך</string>
   <string name="preference_languages_filter_hint">זוכן</string>
   <string name="langlinks_filter_hint">זוכן</string>
@@ -119,7 +119,7 @@
   <string name="about_translators_heading">איבערזעצער</string>
   <string name="about_translators_translatewiki">דער אפ איז געווארן איבערגעזעצט דורך די וואלונטיר איבערזעצער בײַ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">לייסענס</string>
-  <string name="about_wmf">א פרא דוקו פון דער &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;וויקימעדיע פונדאציע&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">א פרא דוקו פון דער &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;וויקימעדיע פונדאציע&lt;/a&gt;</string>
   <string name="about_activity_title">וועגן</string>
   <string name="user_blocked_from_editing_title">בלאקירט</string>
   <string name="edit_how_page_improved">וויאזוי האט איר פארבעסערט דעם בלאט?</string>

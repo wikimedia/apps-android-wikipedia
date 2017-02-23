@@ -38,7 +38,7 @@
   <string name="nearby_zoom_to_location">Přibližte se na místo v mapě</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="talk_page_link_text">Diskuse</string>
-  <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
+  <string name="content_license_html" fuzzy="true">Obsah je dostupný pod &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="edit_save_action_license_logged_in">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uložením souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budou přiřazeny IP adrese vašeho zařízení. Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
@@ -134,7 +134,7 @@
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, je obsah dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora-Zachovejte licenci&lt;/a&gt;.</string>
-  <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
   <string name="user_blocked_from_editing_title">Zablokováno</string>
@@ -282,11 +282,11 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="notification_button_view_edit_history">Zobrazit historii úprav</string>
   <string name="notification_generic_title">Upozornění na Wikipedii</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
-  <string name="notification_talk">%1$s vám nechal(a) zprávu na vaší diskusní stránce „%2$s“</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; vám nechal(a) zprávu na vaší diskusní stránce &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Zrušená úprava</string>
-  <string name="notification_reverted">%1$s zrušil(a) vaši úpravu článku „%2$s“</string>
+  <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; zrušil(a) vaši úpravu článku &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_thanks_title">Obdržel(a) jste poděkování!</string>
-  <string name="notification_thanks">%1$s vám poděkoval(a) za vaši úpravu stránky „%2$s“</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vám poděkoval(a) za vaši úpravu stránky &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>

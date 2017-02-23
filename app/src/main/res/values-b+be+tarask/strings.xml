@@ -34,9 +34,9 @@
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Перайсьці да месца на мапе</string>
   <string name="last_updated_text">Апошняе абнаўленьне %s</string>
-  <string name="content_license_html">Зьмест даступны згодна ўмоваў ліцэнзіі &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; калі Вы не пазначылі іншае</string>
+  <string name="content_license_html" fuzzy="true">Зьмест даступны згодна ўмоваў ліцэнзіі &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; калі Вы не пазначылі іншае</string>
   <string name="edit_save_action_license_logged_in">Захоўваючы зьмены Вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а так сама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Захоўваючы зьмены, Вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а так сама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адраса Вашай прылады. Калі Вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то зможае мець больш высокі ўзровень прыватнасьці.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Захоўваючы зьмены, Вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а так сама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адраса Вашай прылады. Калі Вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то зможае мець больш высокі ўзровень прыватнасьці.</string>
   <string name="preference_title_language">Мова Вікіпэдыі</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
@@ -126,7 +126,7 @@
   <string name="about_contributors_heading">Аўтары</string>
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Прадукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фундацыі Вікімэдыя&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Прадукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фундацыі Вікімэдыя&lt;/a&gt;</string>
   <string name="about_activity_title">Пра</string>
   <string name="edit_abandon_confirm">Старонка была зьмененая. Вы ўпэўнены, што жадаеце выйсьці без захаваньня Вашых зьменаў?</string>
   <string name="user_blocked_from_editing_title">Заблякаваны</string>

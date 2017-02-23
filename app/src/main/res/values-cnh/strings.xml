@@ -18,7 +18,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Hnubik tharchuah %s</string>
-  <string name="content_license_html">Hi kong hi an chim lo asicun &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ah zoh khawh a si.</string>
+  <string name="content_license_html" fuzzy="true">Hi kong hi an chim lo asicun &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ah zoh khawh a si.</string>
   <string name="edit_save_action_license_logged_in">Na khonnak thawng in atanglei hi hmanding ah na lungtling. &lt;a href=\"%1$s\"&gt; Na tuahmi pawl cu hi license tangah chuah na lungtling.
 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Na khonnak thawngin atanglei pawl hi na lungtling..&lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; Na tuahmi pawl cu hi license ning chuah a si lai. Na IP address kha kan lak lai. &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Achung na luh asicun &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, na him deuh lai dakaw.</string>
@@ -106,7 +106,7 @@
   <string name="about_contributors_heading" fuzzy="true">Teltumtu pawl</string>
   <string name="about_translators_heading" fuzzy="true">Holh Lettu</string>
   <string name="about_translators_translatewiki">Hi app cu zaanghleicawi holh lettu nih &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; a leh hna.</string>
-  <string name="about_wmf">Wikimedia Foundation &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt; thil a si.</string>
+  <string name="about_wmf" fuzzy="true">Wikimedia Foundation &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt; thil a si.</string>
   <string name="about_activity_title">Konglam</string>
   <string name="edit_abandon_confirm">Hi cahmai cu thlenremh a si. Na remhnak pawl khon loin maw na chuah ko lai?</string>
   <string name="user_blocked_from_editing_title">Block a si</string>

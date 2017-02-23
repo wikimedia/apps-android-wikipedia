@@ -38,8 +38,8 @@
   <string name="nearby_zoom_to_location">नक्सामा कुनै स्थानमा जुम गर्नुहोस्</string>
   <string name="last_updated_text">अन्तिम पटक %s मा अद्यावधिक गरिएको</string>
   <string name="talk_page_link_text">वार्तालाप गर्नुहोस्</string>
-  <string name="content_license_html">अन्यथा उल्लेख नभएसम्म सामग्रीहरू &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गत् उपलब्ध छ</string>
-  <string name="edit_save_action_license_logged_in">बचत गरेर तपाईं &lt;a href=\"%1$s\"&gt;प्रयोगका शर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>
+  <string name="content_license_html" fuzzy="true">अन्यथा उल्लेख नभएसम्म सामग्रीहरू &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गत् उपलब्ध छ</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">बचत गरेर तपाईं &lt;a href=\"%1$s\"&gt;प्रयोगका शर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ।</string>
   <string name="edit_save_action_license_anon">बचत गरेर तपाईं &lt;a href=\"%1$s\"&gt;प्रयोगका शर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत् प्रकाशन गर्नुहुन्छ। सम्पादनको श्रेय तपाईँको यन्त्रको IP ठेगानालाई दिइने छ। यदि तपाईँ &lt;a href=\"https://#login\"&gt;लग इन &lt;/a&gt;, गर्नु भयो भने तपाईँको बढी गोपनीयता रहने छ।</string>
   <string name="preference_title_language">विकिपिडियाको भाषा</string>
   <string name="preference_languages_filter_hint">खोज्नुहोस्</string>
@@ -132,7 +132,7 @@
   <string name="about_translators_translatewiki">यो अनुप्रयोग &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; का अनुवाद स्वयंसेवकहरूद्वारा अनुवाद गरिएको हो।</string>
   <string name="about_app_license_heading">इजाजतपत्र</string>
   <string name="about_app_license">स्रोत कोड &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; तथा &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; मा &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; अन्तर्गत् उपलब्ध छ। अन्यथा निर्दिष्ट नभएसम्म, सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; अन्तर्गत् उपलब्ध छ।</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमिडिया फाउन्डेसन&lt;/a&gt;को एक उत्पादन</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमिडिया फाउन्डेसन&lt;/a&gt;को एक उत्पादन</string>
   <string name="about_activity_title">बारेमा</string>
   <string name="edit_abandon_confirm">यो पृष्ठ संशोधन गरिएको छ। के तपाईं आफ्ना परिवर्तनहरू बचत नगरीकनै बाहिर निस्कने कुरामा निश्चित हुनुहुन्छ?</string>
   <string name="user_blocked_from_editing_title">प्रतिबन्धित</string>

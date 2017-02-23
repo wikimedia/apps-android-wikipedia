@@ -7,6 +7,9 @@
   <string name="yes">Oui</string>
   <string name="no">Non</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
+  <string name="search_hint_search_history">Rechercher dans l’historique</string>
+  <string name="search_hint_search_my_lists">Rechercher dans mes listes</string>
+  <string name="search_hint_search_reading_list">Rechercher dans ma liste de lecture</string>
   <string name="nav_item_history">Historique</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>
@@ -132,13 +135,15 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="terms_of_use_description">Conditions d’utilisation</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs volontaires de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Un produit de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondation Wikimédia&lt;/a&gt;</string>
+  <string name="about_wmf">Un produit de la &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fondation Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
   <string name="user_blocked_from_editing_title">Bloqué</string>
@@ -288,11 +293,11 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="notification_button_view_edit_history">Afficher l’historique des modifications</string>
   <string name="notification_generic_title">Notification sur Wikipédia</string>
   <string name="notification_talk_title">Nouveau message sur Wikipédia</string>
-  <string name="notification_talk">%1$s a laissé un message sur votre page de discussion « %2$s »</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; a laissé un message sur votre page de discussion &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Modification annulée</string>
-  <string name="notification_reverted">Votre modification sur l’article « %2$s » a été annulée par %1$s.</string>
+  <string name="notification_reverted">Votre modification sur l’article &lt;strong&gt;%2$s&lt;/strong&gt; a été annulée par &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Vous avez été remercié !</string>
-  <string name="notification_thanks">%1$s vous a remercié pour votre modification sur la page « %2$s »</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vous a remercié pour votre modification sur la page &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Continuer à lire</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>

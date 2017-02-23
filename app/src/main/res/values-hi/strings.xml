@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">नक़्शे पर किसी स्थान तक ज़ूम करें</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट हुई।</string>
   <string name="talk_page_link_text">वार्ता</string>
-  <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
+  <string name="content_license_html" fuzzy="true">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
   <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>
-  <string name="edit_save_action_license_anon">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदानों को अपरिवर्तनीय रूप से मुद्राधिकार नियम &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हो। यह सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हो तो अधिक सुरक्षा प्रदान की जायेगी।</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदानों को अपरिवर्तनीय रूप से मुद्राधिकार नियम &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हो। यह सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हो तो अधिक सुरक्षा प्रदान की जायेगी।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">खोज</string>
   <string name="langlinks_filter_hint">खोज</string>
@@ -67,6 +67,8 @@
   <string name="nav_item_login">विकिपीडिया में प्रवेश करें</string>
   <string name="login_username_hint">सदस्य नाम</string>
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
+  <string name="login_2fa_hint">टू-फैक्टर ऑथेंटिकेशन कोड</string>
+  <string name="login_2fa_other_workflow_error_msg">टू-फैक्टर ऑथेंटिकेशन कोड आवश्यक! कृपया वापस मैन एक्टिविटी पर जाएँ और अपने 2FA टोकन से लॉगिन कर दोबारा प्रयास करें।</string>
   <string name="menu_login">प्रवेश</string>
   <string name="login_activity_title">विकिपीडिया में लॉगिन करें</string>
   <string name="login_in_progress_dialog_message">आपको लॉगिन किया जा रहा है…</string>
@@ -86,6 +88,7 @@
   <string name="create_account_password_repeat_hint">कूटशब्द पुनःस्थापित करें</string>
   <string name="create_account_passwords_mismatch_error">कूटशब्द (पासवर्ड) समान नहीं हैं</string>
   <string name="create_account_email_error">अवैध ईमेल पता</string>
+  <string name="create_account_username_error">यूज़रनेम में अमान्य कैरेक्टर्स</string>
   <string name="create_account_generic_error">खाता नहीं बन सका।</string>
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>
@@ -132,7 +135,7 @@
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
   <string name="about_app_license">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउंडेशन&lt;/a&gt; का एक उत्पाद</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउंडेशन&lt;/a&gt; का एक उत्पाद</string>
   <string name="about_activity_title">बारे में</string>
   <string name="edit_abandon_confirm">पृष्ठ को संशोधित किया गया है। क्या आप अपने परिवर्तन को सहेजने के बिना निकास करना चाहते है?</string>
   <string name="user_blocked_from_editing_title">अवरुद्ध</string>
@@ -242,6 +245,8 @@
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
+  <string name="reading_list_title_exists">रीडिंग लिस्ट \"%s\" पहले से ही है।</string>
+  <string name="reading_list_entry_empty">कृपया एक शीर्षक डालें</string>
   <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
   <string name="reading_list_added_to_unnamed">पठन सूची में जोड़ा गया।</string>
   <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
@@ -276,6 +281,16 @@
   <string name="reading_lists_onboarding_got_it">समझ गया</string>
   <string name="reading_lists_onboarding_page_delete">सलाह: रीडिंग लिस्ट में से किसी भी पेज को हटाने के लिए उसे दाएं या बाएं स्वाइप करें।</string>
   <string name="user_option_sync_label">वरीयता</string>
+  <string name="notification_button_view_page">पेज देखें</string>
+  <string name="notification_button_view_user">सदस्य से बात करें</string>
+  <string name="notification_button_view_edit_history">संपादन इतिहास देखें</string>
+  <string name="notification_generic_title">विकिपीडिया पर नोटिफिकेशन</string>
+  <string name="notification_talk_title">विकिपीडिया पर नया सन्देश</string>
+  <string name="notification_talk" fuzzy="true">%1$s ने आपके वार्ता पेज \"%2$s\" पर एक सन्देश छोड़ा है</string>
+  <string name="notification_reverted_title">संपादन वापस लिया गया</string>
+  <string name="notification_reverted" fuzzy="true">\"%2$s\" लेख पर आपके संपादन को \"%1$s\" द्वारा वापस कर दिया गया है।</string>
+  <string name="notification_thanks_title">आपको धन्यवाद दिया गया है!</string>
+  <string name="notification_thanks" fuzzy="true">%1$s ने आपको \"%2$s\" पेज पर आपके संपादन के लिए धन्यवाद दिया है</string>
   <string name="view_continue_reading_card_title">पढ़ना जारी रखें</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
@@ -300,9 +315,9 @@
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_announcement_card_negative_action">नहीं धन्यवाद</string>
   <string name="description_edit_header">सम्पादित किया जा रहा है</string>
-  <string name="description_edit_text_hint" fuzzy="true">वर्णन लिखें!</string>
+  <string name="description_edit_text_hint">शीर्षक विवरण</string>
   <string name="description_edit_save">सहेजें</string>
-  <string name="description_edit_add_description" fuzzy="true">लघु वर्णन जोड़ें</string>
+  <string name="description_edit_add_description">शीर्षक विवरण जोड़ें</string>
   <string name="description_edit_edit_description">वर्णन सम्पादित करें</string>
   <string name="description_edit_cancel_hint">रद्द करें</string>
   <string name="description_edit_help_title">सहायता:शीर्षक वर्णन</string>
@@ -310,6 +325,8 @@
   <string name="description_edit_help_wikidata_guide">वर्णन लिखने के लिए विकिडेटा गाइड</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/विकिडेटा:परिचय</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
+  <string name="description_edit_anon_limit">विवरण संपादन में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए कृपया अपने विकिपीडिया अकाउंट में लॉगिन करें।</string>
+  <string name="description_edit_license_notice" fuzzy="true">शीर्षक विवरण बदलने पर मैं  &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt; से सहमत हूँ और  बिना परिवर्तन के अपने योगदानों को &lt;a href=\"%2$s\"&gt;क्रिएटिव कॉमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत रिलीज़ करता हूँ।</string>
   <string name="description_edit_success_saved">वर्णन सहेजा गया!</string>
   <string name="description_edit_success_encouragement">अपने अभी विकिपीडिया को सभी के लिए और अच्छा बना दिया</string>
   <string name="description_edit_success_done">पूर्ण</string>
@@ -322,4 +339,21 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">एक लाइन, दो से बारह शब्दों की उपयुक्त है</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन शुरू करें</string>
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस फीचर का दुरुपयोग नहीं करूँगा(गी)।</string>
+  <string name="description_edit_help_about_title">बारे में</string>
+  <string name="description_edit_help_description">शीर्षक विवरण लेख के सार के रूप में पाठकों को एक नज़र में विषय को समझने में सहायता करता है।</string>
+  <string name="description_edit_help_tips">विवरण बनाने के लिए टिप्स</string>
+  <string name="description_edit_help_tips_description">विवरण एक लाइन में अच्छी तरह से फिट हो जाने चाहिए और दो से बारह शब्दों के बीच हों।</string>
+  <string name="description_edit_help_tips_examples">उदाहरण के लिए:</string>
+  <string name="description_edit_help_tips_example1">लियोनार्डो द विन्ची द्वारा पेंटिंग</string>
+  <string name="description_edit_help_tips_example1_hint">मोना लिसा के बारे में लेख के लिए शीर्षक विवरण</string>
+  <string name="description_edit_help_tips_example2">पृथ्वी का सबसे ऊंचा पर्वत</string>
+  <string name="description_edit_help_tips_example2_hint">माउंट एवेरेस्ट के बारे में लेख के लिए शीर्षक विवरण</string>
+  <string name="description_edit_help_more_info">अधिक जानकारी</string>
+  <string name="description_edit_help_meta_info">विवरणों को विकिडेटा द्वारा स्टोर और मेन्टेन किया जाता है जो विकिपीडिया और अन्य परियोजनाओं को मुक्त, सहयोग युक्त, बहुभाषी, सेकेंडरी डेटाबेस सपोर्ट देता, विकिमीडिया फाउंडेशन का एक प्रोजेक्ट है।</string>
+  <string name="description_edit_revert_subtitle">विकिपीडिया सम्पादित करने के लिए धन्यवाद!</string>
+  <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन रिव्युअर्स में से एक को चिंता है।
+आपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
+  <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
+  <string name="description_edit_revert_reason2">आपका संपादन एक परिक्षण या बर्बरता जैसा लगा।</string>
+  <string name="description_edit_revert_history" fuzzy="true">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>
 </resources>

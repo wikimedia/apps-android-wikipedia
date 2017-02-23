@@ -7,6 +7,9 @@
   <string name="yes">כן</string>
   <string name="no">לא</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
+  <string name="search_hint_search_history">היסטוריית חיפוש</string>
+  <string name="search_hint_search_my_lists">חיפוש ברשימות שלי</string>
+  <string name="search_hint_search_reading_list">חיפוש ברשימת קריאה</string>
   <string name="nav_item_history">היסטוריה</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
@@ -38,7 +41,7 @@
   <string name="nearby_zoom_to_location">להתקרב למקום במפה</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
   <string name="talk_page_link_text">שיחה</string>
-  <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
+  <string name="content_license_html" fuzzy="true">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
   <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="preference_title_language">שפת הוויקיפדיה</string>
@@ -137,7 +140,7 @@
   <string name="about_translators_translatewiki">האפליקציה הזה תורגמה על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
-  <string name="about_wmf">מוצר של &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">מוצר של &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שוּנה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="user_blocked_from_editing_title">חסוּם</string>
@@ -247,6 +250,8 @@
   <string name="reading_list_untitled">ללא כותרת</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
+  <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
+  <string name="reading_list_entry_empty">נא להזין כותרת.</string>
   <string name="reading_list_added_to_named">נוסף לרשימה %s.</string>
   <string name="reading_list_added_to_unnamed">הוספה לרשימת קריאה.</string>
   <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
@@ -285,11 +290,11 @@
   <string name="notification_button_view_edit_history">הצגת היסטוריית העריכה</string>
   <string name="notification_generic_title">התראה בוויקיפדיה</string>
   <string name="notification_talk_title">הודעה חדשה בוויקיפדיה</string>
-  <string name="notification_talk">%1$s השאיר הודעה בדך השיחה שלך \"%2$s\"</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; השאיר הודעה בדף השיחה שלך &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
-  <string name="notification_reverted">העריכה שלך בערך \"%2$s\" שוחזרה על־ידי %1$s.</string>
+  <string name="notification_reverted">העריכה שלך בערך &lt;strong&gt;%2$s&lt;/strong&gt; שוחזרה על־ידי &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">קיבלת תודה!</string>
-  <string name="notification_thanks">%1$s הודה לך על העריכה שלך בדף \"%2$s\"</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; הודה לך על העריכה שלך בדף &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">להמשיך לקרוא</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
@@ -325,7 +330,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/he</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
-  <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice" fuzzy="true">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">התיאור נשמר!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>

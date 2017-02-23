@@ -25,9 +25,9 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Huling pagsasa-panahon (update) %s</string>
-  <string name="content_license_html">Naroon ang nilalaman sa ilalim ng &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; maliban na lang kung itinala</string>
+  <string name="content_license_html" fuzzy="true">Naroon ang nilalaman sa ilalim ng &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; maliban na lang kung itinala</string>
   <string name="edit_save_action_license_logged_in">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya.</string>
-  <string name="edit_save_action_license_anon">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya. Ang mga binago ay mapapasa-lagay sa direksyong IP ng iyong aparato. Kapag ikaw ay  &lt;a href=\"https://#login\"&gt;naglagda (login)&lt;/a&gt;, magkakarron ka ng higit na sarilinan (privacy).</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya. Ang mga binago ay mapapasa-lagay sa direksyong IP ng iyong aparato. Kapag ikaw ay  &lt;a href=\"https://#login\"&gt;naglagda (login)&lt;/a&gt;, magkakarron ka ng higit na sarilinan (privacy).</string>
   <string name="preference_title_language">Wika ng Wikipedia</string>
   <string name="preference_languages_filter_hint">Hanapin</string>
   <string name="langlinks_filter_hint">Hanapin</string>
@@ -113,7 +113,7 @@
   <string name="about_contributors_heading" fuzzy="true">Mga tagapag-ambag</string>
   <string name="about_translators_heading" fuzzy="true">Mga tagapag-salinwika</string>
   <string name="about_translators_translatewiki">Isinalinwika ang appa na ito ng mga boluntaryong tagapag-salinwika sa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Produkto ng &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Produkto ng &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Patungkol</string>
   <string name="edit_abandon_confirm">Nabago na ang pahina. Tiyak ka bang nais mong lumabas nag hindi tinatala ang iyong mga pagbabago?</string>
   <string name="user_blocked_from_editing_title">Hinarangan</string>

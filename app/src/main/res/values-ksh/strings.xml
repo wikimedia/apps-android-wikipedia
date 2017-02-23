@@ -36,7 +36,7 @@
   <string name="nearby_zoom_to_location">Donn obb ene Plaz en dä Kaat zoome.</string>
   <string name="last_updated_text">Läzte Änderong %s</string>
   <string name="talk_page_link_text">Klaaf</string>
-  <string name="content_license_html">Dä Ennhald es ze hann onger dälezänz &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ußer woh jädd anders schteiht.</string>
+  <string name="content_license_html" fuzzy="true">Dä Ennhald es ze hann onger dälezänz &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ußer woh jädd anders schteiht.</string>
   <string name="edit_save_action_license_logged_in">Mem Affchpeijschere schtemms De ddä &lt;a href=\"%1$s\"&gt;Bedengonge för et Benöze&lt;/a&gt; zoh un deijhß ohne Müjjeleschkeijt för ene Widerohf Dine Beijdrahch onger der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lezänz öffentlesch maache.</string>
   <string name="preference_title_language">Dä Wikkipehdija ier Schprohch</string>
   <string name="preference_languages_filter_hint">Söhke</string>
@@ -128,7 +128,7 @@
   <string name="about_translators_heading">Övversäzer</string>
   <string name="about_translators_translatewiki">Heh di Äpp wohd vun Freiwelleje op &lt;a href=\"https://translatewiki.net\"&gt;&lt;i&gt;translatewiki.net&lt;/i&gt;&lt;/a&gt; övversaz.</string>
   <string name="about_app_license_heading">Lėzänz</string>
-  <string name="about_wmf">Jemaat vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikkimehdija-Schtefftong&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Jemaat vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikkimehdija-Schtefftong&lt;/a&gt;</string>
   <string name="about_activity_title">Övver</string>
   <string name="edit_abandon_confirm">Di Sigg es verändert. Wells De verhaftesch fott jonn, der ohne di Ännderonge faß ze hallde?</string>
   <string name="user_blocked_from_editing_title">Jeschpächt</string>

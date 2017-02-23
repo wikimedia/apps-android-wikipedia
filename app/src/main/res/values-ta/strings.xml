@@ -121,7 +121,7 @@
   <string name="about_contributors_heading">பங்களிப்பாளர்கள்</string>
   <string name="about_translators_heading">மொழிபெயர்ப்பாளர்கள்</string>
   <string name="about_translators_translatewiki">இந்த நிரல் &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-இல் உள்ள தன்னார்வ மொழிபெயர்ப்பாளர்களால் மொழிபெயர்க்கப்பட்டது.</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;விக்கிமீடியா நிறுவனத்தின்&lt;/a&gt; உருவாக்கம்</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;விக்கிமீடியா நிறுவனத்தின்&lt;/a&gt; உருவாக்கம்</string>
   <string name="about_activity_title">இதுபற்றி</string>
   <string name="edit_abandon_confirm">இந்தப் பக்கத்தில் மாற்றங்கள் உள்ளன. உறுதியாக உங்கள் மாற்றங்களை சேமிக்காமல் வெளியேற விரும்புகிறீர்களா?</string>
   <string name="user_blocked_from_editing_title">தடுக்கப்பட்டது</string>

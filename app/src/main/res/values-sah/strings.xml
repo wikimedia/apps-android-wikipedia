@@ -38,7 +38,7 @@
   <string name="nearby_zoom_to_location">Каартаҕа көрдөр</string>
   <string name="last_updated_text">Тиһэх саҥардыы: %1$s</string>
   <string name="talk_page_link_text">Кэпсэтэр сирим</string>
-  <string name="content_license_html">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
+  <string name="content_license_html" fuzzy="true">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
   <string name="edit_save_action_license_logged_in">Маны бигэргэтэн &lt;a href=\"%1$s\" &gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэргин биллэрэҕин, ону тэҥэ бу лиссиэнсийэнэн &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; кэлин онтон батынар кыаҕыҥ суох буоларын кытта эмиэ сөбүлэһэҕин.</string>
   <string name="edit_save_action_license_anon">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, IP-ҥ көстүө суоҕа.</string>
   <string name="preference_title_language">Бикипиэдьийэ омугун тыла</string>
@@ -133,7 +133,7 @@
   <string name="about_translators_translatewiki">Бу дьибилгэти баҕалаах дьон манна тылбаастаабыттара - &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиссиэнсийэ</string>
   <string name="about_app_license">Төрүт куод манна баар &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; уонна манна &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt;, лиссиэнсийэтэ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Атын ыйыллыбатах буоллаҕына иһинээҕитэ бу лиссиэнсийэ усулуобуйатынан тарҕанар: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt; Викимедиа пуондата&lt;/a&gt; оҥорон таһаарыыта</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt; Викимедиа пуондата&lt;/a&gt; оҥорон таһаарыыта</string>
   <string name="about_activity_title">Бу туһунан</string>
   <string name="edit_abandon_confirm">Сирэйи уларыппыккын быһыылаах. Ону бигэргэппэккэ тахсаары гыммыккын. Уларыппаккын дуо?</string>
   <string name="user_blocked_from_editing_title">Хааччахтаммыт</string>
@@ -281,11 +281,11 @@
   <string name="notification_button_view_edit_history">Уларытыы устуоруйатын көрүү</string>
   <string name="notification_generic_title">Бикипиэдьийэҕэ биллэрии</string>
   <string name="notification_talk_title">Бикипиэдьийэҕэ саҥа сурук</string>
-  <string name="notification_talk">%1$s Эн ырытар тус сирэйгэр сурук хаалларбыт: «%2$s»</string>
+  <string name="notification_talk" fuzzy="true">%1$s Эн ырытар тус сирэйгэр сурук хаалларбыт: «%2$s»</string>
   <string name="notification_reverted_title">Төннөрүллүбүт уларытыы</string>
-  <string name="notification_reverted">«%2$s» ыстатыйаҕа оҥорбут уларытыыгын %1$s кыттааччы суох гыммыт.</string>
+  <string name="notification_reverted" fuzzy="true">«%2$s» ыстатыйаҕа оҥорбут уларытыыгын %1$s кыттааччы суох гыммыт.</string>
   <string name="notification_thanks_title">Эйиэхэ махтамыттар!</string>
-  <string name="notification_thanks">%1$s кыттааччы «%2$s» сирэйи тупсарыыҥ иһин Эйиэхэ махтаммыт</string>
+  <string name="notification_thanks" fuzzy="true">%1$s кыттааччы «%2$s» сирэйи тупсарыыҥ иһин Эйиэхэ махтаммыт</string>
   <string name="view_continue_reading_card_title">Салгыы ааҕыы</string>
   <string name="view_because_you_read_card_title">Тоҕо диэтэххэ ыстатыйаны аахпыккын</string>
   <string name="view_random_card_title">Рандомизатор</string>

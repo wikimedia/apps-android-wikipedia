@@ -134,7 +134,7 @@
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_app_license_heading">Lizenz</string>
   <string name="about_app_license">Quellcode disponibel op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ënner der &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lizenz&lt;/a&gt;. Wann e tnet anescht uginn ass ass den Inhalt disponibel ënner enger &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike Lizenz&lt;/a&gt;.</string>
-  <string name="about_wmf">E Produkt vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">E Produkt vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Iwwer</string>
   <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd dir sécher datt Dir erausgoe wëllt ouni Är Ännerungen ze späicheren?</string>
   <string name="user_blocked_from_editing_title">Gespaart</string>
@@ -282,7 +282,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="notification_generic_title">Notifikatioun op Wikipedia</string>
   <string name="notification_talk_title">Neie Message op Wikipedia</string>
   <string name="notification_reverted_title">Zréckgesaten Ännerung</string>
-  <string name="notification_reverted">Är Ännerung vum Artikel \"%2$s\" gouf vum %1$s zréckgesat.</string>
+  <string name="notification_reverted">Är Ännerung vum Artikel &lt;strong&gt;%2$s&lt;/strong&gt; gouf vum &lt;em&gt;%1$s&lt;/em&gt; zréckgesat.</string>
   <string name="notification_thanks_title">Dir krut Merci gesot!</string>
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
@@ -338,4 +338,5 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="description_edit_help_tips_example2_hint">Titelbeschreiwung fir en Artikel iwwer de Mount Everest</string>
   <string name="description_edit_help_more_info">Méi Informatiounen</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
+  <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
 </resources>

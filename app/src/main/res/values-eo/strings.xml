@@ -39,8 +39,8 @@
   <string name="last_updated_text">Lasta ĝisdatigo %s</string>
   <string name="talk_page_link_text">Diskuto</string>
   <string name="content_license_html">La enhavo disponeblas laŭ la permesilo  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; krom se alia permesilo estas indikita.</string>
-  <string name="edit_save_action_license_logged_in">Konservante, vi konsentas kun la  &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo.</string>
-  <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo. Modifoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutas&lt;/a&gt;, vi havos pli privatecon.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Konservante, vi konsentas kun la  &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Konservante, vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo. Modifoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutas&lt;/a&gt;, vi havos pli privatecon.</string>
   <string name="preference_title_language">Lingvo de Vikipedio</string>
   <string name="preference_languages_filter_hint">Serĉi</string>
   <string name="langlinks_filter_hint">Serĉi</string>
@@ -126,7 +126,7 @@
   <string name="about_translators_heading">Tradukantoj</string>
   <string name="about_translators_translatewiki">Ĉi tiu aplikaĵo estis tradukita de volontulaj tradukantoj ĉe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Permesilo</string>
-  <string name="about_wmf">Produktaĵo de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimedia Fondaĵo&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Produktaĵo de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimedia Fondaĵo&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ĉi tiu paĝo estis modifita. Ĉu vi certas ke vi volas eliri sen konservi viajn modifojn?</string>
   <string name="user_blocked_from_editing_title">Forbarita</string>

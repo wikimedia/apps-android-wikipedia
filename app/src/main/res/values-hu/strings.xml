@@ -38,8 +38,8 @@
   <string name="nearby_zoom_to_location">Közelíts egy helyre a térképen</string>
   <string name="last_updated_text">Utoljára frissítve: %s</string>
   <string name="talk_page_link_text">Vita</string>
-  <string name="content_license_html">A tartalom a &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
-  <string name="edit_save_action_license_logged_in">A mentéssel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
+  <string name="content_license_html" fuzzy="true">A tartalom a &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">A mentéssel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
   <string name="edit_save_action_license_anon">A mentéssel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
   <string name="preference_title_language">Wikipédia-nyelv</string>
   <string name="preference_languages_filter_hint">Keresés</string>
@@ -132,7 +132,7 @@
   <string name="about_translators_translatewiki">Ez az alkalmazást önkéntesek fordítótták a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
   <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
-  <string name="about_wmf">A &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
+  <string name="about_wmf" fuzzy="true">A &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. Biztos mentés nélkül akarsz kilépni?</string>
   <string name="user_blocked_from_editing_title">Blokkolva</string>

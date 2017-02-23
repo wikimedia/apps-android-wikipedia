@@ -32,7 +32,7 @@
   <string name="nearby_distance_in_kilometers">%.2f కిలోమీటర్లు</string>
   <string name="last_updated_text">%s కి ఆఖరుగా తాజాపరచబడింది</string>
   <string name="talk_page_link_text">చర్చ</string>
-  <string name="content_license_html">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
+  <string name="content_license_html" fuzzy="true">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
   <string name="edit_save_action_license_logged_in">భద్రపర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
   <string name="edit_save_action_license_anon">భద్రపరచటంతో, మీరు  &lt;a href=\"%1$s\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
   <string name="preference_title_language">వికీపీడియా భాష</string>
@@ -126,7 +126,7 @@
   <string name="about_translators_heading">అనువాదకులు</string>
   <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
   <string name="about_app_license_heading">లైసెన్సు</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; వారి ఉత్పత్తి</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
   <string name="edit_abandon_confirm">ఈ పేజి సవరించబడింది. మార్పులని భద్రపరచకుండా ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
   <string name="user_blocked_from_editing_title">నిరోధించబడింది</string>

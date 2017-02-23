@@ -7,6 +7,7 @@
   <string name="yes">نعم</string>
   <string name="no">لا</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
+  <string name="search_hint_search_history">البحث في التاريخ</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">أعد المحاولة</string>
@@ -38,7 +39,7 @@
   <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="talk_page_link_text">نقاش</string>
-  <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
+  <string name="content_license_html" fuzzy="true">المحتوى متوفر تحت رخصة  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
   <string name="edit_save_action_license_logged_in">بالحفظ، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">بالحفظ، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مُسجلًا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="preference_title_language">لغة ويكيبيديا</string>
@@ -133,7 +134,7 @@
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
   <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">عن</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
   <string name="user_blocked_from_editing_title">ممنوع</string>

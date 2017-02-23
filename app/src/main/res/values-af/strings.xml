@@ -26,7 +26,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Laas opgedateer %s</string>
-  <string name="content_license_html">Inhoud is beskikbaar onder die &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie tensy anders aangegee</string>
+  <string name="content_license_html" fuzzy="true">Inhoud is beskikbaar onder die &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisensie tensy anders aangegee</string>
   <string name="edit_save_action_license_logged_in">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0&lt;/a&gt; lisensie.</string>
   <string name="edit_save_action_license_anon">Deur te stoor, stem u in tot die &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0&lt;/a&gt; lisensie. Wysigings sal aan u toestel se IP-adres toegeskryf word. Indien u &lt;a href=\"https://#login\"&gt;aanmeld&lt;/a&gt;, sal u meer privaatheid geniet.</string>
   <string name="preference_title_language">Wikipediataal</string>
@@ -113,7 +113,7 @@
   <string name="about_contributors_heading" fuzzy="true">bydraers</string>
   <string name="about_translators_heading" fuzzy="true">vertalers</string>
   <string name="about_translators_translatewiki">Hierdie toep is vertaal deur vrywillge vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">\'n Produk van die &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">\'n Produk van die &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Aangaande</string>
   <string name="edit_abandon_confirm">Hierdie bladsy is gewysig. Is u seker u wil afsluit sonder om u wysigings te stoor?</string>
   <string name="user_blocked_from_editing_title">Geblokkeer</string>

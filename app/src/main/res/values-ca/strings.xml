@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">Zoom a una ubicació del mapa</string>
   <string name="last_updated_text">Última actualització %1$s</string>
   <string name="talk_page_link_text">Discussió</string>
-  <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
+  <string name="content_license_html" fuzzy="true">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="preference_title_language">Idioma de la Viquipèdia</string>
   <string name="preference_languages_filter_hint">Cercar</string>
   <string name="langlinks_filter_hint">Cercar</string>
@@ -135,7 +135,7 @@
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
   <string name="about_app_license">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Un producte de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Un producte de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
   <string name="user_blocked_from_editing_title">Bloquejat</string>
@@ -285,11 +285,11 @@ Voleu començar de nou o sortir?</string>
   <string name="notification_button_view_edit_history">Mostra l\'historial de modificacions</string>
   <string name="notification_generic_title">Notificació a la Viquipèdia</string>
   <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>
-  <string name="notification_talk">%1$s ha deixat un missatge a la vostra pàgina de discussió «%2$s»</string>
+  <string name="notification_talk" fuzzy="true">%1$s ha deixat un missatge a la vostra pàgina de discussió «%2$s»</string>
   <string name="notification_reverted_title">Modificació revertida</string>
-  <string name="notification_reverted">La vostra modificació a l\'article «%2$s» ha estat revertida per %1$s.</string>
+  <string name="notification_reverted" fuzzy="true">La vostra modificació a l\'article «%2$s» ha estat revertida per %1$s.</string>
   <string name="notification_thanks_title">Us han agraït!</string>
-  <string name="notification_thanks">%1$s ha agraït la vostra modificació a la pàgina «%2$s»</string>
+  <string name="notification_thanks" fuzzy="true">%1$s ha agraït la vostra modificació a la pàgina «%2$s»</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Com has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>

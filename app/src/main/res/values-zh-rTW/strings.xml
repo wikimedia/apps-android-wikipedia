@@ -7,6 +7,9 @@
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="search_hint">搜尋維基百科</string>
+  <string name="search_hint_search_history">搜尋歷史</string>
+  <string name="search_hint_search_my_lists">搜尋我的列表</string>
+  <string name="search_hint_search_reading_list">搜尋讀取列表</string>
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
@@ -137,7 +140,7 @@
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_app_license_heading">授權條款</string>
   <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;授權。</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_abandon_confirm">頁面已被修改。你確定你想要離開而不存儲您的更改？</string>
   <string name="user_blocked_from_editing_title">已封鎖</string>
@@ -287,11 +290,11 @@
   <string name="notification_button_view_edit_history">檢視編輯歷史</string>
   <string name="notification_generic_title">維基百科上的通知</string>
   <string name="notification_talk_title">維基百科上的新訊息</string>
-  <string name="notification_talk">%1$s在您的對話頁「%2$s」留下了一筆訊息</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt;在您的對話頁&lt;strong&gt;%2$s&lt;/strong&gt;留下了一筆訊息</string>
   <string name="notification_reverted_title">回退的編輯</string>
-  <string name="notification_reverted">您在條目「%2$s」上的編輯被%1$s給回退。</string>
+  <string name="notification_reverted" fuzzy="true">您在條目「%2$s」上的編輯被%1$s給回退。</string>
   <string name="notification_thanks_title">您已被感謝！</string>
-  <string name="notification_thanks">%1$s已感謝您在頁面「%2$s」上做出的編輯</string>
+  <string name="notification_thanks" fuzzy="true">%1$s已感謝您在頁面「%2$s」上做出的編輯</string>
   <string name="view_continue_reading_card_title">繼續閱讀</string>
   <string name="view_because_you_read_card_title">因為您閱讀</string>
   <string name="view_random_card_title">隨機條目產生器</string>
@@ -327,7 +330,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/zh</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您保持著對於編輯描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
-  <string name="description_edit_license_notice">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出的我的個人貢獻。</string>
+  <string name="description_edit_license_notice" fuzzy="true">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出的我的個人貢獻。</string>
   <string name="description_edit_success_saved">描述已儲存！</string>
   <string name="description_edit_success_encouragement">您為了大家讓維基百科變得更好</string>
   <string name="description_edit_success_done">完成</string>
@@ -355,5 +358,5 @@
   <string name="description_edit_revert_intro">我們知道您已盡了努力，但有編者不認同而做出回退。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試用或破壞。</string>
-  <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
+  <string name="description_edit_revert_history" fuzzy="true">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
 </resources>

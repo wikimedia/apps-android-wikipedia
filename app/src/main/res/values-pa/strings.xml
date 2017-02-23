@@ -38,9 +38,9 @@
   <string name="nearby_zoom_to_location">ਨਕਸ਼ੇ \'ਤੇ ਥਾੰ ਉੱਪਰ ਜ਼ੂਮ ਕਰੋ</string>
   <string name="last_updated_text">ਆਖ਼ਰੀ ਉੱਨਤੀਕਰਨ %s</string>
   <string name="talk_page_link_text">ਗੱਲ-ਬਾਤ</string>
-  <string name="content_license_html">ਕੁਝ ਹੋਰ ਨਾ ਦੱਸੇ ਜਾਣ ਦੀ ਸੂਰਤ ਵਿੱਚ ਸਮੱਗਰੀ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਹੇਠ ਮੌਜੂਦ ਹੈ</string>
+  <string name="content_license_html" fuzzy="true">ਕੁਝ ਹੋਰ ਨਾ ਦੱਸੇ ਜਾਣ ਦੀ ਸੂਰਤ ਵਿੱਚ ਸਮੱਗਰੀ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਹੇਠ ਮੌਜੂਦ ਹੈ</string>
   <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
-  <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾ</string>
   <string name="preference_languages_filter_hint">ਖੋਜ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
@@ -132,7 +132,7 @@
   <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਵਿਖੇ ਸਵੈਇੱਛਕ ਤਰਜਮਾਕਾਰਾਂ ਨੇ ਕੀਤਾ ਸੀ।</string>
   <string name="about_app_license_heading">ਲਸੰਸ</string>
   <string name="about_app_license">ਸਰੋਤ ਕੋਡ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ਅਤੇ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ਉੱਪਰ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ਹੇਠ  ਉਪਲੱਬਧ ਹੈ। ਜੇ ਹੋਰ ਕੁਝ ਨਹੀੰ ਕਿਹਾ ਗਿਆ ਤਾੰ ਸਮੱਗਰੀ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ਹੇਠ ਉਪਲੱਬਧ ਹੈ।</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ&lt;/a&gt; ਦੀ ਇੱਕ ਉਪਜ</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ&lt;/a&gt; ਦੀ ਇੱਕ ਉਪਜ</string>
   <string name="about_activity_title">ਬਾਬਤ</string>
   <string name="edit_abandon_confirm">ਇਹ ਸਫ਼ਾ ਬਦਲਿਆ ਗਿਆ ਹੈ? ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਤਬਦੀਲੀਆਂ ਬਿਨਾਂ ਸਾਂਭੇ ਕੂਚ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="user_blocked_from_editing_title">ਰੋਕ-ਲੱਗਿਆ</string>

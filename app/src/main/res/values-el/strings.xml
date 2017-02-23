@@ -35,7 +35,7 @@
   <string name="talk_page_link_text">Συζήτηση</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
   <string name="preference_title_language">Γλώσσα Βικιπαίδειας</string>
   <string name="preference_languages_filter_hint">Αναζήτηση</string>
   <string name="langlinks_filter_hint">Αναζήτηση</string>
@@ -128,7 +128,7 @@
   <string name="about_translators_heading">Μεταφραστές</string>
   <string name="about_translators_translatewiki">Η εφαρμογή αυτή έχει μεταφραστεί από τους εθελοντές μεταφραστές στο &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Άδεια</string>
-  <string name="about_wmf">Ένα προϊόν του &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Ένα προϊόν του &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Σχετικά</string>
   <string name="edit_abandon_confirm">Η σελίδα έχει τροποποιηθεί. Είστε βέβαιοι ότι θέλετε να πραγματοποιήσετε έξοδο χωρίς να αποθηκεύσετε τις αλλαγές σας;</string>
   <string name="user_blocked_from_editing_title">Αποκλεισμένος</string>

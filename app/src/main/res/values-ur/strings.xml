@@ -38,7 +38,7 @@
   <string name="nearby_zoom_to_location">نقشہ پر مقام کو بڑا کریں</string>
   <string name="last_updated_text">آخری تجدید %s</string>
   <string name="talk_page_link_text">تبادلۂ خیال</string>
-  <string name="content_license_html">تمام مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت دستیاب ہے جب تک کوئی دوسری شرط عائد نہ ہو</string>
+  <string name="content_license_html" fuzzy="true">تمام مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت دستیاب ہے جب تک کوئی دوسری شرط عائد نہ ہو</string>
   <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
   <string name="edit_save_action_license_anon">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
   <string name="preference_title_language">ویکیپیڈیا کی زبان منتخب کریں</string>
@@ -132,7 +132,7 @@
   <string name="about_translators_translatewiki">اس ایپ کو &lt;a href=\"https://translatewiki.net\"&gt;ٹرانسللیٹ ویکی ڈاٹ نیٹ&lt;/a&gt; کے رضاکار مترجمین کی جانب سے ترجمہ کیا گیا ہے۔</string>
   <string name="about_app_license_heading">اجازہ</string>
   <string name="about_app_license">سورس کوڈ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;گیریٹ (Gerrit)&lt;/a&gt; اور &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;گِٹ ہَب (GitHub)&lt;/a&gt; پر &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt; اپاچے 2.0 اجازت نامے (Apache 2.0 License)&lt;/a&gt; کے تحت دستیاب ہے۔ جب تک تخصیص نہ کی جائے، جملہ مواد کریئیٹیو کامنز انتساب/یکساں-شراکت اجازت نامہ کے تحت دستیاب ہے۔</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ویکیمیڈیا فاؤنڈیشن&lt;/a&gt; کا تیارکردہ۔</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ویکیمیڈیا فاؤنڈیشن&lt;/a&gt; کا تیارکردہ۔</string>
   <string name="about_activity_title">کے بارے میں</string>
   <string name="edit_abandon_confirm">اس صفحہ کی ترمیم ہوچکی ہے۔ کیا آپ یقینی طور پر اپنی ترامیم محفوظ کیے بغیر باہر ہونا چاہتے ہیں۔</string>
   <string name="user_blocked_from_editing_title">بند</string>

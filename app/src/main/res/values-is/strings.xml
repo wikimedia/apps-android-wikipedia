@@ -34,7 +34,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Renna inn að staðsetningu á kortinu</string>
   <string name="last_updated_text">Síðast uppfært %s</string>
-  <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
+  <string name="content_license_html" fuzzy="true">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
   <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
   <string name="edit_save_action_license_anon">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
   <string name="preference_title_language">Tungumál Wikipediu</string>
@@ -128,7 +128,7 @@
   <string name="about_contributors_heading">framlög frá</string>
   <string name="about_translators_heading">þýðendur</string>
   <string name="about_translators_translatewiki">Þetta forrit/app var þýtt af sjálfboðaliðum á &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Í boði &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Í boði &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Um hugbúnaðinn</string>
   <string name="edit_abandon_confirm">Síðunni hefur verið breytt. Ertu viss um að þú viljir hætta án þess að vista breytingarnar þínar ?</string>
   <string name="user_blocked_from_editing_title">Bannaður</string>

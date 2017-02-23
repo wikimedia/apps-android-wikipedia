@@ -121,7 +121,7 @@
   <string name="about_contributors_heading" fuzzy="true">অৱদানকাৰীসমূহ</string>
   <string name="about_translators_heading" fuzzy="true">অনুবাদকসকল</string>
   <string name="about_translators_translatewiki">এই এপ্‌টো স্বেচ্ছাসেৱক অনুবাদকে &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ত অনুবাদ কৰিছে।</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছন&lt;/a&gt;ৰ এটা সামগ্ৰী</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছন&lt;/a&gt;ৰ এটা সামগ্ৰী</string>
   <string name="about_activity_title">বিষয়ে</string>
   <string name="edit_abandon_confirm">এই পৃষ্ঠাটো সলোৱা হৈছে। আপোনাৰ সালসলনি সাঁচি নোথোৱাকৈ গুচি যাব বুলি নিশ্চিতনে?</string>
   <string name="user_blocked_from_editing_title">অৱৰোধিত</string>

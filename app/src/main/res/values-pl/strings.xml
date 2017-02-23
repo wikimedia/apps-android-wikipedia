@@ -7,6 +7,7 @@
   <string name="yes">Tak</string>
   <string name="no">Nie</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
+  <string name="search_hint_search_history">Historia wyszukiwania</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie można nawiązać połączenia z Internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
@@ -38,7 +39,7 @@
   <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="talk_page_link_text">Dyskusja</string>
-  <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="content_license_html" fuzzy="true">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu się&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
   <string name="preference_title_language">Język Wikipedii</string>
@@ -136,7 +137,7 @@
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
   <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; na licencji &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Dopóki inaczej nie określono, zawartość jest dostępna na licencji &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
   <string name="user_blocked_from_editing_title">Zablokowany/-a</string>
@@ -308,5 +309,5 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="description_edit_help_more_info">Więcej informacji</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
-  <string name="description_edit_revert_history">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history" fuzzy="true">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
 </resources>

@@ -38,7 +38,7 @@
   <string name="nearby_zoom_to_location">မြေပုံပေါ်တွင် တည်နေရာကို ဆွဲယူကြည့်ရန်</string>
   <string name="last_updated_text">နောက်ဆုံးပြင်ခဲ့ချိန် %s</string>
   <string name="talk_page_link_text">ဆွေးနွေးချက်</string>
-  <string name="content_license_html">အထူးသတိပေးမထားပါက အချက်အလက်များအား &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; အနေဖြင့် ရယူသုံးစွဲနိုင်သည်။</string>
+  <string name="content_license_html" fuzzy="true">အထူးသတိပေးမထားပါက အချက်အလက်များအား &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; အနေဖြင့် ရယူသုံးစွဲနိုင်သည်။</string>
   <string name="edit_save_action_license_logged_in">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။</string>
   <string name="edit_save_action_license_anon">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။ တည်းဖြတ်မှုများအား သင်၏ အိုင်ပီလိပ်စာဖြင့်သိမ်းထားမည်ဖြစ်သည်။ သင် ဆိုဒ်သို့&lt;a href=\"https://#login\"&gt;ဝင်ရောက်ထားပါက&lt;/a&gt; လုံခြုံမှုပိုရှိမည်ဖြစ်သည်။</string>
   <string name="preference_title_language">ဝီကီပီးဒီးယား ဘာသာစကား</string>
@@ -132,7 +132,7 @@
   <string name="about_translators_translatewiki">ဤအက်ပ်ကို &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ရှိ စေတနာ့ဝန်ထမ်း ဘာသာပြန်သူများက ဘာသာပြန်ပေးထားသည်။</string>
   <string name="about_app_license_heading">လိုင်စင်</string>
   <string name="about_app_license">ရင်းမြစ်ကုဒ်ကို &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; နှင့် &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; တို့တွင် &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။ သီးခြားဖော်ပြထားခြင်း မရှိပါက &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; ၏ ထုတ်ကုန်တစ်ခု</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; ၏ ထုတ်ကုန်တစ်ခု</string>
   <string name="about_activity_title">အကြောင်း</string>
   <string name="edit_abandon_confirm">ဤစာမျက်နှာသည် ပြောင်းလဲထားသည်။ သင့်ပြောင်းလဲမှုများအား မသိမ်းဆည်းဘဲ ထွက်ရန် သေချာပါသလား?</string>
   <string name="user_blocked_from_editing_title">ပိတ်ပင်ထားသည်</string>
@@ -280,11 +280,11 @@
   <string name="notification_button_view_edit_history">တည်းဖြတ်မှုမှတ်တမ်းအား ကြည့်ရန်</string>
   <string name="notification_generic_title">ဝီကီပီးဒီးယားရှိ အသိပေးချက်</string>
   <string name="notification_talk_title">ဝီကီပီးဒီးယားရှိ စာတိုအသစ်</string>
-  <string name="notification_talk">သင့်ဆွေးနွေးချက် စာမျက်နှာရှိ  \"%2$s\" တွင် %1$s က စာတိုအသစ် ချန်ထားခဲ့သည်</string>
+  <string name="notification_talk" fuzzy="true">သင့်ဆွေးနွေးချက် စာမျက်နှာရှိ  \"%2$s\" တွင် %1$s က စာတိုအသစ် ချန်ထားခဲ့သည်</string>
   <string name="notification_reverted_title">တည်းဖြတ်မှု နောက်ပြန်ပြင်ခဲ့ခြင်း</string>
-  <string name="notification_reverted">\"%2$s\" ဆောင်းပါးရှိ သင့်တည်းဖြတ်မှုအား %1$s က နောက်ပြန်ပြင်ခဲ့သည်။</string>
+  <string name="notification_reverted" fuzzy="true">\"%2$s\" ဆောင်းပါးရှိ သင့်တည်းဖြတ်မှုအား %1$s က နောက်ပြန်ပြင်ခဲ့သည်။</string>
   <string name="notification_thanks_title">သင့်အား ကျေးဇူးတင်ခဲ့သည်!</string>
-  <string name="notification_thanks">\"%2$s\" စာမျက်နှာရှိ သင့်တည်းဖြတ်မှုအတွက် %1$s က ကျေးဇူးတင်ခဲ့သည်</string>
+  <string name="notification_thanks" fuzzy="true">\"%2$s\" စာမျက်နှာရှိ သင့်တည်းဖြတ်မှုအတွက် %1$s က ကျေးဇူးတင်ခဲ့သည်</string>
   <string name="view_continue_reading_card_title">ဆက်လက်ဖတ်ရှုရန်</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>

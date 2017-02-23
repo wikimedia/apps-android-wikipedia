@@ -37,7 +37,7 @@
   <string name="nearby_zoom_to_location">भूपटे स्थानं दृष्टुं सर्पकं क्रियताम्</string>
   <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
   <string name="talk_page_link_text">सम्भाषणम्</string>
-  <string name="content_license_html">अन्तर्विषयः &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इत्यत्र उपलब्धः अस्ति, अन्यथा लिखतु</string>
+  <string name="content_license_html" fuzzy="true">अन्तर्विषयः &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इत्यत्र उपलब्धः अस्ति, अन्यथा लिखतु</string>
   <string name="edit_save_action_license_logged_in">रक्षणेन सह, भवान्/भवती &lt;a href=\"%1$s\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।</string>
   <string name="edit_save_action_license_anon">रक्षणेन सह भवान्/भवती &lt;a href=\"%1$s\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।
 सम्पादनस्य कृते भवतां यन्त्रस्य सार्वसङ्केतः आधारत्वेन परिगण्यते । यदि भवान्/भवती &lt;a href=\"https://#login\"&gt;प्रविशति&lt;/a&gt;, तर्हि अधिकगोपनीयतां प्राप्नोति ।</string>
@@ -131,7 +131,7 @@
   <string name="about_translators_heading">अनुवादकाः</string>
   <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; इत्यस्मिन् जाले एतस्य अनुप्रयोगस्य अनुवादः स्वयंसेव्यनुवादकेन कृतः ।</string>
   <string name="about_app_license_heading">अनुज्ञापत्रम्</string>
-  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउण्डेशन्&lt;/a&gt;-संस्थायाः उत्पादनम् अस्ति ।</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउण्डेशन्&lt;/a&gt;-संस्थायाः उत्पादनम् अस्ति ।</string>
   <string name="about_activity_title">विवरणम्</string>
   <string name="edit_abandon_confirm">पृष्ठेऽस्मिन् परिवर्तनम् अभवत् । भवान्/भवती  निश्चयने परिवर्तनानि अरक्षित्वा निर्गन्तुम् इच्छति ?</string>
   <string name="user_blocked_from_editing_title">अवरुद्धम्</string>

@@ -7,6 +7,9 @@
   <string name="yes">Sim</string>
   <string name="no">Não</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
+  <string name="search_hint_search_history">Histórico de pesquisa</string>
+  <string name="search_hint_search_my_lists">Pesquisar nas minhas listas</string>
+  <string name="search_hint_search_reading_list">Pesquisar na lista de leitura</string>
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>
   <string name="page_error_retry">Tentar novamente</string>
@@ -67,6 +70,8 @@
   <string name="nav_item_login">Iniciar sessão na Wikipédia</string>
   <string name="login_username_hint">Nome de utilizador(a)</string>
   <string name="login_password_hint">Palavra-passe</string>
+  <string name="login_2fa_hint">Código de Autenticação de Dois Fatores</string>
+  <string name="login_2fa_other_workflow_error_msg">A autenticação de dois fatores é necessária! Volte à atividade principal e inicie sessão com sua chave de autenticação de dois fatores, e em seguida tente novamente.</string>
   <string name="menu_login">Entrar</string>
   <string name="login_activity_title">Iniciar sessão na Wikipédia</string>
   <string name="login_in_progress_dialog_message">A iniciar sessão…</string>
@@ -86,12 +91,13 @@
   <string name="create_account_password_repeat_hint">Repita a palavra-passe</string>
   <string name="create_account_passwords_mismatch_error">As palavras-passe não correspondem</string>
   <string name="create_account_email_error">Endereço de correio eletrónico inválido</string>
+  <string name="create_account_username_error">Caracteres inválidos no nome de utilizador</string>
   <string name="create_account_generic_error">Não foi possível criar conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Criar conta</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zero está desligada</string>
+  <string name="zero_charged_verbiage">O acesso gratuito à Wikipédia já não está ativo.</string>
   <string name="zero_warn_when_leaving">Avisar-me se sair da Wikipédia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se a sua operadora móvel renunciar à taxa de acesso para a aplicação da Wikipédia, através de uma parceria com a Wikipédia Zero, deixar esta opção marcada ajudará a saber quando estará a sair desta aplicação e se serão cobradas taxas de dados.</string>
   <string name="zero_webpage_title">Perguntas frequentes sobre a Wikipédia Zero</string>
@@ -100,8 +106,8 @@
   <string name="zero_interstitial_leave_app">Poderão ser aplicadas taxas de dados. Continuar para o sítio externo?</string>
   <string name="zero_interstitial_continue">Sair</string>
   <string name="zero_interstitial_cancel">Permanecer aqui</string>
-  <string name="zero_learn_more" fuzzy="true">Não serão cobradas taxas de dados para esta aplicação da Wikipédia.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Ler mais</string>
+  <string name="zero_learn_more">A sua operadora móvel oferece acesso gratuito ao conteúdo da Wikipédia!</string>
+  <string name="zero_learn_more_learn_more">Saiba mais</string>
   <string name="zero_learn_more_dismiss">Ignorar</string>
   <string name="edit_preview_fetching_dialog_message">A processar a pré-visualização…</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
@@ -134,7 +140,7 @@
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida por voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
   <string name="about_app_license">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Um produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Um produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
   <string name="user_blocked_from_editing_title">Bloqueado</string>
@@ -221,6 +227,8 @@
   <string name="preference_summary_show_link_previews">Mostra uma antevisão rápida de artigos ao tocar em ligações.</string>
   <string name="nav_item_donate">Apoie a Wikimedia</string>
   <string name="error_voice_search_not_available">Desculpe, o reconhecimento por voz não está disponível.</string>
+  <string name="location_service_disabled">Os serviços de localização estão desativados.</string>
+  <string name="enable_location_service">Ativar</string>
   <string name="crash_report_dialog_title">Desculpe, a aplicação encerrou inesperadamente da última vez</string>
   <string name="crash_report_dialog_text">Gostaria de enviar um relatório de falhas para HockeyApp / um provedor de serviços de terceiros, de modo que a Wikimedia possa analisar e corrigir o erro que causou o encerramento?</string>
   <string name="crash_report_dialog_dont_send_button">Ignorar</string>
@@ -242,6 +250,8 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_list_untitled">Sem título</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_create_new">Criar nova</string>
+  <string name="reading_list_title_exists">A lista de leitura \"%s\" não existe.</string>
+  <string name="reading_list_entry_empty">Por favor, insira um título.</string>
   <string name="reading_list_added_to_named">Adicionado a %s.</string>
   <string name="reading_list_added_to_unnamed">Adicionado à lista de leitura.</string>
   <string name="reading_list_already_exists">Este artigo já se encontra nesta lista.</string>
@@ -275,6 +285,15 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_lists_onboarding_page_delete">Dica: Mova com o dedo qualquer página para a esquerda ou para a direita para removê-la da lista de leitura.</string>
   <string name="user_option_sync_label">Preferências</string>
+  <string name="notification_button_view_page">Ver página</string>
+  <string name="notification_button_view_user">Fale com o utilizador</string>
+  <string name="notification_button_view_edit_history">Ver histórico de edição</string>
+  <string name="notification_generic_title">Notificação na Wikipédia</string>
+  <string name="notification_talk_title">Nova mensagem na Wikipédia</string>
+  <string name="notification_talk" fuzzy="true">%1$s deixou uma mensagem na sua página de discussão \"%2$s\"</string>
+  <string name="notification_reverted_title">Edição desfeita</string>
+  <string name="notification_reverted" fuzzy="true">A sua edição no artigo \"%2$s\" foi desfeita por %1$s.</string>
+  <string name="notification_thanks" fuzzy="true">%1$s agradeceu por sua edição na página \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Continuar a ler</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
@@ -292,11 +311,49 @@ Gostaria de recomeçar ou sair?</string>
   <string name="most_read_list_card_title">Tendências</string>
   <string name="view_static_card_icon_content_description">Ícone de cartão</string>
   <string name="view_card_news_title">Atualidade</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">ontem</item>
-    <item quantity="other">há %d dias</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Ontem</item>
+    <item quantity="other">Há %d dias</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">hoje</string>
+  <string name="view_continue_reading_card_subtitle_today">Hoje</string>
+  <string name="view_announcement_card_negative_action">Não, obrigado</string>
+  <string name="description_edit_header">A editar</string>
+  <string name="description_edit_text_hint">Descrição do título</string>
+  <string name="description_edit_save">Salvar</string>
+  <string name="description_edit_add_description">Adicionar descrição do título</string>
+  <string name="description_edit_edit_description">Editar descrição</string>
+  <string name="description_edit_cancel_hint">Cancelar</string>
+  <string name="description_edit_help_title">Ajuda: descrições de título</string>
+  <string name="description_edit_help_about_wikidata">Acerca do Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Guia do Wikidata para escrever descrições</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/pt</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Obrigado por seu interesse contínuo em editar descrições! Para realizar edições adicionais, por favor autentique-se com sua conta do Wikidata.</string>
+  <string name="description_edit_license_notice" fuzzy="true">Ao alterar a descrição do título, concordo com os &lt;a href=\"%1$s\"&gt;Termos de Utilização&lt;/a&gt; e em liberar irrevogavelmente as minhas contribuições sob a licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">A descrição foi guardada!</string>
   <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
+  <string name="description_edit_success_done">Feito</string>
+  <string name="description_edit_success_did_you_know">Sabia que...</string>
+  <string name="description_edit_success_article_edit_hint">Pode editar também artigos dentro desta aplicação. Tente corrigir erros ortográficos e frases pequenas ao clicar no ícone ^1 na próxima vez</string>
+  <string name="description_edit_tutorial_title_descriptions">Descrições de título</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Resume um artigo para ajudar os leitores a compreender o assunto em um relance</string>
+  <string name="description_edit_tutorial_button_label_continue">Continuar</string>
+  <string name="description_edit_tutorial_keep_it_short">Seja breve</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre duas e doze palavras</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Comece a editar</string>
+  <string name="description_edit_tutorial_promise">Ao começar, prometo não utilizar este recurso de forma abusiva.</string>
+  <string name="description_edit_help_about_title">Acerca</string>
+  <string name="description_edit_help_description">As descrições de título resumem um artigo para ajudar os leitores a compreender o assunto em um relance.</string>
+  <string name="description_edit_help_tips">Dicas para criar descrições</string>
+  <string name="description_edit_help_tips_description">As descrições devem, idealmente, caber em uma linha, e ter entre duas e doze palavras. Elas não estão em letras maiúsculas, a menos que a primeira palavra seja um substantivo próprio.</string>
+  <string name="description_edit_help_tips_examples">Por exemplo:</string>
+  <string name="description_edit_help_tips_example1">pintura de Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">descrição do título para um artigo sobre Mona Lisa</string>
+  <string name="description_edit_help_more_info">Mais informação</string>
+  <string name="description_edit_help_meta_info">As descrições são armazenadas e mantidas no Wikidata, um projeto da Wikimedia Foundation que proporciona uma base de dados secundária livre, colaborativa e multilíngue, que apoia a Wikipédia e outros projetos.</string>
+  <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
+  <string name="description_edit_revert_intro">Sabemos que tentaste o seu melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
+  <string name="description_edit_revert_reason1">sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">sua contribuição parece ser uma experiência ou vandalismo.</string>
+  <string name="description_edit_revert_history" fuzzy="true">Se estiver interessado, veja o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
 </resources>
