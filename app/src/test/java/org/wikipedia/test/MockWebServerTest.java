@@ -16,9 +16,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @RunWith(TestRunner.class)
 public abstract class MockWebServerTest {
+    private OkHttpClient okHttpClient;
     private final TestWebServer server = new TestWebServer();
 
     @Before public void setUp() throws Throwable {
+        okHttpClient = OkHttpConnectionFactory
+                .getClient()
+                .newBuilder()
+                .dispatcher(new Dispatcher(new ImmediateExecutorService()))
+                .build();
         server.setUp();
     }
 
@@ -44,18 +50,19 @@ public abstract class MockWebServerTest {
         server.enqueue(new MockResponse().setBody("{}"));
     }
 
-    @NonNull public <T> T service(Class<T> clazz) {
+    @NonNull protected OkHttpClient okHttpClient() {
+        return okHttpClient;
+    }
+
+    @NonNull protected <T> T service(Class<T> clazz) {
         return service(clazz, server().getUrl());
     }
 
-    @NonNull public <T> T service(Class<T> clazz, @NonNull String url) {
-        OkHttpClient okHttp = OkHttpConnectionFactory.getClient().newBuilder()
-                .dispatcher(new Dispatcher(new ImmediateExecutorService()))
-                .build();
+    @NonNull protected <T> T service(Class<T> clazz, @NonNull String url) {
         return new Retrofit.Builder()
                 .baseUrl(url)
                 .callbackExecutor(new ImmediateExecutor())
-                .client(okHttp)
+                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
                 .build()
                 .create(clazz);

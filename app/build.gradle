@@ -157,12 +157,14 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '3.6.0'
+    String okHttpVersion = '3.6.0' // When updating this version, resync file copies under
+                                   // app/src/main/java/okhttp3
     String retrofitVersion = '2.2.0'
     String supportVersion = '25.3.1'
     String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.4.0'
-    String frescoVersion = '1.1.0'
+    String frescoVersion = '1.1.0' // When updating this version, resync file copies under
+                                   // app/src/main/java/com/facebook
     String testingSupportVersion = '0.5'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '1.5'
@@ -192,6 +194,7 @@ dependencies {
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
+    // When upgrading the Mapbox version, remove the superfluous ProGuard rule and delete this comment
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0@aar') {
         transitive = true
     }

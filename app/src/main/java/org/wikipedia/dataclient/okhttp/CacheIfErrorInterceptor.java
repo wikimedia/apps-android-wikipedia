@@ -4,25 +4,32 @@ import android.support.annotation.NonNull;
 
 import java.io.IOException;
 
+import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
 class CacheIfErrorInterceptor implements Interceptor {
     @Override public Response intercept(Chain chain) throws IOException {
-        Request req = chain.request();
-        Response rsp = chain.proceed(req);
+        Response rsp = null;
+        try {
+            rsp = chain.proceed(chain.request().newBuilder().cacheControl(CacheControl.FORCE_CACHE).build());
+        } catch (IOException ignore) { }
 
         // when max-stale is set, CacheStrategy forbids a conditional network request in
         // CacheInterceptor
-        if (rsp == null || stale(rsp)) {
-            Request netReq = forceNetRequest(req);
+        if (!chain.request().cacheControl().onlyIfCached()) {
+            Request netReq = forceNetRequest(chain.request());
             Response netRsp = null;
             try {
                 netRsp = chain.proceed(netReq);
-            } catch (IOException ignore) { }
+            } catch (IOException ignore) {
+                if (rsp == null) {
+                    throw ignore;
+                }
+            }
 
-            if (netRsp != null) {
+            if (netRsp != null && (netRsp.isSuccessful() || rsp == null || !rsp.isSuccessful())) {
                 return netRsp;
             }
         }
@@ -30,18 +37,8 @@ class CacheIfErrorInterceptor implements Interceptor {
         return rsp;
     }
 
-    @NonNull static Request forceNetRequest(@NonNull Request req) {
+    @NonNull private Request forceNetRequest(@NonNull Request req) {
         String cacheControl = CacheControlUtil.forceNetRequest(req.cacheControl().toString());
         return req.newBuilder().header("Cache-Control", cacheControl).build();
-    }
-
-    private boolean stale(@NonNull Response response) {
-        final String staleRspCode = "110";
-        for (String header : response.headers("Warning")) {
-            if (header.startsWith(staleRspCode)) {
-                return true;
-            }
-        }
-        return false;
     }
 }

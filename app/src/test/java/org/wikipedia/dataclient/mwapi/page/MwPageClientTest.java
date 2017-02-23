@@ -15,7 +15,8 @@ import static org.hamcrest.Matchers.nullValue;
 public class MwPageClientTest extends MockWebServerTest {
     private PageClient subject;
 
-    @Before public void setUp() {
+    @Before public void setUp() throws Throwable {
+        super.setUp();
         subject = new MwPageClient(service(MwPageService.class));
     }
 

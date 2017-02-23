@@ -16,6 +16,7 @@ task checkstyle(type: Checkstyle) {
     include '**/*.java'
     exclude '**/gen/**'
     exclude '**/com/facebook/samples/**/*.java'
+    exclude '**/okhttp3/**/*.java'
 
     classpath = configurations.compile
 }
