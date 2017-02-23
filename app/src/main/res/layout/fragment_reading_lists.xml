@@ -46,7 +46,8 @@
     <org.wikipedia.readinglist.NoSwipeViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
 
         <LinearLayout
             android:id="@+id/list_of_lists_page"

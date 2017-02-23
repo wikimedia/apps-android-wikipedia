@@ -307,7 +307,7 @@ public class NearbyFragment extends Fragment {
     }
 
     private void showLocationDisabledSnackbar() {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(getView(),
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
                 getString(R.string.location_service_disabled),
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.enable_location_service, new View.OnClickListener() {

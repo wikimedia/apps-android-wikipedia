@@ -6,40 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/fragment_main_padding_app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible">
-
-        <!-- dummy toolbar (todo: consider replacing with real toolbar) -->
-        <android.support.v4.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways|snap" />
-
-    </android.support.design.widget.AppBarLayout>
-
     <org.wikipedia.readinglist.NoSwipeViewPager
         android:id="@+id/fragment_main_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="match_parent" />
 
-    <FrameLayout
-        android:id="@+id/fragment_main_feedback"
+    <org.wikipedia.navtab.NavTabLayout
+        android:id="@+id/fragment_main_nav_tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:layout_gravity="bottom"
-        app:layout_behavior="org.wikipedia.views.BottomAppBarLayoutBehavior"
+        android:elevation="6dp"
         android:background="?attr/nav_tab_background_color"
-        android:elevation="6dp">
-        <org.wikipedia.navtab.NavTabLayout
-            android:id="@+id/fragment_main_nav_tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@android:color/transparent" />
-    </FrameLayout>
+        app:layout_behavior="org.wikipedia.views.BottomAppBarLayoutBehavior"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@android:color/transparent" />
 
 </android.support.design.widget.CoordinatorLayout>

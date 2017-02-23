@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -59,6 +58,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.BottomAppBarLayoutBehavior;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -72,7 +72,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
         SearchFragment.Callback, LinkPreviewDialog.Callback, AddToReadingListDialog.Callback {
     @BindView(R.id.fragment_main_container) CoordinatorLayout coordinatorLayout;
-    @BindView(R.id.fragment_main_padding_app_bar) AppBarLayout paddingAppBar;
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
@@ -467,11 +466,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void ensureNavBarVisible() {
-        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) paddingAppBar.getLayoutParams();
-        AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
-        if (behavior != null) {
-            behavior.onNestedFling(coordinatorLayout, paddingAppBar, null, 0, params.height, true);
-        }
+        BottomAppBarLayoutBehavior behavior = (BottomAppBarLayoutBehavior)
+                ((CoordinatorLayout.LayoutParams) tabLayout.getLayoutParams()).getBehavior();
+        behavior.show(tabLayout);
     }
 
     @Nullable private Callback callback() {

@@ -344,7 +344,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     private void showDeleteListUndoSnackbar(final ReadingList readingList) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(getView(),
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
                 String.format(getString(R.string.reading_list_deleted), readingList.getTitle()),
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
@@ -358,7 +358,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     private void showDeleteItemUndoSnackbar(final ReadingList readingList, final ReadingListPage page) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(getView(),
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
                 String.format(getString(R.string.reading_list_item_deleted), page.title()),
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
@@ -373,7 +373,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     private void showDeletePageOnboarding() {
-        FeedbackUtil.makeSnackbar(getView(), getString(R.string.reading_lists_onboarding_page_delete), Snackbar.LENGTH_INDEFINITE)
+        FeedbackUtil.makeSnackbar(getActivity(), getString(R.string.reading_lists_onboarding_page_delete), Snackbar.LENGTH_INDEFINITE)
                 .setAction(R.string.reading_lists_onboarding_got_it, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

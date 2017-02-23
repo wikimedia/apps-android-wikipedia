@@ -5,6 +5,8 @@
     android:id="@+id/mapview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_marginBottom="?attr/actionBarSize"
     android:background="?attr/page_background_color"
     app:access_token="@string/mapbox_public_token"
     app:attribution_enabled="false"
@@ -15,8 +17,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="?attr/actionBarSize"
-        android:paddingBottom="?attr/actionBarSize">
+        android:layout_marginBottom="?attr/actionBarSize">
 
         <android.support.design.widget.FloatingActionButton
             style="@style/FloatingActionButton"
