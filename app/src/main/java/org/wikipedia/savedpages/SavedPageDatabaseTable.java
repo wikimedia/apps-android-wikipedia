@@ -19,42 +19,20 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
-import java.util.Date;
 
+/**
+ * No longer used, but upgrade logic reserved for database version upgrades which occur sequentially
+ * (see discussion at https://phabricator.wikimedia.org/rAPAWaf070d5914d3614b91be6b033961e39372241a92).
+ */
 public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     private static final int DB_VER_INTRODUCED = 4;
     private static final int DB_VER_NAMESPACE_ADDED = 6;
     private static final int DB_VER_NORMALIZED_TITLES = 8;
     private static final int DB_VER_LANG_ADDED = 10;
+    private static final int DB_VER_DROPPED = 16;
 
-    public SavedPageDatabaseTable() {
+    SavedPageDatabaseTable() {
         super(SavedPageContract.TABLE, SavedPageContract.Page.URI);
-    }
-
-    /** Requires database of version {@link #DB_VER_LANG_ADDED} or greater. */
-    @Override
-    public SavedPage fromCursor(Cursor cursor) {
-        return fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), Col.LANG.val(cursor));
-    }
-
-    @Override
-    protected ContentValues toContentValues(SavedPage obj) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
-        contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
-        contentValues.put(Col.TITLE.getName(), obj.getTitle().getText());
-        contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
-        contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
-        return contentValues;
-    }
-
-    public Cursor queryAll(SQLiteDatabase db) {
-        return db.query(getTableName(), null, null, null, null, null, null);
-    }
-
-    @Override
-    protected int getDBVersionIntroducedAt() {
-        return DB_VER_INTRODUCED;
     }
 
     @Override
@@ -72,9 +50,10 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     }
 
     /**
-     * One-time fix for the inconsistencies in title formats all over the database. This migration will enforce
-     * all titles stored in the database to follow the "Underscore_format" instead of the "Human readable form"
-     * TODO: Delete this code after April 2016
+     * Converts all titles stored in the database to follow the underscore_format instead of the
+     * normalized (or display) format.
+     *
+     * Preserved for database migrations from legacy versions.
      *
      * @param db Database object
      */
@@ -82,38 +61,58 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
         ContentValues values = new ContentValues();
         while (cursor.moveToNext()) {
-            String title = Col.TITLE.val(cursor);
-            if (title.contains(" ")) {
-                values.put(Col.TITLE.getName(), title.replace(" ", "_"));
+            String titleStr = Col.TITLE.val(cursor);
+            if (titleStr.contains(" ")) {
+                values.put(Col.TITLE.getName(), titleStr.replace(" ", "_"));
                 String id = Long.toString(Col.ID.val(cursor));
                 db.updateWithOnConflict(getTableName(), values, Col.ID.getName() + " = ?",
                         new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
 
-                SavedPage obj = fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), null);
+                PageTitle pageTitle = fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), null);
                 String savedPageBaseDir = FileUtil.savedPageBaseDir();
-                File newDir = new File(savedPageBaseDir + "/" + obj.getTitle().getIdentifier());
-                new File(savedPageBaseDir + "/" + getSavedPageDir(obj, title)).renameTo(newDir);
+                File newDir = new File(savedPageBaseDir + "/" + pageTitle.getIdentifier());
+                new File(savedPageBaseDir + "/" + getSavedPageDir(pageTitle, titleStr)).renameTo(newDir);
             }
         }
         cursor.close();
     }
 
-    private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
+    /**
+     * Preserved for database migrations from legacy versions.
+     *
+     * @param db Database object
+     */
+    private void addLangToAllSites(@NonNull SQLiteDatabase db) {
+        L.i("Adding language codes to " + getTableName());
+        Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
+        try {
+            while (cursor.moveToNext()) {
+                String site = Col.SITE.val(cursor);
+                ContentValues values = new ContentValues();
+                values.put(Col.LANG.getName(), site.split("\\.")[0]);
+                String id = Long.toString(Col.ID.val(cursor));
+                db.updateWithOnConflict(getTableName(), values, Col.ID.getName() + " = ?",
+                        new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
+            }
+        } finally {
+            cursor.close();
+        }
+    }
+
+    private PageTitle fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
                                              @Nullable String lang) {
         String authority = Col.SITE.val(cursor);
         WikiSite wiki = lang == null ? new WikiSite(authority) : new WikiSite(authority, lang);
-        PageTitle title = new PageTitle(namespace, Col.TITLE.val(cursor), wiki);
-        Date timestamp = Col.TIMESTAMP.val(cursor);
-        return new SavedPage(title, timestamp);
+        return new PageTitle(namespace, Col.TITLE.val(cursor), wiki);
     }
 
-    private String getSavedPageDir(SavedPage page, String originalTitleText) {
+    private String getSavedPageDir(PageTitle title, String originalTitleText) {
         try {
             JSONObject json = new JSONObject();
-            json.put("namespace", page.getTitle().getNamespace());
+            json.put("namespace", title.getNamespace());
             json.put("text", originalTitleText);
-            json.put("fragment", page.getTitle().getFragment());
-            json.put("site", page.getTitle().getWikiSite().authority());
+            json.put("fragment", title.getFragment());
+            json.put("site", title.getWikiSite().authority());
             return StringUtil.md5string(json.toString());
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -130,42 +129,42 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
                 return new Column<?>[] {Col.NAMESPACE};
             case DB_VER_LANG_ADDED:
                 return new Column<?>[] {Col.LANG};
-
             default:
                 return super.getColumnsAdded(version);
         }
     }
 
+    public Cursor queryAll(SQLiteDatabase db) {
+        return db.query(getTableName(), null, null, null, null, null, null);
+    }
+
+    @Override
+    protected int getDBVersionIntroducedAt() {
+        return DB_VER_INTRODUCED;
+    }
+
+    @Override
+    protected int getDBVersionDroppedAt() {
+        return DB_VER_DROPPED;
+    }
+
+    @Override
+    public SavedPage fromCursor(Cursor cursor) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    protected ContentValues toContentValues(SavedPage obj) {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public String getPrimaryKeySelection(@NonNull SavedPage obj, @NonNull String[] selectionArgs) {
-        return super.getPrimaryKeySelection(obj, Col.SELECTION);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull SavedPage obj) {
-        return new String[] {
-                obj.getTitle().getWikiSite().authority(),
-                obj.getTitle().getWikiSite().languageCode(),
-                obj.getTitle().getNamespace(),
-                obj.getTitle().getText()
-        };
-    }
-
-    // TODO: remove in September 2016.
-    private void addLangToAllSites(@NonNull SQLiteDatabase db) {
-        L.i("Adding language codes to " + getTableName());
-        Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
-        try {
-            while (cursor.moveToNext()) {
-                String site = Col.SITE.val(cursor);
-                ContentValues values = new ContentValues();
-                values.put(Col.LANG.getName(), site.split("\\.")[0]);
-                String id = Long.toString(Col.ID.val(cursor));
-                db.updateWithOnConflict(getTableName(), values, Col.ID.getName() + " = ?",
-                        new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
-            }
-        } finally {
-            cursor.close();
-        }
+        throw new UnsupportedOperationException();
     }
 }
