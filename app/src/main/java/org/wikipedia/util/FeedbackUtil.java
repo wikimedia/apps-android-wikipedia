@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -39,6 +40,8 @@ public final class FeedbackUtil {
         Snackbar snackbar = Snackbar.make(view, text, duration);
         TextView textView = (TextView) snackbar.getView().findViewById(R.id.snackbar_text);
         textView.setMaxLines(SNACKBAR_MAX_LINES);
+        TextView actionView = (TextView) snackbar.getView().findViewById(R.id.snackbar_action);
+        actionView.setTextColor(ContextCompat.getColor(view.getContext(), R.color.green50));
         return snackbar;
     }
 
