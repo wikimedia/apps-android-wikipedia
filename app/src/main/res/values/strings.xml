@@ -332,6 +332,7 @@
     <string name="view_because_you_read_card_title">Because you read</string>
     <string name="view_random_card_title">Randomizer</string>
     <string name="view_random_card_subtitle">Read a random article from Wikipedia</string>
+    <string name="view_random_card_error">Could not load a random page from the network or your reading lists.</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
     <string name="view_main_page_card_subtitle">Main page on %s</string>
     <string name="view_featured_image_card_title">Picture of the day</string>

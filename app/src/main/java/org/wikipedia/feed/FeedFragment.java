@@ -227,6 +227,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
+        public void onError(@NonNull Throwable t) {
+            FeedbackUtil.showError(getActivity(), t);
+        }
+
+        @Override
         public void onSelectPage(@NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedSelectPage(entry);

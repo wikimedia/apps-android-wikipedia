@@ -12,6 +12,7 @@ import org.wikipedia.database.BaseDao;
 import org.wikipedia.database.async.AsyncConstant;
 import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.database.http.HttpRowDao;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.disk.DiskRowDao;
@@ -20,6 +21,7 @@ import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
 
@@ -46,6 +48,24 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         String[] selectionArgs = new String[] {listKey};
         String order = ReadingListPageContract.PageWithDisk.ORDER_MRU;
         return client().select(uri, selection, selectionArgs, order);
+    }
+
+    public void randomPage(@NonNull CallbackTask.Callback<PageTitle> callback) {
+        CallbackTask.execute(new CallbackTask.Task<PageTitle>() {
+            @Override public PageTitle execute() {
+                Cursor c = client().select(ReadingListPageContract.PageWithDisk.URI, null, null, null);
+                PageTitle title = null;
+                try {
+                    if (c.getCount() > 0) {
+                        c.moveToPosition(new Random().nextInt(c.getCount()));
+                        title = ReadingListDaoProxy.pageTitle(ReadingListPage.fromCursor(c));
+                    }
+                } finally {
+                    c.close();
+                }
+                return title;
+            }
+        }, callback);
     }
 
     @Nullable public ReadingListPage findPage(@NonNull String key) {
