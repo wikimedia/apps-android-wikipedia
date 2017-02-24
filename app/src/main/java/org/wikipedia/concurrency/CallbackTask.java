@@ -13,7 +13,7 @@ public class CallbackTask<T> extends SaneAsyncTask<T> {
     }
 
     @NonNull private final Task<T> task;
-    @Nullable private final Callback<T> callback;
+    @Nullable private Callback<T> callback;
 
     public static <T> void execute(@NonNull Task<T> task) {
         execute(task, null);
@@ -36,6 +36,7 @@ public class CallbackTask<T> extends SaneAsyncTask<T> {
         super.onFinish(result);
         if (callback != null) {
             callback.success(result);
+            callback = null;
         }
     }
 }
