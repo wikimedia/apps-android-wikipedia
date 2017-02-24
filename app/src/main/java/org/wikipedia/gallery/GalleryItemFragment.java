@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,6 +28,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.samples.zoomable.DoubleTapGestureListener;
 import com.facebook.samples.zoomable.ZoomableDraweeView;
 
 import org.wikipedia.Constants;
@@ -114,7 +114,7 @@ public class GalleryItemFragment extends Fragment {
         videoThumbnail = (SimpleDraweeView) rootView.findViewById(R.id.gallery_video_thumbnail);
         videoPlayButton = rootView.findViewById(R.id.gallery_video_play_button);
         imageView = (ZoomableDraweeView) rootView.findViewById(R.id.gallery_image);
-        imageView.setTapListener(new GestureDetector.SimpleOnGestureListener() {
+        imageView.setTapListener(new DoubleTapGestureListener(imageView) {
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
                 parentActivity.toggleControls();
