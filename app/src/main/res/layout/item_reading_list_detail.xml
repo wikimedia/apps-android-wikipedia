@@ -1,107 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contents_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/contents_container"
+        android:id="@+id/details_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/list_item_vertical_padding"
+        android:paddingBottom="@dimen/list_item_vertical_padding"
+        android:paddingLeft="@dimen/list_item_horizontal_padding"
+        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:background="@color/actionbar_background">
+
+        <ImageView
+            android:id="@+id/reading_list_detail_back_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:srcCompat="@drawable/abc_ic_ab_back_material"
+            android:tint="@android:color/white"
+            android:scaleType="center"
+            android:contentDescription="@null"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
 
         <LinearLayout
-            android:id="@+id/details_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/list_item_vertical_padding"
-            android:paddingBottom="@dimen/list_item_vertical_padding"
-            android:paddingLeft="@dimen/list_item_horizontal_padding"
-            android:paddingRight="@dimen/list_item_horizontal_padding"
-            android:background="@color/actionbar_background">
-
-            <ImageView
-                android:id="@+id/reading_list_detail_back_button"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                app:srcCompat="@drawable/abc_ic_ab_back_material"
-                android:tint="@android:color/white"
-                android:scaleType="center"
-                android:contentDescription="@null"
-                android:clickable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
-
-            <LinearLayout
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/reading_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                tools:text="Lorem ipsum"/>
+            <TextView
+                android:id="@+id/reading_list_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:textSize="14sp"
+                android:textColor="@color/list_item_text_primary_dark"
+                tools:text="3 articles"/>
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/reading_list_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/reading_list_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    tools:text="Lorem ipsum"/>
-                <TextView
-                    android:id="@+id/reading_list_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="4dp"
-                    android:textSize="14sp"
-                    android:textColor="@color/list_item_text_primary_dark"
-                    tools:text="3 articles"/>
-                <org.wikipedia.views.GoneIfEmptyTextView
-                    android:id="@+id/reading_list_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="6dp"
-                    android:textColor="@android:color/white"
-                    tools:text="Description"/>
-            </LinearLayout>
-
+                android:paddingTop="6dp"
+                android:textColor="@android:color/white"
+                tools:text="Description"/>
         </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/contents_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"/>
 
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/button_edit"
-        style="@style/FloatingActionButton"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/contents_list"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-        android:contentDescription="@string/reading_list_menu_edit"
-        app:layout_behavior="org.wikipedia.views.FloatingActionButtonBehaviorFixed"
-        app:fabSize="mini"
-        app:elevation="4dp"
-        app:borderWidth="0dp"
-        app:backgroundTint="#596e8e"
-        app:layout_anchor="@id/details_container"
-        app:layout_anchorGravity="bottom|right|end" />
+        android:background="?attr/window_background_color"
+        android:scrollbars="vertical"/>
 
-    <ImageView
-        android:id="@+id/indicator_offline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/list_item_horizontal_padding"
-        app:srcCompat="@drawable/ic_cloud_download_black_24dp"
-        android:tint="@color/list_item_text_secondary_dark"
-        android:alpha="0.5"
-        android:contentDescription="@null"
-        app:layout_anchor="@id/details_container"
-        app:layout_anchorGravity="top|right|end"/>
-
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

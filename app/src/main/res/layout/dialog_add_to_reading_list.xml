@@ -50,7 +50,8 @@
             android:id="@+id/create_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
             android:paddingLeft="@dimen/list_item_horizontal_padding"
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:background="?attr/selectableItemBackground"
@@ -58,8 +59,8 @@
             <ImageView
                 android:layout_width="@dimen/readingListItemSize"
                 android:layout_height="@dimen/readingListItemSize"
-                android:layout_marginRight="12dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@null"
                 android:scaleType="centerInside"
@@ -74,24 +75,13 @@
                 style="@style/RtlAwareTextView"
                 android:textColor="?attr/link_preview_text_color"
                 android:textSize="16sp"
-                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
                 android:text="@string/reading_list_create_new" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="@dimen/readingListDividerMargin"
-            android:layout_marginStart="@dimen/readingListDividerMargin"
-            android:layout_marginRight="@dimen/list_item_horizontal_padding"
-            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            android:background="?attr/list_separator_color"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list_of_lists"
             android:scrollbars="vertical"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

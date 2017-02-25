@@ -33,6 +33,9 @@ import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.TextInputDialog;
 
 import java.util.List;
 
@@ -61,8 +64,8 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private ReadingListAdapter adapter = new ReadingListAdapter();
     private ReadingListPagerAdapter pagerAdapter = new ReadingListPagerAdapter();
 
-    private ReadingListItemActionListener itemActionListener = new ReadingListItemActionListener();
-    private ReadingListActionListener actionListener = new ReadingListActionListener();
+    private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
+    private ReadingListDetailViewCallback detailViewCallback = new ReadingListDetailViewCallback();
     private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
     @Nullable private ActionMode actionMode;
 
@@ -88,11 +91,12 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         unbinder = ButterKnife.bind(this, view);
 
         detailViewBackButton = (ImageView) listDetailView.findViewById(R.id.reading_list_detail_back_button);
-        listDetailView.setActionListener(actionListener);
-        listDetailView.setOnItemActionListener(itemActionListener);
+        listDetailView.setCallback(detailViewCallback);
 
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
+        readingListView.addItemDecoration(new DrawableItemDecoration(getContext(),
+                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
 
         pager.setAdapter(pagerAdapter);
 
@@ -108,8 +112,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     @Override
     public void onDestroyView() {
-        listDetailView.setOnItemActionListener(null);
-        listDetailView.setActionListener(null);
+        listDetailView.setCallback(null);
         readingListView.setAdapter(null);
         pager.setAdapter(null);
         unbinder.unbind();
@@ -207,30 +210,6 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         emptyContainer.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
     }
 
-    private class ReadingListActionListener implements ReadingListDetailView.ReadingListActionListener {
-        @Override
-        public void onUpdate(ReadingList readingList, String newTitle, String newDescription, boolean saveOffline) {
-            readingList.setDescription(newDescription);
-            readingList.setSaveOffline(saveOffline);
-            ReadingList.DAO.renameAndSaveListInfo(readingList, newTitle);
-            funnel.logModifyList(readingList, readingLists.size());
-        }
-
-        @Override
-        public void onDelete(ReadingList readingList) {
-            showDeleteListUndoSnackbar(readingList);
-            ReadingList.DAO.removeList(readingList);
-            funnel.logDeleteList(readingList, readingLists.size());
-            pager.setCurrentItem(PAGE_READING_LISTS);
-            updateLists();
-        }
-
-        @Override
-        public void onBackPressed() {
-            ReadingListsFragment.this.onBackPressed();
-        }
-    }
-
     private class ReadingListPagerAdapter extends PagerAdapter {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
@@ -260,33 +239,20 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         }
     }
 
-    private class ReadingListItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class ReadingListItemHolder extends RecyclerView.ViewHolder {
         private ReadingListItemView itemView;
-        private ReadingList readingList;
 
         ReadingListItemHolder(ReadingListItemView itemView) {
             super(itemView);
             this.itemView = itemView;
-            itemView.setOnClickListener(this);
         }
 
         public void bindItem(ReadingList readingList) {
-            this.readingList = readingList;
             itemView.setReadingList(readingList);
         }
 
-        @Override
-        public void onClick(View v) {
-            if (actionMode != null) {
-                actionMode.finish();
-            }
-            listDetailView.setReadingListInfo(readingList, readingLists.getTitlesExcept(readingList.getTitle()));
-            pager.setCurrentItem(PAGE_LIST_DETAIL);
-
-            if (!readingList.getPages().isEmpty()
-                    && Prefs.isReadingListPageDeleteTutorialEnabled()) {
-                showDeletePageOnboarding();
-            }
+        public ReadingListItemView getView() {
+            return itemView;
         }
     }
 
@@ -306,9 +272,77 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         public void onBindViewHolder(ReadingListItemHolder holder, int pos) {
             holder.bindItem(readingLists.get(pos));
         }
+
+        @Override public void onViewAttachedToWindow(ReadingListItemHolder holder) {
+            super.onViewAttachedToWindow(holder);
+            holder.getView().setCallback(listItemCallback);
+        }
+
+        @Override public void onViewDetachedFromWindow(ReadingListItemHolder holder) {
+            holder.getView().setCallback(null);
+            super.onViewDetachedFromWindow(holder);
+        }
     }
 
-    private class ReadingListItemActionListener implements ReadingListDetailView.ReadingListItemActionListener {
+    private class ReadingListItemCallback implements ReadingListItemView.Callback {
+        @Override
+        public void onClick(@NonNull ReadingList readingList) {
+            if (actionMode != null) {
+                actionMode.finish();
+            }
+            listDetailView.setReadingListInfo(readingList,
+                    readingLists.getTitlesExcept(readingList.getTitle()));
+            pager.setCurrentItem(PAGE_LIST_DETAIL);
+
+            if (!readingList.getPages().isEmpty()
+                    && Prefs.isReadingListPageDeleteTutorialEnabled()) {
+                showDeletePageOnboarding();
+            }
+        }
+
+        @Override
+        public void onRename(@NonNull final ReadingList readingList) {
+            ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.getTitle(),
+                    readingLists.getTitlesExcept(readingList.getTitle()),
+                    new ReadingListTitleDialog.Callback() {
+                        @Override
+                        public void onSuccess(@NonNull CharSequence text) {
+                            ReadingList.DAO.renameAndSaveListInfo(readingList, text.toString());
+                            updateLists();
+                            funnel.logModifyList(readingList, readingLists.size());
+                        }
+                    }).show();
+        }
+
+        @Override
+        public void onEditDescription(@NonNull final ReadingList readingList) {
+            TextInputDialog.newInstance(getContext(), new TextInputDialog.DefaultCallback() {
+                @Override
+                public void onShow(@NonNull TextInputDialog dialog) {
+                    dialog.setHint(R.string.reading_list_description_hint);
+                    dialog.setText(readingList.getDescription());
+                }
+
+                @Override
+                public void onSuccess(@NonNull CharSequence text) {
+                    readingList.setDescription(text.toString());
+                    ReadingList.DAO.saveListInfo(readingList);
+                    updateLists();
+                    funnel.logModifyList(readingList, readingLists.size());
+                }
+            }).show();
+        }
+
+        @Override
+        public void onDelete(@NonNull ReadingList readingList) {
+            showDeleteListUndoSnackbar(readingList);
+            ReadingList.DAO.removeList(readingList);
+            funnel.logDeleteList(readingList, readingLists.size());
+            updateLists();
+        }
+    }
+
+    private class ReadingListDetailViewCallback implements ReadingListDetailView.Callback {
         @Override
         public void onClick(ReadingList readingList, ReadingListPage page) {
             PageTitle title = ReadingListDaoProxy.pageTitle(page);
@@ -329,6 +363,11 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             ReadingList.DAO.removeTitleFromList(readingList, page);
             funnel.logDeleteItem(readingList, readingLists.size());
             updateLists();
+        }
+
+        @Override
+        public void onBackPressed() {
+            ReadingListsFragment.this.onBackPressed();
         }
     }
 
@@ -390,8 +429,8 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             } else {
                 sortMode = sortModeDesc;
             }
-            sortLists();
             Prefs.setReadingListSortMode(sortMode);
+            sortLists();
         } else if (pager.getCurrentItem() == PAGE_LIST_DETAIL) {
             int sortMode = Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
             if (sortMode != sortModeAsc) {

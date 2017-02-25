@@ -5,43 +5,45 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
-import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.views.ViewUtil;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class ReadingListItemView extends LinearLayout {
-    @BindView(R.id.item_container) LinearLayout containerView;
+public class ReadingListItemView extends FrameLayout {
+    public interface Callback {
+        void onClick(@NonNull ReadingList readingList);
+        void onRename(@NonNull ReadingList readingList);
+        void onEditDescription(@NonNull ReadingList readingList);
+        void onDelete(@NonNull ReadingList readingList);
+    }
+
+    @BindView(R.id.item_container) FrameLayout containerView;
     @BindView(R.id.item_title) TextView titleView;
     @BindView(R.id.item_count) TextView countView;
     @BindView(R.id.item_description) TextView descriptionView;
-    @BindView(R.id.indicator_offline) ImageView offlineView;
+    @BindView(R.id.item_overflow_menu)View overflowButton;
 
-    @BindView(R.id.item_image_row_1) View imageViewRow1;
-    @BindView(R.id.item_image_row_2) View imageViewRow2;
     @BindView(R.id.item_image_1) SimpleDraweeView imageView1;
     @BindView(R.id.item_image_2) SimpleDraweeView imageView2;
     @BindView(R.id.item_image_3) SimpleDraweeView imageView3;
     @BindView(R.id.item_image_4) SimpleDraweeView imageView4;
 
+    @Nullable private Callback callback;
     @Nullable private ReadingList readingList;
-    @Nullable private OnClickListener clickListener;
 
     public ReadingListItemView(Context context) {
         super(context);
@@ -66,14 +68,7 @@ public class ReadingListItemView extends LinearLayout {
 
     public void setReadingList(@NonNull ReadingList readingList) {
         this.readingList = readingList;
-        containerView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (clickListener != null) {
-                    clickListener.onClick(ReadingListItemView.this);
-                }
-            }
-        });
+
         countView.setText(readingList.getPages().size() == 1
                 ? getResources().getString(R.string.reading_list_item_count_singular)
                 : String.format(getResources().getString(R.string.reading_list_item_count_plural), readingList.getPages().size()));
@@ -82,16 +77,36 @@ public class ReadingListItemView extends LinearLayout {
         getThumbnails();
     }
 
-    @Override
-    public void setOnClickListener(OnClickListener listener) {
-        clickListener = listener;
+    public void setCallback(@Nullable Callback callback) {
+        this.callback = callback;
+    }
+
+    public void setOverflowButtonVisible(boolean visible) {
+        overflowButton.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    @OnClick(R.id.item_overflow_menu) void showOverflowMenu(View anchorView) {
+        PopupMenu menu = new PopupMenu(getContext(), anchorView);
+        menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
+        menu.setOnMenuItemClickListener(new OverflowMenuClickListener());
+        menu.show();
     }
 
     private void init() {
         inflate(getContext(), R.layout.item_reading_list, this);
         ButterKnife.bind(this);
 
-        setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        containerView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (callback != null && readingList != null) {
+                    callback.onClick(readingList);
+                }
+            }
+        });
         clearThumbnails();
     }
 
@@ -120,41 +135,69 @@ public class ReadingListItemView extends LinearLayout {
                 ? getResources().getString(R.string.reading_list_untitled)
                 : readingList.getTitle());
         descriptionView.setText(readingList.getDescription());
-        offlineView.setImageResource(readingList.getSaveOffline() ? R.drawable.ic_cloud_download_black_24dp : R.drawable.ic_cloud_off_black_24dp);
     }
 
     private void clearThumbnails() {
         ViewUtil.loadImageUrlInto(imageView1, null);
-        imageView2.setVisibility(GONE);
-        imageView3.setVisibility(GONE);
-        imageView4.setVisibility(GONE);
-        imageViewRow2.setVisibility(GONE);
+        imageView1.getHierarchy().setFailureImage(null);
+        ViewUtil.loadImageUrlInto(imageView2, null);
+        imageView2.getHierarchy().setFailureImage(null);
+        ViewUtil.loadImageUrlInto(imageView3, null);
+        imageView3.getHierarchy().setFailureImage(null);
+        ViewUtil.loadImageUrlInto(imageView4, null);
+        imageView4.getHierarchy().setFailureImage(null);
     }
 
     private void updateThumbnails() {
         clearThumbnails();
-        List<String> thumbUrls = new ArrayList<>();
-        for (ReadingListPage page : readingList.getPages()) {
-            if (!TextUtils.isEmpty(page.thumbnailUrl())) {
-                thumbUrls.add(page.thumbnailUrl());
-            }
-        }
         int thumbIndex = 0;
-        if (thumbUrls.size() > thumbIndex) {
-            ViewUtil.loadImageUrlInto(imageView1, thumbUrls.get(thumbIndex));
+        if (readingList.getPages().size() > thumbIndex) {
+            loadThumbnail(imageView1, readingList.getPages().get(thumbIndex).thumbnailUrl());
         }
-        if (thumbUrls.size() > ++thumbIndex) {
-            imageView2.setVisibility(VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView2, thumbUrls.get(thumbIndex));
+        if (readingList.getPages().size() > ++thumbIndex) {
+            loadThumbnail(imageView2, readingList.getPages().get(thumbIndex).thumbnailUrl());
         }
-        if (thumbUrls.size() > ++thumbIndex) {
-            imageViewRow2.setVisibility(VISIBLE);
-            imageView3.setVisibility(VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView3, thumbUrls.get(thumbIndex));
+        if (readingList.getPages().size() > ++thumbIndex) {
+            loadThumbnail(imageView3, readingList.getPages().get(thumbIndex).thumbnailUrl());
         }
-        if (thumbUrls.size() > ++thumbIndex) {
-            imageView4.setVisibility(VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView4, thumbUrls.get(thumbIndex));
+        if (readingList.getPages().size() > ++thumbIndex) {
+            loadThumbnail(imageView4, readingList.getPages().get(thumbIndex).thumbnailUrl());
+        }
+    }
+
+    private void loadThumbnail(@NonNull SimpleDraweeView view, @Nullable String url) {
+        if (TextUtils.isEmpty(url)) {
+            view.getHierarchy().setFailureImage(R.drawable.ic_image_gray_24dp);
+        } else {
+            ViewUtil.loadImageUrlInto(view, url);
+        }
+    }
+
+    private class OverflowMenuClickListener implements PopupMenu.OnMenuItemClickListener {
+        @Override public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_reading_list_rename:
+                    if (callback != null && readingList != null) {
+                        callback.onRename(readingList);
+                        return true;
+                    }
+                    break;
+                case R.id.menu_reading_list_edit_description:
+                    if (callback != null && readingList != null) {
+                        callback.onEditDescription(readingList);
+                        return true;
+                    }
+                    break;
+                case R.id.menu_reading_list_delete:
+                    if (callback != null && readingList != null) {
+                        callback.onDelete(readingList);
+                        return true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return false;
         }
     }
 }

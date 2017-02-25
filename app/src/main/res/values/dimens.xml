@@ -18,7 +18,7 @@
     <dimen name="defaultListItemSize">56dp</dimen>
 
     <!-- Default height of reading list items -->
-    <dimen name="readingListItemSize">96dp</dimen>
+    <dimen name="readingListItemSize">56dp</dimen>
     <dimen name="readingListDividerMargin">112dp</dimen>
 
     <!-- Default height of tab item images, which governs the size of tabs themselves -->
