@@ -18,7 +18,8 @@
                 android:imeOptions="actionDone|flagNoExtractUi"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
     <ListView android:id="@+id/preference_languages_list"
               android:layout_width="fill_parent"
