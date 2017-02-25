@@ -3,6 +3,9 @@
   "scripts": {
     "test": "grunt test"
   },
+  "dependencies": {
+    "applib": "0.1.2"
+  },
   "devDependencies": {
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
