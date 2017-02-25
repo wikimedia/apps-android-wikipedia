@@ -385,6 +385,6 @@ public class ZoomableDraweeView extends DraweeView<GenericDraweeHierarchy>
   }
 
   protected ZoomableController createZoomableController() {
-    return AnimatedZoomableController.newInstance();
+    return DoubleTapZoomableController.newInstance(getContext());
   }
 }
