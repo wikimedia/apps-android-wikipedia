@@ -31,6 +31,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -93,12 +94,12 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
-    private Unbinder unbinder;
+    @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
 
     private WikipediaApp app;
-    private Bus bus;
+    @Nullable private Bus bus;
     private EventBusMethods busMethods;
     private CompatActionMode currentActionMode;
 
@@ -127,7 +128,22 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         }
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-        setContentView(R.layout.activity_page);
+
+        try {
+            setContentView(R.layout.activity_page);
+        } catch (Exception e) {
+            if (e.getMessage().contains("WebView")) {
+                // If the system failed to inflate our activity because of the WebView (which could
+                // be one of several types of exceptions), it likely means that the system WebView
+                // is in the process of being updated. In this case, show the user a message and
+                // bail immediately.
+                Toast.makeText(app, R.string.error_webview_updating, Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+            throw e;
+        }
+
         unbinder = ButterKnife.bind(this);
 
         busMethods = new EventBusMethods();
@@ -702,7 +718,9 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onDestroy() {
-        unbinder.unbind();
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
         unregisterBus();
         super.onDestroy();
     }
@@ -753,7 +771,9 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private void unregisterBus() {
-        bus.unregister(busMethods);
+        if (bus != null) {
+            bus.unregister(busMethods);
+        }
         bus = null;
         L.d("Unregistered bus.");
     }
