@@ -41,7 +41,7 @@
   <string name="nearby_zoom_to_location">Приближи на некое место на картата</string>
   <string name="last_updated_text">Последна измена: %s</string>
   <string name="talk_page_link_text">Разговор</string>
-  <string name="content_license_html" fuzzy="true">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
+  <string name="content_license_html">Содржината е достапна под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Зачувувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="preference_title_language">Јазик на Википедија</string>
@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Оваа страница е полузаштитена.</string>
   <string name="page_protected_sysop">Оваа страница е наполно заштитена.</string>
   <string name="page_protected_other">Оваа страница е заштитена во следниве степени: %s</string>
-  <string name="page_protected_can_not_edit">Немате право да ја уредувате страницава</string>
+  <string name="page_protected_can_not_edit">За жал, вашата сметка засега нема право да ја уредува страницава.</string>
+  <string name="page_protected_can_not_edit_anon">За жал, страницава засега не може да се уредува анонимно.</string>
   <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
   <string name="settings_item_preferences">Нагодувања</string>
   <string name="settings_activity_title">Нагодувања</string>
@@ -134,13 +135,15 @@
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_Policy/mk?uselang=mk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
   <string name="about_contributors_heading">Учесници</string>
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
   <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Текст_на_лиценцата_Криејтив_комонс_Наведи извор-Сподели_под_исти_услови_3.0_Нелокализирана\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови Нелокализирана&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Производ на &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
+  <string name="about_wmf">Производ на &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
   <string name="user_blocked_from_editing_title">Блокирано</string>
@@ -290,11 +293,11 @@
   <string name="notification_button_view_edit_history">Историја на уредувањата</string>
   <string name="notification_generic_title">Известување на Википедија</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>
-  <string name="notification_talk" fuzzy="true">%1$s ви остави порака на вашата страница за разговор „%2$s“</string>
+  <string name="notification_talk">em&gt;%1$s&lt;/em&gt; ви остави порака на вашата страница за разговор &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
-  <string name="notification_reverted" fuzzy="true">Вашето уредување на статијата „%2$s“ е отповикано од %1$s.</string>
+  <string name="notification_reverted">Вашето уредување на статијата &lt;strong&gt;%2$s&lt;/strong&gt; е отповикано од &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Добивте благодарност!</string>
-  <string name="notification_thanks" fuzzy="true">%1$s ви благодари за вашето уредување на страницатга „%2$s“</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ви благодари за вашето уредување на страницатга &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
@@ -330,7 +333,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/mk?uselang=mk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English?uselang=mk</string>
   <string name="description_edit_anon_limit">Ви благодариме за постојаниот интерес за уредување на описите! За да направите уште уредувања, ќе мора да се најавите со вашата сметка на Википедија.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Менувајќи го описот на насловот, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дек &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Менувајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="description_edit_success_saved">Описот е зачуван!</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
@@ -358,5 +361,5 @@
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
-  <string name="description_edit_revert_history" fuzzy="true">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
 </resources>

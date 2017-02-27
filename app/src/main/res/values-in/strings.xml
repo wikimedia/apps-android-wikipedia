@@ -7,6 +7,9 @@
   <string name="yes">Ya</string>
   <string name="no">Tidak</string>
   <string name="search_hint">Telusuri Wikipedia</string>
+  <string name="search_hint_search_history">Riwayat penelusuran</string>
+  <string name="search_hint_search_my_lists">Cari daftar saya</string>
+  <string name="search_hint_search_reading_list">Cari daftar bacaan</string>
   <string name="nav_item_history">Riwayat</string>
   <string name="error_network_error">Tidak dapat menghubungkan ke Internet.</string>
   <string name="page_error_retry">Coba lagi</string>
@@ -38,7 +41,7 @@
   <string name="nearby_zoom_to_location">Perbesar ke lokasi di peta</string>
   <string name="last_updated_text">Terakhir diperbarui %s</string>
   <string name="talk_page_link_text">Bicara</string>
-  <string name="content_license_html" fuzzy="true">Konten tersedia di bawah &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
+  <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan dihubungkan ke alamat IP perangkat. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki lebih privasi.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
@@ -122,7 +125,7 @@
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi sebagian.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
   <string name="page_protected_other">Halaman ini telah dilindungi dengan tingkat sebagai berikut: %s</string>
-  <string name="page_protected_can_not_edit">Anda tidak memiliki hak untuk menyunting halaman ini</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Anda tidak memiliki hak untuk menyunting halaman ini</string>
   <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
   <string name="settings_item_preferences">Pengaturan</string>
   <string name="settings_activity_title">Pengaturan</string>
@@ -131,13 +134,15 @@
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/id</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
   <string name="about_app_license">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
-  <string name="about_wmf" fuzzy="true">Sebuah produk dari &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf">Sebuah produk dari &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
   <string name="user_blocked_from_editing_title">Diblokir</string>
@@ -287,11 +292,11 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="notification_button_view_edit_history">Lihat riwayat suntingan</string>
   <string name="notification_generic_title">Pemberitahuan di Wikipedia</string>
   <string name="notification_talk_title">Pesan baru di Wikipedia</string>
-  <string name="notification_talk" fuzzy="true">%1$s meninggalkan sebuah pesan di halaman pembicaraan Anda dengan judul \"%2$s\"</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; meninggalkan sebuah pesan di halaman pembicaraan Anda dengan judul &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Suntingan yang dibalikkan</string>
-  <string name="notification_reverted" fuzzy="true">Suntingan Anda pada artikel \"%2$s\" telah dibalikkan oleh %1$s.</string>
+  <string name="notification_reverted">Suntingan Anda pada artikel &lt;strong&gt;%2$s&lt;/strong&gt; telah dibalikkan oleh &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Anda telah menerima ucapan terima kasih!</string>
-  <string name="notification_thanks" fuzzy="true">%1$s berterima kasih untuk suntingan Anda pada halaman \"%2$s\"</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; berterima kasih untuk suntingan Anda pada halaman &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
@@ -327,7 +332,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih atas kepercayaan Anda dalam menyunting deskripsi! Untuk melakukan penyuntingan tambahan, silakan masuk log ke akun Wikipedia Anda.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Dengan mengubah deskripsi judul, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Dengan mengubah deskripsi judul, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Deskripsi disimpan!</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
@@ -355,5 +360,5 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memiliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi Anda tampak seperti uji coba atau vandalisme.</string>
-  <string name="description_edit_revert_history" fuzzy="true">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>
 </resources>

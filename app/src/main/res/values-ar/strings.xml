@@ -121,7 +121,7 @@
   <string name="page_protected_autoconfirmed">تمت حماية هذه الصفحة جزئياً.</string>
   <string name="page_protected_sysop">تمت حماية هذه الصفحة بالكامل.</string>
   <string name="page_protected_other">تمت حماية هذه الصفحة إلى المستويات التالية: %s</string>
-  <string name="page_protected_can_not_edit">أنت لا تمتلك الصلاحيات اللازمة لتحرير هذه الصفحة</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">أنت لا تمتلك الصلاحيات اللازمة لتحرير هذه الصفحة</string>
   <string name="page_protected_can_not_edit_title">هذه الصفحة محمية</string>
   <string name="settings_item_preferences">الإعدادات</string>
   <string name="settings_activity_title">الإعدادات</string>

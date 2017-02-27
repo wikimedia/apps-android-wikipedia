@@ -124,7 +124,7 @@
   <string name="page_protected_autoconfirmed">Tämä sivu on osittain suojattu.</string>
   <string name="page_protected_sysop">Tämä sivu on kokonaan suojattu.</string>
   <string name="page_protected_other">Tämä sivu on suojattu seuraavasti: %s</string>
-  <string name="page_protected_can_not_edit">Sinulla ei ole oikeuksia muokata tätä sivua</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Sinulla ei ole oikeuksia muokata tätä sivua</string>
   <string name="page_protected_can_not_edit_title">Tämä sivu on suojattu</string>
   <string name="settings_item_preferences">Asetukset</string>
   <string name="settings_activity_title">Asetukset</string>
@@ -133,6 +133,8 @@
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/fi</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fi</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
   <string name="about_libraries_heading">Käytetyt kirjastot</string>
   <string name="about_contributors_heading">Tekijät</string>
   <string name="about_translators_heading">Kääntäjät</string>
@@ -193,7 +195,7 @@
   <string name="gallery_save_progress">Ladataan tiedostoa…</string>
   <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
-  <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten. Yritä uudelleen ja anna pyydetty käyttöoikeus.</string>
+  <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten. Anna pyydetty käyttöoikeus ja yritä uudelleen.</string>
   <string name="err_cannot_save_file">Tiedostoa ei voi tallentaa</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia ssa: %2$s</string>
   <string name="expand_refs">Napauta laajentaaksesi</string>
@@ -261,7 +263,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan (käänteinen)</string>
   <string name="reading_list_sort_by_recent">Lajittele viimeisimmän käytön mukaan</string>
-  <string name="reading_list_sort_by_recent_desc">Lajittele viimeisimmän käytön mukaan</string>
+  <string name="reading_list_sort_by_recent_desc">Lajittele viimeisimmän käytön mukaan (käänteinen)</string>
   <string name="reading_list_menu_edit">Muokkaa lukulistan tietoja</string>
   <string name="reading_list_menu_delete">Poista lukulista</string>
   <string name="reading_list_name_sample">Oma lukulista</string>
@@ -292,7 +294,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="notification_talk" fuzzy="true">%1$s jätti viestin keskustelusivullesi \"%2$s\"</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
   <string name="notification_reverted" fuzzy="true">%1$s kumosi muokkauksesi artikkeliin \"%2$s\".</string>
-  <string name="notification_thanks_title">Olet saanut kiitosta!</string>
+  <string name="notification_thanks_title">Sinua on kiitetty tekemästäsi muokkauksesta!</string>
   <string name="notification_thanks" fuzzy="true">%1$s kiitti sinua muokkauksestasi sivuun \"%2$s\"</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
@@ -349,7 +351,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="description_edit_help_tips_example2_hint">Mount Everestiä käsittelevän artikkelin otsikon kuvaus</string>
   <string name="description_edit_help_more_info">Lisätietoja</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
-  <string name="description_edit_revert_intro">Tiedämme että yritit parhaasi mutta yhdellä arvioijalla on huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
+  <string name="description_edit_revert_intro">Tiedämme että yritit parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason2">muokkauksesi vaikutti kokeilulta tai vandalismilta.</string>
   <string name="description_edit_revert_history" fuzzy="true">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
 </resources>

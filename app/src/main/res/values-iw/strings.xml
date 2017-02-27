@@ -125,7 +125,7 @@
   <string name="page_protected_autoconfirmed">הדף הזה מוגן באופן חלקי.</string>
   <string name="page_protected_sysop">הדף הזה מוגן באופן מלא.</string>
   <string name="page_protected_other">הדף הזה מוגן לרמות הבאות: %s</string>
-  <string name="page_protected_can_not_edit">אין לך הרשאה לערוך את הדף הזה</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">אין לך הרשאה לערוך את הדף הזה</string>
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
@@ -134,6 +134,8 @@
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.he</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
   <string name="about_translators_heading">מתרגמים</string>

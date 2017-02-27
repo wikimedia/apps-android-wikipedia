@@ -114,7 +114,7 @@
   <string name="page_protected_autoconfirmed">Heh di Sigg es hallef jeschöz.</string>
   <string name="page_protected_sysop">Heh di Sigg es jeschöz.</string>
   <string name="page_protected_other">Heh di Sigg es jeschöz op di Hühde: %s</string>
-  <string name="page_protected_can_not_edit">Do häs nit et Rääsch, heh di Sigg ze ändere.</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Do häs nit et Rääsch, heh di Sigg ze ändere.</string>
   <string name="page_protected_can_not_edit_title">Heh di Sigg es jeschöz.</string>
   <string name="settings_item_preferences">Enschtällonge</string>
   <string name="settings_activity_title">Enschtällonge</string>

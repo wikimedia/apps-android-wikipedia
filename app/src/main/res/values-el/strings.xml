@@ -114,7 +114,7 @@
   <string name="page_protected_autoconfirmed">Αυτή η σελίδα είναι ημιπροστατευμένη</string>
   <string name="page_protected_sysop">Αυτή η σελίδα είναι πλήρως προσταστατευμένη.</string>
   <string name="page_protected_other">Αυτή η σελίδα είναι κάτω από το ακόλουθο καθεστός προστασίας: %s</string>
-  <string name="page_protected_can_not_edit">Δεν έχετε τα δικαιώματα για να επεξεργαστείτε αυτή τη σελίδα</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Δεν έχετε τα δικαιώματα για να επεξεργαστείτε αυτή τη σελίδα</string>
   <string name="page_protected_can_not_edit_title">Αυτή η σελίδα είναι προστατευμένη</string>
   <string name="settings_item_preferences">Ρυθμίσεις</string>
   <string name="settings_activity_title">Ρυθμίσεις</string>

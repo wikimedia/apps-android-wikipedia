@@ -117,7 +117,7 @@
   <string name="page_protected_autoconfirmed">Orri hau  erdi babestua dago.</string>
   <string name="page_protected_sysop">Orri hau erabat babestua dago.</string>
   <string name="page_protected_other">Orrialde hau ondorengo mailetan babestu egin da: %s</string>
-  <string name="page_protected_can_not_edit">Ez duzu orrialde hau aldatzeko baimenik</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Ez duzu orrialde hau aldatzeko baimenik</string>
   <string name="page_protected_can_not_edit_title">Orrialde hau babestuta dago</string>
   <string name="settings_item_preferences">Ezarpenak</string>
   <string name="settings_activity_title">Ezarpenak</string>

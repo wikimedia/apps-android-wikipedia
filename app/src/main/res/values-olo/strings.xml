@@ -101,7 +101,7 @@
   <string name="history_search_list_hint">Eči histouriespäi</string>
   <string name="error_can_not_process_link">Tädä linkii ei voinuh ozuttua</string>
   <string name="page_protected_sysop">Tämä sivu on kogonah suojattu.</string>
-  <string name="page_protected_can_not_edit">Sinul ei ole oigevuksii kohendella tädä sivuu</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Sinul ei ole oigevuksii kohendella tädä sivuu</string>
   <string name="page_protected_can_not_edit_title">Tämä sivu on suojattu</string>
   <string name="settings_item_preferences">Azetukset</string>
   <string name="settings_activity_title">Azetukset</string>

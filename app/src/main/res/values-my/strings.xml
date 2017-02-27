@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">ဤစာမျက်နှာအား တစ်စိတ်တစ်ပိုင်း ကာကွယ်ထားသည်။</string>
   <string name="page_protected_sysop">ဤစာမျက်နှာအား အပြည့်အဝ ကာကွယ်ထားသည်။</string>
   <string name="page_protected_other">ဤစာမျက်နှာအား အောက်ပါအဆင့်များသို့ ကာကွယ်ထားသည်: %s</string>
-  <string name="page_protected_can_not_edit">ဤစာမျက်နှာကို တည်းဖြတ်ခွင့်မရှိပါ</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">ဤစာမျက်နှာကို တည်းဖြတ်ခွင့်မရှိပါ</string>
   <string name="page_protected_can_not_edit_title">ဤစာမျက်နှာအား ကာကွယ်ထားသည်</string>
   <string name="settings_item_preferences">အပြင်အဆင်များ</string>
   <string name="settings_activity_title">အပြင်အဆင်များ</string>

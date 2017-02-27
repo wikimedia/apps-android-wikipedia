@@ -126,7 +126,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
   <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
   <string name="page_protected_other">Cette page a été protégée pour les niveaux suivants : %s</string>
-  <string name="page_protected_can_not_edit">Vous n’avez pas les droits pour modifier cette page</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Vous n’avez pas les droits pour modifier cette page</string>
   <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
   <string name="settings_item_preferences">Paramètres</string>
   <string name="settings_activity_title">Paramètres</string>
@@ -135,8 +135,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="terms_of_use_description">Conditions d’utilisation</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_translators_heading">Traducteurs</string>

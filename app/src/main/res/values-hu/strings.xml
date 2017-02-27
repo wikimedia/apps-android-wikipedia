@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">Ez az oldal félig védett.</string>
   <string name="page_protected_sysop">Ez a lap teljesen védett.</string>
   <string name="page_protected_other">Az a lap az alábbi szinten védett: %s</string>
-  <string name="page_protected_can_not_edit">Nincs jogosultságod az oldal szerkesztéséhez</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Nincs jogosultságod az oldal szerkesztéséhez</string>
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
   <string name="settings_item_preferences">Beállítások</string>
   <string name="settings_activity_title">Beállítások</string>

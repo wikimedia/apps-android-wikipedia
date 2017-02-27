@@ -113,7 +113,7 @@
   <string name="error_can_not_process_link">Neina parodyti šios nuorodos</string>
   <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>
   <string name="page_protected_sysop">Šis puslapis buvo visiškai apsaugotas.</string>
-  <string name="page_protected_can_not_edit">Jūs neturite teisių redaguoti šį puslapį</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Jūs neturite teisių redaguoti šį puslapį</string>
   <string name="page_protected_can_not_edit_title">Šis puslapis apsaugotas</string>
   <string name="settings_item_preferences">Nustatymai</string>
   <string name="settings_activity_title">Nustatymai</string>

@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">Был бит өлөшләтә һаҡланған ине.</string>
   <string name="page_protected_sysop">Был бит тулыһынса һаҡланған ине.</string>
   <string name="page_protected_other">Был бит түбәндәге кимәлдәр буйынса һаҡланған ине: %s</string>
-  <string name="page_protected_can_not_edit">Һеҙҙең был битте мөхәррирләргә хоҡуғығыҙ юҡ</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Һеҙҙең был битте мөхәррирләргә хоҡуғығыҙ юҡ</string>
   <string name="page_protected_can_not_edit_title">Был бит һаҡланған</string>
   <string name="settings_item_preferences">Көйләүҙәр</string>
   <string name="settings_activity_title">Көйләүҙәр</string>

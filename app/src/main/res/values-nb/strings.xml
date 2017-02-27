@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">Denne siden er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne siden er beskyttet.</string>
   <string name="page_protected_other">Denne siden har blitt beskyttet til følgende nivåer: %s</string>
-  <string name="page_protected_can_not_edit">Du har ikke rettigheter til å redigere denne siden</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Du har ikke rettigheter til å redigere denne siden</string>
   <string name="page_protected_can_not_edit_title">Denne siden er beskyttet</string>
   <string name="settings_item_preferences">Innstillinger</string>
   <string name="settings_activity_title">Innstillinger</string>

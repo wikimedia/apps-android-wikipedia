@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">Ця сторінка частково захищена.</string>
   <string name="page_protected_sysop">Ця сторінка повністю захищена.</string>
   <string name="page_protected_other">Ця сторінка захищена до наступних рівнів: %s</string>
-  <string name="page_protected_can_not_edit">У Вас немає прав на редагування цієї сторінки</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">У Вас немає прав на редагування цієї сторінки</string>
   <string name="page_protected_can_not_edit_title">Цю сторінку захищено</string>
   <string name="settings_item_preferences">Налаштування</string>
   <string name="settings_activity_title">Налаштування</string>

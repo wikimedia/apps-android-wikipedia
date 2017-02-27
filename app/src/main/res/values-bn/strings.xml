@@ -41,7 +41,7 @@
   <string name="nearby_zoom_to_location">মানচিত্রে একটি অবস্থানে জুম করুন</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
   <string name="talk_page_link_text">আলোচনা</string>
-  <string name="content_license_html" fuzzy="true">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
+  <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
   <string name="edit_save_action_license_anon">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের IP ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
   <string name="preference_title_language">উইকিপিডিয়া ভাষা</string>
@@ -122,7 +122,7 @@
   <string name="page_protected_autoconfirmed">এই পাতাটি অর্ধ সুরক্ষিত।</string>
   <string name="page_protected_sysop">এই পাতটি সম্পূর্ণ সুরক্ষিত।</string>
   <string name="page_protected_other">এই পাতাটি নিম্নের মাত্রা অনুযায়ী সুরক্ষিত: %s</string>
-  <string name="page_protected_can_not_edit">আপনার এই পাতায় সম্পাদনা করার অধিকার নেই।</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">আপনার এই পাতায় সম্পাদনা করার অধিকার নেই।</string>
   <string name="page_protected_can_not_edit_title">এই পাতাটি সুরক্ষিত</string>
   <string name="settings_item_preferences">সেটিংস</string>
   <string name="settings_activity_title">সেটিংস</string>

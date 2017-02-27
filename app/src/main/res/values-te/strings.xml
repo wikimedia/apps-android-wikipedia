@@ -114,7 +114,7 @@
   <string name="page_protected_autoconfirmed">ఈ పేజి సగం-రక్షించబడింది.</string>
   <string name="page_protected_sysop">ఈ పేజి పూర్తిగా రక్షించబడింది.</string>
   <string name="page_protected_other">ఈ పేజి ఈ స్థాయిలలో రక్షించబడింది: %s</string>
-  <string name="page_protected_can_not_edit">ఈ పేజీని సవరించడానికి మీకు హక్కు లేదు</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">ఈ పేజీని సవరించడానికి మీకు హక్కు లేదు</string>
   <string name="page_protected_can_not_edit_title">ఈ పేజీ సంరక్షించబడింది</string>
   <string name="settings_item_preferences">అమరికలు</string>
   <string name="settings_activity_title">అమరికలు</string>

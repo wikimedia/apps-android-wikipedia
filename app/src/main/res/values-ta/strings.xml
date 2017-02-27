@@ -108,7 +108,7 @@
   <string name="page_protected_autoconfirmed">இந்த பக்கம் அரைப் பாதுகாக்கபட்டுள்ளது.</string>
   <string name="page_protected_sysop">இந்த பக்கம் முழுமையாகப் பாதுகாக்கப்பட்டுள்ளது.</string>
   <string name="page_protected_other">இந்தப்பக்கம் பின்வரும் நிலைகளில் பாதுகாக்கப்பட்டுள்ளது: %s</string>
-  <string name="page_protected_can_not_edit">உங்களுக்கு இந்த பக்கத்தை தொகுக்கும் உரிமைகள் இல்லை</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">உங்களுக்கு இந்த பக்கத்தை தொகுக்கும் உரிமைகள் இல்லை</string>
   <string name="page_protected_can_not_edit_title">இந்த பக்கம் பாதுகாக்கப்பட்டுள்ளது.</string>
   <string name="settings_item_preferences">அமைப்புகள்</string>
   <string name="settings_activity_title">அமைப்புகள்</string>

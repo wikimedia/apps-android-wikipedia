@@ -93,7 +93,7 @@
   <string name="page_protected_autoconfirmed">ទំព័រនេះត្រូវបានការពារពាក់កណ្ដាល។</string>
   <string name="page_protected_sysop">ទំព័រនេះត្រូវបានការពារពេញលេញ។</string>
   <string name="page_protected_other">ទំព័រនេះត្រូវបានការពារត្រឹមកម្រិតដូចតទៅ៖ %s</string>
-  <string name="page_protected_can_not_edit">អ្នកគ្មានសិទ្ធិកែប្រែទំព័រនេះទេ</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">អ្នកគ្មានសិទ្ធិកែប្រែទំព័រនេះទេ</string>
   <string name="page_protected_can_not_edit_title">ទំព័រនេះត្រូវបានការពាររួចហើយ</string>
   <string name="settings_activity_title" fuzzy="true">ការ​កំណត់</string>
   <string name="about_description">អំពីកម្មវិធីវិគីភីឌា</string>

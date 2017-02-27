@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">این صفحه نیمه‌محفاظت شده است.</string>
   <string name="page_protected_sysop">این صفحه به طور کامل محافظت شده است.</string>
   <string name="page_protected_other">این صفحه محافظت شده است، در سطح :%s</string>
-  <string name="page_protected_can_not_edit">شما اجازه ویرایش این صفحه را ندارید.</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">شما اجازه ویرایش این صفحه را ندارید.</string>
   <string name="page_protected_can_not_edit_title">این صفحه محافظت شده‌است</string>
   <string name="settings_item_preferences">تنظیمات</string>
   <string name="settings_activity_title">تنظیمات</string>

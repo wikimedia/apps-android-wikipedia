@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">Această pagină a fost semiprotejată.</string>
   <string name="page_protected_sysop">Această pagină a fost protejată.</string>
   <string name="page_protected_other">Această pagină a fost protejată pentru următoarele niveluri: %s</string>
-  <string name="page_protected_can_not_edit">Nu aveți drepturi pentru a modifica această pagină</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Nu aveți drepturi pentru a modifica această pagină</string>
   <string name="page_protected_can_not_edit_title">Această pagină este protejată</string>
   <string name="settings_item_preferences">Setări</string>
   <string name="settings_activity_title">Setări</string>

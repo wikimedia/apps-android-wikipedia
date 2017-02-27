@@ -86,7 +86,7 @@
   <string name="history_search_list_hint">Гісторыя пошуку</string>
   <string name="history_search_empty_message">Ня знойдзена старонак, якія адпавядаюць Вашаму запыту.</string>
   <string name="error_can_not_process_link">Не магчыма адлюстраваць гэтую спасылку</string>
-  <string name="page_protected_can_not_edit">У вас няма дазволу на змяненне гэтай старонкі</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">У вас няма дазволу на змяненне гэтай старонкі</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка пад аховай</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>

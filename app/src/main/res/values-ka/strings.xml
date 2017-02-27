@@ -118,7 +118,7 @@
   <string name="page_protected_autoconfirmed">ეს გვერდი ნახევრად დაცულია.</string>
   <string name="page_protected_sysop">ეს გვერდი სრულად დაცულია.</string>
   <string name="page_protected_other">გვერდი დაცულია შემდეგ დონეზე: %s</string>
-  <string name="page_protected_can_not_edit">თქვენ არ გაქვთ ამ გვერდის რედაქტირების უფლება</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">თქვენ არ გაქვთ ამ გვერდის რედაქტირების უფლება</string>
   <string name="page_protected_can_not_edit_title">ეს გვერდი დაცულია</string>
   <string name="settings_item_preferences">კონფიგურაცია</string>
   <string name="settings_activity_title">კონფიგურაცია</string>

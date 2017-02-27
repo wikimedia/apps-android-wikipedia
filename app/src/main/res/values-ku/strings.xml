@@ -77,7 +77,7 @@
   <string name="nav_item_random">Ketober</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="history_search_list_hint">Dîroka lêgerînê</string>
-  <string name="page_protected_can_not_edit">Mafê te bo guherandina vê rûpelê tune ye</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Mafê te bo guherandina vê rûpelê tune ye</string>
   <string name="page_protected_can_not_edit_title">Ev rûpel hatiye parastin</string>
   <string name="about_description">Di derbarê sepana Wîkîpediyayê de</string>
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>

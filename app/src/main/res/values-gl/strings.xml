@@ -122,7 +122,7 @@
   <string name="page_protected_autoconfirmed">Esta páxina está semiprotexida.</string>
   <string name="page_protected_sysop">Esta páxina está totalmente protexida.</string>
   <string name="page_protected_other">Esta páxina está protexida para os seguintes niveis: %s</string>
-  <string name="page_protected_can_not_edit">Non ten os permisos necesarios para editar esta páxina</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Non ten os permisos necesarios para editar esta páxina</string>
   <string name="page_protected_can_not_edit_title">Esta páxina está protexida</string>
   <string name="settings_item_preferences">Configuración</string>
   <string name="settings_activity_title">Configuración</string>

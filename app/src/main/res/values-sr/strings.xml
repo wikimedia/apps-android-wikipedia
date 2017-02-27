@@ -114,7 +114,7 @@
   <string name="error_can_not_process_link">Не могу да прикажем ову везу</string>
   <string name="page_protected_autoconfirmed">Ова страница је полузаштићена.</string>
   <string name="page_protected_sysop">Ова страница је потпуно заштићена.</string>
-  <string name="page_protected_can_not_edit">Немате права да уређујете ову страницу</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Немате права да уређујете ову страницу</string>
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
   <string name="settings_item_preferences">Подешавања</string>
   <string name="settings_activity_title">Подешавања</string>
