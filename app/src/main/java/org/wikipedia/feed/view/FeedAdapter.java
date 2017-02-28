@@ -23,6 +23,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
             FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
             AnnouncementCardView.Callback {
         void onRequestMore();
+        void onError(@NonNull Throwable t);
     }
 
     @NonNull private FeedCoordinatorBase coordinator;

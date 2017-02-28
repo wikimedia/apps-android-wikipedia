@@ -37,16 +37,27 @@
 
     </LinearLayout>
 
-    <ImageView
+    <FrameLayout
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="end|center_vertical"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:id="@+id/view_static_card_icon"
-        android:contentDescription="@string/view_static_card_icon_content_description"
-        tools:src="@drawable/icon_feed_today"/>
+        android:layout_marginRight="16dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/view_static_card_icon"
+            android:contentDescription="@string/view_static_card_icon_content_description"
+            tools:src="@drawable/icon_feed_today"/>
+
+        <ProgressBar
+            android:id="@+id/view_static_card_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
 </LinearLayout>
