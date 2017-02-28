@@ -39,7 +39,7 @@
   <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="talk_page_link_text">Dyskusja</string>
-  <string name="content_license_html" fuzzy="true">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Zapisując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu się&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
   <string name="preference_title_language">Język Wikipedii</string>
@@ -122,7 +122,7 @@
   <string name="page_protected_autoconfirmed">Ta strona jest częściowo zabezpieczona.</string>
   <string name="page_protected_sysop">Ta strona jest całkowicie zabezpieczona.</string>
   <string name="page_protected_other">Ta strona została zabezpieczona do następujących poziomów: %s</string>
-  <string name="page_protected_can_not_edit">Nie masz uprawnień do edycji tej strony</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Nie masz uprawnień do edycji tej strony</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
@@ -131,13 +131,15 @@
   <string name="terms_of_use_description">Warunki użytkowania</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/pl</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pl</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
   <string name="about_contributors_heading">Autorzy</string>
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
   <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; na licencji &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Dopóki inaczej nie określono, zawartość jest dostępna na licencji &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Produkt &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
   <string name="user_blocked_from_editing_title">Zablokowany/-a</string>

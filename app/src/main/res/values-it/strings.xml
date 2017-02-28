@@ -7,6 +7,7 @@
   <string name="yes">Sì</string>
   <string name="no">No</string>
   <string name="search_hint">Cerca su Wikipedia</string>
+  <string name="search_hint_search_history">Cerca nella Cronologia</string>
   <string name="nav_item_history">Cronologia</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
@@ -121,7 +122,7 @@
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
   <string name="page_protected_sysop">Questa pagina è stata protetta.</string>
   <string name="page_protected_other">Questa pagina è stata protetta ai seguenti livelli: %s</string>
-  <string name="page_protected_can_not_edit">Non hai i diritti per modificare questa pagina</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Non hai i diritti per modificare questa pagina</string>
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
@@ -130,6 +131,8 @@
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
   <string name="about_libraries_heading">Librerie usate</string>
   <string name="about_contributors_heading">Collaboratori</string>
   <string name="about_translators_heading">Traduttori</string>
@@ -321,6 +324,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="description_edit_success_did_you_know">Lo sapevate?</string>
   <string name="description_edit_tutorial_button_label_continue">Continua</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
+  <string name="description_edit_help_about_title">Informazioni</string>
   <string name="description_edit_help_tips">Consigli per creare descrizioni</string>
   <string name="description_edit_help_tips_examples">Per esempio:</string>
   <string name="description_edit_help_tips_example1">dipinto da Leonardo da Vinci</string>

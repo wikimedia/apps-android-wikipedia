@@ -7,6 +7,9 @@
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
+  <string name="search_hint_search_history">Historial de cerca</string>
+  <string name="search_hint_search_my_lists">Cerca a les meves llistes</string>
+  <string name="search_hint_search_reading_list">Cerca a la llista de lectura</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Tornar a provar</string>
@@ -38,9 +41,9 @@
   <string name="nearby_zoom_to_location">Zoom a una ubicació del mapa</string>
   <string name="last_updated_text">Última actualització %1$s</string>
   <string name="talk_page_link_text">Discussió</string>
-  <string name="content_license_html" fuzzy="true">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
+  <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
+  <string name="edit_save_action_license_anon">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="preference_title_language">Idioma de la Viquipèdia</string>
   <string name="preference_languages_filter_hint">Cercar</string>
   <string name="langlinks_filter_hint">Cercar</string>
@@ -67,6 +70,8 @@
   <string name="nav_item_login">Inici de sessió</string>
   <string name="login_username_hint">Nom d\'usuari</string>
   <string name="login_password_hint">Contrasenya</string>
+  <string name="login_2fa_hint">Codi d\'autenticació de dos factors</string>
+  <string name="login_2fa_other_workflow_error_msg">Cal autenticació de dos factors! Torneu a l\'activitat principal i inicieu una sessió amb la clau d\'autenticació de dos factors i torneu-ho a provar.</string>
   <string name="menu_login">Inicia la sessió</string>
   <string name="login_activity_title">Inicia sessió a la Viquipèdia</string>
   <string name="login_in_progress_dialog_message">S’està iniciant la sessió…</string>
@@ -120,7 +125,7 @@
   <string name="page_protected_autoconfirmed">La pàgina està semiprotegida.</string>
   <string name="page_protected_sysop">La pàgina està completament protegida.</string>
   <string name="page_protected_other">S\'ha protegit la pàgina als nivells següents: %s</string>
-  <string name="page_protected_can_not_edit">No teniu permisos per modificar aquesta pàgina</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">No teniu permisos per modificar aquesta pàgina</string>
   <string name="page_protected_can_not_edit_title">La pàgina està protegida</string>
   <string name="settings_item_preferences">Configuració</string>
   <string name="settings_activity_title">Configuració</string>

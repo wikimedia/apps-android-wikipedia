@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">یہ صفحہ نیم محفوظ رہا ہے۔</string>
   <string name="page_protected_sysop">یہ صفحہ مکمل طور پر محفوظ رہا ہے۔</string>
   <string name="page_protected_other">یہ صفحہ مندرجہ سطح تک محفوظ کیا گیا ہے: %s</string>
-  <string name="page_protected_can_not_edit">آپ کے پاس اس صفحہ کو ترمیم کرنے کے حقوق نہیں ہیں</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">آپ کے پاس اس صفحہ کو ترمیم کرنے کے حقوق نہیں ہیں</string>
   <string name="page_protected_can_not_edit_title">یہ صفحہ محفوظ ہے۔</string>
   <string name="settings_item_preferences">ترتیبات</string>
   <string name="settings_activity_title">ترتیبات</string>

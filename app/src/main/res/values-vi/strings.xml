@@ -125,7 +125,7 @@
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>
   <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>
   <string name="page_protected_other">Trang này đã bị khóa ở mức độ sau: %s</string>
-  <string name="page_protected_can_not_edit">Bạn không có quyền sửa đổi trang này.</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Bạn không có quyền sửa đổi trang này.</string>
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
   <string name="settings_item_preferences">Tùy chọn</string>
   <string name="settings_activity_title">Tùy chọn</string>

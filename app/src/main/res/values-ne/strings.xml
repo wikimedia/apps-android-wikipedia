@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">यो पृष्ठ अर्ध-सुरक्षित गरिएको छ।</string>
   <string name="page_protected_sysop">यो पृष्ठ पूर्ण सुरक्षित गरिएको छ।</string>
   <string name="page_protected_other">यो पृष्ठ निम्नानुसारका तहहरूको लागि सुरक्षित गरिएको छ: %s</string>
-  <string name="page_protected_can_not_edit">तपाईंलाई यो पृष्ठ सम्पादन गर्ने अधिकार छैन</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">तपाईंलाई यो पृष्ठ सम्पादन गर्ने अधिकार छैन</string>
   <string name="page_protected_can_not_edit_title">यो पृष्ठ सुरक्षित गरिएको छ</string>
   <string name="settings_item_preferences">सेटिङ्हरू</string>
   <string name="settings_activity_title">सेटिङ्हरू</string>

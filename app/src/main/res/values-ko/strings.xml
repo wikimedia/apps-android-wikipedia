@@ -39,9 +39,9 @@
   <string name="nearby_zoom_to_location">지도 상의 장소를 확대</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="talk_page_link_text">토론</string>
-  <string name="content_license_html" fuzzy="true">내용은 별도로 명시하지 않을 경우 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
+  <string name="content_license_html">별도로 명시하지 않는 한 컨텐츠는 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 이용할 수 있습니다</string>
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">저장하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다. 편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
+  <string name="edit_save_action_license_anon">저장하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다. 편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="preference_languages_filter_hint">검색</string>
   <string name="langlinks_filter_hint">검색</string>
@@ -123,20 +123,23 @@
   <string name="page_protected_autoconfirmed">이 문서는 준보호되어 있습니다.</string>
   <string name="page_protected_sysop">이 문서는 완전히 보호되어 있습니다.</string>
   <string name="page_protected_other">이 문서는 다음 수준으로 보호되어 있습니다: %s</string>
-  <string name="page_protected_can_not_edit">이 문서를 편집할 권한이 없습니다</string>
+  <string name="page_protected_can_not_edit">죄송합니다, 당신의 계정은 현재 이 문서를 편집할 충분한 권한을 갖고 있지 않습니다.</string>
+  <string name="page_protected_can_not_edit_anon">죄송합니다, 이 문서는 현재 익명 사용자가 편집할 수 없습니다.</string>
   <string name="page_protected_can_not_edit_title">이 문서는 보호되어 있습니다</string>
   <string name="settings_item_preferences">설정</string>
   <string name="settings_activity_title">설정</string>
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인정보 정책</string>
   <string name="terms_of_use_description">이용 약관</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ko</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_app_license_heading">라이선스</string>
   <string name="about_app_license">소스 코드는 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 있으며, &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;에서 찾아볼 수 있습니다. 별도로 명시하지 않는 한 콘텐츠는 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락&lt;/a&gt;에 따라 이용할 수 있습니다.</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
+  <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
   <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀜을 저장하지 않고 빠져나가겠습니까?</string>
   <string name="user_blocked_from_editing_title">차단됨</string>

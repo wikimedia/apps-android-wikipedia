@@ -125,7 +125,7 @@
   <string name="page_protected_autoconfirmed">Ova stranica je poluzaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je potpuno zaštićena.</string>
   <string name="page_protected_other">Ova stranica je zaštićena na sljedećim nivoima: %s</string>
-  <string name="page_protected_can_not_edit">Nemate prava da uređujete ovu stranicu</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Nemate prava da uređujete ovu stranicu</string>
   <string name="page_protected_can_not_edit_title">Ova stranica je zaštićena</string>
   <string name="settings_item_preferences">Postavke</string>
   <string name="settings_activity_title">Postavke</string>

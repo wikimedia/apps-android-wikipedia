@@ -117,7 +117,7 @@
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_other">ਇਸ ਸਫ਼ੇ ਨੂੰ ਇਹਨਾਂ ਤਹਿਆਂ ਤੱਕ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਹੈ: %s</string>
-  <string name="page_protected_can_not_edit">ਤੁਹਾਡੇ ਕੋਲ਼ ਇਸ ਸਫ਼ੇ ਦੀ ਸੁਧਾਈ ਕਰਨ ਦੇ ਹੱਕ ਨਹੀਂ ਹਨ</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">ਤੁਹਾਡੇ ਕੋਲ਼ ਇਸ ਸਫ਼ੇ ਦੀ ਸੁਧਾਈ ਕਰਨ ਦੇ ਹੱਕ ਨਹੀਂ ਹਨ</string>
   <string name="page_protected_can_not_edit_title">ਇਹ ਸਫ਼ਾ ਸੁਰੱਖਿਅਤ ਹੈ</string>
   <string name="settings_item_preferences">ਸੈਟਿੰਗਾਂ</string>
   <string name="settings_activity_title">ਸੈਟਿੰਗਾਂ</string>

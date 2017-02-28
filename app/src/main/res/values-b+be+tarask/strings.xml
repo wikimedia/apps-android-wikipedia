@@ -115,7 +115,7 @@
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>
   <string name="page_protected_other">Гэтая старонка была абароненая на наступных узроўнях: %s</string>
-  <string name="page_protected_can_not_edit">Вы ня маеце правоў рэдагаваць гэтую старонку</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Вы ня маеце правоў рэдагаваць гэтую старонку</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка абароненая</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>

@@ -113,7 +113,7 @@
   <string name="page_protected_autoconfirmed">ഈ താൾ അർദ്ധ-സംരക്ഷിതമാണ്.</string>
   <string name="page_protected_sysop">ഈ താൾ പൂർണ്ണമായും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു.</string>
   <string name="page_protected_other">ഈ താൾ ഈ തലങ്ങൾ വരെ സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു: %s</string>
-  <string name="page_protected_can_not_edit">ഈ താൾ തിരുത്താനുള്ള അവകാശം താങ്കൾക്കില്ല</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">ഈ താൾ തിരുത്താനുള്ള അവകാശം താങ്കൾക്കില്ല</string>
   <string name="page_protected_can_not_edit_title">ഈ താൾ സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു</string>
   <string name="settings_item_preferences">സജ്ജീകരണങ്ങൾ</string>
   <string name="settings_activity_title">സജ്ജീകരണങ്ങൾ</string>

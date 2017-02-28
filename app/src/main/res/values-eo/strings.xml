@@ -114,7 +114,7 @@
   <string name="page_protected_autoconfirmed">Ĉi tiu paĝo estas duon-protektita.</string>
   <string name="page_protected_sysop">Ĉi tiu paĝo estas tut-protektita.</string>
   <string name="page_protected_other">Ĉi tiu paĝo estas protektita je la jenaj niveloj: %s</string>
-  <string name="page_protected_can_not_edit">Vi ne havas la rajtojn por redakti ĉi tiun paĝon</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Vi ne havas la rajtojn por redakti ĉi tiun paĝon</string>
   <string name="page_protected_can_not_edit_title">Ĉi tiu paĝo estas protektita</string>
   <string name="settings_item_preferences">Agordoj</string>
   <string name="settings_activity_title">Agordoj</string>

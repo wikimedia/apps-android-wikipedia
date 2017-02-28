@@ -116,7 +116,7 @@
   <string name="page_protected_autoconfirmed">ଏହି ପୃଷ୍ଠାଟି କିଛିକାଂଶରେ କିଳାଯାଇଛି ।</string>
   <string name="page_protected_sysop">ଏହି ପୃଷ୍ଠାଟି ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ କିଳାଯାଇଛି ।</string>
   <string name="page_protected_other">ଏହି ପୃଷ୍ଠାଟି ଏହି ସ୍ତର ରେ  କିଳାଯାଇଛି: %s</string>
-  <string name="page_protected_can_not_edit">ଆପଣଙ୍କୁ ଏହି ପୃଷ୍ଠା ସମ୍ପାଦନ ପାଇଁ ଅନୁମତି ନାହିଁ</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">ଆପଣଙ୍କୁ ଏହି ପୃଷ୍ଠା ସମ୍ପାଦନ ପାଇଁ ଅନୁମତି ନାହିଁ</string>
   <string name="page_protected_can_not_edit_title">ଏହି ପୃଷ୍ଠାଟି କିଳାଯାଇଛି</string>
   <string name="settings_item_preferences">ସଜାଣି</string>
   <string name="settings_activity_title">ସଜାଣି</string>

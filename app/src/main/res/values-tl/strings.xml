@@ -104,7 +104,7 @@
   <string name="page_protected_autoconfirmed">Bahagyang naipasanggalang ang pahinang ito.</string>
   <string name="page_protected_sysop">Naipasanggalang nang buo ang pahinang ito.</string>
   <string name="page_protected_other">Naka-protekta ang pahinang ito sa sumusunod na mga antas: %s</string>
-  <string name="page_protected_can_not_edit">Wala kang karapatang baguhin ang pahinang ito</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Wala kang karapatang baguhin ang pahinang ito</string>
   <string name="page_protected_can_not_edit_title">Nakasanggalang ang pahinang ito</string>
   <string name="about_description">Tungkol sa Wikipedia app</string>
   <string name="privacy_policy_description">Patakaran sa paglilihim</string>

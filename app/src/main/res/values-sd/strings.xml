@@ -7,6 +7,9 @@
   <string name="yes">ها</string>
   <string name="no">نہ</string>
   <string name="search_hint">وڪيپيڊيا ۾ ڳوليو</string>
+  <string name="search_hint_search_history">سوانح ۾ ڳوليو</string>
+  <string name="search_hint_search_my_lists">منھنجن فھرستن ۾ ڳوليو</string>
+  <string name="search_hint_search_reading_list">پڙھڻ جي فھرست ۾ ڳوليو</string>
   <string name="nav_item_history">سوانح</string>
   <string name="error_network_error">انٽرنيٽ سان ڳنڍي نٿو سگھي.</string>
   <string name="page_error_retry">ٻيهر ڪوشش ڪريو</string>
@@ -120,7 +123,7 @@
   <string name="page_protected_autoconfirmed">هيءُ صفحو نيم تحفظيل آهي.</string>
   <string name="page_protected_sysop">هيءُ صفحو پوريءَ ريت تحفظيل آهي.</string>
   <string name="page_protected_other">هيءُ صفحو هيٺين سطحن تائين تحفظيل آهي: %s</string>
-  <string name="page_protected_can_not_edit">توهان کي هيءُ صفحو سنوارڻ جا حق حاصل نہ آهن</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">توهان کي هيءُ صفحو سنوارڻ جا حق حاصل نہ آهن</string>
   <string name="page_protected_can_not_edit_title">هيءُ صفحو تحفظيل آهي</string>
   <string name="settings_item_preferences">ترتيبون</string>
   <string name="settings_activity_title">ترتيبون</string>

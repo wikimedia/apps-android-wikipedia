@@ -41,9 +41,9 @@
   <string name="nearby_zoom_to_location">Vergrößere auf einen Standort auf der Karte</string>
   <string name="last_updated_text">Zuletzt aktualisiert %1$s</string>
   <string name="talk_page_link_text">Diskussion</string>
-  <string name="content_license_html" fuzzy="true">Der Inhalt ist verfügbar unter &lt;a href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;, sofern nicht anders angegeben.</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Mit dem Speichern stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt; zu.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Mit dem Speichern stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
+  <string name="content_license_html">Der Inhalt ist verfügbar unter &lt;a href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;, sofern nicht anders angegeben.</string>
+  <string name="edit_save_action_license_logged_in">Mit dem Speichern stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt; zu.</string>
+  <string name="edit_save_action_license_anon">Mit dem Speichern stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
   <string name="preference_title_language">Wikipedia-Sprache</string>
   <string name="preference_languages_filter_hint">Suche</string>
   <string name="langlinks_filter_hint">Suche</string>
@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Diese Seite wurde halbgesperrt.</string>
   <string name="page_protected_sysop">Diese Seite wurde vollgesperrt.</string>
   <string name="page_protected_other">Diese Seite wurde auf die folgenden Ebenen geschützt: %s</string>
-  <string name="page_protected_can_not_edit">Du hast nicht die Rechte, diese Seite zu bearbeiten.</string>
+  <string name="page_protected_can_not_edit">Leider hat dein Benutzerkonto nicht die erforderliche Berechtigung, um derzeit diese Seite zu bearbeiten.</string>
+  <string name="page_protected_can_not_edit_anon">Leider kann diese Seite derzeit nicht anonym bearbeitet werden.</string>
   <string name="page_protected_can_not_edit_title">Diese Seite ist geschützt</string>
   <string name="settings_item_preferences">Einstellungen</string>
   <string name="settings_activity_title">Einstellungen</string>
@@ -134,13 +135,15 @@
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/de</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
   <string name="about_libraries_heading">Verwendete Bibliotheken</string>
   <string name="about_contributors_heading">Mitwirkende</string>
   <string name="about_translators_heading">Übersetzer</string>
   <string name="about_translators_translatewiki">Diese App wurde von freiwilligen Übersetzern auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
   <string name="about_app_license_heading">Lizenz</string>
   <string name="about_app_license">Der Quellcode ist verfügbar bei &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; und &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache-2.0-Lizenz&lt;/a&gt;. Sofern nicht anders angegeben, ist der Inhalt verfügbar unter einer &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Lizenzbestimmungen_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Ein Produkt der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf">Ein Produkt der &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Über</string>
   <string name="edit_abandon_confirm">Die Seite wurde verändert. Bist du sicher, dass du sie ohne Speichern deiner Änderungen verlassen möchtest?</string>
   <string name="user_blocked_from_editing_title">Gesperrt</string>
@@ -330,7 +333,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/de</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Vielen Dank für dein fortwährendes Interesse an der Bearbeitung von Beschreibungen! Um zusätzliche Bearbeitungen durchzuführen, melde dich bitte bei deinem Wikipedia-Benutzerkonto an.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Durch das Ändern der Titelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
+  <string name="description_edit_license_notice">Durch das Ändern der Titelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
   <string name="description_edit_success_saved">Beschreibung gespeichert!</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>

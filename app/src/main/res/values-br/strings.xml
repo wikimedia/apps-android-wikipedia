@@ -7,6 +7,9 @@
   <string name="yes">Ya</string>
   <string name="no">Ket</string>
   <string name="search_hint">Klask e Wikipedia</string>
+  <string name="search_hint_search_history">Klask er roll istor</string>
+  <string name="search_hint_search_my_lists">Klask em rolloù</string>
+  <string name="search_hint_search_reading_list">Klask er roll lenn</string>
   <string name="nav_item_history">Istor</string>
   <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad.</string>
   <string name="page_error_retry">Klask en-dro</string>
@@ -120,7 +123,7 @@
   <string name="page_protected_autoconfirmed">Damwarezet eo bet ar bajenn-mañ.</string>
   <string name="page_protected_sysop">Gwarezet penn-da-benn eo bet ar bajenn-mañ.</string>
   <string name="page_protected_other">Gwarezet eo bet ar bajenn-mañ gant al livioù-mañ : %s</string>
-  <string name="page_protected_can_not_edit">N\'ho peus ket gwir da aozañ ar bajenn-mañ</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">N\'ho peus ket gwir da aozañ ar bajenn-mañ</string>
   <string name="page_protected_can_not_edit_title">Gwarezet eo ar bajenn-mañ</string>
   <string name="settings_item_preferences">Arventennoù</string>
   <string name="settings_activity_title">Arventennoù</string>

@@ -96,7 +96,7 @@
   <string name="page_protected_autoconfirmed">بۇ صفحه یاریم‌قوْروما آلتیندادیر.</string>
   <string name="page_protected_sysop">بۇ صفحه بۆتون‌قوْروما آلتیندادیر.</string>
   <string name="page_protected_other">بۇ صفحه قوْرونموشدور. بۇ دسته‌لره: %s</string>
-  <string name="page_protected_can_not_edit">بۇ صفحه‌نی دییشدیرمه‌یه ایجازه‌نیز یوْخدور</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">بۇ صفحه‌نی دییشدیرمه‌یه ایجازه‌نیز یوْخدور</string>
   <string name="page_protected_can_not_edit_title">بۇ صفحه قوْرونموشدور</string>
   <string name="settings_item_preferences">تنظیملر</string>
   <string name="settings_activity_title">تنظیملر</string>

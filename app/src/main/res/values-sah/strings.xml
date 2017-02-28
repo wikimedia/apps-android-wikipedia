@@ -7,6 +7,8 @@
   <string name="yes">Сөп</string>
   <string name="no">Суох</string>
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
+  <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
+  <string name="search_hint_search_my_lists">Мин испииһэктэрбиттэн көрдөөһүн</string>
   <string name="nav_item_history">Устуоруйата</string>
   <string name="error_network_error">Интэриниэти кытта ситим суох.</string>
   <string name="page_error_retry">Хатылаа</string>
@@ -120,7 +122,7 @@
   <string name="page_protected_autoconfirmed">Бу сирэй сорҕото хатанна.</string>
   <string name="page_protected_sysop">Бу сирэй толору хатанна</string>
   <string name="page_protected_other">Бу сирэй маннык таһымнарга хатанна: %s</string>
-  <string name="page_protected_can_not_edit">Эн бу сирэйи уларытар кыаҕыҥ суох</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Эн бу сирэйи уларытар кыаҕыҥ суох</string>
   <string name="page_protected_can_not_edit_title">Бу сирэй хатанан турар</string>
   <string name="settings_item_preferences">Туруоруулар</string>
   <string name="settings_activity_title">Туруоруулар</string>

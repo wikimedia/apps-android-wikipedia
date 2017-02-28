@@ -115,7 +115,7 @@
   <string name="page_protected_autoconfirmed">Þessi síða er varin að hluta til.</string>
   <string name="page_protected_sysop">Þessi síða er varin í heild.</string>
   <string name="page_protected_other">Þessi síða er varin upp á eftirfarandi stig: %s</string>
-  <string name="page_protected_can_not_edit">Þú hefur ekki réttindi á að breyta þessari síðu</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Þú hefur ekki réttindi á að breyta þessari síðu</string>
   <string name="page_protected_can_not_edit_title">Þessi síða er varin</string>
   <string name="settings_item_preferences">Stillingar</string>
   <string name="settings_activity_title">Stillingar</string>

@@ -125,7 +125,7 @@
   <string name="page_protected_autoconfirmed">Esta página foi semiprotegida.</string>
   <string name="page_protected_sysop">Esta página foi totalmente protegida.</string>
   <string name="page_protected_other">Esta página foi protegida para os seguintes níveis: %s</string>
-  <string name="page_protected_can_not_edit">Não tem permissão para editar esta página</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Não tem permissão para editar esta página</string>
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="settings_item_preferences">Preferências</string>
   <string name="settings_activity_title">Configurações</string>

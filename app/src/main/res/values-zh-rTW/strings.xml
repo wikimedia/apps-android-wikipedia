@@ -70,8 +70,8 @@
   <string name="nav_item_login">登入至維基百科</string>
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
-  <string name="login_2fa_hint">雙重認證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙重認證！請返回主活動頁面並以您的2FA安全令牌登入後再重試。</string>
+  <string name="login_2fa_hint">雙因素認證代碼</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙因素認證！請返回主活動頁面並以您的 2FA 權杖登入後再重試。</string>
   <string name="menu_login">登入</string>
   <string name="login_activity_title">登入至維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入…</string>
@@ -91,7 +91,7 @@
   <string name="create_account_password_repeat_hint">重複輸入密碼</string>
   <string name="create_account_passwords_mismatch_error">密碼不符合</string>
   <string name="create_account_email_error">無效的 Email 地址</string>
-  <string name="create_account_username_error">用戶名稱中含有無效字元</string>
+  <string name="create_account_username_error">使用者名稱中含有無效字元</string>
   <string name="create_account_generic_error">無法建立帳號</string>
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">建立帳號</string>
@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">此頁面已受半保護。</string>
   <string name="page_protected_sysop">此頁面已受全保護。</string>
   <string name="page_protected_other">此頁面已受到以下層級的保護：%s</string>
-  <string name="page_protected_can_not_edit">您沒有編輯本頁面的權限</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">您沒有編輯本頁面的權限</string>
+  <string name="page_protected_can_not_edit_anon">抱歉，該頁現在無法暱名編輯。</string>
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
@@ -134,6 +135,8 @@
   <string name="terms_of_use_description">使用條款</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
   <string name="about_libraries_heading">使用的函式庫</string>
   <string name="about_contributors_heading">貢獻者</string>
   <string name="about_translators_heading">翻譯人員</string>
@@ -250,7 +253,7 @@
   <string name="reading_list_untitled">未命名標題</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_create_new">建立新的</string>
-  <string name="reading_list_title_exists">讀取中清單「%s」已存在。</string>
+  <string name="reading_list_title_exists">閱讀清單「%s」已存在。</string>
   <string name="reading_list_entry_empty">請輸入一個標題。</string>
   <string name="reading_list_added_to_named">已新增至 %s。</string>
   <string name="reading_list_added_to_unnamed">己新增至閱讀清單</string>
@@ -345,18 +348,18 @@
   <string name="description_edit_tutorial_promise">開始後，我保證不做出濫用此功能。</string>
   <string name="description_edit_help_about_title">關於</string>
   <string name="description_edit_help_description">標題描述可對條目作出概要；來幫助讀者快速了解主題。</string>
-  <string name="description_edit_help_tips">創建描述的提示</string>
+  <string name="description_edit_help_tips">建立描述的提示</string>
   <string name="description_edit_help_tips_description">描述盡量使用一行文字，且長度介於2到12個字元之間。另外除非第一個詞為專有名詞否則不用大寫。</string>
   <string name="description_edit_help_tips_examples">例如：</string>
   <string name="description_edit_help_tips_example1">李奧納多·達文西的繪畫</string>
   <string name="description_edit_help_tips_example1_hint">有關蒙娜麗莎條目的標題描述</string>
   <string name="description_edit_help_tips_example2">地球第一高峰</string>
   <string name="description_edit_help_tips_example2_hint">有關聖母峰條目的標題描述</string>
-  <string name="description_edit_help_more_info">更多訊息</string>
-  <string name="description_edit_help_meta_info">描述被儲存管理在維基數據裡，那是一個在維基媒體基金會專案中的專案之一，它提供了一個自由、協作、多語言的支援維基百科和其它專案的二級資料庫。</string>
+  <string name="description_edit_help_more_info">更多資訊</string>
+  <string name="description_edit_help_meta_info">描述被儲存管理在維基數據裡，那是維基媒體基金會計畫中的其中一個計畫，它提供了一個自由、共同作業、多語言的支援維基百科和其它計畫的二級資料庫。</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
-  <string name="description_edit_revert_intro">我們知道您已盡了努力，但有編者不認同而做出回退。您的編輯被回退的原因可能是：</string>
+  <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者不認同而做出還原。您的編輯被還原的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
-  <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試用或破壞。</string>
+  <string name="description_edit_revert_reason2">您的貢獻內容看起來像是實驗或破壞。</string>
   <string name="description_edit_revert_history" fuzzy="true">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
 </resources>

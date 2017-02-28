@@ -118,7 +118,7 @@
   <string name="page_protected_autoconfirmed">हे पान अर्ध-सुरक्षित आहे.</string>
   <string name="page_protected_sysop">हे पान पूर्णत: सुरक्षित आहे.</string>
   <string name="page_protected_other">हे पान खालील स्तरांपर्यंत सुरक्षित आहे:%s</string>
-  <string name="page_protected_can_not_edit">तुम्हाला हे पान संपादन करण्याची परवानगी नाही</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">तुम्हाला हे पान संपादन करण्याची परवानगी नाही</string>
   <string name="page_protected_can_not_edit_title">पान संरक्षित आहे</string>
   <string name="settings_item_preferences">मांडण्या</string>
   <string name="settings_activity_title">मांडण्या</string>
