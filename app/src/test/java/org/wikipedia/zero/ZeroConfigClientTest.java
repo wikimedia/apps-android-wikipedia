@@ -7,6 +7,7 @@ import com.google.gson.JsonParseException;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.test.MockWebServerTest;
 import org.wikipedia.zero.ZeroConfigClient.Callback;
 import org.wikipedia.zero.ZeroConfigClient.Service;
@@ -68,6 +69,19 @@ public class ZeroConfigClientTest extends MockWebServerTest {
 
         //noinspection unchecked
         verify(cb).failure(any(Call.class), any(JsonParseException.class));
+    }
+
+    @Test public void testRequestApiError() throws Throwable {
+        enqueueFromFile("api_error.json");
+
+        Callback cb = mock(Callback.class);
+        request(cb);
+
+        RecordedRequest req = server().takeRequest();
+        assertRequestIssued(req, USER_AGENT);
+
+        //noinspection unchecked
+        verify(cb).failure(any(Call.class), any(MwException.class));
     }
 
     @Test public void testRequestFailure() throws Throwable {

@@ -84,7 +84,7 @@ public final class NotificationClient {
         final String idListStr = TextUtils.join("|", notifications);
         editTokenClient.request(wiki, new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<CsrfToken> call, @NonNull String token) {
+            public void success(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull String token) {
                 requestMarkRead(service, token, idListStr).enqueue(new retrofit2.Callback<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>>() {
                     @Override
                     public void onResponse(Call<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> call, Response<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> response) {
@@ -99,7 +99,7 @@ public final class NotificationClient {
             }
 
             @Override
-            public void failure(@NonNull Call<CsrfToken> call, @NonNull Throwable t) {
+            public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull Throwable t) {
                 L.e(t);
             }
         });

@@ -92,6 +92,16 @@ public class EditClientTest extends MockWebServerTest {
         assertCallbackFailure(call, cb, MwException.class);
     }
 
+    @Test public void testRequestResponseApiError() throws Throwable {
+        enqueueFromFile("api_error.json");
+
+        EditClient.Callback cb = mock(EditClient.Callback.class);
+        Call<Edit> call = request(cb, false);
+
+        server().takeRequest();
+        assertCallbackFailure(call, cb, MwException.class);
+    }
+
     @Test public void testRequestResponse404() throws Throwable {
         enqueue404();
 

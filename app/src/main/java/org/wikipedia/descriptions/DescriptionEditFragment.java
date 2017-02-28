@@ -18,6 +18,7 @@ import org.wikipedia.analytics.DescriptionEditFunnel;
 import org.wikipedia.csrf.CsrfToken;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient;
@@ -52,7 +53,7 @@ public class DescriptionEditFragment extends Fragment {
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
-    @Nullable private Call<CsrfToken> editTokenCall;
+    @Nullable private Call<MwQueryResponse<CsrfToken>> editTokenCall;
     @Nullable private Call<DescriptionEdit> descriptionEditCall;
     @Nullable private DescriptionEditFunnel funnel;
 
@@ -177,12 +178,12 @@ public class DescriptionEditFragment extends Fragment {
         private void requestEditToken() {
             editTokenCall = new CsrfTokenClient().request(wikiData,
                     new CsrfTokenClient.Callback() {
-                        @Override public void success(@NonNull Call<CsrfToken> call,
+                        @Override public void success(@NonNull Call<MwQueryResponse<CsrfToken>> call,
                                                       @NonNull String editToken) {
                             postDescription(editToken);
                         }
 
-                        @Override public void failure(@NonNull Call<CsrfToken> call,
+                        @Override public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call,
                                                       @NonNull Throwable caught) {
                             L.w("could not get edit token: ", caught);
                             retryWithLogin(caught);
