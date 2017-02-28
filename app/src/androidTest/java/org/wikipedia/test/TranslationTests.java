@@ -4,6 +4,7 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
+import android.support.annotation.PluralsRes;
 import android.support.annotation.StringRes;
 import android.support.test.filters.SmallTest;
 import android.util.DisplayMetrics;
@@ -48,6 +49,7 @@ import static org.junit.Assert.fail;
         List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources(defaultLang);
         List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources(defaultLang);
         List<Res> textUtilTemplateParamRes = new ResourceCollector("^1").collectParameterResources(defaultLang);
+        List<Res> pluralRes = collectPluralResources();
         // todo: flag usage of templates {{}}.
 
         AssetManager assetManager = getResources().getAssets();
@@ -110,6 +112,10 @@ import static org.junit.Assert.fail;
                 // template format for com.android.TextUtils.expandTemplate
                 for (Res res : textUtilTemplateParamRes) {
                     checkTranslationHasParameter(res, "^1", "[templateParam]", null);
+                }
+
+                for (Res res : pluralRes) {
+                    checkPluralHasOther(res);
                 }
             }
         }
@@ -202,12 +208,31 @@ import static org.junit.Assert.fail;
         }
     }
 
+    private void checkPluralHasOther(Res res) {
+        L.i(myLocale + ":" + res.name);
+        try {
+            final int paramOther = 42;
+            getQuantityString(res.id, 0);
+            getQuantityString(res.id, 1);
+            getQuantityString(res.id, 2);
+            getQuantityString(res.id, paramOther);
+        } catch (Exception e) {
+            final String msg = myLocale + ":" + res.name + " plural is missing 'other'";
+            L.e(msg);
+            mismatches.append(msg).append("\n");
+        }
+    }
+
     @NonNull private String getString(@StringRes int id, Object... args) {
         return getTargetContext().getString(id, args);
     }
 
     @NonNull private String getString(@StringRes int id) {
         return getTargetContext().getString(id);
+    }
+
+    @NonNull private String getQuantityString(@PluralsRes int id, int quantity) {
+        return getResources().getQuantityString(id, quantity);
     }
 
     @NonNull private Resources getResources() {
@@ -317,6 +342,28 @@ import static org.junit.Assert.fail;
             }
             return found;
         }
+    }
+
+    private List<Res> collectPluralResources() {
+        final List<Res> resources = new ArrayList<>();
+        final R.plurals pluralResources = new R.plurals();
+        final Class<R.plurals> c = R.plurals.class;
+        final Field[] fields = c.getDeclaredFields();
+
+        for (int i = 0, max = fields.length; i < max; i++) {
+            final String name;
+            final int resourceId;
+            try {
+                name = fields[i].getName();
+                resourceId = fields[i].getInt(pluralResources);
+            } catch (Exception e) {
+                L.e(myLocale + "-" + i + "; failed: " + e.getMessage());
+                continue;
+            }
+            resources.add(new Res(resourceId, name));
+        }
+
+        return resources;
     }
 
     private static class Res extends BaseModel {
