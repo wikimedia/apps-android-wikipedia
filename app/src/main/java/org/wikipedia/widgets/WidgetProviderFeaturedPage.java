@@ -6,7 +6,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
@@ -76,7 +75,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()),
                 app.getWikiSite());
 
-        getApiService(title).pageLead(title.getPrefixedText(), calculateLeadImageWidth(),
+        getApiService(title).pageLead(title.getPrefixedText(), DimenUtil.calculateLeadImageWidth(),
                 !app.isImageDownloadEnabled(), new PageLead.Callback() {
                     @Override
                     public void success(PageLead pageLead) {
@@ -119,11 +118,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
             }
         }
         return titleText;
-    }
-
-    private int calculateLeadImageWidth() {
-        Resources res = WikipediaApp.getInstance().getResources();
-        return (int) (res.getDimension(R.dimen.leadImageWidth) / DimenUtil.getDensityScalar());
     }
 
     private PageService getApiService(PageTitle title) {
