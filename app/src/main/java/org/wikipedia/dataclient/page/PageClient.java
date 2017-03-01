@@ -7,7 +7,7 @@ import java.io.IOException;
  * Usually we would use direct Retrofit Callbacks here but since we have two ways of
  * getting to the data (MW API and RESTBase) we add this layer of indirection -- until we drop one.
  */
-public interface PageService {
+public interface PageClient {
     /**
      * Gets a page summary for a given title -- for link previews
      *

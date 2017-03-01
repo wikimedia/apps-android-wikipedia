@@ -21,9 +21,9 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
-import org.wikipedia.dataclient.page.PageServiceFactory;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -251,7 +251,7 @@ public class PageDataClient implements PageLoadStrategy {
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
-        PageServiceFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+        PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .pageLead(model.getTitle().getPrefixedText(), calculateLeadImageWidth(),
                 !app.isImageDownloadEnabled(), new PageLead.Callback() {
                     @Override
@@ -663,7 +663,7 @@ public class PageDataClient implements PageLoadStrategy {
 
     private void loadRemainingSections(final int startSequenceNum) {
         app.getSessionFunnel().restSectionsFetchStart();
-        PageServiceFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+        PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .pageRemaining(model.getTitle().getPrefixedText(), !app.isImageDownloadEnabled(),
                 new PageRemaining.Callback() {
                     @Override

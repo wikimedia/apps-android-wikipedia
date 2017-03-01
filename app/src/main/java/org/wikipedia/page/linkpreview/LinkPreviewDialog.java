@@ -23,7 +23,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
-import org.wikipedia.dataclient.page.PageServiceFactory;
+import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryCollection;
@@ -219,7 +219,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     private void loadContent() {
-        PageServiceFactory.create(pageTitle.getWikiSite(), pageTitle.namespace()).pageSummary(
+        PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace()).pageSummary(
                 pageTitle.getPrefixedText(),
                 linkPreviewOnLoadCallback);
     }

@@ -8,9 +8,9 @@ import com.google.gson.JsonParseException;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
-import org.wikipedia.dataclient.page.PageService;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -31,11 +31,11 @@ import retrofit2.http.Query;
 /**
  * Retrofit web service client for RESTBase Nodejs API.
  */
-public class RbPageService implements PageService {
+public class RbPageClient implements PageClient {
     private final Service service;
     private WikipediaZeroHandler responseHeaderHandler;
 
-    public RbPageService(final WikiSite wiki) {
+    public RbPageClient(final WikiSite wiki) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
         service = RbPageServiceCache.INSTANCE.getService(wiki);
     }
@@ -140,7 +140,7 @@ public class RbPageService implements PageService {
         throw new IOException(err == null ? rsp.message() : err.getDetails());
     }
 
-    /* Not defined in the PageService interface since the Wiktionary definition endpoint exists only
+    /* Not defined in the PageClient interface since the Wiktionary definition endpoint exists only
      * in the mobile content service, and does not concern the wholesale retrieval of the contents
      * of a wiki page.
      */
