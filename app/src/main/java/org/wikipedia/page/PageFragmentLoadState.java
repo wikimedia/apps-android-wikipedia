@@ -62,7 +62,7 @@ import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
  * - a backstack of pages and page positions visited,
  * - and many handlers.
  */
-public class PageDataClient {
+public class PageFragmentLoadState {
     private interface ErrorCallback {
         void call(@Nullable Throwable error);
     }
