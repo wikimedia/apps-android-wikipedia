@@ -139,7 +139,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * DimenUtil.getDensityScalar());
 
-    private PageLoadStrategy pageDataClient;
+    private PageDataClient pageDataClient;
     private PageViewModel model;
     @Nullable private PageInfo pageInfo;
 

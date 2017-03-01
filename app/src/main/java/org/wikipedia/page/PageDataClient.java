@@ -62,7 +62,7 @@ import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
  * - a backstack of pages and page positions visited,
  * - and many handlers.
  */
-public class PageDataClient implements PageLoadStrategy {
+public class PageDataClient {
     private interface ErrorCallback {
         void call(@Nullable Throwable error);
     }
@@ -107,7 +107,6 @@ public class PageDataClient implements PageLoadStrategy {
 
     private BottomContentInterface bottomContentHandler;
 
-    @Override
     @SuppressWarnings("checkstyle:parameternumber")
     public void setUp(@NonNull PageViewModel model,
                       @NonNull PageFragment fragment,
@@ -134,7 +133,6 @@ public class PageDataClient implements PageLoadStrategy {
         this.backStack = backStack;
     }
 
-    @Override
     public void load(boolean pushBackStack, int stagedScrollY) {
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
@@ -169,12 +167,10 @@ public class PageDataClient implements PageLoadStrategy {
         }
     }
 
-    @Override
     public boolean isLoading() {
         return state != STATE_COMPLETE_FETCH;
     }
 
-    @Override
     public void loadFromBackStack() {
         if (backStack.isEmpty()) {
             return;
@@ -186,7 +182,6 @@ public class PageDataClient implements PageLoadStrategy {
         L.d("Loaded page " + item.getTitle().getDisplayText() + " from backstack");
     }
 
-    @Override
     public void updateCurrentBackStackItem() {
         if (backStack.isEmpty()) {
             return;
@@ -195,12 +190,10 @@ public class PageDataClient implements PageLoadStrategy {
         item.setScrollY(webView.getScrollY());
     }
 
-    @Override
     public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
         this.backStack = backStack;
     }
 
-    @Override
     public boolean popBackStack() {
         if (!backStack.isEmpty()) {
             backStack.remove(backStack.size() - 1);
@@ -214,21 +207,18 @@ public class PageDataClient implements PageLoadStrategy {
         return false;
     }
 
-    @Override public boolean backStackEmpty() {
+    public boolean backStackEmpty() {
         return backStack.isEmpty();
     }
 
-    @Override
     public void onHidePageContent() {
         bottomContentHandler.hide();
     }
 
-    @Override
     public void setEditHandler(EditHandler editHandler) {
         this.editHandler = editHandler;
     }
 
-    @Override
     public void backFromEditing(Intent data) {
         //Retrieve section ID from intent, and find correct section, so where know where to scroll to
         sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
@@ -236,7 +226,6 @@ public class PageDataClient implements PageLoadStrategy {
         stagedScrollY = 0;
     }
 
-    @Override
     public void layoutLeadImage() {
         leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
             @Override
