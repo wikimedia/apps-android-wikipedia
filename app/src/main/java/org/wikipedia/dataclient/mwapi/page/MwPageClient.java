@@ -9,7 +9,6 @@ import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.IOException;
@@ -93,7 +92,6 @@ public class MwPageClient implements PageClient {
             @Override
             public void onResponse(Call<MwMobileViewPageRemaining> call, Response<MwMobileViewPageRemaining> response) {
                 if (response.isSuccessful()) {
-                    RbSwitch.INSTANCE.onMwSuccess();
                     cb.success(response.body());
                 } else {
                     cb.failure(RetrofitException.httpError(response));

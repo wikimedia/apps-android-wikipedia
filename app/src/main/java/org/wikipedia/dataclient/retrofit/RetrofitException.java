@@ -1,5 +1,8 @@
 package org.wikipedia.dataclient.retrofit;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.io.IOException;
 
 import retrofit2.Response;
@@ -14,7 +17,13 @@ public class RetrofitException extends RuntimeException {
 
     public static RetrofitException httpError(String url, Response<?> response) {
         String message = response.code() + " " + response.message();
-        return new RetrofitException(message, url, response, Kind.HTTP, null);
+        return new RetrofitException(message, url, response.code(), Kind.HTTP, null);
+    }
+
+    public static RetrofitException httpError(@NonNull okhttp3.Response response) {
+        String message = response.code() + " " + response.message();
+        return new RetrofitException(message, response.request().url().toString(), response.code(), Kind.HTTP,
+                null);
     }
 
     public static RetrofitException networkError(IOException exception) {
@@ -39,13 +48,13 @@ public class RetrofitException extends RuntimeException {
     }
 
     private final String url;
-    private final Response<?> response;
+    @Nullable private final Integer code;
     private final Kind kind;
 
-    RetrofitException(String message, String url, Response<?> response, Kind kind, Throwable exception) {
+    RetrofitException(String message, String url, @Nullable Integer code, Kind kind, Throwable exception) {
         super(message, exception);
         this.url = url;
-        this.response = response;
+        this.code = code;
         this.kind = kind;
     }
 
@@ -54,9 +63,9 @@ public class RetrofitException extends RuntimeException {
         return url;
     }
 
-    /** Response object containing status code, headers, body, etc. */
-    public Response<?> getResponse() {
-        return response;
+    /** HTTP status code. */
+    @Nullable public Integer getCode() {
+        return code;
     }
 
     /** The event kind which triggered this error. */

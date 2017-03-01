@@ -16,7 +16,7 @@ import org.wikipedia.util.UriUtil;
 import java.util.Locale;
 
 /**
- * The base URL and Wikipedia language code for a wiki site. Examples:
+ * The base URL and Wikipedia language code for a MediaWiki site. Examples:
  *
  * <ul>
  *     <lh>Name: scheme / authority / language code</lh>
