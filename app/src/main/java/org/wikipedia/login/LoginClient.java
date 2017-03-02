@@ -55,20 +55,16 @@ public class LoginClient {
             @Override
             public void onResponse(Call<MwQueryResponse<LoginToken>> call,
                                    Response<MwQueryResponse<LoginToken>> response) {
-                if (response.isSuccessful()) {
-                    MwQueryResponse<LoginToken> body = response.body();
-                    LoginToken query = body.query();
-                    if (query != null &&  query.getLoginToken() != null) {
-                        login(wiki, userName, password, null, query.getLoginToken(), cb);
-                    } else if (body.getError() != null) {
-                        cb.error(new IOException("Failed to retrieve login token. "
-                                + body.getError().toString()));
-                    } else {
-                        cb.error(new IOException("Unexpected error trying to retrieve login token. "
-                                + body.toString()));
-                    }
+                MwQueryResponse<LoginToken> body = response.body();
+                LoginToken query = body.query();
+                if (query != null &&  query.getLoginToken() != null) {
+                    login(wiki, userName, password, null, query.getLoginToken(), cb);
+                } else if (body.getError() != null) {
+                    cb.error(new IOException("Failed to retrieve login token. "
+                            + body.getError().toString()));
                 } else {
-                    cb.error(new IOException(response.message()));
+                    cb.error(new IOException("Unexpected error trying to retrieve login token. "
+                            + body.toString()));
                 }
             }
 
@@ -88,26 +84,21 @@ public class LoginClient {
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.isSuccessful()) {
-                    LoginResponse loginResponse = response.body();
-                    LoginResult loginResult = loginResponse.toLoginResult(password);
-                    if (loginResult != null) {
-                        if (loginResult.pass() && loginResult.getUser() != null) {
-                            // The server could do some transformations on user names, e.g. on some
-                            // wikis is uppercases the first letter.
-                            String actualUserName = loginResult.getUser().getUsername();
-                            getExtendedInfo(wiki, actualUserName, loginResult, cb);
-                        } else if ("UI".equals(loginResult.getStatus())) {
-                            //TODO: Don't just assume this is a 2FA UI result
-                            cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
-                        } else {
-                            cb.error(new LoginFailedException(loginResult.getMessage()));
-                        }
+                LoginResponse loginResponse = response.body();
+                LoginResult loginResult = loginResponse.toLoginResult(password);
+                if (loginResult != null) {
+                    if (loginResult.pass() && loginResult.getUser() != null) {
+                        // The server could do some transformations on user names, e.g. on some
+                        // wikis is uppercases the first letter.
+                        String actualUserName = loginResult.getUser().getUsername();
+                        getExtendedInfo(wiki, actualUserName, loginResult, cb);
+                    } else if ("UI".equals(loginResult.getStatus())) {
+                        //TODO: Don't just assume this is a 2FA UI result
+                        cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
                     } else {
-                        cb.error(new IOException("Login failed. Unexpected response."));
+                        cb.error(new LoginFailedException(loginResult.getMessage()));
                     }
                 } else {
-                    // very unlikely to happen because MW API responds with 200 for failures, too.
                     cb.error(new IOException("Login failed. Unexpected response."));
                 }
             }

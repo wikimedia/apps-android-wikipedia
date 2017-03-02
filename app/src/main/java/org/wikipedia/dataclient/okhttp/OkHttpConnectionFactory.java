@@ -52,6 +52,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .cookieJar(cookieJar)
                 .cache(HTTP_CACHE)
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
+                .addInterceptor(new UnsuccessfulResponseInterceptor())
                 .addInterceptor(new StatusResponseInterceptor(RbSwitch.INSTANCE))
                 .addNetworkInterceptor(new StripMustRevalidateResponseInterceptor())
                 .addInterceptor(new CommonHeaderRequestInterceptor())

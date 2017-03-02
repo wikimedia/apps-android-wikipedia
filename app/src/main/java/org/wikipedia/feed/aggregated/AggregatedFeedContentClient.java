@@ -17,7 +17,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -85,27 +84,22 @@ public class AggregatedFeedContentClient implements FeedClient {
 
         @Override public void onResponse(Call<AggregatedFeedContent> call,
                                          Response<AggregatedFeedContent> response) {
-            if (response.isSuccessful()) {
-                List<Card> cards = new ArrayList<>();
-                AggregatedFeedContent content = response.body();
-                // todo: remove age check when news endpoint provides dated content, T139481.
-                if (age == 0 && content.news() != null) {
-                    cards.add(new NewsListCard(content.news(), age, wiki));
-                }
-                if (content.tfa() != null) {
-                    cards.add(new FeaturedArticleCard(content.tfa(), age, wiki));
-                }
-                if (content.mostRead() != null) {
-                    cards.add(new MostReadListCard(content.mostRead(), wiki));
-                }
-                if (content.potd() != null) {
-                    cards.add(new FeaturedImageCard(content.potd(), age, wiki));
-                }
-                cb.success(cards);
-            } else {
-                L.v(response.message());
-                cb.error(new IOException(response.message()));
+            List<Card> cards = new ArrayList<>();
+            AggregatedFeedContent content = response.body();
+            // todo: remove age check when news endpoint provides dated content, T139481.
+            if (age == 0 && content.news() != null) {
+                cards.add(new NewsListCard(content.news(), age, wiki));
             }
+            if (content.tfa() != null) {
+                cards.add(new FeaturedArticleCard(content.tfa(), age, wiki));
+            }
+            if (content.mostRead() != null) {
+                cards.add(new MostReadListCard(content.mostRead(), wiki));
+            }
+            if (content.potd() != null) {
+                cards.add(new FeaturedImageCard(content.potd(), age, wiki));
+            }
+            cb.success(cards);
         }
 
         @Override public void onFailure(Call<AggregatedFeedContent> call, Throwable caught) {

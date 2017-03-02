@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
@@ -41,18 +40,14 @@ class LangLinksClient {
             @Override
             public void onResponse(Call<MwQueryResponse<LangLinks>> call,
                                    Response<MwQueryResponse<LangLinks>> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().success()) {
-                        cb.success(call, response.body().query().langLinks());
-                    } else if (response.body().hasError()) {
-                        String errorTitle = response.body().getError().getTitle();
-                        cb.failure(call, new MwException(response.body().getError()));
-                        L.e("API error fetching langlinks: " + errorTitle);
-                    } else {
-                        cb.failure(call, new IOException("An unknown error occurred."));
-                    }
+                if (response.body().success()) {
+                    cb.success(call, response.body().query().langLinks());
+                } else if (response.body().hasError()) {
+                    String errorTitle = response.body().getError().getTitle();
+                    cb.failure(call, new MwException(response.body().getError()));
+                    L.e("API error fetching langlinks: " + errorTitle);
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 

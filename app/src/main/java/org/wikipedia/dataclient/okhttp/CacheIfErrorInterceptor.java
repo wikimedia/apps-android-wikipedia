@@ -22,7 +22,7 @@ class CacheIfErrorInterceptor implements Interceptor {
                 netRsp = chain.proceed(netReq);
             } catch (IOException ignore) { }
 
-            if (netRsp != null && netRsp.isSuccessful()) {
+            if (netRsp != null) {
                 return netRsp;
             }
         }

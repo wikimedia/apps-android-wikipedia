@@ -10,7 +10,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 
@@ -34,19 +33,15 @@ public class WikitextClient {
         call.enqueue(new retrofit2.Callback<MwQueryResponse<Wikitext>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<Wikitext>> call, Response<MwQueryResponse<Wikitext>> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().hasError()) {
-                        cb.failure(call, new MwException(response.body().getError()));
-                        return;
-                    } else if (response.body().query().wikitext() == null) {
-                        Throwable t = new JsonParseException("Error parsing wikitext from query response");
-                        cb.failure(call, t);
-                        return;
-                    }
-                    cb.success(call, response.body().query().wikitext());
-                } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                if (response.body().hasError()) {
+                    cb.failure(call, new MwException(response.body().getError()));
+                    return;
+                } else if (response.body().query().wikitext() == null) {
+                    Throwable t = new JsonParseException("Error parsing wikitext from query response");
+                    cb.failure(call, t);
+                    return;
                 }
+                cb.success(call, response.body().query().wikitext());
             }
 
             @Override

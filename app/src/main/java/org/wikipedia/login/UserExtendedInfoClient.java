@@ -52,26 +52,22 @@ class UserExtendedInfoClient {
             @Override
             public void onResponse(Call<MwQueryResponse<QueryResult>> call,
                                    Response<MwQueryResponse<QueryResult>> response) {
-                if (response.isSuccessful()) {
-                    final MwQueryResponse<QueryResult> body = response.body();
-                    final QueryResult query = body.query();
-                    if (response.body().success()) {
-                        // noinspection ConstantConditions
-                        int userId = query.id();
-                        cb.success(call, userId, query.getGroupsFor(userName));
-                        L.v("Found user ID: " + userId);
-                    } else if (response.body().hasError()) {
-                        // noinspection ConstantConditions
-                        cb.failure(call, new LoginClient.LoginFailedException(
-                                "Failed to retrieve user ID and group membership data. "
-                                        + body.getError().toString()));
-                    } else {
-                        cb.failure(call, new LoginClient.LoginFailedException(
-                                "Unexpected error trying to retrieve user ID and group membership data. "
-                                        + body.toString()));
-                    }
+                final MwQueryResponse<QueryResult> body = response.body();
+                final QueryResult query = body.query();
+                if (response.body().success()) {
+                    // noinspection ConstantConditions
+                    int userId = query.id();
+                    cb.success(call, userId, query.getGroupsFor(userName));
+                    L.v("Found user ID: " + userId);
+                } else if (response.body().hasError()) {
+                    // noinspection ConstantConditions
+                    cb.failure(call, new LoginClient.LoginFailedException(
+                            "Failed to retrieve user ID and group membership data. "
+                                    + body.getError().toString()));
                 } else {
-                    cb.failure(call, new LoginClient.LoginFailedException(response.message()));
+                    cb.failure(call, new LoginClient.LoginFailedException(
+                            "Unexpected error trying to retrieve user ID and group membership data. "
+                                    + body.toString()));
                 }
             }
 

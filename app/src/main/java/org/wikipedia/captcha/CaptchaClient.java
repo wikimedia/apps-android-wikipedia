@@ -7,7 +7,6 @@ import android.support.annotation.VisibleForTesting;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.io.IOException;
@@ -29,17 +28,13 @@ class CaptchaClient {
         call.enqueue(new retrofit2.Callback<Captcha>() {
             @Override
             public void onResponse(Call<Captcha> call, Response<Captcha> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().success()) {
-                        cb.success(call, new CaptchaResult(response.body().captchaId()));
-                    } else if (response.body().hasError()) {
-                        // noinspection ConstantConditions
-                        cb.failure(call, new MwException(response.body().getError()));
-                    } else {
-                        cb.failure(call, new IOException("An unknown error occurred."));
-                    }
+                if (response.body().success()) {
+                    cb.success(call, new CaptchaResult(response.body().captchaId()));
+                } else if (response.body().hasError()) {
+                    // noinspection ConstantConditions
+                    cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 

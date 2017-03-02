@@ -12,8 +12,6 @@ import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
-import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
@@ -34,18 +32,13 @@ public class RandomSummaryClient {
             @Override
             public void onResponse(@NonNull Call<RbPageSummary> call,
                                    @NonNull Response<RbPageSummary> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() == null) {
-                        cb.onError(call, new JsonParseException("Response missing required field(s)"));
-                        return;
-                    }
-                    RbPageSummary item = response.body();
-                    PageTitle title = new PageTitle(null, item.getTitle(), wiki);
-                    cb.onSuccess(call, title);
-                } else {
-                    L.v(response.message());
-                    cb.onError(call, new IOException(response.message()));
+                if (response.body() == null) {
+                    cb.onError(call, new JsonParseException("Response missing required field(s)"));
+                    return;
                 }
+                RbPageSummary item = response.body();
+                PageTitle title = new PageTitle(null, item.getTitle(), wiki);
+                cb.onSuccess(call, title);
             }
 
             @Override

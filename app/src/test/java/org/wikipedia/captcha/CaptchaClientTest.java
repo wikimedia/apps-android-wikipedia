@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.wikipedia.captcha.CaptchaClient.Callback;
 import org.wikipedia.captcha.CaptchaClient.Service;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.test.MockWebServerTest;
 
 import retrofit2.Call;
@@ -51,7 +51,7 @@ public class CaptchaClientTest extends MockWebServerTest {
         Call<Captcha> call = request(cb);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, RetrofitException.class);
+        assertCallbackFailure(call, cb, HttpStatusException.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
