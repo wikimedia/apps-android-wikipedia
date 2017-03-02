@@ -4,7 +4,9 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.page.MwPageClient;
+import org.wikipedia.dataclient.mwapi.page.MwPageServiceCache;
 import org.wikipedia.dataclient.restbase.page.RbPageClient;
+import org.wikipedia.dataclient.restbase.page.RbPageServiceCache;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.settings.RbSwitch;
 
@@ -18,9 +20,9 @@ public final class PageClientFactory {
     // T135242
     public static PageClient create(@NonNull WikiSite wiki, @NonNull Namespace namespace) {
         if (RbSwitch.INSTANCE.isRestBaseEnabled(wiki) && !namespace.file()) {
-            return new RbPageClient(wiki);
+            return new RbPageClient(RbPageServiceCache.INSTANCE.getService(wiki));
         } else {
-            return new MwPageClient(wiki);
+            return new MwPageClient(MwPageServiceCache.INSTANCE.getService(wiki));
         }
     }
 

@@ -18,7 +18,7 @@ public final class RbPageServiceCache {
     public static final RbPageServiceCache INSTANCE = new RbPageServiceCache();
 
     private WikiSite wiki;
-    private RbPageClient.Service service;
+    private RbPageService service;
     private Retrofit retrofit;
 
     public static Retrofit retrofit(@NonNull WikiSite wiki) {
@@ -31,7 +31,7 @@ public final class RbPageServiceCache {
         return retrofit;
     }
 
-    public RbPageClient.Service getService(WikiSite newWikiSite) {
+    public RbPageService getService(WikiSite newWikiSite) {
         if (!newWikiSite.equals(wiki)) {
             service = createService(newWikiSite);
             wiki = newWikiSite;
@@ -45,9 +45,9 @@ public final class RbPageServiceCache {
         }
     }
 
-    private RbPageClient.Service createService(WikiSite wiki) {
+    private RbPageService createService(WikiSite wiki) {
         retrofit = retrofit(wiki);
-        return retrofit.create(RbPageClient.Service.class);
+        return retrofit.create(RbPageService.class);
     }
 
     private RbPageServiceCache() { }

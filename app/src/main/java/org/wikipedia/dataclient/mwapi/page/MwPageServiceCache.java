@@ -17,7 +17,7 @@ public final class MwPageServiceCache {
     public static final MwPageServiceCache INSTANCE = new MwPageServiceCache();
 
     @Nullable private WikiSite wiki;
-    private MwPageClient.Service service;
+    private MwPageService service;
 
     public static Retrofit retrofit(@NonNull WikiSite wiki) {
         return RetrofitFactory.newInstance(wiki);
@@ -26,7 +26,7 @@ public final class MwPageServiceCache {
     private MwPageServiceCache() {
     }
 
-    public MwPageClient.Service getService(WikiSite newWikiSite) {
+    public MwPageService getService(WikiSite newWikiSite) {
         if (!newWikiSite.equals(wiki)) {
             service = createService(newWikiSite);
             wiki = newWikiSite;
@@ -40,7 +40,7 @@ public final class MwPageServiceCache {
         }
     }
 
-    private MwPageClient.Service createService(WikiSite wiki) {
-        return retrofit(wiki).create(MwPageClient.Service.class);
+    private MwPageService createService(WikiSite wiki) {
+        return retrofit(wiki).create(MwPageService.class);
     }
 }
