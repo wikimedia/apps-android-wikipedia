@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 
 public class CsrfTokenClient {
-    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     @NonNull public Call<MwQueryResponse<CsrfToken>> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
         Service service = cachedService.service(wiki);

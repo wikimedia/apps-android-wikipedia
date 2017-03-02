@@ -9,6 +9,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.io.IOException;
 
@@ -19,12 +20,12 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 class CreateAccountClient {
-    @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-
     public interface Callback {
         void success(@NonNull Call<CreateAccountResponse> call, @NonNull CreateAccountSuccessResult result);
         void failure(@NonNull Call<CreateAccountResponse> call, @NonNull Throwable caught);
     }
+
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     @SuppressWarnings("checkstyle:parameternumber")
     Call<CreateAccountResponse> request(@NonNull WikiSite wiki, @NonNull String username,

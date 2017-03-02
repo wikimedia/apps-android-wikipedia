@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.login.User;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
@@ -33,9 +34,6 @@ public class DescriptionEditClient {
     private static final String ABUSEFILTER_DISALLOWED = "abusefilter-disallowed";
     private static final String ABUSEFILTER_WARNING = "abusefilter-warning";
 
-    @NonNull private final MwCachedService<Service> cachedService
-            = new MwCachedService<>(Service.class);
-
     public interface Callback {
         void success(@NonNull Call<DescriptionEdit> call);
         void abusefilter(@NonNull Call<DescriptionEdit> call, @Nullable String code, @Nullable String info);
@@ -48,6 +46,9 @@ public class DescriptionEditClient {
         return !TextUtils.isEmpty(props.getWikiBaseItem())
                 && (ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode()) || ReleaseUtil.isPreBetaRelease());
     }
+
+    @NonNull private final WikiCachedService<Service> cachedService
+            = new MwCachedService<>(Service.class);
 
     /**
      * Submit a new value for the Wikidata description associated with the given Wikipedia page.

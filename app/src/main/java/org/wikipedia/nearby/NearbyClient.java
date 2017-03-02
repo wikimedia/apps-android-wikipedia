@@ -9,6 +9,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -19,13 +20,14 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 class NearbyClient {
-    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-    private static final int MAX_RADIUS = 10_000;
-
     public interface Callback {
         void success(@NonNull Call<MwQueryResponse<Nearby>> call, @NonNull NearbyResult result);
         void failure(@NonNull Call<MwQueryResponse<Nearby>> call, @NonNull Throwable caught);
     }
+
+    private static final int MAX_RADIUS = 10_000;
+
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public Call<MwQueryResponse<Nearby>> request(@NonNull WikiSite wiki, double latitude,
                                                  double longitude, double radius,

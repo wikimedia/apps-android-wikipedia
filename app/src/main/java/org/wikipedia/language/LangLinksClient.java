@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
@@ -20,12 +21,12 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 class LangLinksClient {
-    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-
     public interface Callback {
         void success(@NonNull Call<MwQueryResponse<LangLinks>> call, @NonNull List<PageTitle> links);
         void failure(@NonNull Call<MwQueryResponse<LangLinks>> call, @NonNull Throwable caught);
     }
+
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     Call<MwQueryResponse<LangLinks>> request(@NonNull WikiSite wiki, @NonNull PageTitle title,
                                              @NonNull Callback cb) {
