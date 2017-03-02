@@ -2,8 +2,9 @@ package org.wikipedia.dataclient.retrofit;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageServiceCache;
+import org.wikipedia.settings.Prefs;
+
+import java.util.Locale;
 
 import retrofit2.Retrofit;
 
@@ -12,7 +13,9 @@ public class RbCachedService<T> extends WikiCachedService<T> {
         super(clazz);
     }
 
-    @NonNull @Override protected Retrofit create(@NonNull WikiSite wiki) {
-        return RbPageServiceCache.retrofit(wiki);
+    @NonNull @Override protected Retrofit create() {
+        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki().scheme(),
+                wiki().authority());
+        return RetrofitFactory.newInstance(endpoint, wiki());
     }
 }

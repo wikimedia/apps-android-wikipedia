@@ -14,6 +14,10 @@ public abstract class WikiCachedService<T> extends CachedService<T> {
         super(clazz);
     }
 
+    @Nullable public WikiSite wiki() {
+        return wiki;
+    }
+
     @NonNull public T service(@NonNull WikiSite wiki) {
         update(wiki);
         //noinspection ConstantConditions
@@ -25,13 +29,6 @@ public abstract class WikiCachedService<T> extends CachedService<T> {
         //noinspection ConstantConditions
         return super.retrofit();
     }
-
-    @NonNull @Override protected Retrofit create() {
-        //noinspection ConstantConditions
-        return create(wiki);
-    }
-
-    @NonNull protected abstract Retrofit create(@NonNull WikiSite wiki);
 
     private void update(@NonNull WikiSite wiki) {
         if (outdated(wiki)) {

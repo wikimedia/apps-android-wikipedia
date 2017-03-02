@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 /**
  * Retrofit service for MW API endpoints.
  */
-interface MwPageService {
+public interface MwPageService {
     /**
      * Gets the lead section and initial metadata of a given title.
      *

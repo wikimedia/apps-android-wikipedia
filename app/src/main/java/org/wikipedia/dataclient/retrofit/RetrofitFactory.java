@@ -32,7 +32,7 @@ public final class RetrofitFactory {
     private RetrofitFactory() { }
 
     private static class LanguageVariantHeaderInterceptor implements Interceptor {
-        private final WikiSite wiki;
+        @NonNull private final WikiSite wiki;
 
         LanguageVariantHeaderInterceptor(@NonNull WikiSite wiki) {
             this.wiki = wiki;

@@ -24,6 +24,8 @@ import retrofit2.Response;
  * Retrofit web service client for RESTBase Nodejs API.
  */
 public class RbPageClient implements PageClient {
+    // todo: why not hold a reference to a WikiCachedService and require clients to pass a WikiSite
+    //       with each request?
     @NonNull private final RbPageService service;
 
     public RbPageClient(@NonNull RbPageService service) {
