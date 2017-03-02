@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.Constants;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
@@ -21,7 +20,6 @@ import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.log.L;
-import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,14 +35,9 @@ public class BecauseYouReadClient implements FeedClient {
     private static final String MORELIKE = "morelike:";
 
     @NonNull private final MwCachedService<MwApiSearchClient> cachedService = new MwCachedService<>(MwApiSearchClient.class);
-    @NonNull private final WikipediaZeroHandler responseHeaderHandler;
 
     @Nullable private MainPageReadMoreTopicTask readMoreTopicTask;
     @Nullable private Call<MwQueryResponse<Pages>> readMoreCall;
-
-    public BecauseYouReadClient() {
-        this.responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-    }
 
     @Override public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
                         @NonNull final FeedClient.Callback cb) {
@@ -88,7 +81,6 @@ public class BecauseYouReadClient implements FeedClient {
             public void onResponse(Call<MwQueryResponse<Pages>> call,
                                    Response<MwQueryResponse<Pages>> response) {
                 if (response.isSuccessful()) {
-                    responseHeaderHandler.onHeaderCheck(response);
                     MwQueryResponse<Pages> pages = response.body();
                     if (pages.success() && pages.query().results(entry.getTitle().getWikiSite()) != null) {
                         SearchResults results = SearchResults.filter(pages.query().results(entry.getTitle().getWikiSite()), entry.getTitle().getText(), false);

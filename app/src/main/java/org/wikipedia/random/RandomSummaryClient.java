@@ -5,7 +5,6 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.JsonParseException;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.dataclient.retrofit.RbCachedService;
@@ -39,7 +38,6 @@ public class RandomSummaryClient {
                         cb.onError(call, new JsonParseException("Response missing required field(s)"));
                         return;
                     }
-                    WikipediaApp.getInstance().getWikipediaZeroHandler().onHeaderCheck(response);
                     RbPageSummary item = response.body();
                     PageTitle title = new PageTitle(null, item.getTitle(), wiki);
                     cb.onSuccess(call, title);

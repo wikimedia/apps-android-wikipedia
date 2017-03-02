@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.JsonParseException;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageClient;
@@ -14,7 +13,6 @@ import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.IOException;
 import java.util.Map;
@@ -32,10 +30,8 @@ import retrofit2.http.Query;
  */
 public class RbPageClient implements PageClient {
     private final Service service;
-    private WikipediaZeroHandler responseHeaderHandler;
 
-    public RbPageClient(final WikiSite wiki) {
-        responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
+    public RbPageClient(WikiSite wiki) {
         service = RbPageServiceCache.INSTANCE.getService(wiki);
     }
 
@@ -52,7 +48,6 @@ public class RbPageClient implements PageClient {
             @Override
             public void onResponse(Call<RbPageSummary> call, Response<RbPageSummary> response) {
                 if (response.isSuccessful()) {
-                    responseHeaderHandler.onHeaderCheck(response);
                     if (response.body() == null) {
                         cb.failure(new JsonParseException("Response missing required field(s)"));
                         return;
@@ -83,7 +78,6 @@ public class RbPageClient implements PageClient {
             @Override
             public void onResponse(Call<RbPageLead> call, Response<RbPageLead> response) {
                 if (response.isSuccessful()) {
-                    responseHeaderHandler.onHeaderCheck(response);
                     RbPageLead pageLead = response.body();
                     pageLead.setLeadImageThumbWidth(leadImageThumbWidth);
                     cb.success(pageLead);
@@ -148,7 +142,6 @@ public class RbPageClient implements PageClient {
                         cb.failure(new JsonParseException("Response missing required fields"));
                         return;
                     }
-                    responseHeaderHandler.onHeaderCheck(response);
                     cb.success(new RbDefinition(response.body()));
                 } else {
                     Throwable throwable = RetrofitException.httpError(response);

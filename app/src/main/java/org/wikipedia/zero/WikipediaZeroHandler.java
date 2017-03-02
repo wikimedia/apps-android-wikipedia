@@ -19,8 +19,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.NotificationCompat;
 
 import org.apache.commons.lang3.StringUtils;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.OnHeaderCheckListener;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
@@ -30,16 +28,13 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
-import java.net.URL;
-
 import okhttp3.Headers;
 import retrofit2.Call;
-import retrofit2.Response;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class WikipediaZeroHandler implements OnHeaderCheckListener {
+public class WikipediaZeroHandler {
     private static final int NOTIFICATION_ID = 100;
     private static final int MESSAGE_ZERO_CS = 1;
 
@@ -131,57 +126,33 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         zeroHandler.getZeroFunnel().logExtLinkWarn();
     }
 
-    /** For MW API responses */
-    // Note: keep in sync with next method. This one will go away when we've retrofitted all
-    // API calls.
-    @Override
-    public void onHeaderCheck(@NonNull final ApiResult result, @NonNull final URL apiURL) {
+    public void onHeaderCheck(@NonNull Headers headers) {
         if (acquiringCarrierMessage) {
             return;
         }
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                boolean hasZeroHeader = result.getHeaders().containsKey("X-Carrier");
-                if (hasZeroHeader) {
-                    String xCarrierFromHeader = result.getHeaders().get("X-Carrier").get(0);
-                    String xCarrierMetaFromHeader = "";
-                    if (result.getHeaders().containsKey("X-Carrier-Meta")) {
-                        xCarrierMetaFromHeader = result.getHeaders().get("X-Carrier-Meta").get(0);
-                    }
-                    if (eitherChanged(xCarrierFromHeader, xCarrierMetaFromHeader)) {
-                        identifyZeroCarrier(xCarrierFromHeader, xCarrierMetaFromHeader);
-                    }
-                } else if (zeroEnabled) {
-                    zeroOff();
-                }
-            }
-        });
-    }
 
-    /** For Retrofit responses */
-    public void onHeaderCheck(@NonNull final Response<?> response) {
-        if (acquiringCarrierMessage) {
+        final String xCarrierFromHeader = getHeader(headers, "X-Carrier");
+        final String xCarrierMetaFromHeader = StringUtils.defaultString(getHeader(headers,
+                "X-Carrier-Meta"));
+        // newHeader may be true but must still be compared against SharedPreferences
+        final boolean newHeader = xCarrierFromHeader != null
+                && eitherChanged(xCarrierFromHeader, xCarrierMetaFromHeader);
+        boolean transitioningOff = zeroEnabled && xCarrierFromHeader == null;
+
+        if (!newHeader && !transitioningOff) {
             return;
         }
+
         new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
+            @Override public void run() {
                 try {
-                    String xCarrierFromHeader = getHeader(response, "X-Carrier");
-                    String xCarrierMetaFromHeader = "";
-                    if (getHeader(response, "X-Carrier-Meta") != null) {
-                        xCarrierMetaFromHeader = getHeader(response, "X-Carrier-Meta");
-                    }
-                    if (xCarrierFromHeader != null) {
-                        if (eitherChanged(xCarrierFromHeader, xCarrierMetaFromHeader)) {
-                            identifyZeroCarrier(xCarrierFromHeader, StringUtils.defaultString(xCarrierMetaFromHeader));
-                        }
-                    } else if (zeroEnabled) {
+                    if (newHeader) {
+                        identifyZeroCarrier(xCarrierFromHeader, xCarrierMetaFromHeader);
+                    } else {
                         zeroOff();
                     }
                 } catch (Exception e) {
-                    throw new RuntimeException("interesting response", e);
+                    throw new RuntimeException(e);
                 }
             }
         });
@@ -261,8 +232,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
     }
 
     @Nullable
-    private String getHeader(@NonNull Response<?> response, @NonNull String key) {
-        Headers headers = response.headers();
+    private String getHeader(@NonNull Headers headers, @NonNull String key) {
         for (String name: headers.names()) {
             if (key.equalsIgnoreCase(name)) {
                 return headers.get(name);

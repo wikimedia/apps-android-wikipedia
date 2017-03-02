@@ -142,6 +142,8 @@ public class WikipediaApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        zeroHandler = new WikipediaZeroHandler(this);
+
         // HockeyApp exception handling interferes with the test runner, so enable it only for
         // beta and stable releases
         if (!ReleaseUtil.isPreBetaRelease()) {
@@ -172,8 +174,6 @@ public class WikipediaApp extends Application {
                 .newBuilder(this, OkHttpConnectionFactory.getClient())
                 .build();
         Fresco.initialize(this, config);
-
-        zeroHandler = new WikipediaZeroHandler(this);
 
         // TODO: remove this code after all logged in users also have a system account or August 2016.
         AccountUtil.createAccountForLoggedInUser();
@@ -232,8 +232,6 @@ public class WikipediaApp extends Application {
                     wiki.path("api.php"), customHeaders);
             apis.put(cachedApiKey, api);
         }
-
-        api.setHeaderCheckListener(zeroHandler);
         return api;
     }
 

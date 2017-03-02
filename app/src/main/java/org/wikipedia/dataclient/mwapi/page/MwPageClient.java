@@ -1,7 +1,6 @@
 package org.wikipedia.dataclient.mwapi.page;
 
 import org.wikipedia.Constants;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageClient;
@@ -9,7 +8,6 @@ import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.IOException;
 
@@ -25,10 +23,8 @@ import retrofit2.http.Query;
  */
 public class MwPageClient implements PageClient {
     private final Service service;
-    private WikipediaZeroHandler responseHeaderHandler;
 
-    public MwPageClient(final WikiSite wiki) {
-        responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
+    public MwPageClient(WikiSite wiki) {
         service = MwPageServiceCache.INSTANCE.getService(wiki);
     }
 
@@ -45,7 +41,6 @@ public class MwPageClient implements PageClient {
             @Override
             public void onResponse(Call<MwQueryPageSummary> call, Response<MwQueryPageSummary> response) {
                 if (response.isSuccessful()) {
-                    responseHeaderHandler.onHeaderCheck(response);
                     cb.success(response.body());
                 } else {
                     cb.failure(RetrofitException.httpError(response));
@@ -71,7 +66,6 @@ public class MwPageClient implements PageClient {
             @Override
             public void onResponse(Call<MwMobileViewPageLead> call, Response<MwMobileViewPageLead> response) {
                 if (response.isSuccessful()) {
-                    responseHeaderHandler.onHeaderCheck(response);
                     cb.success(response.body());
                 } else {
                     cb.failure(RetrofitException.httpError(response));
