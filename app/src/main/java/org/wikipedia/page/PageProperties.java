@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageLeadProperties;
+import org.wikipedia.util.DimenUtil;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -63,7 +64,10 @@ public class PageProperties implements Parcelable {
         geo = core.getGeo();
         editProtectionStatus = core.getFirstAllowedEditorRole();
         languageCount = core.getLanguageCount();
-        leadImageUrl = core.getLeadImageUrl();
+
+        // todo: don't hardcode this here
+        leadImageUrl = core.getLeadImageUrl(DimenUtil.calculateLeadImageWidth());
+
         leadImageName = core.getLeadImageName();
         lastModified = new Date();
         String lastModifiedText = core.getLastModified();

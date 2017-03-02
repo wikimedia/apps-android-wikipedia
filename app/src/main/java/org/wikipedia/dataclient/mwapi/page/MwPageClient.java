@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.page.PageClient;
+import org.wikipedia.dataclient.page.PageCombo;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -11,7 +12,6 @@ import org.wikipedia.dataclient.page.PageSummary;
 import java.io.IOException;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
@@ -24,61 +24,25 @@ public class MwPageClient implements PageClient {
         this.service = service;
     }
 
-    @Override
-    public void pageSummary(String title, final PageSummary.Callback cb) {
-        Call<MwQueryPageSummary> call = service.pageSummary(title);
-        call.enqueue(new Callback<MwQueryPageSummary>() {
-            @Override
-            public void onResponse(Call<MwQueryPageSummary> call, Response<MwQueryPageSummary> response) {
-                cb.success(response.body());
-            }
-
-            /**
-             * Invoked when a network exception occurred talking to the server or when an unexpected
-             * exception occurred creating the request or processing the response.
-             */
-            @Override
-            public void onFailure(Call<MwQueryPageSummary> call, Throwable t) {
-                cb.failure(t);
-            }
-        });
+    @SuppressWarnings("unchecked")
+    @NonNull @Override public Call<? extends PageSummary> summary(@NonNull String title) {
+        return service.summary(title);
     }
 
-    @Override
-    public void pageLead(String title, int leadImageThumbWidth, boolean noImages,
-                         final PageLead.Callback cb) {
-        Call<MwMobileViewPageLead> call = service.pageLead(title, leadImageThumbWidth, optional(noImages));
-        call.enqueue(new Callback<MwMobileViewPageLead>() {
-            @Override
-            public void onResponse(Call<MwMobileViewPageLead> call, Response<MwMobileViewPageLead> response) {
-                cb.success(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<MwMobileViewPageLead> call, Throwable t) {
-                cb.failure(t);
-            }
-        });
+    @SuppressWarnings("unchecked")
+    @NonNull @Override public Call<? extends PageLead> lead(@NonNull String title,
+                                                            int leadThumbnailWidth,
+                                                            boolean noImages) {
+        return service.lead(title, leadThumbnailWidth, optional(noImages));
     }
 
-    @Override
-    public void pageRemaining(String title, boolean noImages, final PageRemaining.Callback cb) {
-        Call<MwMobileViewPageRemaining> call = service.pageRemaining(title, optional(noImages));
-        call.enqueue(new Callback<MwMobileViewPageRemaining>() {
-            @Override
-            public void onResponse(Call<MwMobileViewPageRemaining> call, Response<MwMobileViewPageRemaining> response) {
-                cb.success(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<MwMobileViewPageRemaining> call, Throwable t) {
-                cb.failure(t);
-            }
-        });
+    @SuppressWarnings("unchecked")
+    @NonNull @Override public Call<? extends PageRemaining> sections(@NonNull String title,
+                                                                     boolean noImages) {
+        return service.sections(title, optional(noImages));
     }
 
-    @Override
-    public MwMobileViewPageCombo pageCombo(String title, boolean noImages) throws IOException {
+    @Override public PageCombo pageCombo(String title, boolean noImages) throws IOException {
         Response<MwMobileViewPageCombo> rsp = service.pageCombo(title, optional(noImages)).execute();
         if (!rsp.body().hasError()) {
             return rsp.body();

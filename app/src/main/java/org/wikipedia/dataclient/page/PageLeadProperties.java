@@ -52,7 +52,7 @@ public interface PageLeadProperties {
      *         http://foo.bar.com/.
      */
     @Nullable
-    String getLeadImageUrl();
+    String getLeadImageUrl(int leadThumbnailWidth);
 
     @Nullable
     String getLeadImageName();

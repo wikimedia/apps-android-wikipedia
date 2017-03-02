@@ -50,8 +50,6 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @SuppressWarnings("unused") @Nullable private Protection protection;
     @SuppressWarnings("unused") @Nullable private List<Section> sections;
 
-    private transient int leadImageThumbWidth;
-
     @Override
     public boolean hasError() {
         return error != null || sections == null;
@@ -176,8 +174,8 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     @Override
     @Nullable
-    public String getLeadImageUrl() {
-        return image != null ? image.getUrl(leadImageThumbWidth) : null;
+    public String getLeadImageUrl(int leadThumbnailWidth) {
+        return image != null ? image.getUrl(leadThumbnailWidth) : null;
     }
 
     @Override
@@ -216,10 +214,6 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     @Override @NonNull public List<Section> getSections() {
         return sections == null ? Collections.<Section>emptyList() : sections;
-    }
-
-    public void setLeadImageThumbWidth(int leadImageThumbWidth) {
-        this.leadImageThumbWidth = leadImageThumbWidth;
     }
 
     // TODO: remove this method and #getNamespace() WikiSite dependency when T135141 is fixed.

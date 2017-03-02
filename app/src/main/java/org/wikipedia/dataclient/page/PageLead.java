@@ -11,7 +11,6 @@ import org.wikipedia.page.PageTitle;
  * Gson POJI for loading the first stage of page content.
  */
 public interface PageLead {
-
     boolean hasError();
 
     ServiceError getError();
@@ -23,16 +22,7 @@ public interface PageLead {
 
     String getLeadSectionContent();
 
-    @Nullable
-    String getTitlePronunciationUrl();
+    @Nullable String getTitlePronunciationUrl();
 
-    @Nullable
-    Location getGeo();
-
-    /** So we can have polymorphic Retrofit Callbacks */
-    interface Callback {
-        void success(PageLead pageLead);
-
-        void failure(Throwable throwable);
-    }
+    @Nullable Location getGeo();
 }

@@ -75,9 +75,8 @@ public class MwMobileViewPageLead implements PageLead {
     public String getLeadSectionContent() {
         if (mobileview != null) {
             return mobileview.getSections().get(0).getContent();
-        } else {
-            return "";
         }
+        return "";
     }
 
     @Nullable
@@ -188,7 +187,7 @@ public class MwMobileViewPageLead implements PageLead {
 
         @Override
         @Nullable
-        public String getLeadImageUrl() {
+        public String getLeadImageUrl(int leadThumbnailWidth) {
             return thumb != null ? thumb.getUrl() : null;
         }
 

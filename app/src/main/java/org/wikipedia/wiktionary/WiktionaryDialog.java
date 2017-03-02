@@ -135,7 +135,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
         }
 
         @Override
-        public void failure(Throwable throwable) {
+        public void failure(@NonNull Throwable throwable) {
             if (!isAdded()) {
                 return;
             }

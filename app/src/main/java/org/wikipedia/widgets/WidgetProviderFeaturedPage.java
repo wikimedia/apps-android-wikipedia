@@ -25,6 +25,9 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
+import retrofit2.Call;
+import retrofit2.Response;
+
 import static org.wikipedia.util.UriUtil.decodeURL;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
@@ -75,24 +78,25 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()),
                 app.getWikiSite());
 
-        getApiService(title).pageLead(title.getPrefixedText(), DimenUtil.calculateLeadImageWidth(),
-                !app.isImageDownloadEnabled(), new PageLead.Callback() {
-                    @Override
-                    public void success(PageLead pageLead) {
-                        if (pageLead.hasError()) {
-                            pageLead.logError("Error while updating widget");
+        getApiService(title)
+                .lead(title.getPrefixedText(), DimenUtil.calculateLeadImageWidth(),
+                        !app.isImageDownloadEnabled())
+                .enqueue(new retrofit2.Callback<PageLead>() {
+                    @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {
+                        PageLead lead = rsp.body();
+                        if (lead.hasError()) {
+                            lead.logError("Error while updating widget");
                             return;
                         }
 
                         L.d("Downloaded page " + title.getDisplayText());
-                        String titleText = findFeaturedArticleTitle(pageLead.getLeadSectionContent());
+                        String titleText = findFeaturedArticleTitle(lead.getLeadSectionContent());
 
                         cb.onFeaturedArticleReceived(titleText);
                     }
 
-                    @Override
-                    public void failure(Throwable error) {
-                        L.e("Error while updating widget: " + error);
+                    @Override public void onFailure(Call<PageLead> call, Throwable t) {
+                        L.e(t);
                     }
                 });
     }

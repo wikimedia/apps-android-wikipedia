@@ -49,6 +49,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import retrofit2.Call;
+import retrofit2.Response;
+
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
 
@@ -240,19 +243,20 @@ public class PageFragmentLoadState {
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
-        PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .pageLead(model.getTitle().getPrefixedText(), calculateLeadImageWidth(),
-                !app.isImageDownloadEnabled(), new PageLead.Callback() {
-                    @Override
-                    public void success(PageLead pageLead) {
+        PageClientFactory
+                .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+                .lead(model.getTitle().getPrefixedText(), calculateLeadImageWidth(),
+                        !app.isImageDownloadEnabled())
+                .enqueue(new retrofit2.Callback<PageLead>() {
+                    @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {
                         app.getSessionFunnel().leadSectionFetchEnd();
-                        onLeadSectionLoaded(pageLead, startSequenceNum);
+                        PageLead lead = rsp.body();
+                        onLeadSectionLoaded(lead, startSequenceNum);
                     }
 
-                    @Override
-                    public void failure(Throwable error) {
-                        L.e("PageLead error: ", error);
-                        commonSectionFetchOnCatch(error, startSequenceNum);
+                    @Override public void onFailure(Call<PageLead> call, Throwable t) {
+                        L.e("PageLead error: ", t);
+                        commonSectionFetchOnCatch(t, startSequenceNum);
                     }
                 });
     }
@@ -652,19 +656,19 @@ public class PageFragmentLoadState {
 
     private void loadRemainingSections(final int startSequenceNum) {
         app.getSessionFunnel().restSectionsFetchStart();
-        PageClientFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .pageRemaining(model.getTitle().getPrefixedText(), !app.isImageDownloadEnabled(),
-                new PageRemaining.Callback() {
-                    @Override
-                    public void success(PageRemaining pageRemaining) {
+        PageClientFactory
+                .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+                .sections(model.getTitle().getPrefixedText(), !app.isImageDownloadEnabled())
+                .enqueue(new retrofit2.Callback<PageRemaining>() {
+                    @Override public void onResponse(Call<PageRemaining> call, Response<PageRemaining> rsp) {
                         app.getSessionFunnel().restSectionsFetchEnd();
-                        onRemainingSectionsLoaded(pageRemaining, startSequenceNum);
+                        PageRemaining sections = rsp.body();
+                        onRemainingSectionsLoaded(sections, startSequenceNum);
                     }
 
-                    @Override
-                    public void failure(Throwable throwable) {
-                        L.e("PageRemaining error: ", throwable);
-                        commonSectionFetchOnCatch(throwable, startSequenceNum);
+                    @Override public void onFailure(Call<PageRemaining> call, Throwable t) {
+                        L.e("PageRemaining error: ", t);
+                        commonSectionFetchOnCatch(t, startSequenceNum);
                     }
                 });
     }

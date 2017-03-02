@@ -1,5 +1,8 @@
 package org.wikipedia.dataclient.restbase.page;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import org.wikipedia.dataclient.restbase.RbDefinition;
 
 import java.util.Map;
@@ -26,7 +29,7 @@ public interface RbPageService {
      */
     @Headers("x-analytics: preview=1")
     @GET("page/summary/{title}")
-    Call<RbPageSummary> pageSummary(@Path("title") String title);
+    @NonNull Call<RbPageSummary> summary(@NonNull @Path("title") String title);
 
     /**
      * Gets the lead section and initial metadata of a given title.
@@ -39,7 +42,8 @@ public interface RbPageService {
             ACCEPT_HEADER_MOBILE_SECTIONS
     })
     @GET("page/mobile-sections-lead/{title}")
-    Call<RbPageLead> pageLead(@Path("title") String title, @Query("noimages") Boolean noImages);
+    @NonNull Call<RbPageLead> lead(@NonNull @Path("title") String title,
+                                   @Nullable @Query("noimages") Boolean noImages);
 
     /**
      * Gets the remaining sections of a given title.
@@ -49,8 +53,8 @@ public interface RbPageService {
      */
     @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
     @GET("page/mobile-sections-remaining/{title}")
-    Call<RbPageRemaining> pageRemaining(@Path("title") String title,
-                                        @Query("noimages") Boolean noImages);
+    @NonNull Call<RbPageRemaining> sections(@NonNull @Path("title") String title,
+                                            @Nullable @Query("noimages") Boolean noImages);
 
     /**
      * Gets all page content of a given title -- for refreshing a saved page
@@ -64,6 +68,8 @@ public interface RbPageService {
     Call<RbPageCombo> pageCombo(@Path("title") String title,
                                 @Query("noimages") Boolean noImages);
 
+    // todo: this Content Service-only endpoint is under page/ but that implementation detail should
+    //       probably not be reflected here. Move to WordDefinitionClient
     /**
      * Gets selected Wiktionary content for a given title derived from user-selected text
      *
@@ -71,5 +77,5 @@ public interface RbPageService {
      */
     @Headers(ACCEPT_HEADER_DEFINITION)
     @GET("page/definition/{title}")
-    Call<Map<String, RbDefinition.Usage[]>> define(@Path("title") String title);
+    @NonNull Call<Map<String, RbDefinition.Usage[]>> define(@NonNull @Path("title") String title);
 }

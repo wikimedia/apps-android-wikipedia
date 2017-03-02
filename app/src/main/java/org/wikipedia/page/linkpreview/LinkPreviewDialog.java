@@ -39,6 +39,9 @@ import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
+import retrofit2.Call;
+import retrofit2.Response;
+
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
@@ -219,9 +222,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     private void loadContent() {
-        PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace()).pageSummary(
-                pageTitle.getPrefixedText(),
-                linkPreviewOnLoadCallback);
+        PageClientFactory
+                .create(pageTitle.getWikiSite(), pageTitle.namespace())
+                .summary(pageTitle.getPrefixedText())
+                .enqueue(linkPreviewOnLoadCallback);
     }
 
     private void loadContentFromSavedPage() {
@@ -253,29 +257,27 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         layoutPreview();
     }
 
-    private PageSummary.Callback linkPreviewOnLoadCallback = new PageSummary.Callback() {
-        @Override
-        public void success(PageSummary pageSummary) {
+    private retrofit2.Callback<PageSummary> linkPreviewOnLoadCallback = new retrofit2.Callback<PageSummary>() {
+        @Override public void onResponse(Call<PageSummary> call, Response<PageSummary> rsp) {
             if (!isAdded()) {
                 return;
             }
-            if (!pageSummary.hasError()) {
+            PageSummary summary = rsp.body();
+            if (summary != null && !summary.hasError()) {
                 progressBar.setVisibility(View.GONE);
-                contents = new LinkPreviewContents(pageSummary, pageTitle.getWikiSite());
+                contents = new LinkPreviewContents(summary, pageTitle.getWikiSite());
                 layoutPreview();
             } else {
-                pageSummary.logError("Page summary request failed");
+                if (summary != null) {
+                    summary.logError("Page summary request failed");
+                }
                 loadContentFromSavedPage();
                 FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
             }
         }
 
-        @Override
-        public void failure(Throwable throwable) {
-            if (!isAdded()) {
-                return;
-            }
-            L.e("Link preview fetch error: " + throwable);
+        @Override public void onFailure(Call call, Throwable t) {
+            L.e(t);
         }
     };
 
