@@ -3,8 +3,8 @@ package org.wikipedia.dataclient.page;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.page.MwPageService;
-import org.wikipedia.dataclient.restbase.page.RbPageService;
+import org.wikipedia.dataclient.mwapi.page.MwPageClient;
+import org.wikipedia.dataclient.restbase.page.RbPageClient;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.settings.RbSwitch;
 
@@ -13,17 +13,17 @@ import org.wikipedia.settings.RbSwitch;
  * MediaWiki PHP API and the new Nodejs Mobile Content Service hosted in the RESTBase
  * infrastructure.
  */
-public final class PageServiceFactory {
+public final class PageClientFactory {
     // TODO: remove the namespace check if and when Parsoid's handling of File pages is updated
     // T135242
-    public static PageService create(@NonNull WikiSite wiki, @NonNull Namespace namespace) {
+    public static PageClient create(@NonNull WikiSite wiki, @NonNull Namespace namespace) {
         if (RbSwitch.INSTANCE.isRestBaseEnabled(wiki) && !namespace.file()) {
-            return new RbPageService(wiki);
+            return new RbPageClient(wiki);
         } else {
-            return new MwPageService(wiki);
+            return new MwPageClient(wiki);
         }
     }
 
-    private PageServiceFactory() {
+    private PageClientFactory() {
     }
 }

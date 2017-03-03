@@ -16,11 +16,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.WiktionaryDialogFunnel;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.page.PageService;
-import org.wikipedia.dataclient.page.PageServiceFactory;
+import org.wikipedia.dataclient.page.PageClient;
+import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.restbase.RbDefinition;
-import org.wikipedia.dataclient.restbase.page.RbPageService;
-import org.wikipedia.dataclient.restbase.page.RbPageService.DefinitionCallback;
+import org.wikipedia.dataclient.restbase.page.RbPageClient;
+import org.wikipedia.dataclient.restbase.page.RbPageClient.DefinitionCallback;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Namespace;
@@ -108,9 +108,9 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
 
         // TODO: centralize the Wiktionary domain better. Maybe a SharedPreference that defaults to
         //       https://wiktionary.org.
-        PageService pageService = PageServiceFactory.create(new WikiSite(pageTitle.getWikiSite().languageCode() + WIKTIONARY_DOMAIN), Namespace.MAIN);
-        if (pageService instanceof RbPageService) {
-            ((RbPageService) pageService).define(
+        PageClient pageClient = PageClientFactory.create(new WikiSite(pageTitle.getWikiSite().languageCode() + WIKTIONARY_DOMAIN), Namespace.MAIN);
+        if (pageClient instanceof RbPageClient) {
+            ((RbPageClient) pageClient).define(
                     addUnderscores(selectedText),
                     definitionOnLoadCallback);
         } else {

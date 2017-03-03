@@ -8,8 +8,8 @@ import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
-import org.wikipedia.dataclient.page.PageService;
-import org.wikipedia.dataclient.page.PageServiceFactory;
+import org.wikipedia.dataclient.page.PageClient;
+import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
@@ -170,7 +170,7 @@ public class SavedPageSyncService extends IntentService {
     }
 
     @NonNull
-    private PageService getApiService(@NonNull PageTitle title) {
-        return PageServiceFactory.create(title.getWikiSite(), title.namespace());
+    private PageClient getApiService(@NonNull PageTitle title) {
+        return PageClientFactory.create(title.getWikiSite(), title.namespace());
     }
 }

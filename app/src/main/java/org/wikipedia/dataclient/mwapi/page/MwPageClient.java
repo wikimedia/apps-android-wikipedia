@@ -4,9 +4,9 @@ import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
-import org.wikipedia.dataclient.page.PageService;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.settings.RbSwitch;
@@ -24,11 +24,11 @@ import retrofit2.http.Query;
 /**
  * Retrofit web service client for MediaWiki PHP API.
  */
-public class MwPageService implements PageService {
+public class MwPageClient implements PageClient {
     private final Service service;
     private WikipediaZeroHandler responseHeaderHandler;
 
-    public MwPageService(final WikiSite wiki) {
+    public MwPageClient(final WikiSite wiki) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
         service = MwPageServiceCache.INSTANCE.getService(wiki);
     }

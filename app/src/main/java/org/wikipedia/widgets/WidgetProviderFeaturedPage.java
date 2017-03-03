@@ -15,9 +15,9 @@ import android.widget.RemoteViews;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.page.PageClient;
+import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageService;
-import org.wikipedia.dataclient.page.PageServiceFactory;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.staticdata.MainPageNameData;
@@ -120,8 +120,8 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         return titleText;
     }
 
-    private PageService getApiService(PageTitle title) {
-        return PageServiceFactory.create(title.getWikiSite(), title.namespace());
+    private PageClient getApiService(PageTitle title) {
+        return PageClientFactory.create(title.getWikiSite(), title.namespace());
     }
 
     private interface Callback {
