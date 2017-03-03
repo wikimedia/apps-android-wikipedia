@@ -853,10 +853,12 @@ a.edit_section_button {
   display: inline-float;
 }
 a.edit_section_button.android {
-  height: 48px;
-  width: 48px;
+  height: 28px;
+  width: 28px;
+  margin-right: 8px;
   border: none;
   background-image: url(file:///android_asset/images/edit.png);
+  background-size: 28px 28px;
   background-position: center;
   position: relative;
 }
