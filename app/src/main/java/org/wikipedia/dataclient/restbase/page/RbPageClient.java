@@ -14,7 +14,6 @@ import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.IOException;
@@ -61,7 +60,6 @@ public class RbPageClient implements PageClient {
                     cb.success(response.body());
                 } else {
                     Throwable throwable = RetrofitException.httpError(response);
-                    RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                     cb.failure(throwable);
                 }
             }
@@ -72,7 +70,6 @@ public class RbPageClient implements PageClient {
              */
             @Override
             public void onFailure(Call<RbPageSummary> call, Throwable t) {
-                RbSwitch.INSTANCE.onRbRequestFailed(t);
                 cb.failure(t);
             }
         });
@@ -92,14 +89,12 @@ public class RbPageClient implements PageClient {
                     cb.success(pageLead);
                 } else {
                     Throwable throwable = RetrofitException.httpError(response);
-                    RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                     cb.failure(throwable);
                 }
             }
 
             @Override
             public void onFailure(Call<RbPageLead> call, Throwable t) {
-                RbSwitch.INSTANCE.onRbRequestFailed(t);
                 cb.failure(t);
             }
         });
@@ -115,14 +110,12 @@ public class RbPageClient implements PageClient {
                     cb.success(response.body());
                 } else {
                     Throwable throwable = RetrofitException.httpError(response);
-                    RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                     cb.failure(throwable);
                 }
             }
 
             @Override
             public void onFailure(Call<RbPageRemaining> call, Throwable t) {
-                RbSwitch.INSTANCE.onRbRequestFailed(t);
                 cb.failure(t);
             }
         });
@@ -159,14 +152,12 @@ public class RbPageClient implements PageClient {
                     cb.success(new RbDefinition(response.body()));
                 } else {
                     Throwable throwable = RetrofitException.httpError(response);
-                    RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                     cb.failure(throwable);
                 }
             }
 
             @Override
             public void onFailure(Call<Map<String, RbDefinition.Usage[]>> call, Throwable throwable) {
-                RbSwitch.INSTANCE.onRbRequestFailed(throwable);
                 cb.failure(throwable);
             }
         });

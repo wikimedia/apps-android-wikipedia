@@ -1,5 +1,8 @@
 package org.wikipedia.settings;
 
+import android.support.annotation.IntRange;
+import android.support.annotation.Nullable;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -18,9 +21,11 @@ import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
  * So, 404s and network errors are ignored.
  */
 public final class RbSwitch {
+    public static final int FAILED = -1;
     private static final int HUNDRED_PERCENT = 100;
     private static final int SUCCESS_THRESHOLD = 5; // page loads
-    private static final int FAILED = -1;
+    private static final String ENABLE_RESTBASE_PERCENT_CONFIG_KEY = ReleaseUtil.isProdRelease()
+            ? "restbaseProdPercent" : "restbaseBetaPercent";
 
     public static final RbSwitch INSTANCE = new RbSwitch();
 
@@ -61,16 +66,12 @@ public final class RbSwitch {
             Prefs.setRbTicket(ticket);
         }
 
-        if (ReleaseUtil.isProdRelease()) {
-            return isAdmitted(ticket, "restbaseProdPercent");
-        } else {
-            return isAdmitted(ticket, "restbaseBetaPercent");
-        }
+        return isAdmitted(ticket, ENABLE_RESTBASE_PERCENT_CONFIG_KEY);
     }
 
-    private static boolean isAdmitted(int ticket, String configKey) {
-        int admittedPct = WikipediaApp.getInstance()
-                .getRemoteConfig().getConfig().optInt(configKey, 0); // [0, 100]
+    private static boolean isAdmitted(@IntRange(from = 1, to = 100) int ticket, String configKey) {
+        @IntRange(from = 0, to = 100) int admittedPct = WikipediaApp.getInstance()
+                .getRemoteConfig().getConfig().optInt(configKey, 0); // 0 = disable
         return ticket <= admittedPct;
     }
 
@@ -97,7 +98,7 @@ public final class RbSwitch {
     /**
      * Call this method when a RESTBase call fails.
      */
-    public void onRbRequestFailed(Throwable error) {
+    public void onRbRequestFailed(@Nullable Throwable error) {
         if (isSignificantFailure(error)) {
             markRbFailed();
             if (!Prefs.useRestBaseSetManually()) {
@@ -111,15 +112,14 @@ public final class RbSwitch {
      * We don't want to fallback just because of a user error (404)
      * or a network issue on the client side (RetrofitError.Kind.NETWORK).
      */
-    private static boolean isSignificantFailure(Throwable throwable) {
+    private static boolean isSignificantFailure(@Nullable Throwable throwable) {
         if (!(throwable instanceof RetrofitException)) {
             return false;
         }
 
         RetrofitException error = (RetrofitException) throwable;
         if (error.getKind() == RetrofitException.Kind.HTTP) {
-            int status = error.getResponse().code();
-            return status != HTTP_NOT_FOUND;
+            return error.getCode() != null && error.getCode() != HTTP_NOT_FOUND;
         }
         return error.getKind() != RetrofitException.Kind.NETWORK;
     }

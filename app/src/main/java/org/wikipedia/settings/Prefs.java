@@ -1,6 +1,7 @@
 package org.wikipedia.settings;
 
 import android.net.Uri;
+import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -333,11 +334,11 @@ public final class Prefs {
         setInt(R.string.preference_key_restbase_ticket, rbTicket);
     }
 
-    public static int getRequestSuccessCounter(int defaultValue) {
+    @IntRange(from = RbSwitch.FAILED) public static int getRequestSuccessCounter(int defaultValue) {
         return getInt(R.string.preference_key_request_successes, defaultValue);
     }
 
-    public static void setRequestSuccessCounter(int successes) {
+    public static void setRequestSuccessCounter(@IntRange(from = RbSwitch.FAILED) int successes) {
         setInt(R.string.preference_key_request_successes, successes);
     }
 

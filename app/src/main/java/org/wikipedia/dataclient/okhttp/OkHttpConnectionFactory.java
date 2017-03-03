@@ -7,6 +7,7 @@ import com.github.kevinsawicki.http.HttpRequest;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.RbSwitch;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -51,6 +52,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .cookieJar(cookieJar)
                 .cache(HTTP_CACHE)
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
+                .addInterceptor(new StatusResponseInterceptor(RbSwitch.INSTANCE))
                 .addNetworkInterceptor(new StripMustRevalidateResponseInterceptor())
                 .addInterceptor(new CommonHeaderRequestInterceptor())
                 .addInterceptor(new DefaultMaxStaleRequestInterceptor())
