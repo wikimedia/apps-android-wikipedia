@@ -68,8 +68,6 @@ import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
-import org.wikipedia.savedpages.ImageUrlHtmlParser;
-import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ActiveTimer;
@@ -898,37 +896,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (getPageLoadCallbacks() != null) {
             getPageLoadCallbacks().onLoadError(caught);
         }
-    }
-
-    /**
-     * Read URL mappings from the saved page specific file
-     */
-    public void readUrlMappings() {
-        new LoadSavedPageUrlMapTask(model.getTitle()) {
-            @Override
-            public void onFinish(JSONObject result) {
-                // have we been unwittingly detached from our Activity?
-                if (!isAdded()) {
-                    L.d("Detached from activity, so stopping update.");
-                    return;
-                }
-
-                ImageUrlHtmlParser.replaceImageSources(bridge, result);
-            }
-
-            @Override
-            public void onCatch(Throwable e) {
-                if (!isAdded()) {
-                    return;
-                }
-                /*
-                If anything bad happens during loading of a saved page, then simply bounce it
-                back to the online version of the page, and re-save the page contents locally when it's done.
-                 */
-                L.d(e);
-                refreshPage();
-            }
-        }.execute();
     }
 
     public void refreshPage() {

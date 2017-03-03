@@ -23,8 +23,7 @@ public class ReadingListPageDiskTable
 
     @Override public ReadingListPageDiskRow fromCursor(@NonNull Cursor cursor) {
         DiskRow<ReadingListPageRow> diskRow = ReadingListPageContract.DISK_COLS.val(cursor);
-        String filename = ReadingListPageContract.Disk.FILENAME.val(cursor);
-        return new ReadingListPageDiskRow(diskRow, null, filename);
+        return new ReadingListPageDiskRow(diskRow, null);
     }
 
     @NonNull @Override public Column<?>[] getColumnsAdded(int version) {
@@ -41,12 +40,7 @@ public class ReadingListPageDiskTable
     }
 
     @Override protected ContentValues toContentValues(@NonNull DiskRow<ReadingListPageRow> row) {
-        ContentValues values = ReadingListPageContract.DISK_COLS.toContentValues(row);
-        if (row instanceof ReadingListPageDiskRow) {
-            ReadingListPageDiskRow diskRow = (ReadingListPageDiskRow) row;
-            values.put(ReadingListPageContract.Disk.FILENAME.getName(), diskRow.filename());
-        }
-        return values;
+        return ReadingListPageContract.DISK_COLS.toContentValues(row);
     }
 
     @Override protected int getDBVersionIntroducedAt() {

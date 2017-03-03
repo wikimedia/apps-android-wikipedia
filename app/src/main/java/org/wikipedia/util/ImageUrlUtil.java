@@ -9,10 +9,6 @@ import java.util.regex.Pattern;
 public final class ImageUrlUtil {
     private static Pattern WIDTH_IN_IMAGE_URL_REGEX = Pattern.compile("/(\\d+)px-");
 
-    public static Pattern getImageUrlRegex() {
-        return WIDTH_IN_IMAGE_URL_REGEX;
-    }
-
     @NonNull
     public static Uri getUrlForSize(@NonNull Uri uri, int size) {
         return Uri.parse(getUrlForSize(uri.toString(), size));

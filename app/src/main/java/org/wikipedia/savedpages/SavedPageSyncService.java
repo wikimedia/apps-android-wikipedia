@@ -6,32 +6,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageClientFactory;
-import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 import org.wikipedia.util.DeviceUtil;
-import org.wikipedia.util.FileUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-
-import okhttp3.Request;
-import okhttp3.Response;
-
-import static org.wikipedia.util.FileUtil.writeFile;
 
 public class SavedPageSyncService extends IntentService {
     @NonNull private ReadingListPageDao dao;
@@ -57,14 +41,6 @@ public class SavedPageSyncService extends IntentService {
             switch (row.status()) {
                 case UNSAVED:
                 case DELETED:
-                    String filename = row.filename();
-                    if (filename != null) {
-                        FileUtil.delete(new File(filename), true);
-                        dao.completeDiskTransaction(row);
-                        L.v("Deleted" + filename);
-                        continue;
-                    }
-                    L.e("Found row with null filename; skipping");
                     continue;
                 case OUTDATED:
                     queue.add(row);
@@ -103,21 +79,7 @@ public class SavedPageSyncService extends IntentService {
             return false;
         }
 
-        try {
-            final Page page = getApiService(title).pageCombo(title.getPrefixedText(),
-                            !WikipediaApp.getInstance().isImageDownloadEnabled()).toPage(title);
-            final SavedPage savedPage = new SavedPage(page.getTitle());
-            final ImageUrlHtmlParser parser = new ImageUrlHtmlParser.Builder(FileUtil.getSavedPageDirFor(title))
-                .extractUrls(page).build();
-            savedPage.writeToFileSystem(page);
-            downloadImages(parser);
-            savedPage.writeUrlMap(parser.toJSON());
-            L.i("Page " + title.getDisplayText() + " saved!");
-            return true;
-        } catch (Exception e) {
-            L.e("Failed to save page " + title.getDisplayText(), e);
-            return false;
-        }
+        return false;
     }
 
     @Nullable
@@ -128,47 +90,5 @@ public class SavedPageSyncService extends IntentService {
         }
         String namespace = pageRow.namespace().toLegacyString();
         return new PageTitle(namespace, pageRow.title(), pageRow.wikiSite());
-    }
-
-    /**
-     * @param imageUrlMap a Map with entries {source URL, file path} of images to be downloaded
-     */
-    private void downloadImages(@NonNull final ImageUrlHtmlParser imageUrlMap) {
-        for (Map.Entry<String, String> entry : imageUrlMap.entrySet()) {
-            final String url = UriUtil.resolveProtocolRelativeUrl(entry.getKey());
-            final File file = new File(entry.getValue());
-            try {
-                downloadImage(url, file);
-            } catch (IOException e) {
-                L.e("Failed to download image: " + url, e);
-            }
-        }
-    }
-
-    private boolean downloadImage(@NonNull String url, @NonNull File file) throws IOException {
-        if (!url.startsWith("http")) {
-            L.e("ignoring non-HTTP URL " + url);
-            return true;
-        }
-
-        Request request = new Request.Builder().url(url).build();
-        Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
-
-        try {
-            InputStream stream = response.body().byteStream();
-            writeFile(stream, file);
-            L.v("downloaded image " + url + " to " + file.getAbsolutePath());
-            return true;
-        } catch (Exception e) {
-            L.e("could not download image " + url, e);
-        } finally {
-            response.close();
-        }
-        return false;
-    }
-
-    @NonNull
-    private PageClient getApiService(@NonNull PageTitle title) {
-        return PageClientFactory.create(title.getWikiSite(), title.namespace());
     }
 }

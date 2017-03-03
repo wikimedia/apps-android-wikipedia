@@ -207,8 +207,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
         }
         document.getElementById( "loading_sections").className = "";
         bridge.sendMessage( "pageLoadComplete", {
-          "sequence": payload.sequence,
-          "savedPage": payload.savedPage });
+          "sequence": payload.sequence });
     } else {
         var contentWrapper = document.getElementById( "content" );
         elementsForSection(payload.section).forEach(function (element) {
@@ -223,7 +222,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
         if ( typeof payload.fragment === "string" && payload.fragment.length > 0 && payload.section.anchor === payload.fragment) {
             scrollToSection( payload.fragment );
         }
-        bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "savedPage": payload.savedPage, "index": payload.section.id + 1 });
+        bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "index": payload.section.id + 1 });
     }
 });
 

@@ -4,21 +4,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.database.contract.SavedPageContract.Col;
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.FileUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
-
-import java.io.File;
 
 /**
  * No longer used, but upgrade logic reserved for database version upgrades which occur sequentially
@@ -67,11 +58,6 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
                 String id = Long.toString(Col.ID.val(cursor));
                 db.updateWithOnConflict(getTableName(), values, Col.ID.getName() + " = ?",
                         new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
-
-                PageTitle pageTitle = fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), null);
-                String savedPageBaseDir = FileUtil.savedPageBaseDir();
-                File newDir = new File(savedPageBaseDir + "/" + pageTitle.getIdentifier());
-                new File(savedPageBaseDir + "/" + getSavedPageDir(pageTitle, titleStr)).renameTo(newDir);
             }
         }
         cursor.close();
@@ -96,26 +82,6 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             }
         } finally {
             cursor.close();
-        }
-    }
-
-    private PageTitle fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
-                                             @Nullable String lang) {
-        String authority = Col.SITE.val(cursor);
-        WikiSite wiki = lang == null ? new WikiSite(authority) : new WikiSite(authority, lang);
-        return new PageTitle(namespace, Col.TITLE.val(cursor), wiki);
-    }
-
-    private String getSavedPageDir(PageTitle title, String originalTitleText) {
-        try {
-            JSONObject json = new JSONObject();
-            json.put("namespace", title.getNamespace());
-            json.put("text", originalTitleText);
-            json.put("fragment", title.getFragment());
-            json.put("site", title.getWikiSite().authority());
-            return StringUtil.md5string(json.toString());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
         }
     }
 

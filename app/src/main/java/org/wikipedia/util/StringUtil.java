@@ -125,20 +125,5 @@ public final class StringUtil {
         }
     }
 
-    /** Overloaded #fromHtml(@NonNull String source) to fix Html.fromHtml(String source, Html.ImageGetter imageGetter, Html.TagHandler tagHandler) occurrences
-     * @param source provided Html string
-     * @param imageGetter <img> tags in the HTML will use this ImageGetter
-     * @param tagHandler to handle unknown tags
-     * @return returned Spanned of appropriate method according to version check
-     * */
-    @NonNull public static Spanned fromHtml(@NonNull String source, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY, imageGetter, tagHandler);
-        } else {
-            //noinspection deprecation
-            return Html.fromHtml(source, imageGetter, tagHandler);
-        }
-    }
-
     private StringUtil() { }
 }

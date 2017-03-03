@@ -33,7 +33,6 @@ import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
-import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
@@ -69,8 +68,6 @@ public class PageFragmentLoadState {
     private interface ErrorCallback {
         void call(@Nullable Throwable error);
     }
-
-    private static final String BRIDGE_PAYLOAD_SAVED_PAGE = "savedPage";
 
     private static final int STATE_NO_FETCH = 1;
     private static final int STATE_INITIAL_FETCH = 2;
@@ -277,31 +274,6 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void loadSavedPage(final ErrorCallback errorCallback) {
-        new LoadSavedPageTask(model.getTitle(), sequenceNumber.get()) {
-            @Override
-            public void onFinish(Page result) {
-                if (!fragment.isAdded() || !sequenceNumber.inSync(getSequence())) {
-                    return;
-                }
-                model.setPage(result);
-                editHandler.setPage(model.getPage());
-                layoutLeadImage(new Runnable() {
-                    @Override
-                    public void run() {
-                        displayNonLeadSectionForSavedPage(1);
-                        setState(STATE_COMPLETE_FETCH);
-                    }
-                });
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                errorCallback.call(caught);
-            }
-        }.execute();
-    }
-
     private void setUpBridgeListeners() {
         bridge.addListener("onBeginNewPage", new SynchronousBridgeListener() {
             @Override
@@ -318,8 +290,7 @@ public class PageFragmentLoadState {
             @Override
             public void onMessage(JSONObject payload) {
                 try {
-                    displayNonLeadSection(payload.getInt("index"),
-                            payload.optBoolean(BRIDGE_PAYLOAD_SAVED_PAGE, false));
+                    displayNonLeadSection(payload.getInt("index"));
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }
@@ -372,7 +343,7 @@ public class PageFragmentLoadState {
                 layoutLeadImage(new Runnable() {
                     @Override
                     public void run() {
-                        displayNonLeadSectionForUnsavedPage(1);
+                        displayNonLeadSection(1);
                     }
                 });
                 break;
@@ -406,11 +377,7 @@ public class PageFragmentLoadState {
 
         loadFromNetwork(new ErrorCallback() {
             @Override public void call(final Throwable networkError) {
-                loadSavedPage(new ErrorCallback() {
-                    @Override public void call(Throwable savedError) {
-                        fragment.onPageLoadError(networkError);
-                    }
-                });
+                fragment.onPageLoadError(networkError);
             }
         });
     }
@@ -545,15 +512,7 @@ public class PageFragmentLoadState {
         return app.getRemoteConfig().getConfig();
     }
 
-    private void displayNonLeadSectionForUnsavedPage(int index) {
-        displayNonLeadSection(index, false);
-    }
-
-    private void displayNonLeadSectionForSavedPage(int index) {
-        displayNonLeadSection(index, true);
-    }
-
-    private void displayNonLeadSection(int index, boolean savedPage) {
+    private void displayNonLeadSection(int index) {
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, false,
                     Constants.PROGRESS_BAR_MAX_VALUE / model.getPage()
@@ -563,7 +522,6 @@ public class PageFragmentLoadState {
             final Page page = model.getPage();
             JSONObject wrapper = new JSONObject();
             wrapper.put("sequence", sequenceNumber.get());
-            wrapper.put(BRIDGE_PAYLOAD_SAVED_PAGE, savedPage);
             boolean lastSection = index == page.getSections().size();
             if (!lastSection) {
                 JSONObject section = page.getSections().get(index).toJSON();
@@ -588,12 +546,6 @@ public class PageFragmentLoadState {
             wrapper.put("scrollY",
                     (int) (stagedScrollY / DimenUtil.getDensityScalar()));
             bridge.sendMessage("displaySection", wrapper);
-
-            if (savedPage && lastSection) {
-                // rewrite the image URLs in the webview, so that they're loaded from
-                // local storage after all the sections have been loaded.
-                fragment.readUrlMappings();
-            }
         } catch (JSONException e) {
             L.logRemoteErrorIfProd(e);
         }
@@ -681,7 +633,7 @@ public class PageFragmentLoadState {
 
         pageRemaining.mergeInto(model.getPage());
 
-        displayNonLeadSectionForUnsavedPage(1);
+        displayNonLeadSection(1);
         setState(STATE_COMPLETE_FETCH);
 
         fragment.onPageLoadComplete();

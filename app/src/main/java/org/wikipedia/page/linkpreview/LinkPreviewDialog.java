@@ -33,9 +33,7 @@ import org.wikipedia.gallery.GalleryCollectionFetchTask;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
-import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
@@ -45,8 +43,6 @@ import retrofit2.Response;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
-import static org.wikipedia.util.ThrowableUtil.is404;
-import static org.wikipedia.util.ThrowableUtil.isOffline;
 
 public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         implements LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
@@ -217,30 +213,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .enqueue(linkPreviewNetworkOnLoadCallback);
     }
 
-    private void tryLoadingFromCache(@Nullable final Throwable networkException) {
-        L.v("Loading link preview from Saved Pages");
-        new LoadSavedPageTask(pageTitle) {
-            @Override public void onFinish(Page page) {
-                if (!isAdded()) {
-                    return;
-                }
-                showPreview(new LinkPreviewContents(page));
-            }
-
-            @Override public void onCatch(Throwable caught) {
-                if (!isAdded()) {
-                    return;
-                }
-                if (networkException != null) {
-                    showError(networkException);
-                } else {
-                    showError(caught);
-                }
-                L.e("Page summary cache request failed", caught);
-            }
-        }.execute();
-    }
-
     private void showPreview(@NonNull LinkPreviewContents contents) {
         progressBar.setVisibility(View.GONE);
         setPreviewContents(contents);
@@ -277,7 +249,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             if (summary != null && !summary.hasError()) {
                 showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
             } else {
-                tryLoadingFromCache(null);
+                showError(null);
                 logError(summary.hasError() ? summary.getError() : null,
                         "Page summary network request failed");
             }
@@ -285,14 +257,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
         @Override public void onFailure(Call<PageSummary> call, Throwable caught) {
             L.e(caught);
-            if (is404(getContext(), caught)) {
-                // If the page doesn't exist, show an error immediately without checking the cache.
-                showError(caught);
-            } else {
-                // If we're offline, check the cache but pass along the exception so that we show
-                // the correct error message if the page isn't found in the cache.
-                tryLoadingFromCache(isOffline(caught) ? caught : null);
-            }
+            showError(caught);
         }
     };
 
