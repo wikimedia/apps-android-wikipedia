@@ -21,7 +21,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,7 +30,6 @@ import org.wikipedia.R;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
@@ -55,27 +53,19 @@ public class ReadingListDetailView extends LinearLayout {
     @BindView(R.id.reading_list_count) TextView countView;
     @BindView(R.id.reading_list_description) GoneIfEmptyTextView descriptionView;
     @BindView(R.id.contents_list) RecyclerView contentsListView;
-    @BindView(R.id.button_edit) View editButton;
-    @BindView(R.id.indicator_offline) ImageView offlineView;
 
     @Nullable private ReadingList readingList;
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
-    @Nullable private ReadingListItemActionListener itemActionListener;
-    @Nullable private ReadingListActionListener actionListener;
+    @Nullable private Callback callback;
     private String currentSearchQuery;
 
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
     private Bitmap deleteIcon = getDeleteBitmap();
 
-    public interface ReadingListItemActionListener {
+    public interface Callback {
         void onClick(ReadingList readingList, ReadingListPage page);
         void onLongClick(ReadingList readingList, ReadingListPage page);
         void onDelete(ReadingList readingList, ReadingListPage page);
-    }
-
-    public interface ReadingListActionListener {
-        void onUpdate(ReadingList readingList, String newTitle, String newDescription, boolean saveOffline);
-        void onDelete(ReadingList readingList);
         void onBackPressed();
     }
 
@@ -102,20 +92,14 @@ public class ReadingListDetailView extends LinearLayout {
 
     public void setReadingListInfo(@NonNull ReadingList readingList, @NonNull List<String> otherTitles) {
         this.readingList = readingList;
-        editButton.setOnClickListener(new EditButtonClickListener(otherTitles));
-
         contentsListView.setLayoutManager(new LinearLayoutManager(getContext()));
         contentsListView.setAdapter(adapter);
         updateDetails();
         getThumbnails();
     }
 
-    public void setOnItemActionListener(ReadingListItemActionListener listener) {
-        itemActionListener = listener;
-    }
-
-    public void setActionListener(@Nullable ReadingListActionListener listener) {
-        actionListener = listener;
+    public void setCallback(Callback callback) {
+        this.callback = callback;
     }
 
     public void updateDetails() {
@@ -129,7 +113,6 @@ public class ReadingListDetailView extends LinearLayout {
                 ? getResources().getString(R.string.reading_list_item_count_singular)
                 : String.format(getResources().getString(R.string.reading_list_item_count_plural), readingList.getPages().size()));
         descriptionView.setText(readingList.getDescription());
-        offlineView.setImageResource(readingList.getSaveOffline() ? R.drawable.ic_cloud_download_black_24dp : R.drawable.ic_cloud_off_black_24dp);
         setSearchQuery(currentSearchQuery);
         updateSort();
     }
@@ -159,15 +142,14 @@ public class ReadingListDetailView extends LinearLayout {
     }
 
     @OnClick(R.id.reading_list_detail_back_button) void onBackPressed(View v) {
-        if (actionListener != null) {
-            actionListener.onBackPressed();
+        if (callback != null) {
+            callback.onBackPressed();
         }
     }
 
     private void init() {
         inflate(getContext(), R.layout.item_reading_list_detail, this);
         ButterKnife.bind(this);
-        FeedbackUtil.setToolbarButtonLongPressToast(editButton);
 
         setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -228,39 +210,6 @@ public class ReadingListDetailView extends LinearLayout {
         }
     }
 
-    private class EditButtonClickListener implements OnClickListener {
-        @NonNull private List<String> otherTitles;
-
-        EditButtonClickListener(@NonNull List<String> existingTitles) {
-            this.otherTitles = existingTitles;
-        }
-
-        @Override public void onClick(View v) {
-            ReadingListDialogs.createEditDialog(getContext(), readingList, true, otherTitles,
-                    new ReadingListDialogs.EditDialogListener() {
-                @Override
-                public void onModify(String newTitle, String newDescription, boolean saveOffline) {
-                    if (actionListener != null) {
-                        actionListener.onUpdate(readingList, newTitle, newDescription, saveOffline);
-                    }
-                    updateDetails();
-                }
-
-                @Override
-                public void onDelete() {
-                    ReadingListDialogs.createDeleteDialog(getContext(), new Runnable() {
-                        @Override
-                        public void run() {
-                            if (actionListener != null) {
-                                actionListener.onDelete(readingList);
-                            }
-                        }
-                    }).show();
-                }
-            }).show();
-        }
-    }
-
     private class ReadingListPageItemHolder extends RecyclerView.ViewHolder implements OnClickListener, OnLongClickListener {
         private ReadingListPage page;
         private View containerView;
@@ -287,22 +236,22 @@ public class ReadingListDetailView extends LinearLayout {
 
         @Override
         public void onClick(View v) {
-            if (itemActionListener != null) {
-                itemActionListener.onClick(readingList, page);
+            if (callback != null) {
+                callback.onClick(readingList, page);
             }
         }
 
         @Override
         public boolean onLongClick(View v) {
-            if (itemActionListener != null) {
-                itemActionListener.onLongClick(readingList, page);
+            if (callback != null) {
+                callback.onLongClick(readingList, page);
             }
             return true;
         }
 
         public void onDismiss() {
-            if (itemActionListener != null) {
-                itemActionListener.onDelete(readingList, page);
+            if (callback != null) {
+                callback.onDelete(readingList, page);
             }
             updateDetails();
         }

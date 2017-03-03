@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_reading_list_rename"
+        android:title="@string/reading_list_menu_rename"/>
+    <item android:id="@+id/menu_reading_list_edit_description"
+        android:title="@string/reading_list_menu_edit_description"/>
+    <item android:id="@+id/menu_reading_list_delete"
+        android:title="@string/reading_list_menu_delete"/>
+</menu>

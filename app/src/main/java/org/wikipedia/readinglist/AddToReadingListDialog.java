@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -26,6 +25,8 @@ import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.DrawableItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private ReadingLists readingLists = new ReadingLists();
     @Nullable private DialogInterface.OnDismissListener dismissListener;
+    private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
     public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source) {
         return newInstance(title, source, null);
@@ -106,6 +108,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         RecyclerView readingListView = (RecyclerView) rootView.findViewById(R.id.list_of_lists);
         readingListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         readingListView.setAdapter(adapter);
+        readingListView.addItemDecoration(new DrawableItemDecoration(getContext(),
+                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
 
         View createButton = rootView.findViewById(R.id.create_button);
         createButton.setOnClickListener(createClickListener);
@@ -187,21 +191,16 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .description(null)
                 .pages(new ArrayList<ReadingListPage>())
                 .build();
-        AlertDialog dialog = ReadingListDialogs.createEditDialog(getContext(), list, false, readingLists.getTitles(),
-                new ReadingListDialogs.EditDialogListener() {
-                    @Override
-                    public void onModify(String newTitle, String newDescription, boolean saveOffline) {
-                        list.setTitle(newTitle);
-                        list.setDescription(newDescription);
-                        ReadingList.DAO.addList(list);
-                        addAndDismiss(list);
-                    }
 
-                    @Override
-                    public void onDelete() {
-                    }
-                });
-        dialog.show();
+        ReadingListTitleDialog.readingListTitleDialog(getContext(), list.getTitle(),
+                readingLists.getTitles(), new ReadingListTitleDialog.Callback() {
+            @Override
+            public void onSuccess(@NonNull CharSequence text) {
+                list.setTitle(text.toString());
+                ReadingList.DAO.addList(list);
+                addAndDismiss(list);
+            }
+        }).show();
     }
 
     private void addAndDismiss(final ReadingList readingList) {
@@ -241,24 +240,40 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         return page;
     }
 
-    private class ReadingListItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class ReadingListItemCallback implements ReadingListItemView.Callback {
+        @Override
+        public void onClick(@NonNull ReadingList readingList) {
+            addAndDismiss(readingList);
+        }
+
+        @Override
+        public void onRename(@NonNull final ReadingList readingList) {
+        }
+
+        @Override
+        public void onEditDescription(@NonNull final ReadingList readingList) {
+        }
+
+        @Override
+        public void onDelete(@NonNull ReadingList readingList) {
+        }
+    }
+
+    private class ReadingListItemHolder extends RecyclerView.ViewHolder {
         private ReadingListItemView itemView;
-        private ReadingList readingList;
 
         ReadingListItemHolder(ReadingListItemView itemView) {
             super(itemView);
             this.itemView = itemView;
-            itemView.setOnClickListener(this);
+            itemView.setOverflowButtonVisible(false);
         }
 
         public void bindItem(ReadingList readingList) {
-            this.readingList = readingList;
             itemView.setReadingList(readingList);
         }
 
-        @Override
-        public void onClick(View v) {
-            addAndDismiss(readingList);
+        public ReadingListItemView getView() {
+            return itemView;
         }
     }
 
@@ -277,6 +292,16 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         @Override
         public void onBindViewHolder(ReadingListItemHolder holder, int pos) {
             holder.bindItem(readingLists.get(pos));
+        }
+
+        @Override public void onViewAttachedToWindow(ReadingListItemHolder holder) {
+            super.onViewAttachedToWindow(holder);
+            holder.getView().setCallback(listItemCallback);
+        }
+
+        @Override public void onViewDetachedFromWindow(ReadingListItemHolder holder) {
+            holder.getView().setCallback(null);
+            super.onViewDetachedFromWindow(holder);
         }
     }
 

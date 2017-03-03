@@ -289,7 +289,9 @@
     <string name="reading_list_sort_by_recent">Sort by most recent</string>
     <string name="reading_list_sort_by_recent_desc">Sort by least recent</string>
     <string name="reading_list_menu_edit">Edit reading list details</string>
-    <string name="reading_list_menu_delete">Delete reading list</string>
+    <string name="reading_list_menu_delete">Delete list</string>
+    <string name="reading_list_menu_rename">Rename</string>
+    <string name="reading_list_menu_edit_description">Edit description</string>
     <string name="reading_list_name_sample">My reading list</string>
     <string name="reading_list_name_hint">Name of this list</string>
     <string name="reading_list_description_hint">Description (optional)</string>
