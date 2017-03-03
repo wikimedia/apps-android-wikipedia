@@ -227,7 +227,8 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
     @OnClick(R.id.view_page_header_edit_pencil) void onEditClick() {
         if (allowDescriptionEdit) {
-            PopupMenu menu = new PopupMenu(editPencil.getContext(), editPencil);
+            PopupMenu menu = new PopupMenu(editPencil.getContext(), editPencil, Gravity.END, 0,
+                    R.style.PagePopupMenu);
             menu.getMenuInflater().inflate(R.menu.menu_page_header_edit, menu.getMenu());
             menu.setOnMenuItemClickListener(new EditMenuClickListener());
             menu.show();
