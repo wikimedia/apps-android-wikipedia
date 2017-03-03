@@ -18,6 +18,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.NotificationCompat;
 
+import org.apache.commons.lang3.StringUtils;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
 import org.wikipedia.R;
@@ -98,9 +99,9 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         final Uri customPartnerInfoUrl = zeroConfig.getPartnerInfoUrl();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
-        alert.setTitle(!(defaultString(customExitTitle).equals("")) ? customExitTitle
+        alert.setTitle(!StringUtils.isEmpty(customExitTitle) ? customExitTitle
                 : context.getString(R.string.zero_interstitial_title));
-        alert.setMessage(!(defaultString(customExitWarning).equals("")) ? customExitWarning
+        alert.setMessage(!StringUtils.isEmpty(customExitWarning) ? customExitWarning
                 : context.getString(R.string.zero_interstitial_leave_app));
         alert.setPositiveButton(context.getString(R.string.zero_interstitial_continue),
                 new DialogInterface.OnClickListener() {
@@ -174,7 +175,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
                     }
                     if (xCarrierFromHeader != null) {
                         if (eitherChanged(xCarrierFromHeader, xCarrierMetaFromHeader)) {
-                            identifyZeroCarrier(xCarrierFromHeader, xCarrierMetaFromHeader);
+                            identifyZeroCarrier(xCarrierFromHeader, StringUtils.defaultString(xCarrierMetaFromHeader));
                         }
                     } else if (zeroEnabled) {
                         zeroOff();

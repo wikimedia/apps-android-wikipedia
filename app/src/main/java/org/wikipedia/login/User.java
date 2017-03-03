@@ -90,7 +90,7 @@ public class User {
     }
 
     @NonNull public String getUserIDLang() {
-        return StringUtils.defaultString(userIDLang, "");
+        return StringUtils.defaultString(userIDLang);
     }
 
     public void setUserID(int id) {

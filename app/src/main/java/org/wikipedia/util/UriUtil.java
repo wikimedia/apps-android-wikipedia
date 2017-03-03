@@ -8,6 +8,7 @@ import android.support.annotation.StringRes;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
@@ -17,7 +18,6 @@ import org.wikipedia.zero.WikipediaZeroHandler;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.zero.WikipediaZeroHandler.showZeroExitInterstitialDialog;
 
 public final class UriUtil {
@@ -84,7 +84,7 @@ public final class UriUtil {
                 .getWikipediaZeroHandler();
 
         if (!zeroHandler.isZeroEnabled()) {
-            if (!defaultString(zeroHandler.getXCarrier()).equals("")) {
+            if (!StringUtils.isEmpty(zeroHandler.getXCarrier())) {
                 // User is potentially zero-rated based on IP, but not on a whitelisted wiki (this
                 // is rare)
                 zeroHandler.getZeroFunnel().logExtLink();
