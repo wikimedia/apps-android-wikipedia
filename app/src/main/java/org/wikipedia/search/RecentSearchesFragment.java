@@ -138,7 +138,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-            return getLayoutInflater(null).inflate(R.layout.item_search_recent, viewGroup, false);
+            return LayoutInflater.from(getActivity()).inflate(R.layout.item_search_recent, viewGroup, false);
         }
 
         @Override

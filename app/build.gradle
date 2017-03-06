@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 
 import com.android.build.gradle.internal.dsl.ProductFlavor
 import com.android.ddmlib.DdmPreferences
@@ -40,15 +39,17 @@ final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_7
 android {
     // Keep version in sync with /project.properties
     compileSdkVersion 25
-
     buildToolsVersion '25.0.2'
+
     compileOptions {
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
     }
+
     dexOptions {
         preDexLibraries = preDexEnabled
     }
+
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 16
@@ -197,7 +198,7 @@ dependencies {
     compile 'net.hockeyapp.android:HockeySDK:4.0.1'
     compile 'org.apache.commons:commons-lang3:3.5'
 
-    apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
     android.productFlavors.each { flavor ->
         String dep

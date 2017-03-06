@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
@@ -60,7 +61,7 @@ public class CardHeaderView extends FrameLayout {
                 new int[][]{new int[]{}},
                 new int[]{ContextCompat.getColor(getContext(), color)}
         );
-        imageView.setSupportBackgroundTintList(colorStateList);
+        ViewCompat.setBackgroundTintList(imageView, colorStateList);
         return this;
     }
 

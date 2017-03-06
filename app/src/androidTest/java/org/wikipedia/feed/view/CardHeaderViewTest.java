@@ -3,7 +3,8 @@ package org.wikipedia.feed.view;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.test.filters.SmallTest;
-import android.support.v4.view.TintableBackgroundView;
+import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.AppCompatImageView;
 import android.widget.ImageView;
 
 import org.junit.Test;
@@ -106,10 +107,10 @@ import static org.mockito.Mockito.mock;
     @Test public void testSetImageCircleColor() {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT, PrimaryTestImg.NONNULL,
                 PrimaryTestStr.SHORT, SecondaryTestStr.SHORT, BLUE);
-        TintableBackgroundView imageView = findById(subject, R.id.view_card_header_image);
-        imageView.setSupportBackgroundTintList(null);
+        AppCompatImageView imageView = findById(subject, R.id.view_card_header_image);
+        ViewCompat.setBackgroundTintList(imageView, null);
         subject.setImageCircleColor(BLUE);
-        assertThat(imageView.getSupportBackgroundTintList(), notNullValue());
+        assertThat(ViewCompat.getBackgroundTintList(imageView), notNullValue());
     }
 
     @Theory public void testSetTitleStr(@NonNull PrimaryTestStr text) {
