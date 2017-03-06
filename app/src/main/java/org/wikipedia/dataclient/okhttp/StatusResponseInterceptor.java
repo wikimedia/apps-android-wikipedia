@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.okhttp.util.HttpUrlUtil;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.settings.RbSwitch;
 
 import java.io.IOException;
@@ -31,11 +30,7 @@ public class StatusResponseInterceptor implements Interceptor {
             throw t;
         }
 
-        if (rsp != null && rsp.isSuccessful()) {
-            success(url);
-        } else {
-            failure(url, rsp == null ? null : RetrofitException.httpError(rsp));
-        }
+        success(url);
 
         return rsp;
     }

@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.util.log.L;
@@ -35,20 +34,16 @@ public class UserIdClient {
         call.enqueue(new retrofit2.Callback<MwQueryResponse<QueryUserInfo>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<QueryUserInfo>> call, Response<MwQueryResponse<QueryUserInfo>> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().success()) {
-                        // noinspection ConstantConditions
-                        int userId = response.body().query().userInfo().id();
-                        cb.success(call, userId);
-                        L.v("Found user ID: " + userId);
-                    } else if (response.body().hasError()) {
-                        // noinspection ConstantConditions
-                        cb.failure(call, new MwException(response.body().getError()));
-                    } else {
-                        cb.failure(call, new IOException("An unknown error occurred."));
-                    }
+                if (response.body().success()) {
+                    // noinspection ConstantConditions
+                    int userId = response.body().query().userInfo().id();
+                    cb.success(call, userId);
+                    L.v("Found user ID: " + userId);
+                } else if (response.body().hasError()) {
+                    // noinspection ConstantConditions
+                    cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 

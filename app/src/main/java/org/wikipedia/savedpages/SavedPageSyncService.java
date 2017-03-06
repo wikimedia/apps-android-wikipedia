@@ -155,12 +155,10 @@ public class SavedPageSyncService extends IntentService {
         Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
 
         try {
-            if (response.isSuccessful()) {
-                InputStream stream = response.body().byteStream();
-                writeFile(stream, file);
-                L.v("downloaded image " + url + " to " + file.getAbsolutePath());
-                return true;
-            }
+            InputStream stream = response.body().byteStream();
+            writeFile(stream, file);
+            L.v("downloaded image " + url + " to " + file.getAbsolutePath());
+            return true;
         } catch (Exception e) {
             L.e("could not download image " + url, e);
         } finally {

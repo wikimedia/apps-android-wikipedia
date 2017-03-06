@@ -6,6 +6,7 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.test.MockWebServerTest;
 
 import java.util.Set;
@@ -49,7 +50,7 @@ public class UserExtendedInfoClientTest extends MockWebServerTest {
         Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call = request(cb);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, LoginClient.LoginFailedException.class);
+        assertCallbackFailure(call, cb, HttpStatusException.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {

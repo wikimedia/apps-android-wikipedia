@@ -11,7 +11,6 @@ import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbDefinition;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 
 import java.io.IOException;
 import java.util.Map;
@@ -36,24 +35,13 @@ public class RbPageClient implements PageClient {
     public void pageSummary(final String title, final PageSummary.Callback cb) {
         Call<RbPageSummary> call = service.pageSummary(title);
         call.enqueue(new Callback<RbPageSummary>() {
-            /**
-             * Invoked for a received HTTP response.
-             * <p/>
-             * Note: An HTTP response may still indicate an application-level failure such as a 404 or 500.
-             * Call {@link Response#isSuccessful()} to determine if the response indicates success.
-             */
             @Override
             public void onResponse(Call<RbPageSummary> call, Response<RbPageSummary> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() == null) {
-                        cb.failure(new JsonParseException("Response missing required field(s)"));
-                        return;
-                    }
-                    cb.success(response.body());
-                } else {
-                    Throwable throwable = RetrofitException.httpError(response);
-                    cb.failure(throwable);
+                if (response.body() == null) {
+                    cb.failure(new JsonParseException("Response missing required field(s)"));
+                    return;
                 }
+                cb.success(response.body());
             }
 
             /**
@@ -74,14 +62,9 @@ public class RbPageClient implements PageClient {
         call.enqueue(new Callback<RbPageLead>() {
             @Override
             public void onResponse(Call<RbPageLead> call, Response<RbPageLead> response) {
-                if (response.isSuccessful()) {
-                    RbPageLead pageLead = response.body();
-                    pageLead.setLeadImageThumbWidth(leadImageThumbWidth);
-                    cb.success(pageLead);
-                } else {
-                    Throwable throwable = RetrofitException.httpError(response);
-                    cb.failure(throwable);
-                }
+                RbPageLead pageLead = response.body();
+                pageLead.setLeadImageThumbWidth(leadImageThumbWidth);
+                cb.success(pageLead);
             }
 
             @Override
@@ -97,12 +80,7 @@ public class RbPageClient implements PageClient {
         call.enqueue(new Callback<RbPageRemaining>() {
             @Override
             public void onResponse(Call<RbPageRemaining> call, Response<RbPageRemaining> response) {
-                if (response.isSuccessful()) {
-                    cb.success(response.body());
-                } else {
-                    Throwable throwable = RetrofitException.httpError(response);
-                    cb.failure(throwable);
-                }
+                cb.success(response.body());
             }
 
             @Override
@@ -115,7 +93,7 @@ public class RbPageClient implements PageClient {
     @Override
     public RbPageCombo pageCombo(String title, boolean noImages) throws IOException {
         Response<RbPageCombo> rsp = service.pageCombo(title, optional(noImages)).execute();
-        if (rsp.isSuccessful() && !rsp.body().hasError()) {
+        if (!rsp.body().hasError()) {
             return rsp.body();
         }
         ServiceError err = rsp.body() == null || rsp.body().getError() == null
@@ -134,16 +112,11 @@ public class RbPageClient implements PageClient {
             @Override
             public void onResponse(@NonNull Call<Map<String, RbDefinition.Usage[]>> call,
                                    @NonNull Response<Map<String, RbDefinition.Usage[]>> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() == null) {
-                        cb.failure(new JsonParseException("Response missing required fields"));
-                        return;
-                    }
-                    cb.success(new RbDefinition(response.body()));
-                } else {
-                    Throwable throwable = RetrofitException.httpError(response);
-                    cb.failure(throwable);
+                if (response.body() == null) {
+                    cb.failure(new JsonParseException("Response missing required fields"));
+                    return;
                 }
+                cb.success(new RbDefinition(response.body()));
             }
 
             @Override

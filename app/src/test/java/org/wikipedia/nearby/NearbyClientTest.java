@@ -9,7 +9,7 @@ import org.mockito.ArgumentCaptor;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.test.MockWebServerTest;
 
 import retrofit2.Call;
@@ -112,7 +112,7 @@ public class NearbyClientTest extends MockWebServerTest {
         Call<MwQueryResponse<Nearby>> call = request(cb);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, RetrofitException.class);
+        assertCallbackFailure(call, cb, HttpStatusException.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {

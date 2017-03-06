@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.io.IOException;
@@ -36,18 +35,14 @@ class CreateAccountInfoClient {
             @Override
             public void onResponse(Call<MwQueryResponse<CreateAccountInfo>> call,
                                    Response<MwQueryResponse<CreateAccountInfo>> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().success()) {
-                        String token = response.body().query().token();
-                        String captchaId = response.body().query().captchaId();
-                        cb.success(call, new CreateAccountInfoResult(token, captchaId));
-                    } else if (response.body().hasError()) {
-                        cb.failure(call, new MwException(response.body().getError()));
-                    } else {
-                        cb.failure(call, new IOException("An unknown error occurred."));
-                    }
+                if (response.body().success()) {
+                    String token = response.body().query().token();
+                    String captchaId = response.body().query().captchaId();
+                    cb.success(call, new CreateAccountInfoResult(token, captchaId));
+                } else if (response.body().hasError()) {
+                    cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 

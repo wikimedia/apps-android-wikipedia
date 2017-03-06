@@ -12,7 +12,6 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
@@ -81,22 +80,18 @@ public class BecauseYouReadClient implements FeedClient {
             @Override
             public void onResponse(Call<MwQueryResponse<Pages>> call,
                                    Response<MwQueryResponse<Pages>> response) {
-                if (response.isSuccessful()) {
-                    MwQueryResponse<Pages> pages = response.body();
-                    if (pages.success() && pages.query().results(entry.getTitle().getWikiSite()) != null) {
-                        SearchResults results = SearchResults.filter(pages.query().results(entry.getTitle().getWikiSite()), entry.getTitle().getText(), false);
-                        List<BecauseYouReadItemCard> itemCards = new ArrayList<>();
-                        for (SearchResult result : results.getResults()) {
-                            itemCards.add(new BecauseYouReadItemCard(result.getPageTitle()));
-                        }
-                        cb.success(Collections.singletonList((Card) new BecauseYouReadCard(entry, itemCards)));
-                    } else if (pages.hasError()) {
-                        cb.error(new MwException(pages.getError()));
-                    } else {
-                        cb.error(new IOException("Error fetching suggestions."));
+                MwQueryResponse<Pages> pages = response.body();
+                if (pages.success() && pages.query().results(entry.getTitle().getWikiSite()) != null) {
+                    SearchResults results = SearchResults.filter(pages.query().results(entry.getTitle().getWikiSite()), entry.getTitle().getText(), false);
+                    List<BecauseYouReadItemCard> itemCards = new ArrayList<>();
+                    for (SearchResult result : results.getResults()) {
+                        itemCards.add(new BecauseYouReadItemCard(result.getPageTitle()));
                     }
+                    cb.success(Collections.singletonList((Card) new BecauseYouReadCard(entry, itemCards)));
+                } else if (pages.hasError()) {
+                    cb.error(new MwException(pages.getError()));
                 } else {
-                    cb.error(RetrofitException.httpError(response));
+                    cb.error(new IOException("Error fetching suggestions."));
                 }
             }
 

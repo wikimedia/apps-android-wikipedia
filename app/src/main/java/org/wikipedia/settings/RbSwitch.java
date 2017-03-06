@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.util.ReleaseUtil;
 
@@ -113,15 +114,20 @@ public final class RbSwitch {
      * or a network issue on the client side (RetrofitError.Kind.NETWORK).
      */
     private static boolean isSignificantFailure(@Nullable Throwable throwable) {
-        if (!(throwable instanceof RetrofitException)) {
-            return false;
+        if (throwable instanceof RetrofitException) {
+            RetrofitException error = (RetrofitException) throwable;
+            if (error.getKind() == RetrofitException.Kind.HTTP) {
+                return error.getCode() != null && error.getCode() != HTTP_NOT_FOUND;
+            }
+            return error.getKind() != RetrofitException.Kind.NETWORK;
         }
 
-        RetrofitException error = (RetrofitException) throwable;
-        if (error.getKind() == RetrofitException.Kind.HTTP) {
-            return error.getCode() != null && error.getCode() != HTTP_NOT_FOUND;
+        if (throwable instanceof HttpStatusException) {
+            HttpStatusException e = (HttpStatusException) throwable;
+            return e.code() != HTTP_NOT_FOUND;
         }
-        return error.getKind() != RetrofitException.Kind.NETWORK;
+
+        return false;
     }
 
     private static void markRbFailed() {

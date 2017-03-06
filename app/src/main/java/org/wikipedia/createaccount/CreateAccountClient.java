@@ -8,7 +8,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.io.IOException;
@@ -47,21 +46,17 @@ class CreateAccountClient {
         call.enqueue(new retrofit2.Callback<CreateAccountResponse>() {
             @Override
             public void onResponse(Call<CreateAccountResponse> call, Response<CreateAccountResponse> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().hasResult()) {
-                        CreateAccountResponse result = response.body();
-                        if ("PASS".equals(result.status())) {
-                            cb.success(call, new CreateAccountSuccessResult(result.user()));
-                        } else {
-                            cb.failure(call, new CreateAccountException(result.message()));
-                        }
-                    } else if (response.body().hasError()) {
-                        cb.failure(call, new MwException(response.body().getError()));
+                if (response.body().hasResult()) {
+                    CreateAccountResponse result = response.body();
+                    if ("PASS".equals(result.status())) {
+                        cb.success(call, new CreateAccountSuccessResult(result.user()));
                     } else {
-                        cb.failure(call, new IOException("An unknown error occurred."));
+                        cb.failure(call, new CreateAccountException(result.message()));
                     }
+                } else if (response.body().hasError()) {
+                    cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 

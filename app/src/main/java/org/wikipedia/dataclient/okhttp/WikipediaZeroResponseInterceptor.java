@@ -19,7 +19,7 @@ public class WikipediaZeroResponseInterceptor implements Interceptor {
     @Override public Response intercept(Chain chain) throws IOException {
         Response rsp = chain.proceed(chain.request());
         boolean zeroConfigRequest = "zeroconfig".equals(chain.request().url().queryParameter("action"));
-        if (rsp.isSuccessful() && rsp.networkResponse() != null && !zeroConfigRequest) {
+        if (rsp.networkResponse() != null && !zeroConfigRequest) {
             cb.onHeaderCheck(rsp.headers());
         }
         return rsp;

@@ -8,7 +8,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.util.ArrayList;
@@ -48,20 +47,16 @@ class NearbyClient {
             @Override
             public void onResponse(Call<MwQueryResponse<Nearby>> call,
                                    Response<MwQueryResponse<Nearby>> response) {
-                if (response.isSuccessful()) {
-                    // The API results here are unusual in that, if there are no valid results, the
-                    // response won't even have a "query" key.  Nor will we receive an error.
-                    // Accordingly, let's assume that we just got an empty result set unless the
-                    // API explicitly tells us we have an error.
-                    if (response.body().success()) {
-                        cb.success(call, new NearbyResult(wiki, response.body().query().list()));
-                    } else if (response.body().hasError()) {
-                        cb.failure(call, new MwException(response.body().getError()));
-                    } else {
-                        cb.success(call, new NearbyResult(wiki, new ArrayList<NearbyPage>()));
-                    }
+                // The API results here are unusual in that, if there are no valid results, the
+                // response won't even have a "query" key.  Nor will we receive an error.
+                // Accordingly, let's assume that we just got an empty result set unless the
+                // API explicitly tells us we have an error.
+                if (response.body().success()) {
+                    cb.success(call, new NearbyResult(wiki, response.body().query().list()));
+                } else if (response.body().hasError()) {
+                    cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.success(call, new NearbyResult(wiki, new ArrayList<NearbyPage>()));
                 }
             }
 

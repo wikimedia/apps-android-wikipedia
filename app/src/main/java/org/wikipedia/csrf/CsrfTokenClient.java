@@ -7,7 +7,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import java.io.IOException;
@@ -30,18 +29,14 @@ public class CsrfTokenClient {
         call.enqueue(new retrofit2.Callback<MwQueryResponse<CsrfToken>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<CsrfToken>> call, Response<MwQueryResponse<CsrfToken>> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().success()) {
-                        // noinspection ConstantConditions
-                        cb.success(call, response.body().query().token());
-                    } else if (response.body().hasError()) {
-                        // noinspection ConstantConditions
-                        cb.failure(call, new MwException(response.body().getError()));
-                    } else {
-                        cb.failure(call, new IOException("An unknown error occurred."));
-                    }
+                if (response.body().success()) {
+                    // noinspection ConstantConditions
+                    cb.success(call, response.body().query().token());
+                } else if (response.body().hasError()) {
+                    // noinspection ConstantConditions
+                    cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 

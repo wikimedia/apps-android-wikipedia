@@ -7,7 +7,6 @@ import com.google.gson.JsonParseException;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import retrofit2.Call;
@@ -58,15 +57,11 @@ class ZeroConfigClient {
         @Override
         public void onResponse(@NonNull Call<ZeroConfig> call,
                                @NonNull Response<ZeroConfig> response) {
-            if (response.isSuccessful()) {
-                if (response.body() == null) {
-                    cb.failure(call, new JsonParseException("Response missing required field(s)"));
-                    return;
-                }
-                cb.success(call, response.body());
-            } else {
-                cb.failure(call, RetrofitException.httpError(response));
+            if (response.body() == null) {
+                cb.failure(call, new JsonParseException("Response missing required field(s)"));
+                return;
             }
+            cb.success(call, response.body());
         }
 
         @Override

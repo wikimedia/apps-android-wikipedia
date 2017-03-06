@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 
 import okhttp3.Dispatcher;
@@ -48,7 +49,7 @@ public abstract class MockWebServerTest {
     }
 
     @NonNull public <T> T service(Class<T> clazz, @NonNull String url) {
-        OkHttpClient okHttp = new OkHttpClient.Builder()
+        OkHttpClient okHttp = OkHttpConnectionFactory.getClient().newBuilder()
                 .dispatcher(new Dispatcher(new ImmediateExecutorService()))
                 .build();
         return new Retrofit.Builder()

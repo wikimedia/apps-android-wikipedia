@@ -8,7 +8,6 @@ import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 
@@ -47,19 +46,15 @@ class EditClient {
         call.enqueue(new retrofit2.Callback<Edit>() {
             @Override
             public void onResponse(Call<Edit> call, Response<Edit> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().hasEditResult()) {
-                        handleEditResult(response.body().edit(), call, cb);
-                    } else if (response.body().hasError()) {
-                        RuntimeException e = response.body().badLoginState()
-                                ? new UserNotLoggedInException()
-                                : new MwException(response.body().getError());
-                        cb.failure(call, e);
-                    } else {
-                        cb.failure(call, new IOException("An unknown error occurred."));
-                    }
+                if (response.body().hasEditResult()) {
+                    handleEditResult(response.body().edit(), call, cb);
+                } else if (response.body().hasError()) {
+                    RuntimeException e = response.body().badLoginState()
+                            ? new UserNotLoggedInException()
+                            : new MwException(response.body().getError());
+                    cb.failure(call, e);
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 

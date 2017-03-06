@@ -14,7 +14,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.log.L;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,17 +78,12 @@ public class AnnouncementClient implements FeedClient {
 
         @Override public void onResponse(Call<AnnouncementList> call,
                                          Response<AnnouncementList> response) {
-            if (response.isSuccessful()) {
-                List<Card> cards = new ArrayList<>();
-                AnnouncementList content = response.body();
-                if (content != null) {
-                    cards.addAll(buildCards(content.items()));
-                }
-                cb.success(cards);
-            } else {
-                L.v(response.message());
-                cb.error(new IOException(response.message()));
+            List<Card> cards = new ArrayList<>();
+            AnnouncementList content = response.body();
+            if (content != null) {
+                cards.addAll(buildCards(content.items()));
             }
+            cb.success(cards);
         }
 
         @Override public void onFailure(Call<AnnouncementList> call, Throwable caught) {

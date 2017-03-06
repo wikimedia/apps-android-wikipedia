@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockWebServerTest;
 
@@ -53,7 +53,7 @@ public class WikitextClientTest extends MockWebServerTest {
         Call<MwQueryResponse<Wikitext>> call = request(cb);
 
         server().takeRequest();
-        assertCallbackFailure(call, cb, RetrofitException.class);
+        assertCallbackFailure(call, cb, HttpStatusException.class);
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {

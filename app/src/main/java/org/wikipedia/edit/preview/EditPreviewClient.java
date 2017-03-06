@@ -6,7 +6,6 @@ import android.support.annotation.VisibleForTesting;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 
@@ -34,16 +33,12 @@ class EditPreviewClient {
         call.enqueue(new retrofit2.Callback<EditPreview>() {
             @Override
             public void onResponse(Call<EditPreview> call, Response<EditPreview> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().success() && response.body().hasPreviewResult()) {
-                        cb.success(call, response.body().result());
-                    } else if (response.body().hasError()) {
-                        cb.failure(call, new MwException(response.body().getError()));
-                    } else {
-                        cb.failure(call, new IOException("An unknown error occurred."));
-                    }
+                if (response.body().success() && response.body().hasPreviewResult()) {
+                    cb.success(call, response.body().result());
+                } else if (response.body().hasError()) {
+                    cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response));
+                    cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 

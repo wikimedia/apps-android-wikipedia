@@ -39,7 +39,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     @Override
     public UserInfo get() throws IOException {
         Response<MwQueryResponse<QueryUserInfo>> rsp = service.get().execute();
-        if (rsp.isSuccessful() && rsp.body().success()) {
+        if (rsp.body().success()) {
             //noinspection ConstantConditions
             return rsp.body().query().userInfo();
         }
@@ -52,15 +52,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     @Override
     public void post(@NonNull UserOption option) throws IOException {
         Response<PostResponse> rsp = service.post(getToken(), option.key(), option.val()).execute();
-        if (rsp.isSuccessful()) {
-            rsp.body().check(wiki);
-            return;
-        }
-
-        String msg = rsp.body() == null || rsp.body().info() == null
-                ? rsp.message()
-                : rsp.body().info();
-        throw new IOException(msg);
+        rsp.body().check(wiki);
     }
 
     @Override

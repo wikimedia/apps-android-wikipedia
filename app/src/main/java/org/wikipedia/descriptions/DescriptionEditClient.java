@@ -85,20 +85,15 @@ public class DescriptionEditClient {
             @Override
             public void onResponse(Call<DescriptionEdit> call,
                                    Response<DescriptionEdit> response) {
-                if (response.isSuccessful()) {
-                    final DescriptionEdit body = response.body();
-                    if (body.editWasSuccessful()) {
-                        cb.success(call);
-                    } else if (body.hasError()) {
-                        handleError(call, body, cb);
-                    } else {
-                        cb.failure(call,
-                                RetrofitException.unexpectedError(new RuntimeException(
-                                "Received unrecognized description edit response")));
-                    }
+                final DescriptionEdit body = response.body();
+                if (body.editWasSuccessful()) {
+                    cb.success(call);
+                } else if (body.hasError()) {
+                    handleError(call, body, cb);
                 } else {
                     cb.failure(call,
-                            RetrofitException.httpError(response));
+                            RetrofitException.unexpectedError(new RuntimeException(
+                                    "Received unrecognized description edit response")));
                 }
             }
 
