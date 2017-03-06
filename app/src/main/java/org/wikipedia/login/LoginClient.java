@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -30,7 +31,7 @@ import retrofit2.http.POST;
  * Responsible for making login related requests to the server.
  */
 public class LoginClient {
-    @NonNull private final MwCachedService<Service> cachedService
+    @NonNull private final WikiCachedService<Service> cachedService
             = new MwCachedService<>(Service.class);
 
     @Nullable private Call<MwQueryResponse<LoginToken>> tokenCall;

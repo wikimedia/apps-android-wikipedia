@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 
 import retrofit2.Call;
@@ -19,7 +20,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public class WikitextClient {
-    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public Call<MwQueryResponse<Wikitext>> request(@NonNull final WikiSite wiki, @NonNull final PageTitle title,
                                                    final int sectionID, @NonNull final Callback cb) {

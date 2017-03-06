@@ -8,6 +8,7 @@ import com.google.gson.JsonParseException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.dataclient.retrofit.RbCachedService;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
@@ -18,7 +19,7 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 
 public class RandomSummaryClient {
-    @NonNull private final RbCachedService<Service> cachedService
+    @NonNull private final WikiCachedService<Service> cachedService
             = new RbCachedService<>(Service.class);
 
     public Call<RbPageSummary> request(@NonNull WikiSite wiki, @NonNull Callback cb) {

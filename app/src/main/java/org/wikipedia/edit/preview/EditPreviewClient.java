@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 class EditPreviewClient {
-    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     Call<EditPreview> request(@NonNull WikiSite wiki, @NonNull PageTitle title,
                               @NonNull String wikitext, @NonNull Callback cb) {

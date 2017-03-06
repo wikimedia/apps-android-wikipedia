@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.util.log.L;
 
@@ -18,12 +19,12 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 
 public class UserIdClient {
-    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-
     public interface Callback {
         void success(@NonNull Call<MwQueryResponse<QueryUserInfo>> call, int userId);
         void failure(@NonNull Call<MwQueryResponse<QueryUserInfo>> call, @NonNull Throwable caught);
     }
+
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public Call<MwQueryResponse<QueryUserInfo>> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
         return request(cachedService.service(wiki), cb);

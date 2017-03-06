@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
@@ -34,7 +35,7 @@ import retrofit2.http.Query;
 public class BecauseYouReadClient implements FeedClient {
     private static final String MORELIKE = "morelike:";
 
-    @NonNull private final MwCachedService<MwApiSearchClient> cachedService = new MwCachedService<>(MwApiSearchClient.class);
+    @NonNull private final WikiCachedService<MwApiSearchClient> cachedService = new MwCachedService<>(MwApiSearchClient.class);
 
     @Nullable private MainPageReadMoreTopicTask readMoreTopicTask;
     @Nullable private Call<MwQueryResponse<Pages>> readMoreCall;

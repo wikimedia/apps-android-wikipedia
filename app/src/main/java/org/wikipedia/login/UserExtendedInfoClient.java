@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.util.log.L;
 
@@ -27,7 +28,7 @@ import retrofit2.http.Query;
  * Retrofit DataClient to retrieve implicit user info and group membership information for a specific user.
  */
 class UserExtendedInfoClient {
-    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     @Nullable private Call<MwQueryResponse<QueryResult>> groupCall;
 

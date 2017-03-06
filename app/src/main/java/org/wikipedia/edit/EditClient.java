@@ -9,6 +9,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.page.PageTitle;
 
 import java.io.IOException;
@@ -20,12 +21,12 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 class EditClient {
-    @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-
     public interface Callback {
         void success(@NonNull Call<Edit> call, @NonNull EditResult result);
         void failure(@NonNull Call<Edit> call, @NonNull Throwable caught);
     }
+
+    @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     @SuppressWarnings("checkstyle:parameternumber")
     public Call<Edit> request(@NonNull WikiSite wiki, @NonNull PageTitle title, int section,

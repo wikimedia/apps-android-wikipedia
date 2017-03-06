@@ -8,6 +8,7 @@ import com.google.gson.JsonParseException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -21,7 +22,7 @@ import retrofit2.http.Query;
  * longer use for caching reasons.
  */
 class ZeroConfigClient {
-    @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
+    @NonNull private WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public Call<ZeroConfig> request(@NonNull WikiSite wiki, @NonNull String userAgent,
                                     @NonNull Callback cb) {
