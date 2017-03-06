@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.wikipedia.R;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 
 import java.util.concurrent.TimeUnit;
@@ -116,7 +117,9 @@ public final class FeedbackUtil {
     }
 
     private static View findBestView(Activity activity) {
-        if (activity instanceof PageActivity) {
+        if (activity instanceof MainActivity) {
+            return activity.findViewById(R.id.fragment_main_container);
+        } else if (activity instanceof PageActivity) {
             return activity.findViewById(R.id.page_contents_container);
         } else {
             return activity.findViewById(android.R.id.content);

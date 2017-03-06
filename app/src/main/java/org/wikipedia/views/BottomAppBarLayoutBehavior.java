@@ -3,11 +3,13 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 
 public final class BottomAppBarLayoutBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
@@ -21,6 +23,7 @@ public final class BottomAppBarLayoutBehavior<V extends View> extends Coordinato
     private int scrollDirection = SCROLL_DIRECTION_NONE;
     private boolean hidden = false;
     private ViewPropertyAnimatorCompat offsetValueAnimator;
+    private boolean snackBarShowing = false;
 
     public BottomAppBarLayoutBehavior() { }
 
@@ -71,6 +74,34 @@ public final class BottomAppBarLayoutBehavior<V extends View> extends Coordinato
         return true;
     }
 
+    @Override
+    public boolean layoutDependsOn(CoordinatorLayout parent, V child, View dependency) {
+        if (dependency instanceof Snackbar.SnackbarLayout) {
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) dependency.getLayoutParams();
+            layoutParams.bottomMargin = child.getMeasuredHeight();
+            child.bringToFront();
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onDependentViewRemoved(CoordinatorLayout parent, V child, View dependency) {
+        if (dependency instanceof Snackbar.SnackbarLayout) {
+            snackBarShowing = false;
+        }
+        super.onDependentViewRemoved(parent, child, dependency);
+    }
+
+    @Override
+    public boolean onDependentViewChanged(CoordinatorLayout parent, V child, View dependency) {
+        if ((dependency instanceof Snackbar.SnackbarLayout) && !snackBarShowing) {
+            snackBarShowing = true;
+            show(child);
+        }
+        return super.onDependentViewChanged(parent, child, dependency);
+    }
+
     public void show(@NonNull V child) {
         ensureOrCancelAnimator(child);
         offsetValueAnimator.translationY(0).start();
@@ -78,6 +109,9 @@ public final class BottomAppBarLayoutBehavior<V extends View> extends Coordinato
     }
 
     public void hide(@NonNull V child) {
+        if (snackBarShowing) {
+            return;
+        }
         ensureOrCancelAnimator(child);
         offsetValueAnimator.translationY(child.getHeight()).start();
         hidden = true;
