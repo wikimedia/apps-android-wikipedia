@@ -256,7 +256,7 @@
   <string name="reading_list_sort_by_recent">Сортування по даті (останні)</string>
   <string name="reading_list_sort_by_recent_desc">Сортувати по даті (старі)</string>
   <string name="reading_list_menu_edit">Редагування списку читання</string>
-  <string name="reading_list_menu_delete">Видалити список читання</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Видалити список читання</string>
   <string name="reading_list_name_sample">Мій список для читання</string>
   <string name="reading_list_name_hint">Назва цього списку</string>
   <string name="reading_list_description_hint">Опис (за бажанням)</string>

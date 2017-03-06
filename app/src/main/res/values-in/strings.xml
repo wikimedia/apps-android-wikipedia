@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi sebagian.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
   <string name="page_protected_other">Halaman ini telah dilindungi dengan tingkat sebagai berikut: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Anda tidak memiliki hak untuk menyunting halaman ini</string>
+  <string name="page_protected_can_not_edit">Maaf, akun Anda tidak memiliki cukup hak untuk menyunting halaman ini pada saat ini.</string>
+  <string name="page_protected_can_not_edit_anon">Maaf, halaman ini tidak dapat disunting secara anonim pada saat ini.</string>
   <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
   <string name="settings_item_preferences">Pengaturan</string>
   <string name="settings_activity_title">Pengaturan</string>
@@ -231,6 +232,7 @@
   <string name="error_voice_search_not_available">Maaf, pengenalan suara tidak tersedia.</string>
   <string name="location_service_disabled">Layanan lokasi dinonaktifkan.</string>
   <string name="enable_location_service">Aktifkan</string>
+  <string name="error_webview_updating">TampilanWeb Sistem Android saat ini sedang diperbarui. Silakan coba beberapa saat lagi.</string>
   <string name="crash_report_dialog_title">Maaf, aplikasi berhenti dengan sendirinya</string>
   <string name="crash_report_dialog_text">Apakah Anda ingin mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga sehingga Wikimedia dapat meninjau kerusakan Anda dan memperbaiki kesalahan yang disebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Lewati</string>
@@ -266,7 +268,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_sort_by_recent">Urutkan berdasarkan yang terbaru</string>
   <string name="reading_list_sort_by_recent_desc">Urutkan berdasarkan yang terlama</string>
   <string name="reading_list_menu_edit">Sunting rincian daftar bacaan</string>
-  <string name="reading_list_menu_delete">Hapus daftar bacaan</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Hapus daftar bacaan</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
   <string name="reading_list_name_hint">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
@@ -301,6 +303,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_card_subtitle">Baca sembarang artikel dari Wikipedia</string>
+  <string name="view_random_card_error">Tidak dapat memuat halaman acak dari jaringan atau daftar bacaan Anda.</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
   <string name="view_main_page_card_subtitle">Halaman utama pada %s</string>
   <string name="view_featured_image_card_title">Gambar pilihan</string>

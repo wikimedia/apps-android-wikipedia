@@ -259,7 +259,7 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="reading_list_sort_by_recent">Classificar por mais recente</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar pelo menos recente</string>
   <string name="reading_list_menu_edit">Editar detalhes da lista de leitura</string>
-  <string name="reading_list_menu_delete">Excluir lista de leitura</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Excluir lista de leitura</string>
   <string name="reading_list_name_sample">Minha lista de leitura</string>
   <string name="reading_list_name_hint">Nome da lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>

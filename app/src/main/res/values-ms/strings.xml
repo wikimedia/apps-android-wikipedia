@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Laman ini telah diberi perlindungan separa.</string>
   <string name="page_protected_sysop">Laman ini telah diberi perlindungan sepenuhnya.</string>
   <string name="page_protected_other">Laman ini telah diberi perlindungan pada tahap-tahap: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Anda tiada hak utuk menyunting laman ini</string>
+  <string name="page_protected_can_not_edit">Maaf, akaun anda tidak mempunyai keistimewaan yang mencukupi untuk menyunting laman ini pada masa ini.</string>
+  <string name="page_protected_can_not_edit_anon">Maaf, halaman ini tidak boleh disunting tanpa nama pada masa ini.</string>
   <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
   <string name="settings_item_preferences">Tetapan</string>
   <string name="settings_activity_title">Tetapan</string>
@@ -231,6 +232,7 @@
   <string name="error_voice_search_not_available">Maaf, pengenalan undi tidak tersedia.</string>
   <string name="location_service_disabled">Perkhidmatan lokasi dilumpuhkan.</string>
   <string name="enable_location_service">Hidupkan</string>
+  <string name="error_webview_updating">Android System WebView sedang dikemaskini. Sila cuba lagi dalam seketika.</string>
   <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
   <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Langkau</string>
@@ -264,7 +266,7 @@
   <string name="reading_list_sort_by_recent">Isih ikut yang terbaru</string>
   <string name="reading_list_sort_by_recent_desc">Isih ikut yang terlama</string>
   <string name="reading_list_menu_edit">Sunting butiran senarai bacaan</string>
-  <string name="reading_list_menu_delete">Padam senarai bacaan</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Padam senarai bacaan</string>
   <string name="reading_list_name_sample">Senarai bacaan saya</string>
   <string name="reading_list_name_hint">Nama senarai ini</string>
   <string name="reading_list_description_hint">Keterangan (tidak wajib)</string>
@@ -299,6 +301,7 @@
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
   <string name="view_random_card_subtitle">Baca sembarang rencana dari Wikipedia</string>
+  <string name="view_random_card_error">Tidak dapat memuatkan halaman rawak daripada rangkaian atau senarai bacaan anda.</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
   <string name="view_main_page_card_subtitle">Laman utama pada %s</string>
   <string name="view_featured_image_card_title">Gambar pilihan</string>

@@ -216,7 +216,7 @@ Wells De se neu aanfange udder ophühre?</string>
   <string name="reading_list_sort">Zottehre</string>
   <string name="reading_list_sort_by_name">Nohm Nahme</string>
   <string name="reading_list_sort_by_recent">Nohm Dattom</string>
-  <string name="reading_list_menu_delete">Schmiiß heh di Leß zom Lässe fott</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Schmiiß heh di Leß zom Lässe fott</string>
   <string name="reading_list_name_sample">Ming Leß zom Lässe</string>
   <string name="reading_list_name_hint">Der Nahme vun heh dä Leß</string>
   <string name="reading_list_save_for_offline">Parraht för et Lässe der ohne Internet</string>

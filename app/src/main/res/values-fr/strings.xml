@@ -126,7 +126,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
   <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
   <string name="page_protected_other">Cette page a été protégée pour les niveaux suivants : %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Vous n’avez pas les droits pour modifier cette page</string>
+  <string name="page_protected_can_not_edit">Désolé, votre compte n’a pas les droits suffisants pour modifier cette page pour le moment.</string>
+  <string name="page_protected_can_not_edit_anon">Désolé, cette page ne peut pas être modifiée anonymement pour le moment.</string>
   <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
   <string name="settings_item_preferences">Paramètres</string>
   <string name="settings_activity_title">Paramètres</string>
@@ -232,6 +233,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="error_voice_search_not_available">Désolé, la reconnaissance vocale n’est pas disponible.</string>
   <string name="location_service_disabled">Les services de localisation sont désactivés.</string>
   <string name="enable_location_service">Activer</string>
+  <string name="error_webview_updating">Le WebView du système Android est actuellement en cours de mise à jour. Veuillez réessayer dans un moment.</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>
@@ -267,7 +269,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_sort_by_recent">Trier selon les plus récents</string>
   <string name="reading_list_sort_by_recent_desc">Trier selon les moins récents</string>
   <string name="reading_list_menu_edit">Modifier les détails de la liste de lecture</string>
-  <string name="reading_list_menu_delete">Supprimer la liste de lecture</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Supprimer la liste de lecture</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultatif)</string>
@@ -302,6 +304,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>
   <string name="view_random_card_subtitle">Lire un article de Wikipédia au hasard</string>
+  <string name="view_random_card_error">Impossible de charger une page aléatoire depuis le réseau ou vos listes de lecture.</string>
   <string name="view_main_page_card_title">Aujourd\'hui sur Wikipedia</string>
   <string name="view_main_page_card_subtitle">Page principale le %s</string>
   <string name="view_featured_image_card_title">Image du jour</string>

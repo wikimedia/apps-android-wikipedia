@@ -261,7 +261,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_sort_by_recent">Ordenar polas máis recentes</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar polas menos recentes</string>
   <string name="reading_list_menu_edit">Editar os detalles da lista de lectura</string>
-  <string name="reading_list_menu_delete">Eliminar a lista de lectura</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Eliminar a lista de lectura</string>
   <string name="reading_list_name_sample">A miña lista de lectura</string>
   <string name="reading_list_name_hint">Nome desta lista</string>
   <string name="reading_list_description_hint">Descrición (opcional)</string>

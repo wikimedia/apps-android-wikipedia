@@ -264,7 +264,7 @@
   <string name="reading_list_sort_by_recent">Sortiraj po najnovijem</string>
   <string name="reading_list_sort_by_recent_desc">Sortiraj po najstarijem</string>
   <string name="reading_list_menu_edit">Uredi detalje spiska za čitanje</string>
-  <string name="reading_list_menu_delete">Obriši spisak za čitanje</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Obriši spisak za čitanje</string>
   <string name="reading_list_name_sample">Moj spisak za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog spiska</string>
   <string name="reading_list_description_hint">Opis (neobavezno)</string>

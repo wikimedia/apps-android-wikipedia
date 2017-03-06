@@ -254,7 +254,7 @@
   <string name="reading_list_sort_by_recent">မကြာမီကဖြင့် စီစဉ်</string>
   <string name="reading_list_sort_by_recent_desc">အနည်းဆုံး မကြာမီဖြင့် စီစဉ်</string>
   <string name="reading_list_menu_edit">စာဖတ်စာရင်း အသေးစိတ် ပြင်ဆင်ရန်</string>
-  <string name="reading_list_menu_delete">စာဖတ်စာရင်း ဖျက်ရန်</string>
+  <string name="reading_list_menu_delete" fuzzy="true">စာဖတ်စာရင်း ဖျက်ရန်</string>
   <string name="reading_list_name_sample">ကျွန်ုပ်၏ စာဖတ်စာရင်း</string>
   <string name="reading_list_name_hint">ဤစာရင်း၏ အမည်</string>
   <string name="reading_list_description_hint">ဖော်ပြချက် (မထည့်လည်းရသည်)</string>

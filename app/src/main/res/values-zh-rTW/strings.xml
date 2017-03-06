@@ -47,7 +47,7 @@
   <string name="preference_title_language">維基百科語言</string>
   <string name="preference_languages_filter_hint">搜尋</string>
   <string name="langlinks_filter_hint">搜尋</string>
-  <string name="langlinks_empty">此頁面沒有其他語言</string>
+  <string name="langlinks_empty">此頁面沒有其他語言版本。</string>
   <string name="langlinks_no_match">未找到符合您的查詢的語言。</string>
   <string name="langlinks_activity_title">其他語言</string>
   <string name="menu_save_changes">儲存修改</string>
@@ -125,7 +125,7 @@
   <string name="page_protected_autoconfirmed">此頁面已受半保護。</string>
   <string name="page_protected_sysop">此頁面已受全保護。</string>
   <string name="page_protected_other">此頁面已受到以下層級的保護：%s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">您沒有編輯本頁面的權限</string>
+  <string name="page_protected_can_not_edit">很抱歉，目前您的帳號沒有足夠權限來編輯此頁面。</string>
   <string name="page_protected_can_not_edit_anon">抱歉，該頁現在無法暱名編輯。</string>
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
   <string name="settings_item_preferences">設定</string>
@@ -143,13 +143,13 @@
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_app_license_heading">授權條款</string>
   <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;授權。</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
+  <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_abandon_confirm">頁面已被修改。你確定你想要離開而不存儲您的更改？</string>
   <string name="user_blocked_from_editing_title">已封鎖</string>
   <string name="user_logged_in_blocked_from_editing">您的使用者帳號被封鎖，不能編輯此 wiki。</string>
-  <string name="user_anon_blocked_from_editing">您的 IP 位址已被封鎖編輯。</string>
-  <string name="edit_how_page_improved">您要如何改善此頁面？</string>
+  <string name="user_anon_blocked_from_editing">您的 IP 位址已被封鎖，無法編輯。</string>
+  <string name="edit_how_page_improved">您如何改善此頁面？</string>
   <string name="edit_next">下一步</string>
   <string name="edit_done">儲存</string>
   <string name="edit_preview">預覽</string>
@@ -230,8 +230,9 @@
   <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
   <string name="nav_item_donate">支持維基百科</string>
   <string name="error_voice_search_not_available">很抱歉，語音辨識不可用。</string>
-  <string name="location_service_disabled">位置服務為停用。</string>
+  <string name="location_service_disabled">位置服務處於停用狀態。</string>
   <string name="enable_location_service">啟用</string>
+  <string name="error_webview_updating">Android系統的WebView正在更新。請稍候再試。</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
@@ -267,7 +268,7 @@
   <string name="reading_list_sort_by_recent">依最近閱讀排序</string>
   <string name="reading_list_sort_by_recent_desc">按最早閱讀排序</string>
   <string name="reading_list_menu_edit">編輯閱讀清單詳細資料</string>
-  <string name="reading_list_menu_delete">刪除閱讀清單</string>
+  <string name="reading_list_menu_delete" fuzzy="true">刪除閱讀清單</string>
   <string name="reading_list_name_sample">我的閱讀清單</string>
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述 (選填)：</string>
@@ -295,13 +296,14 @@
   <string name="notification_talk_title">維基百科上的新訊息</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt;在您的對話頁&lt;strong&gt;%2$s&lt;/strong&gt;留下了一筆訊息</string>
   <string name="notification_reverted_title">回退的編輯</string>
-  <string name="notification_reverted" fuzzy="true">您在條目「%2$s」上的編輯被%1$s給回退。</string>
+  <string name="notification_reverted">您在條目&lt;strong&gt;%2$s&lt;/strong&gt;上的編輯被 &lt;em&gt;%1$s&lt;/em&gt;給回退。</string>
   <string name="notification_thanks_title">您已被感謝！</string>
-  <string name="notification_thanks" fuzzy="true">%1$s已感謝您在頁面「%2$s」上做出的編輯</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;已感謝您在頁面&lt;strong&gt;%2$s&lt;/strong&gt;上做出的編輯</string>
   <string name="view_continue_reading_card_title">繼續閱讀</string>
   <string name="view_because_you_read_card_title">因為您閱讀</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_card_subtitle">閱讀來自維基百科的隨機條目</string>
+  <string name="view_random_card_error">無法從網路或您的閱讀清單中加載隨機頁面</string>
   <string name="view_main_page_card_title">維基百科今日</string>
   <string name="view_main_page_card_subtitle">%s 首頁</string>
   <string name="view_featured_image_card_title">每日圖片</string>
@@ -333,7 +335,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/zh</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您保持著對於編輯描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
-  <string name="description_edit_license_notice" fuzzy="true">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出的我的個人貢獻。</string>
+  <string name="description_edit_license_notice">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出我的個人貢獻。</string>
   <string name="description_edit_success_saved">描述已儲存！</string>
   <string name="description_edit_success_encouragement">您為了大家讓維基百科變得更好</string>
   <string name="description_edit_success_done">完成</string>
@@ -361,5 +363,5 @@
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者不認同而做出還原。您的編輯被還原的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的貢獻內容看起來像是實驗或破壞。</string>
-  <string name="description_edit_revert_history" fuzzy="true">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
+  <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
 </resources>

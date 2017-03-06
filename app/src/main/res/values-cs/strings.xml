@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">Tato stránka je polozamčena.</string>
   <string name="page_protected_sysop">Tato stránka je zamčena.</string>
   <string name="page_protected_other">Tato stránka je zamčena do následujících úrovní: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Nemáte oprávnění editovat tuto stránku</string>
+  <string name="page_protected_can_not_edit">Omlouváme se, váš účet nyní nemá dostatečná oprávnění editovat tuto stránku.</string>
   <string name="page_protected_can_not_edit_title">Tato stránka je zamčena</string>
   <string name="settings_item_preferences">Nastavení</string>
   <string name="settings_activity_title">Nastavení</string>
@@ -256,7 +256,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_sort_by_recent">Seřadit podle nejnovějších</string>
   <string name="reading_list_sort_by_recent_desc">Seřadit podle nejstarších</string>
   <string name="reading_list_menu_edit">Upravit podrobnosti seznamu k přečtení</string>
-  <string name="reading_list_menu_delete">Odstranit seznam k přečtení</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Odstranit seznam k přečtení</string>
   <string name="reading_list_name_sample">Můj seznam k přečtení</string>
   <string name="reading_list_name_hint">Název tohoto seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>

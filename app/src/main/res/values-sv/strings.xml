@@ -125,7 +125,7 @@
   <string name="page_protected_autoconfirmed">Denna sida är halvskyddad.</string>
   <string name="page_protected_sysop">Denna sida är skrivskyddad.</string>
   <string name="page_protected_other">Denna sida har skyddats för följande nivåer: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Du saknar rättigheter för att redigera denna sida.</string>
+  <string name="page_protected_can_not_edit">Ledsen, ditt konto har inte tillräcklig behörighet för att redigera denna sida just nu.</string>
   <string name="page_protected_can_not_edit_anon">Tyvärr, denna sida kan inte redigeras anonymt just nu.</string>
   <string name="page_protected_can_not_edit_title">Denna sida är skrivskyddad</string>
   <string name="settings_item_preferences">Inställningar</string>
@@ -232,6 +232,7 @@
   <string name="error_voice_search_not_available">Tyvärr, röststyrning är inte tillgänglig.</string>
   <string name="location_service_disabled">Platstjänster är inaktiverade.</string>
   <string name="enable_location_service">Aktivera</string>
+  <string name="error_webview_updating">Androidsystemets WebView uppdateras för tillfället. Försök igen om en stund.</string>
   <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
   <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
   <string name="crash_report_dialog_dont_send_button">Hoppa över</string>
@@ -267,7 +268,7 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_sort_by_recent">Sortera efter senaste</string>
   <string name="reading_list_sort_by_recent_desc">Sortera efter äldsta</string>
   <string name="reading_list_menu_edit">Redigera detaljer om läslistan</string>
-  <string name="reading_list_menu_delete">Radera läslista</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Radera läslista</string>
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
@@ -302,6 +303,7 @@ Vill du starta om eller avsluta?</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Randomiserare</string>
   <string name="view_random_card_subtitle">Läs en slumpartikel från Wikipedia</string>
+  <string name="view_random_card_error">Kunde inte läsa in en slumpsida från nätverket eller dina läslistor.</string>
   <string name="view_main_page_card_title">Idag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Huvudsidan på %s</string>
   <string name="view_featured_image_card_title">Dagens bild</string>

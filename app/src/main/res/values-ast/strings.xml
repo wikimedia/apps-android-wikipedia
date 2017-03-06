@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Esta páxina ta semiprotexida.</string>
   <string name="page_protected_sysop">Esta páxina ta protexida dafechu.</string>
   <string name="page_protected_other">Esta páxina ta protexida a los siguientes niveles: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Nun tienes permisos pa editar esta páxina</string>
+  <string name="page_protected_can_not_edit">La to cuenta nun tienes permisos abondo pa editar esta páxina nesti momentu.</string>
+  <string name="page_protected_can_not_edit_anon">Esta páxina nun puede editase de mou anónimu nesti momentu.</string>
   <string name="page_protected_can_not_edit_title">Esta páxina ta protexida</string>
   <string name="settings_item_preferences">Configuración</string>
   <string name="settings_activity_title">Configuración</string>
@@ -266,7 +267,7 @@
   <string name="reading_list_sort_by_recent">Ordenar por más recién</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar por menos recién</string>
   <string name="reading_list_menu_edit">Editar los detalles de la llista de llectura</string>
-  <string name="reading_list_menu_delete">Desaniciar la llista de llectura</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Desaniciar la llista de llectura</string>
   <string name="reading_list_name_sample">La mio llista de llectura</string>
   <string name="reading_list_name_hint">Nome d\'esta llista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>

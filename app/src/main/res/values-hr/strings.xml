@@ -250,7 +250,7 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="reading_list_sort_by_recent">Poredaj po datumu (prvo najnovije)</string>
   <string name="reading_list_sort_by_recent_desc">Poredaj po datumu (prvo najstarije)</string>
   <string name="reading_list_menu_edit">Uređivanje detalja o popisu za čitanje</string>
-  <string name="reading_list_menu_delete">Izbriši popis za čitanje</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Izbriši popis za čitanje</string>
   <string name="reading_list_name_sample">Moj popis za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog popisa</string>
   <string name="reading_list_description_hint">Opis (nije obavezno)</string>

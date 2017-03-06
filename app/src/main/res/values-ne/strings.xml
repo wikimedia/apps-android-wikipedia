@@ -240,7 +240,7 @@
   <string name="reading_list_sort_by_recent">सबैभन्दा भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_by_recent_desc">सबैभन्दा कम भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_menu_edit">अध्ययन सूचीको विवरण सम्पादन गर्नुहोस्</string>
-  <string name="reading_list_menu_delete">अध्ययन सूची मेट्नुहोस्</string>
+  <string name="reading_list_menu_delete" fuzzy="true">अध्ययन सूची मेट्नुहोस्</string>
   <string name="reading_list_name_sample">मेरो अध्ययन सूची</string>
   <string name="reading_list_name_hint">यो सूचीको नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>

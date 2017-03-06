@@ -232,6 +232,7 @@
   <string name="error_voice_search_not_available">El reconocimiento de voz no está disponible.</string>
   <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
   <string name="enable_location_service">Activar</string>
+  <string name="error_webview_updating">El sistema de Android WebView se está actualizado. Inténtalo de nuevo en un momento.</string>
   <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Te gustaría enviar un informe de fallo a HockeyApp / un proveedor de servicios de terceros para que Wikimedia pueda revisar tu fallo y corregir el error que lo causó?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -267,7 +268,7 @@
   <string name="reading_list_sort_by_recent">Ordenar por más reciente</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar por menos reciente</string>
   <string name="reading_list_menu_edit">Editar los detalles de la lista de lectura</string>
-  <string name="reading_list_menu_delete">Eliminar la lista de lectura</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Eliminar la lista de lectura</string>
   <string name="reading_list_name_sample">Mi lista de lectura</string>
   <string name="reading_list_name_hint">Nombre de esta lista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>

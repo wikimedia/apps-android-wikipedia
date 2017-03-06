@@ -177,7 +177,7 @@
   <string name="reading_list_sort_by_name">ಪುದರ್ತ ತರೋ</string>
   <string name="reading_list_sort_by_name_desc">ಪುದರ್ತ ತರೋ(ತಿರ್ಗಾತ್)</string>
   <string name="reading_list_sort_by_recent">ಇಂಚಿಪೊ ವಿಭಾಗಿಸಾಯಿನಾ</string>
-  <string name="reading_list_menu_delete">ಓದಿನಾ ಲಿಸ್ಟ್ ದೆತ್ತುಂಡು</string>
+  <string name="reading_list_menu_delete" fuzzy="true">ಓದಿನಾ ಲಿಸ್ಟ್ ದೆತ್ತುಂಡು</string>
   <string name="reading_list_name_sample">ಎನ್ನ ಓದುನಾ ಲಿಸ್ಟ್</string>
   <string name="reading_list_name_hint">ಈ ಲಿಸ್ಟ್ ದ ಪುದರ್</string>
   <string name="reading_list_save_for_offline">ಆಫ್ ಲೈನ್ಡ್ ಓದಿಯಾರ ಒರಿಪಾಲೇ</string>

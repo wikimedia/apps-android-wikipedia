@@ -404,6 +404,8 @@ Shown in the preferences screen along with the following:
   <string name="reading_list_sort_by_recent_desc">Menu option to sort reading lists by last-accessed time, in reverse order.</string>
   <string name="reading_list_menu_edit">Button label to edit the details of the current reading list.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
+  <string name="reading_list_menu_rename">Menu item for changing the name of a reading list.</string>
+  <string name="reading_list_menu_edit_description">Menu item for changing the description of a reading list.</string>
   <string name="reading_list_name_sample">Default name for a new reading list.</string>
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
@@ -426,8 +428,6 @@ Shown in the preferences screen along with the following:
   <string name="reading_lists_onboarding_example3">Third example of a reading list title, in this case space (as in outer space, cosmos).</string>
   <string name="reading_lists_onboarding_got_it">Label for the button that dismisses an introductory dialog that tells the user about the new Reading Lists feature.</string>
   <string name="reading_lists_onboarding_page_delete">Message for a tooltip that gives the user a hint that they can remove an page from a reading list by swiping it left or right.</string>
-  <string name="reading_list_menu_rename">Menu item for changing the name of a reading list.</string>
-  <string name="reading_list_menu_edit_description">Menu item for changing the description of a reading list.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>
   <string name="notification_button_view_page">Button label for navigating to the page that is the subject of the notification.</string>

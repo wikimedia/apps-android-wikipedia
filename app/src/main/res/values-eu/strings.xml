@@ -37,7 +37,7 @@
   <string name="nearby_zoom_to_location">Zoom egin mapa bateko kokapenean</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
   <string name="talk_page_link_text">Esan</string>
-  <string name="content_license_html" fuzzy="true">Edukia eskuragarri &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
+  <string name="content_license_html">Edukia eskuragarri &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
   <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="preference_title_language">Wikipediaren hizkuntza</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
@@ -117,7 +117,7 @@
   <string name="page_protected_autoconfirmed">Orri hau  erdi babestua dago.</string>
   <string name="page_protected_sysop">Orri hau erabat babestua dago.</string>
   <string name="page_protected_other">Orrialde hau ondorengo mailetan babestu egin da: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Ez duzu orrialde hau aldatzeko baimenik</string>
+  <string name="page_protected_can_not_edit">Barkatu, zure kontuak ez du orrialde hau aldatzeko baimen nahikorik momentu honetan.</string>
   <string name="page_protected_can_not_edit_title">Orrialde hau babestuta dago</string>
   <string name="settings_item_preferences">Ezarpenak</string>
   <string name="settings_activity_title">Ezarpenak</string>
@@ -128,7 +128,7 @@
   <string name="about_contributors_heading">Ekarleak</string>
   <string name="about_translators_heading">Itzultzaileak</string>
   <string name="about_app_license_heading">Lizentzia</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
+  <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
   <string name="about_activity_title">Honi buruz</string>
   <string name="user_blocked_from_editing_title">Blokeatua</string>
   <string name="user_logged_in_blocked_from_editing">Zure erabiltzaile kontua blokeatua izan da wiki honetan editatzeko</string>
@@ -228,7 +228,7 @@
   <string name="reading_list_sort_by_recent">Berrienetik zaharrenara ordenatu</string>
   <string name="reading_list_sort_by_recent_desc">Zaharrenetik berrienera ordenatu</string>
   <string name="reading_list_menu_edit">Zerrendako xehetasunak irakurtzen aldatu</string>
-  <string name="reading_list_menu_delete">Ezabatu irakurketa zerrenda</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Ezabatu irakurketa zerrenda</string>
   <string name="reading_list_name_sample">Nire irakurketa zerrenda</string>
   <string name="reading_list_name_hint">Zerrenda honen izena</string>
   <string name="reading_list_description_hint">Deskribapena (aukerakoa)</string>

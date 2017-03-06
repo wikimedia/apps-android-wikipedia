@@ -7,7 +7,7 @@
   <string name="yes">Sì</string>
   <string name="no">No</string>
   <string name="search_hint">Cerca su Wikipedia</string>
-  <string name="search_hint_search_history">Cerca nella Cronologia</string>
+  <string name="search_hint_search_history">Cerca nella cronologia</string>
   <string name="nav_item_history">Cronologia</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
@@ -39,7 +39,7 @@
   <string name="nearby_zoom_to_location">Zoom a una posizione sulla mappa</string>
   <string name="last_updated_text">Ultimo aggiornamento %s</string>
   <string name="talk_page_link_text">Discussione</string>
-  <string name="content_license_html" fuzzy="true">Il contenuto è disponibile in base alla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
+  <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
   <string name="edit_save_action_license_logged_in">Salvando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Salvando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
   <string name="preference_title_language">Lingua di Wikipedia</string>
@@ -122,7 +122,7 @@
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
   <string name="page_protected_sysop">Questa pagina è stata protetta.</string>
   <string name="page_protected_other">Questa pagina è stata protetta ai seguenti livelli: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Non hai i diritti per modificare questa pagina</string>
+  <string name="page_protected_can_not_edit">Spiacenti, la tua utenza non dispone di privilegi sufficienti per modificare questa pagina in questo momento.</string>
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
@@ -139,7 +139,7 @@
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
   <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Un prodotto della &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_wmf">Un prodotto della &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
   <string name="user_blocked_from_editing_title">Bloccato</string>
@@ -259,7 +259,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_sort_by_recent">Ordina per più recenti</string>
   <string name="reading_list_sort_by_recent_desc">Ordina per meno recenti</string>
   <string name="reading_list_menu_edit">Modifica dettagli elenco di lettura</string>
-  <string name="reading_list_menu_delete">Cancella elenco di lettura</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Cancella elenco di lettura</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>

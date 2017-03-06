@@ -252,7 +252,7 @@
   <string name="reading_list_sort_by_recent">सर्वात अलीकडील अनुसार निवडा</string>
   <string name="reading_list_sort_by_recent_desc">कमी अलीकडील नुसार निवडा</string>
   <string name="reading_list_menu_edit">वाचन यादीचा तपशील संपादन करा</string>
-  <string name="reading_list_menu_delete">वाचन यादी वगळा</string>
+  <string name="reading_list_menu_delete" fuzzy="true">वाचन यादी वगळा</string>
   <string name="reading_list_name_sample">माझी वाचन यादी</string>
   <string name="reading_list_name_hint">या यादीचे नाव</string>
   <string name="reading_list_description_hint">वर्णन (ऐच्छिक)</string>

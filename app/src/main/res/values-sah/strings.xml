@@ -257,7 +257,7 @@
   <string name="reading_list_sort_by_recent">Күнүнэн-дьылынан</string>
   <string name="reading_list_sort_by_recent_desc">Күнүнэн-дьылынан наардааһын (эргэ)</string>
   <string name="reading_list_menu_edit">Тиһилик туһунан суруйууну уларытыы</string>
-  <string name="reading_list_menu_delete">Тиһилиги сотуу</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Тиһилиги сотуу</string>
   <string name="reading_list_name_sample">Мин тиһилигим</string>
   <string name="reading_list_name_hint">Тиһилик аата</string>
   <string name="reading_list_description_hint">Тиһилик туһунан (булгуччута суох)</string>

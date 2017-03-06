@@ -239,7 +239,7 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="reading_list_sort_by_recent">Rūšiuoti pagal naujausius</string>
   <string name="reading_list_sort_by_recent_desc">Rūšiuoti pagal seniausius</string>
   <string name="reading_list_menu_edit">Keisti skaitymo sąrašo savybes</string>
-  <string name="reading_list_menu_delete">Ištrinti skaitymo sąrašą</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Ištrinti skaitymo sąrašą</string>
   <string name="reading_list_name_sample">Mano skaitymo sąrašas</string>
   <string name="reading_list_name_hint">Sąrašo pavadinimas</string>
   <string name="reading_list_description_hint">Aprašymas (neprivalomas):</string>

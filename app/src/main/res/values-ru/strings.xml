@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Эта страница была частично защищена.</string>
   <string name="page_protected_sysop">Эта страница была полностью защищена.</string>
   <string name="page_protected_other">Эта страница была защищена на следующих уровнях: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">У вас нет прав на редактирование этой страницы</string>
+  <string name="page_protected_can_not_edit">К сожалению, на данный момент у вашей учётной записи нет достаточных прав для редактирования этой страницы.</string>
+  <string name="page_protected_can_not_edit_anon">К сожалению, в настоящее время эта страница не может быть отредактирована анонимно.</string>
   <string name="page_protected_can_not_edit_title">Эта страница защищена</string>
   <string name="settings_item_preferences">Настройки</string>
   <string name="settings_activity_title">Настройки</string>
@@ -231,6 +232,7 @@
   <string name="error_voice_search_not_available">К сожалению, распознавание речи недоступно.</string>
   <string name="location_service_disabled">Службы Геолокации отключены.</string>
   <string name="enable_location_service">Включить</string>
+  <string name="error_webview_updating">Android System WebView в настоящее время обновляется. Пожалуйста, попробуйте снова чуть позже.</string>
   <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
   <string name="crash_report_dialog_text">Вы хотите отправить отчёт об ошибке в HockeyApp / сторонний сервис-провайдер, чтобы в Викимедиа могли просмотреть информацию об аварии и исправить ошибку, вызвавшую её?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустить</string>
@@ -266,7 +268,7 @@
   <string name="reading_list_sort_by_recent">Сортировка по дате (последние)</string>
   <string name="reading_list_sort_by_recent_desc">Сортировка по дате (старые)</string>
   <string name="reading_list_menu_edit">Редактировать информацию по списку для чтения</string>
-  <string name="reading_list_menu_delete">Удалить список для чтения</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Удалить список для чтения</string>
   <string name="reading_list_name_sample">Мой список для чтения</string>
   <string name="reading_list_name_hint">Название этого списка</string>
   <string name="reading_list_description_hint">Описание (необязательно)</string>
@@ -301,6 +303,7 @@
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_card_subtitle">Читать случайную статью из Википедии</string>
+  <string name="view_random_card_error">Не удалось загрузить произвольную страницу из сети или ваших списков для чтения.</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
   <string name="view_main_page_card_subtitle">Главная страница на %s</string>
   <string name="view_featured_image_card_title">Изображение дня</string>

@@ -259,7 +259,7 @@
   <string name="reading_list_sort_by_recent">हाल ही के में से छांटें</string>
   <string name="reading_list_sort_by_recent_desc">पहले के में से छांटें</string>
   <string name="reading_list_menu_edit">पठन सूची विवरण सम्पादित करें</string>
-  <string name="reading_list_menu_delete">पठन सूची को मिटायें</string>
+  <string name="reading_list_menu_delete" fuzzy="true">पठन सूची को मिटायें</string>
   <string name="reading_list_name_sample">मेरी पठन सूची</string>
   <string name="reading_list_name_hint">सूची का नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>

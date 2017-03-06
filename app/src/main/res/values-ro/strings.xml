@@ -249,7 +249,7 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_sort_by_recent">Sortare după dată</string>
   <string name="reading_list_sort_by_recent_desc">Sortare după cea mai veche dată</string>
   <string name="reading_list_menu_edit">Modifică detaliile listei de lecturi</string>
-  <string name="reading_list_menu_delete">Șterge lista de lecturi</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Șterge lista de lecturi</string>
   <string name="reading_list_name_sample">Lista mea de lecturi</string>
   <string name="reading_list_name_hint">Numele listei</string>
   <string name="reading_list_description_hint">Descriere (opțională)</string>

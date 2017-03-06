@@ -119,7 +119,7 @@
   <string name="page_protected_autoconfirmed">Dës Säit ass hallef gespaart.</string>
   <string name="page_protected_sysop">Dës Säit ass komplett gespaart.</string>
   <string name="page_protected_other">Dës Säit gouf fir dës Niveaue gespaart: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Dir hutt net d\'Recht fir dës Säit z\'änneren</string>
+  <string name="page_protected_can_not_edit">Pardon, Äre Benotzerkont huet net genuch Rechter fir dës Säit elo z\'änneren.</string>
   <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
@@ -256,7 +256,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_sort_by_recent">No de Rezentesten zortéieren</string>
   <string name="reading_list_sort_by_recent_desc">No den Eelsten zortéieren</string>
   <string name="reading_list_menu_edit">Detailer vun der Lieslëscht änneren</string>
-  <string name="reading_list_menu_delete">Lieslëscht läschen</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Lieslëscht läschen</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>
   <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>
   <string name="reading_list_description_hint">Beschreiwung (fakultativ):</string>

@@ -262,7 +262,7 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_sort_by_recent">Zoradiť podľa času poslednej návštevy</string>
   <string name="reading_list_sort_by_recent_desc">Zoradiť podľa nedávno navštívených (v opačnom poradí)</string>
   <string name="reading_list_menu_edit">Upraviť podrobnosti zoznamu na prečítanie</string>
-  <string name="reading_list_menu_delete">Odstrániť zoznam na prečítanie</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Odstrániť zoznam na prečítanie</string>
   <string name="reading_list_name_sample">Môj zoznam na prečítanie</string>
   <string name="reading_list_name_hint">Názov zoznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinné)</string>

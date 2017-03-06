@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne side er beskyttet.</string>
   <string name="page_protected_other">Denne side er beskyttet til følgende niveauer: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Du har ikke rettigheder til at redigere denne side</string>
+  <string name="page_protected_can_not_edit">Beklager, din konto har ikke tilstrækkelige rettigheder til at redigere denne side på dette tidspunkt.</string>
+  <string name="page_protected_can_not_edit_anon">Beklager, denne side kan ikke redigeres anonymt på dette tidspunkt.</string>
   <string name="page_protected_can_not_edit_title">Denne side er beskyttet</string>
   <string name="settings_item_preferences">Indstillinger</string>
   <string name="settings_activity_title">Indstillinger</string>
@@ -231,6 +232,7 @@
   <string name="error_voice_search_not_available">Beklager, stemmegenkendelse er ikke tilgængelig.</string>
   <string name="location_service_disabled">Placeringstjenester er slået fra.</string>
   <string name="enable_location_service">Aktiver</string>
+  <string name="error_webview_updating">Android System WebView er i øjeblikket ved at blive opdateret. Prøv igen om et øjeblik.</string>
   <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
   <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
   <string name="crash_report_dialog_dont_send_button">Spring over</string>
@@ -266,7 +268,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_list_sort_by_recent">Sortér efter seneste</string>
   <string name="reading_list_sort_by_recent_desc">Sortér efter ældste</string>
   <string name="reading_list_menu_edit">Rediger detaljer om læseliste</string>
-  <string name="reading_list_menu_delete">Slet læseliste</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Slet læseliste</string>
   <string name="reading_list_name_sample">Min læseliste</string>
   <string name="reading_list_name_hint">Navn på denne liste</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
@@ -301,6 +303,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
   <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia</string>
+  <string name="view_random_card_error">Kunne ikke indlæse en tilfældig side fra netværket eller dine læselister.</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
   <string name="view_featured_image_card_title">Dagens billede</string>

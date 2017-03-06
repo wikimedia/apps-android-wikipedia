@@ -234,7 +234,7 @@
   <string name="reading_list_sort_by_recent">Сортирај по датуму (прво новије)</string>
   <string name="reading_list_sort_by_recent_desc">Сортирај по датуму (прво старије)</string>
   <string name="reading_list_menu_edit">Уреди податке списка за читање</string>
-  <string name="reading_list_menu_delete">Избриши списак за читање</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Избриши списак за читање</string>
   <string name="reading_list_name_sample">Мој списак за читање</string>
   <string name="reading_list_name_hint">Име овог списка</string>
   <string name="reading_list_description_hint">Опис (необавезно)</string>

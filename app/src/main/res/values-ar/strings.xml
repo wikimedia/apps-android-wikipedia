@@ -8,6 +8,8 @@
   <string name="no">لا</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_search_history">البحث في التاريخ</string>
+  <string name="search_hint_search_my_lists">ابحث في قوائمي</string>
+  <string name="search_hint_search_reading_list">ابحث في قائمة القراءة</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">أعد المحاولة</string>
@@ -39,7 +41,7 @@
   <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="talk_page_link_text">نقاش</string>
-  <string name="content_license_html" fuzzy="true">المحتوى متوفر تحت رخصة  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
+  <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
   <string name="edit_save_action_license_logged_in">بالحفظ، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">بالحفظ، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مُسجلًا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="preference_title_language">لغة ويكيبيديا</string>
@@ -68,6 +70,7 @@
   <string name="nav_item_login">تسجيل الدخول إلى ويكيبيديا</string>
   <string name="login_username_hint">اسم المستخدم</string>
   <string name="login_password_hint">كلمة السر</string>
+  <string name="login_2fa_hint">رمز التحقق بخطوتين</string>
   <string name="menu_login">تسجيل الدخول</string>
   <string name="login_activity_title">تسجيل الدخول إلى ويكيبيديا</string>
   <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
@@ -121,20 +124,23 @@
   <string name="page_protected_autoconfirmed">تمت حماية هذه الصفحة جزئياً.</string>
   <string name="page_protected_sysop">تمت حماية هذه الصفحة بالكامل.</string>
   <string name="page_protected_other">تمت حماية هذه الصفحة إلى المستويات التالية: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">أنت لا تمتلك الصلاحيات اللازمة لتحرير هذه الصفحة</string>
+  <string name="page_protected_can_not_edit">عذرا، حسابك لا يمتلك امتيازات كافية لتحرير هذه الصفحة في هذا الوقت.</string>
+  <string name="page_protected_can_not_edit_anon">عذرا، لا يُمكن تحرير هذه الصفحة من المجهولين في هذا الوقت.</string>
   <string name="page_protected_can_not_edit_title">هذه الصفحة محمية</string>
   <string name="settings_item_preferences">الإعدادات</string>
   <string name="settings_activity_title">الإعدادات</string>
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
   <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
+  <string name="about_wmf">منتج من منتجات &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">عن</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
   <string name="user_blocked_from_editing_title">ممنوع</string>
@@ -223,6 +229,7 @@
   <string name="error_voice_search_not_available">عفوا، التعرف على الصوت ليس متاح.</string>
   <string name="location_service_disabled">خدمات الموقع معطلة.</string>
   <string name="enable_location_service">تمكين</string>
+  <string name="error_webview_updating">يجري تحديث Android System WebView الآن. يرجى المحاولة مرة أخرى بعد لحظات.</string>
   <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
   <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعة العطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
   <string name="crash_report_dialog_dont_send_button">تجاوز</string>
@@ -238,10 +245,14 @@
   <string name="article_menu_bar_share">شارك وصلة المقالة</string>
   <string name="article_menu_bar_navigate">انتقل إلى موقع هذه المقالة</string>
   <string name="article_header_edit_hint">تحرير...</string>
+  <string name="article_header_edit_description">عدّل وصف العنوان</string>
+  <string name="article_header_edit_lead_section">عدّل المقدمة</string>
   <string name="nav_item_reading_lists">قوائمي</string>
   <string name="reading_list_untitled">غير معنونة</string>
   <string name="reading_list_save_to">احفظ في قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
+  <string name="reading_list_title_exists">قائمة القراءة \"%s\" موجودة فعلًا.</string>
+  <string name="reading_list_entry_empty">فضلًا أدخل عنوانًا.</string>
   <string name="reading_list_added_to_named">أضيفت إلى %s.</string>
   <string name="reading_list_added_to_unnamed">أضيفتت إلى قائمة القراءة</string>
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
@@ -254,7 +265,7 @@
   <string name="reading_list_sort_by_recent">فرز حسب الأحدث</string>
   <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>
   <string name="reading_list_menu_edit">عدل تفاصيل قائمة القراءة</string>
-  <string name="reading_list_menu_delete">احذف قائمة القراءة</string>
+  <string name="reading_list_menu_delete" fuzzy="true">احذف قائمة القراءة</string>
   <string name="reading_list_name_sample">قائمة قراءاتي</string>
   <string name="reading_list_name_hint">اسم قائمة القراءة</string>
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
@@ -280,6 +291,7 @@
   <string name="notification_button_view_edit_history">عرض تاريخ التعديل</string>
   <string name="notification_generic_title">الإشعارات على ويكيبيديا</string>
   <string name="notification_talk_title">رسالة جديدة على ويكيبيديا</string>
+  <string name="notification_thanks_title">لقد تمّ شُكرك!</string>
   <string name="view_continue_reading_card_title">واصل القراءة</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
@@ -302,10 +314,34 @@
     <item quantity="other">قبل %d أيام</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">اليوم</string>
+  <string name="view_announcement_card_negative_action">لا شكرًا</string>
   <string name="description_edit_header">تعديل</string>
   <string name="description_edit_text_hint">وصف العنوان</string>
   <string name="description_edit_save">احفظ</string>
   <string name="description_edit_add_description">إضافة وصف للعنوان</string>
+  <string name="description_edit_edit_description">عدل الوصف</string>
+  <string name="description_edit_cancel_hint">ألغ</string>
+  <string name="description_edit_help_title">مساعدة:وصوف العناوين</string>
+  <string name="description_edit_help_about_wikidata">عن ويكي بيانات</string>
+  <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_license_notice">بتغييري لوصف العنوان، أنا أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وعلى نشر مساهماتي بصورة لا رجعة فيها تحت ترخيص &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">حُفظ الوصف!</string>
+  <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
+  <string name="description_edit_success_done">تم</string>
+  <string name="description_edit_success_did_you_know">هل تعلم؟</string>
+  <string name="description_edit_success_article_edit_hint">يُمكنك أيضًا تحرير المقالات في التطبيق. حاول إصلاح خطأ إملائي وجمل صغيرة بالضغط على أيقونة ^1 في المرّة القادمة.</string>
+  <string name="description_edit_tutorial_title_descriptions">وصوف العناوين</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">تُلخّص المقالة للتسهيل على القراء فهم الموضوع بلمحة</string>
+  <string name="description_edit_tutorial_button_label_continue">استمر</string>
+  <string name="description_edit_tutorial_keep_it_short">أبقها مختصرةً</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثاليٍّ سطر واحد، ما بين كلمين إلى اثنتا عشر كلمة</string>
+  <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
+  <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
+  <string name="description_edit_help_about_title">عن</string>
+  <string name="description_edit_help_description">وصوف العناوين تُلخّص المقالة للتسهيل على القراء فهم الموضوع بلمحة.</string>
+  <string name="description_edit_help_tips">تلميحات لإنشاء الوصوف</string>
   <string name="description_edit_help_tips_examples">على سبيل المثال:</string>
   <string name="description_edit_help_tips_example1">اللوحة بواسطة ليوناردو دا فينشي</string>
   <string name="description_edit_help_tips_example1_hint">وصف عنوان لمقال عن لوحة الموناليزا</string>

@@ -231,7 +231,7 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="reading_list_sort_by_recent">Triar segon los mai recents</string>
   <string name="reading_list_sort_by_recent_desc">Triar segon los mens recents</string>
   <string name="reading_list_menu_edit">Modificar los detalhs de la lista de lectura</string>
-  <string name="reading_list_menu_delete">Suprimir la lista de lectura</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Suprimir la lista de lectura</string>
   <string name="reading_list_name_sample">Ma lista de lectura</string>
   <string name="reading_list_name_hint">Nom d\'aquesta lista</string>
   <string name="reading_list_description_hint">Descripcion (facultatiu)</string>

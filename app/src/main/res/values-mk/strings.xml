@@ -232,6 +232,7 @@
   <string name="error_voice_search_not_available">За жал, гласовното препознавање не е достапно.</string>
   <string name="location_service_disabled">Местоположбените услуги се оневозможени.</string>
   <string name="enable_location_service">Овозможи</string>
+  <string name="error_webview_updating">WebView за Андроид во моментов се подновува. Обидете се повторно набргу.</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>
@@ -267,7 +268,9 @@
   <string name="reading_list_sort_by_recent">Подреди по скорешност</string>
   <string name="reading_list_sort_by_recent_desc">Подреди по дамнешност</string>
   <string name="reading_list_menu_edit">Уреди подробности во списокот за читање</string>
-  <string name="reading_list_menu_delete">Избриши го списокот за читање</string>
+  <string name="reading_list_menu_delete">Избриши список</string>
+  <string name="reading_list_menu_rename">Преименувај</string>
+  <string name="reading_list_menu_edit_description">Измени опис</string>
   <string name="reading_list_name_sample">Мој список за читање</string>
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
@@ -302,6 +305,7 @@
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
   <string name="view_random_card_subtitle">Прочитајте случајна статија од Википедија</string>
+  <string name="view_random_card_error">Не можев да вчитам случајна страница од мрежата или вашите списоци за читање.</string>
   <string name="view_main_page_card_title">Денес на Википедија</string>
   <string name="view_main_page_card_subtitle">Главна страница на %s</string>
   <string name="view_featured_image_card_title">Слика на денот</string>

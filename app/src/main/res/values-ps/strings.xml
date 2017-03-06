@@ -175,7 +175,7 @@
   <string name="reading_list_sort_by_name">اوډنه د نوم له مخې</string>
   <string name="reading_list_sort_by_recent">اوډنه تر ټولو تازه له مخې</string>
   <string name="reading_list_menu_edit">د لوست لړ تفصيلونه سمول</string>
-  <string name="reading_list_menu_delete">لوست لړليک ړنگول</string>
+  <string name="reading_list_menu_delete" fuzzy="true">لوست لړليک ړنگول</string>
   <string name="reading_list_name_sample">زما لوست لړليک</string>
   <string name="reading_list_name_hint">د دې لړليک نوم</string>
   <string name="reading_list_description_hint">څرگندونه (اختياري)</string>

@@ -252,7 +252,7 @@
   <string name="reading_list_sort_by_recent">حالیہ تبدیلیوں کے اعتبار سے ترتیب دیں</string>
   <string name="reading_list_sort_by_recent_desc">حالیہ سرگرمیوں کے اعتبار سے ترتیب دیں</string>
   <string name="reading_list_menu_edit">فہرست مطالعہ کی تفصیلات میں ترمیم کریں</string>
-  <string name="reading_list_menu_delete">فہرست مطالعہ کو حذف کریں</string>
+  <string name="reading_list_menu_delete" fuzzy="true">فہرست مطالعہ کو حذف کریں</string>
   <string name="reading_list_name_sample">میری فہرست مطالعہ</string>
   <string name="reading_list_name_hint">اس فہرست کا نام</string>
   <string name="reading_list_description_hint">تفصیلات (اختیاری)</string>

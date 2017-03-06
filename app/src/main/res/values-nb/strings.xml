@@ -256,7 +256,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="reading_list_sort_by_recent">Sorter etter besøkstidspunkt</string>
   <string name="reading_list_sort_by_recent_desc">Sorter etter besøkstidspunkt (eldste først)</string>
   <string name="reading_list_menu_edit">Rediger detaljer om leselisten</string>
-  <string name="reading_list_menu_delete">Slett leselisten</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Slett leselisten</string>
   <string name="reading_list_name_sample">Min leseliste</string>
   <string name="reading_list_name_hint">Navn på listen</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfritt)</string>

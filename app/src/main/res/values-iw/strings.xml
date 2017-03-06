@@ -41,7 +41,7 @@
   <string name="nearby_zoom_to_location">להתקרב למקום במפה</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
   <string name="talk_page_link_text">שיחה</string>
-  <string name="content_license_html" fuzzy="true">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
+  <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
   <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="preference_title_language">שפת הוויקיפדיה</string>
@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">הדף הזה מוגן באופן חלקי.</string>
   <string name="page_protected_sysop">הדף הזה מוגן באופן מלא.</string>
   <string name="page_protected_other">הדף הזה מוגן לרמות הבאות: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">אין לך הרשאה לערוך את הדף הזה</string>
+  <string name="page_protected_can_not_edit">סליחה, לחשבון שלך אין עכשיו הרשאות שמספיקות לעריכת הדף הזה.</string>
+  <string name="page_protected_can_not_edit_anon">סליחה, לא ניתן עכשיו לערוך את הדף הזה בלי להיכנס לחשבון.</string>
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
@@ -142,7 +143,7 @@
   <string name="about_translators_translatewiki">האפליקציה הזה תורגמה על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">מוצר של &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
+  <string name="about_wmf">מוצר של &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שוּנה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="user_blocked_from_editing_title">חסוּם</string>
@@ -231,6 +232,7 @@
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>
+  <string name="error_webview_updating">מתבצע עדכון של Android System WebView. נא לנסות שוב בעוד רגע.</string>
   <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>
@@ -266,7 +268,7 @@
   <string name="reading_list_sort_by_recent">מיון לפי החדש ביותר</string>
   <string name="reading_list_sort_by_recent_desc">מיון לפי הישן ביותר</string>
   <string name="reading_list_menu_edit">עריכת פרטי רשימה</string>
-  <string name="reading_list_menu_delete">מחיקת רשימת קריאה</string>
+  <string name="reading_list_menu_delete" fuzzy="true">מחיקת רשימת קריאה</string>
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
@@ -301,6 +303,7 @@
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_card_subtitle">קריאת ערך אקראי בוויקיפדיה</string>
+  <string name="view_random_card_error">לא ניתן להציג דף אקראי מהרשת או מרשימות הקריאה שלך.</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
   <string name="view_main_page_card_subtitle">הדף הראשי ב־%s</string>
   <string name="view_featured_image_card_title">תמונת היום</string>
@@ -332,7 +335,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/he</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
-  <string name="description_edit_license_notice" fuzzy="true">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">התיאור נשמר!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>

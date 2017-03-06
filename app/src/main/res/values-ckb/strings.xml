@@ -7,6 +7,9 @@
   <string name="yes">بەڵێ</string>
   <string name="no">نەخێر</string>
   <string name="search_hint">بگەڕێ بە ویکیپیدیادا</string>
+  <string name="search_hint_search_history">گەڕان لە مێژوو</string>
+  <string name="search_hint_search_my_lists">گەڕان لە پێڕستەکانم</string>
+  <string name="search_hint_search_reading_list">گەڕان لە پێڕستی خوێندنەوە</string>
   <string name="nav_item_history">مێژوو</string>
   <string name="error_network_error">ناتوانرێت لەگەڵ ئینتەرنێت ببەسترێتەوە.</string>
   <string name="page_error_retry">ھەوڵداناوە</string>
@@ -17,10 +20,13 @@
   <string name="dialog_message_clear_history">ئەمە ھەموو مێژووی کردنەوەکانت دەسڕێتەوە، و ھەموو تابە کراوەکانی ئێستات دادەخات. تۆ دڵنیای؟</string>
   <string name="nav_item_saved_pages">پەڕە پاشەکەوتکراوەکان</string>
   <string name="share_via">ھاوبەشکردن لەڕێی</string>
+  <string name="search_redirect_from">ڕەوانەکراوە لە %s</string>
   <string name="menu_page_show_tabs">نیشاندانی تابەکان</string>
   <string name="menu_page_other_languages">گۆڕینی زمان</string>
   <string name="menu_page_find_in_page">دۆزینەوە لەنێو پەڕە</string>
+  <string name="menu_page_content_issues">گرفتەکانی نێوەڕۆک</string>
   <string name="menu_page_font_and_theme">فۆنت و ڕووکار</string>
+  <string name="menu_page_add_to_list">زیادکردن بۆ پێڕستی خوێندنەوە</string>
   <string name="menu_page_share">ھاوبەشکردنی بەستەر</string>
   <string name="menu_long_press_open_page">بیکەرەوە</string>
   <string name="menu_long_press_open_in_new_tab">کردنەوە لە تابێکی نوێ</string>
@@ -28,9 +34,14 @@
   <string name="menu_text_select_copy">لەبەرگرتنەوە</string>
   <string name="menu_text_select_define">پێناسەکردن</string>
   <string name="menu_text_select_share">هاوبەشی کردن</string>
+  <string name="menu_text_select_edit_here">دەستکاریی ئێرە</string>
   <string name="nav_item_nearby">لەم نزیکانەدا</string>
   <string name="nearby_distance_in_meters">%d مەتر</string>
   <string name="nearby_distance_in_kilometers">%.2f کیلۆمەتر</string>
+  <string name="nearby_zoom_to_location">شوێنێک نزیک بکەوە لەسەر نەخشەکە</string>
+  <string name="last_updated_text">دوایین نوێکردنەوەکان %s</string>
+  <string name="talk_page_link_text">لێدوان</string>
+  <string name="content_license_html">نێوەڕۆک بەردەستە لەژێر &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; مەگەر پێچەوانەی گوترابێت</string>
   <string name="preference_title_language">زمانی ویکیپیدیا</string>
   <string name="preference_languages_filter_hint">بگەڕێ</string>
   <string name="langlinks_filter_hint">بگەڕێ</string>
@@ -61,6 +72,7 @@
   <string name="preference_title_logout">دەرچوون</string>
   <string name="toast_logout_complete">چووە دەرەوە</string>
   <string name="history_empty_title">ھیچ پەڕەیەکی تازەکراوە لێرە نییە!</string>
+  <string name="history_empty_message">لەوانەیە تۆ ھەموویانت سڕیبێتەوە. جارێکی تر سەردانی پەڕەیەک بکەیت دەتوانیت لەوێ بەدەستی بێنیتەوە.</string>
   <string name="delete_selected_history">سڕینەوە</string>
   <string name="create_account_username_hint">ناوی بەکارھێنەر</string>
   <string name="login_create_account_link">ھیچ ھەژمارێکت نییە؟ بەشداربە لە ویکیپیدیا</string>

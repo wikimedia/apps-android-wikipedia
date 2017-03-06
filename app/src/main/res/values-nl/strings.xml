@@ -257,7 +257,7 @@
   <string name="reading_list_sort_by_recent">Sorteren op meest recente</string>
   <string name="reading_list_sort_by_recent_desc">Sorteren op minst recente</string>
   <string name="reading_list_menu_edit">Details van leeslijst bewerken</string>
-  <string name="reading_list_menu_delete">Leeslijst verwijderen</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Leeslijst verwijderen</string>
   <string name="reading_list_name_sample">Mijn leeslijst</string>
   <string name="reading_list_name_hint">Naam van deze lijst</string>
   <string name="reading_list_description_hint">Beschrijving (optioneel)</string>

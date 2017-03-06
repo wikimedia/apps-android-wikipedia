@@ -256,7 +256,7 @@
   <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>
   <string name="reading_list_sort_by_recent_desc">古い方から並べ替え</string>
   <string name="reading_list_menu_edit">あとで読むリストの詳細を編集</string>
-  <string name="reading_list_menu_delete">あとで読むリストを削除</string>
+  <string name="reading_list_menu_delete" fuzzy="true">あとで読むリストを削除</string>
   <string name="reading_list_name_sample">あなたのあとで読むリスト</string>
   <string name="reading_list_name_hint">このリストの名称</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>

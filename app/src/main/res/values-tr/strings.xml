@@ -125,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Bu sayfa yarı korumalıdır.</string>
   <string name="page_protected_sysop">Bu sayfa tam korumalıdır.</string>
   <string name="page_protected_other">Bu sayfa aşağıdaki seviyelerde korunmaktadır: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Bu sayfayı düzenleme yetkiniz yok</string>
+  <string name="page_protected_can_not_edit">Üzgünüz; hesabınız şu an bu sayfayı düzenlemek için gerekli yetkilere sahip değil.</string>
+  <string name="page_protected_can_not_edit_anon">Üzgünüz; bu sayfa şu anda anonim olarak düzenlenemez.</string>
   <string name="page_protected_can_not_edit_title">Bu sayfa korumalı</string>
   <string name="settings_item_preferences">Ayarlar</string>
   <string name="settings_activity_title">Ayarlar</string>
@@ -231,6 +232,7 @@
   <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
   <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
   <string name="enable_location_service">Etkinleştir</string>
+  <string name="error_webview_updating">Android Sistem Web Görünümü şu an güncelleniyor. Lütfen birazdan tekrar deneyin.</string>
   <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
   <string name="crash_report_dialog_text">HockeyApp\'a (çökmeyi incelememizi ve sebep olan hatayı düzeltmemizi sağlayan, bir üçüncü parti servis sağlayıcısı) bir hata raporu göndermek ister misiniz?</string>
   <string name="crash_report_dialog_dont_send_button">Atla</string>
@@ -264,7 +266,7 @@
   <string name="reading_list_sort_by_recent">Son erişime göre sırala</string>
   <string name="reading_list_sort_by_recent_desc">Son erişime göre sırala (tersten)</string>
   <string name="reading_list_menu_edit">Okuma listesi ayrıntılarını düzenle</string>
-  <string name="reading_list_menu_delete">Okuma listesini sil</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Okuma listesini sil</string>
   <string name="reading_list_name_sample">Okuma listem</string>
   <string name="reading_list_name_hint">Bu listenin adı</string>
   <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>
@@ -299,6 +301,7 @@
   <string name="view_because_you_read_card_title">Okuduklarına benzer</string>
   <string name="view_random_card_title">Rastgele</string>
   <string name="view_random_card_subtitle">Vikipedi\'den rastgele bir madde oku</string>
+  <string name="view_random_card_error">Ağ bağlantısından veya okuma listelerinizden rastgele bir sayfa yüklenemedi.</string>
   <string name="view_main_page_card_title">Vikipedi\'de bugün</string>
   <string name="view_main_page_card_subtitle">%s tarihli ana sayfa</string>
   <string name="view_featured_image_card_title">Günün resmi</string>

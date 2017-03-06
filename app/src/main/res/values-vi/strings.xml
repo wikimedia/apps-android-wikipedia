@@ -262,7 +262,7 @@
   <string name="reading_list_sort_by_recent">Sắp xếp theo lúc xem (gần đây nhất)</string>
   <string name="reading_list_sort_by_recent_desc">Sắp xếp theo lúc xem (lâu nhất)</string>
   <string name="reading_list_menu_edit">Sửa chi tiết danh sách đọc</string>
-  <string name="reading_list_menu_delete">Xóa danh sách đọc</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Xóa danh sách đọc</string>
   <string name="reading_list_name_sample">Danh sách đọc của tôi</string>
   <string name="reading_list_name_hint">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
@@ -328,7 +328,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/vi</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Special:MyLanguage/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Cảm ơn bạn vì sự quan tâm đến việc sửa miêu tả! Để thực hiện thêm sửa đổi nữa, xin hãy đăng nhập vào tài khoản Wikipedia của bạn.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Với việc lưu trang, tôi chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Với việc lưu trang, tôi chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của mình theo giấy phép &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Đã lưu miêu tả!</string>
   <string name="description_edit_success_encouragement">Bạn vừa cải thiện Wikipedia cho mọi người</string>
   <string name="description_edit_success_done">Xong</string>

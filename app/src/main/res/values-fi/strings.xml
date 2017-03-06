@@ -125,6 +125,7 @@
   <string name="page_protected_sysop">Tämä sivu on kokonaan suojattu.</string>
   <string name="page_protected_other">Tämä sivu on suojattu seuraavasti: %s</string>
   <string name="page_protected_can_not_edit" fuzzy="true">Sinulla ei ole oikeuksia muokata tätä sivua</string>
+  <string name="page_protected_can_not_edit_anon">Pahoittelut, tätä sivua ei voi muokata nimettömänä tällä hetkellä.</string>
   <string name="page_protected_can_not_edit_title">Tämä sivu on suojattu</string>
   <string name="settings_item_preferences">Asetukset</string>
   <string name="settings_activity_title">Asetukset</string>
@@ -265,7 +266,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_sort_by_recent">Lajittele viimeisimmän käytön mukaan</string>
   <string name="reading_list_sort_by_recent_desc">Lajittele viimeisimmän käytön mukaan (käänteinen)</string>
   <string name="reading_list_menu_edit">Muokkaa lukulistan tietoja</string>
-  <string name="reading_list_menu_delete">Poista lukulista</string>
+  <string name="reading_list_menu_delete" fuzzy="true">Poista lukulista</string>
   <string name="reading_list_name_sample">Oma lukulista</string>
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>

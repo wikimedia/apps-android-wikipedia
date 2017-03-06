@@ -259,7 +259,7 @@
   <string name="reading_list_sort_by_recent">سڀ کان ھاڻوڪي سان مرتب ڪريو</string>
   <string name="reading_list_sort_by_recent_desc">سڀ کا گھٽ ھاڻوڪي سان مرتب ڪريو</string>
   <string name="reading_list_menu_edit">پڙھڻ جي فھرست جون تفصيلون ترميميو</string>
-  <string name="reading_list_menu_delete">پڙھڻ جي فھرست ڊاھيو</string>
+  <string name="reading_list_menu_delete" fuzzy="true">پڙھڻ جي فھرست ڊاھيو</string>
   <string name="reading_list_name_sample">منھنجي پڙھڻ جي فھرست</string>
   <string name="reading_list_name_hint">فھرست جو نالو</string>
   <string name="reading_list_description_hint">وضاحت (آپشنل)</string>
