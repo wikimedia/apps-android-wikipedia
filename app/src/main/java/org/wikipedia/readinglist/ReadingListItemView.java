@@ -2,12 +2,15 @@ package org.wikipedia.readinglist;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Build;
+import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,12 +34,12 @@ public class ReadingListItemView extends FrameLayout {
         void onDelete(@NonNull ReadingList readingList);
     }
 
-    @BindView(R.id.item_container) FrameLayout containerView;
     @BindView(R.id.item_title) TextView titleView;
     @BindView(R.id.item_count) TextView countView;
     @BindView(R.id.item_description) TextView descriptionView;
     @BindView(R.id.item_overflow_menu)View overflowButton;
 
+    @BindView(R.id.item_image_container) View imageContainer;
     @BindView(R.id.item_image_1) SimpleDraweeView imageView1;
     @BindView(R.id.item_image_2) SimpleDraweeView imageView2;
     @BindView(R.id.item_image_3) SimpleDraweeView imageView3;
@@ -44,6 +47,7 @@ public class ReadingListItemView extends FrameLayout {
 
     @Nullable private Callback callback;
     @Nullable private ReadingList readingList;
+    private boolean showDescriptionEmptyHint;
 
     public ReadingListItemView(Context context) {
         super(context);
@@ -74,7 +78,9 @@ public class ReadingListItemView extends FrameLayout {
                 : String.format(getResources().getString(R.string.reading_list_item_count_plural), readingList.getPages().size()));
 
         updateDetails();
-        getThumbnails();
+        if (imageContainer.getVisibility() == VISIBLE) {
+            getThumbnails();
+        }
     }
 
     public void setCallback(@Nullable Callback callback) {
@@ -83,6 +89,26 @@ public class ReadingListItemView extends FrameLayout {
 
     public void setOverflowButtonVisible(boolean visible) {
         overflowButton.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    public void setThumbnailVisible(boolean visible) {
+        imageContainer.setVisibility(visible ? VISIBLE : GONE);
+    }
+
+    public void setShowDescriptionEmptyHint(boolean show) {
+        showDescriptionEmptyHint = show;
+        updateDetails();
+    }
+
+    public void setTitleTextSize(@DimenRes int id) {
+        titleView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getContext().getResources().getDimension(id));
+    }
+
+    @OnClick void onClick(View view) {
+        if (callback != null && readingList != null) {
+            callback.onClick(readingList);
+        }
     }
 
     @OnClick(R.id.item_overflow_menu) void showOverflowMenu(View anchorView) {
@@ -99,14 +125,7 @@ public class ReadingListItemView extends FrameLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        containerView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null && readingList != null) {
-                    callback.onClick(readingList);
-                }
-            }
-        });
+        setClickable(true);
         clearThumbnails();
     }
 
@@ -134,7 +153,13 @@ public class ReadingListItemView extends FrameLayout {
         titleView.setText(TextUtils.isEmpty(readingList.getTitle())
                 ? getResources().getString(R.string.reading_list_untitled)
                 : readingList.getTitle());
-        descriptionView.setText(readingList.getDescription());
+        if (TextUtils.isEmpty(readingList.getDescription()) && showDescriptionEmptyHint) {
+            descriptionView.setText(getContext().getString(R.string.reading_list_no_description));
+            descriptionView.setTypeface(descriptionView.getTypeface(), Typeface.ITALIC);
+        } else {
+            descriptionView.setText(readingList.getDescription());
+            descriptionView.setTypeface(descriptionView.getTypeface(), Typeface.NORMAL);
+        }
     }
 
     private void clearThumbnails() {
