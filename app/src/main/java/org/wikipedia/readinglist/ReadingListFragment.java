@@ -14,6 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.concurrency.CallbackTask;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +30,9 @@ public class ReadingListFragment extends Fragment {
     @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
     @BindView(R.id.reading_list_contents) RecyclerView recyclerView;
     private Unbinder unbinder;
+
+    @Nullable private ReadingList readingList;
+    @NonNull private ReadingLists readingLists = new ReadingLists();
 
     @NonNull
     public static ReadingListFragment newInstance(@NonNull String listTitle) {
@@ -48,8 +54,15 @@ public class ReadingListFragment extends Fragment {
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
 
-        String readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
-        // TODO: do something with the reading list title
+        final String readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
+        ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
+            @Override
+            public void success(List<ReadingList> lists) {
+                readingLists.set(lists);
+                readingList = readingLists.get(readingListTitle);
+                update();
+            }
+        });
 
         return view;
     }
@@ -68,5 +81,9 @@ public class ReadingListFragment extends Fragment {
 
     private AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
+    }
+
+    private void update() {
+        // TODO: update UI state for the current reading list.
     }
 }

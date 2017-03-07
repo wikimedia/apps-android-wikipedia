@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,6 +36,15 @@ public class ReadingLists {
 
     public ReadingList get(int pos) {
         return lists.get(pos);
+    }
+
+    @Nullable public ReadingList get(@Nullable String title) {
+        for (ReadingList list : lists) {
+            if (list.getTitle().equals(title)) {
+                return list;
+            }
+        }
+        return null;
     }
 
     public int size() {
