@@ -21,6 +21,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
@@ -242,8 +243,8 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().leadSectionFetchStart();
         PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(model.getTitle().getPrefixedText(), calculateLeadImageWidth(),
-                        !app.isImageDownloadEnabled())
+                .lead(null, PageClient.CacheOption.CACHE, model.getTitle().getPrefixedText(),
+                        calculateLeadImageWidth(), !app.isImageDownloadEnabled())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {
                         app.getSessionFunnel().leadSectionFetchEnd();
@@ -610,7 +611,8 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().restSectionsFetchStart();
         PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .sections(model.getTitle().getPrefixedText(), !app.isImageDownloadEnabled())
+                .sections(null, PageClient.CacheOption.CACHE, model.getTitle().getPrefixedText(),
+                        !app.isImageDownloadEnabled())
                 .enqueue(new retrofit2.Callback<PageRemaining>() {
                     @Override public void onResponse(Call<PageRemaining> call, Response<PageRemaining> rsp) {
                         app.getSessionFunnel().restSectionsFetchEnd();

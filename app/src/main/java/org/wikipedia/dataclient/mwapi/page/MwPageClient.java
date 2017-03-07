@@ -1,12 +1,14 @@
 package org.wikipedia.dataclient.mwapi.page;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 
+import okhttp3.CacheControl;
 import retrofit2.Call;
 
 /**
@@ -25,16 +27,22 @@ public class MwPageClient implements PageClient {
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageLead> lead(@NonNull String title,
+    @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
+                                                            @NonNull CacheOption cacheOption,
+                                                            @NonNull String title,
                                                             int leadThumbnailWidth,
                                                             boolean noImages) {
-        return service.lead(title, leadThumbnailWidth, optional(noImages));
+        return service.lead(cacheControl == null ? null : cacheControl.toString(),
+                optional(cacheOption.save()), title, leadThumbnailWidth, optional(noImages));
     }
 
     @SuppressWarnings("unchecked")
-    @NonNull @Override public Call<? extends PageRemaining> sections(@NonNull String title,
+    @NonNull @Override public Call<? extends PageRemaining> sections(@Nullable CacheControl cacheControl,
+                                                                     @NonNull CacheOption cacheOption,
+                                                                     @NonNull String title,
                                                                      boolean noImages) {
-        return service.sections(title, optional(noImages));
+        return service.sections(cacheControl == null ? null : cacheControl.toString(),
+                optional(cacheOption.save()), title, optional(noImages));
     }
 
     /**
