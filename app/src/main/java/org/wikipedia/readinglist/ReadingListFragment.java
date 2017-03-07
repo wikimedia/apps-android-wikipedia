@@ -11,6 +11,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -97,6 +100,32 @@ public class ReadingListFragment extends Fragment {
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_reading_lists, menu);
+        inflater.inflate(R.menu.menu_reading_list_item, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_search_lists:
+                return true;
+            case R.id.menu_sort_by_name:
+                return true;
+            case R.id.menu_sort_by_recent:
+                return true;
+            case R.id.menu_reading_list_rename:
+                return true;
+            case R.id.menu_reading_list_edit_description:
+                return true;
+            case R.id.menu_reading_list_delete:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private AppCompatActivity getAppCompatActivity() {
