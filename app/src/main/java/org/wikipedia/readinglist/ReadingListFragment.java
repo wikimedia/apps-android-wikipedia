@@ -7,6 +7,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -15,7 +16,13 @@ import android.view.ViewGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.PageItemView;
 
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,6 +39,8 @@ public class ReadingListFragment extends Fragment {
     private Unbinder unbinder;
 
     @Nullable private ReadingList readingList;
+    private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
+
     @NonNull private ReadingLists readingLists = new ReadingLists();
 
     @NonNull
@@ -54,10 +63,18 @@ public class ReadingListFragment extends Fragment {
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
+                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+
         final String readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
         ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> lists) {
+                if (getActivity() == null) {
+                    return;
+                }
                 readingLists.set(lists);
                 readingList = readingLists.get(readingListTitle);
                 update();
@@ -74,6 +91,9 @@ public class ReadingListFragment extends Fragment {
     }
 
     @Override public void onDestroyView() {
+        readingList = null;
+        readingLists.set(Collections.<ReadingList>emptyList());
+        recyclerView.setAdapter(null);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -84,6 +104,42 @@ public class ReadingListFragment extends Fragment {
     }
 
     private void update() {
-        // TODO: update UI state for the current reading list.
+        adapter.notifyDataSetChanged();
+    }
+
+    private class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>> {
+        private ReadingListPage page;
+
+        ReadingListPageItemHolder(PageItemView<ReadingListPage> itemView) {
+            super(itemView);
+        }
+
+        void bindItem(ReadingListPage page) {
+            this.page = page;
+            getView().setItem(page);
+            getView().setActionIcon(R.drawable.ic_offline_pin_black_24dp);
+            getView().setTitle(page.title());
+            getView().setDescription(page.description());
+            getView().setImageUrl(page.thumbnailUrl());
+        }
+    }
+
+    private final class ReadingListPageItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+        @Override
+        public int getItemCount() {
+            return readingList == null ? 0 : readingList.getPages().size();
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int type) {
+            return new ReadingListPageItemHolder(new PageItemView<ReadingListPage>(getContext()));
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int pos) {
+            if (readingList != null && holder instanceof ReadingListPageItemHolder) {
+                ((ReadingListPageItemHolder) holder).bindItem(readingList.getPages().get(pos));
+            }
+        }
     }
 }
