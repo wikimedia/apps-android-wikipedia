@@ -22,7 +22,7 @@
         android:id="@+id/page_list_header_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center_vertical"
         android:visibility="gone"
         tools:visibility="visible"
@@ -38,7 +38,6 @@
             android:id="@+id/page_list_item_image"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"
-            android:layout_marginTop="6dp"
             app:roundedCornerRadius="2dp"
             android:background="@drawable/view_list_card_item_image_background" />
 
@@ -73,6 +72,20 @@
                 style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/page_list_item_action_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="center"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:srcCompat="@drawable/ic_favorite_white_24dp"
+            android:tint="@color/base50"
+            android:contentDescription="@null"
+            android:visibility="gone"
+            tools:visibility="visible"/>
 
     </LinearLayout>
 
