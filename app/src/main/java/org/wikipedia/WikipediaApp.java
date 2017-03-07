@@ -20,7 +20,6 @@ import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.squareup.otto.Bus;
 
-import org.apache.commons.lang3.StringUtils;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
@@ -37,7 +36,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.edit.summaries.EditSummary;
-import org.wikipedia.events.AppLangChangeEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
@@ -277,12 +275,8 @@ public class WikipediaApp extends Application {
     }
 
     public void setAppLanguageCode(@Nullable String code) {
-        String prevCode = appLanguageState.getAppLanguageCode();
         appLanguageState.setAppLanguageCode(code);
         resetWikiSite();
-        if (!StringUtils.equals(code, prevCode)) {
-            bus.post(new AppLangChangeEvent());
-        }
     }
 
     private void updateUserIdForLanguage(@NonNull final String code) {

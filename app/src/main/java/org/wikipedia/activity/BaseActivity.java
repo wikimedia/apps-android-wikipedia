@@ -12,22 +12,12 @@ import android.view.MenuItem;
 import com.squareup.otto.Subscribe;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.AppLangChangeEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.settings.Prefs;
-
-import static org.wikipedia.util.ResourceUtil.setLocale;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private boolean destroyed;
     private EventBusMethods busMethods;
-
-    @Override public boolean isDestroyed() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            return super.isDestroyed();
-        }
-        return destroyed;
-    }
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -49,9 +39,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         busMethods = new EventBusMethods();
         WikipediaApp.getInstance().getBus().register(busMethods);
-
-        // todo: largely eliminate concept of system language
-        setLocale(this, WikipediaApp.getInstance().getAppOrSystemLanguageCode());
     }
 
     @Override protected void onDestroy() {
@@ -67,11 +54,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private class EventBusMethods {
-        @Subscribe public void on(AppLangChangeEvent event) {
-            recreate();
+    @Override public boolean isDestroyed() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            return super.isDestroyed();
         }
+        return destroyed;
+    }
 
+    private class EventBusMethods {
         // todo: reevaluate lifecycle. the bus is active when this activity is paused and we show ui
         @Subscribe public void on(WikipediaZeroEnterEvent event) {
             if (Prefs.isZeroTutorialEnabled()) {
