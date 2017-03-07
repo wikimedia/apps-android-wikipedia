@@ -21,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
@@ -56,6 +57,7 @@ public class ReadingListFragment extends Fragment {
     @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
     @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
     @BindView(R.id.reading_list_contents) RecyclerView recyclerView;
+    @BindView(R.id.reading_list_empty_text) TextView emptyView;
     private Unbinder unbinder;
 
     @Nullable private ReadingList readingList;
@@ -197,6 +199,7 @@ public class ReadingListFragment extends Fragment {
         if (readingList == null) {
             return;
         }
+        emptyView.setVisibility(readingList.getPages().isEmpty() ? View.VISIBLE : View.GONE);
         headerView.setReadingList(readingList);
         readingList.sort(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);

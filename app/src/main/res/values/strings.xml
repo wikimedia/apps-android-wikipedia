@@ -314,6 +314,7 @@
     <string name="reading_lists_onboarding_got_it">Got it</string>
     <string name="reading_lists_onboarding_page_delete">Tip: Swipe any page left or right to remove it from this reading list.</string>
     <string name="reading_list_no_description">No description…</string>
+    <string name="reading_list_empty">You have no articles added to this list.</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

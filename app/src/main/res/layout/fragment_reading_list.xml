@@ -62,7 +62,16 @@
                 android:layout_height="match_parent"
                 android:background="?attr/window_background_color"/>
 
-            <!-- TODO: add empty list indicator -->
+            <TextView
+                android:id="@+id/reading_list_empty_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:text="@string/reading_list_empty"
+                android:visibility="gone"
+                tools:visibility="visible"/>
 
         </LinearLayout>
 
