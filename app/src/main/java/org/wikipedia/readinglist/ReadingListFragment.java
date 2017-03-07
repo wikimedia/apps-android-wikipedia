@@ -6,12 +6,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,10 +23,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -55,6 +64,8 @@ public class ReadingListFragment extends Fragment {
     private boolean showOverflowMenu = false;
 
     @NonNull private ReadingLists readingLists = new ReadingLists();
+    private ReadingListsFunnel funnel = new ReadingListsFunnel();
+    private ItemCallback itemCallback = new ItemCallback();
     private SearchCallback searchActionModeCallback = new SearchCallback();
 
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
@@ -82,6 +93,10 @@ public class ReadingListFragment extends Fragment {
 
         appBarLayout.addOnOffsetChangedListener(appBarListener);
         toolBarLayout.setCollapsedTitleTextColor(Color.WHITE);
+
+        ItemTouchHelper.Callback touchCallback = new ReadingListItemTouchHelperCallback(getContext());
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
@@ -204,6 +219,21 @@ public class ReadingListFragment extends Fragment {
         update();
     }
 
+    private void showDeleteItemUndoSnackbar(final ReadingList readingList, final ReadingListPage page) {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
+                String.format(getString(R.string.reading_list_item_deleted), page.title()),
+                FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ReadingList.DAO.addTitleToList(readingList, page);
+                ReadingListPageDao.instance().markOutdated(page);
+                update();
+            }
+        });
+        snackbar.show();
+    }
+
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
         @Override
         public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -219,7 +249,8 @@ public class ReadingListFragment extends Fragment {
         }
     }
 
-    private class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>> {
+    class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>>
+            implements ReadingListItemTouchHelperCallback.Callback {
         private ReadingListPage page;
 
         ReadingListPageItemHolder(PageItemView<ReadingListPage> itemView) {
@@ -233,6 +264,16 @@ public class ReadingListFragment extends Fragment {
             getView().setTitle(page.title());
             getView().setDescription(page.description());
             getView().setImageUrl(page.thumbnailUrl());
+        }
+
+        @Override
+        public void onDismiss() {
+            if (readingList != null) {
+                showDeleteItemUndoSnackbar(readingList, page);
+                ReadingList.DAO.removeTitleFromList(readingList, page);
+                funnel.logDeleteItem(readingList, readingLists.size());
+                update();
+            }
         }
     }
 
@@ -252,6 +293,36 @@ public class ReadingListFragment extends Fragment {
             if (readingList != null && holder instanceof ReadingListPageItemHolder) {
                 ((ReadingListPageItemHolder) holder).bindItem(displayedPages.get(pos));
             }
+        }
+
+        @Override public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+            super.onViewAttachedToWindow(holder);
+            if (holder instanceof ReadingListPageItemHolder) {
+                ((ReadingListPageItemHolder) holder).getView().setCallback(itemCallback);
+            }
+        }
+
+        @Override public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
+            if (holder instanceof ReadingListPageItemHolder) {
+                ((ReadingListPageItemHolder) holder).getView().setCallback(null);
+            }
+            super.onViewDetachedFromWindow(holder);
+        }
+    }
+
+    private class ItemCallback implements PageItemView.Callback<ReadingListPage> {
+        @Override
+        public void onClick(@Nullable ReadingListPage page) {
+            if (page != null && readingList != null) {
+                PageTitle title = ReadingListDaoProxy.pageTitle(page);
+                HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
+                ReadingList.DAO.makeListMostRecent(readingList);
+                startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
+            }
+        }
+
+        @Override
+        public void onActionClick(@Nullable ReadingListPage item) {
         }
     }
 
