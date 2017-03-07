@@ -290,14 +290,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             if (actionMode != null) {
                 actionMode.finish();
             }
-            listDetailView.setReadingListInfo(readingList,
-                    readingLists.getTitlesExcept(readingList.getTitle()));
-            pager.setCurrentItem(PAGE_LIST_DETAIL);
-
-            if (!readingList.getPages().isEmpty()
-                    && Prefs.isReadingListPageDeleteTutorialEnabled()) {
-                showDeletePageOnboarding();
-            }
+            startActivity(ReadingListActivity.newIntent(getContext(), readingList));
         }
 
         @Override
