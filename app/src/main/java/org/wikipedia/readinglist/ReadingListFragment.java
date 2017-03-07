@@ -8,9 +8,11 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,12 +22,14 @@ import android.view.ViewGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -44,10 +48,15 @@ public class ReadingListFragment extends Fragment {
 
     @Nullable private ReadingList readingList;
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
+    @Nullable private ActionMode actionMode;
     private AppBarListener appBarListener = new AppBarListener();
     private boolean showOverflowMenu = false;
 
     @NonNull private ReadingLists readingLists = new ReadingLists();
+    private SearchCallback searchActionModeCallback = new SearchCallback();
+
+    @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
+    private String currentSearchQuery;
 
     @NonNull
     public static ReadingListFragment newInstance(@NonNull String listTitle) {
@@ -121,6 +130,7 @@ public class ReadingListFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_search_lists:
+                getAppCompatActivity().startSupportActionMode(searchActionModeCallback);
                 return true;
             case R.id.menu_sort_by_name:
                 return true;
@@ -142,7 +152,26 @@ public class ReadingListFragment extends Fragment {
     }
 
     private void update() {
+        setSearchQuery(currentSearchQuery);
+    }
+
+    private void setSearchQuery(@Nullable String query) {
+        if (readingList == null) {
+            return;
+        }
+        currentSearchQuery = query;
+        displayedPages.clear();
         adapter.notifyDataSetChanged();
+        if (TextUtils.isEmpty(query)) {
+            displayedPages.addAll(readingList.getPages());
+            return;
+        }
+        query = query.toUpperCase();
+        for (ReadingListPage page : readingList.getPages()) {
+            if (page.title().toUpperCase().contains(query.toUpperCase())) {
+                displayedPages.add(page);
+            }
+        }
     }
 
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
@@ -180,7 +209,7 @@ public class ReadingListFragment extends Fragment {
     private final class ReadingListPageItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         @Override
         public int getItemCount() {
-            return readingList == null ? 0 : readingList.getPages().size();
+            return displayedPages.size();
         }
 
         @Override
@@ -191,8 +220,33 @@ public class ReadingListFragment extends Fragment {
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int pos) {
             if (readingList != null && holder instanceof ReadingListPageItemHolder) {
-                ((ReadingListPageItemHolder) holder).bindItem(readingList.getPages().get(pos));
+                ((ReadingListPageItemHolder) holder).bindItem(displayedPages.get(pos));
             }
+        }
+    }
+
+    private class SearchCallback extends SearchActionModeCallback {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            actionMode = mode;
+            return super.onCreateActionMode(mode, menu);
+        }
+
+        @Override
+        protected void onQueryChange(String s) {
+            setSearchQuery(s);
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            super.onDestroyActionMode(mode);
+            actionMode = null;
+            setSearchQuery(null);
+        }
+
+        @Override
+        protected String getSearchHintString() {
+            return getString(R.string.search_hint_search_reading_list);
         }
     }
 }
