@@ -56,6 +56,7 @@ public class ReadingListFragment extends Fragment {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
     @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
     @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
+    @BindView(R.id.reading_list_header) ReadingListHeaderView headerImageView;
     @BindView(R.id.reading_list_contents) RecyclerView recyclerView;
     @BindView(R.id.reading_list_empty_text) TextView emptyView;
     private Unbinder unbinder;
@@ -201,6 +202,7 @@ public class ReadingListFragment extends Fragment {
         }
         emptyView.setVisibility(readingList.getPages().isEmpty() ? View.VISIBLE : View.GONE);
         headerView.setReadingList(readingList);
+        headerImageView.setReadingList(readingList);
         readingList.sort(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
     }
