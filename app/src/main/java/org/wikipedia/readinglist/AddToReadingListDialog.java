@@ -25,8 +25,6 @@ import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.views.DrawableItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,8 +106,6 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         RecyclerView readingListView = (RecyclerView) rootView.findViewById(R.id.list_of_lists);
         readingListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         readingListView.setAdapter(adapter);
-        readingListView.addItemDecoration(new DrawableItemDecoration(getContext(),
-                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
 
         View createButton = rootView.findViewById(R.id.create_button);
         createButton.setOnClickListener(createClickListener);
