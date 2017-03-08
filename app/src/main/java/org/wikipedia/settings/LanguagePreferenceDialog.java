@@ -117,7 +117,7 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
     }
 
     private void enableInitialSoftInputFocus() {
-        int mode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
+        int mode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
                 | WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE;
         getWindow().setSoftInputMode(mode);
     }
