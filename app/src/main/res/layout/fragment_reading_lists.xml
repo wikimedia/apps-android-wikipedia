@@ -44,6 +44,12 @@
             android:text="@string/reading_lists_empty_message" />
     </LinearLayout>
 
+    <org.wikipedia.views.SearchEmptyView
+        android:id="@+id/search_empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
     <org.wikipedia.readinglist.NoSwipeViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
