@@ -38,11 +38,16 @@ import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.Date;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 
@@ -52,10 +57,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         void onClearHistory();
     }
 
-    private ListView historyEntryList;
-    private View historyEmptyContainer;
-    private TextView historyEmptyTitle;
-    private TextView historyEmptyMessage;
+    private Unbinder unbinder;
+    @BindView(R.id.history_entry_list) ListView historyEntryList;
+    @BindView(R.id.history_empty_container) View historyEmptyView;
+    @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
+
     private HistoryEntryAdapter adapter;
 
     private WikipediaApp app;
@@ -82,12 +88,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_history, container, false);
-        historyEntryList = (ListView) rootView.findViewById(R.id.history_entry_list);
-        historyEmptyContainer = rootView.findViewById(R.id.history_empty_container);
-        historyEmptyTitle = (TextView) rootView.findViewById(R.id.history_empty_title);
-        historyEmptyMessage = (TextView) rootView.findViewById(R.id.history_empty_message);
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
+        unbinder = ButterKnife.bind(this, view);
 
+        searchEmptyView.setEmptyText(R.string.search_history_no_results);
         ViewCompat.setNestedScrollingEnabled(historyEntryList, true); // NavTabLayout coordination
         historyEntryList.setAdapter(adapter);
         historyEntryList.setOnItemClickListener(itemClickListener);
@@ -96,14 +100,13 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         loaderCallback = new LoaderCallback(getContext(), adapter);
         getActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
 
-        return rootView;
+        return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        historyEntryList.setEmptyView(historyEmptyContainer);
     }
 
     @Override
@@ -113,6 +116,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyEntryList.setOnItemClickListener(null);
         historyEntryList.setOnItemLongClickListener(null);
         historyEntryList.setAdapter(null);
+        unbinder.unbind();
+        unbinder = null;
         super.onDestroyView();
     }
 
@@ -133,6 +138,17 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             return true;
         }
         return false;
+    }
+
+    private void updateEmptyState(@Nullable String searchQuery) {
+        if (TextUtils.isEmpty(searchQuery)) {
+            searchEmptyView.setVisibility(View.GONE);
+            historyEmptyView.setVisibility(adapter.isEmpty() ? View.VISIBLE : View.GONE);
+        } else {
+            searchEmptyView.setVisibility(adapter.isEmpty() ? View.VISIBLE : View.GONE);
+            historyEmptyView.setVisibility(View.GONE);
+        }
+        historyEntryList.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
     private class HistoryEntryAdapter extends CursorAdapter {
@@ -316,7 +332,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             String titleCol = PageHistoryContract.PageWithImage.TITLE.qualifiedName();
             String selection = null;
             String[] selectionArgs = null;
-            historyEmptyContainer.setVisibility(View.GONE);
             String searchStr = currentSearchQuery;
             if (!TextUtils.isEmpty(searchStr)) {
                 searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
@@ -336,6 +351,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             if (!isAdded()) {
                 return;
             }
+            updateEmptyState(currentSearchQuery);
             getActivity().supportInvalidateOptionsMenu();
         }
     }
@@ -376,21 +392,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            historyEmptyTitle.setText(getString(R.string.history_search_empty_message));
-            historyEmptyMessage.setVisibility(View.GONE);
-            return super.onPrepareActionMode(mode, menu);
-        }
-
-        @Override
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
             if (!TextUtils.isEmpty(currentSearchQuery)) {
                 currentSearchQuery = "";
                 restartLoader();
             }
-            historyEmptyTitle.setText(R.string.history_empty_title);
-            historyEmptyMessage.setVisibility(View.VISIBLE);
             actionMode = null;
         }
 

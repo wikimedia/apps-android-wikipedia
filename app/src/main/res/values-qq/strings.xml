@@ -101,6 +101,7 @@ Shown in the preferences screen along with the following:
 {{Identical|Table of contents}}</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
   <string name="search_reading_lists_no_results">Message shown when there are no reading lists whose name matches the specified search term.</string>
+  <string name="search_history_no_results">Message shown when there are no history entries that match the specified search term.</string>
   <string name="edit_section_captcha_message">A label for the CAPTCHA screen.</string>
   <string name="edit_section_captcha_hint">A call to action to write the CAPTCHA string.</string>
   <string name="title_captcha">A call to action to write the CAPTCHA string.</string>

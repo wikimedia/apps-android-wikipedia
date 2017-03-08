@@ -77,6 +77,7 @@
     <string name="menu_show_toc">Table of Contents</string>
     <string name="search_no_results_found">No results found</string>
     <string name="search_reading_lists_no_results">No results found in reading lists</string>
+    <string name="search_history_no_results">No results found in history</string>
     <string name="edit_section_captcha_message">To help protect against automated spam, please enter the words that appear below</string>
     <string name="edit_section_captcha_hint">Repeat words from above</string>
     <string name="title_captcha">Enter CAPTCHA</string>
