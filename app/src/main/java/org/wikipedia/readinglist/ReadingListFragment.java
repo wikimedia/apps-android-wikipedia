@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -43,6 +44,8 @@ public class ReadingListFragment extends Fragment {
 
     @Nullable private ReadingList readingList;
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
+    private AppBarListener appBarListener = new AppBarListener();
+    private boolean showOverflowMenu = false;
 
     @NonNull private ReadingLists readingLists = new ReadingLists();
 
@@ -65,6 +68,9 @@ public class ReadingListFragment extends Fragment {
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
+
+        appBarLayout.addOnOffsetChangedListener(appBarListener);
+        toolBarLayout.setCollapsedTitleTextColor(Color.WHITE);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
@@ -97,6 +103,7 @@ public class ReadingListFragment extends Fragment {
         readingList = null;
         readingLists.set(Collections.<ReadingList>emptyList());
         recyclerView.setAdapter(null);
+        appBarLayout.removeOnOffsetChangedListener(appBarListener);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -105,7 +112,9 @@ public class ReadingListFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_reading_lists, menu);
-        inflater.inflate(R.menu.menu_reading_list_item, menu);
+        if (showOverflowMenu) {
+            inflater.inflate(R.menu.menu_reading_list_item, menu);
+        }
     }
 
     @Override
@@ -134,6 +143,21 @@ public class ReadingListFragment extends Fragment {
 
     private void update() {
         adapter.notifyDataSetChanged();
+    }
+
+    private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
+        @Override
+        public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+            if (verticalOffset > -appBarLayout.getTotalScrollRange() && showOverflowMenu) {
+                showOverflowMenu = false;
+                toolBarLayout.setTitle("");
+                getAppCompatActivity().supportInvalidateOptionsMenu();
+            } else if (verticalOffset <= -appBarLayout.getTotalScrollRange() && !showOverflowMenu) {
+                showOverflowMenu = true;
+                toolBarLayout.setTitle(readingList.getTitle());
+                getAppCompatActivity().supportInvalidateOptionsMenu();
+            }
+        }
     }
 
     private class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>> {
