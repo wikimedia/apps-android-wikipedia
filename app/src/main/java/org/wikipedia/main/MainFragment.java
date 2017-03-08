@@ -52,7 +52,6 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListActivity;
-import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
@@ -71,8 +70,8 @@ import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
-        SearchFragment.Callback, LinkPreviewDialog.Callback, AddToReadingListDialog.Callback {
+        NearbyFragment.Callback, HistoryFragment.Callback, SearchFragment.Callback,
+        LinkPreviewDialog.Callback, AddToReadingListDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     private Unbinder unbinder;

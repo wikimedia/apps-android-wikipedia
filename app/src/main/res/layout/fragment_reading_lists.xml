@@ -50,38 +50,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
-    <org.wikipedia.readinglist.NoSwipeViewPager
-        android:id="@+id/pager"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/reading_list_list"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/list_of_lists_page"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/reading_list_list"
-                android:scrollbars="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/window_background_color" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/list_detail_page"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <org.wikipedia.readinglist.ReadingListDetailView
-                android:id="@+id/list_detail_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-
-    </org.wikipedia.readinglist.NoSwipeViewPager>
+        android:layout_height="wrap_content"
+        android:background="?attr/window_background_color" />
 
 </FrameLayout>
