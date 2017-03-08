@@ -16,6 +16,7 @@ import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -118,7 +119,9 @@ public class LoginClient {
             public void success(@NonNull Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call,
                                 int id, @NonNull Set<String> groups) {
                 final User user = loginResult.getUser();
-                User.setUser(new User(user, id, wiki.languageCode(), groups));
+                Map<String, Integer> idMap = new HashMap<>();
+                idMap.put(wiki.languageCode(), id);
+                User.setUser(new User(user, idMap, groups));
                 cb.success(loginResult);
                 L.v("Found user ID " + id + " for " + wiki.languageCode());
             }
@@ -126,7 +129,7 @@ public class LoginClient {
             @Override
             public void failure(@NonNull Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call,
                               @NonNull Throwable caught) {
-                L.e("Login suceeded but getting group information failed. " + caught);
+                L.e("Login succeeded but getting group information failed. " + caught);
                 cb.error(caught);
             }
         });
