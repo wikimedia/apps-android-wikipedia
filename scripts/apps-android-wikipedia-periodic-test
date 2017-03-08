@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export ANDROID_HOME="$PWD/.sdk"
+
 ./gradlew clean testAllAlphaRelease -Pandroid.testInstrumentationRunnerArguments.size=small -Dorg.gradle.jvmargs=-Xmx4096M -Dorg.gradle.daemon=true
+
 scripts/diff-screenshots

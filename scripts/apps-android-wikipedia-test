@@ -2,4 +2,7 @@
 set -euo pipefail
 
 scripts/missing-qq.py
+
+export ANDROID_HOME="$PWD/.sdk"
+
 ./gradlew clean checkstyle assembleAlphaRelease testAlphaRelease compileAlphaReleaseAndroidTestSources
