@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,6 +36,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.TextInputDialog;
 
 import java.util.List;
@@ -55,6 +57,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private Unbinder unbinder;
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
     @BindView(R.id.empty_container) View emptyContainer;
+    @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.pager) ViewPager pager;
     private ReadingLists readingLists = new ReadingLists();
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
@@ -90,6 +93,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         View view = inflater.inflate(R.layout.fragment_reading_lists, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
         detailViewBackButton = (ImageView) listDetailView.findViewById(R.id.reading_list_detail_back_button);
         listDetailView.setCallback(detailViewCallback);
 
@@ -194,20 +198,26 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         updateLists(null);
     }
 
-    private void updateLists(String searchQuery) {
+    private void updateLists(@Nullable final String searchQuery) {
         ReadingList.DAO.queryMruLists(searchQuery,
                 new CallbackTask.Callback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> rows) {
                 readingLists.set(rows);
                 sortLists();
-                updateEmptyMessage();
+                updateEmptyState(searchQuery);
             }
         });
     }
 
-    private void updateEmptyMessage() {
-        emptyContainer.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
+    private void updateEmptyState(@Nullable String searchQuery) {
+        if (TextUtils.isEmpty(searchQuery)) {
+            searchEmptyView.setVisibility(View.GONE);
+            emptyContainer.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
+        } else {
+            searchEmptyView.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
+            emptyContainer.setVisibility(View.GONE);
+        }
     }
 
     private class ReadingListPagerAdapter extends PagerAdapter {
