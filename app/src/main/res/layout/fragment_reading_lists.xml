@@ -6,41 +6,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/feed_window_background_color">
+
     <LinearLayout
         android:id="@+id/empty_container"
         android:orientation="vertical"
         android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone">
-        <ImageView
-            android:id="@+id/empty_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
-            android:tint="?attr/window_inverse_color"
-            android:contentDescription="@null"/>
         <TextView
             android:id="@+id/empty_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:text="@string/reading_lists_empty"
-            />
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="20dp"
+            android:text="@string/reading_lists_empty" />
+        <ImageView
+            android:id="@+id/empty_image"
+            android:layout_width="168dp"
+            android:layout_height="168dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/no_lists"
+            android:contentDescription="@null" />
         <TextView
             android:id="@+id/empty_message"
-            android:layout_width="256dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
             android:gravity="center"
-            android:text="@string/reading_lists_empty_message"
-            />
+            android:textSize="16sp"
+            android:text="@string/reading_lists_empty_message" />
     </LinearLayout>
 
     <org.wikipedia.readinglist.NoSwipeViewPager
