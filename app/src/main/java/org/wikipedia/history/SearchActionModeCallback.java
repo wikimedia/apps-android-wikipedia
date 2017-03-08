@@ -5,6 +5,8 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
@@ -12,13 +14,16 @@ import org.wikipedia.util.DeviceUtil;
 public abstract class SearchActionModeCallback implements ActionMode.Callback {
     public static final String ACTION_MODE_TAG = "searchActionMode";
     private SearchView searchView;
+    private ImageView searchMagIcon;
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         mode.setTag(ACTION_MODE_TAG);
         mode.getMenuInflater().inflate(R.menu.menu_action_mode_search, menu);
         searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search_view));
-        searchView.setIconified(false);
+        searchMagIcon = (ImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
+        searchMagIcon.setImageDrawable(null);
+        searchView.setIconifiedByDefault(false);
         searchView.setQueryHint(getSearchHintString());
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -42,6 +47,7 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
         searchView.requestFocus();
+        searchMagIcon.setVisibility(View.GONE);
         DeviceUtil.showSoftKeyboard(searchView);
         return true;
     }
@@ -53,5 +59,8 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
+        if (searchView != null) {
+            searchView.setOnQueryTextListener(null);
+        }
     }
 }
