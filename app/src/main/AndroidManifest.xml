@@ -65,7 +65,7 @@
 
         <activity android:name=".main.MainActivity"
                   android:theme="@style/AppTheme"
-                  android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+                  android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                   android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -85,7 +85,7 @@
         </activity>
         <activity android:name=".page.PageActivity"
             android:theme="@style/PageTheme"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity">
