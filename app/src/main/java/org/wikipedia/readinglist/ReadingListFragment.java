@@ -24,6 +24,7 @@ import org.wikipedia.R;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -38,6 +39,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_TITLE;
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_ASC;
 
 public class ReadingListFragment extends Fragment {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
@@ -127,14 +129,26 @@ public class ReadingListFragment extends Fragment {
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem sortByNameItem = menu.findItem(R.id.menu_sort_by_name);
+        MenuItem sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent);
+        int sortMode = Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
+        sortByNameItem.setTitle(sortMode == ReadingLists.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
+        sortByRecentItem.setTitle(sortMode == ReadingLists.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_search_lists:
                 getAppCompatActivity().startSupportActionMode(searchActionModeCallback);
                 return true;
             case R.id.menu_sort_by_name:
+                setSortMode(ReadingLists.SORT_BY_NAME_ASC, ReadingLists.SORT_BY_NAME_DESC);
                 return true;
             case R.id.menu_sort_by_recent:
+                setSortMode(ReadingLists.SORT_BY_RECENT_DESC, ReadingLists.SORT_BY_RECENT_ASC);
                 return true;
             case R.id.menu_reading_list_rename:
                 return true;
@@ -152,6 +166,10 @@ public class ReadingListFragment extends Fragment {
     }
 
     private void update() {
+        if (readingList == null) {
+            return;
+        }
+        readingList.sort(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
     }
 
@@ -172,6 +190,18 @@ public class ReadingListFragment extends Fragment {
                 displayedPages.add(page);
             }
         }
+    }
+
+    private void setSortMode(int sortModeAsc, int sortModeDesc) {
+        int sortMode = Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
+        if (sortMode != sortModeAsc) {
+            sortMode = sortModeAsc;
+        } else {
+            sortMode = sortModeDesc;
+        }
+        Prefs.setReadingListPageSortMode(sortMode);
+        getActivity().supportInvalidateOptionsMenu();
+        update();
     }
 
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {

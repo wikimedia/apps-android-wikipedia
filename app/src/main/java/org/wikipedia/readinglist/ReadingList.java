@@ -9,7 +9,14 @@ import org.wikipedia.readinglist.database.ReadingListRow;
 import org.wikipedia.readinglist.page.ReadingListPage;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_ASC;
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_DESC;
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_RECENT_ASC;
+import static org.wikipedia.readinglist.ReadingLists.SORT_BY_RECENT_DESC;
 
 public final class ReadingList extends ReadingListRow {
     @NonNull private final List<ReadingListPage> pages;
@@ -94,6 +101,45 @@ public final class ReadingList extends ReadingListRow {
             }
         }
         return true;
+    }
+
+    public void sort(int sortMode) {
+        switch (sortMode) {
+            case SORT_BY_NAME_ASC:
+                Collections.sort(pages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return lhs.title().compareTo(rhs.title());
+                    }
+                });
+                break;
+            case SORT_BY_NAME_DESC:
+                Collections.sort(pages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return rhs.title().compareTo(lhs.title());
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_ASC:
+                Collections.sort(pages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return ((Long) lhs.atime()).compareTo(rhs.atime());
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_DESC:
+                Collections.sort(pages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return ((Long) rhs.atime()).compareTo(lhs.atime());
+                    }
+                });
+                break;
+            default:
+                break;
+        }
     }
 
     private ReadingList(@NonNull Builder builder) {
