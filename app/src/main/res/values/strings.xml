@@ -313,6 +313,7 @@
     <string name="reading_lists_onboarding_example3">Space!</string>
     <string name="reading_lists_onboarding_got_it">Got it</string>
     <string name="reading_lists_onboarding_page_delete">Tip: Swipe any page left or right to remove it from this reading list.</string>
+    <string name="reading_list_no_description">No description…</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

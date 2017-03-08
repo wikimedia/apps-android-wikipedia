@@ -38,6 +38,7 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
+import org.wikipedia.views.TextInputDialog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -59,12 +60,14 @@ public class ReadingListFragment extends Fragment {
 
     @Nullable private ReadingList readingList;
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
+    private ReadingListItemView headerView;
     @Nullable private ActionMode actionMode;
     private AppBarListener appBarListener = new AppBarListener();
-    private boolean showOverflowMenu = false;
+    private boolean showOverflowMenu;
 
     @NonNull private ReadingLists readingLists = new ReadingLists();
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
+    private HeaderCallback headerCallback = new HeaderCallback();
     private ItemCallback itemCallback = new ItemCallback();
     private SearchCallback searchActionModeCallback = new SearchCallback();
 
@@ -102,6 +105,13 @@ public class ReadingListFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+
+        headerView = new ReadingListItemView(getContext());
+        headerView.setCallback(headerCallback);
+        headerView.setClickable(false);
+        headerView.setThumbnailVisible(false);
+        headerView.setShowDescriptionEmptyHint(true);
+        headerView.setTitleTextSize(R.dimen.readingListTitleTextSize);
 
         final String readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
         ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
@@ -166,10 +176,13 @@ public class ReadingListFragment extends Fragment {
                 setSortMode(ReadingLists.SORT_BY_RECENT_DESC, ReadingLists.SORT_BY_RECENT_ASC);
                 return true;
             case R.id.menu_reading_list_rename:
+                rename();
                 return true;
             case R.id.menu_reading_list_edit_description:
+                editDescription();
                 return true;
             case R.id.menu_reading_list_delete:
+                // TODO?
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -184,6 +197,7 @@ public class ReadingListFragment extends Fragment {
         if (readingList == null) {
             return;
         }
+        headerView.setReadingList(readingList);
         readingList.sort(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
     }
@@ -234,6 +248,43 @@ public class ReadingListFragment extends Fragment {
         snackbar.show();
     }
 
+    private void rename() {
+        if (readingList == null) {
+            return;
+        }
+        ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.getTitle(),
+                readingLists.getTitlesExcept(readingList.getTitle()),
+                new ReadingListTitleDialog.Callback() {
+                    @Override
+                    public void onSuccess(@NonNull CharSequence text) {
+                        ReadingList.DAO.renameAndSaveListInfo(readingList, text.toString());
+                        update();
+                        funnel.logModifyList(readingList, readingLists.size());
+                    }
+                }).show();
+    }
+
+    private void editDescription() {
+        if (readingList == null) {
+            return;
+        }
+        TextInputDialog.newInstance(getContext(), new TextInputDialog.DefaultCallback() {
+            @Override
+            public void onShow(@NonNull TextInputDialog dialog) {
+                dialog.setHint(R.string.reading_list_description_hint);
+                dialog.setText(readingList.getDescription());
+            }
+
+            @Override
+            public void onSuccess(@NonNull CharSequence text) {
+                readingList.setDescription(text.toString());
+                ReadingList.DAO.saveListInfo(readingList);
+                update();
+                funnel.logModifyList(readingList, readingLists.size());
+            }
+        }).show();
+    }
+
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
         @Override
         public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -249,8 +300,29 @@ public class ReadingListFragment extends Fragment {
         }
     }
 
-    class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>>
-            implements ReadingListItemTouchHelperCallback.Callback {
+    private class HeaderCallback implements ReadingListItemView.Callback {
+        @Override
+        public void onClick(@NonNull ReadingList readingList) {
+        }
+
+        @Override
+        public void onRename(@NonNull final ReadingList readingList) {
+            rename();
+        }
+
+        @Override
+        public void onEditDescription(@NonNull final ReadingList readingList) {
+            editDescription();
+        }
+
+        @Override
+        public void onDelete(@NonNull ReadingList readingList) {
+            // TODO?
+        }
+    }
+
+        class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>>
+                implements ReadingListItemTouchHelperCallback.Callback {
         private ReadingListPage page;
 
         ReadingListPageItemHolder(PageItemView<ReadingListPage> itemView) {
@@ -277,22 +349,39 @@ public class ReadingListFragment extends Fragment {
         }
     }
 
+    private class ReadingListHeaderHolder extends RecyclerView.ViewHolder {
+        ReadingListHeaderHolder(View itemView) {
+            super(itemView);
+        }
+    }
+
     private final class ReadingListPageItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+        private static final int TYPE_HEADER = 0;
+        private static final int TYPE_ITEM = 1;
+
         @Override
         public int getItemCount() {
-            return displayedPages.size();
+            return 1 + displayedPages.size();
         }
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int type) {
+            if (type == TYPE_HEADER) {
+                return new ReadingListHeaderHolder(headerView);
+            }
             return new ReadingListPageItemHolder(new PageItemView<ReadingListPage>(getContext()));
         }
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int pos) {
             if (readingList != null && holder instanceof ReadingListPageItemHolder) {
-                ((ReadingListPageItemHolder) holder).bindItem(displayedPages.get(pos));
+                ((ReadingListPageItemHolder) holder).bindItem(displayedPages.get(pos - 1));
             }
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return position == 0 ? TYPE_HEADER : TYPE_ITEM;
         }
 
         @Override public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
