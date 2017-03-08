@@ -118,7 +118,7 @@ public final class FeedbackUtil {
 
     private static View findBestView(Activity activity) {
         if (activity instanceof MainActivity) {
-            return activity.findViewById(R.id.fragment_main_container);
+            return activity.findViewById(R.id.fragment_main_coordinator);
         } else if (activity instanceof PageActivity) {
             return activity.findViewById(R.id.page_contents_container);
         } else {

@@ -5,7 +5,6 @@
     android:id="@+id/feed_swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
     android:background="?attr/feed_window_background_color">
 
     <FrameLayout

@@ -54,7 +54,6 @@
         android:id="@+id/history_entry_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         android:background="?attr/window_background_color"/>
 
 </FrameLayout>
