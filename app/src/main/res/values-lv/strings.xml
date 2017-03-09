@@ -169,6 +169,9 @@
   <string name="reading_list_sort_by_name_desc">Kārtot pēc nosaukuma (pretēji)</string>
   <string name="reading_list_sort_by_recent">Kārtot pēc visjaunākā</string>
   <string name="reading_list_sort_by_recent_desc">Kārtot pēc visvecākā</string>
+  <string name="reading_list_menu_delete">Dzēst sarakstu</string>
+  <string name="reading_list_menu_rename">Pārsaukt</string>
+  <string name="reading_list_menu_edit_description">Labot aprakstu</string>
   <string name="reading_list_description_hint">Apraksts (nav obligāts)</string>
   <string name="reading_list_item_deleted">%s izņemts no saraksta</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>

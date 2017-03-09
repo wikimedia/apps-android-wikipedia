@@ -75,8 +75,8 @@
   <string name="login_success_toast">ログインに成功しました!</string>
   <string name="preference_title_logout">ログアウト</string>
   <string name="toast_logout_complete">ログアウトしました</string>
-  <string name="history_empty_title">履歴はまだありません!</string>
-  <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
+  <string name="history_empty_title" fuzzy="true">履歴はまだありません!</string>
+  <string name="history_empty_message" fuzzy="true">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
   <string name="delete_selected_history">削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
   <string name="create_account_username_hint">利用者名</string>
@@ -267,8 +267,8 @@
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">キャンセル</string>
   <string name="reading_list_delete_confirm">あとで読むリストを本当に削除しますか?</string>
-  <string name="reading_lists_empty">あとで読むリストはありません</string>
-  <string name="reading_lists_empty_message">あとで読むリストで記事を整理しましょう。記事を読んでいるときに、下のツールバーにあるブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
+  <string name="reading_lists_empty" fuzzy="true">あとで読むリストはありません</string>
+  <string name="reading_lists_empty_message" fuzzy="true">あとで読むリストで記事を整理しましょう。記事を読んでいるときに、下のツールバーにあるブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
   <string name="reading_lists_onboarding_intro">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
   <string name="reading_lists_onboarding_for_example">例えば</string>
   <string name="reading_lists_onboarding_example1">行ってみたい場所</string>

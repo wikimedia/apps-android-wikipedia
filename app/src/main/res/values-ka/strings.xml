@@ -76,8 +76,8 @@
   <string name="login_success_toast">შესვლა წარმატებით განხორციელდა!</string>
   <string name="preference_title_logout">გასვლა</string>
   <string name="toast_logout_complete">გამოსული.</string>
-  <string name="history_empty_title">ბოლო გვერდები ვერ მოიძებნა!</string>
-  <string name="history_empty_message">შესაძლოა თქვენ ყველა მათგანი წაშალეთ. შემდეგში შეგიძლიათ გადახვიდეთ გვერდზე, სადაც გადასვლა აქედან შეგიძლიათ.</string>
+  <string name="history_empty_title" fuzzy="true">ბოლო გვერდები ვერ მოიძებნა!</string>
+  <string name="history_empty_message" fuzzy="true">შესაძლოა თქვენ ყველა მათგანი წაშალეთ. შემდეგში შეგიძლიათ გადახვიდეთ გვერდზე, სადაც გადასვლა აქედან შეგიძლიათ.</string>
   <string name="delete_selected_history">წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მომხმარებლის სახელი</string>
@@ -260,7 +260,7 @@
   <string name="reading_list_edit_ok">კარგი</string>
   <string name="reading_list_edit_cancel">გაუქმება</string>
   <string name="reading_list_delete_confirm">დარწმუნებული ხართ, რომ გსურთ წასაკითხთა ამ სიის წაშლა?</string>
-  <string name="reading_lists_empty">წასაკითხთა სია არაა.</string>
+  <string name="reading_lists_empty" fuzzy="true">წასაკითხთა სია არაა.</string>
   <string name="reading_lists_onboarding_for_example">მაგალითად</string>
   <string name="reading_lists_onboarding_example1">მოსანახულებელი ადგილები</string>
   <string name="reading_lists_onboarding_example2">საყვარელი ცხოველები</string>

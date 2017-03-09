@@ -73,8 +73,8 @@
   <string name="login_success_toast">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ ਹੋੲਿਅਾ।</string>
   <string name="preference_title_logout">ਬਾਹਰ ਆਉ</string>
   <string name="toast_logout_complete">ਬਾਹਰ ਆਏ</string>
-  <string name="history_empty_title">ਇੱਥੇ ਕੋਈ ਹਾਲੀਆ ਵਰਕੇ ਨਹੀਂ!</string>
-  <string name="history_empty_message">ਤੁਸੀਂ ਸ਼ਾਇਦ ਇਹ ਸਾਰੇ ਮਿਟਾ ਦਿੱਤੇ ਹਨ। ਅਗਲੀ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਸਫ਼ੇ \'ਤੇ ਜਾਉਂ ਤਾਂ ਤੁਸੀਂ ਇੱਥੋਂ ਉਹਦੇ ਤੱਕ ਪਰਤ ਸਕਦੇ ਹੋ।</string>
+  <string name="history_empty_title" fuzzy="true">ਇੱਥੇ ਕੋਈ ਹਾਲੀਆ ਵਰਕੇ ਨਹੀਂ!</string>
+  <string name="history_empty_message" fuzzy="true">ਤੁਸੀਂ ਸ਼ਾਇਦ ਇਹ ਸਾਰੇ ਮਿਟਾ ਦਿੱਤੇ ਹਨ। ਅਗਲੀ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਸਫ਼ੇ \'ਤੇ ਜਾਉਂ ਤਾਂ ਤੁਸੀਂ ਇੱਥੋਂ ਉਹਦੇ ਤੱਕ ਪਰਤ ਸਕਦੇ ਹੋ।</string>
   <string name="delete_selected_history">ਮਿਟਾਓ</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="create_account_username_hint">ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
@@ -246,7 +246,7 @@
   <string name="reading_list_edit_ok">ਠੀਕ ਹੈ</string>
   <string name="reading_list_edit_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="reading_list_delete_confirm">ਕੀ ਤੁਸੀਂ ਇਹ ਪੜ੍ਹਤ ਸੂਚੀ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
-  <string name="reading_lists_empty">ਇੱਥੇ ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ...</string>
+  <string name="reading_lists_empty" fuzzy="true">ਇੱਥੇ ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ...</string>
   <string name="reading_lists_onboarding_for_example">ਮਿਸਾਲ ਦੇ ਤੌਰ \'ਤੇ</string>
   <string name="reading_lists_onboarding_example1">ਦੌਰਾ ਕਰਨ ਲਈ ਸਥਾਨ</string>
   <string name="reading_lists_onboarding_example2">ਪਸੰਦੀਦਾ ਜਾਨਵਰ</string>

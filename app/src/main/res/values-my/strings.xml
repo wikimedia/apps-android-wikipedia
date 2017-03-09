@@ -73,8 +73,8 @@
   <string name="login_success_toast">လော့ဂ်အင်ဝင်ခြင်း အောင်မြင်သည်!</string>
   <string name="preference_title_logout">ထွက်ရန်</string>
   <string name="toast_logout_complete">လော့ဂ်အောက်ထွက်ပြီးပြီ</string>
-  <string name="history_empty_title">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
-  <string name="history_empty_message">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
+  <string name="history_empty_title" fuzzy="true">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
+  <string name="history_empty_message" fuzzy="true">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
   <string name="delete_selected_history">ဖျက်​ပါ​</string>
   <string name="wp_stylized">&lt;big&gt;ဝီ&lt;/big&gt;ကီပီးဒီး&lt;big&gt;ယား&lt;/big&gt;</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
@@ -265,8 +265,8 @@
   <string name="reading_list_edit_ok">အိုကေ</string>
   <string name="reading_list_edit_cancel">မလုပ်တော့ပါ</string>
   <string name="reading_list_delete_confirm">ဤစာဖတ်စာရင်းအား ဖျက်ရန် သေချာပါသလား?</string>
-  <string name="reading_lists_empty">စာဖတ်စာရင်း မရှိ။</string>
-  <string name="reading_lists_empty_message">သင်ကြည့်သော ဆောင်းပါးများအား သင့်စာဖတ်စာရင်းသို့ ထည့်ပါ! ဆောင်းပါးအား ဖတ်ရှုနေစဉ် အောက်ခြေ toolbar ရှိ စာညှပ်ပုံအား နှိပ်ပြီး စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ။</string>
+  <string name="reading_lists_empty" fuzzy="true">စာဖတ်စာရင်း မရှိ။</string>
+  <string name="reading_lists_empty_message" fuzzy="true">သင်ကြည့်သော ဆောင်းပါးများအား သင့်စာဖတ်စာရင်းသို့ ထည့်ပါ! ဆောင်းပါးအား ဖတ်ရှုနေစဉ် အောက်ခြေ toolbar ရှိ စာညှပ်ပုံအား နှိပ်ပြီး စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ။</string>
   <string name="reading_lists_onboarding_intro">နောင်မှဖတ်ရှုလိုသည်များအား စာဖတ်စာရင်းအဖြစ် ဖန်တီးပါ။ အော့ဖ်လိုင်း ဖြစ်နေစဉ်တွင်တောင်မှ ဖတ်ရှုနိုင်ပါသည်။</string>
   <string name="reading_lists_onboarding_for_example">နမူနာအားဖြင့်</string>
   <string name="reading_lists_onboarding_example1">လည်ပတ်ရန် နေရာများ</string>

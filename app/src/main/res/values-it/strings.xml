@@ -75,8 +75,8 @@
   <string name="login_success_toast">Accesso eseguito con successo!</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="history_empty_title">Nessuna pagina recente qui!</string>
-  <string name="history_empty_message">Probabilmente hai cancellato tutto. La prossima volta che vai in una pagina, puoi tornarci da qui.</string>
+  <string name="history_empty_title" fuzzy="true">Nessuna pagina recente qui!</string>
+  <string name="history_empty_message" fuzzy="true">Probabilmente hai cancellato tutto. La prossima volta che vai in una pagina, puoi tornarci da qui.</string>
   <string name="delete_selected_history">Cancella</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome utente</string>
@@ -259,7 +259,9 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_sort_by_recent">Ordina per più recenti</string>
   <string name="reading_list_sort_by_recent_desc">Ordina per meno recenti</string>
   <string name="reading_list_menu_edit">Modifica dettagli elenco di lettura</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Cancella elenco di lettura</string>
+  <string name="reading_list_menu_delete">Cancella elenco</string>
+  <string name="reading_list_menu_rename">Rinomina</string>
+  <string name="reading_list_menu_edit_description">Modifica descrizione</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
@@ -270,8 +272,8 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Annulla</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare questo elenco di lettura?</string>
-  <string name="reading_lists_empty">Nessun elenco di lettura qui.</string>
-  <string name="reading_lists_empty_message">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in fondo alla barra degli strumenti, per aggiungerla ad un elenco di lettura.</string>
+  <string name="reading_lists_empty" fuzzy="true">Nessun elenco di lettura qui.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in fondo alla barra degli strumenti, per aggiungerla ad un elenco di lettura.</string>
   <string name="reading_lists_onboarding_intro">Crea elenchi di lettura da voci che vuoi leggere più tardi, anche quando sei offline!</string>
   <string name="reading_lists_onboarding_for_example">Per esempio</string>
   <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>

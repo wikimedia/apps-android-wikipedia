@@ -78,8 +78,8 @@
   <string name="login_success_toast">ورود با موفقیت!</string>
   <string name="preference_title_logout">خروج از سامانه</string>
   <string name="toast_logout_complete">خارج شد</string>
-  <string name="history_empty_title">هیچ صفحه اخیری اینجا نیست.</string>
-  <string name="history_empty_message">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
+  <string name="history_empty_title" fuzzy="true">هیچ صفحه اخیری اینجا نیست.</string>
+  <string name="history_empty_message" fuzzy="true">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
   <string name="delete_selected_history">حذف</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
@@ -277,8 +277,8 @@
   <string name="reading_list_edit_ok">تأیید</string>
   <string name="reading_list_edit_cancel">لغو</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید این فهرست مطالعه را حذف کنید؟</string>
-  <string name="reading_lists_empty">در اینجا فهرست مطالعه‌ای وجود ندارد.</string>
-  <string name="reading_lists_empty_message">افزودن مقالاتی که شما آنها را مرور کردید به فهرست مطالعه! در زمان مطالعهٔ یک مقاله بر روی دکمهٔ بوک‌مارک در پایین انگشت بزنید تا مقاله به فهرست مطالعه افزوده شود.</string>
+  <string name="reading_lists_empty" fuzzy="true">در اینجا فهرست مطالعه‌ای وجود ندارد.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">افزودن مقالاتی که شما آنها را مرور کردید به فهرست مطالعه! در زمان مطالعهٔ یک مقاله بر روی دکمهٔ بوک‌مارک در پایین انگشت بزنید تا مقاله به فهرست مطالعه افزوده شود.</string>
   <string name="reading_lists_onboarding_intro">درست کردن فهرست مطالعه برای مطالعه در زمانی دیگر حتی زمانی که به اینترنت دسترسی ندارید!</string>
   <string name="reading_lists_onboarding_for_example">برای مثال</string>
   <string name="reading_lists_onboarding_example1">مکان برای مشاهده</string>

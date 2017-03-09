@@ -68,7 +68,7 @@
   <string name="login_success_toast">ಲಾಗ್-ಇನ್ ಅಯಾರ್!</string>
   <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
   <string name="toast_logout_complete">ಲಾಗ್ ಔಟ್ ಅಯಾರ್</string>
-  <string name="history_empty_title">ಮುಲ್ಪ ಇಂಚಿಪೋದ ಪುಟೋ ಇಜ್ಜಿ!</string>
+  <string name="history_empty_title" fuzzy="true">ಮುಲ್ಪ ಇಂಚಿಪೋದ ಪುಟೋ ಇಜ್ಜಿ!</string>
   <string name="delete_selected_history">ಮಾಜಾಲೆ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
@@ -186,7 +186,7 @@
   <string name="reading_list_deleted">%s ದೆತ್ತುಂಡು</string>
   <string name="reading_list_edit_ok">ಸರಿ</string>
   <string name="reading_list_edit_cancel">ವಜಾ ಮಲ್ಪುಲೆ</string>
-  <string name="reading_lists_empty">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>
+  <string name="reading_lists_empty" fuzzy="true">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>
   <string name="reading_lists_onboarding_for_example">ಉದಾಹರಣೆಗ್</string>
   <string name="reading_lists_onboarding_example1">ಪೊವಾಡಯಿನಾ ಜಾಗೆಲು</string>
   <string name="reading_lists_onboarding_example2">ಇಸ್ಟೊದಾ ಮೃಗೋಕುಲು</string>

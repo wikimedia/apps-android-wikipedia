@@ -71,8 +71,8 @@
   <string name="login_success_toast">Session aperite con successo!</string>
   <string name="preference_title_logout">Clauder session</string>
   <string name="toast_logout_complete">Session claudite</string>
-  <string name="history_empty_title">Il non ha paginas recente.</string>
-  <string name="history_empty_message">Tu ha probabilemente delite totes. Le sequente vice que tu accede a un pagina, tu potera retrovar lo hic.</string>
+  <string name="history_empty_title" fuzzy="true">Il non ha paginas recente.</string>
+  <string name="history_empty_message" fuzzy="true">Tu ha probabilemente delite totes. Le sequente vice que tu accede a un pagina, tu potera retrovar lo hic.</string>
   <string name="delete_selected_history">Deler</string>
   <string name="create_account_username_hint">Nomine de usator</string>
   <string name="login_create_account_link">Non ha un conto? Inscribe te a Wikipedia</string>

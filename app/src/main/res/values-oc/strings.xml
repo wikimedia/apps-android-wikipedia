@@ -76,8 +76,8 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="login_success_toast">Connectat amb succès !</string>
   <string name="preference_title_logout">Se desconnectar</string>
   <string name="toast_logout_complete">Desconnectat</string>
-  <string name="history_empty_title">Pas cap de pagina recenta aicí !</string>
-  <string name="history_empty_message">Los avètz probablament destrusidas totas. Lo còp que ven qu\'aniretz sus una pagina, i poiretz tornar en començant d’aicí.</string>
+  <string name="history_empty_title" fuzzy="true">Pas cap de pagina recenta aicí !</string>
+  <string name="history_empty_message" fuzzy="true">Los avètz probablament destrusidas totas. Lo còp que ven qu\'aniretz sus una pagina, i poiretz tornar en començant d’aicí.</string>
   <string name="delete_selected_history">Escafar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'utilizaire</string>
@@ -242,7 +242,7 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="reading_list_edit_ok">D\'acòrdi</string>
   <string name="reading_list_edit_cancel">Anullar</string>
   <string name="reading_list_delete_confirm">Sètz segur que volètz suprimir aquesta lista de lectura ?</string>
-  <string name="reading_lists_empty">Pas cap de lista de lectura aicí.</string>
+  <string name="reading_lists_empty" fuzzy="true">Pas cap de lista de lectura aicí.</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Endreits a visitar</string>
   <string name="reading_lists_onboarding_example2">Animals favorits</string>

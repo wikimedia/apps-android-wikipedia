@@ -73,8 +73,8 @@
   <string name="login_success_toast">Ensaluto sukcesis!</string>
   <string name="preference_title_logout">Elsaluti</string>
   <string name="toast_logout_complete">Elsalutiĝinta</string>
-  <string name="history_empty_title">Neniuj lastaj paĝoj ĉi tie!</string>
-  <string name="history_empty_message">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
+  <string name="history_empty_title" fuzzy="true">Neniuj lastaj paĝoj ĉi tie!</string>
+  <string name="history_empty_message" fuzzy="true">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
   <string name="delete_selected_history">Forigi</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDI&lt;big&gt;O&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uzantnomo</string>

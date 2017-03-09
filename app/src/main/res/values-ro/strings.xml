@@ -73,8 +73,8 @@
   <string name="login_success_toast">Autentificare reușită!</string>
   <string name="preference_title_logout">Închide sesiunea</string>
   <string name="toast_logout_complete">Sesiune închisă</string>
-  <string name="history_empty_title">Nicio pagină recentă aici.</string>
-  <string name="history_empty_message">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
+  <string name="history_empty_title" fuzzy="true">Nicio pagină recentă aici.</string>
+  <string name="history_empty_message" fuzzy="true">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
   <string name="delete_selected_history">Șterge</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nume de utilizator</string>
@@ -260,7 +260,7 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Revocare</string>
   <string name="reading_list_delete_confirm">Sigur doriți să ștergeți această listă de lecturi?</string>
-  <string name="reading_lists_empty">Nicio listă de lecturi pe aici.</string>
+  <string name="reading_lists_empty" fuzzy="true">Nicio listă de lecturi pe aici.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Grupați articolele pe care le răsfoiți în liste de lecturi! Când frunzăriți un articol, atingeți pictograma „semn de carte” din partea de sus a articolului pentru a-l adăuga unei liste de lecturi.</string>
   <string name="reading_lists_onboarding_intro">Creați liste de lecturi cu articolele pe care doriți să le citiți mai târziu, chiar dacă sunteți off-line!</string>
   <string name="reading_lists_onboarding_for_example">De exemplu</string>

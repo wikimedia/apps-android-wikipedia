@@ -70,8 +70,8 @@
   <string name="login_success_toast">Sėkmingai prisijungėte!</string>
   <string name="preference_title_logout">Atsijungti</string>
   <string name="toast_logout_complete">Atsijungėte</string>
-  <string name="history_empty_title">Naujausių puslapių nėra!</string>
-  <string name="history_empty_message">Tikriausiai viską panaikinote. Kitą kartą, kai eisite į kurį nors puslapį, iš čia galėsite į jį sugrįžti.</string>
+  <string name="history_empty_title" fuzzy="true">Naujausių puslapių nėra!</string>
+  <string name="history_empty_message" fuzzy="true">Tikriausiai viską panaikinote. Kitą kartą, kai eisite į kurį nors puslapį, iš čia galėsite į jį sugrįžti.</string>
   <string name="delete_selected_history">Naikinti</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Naudotojo vardas</string>
@@ -250,7 +250,7 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="reading_list_edit_ok">GERAI</string>
   <string name="reading_list_edit_cancel">Atšaukti</string>
   <string name="reading_list_delete_confirm">Ar tikrai norite ištrinti šį skaitymo sąrašą?</string>
-  <string name="reading_lists_empty">Čia nėra skaitymo sąrašų.</string>
+  <string name="reading_lists_empty" fuzzy="true">Čia nėra skaitymo sąrašų.</string>
   <string name="reading_lists_onboarding_for_example">Pavyzdžiui</string>
   <string name="reading_lists_onboarding_example1">Lankytinos vietos</string>
   <string name="reading_lists_onboarding_example2">Mėgstami gyvūnai</string>

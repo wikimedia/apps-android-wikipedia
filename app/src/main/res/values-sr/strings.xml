@@ -73,8 +73,8 @@
   <string name="login_success_toast">Успешно сте пријављени!</string>
   <string name="preference_title_logout">Одјави ме</string>
   <string name="toast_logout_complete">Одјављени сте</string>
-  <string name="history_empty_title">Нема скорашњих страница.</string>
-  <string name="history_empty_message">Вероватно сте их све избрисали. Следећи пут кад посетите страницу, можете јој се поново вратити одавде.</string>
+  <string name="history_empty_title" fuzzy="true">Нема скорашњих страница.</string>
+  <string name="history_empty_message" fuzzy="true">Вероватно сте их све избрисали. Следећи пут кад посетите страницу, можете јој се поново вратити одавде.</string>
   <string name="delete_selected_history">Избриши</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="create_account_username_hint">Корисничко име</string>
@@ -245,7 +245,7 @@
   <string name="reading_list_edit_ok">У реду</string>
   <string name="reading_list_edit_cancel">Откажи</string>
   <string name="reading_list_delete_confirm">Заиста желите да избришете овај списак за читање?</string>
-  <string name="reading_lists_empty">Нема спискова за читање.</string>
+  <string name="reading_lists_empty" fuzzy="true">Нема спискова за читање.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посету</string>
   <string name="reading_lists_onboarding_example2">Омиљене животиње</string>

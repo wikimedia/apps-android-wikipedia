@@ -75,8 +75,8 @@
   <string name="login_success_toast">U bent aangemeld.</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="history_empty_title">Geen recente pagina\'s</string>
-  <string name="history_empty_message">U heeft ze vast allemaal verwijderd. De volgende keer als u een pagina bezoekt, kunt u hem hier terugvinden.</string>
+  <string name="history_empty_title" fuzzy="true">Geen recente pagina\'s</string>
+  <string name="history_empty_message" fuzzy="true">U heeft ze vast allemaal verwijderd. De volgende keer als u een pagina bezoekt, kunt u hem hier terugvinden.</string>
   <string name="delete_selected_history">Verwijderen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
@@ -268,8 +268,8 @@
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Annuleren</string>
   <string name="reading_list_delete_confirm">Weet u zeker dat u deze leeslijst wilt verwijderen?</string>
-  <string name="reading_lists_empty">Er zijn nog geen leeslijsten aangemaakt.</string>
-  <string name="reading_lists_empty_message">Organiseer de pagina\'s die je bekijkt in leeslijsten! Tik terwijl je een pagina bekijkt op het bladwijzerpictogram onderaan de werkbalk om deze toe te voegen aan een leeslijst.</string>
+  <string name="reading_lists_empty" fuzzy="true">Er zijn nog geen leeslijsten aangemaakt.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organiseer de pagina\'s die je bekijkt in leeslijsten! Tik terwijl je een pagina bekijkt op het bladwijzerpictogram onderaan de werkbalk om deze toe te voegen aan een leeslijst.</string>
   <string name="reading_lists_onboarding_intro">Maak leeslijsten van pagina\'s die u later wilt lezen, zelfs als u offline bent!</string>
   <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>
   <string name="reading_lists_onboarding_example1">Plaatsen om te bezoeken</string>

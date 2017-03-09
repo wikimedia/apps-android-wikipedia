@@ -78,8 +78,8 @@
   <string name="login_success_toast">Erfolgreich angemeldet!</string>
   <string name="preference_title_logout">Abmelden</string>
   <string name="toast_logout_complete">Abgemeldet</string>
-  <string name="history_empty_title">Hier gibt es keine letzten Seiten.</string>
-  <string name="history_empty_message">Du hast vermutlich alle Elemente gelöscht. Das nächste Mal, wenn du eine Seite besuchst, kannst du von hier auf sie zurückgehen.</string>
+  <string name="history_empty_title" fuzzy="true">Hier gibt es keine letzten Seiten.</string>
+  <string name="history_empty_message" fuzzy="true">Du hast vermutlich alle Elemente gelöscht. Das nächste Mal, wenn du eine Seite besuchst, kannst du von hier auf sie zurückgehen.</string>
   <string name="delete_selected_history">Löschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benutzername</string>
@@ -268,7 +268,9 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_sort_by_recent">Nach zuletzt gelesen sortieren</string>
   <string name="reading_list_sort_by_recent_desc">Nach zuletzt gelesen sortieren (umgekehrt)</string>
   <string name="reading_list_menu_edit">Einzelheiten der Leseliste bearbeiten</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Leseliste löschen</string>
+  <string name="reading_list_menu_delete">Liste löschen</string>
+  <string name="reading_list_menu_rename">Umbenennen</string>
+  <string name="reading_list_menu_edit_description">Beschreibung bearbeiten</string>
   <string name="reading_list_name_sample">Meine Leseliste</string>
   <string name="reading_list_name_hint">Name dieser Liste</string>
   <string name="reading_list_description_hint">Beschreibung (optional)</string>
@@ -279,8 +281,8 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_edit_ok">Okay</string>
   <string name="reading_list_edit_cancel">Abbrechen</string>
   <string name="reading_list_delete_confirm">Bist du sicher, dass du diese Leseliste löschen möchtest?</string>
-  <string name="reading_lists_empty">Hier gibt es keine Leselisten.</string>
-  <string name="reading_lists_empty_message">Organisiere die aufgerufenen Artikel in Leselisten! Tippe beim Aufrufen eines Artikels auf das Lesezeichen-Symbol in der unteren Werkzeugleiste, um ihn zur Leseliste hinzuzufügen.</string>
+  <string name="reading_lists_empty" fuzzy="true">Hier gibt es keine Leselisten.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organisiere die aufgerufenen Artikel in Leselisten! Tippe beim Aufrufen eines Artikels auf das Lesezeichen-Symbol in der unteren Werkzeugleiste, um ihn zur Leseliste hinzuzufügen.</string>
   <string name="reading_lists_onboarding_intro">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispiel</string>
   <string name="reading_lists_onboarding_example1">Zu besuchende Orte</string>

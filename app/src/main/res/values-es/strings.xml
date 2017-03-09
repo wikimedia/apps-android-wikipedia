@@ -78,8 +78,8 @@
   <string name="login_success_toast">Se inició la sesión correctamente.</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
-  <string name="history_empty_title">¡No hay páginas recientes aquí!</string>
-  <string name="history_empty_message">Probablemente borraste el historial. La próxima vez que vayas a una página puedes recuperarla desde aquí.</string>
+  <string name="history_empty_title" fuzzy="true">¡No hay páginas recientes aquí!</string>
+  <string name="history_empty_message" fuzzy="true">Probablemente borraste el historial. La próxima vez que vayas a una página puedes recuperarla desde aquí.</string>
   <string name="delete_selected_history">Borrar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
@@ -268,7 +268,9 @@
   <string name="reading_list_sort_by_recent">Ordenar por más reciente</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar por menos reciente</string>
   <string name="reading_list_menu_edit">Editar los detalles de la lista de lectura</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Eliminar la lista de lectura</string>
+  <string name="reading_list_menu_delete">Eliminar la lista</string>
+  <string name="reading_list_menu_rename">Renombrar</string>
+  <string name="reading_list_menu_edit_description">Editar descripción</string>
   <string name="reading_list_name_sample">Mi lista de lectura</string>
   <string name="reading_list_name_hint">Nombre de esta lista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>
@@ -279,8 +281,8 @@
   <string name="reading_list_edit_ok">Aceptar</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">¿Estás seguro de que quieres eliminar esta lista de lectura?</string>
-  <string name="reading_lists_empty">No hay listas de lectura aquí.</string>
-  <string name="reading_lists_empty_message">Organiza los artículos que navegas en listas de lectura. Cuando navegues por un artículo, pulsa el ícono de marcador en la parte inferior de la barra de herramienta para añadirlo a una lista de lectura.</string>
+  <string name="reading_lists_empty" fuzzy="true">No hay listas de lectura aquí.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organiza los artículos que navegas en listas de lectura. Cuando navegues por un artículo, pulsa el ícono de marcador en la parte inferior de la barra de herramienta para añadirlo a una lista de lectura.</string>
   <string name="reading_lists_onboarding_intro">Crea listas de lectura a partir de los artículos que quieras leer más tarde, ¡incluso sin conexión!</string>
   <string name="reading_lists_onboarding_for_example">Por ejemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
@@ -303,6 +305,7 @@
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_card_subtitle">Leer un artículo al azar de Wikipedia</string>
+  <string name="view_random_card_error">No se pudo cargar una página aleatoria de la red o de tus listas de lectura.</string>
   <string name="view_main_page_card_title">Hoy en Wikipedia</string>
   <string name="view_main_page_card_subtitle">Página principal al %s</string>
   <string name="view_featured_image_card_title">Imagen del día</string>

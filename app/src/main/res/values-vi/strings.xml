@@ -78,8 +78,8 @@
   <string name="login_success_toast">Đã đăng nhập thành công!</string>
   <string name="preference_title_logout">Đăng xuất</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
-  <string name="history_empty_title">Không có trang gần đây tại đây!</string>
-  <string name="history_empty_message">Có lẽ bạn đã xóa toàn bộ. Lần sau xem một trang, trang sẽ xuất hiện tại đây để truy cập sau.</string>
+  <string name="history_empty_title" fuzzy="true">Không có trang gần đây tại đây!</string>
+  <string name="history_empty_message" fuzzy="true">Có lẽ bạn đã xóa toàn bộ. Lần sau xem một trang, trang sẽ xuất hiện tại đây để truy cập sau.</string>
   <string name="delete_selected_history">Xóa</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Tên người dùng</string>
@@ -273,8 +273,8 @@
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Hủy bỏ</string>
   <string name="reading_list_delete_confirm">Bạn có chắc chắn muốn xóa danh sách đọc này?</string>
-  <string name="reading_lists_empty">Không có danh sách đọc.</string>
-  <string name="reading_lists_empty_message">Sắp xếp các bài mà bạn duyệt xem vào danh sách đọc! Khi nào xem một bài, chỉ việc chạm vào hình dấu trang trong thanh công cụ cuối trang để thêm nó vào một danh sách đọc.</string>
+  <string name="reading_lists_empty" fuzzy="true">Không có danh sách đọc.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Sắp xếp các bài mà bạn duyệt xem vào danh sách đọc! Khi nào xem một bài, chỉ việc chạm vào hình dấu trang trong thanh công cụ cuối trang để thêm nó vào một danh sách đọc.</string>
   <string name="reading_lists_onboarding_intro">Tạo danh sách các bài viết bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến.</string>
   <string name="reading_lists_onboarding_for_example">Ví dụ</string>
   <string name="reading_lists_onboarding_example1">Các địa điểm để tham quan</string>

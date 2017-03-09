@@ -41,7 +41,7 @@
   <string name="nearby_zoom_to_location">Zoumañ war ul lec\'h eus ar gartenn</string>
   <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
   <string name="talk_page_link_text">Kaozeal</string>
-  <string name="content_license_html" fuzzy="true">An endalc\'had a c\'haller kaout e &lt;a  href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
+  <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a  href=\"%1$s\"&gt; aotre-implijout CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
   <string name="edit_save_action_license_logged_in">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
   <string name="edit_save_action_license_anon">Pa\'z enrollit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
   <string name="preference_title_language">Yezh Wikipedia</string>
@@ -71,14 +71,15 @@
   <string name="login_username_hint">Anv implijer</string>
   <string name="login_password_hint">Ger-tremen</string>
   <string name="login_2fa_hint">Kod gwiriañ dezhañ daou faktor</string>
+  <string name="login_2fa_other_workflow_error_msg">Dilesadur gant daou faktor ret ! Distroit, mar plij, d\'an obererezh pennañ ha kevreit gant ho jedouer 2FA, klaskit en-dro goude-se.</string>
   <string name="menu_login">Kevreañ</string>
   <string name="login_activity_title">Kevreañ ouzh Wikipedia</string>
   <string name="login_in_progress_dialog_message">O kevreañ ouzh…</string>
   <string name="login_success_toast">Kevreet oc\'h !</string>
   <string name="preference_title_logout">Digevreañ</string>
   <string name="toast_logout_complete">Digevreet</string>
-  <string name="history_empty_title">N\'eus pajenn nevez ebet amañ.</string>
-  <string name="history_empty_message">Lamet ho peus pep tra moarvat. Ar wech kentañ ma\'z eot war ur bajenn e c\'hallot distreiñ warni ac\'halese.</string>
+  <string name="history_empty_title" fuzzy="true">N\'eus pajenn nevez ebet amañ.</string>
+  <string name="history_empty_message" fuzzy="true">Lamet ho peus pep tra moarvat. Ar wech kentañ ma\'z eot war ur bajenn e c\'hallot distreiñ warni ac\'halese.</string>
   <string name="delete_selected_history">Diverkañ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Anv implijer</string>
@@ -90,6 +91,7 @@
   <string name="create_account_password_repeat_hint">Adlakaat ar ger-tremen</string>
   <string name="create_account_passwords_mismatch_error">Ar gerioù-tremen ne glotont ket an eil gant egile</string>
   <string name="create_account_email_error">Chomlec\'h postel direizh.</string>
+  <string name="create_account_username_error">Arouezennoù n\'int ket mat en anv an implijer</string>
   <string name="create_account_generic_error">N\'haller ket krouiñ ar gont</string>
   <string name="create_account_next">War-lerc\'h</string>
   <string name="create_account_button">Krouiñ ur gont</string>
@@ -123,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Damwarezet eo bet ar bajenn-mañ.</string>
   <string name="page_protected_sysop">Gwarezet penn-da-benn eo bet ar bajenn-mañ.</string>
   <string name="page_protected_other">Gwarezet eo bet ar bajenn-mañ gant al livioù-mañ : %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">N\'ho peus ket gwir da aozañ ar bajenn-mañ</string>
+  <string name="page_protected_can_not_edit">Hon digarezit, n\'he deus ho kont trawalc\'h a wirioù evit kemmañ ar bajenn-mañ evit ar mare.</string>
+  <string name="page_protected_can_not_edit_anon">Hon digarezit, ne c\'hall ket ar bajenn-mañ bezañ kemmet gant un den dizanv evit ar mare.</string>
   <string name="page_protected_can_not_edit_title">Gwarezet eo ar bajenn-mañ</string>
   <string name="settings_item_preferences">Arventennoù</string>
   <string name="settings_activity_title">Arventennoù</string>
@@ -132,13 +135,15 @@
   <string name="terms_of_use_description">Termenoù implijout</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="cc_by_sa_3_url">http://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">http://creativecommons.org/publicdomain/mark/1.0/</string>
   <string name="about_libraries_heading">Levraouegoù implijet</string>
   <string name="about_contributors_heading">Kenlabourerien</string>
   <string name="about_translators_heading">Troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Aotre-implijout</string>
   <string name="about_app_license">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Ur produ gant &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Ur produ gant &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>
   <string name="edit_abandon_confirm">Kemmet eo bet ar bajenn. Ha sur oc\'h e fell deoc\'h mont kuit anez enrollañ ho kemmoù ?</string>
   <string name="user_blocked_from_editing_title">Stanket</string>
@@ -227,6 +232,7 @@
   <string name="error_voice_search_not_available">Ho tigarez, ne c\'haller ket digejañ ar gomz.</string>
   <string name="location_service_disabled">Diweredekaet eo ar servijoù lec\'hiañ.</string>
   <string name="enable_location_service">Gweredekaat</string>
+  <string name="error_webview_updating">Emañ ar WebView eus ar riezhiad Android o hizivaat evit ar mare. Klaskit en-dro a-benn ur pennadig.</string>
   <string name="crash_report_dialog_title">Hon digarezit, c\'hwitet eo an arload ar wech diwezhañ</string>
   <string name="crash_report_dialog_text">Ha c\'hoant ho peus da gas un danevell implij da HockeyApp - ur pourchaser servijoù tredeour - abalamour ma c\'hallo Wikimedia kompren war ho tarvoud ha reizhañ an draen degaset gantañ ?</string>
   <string name="crash_report_dialog_dont_send_button">Lezel a-gostez</string>
@@ -248,6 +254,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_list_untitled">Hep titl</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>
+  <string name="reading_list_title_exists">Ar roll lenn «%s» zo anezhañ dija.</string>
   <string name="reading_list_entry_empty">Merkit un titl.</string>
   <string name="reading_list_added_to_named">Ouzhpennet da%s</string>
   <string name="reading_list_added_to_unnamed">Ouzhpennet d\'ar roll lenn.</string>
@@ -261,7 +268,9 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_list_sort_by_recent">Rummañ hervez ar re nevez</string>
   <string name="reading_list_sort_by_recent_desc">Rummañ dre ar re goshañ</string>
   <string name="reading_list_menu_edit">Kemmañ ar munudoù er roll lenn</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Dilemel ar roll lenn</string>
+  <string name="reading_list_menu_delete">Dilemel ar roll</string>
+  <string name="reading_list_menu_rename">Adenvel</string>
+  <string name="reading_list_menu_edit_description">Kemmañ an deskrivadur</string>
   <string name="reading_list_name_sample">Ma roll lenn</string>
   <string name="reading_list_name_hint">Anv ar roll-mañ</string>
   <string name="reading_list_description_hint">Deskrivadur (diret)</string>
@@ -272,8 +281,8 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_list_edit_ok">Mat eo</string>
   <string name="reading_list_edit_cancel">Nullañ</string>
   <string name="reading_list_delete_confirm">Ha sur eo hoc\'h eus c\'hoant da zilemel ar roll-mañ ?</string>
-  <string name="reading_lists_empty">Roll lenn ebet amañ.</string>
-  <string name="reading_lists_empty_message">Aozañ ar pennadoù emaoc\'h o verdeiñ enno e rolloù lenn ! Pa vezit o lenn ur pennad, klikit war an arlun er varrenn ostilhoù en traoñ evit ouzhpennañ anezhi d\'ur roll lenn.</string>
+  <string name="reading_lists_empty" fuzzy="true">Roll lenn ebet amañ.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Aozañ ar pennadoù emaoc\'h o verdeiñ enno e rolloù lenn ! Pa vezit o lenn ur pennad, klikit war an arlun er varrenn ostilhoù en traoñ evit ouzhpennañ anezhi d\'ur roll lenn.</string>
   <string name="reading_lists_onboarding_intro">Krouiñ rolloù lenn evit ar pennadoù ho peus c\'hoant da lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn !</string>
   <string name="reading_lists_onboarding_for_example">Da skouer</string>
   <string name="reading_lists_onboarding_example1">Lec\'hioù da weladenniñ</string>
@@ -287,15 +296,16 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="notification_button_view_edit_history">Gwelet istor ar c\'hemmoù</string>
   <string name="notification_generic_title">Kemennadenn war Wikipedia</string>
   <string name="notification_talk_title">Kemennadenn nevez war Wikipedia</string>
-  <string name="notification_talk" fuzzy="true">Lezet ez eus bet ur gemennadenn war ho pajenn gaozeal \"%2$s\" gant %1$s</string>
+  <string name="notification_talk">Lezet ez eus bet ur gemennadenn war ho pajenn gaozeal &lt;strong&gt;%2$s&lt;/strong&gt; gant &lt;em&gt;%1$s&lt;/em&gt;</string>
   <string name="notification_reverted_title">Kemm distaolet</string>
-  <string name="notification_reverted" fuzzy="true">Distaolet eo bet gant %1$s ar c\'hemm graet ganeoc\'h e %2$s\".</string>
+  <string name="notification_reverted">Nullet eo bet ar c\'hemm hoc\'h eus degaset er pennad &lt;strong&gt;%2$s&lt;/strong&gt; gant &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Trugarekaet oc\'h bet !</string>
-  <string name="notification_thanks" fuzzy="true">Trugarekaet oc\'h bet gant %1$s evit ar c\'hemm graet ganeoc\'h war ar bajenn %2$s</string>
+  <string name="notification_thanks">Trugarekaet oc\'h bet gant &lt;em&gt;%1$s&lt;/em&gt; evit ar c\'hemm graet ganeoc\'h war ar bajenn &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Kenderc\'hel da lenn</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
   <string name="view_random_card_title">Dre zegouezh</string>
   <string name="view_random_card_subtitle">Lenn ur pennad eus Wikipedia dre zegouezh</string>
+  <string name="view_random_card_error">Ne c\'haller ket kargañ ur bajenn dargouezhek diwar ar rouedad pe ho rolloù lenn.</string>
   <string name="view_main_page_card_title">Hiziv e Wikipedia</string>
   <string name="view_main_page_card_subtitle">Pajenn bennañ d\'an %s</string>
   <string name="view_featured_image_card_title">Skeudenn an deiz</string>
@@ -326,6 +336,8 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="description_edit_help_wikidata_guide">Sturlevr Wikidata evit skrivañ deskrivadurioù</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù en deskrivadurioù. Trugarez ! Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia.</string>
+  <string name="description_edit_license_notice">Pa gemann deskrivadur an titl e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
   <string name="description_edit_success_saved">Enrollet eo an deskrivadur ervat !</string>
   <string name="description_edit_success_encouragement">Emaoc\'h o paouez gwellaat Wikipedia evit mad an holl</string>
   <string name="description_edit_success_done">Graet</string>
@@ -339,8 +351,19 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Kregiñ da aozañ</string>
   <string name="description_edit_tutorial_promise">Stagañ a ran ganti ha reiñ a ran ma ger da chom hep drougimplij an arc\'hwel-mañ</string>
   <string name="description_edit_help_about_title">Diwar-benn</string>
+  <string name="description_edit_help_description">Gant deskrivadurioù an titloù e c\'haller kompren, e berr gomzoù, danvez ur pennad en un taol-lagad.</string>
+  <string name="description_edit_help_tips">Alioù evit krouiñ deskrivadurioù</string>
+  <string name="description_edit_help_tips_description">An deskrivadurioù a rankfe, ar pep gwellañ a vefe, bezañ skrivet en ul linenn hepken, gant etre daou ha daouzek ger. Ne vezont ket skrivet gant lizherennoù bras nemet e vefe ar ger kentañ un anv divoutin.</string>
   <string name="description_edit_help_tips_examples">Da skouer :</string>
+  <string name="description_edit_help_tips_example1">livet gant Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">Deskrivadur un titl evit ur pennad diwar-benn Mona Lisa</string>
   <string name="description_edit_help_tips_example2">Menez uhelañ ar bed</string>
+  <string name="description_edit_help_tips_example2_hint">Deskrivadur un titl evit ur pennad diwar-benn ar menez Everest</string>
   <string name="description_edit_help_more_info">Muioc\'h a ditouroù</string>
+  <string name="description_edit_help_meta_info">Stoket ha hizivaet e vez an deskrivadurioù e Wikidata, en ur raktres eus an Diazezadur Wikimedia hag a bourvez un diaz roadennoù frank, kenober, liesyezhek hag a-eilrenk oc\'h embregañ Wikipedia ha raktresoù all.</string>
   <string name="description_edit_revert_subtitle">Trugarez evit kemer perzh e Wikipedia !</string>
+  <string name="description_edit_revert_intro">Gouzout a reomp hoc\'h eus graet eus ho kwellañ, met un tamm bec\'h zo bet gant unan eus hon adlennerien. Nullet eo bet ho tegasadenn evit an abegoù-mañ moarvat :</string>
+  <string name="description_edit_revert_reason1">Ne zoujfe ket ho tegasadenn da unan eus &lt;a href=\"%1$s\"&gt;sturiadoù&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">Ho tegasadenn a oa heñvel ouzh un taol-arnod pe ouzh vandalerezh.</string>
+  <string name="description_edit_revert_history">M\'oc\'h dedennet, gwelit &lt;a href=\"%1$s\"&gt;istor ar c\'hemmoù&lt;/a&gt;</string>
 </resources>

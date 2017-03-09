@@ -73,8 +73,8 @@
   <string name="login_success_toast">Saio hasiera egina!</string>
   <string name="preference_title_logout">Saioa itxi</string>
   <string name="toast_logout_complete">Saioa itxita</string>
-  <string name="history_empty_title">Ez dauge azkenaldiko orririk hemen!</string>
-  <string name="history_empty_message">Ziurenik guztiak ezabatu dituzu. Orrialde batera zoazen hurrengoan hemendik berreskura ditzakezu.</string>
+  <string name="history_empty_title" fuzzy="true">Ez dauge azkenaldiko orririk hemen!</string>
+  <string name="history_empty_message" fuzzy="true">Ziurenik guztiak ezabatu dituzu. Orrialde batera zoazen hurrengoan hemendik berreskura ditzakezu.</string>
   <string name="delete_selected_history">Ezabatu</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>

@@ -78,8 +78,8 @@
   <string name="login_success_toast">Uspješno ste prijavljeni!</string>
   <string name="preference_title_logout">Odjavi me</string>
   <string name="toast_logout_complete">Odjavljeni ste</string>
-  <string name="history_empty_title">Nema nedavnih stranica!</string>
-  <string name="history_empty_message">Vjerovatno ste ih sve obrisali. Kad sljedeći put posjetite stranicu, ovdje je lahko možete ponovo pronaći.</string>
+  <string name="history_empty_title" fuzzy="true">Nema nedavnih stranica!</string>
+  <string name="history_empty_message" fuzzy="true">Vjerovatno ste ih sve obrisali. Kad sljedeći put posjetite stranicu, ovdje je lahko možete ponovo pronaći.</string>
   <string name="delete_selected_history">Obriši</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Korisničko ime</string>
@@ -275,8 +275,8 @@
   <string name="reading_list_edit_ok">U redu</string>
   <string name="reading_list_edit_cancel">Odustani</string>
   <string name="reading_list_delete_confirm">Jeste li sigurni da želite obrisati ovaj spisak za čitanje?</string>
-  <string name="reading_lists_empty">Nema spiskova za čitanje.</string>
-  <string name="reading_lists_empty_message">Organizirajte članke koje Vas zanimaju u spiskove za čitanje! Kad nađete članak, dodirnite ikonu u obliku markera za knjigu na donjoj alatnoj traci da biste ga dodali na spisak za čitanje.</string>
+  <string name="reading_lists_empty" fuzzy="true">Nema spiskova za čitanje.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organizirajte članke koje Vas zanimaju u spiskove za čitanje! Kad nađete članak, dodirnite ikonu u obliku markera za knjigu na donjoj alatnoj traci da biste ga dodali na spisak za čitanje.</string>
   <string name="reading_lists_onboarding_intro">Napravite spiskove za čitanje od članaka koje želite čitati kasnije, čak i kad ste van mreže!</string>
   <string name="reading_lists_onboarding_for_example">Naprimjer</string>
   <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>

@@ -73,8 +73,8 @@
   <string name="login_success_toast">کامیابی سے داخل ہو گئے!</string>
   <string name="preference_title_logout">خارج ہوجائیں</string>
   <string name="toast_logout_complete">خارج ہوگئے</string>
-  <string name="history_empty_title">یہاں کوئی حالیہ صفحہ نہیں ہے!</string>
-  <string name="history_empty_message">آپ نے شاید سب حذف کر دیا ہے، اگلی مرتبہ آپ کوئی صفحہ کھولیں تو یہاں سے آپ اس پر واپس جا سکتے ہیں۔</string>
+  <string name="history_empty_title" fuzzy="true">یہاں کوئی حالیہ صفحہ نہیں ہے!</string>
+  <string name="history_empty_message" fuzzy="true">آپ نے شاید سب حذف کر دیا ہے، اگلی مرتبہ آپ کوئی صفحہ کھولیں تو یہاں سے آپ اس پر واپس جا سکتے ہیں۔</string>
   <string name="delete_selected_history">حذف کریں</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپیڈ&lt;big&gt;یا&lt;/big&gt;</string>
   <string name="create_account_username_hint">اسم صارف</string>
@@ -263,8 +263,8 @@
   <string name="reading_list_edit_ok">ٹھیک ہے</string>
   <string name="reading_list_edit_cancel">منسوخ</string>
   <string name="reading_list_delete_confirm">کیا آپ یقینی طور پراس کو فہرست مطالعہ سے حذف کرنا چاہتے ہیں؟</string>
-  <string name="reading_lists_empty">یہاں کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
-  <string name="reading_lists_empty_message">جن مضامین کو آپ پڑھتے ہیں انہیں \'مطالعہ کی فہرستوں\' میں شامل کریں! کسی مضمون کا مطالعہ کرتے وقت مضمون کے اوپر موجود بُک مارک نشان کو دبائیں تاکہ اسے کسی مطالعہ کی فہرست میں شامل کیا جاسکے۔</string>
+  <string name="reading_lists_empty" fuzzy="true">یہاں کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
+  <string name="reading_lists_empty_message" fuzzy="true">جن مضامین کو آپ پڑھتے ہیں انہیں \'مطالعہ کی فہرستوں\' میں شامل کریں! کسی مضمون کا مطالعہ کرتے وقت مضمون کے اوپر موجود بُک مارک نشان کو دبائیں تاکہ اسے کسی مطالعہ کی فہرست میں شامل کیا جاسکے۔</string>
   <string name="reading_lists_onboarding_intro">ان مضامین سے مطالعہ کی فہرستیں بنائیں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں!</string>
   <string name="reading_lists_onboarding_for_example">مثلاً</string>
   <string name="reading_lists_onboarding_example1">دیکھنے کے مقامات</string>

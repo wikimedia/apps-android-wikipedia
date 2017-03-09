@@ -73,8 +73,8 @@
   <string name="login_success_toast">यशस्वीरित्या सनोंद प्रवेशित!</string>
   <string name="preference_title_logout">सनोंद-निर्गम</string>
   <string name="toast_logout_complete">सनोंद-निर्गमित</string>
-  <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
-  <string name="history_empty_message">त्यातील आपण बहुतेक सर्वच वगळले आहेत. पुढील वेळेस आपल्यास कोणतेही पान हवे असेल तर तेथे, आपण येथून जाउ शकता.</string>
+  <string name="history_empty_title" fuzzy="true">अलीकडील पाने येथे नाहीत!</string>
+  <string name="history_empty_message" fuzzy="true">त्यातील आपण बहुतेक सर्वच वगळले आहेत. पुढील वेळेस आपल्यास कोणतेही पान हवे असेल तर तेथे, आपण येथून जाउ शकता.</string>
   <string name="delete_selected_history">वगळा</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
@@ -263,8 +263,8 @@
   <string name="reading_list_edit_ok">ठीक आहे</string>
   <string name="reading_list_edit_cancel">रद्द करा</string>
   <string name="reading_list_delete_confirm">आपणास खात्री आहे काय कि आपणास ही वाचन यादी वगळायची आहे?</string>
-  <string name="reading_lists_empty">येथे वाचन याद्या नाहीत.</string>
-  <string name="reading_lists_empty_message">आपण न्याहाळत असलेले लेख वाचन यादीत नियोजित करा ! लेख न्याहाळत असतांना, तो आपल्या वाचनयादीत जोडण्यास,लेखाच्या खालच्या बाजूस असणाऱ्या बुकमार्क साधनपट्टीवर थपकवा.</string>
+  <string name="reading_lists_empty" fuzzy="true">येथे वाचन याद्या नाहीत.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">आपण न्याहाळत असलेले लेख वाचन यादीत नियोजित करा ! लेख न्याहाळत असतांना, तो आपल्या वाचनयादीत जोडण्यास,लेखाच्या खालच्या बाजूस असणाऱ्या बुकमार्क साधनपट्टीवर थपकवा.</string>
   <string name="reading_lists_onboarding_intro">जरी आपण विनाजाल असाल तरीही,आपणास नंतर वाचावयाच्या लेखांची वाचनयादी तयार करा!</string>
   <string name="reading_lists_onboarding_for_example">उदाहरणार्थ</string>
   <string name="reading_lists_onboarding_example1">भेट द्यावयाची स्थाने</string>

@@ -73,8 +73,8 @@
   <string name="login_success_toast">प्रवेशः सिद्धः !</string>
   <string name="preference_title_logout">निर्गम्यताम्</string>
   <string name="toast_logout_complete">निर्गतम्</string>
-  <string name="history_empty_title">अत्र नवीनपृष्ठानि न सन्ति !</string>
-  <string name="history_empty_message">कदाचित् तानि सर्वाणि भवता/भवत्या अपाकृतानि । द्वितीयवारं यदा भवान्/भवती तत् पृष्ठं गच्छति, तदा इतः तत् पुनः प्राप्स्यति ।</string>
+  <string name="history_empty_title" fuzzy="true">अत्र नवीनपृष्ठानि न सन्ति !</string>
+  <string name="history_empty_message" fuzzy="true">कदाचित् तानि सर्वाणि भवता/भवत्या अपाकृतानि । द्वितीयवारं यदा भवान्/भवती तत् पृष्ठं गच्छति, तदा इतः तत् पुनः प्राप्स्यति ।</string>
   <string name="delete_selected_history">अपाक्रियताम्</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>

@@ -54,7 +54,7 @@
   <string name="login_success_toast">Паспяховы ўваход у сістэму!</string>
   <string name="preference_title_logout">Выйсці</string>
   <string name="toast_logout_complete">Вы выйшлі</string>
-  <string name="history_empty_message">Ваша гісторыя пустая.</string>
+  <string name="history_empty_message" fuzzy="true">Ваша гісторыя пустая.</string>
   <string name="delete_selected_history">Выдаліць</string>
   <string name="create_account_username_hint">Імя карыстальніка</string>
   <string name="login_create_account_link">Няма ўліковага запісу? Далучайцеся да Вікіпедыі</string>
