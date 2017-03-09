@@ -1,15 +1,14 @@
 package org.wikipedia.savedpages;
 
-import android.support.test.filters.SmallTest;
-
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-// todo: move to JUnit tests when https://github.com/robolectric/robolectric/issues/1605 is fixed.
-@SmallTest public class ImageUrlMapTest {
+@RunWith(TestRunner.class) public class ImageUrlMapTest {
     private static final String BASE_DIR = "/data/short/img";
 
     private ImageUrlMap.Builder builder;
