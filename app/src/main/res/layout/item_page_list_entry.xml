@@ -33,13 +33,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            style="@style/SimpleDraweeViewPlaceholder.Article"
-            android:id="@+id/page_list_item_image"
-            android:layout_width="@dimen/view_list_card_item_image"
-            android:layout_height="@dimen/view_list_card_item_image"
-            app:roundedCornerRadius="2dp"
-            android:background="@drawable/view_list_card_item_image_background" />
+        <FrameLayout
+            android:id="@+id/page_list_item_image_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                style="@style/SimpleDraweeViewPlaceholder.Article"
+                android:id="@+id/page_list_item_image"
+                android:layout_width="@dimen/view_list_card_item_image"
+                android:layout_height="@dimen/view_list_card_item_image"
+                app:roundedCornerRadius="2dp"
+                android:background="@drawable/view_list_card_item_image_background" />
+
+            <android.support.v7.widget.AppCompatImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/page_list_item_selected_image"
+                android:layout_width="@dimen/view_list_card_item_image"
+                android:layout_height="@dimen/view_list_card_item_image"
+                android:visibility="gone"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_check_black_24dp"
+                android:tint="@android:color/white"
+                android:background="@drawable/button_shape_gray"
+                app:backgroundTint="@color/accent50"
+                android:contentDescription="@null"/>
+
+        </FrameLayout>
+
 
         <LinearLayout
             android:layout_width="0dp"
