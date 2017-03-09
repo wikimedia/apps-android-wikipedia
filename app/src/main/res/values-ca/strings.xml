@@ -78,8 +78,8 @@
   <string name="login_success_toast">S\'ha iniciat la sessió correctament!</string>
   <string name="preference_title_logout">Finalitza la sessió</string>
   <string name="toast_logout_complete">Sessió finalitzada</string>
-  <string name="history_empty_title">Aquí no hi ha pàgines recents!</string>
-  <string name="history_empty_message">Probablement les heu eliminades totes. La pròxima vegada que aneu a una pàgina podreu tornar-hi des d\'aquí.</string>
+  <string name="history_empty_title" fuzzy="true">Aquí no hi ha pàgines recents!</string>
+  <string name="history_empty_message" fuzzy="true">Probablement les heu eliminades totes. La pròxima vegada que aneu a una pàgina podreu tornar-hi des d\'aquí.</string>
   <string name="delete_selected_history">Esborra</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
@@ -278,8 +278,8 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_edit_ok">D\'acord</string>
   <string name="reading_list_edit_cancel">Cancel·la</string>
   <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir aquesta llista de lectura?</string>
-  <string name="reading_lists_empty">No hi ha cap llista de lectura.</string>
-  <string name="reading_lists_empty_message">Organitzeu els articles que llegiu en llistes de lectura! En navegar per un article, feu un toc a la icona d\'adreces d\'interès a la barra d\'eines inferior per afegir-lo a la llista de lectura.</string>
+  <string name="reading_lists_empty" fuzzy="true">No hi ha cap llista de lectura.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organitzeu els articles que llegiu en llistes de lectura! En navegar per un article, feu un toc a la icona d\'adreces d\'interès a la barra d\'eines inferior per afegir-lo a la llista de lectura.</string>
   <string name="reading_lists_onboarding_intro">Creeu llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan estigueu fora de línia!</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Llocs per visitar</string>

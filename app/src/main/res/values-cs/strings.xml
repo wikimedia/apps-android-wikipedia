@@ -73,8 +73,8 @@
   <string name="login_success_toast">Přihlášení uspělo!</string>
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
-  <string name="history_empty_title">Nejsou zde žádné nedávné stránky!</string>
-  <string name="history_empty_message">Pravděpodobně jste je všechny smazali. Až příště navštívíte nějakou stránku, budete se k ní moct vrátit odsud.</string>
+  <string name="history_empty_title" fuzzy="true">Nejsou zde žádné nedávné stránky!</string>
+  <string name="history_empty_message" fuzzy="true">Pravděpodobně jste je všechny smazali. Až příště navštívíte nějakou stránku, budete se k ní moct vrátit odsud.</string>
   <string name="delete_selected_history">Smazat</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
@@ -267,8 +267,8 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Storno</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit tento seznam?</string>
-  <string name="reading_lists_empty">Žádné seznamy ke čtení.</string>
-  <string name="reading_lists_empty_message">Vytvářejte si z článků, které procházíte, seznamy k přečtení! Když čtete článek, stisknutím tlačítka záložky na spodní liště ho můžete přidat do seznamu k přečtení.</string>
+  <string name="reading_lists_empty" fuzzy="true">Žádné seznamy ke čtení.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Vytvářejte si z článků, které procházíte, seznamy k přečtení! Když čtete článek, stisknutím tlačítka záložky na spodní liště ho můžete přidat do seznamu k přečtení.</string>
   <string name="reading_lists_onboarding_intro">Vytvářejte si seznamy k přečtení z článků, které si chcete přečíst později, třeba až budete offline!</string>
   <string name="reading_lists_onboarding_for_example">Například</string>
   <string name="reading_lists_onboarding_example1">Místa k navštívení</string>

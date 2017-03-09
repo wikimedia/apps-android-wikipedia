@@ -77,8 +77,8 @@
   <string name="login_success_toast">تم تسجيل الدخول بنجاح!</string>
   <string name="preference_title_logout">تسجيل الخروج</string>
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
-  <string name="history_empty_title">لا صفحات مفتوحة مؤخرًا هنا!</string>
-  <string name="history_empty_message">تاريخ تصفحك فارغ، يبدو بأنك قد حذفت جميع مدخلات التاريخ. في المرة القادمة التي تزور فيها إحدى الصفحات بإمكانك العودة إليها مباشرةً من هنا.</string>
+  <string name="history_empty_title" fuzzy="true">لا صفحات مفتوحة مؤخرًا هنا!</string>
+  <string name="history_empty_message" fuzzy="true">تاريخ تصفحك فارغ، يبدو بأنك قد حذفت جميع مدخلات التاريخ. في المرة القادمة التي تزور فيها إحدى الصفحات بإمكانك العودة إليها مباشرةً من هنا.</string>
   <string name="delete_selected_history">حذف</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يكيبيد&lt;big&gt;يا&lt;/big&gt;</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
@@ -276,8 +276,8 @@
   <string name="reading_list_edit_ok">موافق</string>
   <string name="reading_list_edit_cancel">إلغاء</string>
   <string name="reading_list_delete_confirm">هل أنت متأكد من رغبتك في حذف قائمة القراءة هذه؟</string>
-  <string name="reading_lists_empty">لا قوائم قراءة هنا.</string>
-  <string name="reading_lists_empty_message">نظّم المقالات التي تتصفحها في شكل قوائم قراءة! حينما تتصفح مقالةً ما؛ اضغط على أيقونة الإشارة المرجعية في شريط الأدوات في الأسفل لإضافتها إلى قائمة قراءة.</string>
+  <string name="reading_lists_empty" fuzzy="true">لا قوائم قراءة هنا.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">نظّم المقالات التي تتصفحها في شكل قوائم قراءة! حينما تتصفح مقالةً ما؛ اضغط على أيقونة الإشارة المرجعية في شريط الأدوات في الأسفل لإضافتها إلى قائمة قراءة.</string>
   <string name="reading_lists_onboarding_intro">أنشئ قوائم مطالعة من المقالات التي ترغب في الاطلاع عليها لاحقا، حتى لو كنت غير متصل بالإنترنت!</string>
   <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
   <string name="reading_lists_onboarding_example1">اماكن للزيارة</string>

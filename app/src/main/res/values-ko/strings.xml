@@ -78,8 +78,8 @@
   <string name="login_success_toast">로그인에 성공했습니다!</string>
   <string name="preference_title_logout">로그아웃</string>
   <string name="toast_logout_complete">로그아웃됨</string>
-  <string name="history_empty_title">여기에 최근 문서가 없습니다.</string>
-  <string name="history_empty_message">방문 기록이 비어 있습니다. 다음 번에 당신이 방문한 문서를 여기에서 얻을 수 있습니다.</string>
+  <string name="history_empty_title" fuzzy="true">여기에 최근 문서가 없습니다.</string>
+  <string name="history_empty_message" fuzzy="true">방문 기록이 비어 있습니다. 다음 번에 당신이 방문한 문서를 여기에서 얻을 수 있습니다.</string>
   <string name="delete_selected_history">삭제</string>
   <string name="wp_stylized">&lt;big&gt;위&lt;/big&gt;키백&lt;big&gt;과&lt;/big&gt;</string>
   <string name="create_account_username_hint">사용자 이름</string>
@@ -266,7 +266,9 @@
   <string name="reading_list_sort_by_recent">최근순</string>
   <string name="reading_list_sort_by_recent_desc">적은 빈도로 접근한 최신문서순</string>
   <string name="reading_list_menu_edit">읽기 목록의 세부사항 편집</string>
-  <string name="reading_list_menu_delete" fuzzy="true">읽기 목록 삭제</string>
+  <string name="reading_list_menu_delete">목록 삭제</string>
+  <string name="reading_list_menu_rename">이름 바꾸기</string>
+  <string name="reading_list_menu_edit_description">설명 편집</string>
   <string name="reading_list_name_sample">내 읽기 목록</string>
   <string name="reading_list_name_hint">이 목록의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
@@ -277,8 +279,8 @@
   <string name="reading_list_edit_ok">확인</string>
   <string name="reading_list_edit_cancel">취소</string>
   <string name="reading_list_delete_confirm">이 읽기 목록을 삭제하시겠습니까?</string>
-  <string name="reading_lists_empty">여기에 읽기 목록이 없습니다.</string>
-  <string name="reading_lists_empty_message">당신이 찾아본 글들을 읽기 목록에 정리합니다! 글을 찾아볼 때 읽기 목록에 글을 추가하려면, 하단 도구 모음의 즐겨찾기 아이콘을 탭하면 됩니다.</string>
+  <string name="reading_lists_empty" fuzzy="true">여기에 읽기 목록이 없습니다.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">당신이 찾아본 글들을 읽기 목록에 정리합니다! 글을 찾아볼 때 읽기 목록에 글을 추가하려면, 하단 도구 모음의 즐겨찾기 아이콘을 탭하면 됩니다.</string>
   <string name="reading_lists_onboarding_intro">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
   <string name="reading_lists_onboarding_for_example">예를 들어</string>
   <string name="reading_lists_onboarding_example1">방문할 장소</string>

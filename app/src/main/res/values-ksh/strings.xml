@@ -70,8 +70,8 @@
   <string name="login_success_toast">Dat Enlogge hät jeflupp!</string>
   <string name="preference_title_logout">Ußlogge</string>
   <string name="toast_logout_complete">Ußjelogg</string>
-  <string name="history_empty_title">Kein köözlesche Sigge heh!</string>
-  <string name="history_empty_message">Do hä se velleisch alle fott jeschmeße. Et nähkste Mohl woh de obb en Sigg jeihß, kanns De op se zeröck jonn.</string>
+  <string name="history_empty_title" fuzzy="true">Kein köözlesche Sigge heh!</string>
+  <string name="history_empty_message" fuzzy="true">Do hä se velleisch alle fott jeschmeße. Et nähkste Mohl woh de obb en Sigg jeihß, kanns De op se zeröck jonn.</string>
   <string name="delete_selected_history">Fottschmiiße</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKKIPEHDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Metmaacher_Nahme</string>
@@ -225,7 +225,7 @@ Wells De se neu aanfange udder ophühre?</string>
   <string name="reading_list_deleted">%s es fott jeschmeßße</string>
   <string name="reading_list_edit_ok">Johd</string>
   <string name="reading_list_edit_cancel">Ophühre</string>
-  <string name="reading_lists_empty">keijn Leß zom Lässe heh.</string>
+  <string name="reading_lists_empty" fuzzy="true">keijn Leß zom Lässe heh.</string>
   <string name="reading_lists_onboarding_intro">Määt Leßte vun Atikelle, di mer schpääder lässe well, sällfs wam_mer off-laijn es.</string>
   <string name="reading_lists_onboarding_for_example">För e Beijschpell</string>
   <string name="reading_lists_onboarding_example1">Pläz zom Besöhke</string>

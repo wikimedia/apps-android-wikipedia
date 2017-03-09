@@ -78,8 +78,8 @@
   <string name="login_success_toast">Autenticação bem sucedida!</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Sessão terminada</string>
-  <string name="history_empty_title">Sem páginas recentes aqui.</string>
-  <string name="history_empty_message">Provavelmente eliminou-as. Da próxima vez que aceder a uma página, pode regressar a ela a partir daqui.</string>
+  <string name="history_empty_title" fuzzy="true">Sem páginas recentes aqui.</string>
+  <string name="history_empty_message" fuzzy="true">Provavelmente eliminou-as. Da próxima vez que aceder a uma página, pode regressar a ela a partir daqui.</string>
   <string name="delete_selected_history">Eliminar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de utilizador</string>
@@ -279,8 +279,8 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">Tem a certeza de que pretende eliminar esta lista?</string>
-  <string name="reading_lists_empty">Não existem listas de leitura aqui.</string>
-  <string name="reading_lists_empty_message">Organize os artigos que visita em listas de leitura! Ao ler um artigo, toque rapidamente no ícone de marcador, localizado abaixo da barra de ferramentas, para adicioná-lo a uma lista de leitura.</string>
+  <string name="reading_lists_empty" fuzzy="true">Não existem listas de leitura aqui.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organize os artigos que visita em listas de leitura! Ao ler um artigo, toque rapidamente no ícone de marcador, localizado abaixo da barra de ferramentas, para adicioná-lo a uma lista de leitura.</string>
   <string name="reading_lists_onboarding_intro">Crie listas de leitura de artigos que deseja ler mais tarde, mesmo quando estiver offline!</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares para visitar</string>

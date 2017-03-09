@@ -78,8 +78,8 @@
   <string name="login_success_toast">Aniciasti sesión correutamente</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Desconeutáu</string>
-  <string name="history_empty_title">Equí nun hai páxines recientes.</string>
-  <string name="history_empty_message">Probablemente desaniciástiles toes. La siguiente vez que vaigas a una páxina pues volver a ella dende equí.</string>
+  <string name="history_empty_title" fuzzy="true">Equí nun hai páxines recientes.</string>
+  <string name="history_empty_message" fuzzy="true">Probablemente desaniciástiles toes. La siguiente vez que vaigas a una páxina pues volver a ella dende equí.</string>
   <string name="delete_selected_history">Desaniciar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome d\'usuariu</string>
@@ -232,6 +232,7 @@
   <string name="error_voice_search_not_available">La reconocencia de voz nun ta disponible.</string>
   <string name="location_service_disabled">Los servicios de llocalización tan desactivaos.</string>
   <string name="enable_location_service">Activar</string>
+  <string name="error_webview_updating">La WebView del sistema Android ta anovándose agora. Téntalo nun momentu.</string>
   <string name="crash_report_dialog_title">Sentímoslo, l\'aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Quies unviar un informe de cuelgue a HockeyApp / un fornidor de serviciu d\'un terceru pa que Wikimedia pueda revisar el cuelgue ya iguar el fallu que lu causó?</string>
   <string name="crash_report_dialog_dont_send_button">Saltar</string>
@@ -267,7 +268,9 @@
   <string name="reading_list_sort_by_recent">Ordenar por más recién</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar por menos recién</string>
   <string name="reading_list_menu_edit">Editar los detalles de la llista de llectura</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Desaniciar la llista de llectura</string>
+  <string name="reading_list_menu_delete">Desaniciar la llista</string>
+  <string name="reading_list_menu_rename">Renomar</string>
+  <string name="reading_list_menu_edit_description">Editar la descripción</string>
   <string name="reading_list_name_sample">La mio llista de llectura</string>
   <string name="reading_list_name_hint">Nome d\'esta llista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>
@@ -278,8 +281,8 @@
   <string name="reading_list_edit_ok">Aceutar</string>
   <string name="reading_list_edit_cancel">Encaboxar</string>
   <string name="reading_list_delete_confirm">¿Tas seguru de que quies desaniciar esta llista de llectura?</string>
-  <string name="reading_lists_empty">Equí nun hai llistes de llectura.</string>
-  <string name="reading_lists_empty_message">¡Organiza los artículos que restoles en llistes de llectura! Cuando teas visitando un artículu, pulsia l\'iconu de marcador na barra de ferramientes baxo l\'artículu p\'añadir a una llista de llectura.</string>
+  <string name="reading_lists_empty" fuzzy="true">Equí nun hai llistes de llectura.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">¡Organiza los artículos que restoles en llistes de llectura! Cuando teas visitando un artículu, pulsia l\'iconu de marcador na barra de ferramientes baxo l\'artículu p\'añadir a una llista de llectura.</string>
   <string name="reading_lists_onboarding_intro">Crea llistes de llectura colos artículos que quixeras lleer sero, ¡inclusive ensin conexón!</string>
   <string name="reading_lists_onboarding_for_example">Por casu</string>
   <string name="reading_lists_onboarding_example1">Llugares que visitar</string>
@@ -302,6 +305,7 @@
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
   <string name="view_random_card_subtitle">Lleer un artículu al debalu de Wikipedia</string>
+  <string name="view_random_card_error">Nun pudo cargase una páxina al debalu de la rede o de les tos llistes de llectura.</string>
   <string name="view_main_page_card_title">Güei en Wikipedia</string>
   <string name="view_main_page_card_subtitle">Páxina principal del %s</string>
   <string name="view_featured_image_card_title">Imaxen del día</string>

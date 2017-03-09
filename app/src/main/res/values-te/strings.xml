@@ -69,8 +69,8 @@
   <string name="login_success_toast">లాగిన్ విజయవంతం!</string>
   <string name="preference_title_logout">నిష్క్రమించండి</string>
   <string name="toast_logout_complete">బయటకు వచ్చేసారు</string>
-  <string name="history_empty_title">ఇటీవలి పేజీలు ఏమీ లేవు.</string>
-  <string name="history_empty_message">మీరు బహుశా వాటిని అన్నిటిని తొలగించి ఉంటారు. తదుపరి సమయం
+  <string name="history_empty_title" fuzzy="true">ఇటీవలి పేజీలు ఏమీ లేవు.</string>
+  <string name="history_empty_message" fuzzy="true">మీరు బహుశా వాటిని అన్నిటిని తొలగించి ఉంటారు. తదుపరి సమయం
 మీరు ఒక పేజీకి వెళ్ళినప్పుడు మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
   <string name="delete_selected_history">తొలగించు</string>
   <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>

@@ -78,8 +78,8 @@
   <string name="login_success_toast">Inloggningen lyckades!</string>
   <string name="preference_title_logout">Logga ut</string>
   <string name="toast_logout_complete">Utloggad</string>
-  <string name="history_empty_title">Inga nya sidor här.</string>
-  <string name="history_empty_message">Du raderade förmodligen samtliga. Nästa gång du går till en sida kan du komma tillbaka till den härifrån.</string>
+  <string name="history_empty_title" fuzzy="true">Inga nya sidor här.</string>
+  <string name="history_empty_message" fuzzy="true">Du raderade förmodligen samtliga. Nästa gång du går till en sida kan du komma tillbaka till den härifrån.</string>
   <string name="delete_selected_history">Radera</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Användarnamn</string>
@@ -279,8 +279,8 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Avbryt</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill ta bort denna läslista?</string>
-  <string name="reading_lists_empty">Inga läslistor här.</string>
-  <string name="reading_lists_empty_message">Organisera artiklarna du läser i läslistor! När du läser en artikel, tryck på bokmärkesikonen i verktygsfältet längst ned för att lägga in den i en läslista.</string>
+  <string name="reading_lists_empty" fuzzy="true">Inga läslistor här.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organisera artiklarna du läser i läslistor! När du läser en artikel, tryck på bokmärkesikonen i verktygsfältet längst ned för att lägga in den i en läslista.</string>
   <string name="reading_lists_onboarding_intro">Skapa läslistor av artiklar du vill läsa senare, även när du inte är uppkopplad.</string>
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
   <string name="reading_lists_onboarding_example1">Platser att besöka</string>

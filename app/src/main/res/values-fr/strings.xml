@@ -63,6 +63,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="dialog_message_leaving_edit_stay">Rester</string>
   <string name="menu_show_toc">Sommaire</string>
   <string name="search_no_results_found">Aucun résultat trouvé</string>
+  <string name="search_reading_lists_no_results">Aucun résultat trouvé dans les listes de lecture</string>
+  <string name="search_history_no_results">Aucun résultat trouvé dans l’historique</string>
   <string name="edit_section_captcha_message">Pour aider à la protection contre le pourriel, veuillez saisir les mots qui apparaissent ci-dessous</string>
   <string name="edit_section_captcha_hint">Répéter les mots ci-dessus</string>
   <string name="title_captcha">Entrer le captcha</string>
@@ -79,8 +81,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="login_success_toast">Connecté avec succès !</string>
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="toast_logout_complete">Déconnecté</string>
-  <string name="history_empty_title">Aucune page récente ici.</string>
-  <string name="history_empty_message">Vous les avez probablement toutes détruites. La prochaine fois que vous irez sur une page, vous pourrez y revenir en démarrant d’ici.</string>
+  <string name="history_empty_title">Aucun article vu récemment.</string>
+  <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
   <string name="delete_selected_history">Supprimer</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d’utilisateur</string>
@@ -269,7 +271,9 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_sort_by_recent">Trier selon les plus récents</string>
   <string name="reading_list_sort_by_recent_desc">Trier selon les moins récents</string>
   <string name="reading_list_menu_edit">Modifier les détails de la liste de lecture</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Supprimer la liste de lecture</string>
+  <string name="reading_list_menu_delete">Supprimer la liste</string>
+  <string name="reading_list_menu_rename">Renommer</string>
+  <string name="reading_list_menu_edit_description">Modifier la description</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultatif)</string>
@@ -280,8 +284,8 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Annuler</string>
   <string name="reading_list_delete_confirm">Êtes-vous sûr de vouloir supprimer cette liste de lecture ?</string>
-  <string name="reading_lists_empty">Aucune liste de lecture ici.</string>
-  <string name="reading_lists_empty_message">Organiser les articles dans lesquels vous naviguez en listes de lecture ! En parcourant un article, cliquez sur l’icône dans la barre d’outil en bas pour l’ajouter à une liste de lecture.</string>
+  <string name="reading_lists_empty">Encore aucune liste de lecture.</string>
+  <string name="reading_lists_empty_message">Enregistrer des articles dans des listes de lecture afin de pouvoir les consulter plus tard, même hors ligne.</string>
   <string name="reading_lists_onboarding_intro">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même en étant hors connexion !</string>
   <string name="reading_lists_onboarding_for_example">Par exemple</string>
   <string name="reading_lists_onboarding_example1">Endroits à visiter</string>
@@ -289,6 +293,8 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_lists_onboarding_example3">Espace !</string>
   <string name="reading_lists_onboarding_got_it">L’obtenir</string>
   <string name="reading_lists_onboarding_page_delete">Conseil : Faire glisser une page à droite ou à gauche pour la supprimer de cette liste de lecture.</string>
+  <string name="reading_list_no_description">Aucune description…</string>
+  <string name="reading_list_empty">Vous n’avez aucun article ajouté à cette liste.</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_button_view_page">Afficher la page</string>
   <string name="notification_button_view_user">Parler à l’utilisateur</string>

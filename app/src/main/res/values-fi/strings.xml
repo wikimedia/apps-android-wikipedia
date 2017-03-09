@@ -77,8 +77,8 @@
   <string name="login_success_toast">Kirjautuminen onnistui!</string>
   <string name="preference_title_logout">Kirjaudu ulos</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
-  <string name="history_empty_title">Ei tuoreita sivuja.</string>
-  <string name="history_empty_message">Olet todennäköisesti poistanut ne kaikki. Seuraavalla kerralla kun menet sivulle, voit palata sinne tätä kautta.</string>
+  <string name="history_empty_title" fuzzy="true">Ei tuoreita sivuja.</string>
+  <string name="history_empty_message" fuzzy="true">Olet todennäköisesti poistanut ne kaikki. Seuraavalla kerralla kun menet sivulle, voit palata sinne tätä kautta.</string>
   <string name="delete_selected_history">Poista</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>
@@ -277,8 +277,8 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Peru</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa tämän lukulistan?</string>
-  <string name="reading_lists_empty">Ei lukulistoja.</string>
-  <string name="reading_lists_empty_message">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta alaosan työkalupalkissa lisätäksesi sen lukulistaan.</string>
+  <string name="reading_lists_empty" fuzzy="true">Ei lukulistoja.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta alaosan työkalupalkissa lisätäksesi sen lukulistaan.</string>
   <string name="reading_lists_onboarding_intro">Luo lukulistoja artikkeleista, jotka haluat lukea myöhemmin, jopa verkkoyhteydettömässä tilassa!</string>
   <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
   <string name="reading_lists_onboarding_example1">Paikat, joissa käydä</string>

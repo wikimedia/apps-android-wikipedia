@@ -68,7 +68,7 @@
   <string name="login_success_toast">אריינלאגירט מיט הצלחה!</string>
   <string name="preference_title_logout">אַרויסלאָגירן</string>
   <string name="toast_logout_complete">אַרויסלאגירט</string>
-  <string name="history_empty_title">קיין לעצטיקע בלעטער נישט דא.</string>
+  <string name="history_empty_title" fuzzy="true">קיין לעצטיקע בלעטער נישט דא.</string>
   <string name="delete_selected_history">אויסמעקן</string>
   <string name="wp_stylized">&lt;big&gt;וו&lt;/big&gt;יקיפעדי&lt;big&gt;ע&lt;/big&gt;</string>
   <string name="create_account_username_hint">באַניצער נאָמען</string>

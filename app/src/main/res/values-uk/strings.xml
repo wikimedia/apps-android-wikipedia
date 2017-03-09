@@ -7,6 +7,9 @@
   <string name="yes">Так</string>
   <string name="no">Ні</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
+  <string name="search_hint_search_history">Історія пошуку</string>
+  <string name="search_hint_search_my_lists">Пошук у моїх списках</string>
+  <string name="search_hint_search_reading_list">Пошук у списку для читання</string>
   <string name="nav_item_history">Історія</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
@@ -67,14 +70,16 @@
   <string name="nav_item_login">Увійти у Вікіпедію</string>
   <string name="login_username_hint">Ім\'я користувача</string>
   <string name="login_password_hint">Пароль</string>
+  <string name="login_2fa_hint">Код двофакторної автентифікації</string>
+  <string name="login_2fa_other_workflow_error_msg">Необхідна двофакторна автентифікація! будь ласка, поверніться до головного простору дій та увійдіть з використанням токену 2FA, після чого спробуйте заново.</string>
   <string name="menu_login">Увійти</string>
   <string name="login_activity_title">Вхід у Вікіпедію</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_success_toast">Ви успішно ввійшли!</string>
   <string name="preference_title_logout">Вийти із системи</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
-  <string name="history_empty_title">Немає нещодавніх сторінок.</string>
-  <string name="history_empty_message">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
+  <string name="history_empty_title" fuzzy="true">Немає нещодавніх сторінок.</string>
+  <string name="history_empty_message" fuzzy="true">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
   <string name="delete_selected_history">Видалити</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
@@ -86,6 +91,7 @@
   <string name="create_account_password_repeat_hint">Повторити пароль</string>
   <string name="create_account_passwords_mismatch_error">Паролі не збігаються</string>
   <string name="create_account_email_error">Неправильна адреса електронної пошти</string>
+  <string name="create_account_username_error">Недійсні символи в імені користувача.</string>
   <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
   <string name="create_account_next">Далі</string>
   <string name="create_account_button">Створити обліковий запис</string>
@@ -119,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Ця сторінка частково захищена.</string>
   <string name="page_protected_sysop">Ця сторінка повністю захищена.</string>
   <string name="page_protected_other">Ця сторінка захищена до наступних рівнів: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">У Вас немає прав на редагування цієї сторінки</string>
+  <string name="page_protected_can_not_edit">Вибачте, Ваш обліковий запис наразі не має необхідних прав для редагування цієї сторінки.</string>
+  <string name="page_protected_can_not_edit_anon">Вибачте, ця сторінка наразі недоступна для анонімних редагувань.</string>
   <string name="page_protected_can_not_edit_title">Цю сторінку захищено</string>
   <string name="settings_item_preferences">Налаштування</string>
   <string name="settings_activity_title">Налаштування</string>
@@ -128,13 +135,15 @@
   <string name="terms_of_use_description">Умови використання</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/uk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.uk</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
   <string name="about_libraries_heading">Використовувані бібліотеки</string>
   <string name="about_contributors_heading">Співавтори</string>
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цю програмку переклали добровольці на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
   <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
+  <string name="about_wmf">Продукт &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про программу</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
   <string name="user_blocked_from_editing_title">Заблоковано</string>
@@ -223,6 +232,7 @@
   <string name="error_voice_search_not_available">На жаль, розпізнавання голосу не підтримується.</string>
   <string name="location_service_disabled">Служби локалізації вимкнені.</string>
   <string name="enable_location_service">Увімкнути</string>
+  <string name="error_webview_updating">Веб-перегляд для Android-систем наразі оновлюється. Будь ласка, спробуйте ще раз за деякий час.</string>
   <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>
   <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустити</string>
@@ -244,6 +254,8 @@
   <string name="reading_list_untitled">Без назви</string>
   <string name="reading_list_save_to">Зберегти в список для читання</string>
   <string name="reading_list_create_new">Створити новий</string>
+  <string name="reading_list_title_exists">Список для читання «%s» вже існує.</string>
+  <string name="reading_list_entry_empty">Будь ласка, введіть назву.</string>
   <string name="reading_list_added_to_named">Додано до %s.</string>
   <string name="reading_list_added_to_unnamed">Додано в список читання.</string>
   <string name="reading_list_already_exists">Ця стаття вже знаходиться у цьому списку.</string>
@@ -256,7 +268,9 @@
   <string name="reading_list_sort_by_recent">Сортування по даті (останні)</string>
   <string name="reading_list_sort_by_recent_desc">Сортувати по даті (старі)</string>
   <string name="reading_list_menu_edit">Редагування списку читання</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Видалити список читання</string>
+  <string name="reading_list_menu_delete">Видалити список</string>
+  <string name="reading_list_menu_rename">Перейменувати</string>
+  <string name="reading_list_menu_edit_description">Редагувати опис</string>
   <string name="reading_list_name_sample">Мій список для читання</string>
   <string name="reading_list_name_hint">Назва цього списку</string>
   <string name="reading_list_description_hint">Опис (за бажанням)</string>
@@ -267,8 +281,8 @@
   <string name="reading_list_edit_ok">Гаразд</string>
   <string name="reading_list_edit_cancel">Скасувати</string>
   <string name="reading_list_delete_confirm">Ви дійсно хочете вилучити цей список читання?</string>
-  <string name="reading_lists_empty">Списки читання відсутні.</string>
-  <string name="reading_lists_empty_message">Організуйте статті, що ви читаєте в списки до прочитання! Переглядаючи статтю, натисніть значок закладки на панелі унизу, щоб додати її в список читання.</string>
+  <string name="reading_lists_empty" fuzzy="true">Списки читання відсутні.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Організуйте статті, що ви читаєте в списки до прочитання! Переглядаючи статтю, натисніть значок закладки на панелі унизу, щоб додати її в список читання.</string>
   <string name="reading_lists_onboarding_intro">Створіть списки з статей, які ви хочете прочитати пізніше, навіть коли ви в автономному режимі!</string>
   <string name="reading_lists_onboarding_for_example">Наприклад</string>
   <string name="reading_lists_onboarding_example1">Місця для відвідування</string>
@@ -277,10 +291,21 @@
   <string name="reading_lists_onboarding_got_it">Зрозуміло</string>
   <string name="reading_lists_onboarding_page_delete">Порада: Проведіть по будь-якій сторінці вліво чи вправо, щоб видалити її зі списку читання.</string>
   <string name="user_option_sync_label">Налаштування</string>
+  <string name="notification_button_view_page">Переглянути сторінку</string>
+  <string name="notification_button_view_user">Поговорити з користувачем</string>
+  <string name="notification_button_view_edit_history">Переглянути історію редагувань</string>
+  <string name="notification_generic_title">Сповіщення у Вікіпедії</string>
+  <string name="notification_talk_title">Нове повідомлення у Вікіпедії</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; залишено повідомлення на Вашій сторінці обговорення &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_reverted_title">Скасоване редагування</string>
+  <string name="notification_reverted">Ваше редагування статті &lt;strong&gt;%2$s&lt;/strong&gt; скасовано &lt;em&gt;%1$s&lt;/em&gt;.</string>
+  <string name="notification_thanks_title">Вам подякували!</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; висловлено подяку Вам за Ваше редагування сторінки &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Продовжити читання</string>
   <string name="view_because_you_read_card_title">Тому, що Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
   <string name="view_random_card_subtitle">Читати випадкову статтю з Вікіпедії</string>
+  <string name="view_random_card_error">Не вдалося завантажити випадкову сторінку з мережі чи Ваших списків для читання.</string>
   <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
   <string name="view_main_page_card_subtitle">Головна сторінка на %s</string>
   <string name="view_featured_image_card_title">Зображення дня</string>
@@ -302,9 +327,9 @@
   <string name="view_continue_reading_card_subtitle_today">Сьогодні</string>
   <string name="view_announcement_card_negative_action">Ні, дякую</string>
   <string name="description_edit_header">Редагування</string>
-  <string name="description_edit_text_hint" fuzzy="true">Напишіть опис!</string>
+  <string name="description_edit_text_hint">Опис назви</string>
   <string name="description_edit_save">Зберегти</string>
-  <string name="description_edit_add_description" fuzzy="true">Додати короткий опис</string>
+  <string name="description_edit_add_description">Додати опис назви</string>
   <string name="description_edit_edit_description">Редагувати опис</string>
   <string name="description_edit_cancel_hint">Скасувати</string>
   <string name="description_edit_help_title">Довідка: описи назв</string>
@@ -312,6 +337,8 @@
   <string name="description_edit_help_wikidata_guide">Посібник Вікіданих з написання описів</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/uk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Дякуємо за Ваш незмінний інтерес до редагування описів! Щоб здійснити додаткові редагування, будь ласка, увійдіть зі свого облікового запису у Вікіпедії.</string>
+  <string name="description_edit_license_notice">Змінюючи опис назви, я погоджуюсь на &lt;a href=\"%1$s\"&gt;Умови використання&lt;/a&gt;, і на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Опис збережено!</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
@@ -324,4 +351,20 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
+  <string name="description_edit_help_about_title">Інформація</string>
+  <string name="description_edit_help_description">Описи надають короткі відомості про статтю, щоб користувачі могли зрозуміти тему з першого погляду.</string>
+  <string name="description_edit_help_tips">Підказки щодо створення описів</string>
+  <string name="description_edit_help_tips_description">В ідеалі описи мають бути не більшими як один рядок, і мають містити від двох до дванадцяти слів. Велика літера на початку використовується лише якщо перше слово є власною назвою.</string>
+  <string name="description_edit_help_tips_examples">Наприклад:</string>
+  <string name="description_edit_help_tips_example1">картина Леонардо да Вінчі</string>
+  <string name="description_edit_help_tips_example1_hint">опис статті про Мону Лізу</string>
+  <string name="description_edit_help_tips_example2">найвища гора на Землі</string>
+  <string name="description_edit_help_tips_example2_hint">опис статті про Еверест</string>
+  <string name="description_edit_help_more_info">Більше інформації</string>
+  <string name="description_edit_help_meta_info">Описи зберігаються та обслуговуються на Вікіданих — проекті Фонду Вікімедіа, який слугує вільною, спільною, багатомовною, допоміжною базою даних, яка підтримує Вікіпедію та інші проекти.</string>
+  <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
+  <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
+  <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">Ваше редагування виглядало як тест чи вандалізм.</string>
+  <string name="description_edit_revert_history">Якщо Ви зацікавлені, перегляньте &lt;a href=\"%1$s\"&gt;історію редагувань&lt;/a&gt;.</string>
 </resources>

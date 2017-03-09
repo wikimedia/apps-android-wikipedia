@@ -78,8 +78,8 @@
   <string name="login_success_toast">登录成功！</string>
   <string name="preference_title_logout">退出登录</string>
   <string name="toast_logout_complete">已退出登录</string>
-  <string name="history_empty_title">最近这里没有页面！</string>
-  <string name="history_empty_message">您可能清空了它们。下次您前往一个页面时，可从这里返回它。</string>
+  <string name="history_empty_title" fuzzy="true">最近这里没有页面！</string>
+  <string name="history_empty_message" fuzzy="true">您可能清空了它们。下次您前往一个页面时，可从这里返回它。</string>
   <string name="delete_selected_history">删除</string>
   <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">用户名</string>
@@ -268,7 +268,9 @@
   <string name="reading_list_sort_by_recent">按最近访问排序</string>
   <string name="reading_list_sort_by_recent_desc">按最早访问排序</string>
   <string name="reading_list_menu_edit">编辑阅读列表详情</string>
-  <string name="reading_list_menu_delete" fuzzy="true">删除阅读列表</string>
+  <string name="reading_list_menu_delete">删除列表</string>
+  <string name="reading_list_menu_rename">重命名</string>
+  <string name="reading_list_menu_edit_description">编辑描述</string>
   <string name="reading_list_name_sample">我的阅读列表</string>
   <string name="reading_list_name_hint">此列表的名称</string>
   <string name="reading_list_description_hint">描述（可选）</string>
@@ -279,8 +281,8 @@
   <string name="reading_list_edit_ok">确定</string>
   <string name="reading_list_edit_cancel">取消</string>
   <string name="reading_list_delete_confirm">您确定要删除此阅读列表么？</string>
-  <string name="reading_lists_empty">这里没有阅读列表。</string>
-  <string name="reading_lists_empty_message">组织您您浏览的条目至阅读列表中！当浏览一个条目时，点按底部工具栏中的书签图标以将其添加至阅读列表中。</string>
+  <string name="reading_lists_empty" fuzzy="true">这里没有阅读列表。</string>
+  <string name="reading_lists_empty_message" fuzzy="true">组织您您浏览的条目至阅读列表中！当浏览一个条目时，点按底部工具栏中的书签图标以将其添加至阅读列表中。</string>
   <string name="reading_lists_onboarding_intro">从您希望稍后阅读的条目创建阅读列表，即便当您离线时！</string>
   <string name="reading_lists_onboarding_for_example">例如</string>
   <string name="reading_lists_onboarding_example1">要访问的地点</string>

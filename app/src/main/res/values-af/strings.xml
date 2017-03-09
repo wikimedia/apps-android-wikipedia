@@ -61,8 +61,8 @@
   <string name="login_success_toast">Suksesvolle Aanmelding!</string>
   <string name="preference_title_logout">Teken uit</string>
   <string name="toast_logout_complete">Uitgeteken</string>
-  <string name="history_empty_title">Geen gestoorde blasye hier nie!</string>
-  <string name="history_empty_message">U het moontlik hulle almal geskrap. Volgende keer as u na \'n bladsy gaan kan u terugkom daarby van hier af.</string>
+  <string name="history_empty_title" fuzzy="true">Geen gestoorde blasye hier nie!</string>
+  <string name="history_empty_message" fuzzy="true">U het moontlik hulle almal geskrap. Volgende keer as u na \'n bladsy gaan kan u terugkom daarby van hier af.</string>
   <string name="delete_selected_history">Skrap</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>

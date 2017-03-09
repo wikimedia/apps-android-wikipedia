@@ -66,8 +66,8 @@
   <string name="login_success_toast">புகுபதிகை வெற்றி</string>
   <string name="preference_title_logout">விடுபதிகை</string>
   <string name="toast_logout_complete">விடுபதிகை செய்துவிட்டீர்கள்.</string>
-  <string name="history_empty_title">அண்மைய பக்கங்கள் ஏதுமில்லை.</string>
-  <string name="history_empty_message">அனைத்தையும் அழித்துவிட்டீர்கள் போல. அடுத்த முறை ஒருபக்கத்துக்கு செல்லும்போது அதற்கு இங்கிருந்து திரும்பச் செல்லலாம்.</string>
+  <string name="history_empty_title" fuzzy="true">அண்மைய பக்கங்கள் ஏதுமில்லை.</string>
+  <string name="history_empty_message" fuzzy="true">அனைத்தையும் அழித்துவிட்டீர்கள் போல. அடுத்த முறை ஒருபக்கத்துக்கு செல்லும்போது அதற்கு இங்கிருந்து திரும்பச் செல்லலாம்.</string>
   <string name="delete_selected_history">நீக்கவும்</string>
   <string name="wp_stylized">&lt;big&gt;வி&lt;/big&gt;க்கிப்பீடி&lt;big&gt;யா&lt;/big&gt;</string>
   <string name="create_account_username_hint">பயனர் பெயர்</string>

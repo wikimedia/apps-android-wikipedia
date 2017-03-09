@@ -73,8 +73,8 @@
   <string name="login_success_toast">Ageloggt mat Succès!</string>
   <string name="preference_title_logout">Ausloggen</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
-  <string name="history_empty_title">Keng rezent Säiten hei.</string>
-  <string name="history_empty_message">Dir hutt se wahrscheinlech all geläscht. Wann Dir déi nächste Kéier op eng Säit gitt da kënnt Dir vun hei aus op déi Säit zréckgoen.</string>
+  <string name="history_empty_title" fuzzy="true">Keng rezent Säiten hei.</string>
+  <string name="history_empty_message" fuzzy="true">Dir hutt se wahrscheinlech all geläscht. Wann Dir déi nächste Kéier op eng Säit gitt da kënnt Dir vun hei aus op déi Säit zréckgoen.</string>
   <string name="delete_selected_history">Läschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benotzernumm</string>
@@ -256,7 +256,9 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_sort_by_recent">No de Rezentesten zortéieren</string>
   <string name="reading_list_sort_by_recent_desc">No den Eelsten zortéieren</string>
   <string name="reading_list_menu_edit">Detailer vun der Lieslëscht änneren</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Lieslëscht läschen</string>
+  <string name="reading_list_menu_delete">Lëscht läschen</string>
+  <string name="reading_list_menu_rename">Ëmbenennen</string>
+  <string name="reading_list_menu_edit_description">Beschreiwung änneren</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>
   <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>
   <string name="reading_list_description_hint">Beschreiwung (fakultativ):</string>
@@ -267,8 +269,8 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Ofbriechen</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir dës Lieslëscht läsche wëllt?</string>
-  <string name="reading_lists_empty">Hei gëtt et keng Lieslëschten.</string>
-  <string name="reading_lists_empty_message">organiséiert d\'Artikelen déi Dir oprufft a Lieslëschten! Tippt beim Opruffe vun engem Artikel op d\'Symbol vum Lieszeechen an der ënneschter Lëscht vun der Geschirkëscht, fir en an d\'Lieslëscht derbäizesetzen.</string>
+  <string name="reading_lists_empty" fuzzy="true">Hei gëtt et keng Lieslëschten.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">organiséiert d\'Artikelen déi Dir oprufft a Lieslëschten! Tippt beim Opruffe vun engem Artikel op d\'Symbol vum Lieszeechen an der ënneschter Lëscht vun der Geschirkëscht, fir en an d\'Lieslëscht derbäizesetzen.</string>
   <string name="reading_lists_onboarding_intro">Maacht eng Lieslëscht vun den Artikelen déi Dir spéider liese wëllt, esouguer wann Dir offline sidd!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispill</string>
   <string name="reading_lists_onboarding_example1">Plaze fir ze besichen</string>

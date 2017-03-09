@@ -9,6 +9,7 @@
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
   <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
   <string name="search_hint_search_my_lists">Мин испииһэктэрбиттэн көрдөөһүн</string>
+  <string name="search_hint_search_reading_list">Аҕыы тиһилигэр көрдөө</string>
   <string name="nav_item_history">Устуоруйата</string>
   <string name="error_network_error">Интэриниэти кытта ситим суох.</string>
   <string name="page_error_retry">Хатылаа</string>
@@ -40,7 +41,7 @@
   <string name="nearby_zoom_to_location">Каартаҕа көрдөр</string>
   <string name="last_updated_text">Тиһэх саҥардыы: %1$s</string>
   <string name="talk_page_link_text">Кэпсэтэр сирим</string>
-  <string name="content_license_html" fuzzy="true">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
+  <string name="content_license_html">Иһинээҕитэ бу лиссиэнсийэ көмөтүнэн тарҕанар &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (атын ыйыллыбатах буоллаҕына)</string>
   <string name="edit_save_action_license_logged_in">Маны бигэргэтэн &lt;a href=\"%1$s\" &gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэргин биллэрэҕин, ону тэҥэ бу лиссиэнсийэнэн &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; кэлин онтон батынар кыаҕыҥ суох буоларын кытта эмиэ сөбүлэһэҕин.</string>
   <string name="edit_save_action_license_anon">Уларытыылары бигэргэтэн &lt;a href=\"%1$s\"&gt;туһаныы усулуобуйатын&lt;/a&gt; кытта сөбүлэһэҕин, ону тэҥэ &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; лиссиэнсийэ иҥэриитэ төннөрүллүбэтин кытта сөбүлэһэҕин. Уларытыыҥ IP-аадырыскын кытта ситимнэниэ. &lt;a href=\"https://#login\"&gt;Бэлиэтэннэххинэ&lt;/a&gt;, IP-ҥ көстүө суоҕа.</string>
   <string name="preference_title_language">Бикипиэдьийэ омугун тыла</string>
@@ -76,8 +77,8 @@
   <string name="login_success_toast">Этэҥҥэ киирдиҥ!</string>
   <string name="preference_title_logout">Тахсыы</string>
   <string name="toast_logout_complete">Тахсыбыккын</string>
-  <string name="history_empty_title">Соторутааҕыта көрүллүбүт сирэй суох эбит!</string>
-  <string name="history_empty_message">Баҕар сотон кэбиспитиҥ буолуо. Аныгыскыга, ханнык эмит сирэйгэ киирэ сылдьыбыт буоллаххына, онно мантан киириэххин сөп.</string>
+  <string name="history_empty_title" fuzzy="true">Соторутааҕыта көрүллүбүт сирэй суох эбит!</string>
+  <string name="history_empty_message" fuzzy="true">Баҕар сотон кэбиспитиҥ буолуо. Аныгыскыга, ханнык эмит сирэйгэ киирэ сылдьыбыт буоллаххына, онно мантан киириэххин сөп.</string>
   <string name="delete_selected_history">Сотторуу</string>
   <string name="wp_stylized">&lt;big&gt;Б&lt;/big&gt;ИКИПИЭДЬИЙ&lt;big&gt;Э&lt;/big&gt;</string>
   <string name="create_account_username_hint">Кыттааччы аата</string>
@@ -268,8 +269,8 @@
   <string name="reading_list_edit_ok">Сөп</string>
   <string name="reading_list_edit_cancel">Салҕаама</string>
   <string name="reading_list_delete_confirm">Бу тиһилиги чахчы сотоору гынаҕын дуо?</string>
-  <string name="reading_lists_empty">Тиһилик оҥоһулла илик эбит.</string>
-  <string name="reading_lists_empty_message">Көрөр ыстатыйаларгын ааҕыы тиһилигэр бөлөхтөө! Ыстатыйаны тиһиликкэ эбэргэ, ыстатыйаҕа киирэн олорон аллара хапталга баар кыбытык бэлиэтин баттаа.</string>
+  <string name="reading_lists_empty" fuzzy="true">Тиһилик оҥоһулла илик эбит.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Көрөр ыстатыйаларгын ааҕыы тиһилигэр бөлөхтөө! Ыстатыйаны тиһиликкэ эбэргэ, ыстатыйаҕа киирэн олорон аллара хапталга баар кыбытык бэлиэтин баттаа.</string>
   <string name="reading_lists_onboarding_intro">Кэлин интэриниэтэ да суох ааҕарга анаан ыстатыйалар испииһэктэрин оҥоһун!</string>
   <string name="reading_lists_onboarding_for_example">Холобур</string>
   <string name="reading_lists_onboarding_example1">Сылдьыллыахтаах сирдэр</string>

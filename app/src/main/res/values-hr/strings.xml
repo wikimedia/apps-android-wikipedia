@@ -73,8 +73,8 @@
   <string name="login_success_toast">Uspješno ste se prijavili.</string>
   <string name="preference_title_logout">Odjavi se</string>
   <string name="toast_logout_complete">Odjavili ste se</string>
-  <string name="history_empty_title">Ovdje nema nedavnih stranica.</string>
-  <string name="history_empty_message">Vjerojatno ste ih izbrisali. Sljedeći put kad posjetite stranice, možete se vratiti na njih odavde.</string>
+  <string name="history_empty_title" fuzzy="true">Ovdje nema nedavnih stranica.</string>
+  <string name="history_empty_message" fuzzy="true">Vjerojatno ste ih izbrisali. Sljedeći put kad posjetite stranice, možete se vratiti na njih odavde.</string>
   <string name="delete_selected_history">Izbriši</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Suradničko ime</string>
@@ -261,7 +261,7 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="reading_list_edit_ok">U redu</string>
   <string name="reading_list_edit_cancel">Odustani</string>
   <string name="reading_list_delete_confirm">Želite li zaista obrisati popis za čitanje?</string>
-  <string name="reading_lists_empty">Još nema popisa za čitanje.</string>
+  <string name="reading_lists_empty" fuzzy="true">Još nema popisa za čitanje.</string>
   <string name="reading_lists_onboarding_for_example">Na primjer</string>
   <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>

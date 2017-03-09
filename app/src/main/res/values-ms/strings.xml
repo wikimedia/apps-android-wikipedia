@@ -78,8 +78,8 @@
   <string name="login_success_toast">Berjaya log masuk!</string>
   <string name="preference_title_logout">Log keluar</string>
   <string name="toast_logout_complete">Log keluar</string>
-  <string name="history_empty_title">Tiada laman terbaru di sini.</string>
-  <string name="history_empty_message">Mungkin anda telah memadamkan kesemuanya. Lain kali anda ke sesuatu laman, anda boleh kembali kepadanya dari sini.</string>
+  <string name="history_empty_title" fuzzy="true">Tiada laman terbaru di sini.</string>
+  <string name="history_empty_message" fuzzy="true">Mungkin anda telah memadamkan kesemuanya. Lain kali anda ke sesuatu laman, anda boleh kembali kepadanya dari sini.</string>
   <string name="delete_selected_history">Hapuskan</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>
@@ -277,8 +277,8 @@
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Batalkan</string>
   <string name="reading_list_delete_confirm">Adakah anda benar-benar ingin memadamkan senarai bacaan ini?</string>
-  <string name="reading_lists_empty">Tiada senarai bacaan di sini.</string>
-  <string name="reading_lists_empty_message">Menyusun rencana yang anda semak imbas ke dalam membaca senarai! Apabila menyemak imbas rencana, ketik ikon penanda buku dalam bar alat bahagian bawah untuk menambahnya ke senarai bacaan.</string>
+  <string name="reading_lists_empty" fuzzy="true">Tiada senarai bacaan di sini.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Menyusun rencana yang anda semak imbas ke dalam membaca senarai! Apabila menyemak imbas rencana, ketik ikon penanda buku dalam bar alat bahagian bawah untuk menambahnya ke senarai bacaan.</string>
   <string name="reading_lists_onboarding_intro">Ciptakan senarai bacaan dari rencana yang ingin anda baca nanti, malah ketika anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>

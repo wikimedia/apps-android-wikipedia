@@ -78,8 +78,8 @@
   <string name="login_success_toast">Најавата успеа!</string>
   <string name="preference_title_logout">Одјава</string>
   <string name="toast_logout_complete">Одјавени сте</string>
-  <string name="history_empty_title">Тука нема скорешни страници.</string>
-  <string name="history_empty_message">Веројатно сите сте ги избришале. Кога во иднина ќе отидете на некоја страница, ќе можете оттука да се вратите на неа.</string>
+  <string name="history_empty_title" fuzzy="true">Тука нема скорешни страници.</string>
+  <string name="history_empty_message" fuzzy="true">Веројатно сите сте ги избришале. Кога во иднина ќе отидете на некоја страница, ќе можете оттука да се вратите на неа.</string>
   <string name="delete_selected_history">Избриши</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="create_account_username_hint">Корисничко име</string>
@@ -281,8 +281,8 @@
   <string name="reading_list_edit_ok">ОК</string>
   <string name="reading_list_edit_cancel">Откажи</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете овој список за читање?</string>
-  <string name="reading_lists_empty">Тука нема списоци за читање.</string>
-  <string name="reading_lists_empty_message">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување во алатникот најдолу за да ја додадете во списокот.</string>
+  <string name="reading_lists_empty" fuzzy="true">Тука нема списоци за читање.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување во алатникот најдолу за да ја додадете во списокот.</string>
   <string name="reading_lists_onboarding_intro">Создајте списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посета</string>

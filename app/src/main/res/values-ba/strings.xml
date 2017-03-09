@@ -73,8 +73,8 @@
   <string name="login_success_toast">Документацияны һаҡлау</string>
   <string name="preference_title_logout">Тамамлау</string>
   <string name="toast_logout_complete">Тамам</string>
-  <string name="history_empty_title">Яңыраҡ ҡаралған биттәр юҡ!</string>
-  <string name="history_empty_message">Һеҙ, моғайын, уларҙың бөтәһен дә юйғанһығыҙ. Икенсе тапҡыр, биткә инһәгеҙ, уға ошо урындан кире әйләнеп ҡайта алаһығыҙ.</string>
+  <string name="history_empty_title" fuzzy="true">Яңыраҡ ҡаралған биттәр юҡ!</string>
+  <string name="history_empty_message" fuzzy="true">Һеҙ, моғайын, уларҙың бөтәһен дә юйғанһығыҙ. Икенсе тапҡыр, биткә инһәгеҙ, уға ошо урындан кире әйләнеп ҡайта алаһығыҙ.</string>
   <string name="delete_selected_history">Юйырға</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ҡатнашыусы исеме</string>
@@ -259,7 +259,7 @@
   <string name="reading_list_edit_ok">Яҡшы</string>
   <string name="reading_list_edit_cancel">Кире алыу</string>
   <string name="reading_list_delete_confirm">Был уҡыу теҙмәһен ысынлап юйырға теләйһегеҙме?</string>
-  <string name="reading_lists_empty">Уҡыу исемлектәре юҡ әле.</string>
+  <string name="reading_lists_empty" fuzzy="true">Уҡыу исемлектәре юҡ әле.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Әле ҡараған мәҡәләләрҙе уҡыу өсөн теҙмәгә туплағыҙ! Уҡыу теҙмәһенә индереү өсөн, уҡыу барышында мәҡәләнең өҫкө өлөшөндәге закладка тамғаһына баҫығыҙ.</string>
   <string name="reading_lists_onboarding_for_example">Мәҫәлән</string>
   <string name="reading_lists_onboarding_example1">Барыу урындары</string>

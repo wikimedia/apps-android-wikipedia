@@ -78,8 +78,8 @@
   <string name="login_success_toast">Du er nu logget på!</string>
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
-  <string name="history_empty_title">Ingen nye sider her.</string>
-  <string name="history_empty_message">Du har sikkert slettet dem alle. Næste gang du går til en side, kan du komme tilbage til den her.</string>
+  <string name="history_empty_title" fuzzy="true">Ingen nye sider her.</string>
+  <string name="history_empty_message" fuzzy="true">Du har sikkert slettet dem alle. Næste gang du går til en side, kan du komme tilbage til den her.</string>
   <string name="delete_selected_history">Slet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brugernavn</string>
@@ -279,8 +279,8 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Annuller</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette denne læseliste?</string>
-  <string name="reading_lists_empty">Ingen læselister her.</string>
-  <string name="reading_lists_empty_message">Organiser de artikler du læser i læselister! Tryk på bogmærkeikonet i værktøjslinjen nederst på skærmen når du læser en artikel for at tilføje den til en læseliste.</string>
+  <string name="reading_lists_empty" fuzzy="true">Ingen læselister her.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organiser de artikler du læser i læselister! Tryk på bogmærkeikonet i værktøjslinjen nederst på skærmen når du læser en artikel for at tilføje den til en læseliste.</string>
   <string name="reading_lists_onboarding_intro">Opret læselister fra artikler du ønsker at læse senere, selv når du er offline!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder at besøge</string>

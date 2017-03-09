@@ -78,8 +78,8 @@
   <string name="login_success_toast">Başarıyla oturum açıldı!</string>
   <string name="preference_title_logout">Oturumu kapat</string>
   <string name="toast_logout_complete">Oturum kapandı</string>
-  <string name="history_empty_title">Hiç ziyaret edilmiş sayfa yok.</string>
-  <string name="history_empty_message">Muhtemelen hepsini sildiniz. Bir daha herhangi bir sayfaya gittiğinizde, buradan ona tekrar ulaşabilirsiniz.</string>
+  <string name="history_empty_title" fuzzy="true">Hiç ziyaret edilmiş sayfa yok.</string>
+  <string name="history_empty_message" fuzzy="true">Muhtemelen hepsini sildiniz. Bir daha herhangi bir sayfaya gittiğinizde, buradan ona tekrar ulaşabilirsiniz.</string>
   <string name="delete_selected_history">Sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
@@ -277,8 +277,8 @@
   <string name="reading_list_edit_ok">Tamam</string>
   <string name="reading_list_edit_cancel">İptal</string>
   <string name="reading_list_delete_confirm">Bu okuma listesini silmek istediğinizden emin misiniz?</string>
-  <string name="reading_lists_empty">Hiçbir okuma listesi yok.</string>
-  <string name="reading_lists_empty_message">Görüntülediğiniz maddeleri okuma listeleriyle organize edin! Okuduğunuz bir maddeyi, bir okuma listesine eklemek için maddenin üst bölümündeki yer imi simgesine dokunun.</string>
+  <string name="reading_lists_empty" fuzzy="true">Hiçbir okuma listesi yok.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Görüntülediğiniz maddeleri okuma listeleriyle organize edin! Okuduğunuz bir maddeyi, bir okuma listesine eklemek için maddenin üst bölümündeki yer imi simgesine dokunun.</string>
   <string name="reading_lists_onboarding_intro">Çevridışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun!</string>
   <string name="reading_lists_onboarding_for_example">Örneğin</string>
   <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>

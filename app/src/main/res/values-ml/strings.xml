@@ -71,8 +71,8 @@
   <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
   <string name="preference_title_logout">ലോഗൗട്ട്</string>
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
-  <string name="history_empty_title">അടുത്തകാലത്തുള്ള ഒരു താളും ഇല്ല!</string>
-  <string name="history_empty_message">താങ്കൾ എല്ലാം ശൂന്യമാക്കിയിട്ടുണ്ടാകും. അടുത്തതവണ താങ്കൾ ഒരു താൾ എടുത്താൽ പിന്നീടതിലേയ്ക്ക് ഇവിടെ നിന്നെത്താനാകും.</string>
+  <string name="history_empty_title" fuzzy="true">അടുത്തകാലത്തുള്ള ഒരു താളും ഇല്ല!</string>
+  <string name="history_empty_message" fuzzy="true">താങ്കൾ എല്ലാം ശൂന്യമാക്കിയിട്ടുണ്ടാകും. അടുത്തതവണ താങ്കൾ ഒരു താൾ എടുത്താൽ പിന്നീടതിലേയ്ക്ക് ഇവിടെ നിന്നെത്താനാകും.</string>
   <string name="delete_selected_history">മായ്ക്കുക</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="login_create_account_link">അംഗത്വമില്ലേ? വിക്കിപീഡിയയിൽ ചേരുക</string>

@@ -54,8 +54,8 @@
   <string name="login_success_toast" fuzzy="true">Na lut kho cang!</string>
   <string name="preference_title_logout">Chuahnak</string>
   <string name="toast_logout_complete">Chuak cang</string>
-  <string name="history_empty_title">Zohmi cahmai a um rih lo.</string>
-  <string name="history_empty_message">Na hloh dih hna i si men lai. Voidang cu cahmai na kal khawhnak ah kal cang.</string>
+  <string name="history_empty_title" fuzzy="true">Zohmi cahmai a um rih lo.</string>
+  <string name="history_empty_message" fuzzy="true">Na hloh dih hna i si men lai. Voidang cu cahmai na kal khawhnak ah kal cang.</string>
   <string name="delete_selected_history">Hloh lai</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Na min</string>

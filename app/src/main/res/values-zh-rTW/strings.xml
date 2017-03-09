@@ -78,8 +78,8 @@
   <string name="login_success_toast">登入成功！</string>
   <string name="preference_title_logout">登出</string>
   <string name="toast_logout_complete">已登出</string>
-  <string name="history_empty_title">沒有近期頁面！</string>
-  <string name="history_empty_message">你可能刪除它們的一切。下一次您進入到一個頁面時您可以從這裡返回。</string>
+  <string name="history_empty_title" fuzzy="true">沒有近期頁面！</string>
+  <string name="history_empty_message" fuzzy="true">你可能刪除它們的一切。下一次您進入到一個頁面時您可以從這裡返回。</string>
   <string name="delete_selected_history">刪除</string>
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">使用者名稱</string>
@@ -268,7 +268,9 @@
   <string name="reading_list_sort_by_recent">依最近閱讀排序</string>
   <string name="reading_list_sort_by_recent_desc">按最早閱讀排序</string>
   <string name="reading_list_menu_edit">編輯閱讀清單詳細資料</string>
-  <string name="reading_list_menu_delete" fuzzy="true">刪除閱讀清單</string>
+  <string name="reading_list_menu_delete">刪除清單</string>
+  <string name="reading_list_menu_rename">重新命名</string>
+  <string name="reading_list_menu_edit_description">編輯描述</string>
   <string name="reading_list_name_sample">我的閱讀清單</string>
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述 (選填)：</string>
@@ -279,8 +281,8 @@
   <string name="reading_list_edit_ok">確定</string>
   <string name="reading_list_edit_cancel">取消</string>
   <string name="reading_list_delete_confirm">你確定要刪除此清單？</string>
-  <string name="reading_lists_empty">這裡無閱讀清單</string>
-  <string name="reading_lists_empty_message">將你瀏覽過的條目組織到閱讀清單中！瀏覽條目時，輕觸底部工具列的書籤圖示，將它新增至閱讀清單中。</string>
+  <string name="reading_lists_empty" fuzzy="true">這裡無閱讀清單</string>
+  <string name="reading_lists_empty_message" fuzzy="true">將你瀏覽過的條目組織到閱讀清單中！瀏覽條目時，輕觸底部工具列的書籤圖示，將它新增至閱讀清單中。</string>
   <string name="reading_lists_onboarding_intro">建立您感興趣條目的閱讀清單，讓您即使在離線狀態下也可使用！</string>
   <string name="reading_lists_onboarding_for_example">舉例</string>
   <string name="reading_lists_onboarding_example1">要瀏覽的項目</string>
@@ -290,7 +292,7 @@
   <string name="reading_lists_onboarding_page_delete">提示：向左或向右撥動任何頁面以將其從此閱讀清單裡面移除。</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_button_view_page">檢視頁面</string>
-  <string name="notification_button_view_user">與用戶對話</string>
+  <string name="notification_button_view_user">與使用者對話</string>
   <string name="notification_button_view_edit_history">檢視編輯歷史</string>
   <string name="notification_generic_title">維基百科上的通知</string>
   <string name="notification_talk_title">維基百科上的新訊息</string>
@@ -330,7 +332,7 @@
   <string name="description_edit_edit_description">編輯描述</string>
   <string name="description_edit_cancel_hint">取消</string>
   <string name="description_edit_help_title">協助：標題描述</string>
-  <string name="description_edit_help_about_wikidata">有關維基數據</string>
+  <string name="description_edit_help_about_wikidata">關於維基數據</string>
   <string name="description_edit_help_wikidata_guide">維基數據指引上關於編寫描述</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/zh</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>

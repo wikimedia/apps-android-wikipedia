@@ -78,8 +78,8 @@
   <string name="login_success_toast">Sikeresen bejelentkezve!</string>
   <string name="preference_title_logout">Kijelentkezés</string>
   <string name="toast_logout_complete">Kijelentkezve</string>
-  <string name="history_empty_title">Nincsenek korábbi lapok!</string>
-  <string name="history_empty_message">Talán mindet törölted. Miután legközelebb meglátogatsz egy lapot, innen visszatalálsz rá.</string>
+  <string name="history_empty_title" fuzzy="true">Nincsenek korábbi lapok!</string>
+  <string name="history_empty_message" fuzzy="true">Talán mindet törölted. Miután legközelebb meglátogatsz egy lapot, innen visszatalálsz rá.</string>
   <string name="delete_selected_history">Töröl</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Felhasználónév</string>
@@ -276,8 +276,8 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Mégse</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni ezt az olvasólistát?</string>
-  <string name="reading_lists_empty">Nincs olvasólista.</string>
-  <string name="reading_lists_empty_message">Rendezd a böngészett szócikkeket olvasólistákba! Amikor olvasol egy szócikket, érintsd meg a könyvjelző ikont az alsó eszköztáron, hogy hozzáadd egy olvasólistához.</string>
+  <string name="reading_lists_empty" fuzzy="true">Nincs olvasólista.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Rendezd a böngészett szócikkeket olvasólistákba! Amikor olvasol egy szócikket, érintsd meg a könyvjelző ikont az alsó eszköztáron, hogy hozzáadd egy olvasólistához.</string>
   <string name="reading_lists_onboarding_intro">Készíts olvasólistát szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
   <string name="reading_lists_onboarding_for_example">Például</string>
   <string name="reading_lists_onboarding_example1">Látványosságok</string>

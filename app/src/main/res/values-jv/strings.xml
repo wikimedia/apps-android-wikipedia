@@ -78,8 +78,8 @@
   <string name="login_success_toast">Mlebu ing kasil!</string>
   <string name="preference_title_logout">Metu</string>
   <string name="toast_logout_complete">Wis metu log</string>
-  <string name="history_empty_title">Ora ana kaca sing anyar kene!</string>
-  <string name="history_empty_message">Sampeyan mbokmenawa dibusak kabeh mau. Sabanjure sampeyan pindhah menyang kaca sing bisa bali menyang saka kene.</string>
+  <string name="history_empty_title" fuzzy="true">Ora ana kaca sing anyar kene!</string>
+  <string name="history_empty_message" fuzzy="true">Sampeyan mbokmenawa dibusak kabeh mau. Sabanjure sampeyan pindhah menyang kaca sing bisa bali menyang saka kene.</string>
   <string name="delete_selected_history">Busak</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Jeneng panganggo</string>
@@ -279,8 +279,8 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="reading_list_edit_ok">Oké</string>
   <string name="reading_list_edit_cancel">Batal</string>
   <string name="reading_list_delete_confirm">Sampéyan yakin arep mbusak dhaftar maca iki?</string>
-  <string name="reading_lists_empty">Ora maca pinten kene.</string>
-  <string name="reading_lists_empty_message">Nata ing artikel browsing menyang maca dhaptar! Nalika browsing artikel, tunyuk lambang tetenger ing toolbar ngisor kanggo ditambahake menyang dhaftar maca.</string>
+  <string name="reading_lists_empty" fuzzy="true">Ora maca pinten kene.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Nata ing artikel browsing menyang maca dhaptar! Nalika browsing artikel, tunyuk lambang tetenger ing toolbar ngisor kanggo ditambahake menyang dhaftar maca.</string>
   <string name="reading_lists_onboarding_intro">Nggawe maca dhaptar saka artikel sing arep diwaca mengko, malah nalika sampeyan lagi offline!</string>
   <string name="reading_lists_onboarding_for_example">Tuladhane</string>
   <string name="reading_lists_onboarding_example1">Panggonan kanggo ngunjungi</string>

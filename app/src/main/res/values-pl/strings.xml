@@ -75,8 +75,8 @@
   <string name="login_success_toast">Zalogowano pomyślnie!</string>
   <string name="preference_title_logout">Wyloguj</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
-  <string name="history_empty_title">Brak ostatnich zmian stron.</string>
-  <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem, gdy wejdziesz na stronę, możesz powrócić do niej stąd.</string>
+  <string name="history_empty_title" fuzzy="true">Brak ostatnich zmian stron.</string>
+  <string name="history_empty_message" fuzzy="true">Prawdopodobnie usunąłeś je wszystkie. Następnym razem, gdy wejdziesz na stronę, możesz powrócić do niej stąd.</string>
   <string name="delete_selected_history">Usuń</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nazwa użytkownika</string>
@@ -254,6 +254,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>
   <string name="reading_list_sort_by_recent">Sortuj według najnowszych</string>
   <string name="reading_list_sort_by_recent_desc">Sortuj według najstarszych</string>
+  <string name="reading_list_menu_edit_description">Edytuj opis</string>
   <string name="reading_list_name_sample">Moja lista</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>

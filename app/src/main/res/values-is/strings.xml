@@ -69,8 +69,8 @@
   <string name="login_success_toast">Sending tókst!</string>
   <string name="preference_title_logout">Skrá út</string>
   <string name="toast_logout_complete">Skráður út</string>
-  <string name="history_empty_title">Engar nýlegar síður hér!</string>
-  <string name="history_empty_message">Líklega eyddirðu þeim öllum. Næst þegar þú ferð á síðu, geturðu komist til baka á hana hér.</string>
+  <string name="history_empty_title" fuzzy="true">Engar nýlegar síður hér!</string>
+  <string name="history_empty_message" fuzzy="true">Líklega eyddirðu þeim öllum. Næst þegar þú ferð á síðu, geturðu komist til baka á hana hér.</string>
   <string name="delete_selected_history">Eyða</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Notandanafn</string>

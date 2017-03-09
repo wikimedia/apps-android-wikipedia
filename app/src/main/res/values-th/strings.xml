@@ -71,7 +71,7 @@
   <string name="login_success_toast">ล็อกอินสำเร็จ!</string>
   <string name="preference_title_logout">ล็อกเอาต์</string>
   <string name="toast_logout_complete">ล็อกเอาต์แล้ว</string>
-  <string name="history_empty_title">ไม่มีหน้าปัจจุบันที่นี่!</string>
+  <string name="history_empty_title" fuzzy="true">ไม่มีหน้าปัจจุบันที่นี่!</string>
   <string name="delete_selected_history">ลบ</string>
   <string name="wp_stylized">&lt;big&gt;วิ&lt;/big&gt;กิพีเดี&lt;big&gt;ย&lt;/big&gt;</string>
   <string name="create_account_username_hint">ชื่อผู้ใช้</string>

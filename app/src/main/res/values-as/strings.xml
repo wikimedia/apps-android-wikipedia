@@ -65,8 +65,8 @@
   <string name="login_success_toast">প্ৰৱেশ সফল হ\'ল!</string>
   <string name="preference_title_logout">প্ৰস্থান</string>
   <string name="toast_logout_complete">প্ৰস্থান হ\'ল</string>
-  <string name="history_empty_title">ইয়াত কোনো শেহতীয়া পৃষ্ঠা নাই!</string>
-  <string name="history_empty_message">আপুনি হয়তো গোটেইবোৰ বিলোপ কৰিছে। ইয়াত পাছত আপুনি কোনো পৃষ্ঠালৈ গ\'লে ইয়াতে পুনৰ চাব পাৰিব।</string>
+  <string name="history_empty_title" fuzzy="true">ইয়াত কোনো শেহতীয়া পৃষ্ঠা নাই!</string>
+  <string name="history_empty_message" fuzzy="true">আপুনি হয়তো গোটেইবোৰ বিলোপ কৰিছে। ইয়াত পাছত আপুনি কোনো পৃষ্ঠালৈ গ\'লে ইয়াতে পুনৰ চাব পাৰিব।</string>
   <string name="delete_selected_history">বিলোপ কৰক</string>
   <string name="wp_stylized">&lt;big&gt;ৱি&lt;/big&gt;কিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">সদস্যনাম</string>

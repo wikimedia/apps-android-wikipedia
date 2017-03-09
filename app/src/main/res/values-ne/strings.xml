@@ -73,8 +73,8 @@
   <string name="login_success_toast">सफलतापूर्वक लगइन भयो!</string>
   <string name="preference_title_logout">लग आउट गर्नुहोस्</string>
   <string name="toast_logout_complete">लग आउट गरियो</string>
-  <string name="history_empty_title">यहाँ कुनै भर्खरैका पृष्ठहरू छैनन्!</string>
-  <string name="history_empty_message">तपाईँले सायद सबै मेट्नुभयो। Next time you go to a page you can get back to it from here.</string>
+  <string name="history_empty_title" fuzzy="true">यहाँ कुनै भर्खरैका पृष्ठहरू छैनन्!</string>
+  <string name="history_empty_message" fuzzy="true">तपाईँले सायद सबै मेट्नुभयो। Next time you go to a page you can get back to it from here.</string>
   <string name="delete_selected_history">हटाउनुहोस्</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपिडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">प्रयोगकर्ताको नाम</string>
@@ -251,7 +251,7 @@
   <string name="reading_list_edit_ok">ठीक छ</string>
   <string name="reading_list_edit_cancel">रद्द गर्नुहोस्</string>
   <string name="reading_list_delete_confirm">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेट्न चाहनुहुन्छ?</string>
-  <string name="reading_lists_empty">यहाँ कुनै अध्ययन सूचीहरू छैनन्।</string>
+  <string name="reading_lists_empty" fuzzy="true">यहाँ कुनै अध्ययन सूचीहरू छैनन्।</string>
   <string name="reading_lists_onboarding_for_example">उदाहरणका लागि</string>
   <string name="reading_lists_onboarding_example1">भ्रमण गर्ने ठाउँहरू</string>
   <string name="reading_lists_onboarding_example2">मनपर्ने जनावरहरू</string>

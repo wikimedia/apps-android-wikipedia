@@ -78,16 +78,16 @@
   <string name="login_success_toast">Berhasil masuk log!</string>
   <string name="preference_title_logout">Keluar log</string>
   <string name="toast_logout_complete">Telah keluar log</string>
-  <string name="history_empty_title">Tidak ada halaman terbaru di sini.</string>
-  <string name="history_empty_message">Anda mungkin menghapus mereka semua. Lain kali Anda pergi ke halaman Anda dapat kembali ke sana dari sini.</string>
+  <string name="history_empty_title" fuzzy="true">Tidak ada halaman terbaru di sini.</string>
+  <string name="history_empty_message" fuzzy="true">Anda mungkin menghapus mereka semua. Lain kali Anda pergi ke halaman Anda dapat kembali ke sana dari sini.</string>
   <string name="delete_selected_history">Hapus</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>
-  <string name="login_create_account_link">Belum punya akun? Gabung ke Wikipedia</string>
-  <string name="create_account_login_link">Sudah memiliki akun? Masuk log.</string>
+  <string name="login_create_account_link">Belum punya akun? Bergabunglah dengan Wikipedia</string>
+  <string name="create_account_login_link">Sudah memiliki akun? Masuk log</string>
   <string name="create_account_activity_title">Buat akun baru</string>
   <string name="dialog_create_account_checking_progress">Memverifikasi</string>
-  <string name="create_account_email_hint">Alamat surel (opsional)</string>
+  <string name="create_account_email_hint">Alamat surel (Opsional)</string>
   <string name="create_account_password_repeat_hint">Ulangi kata sandi</string>
   <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
   <string name="create_account_email_error">Alamat surel tidak sah</string>
@@ -146,11 +146,11 @@
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
-  <string name="user_blocked_from_editing_title">Diblokir</string>
+  <string name="user_blocked_from_editing_title">Telah diblokir</string>
   <string name="user_logged_in_blocked_from_editing">Akun pengguna Anda telah diblokir dari penyuntingan di wiki ini.</string>
   <string name="user_anon_blocked_from_editing">Alamat IP Anda telah diblokir dari penyuntingan.</string>
   <string name="edit_how_page_improved">Bagaimana Anda menyempurnakan halaman ini?</string>
-  <string name="edit_next">Lanjut</string>
+  <string name="edit_next">Selanjutnya</string>
   <string name="edit_done">Simpan</string>
   <string name="edit_preview">Pratayang</string>
   <string name="edit_summary_tag_typo">Perbaikan kesalahan ketik</string>
@@ -250,14 +250,14 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting deskripsi judul</string>
   <string name="article_header_edit_lead_section">Sunting pengantar</string>
-  <string name="nav_item_reading_lists">Daftarku</string>
+  <string name="nav_item_reading_lists">Daftar saya</string>
   <string name="reading_list_untitled">Tanpa judul</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_create_new">Buat baru</string>
   <string name="reading_list_title_exists">Daftar bacaan \"%s\" sudah ada.</string>
   <string name="reading_list_entry_empty">Silakan masukkan judul.</string>
   <string name="reading_list_added_to_named">Ditambahkan ke %s.</string>
-  <string name="reading_list_added_to_unnamed">Ditambahkan ke daftar bacaan.</string>
+  <string name="reading_list_added_to_unnamed">Telah ditambahkan ke daftar bacaan.</string>
   <string name="reading_list_already_exists">Artikel ini sudah ada dalam daftar itu.</string>
   <string name="reading_list_added_view_button">Lihat daftar</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
@@ -268,7 +268,9 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_sort_by_recent">Urutkan berdasarkan yang terbaru</string>
   <string name="reading_list_sort_by_recent_desc">Urutkan berdasarkan yang terlama</string>
   <string name="reading_list_menu_edit">Sunting rincian daftar bacaan</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Hapus daftar bacaan</string>
+  <string name="reading_list_menu_delete">Hapus daftar</string>
+  <string name="reading_list_menu_rename">Ganti nama</string>
+  <string name="reading_list_menu_edit_description">Sunting deskripsi</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
   <string name="reading_list_name_hint">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
@@ -279,8 +281,8 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_edit_ok">Oke</string>
   <string name="reading_list_edit_cancel">Batal</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus daftar bacaan ini?</string>
-  <string name="reading_lists_empty">Tidak ada daftar bacaan di sini.</string>
-  <string name="reading_lists_empty_message">Susun artikel yang dijelajahi oleh Anda ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, ketuk ikon penanda di bilah alat bawah untuk menambahkannya ke daftar bacaan.</string>
+  <string name="reading_lists_empty" fuzzy="true">Tidak ada daftar bacaan di sini.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Susun artikel yang Anda jelajahi ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, ketuk ikon penanda di bilah alat bawah untuk menambahkannya ke daftar bacaan.</string>
   <string name="reading_lists_onboarding_intro">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan ketika Anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
@@ -312,7 +314,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="menu_feed_card_dismissed">Kartu disembunyikan.</string>
   <string name="menu_feed_overflow_label">Opsi lainnya</string>
   <string name="feed_featured_image_share_subject">Gambar pilihan dari Wikimedia Commons</string>
-  <string name="feed">Jelajah</string>
+  <string name="feed">Jelajahi</string>
   <string name="view_card_footer_button">Lihat lebih lengkap</string>
   <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>

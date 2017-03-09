@@ -78,8 +78,8 @@
   <string name="login_success_toast">הכניסה לחשבון הצליחה!</string>
   <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
-  <string name="history_empty_title">אין פה דפים שקראת לאחרונה.</string>
-  <string name="history_empty_message">כנראה מחקת את כולם. בפעם הבאה שיזדמן לך לקרוא דף, אפשר יהיה לחזור אליו מכאן.</string>
+  <string name="history_empty_title" fuzzy="true">אין פה דפים שקראת לאחרונה.</string>
+  <string name="history_empty_message" fuzzy="true">כנראה מחקת את כולם. בפעם הבאה שיזדמן לך לקרוא דף, אפשר יהיה לחזור אליו מכאן.</string>
   <string name="delete_selected_history">מחיקה</string>
   <string name="wp_stylized">ויקיפדיה</string>
   <string name="create_account_username_hint">שם משתמש</string>
@@ -268,7 +268,9 @@
   <string name="reading_list_sort_by_recent">מיון לפי החדש ביותר</string>
   <string name="reading_list_sort_by_recent_desc">מיון לפי הישן ביותר</string>
   <string name="reading_list_menu_edit">עריכת פרטי רשימה</string>
-  <string name="reading_list_menu_delete" fuzzy="true">מחיקת רשימת קריאה</string>
+  <string name="reading_list_menu_delete">מחיקת רשימה</string>
+  <string name="reading_list_menu_rename">שינוי שם</string>
+  <string name="reading_list_menu_edit_description">עריכת תיאור</string>
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
@@ -279,8 +281,8 @@
   <string name="reading_list_edit_ok">אישור</string>
   <string name="reading_list_edit_cancel">ביטול</string>
   <string name="reading_list_delete_confirm">האם ברצונך באמת למחוק את רשימת הקריאה הזאת?</string>
-  <string name="reading_lists_empty">אין כאן רשימות קריאה.</string>
-  <string name="reading_lists_empty_message">ארגנו את הערכים שאתם גולשים בהם לרשימת קריאה! בעת קריאת ערך, לחצו על סמל הסימנייה בסרגל התחתון כדי להוסיף אותו לרשימת קריאה.</string>
+  <string name="reading_lists_empty" fuzzy="true">אין כאן רשימות קריאה.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">ארגנו את הערכים שאתם גולשים בהם לרשימת קריאה! בעת קריאת ערך, לחצו על סמל הסימנייה בסרגל התחתון כדי להוסיף אותו לרשימת קריאה.</string>
   <string name="reading_lists_onboarding_intro">צרו רשימת קריאה מערכים שאתם רוצים לקרוא אחר־כך, אפילו בלי רשת!</string>
   <string name="reading_lists_onboarding_for_example">למשל</string>
   <string name="reading_lists_onboarding_example1">מקומות לבקר בהם</string>

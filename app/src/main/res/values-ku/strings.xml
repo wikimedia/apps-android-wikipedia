@@ -54,7 +54,7 @@
   <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
   <string name="login_success_toast">Têketin serkevtî bû!</string>
   <string name="preference_title_logout">Derkeve</string>
-  <string name="history_empty_title">Li vir rûpelên dawî tune ne!</string>
+  <string name="history_empty_title" fuzzy="true">Li vir rûpelên dawî tune ne!</string>
   <string name="delete_selected_history">Jê bibe</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ÎKÎPEDI&lt;big&gt;YA&lt;/big&gt;</string>
   <string name="create_account_username_hint">Navê bikarhêner</string>

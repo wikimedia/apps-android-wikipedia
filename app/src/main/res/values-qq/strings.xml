@@ -406,7 +406,8 @@ Shown in the preferences screen along with the following:
   <string name="reading_list_sort_by_recent_desc">Menu option to sort reading lists by last-accessed time, in reverse order.</string>
   <string name="reading_list_menu_edit">Button label to edit the details of the current reading list.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
-  <string name="reading_list_menu_rename">Menu item for changing the name of a reading list.</string>
+  <string name="reading_list_menu_rename">Menu item for changing the name of a reading list.
+{{Identical|Rename}}</string>
   <string name="reading_list_menu_edit_description">Menu item for changing the description of a reading list.</string>
   <string name="reading_list_name_sample">Default name for a new reading list.</string>
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>

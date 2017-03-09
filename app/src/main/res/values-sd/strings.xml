@@ -77,8 +77,8 @@
   <string name="login_success_toast">ڪاميابيءَ سان داخل ٿيل!</string>
   <string name="preference_title_logout">خارج ٿيو</string>
   <string name="toast_logout_complete">نڪري چڪا</string>
-  <string name="history_empty_title">هتي ڪي بہ تازا صفحا ڪونهن!</string>
-  <string name="history_empty_message">توهان شايد سڀني کي ڊاهي ڇڏيو. آئينده توهان اڳ ۾ گھميل ڪنهن بہ صفحي تي هتان وڃي سگھو ٿا.</string>
+  <string name="history_empty_title" fuzzy="true">هتي ڪي بہ تازا صفحا ڪونهن!</string>
+  <string name="history_empty_message" fuzzy="true">توهان شايد سڀني کي ڊاهي ڇڏيو. آئينده توهان اڳ ۾ گھميل ڪنهن بہ صفحي تي هتان وڃي سگھو ٿا.</string>
   <string name="delete_selected_history">ڊاهيو</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">يُوزرنانءُ</string>
@@ -270,8 +270,8 @@
   <string name="reading_list_edit_ok">ٺيڪ</string>
   <string name="reading_list_edit_cancel">رد</string>
   <string name="reading_list_delete_confirm">ڇا توھان کي پڪ آھي تہ توھان ھي پڙھڻ جي فھرست ڊاھڻ ٿا چاھيو؟</string>
-  <string name="reading_lists_empty">ھتي ڪابہ پڙھڻ جي فھرست ناھي.</string>
-  <string name="reading_lists_empty_message">پنھنجا گھميل مضمون پڙھڻ جي فھرستن ۾ منظم ڪريو! جڏھن ڪو مضمون گھمندا ھجو، ھيٺ اوزاردٻيءَ ۾ بڪ مارڪ جي نشان تي ٽڙڪ ڪريو تہ جيئن ان کي پڙھڻ جي فھرست ۾ شامل ڪجي.</string>
+  <string name="reading_lists_empty" fuzzy="true">ھتي ڪابہ پڙھڻ جي فھرست ناھي.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">پنھنجا گھميل مضمون پڙھڻ جي فھرستن ۾ منظم ڪريو! جڏھن ڪو مضمون گھمندا ھجو، ھيٺ اوزاردٻيءَ ۾ بڪ مارڪ جي نشان تي ٽڙڪ ڪريو تہ جيئن ان کي پڙھڻ جي فھرست ۾ شامل ڪجي.</string>
   <string name="reading_lists_onboarding_intro">انھن مضمونن مان پڙھڻ جون فھرستون ٺاھيو جيڪي توھان بعد ۾ پڙھڻ چاھيو، حتيٰ ڪہ جڏھن توھان آفلائين آھيو!</string>
   <string name="reading_lists_onboarding_for_example">مثال طور</string>
   <string name="reading_lists_onboarding_example1">گھمڻ جون جڳھون</string>
