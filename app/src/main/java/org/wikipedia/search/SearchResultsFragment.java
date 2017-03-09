@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +36,12 @@ import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnItemClick;
+import butterknife.Unbinder;
+
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public class SearchResultsFragment extends Fragment {
@@ -60,12 +65,13 @@ public class SearchResultsFragment extends Fragment {
      */
     private static final int NANO_TO_MILLI = 1_000_000;
 
-    private View searchResultsDisplay;
-    private View searchResultsContainer;
-    private ListView searchResultsList;
-    private WikiErrorView searchErrorView;
-    private View searchNoResults;
-    private TextView searchSuggestion;
+    @BindView(R.id.search_results_display) View searchResultsDisplay;
+    @BindView(R.id.search_results_container) View searchResultsContainer;
+    @BindView(R.id.search_results_list) ListView searchResultsList;
+    @BindView(R.id.search_error_view) WikiErrorView searchErrorView;
+    @BindView(R.id.search_empty_view) View searchEmptyView;
+    @BindView(R.id.search_suggestion) TextView searchSuggestion;
+    private Unbinder unbinder;
 
     private WikipediaApp app;
     @NonNull private final LruCache<String, List<SearchResult>> searchResultsCache
@@ -84,43 +90,12 @@ public class SearchResultsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
-        searchResultsDisplay = rootView.findViewById(R.id.search_results_display);
-
-        searchResultsContainer = rootView.findViewById(R.id.search_results_container);
-        searchResultsList = (ListView) rootView.findViewById(R.id.search_results_list);
-
-        searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Callback callback = callback();
-                if (callback != null) {
-                    PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-                    callback.navigateToTitle(item, false, position);
-                }
-            }
-        });
+        View view = inflater.inflate(R.layout.fragment_search_results, container, false);
+        unbinder = ButterKnife.bind(this, view);
 
         SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
 
-        searchSuggestion = (TextView) rootView.findViewById(R.id.search_suggestion);
-        searchSuggestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Callback callback = callback();
-                String suggestion = (String) searchSuggestion.getTag();
-                if (callback != null && suggestion != null) {
-                    callback.getFunnel().searchDidYouMean();
-                    callback.setSearchText(suggestion);
-                    startSearch(suggestion, true);
-                }
-            }
-        });
-
-        searchNoResults = rootView.findViewById(R.id.search_results_empty);
-
-        searchErrorView = (WikiErrorView) rootView.findViewById(R.id.search_error_view);
         searchErrorView.setRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,7 +106,7 @@ public class SearchResultsFragment extends Fragment {
 
         searchHandler = new Handler(new SearchHandlerCallback());
 
-        return rootView;
+        return view;
     }
 
     @Override
@@ -139,6 +114,32 @@ public class SearchResultsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         new LongPressHandler(searchResultsList, HistoryEntry.SOURCE_SEARCH,
                 new SearchResultsFragmentLongPressHandler());
+    }
+
+    @Override
+    public void onDestroyView() {
+        searchErrorView.setRetryClickListener(null);
+        unbinder.unbind();
+        unbinder = null;
+        super.onDestroyView();
+    }
+
+    @OnItemClick(R.id.search_results_list) void onItemClick(ListView view, int position) {
+        Callback callback = callback();
+        if (callback != null) {
+            PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
+            callback.navigateToTitle(item, false, position);
+        }
+    }
+
+    @OnClick(R.id.search_suggestion) void onSuggestionClick(View view) {
+        Callback callback = callback();
+        String suggestion = (String) searchSuggestion.getTag();
+        if (callback != null && suggestion != null) {
+            callback.getFunnel().searchDidYouMean();
+            callback.setSearchText(suggestion);
+            startSearch(suggestion, true);
+        }
     }
 
     public void show() {
@@ -390,7 +391,7 @@ public class SearchResultsFragment extends Fragment {
 
     private void clearResults(boolean clearSuggestion) {
         searchResultsContainer.setVisibility(View.GONE);
-        searchNoResults.setVisibility(View.GONE);
+        searchEmptyView.setVisibility(View.GONE);
         searchErrorView.setVisibility(View.GONE);
         if (clearSuggestion) {
             searchSuggestion.setVisibility(View.GONE);
@@ -426,13 +427,12 @@ public class SearchResultsFragment extends Fragment {
             }
         }
 
-        searchResultsContainer.setVisibility(View.VISIBLE);
-        if (totalResults.size() == 0) {
-            searchNoResults.setVisibility(View.VISIBLE);
-            searchResultsList.setVisibility(View.GONE);
+        if (totalResults.isEmpty()) {
+            searchEmptyView.setVisibility(View.VISIBLE);
+            searchResultsContainer.setVisibility(View.GONE);
         } else {
-            searchNoResults.setVisibility(View.GONE);
-            searchResultsList.setVisibility(View.VISIBLE);
+            searchEmptyView.setVisibility(View.GONE);
+            searchResultsContainer.setVisibility(View.VISIBLE);
         }
 
         getAdapter().notifyDataSetChanged();

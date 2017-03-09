@@ -95,7 +95,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/search_background_color">
+        android:background="?attr/feed_window_background_color">
 
         <fragment
             android:id="@+id/fragment_search_results"
