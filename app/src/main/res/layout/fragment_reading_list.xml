@@ -67,7 +67,15 @@
                 android:textSize="16sp"
                 android:text="@string/reading_list_empty"
                 android:visibility="gone"
-                tools:visibility="visible"/>
+                tools:visibility="gone"/>
+
+            <org.wikipedia.views.SearchEmptyView
+                android:id="@+id/search_empty_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

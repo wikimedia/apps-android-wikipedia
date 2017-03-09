@@ -39,6 +39,7 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
+import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.TextInputDialog;
 
 import java.util.ArrayList;
@@ -59,6 +60,7 @@ public class ReadingListFragment extends Fragment {
     @BindView(R.id.reading_list_header) ReadingListHeaderView headerImageView;
     @BindView(R.id.reading_list_contents) RecyclerView recyclerView;
     @BindView(R.id.reading_list_empty_text) TextView emptyView;
+    @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     private Unbinder unbinder;
 
     @Nullable private ReadingList readingList;
@@ -125,6 +127,10 @@ public class ReadingListFragment extends Fragment {
                 }
                 readingLists.set(lists);
                 readingList = readingLists.get(readingListTitle);
+                if (readingList != null) {
+                    searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results,
+                            readingList.getTitle()));
+                }
                 update();
             }
         });
@@ -213,16 +219,27 @@ public class ReadingListFragment extends Fragment {
         }
         currentSearchQuery = query;
         displayedPages.clear();
-        adapter.notifyDataSetChanged();
         if (TextUtils.isEmpty(query)) {
             displayedPages.addAll(readingList.getPages());
-            return;
-        }
-        query = query.toUpperCase();
-        for (ReadingListPage page : readingList.getPages()) {
-            if (page.title().toUpperCase().contains(query.toUpperCase())) {
-                displayedPages.add(page);
+        } else {
+            query = query.toUpperCase();
+            for (ReadingListPage page : readingList.getPages()) {
+                if (page.title().toUpperCase().contains(query.toUpperCase())) {
+                    displayedPages.add(page);
+                }
             }
+        }
+        adapter.notifyDataSetChanged();
+        updateEmptyState(query);
+    }
+
+    private void updateEmptyState(@Nullable String searchQuery) {
+        if (TextUtils.isEmpty(searchQuery)) {
+            searchEmptyView.setVisibility(View.GONE);
+            emptyView.setVisibility(displayedPages.isEmpty() ? View.VISIBLE : View.GONE);
+        } else {
+            searchEmptyView.setVisibility(displayedPages.isEmpty() ? View.VISIBLE : View.GONE);
+            emptyView.setVisibility(View.GONE);
         }
     }
 

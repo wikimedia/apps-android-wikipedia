@@ -3,6 +3,7 @@ package org.wikipedia.views;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -39,6 +40,10 @@ public class SearchEmptyView extends LinearLayout {
 
     public void setEmptyText(@StringRes int id) {
         emptyText.setText(id);
+    }
+
+    public void setEmptyText(@Nullable CharSequence text) {
+        emptyText.setText(text);
     }
 
     private void init() {
