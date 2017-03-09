@@ -36,15 +36,6 @@ public final class FeedbackUtil {
         return makeSnackbar(findBestView(activity), text, duration);
     }
 
-    public static Snackbar makeSnackbar(View view, CharSequence text, int duration) {
-        Snackbar snackbar = Snackbar.make(view, text, duration);
-        TextView textView = (TextView) snackbar.getView().findViewById(R.id.snackbar_text);
-        textView.setMaxLines(SNACKBAR_MAX_LINES);
-        TextView actionView = (TextView) snackbar.getView().findViewById(R.id.snackbar_action);
-        actionView.setTextColor(ContextCompat.getColor(view.getContext(), R.color.green50));
-        return snackbar;
-    }
-
     public static void showError(View containerView, Throwable e) {
         ThrowableUtil.AppError error = ThrowableUtil.getAppError(containerView.getContext(), e);
         makeSnackbar(containerView, error.getError(), LENGTH_DEFAULT).show();
@@ -106,6 +97,15 @@ public final class FeedbackUtil {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);
         }
+    }
+
+    private static Snackbar makeSnackbar(View view, CharSequence text, int duration) {
+        Snackbar snackbar = Snackbar.make(view, text, duration);
+        TextView textView = (TextView) snackbar.getView().findViewById(R.id.snackbar_text);
+        textView.setMaxLines(SNACKBAR_MAX_LINES);
+        TextView actionView = (TextView) snackbar.getView().findViewById(R.id.snackbar_action);
+        actionView.setTextColor(ContextCompat.getColor(view.getContext(), R.color.green50));
+        return snackbar;
     }
 
     private static void showToolbarButtonToast(View view) {
