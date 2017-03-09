@@ -301,6 +301,7 @@
     <string name="reading_list_description_hint">Description (optional)</string>
     <string name="reading_list_save_for_offline">Available for offline reading</string>
     <string name="reading_list_item_deleted">%s removed from list</string>
+    <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
     <string name="reading_list_edit_ok">OK</string>

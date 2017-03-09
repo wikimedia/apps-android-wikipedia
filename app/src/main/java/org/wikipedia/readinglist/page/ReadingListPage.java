@@ -13,6 +13,7 @@ import org.wikipedia.util.FileUtil;
 public final class ReadingListPage extends ReadingListPageRow {
     @NonNull private DiskStatus diskStatus;
     @Nullable private String filename;
+    private boolean selected;
 
     public static ReadingListPage fromCursor(@NonNull Cursor cursor) {
         ReadingListPageDiskRow diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
@@ -46,6 +47,14 @@ public final class ReadingListPage extends ReadingListPageRow {
         } else {
             diskStatus = diskStatus == DiskStatus.ONLINE ? DiskStatus.ONLINE : DiskStatus.UNSAVED;
         }
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+    public boolean isSelected() {
+        return selected;
     }
 
     private ReadingListPage(@NonNull Builder builder) {
