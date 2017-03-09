@@ -50,6 +50,8 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.ReadingListActivity;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
@@ -377,12 +379,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override
-    public void showReadingListAddedMessage(@NonNull String message) {
+    public void showReadingListAddedMessage(@NonNull final ReadingList readingList, @NonNull String message) {
         FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        goToTab(NavTab.READING_LISTS);
+                        startActivity(ReadingListActivity.newIntent(getContext(), readingList));
                     }
                 }).show();
     }

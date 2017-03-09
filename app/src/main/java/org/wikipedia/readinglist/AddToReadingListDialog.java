@@ -58,7 +58,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     public interface Callback {
-        void showReadingListAddedMessage(@NonNull String message);
+        void showReadingListAddedMessage(@NonNull ReadingList readingList, @NonNull String message);
     }
 
     private PageTitle pageTitle;
@@ -212,11 +212,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     Callback callback = callback();
                     if (contains) {
                         if (callback != null) {
-                            callback.showReadingListAddedMessage(getString(R.string.reading_list_already_exists));
+                            callback.showReadingListAddedMessage(readingList, getString(R.string.reading_list_already_exists));
                         }
                     } else {
                         if (callback != null) {
-                            callback.showReadingListAddedMessage(TextUtils.isEmpty(readingList.getTitle())
+                            callback.showReadingListAddedMessage(readingList, TextUtils.isEmpty(readingList.getTitle())
                                     ? getString(R.string.reading_list_added_to_unnamed)
                                     : String.format(getString(R.string.reading_list_added_to_named),
                                     readingList.getTitle()));
