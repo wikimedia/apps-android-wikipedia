@@ -252,6 +252,7 @@
     <string name="location_service_disabled">Location services are disabled.</string>
     <string name="enable_location_service">Enable</string>
     <string name="error_webview_updating">The Android System WebView is currently being updated. Please try again in a moment.</string>
+    <string name="multi_select_items_selected">%d selected</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_dialog_title">Sorry, app crashed last time</string>

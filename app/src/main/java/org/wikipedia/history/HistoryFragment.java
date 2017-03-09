@@ -42,7 +42,6 @@ import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
-import java.text.NumberFormat;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -357,7 +356,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private void setActionModeIntTitle(int count, ActionMode mode) {
-        mode.setTitle(NumberFormat.getInstance().format(count));
+        mode.setTitle(getString(R.string.multi_select_items_selected, count));
     }
 
     private void onPageClick(PageTitle title, HistoryEntry entry) {
