@@ -56,6 +56,8 @@ import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.ReadingListActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.SettingsActivity;
@@ -421,8 +423,14 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
-    public void showReadingListAddedMessage(@NonNull String message) {
-        FeedbackUtil.makeSnackbar(this, message, FeedbackUtil.LENGTH_DEFAULT).show();
+    public void showReadingListAddedMessage(@NonNull final ReadingList readingList, @NonNull String message) {
+        FeedbackUtil.makeSnackbar(this, message, FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(ReadingListActivity.newIntent(PageActivity.this, readingList));
+                    }
+                }).show();
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
