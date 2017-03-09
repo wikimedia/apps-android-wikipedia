@@ -2,8 +2,6 @@ package org.wikipedia;
 
 import android.app.Activity;
 import android.app.Application;
-import android.database.ContentObserver;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.IntRange;
@@ -28,8 +26,6 @@ import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.csrf.CsrfTokenStorage;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
-import org.wikipedia.database.contract.AppContentProviderContract;
-import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -93,7 +89,7 @@ public class WikipediaApp extends Application {
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
-    private ContentObserver readingListPageObserver;
+    @NonNull private ReadingListPageObserver readingListPageObserver = new ReadingListPageObserver(null);
     private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
 
     private Database database;
@@ -115,8 +111,7 @@ public class WikipediaApp extends Application {
     private static WikipediaApp INSTANCE;
 
     private Bus bus;
-    @NonNull
-    private Theme currentTheme = Theme.getFallback();
+    @NonNull private Theme currentTheme = Theme.getFallback();
 
     private WikipediaZeroHandler zeroHandler;
     public WikipediaZeroHandler getWikipediaZeroHandler() {
@@ -177,7 +172,7 @@ public class WikipediaApp extends Application {
         AccountUtil.createAccountForLoggedInUser();
 
         UserOptionContentResolver.registerAppSyncObserver(this);
-        registerReadingListPageObserver();
+        readingListPageObserver.register(this);
 
         listenForNotifications();
     }
@@ -188,6 +183,10 @@ public class WikipediaApp extends Application {
 
     public Bus getBus() {
         return bus;
+    }
+
+    @NonNull public ReadingListPageObserver getReadingListPageObserver() {
+        return readingListPageObserver;
     }
 
     public String getUserAgent() {
@@ -591,15 +590,5 @@ public class WikipediaApp extends Application {
             result = Theme.getFallback();
         }
         return result;
-    }
-
-    private void registerReadingListPageObserver() {
-        readingListPageObserver = new ReadingListPageObserver(null);
-        Uri readingListPageBaseUri = ReadingListPageContract.Disk.URI;
-        Uri uriWithQuery = readingListPageBaseUri.buildUpon()
-                .appendQueryParameter(AppContentProviderContract.NOTIFY, "false").build();
-        WikipediaApp.getInstance().getContentResolver()
-                .registerContentObserver(uriWithQuery, true, readingListPageObserver);
-        L.i("Registered reading list page observer");
     }
 }

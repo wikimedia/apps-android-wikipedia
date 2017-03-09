@@ -29,6 +29,10 @@ import butterknife.OnClick;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
+    public interface Callback {
+        void onAddFeaturedPageToList(@NonNull FeaturedArticleCard card, @NonNull HistoryEntry entry);
+    }
+
     @BindView(R.id.view_featured_article_card_header) View headerView;
     @BindView(R.id.view_featured_article_card_footer) View footerView;
     @BindView(R.id.view_featured_article_card_image) FaceAndColorDetectImageView imageView;
@@ -152,7 +156,8 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         @Override
         public void onClick(View v) {
             if (getCallback() != null && getCard() != null) {
-                getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                getCallback().onAddFeaturedPageToList(getCard(),
+                        getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }

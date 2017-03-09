@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
+import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
@@ -21,7 +22,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     public interface Callback extends ItemTouchHelperSwipeAdapter.Callback,
             ListCardItemView.Callback, CardHeaderView.Callback,
             FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
-            AnnouncementCardView.Callback {
+            AnnouncementCardView.Callback, FeaturedArticleCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onError(@NonNull Throwable t);
@@ -50,12 +51,6 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
             callback.onRequestMore();
         }
 
-        if (isCardAssociatedWithView(view, item)) {
-            // Don't bother reloading the same card into the same view
-            return;
-        }
-        associateCardWithView(view, item);
-
         //noinspection unchecked
         ((FeedCardView<Card>) view).setCard(item);
     }
@@ -77,16 +72,12 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         return item(position).type().code();
     }
 
+    public int getItemPosition(@NonNull Card card) {
+        return items().indexOf(card);
+    }
+
     @NonNull private T newView(@NonNull Context context, int viewType) {
         //noinspection unchecked
         return (T) CardType.of(viewType).newView(context);
-    }
-
-    private boolean isCardAssociatedWithView(@NonNull View view, @NonNull Card card) {
-        return card.equals(view.getTag());
-    }
-
-    private void associateCardWithView(@NonNull View view, @NonNull Card card) {
-        view.setTag(card);
     }
 }

@@ -22,6 +22,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
@@ -29,6 +30,7 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.savedpages.ReadingListPageObserver;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
@@ -60,6 +62,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
         void onFeedAddPageToList(HistoryEntry entry);
+        void onFeedAddFeaturedPageToList(FeedFragment fragment, FeaturedArticleCard card, HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsItemCard card);
         void onFeedShareImage(FeaturedImageCard card);
@@ -92,6 +95,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         unbinder = ButterKnife.bind(this, view);
         feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
+        app.getReadingListPageObserver().setCallback(new ReadingListPageObserver.Callback() {
+            @Override public void onChange() {
+                feedAdapter.notifyDataSetChanged();
+            }
+        });
         feedView.setAdapter(feedAdapter);
         feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
@@ -130,6 +138,16 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         return view;
     }
 
+    public void notifyItemChanged(@NonNull Card card) {
+        if (feedAdapter != null && feedAdapter.getItemPosition(card) > -1) {
+            feedAdapter.notifyItemChanged(feedAdapter.getItemPosition(card));
+        }
+    }
+
+    public void onBecomeActiveTab() {
+        feedAdapter.notifyDataSetChanged();
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -139,6 +157,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onResume() {
         super.onResume();
+        feedAdapter.notifyDataSetChanged();
         funnel.enter();
 
     }
@@ -169,6 +188,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         feedView.removeOnScrollListener(feedScrollListener);
         feedView.setCallback((FeedAdapter.Callback) null);
         feedView.setAdapter(null);
+        app.getReadingListPageObserver().setCallback(null);
         feedAdapter = null;
         unbinder.unbind();
         unbinder = null;
@@ -266,6 +286,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onAddPageToList(@NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedAddPageToList(entry);
+            }
+        }
+
+        @Override
+        public void onAddFeaturedPageToList(@NonNull FeaturedArticleCard card, @NonNull HistoryEntry entry) {
+            if (getCallback() != null) {
+                getCallback().onFeedAddFeaturedPageToList(FeedFragment.this, card, entry);
             }
         }
 
