@@ -212,7 +212,7 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     testCompile mockitoCore
-    testCompile 'org.robolectric:robolectric:3.3'
+    testCompile 'org.robolectric:robolectric:3.3.1'
     testCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
     androidTestCompile mockitoCore
