@@ -124,6 +124,7 @@ Shown in the preferences screen along with the following:
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="delete_selected_history">Menu item text for deleting the currently selected history entries
 {{Identical|Delete}}</string>
+  <string name="delete_selected_items">Menu item hint for deleting selected items in a list.</string>
   <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
   <string name="login_create_account_link">Link text on Login screen to go to Create Account screen.

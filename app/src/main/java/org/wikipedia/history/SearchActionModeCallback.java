@@ -1,5 +1,6 @@
 package org.wikipedia.history;
 
+import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.SearchView;
@@ -12,6 +13,10 @@ import org.wikipedia.util.DeviceUtil;
 public abstract class SearchActionModeCallback implements ActionMode.Callback {
     public static final String ACTION_MODE_TAG = "searchActionMode";
     private SearchView searchView;
+
+    public static boolean is(@Nullable ActionMode mode) {
+        return mode != null && ACTION_MODE_TAG.equals(mode.getTag());
+    }
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
