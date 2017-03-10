@@ -56,17 +56,17 @@
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:background="?attr/selectableItemBackground"
             android:clickable="true">
+
             <ImageView
                 android:layout_width="@dimen/readingListItemSize"
                 android:layout_height="@dimen/readingListItemSize"
                 android:layout_marginRight="16dp"
                 android:layout_marginEnd="16dp"
+                android:padding="10dp"
                 android:layout_gravity="center_vertical"
-                android:contentDescription="@null"
-                android:scaleType="centerInside"
-                android:background="@color/reading_list_add_background"
-                android:tint="?attr/list_item_text_secondary_color"
-                app:srcCompat="@drawable/ic_add_box_white_24dp"/>
+                android:background="@drawable/button_shape_add_reading_list"
+                app:srcCompat="@drawable/ic_add_gray_24dp"
+                android:contentDescription="@null"/>
 
             <TextView
                 android:layout_width="match_parent"
