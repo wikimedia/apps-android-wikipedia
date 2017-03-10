@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.model.EnumCode;
@@ -55,10 +54,6 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         InvokeSource(int code) {
             this.code = code;
         }
-    }
-
-    public interface Callback {
-        void showReadingListAddedMessage(@NonNull ReadingList readingList, @NonNull String message);
     }
 
     private PageTitle pageTitle;
@@ -209,27 +204,34 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             @Override
             public void success(Boolean contains) {
                 if (isAdded()) {
-                    Callback callback = callback();
+                    String message;
                     if (contains) {
-                        if (callback != null) {
-                            callback.showReadingListAddedMessage(readingList, getString(R.string.reading_list_already_exists));
-                        }
+                        message = getString(R.string.reading_list_already_exists);
                     } else {
-                        if (callback != null) {
-                            callback.showReadingListAddedMessage(readingList, TextUtils.isEmpty(readingList.getTitle())
-                                    ? getString(R.string.reading_list_added_to_unnamed)
-                                    : String.format(getString(R.string.reading_list_added_to_named),
-                                    readingList.getTitle()));
-                        }
-
+                        message = TextUtils.isEmpty(readingList.getTitle())
+                                ? getString(R.string.reading_list_added_to_unnamed)
+                                : String.format(getString(R.string.reading_list_added_to_named),
+                                readingList.getTitle());
                         new ReadingListsFunnel(pageTitle.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
                         ReadingList.DAO.makeListMostRecent(readingList);
                     }
+
+                    showViewListSnackBar(readingList, message);
                     ReadingList.DAO.addTitleToList(readingList, page);
                     dismiss();
                 }
             }
         });
+    }
+
+    private void showViewListSnackBar(@NonNull final ReadingList readingList, @NonNull String message) {
+        FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        v.getContext().startActivity(ReadingListActivity.newIntent(v.getContext(), readingList));
+                    }
+                }).show();
     }
 
     @NonNull private ReadingListPage findOrCreatePage(ReadingList readingList, PageTitle title) {
@@ -303,10 +305,5 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             holder.getView().setCallback(null);
             super.onViewDetachedFromWindow(holder);
         }
-    }
-
-    @Nullable
-    private Callback callback() {
-        return FragmentUtil.getCallback(this, Callback.class);
     }
 }

@@ -50,8 +50,6 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingList;
-import org.wikipedia.readinglist.ReadingListActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
@@ -71,7 +69,7 @@ import butterknife.Unbinder;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, SearchFragment.Callback,
-        LinkPreviewDialog.Callback, AddToReadingListDialog.Callback {
+        LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     private Unbinder unbinder;
@@ -375,17 +373,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(getContext(), title);
-    }
-
-    @Override
-    public void showReadingListAddedMessage(@NonNull final ReadingList readingList, @NonNull String message) {
-        FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
-                .setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(ReadingListActivity.newIntent(getContext(), readingList));
-                    }
-                }).show();
     }
 
     @Override
