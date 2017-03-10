@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export ANDROID_HOME="$PWD/.sdk"
+
 ./gradlew -q clean lintAlphaDebug
