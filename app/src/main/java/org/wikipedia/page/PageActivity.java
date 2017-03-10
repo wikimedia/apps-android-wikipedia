@@ -56,8 +56,6 @@ import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingList;
-import org.wikipedia.readinglist.ReadingListActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.SettingsActivity;
@@ -81,8 +79,7 @@ import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, SearchFragment.Callback, WiktionaryDialog.Callback,
-        AddToReadingListDialog.Callback {
+        LinkPreviewDialog.Callback, SearchFragment.Callback, WiktionaryDialog.Callback {
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
@@ -420,17 +417,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     public void showAddToListDialog(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
         bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, source, listDialogDismissListener);
-    }
-
-    @Override
-    public void showReadingListAddedMessage(@NonNull final ReadingList readingList, @NonNull String message) {
-        FeedbackUtil.makeSnackbar(this, message, FeedbackUtil.LENGTH_DEFAULT)
-                .setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(ReadingListActivity.newIntent(PageActivity.this, readingList));
-                    }
-                }).show();
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
