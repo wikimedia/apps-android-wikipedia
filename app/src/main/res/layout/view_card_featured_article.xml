@@ -13,11 +13,6 @@
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/feed_image_border"/>
-
     <org.wikipedia.views.FaceAndColorDetectImageView
         style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/view_featured_article_card_image"
