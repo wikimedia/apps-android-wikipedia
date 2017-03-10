@@ -23,11 +23,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
@@ -193,7 +195,7 @@ public class ReadingListFragment extends Fragment {
                 editDescription();
                 return true;
             case R.id.menu_reading_list_delete:
-                // TODO?
+                delete();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -365,6 +367,14 @@ public class ReadingListFragment extends Fragment {
         }
     }
 
+    private void delete() {
+        if (readingList != null) {
+            startActivity(MainActivity.newIntent(getContext())
+                    .putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, readingList.getTitle()));
+            getActivity().finish();
+        }
+    }
+
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
         @Override
         public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -397,7 +407,7 @@ public class ReadingListFragment extends Fragment {
 
         @Override
         public void onDelete(@NonNull ReadingList readingList) {
-            // TODO?
+            delete();
         }
     }
 
