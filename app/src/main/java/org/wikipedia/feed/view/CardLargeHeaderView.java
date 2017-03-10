@@ -9,6 +9,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,6 +62,9 @@ public class CardLargeHeaderView extends RelativeLayout {
             post(new Runnable() {
                 @Override
                 public void run() {
+                    if (!ViewCompat.isAttachedToWindow(CardLargeHeaderView.this)) {
+                        return;
+                    }
                     animateBackgroundColor(CardLargeHeaderView.this, mainColor);
                     if (faceLocation != null) {
                         imageView.getHierarchy().setActualImageFocusPoint(faceLocation);
@@ -76,9 +80,12 @@ public class CardLargeHeaderView extends RelativeLayout {
 
         private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
             final int animDuration = 500;
-            final ObjectAnimator animator = ObjectAnimator.ofObject(view.getBackground(), "tint",
-                    new ArgbEvaluator(), targetColor);
+            ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor",
+                    ContextCompat.getColor(view.getContext(), R.color.gray_background),
+                    targetColor);
+            animator.setEvaluator(new ArgbEvaluator());
             animator.setDuration(animDuration);
+            animator.setupStartValues();
             animator.start();
         }
     }
