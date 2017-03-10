@@ -38,6 +38,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.TextInputDialog;
@@ -75,6 +76,7 @@ public class ReadingListFragment extends Fragment {
     private HeaderCallback headerCallback = new HeaderCallback();
     private ItemCallback itemCallback = new ItemCallback();
     private SearchCallback searchActionModeCallback = new SearchCallback();
+    private MultiSelectActionModeCallback multiSelectActionModeCallback = new MultiSelectCallback();
 
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
     private String currentSearchQuery;
@@ -307,6 +309,21 @@ public class ReadingListFragment extends Fragment {
         }).show();
     }
 
+    private void finishActionMode() {
+        if (actionMode != null) {
+            actionMode.finish();
+        }
+    }
+
+    private void beginMultiSelect() {
+        if (SearchCallback.is(actionMode)) {
+            finishActionMode();
+        }
+        if (!MultiSelectCallback.is(actionMode)) {
+            getAppCompatActivity().startSupportActionMode(multiSelectActionModeCallback);
+        }
+    }
+
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
         @Override
         public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -343,7 +360,7 @@ public class ReadingListFragment extends Fragment {
         }
     }
 
-        class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>>
+    class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>>
                 implements ReadingListItemTouchHelperCallback.Callback {
         private ReadingListPage page;
 
@@ -424,7 +441,9 @@ public class ReadingListFragment extends Fragment {
     private class ItemCallback implements PageItemView.Callback<ReadingListPage> {
         @Override
         public void onClick(@Nullable ReadingListPage page) {
-            if (page != null && readingList != null) {
+            if (MultiSelectCallback.is(actionMode)) {
+                // TODO: toggle selection
+            } else if (page != null && readingList != null) {
                 PageTitle title = ReadingListDaoProxy.pageTitle(page);
                 HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
                 ReadingList.DAO.makeListMostRecent(readingList);
@@ -434,13 +453,14 @@ public class ReadingListFragment extends Fragment {
 
         @Override
         public boolean onLongClick(@Nullable ReadingListPage item) {
-            // TODO
-            return false;
+            // TODO: toggle selection
+            beginMultiSelect();
+            return true;
         }
 
         @Override
         public void onThumbClick(@Nullable ReadingListPage item) {
-            // TODO
+            onClick(item);
         }
 
         @Override
@@ -471,6 +491,25 @@ public class ReadingListFragment extends Fragment {
         @Override
         protected String getSearchHintString() {
             return getString(R.string.search_hint_search_reading_list);
+        }
+    }
+
+    private class MultiSelectCallback extends MultiSelectActionModeCallback {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            actionMode = mode;
+            return super.onCreateActionMode(mode, menu);
+        }
+
+        @Override
+        protected void onDelete() {
+            // TODO
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            actionMode = null;
+            super.onDestroyActionMode(mode);
         }
     }
 }

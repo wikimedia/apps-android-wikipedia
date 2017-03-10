@@ -98,6 +98,7 @@
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="delete_selected_history">Delete</string>
+    <string name="delete_selected_items">Delete selected items</string>
     <string name="wp_stylized"><![CDATA[<big>W</big>IKIPEDI<big>A</big>]]></string>
     <string name="create_account_username_hint">Username</string>
     <string name="login_create_account_link">Don\'t have an account? Join Wikipedia</string>
