@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
@@ -155,9 +156,13 @@ public class ReadingListsFragment extends Fragment {
                 new CallbackTask.Callback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> rows) {
+                if (getActivity() == null) {
+                    return;
+                }
                 readingLists.set(rows);
                 sortLists();
                 updateEmptyState(searchQuery);
+                maybeDeleteListFromIntent();
             }
         });
     }
@@ -261,6 +266,21 @@ public class ReadingListsFragment extends Fragment {
 
         @Override
         public void onDelete(@NonNull ReadingList readingList) {
+            deleteList(readingList);
+        }
+    }
+
+    private void maybeDeleteListFromIntent() {
+        if (getActivity().getIntent().hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
+            String titleToDelete = getActivity().getIntent()
+                    .getStringExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
+            getActivity().getIntent().removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
+            deleteList(readingLists.get(titleToDelete));
+        }
+    }
+
+    private void deleteList(@Nullable ReadingList readingList) {
+        if (readingList != null) {
             showDeleteListUndoSnackbar(readingList);
             ReadingList.DAO.removeList(readingList);
             funnel.logDeleteList(readingList, readingLists.size());
