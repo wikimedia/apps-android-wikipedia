@@ -12,6 +12,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
@@ -213,11 +214,14 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
             // if we have a savedInstanceState, then the initial index overrides
             // the initial Title from our intent.
             initialFilename = null;
-            if (getSupportFragmentManager().getFragments() != null) {
+
+            FragmentManager fm = getSupportFragmentManager();
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                for (Fragment f : getSupportFragmentManager().getFragments()) {
-                    if (f instanceof GalleryItemFragment) {
-                        ft.remove(f);
+                for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+                    Fragment fragment = fm.findFragmentById(fm.getBackStackEntryAt(i).getId());
+                    if (fragment instanceof GalleryItemFragment) {
+                        ft.remove(fragment);
                     }
                 }
                 ft.commitAllowingStateLoss();

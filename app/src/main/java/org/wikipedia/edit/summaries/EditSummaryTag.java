@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
-import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 
-public class EditSummaryTag extends TextView {
+public class EditSummaryTag extends AppCompatTextView {
     public static final int MARGIN = 4;
     public static final int PADDING = 8;
 

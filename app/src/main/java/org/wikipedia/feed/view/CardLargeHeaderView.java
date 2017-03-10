@@ -76,7 +76,7 @@ public class CardLargeHeaderView extends RelativeLayout {
 
         private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
             final int animDuration = 500;
-            final ObjectAnimator animator = ObjectAnimator.ofObject(view.getBackground(), "color",
+            final ObjectAnimator animator = ObjectAnimator.ofObject(view.getBackground(), "tint",
                     new ArgbEvaluator(), targetColor);
             animator.setDuration(animDuration);
             animator.start();
