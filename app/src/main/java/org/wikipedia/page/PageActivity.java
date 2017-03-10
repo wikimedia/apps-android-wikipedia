@@ -536,6 +536,16 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         showAddToListDialog(title, source);
     }
 
+    @Override
+    public void onPageRemoveFromReadingLists(@NonNull PageTitle title) {
+        if (!pageFragment.isAdded()) {
+            return;
+        }
+        FeedbackUtil.showMessage(getActivity(),
+                getString(R.string.reading_list_item_deleted, title.getDisplayText()));
+        pageFragment.updateBookmark();
+    }
+
     @Nullable
     @Override
     public View onPageGetContentView() {

@@ -35,6 +35,7 @@ import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.gallery.GalleryActivity;
@@ -251,6 +252,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                                 fragment.notifyItemChanged(card);
                             }
                         }));
+    }
+
+    @Override
+    public void onFeedRemovePageFromList(FeedFragment fragment, Card card, HistoryEntry entry) {
+        FeedbackUtil.showMessage(getActivity(),
+                getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
+        fragment.notifyItemChanged(card);
     }
 
     @Override public void onFeedSharePage(HistoryEntry entry) {

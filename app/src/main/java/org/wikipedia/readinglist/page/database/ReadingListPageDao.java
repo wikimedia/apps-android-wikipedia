@@ -81,6 +81,14 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         return null;
     }
 
+    public void deletePageFromLists(@NonNull ReadingListPage page,
+                                    @NonNull Collection<String> listKeys) {
+        for (String key : listKeys) {
+            page.removeListKey(key);
+        }
+        upsert(page);
+    }
+
     public void upsertAsync(@NonNull final ReadingListPage row) {
         CallbackTask.execute(new Task<Void>() {
             @Override public Void execute() {

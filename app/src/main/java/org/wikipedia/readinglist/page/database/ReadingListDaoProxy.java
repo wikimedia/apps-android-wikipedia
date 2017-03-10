@@ -50,5 +50,9 @@ public final class ReadingListDaoProxy {
         return Base64.encodeToString(title.getBytes(), Base64.NO_WRAP);
     }
 
+    @NonNull public static String listName(@NonNull String key) {
+        return new String(Base64.decode(key, Base64.NO_WRAP));
+    }
+
     private ReadingListDaoProxy() { }
 }
