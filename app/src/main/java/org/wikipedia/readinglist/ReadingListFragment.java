@@ -333,7 +333,23 @@ public class ReadingListFragment extends Fragment {
             return;
         }
         page.setSelected(!page.isSelected());
+        int selectedCount = getSelectedPageCount();
+        if (selectedCount == 0) {
+            finishActionMode();
+        } else if (actionMode != null) {
+            actionMode.setTitle(getString(R.string.multi_select_items_selected, selectedCount));
+        }
         adapter.notifyDataSetChanged();
+    }
+
+    private int getSelectedPageCount() {
+        int selectedCount = 0;
+        for (ReadingListPage page : displayedPages) {
+            if (page.isSelected()) {
+                selectedCount++;
+            }
+        }
+        return selectedCount;
     }
 
     private void unselectAllPages() {

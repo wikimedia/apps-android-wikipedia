@@ -387,6 +387,7 @@ Shown in the preferences screen along with the following:
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
+  <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="reading_list_untitled">Name for a reading list that has an empty title.
 {{Identical|Untitled}}</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
