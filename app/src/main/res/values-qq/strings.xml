@@ -416,6 +416,7 @@ Shown in the preferences screen along with the following:
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
   <string name="reading_list_save_for_offline">Checkbox label for setting whether this list is available for offline reading.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
+  <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.
 {{Identical|Undo}}</string>
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>

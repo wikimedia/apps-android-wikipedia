@@ -257,15 +257,19 @@ public class ReadingListFragment extends Fragment {
         update();
     }
 
-    private void showDeleteItemUndoSnackbar(final ReadingList readingList, final ReadingListPage page) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
-                String.format(getString(R.string.reading_list_item_deleted), page.title()),
+    private void showDeleteItemsUndoSnackbar(final ReadingList readingList, final List<ReadingListPage> pages) {
+        String message = pages.size() == 1
+                ? String.format(getString(R.string.reading_list_item_deleted), pages.get(0).title())
+                : String.format(getString(R.string.reading_list_items_deleted), pages.size());
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), message,
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReadingList.DAO.addTitleToList(readingList, page);
-                ReadingListPageDao.instance().markOutdated(page);
+                for (ReadingListPage page : pages) {
+                    ReadingList.DAO.addTitleToList(readingList, page);
+                    ReadingListPageDao.instance().markOutdated(page);
+                }
                 update();
             }
         });
@@ -324,6 +328,43 @@ public class ReadingListFragment extends Fragment {
         }
     }
 
+    private void toggleSelectPage(@Nullable ReadingListPage page) {
+        if (page == null) {
+            return;
+        }
+        page.setSelected(!page.isSelected());
+        adapter.notifyDataSetChanged();
+    }
+
+    private void unselectAllPages() {
+        if (readingList == null) {
+            return;
+        }
+        for (ReadingListPage page : readingList.getPages()) {
+            page.setSelected(false);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    private void deleteSelectedPages() {
+        if (readingList == null) {
+            return;
+        }
+        List<ReadingListPage> selectedPages = new ArrayList<>();
+        for (ReadingListPage page : displayedPages) {
+            if (page.isSelected()) {
+                selectedPages.add(page);
+                page.setSelected(false);
+                ReadingList.DAO.removeTitleFromList(readingList, page);
+            }
+        }
+        if (!selectedPages.isEmpty()) {
+            funnel.logDeleteItem(readingList, readingLists.size());
+            showDeleteItemsUndoSnackbar(readingList, selectedPages);
+            update();
+        }
+    }
+
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
         @Override
         public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -375,12 +416,13 @@ public class ReadingListFragment extends Fragment {
             getView().setTitle(page.title());
             getView().setDescription(page.description());
             getView().setImageUrl(page.thumbnailUrl());
+            getView().setSelected(page.isSelected());
         }
 
         @Override
         public void onDismiss() {
             if (readingList != null) {
-                showDeleteItemUndoSnackbar(readingList, page);
+                showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
                 ReadingList.DAO.removeTitleFromList(readingList, page);
                 funnel.logDeleteItem(readingList, readingLists.size());
                 update();
@@ -442,7 +484,7 @@ public class ReadingListFragment extends Fragment {
         @Override
         public void onClick(@Nullable ReadingListPage page) {
             if (MultiSelectCallback.is(actionMode)) {
-                // TODO: toggle selection
+                toggleSelectPage(page);
             } else if (page != null && readingList != null) {
                 PageTitle title = ReadingListDaoProxy.pageTitle(page);
                 HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
@@ -453,8 +495,8 @@ public class ReadingListFragment extends Fragment {
 
         @Override
         public boolean onLongClick(@Nullable ReadingListPage item) {
-            // TODO: toggle selection
             beginMultiSelect();
+            toggleSelectPage(item);
             return true;
         }
 
@@ -503,11 +545,13 @@ public class ReadingListFragment extends Fragment {
 
         @Override
         protected void onDelete() {
-            // TODO
+            deleteSelectedPages();
+            finishActionMode();
         }
 
         @Override
         public void onDestroyActionMode(ActionMode mode) {
+            unselectAllPages();
             actionMode = null;
             super.onDestroyActionMode(mode);
         }
