@@ -433,7 +433,19 @@ public class ReadingListFragment extends Fragment {
         }
 
         @Override
+        public boolean onLongClick(@Nullable ReadingListPage item) {
+            // TODO
+            return false;
+        }
+
+        @Override
+        public void onThumbClick(@Nullable ReadingListPage item) {
+            // TODO
+        }
+
+        @Override
         public void onActionClick(@Nullable ReadingListPage item) {
+            // TODO
         }
     }
 

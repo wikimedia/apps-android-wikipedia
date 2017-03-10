@@ -93,6 +93,7 @@
     <color name="nav_text_light">#303030</color>
     <color name="list_item_text_primary_light">#333</color>
     <color name="list_item_text_secondary_light">#777</color>
+    <color name="multi_select_background_light">@color/accent90</color>
 
     <color name="window_background_dark">#000</color>
     <color name="page_background_dark">#000</color>
@@ -114,6 +115,7 @@
     <color name="nav_text_dark">#d0d0d0</color>
     <color name="list_item_text_primary_dark">#d0d0d0</color>
     <color name="list_item_text_secondary_dark">#808080</color>
+    <color name="multi_select_background_dark">@color/accent30</color>
 
     <color name="list_item_highlight">#60808080</color>
     <color name="list_item_selected">#20808080</color>

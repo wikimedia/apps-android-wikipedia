@@ -59,6 +59,7 @@
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_light</item>
         <item name="nav_tab_background_color">@android:color/white</item>
         <item name="overflow_button">@color/light_gray_overflow_button</item>
+        <item name="multi_select_background_color">@color/multi_select_background_light</item>
 
         <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
         <item name="android:listViewStyle">@style/ListView</item>

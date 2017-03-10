@@ -5,6 +5,8 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -18,6 +20,9 @@ import org.wikipedia.util.FeedbackUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
+
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 /*
  * TODO: Use this for future RecyclerView updates where we show a list of pages
@@ -26,6 +31,8 @@ import butterknife.OnClick;
 public class PageItemView<T> extends FrameLayout {
     public interface Callback<T> {
         void onClick(@Nullable T item);
+        boolean onLongClick(@Nullable T item);
+        void onThumbClick(@Nullable T item);
         void onActionClick(@Nullable T item);
     }
 
@@ -33,9 +40,11 @@ public class PageItemView<T> extends FrameLayout {
     @BindView(R.id.page_list_item_description) TextView descriptionView;
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
     @BindView(R.id.page_list_item_action_button) ImageView actionView;
+    @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
+    private boolean selected;
 
     public PageItemView(@NonNull Context context) {
         super(context);
@@ -71,9 +80,29 @@ public class PageItemView<T> extends FrameLayout {
         actionView.setContentDescription(getContext().getString(id));
     }
 
+    public void setSelected(boolean selected) {
+        if (this.selected != selected) {
+            this.selected = selected;
+            updateSelectedState();
+        }
+    }
+
     @OnClick(R.id.page_list_item_container) void onClick() {
         if (callback != null) {
             callback.onClick(item);
+        }
+    }
+
+    @OnLongClick(R.id.page_list_item_container) boolean onLongClick() {
+        if (callback != null) {
+            return callback.onLongClick(item);
+        }
+        return false;
+    }
+
+    @OnClick(R.id.page_list_item_image_container) void onThumbClick() {
+        if (callback != null) {
+            callback.onThumbClick(item);
         }
     }
 
@@ -91,5 +120,17 @@ public class PageItemView<T> extends FrameLayout {
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
         FeedbackUtil.setToolbarButtonLongPressToast(actionView);
+    }
+
+    private void updateSelectedState() {
+        imageView.setVisibility(selected ? GONE : VISIBLE);
+        imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
+        // TODO: animate?
+        if (selected) {
+            setBackgroundColor(ContextCompat.getColor(getContext(),
+                    getThemedAttributeId(getContext(), R.attr.multi_select_background_color)));
+        } else {
+            setBackground(null);
+        }
     }
 }
