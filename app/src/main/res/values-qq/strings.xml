@@ -367,6 +367,7 @@ Shown in the preferences screen along with the following:
   <string name="enable_location_service">Button label for enabling location services
 {{Identical|Enable}}</string>
   <string name="error_webview_updating">Error informing the user that the System WebView is being updated, meaning that the app cannot be launched right now, and that the user should try again in a moment.</string>
+  <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
   <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
   <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.
@@ -387,7 +388,6 @@ Shown in the preferences screen along with the following:
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
-  <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="reading_list_untitled">Name for a reading list that has an empty title.
 {{Identical|Untitled}}</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>

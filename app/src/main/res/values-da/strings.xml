@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Bliv</string>
   <string name="menu_show_toc">Indholdsfortegnelse</string>
   <string name="search_no_results_found">Ingen resultater fundet</string>
+  <string name="search_reading_list_no_results">Ingen resultater fundet i \"%s\"</string>
+  <string name="search_reading_lists_no_results">Ingen resultater fundet i læselister</string>
+  <string name="search_history_no_results">Ingen resultater fundet i historik</string>
   <string name="edit_section_captcha_message">For at beskytte mod automatiseret spam, indtast de ord, der vises nedenfor</string>
   <string name="edit_section_captcha_hint">Gentag ordene ovenfor</string>
   <string name="title_captcha">Indtast CAPTCHA</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Du er nu logget på!</string>
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
-  <string name="history_empty_title" fuzzy="true">Ingen nye sider her.</string>
-  <string name="history_empty_message" fuzzy="true">Du har sikkert slettet dem alle. Næste gang du går til en side, kan du komme tilbage til den her.</string>
+  <string name="history_empty_title">Ingen nyligt læste artikler.</string>
+  <string name="history_empty_message">Hold styr på hvad du har læst her.</string>
   <string name="delete_selected_history">Slet</string>
+  <string name="delete_selected_items">Slet valgte elementer</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brugernavn</string>
   <string name="login_create_account_link">Har du ikke en konto? Opret en</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Placeringstjenester er slået fra.</string>
   <string name="enable_location_service">Aktiver</string>
   <string name="error_webview_updating">Android System WebView er i øjeblikket ved at blive opdateret. Prøv igen om et øjeblik.</string>
+  <string name="multi_select_items_selected">%d valgt</string>
   <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
   <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
   <string name="crash_report_dialog_dont_send_button">Spring over</string>
@@ -268,19 +273,22 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_list_sort_by_recent">Sortér efter seneste</string>
   <string name="reading_list_sort_by_recent_desc">Sortér efter ældste</string>
   <string name="reading_list_menu_edit">Rediger detaljer om læseliste</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Slet læseliste</string>
+  <string name="reading_list_menu_delete">Slet liste</string>
+  <string name="reading_list_menu_rename">Omdøb</string>
+  <string name="reading_list_menu_edit_description">Rediger beskrivelse</string>
   <string name="reading_list_name_sample">Min læseliste</string>
   <string name="reading_list_name_hint">Navn på denne liste</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
   <string name="reading_list_save_for_offline">Tilgængelig for læsning offline</string>
   <string name="reading_list_item_deleted">%s fjernet fra listen</string>
+  <string name="reading_list_items_deleted">%d artikler fjernet fra liste</string>
   <string name="reading_list_item_delete_undo">Fortryd</string>
   <string name="reading_list_deleted">%s slettet</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Annuller</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette denne læseliste?</string>
-  <string name="reading_lists_empty" fuzzy="true">Ingen læselister her.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organiser de artikler du læser i læselister! Tryk på bogmærkeikonet i værktøjslinjen nederst på skærmen når du læser en artikel for at tilføje den til en læseliste.</string>
+  <string name="reading_lists_empty">Ingen læselister endnu</string>
+  <string name="reading_lists_empty_message">Gem artikler til læselister, så du kan læse dem senere, selv når du er offline.</string>
   <string name="reading_lists_onboarding_intro">Opret læselister fra artikler du ønsker at læse senere, selv når du er offline!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder at besøge</string>
@@ -288,6 +296,8 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_lists_onboarding_example3">Rummet!</string>
   <string name="reading_lists_onboarding_got_it">Forstået</string>
   <string name="reading_lists_onboarding_page_delete">Tip: Stryg en side til venstre eller højre for at fjerne den fra denne læseliste.</string>
+  <string name="reading_list_no_description">Ingen beskrivelse...</string>
+  <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>
   <string name="user_option_sync_label">Indstillinger</string>
   <string name="notification_button_view_page">Vis side</string>
   <string name="notification_button_view_user">Tal med bruger</string>

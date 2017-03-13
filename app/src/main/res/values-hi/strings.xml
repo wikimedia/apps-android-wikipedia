@@ -7,6 +7,9 @@
   <string name="yes">हाँ</string>
   <string name="no">नहीं</string>
   <string name="search_hint">विकिपीडिया खोजें</string>
+  <string name="search_hint_search_history">इतिहास खोजें</string>
+  <string name="search_hint_search_my_lists">मेरी सूचियाँ खोजें</string>
+  <string name="search_hint_search_reading_list">रीडिंग सूची खोजें</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इंटरनेट से जोड़ा नहीं जा सका।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
@@ -38,9 +41,9 @@
   <string name="nearby_zoom_to_location">नक़्शे पर किसी स्थान तक ज़ूम करें</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट हुई।</string>
   <string name="talk_page_link_text">वार्ता</string>
-  <string name="content_license_html" fuzzy="true">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
+  <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
   <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदानों को अपरिवर्तनीय रूप से मुद्राधिकार नियम &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हो। यह सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हो तो अधिक सुरक्षा प्रदान की जायेगी।</string>
+  <string name="edit_save_action_license_anon">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदानों को अपरिवर्तनीय रूप से लाइसेंस &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हैं। इस सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हैं तो आपके पास अधिक प्राइवेसी होगी।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">खोज</string>
   <string name="langlinks_filter_hint">खोज</string>
@@ -59,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">रुकें</string>
   <string name="menu_show_toc">सामग्री सूची</string>
   <string name="search_no_results_found">कोई परिणाम नहीं मिले</string>
+  <string name="search_reading_list_no_results">\"%s\" में कोई परिणाम नहीं मिले</string>
+  <string name="search_reading_lists_no_results">रीडिंग सूची में कोई परिणाम नहीं मिले</string>
+  <string name="search_history_no_results">इतिहास में कोई परिणाम नहीं मिले</string>
   <string name="edit_section_captcha_message">स्वतचालित स्पैम से बचने के लिए कृपया नीचे दिखाये गए शब्दों को लिखें</string>
   <string name="edit_section_captcha_hint">ऊपर से शब्दों को फिर से दोहराएँ।</string>
   <string name="title_captcha">कैप्चा डालें</string>
@@ -75,9 +81,10 @@
   <string name="login_success_toast">सफलतापूर्वक लॉगिन किया गया</string>
   <string name="preference_title_logout">प्रस्थान</string>
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
-  <string name="history_empty_title" fuzzy="true">यहाँ का कोई हाल का पेज नहीं है!</string>
-  <string name="history_empty_message" fuzzy="true">सम्भवतया आप उन सभी को हटा चुके हो। अगली बार जब आप उस पृष्ठ पर जायें तब उसे पुनः प्राप्त किया जा सकता है।</string>
+  <string name="history_empty_title">हाल ही में देखा गया कोई लेख नहीं</string>
+  <string name="history_empty_message">ट्रैक करें जो आप यहाँ पढ़ रहे थे।</string>
   <string name="delete_selected_history">हटायें</string>
+  <string name="delete_selected_items">चयनित आइटम डिलीट करें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्य नाम</string>
   <string name="login_create_account_link">क्या अभी तक खाता नहीं है? विकिपीडिया में शामिल हों</string>
@@ -122,20 +129,23 @@
   <string name="page_protected_autoconfirmed">यह पृष्ठ अर्ध-सुरक्षित है।</string>
   <string name="page_protected_sysop">यह पृष्ठ पूर्ण सुरक्षित है।</string>
   <string name="page_protected_other">इस पेज को निन्मलिखित स्तरों तक सुरक्षित किया गया है:%s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">आपके पास इस पेज को सम्पादित करने के अधिकार नहीं हैं</string>
+  <string name="page_protected_can_not_edit">क्षमा करें,आपके अकाउंट के पास इस पेज को सम्पादित करने के पर्याप्त अधिकार नहीं हैं।</string>
+  <string name="page_protected_can_not_edit_anon">क्षमा करें, यह पेज इस समय एनोनिमस रूप से सम्पादित नहीं किया जा सकता।</string>
   <string name="page_protected_can_not_edit_title">यह पृष्ठ संरक्षित है</string>
   <string name="settings_item_preferences">सेटिंग्स</string>
   <string name="settings_activity_title">सेटिंग्स</string>
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
   <string name="about_contributors_heading">योगदानकर्ता</string>
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
   <string name="about_app_license">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउंडेशन&lt;/a&gt; का एक उत्पाद</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउंडेशन&lt;/a&gt; का एक उत्पाद</string>
   <string name="about_activity_title">बारे में</string>
   <string name="edit_abandon_confirm">पृष्ठ को संशोधित किया गया है। क्या आप अपने परिवर्तन को सहेजने के बिना निकास करना चाहते है?</string>
   <string name="user_blocked_from_editing_title">अवरुद्ध</string>
@@ -224,6 +234,8 @@
   <string name="error_voice_search_not_available">क्षमा करें, वॉइस रिकग्निशन उपलब्ध नहीं है।</string>
   <string name="location_service_disabled">लोकेशन सेवाएं बंद हैं।</string>
   <string name="enable_location_service">चालू करें</string>
+  <string name="error_webview_updating">एंड्राइड सिस्टम वेबव्यू अभी अपडेट किया जा रहा है। कृपया कुछ समय बाद पुनः प्रयास करें।</string>
+  <string name="multi_select_items_selected">%d चयनित</string>
   <string name="crash_report_dialog_title">क्षमा करें, आखिरी बार एप क्रैश हो गयी थी।</string>
   <string name="crash_report_dialog_text">क्या आप HockeyApp/ एक थर्ड-पार्टी सर्विस प्रोवाइडर को क्रैश रिपोर्ट भेजना चाहते हैं ताकि विकिमीडिया आपके क्रैश को जाँच कर कर सके और उस बग को फिक्स कर सके?</string>
   <string name="crash_report_dialog_dont_send_button">छोड़ें</string>
@@ -259,20 +271,22 @@
   <string name="reading_list_sort_by_recent">हाल ही के में से छांटें</string>
   <string name="reading_list_sort_by_recent_desc">पहले के में से छांटें</string>
   <string name="reading_list_menu_edit">पठन सूची विवरण सम्पादित करें</string>
-  <string name="reading_list_menu_delete" fuzzy="true">पठन सूची को मिटायें</string>
+  <string name="reading_list_menu_delete">सूची को मिटायें</string>
+  <string name="reading_list_menu_rename">नाम बदलें</string>
+  <string name="reading_list_menu_edit_description">विवरण सम्पादित करें</string>
   <string name="reading_list_name_sample">मेरी पठन सूची</string>
   <string name="reading_list_name_hint">सूची का नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
   <string name="reading_list_save_for_offline">ऑफलाइन पढ़ने हेतु उपलब्ध</string>
   <string name="reading_list_item_deleted">%s सूची में से हटाया गया</string>
+  <string name="reading_list_items_deleted">%d लेख सूची से हटाये गए</string>
   <string name="reading_list_item_delete_undo">अनडू</string>
   <string name="reading_list_deleted">%s मिटा दिया गया</string>
   <string name="reading_list_edit_ok">ठीक है</string>
   <string name="reading_list_edit_cancel">रद्द करें</string>
   <string name="reading_list_delete_confirm">क्या आप पठन सूची को मिटाने हेतु निश्चित हैं?</string>
-  <string name="reading_lists_empty" fuzzy="true">यहाँ कोई पठन सूची नहीं।</string>
-  <string name="reading_lists_empty_message" fuzzy="true">आपके द्वारा ब्राउज़ किये जाने वाले लेखों को पठन सूची में लगाएं! लेख ब्राउज़ करते समय उसे पठन सूची में जोड़ने हेतु नीचे टूलबार पर बने
-बुकमार्क आइकॉन पर टैप करे ।</string>
+  <string name="reading_lists_empty">अभी तक कोई रीडिंग सूची नहीं</string>
+  <string name="reading_lists_empty_message">रीडिंग सूची में लेख सहेजें ताकि आप उन्हें बाद में देख सकें, आपके ऑफलाइन होने पर भी।</string>
   <string name="reading_lists_onboarding_intro">जिन लेखों को आप बाद में, ऑफ़लाइन होने पर भी पढ़ना चाहते हैं, उनकी पठन सूचियाँ बनायें!</string>
   <string name="reading_lists_onboarding_for_example">उदाहरण के लिए</string>
   <string name="reading_lists_onboarding_example1">जाने के स्थान</string>
@@ -280,21 +294,24 @@
   <string name="reading_lists_onboarding_example3">ब्रह्माण्ड!</string>
   <string name="reading_lists_onboarding_got_it">समझ गया</string>
   <string name="reading_lists_onboarding_page_delete">सलाह: रीडिंग लिस्ट में से किसी भी पेज को हटाने के लिए उसे दाएं या बाएं स्वाइप करें।</string>
+  <string name="reading_list_no_description">कोई विवरण नहीं...</string>
+  <string name="reading_list_empty">आपके पास इस सूची में कोई लेख नहीं जुड़े हुए हैं।</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_button_view_page">पेज देखें</string>
   <string name="notification_button_view_user">सदस्य से बात करें</string>
   <string name="notification_button_view_edit_history">संपादन इतिहास देखें</string>
   <string name="notification_generic_title">विकिपीडिया पर नोटिफिकेशन</string>
   <string name="notification_talk_title">विकिपीडिया पर नया सन्देश</string>
-  <string name="notification_talk" fuzzy="true">%1$s ने आपके वार्ता पेज \"%2$s\" पर एक सन्देश छोड़ा है</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ने आपके वार्ता पेज &lt;strong&gt;%2$s&lt;/strong&gt; पर एक सन्देश छोड़ा है</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
-  <string name="notification_reverted" fuzzy="true">\"%2$s\" लेख पर आपके संपादन को \"%1$s\" द्वारा वापस कर दिया गया है।</string>
+  <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; लेख पर आपके संपादन को &lt;em&gt;%1$s&lt;/em&gt; द्वारा वापस कर दिया गया है।</string>
   <string name="notification_thanks_title">आपको धन्यवाद दिया गया है!</string>
-  <string name="notification_thanks" fuzzy="true">%1$s ने आपको \"%2$s\" पेज पर आपके संपादन के लिए धन्यवाद दिया है</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ने आपको &lt;strong&gt;%2$s&lt;strong&gt; पेज पर आपके संपादन के लिए धन्यवाद दिया है</string>
   <string name="view_continue_reading_card_title">पढ़ना जारी रखें</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
   <string name="view_random_card_subtitle">विकिपीडिया से कोई बेतरतीब लेख पढ़ें</string>
+  <string name="view_random_card_error">आपके नेटवर्क या रीडिंग सूची से कोई रैंडम पेज लोड नहीं किया जा सका।</string>
   <string name="view_main_page_card_title">विकिपीडिया पर आज</string>
   <string name="view_main_page_card_subtitle">%s पर मुख्य पृष्ठ</string>
   <string name="view_featured_image_card_title">आज का चित्र</string>
@@ -326,7 +343,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/विकिडेटा:परिचय</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
   <string name="description_edit_anon_limit">विवरण संपादन में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए कृपया अपने विकिपीडिया अकाउंट में लॉगिन करें।</string>
-  <string name="description_edit_license_notice" fuzzy="true">शीर्षक विवरण बदलने पर मैं  &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt; से सहमत हूँ और  बिना परिवर्तन के अपने योगदानों को &lt;a href=\"%2$s\"&gt;क्रिएटिव कॉमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत रिलीज़ करता हूँ।</string>
+  <string name="description_edit_license_notice">शीर्षक विवरण बदलने पर मैं  &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt; से सहमत हूँ और  बिना परिवर्तन के अपने योगदानों को &lt;a href=\"%2$s\"&gt;क्रिएटिव कॉमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत रिलीज़ करता हूँ।</string>
   <string name="description_edit_success_saved">वर्णन सहेजा गया!</string>
   <string name="description_edit_success_encouragement">अपने अभी विकिपीडिया को सभी के लिए और अच्छा बना दिया</string>
   <string name="description_edit_success_done">पूर्ण</string>
@@ -355,5 +372,5 @@
 आपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
   <string name="description_edit_revert_reason2">आपका संपादन एक परिक्षण या बर्बरता जैसा लगा।</string>
-  <string name="description_edit_revert_history" fuzzy="true">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>
+  <string name="description_edit_revert_history">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>
 </resources>

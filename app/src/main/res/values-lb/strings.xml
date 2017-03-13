@@ -58,6 +58,9 @@
   <string name="dialog_message_leaving_edit_stay">Bleiwen</string>
   <string name="menu_show_toc">Inhaltsverzeechnes</string>
   <string name="search_no_results_found">Näischt fonnt</string>
+  <string name="search_reading_list_no_results">Keng Resultater a(n) \"%s\" fonnt</string>
+  <string name="search_reading_lists_no_results">Keng Resultater an de Lieslëschte fonnt</string>
+  <string name="search_history_no_results">Keng Resultater an de Versioune fonnt</string>
   <string name="edit_section_captcha_message">Fir géint automatiséierte Spam ze schütze gitt w.e.g. d\'Wierder déi hei drënner stinn an</string>
   <string name="edit_section_captcha_hint">D\'Wierder hei driwwer widderhuelen</string>
   <string name="title_captcha">Captcha aginn</string>
@@ -73,9 +76,10 @@
   <string name="login_success_toast">Ageloggt mat Succès!</string>
   <string name="preference_title_logout">Ausloggen</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
-  <string name="history_empty_title" fuzzy="true">Keng rezent Säiten hei.</string>
-  <string name="history_empty_message" fuzzy="true">Dir hutt se wahrscheinlech all geläscht. Wann Dir déi nächste Kéier op eng Säit gitt da kënnt Dir vun hei aus op déi Säit zréckgoen.</string>
+  <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
+  <string name="history_empty_message">Markéiert dat wat Dir hei geliest hutt.</string>
   <string name="delete_selected_history">Läschen</string>
+  <string name="delete_selected_items">Erausgesicht Elementer läschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benotzernumm</string>
   <string name="login_create_account_link">Hutt Dir kee Benotzerkont? Da maacht mat bei Wikipedia</string>
@@ -221,6 +225,7 @@
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="location_service_disabled">Lokalisatiouns-Servicer sinn ausgeschalt.</string>
   <string name="enable_location_service">Aschalten</string>
+  <string name="multi_select_items_selected">%d erausgesicht</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
   <string name="crash_report_dialog_text">Wëllt Dir e Rapport iwwer de Crash un HockeyApp / en onofhängege Service-Provider schécke fir datt Wikimedia Äre Crash nokucke kann an de Feeler verbessere kann, den en ausgeléist huet?</string>
   <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>
@@ -264,13 +269,14 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_description_hint">Beschreiwung (fakultativ):</string>
   <string name="reading_list_save_for_offline">Disponibel fir offline ze liesen</string>
   <string name="reading_list_item_deleted">%s vun der Lëscht erofhehuoll</string>
+  <string name="reading_list_items_deleted">%d Artikele vun der Lëscht erofgeholl</string>
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Ofbriechen</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir dës Lieslëscht läsche wëllt?</string>
-  <string name="reading_lists_empty" fuzzy="true">Hei gëtt et keng Lieslëschten.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">organiséiert d\'Artikelen déi Dir oprufft a Lieslëschten! Tippt beim Opruffe vun engem Artikel op d\'Symbol vum Lieszeechen an der ënneschter Lëscht vun der Geschirkëscht, fir en an d\'Lieslëscht derbäizesetzen.</string>
+  <string name="reading_lists_empty">Nach keng Lieslëschten!</string>
+  <string name="reading_lists_empty_message">Späichert d\'Artikelen a Lieslëschten esou datt Dir se méi spéit kucke kënnt, esouguer da wann Dir offline sidd.</string>
   <string name="reading_lists_onboarding_intro">Maacht eng Lieslëscht vun den Artikelen déi Dir spéider liese wëllt, esouguer wann Dir offline sidd!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispill</string>
   <string name="reading_lists_onboarding_example1">Plaze fir ze besichen</string>
@@ -278,6 +284,8 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_lists_onboarding_example3">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="reading_lists_onboarding_page_delete">Tipp: Wëscht eng Säit no lénks oder no riets fir et aus der Lieslëscht erauszehuelen.</string>
+  <string name="reading_list_no_description">Keng Beschreiwung...</string>
+  <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht dobäigesat.</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_button_view_page">Säit weisen</string>
   <string name="notification_button_view_user">Mam Benotzer schwätzen</string>

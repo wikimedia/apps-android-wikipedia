@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Kekal di sini</string>
   <string name="menu_show_toc">Jadual Isi Kandungan</string>
   <string name="search_no_results_found">Tiada hasil carian</string>
+  <string name="search_reading_list_no_results">Tiada hasil ditemui dalam \"%s\"</string>
+  <string name="search_reading_lists_no_results">Tiada hasil ditemui dalam senarai bacaan</string>
+  <string name="search_history_no_results">Tiada hasil ditemui dalam sejarah</string>
   <string name="edit_section_captcha_message">Sebagai perlindungan daripada spam automatik, sila taipkan kata-kata yang tertera di bawah</string>
   <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
   <string name="title_captcha">Taipkan captcha</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Berjaya log masuk!</string>
   <string name="preference_title_logout">Log keluar</string>
   <string name="toast_logout_complete">Log keluar</string>
-  <string name="history_empty_title" fuzzy="true">Tiada laman terbaru di sini.</string>
-  <string name="history_empty_message" fuzzy="true">Mungkin anda telah memadamkan kesemuanya. Lain kali anda ke sesuatu laman, anda boleh kembali kepadanya dari sini.</string>
+  <string name="history_empty_title">Tiada rencana baru dilihat</string>
+  <string name="history_empty_message">Menjejaki apa yang anda telah membaca di sini.</string>
   <string name="delete_selected_history">Hapuskan</string>
+  <string name="delete_selected_items">Padam item yang dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="login_create_account_link">Tiada akaun? Sertai Wikipedia</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Perkhidmatan lokasi dilumpuhkan.</string>
   <string name="enable_location_service">Hidupkan</string>
   <string name="error_webview_updating">Android System WebView sedang dikemaskini. Sila cuba lagi dalam seketika.</string>
+  <string name="multi_select_items_selected">%d dipilih</string>
   <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
   <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Langkau</string>
@@ -266,19 +271,22 @@
   <string name="reading_list_sort_by_recent">Isih ikut yang terbaru</string>
   <string name="reading_list_sort_by_recent_desc">Isih ikut yang terlama</string>
   <string name="reading_list_menu_edit">Sunting butiran senarai bacaan</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Padam senarai bacaan</string>
+  <string name="reading_list_menu_delete">Padam senarai</string>
+  <string name="reading_list_menu_rename">Tukar nama</string>
+  <string name="reading_list_menu_edit_description">Sunting keterangan</string>
   <string name="reading_list_name_sample">Senarai bacaan saya</string>
   <string name="reading_list_name_hint">Nama senarai ini</string>
   <string name="reading_list_description_hint">Keterangan (tidak wajib)</string>
   <string name="reading_list_save_for_offline">Tersedia untuk dibaca secara luring</string>
   <string name="reading_list_item_deleted">%s dihapus dari senarai</string>
+  <string name="reading_list_items_deleted">%d rencana dipadamkan dari senarai</string>
   <string name="reading_list_item_delete_undo">Nyahbuat</string>
   <string name="reading_list_deleted">%s dipadamkan</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Batalkan</string>
   <string name="reading_list_delete_confirm">Adakah anda benar-benar ingin memadamkan senarai bacaan ini?</string>
-  <string name="reading_lists_empty" fuzzy="true">Tiada senarai bacaan di sini.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Menyusun rencana yang anda semak imbas ke dalam membaca senarai! Apabila menyemak imbas rencana, ketik ikon penanda buku dalam bar alat bahagian bawah untuk menambahnya ke senarai bacaan.</string>
+  <string name="reading_lists_empty">Tiada senarai bacaan lagi</string>
+  <string name="reading_lists_empty_message">Simpan rencana ke senarai bacaan supaya anda boleh melihatnya kemudian, walaupun anda berada di luar talian.</string>
   <string name="reading_lists_onboarding_intro">Ciptakan senarai bacaan dari rencana yang ingin anda baca nanti, malah ketika anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
@@ -286,6 +294,8 @@
   <string name="reading_lists_onboarding_example3">Luar angkasa!</string>
   <string name="reading_lists_onboarding_got_it">Faham</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Geser beberapa laman ke kiri atau kanan untuk memadamkannya dari senarai bacaan ini.</string>
+  <string name="reading_list_no_description">Tiada keterangan...</string>
+  <string name="reading_list_empty">Anda tidak mempunyai rencana ditambah ke senarai ini.</string>
   <string name="user_option_sync_label">Keutamaan</string>
   <string name="notification_button_view_page">Lihat laman</string>
   <string name="notification_button_view_user">Bincang ke pengguna</string>

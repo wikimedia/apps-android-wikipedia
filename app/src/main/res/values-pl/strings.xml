@@ -60,6 +60,8 @@
   <string name="dialog_message_leaving_edit_stay">Pozostań</string>
   <string name="menu_show_toc">Spis treści</string>
   <string name="search_no_results_found">Nie znaleziono</string>
+  <string name="search_reading_list_no_results">Nie znaleziono wyników w „%s”</string>
+  <string name="search_history_no_results">W historii nie znaleziono wyników</string>
   <string name="edit_section_captcha_message">Aby pomóc nam bronić się przed spamem, przepisz słowa podane poniżej</string>
   <string name="edit_section_captcha_hint">Powtórz powyższe słowa</string>
   <string name="title_captcha">Wpisz CAPTCHA</string>
@@ -266,6 +268,8 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="reading_lists_onboarding_example1">Miejsca do odwiedzenia</string>
   <string name="reading_lists_onboarding_example2">Ulubione zwierzęta</string>
   <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
+  <string name="reading_list_no_description">Brak opisu...</string>
+  <string name="reading_list_empty">Na tej liście nie ma dodanych artykułów.</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_button_view_page">Zobacz stronę</string>
   <string name="notification_reverted_title">Wycofana edycja</string>

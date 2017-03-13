@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Maradok</string>
   <string name="menu_show_toc">Tartalomjegyzék</string>
   <string name="search_no_results_found">Nincs találat</string>
+  <string name="search_reading_list_no_results">Nincs találat a(z) „%s” olvasólistában</string>
+  <string name="search_reading_lists_no_results">Nincs találat az olvasólistákban</string>
+  <string name="search_history_no_results">Nincs találat az előzményekben</string>
   <string name="edit_section_captcha_message">Automatikus spam kivédése érdekében írd be az alább megjelenő szót</string>
   <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Sikeresen bejelentkezve!</string>
   <string name="preference_title_logout">Kijelentkezés</string>
   <string name="toast_logout_complete">Kijelentkezve</string>
-  <string name="history_empty_title" fuzzy="true">Nincsenek korábbi lapok!</string>
-  <string name="history_empty_message" fuzzy="true">Talán mindet törölted. Miután legközelebb meglátogatsz egy lapot, innen visszatalálsz rá.</string>
+  <string name="history_empty_title">Nem nemrég megtekintett cikkek</string>
+  <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
   <string name="delete_selected_history">Töröl</string>
+  <string name="delete_selected_items">Kijelölt elemek törlése</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Felhasználónév</string>
   <string name="login_create_account_link">Nincs még fiókod? Csatlakozz a Wikipédiához!</string>
@@ -125,7 +129,8 @@
   <string name="page_protected_autoconfirmed">Ez az oldal félig védett.</string>
   <string name="page_protected_sysop">Ez a lap teljesen védett.</string>
   <string name="page_protected_other">Az a lap az alábbi szinten védett: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Nincs jogosultságod az oldal szerkesztéséhez</string>
+  <string name="page_protected_can_not_edit">Sajnáljuk, a fiókod jelenleg nem rendelkezik a lap szerkesztéséhez megfelelő jogosultságokkal.</string>
+  <string name="page_protected_can_not_edit_anon">Sajnáljuk, ez a lap jelenleg nem szerkeszthető névtelenül.</string>
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
   <string name="settings_item_preferences">Beállítások</string>
   <string name="settings_activity_title">Beállítások</string>
@@ -230,6 +235,7 @@
   <string name="location_service_disabled">A helyszolgáltatások nem érhetők el.</string>
   <string name="enable_location_service">Engedélyezés</string>
   <string name="error_webview_updating">Az Android System WebView frissítés alatt áll. Próbáld újra néhány másodperc múlva.</string>
+  <string name="multi_select_items_selected">%d kiválasztva</string>
   <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
   <string name="crash_report_dialog_text">Szeretnél küldeni egy összeomlási jelentést a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy a Wikimédia átnézhesse az összeomlást és kijavíthassa az ezt okozó hibát?</string>
   <string name="crash_report_dialog_dont_send_button">Kihagy</string>
@@ -265,19 +271,22 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_list_sort_by_recent">Rendezés a legújabb szerint</string>
   <string name="reading_list_sort_by_recent_desc">Rendezés a legrégebbi szerint</string>
   <string name="reading_list_menu_edit">Az olvasólista részleteinek szerkesztése</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Az olvasólista törlése</string>
+  <string name="reading_list_menu_delete">Lista törlése</string>
+  <string name="reading_list_menu_rename">Átnevezés</string>
+  <string name="reading_list_menu_edit_description">Leírás szerkesztése</string>
   <string name="reading_list_name_sample">Saját olvasólista</string>
   <string name="reading_list_name_hint">A lista neve</string>
   <string name="reading_list_description_hint">Leírás (opcionális)</string>
   <string name="reading_list_save_for_offline">Elérhető offline olvasásra</string>
   <string name="reading_list_item_deleted">%s eltávolítva a listáról</string>
+  <string name="reading_list_items_deleted">%d szócikk eltávolítva a listáról</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Mégse</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni ezt az olvasólistát?</string>
-  <string name="reading_lists_empty" fuzzy="true">Nincs olvasólista.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Rendezd a böngészett szócikkeket olvasólistákba! Amikor olvasol egy szócikket, érintsd meg a könyvjelző ikont az alsó eszköztáron, hogy hozzáadd egy olvasólistához.</string>
+  <string name="reading_lists_empty">Még nincsenek olvasólisták</string>
+  <string name="reading_lists_empty_message">Ments el szócikkeket olvasólistákba, hogy később, akár internetkapcsolat nélkül is elolvashasd őket.</string>
   <string name="reading_lists_onboarding_intro">Készíts olvasólistát szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
   <string name="reading_lists_onboarding_for_example">Például</string>
   <string name="reading_lists_onboarding_example1">Látványosságok</string>
@@ -285,6 +294,8 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_lists_onboarding_example3">Űr!</string>
   <string name="reading_lists_onboarding_got_it">Értem</string>
   <string name="reading_lists_onboarding_page_delete">Tipp: Legyints egy cikket jobbra vagy balra, hogy eltávolítsd erről az olvasási listáról.</string>
+  <string name="reading_list_no_description">Nincs leírás…</string>
+  <string name="reading_list_empty">Nem adtál szócikket ehhez a listához.</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_button_view_page">Oldal megtekintése</string>
   <string name="notification_button_view_user">Üzenethagyás a szerkesztőnek</string>
@@ -300,6 +311,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Randomizáló</string>
   <string name="view_random_card_subtitle">Olvass egy véletlenszerű cikket a Wikipédiáról</string>
+  <string name="view_random_card_error">Nem sikerült a véletlenszerű lap betöltése a hálózatról vagy az olvasólistáidból.</string>
   <string name="view_main_page_card_title">Ma a Wikipédián</string>
   <string name="view_main_page_card_subtitle">Kezdőlap ma – %s</string>
   <string name="view_featured_image_card_title">A nap képe</string>
@@ -322,7 +334,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="description_edit_header">Szerkesztés</string>
   <string name="description_edit_text_hint">Cím leírása</string>
   <string name="description_edit_save">Mentés</string>
-  <string name="description_edit_add_description" fuzzy="true">Adj meg egy rövid leírást</string>
+  <string name="description_edit_add_description">Adj meg egy címleírást</string>
   <string name="description_edit_edit_description">Leírás szerkesztése</string>
   <string name="description_edit_cancel_hint">Mégse</string>
   <string name="description_edit_help_title">Segítség: címleírások</string>
@@ -342,4 +354,16 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideális esetben egy sor, két-tizenkét szó között.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
+  <string name="description_edit_help_about_title">Névjegy</string>
+  <string name="description_edit_help_tips">Tanácsok leírás létrehozásához</string>
+  <string name="description_edit_help_tips_description">A leírások ideális esetben nem hosszabbak egy sornál, 2-12 szavasak. Nem kezdődnek nagybetűvel, csak ha az első szó mondat közepén is nagybetűvel írandó.</string>
+  <string name="description_edit_help_tips_examples">Például:</string>
+  <string name="description_edit_help_tips_example1">Leonardo da Vinci festménye</string>
+  <string name="description_edit_help_tips_example2">a Föld legmagasabb hegye</string>
+  <string name="description_edit_help_more_info">További információk</string>
+  <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
+  <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, egy egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
+  <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
+  <string name="description_edit_revert_reason2">tesztelésnek vagy vandalizmusnak tűnt</string>
+  <string name="description_edit_revert_history">Többet megtudhatsz a visszavonás okáról a &lt;a href=\"%1$s\"&gt;laptörténetben&lt;/a&gt;.</string>
 </resources>

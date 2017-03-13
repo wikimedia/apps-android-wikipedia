@@ -41,7 +41,7 @@
   <string name="nearby_zoom_to_location">Približi lokaciju na karti</string>
   <string name="last_updated_text">Posljednji put ažurirano %s</string>
   <string name="talk_page_link_text">Razgovor</string>
-  <string name="content_license_html" fuzzy="true">Sadržaj je dostupan pod licencom &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; osim gdje je drukčije navedeno</string>
+  <string name="content_license_html">Sadržaj je dostupan pod licencom &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; osim gdje je drukčije navedeno</string>
   <string name="edit_save_action_license_logged_in">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Čuvanjem izmjena prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene koje napravite pripisat će se IP-adresi Vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imat ćete veću privatnost.</string>
   <string name="preference_title_language">Jezik Wikipedije</string>
@@ -78,7 +78,7 @@
   <string name="login_success_toast">Uspješno ste prijavljeni!</string>
   <string name="preference_title_logout">Odjavi me</string>
   <string name="toast_logout_complete">Odjavljeni ste</string>
-  <string name="history_empty_title" fuzzy="true">Nema nedavnih stranica!</string>
+  <string name="history_empty_title">Nema nedavno posjećenih članaka</string>
   <string name="history_empty_message" fuzzy="true">Vjerovatno ste ih sve obrisali. Kad sljedeći put posjetite stranicu, ovdje je lahko možete ponovo pronaći.</string>
   <string name="delete_selected_history">Obriši</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -264,7 +264,7 @@
   <string name="reading_list_sort_by_recent">Sortiraj po najnovijem</string>
   <string name="reading_list_sort_by_recent_desc">Sortiraj po najstarijem</string>
   <string name="reading_list_menu_edit">Uredi detalje spiska za čitanje</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Obriši spisak za čitanje</string>
+  <string name="reading_list_menu_delete">Obriši spisak</string>
   <string name="reading_list_name_sample">Moj spisak za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog spiska</string>
   <string name="reading_list_description_hint">Opis (neobavezno)</string>
@@ -275,7 +275,7 @@
   <string name="reading_list_edit_ok">U redu</string>
   <string name="reading_list_edit_cancel">Odustani</string>
   <string name="reading_list_delete_confirm">Jeste li sigurni da želite obrisati ovaj spisak za čitanje?</string>
-  <string name="reading_lists_empty" fuzzy="true">Nema spiskova za čitanje.</string>
+  <string name="reading_lists_empty">Zasad nema spiskova za čitanje</string>
   <string name="reading_lists_empty_message" fuzzy="true">Organizirajte članke koje Vas zanimaju u spiskove za čitanje! Kad nađete članak, dodirnite ikonu u obliku markera za knjigu na donjoj alatnoj traci da biste ga dodali na spisak za čitanje.</string>
   <string name="reading_lists_onboarding_intro">Napravite spiskove za čitanje od članaka koje želite čitati kasnije, čak i kad ste van mreže!</string>
   <string name="reading_lists_onboarding_for_example">Naprimjer</string>

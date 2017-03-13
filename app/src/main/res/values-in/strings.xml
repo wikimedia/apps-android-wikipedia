@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Tetap di sini</string>
   <string name="menu_show_toc">Daftar isi</string>
   <string name="search_no_results_found">Tidak ada hasil yang ditemukan</string>
+  <string name="search_reading_list_no_results">Tidak ada hasil ditemukan di \"%s\"</string>
+  <string name="search_reading_lists_no_results">Tidak ada hasil ditemukan dalam daftar bacaan</string>
+  <string name="search_history_no_results">Tidak ada hasil ditemukan dalam riwayat</string>
   <string name="edit_section_captcha_message">Untuk membantu melindungi terhadap spam otomatis, masukkan kata-kata yang muncul di bawah ini</string>
   <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
   <string name="title_captcha">Masukkan CAPTCHA</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Berhasil masuk log!</string>
   <string name="preference_title_logout">Keluar log</string>
   <string name="toast_logout_complete">Telah keluar log</string>
-  <string name="history_empty_title" fuzzy="true">Tidak ada halaman terbaru di sini.</string>
-  <string name="history_empty_message" fuzzy="true">Anda mungkin menghapus mereka semua. Lain kali Anda pergi ke halaman Anda dapat kembali ke sana dari sini.</string>
+  <string name="history_empty_title">Tidak ada artikel yang baru dilihat</string>
+  <string name="history_empty_message">Lacak apa yang Anda sudah baca di sini.</string>
   <string name="delete_selected_history">Hapus</string>
+  <string name="delete_selected_items">Hapus butir yang dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>
   <string name="login_create_account_link">Belum punya akun? Bergabunglah dengan Wikipedia</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Layanan lokasi dinonaktifkan.</string>
   <string name="enable_location_service">Aktifkan</string>
   <string name="error_webview_updating">TampilanWeb Sistem Android saat ini sedang diperbarui. Silakan coba beberapa saat lagi.</string>
+  <string name="multi_select_items_selected">%d dipilih</string>
   <string name="crash_report_dialog_title">Maaf, aplikasi berhenti dengan sendirinya</string>
   <string name="crash_report_dialog_text">Apakah Anda ingin mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga sehingga Wikimedia dapat meninjau kerusakan Anda dan memperbaiki kesalahan yang disebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Lewati</string>
@@ -269,20 +274,21 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_sort_by_recent_desc">Urutkan berdasarkan yang terlama</string>
   <string name="reading_list_menu_edit">Sunting rincian daftar bacaan</string>
   <string name="reading_list_menu_delete">Hapus daftar</string>
-  <string name="reading_list_menu_rename">Ganti nama</string>
+  <string name="reading_list_menu_rename">Ubah nama</string>
   <string name="reading_list_menu_edit_description">Sunting deskripsi</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
   <string name="reading_list_name_hint">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
   <string name="reading_list_save_for_offline">Tersedia untuk dibaca secara luring</string>
   <string name="reading_list_item_deleted">%s dihapus dari daftar</string>
+  <string name="reading_list_items_deleted">%d artikel dihapus dari daftar</string>
   <string name="reading_list_item_delete_undo">Urungkan</string>
   <string name="reading_list_deleted">%s terhapus</string>
   <string name="reading_list_edit_ok">Oke</string>
   <string name="reading_list_edit_cancel">Batal</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus daftar bacaan ini?</string>
-  <string name="reading_lists_empty" fuzzy="true">Tidak ada daftar bacaan di sini.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Susun artikel yang Anda jelajahi ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, ketuk ikon penanda di bilah alat bawah untuk menambahkannya ke daftar bacaan.</string>
+  <string name="reading_lists_empty">Tidak ada daftar bacaan lagi</string>
+  <string name="reading_lists_empty_message">Simpan artikel ke daftar bacaan untuk dapat Anda lihat nanti, bahkan ketika Anda sedang luring.</string>
   <string name="reading_lists_onboarding_intro">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan ketika Anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
@@ -290,6 +296,8 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_lists_onboarding_example3">Luar angkasa!</string>
   <string name="reading_lists_onboarding_got_it">Mengerti</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Geser beberapa halaman ke kiri dan kanan untuk menghapusnya dari daftar bacaan ini.</string>
+  <string name="reading_list_no_description">Tidak ada keterangan...</string>
+  <string name="reading_list_empty">Anda tidak memiliki artikel yang ditambahkan ke daftar ini.</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_button_view_page">Lihat halaman</string>
   <string name="notification_button_view_user">Bicara ke pengguna</string>

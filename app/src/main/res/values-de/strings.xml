@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Bleiben</string>
   <string name="menu_show_toc">Inhaltsverzeichnis</string>
   <string name="search_no_results_found">Keine Ergebnisse gefunden</string>
+  <string name="search_reading_list_no_results">Keine Ergebnisse in „%s“ gefunden</string>
+  <string name="search_reading_lists_no_results">Keine Ergebnisse in den Leselisten gefunden</string>
+  <string name="search_history_no_results">Keine Ergebnisse im Verlauf gefunden</string>
   <string name="edit_section_captcha_message">Zum Schutz vor automatisiertem Spam gib bitte die unten erscheinenden Wörter ein.</string>
   <string name="edit_section_captcha_hint">Wörter von oben wiederholen</string>
   <string name="title_captcha">Captcha eingeben</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Erfolgreich angemeldet!</string>
   <string name="preference_title_logout">Abmelden</string>
   <string name="toast_logout_complete">Abgemeldet</string>
-  <string name="history_empty_title" fuzzy="true">Hier gibt es keine letzten Seiten.</string>
-  <string name="history_empty_message" fuzzy="true">Du hast vermutlich alle Elemente gelöscht. Das nächste Mal, wenn du eine Seite besuchst, kannst du von hier auf sie zurückgehen.</string>
+  <string name="history_empty_title">Keine kürzlich besuchten Artikel</string>
+  <string name="history_empty_message">Verfolge hier, was du gelesen hast.</string>
   <string name="delete_selected_history">Löschen</string>
+  <string name="delete_selected_items">Ausgewählte Elemente löschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benutzername</string>
   <string name="login_create_account_link">Noch kein Benutzerkonto? Tritt der Wikipedia bei</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Standortdienste sind deaktiviert.</string>
   <string name="enable_location_service">Aktivieren</string>
   <string name="error_webview_updating">Das Android-System WebView wird derzeit aktualisiert. Bitte versuche es gleich noch einmal.</string>
+  <string name="multi_select_items_selected">%d ausgewählt</string>
   <string name="crash_report_dialog_title">Leider ist die App beim letzten Mal abgestürzt</string>
   <string name="crash_report_dialog_text">Möchtest du einen Absturzbericht an HockeyApp/einen Drittpartei-Diensteanbieter senden, so dass Wikimedia deinen Absturz überprüfen und den verursachenden Fehler beheben kann?</string>
   <string name="crash_report_dialog_dont_send_button">Überspringen</string>
@@ -276,13 +281,14 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_description_hint">Beschreibung (optional)</string>
   <string name="reading_list_save_for_offline">Verfügbar zum Offline-Lesen</string>
   <string name="reading_list_item_deleted">%s von der Liste entfernt</string>
+  <string name="reading_list_items_deleted">%d Artikel aus der Liste entfernt</string>
   <string name="reading_list_item_delete_undo">Rückgängig</string>
   <string name="reading_list_deleted">%s gelöscht</string>
   <string name="reading_list_edit_ok">Okay</string>
   <string name="reading_list_edit_cancel">Abbrechen</string>
   <string name="reading_list_delete_confirm">Bist du sicher, dass du diese Leseliste löschen möchtest?</string>
-  <string name="reading_lists_empty" fuzzy="true">Hier gibt es keine Leselisten.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organisiere die aufgerufenen Artikel in Leselisten! Tippe beim Aufrufen eines Artikels auf das Lesezeichen-Symbol in der unteren Werkzeugleiste, um ihn zur Leseliste hinzuzufügen.</string>
+  <string name="reading_lists_empty">Es gibt noch keine Leselisten.</string>
+  <string name="reading_lists_empty_message">Speichere Artikel in Leselisten, so dass du sie später ansehen kannst, auch wenn du offline bist.</string>
   <string name="reading_lists_onboarding_intro">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispiel</string>
   <string name="reading_lists_onboarding_example1">Zu besuchende Orte</string>
@@ -290,6 +296,8 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_onboarding_example3">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_lists_onboarding_page_delete">Tipp: Wische eine beliebige Seite nach links oder rechts, um sie aus dieser Leseliste zu entfernen.</string>
+  <string name="reading_list_no_description">Keine Beschreibung …</string>
+  <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_button_view_page">Seite ansehen</string>
   <string name="notification_button_view_user">Mit dem Benutzer diskutieren</string>

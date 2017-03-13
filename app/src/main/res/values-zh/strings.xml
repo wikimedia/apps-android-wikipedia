@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">留下</string>
   <string name="menu_show_toc">目录</string>
   <string name="search_no_results_found">没有搜索结果</string>
+  <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
+  <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
+  <string name="search_history_no_results">在历史中找不到结果</string>
   <string name="edit_section_captcha_message">为了防止自动垃圾信息，请输入下面显示的文字</string>
   <string name="edit_section_captcha_hint">请输入验证码中的文字</string>
   <string name="title_captcha">输入验证码</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">登录成功！</string>
   <string name="preference_title_logout">退出登录</string>
   <string name="toast_logout_complete">已退出登录</string>
-  <string name="history_empty_title" fuzzy="true">最近这里没有页面！</string>
-  <string name="history_empty_message" fuzzy="true">您可能清空了它们。下次您前往一个页面时，可从这里返回它。</string>
+  <string name="history_empty_title">没有最近查看的条目</string>
+  <string name="history_empty_message">在此跟踪您阅读过的东西。</string>
   <string name="delete_selected_history">删除</string>
+  <string name="delete_selected_items">删除选定项目</string>
   <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">用户名</string>
   <string name="login_create_account_link">没有账户？加入维基百科</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">位置服务被禁用。</string>
   <string name="enable_location_service">启用</string>
   <string name="error_webview_updating">Android系统的WebView当前正在更新。请稍后再试。</string>
+  <string name="multi_select_items_selected">%d已选择</string>
   <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
   <string name="crash_report_dialog_text">您是否希望发送崩溃报告至HockeyApp/第三方服务提供方，这样维基媒体可以浏览您的崩溃报告，并修复导致它的漏洞？</string>
   <string name="crash_report_dialog_dont_send_button">跳过</string>
@@ -276,13 +281,14 @@
   <string name="reading_list_description_hint">描述（可选）</string>
   <string name="reading_list_save_for_offline">可用于离线阅读</string>
   <string name="reading_list_item_deleted">%s已从列表中移除</string>
+  <string name="reading_list_items_deleted">%d个条目已从列表中移除</string>
   <string name="reading_list_item_delete_undo">撤销</string>
   <string name="reading_list_deleted">%s已删除</string>
   <string name="reading_list_edit_ok">确定</string>
   <string name="reading_list_edit_cancel">取消</string>
   <string name="reading_list_delete_confirm">您确定要删除此阅读列表么？</string>
-  <string name="reading_lists_empty" fuzzy="true">这里没有阅读列表。</string>
-  <string name="reading_lists_empty_message" fuzzy="true">组织您您浏览的条目至阅读列表中！当浏览一个条目时，点按底部工具栏中的书签图标以将其添加至阅读列表中。</string>
+  <string name="reading_lists_empty">目前尚无阅读列表</string>
+  <string name="reading_lists_empty_message">保存条目至阅读列表，这样即便您日后离线了，您也可以阅读这些条目。</string>
   <string name="reading_lists_onboarding_intro">从您希望稍后阅读的条目创建阅读列表，即便当您离线时！</string>
   <string name="reading_lists_onboarding_for_example">例如</string>
   <string name="reading_lists_onboarding_example1">要访问的地点</string>
@@ -290,6 +296,8 @@
   <string name="reading_lists_onboarding_example3">太空！</string>
   <string name="reading_lists_onboarding_got_it">明白了</string>
   <string name="reading_lists_onboarding_page_delete">小建议：向左或向右滑动任意页面以将其从此阅读列表中移除。</string>
+  <string name="reading_list_no_description">无描述…</string>
+  <string name="reading_list_empty">您没有添加至此列表的条目。</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_button_view_page">查看页面</string>
   <string name="notification_button_view_user">与用户讨论</string>

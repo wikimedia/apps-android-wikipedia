@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Permanecer</string>
   <string name="menu_show_toc">Tabla de contenidos</string>
   <string name="search_no_results_found">No se encontraron resultados</string>
+  <string name="search_reading_list_no_results">No se encontraron resultados en \"%s\"</string>
+  <string name="search_reading_lists_no_results">No se encontraron resultados en las listas de lectura</string>
+  <string name="search_history_no_results">No se encontraron resultados en el historial</string>
   <string name="edit_section_captcha_message">Para ayudar a proteger contra el spam automatizado, escribe las palabras que aparecen abajo</string>
   <string name="edit_section_captcha_hint">Repetir las palabras de arriba</string>
   <string name="title_captcha">Escribe el CAPTCHA</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Se inició la sesión correctamente.</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
-  <string name="history_empty_title" fuzzy="true">¡No hay páginas recientes aquí!</string>
-  <string name="history_empty_message" fuzzy="true">Probablemente borraste el historial. La próxima vez que vayas a una página puedes recuperarla desde aquí.</string>
+  <string name="history_empty_title">No hay hay artículos visitados recientemente</string>
+  <string name="history_empty_message">Consulta lo que has leido aquí</string>
   <string name="delete_selected_history">Borrar</string>
+  <string name="delete_selected_items">Eliminar los elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
   <string name="login_create_account_link">¿No tienes una cuenta? Únete a Wikipedia</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
   <string name="enable_location_service">Activar</string>
   <string name="error_webview_updating">El sistema de Android WebView se está actualizado. Inténtalo de nuevo en un momento.</string>
+  <string name="multi_select_items_selected">%d seleccionados</string>
   <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Te gustaría enviar un informe de fallo a HockeyApp / un proveedor de servicios de terceros para que Wikimedia pueda revisar tu fallo y corregir el error que lo causó?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -276,13 +281,14 @@
   <string name="reading_list_description_hint">Descripción (opcional)</string>
   <string name="reading_list_save_for_offline">Disponible para leer sin conexión</string>
   <string name="reading_list_item_deleted">%s eliminado de la lista</string>
+  <string name="reading_list_items_deleted">%d artículos eliminados de la lista</string>
   <string name="reading_list_item_delete_undo">Deshacer</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="reading_list_edit_ok">Aceptar</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">¿Estás seguro de que quieres eliminar esta lista de lectura?</string>
-  <string name="reading_lists_empty" fuzzy="true">No hay listas de lectura aquí.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organiza los artículos que navegas en listas de lectura. Cuando navegues por un artículo, pulsa el ícono de marcador en la parte inferior de la barra de herramienta para añadirlo a una lista de lectura.</string>
+  <string name="reading_lists_empty">No hay listas de lectura aún</string>
+  <string name="reading_lists_empty_message">Guarda artículos en listas de lectura para poder verlos después, incluso sin conexión.</string>
   <string name="reading_lists_onboarding_intro">Crea listas de lectura a partir de los artículos que quieras leer más tarde, ¡incluso sin conexión!</string>
   <string name="reading_lists_onboarding_for_example">Por ejemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
@@ -290,6 +296,8 @@
   <string name="reading_lists_onboarding_example3">¡El espacio!</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_lists_onboarding_page_delete">Consejo: desliza cualquier página a la izquierda o a la derecha para quitarla de esta lista de lectura.</string>
+  <string name="reading_list_no_description">Sin descripción…</string>
+  <string name="reading_list_empty">No tienes artículos añadidos a esta lista.</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_page">Ver página</string>
   <string name="notification_button_view_user">Discute con el usuario</string>

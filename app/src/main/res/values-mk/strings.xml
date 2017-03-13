@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Остани</string>
   <string name="menu_show_toc">Содржина</string>
   <string name="search_no_results_found">Нема пронајдов ништо</string>
+  <string name="search_reading_list_no_results">Не најдов ништо за „%s“</string>
+  <string name="search_reading_lists_no_results">Не најдов ништо во списоците за читање</string>
+  <string name="search_history_no_results">Не најдов ништо во историјата</string>
   <string name="edit_section_captcha_message">За да се аштитиме од автоматизиран спам, внесете ги долуприкажаните зборови</string>
   <string name="edit_section_captcha_hint">Повторете ги гореприкажаните зборови</string>
   <string name="title_captcha">Внесете го одговорот на сликичката</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Најавата успеа!</string>
   <string name="preference_title_logout">Одјава</string>
   <string name="toast_logout_complete">Одјавени сте</string>
-  <string name="history_empty_title" fuzzy="true">Тука нема скорешни страници.</string>
-  <string name="history_empty_message" fuzzy="true">Веројатно сите сте ги избришале. Кога во иднина ќе отидете на некоја страница, ќе можете оттука да се вратите на неа.</string>
+  <string name="history_empty_title">Нема неодамна посетени статии</string>
+  <string name="history_empty_message">Тука следете што сте читале.</string>
   <string name="delete_selected_history">Избриши</string>
+  <string name="delete_selected_items">Избриши ги избраните ставки</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="create_account_username_hint">Корисничко име</string>
   <string name="login_create_account_link">Немате сметка? Приклучете се на Википедија</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Местоположбените услуги се оневозможени.</string>
   <string name="enable_location_service">Овозможи</string>
   <string name="error_webview_updating">WebView за Андроид во моментов се подновува. Обидете се повторно набргу.</string>
+  <string name="multi_select_items_selected">%d избрани</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>
@@ -276,13 +281,14 @@
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
   <string name="reading_list_save_for_offline">Достапна за вонмрежно читање</string>
   <string name="reading_list_item_deleted">%s е отстранета од списокот</string>
+  <string name="reading_list_items_deleted">%d статии се отстранети од списокот</string>
   <string name="reading_list_item_delete_undo">Откажи</string>
   <string name="reading_list_deleted">%s е избришана</string>
   <string name="reading_list_edit_ok">ОК</string>
   <string name="reading_list_edit_cancel">Откажи</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете овој список за читање?</string>
-  <string name="reading_lists_empty" fuzzy="true">Тука нема списоци за читање.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување во алатникот најдолу за да ја додадете во списокот.</string>
+  <string name="reading_lists_empty">Засега нема списоци за читање</string>
+  <string name="reading_lists_empty_message">Зачувувајте ги статиите во списоци за читање, за да можете да им се навратите подоцна, дури и кога немате линија.</string>
   <string name="reading_lists_onboarding_intro">Создајте списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посета</string>
@@ -290,6 +296,8 @@
   <string name="reading_lists_onboarding_example3">Вселена!</string>
   <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="reading_lists_onboarding_page_delete">Совет: Повлечете ја било која страница налево или надесно за да ја отстраните од списоков.</string>
+  <string name="reading_list_no_description">Нема опис...</string>
+  <string name="reading_list_empty">Немате ставено статии во списоков.</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_page">Погл. страницата</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>

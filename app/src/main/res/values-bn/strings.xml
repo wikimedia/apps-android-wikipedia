@@ -43,11 +43,11 @@
   <string name="talk_page_link_text">আলোচনা</string>
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
-  <string name="edit_save_action_license_anon">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের IP ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
-  <string name="preference_title_language">উইকিপিডিয়া ভাষা</string>
+  <string name="edit_save_action_license_anon">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের আইপি ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
+  <string name="preference_title_language">উইকিপিডিয়ার ভাষা</string>
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
-  <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়</string>
+  <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়।</string>
   <string name="langlinks_no_match">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="menu_save_changes">পরিবর্তন সংরক্ষণ</string>
@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">থাকুন</string>
   <string name="menu_show_toc">সূচিপত্র</string>
   <string name="search_no_results_found">কোনো ফলাফল পাওয়া যায়নি</string>
+  <string name="search_reading_list_no_results">\"%s\"-এ কোন ফলাফল পাওয়া যায়নি</string>
+  <string name="search_reading_lists_no_results">পড়ার তালিকায় কোন ফলাফল পাওয়া যায়নি</string>
+  <string name="search_history_no_results">ইতিহাসে কোন ফলাফল পাওয়া যায়নি</string>
   <string name="edit_section_captcha_message">স্বয়ংক্রিয় স্প্যামের বিরুদ্ধে সুরক্ষা করতে সাহায্য করুতে, অনুগ্রহ করে নিচে দেখানো শব্দটি লিখুন</string>
   <string name="edit_section_captcha_hint">শব্দটি পুনরায় লিখুন</string>
   <string name="title_captcha">ক্যাপচা লিখুন</string>
@@ -70,15 +73,17 @@
   <string name="nav_item_login">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">পাসওয়ার্ড</string>
+  <string name="login_2fa_hint">দুই-গুণনীয়ক প্রমাণীকরণ কোড</string>
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
   <string name="login_success_toast">প্রবেশ করা সফল!</string>
   <string name="preference_title_logout">প্রস্থান</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
-  <string name="history_empty_title" fuzzy="true">এখানে কোন সাম্প্রতিক পাতা নেই।</string>
-  <string name="history_empty_message" fuzzy="true">আপনি সম্ভবত সবকিছু মুছে ফেলেছেন। পরবর্তী সময়ে আপনি একটি পাতায় গেলে আপনি এখানে থেকে তা ফিরে পেতে পারেন।</string>
+  <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
+  <string name="history_empty_message">এখানে আপনি কি পড়ছেন তা অনুসরণ করুন।</string>
   <string name="delete_selected_history">অপসারণ</string>
+  <string name="delete_selected_items">নির্বাচিত আইটেম অপসারণ করুন</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_create_account_link">কোন অ্যাকাউন্ট নেই? উইকিপিডিয়ায় যোগ দিন</string>
@@ -115,7 +120,7 @@
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
   <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
   <string name="preference_title_auto_upload_crash_reports">ক্র্যাশ প্রতিবেদন পাঠান</string>
-  <string name="preference_summary_auto_upload_crash_reports">অ্যাপকে HockeyApp / স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারীর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
+  <string name="preference_summary_auto_upload_crash_reports">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
   <string name="history_search_list_hint">ইতিহাস অনুসন্ধান</string>
   <string name="history_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
@@ -145,8 +150,8 @@
   <string name="about_activity_title">পরিচিতি</string>
   <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
   <string name="user_blocked_from_editing_title">অবরুদ্ধ</string>
-  <string name="user_logged_in_blocked_from_editing">আপনার ব্যবহারকারী অ্যাকাউন্টটি এই উইকিতে সম্পাদনা করার জন্য বাধা দেয়া হয়েছে।</string>
-  <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাকে সম্পাদনা করা জন্য বাধা দেয়া হয়েছে।</string>
+  <string name="user_logged_in_blocked_from_editing">আপনার ব্যবহারকারী অ্যাকাউন্টটিকে এই উইকিতে সম্পাদনা করা থেকে বাধা দেয়া হয়েছে।</string>
+  <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাকে সম্পাদনা করা থেকে বাধা দেয়া হয়েছে।</string>
   <string name="edit_how_page_improved">কীভাবে আপনি পাতাটি উন্নত করেছেন?</string>
   <string name="edit_next">পরবর্তী</string>
   <string name="edit_done">সংরক্ষণ</string>
@@ -156,8 +161,8 @@
   <string name="edit_summary_tag_links">লিংক সংযোজন</string>
   <string name="edit_summary_tag_other">অন্যান্য</string>
   <string name="edit_summary_tag_other_hint">অন্যান্য যে পদ্ধতিতে আপনি পাতাটির মান উন্নয়ন করেছেন</string>
-  <string name="find_next">পরবর্তী অনুসন্ধান</string>
-  <string name="find_previous">পূর্বেরটি অনুসন্ধান</string>
+  <string name="find_next">পরবর্তী খুঁজুন</string>
+  <string name="find_previous">পূর্বেরটি খুঁজুন</string>
   <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি সংরক্ষণ করতে চান?</string>
   <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা সংরক্ষণ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
   <string name="abusefilter_text_warn">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক হিসাবে চিহ্নিত করেছে। এতে নিম্নলিখিতগুলি এক বা একাধিক বার থাকতে পারে:&lt;br /&gt;&lt;br /&gt;· নিবন্ধ খালি করা বা স্প্যামিং করা&lt;br /&gt;· অপ্রাসঙ্গিক বাহ্যিক লিঙ্ক বা ছবি&lt;br /&gt;· অক্ষরের পুনরাবৃত্তি</string>
@@ -171,8 +176,8 @@
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
   <string name="search_did_you_mean">আপনি কি \"%s\" বুঝাচ্ছেন?</string>
   <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান:</string>
-  <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধান গুলি মুছে ফেলুন</string>
-  <string name="clear_recent_searches_confirm">আপনি কি নিশ্চিত যে আপনি আপনার অনুসান্ধান ইতিহাস মুছে ফেলতে ?</string>
+  <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধানগুলি মুছে ফেলুন</string>
+  <string name="clear_recent_searches_confirm">আপনি কি নিশ্চিত যে আপনি আপনার অনুসন্ধান ইতিহাস মুছে ফেলতে চান?</string>
   <string name="error_browser_not_found">ওয়েবপৃষ্ঠাটি খোলা যায়নি (কোন ব্রাউজার অ্যাপ্লিকেশন পাওয়া যায়নি)।</string>
   <string name="table_infobox">দ্রুত তথ্য</string>
   <string name="table_other">আরও তথ্য</string>
@@ -231,8 +236,9 @@
   <string name="location_service_disabled">অবস্থান পরিষেবা অক্ষম।</string>
   <string name="enable_location_service">সক্রিয় করুন</string>
   <string name="error_webview_updating">Android System WebView এই মুহুর্তে হালনাগাদ করা হচ্ছে। কয়েক মুহূর্ত পর আবার চেষ্টা করুন।</string>
+  <string name="multi_select_items_selected">%dটি নির্বাচিত</string>
   <string name="crash_report_dialog_title">দুঃখিত, অ্যাপ্লিকেশন শেষ বার বিধ্বস্ত হয়েছিল</string>
-  <string name="crash_report_dialog_text">আপনি কি HockeyApp / স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারীর কাছে ত্রুটি প্রতিবেদন পাঠাতে চান যাতে উইকিমিডিয়া আপনার ত্রুটি পর্যালোচনা করতে পারে এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারে?</string>
+  <string name="crash_report_dialog_text">আপনি কি স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে চান যাতে উইকিমিডিয়া আপনার ত্রুটি পর্যালোচনা করতে পারে এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারে?</string>
   <string name="crash_report_dialog_dont_send_button">উপেক্ষা করো</string>
   <string name="crash_report_dialog_always_send_button">সর্বদা পাঠান</string>
   <string name="crash_report_dialog_send_button">পাঠান</string>
@@ -274,20 +280,23 @@
   <string name="reading_list_description_hint">বিবরণ (ঐচ্ছিক)</string>
   <string name="reading_list_save_for_offline">অফলাইনে পড়ার জন্য উপলব্ধ</string>
   <string name="reading_list_item_deleted">তালিকা থেকে %s সরানো হয়েছে</string>
+  <string name="reading_list_items_deleted">তালিকা থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
   <string name="reading_list_item_delete_undo">পূর্বাবস্থা</string>
   <string name="reading_list_deleted">%s অপসারিত হয়েছে</string>
   <string name="reading_list_edit_ok">ঠিক আছে</string>
   <string name="reading_list_edit_cancel">বাতিল</string>
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই পড়ার তালিকা অপসারণ করতে চান?</string>
-  <string name="reading_lists_empty" fuzzy="true">এখানে কোন পড়ার তালিকা নেই।</string>
-  <string name="reading_lists_empty_message" fuzzy="true">পড়ার তালিকার মধ্যে আপনার ব্রাউজ করা নিবন্ধ সংগঠিত করুন! যখন একটি নিবন্ধ ব্রাউজ করবেন, তা পড়ার তালিকায় যোগ করার জন্য নিচে থাকা সরঞ্জামের বুকমার্ক আইকনে টোকা দিন।</string>
+  <string name="reading_lists_empty">এখনো কোন পড়ার তালিকা নেই</string>
+  <string name="reading_lists_empty_message">পড়ার তালিকায় নিবন্ধ সংরক্ষণ করে এতে আপনি তাদের পরে দেখতে পারেন, এমনকি যখন আপনি অফলাইনে থাকেন।</string>
   <string name="reading_lists_onboarding_intro">পরে পড়ার জন্য নিবন্ধ থেকে আপনার জন্য পড়ার তালিকা তৈরি করে, এমনকি যখন আপনি অফলাইনে থাকেন!</string>
   <string name="reading_lists_onboarding_for_example">উদাহরণস্বরূপ</string>
   <string name="reading_lists_onboarding_example1">ভ্রমণের জন্য স্থান</string>
-  <string name="reading_lists_onboarding_example2">প্রিয় পশুপাখি</string>
+  <string name="reading_lists_onboarding_example2">পছন্দের পশুপাখি</string>
   <string name="reading_lists_onboarding_example3">মহাকাশ!</string>
   <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
-  <string name="reading_lists_onboarding_page_delete">পরামর্শি: যে কোন পাতা পড়ার তালিকা থেকে মুছে ফেলার জন্য সেই পাতা বাম বা ডান দিকে টেনে আনুন।</string>
+  <string name="reading_lists_onboarding_page_delete">পরামর্শ: যে কোন পাতা পড়ার তালিকা থেকে মুছে ফেলার জন্য সেই পাতা বাম বা ডান দিকে টেনে আনুন।</string>
+  <string name="reading_list_no_description">কোন বিবরণ নেই...</string>
+  <string name="reading_list_empty">এই তালিকায় আপনি কোন নিবন্ধ যোগ করেন নি।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_button_view_page">পাতা দেখাও</string>
   <string name="notification_button_view_user">ব‍্যবহারকারীর সঙ্গে আলাপ করুন</string>
@@ -303,8 +312,9 @@
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
   <string name="view_random_card_subtitle">উইকিপিডিয়া থেকে একটি অজানা নিবন্ধ পড়ুন</string>
+  <string name="view_random_card_error">নেটওয়ার্ক বা আপনার পড়ার তালিকা থেকে একটি অজানা পৃষ্ঠা লোড করা যায়নি।</string>
   <string name="view_main_page_card_title">উইকিপিডিয়ায় আজ</string>
-  <string name="view_main_page_card_subtitle">প্রধান পাতাটি %s-এ</string>
+  <string name="view_main_page_card_subtitle">%s-এর প্রধান পাতাটি</string>
   <string name="view_featured_image_card_title">আজকের নির্বাচিত ছবি</string>
   <string name="view_featured_image_card_download">ডাউনলোড করুন</string>
   <string name="menu_feed_card_dismiss">এই কার্ড লুকান</string>
@@ -333,6 +343,8 @@
   <string name="description_edit_help_wikidata_guide">বিবরণ লেখার জন্য উইকিউপাত্তের নির্দেশিকা</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/bn</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
+  <string name="description_edit_anon_limit">বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
+  <string name="description_edit_license_notice">শিরোনামের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
   <string name="description_edit_success_saved">বিবরণ সংরক্ষণ করা হয়েছে!</string>
   <string name="description_edit_success_encouragement">আপনি এইমাত্র সবার জন্য উইকিপিডিয়াকে আরো উত্তম করলেন</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
@@ -346,6 +358,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
   <string name="description_edit_help_about_title">পরিচিতি</string>
+  <string name="description_edit_help_description">শিরোনামের বিবরণ একটি নিবন্ধকে সংক্ষিপ্তকরণ করে যা পাঠককে এক নজরে বিষয়টি বুঝতে সাহায্য করে।</string>
   <string name="description_edit_help_tips">বিবরণ তৈরি করার জন্য পরামর্শ</string>
   <string name="description_edit_help_tips_examples">উদাহরণস্বরূপ:</string>
   <string name="description_edit_help_tips_example1">লিওনার্দো দা ভিঞ্চি দ্বারা অঙ্কিত চিত্র</string>
@@ -355,6 +368,6 @@
   <string name="description_edit_help_more_info">আরও তথ্য</string>
   <string name="description_edit_revert_subtitle">উইকিপিডিয়ায় সম্পাদনা করার জন্য ধন্যবাদ!</string>
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
-  <string name="description_edit_revert_reason2">আপনার অবদান একটি পরীক্ষা বা ধ্বংসপ্রবণতা বলে মনে হচ্ছিল</string>
+  <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
   <string name="description_edit_revert_history">আপনি যদি আগ্রহী হন তাহলে, &lt;a href=\"%1$s\"&gt;সম্পাদনা ইতিহাস&lt;/a&gt; দেখুন।</string>
 </resources>

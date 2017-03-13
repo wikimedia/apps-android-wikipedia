@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Залишитись</string>
   <string name="menu_show_toc">Зміст</string>
   <string name="search_no_results_found">Нічого не знайдено</string>
+  <string name="search_reading_list_no_results">Не знайдено результатів у «%s»</string>
+  <string name="search_reading_lists_no_results">Не знайдено результатів у списках для читання</string>
+  <string name="search_history_no_results">Не знайдено результатів в історії</string>
   <string name="edit_section_captcha_message">Щоб якнайкраще захиститися від спаму, будь ласка, введіть слова, які з\'являються нижче</string>
   <string name="edit_section_captcha_hint">Повторіть слова зверху</string>
   <string name="title_captcha">Введіть символи із малюнку</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Ви успішно ввійшли!</string>
   <string name="preference_title_logout">Вийти із системи</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
-  <string name="history_empty_title" fuzzy="true">Немає нещодавніх сторінок.</string>
-  <string name="history_empty_message" fuzzy="true">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
+  <string name="history_empty_title">Немає недавно відвіданих сторінок</string>
+  <string name="history_empty_message">Відстежувати те, що Ви вже читали тут.</string>
   <string name="delete_selected_history">Видалити</string>
+  <string name="delete_selected_items">Вилучити вибрані елементи</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
   <string name="login_create_account_link">Немає облікового запису? Приєднайтесь до Вікіпедії</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Служби локалізації вимкнені.</string>
   <string name="enable_location_service">Увімкнути</string>
   <string name="error_webview_updating">Веб-перегляд для Android-систем наразі оновлюється. Будь ласка, спробуйте ще раз за деякий час.</string>
+  <string name="multi_select_items_selected">%d вибрано</string>
   <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>
   <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустити</string>
@@ -276,13 +281,14 @@
   <string name="reading_list_description_hint">Опис (за бажанням)</string>
   <string name="reading_list_save_for_offline">Доступні для читання в автономному режимі</string>
   <string name="reading_list_item_deleted">%s видалено зі списку</string>
+  <string name="reading_list_items_deleted">%d статей вилучено зі списку</string>
   <string name="reading_list_item_delete_undo">Скасувати</string>
   <string name="reading_list_deleted">%s видалено</string>
   <string name="reading_list_edit_ok">Гаразд</string>
   <string name="reading_list_edit_cancel">Скасувати</string>
   <string name="reading_list_delete_confirm">Ви дійсно хочете вилучити цей список читання?</string>
-  <string name="reading_lists_empty" fuzzy="true">Списки читання відсутні.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Організуйте статті, що ви читаєте в списки до прочитання! Переглядаючи статтю, натисніть значок закладки на панелі унизу, щоб додати її в список читання.</string>
+  <string name="reading_lists_empty">Списки для читання наразі відсутні</string>
+  <string name="reading_lists_empty_message">Зберігайте статті у списки для читання, щоб їх можна було переглянути пізніше, навіть коли Ви перебуваєте поза мережею.</string>
   <string name="reading_lists_onboarding_intro">Створіть списки з статей, які ви хочете прочитати пізніше, навіть коли ви в автономному режимі!</string>
   <string name="reading_lists_onboarding_for_example">Наприклад</string>
   <string name="reading_lists_onboarding_example1">Місця для відвідування</string>
@@ -290,6 +296,8 @@
   <string name="reading_lists_onboarding_example3">Космос!</string>
   <string name="reading_lists_onboarding_got_it">Зрозуміло</string>
   <string name="reading_lists_onboarding_page_delete">Порада: Проведіть по будь-якій сторінці вліво чи вправо, щоб видалити її зі списку читання.</string>
+  <string name="reading_list_no_description">Немає опису...</string>
+  <string name="reading_list_empty">У Вас немає статей, доданих до цього списку</string>
   <string name="user_option_sync_label">Налаштування</string>
   <string name="notification_button_view_page">Переглянути сторінку</string>
   <string name="notification_button_view_user">Поговорити з користувачем</string>

@@ -60,6 +60,9 @@
   <string name="dialog_message_leaving_edit_stay">Rimani</string>
   <string name="menu_show_toc">Sommario</string>
   <string name="search_no_results_found">Nessun risultato trovato</string>
+  <string name="search_reading_list_no_results">Nessun risultato trovato in \"%s\"</string>
+  <string name="search_reading_lists_no_results">Nessun risultato trovato negli elenchi di lettura</string>
+  <string name="search_history_no_results">Nessun risultato trovato nella cronologia</string>
   <string name="edit_section_captcha_message">Per aiutare a combattere lo spam automatico, inseririsci per favore le parole che compaiono sotto</string>
   <string name="edit_section_captcha_hint">Ripeti le parole dall\'alto</string>
   <string name="title_captcha">Inserisci il captcha</string>
@@ -75,8 +78,8 @@
   <string name="login_success_toast">Accesso eseguito con successo!</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="history_empty_title" fuzzy="true">Nessuna pagina recente qui!</string>
-  <string name="history_empty_message" fuzzy="true">Probabilmente hai cancellato tutto. La prossima volta che vai in una pagina, puoi tornarci da qui.</string>
+  <string name="history_empty_title">Nessuna voce vista recentemente</string>
+  <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="delete_selected_history">Cancella</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome utente</string>
@@ -272,8 +275,8 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Annulla</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare questo elenco di lettura?</string>
-  <string name="reading_lists_empty" fuzzy="true">Nessun elenco di lettura qui.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in fondo alla barra degli strumenti, per aggiungerla ad un elenco di lettura.</string>
+  <string name="reading_lists_empty">Nessun elenco di lettura ancora</string>
+  <string name="reading_lists_empty_message">Salva le voci in elenchi di lettura, così puoi visualizzarle in seguito, anche quando sei offline.</string>
   <string name="reading_lists_onboarding_intro">Crea elenchi di lettura da voci che vuoi leggere più tardi, anche quando sei offline!</string>
   <string name="reading_lists_onboarding_for_example">Per esempio</string>
   <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>
@@ -281,6 +284,8 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_lists_onboarding_example3">Spazio!</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="reading_lists_onboarding_page_delete">Suggerimento: fai scorrere una pagina a sinistra o a destra per rimuoverla dall\'elenco di lettura.</string>
+  <string name="reading_list_no_description">Nessuna descrizione…</string>
+  <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_button_view_page">Vedi pagina</string>
   <string name="notification_talk_title">Nuovo messaggio su Wikipedia</string>

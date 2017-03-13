@@ -62,6 +62,8 @@
   <string name="dialog_message_leaving_edit_stay">Permanecer</string>
   <string name="menu_show_toc">Táboa de contidos</string>
   <string name="search_no_results_found">Non se atopou ningún resultado</string>
+  <string name="search_reading_lists_no_results">Non se atoparon resultados nas listas de lectura</string>
+  <string name="search_history_no_results">Non se atoparon resultados no histórico</string>
   <string name="edit_section_captcha_message">Para axudar na protección contra o spam automatizado, introduza as palabras que aparecen abaixo</string>
   <string name="edit_section_captcha_hint">Repita as palabras de arriba</string>
   <string name="title_captcha">Introducir o captcha</string>
@@ -78,7 +80,7 @@
   <string name="login_success_toast">Accedeu correctamente!</string>
   <string name="preference_title_logout">Saír</string>
   <string name="toast_logout_complete">Sesión pechada</string>
-  <string name="history_empty_title" fuzzy="true">Non hai páxinas recentes aquí!</string>
+  <string name="history_empty_title">Non hai artigos vistos recentemente</string>
   <string name="history_empty_message" fuzzy="true">Probablemente borrounas todas. A próxima vez que visite unha páxina pode recuperala desde aquí.</string>
   <string name="delete_selected_history">Borrar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -281,7 +283,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_edit_ok">Aceptar</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">Está seguro de que quere eliminar esta lista de lectura?</string>
-  <string name="reading_lists_empty" fuzzy="true">Non hai listas de lectura aquí.</string>
+  <string name="reading_lists_empty">Aínda non hai listas de lectura</string>
   <string name="reading_lists_empty_message" fuzzy="true">Organice os artigos nos que navega en listas de lectura! Cando lea un artigo, prema a icona de marcador na parte inferior da barra de ferramentas para engadilo a unha lista de lectura.</string>
   <string name="reading_lists_onboarding_intro">Cree listas de lectura para os artigos que quere ler máis tarde, incluso cando non teña conexiónǃ</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
@@ -290,6 +292,8 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_lists_onboarding_example3">O espazoǃ</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_lists_onboarding_page_delete">Consello: Desprace calquera páxina á esquerda ou á dereita para eliminala desta páxina de lectura.</string>
+  <string name="reading_list_no_description">Sen descrición...</string>
+  <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_page">Ollar a páxina</string>
   <string name="notification_button_view_user">Conversar co usuario</string>

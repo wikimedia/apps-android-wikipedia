@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">ماندن</string>
   <string name="menu_show_toc">فهرست مندرجات</string>
   <string name="search_no_results_found">نتیجه‌ای یافت نشد</string>
+  <string name="search_reading_list_no_results">نتیجه‌ای برای \"%s\" یافت نشد</string>
+  <string name="search_reading_lists_no_results">در فهرست خواند نتیجه‌ای یافت نشد</string>
+  <string name="search_history_no_results">نتیجه‌ای در تاریخچه یافت نشد</string>
   <string name="edit_section_captcha_message">برای محافظت در برابر اسپم لطفا کلمات زیر را وارد کنید</string>
   <string name="edit_section_captcha_hint">تکرار کلمات بالا</string>
   <string name="title_captcha">کپچا را وارد کنید</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">ورود با موفقیت!</string>
   <string name="preference_title_logout">خروج از سامانه</string>
   <string name="toast_logout_complete">خارج شد</string>
-  <string name="history_empty_title" fuzzy="true">هیچ صفحه اخیری اینجا نیست.</string>
-  <string name="history_empty_message" fuzzy="true">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
+  <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده‌است</string>
+  <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
   <string name="delete_selected_history">حذف</string>
+  <string name="delete_selected_items">حذف آیتم‌های انتخاب شده</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
   <string name="login_create_account_link">ایجاد حساب کاربری</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">خدمات مکان‌یابی غیرفعال شده‌است.</string>
   <string name="enable_location_service">فعال</string>
   <string name="error_webview_updating">سامانه مشاهدهٔ وب اندروید در حال بروزرسانی‌ست. لطفاً چند وقت دیگر از نو تلاش کنید.</string>
+  <string name="multi_select_items_selected">%d انتخاب شد</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
   <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
   <string name="crash_report_dialog_dont_send_button">رها کردن</string>
@@ -266,19 +271,22 @@
   <string name="reading_list_sort_by_recent">مرتب بر پایهٔ آخرین</string>
   <string name="reading_list_sort_by_recent_desc">مرتب بر پایهٔ آخرین (معکوس)</string>
   <string name="reading_list_menu_edit">ویرایش جزئیات فهرست مطالعه</string>
-  <string name="reading_list_menu_delete" fuzzy="true">حذف فهرست مطالعه</string>
+  <string name="reading_list_menu_delete">حذف فهرست</string>
+  <string name="reading_list_menu_rename">تغییر نام</string>
+  <string name="reading_list_menu_edit_description">ویرایش توضیحات</string>
   <string name="reading_list_name_sample">فهرست مطالعهٔ من</string>
   <string name="reading_list_name_hint">نام این فهرست</string>
   <string name="reading_list_description_hint">توضیحات (اختیاری)</string>
   <string name="reading_list_save_for_offline">برای مطالعه بدون اینترنت در دسترس است</string>
   <string name="reading_list_item_deleted">%s از فهرست حذف شد</string>
+  <string name="reading_list_items_deleted">%d مقاله از فهرست حذف شد</string>
   <string name="reading_list_item_delete_undo">واگردانی</string>
   <string name="reading_list_deleted">%s حذف شد</string>
   <string name="reading_list_edit_ok">تأیید</string>
   <string name="reading_list_edit_cancel">لغو</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید این فهرست مطالعه را حذف کنید؟</string>
-  <string name="reading_lists_empty" fuzzy="true">در اینجا فهرست مطالعه‌ای وجود ندارد.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">افزودن مقالاتی که شما آنها را مرور کردید به فهرست مطالعه! در زمان مطالعهٔ یک مقاله بر روی دکمهٔ بوک‌مارک در پایین انگشت بزنید تا مقاله به فهرست مطالعه افزوده شود.</string>
+  <string name="reading_lists_empty">هنوز فهرست مطالعه‌ای وجود ندارد.</string>
+  <string name="reading_lists_empty_message">ذخیره مقاله در فهرست خواندن تا بتوانید آنها را بعدا مطالعه کنید، حتی زمانی که برخط نیستید.</string>
   <string name="reading_lists_onboarding_intro">درست کردن فهرست مطالعه برای مطالعه در زمانی دیگر حتی زمانی که به اینترنت دسترسی ندارید!</string>
   <string name="reading_lists_onboarding_for_example">برای مثال</string>
   <string name="reading_lists_onboarding_example1">مکان برای مشاهده</string>
@@ -286,6 +294,8 @@
   <string name="reading_lists_onboarding_example3">فضا!</string>
   <string name="reading_lists_onboarding_got_it">گرفتم</string>
   <string name="reading_lists_onboarding_page_delete">نکته: هر صفحه‌ای را به راست یا چپ بکشید تا از این فهرست حذف شود.</string>
+  <string name="reading_list_no_description">بدون توصیف...</string>
+  <string name="reading_list_empty">مقاله‌ای به فهرست نیافزوید.</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_button_view_page">مشاهدهٔ صفحه</string>
   <string name="notification_button_view_user">بحث با کاربر</string>
