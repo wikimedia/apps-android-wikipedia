@@ -48,9 +48,9 @@ public class RandomCardView extends StaticCardView<RandomCard> {
             @Override
             public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull PageTitle title) {
                 setProgress(false);
-                if (getCallback() != null) {
-                    getCallback().onSelectPage(new HistoryEntry(title,
-                            HistoryEntry.SOURCE_FEED_RANDOM));
+                if (getCallback() != null && getCard() != null) {
+                    getCallback().onSelectPage(getCard(),
+                            new HistoryEntry(title, HistoryEntry.SOURCE_FEED_RANDOM));
                 }
             }
 
@@ -65,10 +65,10 @@ public class RandomCardView extends StaticCardView<RandomCard> {
         private void getRandomReadingListPage() {
             ReadingListPageDao.instance().randomPage(new CallbackTask.Callback<PageTitle>() {
                 @Override public void success(@Nullable PageTitle title) {
-                    if (getCallback() != null) {
+                    if (getCallback() != null && getCard() != null) {
                         if (title != null) {
-                            getCallback().onSelectPage(new HistoryEntry(title,
-                                    HistoryEntry.SOURCE_FEED_RANDOM));
+                            getCallback().onSelectPage(getCard(),
+                                    new HistoryEntry(title, HistoryEntry.SOURCE_FEED_RANDOM));
                         } else {
                             getCallback().onError(new RuntimeException(getString(R.string.view_random_card_error)));
                         }

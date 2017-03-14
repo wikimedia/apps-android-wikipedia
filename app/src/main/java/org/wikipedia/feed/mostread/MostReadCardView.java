@@ -50,7 +50,9 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
         @Override
         public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int position) {
             MostReadItemCard card = item(position);
-            holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_MOST_READ));
+            holder.getView().setCard(card)
+                    .setHistoryEntry(new HistoryEntry(card.pageTitle(),
+                            HistoryEntry.SOURCE_FEED_MOST_READ));
         }
     }
 }

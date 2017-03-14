@@ -22,6 +22,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
             ListCardItemView.Callback, CardHeaderView.Callback,
             FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
             AnnouncementCardView.Callback {
+        void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onError(@NonNull Throwable t);
     }
@@ -62,6 +63,9 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     @Override public void onViewAttachedToWindow(DefaultViewHolder<T> holder) {
         super.onViewAttachedToWindow(holder);
         holder.getView().setCallback(callback);
+        if (callback != null) {
+            callback.onShowCard(holder.getView().getCard());
+        }
     }
 
     @Override public void onViewDetachedFromWindow(DefaultViewHolder<T> holder) {

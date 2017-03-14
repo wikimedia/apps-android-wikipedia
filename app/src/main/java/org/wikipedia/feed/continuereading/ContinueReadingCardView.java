@@ -52,7 +52,7 @@ public class ContinueReadingCardView extends ListCardView<ContinueReadingCard>
         @Override
         public void onClick(View v) {
             if (getCallback() != null && getCard() != null) {
-                getCallback().onSelectPage(new HistoryEntry(getCard().pageTitle(),
+                getCallback().onSelectPage(getCard(), new HistoryEntry(getCard().pageTitle(),
                         HistoryEntry.SOURCE_FEED_CONTINUE_READING));
             }
         }

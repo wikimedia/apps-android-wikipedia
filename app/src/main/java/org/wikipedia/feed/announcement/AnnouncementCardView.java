@@ -21,7 +21,7 @@ import butterknife.OnClick;
 public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
     public interface Callback {
-        void onAnnouncementPositiveAction(@NonNull Uri uri);
+        void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri);
         void onAnnouncementNegativeAction(@NonNull Card card);
     }
 
@@ -71,7 +71,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
     @OnClick(R.id.view_announcement_action_positive)
     void onPositiveActionClick() {
         if (getCallback() != null && getCard() != null) {
-            getCallback().onAnnouncementPositiveAction(getCard().actionUri());
+            getCallback().onAnnouncementPositiveAction(getCard(), getCard().actionUri());
         }
     }
 

@@ -15,6 +15,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
@@ -25,7 +26,7 @@ import butterknife.OnClick;
 
 public class ListCardItemView extends FrameLayout {
     public interface Callback {
-        void onSelectPage(@NonNull HistoryEntry entry);
+        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry);
         void onSharePage(@NonNull HistoryEntry entry);
     }
@@ -34,6 +35,7 @@ public class ListCardItemView extends FrameLayout {
     @BindView(R.id.view_list_card_item_title) TextView titleView;
     @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;
 
+    @Nullable private Card card;
     @Nullable private Callback callback;
     @Nullable private HistoryEntry entry;
 
@@ -49,11 +51,16 @@ public class ListCardItemView extends FrameLayout {
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (callback != null && entry != null) {
-                    callback.onSelectPage(entry);
+                if (callback != null && entry != null && card != null) {
+                    callback.onSelectPage(card, entry);
                 }
             }
         });
+    }
+
+    @NonNull public ListCardItemView setCard(@Nullable Card card) {
+        this.card = card;
+        return this;
     }
 
     @NonNull public ListCardItemView setCallback(@Nullable Callback callback) {

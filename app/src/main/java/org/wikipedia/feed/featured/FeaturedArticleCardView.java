@@ -62,7 +62,8 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_text_container})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
-            getCallback().onSelectPage(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            getCallback().onSelectPage(getCard(),
+                    getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
         }
     }
 

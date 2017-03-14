@@ -65,7 +65,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
 
         @Override public void onClick(View view) {
             if (getCallback() != null) {
-                getCallback().onSelectPage(new HistoryEntry(card.getPageTitle(),
+                getCallback().onSelectPage(card, new HistoryEntry(card.getPageTitle(),
                         HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
             }
         }
@@ -83,7 +83,9 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
         @Override
         public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int i) {
             BecauseYouReadItemCard card = item(i);
-            holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
+            holder.getView().setCard(card)
+                    .setHistoryEntry(new HistoryEntry(card.pageTitle(),
+                            HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
         }
     }
 }
