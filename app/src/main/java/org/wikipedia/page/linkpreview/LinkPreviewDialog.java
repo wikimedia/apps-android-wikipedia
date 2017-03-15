@@ -63,7 +63,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private GalleryThumbnailScrollView thumbnailGallery;
     private View toolbarView;
     private View overflowButton;
-    private TextView goButton;
 
     private PageTitle pageTitle;
     private int entrySource;
@@ -71,7 +70,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private LinkPreviewFunnel funnel;
     private LinkPreviewContents contents;
-    private OnNavigateListener onNavigateListener;
+    private LinkPreviewOverlayView overlayView;
+    private OverlayViewCallback overlayCallback = new OverlayViewCallback();
 
     private GalleryThumbnailScrollView.GalleryViewListener galleryViewListener
             = new GalleryThumbnailScrollView.GalleryViewListener() {
@@ -87,13 +87,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         @Override
         public void onClick(View v) {
             goToLinkedPage();
-        }
-    };
-
-    private View.OnClickListener getDirectionsListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            goToExternalMapsApp();
         }
     };
 
@@ -122,17 +115,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         toolbarView = rootView.findViewById(R.id.link_preview_toolbar);
         toolbarView.setOnClickListener(goToPageListener);
 
-        goButton = (TextView) rootView.findViewById(R.id.link_preview_go_button);
-        goButton.setOnClickListener(goToPageListener);
-        goButton.setText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
-
-        TextView directionsButton = (TextView) rootView.findViewById(R.id.link_preview_directions_button);
-        if (location != null) {
-            directionsButton.setOnClickListener(getDirectionsListener);
-        } else {
-            directionsButton.setVisibility(View.GONE);
-        }
-
         TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
         setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
@@ -146,7 +128,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             ViewUtil.setBottomPaddingDp(titleText, bottomPadding);
         }
 
-        onNavigateListener = new DefaultOnNavigateListener();
         extractText = (TextView) rootView.findViewById(R.id.link_preview_extract);
         thumbnailView = (SimpleDraweeView) rootView.findViewById(R.id.link_preview_thumbnail);
 
@@ -179,18 +160,25 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         return rootView;
     }
 
-    public interface OnNavigateListener {
-        void onNavigate(PageTitle title);
-    }
-
     public void goToLinkedPage() {
         navigateSuccess = true;
         funnel.logNavigate();
         if (getDialog() != null) {
             getDialog().dismiss();
         }
-        if (onNavigateListener != null) {
-            onNavigateListener.onNavigate(pageTitle);
+        HistoryEntry newEntry = new HistoryEntry(pageTitle, entrySource);
+        loadPage(pageTitle, newEntry, false);
+    }
+
+    @Override public void onResume() {
+        super.onResume();
+        if (overlayView == null) {
+            ViewGroup containerView = (ViewGroup) getDialog().findViewById(android.R.id.content);
+            overlayView = new LinkPreviewOverlayView(getContext());
+            overlayView.setCallback(overlayCallback);
+            overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
+            overlayView.showSecondaryButton(location != null);
+            containerView.addView(overlayView);
         }
     }
 
@@ -199,7 +187,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         thumbnailGallery.setGalleryViewListener(null);
         toolbarView.setOnClickListener(null);
         overflowButton.setOnClickListener(null);
-        goButton.setOnClickListener(null);
+        overlayView.setCallback(null);
+        overlayView = null;
         super.onDestroyView();
     }
 
@@ -313,14 +302,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         }
     };
 
-    private class DefaultOnNavigateListener implements OnNavigateListener {
-        @Override
-        public void onNavigate(PageTitle title) {
-            HistoryEntry newEntry = new HistoryEntry(title, entrySource);
-            loadPage(title, newEntry, false);
-        }
-    }
-
     private void layoutPreview() {
         if (contents.getExtract().length() > 0) {
             extractText.setText(contents.getExtract());
@@ -336,7 +317,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
         @Override
         public void onGalleryResult(GalleryCollection result) {
-            if (!result.getItemList().isEmpty()) {
+            if (result.getItemList() != null && !result.getItemList().isEmpty()) {
                 thumbnailGallery.setGalleryCollection(result);
             }
         }
@@ -359,6 +340,18 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         Callback callback = callback();
         if (callback != null) {
             callback.onLinkPreviewLoadPage(title, entry, inNewTab);
+        }
+    }
+
+    private class OverlayViewCallback implements LinkPreviewOverlayView.Callback {
+        @Override
+        public void onPrimaryClick() {
+            goToLinkedPage();
+        }
+
+        @Override
+        public void onSecondaryClick() {
+            goToExternalMapsApp();
         }
     }
 
