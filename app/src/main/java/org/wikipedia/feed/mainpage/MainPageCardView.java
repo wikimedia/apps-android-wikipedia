@@ -39,10 +39,11 @@ public class MainPageCardView extends StaticCardView<MainPageCard> {
 
         @Override
         public void onClick(View view) {
-            if (getCallback() != null) {
+            if (getCallback() != null && getCard() != null) {
                 PageTitle title = new PageTitle(MainPageNameData
                         .valueFor(app.getAppOrSystemLanguageCode()), app.getWikiSite());
-                getCallback().onSelectPage(new HistoryEntry(title, HistoryEntry.SOURCE_FEED_MAIN_PAGE));
+                getCallback().onSelectPage(getCard(),
+                        new HistoryEntry(title, HistoryEntry.SOURCE_FEED_MAIN_PAGE));
             }
         }
     }

@@ -19,7 +19,7 @@ public abstract class DefaultFeedCardView<T extends Card> extends CardView imple
         this.card = card;
     }
 
-    @Nullable protected T getCard() {
+    @Nullable @Override public T getCard() {
         return card;
     }
 

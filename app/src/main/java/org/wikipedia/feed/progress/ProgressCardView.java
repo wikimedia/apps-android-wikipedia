@@ -17,5 +17,8 @@ public class ProgressCardView extends FrameLayout implements FeedCardView<Card> 
     }
 
     @Override public void setCard(@NonNull Card card) { }
+    @Override public Card getCard() {
+        return null;
+    }
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) { }
 }

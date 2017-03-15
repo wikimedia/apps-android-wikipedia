@@ -160,7 +160,7 @@ import static org.mockito.Mockito.when;
             super(context);
         }
 
-        @Nullable @Override protected BecauseYouReadCard getCard() {
+        @Nullable @Override public BecauseYouReadCard getCard() {
             return super.getCard();
         }
     }

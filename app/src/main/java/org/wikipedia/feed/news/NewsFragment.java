@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
@@ -112,7 +113,7 @@ public class NewsFragment extends Fragment {
         links.setNestedScrollingEnabled(false);
     }
 
-    protected static class RecyclerAdapter extends DefaultRecyclerAdapter<NewsLinkCard, ListCardItemView> {
+    private static class RecyclerAdapter extends DefaultRecyclerAdapter<NewsLinkCard, ListCardItemView> {
         @Nullable private Callback callback;
 
         RecyclerAdapter(@NonNull List<NewsLinkCard> items, @NonNull Callback callback) {
@@ -134,7 +135,7 @@ public class NewsFragment extends Fragment {
 
     private class Callback implements ListCardItemView.Callback {
         @Override
-        public void onSelectPage(@NonNull HistoryEntry entry) {
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
             startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
         }
 

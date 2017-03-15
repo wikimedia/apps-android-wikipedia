@@ -137,6 +137,32 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        funnel.enter();
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        funnel.exit();
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean visible) {
+        super.setUserVisibleHint(visible);
+        if (!isAdded()) {
+            return;
+        }
+        if (visible) {
+            funnel.enter();
+        } else {
+            funnel.exit();
+        }
+    }
+
+    @Override
     public void onDestroyView() {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
@@ -211,6 +237,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
     private class FeedCallback implements FeedAdapter.Callback {
         @Override
+        public void onShowCard(@Nullable Card card) {
+            if (card != null) {
+                funnel.cardShown(card.type());
+            }
+        }
+
+        @Override
         public void onRequestMore() {
             funnel.requestMore(coordinator.getAge());
             coordinator.more(app.getWikiSite());
@@ -222,9 +255,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSelectPage(@NonNull HistoryEntry entry) {
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedSelectPage(entry);
+                funnel.cardClicked(card.type());
             }
         }
 
@@ -272,6 +306,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onNewsItemSelected(@NonNull NewsItemCard card) {
             if (getCallback() != null) {
+                funnel.cardClicked(card.type());
                 getCallback().onFeedNewsItemSelected(card);
             }
         }
@@ -293,12 +328,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onFeaturedImageSelected(@NonNull FeaturedImageCard card) {
             if (getCallback() != null) {
+                funnel.cardClicked(card.type());
                 getCallback().onFeaturedImageSelected(card);
             }
         }
 
         @Override
-        public void onAnnouncementPositiveAction(@NonNull Uri uri) {
+        public void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri) {
+            funnel.cardClicked(card.type());
             UriUtil.handleExternalLink(getContext(), uri);
         }
 
