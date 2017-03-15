@@ -36,8 +36,6 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ExploreOverflowView;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -104,20 +102,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             public void onRefresh() {
                 funnel.refresh(coordinator.getAge());
                 coordinator.reset();
+                feedAdapter.notifyDataSetChanged();
                 coordinator.more(app.getWikiSite());
             }
         });
 
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
-            @Override public void update(List<Card> cards) {
-                if (isAdded()) {
-                    swipeRefreshLayout.setRefreshing(false);
-                    if (feedView != null && feedAdapter != null) {
-                        feedAdapter.notifyDataSetChanged();
-                    }
-                }
-            }
-
             @Override public void insert(Card card, int pos) {
                 if (isAdded()) {
                     swipeRefreshLayout.setRefreshing(false);
@@ -342,7 +332,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         snackbar.setAction(R.string.feed_undo_dismiss_card, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                coordinator.insertCard(card, position);
+                coordinator.undoDismissCard(card, position);
             }
         });
         snackbar.show();

@@ -21,8 +21,6 @@ public abstract class FeedCoordinatorBase {
     private static final int MAX_HIDDEN_CARDS = 100;
 
     public interface FeedUpdateListener {
-        // todo: should we remove update?
-        void update(List<Card> cards);
         void insert(Card card, int pos);
         void remove(Card card, int pos);
     }
@@ -65,7 +63,7 @@ public abstract class FeedCoordinatorBase {
         }
         pendingClients.clear();
         cards.clear();
-        appendProgressCard(cards);
+        insertCard(progressCard, 0);
     }
 
     public void more(@NonNull WikiSite wiki) {
@@ -88,20 +86,14 @@ public abstract class FeedCoordinatorBase {
 
     public int dismissCard(@NonNull Card card) {
         int position = cards.indexOf(card);
-        cards.remove(card);
         addHiddenCard(card);
-        if (updateListener != null) {
-            updateListener.remove(card, position);
-        }
+        removeCard(card, position);
         return position;
     }
 
-    public void insertCard(@NonNull Card card, int position) {
-        cards.add(position, card);
+    public void undoDismissCard(@NonNull Card card, int position) {
         unHideCard(card);
-        if (updateListener != null) {
-            updateListener.insert(card, position);
-        }
+        insertCard(card, position);
     }
 
     protected abstract void buildScript(int age);
@@ -134,12 +126,9 @@ public abstract class FeedCoordinatorBase {
         public void success(@NonNull List<? extends Card> cardList) {
             for (Card card : cardList) {
                 if (!isCardHidden(card)) {
-                    cards.add(card);
+                    int progressPos = cards.indexOf(progressCard);
+                    insertCard(card, progressPos >= 0 ? progressPos : cards.size());
                 }
-            }
-            appendProgressCard(cards);
-            if (updateListener != null) {
-                updateListener.update(cards);
             }
             //noinspection ConstantConditions
             requestNextCard(wiki);
@@ -152,10 +141,18 @@ public abstract class FeedCoordinatorBase {
         }
     }
 
-    private void appendProgressCard(List<Card> cards) {
-        // todo: can we consolidate remove / add operations on list?
-        cards.remove(progressCard);
-        cards.add(progressCard);
+    private void insertCard(@NonNull Card card, int position) {
+        cards.add(position, card);
+        if (updateListener != null) {
+            updateListener.insert(card, position);
+        }
+    }
+
+    private void removeCard(@NonNull Card card, int position) {
+        cards.remove(card);
+        if (updateListener != null) {
+            updateListener.remove(card, position);
+        }
     }
 
     private void addHiddenCard(@NonNull Card card) {
