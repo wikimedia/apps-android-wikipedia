@@ -47,15 +47,6 @@ public class ListCardItemView extends FrameLayout {
 
         inflate(getContext(), R.layout.view_list_card_item, this);
         ButterKnife.bind(this);
-
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (callback != null && entry != null && card != null) {
-                    callback.onSelectPage(card, entry);
-                }
-            }
-        });
     }
 
     @NonNull public ListCardItemView setCard(@Nullable Card card) {
@@ -74,6 +65,12 @@ public class ListCardItemView extends FrameLayout {
         setSubtitle(entry.getTitle().getDescription());
         setImage(entry.getTitle().getThumbUrl());
         return this;
+    }
+
+    @OnClick void onClick(View view) {
+        if (callback != null && entry != null && card != null) {
+            callback.onSelectPage(card, entry);
+        }
     }
 
     @OnClick(R.id.view_list_card_item_menu) void showOverflowMenu(View anchorView) {

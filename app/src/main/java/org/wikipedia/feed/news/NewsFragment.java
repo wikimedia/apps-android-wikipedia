@@ -128,8 +128,9 @@ public class NewsFragment extends Fragment {
         @Override
         public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder, int position) {
             NewsLinkCard card = item(position);
-            holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_NEWS));
-            holder.getView().setCallback(callback);
+            holder.getView().setCard(card)
+                    .setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_NEWS))
+                    .setCallback(callback);
         }
     }
 
