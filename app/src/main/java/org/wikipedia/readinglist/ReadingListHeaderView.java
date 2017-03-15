@@ -91,17 +91,15 @@ public class ReadingListHeaderView extends FrameLayout {
     }
 
     private void getThumbnails() {
-        ReadingListImageFetcher.getThumbnails(readingList, new ReadingListImageFetcher.CompleteListener() {
-            @Override
-            public void onComplete() {
+        ReadingListPageDetailFetcher.updateInfo(readingList, new ReadingListPageDetailFetcher.Callback() {
+            @Override public void success() {
                 if (getWindowToken() == null) {
                     return;
                 }
                 updateThumbnails();
             }
 
-            @Override
-            public void onError(Throwable e) {
+            @Override public void failure(Throwable e) {
             }
         });
         updateThumbnails();

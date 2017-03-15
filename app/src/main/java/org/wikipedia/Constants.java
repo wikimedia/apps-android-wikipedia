@@ -31,6 +31,7 @@ public final class Constants {
 
     public static final int MAX_SUGGESTION_RESULTS = 3;
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
+    public static final int API_QUERY_MAX_TITLES = 50;
 
     public static final int PREFERRED_THUMB_SIZE = 320;
 
