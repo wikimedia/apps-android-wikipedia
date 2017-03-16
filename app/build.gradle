@@ -197,6 +197,7 @@ dependencies {
     }
     compile 'net.hockeyapp.android:HockeySDK:4.0.1'
     compile 'org.apache.commons:commons-lang3:3.5'
+    compile 'org.jsoup:jsoup:1.10.2'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
