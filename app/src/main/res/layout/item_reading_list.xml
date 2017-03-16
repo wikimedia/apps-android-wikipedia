@@ -111,6 +111,6 @@
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
         android:tint="?attr/feed_text_tertiary_color"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@null"/>
+        android:contentDescription="@string/abc_action_menu_overflow_description"/>
 
 </FrameLayout>
