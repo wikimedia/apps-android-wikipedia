@@ -3,14 +3,12 @@ package org.wikipedia.page.snippet;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -165,7 +163,7 @@ public class ShareHandler {
 
     private void handleSelection(Menu menu, MenuItem shareItem) {
         if (WikipediaApp.getInstance().getOnboardingStateMachine().isShareTutorialEnabled()) {
-            showShareOnboarding(shareItem);
+            postShowShareToolTip(shareItem);
             WikipediaApp.getInstance().getOnboardingStateMachine().setShareTutorial();
         }
 
@@ -188,7 +186,7 @@ public class ShareHandler {
         }
         MenuItem editItem = menu.findItem(R.id.menu_text_edit_here);
         editItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_EDIT_HERE));
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN || !fragment.getPage().isArticle()) {
+        if (!fragment.getPage().isArticle()) {
             editItem.setVisible(false);
         }
 
@@ -203,11 +201,6 @@ public class ShareHandler {
     private boolean isWiktionaryDialogEnabledForArticleLanguage() {
         return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
                 .contains(fragment.getTitle().getWikiSite().languageCode());
-    }
-
-    private void showShareOnboarding(MenuItem shareItem) {
-        DrawableCompat.setTint(shareItem.getIcon(), getColor(SHARE_TOOL_TIP_COLOR));
-        postShowShareToolTip(shareItem);
     }
 
     private void postShowShareToolTip(final MenuItem shareItem) {
