@@ -3,6 +3,7 @@ package org.wikipedia.main;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.view.ActionMode;
 import android.view.View;
 
 import org.wikipedia.R;
@@ -44,6 +45,18 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         if (shouldFinishActivity) {
             finish();
         }
+    }
+
+    @Override
+    public void onSupportActionModeStarted(@NonNull ActionMode mode) {
+        super.onSupportActionModeStarted(mode);
+        getFragment().setBottomNavVisible(false);
+    }
+
+    @Override
+    public void onSupportActionModeFinished(@NonNull ActionMode mode) {
+        super.onSupportActionModeFinished(mode);
+        getFragment().setBottomNavVisible(true);
     }
 
     @NonNull

@@ -392,6 +392,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         return false;
     }
 
+    public void setBottomNavVisible(boolean visible) {
+        tabLayout.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
     @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
         Callback callback = callback();
         if (callback != null) {
