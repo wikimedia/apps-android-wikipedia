@@ -281,6 +281,7 @@
   <string name="reading_list_description_hint">Описание (необязательно)</string>
   <string name="reading_list_save_for_offline">Доступно для чтения в автономном режиме</string>
   <string name="reading_list_item_deleted">%s удалено из списка</string>
+  <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
   <string name="reading_list_deleted">%s удалено</string>
   <string name="reading_list_edit_ok">OK</string>

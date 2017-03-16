@@ -81,6 +81,7 @@
   <string name="history_empty_title">Nessuna voce vista recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="delete_selected_history">Cancella</string>
+  <string name="delete_selected_items">Cancella gli elementi selezionati</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome utente</string>
   <string name="login_create_account_link">Non hai un\'utenza? Iscriviti a Wikipedia.</string>
@@ -231,6 +232,7 @@
   <string name="error_voice_search_not_available">Siacenti, il riconoscimento vocale non è disponibile.</string>
   <string name="location_service_disabled">I servizi di localizzazione sono disattivati.</string>
   <string name="enable_location_service">Attiva</string>
+  <string name="multi_select_items_selected">%d selezionati</string>
   <string name="crash_report_dialog_title">Spiacenti, l\'ultima volta l\'applicazione è andata in errore</string>
   <string name="crash_report_dialog_text">Vuoi inviare una segnalazione sull\'errore a HockeyApp / un fornitore terzo di servizi, in modo che Wikimedia possa rivedere il tuo errore e correggere il bug più che lo ha causato?</string>
   <string name="crash_report_dialog_dont_send_button">Salta</string>
@@ -270,6 +272,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
   <string name="reading_list_save_for_offline">Disponibile per la lettura offline</string>
   <string name="reading_list_item_deleted">%s rimosso dall\'elenco</string>
+  <string name="reading_list_items_deleted">%d voci rimosse dalla lista</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s cancellato</string>
   <string name="reading_list_edit_ok">OK</string>

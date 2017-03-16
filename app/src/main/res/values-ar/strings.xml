@@ -266,6 +266,8 @@
   <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>
   <string name="reading_list_menu_edit">عدل تفاصيل قائمة القراءة</string>
   <string name="reading_list_menu_delete" fuzzy="true">احذف قائمة القراءة</string>
+  <string name="reading_list_menu_rename">أعد التسمية</string>
+  <string name="reading_list_menu_edit_description">عدل الوصف</string>
   <string name="reading_list_name_sample">قائمة قراءاتي</string>
   <string name="reading_list_name_hint">اسم قائمة القراءة</string>
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
@@ -276,7 +278,7 @@
   <string name="reading_list_edit_ok">موافق</string>
   <string name="reading_list_edit_cancel">إلغاء</string>
   <string name="reading_list_delete_confirm">هل أنت متأكد من رغبتك في حذف قائمة القراءة هذه؟</string>
-  <string name="reading_lists_empty" fuzzy="true">لا قوائم قراءة هنا.</string>
+  <string name="reading_lists_empty">لا توجد قوائم قراءة بعد</string>
   <string name="reading_lists_empty_message" fuzzy="true">نظّم المقالات التي تتصفحها في شكل قوائم قراءة! حينما تتصفح مقالةً ما؛ اضغط على أيقونة الإشارة المرجعية في شريط الأدوات في الأسفل لإضافتها إلى قائمة قراءة.</string>
   <string name="reading_lists_onboarding_intro">أنشئ قوائم مطالعة من المقالات التي ترغب في الاطلاع عليها لاحقا، حتى لو كنت غير متصل بالإنترنت!</string>
   <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
@@ -285,6 +287,8 @@
   <string name="reading_lists_onboarding_example3">الفضاء</string>
   <string name="reading_lists_onboarding_got_it">فهمت</string>
   <string name="reading_lists_onboarding_page_delete">تلميح: اسحب أي صفحة إلى اليسار أو اليمين كي تزيلها من قائمة المطالعة.</string>
+  <string name="reading_list_no_description">لا وصف...</string>
+  <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_button_view_page">أعرض الصفحة</string>
   <string name="notification_button_view_user">التحدث مع المستخدم</string>

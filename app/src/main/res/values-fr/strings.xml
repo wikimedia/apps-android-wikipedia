@@ -85,6 +85,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="history_empty_title">Aucun article vu récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
   <string name="delete_selected_history">Supprimer</string>
+  <string name="delete_selected_items">Supprimer les éléments sélectionnés</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d’utilisateur</string>
   <string name="login_create_account_link">Vous n’avez pas de compte ? Rejoignez Wikipédia</string>
@@ -237,6 +238,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="location_service_disabled">Les services de localisation sont désactivés.</string>
   <string name="enable_location_service">Activer</string>
   <string name="error_webview_updating">Le WebView du système Android est actuellement en cours de mise à jour. Veuillez réessayer dans un moment.</string>
+  <string name="multi_select_items_selected">%d sélectionné</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>
@@ -280,6 +282,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_description_hint">Description (facultatif)</string>
   <string name="reading_list_save_for_offline">Disponible pour une lecture hors connexion</string>
   <string name="reading_list_item_deleted">%s supprimé de la liste</string>
+  <string name="reading_list_items_deleted">%d articles supprimés de la liste</string>
   <string name="reading_list_item_delete_undo">Annuler</string>
   <string name="reading_list_deleted">%s supprimé</string>
   <string name="reading_list_edit_ok">OK</string>

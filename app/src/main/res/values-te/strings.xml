@@ -121,6 +121,8 @@
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
   <string name="about_contributors_heading">సహాయకులు</string>
   <string name="about_translators_heading">అనువాదకులు</string>
@@ -214,6 +216,7 @@
   <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>
   <string name="reading_lists_onboarding_example3">అంతరిక్షం!</string>
   <string name="reading_lists_onboarding_got_it">అర్థమైంది</string>
+  <string name="reading_list_no_description">వివరణ లేదు…</string>
   <string name="user_option_sync_label">అభిరుచులు</string>
   <string name="notification_button_view_page">పేజీ చూడండి</string>
   <string name="menu_feed_overflow_label">మరిన్ని ఎంపికలు</string>

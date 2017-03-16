@@ -285,7 +285,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_edit_cancel">Peru</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa tämän lukulistan?</string>
   <string name="reading_lists_empty">Ei lukulistoja vielä</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta alaosan työkalupalkissa lisätäksesi sen lukulistaan.</string>
+  <string name="reading_lists_empty_message">Tallenna artikkelit lukulistoiksi, jotta voit tarkastella niitä myöhemmin, jopa ilman verkkoyhteyttä.</string>
   <string name="reading_lists_onboarding_intro">Luo lukulistoja artikkeleista, jotka haluat lukea myöhemmin, jopa verkkoyhteydettömässä tilassa!</string>
   <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
   <string name="reading_lists_onboarding_example1">Paikat, joissa käydä</string>
@@ -309,6 +309,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
   <string name="view_random_card_subtitle">Lue satunnainen artikkeli Wikipediasta</string>
+  <string name="view_random_card_error">Satunnaisen sivun lataaminen verkosta tai lukulistoistasi epäonnistui.</string>
   <string name="view_main_page_card_title">Tänään Wikipediassa</string>
   <string name="view_main_page_card_subtitle">Etusivu %s</string>
   <string name="view_featured_image_card_title">Päivän kuva</string>
