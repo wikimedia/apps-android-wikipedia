@@ -14,7 +14,6 @@ import android.view.Window;
 import android.webkit.WebView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
@@ -34,6 +33,7 @@ import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.okhttp.CacheableOkHttpNetworkFetcher;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -168,8 +168,8 @@ public class WikipediaApp extends Application {
 
         Api.setConnectionFactory(new OkHttpConnectionFactory());
 
-        ImagePipelineConfig config = OkHttpImagePipelineConfigFactory
-                .newBuilder(this, OkHttpConnectionFactory.getClient())
+        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+                .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
                 .build();
         Fresco.initialize(this, config);
 
