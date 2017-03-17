@@ -61,6 +61,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private TextView extractText;
     private SimpleDraweeView thumbnailView;
     private GalleryThumbnailScrollView thumbnailGallery;
+    private LinkPreviewOverlayView overlayView;
     private View toolbarView;
     private View overflowButton;
 
@@ -69,9 +70,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     @Nullable private Location location;
 
     private LinkPreviewFunnel funnel;
-    private LinkPreviewContents contents;
-    private LinkPreviewOverlayView overlayView;
-    private OverlayViewCallback overlayCallback = new OverlayViewCallback();
 
     private GalleryThumbnailScrollView.GalleryViewListener galleryViewListener
             = new GalleryThumbnailScrollView.GalleryViewListener() {
@@ -175,7 +173,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         if (overlayView == null) {
             ViewGroup containerView = (ViewGroup) getDialog().findViewById(android.R.id.content);
             overlayView = new LinkPreviewOverlayView(getContext());
-            overlayView.setCallback(overlayCallback);
+            overlayView.setCallback(new OverlayViewCallback());
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
             overlayView.showSecondaryButton(location != null);
             containerView.addView(overlayView);
@@ -242,8 +240,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void displayPreviewFromCachedPage(Page page) {
         progressBar.setVisibility(View.GONE);
-        contents = new LinkPreviewContents(page);
-        layoutPreview();
+        layoutPreview(new LinkPreviewContents(page));
     }
 
     private retrofit2.Callback<PageSummary> linkPreviewOnLoadCallback = new retrofit2.Callback<PageSummary>() {
@@ -254,8 +251,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             PageSummary summary = rsp.body();
             if (summary != null && !summary.hasError()) {
                 progressBar.setVisibility(View.GONE);
-                contents = new LinkPreviewContents(summary, pageTitle.getWikiSite());
-                layoutPreview();
+                layoutPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
             } else {
                 if (summary != null) {
                     summary.logError("Page summary request failed");
@@ -302,7 +298,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         }
     };
 
-    private void layoutPreview() {
+    private void layoutPreview(@NonNull LinkPreviewContents contents) {
         if (contents.getExtract().length() > 0) {
             extractText.setText(contents.getExtract());
         }
