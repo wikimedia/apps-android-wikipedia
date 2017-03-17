@@ -66,6 +66,6 @@
         android:tint="?attr/overflow_button"
         android:tintMode="src_in"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@null"/>
+        android:contentDescription="@string/abc_action_menu_overflow_description"/>
 
 </merge>
