@@ -5,4 +5,4 @@ export ANDROID_HOME="$PWD/.sdk"
 declare START_TIME="$(date +"%Y-%m-%dT%H:%M:%S.%N")"
 
 ./gradlew -q clean assembleAlphaRelease
-echo "{{\"commit_hash\": \"$GIT_COMMIT\", \"completed_on\": \"$START_TIME\"}}" > meta.json
+echo "{\"commit_hash\": \"$GIT_COMMIT\", \"completed_on\": \"$START_TIME\"}" > meta.json
