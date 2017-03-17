@@ -51,6 +51,7 @@
         <item name="link_preview_toolbar_color">@color/link_preview_toolbar_dark</item>
         <item name="link_preview_background_color">@color/link_preview_background_dark</item>
         <item name="link_preview_text_color">@color/link_preview_text_dark</item>
+        <item name="link_preview_offline_text_color">@color/link_preview_offline_text_dark</item>
         <item name="link_preview_button_background">@drawable/link_preview_button_background_dark</item>
         <item name="nav_background_color">@android:color/black</item>
         <item name="nav_item_color">@android:color/white</item>
