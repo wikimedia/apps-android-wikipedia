@@ -19,7 +19,7 @@ public enum NavTab implements EnumCode {
             return FeedFragment.newInstance();
         }
     },
-    READING_LISTS(R.string.nav_item_reading_lists, R.drawable.ic_collections_bookmark_black_24dp) {
+    READING_LISTS(R.string.nav_item_reading_lists, R.drawable.ic_bookmark_white_24dp) {
         @NonNull @Override public Fragment newInstance() {
             return ReadingListsFragment.newInstance();
         }
