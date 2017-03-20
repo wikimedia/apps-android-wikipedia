@@ -261,7 +261,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             }
         }
 
-        @Override public void onFailure(Call call, Throwable t) {
+        @Override public void onFailure(Call<PageSummary> call, Throwable t) {
             L.e(t);
         }
     };
