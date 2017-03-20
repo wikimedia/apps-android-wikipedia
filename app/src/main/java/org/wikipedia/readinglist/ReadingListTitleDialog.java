@@ -31,11 +31,12 @@ public final class ReadingListTitleDialog {
 
                     @Override
                     public void onTextChanged(@NonNull CharSequence text, @NonNull TextInputDialog dialog) {
-                        if (StringUtils.isEmpty(text)) {
+                        String title = text.toString().trim();
+                        if (StringUtils.isEmpty(title)) {
                             dialog.setError(dialog.getContext().getString(R.string.reading_list_entry_empty));
                             dialog.setPositiveButtonEnabled(false);
-                        } else if (otherTitles.contains(text.toString())) {
-                            dialog.setError(dialog.getContext().getString(R.string.reading_list_title_exists, text.toString()));
+                        } else if (otherTitles.contains(title)) {
+                            dialog.setError(dialog.getContext().getString(R.string.reading_list_title_exists, title));
                             dialog.setPositiveButtonEnabled(false);
                         } else {
                             dialog.setError(null);
@@ -46,7 +47,7 @@ public final class ReadingListTitleDialog {
                     @Override
                     public void onSuccess(@NonNull CharSequence text) {
                         if (callback != null) {
-                            callback.onSuccess(text);
+                            callback.onSuccess(text.toString().trim());
                         }
                     }
 
