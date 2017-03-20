@@ -366,6 +366,8 @@ Shown in the preferences screen along with the following:
   <string name="location_service_disabled">Message shown when trying to use location services but they are unavailable</string>
   <string name="enable_location_service">Button label for enabling location services
 {{Identical|Enable}}</string>
+  <string name="location_permissions_enable_prompt">Message shown informing the user that if they enable the Location permission, they will be able to see places nearby.</string>
+  <string name="location_permissions_enable_action">Button label for requesting to turn on location permissions.</string>
   <string name="error_webview_updating">Error informing the user that the System WebView is being updated, meaning that the app cannot be launched right now, and that the user should try again in a moment.</string>
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>

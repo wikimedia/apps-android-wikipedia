@@ -192,8 +192,8 @@ public class NearbyFragment extends Fragment {
             return;
         }
 
-        if (isVisibleToUser && locationPermitted() && !firstLocationLock) {
-            goToUserLocation();
+        if (isVisibleToUser && !firstLocationLock) {
+            goToUserLocationOrPromptPermissions();
         }
     }
 
@@ -244,6 +244,8 @@ public class NearbyFragment extends Fragment {
 
                 if (lastCameraPos != null) {
                     mapboxMap.setCameraPosition(lastCameraPos);
+                } else {
+                    goToUserLocationOrPromptPermissions();
                 }
                 if (lastResult != null) {
                     showNearbyPages(lastResult);
@@ -324,6 +326,14 @@ public class NearbyFragment extends Fragment {
         mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(pos));
     }
 
+    private void goToUserLocationOrPromptPermissions() {
+        if (locationPermitted()) {
+            goToUserLocation();
+        } else if (getUserVisibleHint()) {
+            showLocationPermissionSnackbar();
+        }
+    }
+
     private void showLocationDisabledSnackbar() {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
                 getString(R.string.location_service_disabled),
@@ -333,6 +343,19 @@ public class NearbyFragment extends Fragment {
             public void onClick(View v) {
                 Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 getContext().startActivity(settingsIntent);
+            }
+        });
+        snackbar.show();
+    }
+
+    private void showLocationPermissionSnackbar() {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
+                getString(R.string.location_permissions_enable_prompt),
+                FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.location_permissions_enable_action, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestLocationRuntimePermissions(GO_TO_LOCATION_PERMISSION_REQUEST);
             }
         });
         snackbar.show();

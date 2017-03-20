@@ -251,6 +251,8 @@
     <string name="error_voice_search_not_available">Sorry, voice recognition is not available.</string>
     <string name="location_service_disabled">Location services are disabled.</string>
     <string name="enable_location_service">Enable</string>
+    <string name="location_permissions_enable_prompt">Enable location permissions to see places nearby you.</string>
+    <string name="location_permissions_enable_action">Turn on</string>
     <string name="error_webview_updating">The Android System WebView is currently being updated. Please try again in a moment.</string>
     <string name="multi_select_items_selected">%d selected</string>
 
