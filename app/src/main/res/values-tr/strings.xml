@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Kal</string>
   <string name="menu_show_toc">İçindekiler</string>
   <string name="search_no_results_found">Hiçbir sonuç bulunamadı</string>
+  <string name="search_reading_list_no_results">\"%s\" içinde sonuç bulunamadı</string>
+  <string name="search_reading_lists_no_results">Okuma listelerinde sonuç bulunamadı</string>
+  <string name="search_history_no_results">Geçmişte sonuç bulunamadı</string>
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için, aşağıda görünen kelimeleri yazınız.</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
   <string name="title_captcha">Captcha\'yı gir</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Başarıyla oturum açıldı!</string>
   <string name="preference_title_logout">Oturumu kapat</string>
   <string name="toast_logout_complete">Oturum kapandı</string>
-  <string name="history_empty_title" fuzzy="true">Hiç ziyaret edilmiş sayfa yok.</string>
-  <string name="history_empty_message" fuzzy="true">Muhtemelen hepsini sildiniz. Bir daha herhangi bir sayfaya gittiğinizde, buradan ona tekrar ulaşabilirsiniz.</string>
+  <string name="history_empty_title">Ziyaret edilmiş hiç madde yok.</string>
+  <string name="history_empty_message">Okuduklarınızı buradan takip edin.</string>
   <string name="delete_selected_history">Sil</string>
+  <string name="delete_selected_items">Seçili ögeleri sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
   <string name="login_create_account_link">Hesabınız yok mu? Vikipedi\'ye katılın</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
   <string name="enable_location_service">Etkinleştir</string>
   <string name="error_webview_updating">Android Sistem Web Görünümü şu an güncelleniyor. Lütfen birazdan tekrar deneyin.</string>
+  <string name="multi_select_items_selected">%d seçili</string>
   <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
   <string name="crash_report_dialog_text">HockeyApp\'a (çökmeyi incelememizi ve sebep olan hatayı düzeltmemizi sağlayan, bir üçüncü parti servis sağlayıcısı) bir hata raporu göndermek ister misiniz?</string>
   <string name="crash_report_dialog_dont_send_button">Atla</string>
@@ -266,19 +271,22 @@
   <string name="reading_list_sort_by_recent">Son erişime göre sırala</string>
   <string name="reading_list_sort_by_recent_desc">Son erişime göre sırala (tersten)</string>
   <string name="reading_list_menu_edit">Okuma listesi ayrıntılarını düzenle</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Okuma listesini sil</string>
+  <string name="reading_list_menu_delete">Listeyi sil</string>
+  <string name="reading_list_menu_rename">Yeniden adlandır</string>
+  <string name="reading_list_menu_edit_description">Tanımı düzenle</string>
   <string name="reading_list_name_sample">Okuma listem</string>
   <string name="reading_list_name_hint">Bu listenin adı</string>
   <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>
   <string name="reading_list_save_for_offline">Çevrim dışı okuma mümkün</string>
   <string name="reading_list_item_deleted">%s listeden çıkarıldı</string>
+  <string name="reading_list_items_deleted">Listeden %d madde silindi</string>
   <string name="reading_list_item_delete_undo">Geri al</string>
   <string name="reading_list_deleted">%s silindi</string>
   <string name="reading_list_edit_ok">Tamam</string>
   <string name="reading_list_edit_cancel">İptal</string>
   <string name="reading_list_delete_confirm">Bu okuma listesini silmek istediğinizden emin misiniz?</string>
-  <string name="reading_lists_empty" fuzzy="true">Hiçbir okuma listesi yok.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Görüntülediğiniz maddeleri okuma listeleriyle organize edin! Okuduğunuz bir maddeyi, bir okuma listesine eklemek için maddenin üst bölümündeki yer imi simgesine dokunun.</string>
+  <string name="reading_lists_empty">Henüz hiç okuma listesi yok.</string>
+  <string name="reading_lists_empty_message">Maddeleri daha sonra, çevrim dışı olsanız bile, görüntüleyebilmek için okuma listelerine kaydedin.</string>
   <string name="reading_lists_onboarding_intro">Çevridışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun!</string>
   <string name="reading_lists_onboarding_for_example">Örneğin</string>
   <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>
@@ -286,6 +294,8 @@
   <string name="reading_lists_onboarding_example3">Uzay!</string>
   <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="reading_lists_onboarding_page_delete">İpucu: Herhangi bir sayfayı sağa veya sola kaydırarak bu okuma listesinden çıkarabilirsiniz.</string>
+  <string name="reading_list_no_description">Tanımlama yok...</string>
+  <string name="reading_list_empty">Bu listeye eklediğiniz hiç madde yok.</string>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_page">Sayfayı görüntüle</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>

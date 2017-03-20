@@ -95,7 +95,7 @@
   <string name="create_account_password_repeat_hint">कूटशब्द पुनःस्थापित करें</string>
   <string name="create_account_passwords_mismatch_error">कूटशब्द (पासवर्ड) समान नहीं हैं</string>
   <string name="create_account_email_error">अवैध ईमेल पता</string>
-  <string name="create_account_username_error">यूज़रनेम में अमान्य कैरेक्टर्स</string>
+  <string name="create_account_username_error">सदस्य नाम में अमान्य अक्षर</string>
   <string name="create_account_generic_error">खाता नहीं बन सका।</string>
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>
@@ -257,8 +257,8 @@
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
-  <string name="reading_list_title_exists">रीडिंग लिस्ट \"%s\" पहले से ही है।</string>
-  <string name="reading_list_entry_empty">कृपया एक शीर्षक डालें</string>
+  <string name="reading_list_title_exists">पाठक सूची \"%s\" पहले से है।</string>
+  <string name="reading_list_entry_empty">कृपया शीर्षक डालें</string>
   <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
   <string name="reading_list_added_to_unnamed">पठन सूची में जोड़ा गया।</string>
   <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
@@ -297,10 +297,10 @@
   <string name="reading_list_no_description">कोई विवरण नहीं...</string>
   <string name="reading_list_empty">आपके पास इस सूची में कोई लेख नहीं जुड़े हुए हैं।</string>
   <string name="user_option_sync_label">वरीयता</string>
-  <string name="notification_button_view_page">पेज देखें</string>
+  <string name="notification_button_view_page">पृष्ठ देखें</string>
   <string name="notification_button_view_user">सदस्य से बात करें</string>
   <string name="notification_button_view_edit_history">संपादन इतिहास देखें</string>
-  <string name="notification_generic_title">विकिपीडिया पर नोटिफिकेशन</string>
+  <string name="notification_generic_title">विकिपीडिया पर सूचना</string>
   <string name="notification_talk_title">विकिपीडिया पर नया सन्देश</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ने आपके वार्ता पेज &lt;strong&gt;%2$s&lt;/strong&gt; पर एक सन्देश छोड़ा है</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
@@ -358,7 +358,7 @@
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस फीचर का दुरुपयोग नहीं करूँगा(गी)।</string>
   <string name="description_edit_help_about_title">बारे में</string>
   <string name="description_edit_help_description">शीर्षक विवरण लेख के सार के रूप में पाठकों को एक नज़र में विषय को समझने में सहायता करता है।</string>
-  <string name="description_edit_help_tips">विवरण बनाने के लिए टिप्स</string>
+  <string name="description_edit_help_tips">विवरण बनाने के लिए सुझाव</string>
   <string name="description_edit_help_tips_description">विवरण एक लाइन में अच्छी तरह से फिट हो जाने चाहिए और दो से बारह शब्दों के बीच हों।</string>
   <string name="description_edit_help_tips_examples">उदाहरण के लिए:</string>
   <string name="description_edit_help_tips_example1">लियोनार्डो द विन्ची द्वारा पेंटिंग</string>
@@ -367,7 +367,7 @@
   <string name="description_edit_help_tips_example2_hint">माउंट एवेरेस्ट के बारे में लेख के लिए शीर्षक विवरण</string>
   <string name="description_edit_help_more_info">अधिक जानकारी</string>
   <string name="description_edit_help_meta_info">विवरणों को विकिडेटा द्वारा स्टोर और मेन्टेन किया जाता है जो विकिपीडिया और अन्य परियोजनाओं को मुक्त, सहयोग युक्त, बहुभाषी, सेकेंडरी डेटाबेस सपोर्ट देता, विकिमीडिया फाउंडेशन का एक प्रोजेक्ट है।</string>
-  <string name="description_edit_revert_subtitle">विकिपीडिया सम्पादित करने के लिए धन्यवाद!</string>
+  <string name="description_edit_revert_subtitle">विकिपीडिया में लिखने के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन रिव्युअर्स में से एक को चिंता है।
 आपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>

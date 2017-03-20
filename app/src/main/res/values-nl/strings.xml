@@ -7,6 +7,7 @@
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
   <string name="search_hint">In Wikipedia zoeken</string>
+  <string name="search_hint_search_history">Zoekgeschiedenis</string>
   <string name="nav_item_history">Geschiedenis</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>

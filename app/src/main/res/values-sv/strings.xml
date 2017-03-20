@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Stanna</string>
   <string name="menu_show_toc">Innehållsförteckning</string>
   <string name="search_no_results_found">Inga resultat hittades</string>
+  <string name="search_reading_list_no_results">Inga resultat hittades i \"%s\"</string>
+  <string name="search_reading_lists_no_results">Inga resultat hittades i läslistor</string>
+  <string name="search_history_no_results">Inga resultat hittades i historik</string>
   <string name="edit_section_captcha_message">För att skydda mot automatiserad spam, var god skriv in orden som visas nedan</string>
   <string name="edit_section_captcha_hint">Upprepa orden ovan</string>
   <string name="title_captcha">Ange captcha</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Inloggningen lyckades!</string>
   <string name="preference_title_logout">Logga ut</string>
   <string name="toast_logout_complete">Utloggad</string>
-  <string name="history_empty_title" fuzzy="true">Inga nya sidor här.</string>
-  <string name="history_empty_message" fuzzy="true">Du raderade förmodligen samtliga. Nästa gång du går till en sida kan du komma tillbaka till den härifrån.</string>
+  <string name="history_empty_title">Inga nyligen lästa artiklar</string>
+  <string name="history_empty_message">Håll koll på vad du har läst här.</string>
   <string name="delete_selected_history">Radera</string>
+  <string name="delete_selected_items">Radera markerade objekt</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Användarnamn</string>
   <string name="login_create_account_link">Har du inget konto? Skapa ett</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Platstjänster är inaktiverade.</string>
   <string name="enable_location_service">Aktivera</string>
   <string name="error_webview_updating">Androidsystemets WebView uppdateras för tillfället. Försök igen om en stund.</string>
+  <string name="multi_select_items_selected">%d markerade</string>
   <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
   <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
   <string name="crash_report_dialog_dont_send_button">Hoppa över</string>
@@ -268,19 +273,22 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_sort_by_recent">Sortera efter senaste</string>
   <string name="reading_list_sort_by_recent_desc">Sortera efter äldsta</string>
   <string name="reading_list_menu_edit">Redigera detaljer om läslistan</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Radera läslista</string>
+  <string name="reading_list_menu_delete">Radera lista</string>
+  <string name="reading_list_menu_rename">Byt namn</string>
+  <string name="reading_list_menu_edit_description">Redigera beskrivning</string>
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
   <string name="reading_list_save_for_offline">Tillgänglig för läsning offline</string>
   <string name="reading_list_item_deleted">%s togs bort från listan</string>
+  <string name="reading_list_items_deleted">%d artiklar togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Avbryt</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill ta bort denna läslista?</string>
-  <string name="reading_lists_empty" fuzzy="true">Inga läslistor här.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organisera artiklarna du läser i läslistor! När du läser en artikel, tryck på bokmärkesikonen i verktygsfältet längst ned för att lägga in den i en läslista.</string>
+  <string name="reading_lists_empty">Inga läslistor ännu</string>
+  <string name="reading_lists_empty_message">Spara artiklar i läslistor så du kan läsa dem senare, även om du är offline.</string>
   <string name="reading_lists_onboarding_intro">Skapa läslistor av artiklar du vill läsa senare, även när du inte är uppkopplad.</string>
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
   <string name="reading_lists_onboarding_example1">Platser att besöka</string>
@@ -288,6 +296,8 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_lists_onboarding_example3">Rymden!</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Svep en sida åt vänster eller höger för att ta bort den från denna läslista.</string>
+  <string name="reading_list_no_description">Ingen beskrivning...</string>
+  <string name="reading_list_empty">Du har inte lagt till några artiklar i denna lista.</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_button_view_page">Visa sida</string>
   <string name="notification_button_view_user">Diskutera med användare</string>

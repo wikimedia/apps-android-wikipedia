@@ -62,6 +62,7 @@
   <string name="dialog_message_leaving_edit_stay">Permanecer</string>
   <string name="menu_show_toc">Táboa de contidos</string>
   <string name="search_no_results_found">Non se atopou ningún resultado</string>
+  <string name="search_reading_list_no_results">Non se atoparon resultados en \"%s\"</string>
   <string name="search_reading_lists_no_results">Non se atoparon resultados nas listas de lectura</string>
   <string name="search_history_no_results">Non se atoparon resultados no histórico</string>
   <string name="edit_section_captcha_message">Para axudar na protección contra o spam automatizado, introduza as palabras que aparecen abaixo</string>
@@ -81,8 +82,9 @@
   <string name="preference_title_logout">Saír</string>
   <string name="toast_logout_complete">Sesión pechada</string>
   <string name="history_empty_title">Non hai artigos vistos recentemente</string>
-  <string name="history_empty_message" fuzzy="true">Probablemente borrounas todas. A próxima vez que visite unha páxina pode recuperala desde aquí.</string>
+  <string name="history_empty_message">Manter un rexistro do que fuches lendo aquí.</string>
   <string name="delete_selected_history">Borrar</string>
+  <string name="delete_selected_items">Eliminar os elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuario</string>
   <string name="login_create_account_link">Non ten unha conta? Únase á Wikipedia</string>
@@ -235,6 +237,7 @@
   <string name="location_service_disabled">Os servizos de localización están desactivados.</string>
   <string name="enable_location_service">Activar</string>
   <string name="error_webview_updating">O WebView do sistema Android está a actualizarse nestes momentos. Por favor, inténteo de novo nun momento.</string>
+  <string name="multi_select_items_selected">%d seleccionados</string>
   <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
   <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -278,13 +281,14 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_description_hint">Descrición (opcional)</string>
   <string name="reading_list_save_for_offline">Dispoñible para ler sen conexión</string>
   <string name="reading_list_item_deleted">%s eliminado da lista</string>
+  <string name="reading_list_items_deleted">%d artigos eliminados da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="reading_list_edit_ok">Aceptar</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">Está seguro de que quere eliminar esta lista de lectura?</string>
   <string name="reading_lists_empty">Aínda non hai listas de lectura</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organice os artigos nos que navega en listas de lectura! Cando lea un artigo, prema a icona de marcador na parte inferior da barra de ferramentas para engadilo a unha lista de lectura.</string>
+  <string name="reading_lists_empty_message">Garda os artigos en listas de lectura para poder velos depois, incluso cando non esteas conectado.</string>
   <string name="reading_lists_onboarding_intro">Cree listas de lectura para os artigos que quere ler máis tarde, incluso cando non teña conexiónǃ</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>

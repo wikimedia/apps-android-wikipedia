@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Quedar</string>
   <string name="menu_show_toc">Tabla de conteníu</string>
   <string name="search_no_results_found">Nun s\'alcontraron resultaos</string>
+  <string name="search_reading_list_no_results">Nun s\'alcontraron resultaos en «%s»</string>
+  <string name="search_reading_lists_no_results">Nun s\'alcontraron resultaos nes llistes de llectura</string>
+  <string name="search_history_no_results">Nun s\'alcontraron resultaos nel historial</string>
   <string name="edit_section_captcha_message">P\'ayudar a protexenos del spam automatizáu, por favor, escribe les pallabres qu\'apaecen abaxo</string>
   <string name="edit_section_captcha_hint">Repite les pallabres d\'arriba</string>
   <string name="title_captcha">Escribe\'l CAPTCHA</string>
@@ -78,9 +81,10 @@
   <string name="login_success_toast">Aniciasti sesión correutamente</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Desconeutáu</string>
-  <string name="history_empty_title" fuzzy="true">Equí nun hai páxines recientes.</string>
-  <string name="history_empty_message" fuzzy="true">Probablemente desaniciástiles toes. La siguiente vez que vaigas a una páxina pues volver a ella dende equí.</string>
+  <string name="history_empty_title">Nun hai artículos vistos recien</string>
+  <string name="history_empty_message">Siguir lo que tuvisti lleyendo equí.</string>
   <string name="delete_selected_history">Desaniciar</string>
+  <string name="delete_selected_items">Desaniciar los elementos esbillaos</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome d\'usuariu</string>
   <string name="login_create_account_link">¿Nun tienes una cuenta? Xúnite a Wikipedia</string>
@@ -233,6 +237,7 @@
   <string name="location_service_disabled">Los servicios de llocalización tan desactivaos.</string>
   <string name="enable_location_service">Activar</string>
   <string name="error_webview_updating">La WebView del sistema Android ta anovándose agora. Téntalo nun momentu.</string>
+  <string name="multi_select_items_selected">%d seleicionaos</string>
   <string name="crash_report_dialog_title">Sentímoslo, l\'aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Quies unviar un informe de cuelgue a HockeyApp / un fornidor de serviciu d\'un terceru pa que Wikimedia pueda revisar el cuelgue ya iguar el fallu que lu causó?</string>
   <string name="crash_report_dialog_dont_send_button">Saltar</string>
@@ -276,13 +281,14 @@
   <string name="reading_list_description_hint">Descripción (opcional)</string>
   <string name="reading_list_save_for_offline">Disponible pa llectura ensin conexón</string>
   <string name="reading_list_item_deleted">%s desaniciáu de la llista</string>
+  <string name="reading_list_items_deleted">%d artículos desaniciaos de la llista</string>
   <string name="reading_list_item_delete_undo">Desfacer</string>
   <string name="reading_list_deleted">%s desaniciada</string>
   <string name="reading_list_edit_ok">Aceutar</string>
   <string name="reading_list_edit_cancel">Encaboxar</string>
   <string name="reading_list_delete_confirm">¿Tas seguru de que quies desaniciar esta llista de llectura?</string>
-  <string name="reading_lists_empty" fuzzy="true">Equí nun hai llistes de llectura.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">¡Organiza los artículos que restoles en llistes de llectura! Cuando teas visitando un artículu, pulsia l\'iconu de marcador na barra de ferramientes baxo l\'artículu p\'añadir a una llista de llectura.</string>
+  <string name="reading_lists_empty">Entá nun hai llistes de llectura.</string>
+  <string name="reading_lists_empty_message">Guarda artículos en llistes de llectura pa poder velos sero, anque teas ensin conexón.</string>
   <string name="reading_lists_onboarding_intro">Crea llistes de llectura colos artículos que quixeras lleer sero, ¡inclusive ensin conexón!</string>
   <string name="reading_lists_onboarding_for_example">Por casu</string>
   <string name="reading_lists_onboarding_example1">Llugares que visitar</string>
@@ -290,6 +296,8 @@
   <string name="reading_lists_onboarding_example3">¡L\'espaciu!</string>
   <string name="reading_lists_onboarding_got_it">Entendílo</string>
   <string name="reading_lists_onboarding_page_delete">Conseyu: barre cualquier páxina a la izquierda o a la derecha pa quitala d\'esta llista de llectura.</string>
+  <string name="reading_list_no_description">Ensin descripción...</string>
+  <string name="reading_list_empty">Nun añadisti artículos a esta llista.</string>
   <string name="user_option_sync_label">Preferencies</string>
   <string name="notification_button_view_page">Ver la páxina</string>
   <string name="notification_button_view_user">Falar col usuariu</string>

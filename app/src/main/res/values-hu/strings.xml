@@ -94,7 +94,7 @@
   <string name="create_account_email_hint">Email cím (opcionális)</string>
   <string name="create_account_password_repeat_hint">Jelszó újra</string>
   <string name="create_account_passwords_mismatch_error">A jelszavak nem egyeznek</string>
-  <string name="create_account_email_error">Érvénytelen e-mail cím</string>
+  <string name="create_account_email_error">Érvénytelen e-mail-cím</string>
   <string name="create_account_username_error">Érvénytelen karakterek a szerkesztőnévben</string>
   <string name="create_account_generic_error">Nem sikerült a fiók létrehozása</string>
   <string name="create_account_next">Következő</string>
@@ -105,8 +105,8 @@
   <string name="zero_warn_when_leaving">Figyelmeztet, ha elhagyom a Wikipédia Zérót</string>
   <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia appot, ami költségekkel járhat.</string>
   <string name="zero_webpage_title">Wikipedia Zero GyIK</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">Wikipedia Zero elhagyása</string>
+  <string name="zero_wikipedia_zero_heading">Wikipédia Zéró</string>
+  <string name="zero_interstitial_title">Wikipédia Zéró elhagyása</string>
   <string name="zero_interstitial_leave_app">Adatforgalmi díj lehet. Folytatod a külső oldalon?</string>
   <string name="zero_interstitial_continue">Elhagy</string>
   <string name="zero_interstitial_cancel">Itt marad</string>

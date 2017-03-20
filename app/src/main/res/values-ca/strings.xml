@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Romandre</string>
   <string name="menu_show_toc">Taula de continguts</string>
   <string name="search_no_results_found">No s\'han trobat resultats</string>
+  <string name="search_reading_list_no_results">No s\'ha trobat cap resultat a «%s»</string>
+  <string name="search_reading_lists_no_results">No s\'ha trobat cap resultat a les llistes de lectura</string>
+  <string name="search_history_no_results">No s\'ha trobat cap resultat a l\'historial</string>
   <string name="edit_section_captcha_message">Com a protecció contra l\'spam automàtic, introduïu les paraules que apareixen a sota</string>
   <string name="edit_section_captcha_hint">Repetiu les paraules de dalt</string>
   <string name="title_captcha">Introduïu el CAPTCHA</string>
@@ -78,7 +81,7 @@
   <string name="login_success_toast">S\'ha iniciat la sessió correctament!</string>
   <string name="preference_title_logout">Finalitza la sessió</string>
   <string name="toast_logout_complete">Sessió finalitzada</string>
-  <string name="history_empty_title" fuzzy="true">Aquí no hi ha pàgines recents!</string>
+  <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message" fuzzy="true">Probablement les heu eliminades totes. La pròxima vegada que aneu a una pàgina podreu tornar-hi des d\'aquí.</string>
   <string name="delete_selected_history">Esborra</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -268,6 +271,8 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_sort_by_recent_desc">Ordena per menys recent</string>
   <string name="reading_list_menu_edit">Edita els detalls de la llista de lectura</string>
   <string name="reading_list_menu_delete" fuzzy="true">Elimina la llista de lectura</string>
+  <string name="reading_list_menu_rename">Reanomena</string>
+  <string name="reading_list_menu_edit_description">Modifica la descripció</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
   <string name="reading_list_name_hint">Nom de la llista</string>
   <string name="reading_list_description_hint">Descripció (opcional)</string>
@@ -287,6 +292,8 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_lists_onboarding_example3">Espai!</string>
   <string name="reading_lists_onboarding_got_it">Entesos</string>
   <string name="reading_lists_onboarding_page_delete">Consell: Llisqueu el dit a dreta o a esquerra per a eliminar l\'article d\'aquesta llista de lectura.</string>
+  <string name="reading_list_no_description">Sense descripció…</string>
+  <string name="reading_list_empty">No teniu articles afegits a la llista.</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_button_view_page">Mostra la pàgina</string>
   <string name="notification_button_view_user">Parla amb l\'usuari</string>
