@@ -33,7 +33,7 @@ public class PageItemView<T> extends FrameLayout {
         void onClick(@Nullable T item);
         boolean onLongClick(@Nullable T item);
         void onThumbClick(@Nullable T item);
-        void onActionClick(@Nullable T item);
+        void onActionClick(@Nullable T item, @NonNull PageItemView view);
     }
 
     @BindView(R.id.page_list_item_title) TextView titleView;
@@ -108,7 +108,7 @@ public class PageItemView<T> extends FrameLayout {
 
     @OnClick(R.id.page_list_item_action_button) void onActionClick() {
         if (callback != null) {
-            callback.onActionClick(item);
+            callback.onActionClick(item, this);
         }
     }
 

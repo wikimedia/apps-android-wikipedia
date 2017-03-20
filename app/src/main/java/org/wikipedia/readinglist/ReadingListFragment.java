@@ -391,6 +391,13 @@ public class ReadingListFragment extends Fragment {
         }
     }
 
+    private void setPageItemViewState(@NonNull PageItemView view, @NonNull ReadingListPage page) {
+        view.setActionIcon(page.isOffline() ? R.drawable.ic_offline_pin_black_24dp
+                : R.drawable.ic_download_circle_black_24px);
+        view.setActionHint(page.isOffline() ? R.string.reading_list_article_remove_offline
+                : R.string.reading_list_article_make_offline);
+    }
+
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
         @Override
         public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -438,11 +445,11 @@ public class ReadingListFragment extends Fragment {
         void bindItem(ReadingListPage page) {
             this.page = page;
             getView().setItem(page);
-            getView().setActionIcon(R.drawable.ic_offline_pin_black_24dp);
             getView().setTitle(page.title());
             getView().setDescription(page.description());
             getView().setImageUrl(page.thumbnailUrl());
             getView().setSelected(page.isSelected());
+            setPageItemViewState(getView(), page);
         }
 
         @Override
@@ -532,8 +539,14 @@ public class ReadingListFragment extends Fragment {
         }
 
         @Override
-        public void onActionClick(@Nullable ReadingListPage item) {
-            // TODO
+        public void onActionClick(@Nullable ReadingListPage page, @NonNull PageItemView view) {
+            if (page != null) {
+                ReadingListData.instance().setPageOffline(page, !page.isOffline());
+                setPageItemViewState(view, page);
+                FeedbackUtil.showMessage(getActivity(), page.isOffline()
+                        ? R.string.reading_list_article_offline_message
+                        : R.string.reading_list_article_not_offline_message);
+            }
         }
     }
 

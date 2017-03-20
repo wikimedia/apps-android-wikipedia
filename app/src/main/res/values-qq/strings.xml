@@ -439,6 +439,10 @@ Shown in the preferences screen along with the following:
   <string name="reading_lists_onboarding_page_delete">Message for a tooltip that gives the user a hint that they can remove an page from a reading list by swiping it left or right.</string>
   <string name="reading_list_no_description">Text to show when the reading list does not have a description.</string>
   <string name="reading_list_empty">Message shown when a reading list does not contain any articles.</string>
+  <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>
+  <string name="reading_list_article_remove_offline">Hint for button that removes a reading list article from offline availability.</string>
+  <string name="reading_list_article_offline_message">Message shown when a reading list article is made available for offline use.</string>
+  <string name="reading_list_article_not_offline_message">Message shown when a reading list article is removed from offline availability.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>
   <string name="notification_button_view_page">Button label for navigating to the page that is the subject of the notification.</string>

@@ -321,6 +321,10 @@
     <string name="reading_lists_onboarding_page_delete">Tip: Swipe any page left or right to remove it from this reading list.</string>
     <string name="reading_list_no_description">No description…</string>
     <string name="reading_list_empty">You have no articles added to this list.</string>
+    <string name="reading_list_article_make_offline">Make this article available offline</string>
+    <string name="reading_list_article_remove_offline">Don\'t make this article available offline</string>
+    <string name="reading_list_article_offline_message">This article will now be available offline.</string>
+    <string name="reading_list_article_not_offline_message">This article will no longer be available offline.</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

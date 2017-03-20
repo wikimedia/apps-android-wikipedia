@@ -37,12 +37,12 @@ public final class ReadingListPage extends ReadingListPageRow {
         return filename;
     }
 
-    public boolean savedOrSaving() {
+    public boolean isOffline() {
         return diskStatus.savedOrSaving();
     }
 
-    public void savedOrSaving(boolean saved) {
-        if (saved) {
+    public void setOffline(boolean offline) {
+        if (offline) {
             diskStatus = diskStatus == DiskStatus.SAVED ? DiskStatus.SAVED : DiskStatus.OUTDATED;
         } else {
             diskStatus = diskStatus == DiskStatus.ONLINE ? DiskStatus.ONLINE : DiskStatus.UNSAVED;
