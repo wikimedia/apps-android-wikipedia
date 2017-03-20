@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.util.log.L;
 
 /**
  * A standardized page summary object constructed by RESTBase, used for link previews and as the
@@ -29,18 +28,9 @@ public class RbPageSummary implements PageSummary {
         return error != null || extract == null;
     }
 
-    @Override
-    @Nullable
+    @Override @Nullable
     public RbServiceError getError() {
         return error;
-    }
-
-    @Override
-    public void logError(String message) {
-        if (error != null) {
-            message += ": " + error.toString();
-        }
-        L.e(message);
     }
 
     @Override @NonNull

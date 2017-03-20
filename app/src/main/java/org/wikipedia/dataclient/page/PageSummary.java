@@ -9,8 +9,7 @@ import org.wikipedia.dataclient.ServiceError;
  */
 public interface PageSummary {
     boolean hasError();
-    ServiceError getError();
-    void logError(String message);
+    @Nullable ServiceError getError();
     @Nullable String getTitle();
     @Nullable String getExtract();
     @Nullable String getThumbnailUrl();

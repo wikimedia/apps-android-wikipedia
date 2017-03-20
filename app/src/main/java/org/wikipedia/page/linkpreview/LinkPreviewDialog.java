@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.gallery.GalleryActivity;
@@ -253,11 +254,12 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 progressBar.setVisibility(View.GONE);
                 layoutPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
             } else {
-                if (summary != null) {
-                    summary.logError("Page summary request failed");
-                }
                 loadContentFromSavedPage();
+
+                //TODO: Is this message appropriate when content is still being loaded?
                 FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
+
+                logError(summary.hasError() ? summary.getError() : null, "Page summary request failed");
             }
         }
 
@@ -337,6 +339,13 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         if (callback != null) {
             callback.onLinkPreviewLoadPage(title, entry, inNewTab);
         }
+    }
+
+    private void logError(@Nullable ServiceError error, @NonNull String message) {
+        if (error != null) {
+            message += ": " + error.toString();
+        }
+        L.e(message);
     }
 
     private class OverlayViewCallback implements LinkPreviewOverlayView.Callback {

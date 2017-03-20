@@ -4,7 +4,6 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.util.log.L;
 
 /**
  * Useful for link previews coming from MW API.
@@ -19,18 +18,9 @@ public class MwQueryPageSummary implements PageSummary {
         return error != null || getFirstPage() == null;
     }
 
-    @Override
-    @Nullable
+    @Override @Nullable
     public MwServiceError getError() {
         return error;
-    }
-
-    @Override
-    public void logError(String message) {
-        if (error != null) {
-            message += ": " + error.toString();
-        }
-        L.e(message);
     }
 
     @Override @Nullable
