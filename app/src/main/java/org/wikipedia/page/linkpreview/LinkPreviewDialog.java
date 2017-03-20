@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -35,7 +36,6 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.savedpages.LoadSavedPageTask;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
@@ -58,6 +58,9 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private boolean navigateSuccess = false;
 
+    private LinearLayout dialogContainer;
+    private View contentContainer;
+    private View offlineContainer;
     private ProgressBar progressBar;
     private TextView extractText;
     private SimpleDraweeView thumbnailView;
@@ -71,23 +74,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     @Nullable private Location location;
 
     private LinkPreviewFunnel funnel;
-
-    private GalleryThumbnailScrollView.GalleryViewListener galleryViewListener
-            = new GalleryThumbnailScrollView.GalleryViewListener() {
-        @Override
-        public void onGalleryItemClicked(String imageName) {
-            startActivityForResult(GalleryActivity.newIntent(getContext(), pageTitle, imageName,
-                    pageTitle.getWikiSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
-                    Constants.ACTIVITY_REQUEST_GALLERY);
-        }
-    };
-
-    private View.OnClickListener goToPageListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            goToLinkedPage();
-        }
-    };
 
     public static LinkPreviewDialog newInstance(PageTitle title, int entrySource, @Nullable Location location) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
@@ -110,6 +96,9 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         location = getArguments().getParcelable("location");
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
+        dialogContainer = (LinearLayout) rootView.findViewById(R.id.dialog_link_preview_container);
+        contentContainer = rootView.findViewById(R.id.dialog_link_preview_content_container);
+        offlineContainer = rootView.findViewById(R.id.dialog_link_preview_offline_container);
         progressBar = (ProgressBar) rootView.findViewById(R.id.link_preview_progress);
         toolbarView = rootView.findViewById(R.id.link_preview_toolbar);
         toolbarView.setOnClickListener(goToPageListener);
@@ -213,57 +202,70 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         PageClientFactory
                 .create(pageTitle.getWikiSite(), pageTitle.namespace())
                 .summary(pageTitle.getPrefixedText())
-                .enqueue(linkPreviewOnLoadCallback);
+                .enqueue(linkPreviewNetworkOnLoadCallback);
     }
 
-    private void loadContentFromSavedPage() {
+    private void tryLoadingFromCache() {
         L.v("Loading link preview from Saved Pages");
         new LoadSavedPageTask(pageTitle) {
-            @Override
-            public void onFinish(Page page) {
+            @Override public void onFinish(Page page) {
                 if (!isAdded()) {
                     return;
                 }
-                displayPreviewFromCachedPage(page);
+                showPreview(new LinkPreviewContents(page));
             }
 
-            @Override
-            public void onCatch(Throwable caught) {
+            @Override public void onCatch(Throwable caught) {
                 if (!isAdded()) {
                     return;
                 }
-                progressBar.setVisibility(View.GONE);
-                FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
-                dismiss();
+                showPreviewOfflineNotice();
+                L.e("Page summary cache request failed", caught);
             }
         }.execute();
     }
 
-    private void displayPreviewFromCachedPage(Page page) {
+    private void showPreview(@NonNull LinkPreviewContents contents) {
         progressBar.setVisibility(View.GONE);
-        layoutPreview(new LinkPreviewContents(page));
+        setPreviewContents(contents);
     }
 
-    private retrofit2.Callback<PageSummary> linkPreviewOnLoadCallback = new retrofit2.Callback<PageSummary>() {
+    private void showPreviewOfflineNotice() {
+        dialogContainer.setLayoutTransition(null);
+        progressBar.setVisibility(View.GONE);
+        contentContainer.setVisibility(View.GONE);
+        offlineContainer.setVisibility(View.VISIBLE);
+        overlayView.setPrimaryButtonText(getResources().getString(R.string.button_add_to_reading_list));
+        overlayView.showSecondaryButton(false);
+        overlayView.setCallback(new OverlayViewOfflineCallback());
+    }
+
+    private void setPreviewContents(@NonNull LinkPreviewContents contents) {
+        if (contents.getExtract().length() > 0) {
+            extractText.setText(contents.getExtract());
+        }
+        ViewUtil.loadImageUrlInto(thumbnailView, contents.getTitle().getThumbUrl());
+    }
+
+    private retrofit2.Callback<PageSummary> linkPreviewNetworkOnLoadCallback
+            = new retrofit2.Callback<PageSummary>() {
         @Override public void onResponse(Call<PageSummary> call, Response<PageSummary> rsp) {
             if (!isAdded()) {
                 return;
             }
+
             PageSummary summary = rsp.body();
             if (summary != null && !summary.hasError()) {
-                progressBar.setVisibility(View.GONE);
-                layoutPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
+                showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
             } else {
-                loadContentFromSavedPage();
-
-                //TODO: Is this message appropriate when content is still being loaded?
-                FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
-
-                logError(summary.hasError() ? summary.getError() : null, "Page summary request failed");
+                tryLoadingFromCache();
+                logError(summary.hasError() ? summary.getError() : null,
+                        "Page summary network request failed");
             }
         }
 
         @Override public void onFailure(Call<PageSummary> call, Throwable t) {
+            tryLoadingFromCache();
             L.e(t);
         }
     };
@@ -300,13 +302,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         }
     };
 
-    private void layoutPreview(@NonNull LinkPreviewContents contents) {
-        if (contents.getExtract().length() > 0) {
-            extractText.setText(contents.getExtract());
-        }
-        ViewUtil.loadImageUrlInto(thumbnailView, contents.getTitle().getThumbUrl());
-    }
-
     private class GalleryThumbnailFetchTask extends GalleryCollectionFetchTask {
         GalleryThumbnailFetchTask(PageTitle title) {
             super(WikipediaApp.getInstance().getAPIForSite(title.getWikiSite()), title.getWikiSite(), title,
@@ -326,6 +321,23 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             L.w("Failed to fetch gallery collection.", caught);
         }
     }
+
+    private GalleryThumbnailScrollView.GalleryViewListener galleryViewListener
+            = new GalleryThumbnailScrollView.GalleryViewListener() {
+        @Override
+        public void onGalleryItemClicked(String imageName) {
+            startActivityForResult(GalleryActivity.newIntent(getContext(), pageTitle, imageName,
+                    pageTitle.getWikiSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
+                    Constants.ACTIVITY_REQUEST_GALLERY);
+        }
+    };
+
+    private View.OnClickListener goToPageListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            goToLinkedPage();
+        }
+    };
 
     private void goToExternalMapsApp() {
         if (location != null) {
@@ -357,6 +369,19 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         @Override
         public void onSecondaryClick() {
             goToExternalMapsApp();
+        }
+    }
+
+    private class OverlayViewOfflineCallback implements LinkPreviewOverlayView.Callback {
+        @Override
+        public void onPrimaryClick() {
+            if (callback() != null) {
+                callback().onLinkPreviewAddToList(pageTitle);
+            }
+        }
+
+        @Override
+        public void onSecondaryClick() {
         }
     }
 

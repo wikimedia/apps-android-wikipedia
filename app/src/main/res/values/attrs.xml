@@ -26,6 +26,7 @@
     <attr name="link_preview_toolbar_color" format="reference"/>
     <attr name="link_preview_background_color" format="reference"/>
     <attr name="link_preview_text_color" format="reference"/>
+    <attr name="link_preview_offline_text_color" format="reference"/>
     <attr name="nav_background_color" format="reference"/>
     <attr name="nav_item_color" format="reference"/>
     <attr name="list_item_text_primary_color" format="reference"/>
