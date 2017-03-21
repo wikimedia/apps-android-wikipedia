@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Skjul</string>
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
   <string name="send_feedback">Send feedback</string>
-  <string name="nav_item_random">Tilfældig</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
   <string name="preferences_privacy_settings_heading">Privatliv</string>
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Tillad appen at sende rapporter om nedbrud til HockeyApp / en tredjeparts-serviceudbyder automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
   <string name="history_search_list_hint">Søg i historik</string>
-  <string name="history_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne side er beskyttet.</string>
@@ -251,7 +249,6 @@ Vil du starte forfra eller afslutte?</string>
   <string name="crash_report_quit">Afslut</string>
   <string name="article_menu_bar_bookmark">Tilføj denne artikel til en læseliste</string>
   <string name="article_menu_bar_share">Del link til artiklen</string>
-  <string name="article_menu_bar_navigate">Naviger til det omtalte sted</string>
   <string name="article_header_edit_hint">Rediger…</string>
   <string name="article_header_edit_description">Rediger titelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger introduktion</string>
@@ -272,21 +269,16 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_list_sort_by_name_desc">Sortér efter navn (omvendt)</string>
   <string name="reading_list_sort_by_recent">Sortér efter seneste</string>
   <string name="reading_list_sort_by_recent_desc">Sortér efter ældste</string>
-  <string name="reading_list_menu_edit">Rediger detaljer om læseliste</string>
   <string name="reading_list_menu_delete">Slet liste</string>
   <string name="reading_list_menu_rename">Omdøb</string>
   <string name="reading_list_menu_edit_description">Rediger beskrivelse</string>
   <string name="reading_list_name_sample">Min læseliste</string>
   <string name="reading_list_name_hint">Navn på denne liste</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
-  <string name="reading_list_save_for_offline">Tilgængelig for læsning offline</string>
   <string name="reading_list_item_deleted">%s fjernet fra listen</string>
   <string name="reading_list_items_deleted">%d artikler fjernet fra liste</string>
   <string name="reading_list_item_delete_undo">Fortryd</string>
   <string name="reading_list_deleted">%s slettet</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Annuller</string>
-  <string name="reading_list_delete_confirm">Er du sikker på at du vil slette denne læseliste?</string>
   <string name="reading_lists_empty">Ingen læselister endnu</string>
   <string name="reading_lists_empty_message">Gem artikler til læselister, så du kan læse dem senere, selv når du er offline.</string>
   <string name="reading_lists_onboarding_intro">Opret læselister fra artikler du ønsker at læse senere, selv når du er offline!</string>
@@ -295,14 +287,10 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_lists_onboarding_example2">Ynglingsdyr</string>
   <string name="reading_lists_onboarding_example3">Rummet!</string>
   <string name="reading_lists_onboarding_got_it">Forstået</string>
-  <string name="reading_lists_onboarding_page_delete">Tip: Stryg en side til venstre eller højre for at fjerne den fra denne læseliste.</string>
   <string name="reading_list_no_description">Ingen beskrivelse...</string>
   <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>
   <string name="user_option_sync_label">Indstillinger</string>
-  <string name="notification_button_view_page">Vis side</string>
   <string name="notification_button_view_user">Tal med bruger</string>
-  <string name="notification_button_view_edit_history">Vis redigeringshistorik</string>
-  <string name="notification_generic_title">Notifikation på Wikipedia</string>
   <string name="notification_talk_title">Ny besked på Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; efterlod en besked på din diskussionsside &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Omgjorde redigering</string>
@@ -333,7 +321,6 @@ Vil du starte forfra eller afslutte?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
-  <string name="description_edit_header">Redigerer</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Gem</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>

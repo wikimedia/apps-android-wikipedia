@@ -114,14 +114,12 @@
   <string name="zero_learn_more_dismiss">Gadael</string>
   <string name="edit_preview_fetching_dialog_message">Yn nôl y rhagolwg…</string>
   <string name="send_feedback">Anfon adborth am yr ap</string>
-  <string name="nav_item_random">Ar hap</string>
   <string name="create_account_account_created_toast">Wedi creu cyfrif!</string>
   <string name="preferences_privacy_settings_heading">Preifatrwydd</string>
   <string name="preference_title_eventlogging_opt_in">Danfon adroddiad am y defnydd</string>
   <string name="preference_summary_eventlogging_opt_in">Caniatau i Wicipedia gasglu gwybodaeth am sut rydych yn defnyddio\'r ap, er mwyn ei wella</string>
   <string name="preference_title_auto_upload_crash_reports">Danfon adroddiad am y gwall</string>
   <string name="history_search_list_hint">Chwilio\'r hanes</string>
-  <string name="history_search_empty_message">Ni chafwyd hyd i ddalennau sy\'n cyfateb i\'ch ymholiad.</string>
   <string name="error_can_not_process_link">methwyd ag arddangos y ddolen</string>
   <string name="page_protected_autoconfirmed">Mae\'r ddalen wedi\'i lled-warchod.</string>
   <string name="page_protected_sysop">Mae\'r ddalen wedi\'i gwarchod yn llwyr.</string>
@@ -238,7 +236,6 @@ Cychwyn eto neu roi\'r gorau iddi?</string>
   <string name="crash_report_quit">Rhoi\'r ffidil yn y to!</string>
   <string name="article_menu_bar_bookmark">Ychwanegwch yr erthygl hon i\'ch rhestr ddarllen</string>
   <string name="article_menu_bar_share">Rhannwch ddolen yr erthygl hon</string>
-  <string name="article_menu_bar_navigate">Fforiwch i leoliad yr erthygl</string>
   <string name="article_header_edit_hint">Golygu...</string>
   <string name="article_header_edit_description">Golygu disgrifiad y teitl</string>
   <string name="article_header_edit_lead_section">Golygu\'r rhan gyntaf</string>
@@ -259,13 +256,10 @@ Cychwyn eto neu roi\'r gorau iddi?</string>
   <string name="reading_list_sort_by_name_desc">Sortio yn ôl yr enw (z-a)</string>
   <string name="reading_list_sort_by_recent">Sortio yn ôl amser (diweddaraf yn gyntaf)</string>
   <string name="reading_list_sort_by_recent_desc">Sortio yn ôl amser (hen rai yn gyntaf)</string>
-  <string name="reading_list_menu_edit">golyg manylion y rhestr ddarllen</string>
   <string name="reading_lists_empty">Dim rhestrau darllen eto</string>
   <string name="reading_lists_onboarding_got_it">Rwy\'n deall</string>
   <string name="reading_list_no_description">Dim disgrifiad...</string>
   <string name="user_option_sync_label">Dewisiadau</string>
-  <string name="notification_button_view_page">Gweld y ddalen</string>
-  <string name="notification_button_view_edit_history">Gweld yr hanes golygu</string>
   <string name="view_main_page_card_title">Heddiw ar Wicipedia</string>
   <string name="view_main_page_card_subtitle">Prif ddalen ar %s</string>
   <string name="view_featured_image_card_title">Llun y dydd</string>
@@ -277,6 +271,5 @@ Cychwyn eto neu roi\'r gorau iddi?</string>
   <string name="view_card_footer_button">Gweld rhagor</string>
   <string name="view_continue_reading_card_subtitle_today">Heddiw</string>
   <string name="view_announcement_card_negative_action">Dim diolch</string>
-  <string name="description_edit_header">Golygu</string>
   <string name="description_edit_help_about_wikidata">Ynglŷn â Wicidata</string>
 </resources>

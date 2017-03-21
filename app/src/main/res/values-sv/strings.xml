@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Stäng</string>
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning…</string>
   <string name="send_feedback">Skicka återkoppling om appen</string>
-  <string name="nav_item_random">Slumpartikel</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
   <string name="preferences_privacy_settings_heading">Integritet</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till tredjepartstjänsten HockeyApp så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
   <string name="history_search_list_hint">Sök historik</string>
-  <string name="history_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
   <string name="error_can_not_process_link">Denna länk kan inte visas</string>
   <string name="page_protected_autoconfirmed">Denna sida är halvskyddad.</string>
   <string name="page_protected_sysop">Denna sida är skrivskyddad.</string>
@@ -251,7 +249,6 @@ Vill du starta om eller avsluta?</string>
   <string name="crash_report_quit">Avsluta</string>
   <string name="article_menu_bar_bookmark">Lägg till denna artikel i en läslista</string>
   <string name="article_menu_bar_share">Dela länk till artikeln</string>
-  <string name="article_menu_bar_navigate">Navigera till artikelns plats</string>
   <string name="article_header_edit_hint">Redigera...</string>
   <string name="article_header_edit_description">Redigera titelns beskrivning</string>
   <string name="article_header_edit_lead_section">Redigera inledning</string>
@@ -272,21 +269,16 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_sort_by_name_desc">Sortera efter namn (omvänt)</string>
   <string name="reading_list_sort_by_recent">Sortera efter senaste</string>
   <string name="reading_list_sort_by_recent_desc">Sortera efter äldsta</string>
-  <string name="reading_list_menu_edit">Redigera detaljer om läslistan</string>
   <string name="reading_list_menu_delete">Radera lista</string>
   <string name="reading_list_menu_rename">Byt namn</string>
   <string name="reading_list_menu_edit_description">Redigera beskrivning</string>
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
-  <string name="reading_list_save_for_offline">Tillgänglig för läsning offline</string>
   <string name="reading_list_item_deleted">%s togs bort från listan</string>
   <string name="reading_list_items_deleted">%d artiklar togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Avbryt</string>
-  <string name="reading_list_delete_confirm">Är du säker på att du vill ta bort denna läslista?</string>
   <string name="reading_lists_empty">Inga läslistor ännu</string>
   <string name="reading_lists_empty_message">Spara artiklar i läslistor så du kan läsa dem senare, även om du är offline.</string>
   <string name="reading_lists_onboarding_intro">Skapa läslistor av artiklar du vill läsa senare, även när du inte är uppkopplad.</string>
@@ -295,14 +287,10 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_lists_onboarding_example2">Favoritdjur</string>
   <string name="reading_lists_onboarding_example3">Rymden!</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
-  <string name="reading_lists_onboarding_page_delete">Tips: Svep en sida åt vänster eller höger för att ta bort den från denna läslista.</string>
   <string name="reading_list_no_description">Ingen beskrivning...</string>
   <string name="reading_list_empty">Du har inte lagt till några artiklar i denna lista.</string>
   <string name="user_option_sync_label">Inställningar</string>
-  <string name="notification_button_view_page">Visa sida</string>
   <string name="notification_button_view_user">Diskutera med användare</string>
-  <string name="notification_button_view_edit_history">Visa redigeringshistorik</string>
-  <string name="notification_generic_title">Avisering på Wikipedia</string>
   <string name="notification_talk_title">Nytt meddelande på Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; lämnade ett meddelande på din diskussionssida &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Ogjord redigering</string>
@@ -333,7 +321,6 @@ Vill du starta om eller avsluta?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
-  <string name="description_edit_header">Redigerar</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Spara</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>

@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Закрыть</string>
   <string name="edit_preview_fetching_dialog_message">Получение предварительного просмотра…</string>
   <string name="send_feedback">Отправить отзыв о приложении</string>
-  <string name="nav_item_random">Случайная</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
   <string name="preferences_privacy_settings_heading">Конфиденциальность</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Разрешить отправлять автоматически отчёты об ошибках в HockeyApp / сторонний сервис-провайдер, чтобы мы могли просмотреть информацию об аварии? Это позволит быстрее и проще исправить ошибку.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
   <string name="history_search_list_hint">История поиска</string>
-  <string name="history_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>
   <string name="page_protected_autoconfirmed">Эта страница была частично защищена.</string>
   <string name="page_protected_sysop">Эта страница была полностью защищена.</string>
@@ -251,7 +249,6 @@
   <string name="crash_report_quit">Выйти</string>
   <string name="article_menu_bar_bookmark">Добавить эту статью в список для чтения</string>
   <string name="article_menu_bar_share">Поделиться ссылкой на статью</string>
-  <string name="article_menu_bar_navigate">Перейдите к местоположению статьи</string>
   <string name="article_header_edit_hint">Править…</string>
   <string name="article_header_edit_description">Изменить описание</string>
   <string name="article_header_edit_lead_section">Редактировать введение</string>
@@ -272,21 +269,16 @@
   <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>
   <string name="reading_list_sort_by_recent">Сортировка по дате (последние)</string>
   <string name="reading_list_sort_by_recent_desc">Сортировка по дате (старые)</string>
-  <string name="reading_list_menu_edit">Редактировать информацию по списку для чтения</string>
   <string name="reading_list_menu_delete">Удалить список</string>
   <string name="reading_list_menu_rename">Переименовать</string>
   <string name="reading_list_menu_edit_description">Редактирование описание</string>
   <string name="reading_list_name_sample">Мой список для чтения</string>
   <string name="reading_list_name_hint">Название этого списка</string>
   <string name="reading_list_description_hint">Описание (необязательно)</string>
-  <string name="reading_list_save_for_offline">Доступно для чтения в автономном режиме</string>
   <string name="reading_list_item_deleted">%s удалено из списка</string>
   <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
   <string name="reading_list_deleted">%s удалено</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Отмена</string>
-  <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить этот список для чтения?</string>
   <string name="reading_lists_empty">Ещё нет списков для чтения</string>
   <string name="reading_lists_empty_message">Сохранить статьи в списки для чтения. Вы сможете просмотреть статьи позже, даже находясь вне сети.</string>
   <string name="reading_lists_onboarding_intro">Создайте списки для чтения из статей, которые вы хотели бы прочитать позже, даже если вы не подключены к интернету!</string>
@@ -295,14 +287,10 @@
   <string name="reading_lists_onboarding_example2">Любимые животные</string>
   <string name="reading_lists_onboarding_example3">Космос!</string>
   <string name="reading_lists_onboarding_got_it">Понятно</string>
-  <string name="reading_lists_onboarding_page_delete">Совет: проведите пальцем по любой странице влево или вправо, чтобы удалить её из списка для чтения.</string>
   <string name="reading_list_no_description">Нет описания…</string>
   <string name="reading_list_empty">В этом списке нет добавленных статей.</string>
   <string name="user_option_sync_label">Настройки</string>
-  <string name="notification_button_view_page">Посмотреть страницу</string>
   <string name="notification_button_view_user">Написать участнику</string>
-  <string name="notification_button_view_edit_history">Посмотреть историю редактирования</string>
-  <string name="notification_generic_title">Уведомление в Википедии</string>
   <string name="notification_talk_title">Новое сообщение в Википедии</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; оставил сообщение на вашей странице обсуждения &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Откаченная правка</string>
@@ -333,7 +321,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Сегодня</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
-  <string name="description_edit_header">Редактирование</string>
   <string name="description_edit_text_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_add_description">Добавить описание</string>

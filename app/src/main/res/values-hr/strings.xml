@@ -104,7 +104,6 @@
   <string name="zero_learn_more_dismiss">Zatvori</string>
   <string name="edit_preview_fetching_dialog_message">Dohvaćanje pretpregleda…</string>
   <string name="send_feedback">Pošalji povratnu informaciju o aplikaciji</string>
-  <string name="nav_item_random">Slučajno</string>
   <string name="create_account_account_created_toast">Suradnički račun otvoren.</string>
   <string name="preferences_privacy_settings_heading">Privatnost</string>
   <string name="preference_title_eventlogging_opt_in">Slanje izvješća o korištenju</string>
@@ -113,7 +112,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Dopusti automatsko slanje izvješća o pogreškama u HockeyApp / servis treće strane, kako bismo mogli vidjeti informacije o pogrešci? To će omogućiti brže i lakše ispravljanje pogreške.</string>
   <string name="editing_error_spamblacklist">Pronađeni su linkovi na popis blokiranih domena (%s). Molimo, uklonite ih i pokušajte ponovno.</string>
   <string name="history_search_list_hint">Pretraživanje povijesti</string>
-  <string name="history_search_empty_message">Nema stranica koje odgovaraju Vašem upitu.</string>
   <string name="error_can_not_process_link">Nije moguće prikazati ovu poveznicu</string>
   <string name="page_protected_autoconfirmed">Ova stranica je djelomično zaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je u potpunosti zaštićena.</string>
@@ -233,7 +231,6 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="crash_report_quit">Prekini</string>
   <string name="article_menu_bar_bookmark">Spremi članak na popis za čitanje</string>
   <string name="article_menu_bar_share">Podijelite poveznicu na članak</string>
-  <string name="article_menu_bar_navigate">Idite na lokaciju članka</string>
   <string name="nav_item_reading_lists">Moji popisi</string>
   <string name="reading_list_untitled">Bez naslova</string>
   <string name="reading_list_save_to">Dodaj na popis za čitanje</string>
@@ -249,18 +246,13 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="reading_list_sort_by_name_desc">Poredaj po nazivu (obrnuto)</string>
   <string name="reading_list_sort_by_recent">Poredaj po datumu (prvo najnovije)</string>
   <string name="reading_list_sort_by_recent_desc">Poredaj po datumu (prvo najstarije)</string>
-  <string name="reading_list_menu_edit">Uređivanje detalja o popisu za čitanje</string>
   <string name="reading_list_menu_delete" fuzzy="true">Izbriši popis za čitanje</string>
   <string name="reading_list_name_sample">Moj popis za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog popisa</string>
   <string name="reading_list_description_hint">Opis (nije obavezno)</string>
-  <string name="reading_list_save_for_offline">Dostupan za izvanmrežno čitanje</string>
   <string name="reading_list_item_deleted">%s uklonjen s popisa</string>
   <string name="reading_list_item_delete_undo">Poništi</string>
   <string name="reading_list_deleted">%s uklonjeno</string>
-  <string name="reading_list_edit_ok">U redu</string>
-  <string name="reading_list_edit_cancel">Odustani</string>
-  <string name="reading_list_delete_confirm">Želite li zaista obrisati popis za čitanje?</string>
   <string name="reading_lists_empty" fuzzy="true">Još nema popisa za čitanje.</string>
   <string name="reading_lists_onboarding_for_example">Na primjer</string>
   <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>

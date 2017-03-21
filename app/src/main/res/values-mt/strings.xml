@@ -72,13 +72,11 @@
   <string name="zero_learn_more_learn_more" fuzzy="true">Aqra aktar</string>
   <string name="zero_learn_more_dismiss">Aħbi</string>
   <string name="send_feedback">Ibgħat kumment fuq l-app</string>
-  <string name="nav_item_random">Paġna kwalunkwe</string>
   <string name="create_account_account_created_toast">Il-kont ġie maħluq!</string>
   <string name="preference_title_eventlogging_opt_in">Ibgħat rapporti fuq l-użu</string>
   <string name="preference_summary_eventlogging_opt_in">Ħalli \'l-Wikipedija li tiġbor informazzjoni dwar kif tuża l-app sabiex ittejjeb l-app</string>
   <string name="editing_error_spamblacklist">Instabu ħoloq lejn dominji mblukkati (%s). Jekk jogħġbok neħħihom u erġa\' pprova.</string>
   <string name="history_search_list_hint" fuzzy="true">Fittex</string>
-  <string name="history_search_empty_message">L-ebda paġna ma qablet mar-rikjesta tiegħek.</string>
   <string name="error_can_not_process_link">Il-ħolqa ma setgħetx tintwera</string>
   <string name="page_protected_autoconfirmed">Din il-paġna hija semiprotetta.</string>
   <string name="page_protected_sysop">Din il-paġna hija protetta.</string>

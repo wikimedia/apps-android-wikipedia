@@ -129,7 +129,6 @@
     <string name="zero_learn_more_dismiss">Dismiss</string>
     <string name="edit_preview_fetching_dialog_message">Fetching preview…</string>
     <string name="send_feedback">Send app feedback</string>
-    <string name="nav_item_random">Random</string>
     <string name="create_account_account_created_toast">Account created!</string>
     <string name="preferences_privacy_settings_heading">Privacy</string>
     <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
@@ -138,7 +137,6 @@
     <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
     <string name="history_search_list_hint">Search history</string>
-    <string name="history_search_empty_message">No pages found matching your query.</string>
     <string name="error_can_not_process_link">Could not display this link</string>
     <string name="page_protected_autoconfirmed">This page has been semi-protected.</string>
     <string name="page_protected_sysop">This page has been fully protected.</string>
@@ -271,7 +269,6 @@
     <!-- Article menu bar -->
     <string name="article_menu_bar_bookmark">Add this article to a reading list</string>
     <string name="article_menu_bar_share">Share the article link</string>
-    <string name="article_menu_bar_navigate">Navigate to the location of the article</string>
     <string name="article_header_edit_hint">Edit…</string>
     <string name="article_header_edit_description">Edit title description</string>
     <string name="article_header_edit_lead_section">Edit introduction</string>
@@ -295,21 +292,16 @@
     <string name="reading_list_sort_by_name_desc">Sort by name (reverse)</string>
     <string name="reading_list_sort_by_recent">Sort by most recent</string>
     <string name="reading_list_sort_by_recent_desc">Sort by least recent</string>
-    <string name="reading_list_menu_edit">Edit reading list details</string>
     <string name="reading_list_menu_delete">Delete list</string>
     <string name="reading_list_menu_rename">Rename</string>
     <string name="reading_list_menu_edit_description">Edit description</string>
     <string name="reading_list_name_sample">My reading list</string>
     <string name="reading_list_name_hint">Name of this list</string>
     <string name="reading_list_description_hint">Description (optional)</string>
-    <string name="reading_list_save_for_offline">Available for offline reading</string>
     <string name="reading_list_item_deleted">%s removed from list</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
-    <string name="reading_list_edit_ok">OK</string>
-    <string name="reading_list_edit_cancel">Cancel</string>
-    <string name="reading_list_delete_confirm">Are you sure you want to delete this reading list?</string>
     <string name="reading_lists_empty">No reading lists yet</string>
     <string name="reading_lists_empty_message">Save articles to reading lists so you can view them later, even when you\'re offline.</string>
     <string name="reading_lists_onboarding_intro">Create reading lists from articles you want to read later, even when you\'re offline!</string>
@@ -318,7 +310,6 @@
     <string name="reading_lists_onboarding_example2">Favorite animals</string>
     <string name="reading_lists_onboarding_example3">Space!</string>
     <string name="reading_lists_onboarding_got_it">Got it</string>
-    <string name="reading_lists_onboarding_page_delete">Tip: Swipe any page left or right to remove it from this reading list.</string>
     <string name="reading_list_no_description">No description…</string>
     <string name="reading_list_empty">You have no articles added to this list.</string>
     <!-- /Reading lists -->
@@ -328,10 +319,7 @@
     <!-- /User options -->
 
     <!-- Notifications -->
-    <string name="notification_button_view_page">View page</string>
     <string name="notification_button_view_user">Talk to user</string>
-    <string name="notification_button_view_edit_history">View edit history</string>
-    <string name="notification_generic_title">Notification on Wikipedia</string>
     <string name="notification_talk_title">New message on Wikipedia</string>
     <string name="notification_talk"><![CDATA[<em>%1$s</em> left a message on your Talk page <strong>%2$s</strong>]]></string>
     <string name="notification_reverted_title">Reverted edit</string>
@@ -369,7 +357,6 @@
     <!-- /The Feed -->
 
     <!-- Description editing -->
-    <string name="description_edit_header">Editing</string>
     <string name="description_edit_text_hint">Title description</string>
     <string name="description_edit_save">Save</string>
     <string name="description_edit_add_description">Add title description</string>

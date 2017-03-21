@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">关闭</string>
   <string name="edit_preview_fetching_dialog_message">正在获取预览…</string>
   <string name="send_feedback">发送应用程序反馈</string>
-  <string name="nav_item_random">随机</string>
   <string name="create_account_account_created_toast">账户已创建！</string>
   <string name="preferences_privacy_settings_heading">隐私</string>
   <string name="preference_title_eventlogging_opt_in">发送使用情况报告</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">允许应用程序自动发送崩溃报告至HockeyApp/第三方服务提供方，这样我们可以更快，更容易地浏览您的崩溃报告，并修复漏洞。</string>
   <string name="editing_error_spamblacklist">检测到受封禁域名（%s）的链接。请移除它们并重试。</string>
   <string name="history_search_list_hint">搜索历史</string>
-  <string name="history_search_empty_message">未找到匹配您的查询的页面。</string>
   <string name="error_can_not_process_link">无法显示该链接</string>
   <string name="page_protected_autoconfirmed">该页面受到半保护。</string>
   <string name="page_protected_sysop">该页面受到全保护。</string>
@@ -251,7 +249,6 @@
   <string name="crash_report_quit">退出</string>
   <string name="article_menu_bar_bookmark">添加此条目至阅读列表</string>
   <string name="article_menu_bar_share">分享条目链接</string>
-  <string name="article_menu_bar_navigate">导航至条目的位置</string>
   <string name="article_header_edit_hint">编辑…</string>
   <string name="article_header_edit_description">编辑标题描述</string>
   <string name="article_header_edit_lead_section">编辑介绍</string>
@@ -272,21 +269,16 @@
   <string name="reading_list_sort_by_name_desc">按名称排序（反向）</string>
   <string name="reading_list_sort_by_recent">按最近访问排序</string>
   <string name="reading_list_sort_by_recent_desc">按最早访问排序</string>
-  <string name="reading_list_menu_edit">编辑阅读列表详情</string>
   <string name="reading_list_menu_delete">删除列表</string>
   <string name="reading_list_menu_rename">重命名</string>
   <string name="reading_list_menu_edit_description">编辑描述</string>
   <string name="reading_list_name_sample">我的阅读列表</string>
   <string name="reading_list_name_hint">此列表的名称</string>
   <string name="reading_list_description_hint">描述（可选）</string>
-  <string name="reading_list_save_for_offline">可用于离线阅读</string>
   <string name="reading_list_item_deleted">%s已从列表中移除</string>
   <string name="reading_list_items_deleted">%d个条目已从列表中移除</string>
   <string name="reading_list_item_delete_undo">撤销</string>
   <string name="reading_list_deleted">%s已删除</string>
-  <string name="reading_list_edit_ok">确定</string>
-  <string name="reading_list_edit_cancel">取消</string>
-  <string name="reading_list_delete_confirm">您确定要删除此阅读列表么？</string>
   <string name="reading_lists_empty">目前尚无阅读列表</string>
   <string name="reading_lists_empty_message">保存条目至阅读列表，这样即便您日后离线了，您也可以阅读这些条目。</string>
   <string name="reading_lists_onboarding_intro">从您希望稍后阅读的条目创建阅读列表，即便当您离线时！</string>
@@ -295,14 +287,10 @@
   <string name="reading_lists_onboarding_example2">喜爱的动物</string>
   <string name="reading_lists_onboarding_example3">太空！</string>
   <string name="reading_lists_onboarding_got_it">明白了</string>
-  <string name="reading_lists_onboarding_page_delete">小建议：向左或向右滑动任意页面以将其从此阅读列表中移除。</string>
   <string name="reading_list_no_description">无描述…</string>
   <string name="reading_list_empty">您没有添加至此列表的条目。</string>
   <string name="user_option_sync_label">参数设置</string>
-  <string name="notification_button_view_page">查看页面</string>
   <string name="notification_button_view_user">与用户讨论</string>
-  <string name="notification_button_view_edit_history">查看编辑历史</string>
-  <string name="notification_generic_title">维基百科上的通知</string>
   <string name="notification_talk_title">维基百科上的新消息</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt;在您的讨论页&lt;strong&gt;%2$s&lt;/strong&gt;上留下了一条消息</string>
   <string name="notification_reverted_title">回退的编辑</string>
@@ -333,7 +321,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
-  <string name="description_edit_header">编辑</string>
   <string name="description_edit_text_hint">标题描述</string>
   <string name="description_edit_save">保存</string>
   <string name="description_edit_add_description">添加标题描述</string>

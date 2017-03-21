@@ -101,7 +101,6 @@
   <string name="zero_learn_more_dismiss">Hafna</string>
   <string name="edit_preview_fetching_dialog_message">Sæki forskoðun…</string>
   <string name="send_feedback">Senda ábendingar um appið</string>
-  <string name="nav_item_random">Handahófsvalið</string>
   <string name="create_account_account_created_toast">Aðgangur búinn til!</string>
   <string name="preferences_privacy_settings_heading">Gagnaleynd</string>
   <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
@@ -110,7 +109,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
   <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
   <string name="history_search_list_hint">Leitarferill</string>
-  <string name="history_search_empty_message">Engar síður fundust sem samsvara leitarskilyrðunum.</string>
   <string name="error_can_not_process_link">Gat ekki birt þennan tengil</string>
   <string name="page_protected_autoconfirmed">Þessi síða er varin að hluta til.</string>
   <string name="page_protected_sysop">Þessi síða er varin í heild.</string>
@@ -224,5 +222,4 @@ Viltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_quit">Hætta</string>
   <string name="article_menu_bar_bookmark" fuzzy="true">Vista greinina fyrir síðari tíma tengingarlausan lestur</string>
   <string name="article_menu_bar_share">Deila tengli á greinina</string>
-  <string name="article_menu_bar_navigate">Fara á staðsetningu greinarinnar</string>
 </resources>

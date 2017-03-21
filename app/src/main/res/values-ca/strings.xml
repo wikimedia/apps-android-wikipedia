@@ -114,7 +114,6 @@
   <string name="zero_learn_more_dismiss">Descarta</string>
   <string name="edit_preview_fetching_dialog_message">Obtenint la previsualització…</string>
   <string name="send_feedback">Envieu els vostres comentaris sobre l\'aplicació</string>
-  <string name="nav_item_random">A l’atzar</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
   <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
@@ -123,7 +122,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Permet que l\'aplicació enviï informes d\'error de forma automàtica a HockeyApp / un proveïdor de serveis, de manera que podem revisar-ho i corregir-ho de la manera més fàcil i ràpida.</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis bloquejats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
   <string name="history_search_list_hint">Cerca a l\'historial</string>
-  <string name="history_search_empty_message">No s’ha trobat cap pàgina que coincideixi amb la consulta.</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>
   <string name="page_protected_autoconfirmed">La pàgina està semiprotegida.</string>
   <string name="page_protected_sysop">La pàgina està completament protegida.</string>
@@ -248,7 +246,6 @@ Voleu començar de nou o sortir?</string>
   <string name="crash_report_quit">Surt</string>
   <string name="article_menu_bar_bookmark">Afegeix l\'article a la llista de lectura</string>
   <string name="article_menu_bar_share">Comparteix l\'enllaç a l\'article</string>
-  <string name="article_menu_bar_navigate">Navega a la ubicació de l\'article</string>
   <string name="article_header_edit_hint">Modifica…</string>
   <string name="article_header_edit_description">Modifica la descripció del títol</string>
   <string name="article_header_edit_lead_section">Modifica la introducció</string>
@@ -269,20 +266,15 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_sort_by_name_desc">Ordena per nom (invers)</string>
   <string name="reading_list_sort_by_recent">Ordena per més recent</string>
   <string name="reading_list_sort_by_recent_desc">Ordena per menys recent</string>
-  <string name="reading_list_menu_edit">Edita els detalls de la llista de lectura</string>
   <string name="reading_list_menu_delete" fuzzy="true">Elimina la llista de lectura</string>
   <string name="reading_list_menu_rename">Reanomena</string>
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
   <string name="reading_list_name_hint">Nom de la llista</string>
   <string name="reading_list_description_hint">Descripció (opcional)</string>
-  <string name="reading_list_save_for_offline">Disponible per a lectura fora de línia</string>
   <string name="reading_list_item_deleted">%s suprimit de la llista</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="reading_list_edit_ok">D\'acord</string>
-  <string name="reading_list_edit_cancel">Cancel·la</string>
-  <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir aquesta llista de lectura?</string>
   <string name="reading_lists_empty" fuzzy="true">No hi ha cap llista de lectura.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Organitzeu els articles que llegiu en llistes de lectura! En navegar per un article, feu un toc a la icona d\'adreces d\'interès a la barra d\'eines inferior per afegir-lo a la llista de lectura.</string>
   <string name="reading_lists_onboarding_intro">Creeu llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan estigueu fora de línia!</string>
@@ -291,14 +283,10 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_lists_onboarding_example2">Animals preferits</string>
   <string name="reading_lists_onboarding_example3">Espai!</string>
   <string name="reading_lists_onboarding_got_it">Entesos</string>
-  <string name="reading_lists_onboarding_page_delete">Consell: Llisqueu el dit a dreta o a esquerra per a eliminar l\'article d\'aquesta llista de lectura.</string>
   <string name="reading_list_no_description">Sense descripció…</string>
   <string name="reading_list_empty">No teniu articles afegits a la llista.</string>
   <string name="user_option_sync_label">Preferències</string>
-  <string name="notification_button_view_page">Mostra la pàgina</string>
   <string name="notification_button_view_user">Parla amb l\'usuari</string>
-  <string name="notification_button_view_edit_history">Mostra l\'historial de modificacions</string>
-  <string name="notification_generic_title">Notificació a la Viquipèdia</string>
   <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ha deixat un missatge a la vostra pàgina de discussió &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Modificació revertida</string>
@@ -328,7 +316,6 @@ Voleu començar de nou o sortir?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Avui</string>
   <string name="view_announcement_card_negative_action">No, gràcies</string>
-  <string name="description_edit_header">Modificació</string>
   <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_save">Desa</string>
   <string name="description_edit_add_description">Afegeix una descripció de títol</string>

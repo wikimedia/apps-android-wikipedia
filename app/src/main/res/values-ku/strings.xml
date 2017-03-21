@@ -74,7 +74,6 @@
   <string name="zero_interstitial_continue">Jê derkeve</string>
   <string name="zero_interstitial_cancel">Li vir bimîne</string>
   <string name="zero_learn_more_learn_more" fuzzy="true">Zêdetir bixwîne</string>
-  <string name="nav_item_random">Ketober</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="history_search_list_hint">Dîroka lêgerînê</string>
   <string name="page_protected_can_not_edit" fuzzy="true">Mafê te bo guherandina vê rûpelê tune ye</string>
@@ -130,8 +129,6 @@
   <string name="reading_list_sort_by_name">Li gorî nav rêz bike</string>
   <string name="reading_list_name_sample">Lîsteya min a xwendinê</string>
   <string name="reading_list_name_hint">Navê vê lîsteyê</string>
-  <string name="reading_list_edit_ok">Baş e</string>
-  <string name="reading_list_edit_cancel">Betal bike</string>
   <string name="reading_lists_onboarding_for_example">Wek mînak</string>
   <string name="view_continue_reading_card_title">Xwendinê bidomîne</string>
   <string name="view_featured_image_card_title">Wêneyê rojê</string>

@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">अपनीयताम्</string>
   <string name="edit_preview_fetching_dialog_message">प्राग्दृश्यम् आवहति…</string>
   <string name="send_feedback">अनुप्रयोगप्रतिक्रियां प्रेषयतु</string>
-  <string name="nav_item_random">यादृच्छिकम्</string>
   <string name="create_account_account_created_toast">सदस्यता प्राप्ता !</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगस्य वृत्तान्तं प्रेषयतु</string>
@@ -114,7 +113,6 @@
   <string name="preference_summary_auto_upload_crash_reports">अनुप्रयोगस्य ध्वंसवृत्तान्तं HockeyApp इत्यत्र उत तृतीयपक्षप्रदात्रे प्रेष्यताम्, येन वयं समीक्षां कृत्वा भवतः/भवत्याः ध्वंसमत्कुणं सारल्येन समीकर्तुं शक्नुमः ।</string>
   <string name="editing_error_spamblacklist">(%s) इत्येतानि स्थगितानि जालस्थानि प्राप्तानि । कृपया तानि अपाकृत्य पुनः प्रयत्यताम् ।</string>
   <string name="history_search_list_hint">इतिहासः अन्विष्यताम्</string>
-  <string name="history_search_empty_message">भवता/भवत्या इष्टं पृष्ठं न प्राप्तम् ।</string>
   <string name="error_can_not_process_link">एषः परिसन्धिः दर्शयितुं न शक्यते</string>
   <string name="page_protected_autoconfirmed">एतत् पृष्ठम् अर्धसंरक्षितम् अस्ति ।</string>
   <string name="page_protected_sysop">एतत् पृष्ठं पूर्णतया संरक्षितम् अस्ति ।</string>

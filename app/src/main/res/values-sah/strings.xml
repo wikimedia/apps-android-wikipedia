@@ -109,7 +109,6 @@
   <string name="zero_learn_more_dismiss">Сап</string>
   <string name="edit_preview_fetching_dialog_message">Хачайданар...</string>
   <string name="send_feedback">Дьибилгэт туһунан санааҕын ыыт</string>
-  <string name="nav_item_random">Түбэспиччэ</string>
   <string name="create_account_account_created_toast">Бэлиэтэнниҥ!</string>
   <string name="preferences_privacy_settings_heading">Тус эйгэни көмүскээһин</string>
   <string name="preference_title_eventlogging_opt_in">Туһаныы отчуоттарын ыыт</string>
@@ -118,7 +117,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо биһиги саахал туһунан тута билиэ этибит уонна алҕаһы түргэнник көннөрүө этибит.</string>
   <string name="editing_error_spamblacklist">Хааччахтаммыт дэмиэннэргэ сигэммиккин (%s). Бука диэн ону сотон баран хатылаан көр.</string>
   <string name="history_search_list_hint">Көрдөөһүн сурунаала</string>
-  <string name="history_search_empty_message">Көрдөбүлгэр сөп түбэһэр сирэй көстүбэтэ.</string>
   <string name="error_can_not_process_link">Бу сигэни көрдөрөр табыллыбата</string>
   <string name="page_protected_autoconfirmed">Бу сирэй сорҕото хатанна.</string>
   <string name="page_protected_sysop">Бу сирэй толору хатанна</string>
@@ -238,7 +236,6 @@
   <string name="crash_report_quit">Таҕыс</string>
   <string name="article_menu_bar_bookmark">Ыстатыйаны ааҕыы тиһилигэр киллэр</string>
   <string name="article_menu_bar_share">Ыстатыйа сигэтин тарҕат</string>
-  <string name="article_menu_bar_navigate">Ыстатыйа баар сиригэр көс</string>
   <string name="article_header_edit_hint">Уларыт...</string>
   <string name="article_header_edit_description">Бас туһунан суругу уларыт</string>
   <string name="article_header_edit_lead_section">Киириини уларыт</string>
@@ -257,18 +254,13 @@
   <string name="reading_list_sort_by_name_desc">Аатынан наардааһын (төттөрү)</string>
   <string name="reading_list_sort_by_recent">Күнүнэн-дьылынан</string>
   <string name="reading_list_sort_by_recent_desc">Күнүнэн-дьылынан наардааһын (эргэ)</string>
-  <string name="reading_list_menu_edit">Тиһилик туһунан суруйууну уларытыы</string>
   <string name="reading_list_menu_delete" fuzzy="true">Тиһилиги сотуу</string>
   <string name="reading_list_name_sample">Мин тиһилигим</string>
   <string name="reading_list_name_hint">Тиһилик аата</string>
   <string name="reading_list_description_hint">Тиһилик туһунан (булгуччута суох)</string>
-  <string name="reading_list_save_for_offline">Ситимэ суох ааҕыахха сөп</string>
   <string name="reading_list_item_deleted">%s сотулунна</string>
   <string name="reading_list_item_delete_undo">Төннөр</string>
   <string name="reading_list_deleted">%s сотуллубут</string>
-  <string name="reading_list_edit_ok">Сөп</string>
-  <string name="reading_list_edit_cancel">Салҕаама</string>
-  <string name="reading_list_delete_confirm">Бу тиһилиги чахчы сотоору гынаҕын дуо?</string>
   <string name="reading_lists_empty" fuzzy="true">Тиһилик оҥоһулла илик эбит.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Көрөр ыстатыйаларгын ааҕыы тиһилигэр бөлөхтөө! Ыстатыйаны тиһиликкэ эбэргэ, ыстатыйаҕа киирэн олорон аллара хапталга баар кыбытык бэлиэтин баттаа.</string>
   <string name="reading_lists_onboarding_intro">Кэлин интэриниэтэ да суох ааҕарга анаан ыстатыйалар испииһэктэрин оҥоһун!</string>
@@ -277,12 +269,8 @@
   <string name="reading_lists_onboarding_example2">Сөбүлүүр кыылларым</string>
   <string name="reading_lists_onboarding_example3">Космос куйаара!</string>
   <string name="reading_lists_onboarding_got_it">Бу өйдөнөр</string>
-  <string name="reading_lists_onboarding_page_delete">Сүбэ: тарбаххынан ханнык баҕарар сирэйи туора сот - оччоҕо ааҕыы испииһэгиттэн сүтүө.</string>
   <string name="user_option_sync_label">Туруоруулар</string>
-  <string name="notification_button_view_page">Сирэйи көрүү</string>
   <string name="notification_button_view_user">Кыттааччыга сурук</string>
-  <string name="notification_button_view_edit_history">Уларытыы устуоруйатын көрүү</string>
-  <string name="notification_generic_title">Бикипиэдьийэҕэ биллэрии</string>
   <string name="notification_talk_title">Бикипиэдьийэҕэ саҥа сурук</string>
   <string name="notification_talk" fuzzy="true">%1$s Эн ырытар тус сирэйгэр сурук хаалларбыт: «%2$s»</string>
   <string name="notification_reverted_title">Төннөрүллүбүт уларытыы</string>
@@ -312,7 +300,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Бүгүн</string>
   <string name="view_announcement_card_negative_action">Суох, махтанабын</string>
-  <string name="description_edit_header">Уларытыы</string>
   <string name="description_edit_text_hint" fuzzy="true">Ойуулааһыны суруй!</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_add_description" fuzzy="true">Кылгас быһаарыы эбии</string>

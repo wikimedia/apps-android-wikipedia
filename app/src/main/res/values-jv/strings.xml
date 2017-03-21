@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Tutup</string>
   <string name="edit_preview_fetching_dialog_message">Njupuk pratuduh...</string>
   <string name="send_feedback">Kirim saran aplikasi</string>
-  <string name="nav_item_random">Sembarang</string>
   <string name="create_account_account_created_toast">Akun wis kagawé!</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan nganggo</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
   <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
   <string name="history_search_list_hint">Sujarah golèkan</string>
-  <string name="history_search_empty_message">Ora ana kaca sing tinemu mathuk karo panjalukmu.</string>
   <string name="error_can_not_process_link">Ora bisa nuduhaké pranala iki</string>
   <string name="page_protected_autoconfirmed">Kaca iki wis semu-kareksa.</string>
   <string name="page_protected_sysop">Kaca iki wis kareksa wutuh.</string>
@@ -251,7 +249,6 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="crash_report_quit">Metu</string>
   <string name="article_menu_bar_bookmark">Tambah artikel iki menyang dhaftar maca</string>
   <string name="article_menu_bar_share">Nuduhake pranala artikel</string>
-  <string name="article_menu_bar_navigate">Navigasi menyang lokasi artikel</string>
   <string name="article_header_edit_hint">Besut...</string>
   <string name="article_header_edit_description">Besut andharan judul</string>
   <string name="article_header_edit_lead_section">Besut introduksi</string>
@@ -272,21 +269,16 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="reading_list_sort_by_name_desc">Urut miturut jeneng (malik)</string>
   <string name="reading_list_sort_by_recent">Urut miturut paling anyar</string>
   <string name="reading_list_sort_by_recent_desc">Urut miturut paling lawas</string>
-  <string name="reading_list_menu_edit">Sunting rincian dhaftar maca</string>
   <string name="reading_list_menu_delete">Busak dhaptar</string>
   <string name="reading_list_menu_rename">Ganti jeneng</string>
   <string name="reading_list_menu_edit_description">Besut katrangan</string>
   <string name="reading_list_name_sample">Dhaftar maca sandi</string>
   <string name="reading_list_name_hint">Jeneng dhaftar iki</string>
   <string name="reading_list_description_hint">Katrangan (pilihan)</string>
-  <string name="reading_list_save_for_offline">Kasedhiya kanggo maca offline</string>
   <string name="reading_list_item_deleted">%s dibusak saka dhaftar</string>
   <string name="reading_list_items_deleted">%d artikel dibusak saka dhaftar</string>
   <string name="reading_list_item_delete_undo">Undur</string>
   <string name="reading_list_deleted">%s dibusak</string>
-  <string name="reading_list_edit_ok">Oké</string>
-  <string name="reading_list_edit_cancel">Batal</string>
-  <string name="reading_list_delete_confirm">Sampéyan yakin arep mbusak dhaftar maca iki?</string>
   <string name="reading_lists_empty">Ora dhaptar maca durung</string>
   <string name="reading_lists_empty_message">Simpen artikel kanggo dhaptar maca supaya sampeyan bisa ndeleng wong mengko, malah nalika sampeyan lagi luring.</string>
   <string name="reading_lists_onboarding_intro">Nggawe maca dhaptar saka artikel sing arep diwaca mengko, malah nalika sampeyan lagi offline!</string>
@@ -295,14 +287,10 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="reading_lists_onboarding_example2">Kéwan favorit</string>
   <string name="reading_lists_onboarding_example3">Luar angkasa!</string>
   <string name="reading_lists_onboarding_got_it">Tak</string>
-  <string name="reading_lists_onboarding_page_delete">Tip: Gesek kaca ngiwa utawa nengen kanggo nyopot saka maca dhaftar iki.</string>
   <string name="reading_list_no_description">Tanpa katerangan...</string>
   <string name="reading_list_empty">Sampeyan kudu ora ana artikel ditambahake menyang dhaptar iki.</string>
   <string name="user_option_sync_label">Pilihan</string>
-  <string name="notification_button_view_page">Tuduhna kaca</string>
   <string name="notification_button_view_user">Rembugan kanggo panganggo</string>
-  <string name="notification_button_view_edit_history">Deleng sujarah suntingan</string>
-  <string name="notification_generic_title">Wara-wara ing Wikipedia</string>
   <string name="notification_talk_title">Pesen anyar ing Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ngiwa pesen ing kaca parembugan sampeyan ing judhul &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Besutan diwurungaké</string>
@@ -333,7 +321,6 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Dina iki</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
-  <string name="description_edit_header">Pambesut</string>
   <string name="description_edit_text_hint">Katrangan judhul</string>
   <string name="description_edit_save">Simpen</string>
   <string name="description_edit_add_description">Tambah panyadra judhul</string>

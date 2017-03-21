@@ -112,7 +112,6 @@
   <string name="zero_learn_more_dismiss">უარყოფა</string>
   <string name="edit_preview_fetching_dialog_message">წინასწარი გადახედვის რეჟიმი…</string>
   <string name="send_feedback">შეაფასეთ აპლიკაცია</string>
-  <string name="nav_item_random">შემთხვევითი</string>
   <string name="create_account_account_created_toast">ანგარიში შექმნილია!</string>
   <string name="preferences_privacy_settings_heading">უსაფრთხოება</string>
   <string name="preference_title_eventlogging_opt_in">გამოყენების ანგარიშის გაგზავნა</string>
@@ -120,7 +119,6 @@
   <string name="preference_title_auto_upload_crash_reports">პრობლემის ანგარიშის გაგზავნა</string>
   <string name="editing_error_spamblacklist">შემჩნეულია ბმულები დაბლოკილ დომეიზე (%s). გთხოვთ წაშალოთ და სცადოთ თავიდან.</string>
   <string name="history_search_list_hint">ძიების ისტორია</string>
-  <string name="history_search_empty_message">თქვენს მოთხოვნაზე არც ერთი გვერდი არ მოიძებნა.</string>
   <string name="error_can_not_process_link">ბმულის ჩვენება ვერ მოხერხდა</string>
   <string name="page_protected_autoconfirmed">ეს გვერდი ნახევრად დაცულია.</string>
   <string name="page_protected_sysop">ეს გვერდი სრულად დაცულია.</string>
@@ -235,7 +233,6 @@
   <string name="crash_report_quit">გამოსვლა</string>
   <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
   <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
-  <string name="article_menu_bar_navigate">სტატიის მდებარეობაზე გადასვლა</string>
   <string name="article_header_edit_hint">რედაქტირება</string>
   <string name="article_header_edit_description">სათაურის აღწერილობის რედაქტირება</string>
   <string name="article_header_edit_lead_section">შესავლის რედაქტირება</string>
@@ -255,18 +252,13 @@
   <string name="reading_list_sort_by_name_desc">სახელით დალაგება (უკანა)</string>
   <string name="reading_list_sort_by_recent">დალაგება ყველაზე ბოლოების მიხედვით</string>
   <string name="reading_list_sort_by_recent_desc">დალაგება შედარებით ბოლოების მიხედვით</string>
-  <string name="reading_list_menu_edit">წასაკითხთა სიის რედაქტირება</string>
   <string name="reading_list_menu_delete">სიის წაშლა</string>
   <string name="reading_list_name_sample">ჩემი წასაკითხთა სია</string>
   <string name="reading_list_name_hint">ამ სიის სახელი</string>
   <string name="reading_list_description_hint">აღწერა</string>
-  <string name="reading_list_save_for_offline">ხელმისაწვდომია ოფლაინ-რეჟიმში წასაკითხად</string>
   <string name="reading_list_item_deleted">%s წაიშალა სიიდან</string>
   <string name="reading_list_item_delete_undo">გაუქმება</string>
   <string name="reading_list_deleted">%s წაიშალა</string>
-  <string name="reading_list_edit_ok">კარგი</string>
-  <string name="reading_list_edit_cancel">გაუქმება</string>
-  <string name="reading_list_delete_confirm">დარწმუნებული ხართ, რომ გსურთ წასაკითხთა ამ სიის წაშლა?</string>
   <string name="reading_lists_empty">წასაკითხი სია ჯერ არაა.</string>
   <string name="reading_lists_onboarding_for_example">მაგალითად</string>
   <string name="reading_lists_onboarding_example1">მოსანახულებელი ადგილები</string>
@@ -274,9 +266,6 @@
   <string name="reading_lists_onboarding_example3">კოსმოსი!</string>
   <string name="reading_lists_onboarding_got_it">გასაგებია</string>
   <string name="user_option_sync_label">კონფიგურაცია</string>
-  <string name="notification_button_view_page">გვერდის ხილვა</string>
-  <string name="notification_button_view_edit_history">რედაქტირების ისტორიის ხილვა</string>
-  <string name="notification_generic_title">შეტყობინება ვიკიპედიაზე</string>
   <string name="notification_talk_title">ახალი წერილი ვიკიპედიაზე</string>
   <string name="notification_reverted_title">გაუქმებული რედაქტირება</string>
   <string name="notification_thanks_title">თქვენ მადლობა გადაგიხადეს</string>
@@ -301,7 +290,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">დღეს</string>
   <string name="view_announcement_card_negative_action">არა, გმადლობთ</string>
-  <string name="description_edit_header">რედაქტირება</string>
   <string name="description_edit_text_hint">სათაურის აღწერა</string>
   <string name="description_edit_save">დამახსოვრება</string>
   <string name="description_edit_add_description">სათაურის აღწერის დამატება</string>

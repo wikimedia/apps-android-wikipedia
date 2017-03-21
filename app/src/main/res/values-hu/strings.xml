@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Elutasít</string>
   <string name="edit_preview_fetching_dialog_message">Előnézet készítése…</string>
   <string name="send_feedback">Alkalmazás visszajelzés küldése</string>
-  <string name="nav_item_random">Véletlen lap</string>
   <string name="create_account_account_created_toast">Felhasználói fiók létrehozva!</string>
   <string name="preferences_privacy_settings_heading">Adatvédelem</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Az app automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, és gyorsabban és könnyebben kijavíthassuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
   <string name="history_search_list_hint">Keresési előzmények</string>
-  <string name="history_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
   <string name="page_protected_autoconfirmed">Ez az oldal félig védett.</string>
   <string name="page_protected_sysop">Ez a lap teljesen védett.</string>
@@ -249,7 +247,6 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_quit">Kilépés</string>
   <string name="article_menu_bar_bookmark">Cikk hozzáadása egy olvasólistához</string>
   <string name="article_menu_bar_share">Ossza meg a cikk linkjét</string>
-  <string name="article_menu_bar_navigate">Navigálás a szócikk helyéhez</string>
   <string name="article_header_edit_hint">Szerkesztés…</string>
   <string name="article_header_edit_description">Címleírás szerkesztése</string>
   <string name="article_header_edit_lead_section">Bevezető szerkesztése</string>
@@ -270,21 +267,16 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>
   <string name="reading_list_sort_by_recent">Rendezés a legújabb szerint</string>
   <string name="reading_list_sort_by_recent_desc">Rendezés a legrégebbi szerint</string>
-  <string name="reading_list_menu_edit">Az olvasólista részleteinek szerkesztése</string>
   <string name="reading_list_menu_delete">Lista törlése</string>
   <string name="reading_list_menu_rename">Átnevezés</string>
   <string name="reading_list_menu_edit_description">Leírás szerkesztése</string>
   <string name="reading_list_name_sample">Saját olvasólista</string>
   <string name="reading_list_name_hint">A lista neve</string>
   <string name="reading_list_description_hint">Leírás (opcionális)</string>
-  <string name="reading_list_save_for_offline">Elérhető offline olvasásra</string>
   <string name="reading_list_item_deleted">%s eltávolítva a listáról</string>
   <string name="reading_list_items_deleted">%d szócikk eltávolítva a listáról</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Mégse</string>
-  <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni ezt az olvasólistát?</string>
   <string name="reading_lists_empty">Még nincsenek olvasólisták</string>
   <string name="reading_lists_empty_message">Ments el szócikkeket olvasólistákba, hogy később, akár internetkapcsolat nélkül is elolvashasd őket.</string>
   <string name="reading_lists_onboarding_intro">Készíts olvasólistát szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
@@ -293,14 +285,10 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_lists_onboarding_example2">Kedvenc állatok</string>
   <string name="reading_lists_onboarding_example3">Űr!</string>
   <string name="reading_lists_onboarding_got_it">Értem</string>
-  <string name="reading_lists_onboarding_page_delete">Tipp: Legyints egy cikket jobbra vagy balra, hogy eltávolítsd erről az olvasási listáról.</string>
   <string name="reading_list_no_description">Nincs leírás…</string>
   <string name="reading_list_empty">Nem adtál szócikket ehhez a listához.</string>
   <string name="user_option_sync_label">Beállítások</string>
-  <string name="notification_button_view_page">Oldal megtekintése</string>
   <string name="notification_button_view_user">Üzenethagyás a szerkesztőnek</string>
-  <string name="notification_button_view_edit_history">Laptörténet megtekintése</string>
-  <string name="notification_generic_title">Értesítés a Wikipédián</string>
   <string name="notification_talk_title">Új üzenet a Wikipédián</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; üzenetet hagyott a vitalapodon (&lt;strong&gt;%2$s&lt;/strong&gt;)</string>
   <string name="notification_reverted_title">Szerkesztés visszavonva</string>
@@ -331,7 +319,6 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Ma</string>
   <string name="view_announcement_card_negative_action">Nem, köszönöm</string>
-  <string name="description_edit_header">Szerkesztés</string>
   <string name="description_edit_text_hint">Cím leírása</string>
   <string name="description_edit_save">Mentés</string>
   <string name="description_edit_add_description">Adj meg egy címleírást</string>

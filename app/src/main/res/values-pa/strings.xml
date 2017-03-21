@@ -105,14 +105,12 @@
   <string name="zero_learn_more_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
   <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ…</string>
   <string name="send_feedback">ਅੈਪ ਸੰਬੰਧੀ ਸਲਾਹ ਭੇਜੋ</string>
-  <string name="nav_item_random">ਰਲ਼ਵਾਂ</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
   <string name="preferences_privacy_settings_heading">ਪਰਦੇਦਾਰੀ</string>
   <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
   <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
   <string name="preference_title_auto_upload_crash_reports">ਕਰੈਸ਼ ਰਿਪੋਰਟ ਭੇਜੋ</string>
   <string name="history_search_list_hint">ਅਤੀਤ ਖੋਜੋ</string>
-  <string name="history_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
   <string name="error_can_not_process_link">ਇਹ ਕੜੀ ਵਿਖਾਈ ਨਾ ਜਾ ਸਕੀ</string>
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
@@ -219,7 +217,6 @@
   <string name="crash_report_quit">ਛੱਡੋ</string>
   <string name="article_menu_bar_bookmark">ਇਸ ਲੇਖ ਨੂੰ ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਜੋੜੋ</string>
   <string name="article_menu_bar_share">ਲੇਖ ਦੀ ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
-  <string name="article_menu_bar_navigate">ਲੇਖ ਦੇ ਟਿਕਾਣੇ ਤੱਕ ਸਫ਼ਰ ਕਰੋ</string>
   <string name="nav_item_reading_lists" fuzzy="true">ਪੜ੍ਹਤ ਸੂਚੀਆਂ</string>
   <string name="reading_list_untitled">ਸਿਰਲੇਖ ਰਹਿਤ</string>
   <string name="reading_list_save_to">ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਸਾਂਭੋ</string>
@@ -234,25 +231,19 @@
   <string name="reading_list_sort_by_name">ਨਾਂ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
   <string name="reading_list_sort_by_name_desc">ਨਾਮ ਦੁਆਰਾ ਕ੍ਰਮਬੱਧ (ਉਲਟ)</string>
   <string name="reading_list_sort_by_recent">ਹਾਲੀਆ ਖੋਲ੍ਹੇ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
-  <string name="reading_list_menu_edit">ਪੜ੍ਹਤ ਸੂਚੀ ਦੀ ਜਾਣਕਾਰੀ ਸੋਧੋ</string>
   <string name="reading_list_menu_delete" fuzzy="true">ਪੜ੍ਹਤ ਸੂਚੀ ਮਿਟਾਉ</string>
   <string name="reading_list_name_sample">ਮੇਰੀ ਪੜ੍ਹਤ ਸੂਚੀ</string>
   <string name="reading_list_name_hint">ਸੂਚੀ ਦਾ ਨਾਂ</string>
   <string name="reading_list_description_hint">ਵੇਰਵਾ (ਚੋਣਵਾਂ)</string>
-  <string name="reading_list_save_for_offline">ਆਫਲਾਈਨ ਪੜ੍ਹਨ ਲਈ ਉਪਲੱਬਧ ਹੈ</string>
   <string name="reading_list_item_deleted">%s ਨੂੰ ਸੂਚੀ \'ਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="reading_list_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
-  <string name="reading_list_edit_ok">ਠੀਕ ਹੈ</string>
-  <string name="reading_list_edit_cancel">ਰੱਦ ਕਰੋ</string>
-  <string name="reading_list_delete_confirm">ਕੀ ਤੁਸੀਂ ਇਹ ਪੜ੍ਹਤ ਸੂਚੀ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="reading_lists_empty" fuzzy="true">ਇੱਥੇ ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ...</string>
   <string name="reading_lists_onboarding_for_example">ਮਿਸਾਲ ਦੇ ਤੌਰ \'ਤੇ</string>
   <string name="reading_lists_onboarding_example1">ਦੌਰਾ ਕਰਨ ਲਈ ਸਥਾਨ</string>
   <string name="reading_lists_onboarding_example2">ਪਸੰਦੀਦਾ ਜਾਨਵਰ</string>
   <string name="reading_lists_onboarding_example3">ਖਾਲੀ ਥਾਂ</string>
   <string name="reading_lists_onboarding_got_it">ਸਮਝ ਗਿਆ</string>
-  <string name="reading_lists_onboarding_page_delete">ਟਿਪ: ਕਿੱਸੇ ਵੀ ਸਾਫ਼ ਨੂੰ ਆਪਣੀ ਪੜ੍ਹਨ ਸੂਚੀ ਵਿੱਚੋਂ ਕੱਢਣ ਲਾਇ ਉਸ ਨੂੰ ਸੱਜੇ ਜਾ ਖੱਬੇ ਸਵਾਈਪ ਕਰੋ।</string>
   <string name="user_option_sync_label">ਤਰਜੀਹਾਂ</string>
   <string name="view_continue_reading_card_title">ਪੜ੍ਹਦੇ ਰਹੋ</string>
   <string name="view_because_you_read_card_title">ਕਿਓੰਕਿ ਤੁਸੀੰ ਇਹ ਪੜ੍ਹਿਆ ਸੀ</string>
@@ -275,7 +266,6 @@
     <item quantity="other">%d ਦਿਨ ਪਹਿਲਾਂ</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">ਅੱਜ</string>
-  <string name="description_edit_header">ਸੁਧਾਈ</string>
   <string name="description_edit_text_hint" fuzzy="true">ਵੇਰਵਾ ਭਰੋ</string>
   <string name="description_edit_save">ਸਾਂਭੋ</string>
   <string name="description_edit_add_description" fuzzy="true">ਵੇਰਵਾ ਸੋਧੋ</string>

@@ -72,7 +72,6 @@
   <string name="zero_interstitial_cancel">ಇಲ್ಲಿ ಉಳಿಯಿರಿ</string>
   <string name="zero_learn_more_learn_more">ಇನ್ನೂ ಓದಿ</string>
   <string name="zero_learn_more_dismiss">ತೆಗೆದುಹಾಕು</string>
-  <string name="nav_item_random">ಹೀಗೇ ಒಂದು ಪುಟ</string>
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
   <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
   <string name="history_search_list_hint">ಇತಿಹಾಸ  ಹುಡುಕಿ</string>
@@ -102,8 +101,6 @@
   <string name="button_continue_to_article">ಲೇಖನ ಓದಿ</string>
   <string name="reading_list_sort">ವಿಂಗಡಿಸು</string>
   <string name="reading_list_item_delete_undo">ಕಳಚು</string>
-  <string name="reading_list_edit_ok">ಸರಿ</string>
-  <string name="reading_list_edit_cancel">ರದ್ದುಗೊಳಿಸಿ</string>
   <string name="reading_lists_onboarding_got_it">ಗೊತ್ತಾಯಿತು</string>
   <string name="user_option_sync_label">ಪ್ರಾಶಸ್ತ್ಯಗಳು</string>
 </resources>

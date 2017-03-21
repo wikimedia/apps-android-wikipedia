@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">खारीज करा</string>
   <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे…</string>
   <string name="send_feedback">अॅपबद्दलची प्रतिक्रिया पाठवा</string>
-  <string name="nav_item_random">अविशिष्ट</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>
   <string name="preferences_privacy_settings_heading">गुप्तता</string>
   <string name="preference_title_eventlogging_opt_in">वापराचा अहवाल पाठवा</string>
@@ -113,7 +112,6 @@
   <string name="preference_title_auto_upload_crash_reports">नेस्तनाबुती(क्रॅश) अहवाल पाठवा</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित अधिक्षेत्रांचे दुवे(%s) सापडले आहेत.कृपया त्यांना हटवा व पुन्हा प्रयत्न करा.</string>
   <string name="history_search_list_hint">शोध इतिहास</string>
-  <string name="history_search_empty_message">आपल्या पृच्छेशी अनुरुप कोणतेच पान सापडत नाही.</string>
   <string name="error_can_not_process_link">ही दुवा दाखवु शकत नाही</string>
   <string name="page_protected_autoconfirmed">हे पान अर्ध-सुरक्षित आहे.</string>
   <string name="page_protected_sysop">हे पान पूर्णत: सुरक्षित आहे.</string>
@@ -232,7 +230,6 @@
   <string name="crash_report_quit">रद्दबादल करा</string>
   <string name="article_menu_bar_bookmark">हा लेख वाचनयादीत जोडा</string>
   <string name="article_menu_bar_share">लेखदुवा सहभागा</string>
-  <string name="article_menu_bar_navigate">या लेखाच्या स्थळास न्याहाळा</string>
   <string name="article_header_edit_hint">संपादन...</string>
   <string name="article_header_edit_description">शीर्षकाचे वर्णन संपादित करा</string>
   <string name="article_header_edit_lead_section">प्रास्ताविक संपादित करा</string>
@@ -251,18 +248,13 @@
   <string name="reading_list_sort_by_name_desc">नावानुसार निवडा (उलट)</string>
   <string name="reading_list_sort_by_recent">सर्वात अलीकडील अनुसार निवडा</string>
   <string name="reading_list_sort_by_recent_desc">कमी अलीकडील नुसार निवडा</string>
-  <string name="reading_list_menu_edit">वाचन यादीचा तपशील संपादन करा</string>
   <string name="reading_list_menu_delete" fuzzy="true">वाचन यादी वगळा</string>
   <string name="reading_list_name_sample">माझी वाचन यादी</string>
   <string name="reading_list_name_hint">या यादीचे नाव</string>
   <string name="reading_list_description_hint">वर्णन (ऐच्छिक)</string>
-  <string name="reading_list_save_for_offline">विनाजाल वाचनासाठी उपलब्ध</string>
   <string name="reading_list_item_deleted">%s यादीतून काढले</string>
   <string name="reading_list_item_delete_undo">उलटवा</string>
   <string name="reading_list_deleted">%s वगळले</string>
-  <string name="reading_list_edit_ok">ठीक आहे</string>
-  <string name="reading_list_edit_cancel">रद्द करा</string>
-  <string name="reading_list_delete_confirm">आपणास खात्री आहे काय कि आपणास ही वाचन यादी वगळायची आहे?</string>
   <string name="reading_lists_empty" fuzzy="true">येथे वाचन याद्या नाहीत.</string>
   <string name="reading_lists_empty_message" fuzzy="true">आपण न्याहाळत असलेले लेख वाचन यादीत नियोजित करा ! लेख न्याहाळत असतांना, तो आपल्या वाचनयादीत जोडण्यास,लेखाच्या खालच्या बाजूस असणाऱ्या बुकमार्क साधनपट्टीवर थपकवा.</string>
   <string name="reading_lists_onboarding_intro">जरी आपण विनाजाल असाल तरीही,आपणास नंतर वाचावयाच्या लेखांची वाचनयादी तयार करा!</string>
@@ -271,7 +263,6 @@
   <string name="reading_lists_onboarding_example2">आवडते पशू</string>
   <string name="reading_lists_onboarding_example3">अंतराळ!</string>
   <string name="reading_lists_onboarding_got_it">समजले</string>
-  <string name="reading_lists_onboarding_page_delete">सूचना:कोणतेही पान वाचनयादीतून हटविण्यास डावीकडे किंवा उजवीकडे सरकवा.</string>
   <string name="user_option_sync_label">पसंतीक्रम</string>
   <string name="view_continue_reading_card_title">वाचन सुरू ठेवा</string>
   <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
@@ -288,7 +279,6 @@
   <string name="view_card_news_title">बातम्यांमध्ये</string>
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_announcement_card_negative_action">नाही धन्यवाद</string>
-  <string name="description_edit_header">संपादन</string>
   <string name="description_edit_text_hint" fuzzy="true">वर्णन टाका</string>
   <string name="description_edit_save">जतन करा</string>
   <string name="description_edit_add_description" fuzzy="true">थोडक्यात वर्णन जोडा</string>

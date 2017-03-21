@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">Lukk</string>
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
   <string name="send_feedback">Gi oss tilbakemelding</string>
-  <string name="nav_item_random">Tilfeldig side</string>
   <string name="create_account_account_created_toast">Konto opprettet!</string>
   <string name="preferences_privacy_settings_heading">Personvern</string>
   <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
@@ -114,7 +113,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Tillat at appen automatisk sender krasjrapporter til tredjepartstjenesten HockeyApp, slik at vi kan gjennomgå disse og fikse feil raskere.</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
   <string name="history_search_list_hint">Søkehistorikk</string>
-  <string name="history_search_empty_message">Fant ingen sider som matchet søket ditt.</string>
   <string name="error_can_not_process_link">Kunne ikke vise denne lenken</string>
   <string name="page_protected_autoconfirmed">Denne siden er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne siden er beskyttet.</string>
@@ -236,7 +234,6 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="crash_report_quit">Avslutt</string>
   <string name="article_menu_bar_bookmark">Legg til denne artikkelen i en leseliste</string>
   <string name="article_menu_bar_share">Del lenke til artikkelen</string>
-  <string name="article_menu_bar_navigate">Naviger til det omtalte stedet</string>
   <string name="article_header_edit_hint">Rediger…</string>
   <string name="article_header_edit_description">Rediger tittelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger introduksjon</string>
@@ -255,18 +252,13 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="reading_list_sort_by_name_desc">Sorter etter navn (omvendt)</string>
   <string name="reading_list_sort_by_recent">Sorter etter besøkstidspunkt</string>
   <string name="reading_list_sort_by_recent_desc">Sorter etter besøkstidspunkt (eldste først)</string>
-  <string name="reading_list_menu_edit">Rediger detaljer om leselisten</string>
   <string name="reading_list_menu_delete" fuzzy="true">Slett leselisten</string>
   <string name="reading_list_name_sample">Min leseliste</string>
   <string name="reading_list_name_hint">Navn på listen</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfritt)</string>
-  <string name="reading_list_save_for_offline">Tilgjengelig for lesing offline</string>
   <string name="reading_list_item_deleted">%s ble fjernet fra listen</string>
   <string name="reading_list_item_delete_undo">Angre</string>
   <string name="reading_list_deleted">%s ble slettet</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Avbryt</string>
-  <string name="reading_list_delete_confirm">Er du sikker på at du ønsker å slette denne listen?</string>
   <string name="reading_lists_empty" fuzzy="true">Ingen leselister her enda.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Organiser artiklene du holder på med i leselister! Når du er inne på en artikkel kan du trykke på bokmerke-ikonet i bunnen av verktøylista for å legge den til i en leseliste.</string>
   <string name="reading_lists_onboarding_intro">Opprett leselister fra artikler du ønsker å lese på et senere tidspunkt, selv når du er uten nettilgang!</string>
@@ -275,12 +267,8 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="reading_lists_onboarding_example2">Favorittdyr</string>
   <string name="reading_lists_onboarding_example3">Verdensrommet!</string>
   <string name="reading_lists_onboarding_got_it">Forstått</string>
-  <string name="reading_lists_onboarding_page_delete">Tips: Skyv en side til venstre eller høyre for å fjerne den fra denne leselista.</string>
   <string name="user_option_sync_label">Innstillinger</string>
-  <string name="notification_button_view_page">Vis side</string>
   <string name="notification_button_view_user">Snakk med brukeren</string>
-  <string name="notification_button_view_edit_history">Vis redigeringshistorikk</string>
-  <string name="notification_generic_title">Varsel på Wikipedia</string>
   <string name="notification_talk_title">Ny melding på Wikipedia</string>
   <string name="notification_talk" fuzzy="true">%1$s la igjen enbeskjed på diskusjonssiden din: «%2$s»</string>
   <string name="notification_reverted_title">Tilbakestilt redigering</string>
@@ -310,7 +298,6 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nei takk</string>
-  <string name="description_edit_header">Redigerer</string>
   <string name="description_edit_text_hint" fuzzy="true">Skriv en beskrivelse!</string>
   <string name="description_edit_save">Lagre</string>
   <string name="description_edit_add_description" fuzzy="true">Legg til en kort beskrivelse</string>

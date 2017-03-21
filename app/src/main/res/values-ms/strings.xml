@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Singkir</string>
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat…</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
-  <string name="nav_item_random">Rawak</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Benarkan aplikasi untuk menghantar laporan keruntuhan ke HockeyApp / pembekal perkhidmatan pihak ketiga secara automatik supaya kami boleh mengkaji keruntuhan anda dan membaiki pepijat dengan lebih cepat dan mudah.</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
   <string name="history_search_list_hint">Cari dalam sejarah</string>
-  <string name="history_search_empty_message">Tiada laman yang padan dengan pertanyaan anda.</string>
   <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>
   <string name="page_protected_autoconfirmed">Laman ini telah diberi perlindungan separa.</string>
   <string name="page_protected_sysop">Laman ini telah diberi perlindungan sepenuhnya.</string>
@@ -249,7 +247,6 @@
   <string name="crash_report_quit">Keluar</string>
   <string name="article_menu_bar_bookmark">Tambahkan rencana ini ke dalam senarai bacaan</string>
   <string name="article_menu_bar_share">Kongsi pautan rencana</string>
-  <string name="article_menu_bar_navigate">Pandu arah ke lokasi rencana</string>
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting huraian tajuk</string>
   <string name="article_header_edit_lead_section">Sunting pengenalan</string>
@@ -270,21 +267,16 @@
   <string name="reading_list_sort_by_name_desc">Isih ikut nama (terbalik)</string>
   <string name="reading_list_sort_by_recent">Isih ikut yang terbaru</string>
   <string name="reading_list_sort_by_recent_desc">Isih ikut yang terlama</string>
-  <string name="reading_list_menu_edit">Sunting butiran senarai bacaan</string>
   <string name="reading_list_menu_delete">Padam senarai</string>
   <string name="reading_list_menu_rename">Tukar nama</string>
   <string name="reading_list_menu_edit_description">Sunting keterangan</string>
   <string name="reading_list_name_sample">Senarai bacaan saya</string>
   <string name="reading_list_name_hint">Nama senarai ini</string>
   <string name="reading_list_description_hint">Keterangan (tidak wajib)</string>
-  <string name="reading_list_save_for_offline">Tersedia untuk dibaca secara luring</string>
   <string name="reading_list_item_deleted">%s dihapus dari senarai</string>
   <string name="reading_list_items_deleted">%d rencana dipadamkan dari senarai</string>
   <string name="reading_list_item_delete_undo">Nyahbuat</string>
   <string name="reading_list_deleted">%s dipadamkan</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Batalkan</string>
-  <string name="reading_list_delete_confirm">Adakah anda benar-benar ingin memadamkan senarai bacaan ini?</string>
   <string name="reading_lists_empty">Tiada senarai bacaan lagi</string>
   <string name="reading_lists_empty_message">Simpan rencana ke senarai bacaan supaya anda boleh melihatnya kemudian, walaupun anda berada di luar talian.</string>
   <string name="reading_lists_onboarding_intro">Ciptakan senarai bacaan dari rencana yang ingin anda baca nanti, malah ketika anda sedang luring!</string>
@@ -293,14 +285,10 @@
   <string name="reading_lists_onboarding_example2">Haiwan kesukaan</string>
   <string name="reading_lists_onboarding_example3">Luar angkasa!</string>
   <string name="reading_lists_onboarding_got_it">Faham</string>
-  <string name="reading_lists_onboarding_page_delete">Tips: Geser beberapa laman ke kiri atau kanan untuk memadamkannya dari senarai bacaan ini.</string>
   <string name="reading_list_no_description">Tiada keterangan...</string>
   <string name="reading_list_empty">Anda tidak mempunyai rencana ditambah ke senarai ini.</string>
   <string name="user_option_sync_label">Keutamaan</string>
-  <string name="notification_button_view_page">Lihat laman</string>
   <string name="notification_button_view_user">Bincang ke pengguna</string>
-  <string name="notification_button_view_edit_history">Lihat sejarah penyuntingan</string>
-  <string name="notification_generic_title">Pemberitahuan pada Wikipedia</string>
   <string name="notification_talk_title">Mesej baru pada Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; meninggalkan mesej di halaman perbincangan anda di &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Suntingan yang dibatalkan</string>
@@ -331,7 +319,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
   <string name="view_announcement_card_negative_action">Tak apalah</string>
-  <string name="description_edit_header">Penyuntingan</string>
   <string name="description_edit_text_hint">Huraian tajuk</string>
   <string name="description_edit_save">Simpan</string>
   <string name="description_edit_add_description">Tambah huraian tajuk</string>

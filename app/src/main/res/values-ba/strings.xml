@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">Ябырға</string>
   <string name="edit_preview_fetching_dialog_message">Алдан ҡарауҙы сығарыу…</string>
   <string name="send_feedback">Ҡушымта тураһында баһалама ебәрергә</string>
-  <string name="nav_item_random">Осраҡлы</string>
   <string name="create_account_account_created_toast">Иҫәп яҙмаһы  булдырылды!</string>
   <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>
   <string name="preference_title_eventlogging_opt_in">Файҙаланыу тураһында отчет ебәреү</string>
@@ -114,7 +113,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Беҙгә авария тураһындағы мәғлүмәтте ҡарап сығыу өсөн, HockeyApp/ сит сервис-провайдерҙа хаталар тураһындағы отчеттарҙы автоматик ебәреүҙе рөхсәт итергәме? Был хаталарҙы тиҙ һәм еңел төҙәтергә ярҙам итә.</string>
   <string name="editing_error_spamblacklist">Бикләнгән домендарға (%s) һылтанмалар барлығы асыҡланды. Уларҙы юҡ итегеҙ һәм яңынан эшләп ҡарағыҙ.</string>
   <string name="history_search_list_hint">Эҙләү тарихы</string>
-  <string name="history_search_empty_message">Һеҙҙең һорауға ярашлы биттәр табылманы.</string>
   <string name="error_can_not_process_link">Был һылтанманы күрһәтеп булманы</string>
   <string name="page_protected_autoconfirmed">Был бит өлөшләтә һаҡланған ине.</string>
   <string name="page_protected_sysop">Был бит тулыһынса һаҡланған ине.</string>
@@ -231,7 +229,6 @@
   <string name="crash_report_quit">Сығырға</string>
   <string name="article_menu_bar_bookmark">Мәҡәләне уҡыу теҙмәһенә өҫтәргә</string>
   <string name="article_menu_bar_share">Мәҡәләгә һылтанма менән уртаҡлашырға</string>
-  <string name="article_menu_bar_navigate">Мәҡәлә урынлашҡан урынға күсегеҙ</string>
   <string name="nav_item_reading_lists" fuzzy="true">Уҡыу өсөн исемлектәр</string>
   <string name="reading_list_untitled">Исемһеҙ</string>
   <string name="reading_list_save_to">Уҡыу исемлегенә һаҡларға</string>
@@ -247,18 +244,13 @@
   <string name="reading_list_sort_by_name_desc">Атама буйынса айырыу (киреһенсә)</string>
   <string name="reading_list_sort_by_recent">Дата буйынса айырыу (һуңғылары)</string>
   <string name="reading_list_sort_by_recent_desc">Дата буйынса айырыу (иҫкеләре)</string>
-  <string name="reading_list_menu_edit">Уҡыу исемлеге буйынса мәғлүмәтте мөхәррирләргә</string>
   <string name="reading_list_menu_delete" fuzzy="true">Уҡыу исемлеген юйырға</string>
   <string name="reading_list_name_sample">Уҡыу исемлегем</string>
   <string name="reading_list_name_hint">Был исемлек атамаһы</string>
   <string name="reading_list_description_hint">Тасуирлама (мотлаҡ түгел)</string>
-  <string name="reading_list_save_for_offline">Үҙаллы режимда уҡыу өсөн асыҡ</string>
   <string name="reading_list_item_deleted">%s исемлектән юйылған</string>
   <string name="reading_list_item_delete_undo">Кире алырға</string>
   <string name="reading_list_deleted">%s юйылды</string>
-  <string name="reading_list_edit_ok">Яҡшы</string>
-  <string name="reading_list_edit_cancel">Кире алыу</string>
-  <string name="reading_list_delete_confirm">Был уҡыу теҙмәһен ысынлап юйырға теләйһегеҙме?</string>
   <string name="reading_lists_empty" fuzzy="true">Уҡыу исемлектәре юҡ әле.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Әле ҡараған мәҡәләләрҙе уҡыу өсөн теҙмәгә туплағыҙ! Уҡыу теҙмәһенә индереү өсөн, уҡыу барышында мәҡәләнең өҫкө өлөшөндәге закладка тамғаһына баҫығыҙ.</string>
   <string name="reading_lists_onboarding_for_example">Мәҫәлән</string>

@@ -16,7 +16,6 @@
 
     <dimen name="list_item_vertical_padding">16dp</dimen>
     <dimen name="list_item_horizontal_padding">16dp</dimen>
-    <dimen name="list_item_text_horizontal_padding">16dp</dimen>
 
     <!-- Default font size for WebView text based on system settings -->
     <dimen name="textSize">16sp</dimen>
@@ -26,7 +25,6 @@
 
     <!-- Default height of reading list items -->
     <dimen name="readingListItemSize">56dp</dimen>
-    <dimen name="readingListDividerMargin">112dp</dimen>
     <dimen name="readingListTitleTextSize">20sp</dimen>
     <dimen name="readingListLeadHeight">240dp</dimen>
 
@@ -103,10 +101,6 @@
     <dimen name="view_list_card_item_image">40dp</dimen>
     <dimen name="overflow_elevation">16dp</dimen>
     <integer name="article_engagement_threshold_sec">30</integer>
-
-    <!-- Navigation -->
-    <dimen name="nav_tab_inactive_text_size">12sp</dimen>
-    <dimen name="nav_tab_active_text_size">14sp</dimen>
 
     <!-- Description editing -->
     <integer name="description_max_chars">90</integer>

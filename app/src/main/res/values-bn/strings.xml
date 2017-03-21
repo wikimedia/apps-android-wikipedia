@@ -114,7 +114,6 @@
   <string name="zero_learn_more_dismiss">খারিজ</string>
   <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে…</string>
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
-  <string name="nav_item_random">অজানা পাতা</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
@@ -123,7 +122,6 @@
   <string name="preference_summary_auto_upload_crash_reports">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
   <string name="history_search_list_hint">ইতিহাস অনুসন্ধান</string>
-  <string name="history_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
   <string name="error_can_not_process_link">কোনো সংযোগ প্রদর্শিত হয়নি।</string>
   <string name="page_protected_autoconfirmed">এই পাতাটি অর্ধ সুরক্ষিত।</string>
   <string name="page_protected_sysop">এই পাতটি সম্পূর্ণ সুরক্ষিত।</string>
@@ -250,7 +248,6 @@
   <string name="crash_report_quit">প্রস্থান</string>
   <string name="article_menu_bar_bookmark">একটি পড়ার তালিকা এই নিবন্ধটি যোগ করে</string>
   <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
-  <string name="article_menu_bar_navigate">নিবন্ধের অবস্থান থেকে পরিভ্রমণ করুন</string>
   <string name="article_header_edit_hint">সম্পাদনা…</string>
   <string name="article_header_edit_description">শিরোনামের বিবরণ সম্পাদনা করুন</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা করুন</string>
@@ -271,21 +268,16 @@
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>
   <string name="reading_list_sort_by_recent">সাম্প্রতিক অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_recent_desc">অন্তত সাম্প্রতিক বাছাই</string>
-  <string name="reading_list_menu_edit">পড়ার তালিকার বিস্তারিত সম্পাদনা করুন</string>
   <string name="reading_list_menu_delete">তালিকা মুছুন</string>
   <string name="reading_list_menu_rename">নামান্তর</string>
   <string name="reading_list_menu_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="reading_list_name_sample">আমার পড়ার তালিকা</string>
   <string name="reading_list_name_hint">এই তালিকার নাম</string>
   <string name="reading_list_description_hint">বিবরণ (ঐচ্ছিক)</string>
-  <string name="reading_list_save_for_offline">অফলাইনে পড়ার জন্য উপলব্ধ</string>
   <string name="reading_list_item_deleted">তালিকা থেকে %s সরানো হয়েছে</string>
   <string name="reading_list_items_deleted">তালিকা থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
   <string name="reading_list_item_delete_undo">পূর্বাবস্থা</string>
   <string name="reading_list_deleted">%s অপসারিত হয়েছে</string>
-  <string name="reading_list_edit_ok">ঠিক আছে</string>
-  <string name="reading_list_edit_cancel">বাতিল</string>
-  <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই পড়ার তালিকা অপসারণ করতে চান?</string>
   <string name="reading_lists_empty">এখনো কোন পড়ার তালিকা নেই</string>
   <string name="reading_lists_empty_message">পড়ার তালিকায় নিবন্ধ সংরক্ষণ করে এতে আপনি তাদের পরে দেখতে পারেন, এমনকি যখন আপনি অফলাইনে থাকেন।</string>
   <string name="reading_lists_onboarding_intro">পরে পড়ার জন্য নিবন্ধ থেকে আপনার জন্য পড়ার তালিকা তৈরি করে, এমনকি যখন আপনি অফলাইনে থাকেন!</string>
@@ -294,14 +286,10 @@
   <string name="reading_lists_onboarding_example2">পছন্দের পশুপাখি</string>
   <string name="reading_lists_onboarding_example3">মহাকাশ!</string>
   <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
-  <string name="reading_lists_onboarding_page_delete">পরামর্শ: যে কোন পাতা পড়ার তালিকা থেকে মুছে ফেলার জন্য সেই পাতা বাম বা ডান দিকে টেনে আনুন।</string>
   <string name="reading_list_no_description">কোন বিবরণ নেই...</string>
   <string name="reading_list_empty">এই তালিকায় আপনি কোন নিবন্ধ যোগ করেন নি।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
-  <string name="notification_button_view_page">পাতা দেখাও</string>
   <string name="notification_button_view_user">ব‍্যবহারকারীর সঙ্গে আলাপ করুন</string>
-  <string name="notification_button_view_edit_history">সম্পাদনার ইতিহাস দেখাও</string>
-  <string name="notification_generic_title">উইকিপিডিয়ায় বিজ্ঞপ্তি</string>
   <string name="notification_talk_title">উইকিপিডিয়ায় নতুন বার্তা</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; আপনার আলাপ পাতার &lt;strong&gt;%2$s&lt;/strong&gt;-এ একটি বার্তা দিয়েছেন</string>
   <string name="notification_reverted_title">সম্পাদনা বাতিল হয়েছে</string>
@@ -332,7 +320,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">আজ</string>
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
-  <string name="description_edit_header">সম্পাদনা করছেন</string>
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">সংরক্ষণ</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>

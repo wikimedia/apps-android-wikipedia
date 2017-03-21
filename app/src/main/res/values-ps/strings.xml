@@ -88,7 +88,6 @@
   <string name="zero_learn_more_dismiss">تړل</string>
   <string name="edit_preview_fetching_dialog_message">مخليدنه راغونډېدنې کې ده…</string>
   <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>
-  <string name="nav_item_random">ناټاکلی</string>
   <string name="create_account_account_created_toast">گڼون مو جوړ شو!</string>
   <string name="preferences_privacy_settings_heading">پټنتيا</string>
   <string name="preference_title_eventlogging_opt_in">د کارېدنې راپورونه لېږل</string>
@@ -174,18 +173,14 @@
   <string name="reading_list_sort">اوډل</string>
   <string name="reading_list_sort_by_name">اوډنه د نوم له مخې</string>
   <string name="reading_list_sort_by_recent">اوډنه تر ټولو تازه له مخې</string>
-  <string name="reading_list_menu_edit">د لوست لړ تفصيلونه سمول</string>
   <string name="reading_list_menu_delete">لړليک ړنگول</string>
   <string name="reading_list_menu_rename">بيانومول</string>
   <string name="reading_list_name_sample">زما لوست لړليک</string>
   <string name="reading_list_name_hint">د دې لړليک نوم</string>
   <string name="reading_list_description_hint">څرگندونه (اختياري)</string>
-  <string name="reading_list_save_for_offline">د پرې ليکه لوستنې لپاره شته</string>
   <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
   <string name="reading_list_item_delete_undo">ناکړل</string>
   <string name="reading_list_deleted">%s ړنگ شو</string>
-  <string name="reading_list_edit_ok">ښه</string>
-  <string name="reading_list_edit_cancel">ناگارل</string>
   <string name="reading_lists_onboarding_for_example">د بېلگې په توگه</string>
   <string name="reading_lists_onboarding_example1">د کتلو ځايونه</string>
   <string name="reading_lists_onboarding_example2">خواپوري ژوي</string>

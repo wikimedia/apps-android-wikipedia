@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">Zavřít</string>
   <string name="edit_preview_fetching_dialog_message">Načítání náhledu…</string>
   <string name="send_feedback">Poslat názor na aplikaci</string>
-  <string name="nav_item_random">Náhodně</string>
   <string name="create_account_account_created_toast">Účet založen!</string>
   <string name="preferences_privacy_settings_heading">Soukromí</string>
   <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
@@ -114,7 +113,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Umožní aplikaci automaticky odesílat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, abychom mohli její pád přezkoumat a opravit chybu rychleji a jednodušeji.</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
   <string name="history_search_list_hint">Hledání v historii</string>
-  <string name="history_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="error_can_not_process_link">Nelze zobrazit tento odkaz</string>
   <string name="page_protected_autoconfirmed">Tato stránka je polozamčena.</string>
   <string name="page_protected_sysop">Tato stránka je zamčena.</string>
@@ -236,7 +234,6 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="crash_report_quit">Skončit</string>
   <string name="article_menu_bar_bookmark">Přidat tento článek do seznamu k přečtení</string>
   <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
-  <string name="article_menu_bar_navigate">Navigovat na místo článku</string>
   <string name="article_header_edit_hint">Upravit...</string>
   <string name="article_header_edit_description">Upravit popis názvu</string>
   <string name="article_header_edit_lead_section">Upravit úvod</string>
@@ -255,18 +252,13 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_sort_by_name_desc">Seřadit podle názvu (v obráceném pořadí)</string>
   <string name="reading_list_sort_by_recent">Seřadit podle nejnovějších</string>
   <string name="reading_list_sort_by_recent_desc">Seřadit podle nejstarších</string>
-  <string name="reading_list_menu_edit">Upravit podrobnosti seznamu k přečtení</string>
   <string name="reading_list_menu_delete">Odstranit seznam</string>
   <string name="reading_list_name_sample">Můj seznam k přečtení</string>
   <string name="reading_list_name_hint">Název tohoto seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
-  <string name="reading_list_save_for_offline">K dispozici pro čtení offline</string>
   <string name="reading_list_item_deleted">Článek %s odebrán ze seznamu</string>
   <string name="reading_list_item_delete_undo">Zpět</string>
   <string name="reading_list_deleted">Seznam %s smazán</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Storno</string>
-  <string name="reading_list_delete_confirm">Opravdu chcete odstranit tento seznam?</string>
   <string name="reading_lists_empty">Zatím žádné seznamy ke čtení</string>
   <string name="reading_lists_empty_message">Ukládejte články do seznamů k přečtení, abyste je {{GENDER:|mohl|mohla|mohl(a)}} číst později, i když nejste {{GENDER:|připojený|připojená|připojený/á}}.</string>
   <string name="reading_lists_onboarding_intro">Vytvářejte si seznamy k přečtení z článků, které si chcete přečíst později, třeba až budete offline!</string>
@@ -275,12 +267,8 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
   <string name="reading_lists_onboarding_example3">Vesmír!</string>
   <string name="reading_lists_onboarding_got_it">Jasně</string>
-  <string name="reading_lists_onboarding_page_delete">Tip: Přejeďte každou stránku, doleva nebo doprava, aby jste ji odstranili z tohoto seznamu.</string>
   <string name="user_option_sync_label">Nastavení</string>
-  <string name="notification_button_view_page">Zobrazit stránku</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
-  <string name="notification_button_view_edit_history">Zobrazit historii úprav</string>
-  <string name="notification_generic_title">Upozornění na Wikipedii</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; vám nechal(a) zprávu na vaší diskusní stránce &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Zrušená úprava</string>
@@ -310,7 +298,6 @@ Chcete začít znovu, nebo skončit?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
-  <string name="description_edit_header">Editování</string>
   <string name="description_edit_text_hint">Popis titulku</string>
   <string name="description_edit_save">Uložit</string>
   <string name="description_edit_add_description">Přidat popis titulku</string>

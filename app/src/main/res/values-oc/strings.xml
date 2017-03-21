@@ -107,7 +107,6 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="zero_learn_more_dismiss">Regetar</string>
   <string name="edit_preview_fetching_dialog_message">Recèrca d’un apercebut…</string>
   <string name="send_feedback">Mandar un comentari sus l’aplicacion</string>
-  <string name="nav_item_random">Aleatòri</string>
   <string name="create_account_account_created_toast">Compte creat !</string>
   <string name="preferences_privacy_settings_heading">Confidencialitat</string>
   <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
@@ -230,18 +229,13 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="reading_list_sort_by_name_desc">Triar per nom (invèrse)</string>
   <string name="reading_list_sort_by_recent">Triar segon los mai recents</string>
   <string name="reading_list_sort_by_recent_desc">Triar segon los mens recents</string>
-  <string name="reading_list_menu_edit">Modificar los detalhs de la lista de lectura</string>
   <string name="reading_list_menu_delete" fuzzy="true">Suprimir la lista de lectura</string>
   <string name="reading_list_name_sample">Ma lista de lectura</string>
   <string name="reading_list_name_hint">Nom d\'aquesta lista</string>
   <string name="reading_list_description_hint">Descripcion (facultatiu)</string>
-  <string name="reading_list_save_for_offline">Disponible per una lectura fòra connexion</string>
   <string name="reading_list_item_deleted">%s suprimit de la lista</string>
   <string name="reading_list_item_delete_undo">Anullar</string>
   <string name="reading_list_deleted">%s suprimit</string>
-  <string name="reading_list_edit_ok">D\'acòrdi</string>
-  <string name="reading_list_edit_cancel">Anullar</string>
-  <string name="reading_list_delete_confirm">Sètz segur que volètz suprimir aquesta lista de lectura ?</string>
   <string name="reading_lists_empty" fuzzy="true">Pas cap de lista de lectura aicí.</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Endreits a visitar</string>
@@ -249,10 +243,7 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="reading_lists_onboarding_example3">Espaci !</string>
   <string name="reading_lists_onboarding_got_it">L’obténer</string>
   <string name="user_option_sync_label">Preferéncias</string>
-  <string name="notification_button_view_page">Afichar la pagina</string>
   <string name="notification_button_view_user">Parlar a l\'utilizaire</string>
-  <string name="notification_button_view_edit_history">Afichar l\'istoric de las modificacions</string>
-  <string name="notification_generic_title">Notificacion sus Wikipèdia</string>
   <string name="notification_talk_title">Messatge novèl sus Wikipèdia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; a daissat un messatge sus vòstra pagina de discussion &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Modificacion anullada</string>
@@ -281,7 +272,6 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Uèi</string>
   <string name="view_announcement_card_negative_action">Non mercé</string>
-  <string name="description_edit_header">Modificacion</string>
   <string name="description_edit_text_hint">Descripcion del títol</string>
   <string name="description_edit_save">Enregistrar</string>
   <string name="description_edit_add_description">Apondre una descripcion del títol</string>

@@ -96,13 +96,11 @@
   <string name="zero_learn_more_dismiss">צומאַכן</string>
   <string name="edit_preview_fetching_dialog_message">ברע ג\'ין פארויסקוק…</string>
   <string name="send_feedback">שיקן אפ־פידבעק</string>
-  <string name="nav_item_random">צופֿעליג</string>
   <string name="create_account_account_created_toast">קאָנטע באַשאַפֿן!</string>
   <string name="preferences_privacy_settings_heading">פריוואטקייט</string>
   <string name="preference_title_eventlogging_opt_in">שיקן ניצונג־באריכטן</string>
   <string name="preference_summary_eventlogging_opt_in">דערלויבן וויקימעדיע צו זאמלען אינפארמאציע וויאזוי איר ניצט דעם אפ כדי צו פארבעסערן דעם אפ</string>
   <string name="history_search_list_hint">זוכן היסטאריע</string>
-  <string name="history_search_empty_message">קיין בלעטער נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
   <string name="error_can_not_process_link">נישט מעגלעך צו ווײַזן דעם לינק</string>
   <string name="page_protected_autoconfirmed">דער בלאט איז געווארן האלב געשיצט.</string>
   <string name="page_protected_sysop">דער בלאט איז געווארן גאנג געשיצט</string>
@@ -191,8 +189,6 @@
   <string name="reading_list_item_count_singular">איין ארטיקל</string>
   <string name="reading_list_item_count_plural">%d ארטיקלען</string>
   <string name="reading_list_sort">סארטירן</string>
-  <string name="reading_list_edit_ok">אקעי</string>
-  <string name="reading_list_edit_cancel">אַנולירן</string>
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
   <string name="reading_lists_onboarding_example3">ליידיג פלאץ!</string>
   <string name="reading_lists_onboarding_got_it">פארשטאנען</string>

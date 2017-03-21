@@ -73,12 +73,10 @@
   <string name="zero_learn_more_dismiss">Gyae</string>
   <string name="edit_preview_fetching_dialog_message">Hwɛ sɛnea ɛte…</string>
   <string name="send_feedback">Ma yɛn nyansahyɛ</string>
-  <string name="nav_item_random">Randɔm</string>
   <string name="create_account_account_created_toast">Woabue wo account!</string>
   <string name="preference_summary_eventlogging_opt_in">Ma Wikimedia kwan ma ɔnfa wo adwinade yi ho nsɛm nyɛ nhwehwɛmu sɛnea ebetu mpɔn</string>
   <string name="editing_error_spamblacklist" fuzzy="true">Yi links ahorow a yɛmpɛ no fi mu, na san yɛ bio (%s). Please remove them and try again.</string>
   <string name="history_search_list_hint" fuzzy="true">Hwehwɛ</string>
-  <string name="history_search_empty_message" fuzzy="true">Yɛanhu hwee a ɛne \'%s\' hyia</string>
   <string name="error_can_not_process_link">Antumi anfa link no ankyerɛ</string>
   <string name="page_protected_autoconfirmed">Woabɔ krataa yi ho ban kakraa</string>
   <string name="page_protected_sysop">Woabɔ krataa yi ho ban korakora</string>
