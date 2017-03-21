@@ -729,7 +729,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
         MenuItem tabsItem = menu.findItem(R.id.menu_page_show_tabs);
 
-        tabsItem.setIcon(ResourceUtil.getTabListIcon(getContext(), tabList.size()));
+        tabsItem.setIcon(ResourceUtil.getTabListIcon(tabList.size()));
 
         if (pageFragmentLoadState.isLoading() || errorState) {
             otherLangItem.setEnabled(false);
