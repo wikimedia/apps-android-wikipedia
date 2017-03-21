@@ -85,7 +85,7 @@
         </activity>
         <activity android:name=".page.PageActivity"
             android:theme="@style/PageTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity">
