@@ -85,6 +85,10 @@ public class MwMobileViewPageLead implements PageLead {
         return null;
     }
 
+    @Nullable @Override public String getLeadImageUrl(int leadThumbnailWidth) {
+        return mobileview == null ? null : mobileview.getLeadImageUrl(leadThumbnailWidth);
+    }
+
     @Nullable
     @Override
     public Location getGeo() {

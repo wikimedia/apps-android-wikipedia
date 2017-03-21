@@ -1,6 +1,7 @@
 package org.wikipedia.dataclient.page;
 
 import android.location.Location;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.ServiceError;
@@ -20,9 +21,10 @@ public interface PageLead {
     /** Note: before using this check that #hasError is false */
     Page toPage(PageTitle title);
 
-    String getLeadSectionContent();
+    @NonNull String getLeadSectionContent();
 
     @Nullable String getTitlePronunciationUrl();
+    @Nullable String getLeadImageUrl(int leadThumbnailWidth);
 
     @Nullable Location getGeo();
 }

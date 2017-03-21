@@ -1,11 +1,13 @@
 package org.wikipedia.dataclient.restbase.page;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.Section;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,13 +16,14 @@ import java.util.List;
 public class RbPageRemaining implements PageRemaining {
     @Nullable private List<Section> sections;
 
-    @Nullable
-    public List<Section> getSections() {
-        return sections;
+    @Override public void mergeInto(Page page) {
+        page.augmentRemainingSections(sections());
     }
 
-    @Override
-    public void mergeInto(Page page) {
-        page.augmentRemainingSections(getSections());
+    @NonNull @Override public List<Section> sections() {
+        if (sections == null) {
+            return Collections.emptyList();
+        }
+        return sections;
     }
 }
