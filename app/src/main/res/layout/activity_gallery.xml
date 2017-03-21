@@ -83,4 +83,11 @@
                 android:maxLines="2"/>
         </LinearLayout>
     </LinearLayout>
+
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/view_gallery_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 </FrameLayout>

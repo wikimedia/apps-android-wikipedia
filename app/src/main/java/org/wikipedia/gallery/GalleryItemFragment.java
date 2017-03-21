@@ -251,8 +251,7 @@ public class GalleryItemFragment extends Fragment {
         updateProgressBar(true, true, 0);
         new GalleryItemFetchTask(app.getAPIForSite(imageTitle.getWikiSite()),
                 imageTitle.getWikiSite(), imageTitle, FileUtil.isVideo(mimeType)) {
-            @Override
-            public void onFinish(Map<PageTitle, GalleryItem> result) {
+            @Override public void onFinish(Map<PageTitle, GalleryItem> result) {
                 if (!isAdded()) {
                     return;
                 }
@@ -263,18 +262,17 @@ public class GalleryItemFragment extends Fragment {
                     loadMedia();
                 } else {
                     updateProgressBar(false, true, 0);
-                    FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
+                    parentActivity.showError(null, true);
                 }
             }
 
-            @Override
-            public void onCatch(Throwable caught) {
-                L.e("caught " + caught.getMessage());
+            @Override public void onCatch(Throwable caught) {
                 if (!isAdded()) {
                     return;
                 }
                 updateProgressBar(false, true, 0);
-                FeedbackUtil.showError(getActivity(), caught);
+                parentActivity.showError(caught, true);
+                L.e(caught);
             }
         }.execute();
     }

@@ -52,6 +52,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.ViewUtil;
+import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,6 +84,8 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
     private TextView descriptionText;
     private ImageView licenseIcon;
     private TextView creditText;
+    private WikiErrorView errorView;
+
     private boolean controlsShowing = true;
     @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
 
@@ -189,6 +192,21 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         creditText = (TextView) findViewById(R.id.gallery_credit_text);
         creditText.setShadowLayer(2, 1, 1, color(R.color.lead_text_shadow));
 
+        errorView = (WikiErrorView) findViewById(R.id.view_gallery_error);
+        errorView.setBackClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        errorView.setRetryClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                errorView.setVisibility(View.GONE);
+                loadGalleryContent();
+            }
+        });
+
         if (getIntent().hasExtra(EXTRA_PAGETITLE)) {
             pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         }
@@ -233,17 +251,7 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
                 setControlsShowing(controlsShowing);
             }
         });
-
-        updateProgressBar(false, true, 0);
-
-        if (getIntent().hasExtra(EXTRA_FEATURED_IMAGE)) {
-            FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
-                    getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
-            int age = getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0);
-            loadGalleryItemFor(featuredImage, age);
-        } else {
-            fetchGalleryCollection();
-        }
+        loadGalleryContent();
     }
 
     @Override public void onDestroy() {
@@ -415,6 +423,39 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         ShareUtil.shareText(this, title);
     }
 
+    void showError(@Nullable Throwable caught, boolean backOnError) {
+        // Force going back on button press if coming from a single-item featured-image gallery,
+        // because re-setting the collection and calling notifyDataSetChanged() fails to compel the
+        // GalleryItemFragment to attempt to reload its image.
+        // TODO: Find a way to remove this workaround
+        if (backOnError) {
+            errorView.setRetryClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
+
+        errorView.setError(caught);
+        errorView.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Kicks off the activity after the views are initialized in onCreate.
+     */
+    private void loadGalleryContent() {
+        updateProgressBar(false, true, 0);
+        if (getIntent().hasExtra(EXTRA_FEATURED_IMAGE)) {
+            FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
+                    getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
+            int age = getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0);
+            loadGalleryItemFor(featuredImage, age);
+        } else {
+            fetchGalleryCollection();
+        }
+    }
+
     /**
      * Retrieve the complete list of media items for the current page.
      * When retrieved, the list will be passed to the ViewPager, and will become a
@@ -424,20 +465,17 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         if (pageTitle == null) {
             return;
         }
-
         updateProgressBar(true, true, 0);
         new GalleryCollectionFetchTask(app.getAPIForSite(pageTitle.getWikiSite()),
                 pageTitle.getWikiSite(), pageTitle) {
-            @Override
-            public void onGalleryResult(GalleryCollection result) {
+            @Override public void onGalleryResult(GalleryCollection result) {
                 updateProgressBar(false, true, 0);
                 applyGalleryCollection(result);
             }
-            @Override
-            public void onCatch(Throwable caught) {
-                L.e("Failed to fetch gallery collection.", caught);
+            @Override public void onCatch(Throwable caught) {
                 updateProgressBar(false, true, 0);
-                FeedbackUtil.showError(GalleryActivity.this, caught);
+                showError(caught, false);
+                L.e("Failed to fetch gallery collection.", caught);
             }
         }.execute();
     }
