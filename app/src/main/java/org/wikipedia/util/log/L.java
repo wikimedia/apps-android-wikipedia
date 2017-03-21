@@ -2,7 +2,6 @@ package org.wikipedia.util.log;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 
 import org.wikipedia.util.ReleaseUtil;
@@ -118,7 +117,8 @@ public final class L {
         REMOTE_EXCEPTION_LOGGER = logger;
     }
 
-    @VisibleForTesting
+    // Favor logRemoteErrorIfProd(). If it's worth consuming bandwidth and developer hours, it's
+    // worth crashing on everything but prod
     public static void logRemoteError(@NonNull Throwable t) {
         LEVEL_E.log("", t);
         if (REMOTE_EXCEPTION_LOGGER != null) {

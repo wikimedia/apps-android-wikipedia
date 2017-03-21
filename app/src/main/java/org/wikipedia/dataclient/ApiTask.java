@@ -1,7 +1,6 @@
 package org.wikipedia.dataclient;
 
 import android.net.Uri;
-import android.support.annotation.VisibleForTesting;
 
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
@@ -17,7 +16,6 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     private static final boolean VERBOSE = ReleaseUtil.isDevRelease();
     private final Api api;
 
-    @VisibleForTesting
     public ApiTask(Api api) {
         this.api = api;
     }
