@@ -68,7 +68,7 @@ import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
-import org.wikipedia.savedpages.ImageUrlMap;
+import org.wikipedia.savedpages.ImageUrlHtmlParser;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
@@ -915,7 +915,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     return;
                 }
 
-                ImageUrlMap.replaceImageSources(bridge, result);
+                ImageUrlHtmlParser.replaceImageSources(bridge, result);
             }
 
             @Override

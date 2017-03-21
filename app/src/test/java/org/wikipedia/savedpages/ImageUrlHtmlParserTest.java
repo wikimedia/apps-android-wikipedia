@@ -7,14 +7,15 @@ import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.startsWith;
 
-@RunWith(TestRunner.class) public class ImageUrlMapTest {
+@RunWith(TestRunner.class) public class ImageUrlHtmlParserTest {
     private static final String BASE_DIR = "/data/short/img";
 
-    private ImageUrlMap.Builder builder;
+    private ImageUrlHtmlParser.Builder builder;
 
     @Before public void setUp() throws Exception {
-        builder = new ImageUrlMap.Builder(BASE_DIR);
+        builder = new ImageUrlHtmlParser.Builder(BASE_DIR);
     }
 
     private static final String HTML_INPUT
@@ -28,14 +29,16 @@ import static org.hamcrest.Matchers.is;
             + "{\"originalURL\":\"\\/\\/foo.org\\/bbb.png\",\"newURL\":\"file:\\/\\/\\/data\\/short\\/img\\/a0bf5f6da269a012fefb997167844e3.png\"}"
             + "]}";
 
-    @Test public void testUrlRewrite() throws Exception {
+    @Test public void testUrlRewrite() {
         builder.extractUrlsInSection(HTML_INPUT);
-        ImageUrlMap imageUrlMap = builder.build();
-        assertThat(imageUrlMap.size(), is(2));
-        assertThat(imageUrlMap.toJSON().toString(), is(IMG_MAP_JSON_OUTPUT));
+        ImageUrlHtmlParser imageUrlHtmlParser = builder.build();
+        assertThat(imageUrlHtmlParser.size(), is(2));
+        assertThat(imageUrlHtmlParser.entrySet().iterator().next().getKey(), is("//foo.org/aaa.png"));
+        assertThat(imageUrlHtmlParser.entrySet().iterator().next().getValue(), startsWith(BASE_DIR));
+        assertThat(imageUrlHtmlParser.toJSON().toString(), is(IMG_MAP_JSON_OUTPUT));
     }
 
-    @Test public void testNonClosedImgTag() throws Exception {
+    @Test public void testNonClosedImgTag() {
         // abbreviated main page on 2014-06-10; like most main pages right now it has img tags that are not closed
         builder.extractUrlsInSection(
                 "<div id=\"mainpage\"><h2>Today's featured article</h2><div id=\"mp-tfa\" style=\"padding:2px 5px\">\n"
@@ -52,7 +55,9 @@ import static org.hamcrest.Matchers.is;
                 + "data-file-height=\"667\"></a></div>\n"
                 + "</div></div>"
         );
-        ImageUrlMap imageUrlMap = builder.build();
-        assertThat(imageUrlMap.size(), is(2));
+        ImageUrlHtmlParser imageUrlHtmlParser = builder.build();
+        assertThat(imageUrlHtmlParser.size(), is(2));
+        assertThat(imageUrlHtmlParser.entrySet().iterator().next().getKey(), is("//upload.wikimedia.org/wikipedia/en/thumb/7/79/foo.jpg"));
+        assertThat(imageUrlHtmlParser.entrySet().iterator().next().getValue(), startsWith(BASE_DIR));
     }
 }

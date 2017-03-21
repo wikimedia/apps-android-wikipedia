@@ -107,11 +107,11 @@ public class SavedPageSyncService extends IntentService {
             final Page page = getApiService(title).pageCombo(title.getPrefixedText(),
                             !WikipediaApp.getInstance().isImageDownloadEnabled()).toPage(title);
             final SavedPage savedPage = new SavedPage(page.getTitle());
-            final ImageUrlMap imageUrlMap = new ImageUrlMap.Builder(FileUtil.getSavedPageDirFor(title))
+            final ImageUrlHtmlParser parser = new ImageUrlHtmlParser.Builder(FileUtil.getSavedPageDirFor(title))
                 .extractUrls(page).build();
             savedPage.writeToFileSystem(page);
-            downloadImages(imageUrlMap);
-            savedPage.writeUrlMap(imageUrlMap.toJSON());
+            downloadImages(parser);
+            savedPage.writeUrlMap(parser.toJSON());
             L.i("Page " + title.getDisplayText() + " saved!");
             return true;
         } catch (Exception e) {
@@ -133,7 +133,7 @@ public class SavedPageSyncService extends IntentService {
     /**
      * @param imageUrlMap a Map with entries {source URL, file path} of images to be downloaded
      */
-    private void downloadImages(@NonNull final ImageUrlMap imageUrlMap) {
+    private void downloadImages(@NonNull final ImageUrlHtmlParser imageUrlMap) {
         for (Map.Entry<String, String> entry : imageUrlMap.entrySet()) {
             final String url = UriUtil.resolveProtocolRelativeUrl(entry.getKey());
             final File file = new File(entry.getValue());

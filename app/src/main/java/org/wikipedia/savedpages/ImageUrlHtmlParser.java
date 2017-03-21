@@ -22,10 +22,10 @@ import static org.wikipedia.util.StringUtil.md5string;
  * Mappings of image source URLs to local file URLs.
  * A Map with entries {source URL, file path} of images to be downloaded.
  */
-public final class ImageUrlMap {
+public final class ImageUrlHtmlParser {
     private final Map<String, String> urlMap;
 
-    private ImageUrlMap(Builder builder) {
+    private ImageUrlHtmlParser(Builder builder) {
         // Mostly since multiple threads can attempt to remove things at the same time
         // in SavePageTask, if multiple images fail. Easier than synchronizing just the removes.
         this.urlMap = Collections.synchronizedMap(builder.urlMap);
@@ -82,7 +82,7 @@ public final class ImageUrlMap {
 
 
     /**
-     * Needed to create an immutable ImageUrlMap.
+     * Needed to create an immutable ImageUrlHtmlParser.
      */
     public static class Builder {
         private final String imgDir;
@@ -143,8 +143,8 @@ public final class ImageUrlMap {
             return url.substring(index);
         }
 
-        public ImageUrlMap build() {
-            return new ImageUrlMap(this);
+        public ImageUrlHtmlParser build() {
+            return new ImageUrlHtmlParser(this);
         }
     }
 }
