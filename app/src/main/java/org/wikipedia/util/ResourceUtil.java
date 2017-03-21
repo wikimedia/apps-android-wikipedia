@@ -43,15 +43,19 @@ public final class ResourceUtil {
         return ids;
     }
 
-    @DrawableRes
-    public static int getTabListIcon(@NonNull Context context, int numTabs) {
-        final int maxTabIcon = 9;
-        if (numTabs <= 0) {
-            return R.drawable.ic_tab_list_white_24dp;
-        } else if (numTabs > maxTabIcon) {
-            return R.drawable.ic_tab_list_9_plus;
-        } else {
-            return context.getResources().getIdentifier("ic_tab_list_" + numTabs, "drawable", context.getPackageName());
+    @DrawableRes @SuppressWarnings("checkstyle:magicnumber") public static int getTabListIcon(int numTabs) {
+        switch (Math.max(0, numTabs)) {
+            case 0: return R.drawable.ic_tab_list_white_24dp;
+            case 1: return R.drawable.ic_tab_list_1;
+            case 2: return R.drawable.ic_tab_list_2;
+            case 3: return R.drawable.ic_tab_list_3;
+            case 4: return R.drawable.ic_tab_list_4;
+            case 5: return R.drawable.ic_tab_list_5;
+            case 6: return R.drawable.ic_tab_list_6;
+            case 7: return R.drawable.ic_tab_list_7;
+            case 8: return R.drawable.ic_tab_list_8;
+            case 9: return R.drawable.ic_tab_list_9;
+            default: return R.drawable.ic_tab_list_9_plus;
         }
     }
 
