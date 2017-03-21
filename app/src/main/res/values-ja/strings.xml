@@ -108,7 +108,6 @@
   <string name="zero_learn_more_dismiss">非表示</string>
   <string name="edit_preview_fetching_dialog_message">プレビューを取得中…</string>
   <string name="send_feedback">フィードバックを送る</string>
-  <string name="nav_item_random">おまかせ表示</string>
   <string name="create_account_account_created_toast">アカウントを作成しました!</string>
   <string name="preferences_privacy_settings_heading">プライバシー</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
@@ -117,7 +116,6 @@
   <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的に第三者の HockeyApp に対してクラッシュレポートを送信することを許可します。これによって、クラッシュを確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索履歴</string>
-  <string name="history_search_empty_message">キーワードに一致するページが見つかりません。</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
@@ -239,7 +237,6 @@
   <string name="crash_report_quit">終了</string>
   <string name="article_menu_bar_bookmark">この記事をあとで読むリストに追加</string>
   <string name="article_menu_bar_share">記事のリンクを共有します</string>
-  <string name="article_menu_bar_navigate">記事の対象が実際にある場所までご案内します</string>
   <string name="nav_item_reading_lists">自分のリスト</string>
   <string name="reading_list_untitled">題名なし</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
@@ -255,18 +252,13 @@
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
   <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>
   <string name="reading_list_sort_by_recent_desc">古い方から並べ替え</string>
-  <string name="reading_list_menu_edit">あとで読むリストの詳細を編集</string>
   <string name="reading_list_menu_delete" fuzzy="true">あとで読むリストを削除</string>
   <string name="reading_list_name_sample">あなたのあとで読むリスト</string>
   <string name="reading_list_name_hint">このリストの名称</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>
-  <string name="reading_list_save_for_offline">オフラインで参照可能</string>
   <string name="reading_list_item_deleted">%s はリストから削除されました</string>
   <string name="reading_list_item_delete_undo">取り消す</string>
   <string name="reading_list_deleted">%s は削除されました</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">キャンセル</string>
-  <string name="reading_list_delete_confirm">あとで読むリストを本当に削除しますか?</string>
   <string name="reading_lists_empty" fuzzy="true">あとで読むリストはありません</string>
   <string name="reading_lists_empty_message" fuzzy="true">あとで読むリストで記事を整理しましょう。記事を読んでいるときに、下のツールバーにあるブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
   <string name="reading_lists_onboarding_intro">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
@@ -275,7 +267,6 @@
   <string name="reading_lists_onboarding_example2">好きな動物</string>
   <string name="reading_lists_onboarding_example3">宇宙！</string>
   <string name="reading_lists_onboarding_got_it">わかりました</string>
-  <string name="reading_lists_onboarding_page_delete">ヒント: 各ページは左か右にスワイプすると「あとで読むリスト」から削除できます。</string>
   <string name="user_option_sync_label">設定</string>
   <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
@@ -299,7 +290,6 @@
     <item quantity="other">%d日前</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今日</string>
-  <string name="description_edit_header">編集中</string>
   <string name="description_edit_text_hint" fuzzy="true">要約欄を記入してください</string>
   <string name="description_edit_save">保存</string>
   <string name="description_edit_add_description">説明を追加</string>

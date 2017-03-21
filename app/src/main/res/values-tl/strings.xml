@@ -92,14 +92,12 @@
   <string name="zero_learn_more_dismiss">Ipagwalang-bahala</string>
   <string name="edit_preview_fetching_dialog_message">Kinukuha ang paunang tingin</string>
   <string name="send_feedback">Magpadala ng tugon sa app</string>
-  <string name="nav_item_random">Aleatoryo (Random)</string>
   <string name="create_account_account_created_toast">Nalikha ang akawnt!</string>
   <string name="preferences_privacy_settings_heading">Paglilihim/Pribasidad</string>
   <string name="preference_title_eventlogging_opt_in">Magpadala ng mga ulat sa paggamit</string>
   <string name="preference_summary_eventlogging_opt_in">Pahintulutan ang Wikipedia na mangumpuni ng impormasyon tungkol sa kung paano mo ginagamit ang aplikasyon upang maipabuti pa ang aplikasyon</string>
   <string name="editing_error_spamblacklist">May natagpuang mga dominyong nakaharang (%s).  Mangyari po lamang na tanggalin ito at subukan muli.</string>
   <string name="history_search_list_hint">Tingnan ang kasaysayan</string>
-  <string name="history_search_empty_message">Walang nahanap na mga pahina na tumutugma sa iyong tanong.</string>
   <string name="error_can_not_process_link">Hindi maipakita ang kawing (link) na ito</string>
   <string name="page_protected_autoconfirmed">Bahagyang naipasanggalang ang pahinang ito.</string>
   <string name="page_protected_sysop">Naipasanggalang nang buo ang pahinang ito.</string>

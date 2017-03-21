@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">ہٹائیں</string>
   <string name="edit_preview_fetching_dialog_message">نمائش حاصل کی جارہی ہے...</string>
   <string name="send_feedback">ایپ پر ردعمل بھیجیے۔</string>
-  <string name="nav_item_random">تصادفی</string>
   <string name="create_account_account_created_toast">کھاتہ بن چکا ہے!</string>
   <string name="preferences_privacy_settings_heading">نجی نوعیت</string>
   <string name="preference_title_eventlogging_opt_in">استعمال کی رپورٹ بھیجیے</string>
@@ -114,7 +113,6 @@
   <string name="preference_summary_auto_upload_crash_reports">اس ایپ کو اجازت دیں کہ وہ کریش رپورٹوں کو ہاکی ایپ/ فریق ثالث خدمات فراہم کرنے والے کو ازخود بھیجے تاکہ ہم آپ کے کریش کا جائزہ لے سکیں اور بگ کو جلدی اور آسانی سے درست کرسکیں۔</string>
   <string name="editing_error_spamblacklist">ممنوعہ برقی پتوں (%s) کو پرکھا گیا ہے۔ براہ کرم انہیں ہٹاکر پھر کوشش کریں۔</string>
   <string name="history_search_list_hint">تاریخ تلاش کریں۔</string>
-  <string name="history_search_empty_message">مطلوبہ تلاش کے نتائج نہیں ملے.</string>
   <string name="error_can_not_process_link">اس ربط کو دکھایا نہیں جاسکا۔</string>
   <string name="page_protected_autoconfirmed">یہ صفحہ نیم محفوظ رہا ہے۔</string>
   <string name="page_protected_sysop">یہ صفحہ مکمل طور پر محفوظ رہا ہے۔</string>
@@ -235,7 +233,6 @@
   <string name="crash_report_quit">ترک کریں</string>
   <string name="article_menu_bar_bookmark">اس مضمون کو کسی فہرست مطالعہ میں شامل کریں</string>
   <string name="article_menu_bar_share">مضمون کا ربط دوسروں کو بھیجیں</string>
-  <string name="article_menu_bar_navigate">مضمون کے مقام کو پہنچنے کے لیے گھمائیں</string>
   <string name="nav_item_reading_lists">مطالعہ کی فہرستیں</string>
   <string name="reading_list_untitled">بلا عنوان</string>
   <string name="reading_list_save_to">فہرست مطالعہ میں محفوظ کریں</string>
@@ -251,18 +248,13 @@
   <string name="reading_list_sort_by_name_desc">نام سے ترتیب دیں (الٹا)</string>
   <string name="reading_list_sort_by_recent">حالیہ تبدیلیوں کے اعتبار سے ترتیب دیں</string>
   <string name="reading_list_sort_by_recent_desc">حالیہ سرگرمیوں کے اعتبار سے ترتیب دیں</string>
-  <string name="reading_list_menu_edit">فہرست مطالعہ کی تفصیلات میں ترمیم کریں</string>
   <string name="reading_list_menu_delete" fuzzy="true">فہرست مطالعہ کو حذف کریں</string>
   <string name="reading_list_name_sample">میری فہرست مطالعہ</string>
   <string name="reading_list_name_hint">اس فہرست کا نام</string>
   <string name="reading_list_description_hint">تفصیلات (اختیاری)</string>
-  <string name="reading_list_save_for_offline">آفلائن بڑھنے کے لیے دستیاب</string>
   <string name="reading_list_item_deleted">%s فہرست سے ہٹا دیا گیا ہے</string>
   <string name="reading_list_item_delete_undo">ترمیم رد کریں</string>
   <string name="reading_list_deleted">%s حذف شدہ</string>
-  <string name="reading_list_edit_ok">ٹھیک ہے</string>
-  <string name="reading_list_edit_cancel">منسوخ</string>
-  <string name="reading_list_delete_confirm">کیا آپ یقینی طور پراس کو فہرست مطالعہ سے حذف کرنا چاہتے ہیں؟</string>
   <string name="reading_lists_empty" fuzzy="true">یہاں کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
   <string name="reading_lists_empty_message" fuzzy="true">جن مضامین کو آپ پڑھتے ہیں انہیں \'مطالعہ کی فہرستوں\' میں شامل کریں! کسی مضمون کا مطالعہ کرتے وقت مضمون کے اوپر موجود بُک مارک نشان کو دبائیں تاکہ اسے کسی مطالعہ کی فہرست میں شامل کیا جاسکے۔</string>
   <string name="reading_lists_onboarding_intro">ان مضامین سے مطالعہ کی فہرستیں بنائیں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں!</string>
@@ -271,7 +263,6 @@
   <string name="reading_lists_onboarding_example2">پسندیدہ جانور</string>
   <string name="reading_lists_onboarding_example3">فضائے بسیط!</string>
   <string name="reading_lists_onboarding_got_it">سمجھ گیا</string>
-  <string name="reading_lists_onboarding_page_delete">اطلاع: اپنی فہرست مطالعہ سے کسی صفحے کو ہٹانے کے لیے اسے دائیں یا بائیں ڈھکیلیں۔</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="view_continue_reading_card_title">پڑھنا جاری یکھیں</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
@@ -295,7 +286,6 @@
     <item quantity="other">%d دن قبل</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">آج</string>
-  <string name="description_edit_header">زیر ترمیم</string>
   <string name="description_edit_text_hint" fuzzy="true">وضاحت لکھیں</string>
   <string name="description_edit_save">محفوظ کریں</string>
   <string name="description_edit_add_description" fuzzy="true">وضاحت شامل کریں</string>

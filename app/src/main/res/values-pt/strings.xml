@@ -111,7 +111,6 @@
   <string name="zero_learn_more_dismiss">Ignorar</string>
   <string name="edit_preview_fetching_dialog_message">A obter a antevisão…</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>
-  <string name="nav_item_random">Aleatório</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
   <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de utilização</string>
@@ -120,7 +119,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Permite que a aplicação envie automaticamente relatórios de falhas para o fornecedor de serviços externo HockeyApp, de modo a permitir analisar e corrigir erros de forma mais rápida e fácil.</string>
   <string name="editing_error_spamblacklist">Foram detetados links para domínios bloqueados (%s). Remova-os e tente novamente, por favor.</string>
   <string name="history_search_list_hint">Histórico de pesquisa</string>
-  <string name="history_search_empty_message">Não foi encontrada nenhuma página que corresponda à consulta.</string>
   <string name="error_can_not_process_link">Não foi possível mostrar esta ligação</string>
   <string name="page_protected_autoconfirmed">Esta página foi semiprotegida.</string>
   <string name="page_protected_sysop">Esta página foi totalmente protegida.</string>
@@ -246,7 +244,6 @@ Gostaria de recomeçar ou sair?</string>
   <string name="crash_report_quit">Sair</string>
   <string name="article_menu_bar_bookmark">Adicionar este artigo a uma lista de leitura</string>
   <string name="article_menu_bar_share">Partilhar a ligação do artigo</string>
-  <string name="article_menu_bar_navigate">Navegar até o local do artigo</string>
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar descrição do título</string>
   <string name="article_header_edit_lead_section">Editar introdução</string>
@@ -267,18 +264,13 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordenar por mais recentes</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar por menos recentes</string>
-  <string name="reading_list_menu_edit">Editar detalhes da lista de leitura</string>
   <string name="reading_list_menu_delete" fuzzy="true">Eliminar lista de leitura</string>
   <string name="reading_list_name_sample">Minha lista de leitura</string>
   <string name="reading_list_name_hint">Nome desta lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
-  <string name="reading_list_save_for_offline">Disponível para leitura offline</string>
   <string name="reading_list_item_deleted">%s removido da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Cancelar</string>
-  <string name="reading_list_delete_confirm">Tem a certeza de que pretende eliminar esta lista?</string>
   <string name="reading_lists_empty" fuzzy="true">Não existem listas de leitura aqui.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Organize os artigos que visita em listas de leitura! Ao ler um artigo, toque rapidamente no ícone de marcador, localizado abaixo da barra de ferramentas, para adicioná-lo a uma lista de leitura.</string>
   <string name="reading_lists_onboarding_intro">Crie listas de leitura de artigos que deseja ler mais tarde, mesmo quando estiver offline!</string>
@@ -287,12 +279,8 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
   <string name="reading_lists_onboarding_example3">Espaço!</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
-  <string name="reading_lists_onboarding_page_delete">Dica: Mova com o dedo qualquer página para a esquerda ou para a direita para removê-la da lista de leitura.</string>
   <string name="user_option_sync_label">Preferências</string>
-  <string name="notification_button_view_page">Ver página</string>
   <string name="notification_button_view_user">Fale com o utilizador</string>
-  <string name="notification_button_view_edit_history">Ver histórico de edição</string>
-  <string name="notification_generic_title">Notificação na Wikipédia</string>
   <string name="notification_talk_title">Nova mensagem na Wikipédia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; deixou uma mensagem na sua página de discussão &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Edição desfeita</string>
@@ -323,7 +311,6 @@ Gostaria de recomeçar ou sair?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hoje</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
-  <string name="description_edit_header">A editar</string>
   <string name="description_edit_text_hint">Descrição do título</string>
   <string name="description_edit_save">Gravar</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>

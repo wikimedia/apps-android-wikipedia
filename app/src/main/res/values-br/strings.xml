@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Disteurel</string>
   <string name="edit_preview_fetching_dialog_message">O klask un alberz…</string>
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
-  <string name="nav_item_random">Dargouezhek</string>
   <string name="create_account_account_created_toast">Kont krouet !</string>
   <string name="preferences_privacy_settings_heading">Prevezded</string>
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Reiñ tro d\'an arload da gas danevelloù implij da HockeyApp - ur pourchaser servijoù tredeour - en un doare emgefreek, abalamour ma c\'hallimp kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
   <string name="history_search_list_hint">Klask er roll-istor</string>
-  <string name="history_search_empty_message">N\'eus bet kavet pajenn ebet hag a glot gant ho reked.</string>
   <string name="error_can_not_process_link">N\'eus ket bet gallet diskwel al liamm-mañ</string>
   <string name="page_protected_autoconfirmed">Damwarezet eo bet ar bajenn-mañ.</string>
   <string name="page_protected_sysop">Gwarezet penn-da-benn eo bet ar bajenn-mañ.</string>
@@ -251,7 +249,6 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_quit">Kuitaat</string>
   <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
   <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
-  <string name="article_menu_bar_navigate">Merdeiñ el lec\'h ma oa ar pennad</string>
   <string name="article_header_edit_hint">Kemmañ...</string>
   <string name="article_header_edit_description">Kemmañ titl an deskrivadur</string>
   <string name="article_header_edit_lead_section">Kemmañ ar raklavar</string>
@@ -272,21 +269,16 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_list_sort_by_name_desc">Rummañ dre anv (eilpennet)</string>
   <string name="reading_list_sort_by_recent">Rummañ hervez ar re nevez</string>
   <string name="reading_list_sort_by_recent_desc">Rummañ dre ar re goshañ</string>
-  <string name="reading_list_menu_edit">Kemmañ ar munudoù er roll lenn</string>
   <string name="reading_list_menu_delete">Dilemel ar roll</string>
   <string name="reading_list_menu_rename">Adenvel</string>
   <string name="reading_list_menu_edit_description">Kemmañ an deskrivadur</string>
   <string name="reading_list_name_sample">Ma roll lenn</string>
   <string name="reading_list_name_hint">Anv ar roll-mañ</string>
   <string name="reading_list_description_hint">Deskrivadur (diret)</string>
-  <string name="reading_list_save_for_offline">A c\'haller kaout evit ul lennadenn ezlinenn</string>
   <string name="reading_list_item_deleted">%s dilamet eus ar roll</string>
   <string name="reading_list_items_deleted">%d pennad lamet a-ziwar ar roll</string>
   <string name="reading_list_item_delete_undo">Dizober</string>
   <string name="reading_list_deleted">%s dilamet</string>
-  <string name="reading_list_edit_ok">Mat eo</string>
-  <string name="reading_list_edit_cancel">Nullañ</string>
-  <string name="reading_list_delete_confirm">Ha sur eo hoc\'h eus c\'hoant da zilemel ar roll-mañ ?</string>
   <string name="reading_lists_empty">Roll lenn ebet c\'hoazh.</string>
   <string name="reading_lists_empty_message">Enrollañ pennadoù er rolloù lenn evit gallout lenn anezho diwezhatoc\'h, ezlinenn zoken.</string>
   <string name="reading_lists_onboarding_intro">Krouiñ rolloù lenn evit ar pennadoù ho peus c\'hoant da lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn !</string>
@@ -295,14 +287,10 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_lists_onboarding_example2">Loened karetañ</string>
   <string name="reading_lists_onboarding_example3">Egor !</string>
   <string name="reading_lists_onboarding_got_it">Kaout anezhañ</string>
-  <string name="reading_lists_onboarding_page_delete">Alioù : Lakaat ur bajenn da riklañ a-zehoù pe a-gleiz evit lemel anezhi eus ar roll lenn-se.</string>
   <string name="reading_list_no_description">Deskrivadur ebet...</string>
   <string name="reading_list_empty">N\'hoc\'h eus pennad ebet ouzhpennet d\'ar roll-mañ.</string>
   <string name="user_option_sync_label">Penndibaboù</string>
-  <string name="notification_button_view_page">Gwelet ar bajenn</string>
   <string name="notification_button_view_user">Komz gant an implijer</string>
-  <string name="notification_button_view_edit_history">Gwelet istor ar c\'hemmoù</string>
-  <string name="notification_generic_title">Kemennadenn war Wikipedia</string>
   <string name="notification_talk_title">Kemennadenn nevez war Wikipedia</string>
   <string name="notification_talk">Lezet ez eus bet ur gemennadenn war ho pajenn gaozeal &lt;strong&gt;%2$s&lt;/strong&gt; gant &lt;em&gt;%1$s&lt;/em&gt;</string>
   <string name="notification_reverted_title">Kemm distaolet</string>
@@ -333,7 +321,6 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hiziv</string>
   <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
-  <string name="description_edit_header">O kemmañ</string>
   <string name="description_edit_text_hint">Deskrivadur an titl</string>
   <string name="description_edit_save">Enrollañ</string>
   <string name="description_edit_add_description">Ouzhpennañ deskrivadur an titl</string>

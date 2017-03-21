@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">खारेज गर्नुहोस्</string>
   <string name="edit_preview_fetching_dialog_message">पूर्वावलोकन तयार गरिँदै…</string>
   <string name="send_feedback">अनुप्रयोगबारे प्रतिक्रिया पठाउनुहोस्</string>
-  <string name="nav_item_random">अनियमित</string>
   <string name="create_account_account_created_toast">खाता खोलियो!</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोग प्रतिवेदन पठाउनुहोस्।</string>
@@ -114,7 +113,6 @@
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp / एक तेस्रो-पक्ष सेवा प्रदायकलार्इ स्वतः पठाउन अनुप्रयोगलार्इ अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपार्इंको क्र्यासको समीक्षा गर्न र समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">बन्देज गरिएको डोमेन (%s) मा लिङ् भेटियो। तिनीहरूलाई हटाउनुहोस् र पुनः प्यास गर्नुहोस्</string>
   <string name="history_search_list_hint">खोज इतिहास</string>
-  <string name="history_search_empty_message">तपाईंको क्वेरीसँग मिल्ने कुनै पृष्ठहरू फेला परेनन्।</string>
   <string name="error_can_not_process_link">यो लिङ्क प्रदर्शन गर्न सकेन</string>
   <string name="page_protected_autoconfirmed">यो पृष्ठ अर्ध-सुरक्षित गरिएको छ।</string>
   <string name="page_protected_sysop">यो पृष्ठ पूर्ण सुरक्षित गरिएको छ।</string>
@@ -223,7 +221,6 @@
   <string name="crash_report_quit">बाहिर निस्कनुहोस्</string>
   <string name="article_menu_bar_bookmark">यो लेखलार्इ कुनै अध्ययन सूचीमा थप्नुहोस्</string>
   <string name="article_menu_bar_share">लेखको लिङ्क आदान-प्रदान गर्नुहोस्</string>
-  <string name="article_menu_bar_navigate">लेख भएको स्थानसम्म नेभिगेट गर्नुहोस्।</string>
   <string name="nav_item_reading_lists">मेरा सूचीहरू</string>
   <string name="reading_list_untitled">शीर्षकविहीन</string>
   <string name="reading_list_save_to">अध्ययन सूचीमा बचत गर्नुहोस्</string>
@@ -239,25 +236,19 @@
   <string name="reading_list_sort_by_name_desc">नाम अनुसार श्रेणीबद्ध गर्नुहोस् (उल्टो क्रममा)</string>
   <string name="reading_list_sort_by_recent">सबैभन्दा भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_by_recent_desc">सबैभन्दा कम भर्खरैको क्रममा श्रेणीबद्ध गर्नुहोस्</string>
-  <string name="reading_list_menu_edit">अध्ययन सूचीको विवरण सम्पादन गर्नुहोस्</string>
   <string name="reading_list_menu_delete" fuzzy="true">अध्ययन सूची मेट्नुहोस्</string>
   <string name="reading_list_name_sample">मेरो अध्ययन सूची</string>
   <string name="reading_list_name_hint">यो सूचीको नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_save_for_offline">अफलाइन पढ्नको लागि उपलब्ध</string>
   <string name="reading_list_item_deleted">%s लाई सूचीबाट हटाइयो</string>
   <string name="reading_list_item_delete_undo">पूर्वस्थितिमा फर्काउनुहोस्</string>
   <string name="reading_list_deleted">%s मेटियो</string>
-  <string name="reading_list_edit_ok">ठीक छ</string>
-  <string name="reading_list_edit_cancel">रद्द गर्नुहोस्</string>
-  <string name="reading_list_delete_confirm">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेट्न चाहनुहुन्छ?</string>
   <string name="reading_lists_empty" fuzzy="true">यहाँ कुनै अध्ययन सूचीहरू छैनन्।</string>
   <string name="reading_lists_onboarding_for_example">उदाहरणका लागि</string>
   <string name="reading_lists_onboarding_example1">भ्रमण गर्ने ठाउँहरू</string>
   <string name="reading_lists_onboarding_example2">मनपर्ने जनावरहरू</string>
   <string name="reading_lists_onboarding_example3">अन्तरिक्ष!</string>
   <string name="reading_lists_onboarding_got_it">मैले बुझेँ</string>
-  <string name="reading_lists_onboarding_page_delete">सुझाव: कुनै पृष्ठलाई यो अध्ययन सूचीबाट हटाउन बायाँ वा दायाँतिर स्वाइप गर्नुहोस्।</string>
   <string name="user_option_sync_label">प्राथमिकताहरू</string>
   <string name="view_continue_reading_card_title">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="view_because_you_read_card_title">किनभने तपाईंले यो पढ्नुभएको थियो</string>
@@ -282,7 +273,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
-  <string name="description_edit_header">सम्पादन गर्दै</string>
   <string name="description_edit_text_hint" fuzzy="true">कुनै विवरण लेख्नुहोस्!</string>
   <string name="description_edit_save">सङ्ग्रह गर्नुहोस्</string>
   <string name="description_edit_add_description" fuzzy="true">छोटो विवरण थप्नुहोस्</string>

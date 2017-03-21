@@ -93,7 +93,6 @@
   <string name="zero_interstitial_cancel">อยู่ต่อ</string>
   <string name="zero_learn_more_learn_more" fuzzy="true">อ่านเพิ่มเติม</string>
   <string name="zero_learn_more_dismiss">รับทราบ</string>
-  <string name="nav_item_random">สุ่ม</string>
   <string name="create_account_account_created_toast">บัญชีถูกสร้าง</string>
   <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
@@ -178,9 +177,6 @@
   <string name="reading_list_sort_by_name_desc">เรียงตามชื่อ (แบบย้อนกลับ)</string>
   <string name="reading_list_sort_by_recent">เรียงตามมากที่สุดล่าสุด</string>
   <string name="reading_list_sort_by_recent_desc">เรียงตามน้อยที่สุดล่าสุด</string>
-  <string name="reading_list_edit_ok">ตกลง</string>
-  <string name="reading_list_edit_cancel">ยกเลิก</string>
-  <string name="reading_list_delete_confirm">คุณแน่ใจว่าต้องการลบรายการอ่านนี้หรือไม่</string>
   <string name="view_continue_reading_card_title">อ่านต่อ</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>
@@ -190,5 +186,4 @@
     <item quantity="other">%d วันที่ผ่านมา</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">วันนี้</string>
-  <string name="description_edit_header">การแก้ไข</string>
 </resources>

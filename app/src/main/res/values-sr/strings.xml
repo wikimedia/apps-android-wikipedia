@@ -104,13 +104,11 @@
   <string name="zero_learn_more_dismiss">Одбаци</string>
   <string name="edit_preview_fetching_dialog_message">Учитавам преглед…</string>
   <string name="send_feedback">Пошаљи повратну информацију</string>
-  <string name="nav_item_random">Случајна</string>
   <string name="create_account_account_created_toast">Налог је отворен!</string>
   <string name="preferences_privacy_settings_heading">Приватност</string>
   <string name="preference_title_eventlogging_opt_in">Шаљи извештаје о употреби</string>
   <string name="preference_title_auto_upload_crash_reports">Шаљи извештаје о отказивањима</string>
   <string name="history_search_list_hint">Историја претраге</string>
-  <string name="history_search_empty_message">Нису пронађене странице које одговарају вашем упиту.</string>
   <string name="error_can_not_process_link">Не могу да прикажем ову везу</string>
   <string name="page_protected_autoconfirmed">Ова страница је полузаштићена.</string>
   <string name="page_protected_sysop">Ова страница је потпуно заштићена.</string>
@@ -217,7 +215,6 @@
   <string name="crash_report_quit">Изађи</string>
   <string name="article_menu_bar_bookmark">Додај овај чланак на списак за читање</string>
   <string name="article_menu_bar_share">Дели везу чланка</string>
-  <string name="article_menu_bar_navigate">Иди на локацију чланка</string>
   <string name="nav_item_reading_lists">Моји спискови</string>
   <string name="reading_list_untitled">Без наслова</string>
   <string name="reading_list_save_to">Сачувај на списак за читање</string>
@@ -233,18 +230,13 @@
   <string name="reading_list_sort_by_name_desc">Сортирај по имену (обрнуто)</string>
   <string name="reading_list_sort_by_recent">Сортирај по датуму (прво новије)</string>
   <string name="reading_list_sort_by_recent_desc">Сортирај по датуму (прво старије)</string>
-  <string name="reading_list_menu_edit">Уреди податке списка за читање</string>
   <string name="reading_list_menu_delete" fuzzy="true">Избриши списак за читање</string>
   <string name="reading_list_name_sample">Мој списак за читање</string>
   <string name="reading_list_name_hint">Име овог списка</string>
   <string name="reading_list_description_hint">Опис (необавезно)</string>
-  <string name="reading_list_save_for_offline">Доступно за читање ван мреже</string>
   <string name="reading_list_item_deleted">Чланак %s је уклоњен са списка</string>
   <string name="reading_list_item_delete_undo">Опозови</string>
   <string name="reading_list_deleted">Списак %s је избрисан</string>
-  <string name="reading_list_edit_ok">У реду</string>
-  <string name="reading_list_edit_cancel">Откажи</string>
-  <string name="reading_list_delete_confirm">Заиста желите да избришете овај списак за читање?</string>
   <string name="reading_lists_empty" fuzzy="true">Нема спискова за читање.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посету</string>
@@ -252,7 +244,6 @@
   <string name="reading_lists_onboarding_example3">Свемир!</string>
   <string name="reading_lists_onboarding_got_it">Разумем</string>
   <string name="user_option_sync_label">Подешавања</string>
-  <string name="notification_button_view_page">Погледај страницу</string>
   <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
   <string name="view_random_card_title">Случајан чланак</string>
@@ -270,7 +261,6 @@
   <string name="most_read_list_card_title">Актуелно</string>
   <string name="view_card_news_title">Вести</string>
   <string name="view_continue_reading_card_subtitle_today">Данас</string>
-  <string name="description_edit_header">Уређивање</string>
   <string name="description_edit_text_hint" fuzzy="true">Додај опис!</string>
   <string name="description_edit_save">Сачувај</string>
   <string name="description_edit_add_description" fuzzy="true">Додај опис</string>

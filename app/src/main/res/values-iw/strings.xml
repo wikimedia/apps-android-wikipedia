@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">סגירה</string>
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
   <string name="send_feedback">לשלוח משוב על האפליקציה</string>
-  <string name="nav_item_random">אקראי</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="preferences_privacy_settings_heading">פרטיות</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">לאפשר לאפליקציה לשלוח דיווחי קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
   <string name="history_search_list_hint">חיפוש בהיסטוריה</string>
-  <string name="history_search_empty_message">לא נמצאו דפים התואמים לשאילתה שלך.</string>
   <string name="error_can_not_process_link">לא היה אפשר להציג את הקישור הזה</string>
   <string name="page_protected_autoconfirmed">הדף הזה מוגן באופן חלקי.</string>
   <string name="page_protected_sysop">הדף הזה מוגן באופן מלא.</string>
@@ -251,7 +249,6 @@
   <string name="crash_report_quit">לצאת</string>
   <string name="article_menu_bar_bookmark">הוספת הערך הזה לרשימת קריאה</string>
   <string name="article_menu_bar_share">שיתוף קישור לערך</string>
-  <string name="article_menu_bar_navigate">מעבר למקום בתוך ערך</string>
   <string name="article_header_edit_hint">עריכה...</string>
   <string name="article_header_edit_description">עריכת תיאור הכותרת</string>
   <string name="article_header_edit_lead_section">עריכת ההקדמה</string>
@@ -272,21 +269,16 @@
   <string name="reading_list_sort_by_name_desc">מיון לפי שם (אחורה)</string>
   <string name="reading_list_sort_by_recent">מיון לפי החדש ביותר</string>
   <string name="reading_list_sort_by_recent_desc">מיון לפי הישן ביותר</string>
-  <string name="reading_list_menu_edit">עריכת פרטי רשימה</string>
   <string name="reading_list_menu_delete">מחיקת רשימה</string>
   <string name="reading_list_menu_rename">שינוי שם</string>
   <string name="reading_list_menu_edit_description">עריכת תיאור</string>
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
-  <string name="reading_list_save_for_offline">זמין לקריאה ללא רשת</string>
   <string name="reading_list_item_deleted">%s הוסר מהרשימה</string>
   <string name="reading_list_items_deleted">%d ערכים הוסרו מהרשימה</string>
   <string name="reading_list_item_delete_undo">ביטול</string>
   <string name="reading_list_deleted">%s נמחק</string>
-  <string name="reading_list_edit_ok">אישור</string>
-  <string name="reading_list_edit_cancel">ביטול</string>
-  <string name="reading_list_delete_confirm">האם ברצונך באמת למחוק את רשימת הקריאה הזאת?</string>
   <string name="reading_lists_empty">אין עדיין רשימות קריאה</string>
   <string name="reading_lists_empty_message">אפשר לשמור ערכים לרשימות קריאה כדי להציג אותם בקלות מאוחר יותר כשאין לך רשת.</string>
   <string name="reading_lists_onboarding_intro">צרו רשימת קריאה מערכים שאתם רוצים לקרוא אחר־כך, אפילו בלי רשת!</string>
@@ -295,14 +287,10 @@
   <string name="reading_lists_onboarding_example2">חיות אהובות</string>
   <string name="reading_lists_onboarding_example3">חלל!</string>
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
-  <string name="reading_lists_onboarding_page_delete">עצה: החלקה של כל דף שמאלה או ימינה תסיר אותו מרשימת הקריאה הזאת.</string>
   <string name="reading_list_no_description">אין תיאור...</string>
   <string name="reading_list_empty">אין לך ערכים להוסיף לרשימה הזאת.</string>
   <string name="user_option_sync_label">העדפות</string>
-  <string name="notification_button_view_page">הצגת דף</string>
   <string name="notification_button_view_user">לדבר עם משתמש</string>
-  <string name="notification_button_view_edit_history">הצגת היסטוריית העריכה</string>
-  <string name="notification_generic_title">התראה בוויקיפדיה</string>
   <string name="notification_talk_title">הודעה חדשה בוויקיפדיה</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; השאיר הודעה בדף השיחה שלך &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
@@ -333,7 +321,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">היום</string>
   <string name="view_announcement_card_negative_action">לא, תודה</string>
-  <string name="description_edit_header">עריכה</string>
   <string name="description_edit_text_hint">תיאור הכותרת</string>
   <string name="description_edit_save">שמירה</string>
   <string name="description_edit_add_description">הוספת תיאור כותרת</string>

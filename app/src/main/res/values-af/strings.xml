@@ -93,13 +93,11 @@
   <string name="zero_learn_more_dismiss">Sluit</string>
   <string name="edit_preview_fetching_dialog_message">Verkry voorskou…</string>
   <string name="send_feedback">Stuur toep terugvoer</string>
-  <string name="nav_item_random">Willekeurig</string>
   <string name="create_account_account_created_toast">Gebruiker geskep!</string>
   <string name="preference_title_eventlogging_opt_in">Stuur gebruiksverslae</string>
   <string name="preference_summary_eventlogging_opt_in">Laat Wikimedia toe om inligting in te samel oor hoe u die toep gebruik om sodoende die toep te verbeter</string>
   <string name="editing_error_spamblacklist">Skakels na geblokkeerder domeins (%s) gevind. Verwyder dit en probeer weer.</string>
   <string name="history_search_list_hint">Soek geskiedenis</string>
-  <string name="history_search_empty_message">Geen bladsye gevind wat by u soekterm pas nie.</string>
   <string name="error_can_not_process_link">Kon nie hierdie skakel vertoon nie</string>
   <string name="page_protected_autoconfirmed">Hierdie blad is semi-beskerm.</string>
   <string name="page_protected_sysop">Hierdie blad is volledig beskerm.</string>

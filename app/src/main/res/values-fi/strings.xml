@@ -112,7 +112,6 @@
   <string name="zero_learn_more_dismiss">Hylkää</string>
   <string name="edit_preview_fetching_dialog_message">Noudetaan esikatselua…</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
-  <string name="nav_item_random">Satunnainen</string>
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
   <string name="preferences_privacy_settings_heading">Yksityisyys</string>
   <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
@@ -121,7 +120,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Salli sovelluksen lähettää kaatumisilmoituksia HockeyAppille / kolmannen osapuolen palveluntarjoajalle automaattisesti, jotta voimme käydä läpi kaatumisesi ja korjata ongelman nopeammin ja helpommin.</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
   <string name="history_search_list_hint">Hae historiasta</string>
-  <string name="history_search_empty_message">Hakuasi vastaavia sivua ei löytynyt.</string>
   <string name="error_can_not_process_link">Tätä linkkiä ei voitu näyttää</string>
   <string name="page_protected_autoconfirmed">Tämä sivu on osittain suojattu.</string>
   <string name="page_protected_sysop">Tämä sivu on kokonaan suojattu.</string>
@@ -248,7 +246,6 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="crash_report_quit">Poistu</string>
   <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulistaan</string>
   <string name="article_menu_bar_share">Jaa artikkelin linkki</string>
-  <string name="article_menu_bar_navigate">Navigoi artikkelin sijaintiin</string>
   <string name="article_header_edit_hint">Muokkaa…</string>
   <string name="article_header_edit_description">Muokkaa otsikon kuvausta</string>
   <string name="article_header_edit_lead_section">Muokkaa johdantoa</string>
@@ -269,21 +266,16 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan (käänteinen)</string>
   <string name="reading_list_sort_by_recent">Lajittele viimeisimmän käytön mukaan</string>
   <string name="reading_list_sort_by_recent_desc">Lajittele viimeisimmän käytön mukaan (käänteinen)</string>
-  <string name="reading_list_menu_edit">Muokkaa lukulistan tietoja</string>
   <string name="reading_list_menu_delete">Poista lista</string>
   <string name="reading_list_menu_rename">Nimeä uudelleen</string>
   <string name="reading_list_menu_edit_description">Muokkaa kuvausta</string>
   <string name="reading_list_name_sample">Oma lukulista</string>
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
-  <string name="reading_list_save_for_offline">Saatavilla yhteydettömässä tilassa</string>
   <string name="reading_list_item_deleted">%s poistettu listalta</string>
   <string name="reading_list_items_deleted">%d artikkelia poistettu listalta</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Peru</string>
-  <string name="reading_list_delete_confirm">Haluatko varmasti poistaa tämän lukulistan?</string>
   <string name="reading_lists_empty">Ei lukulistoja vielä</string>
   <string name="reading_lists_empty_message">Tallenna artikkelit lukulistoiksi, jotta voit tarkastella niitä myöhemmin, jopa ilman verkkoyhteyttä.</string>
   <string name="reading_lists_onboarding_intro">Luo lukulistoja artikkeleista, jotka haluat lukea myöhemmin, jopa verkkoyhteydettömässä tilassa!</string>
@@ -292,13 +284,9 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_lists_onboarding_example2">Suosikkieläimet</string>
   <string name="reading_lists_onboarding_example3">Avaruus!</string>
   <string name="reading_lists_onboarding_got_it">Selvä</string>
-  <string name="reading_lists_onboarding_page_delete">Vinkki: Pyyhi mikä tahansa sivu vasemmalle tai oikealle poistaaksesi sen tästä lukulistasta.</string>
   <string name="reading_list_no_description">Ei kuvausta…</string>
   <string name="user_option_sync_label">Asetukset</string>
-  <string name="notification_button_view_page">Tarkastele sivua</string>
   <string name="notification_button_view_user">Keskustele käyttäjän kanssa</string>
-  <string name="notification_button_view_edit_history">Tarkastele muokkaushistoriaa</string>
-  <string name="notification_generic_title">Ilmoitus Wikipediassa</string>
   <string name="notification_talk_title">Uusi viesti Wikipediassa</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; jätti viestin keskustelusivullesi &lt;strong&gt;\"%2$s\"&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Kumottu muokkaus</string>
@@ -329,7 +317,6 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Tänään</string>
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
-  <string name="description_edit_header">Muokkaus</string>
   <string name="description_edit_text_hint">Otsikkokuvaus</string>
   <string name="description_edit_save">Tallenna</string>
   <string name="description_edit_add_description">Lisää otsikkokuvaus</string>

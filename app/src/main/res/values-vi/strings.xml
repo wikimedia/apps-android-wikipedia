@@ -111,7 +111,6 @@
   <string name="zero_learn_more_dismiss">Bỏ qua</string>
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem thử…</string>
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
-  <string name="nav_item_random">Ngẫu nhiên</string>
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
   <string name="preferences_privacy_settings_heading">Riêng tư</string>
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
@@ -120,7 +119,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Cho phép ứng dụng tự động gửi báo cáo đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để chúng tôi có thể xem xét sự cố và sửa lỗi nhanh và dễ dàng hơn.</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
   <string name="history_search_list_hint">Lịch sử tìm kiếm</string>
-  <string name="history_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>
   <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>
@@ -240,7 +238,6 @@
   <string name="crash_report_quit">Thoát</string>
   <string name="article_menu_bar_bookmark">Thêm bài này vào một danh sách đọc</string>
   <string name="article_menu_bar_share">Chia sẻ liên kết đến bài</string>
-  <string name="article_menu_bar_navigate">Chuyển đến vị trí của bài</string>
   <string name="article_header_edit_hint">Sửa đổi…</string>
   <string name="article_header_edit_description">Sửa miêu tả tiêu đề</string>
   <string name="article_header_edit_lead_section">Sửa lời đầu</string>
@@ -261,18 +258,13 @@
   <string name="reading_list_sort_by_name_desc">Sắp xếp theo tên (ngược)</string>
   <string name="reading_list_sort_by_recent">Sắp xếp theo lúc xem (gần đây nhất)</string>
   <string name="reading_list_sort_by_recent_desc">Sắp xếp theo lúc xem (lâu nhất)</string>
-  <string name="reading_list_menu_edit">Sửa chi tiết danh sách đọc</string>
   <string name="reading_list_menu_delete" fuzzy="true">Xóa danh sách đọc</string>
   <string name="reading_list_name_sample">Danh sách đọc của tôi</string>
   <string name="reading_list_name_hint">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
-  <string name="reading_list_save_for_offline">Có sẵn để đọc ngoại tuyến</string>
   <string name="reading_list_item_deleted">Đã xóa %s khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Hủy bỏ</string>
-  <string name="reading_list_delete_confirm">Bạn có chắc chắn muốn xóa danh sách đọc này?</string>
   <string name="reading_lists_empty" fuzzy="true">Không có danh sách đọc.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Sắp xếp các bài mà bạn duyệt xem vào danh sách đọc! Khi nào xem một bài, chỉ việc chạm vào hình dấu trang trong thanh công cụ cuối trang để thêm nó vào một danh sách đọc.</string>
   <string name="reading_lists_onboarding_intro">Tạo danh sách các bài viết bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến.</string>
@@ -281,12 +273,8 @@
   <string name="reading_lists_onboarding_example2">Loài vật ưa thích</string>
   <string name="reading_lists_onboarding_example3">Vũ trụ!</string>
   <string name="reading_lists_onboarding_got_it">Được rồi</string>
-  <string name="reading_lists_onboarding_page_delete">Mẹo: Vuốt trang nào đó về một bên để xóa nó khỏi danh sách đọc này.</string>
   <string name="user_option_sync_label">Tùy chọn</string>
-  <string name="notification_button_view_page">Xem trang</string>
   <string name="notification_button_view_user">Thảo luận với người dùng</string>
-  <string name="notification_button_view_edit_history">Xem lịch sử sửa đổi</string>
-  <string name="notification_generic_title">Thông báo tại Wikipedia</string>
   <string name="notification_talk_title">Tin nhắn mới tại Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; nhắn tin cho bạn tại trang thảo luận &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Sửa đổi bị lùi lại</string>
@@ -316,7 +304,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hôm nay</string>
   <string name="view_announcement_card_negative_action">Thôi</string>
-  <string name="description_edit_header">Đang sửa</string>
   <string name="description_edit_text_hint">Miêu tả tiêu đề</string>
   <string name="description_edit_save">Lưu</string>
   <string name="description_edit_add_description">Thêm miêu tả tiêu đề</string>

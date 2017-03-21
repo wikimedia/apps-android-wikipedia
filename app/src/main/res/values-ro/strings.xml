@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">Renunță</string>
   <string name="edit_preview_fetching_dialog_message">Se preia previzualizarea…</string>
   <string name="send_feedback">Trimiteți o părere despre aplicație</string>
-  <string name="nav_item_random">Aleatoriu</string>
   <string name="create_account_account_created_toast">Cont creat!</string>
   <string name="preferences_privacy_settings_heading">Confidențialitate</string>
   <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
@@ -114,7 +113,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Permiteți aplicației să trimită automat rapoarte de erori către HockeyApp / un furnizor de servicii terț, astfel încât noi să putem verifica erorile dumnevoastră, reparându-le mai rapid și mai ușor.</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
   <string name="history_search_list_hint">Căutare în istoric</string>
-  <string name="history_search_empty_message">Nicio pagină nu corespunde interogării dumneavoastră.</string>
   <string name="error_can_not_process_link">Nu se poate afișa această legătură</string>
   <string name="page_protected_autoconfirmed">Această pagină a fost semiprotejată.</string>
   <string name="page_protected_sysop">Această pagină a fost protejată.</string>
@@ -232,7 +230,6 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_quit">Închide</string>
   <string name="article_menu_bar_bookmark">Adaugă acest articol într-o listă de lecturi</string>
   <string name="article_menu_bar_share">Distribuie legătura către articol</string>
-  <string name="article_menu_bar_navigate">Navighează către locul din articol</string>
   <string name="nav_item_reading_lists" fuzzy="true">Liste de lecturi</string>
   <string name="reading_list_untitled">Fără titlu</string>
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>
@@ -248,18 +245,13 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_sort_by_name_desc">Sortare după titlu (invers)</string>
   <string name="reading_list_sort_by_recent">Sortare după dată</string>
   <string name="reading_list_sort_by_recent_desc">Sortare după cea mai veche dată</string>
-  <string name="reading_list_menu_edit">Modifică detaliile listei de lecturi</string>
   <string name="reading_list_menu_delete" fuzzy="true">Șterge lista de lecturi</string>
   <string name="reading_list_name_sample">Lista mea de lecturi</string>
   <string name="reading_list_name_hint">Numele listei</string>
   <string name="reading_list_description_hint">Descriere (opțională)</string>
-  <string name="reading_list_save_for_offline">Disponibil pentru lectură off-line</string>
   <string name="reading_list_item_deleted">%s a fost eliminat din listă</string>
   <string name="reading_list_item_delete_undo">Anulează</string>
   <string name="reading_list_deleted">%s a fost ștearsă</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Revocare</string>
-  <string name="reading_list_delete_confirm">Sigur doriți să ștergeți această listă de lecturi?</string>
   <string name="reading_lists_empty" fuzzy="true">Nicio listă de lecturi pe aici.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Grupați articolele pe care le răsfoiți în liste de lecturi! Când frunzăriți un articol, atingeți pictograma „semn de carte” din partea de sus a articolului pentru a-l adăuga unei liste de lecturi.</string>
   <string name="reading_lists_onboarding_intro">Creați liste de lecturi cu articolele pe care doriți să le citiți mai târziu, chiar dacă sunteți off-line!</string>
@@ -268,7 +260,6 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_lists_onboarding_example2">Animale preferate</string>
   <string name="reading_lists_onboarding_example3">Cosmos!</string>
   <string name="reading_lists_onboarding_got_it">Am înțeles</string>
-  <string name="reading_lists_onboarding_page_delete">Sfat: glisați cu degetul pe orice pagină la stânga sau la dreapta pentru a șterge din lista de lectură.</string>
   <string name="user_option_sync_label">Preferințe</string>
   <string name="view_continue_reading_card_title">Continuă lectura</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>

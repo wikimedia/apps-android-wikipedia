@@ -96,7 +96,6 @@
   <string name="zero_learn_more_learn_more" fuzzy="true">Luve ližiä</string>
   <string name="zero_learn_more_dismiss">Hylgiä</string>
   <string name="send_feedback">Sano oma mieli</string>
-  <string name="nav_item_random">Piävyndähine</string>
   <string name="create_account_account_created_toast">Tili luajittu!</string>
   <string name="history_search_list_hint">Eči histouriespäi</string>
   <string name="error_can_not_process_link">Tädä linkii ei voinuh ozuttua</string>

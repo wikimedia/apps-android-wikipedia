@@ -83,12 +83,10 @@
   <string name="zero_learn_more_dismiss">លាក់</string>
   <string name="edit_preview_fetching_dialog_message">កំពុងផ្ទុកការមើលមុន…</string>
   <string name="send_feedback">ផ្ញើមតិយោបល់អំពីកម្មវិធីនេះ</string>
-  <string name="nav_item_random">ចៃដន្យ</string>
   <string name="create_account_account_created_toast">គណនីបានបង្កើតហើយ!</string>
   <string name="preference_title_eventlogging_opt_in">ផ្ញើរបាយការណ៍ពីបម្រើបម្រាស់</string>
   <string name="preference_summary_eventlogging_opt_in">អនុញ្ញាតអោយវិគីមេឌាប្រមូលព័ត៌មានអំពីរបៀបប្រើប្រាស់កម្មវិធីរបស់អ្នក ដើម្បីជួយកែច្នៃកម្មវិធីនេះអោយកាន់តែប្រសើរ</string>
   <string name="history_search_list_hint">ស្វែងរកប្រវត្តិ</string>
-  <string name="history_search_empty_message">រកមិនឃើញទំព័រត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
   <string name="error_can_not_process_link">មិនអាចបង្ហាញតំណភ្ជាប់នេះទេ</string>
   <string name="page_protected_autoconfirmed">ទំព័រនេះត្រូវបានការពារពាក់កណ្ដាល។</string>
   <string name="page_protected_sysop">ទំព័រនេះត្រូវបានការពារពេញលេញ។</string>

@@ -112,7 +112,6 @@
   <string name="zero_learn_more_dismiss">Nascondi</string>
   <string name="edit_preview_fetching_dialog_message">Recupero anteprima…</string>
   <string name="send_feedback">Invia commento sull\'applicazione</string>
-  <string name="nav_item_random">Una pagina a caso</string>
   <string name="create_account_account_created_toast">Utenza creata!</string>
   <string name="preferences_privacy_settings_heading">Privacy</string>
   <string name="preference_title_eventlogging_opt_in">Invia rapporti sull\'utilizzo</string>
@@ -121,7 +120,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Consente all\'applicazione di inviare automaticamente segnalazioni su errori a HockeyApp / un fornitore terzo di servizi, in modo da poter rivedere il tuo errore e correggere i bug più velocemente e più facilmente.</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
   <string name="history_search_list_hint">Cerca</string>
-  <string name="history_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
   <string name="page_protected_sysop">Questa pagina è stata protetta.</string>
@@ -246,7 +244,6 @@ Vuoi riavviarla o uscire?</string>
   <string name="crash_report_quit">Esci</string>
   <string name="article_menu_bar_bookmark">Aggiungi questa voce ad un elenco lettura</string>
   <string name="article_menu_bar_share">Condividi il collegamento alla voce</string>
-  <string name="article_menu_bar_navigate">Naviga verso la posizione della voce</string>
   <string name="article_header_edit_lead_section">Modifica introduzione</string>
   <string name="nav_item_reading_lists">I miei elenchi</string>
   <string name="reading_list_untitled">Senza titolo</string>
@@ -263,21 +260,16 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordina per più recenti</string>
   <string name="reading_list_sort_by_recent_desc">Ordina per meno recenti</string>
-  <string name="reading_list_menu_edit">Modifica dettagli elenco di lettura</string>
   <string name="reading_list_menu_delete">Cancella elenco</string>
   <string name="reading_list_menu_rename">Rinomina</string>
   <string name="reading_list_menu_edit_description">Modifica descrizione</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
-  <string name="reading_list_save_for_offline">Disponibile per la lettura offline</string>
   <string name="reading_list_item_deleted">%s rimosso dall\'elenco</string>
   <string name="reading_list_items_deleted">%d voci rimosse dalla lista</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s cancellato</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Annulla</string>
-  <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare questo elenco di lettura?</string>
   <string name="reading_lists_empty">Nessun elenco di lettura ancora</string>
   <string name="reading_lists_empty_message">Salva le voci in elenchi di lettura, così puoi visualizzarle in seguito, anche quando sei offline.</string>
   <string name="reading_lists_onboarding_intro">Crea elenchi di lettura da voci che vuoi leggere più tardi, anche quando sei offline!</string>
@@ -286,11 +278,9 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_lists_onboarding_example2">Animali preferiti</string>
   <string name="reading_lists_onboarding_example3">Spazio!</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
-  <string name="reading_lists_onboarding_page_delete">Suggerimento: fai scorrere una pagina a sinistra o a destra per rimuoverla dall\'elenco di lettura.</string>
   <string name="reading_list_no_description">Nessuna descrizione…</string>
   <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
   <string name="user_option_sync_label">Preferenze</string>
-  <string name="notification_button_view_page">Vedi pagina</string>
   <string name="notification_talk_title">Nuovo messaggio su Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ti ha lasciato un messaggio sulla tua pagina di discussione &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted">La tua modifica alla voce &lt;strong&gt;%2$s&lt;/strong&gt; è stata annullata da &lt;em&gt;%1$s&lt;/em&gt;.</string>
@@ -319,7 +309,6 @@ Vuoi riavviarla o uscire?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Oggi</string>
   <string name="view_announcement_card_negative_action">No, grazie</string>
-  <string name="description_edit_header">Modifica</string>
   <string name="description_edit_text_hint">Descrizione del titolo</string>
   <string name="description_edit_save">Salva</string>
   <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>

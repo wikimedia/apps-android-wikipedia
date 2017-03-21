@@ -116,7 +116,6 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="zero_learn_more_dismiss">Fermer</string>
   <string name="edit_preview_fetching_dialog_message">Récupération de l’aperçu…</string>
   <string name="send_feedback">Envoyer un avis sur l’application</string>
-  <string name="nav_item_random">Aléatoire</string>
   <string name="create_account_account_created_toast">Compte créé !</string>
   <string name="preferences_privacy_settings_heading">Confidentialité</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
@@ -125,7 +124,6 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer des rapports d’incident à HockeyApp — un fournisseur de services tiers — de façon automatique, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
   <string name="editing_error_spamblacklist">Détection de liens vers des domaines bloqués (%s) . Veuillez les supprimer et réessayer.</string>
   <string name="history_search_list_hint">Rechercher dans l’historique</string>
-  <string name="history_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
   <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
@@ -252,7 +250,6 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_quit">Quitter</string>
   <string name="article_menu_bar_bookmark">Ajouter cet article à une liste de lecture</string>
   <string name="article_menu_bar_share">Partager le lien vers la page</string>
-  <string name="article_menu_bar_navigate">Naviguer à l’emplacement de l’article</string>
   <string name="article_header_edit_hint">Modifier…</string>
   <string name="article_header_edit_description">Modifier la description du titre</string>
   <string name="article_header_edit_lead_section">Modifier l’introduction</string>
@@ -273,21 +270,16 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_sort_by_name_desc">Trier par nom (inverse)</string>
   <string name="reading_list_sort_by_recent">Trier selon les plus récents</string>
   <string name="reading_list_sort_by_recent_desc">Trier selon les moins récents</string>
-  <string name="reading_list_menu_edit">Modifier les détails de la liste de lecture</string>
   <string name="reading_list_menu_delete">Supprimer la liste</string>
   <string name="reading_list_menu_rename">Renommer</string>
   <string name="reading_list_menu_edit_description">Modifier la description</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultatif)</string>
-  <string name="reading_list_save_for_offline">Disponible pour une lecture hors connexion</string>
   <string name="reading_list_item_deleted">%s supprimé de la liste</string>
   <string name="reading_list_items_deleted">%d articles supprimés de la liste</string>
   <string name="reading_list_item_delete_undo">Annuler</string>
   <string name="reading_list_deleted">%s supprimé</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Annuler</string>
-  <string name="reading_list_delete_confirm">Êtes-vous sûr de vouloir supprimer cette liste de lecture ?</string>
   <string name="reading_lists_empty">Encore aucune liste de lecture</string>
   <string name="reading_lists_empty_message">Enregistrer des articles dans des listes de lecture afin de pouvoir les consulter plus tard, même hors ligne.</string>
   <string name="reading_lists_onboarding_intro">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même en étant hors connexion !</string>
@@ -296,14 +288,10 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_lists_onboarding_example2">Animaux favoris</string>
   <string name="reading_lists_onboarding_example3">Espace !</string>
   <string name="reading_lists_onboarding_got_it">L’obtenir</string>
-  <string name="reading_lists_onboarding_page_delete">Conseil : Faire glisser une page à droite ou à gauche pour la supprimer de cette liste de lecture.</string>
   <string name="reading_list_no_description">Aucune description…</string>
   <string name="reading_list_empty">Vous n’avez aucun article ajouté à cette liste.</string>
   <string name="user_option_sync_label">Préférences</string>
-  <string name="notification_button_view_page">Afficher la page</string>
   <string name="notification_button_view_user">Parler à l’utilisateur</string>
-  <string name="notification_button_view_edit_history">Afficher l’historique des modifications</string>
-  <string name="notification_generic_title">Notification sur Wikipédia</string>
   <string name="notification_talk_title">Nouveau message sur Wikipédia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; a laissé un message sur votre page de discussion &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Modification annulée</string>
@@ -334,7 +322,6 @@ Voudriez-vous redémarrer ou quitter ?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Aujourd’hui</string>
   <string name="view_announcement_card_negative_action">Non merci</string>
-  <string name="description_edit_header">Modification</string>
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_save">Enregistrer</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>

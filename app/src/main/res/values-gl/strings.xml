@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Agochar</string>
   <string name="edit_preview_fetching_dialog_message">Procesando a vista previa…</string>
   <string name="send_feedback">Enviar comentarios sobre a aplicación</string>
-  <string name="nav_item_random">Ao chou</string>
   <string name="create_account_account_created_toast">Conta creada!</string>
   <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Permitir á aplicación enviar automaticamente informes de fallos a HockeyApp / un provedor de servizos de terceiros para que poidamos revisar o seu fallo e corrixir o erro máis rápido e de forma máis doada.</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
   <string name="history_search_list_hint">Historial de procuras</string>
-  <string name="history_search_empty_message">Non se atopou ningunha páxina que coincidise coa súa pescuda.</string>
   <string name="error_can_not_process_link">Non foi posible mostrar esta ligazón</string>
   <string name="page_protected_autoconfirmed">Esta páxina está semiprotexida.</string>
   <string name="page_protected_sysop">Esta páxina está totalmente protexida.</string>
@@ -251,7 +249,6 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="crash_report_quit">Saír</string>
   <string name="article_menu_bar_bookmark">Engadir este artigo a unha lista de lectura</string>
   <string name="article_menu_bar_share">Compartir a ligazón do artigo</string>
-  <string name="article_menu_bar_navigate">Navegar á localización do artigo</string>
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar a descrición do título</string>
   <string name="article_header_edit_lead_section">Editar introdución</string>
@@ -272,21 +269,16 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
   <string name="reading_list_sort_by_recent">Ordenar polas máis recentes</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar polas menos recentes</string>
-  <string name="reading_list_menu_edit">Editar os detalles da lista de lectura</string>
   <string name="reading_list_menu_delete">Eliminar a lista</string>
   <string name="reading_list_menu_rename">Renomear</string>
   <string name="reading_list_menu_edit_description">Editar a descrición</string>
   <string name="reading_list_name_sample">A miña lista de lectura</string>
   <string name="reading_list_name_hint">Nome desta lista</string>
   <string name="reading_list_description_hint">Descrición (opcional)</string>
-  <string name="reading_list_save_for_offline">Dispoñible para ler sen conexión</string>
   <string name="reading_list_item_deleted">%s eliminado da lista</string>
   <string name="reading_list_items_deleted">%d artigos eliminados da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="reading_list_edit_ok">Aceptar</string>
-  <string name="reading_list_edit_cancel">Cancelar</string>
-  <string name="reading_list_delete_confirm">Está seguro de que quere eliminar esta lista de lectura?</string>
   <string name="reading_lists_empty">Aínda non hai listas de lectura</string>
   <string name="reading_lists_empty_message">Garda os artigos en listas de lectura para poder velos depois, incluso cando non esteas conectado.</string>
   <string name="reading_lists_onboarding_intro">Cree listas de lectura para os artigos que quere ler máis tarde, incluso cando non teña conexiónǃ</string>
@@ -295,14 +287,10 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
   <string name="reading_lists_onboarding_example3">O espazoǃ</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
-  <string name="reading_lists_onboarding_page_delete">Consello: Desprace calquera páxina á esquerda ou á dereita para eliminala desta páxina de lectura.</string>
   <string name="reading_list_no_description">Sen descrición...</string>
   <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
   <string name="user_option_sync_label">Preferencias</string>
-  <string name="notification_button_view_page">Ollar a páxina</string>
   <string name="notification_button_view_user">Conversar co usuario</string>
-  <string name="notification_button_view_edit_history">Ver o historial de edicións</string>
-  <string name="notification_generic_title">Notificación na Wikipedia</string>
   <string name="notification_talk_title">Mensaxe nova na Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; deixou unha mensaxe na túa páxina de Conversa &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Edición revertida</string>
@@ -333,7 +321,6 @@ Gustaríalle volver a comezar ou saír?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hoxe</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
-  <string name="description_edit_header">Editando</string>
   <string name="description_edit_text_hint">Descrición de título</string>
   <string name="description_edit_save">Gardar</string>
   <string name="description_edit_add_description">Engadir unha descrición de título</string>

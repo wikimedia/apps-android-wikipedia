@@ -72,7 +72,6 @@
   <string name="zero_learn_more_dismiss">Futilia mbali</string>
   <string name="edit_preview_fetching_dialog_message">Inapakia mtazamo…</string>
   <string name="send_feedback">Toa maoni ya programu timizi</string>
-  <string name="nav_item_random">Bahatisha</string>
   <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
   <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
   <string name="history_search_list_hint" fuzzy="true">Tafuta</string>

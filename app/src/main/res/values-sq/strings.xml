@@ -96,7 +96,6 @@
   <string name="zero_learn_more" fuzzy="true">Dëshironi të mësoni në lidhje me Wikipedia Zero?</string>
   <string name="zero_learn_more_learn_more" fuzzy="true">Lexo më shumë</string>
   <string name="zero_learn_more_dismiss">Largoje</string>
-  <string name="nav_item_random">I rastit</string>
   <string name="create_account_account_created_toast">Llogaria u krijua!</string>
   <string name="preferences_privacy_settings_heading">Privatësia</string>
   <string name="edit_summary_tag_typo">Korrigjim gabim shtypi</string>

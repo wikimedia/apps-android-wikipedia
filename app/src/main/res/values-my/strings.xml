@@ -105,7 +105,6 @@
   <string name="zero_learn_more_dismiss">ဖြုတ်ရန်</string>
   <string name="edit_preview_fetching_dialog_message">နမူနာအား ပြင်ဆင်နေသည်…</string>
   <string name="send_feedback">app အကြံပြုချက် ပို့ရန်</string>
-  <string name="nav_item_random">ကျပန်း</string>
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>
   <string name="preferences_privacy_settings_heading">ကိုယ်ရေးမူဝါဒ</string>
   <string name="preference_title_eventlogging_opt_in">အသုံးပြုမှု အစီရင်ခံချက်များအား ပို့ရန်</string>
@@ -114,7 +113,6 @@
   <string name="preference_summary_auto_upload_crash_reports">တတိယ ဝန်ဆောင်မှုလုပ်ငန်းဖြစ်သော HockeyApp သို့ app မှ ပျက်မှု အစီရင်ခံချက်များအား အလိုအလျောက် ပေးပို့စေခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူလျှင်မြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စေရန် ခွင့်ပြုပါ။</string>
   <string name="editing_error_spamblacklist">ပိတ်ပင်ထားသော ဒိုမိန်းများ (%s) သို့ ချိတ်ဆက်ထားမှု ရှိနေသည်။ ကျေးဇူးပြု၍ ယင်းတို့ကို ဖယ်ရှားပြီး ထပ်မံကြိုးစားပါ။</string>
   <string name="history_search_list_hint">မှတ်တမ်းများ ရှာဖွေရန်</string>
-  <string name="history_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိပါ။</string>
   <string name="error_can_not_process_link">ဤလင့်ခ်အား ပြသနိုင်ခြင်း မရှိပါ</string>
   <string name="page_protected_autoconfirmed">ဤစာမျက်နှာအား တစ်စိတ်တစ်ပိုင်း ကာကွယ်ထားသည်။</string>
   <string name="page_protected_sysop">ဤစာမျက်နှာအား အပြည့်အဝ ကာကွယ်ထားသည်။</string>
@@ -234,7 +232,6 @@
   <string name="crash_report_quit">ထွက်</string>
   <string name="article_menu_bar_bookmark">ဤဆောင်းပါးအား စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="article_menu_bar_share">ဆောင်းပါးလင့်ခ်အား မျှဝေရန်</string>
-  <string name="article_menu_bar_navigate">ဆောင်းပါးတည်နေရာအား ညွှန်ပြရန်</string>
   <string name="article_header_edit_hint">ပြင်ဆင်...</string>
   <string name="article_header_edit_description">ခေါင်းစဉ်ဖော်ပြချက် တည်းဖြတ်ရန်</string>
   <string name="article_header_edit_lead_section">မိတ်ဆက် တည်းဖြတ်ရန်</string>
@@ -253,18 +250,13 @@
   <string name="reading_list_sort_by_name_desc">အမည်ဖြင့် စီစဉ် (ပြောင်းပြန်)</string>
   <string name="reading_list_sort_by_recent">မကြာမီကဖြင့် စီစဉ်</string>
   <string name="reading_list_sort_by_recent_desc">အနည်းဆုံး မကြာမီဖြင့် စီစဉ်</string>
-  <string name="reading_list_menu_edit">စာဖတ်စာရင်း အသေးစိတ် ပြင်ဆင်ရန်</string>
   <string name="reading_list_menu_delete" fuzzy="true">စာဖတ်စာရင်း ဖျက်ရန်</string>
   <string name="reading_list_name_sample">ကျွန်ုပ်၏ စာဖတ်စာရင်း</string>
   <string name="reading_list_name_hint">ဤစာရင်း၏ အမည်</string>
   <string name="reading_list_description_hint">ဖော်ပြချက် (မထည့်လည်းရသည်)</string>
-  <string name="reading_list_save_for_offline">အော့ဖ်လိုင်း ဖတ်ရှုရန် ရရှိနိုင်သည်</string>
   <string name="reading_list_item_deleted">%s ကို စာရင်းမှ ဖယ်ရှားပြီး</string>
   <string name="reading_list_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="reading_list_deleted">%s ကို ဖျက်ပြီး</string>
-  <string name="reading_list_edit_ok">အိုကေ</string>
-  <string name="reading_list_edit_cancel">မလုပ်တော့ပါ</string>
-  <string name="reading_list_delete_confirm">ဤစာဖတ်စာရင်းအား ဖျက်ရန် သေချာပါသလား?</string>
   <string name="reading_lists_empty" fuzzy="true">စာဖတ်စာရင်း မရှိ။</string>
   <string name="reading_lists_empty_message" fuzzy="true">သင်ကြည့်သော ဆောင်းပါးများအား သင့်စာဖတ်စာရင်းသို့ ထည့်ပါ! ဆောင်းပါးအား ဖတ်ရှုနေစဉ် အောက်ခြေ toolbar ရှိ စာညှပ်ပုံအား နှိပ်ပြီး စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ။</string>
   <string name="reading_lists_onboarding_intro">နောင်မှဖတ်ရှုလိုသည်များအား စာဖတ်စာရင်းအဖြစ် ဖန်တီးပါ။ အော့ဖ်လိုင်း ဖြစ်နေစဉ်တွင်တောင်မှ ဖတ်ရှုနိုင်ပါသည်။</string>
@@ -273,12 +265,8 @@
   <string name="reading_lists_onboarding_example2">အနှစ်သက်ဆုံး တိရစ္ဆာန်များ</string>
   <string name="reading_lists_onboarding_example3">အာကာသ!</string>
   <string name="reading_lists_onboarding_got_it">ရပြီဟေ့</string>
-  <string name="reading_lists_onboarding_page_delete">Tip: မည်သည့်စာမျက်နှာမဆို ဘယ် သို့ ညာဖက်သို့ ပွတ်ဆွဲခြင်းဖြင့် ဤစာဖတ်စာရင်းမှ ဖယ်ရှားပါ။</string>
   <string name="user_option_sync_label">ရွေးချယ်စရာများ</string>
-  <string name="notification_button_view_page">စာမျက်နှာကို ကြည့်ရန်</string>
   <string name="notification_button_view_user">အသုံးပြုသူနှင့် ဆွေးနွေးရန်</string>
-  <string name="notification_button_view_edit_history">တည်းဖြတ်မှုမှတ်တမ်းအား ကြည့်ရန်</string>
-  <string name="notification_generic_title">ဝီကီပီးဒီးယားရှိ အသိပေးချက်</string>
   <string name="notification_talk_title">ဝီကီပီးဒီးယားရှိ စာတိုအသစ်</string>
   <string name="notification_talk" fuzzy="true">သင့်ဆွေးနွေးချက် စာမျက်နှာရှိ  \"%2$s\" တွင် %1$s က စာတိုအသစ် ချန်ထားခဲ့သည်</string>
   <string name="notification_reverted_title">တည်းဖြတ်မှု နောက်ပြန်ပြင်ခဲ့ခြင်း</string>
@@ -308,7 +296,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">ယနေ့</string>
   <string name="view_announcement_card_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
-  <string name="description_edit_header">တည်းဖြတ်ခြင်း</string>
   <string name="description_edit_text_hint" fuzzy="true">ဖော်ပြချက်တစ်ခု ရေးသားရန်!</string>
   <string name="description_edit_save">သိမ်းရန်</string>
   <string name="description_edit_add_description" fuzzy="true">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>

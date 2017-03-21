@@ -97,7 +97,6 @@
   <string name="zero_learn_more_dismiss">বাতিল কৰক</string>
   <string name="edit_preview_fetching_dialog_message">প্ৰাক্‌দৰ্শন অনা হৈছে…</string>
   <string name="send_feedback">এপ্‌ প্ৰতিক্ৰিয়া জনাওক</string>
-  <string name="nav_item_random">যিকোনো</string>
   <string name="create_account_account_created_toast">একাউণ্ট সৃষ্টি হ\'ল!</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
@@ -105,7 +104,6 @@
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
   <string name="history_search_list_hint">ইতিহাস সন্ধান কৰক</string>
-  <string name="history_search_empty_message">আপোনাৰ বিচৰাৰ লগত মিলা কোনো পৃষ্ঠা পোৱা নগ\'ল।</string>
   <string name="error_can_not_process_link">এই সংযোগ দেখুৱাব পৰা নগ\'ল</string>
   <string name="page_protected_autoconfirmed">এই পৃষ্ঠাটো অৰ্ধ-সুৰক্ষিত কৰা হৈছে।</string>
   <string name="page_protected_sysop">এই পৃষ্ঠাটো সম্পূৰ্ণ সুৰক্ষিত কৰা হৈছে।</string>

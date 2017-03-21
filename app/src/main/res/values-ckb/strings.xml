@@ -110,7 +110,6 @@
   <string name="zero_learn_more_dismiss">لێگەڕان</string>
   <string name="edit_preview_fetching_dialog_message">ھێنان و بردنی پێشبینین...</string>
   <string name="send_feedback">ناردنی فیدباکی ئاپ</string>
-  <string name="nav_item_random">هەڵکەوتی</string>
   <string name="create_account_account_created_toast">ھەژمار دروست کرا!</string>
   <string name="preferences_privacy_settings_heading">تایبەتێتی</string>
   <string name="preference_title_eventlogging_opt_in">ناردنی ڕاپۆرتەکانی بەکارھێنان</string>
@@ -118,7 +117,6 @@
   <string name="preference_title_auto_upload_crash_reports">ناردنی ڕاپۆرتەکانی تێکشکان</string>
   <string name="editing_error_spamblacklist">تێبینی بەستەر کراوە بۆ دۆمەینە بەستراوەکان (%s). تکایە بیان سڕەوە و ھەوڵبدەوە.</string>
   <string name="history_search_list_hint">گەڕان لە مێژوو</string>
-  <string name="history_search_empty_message">ھیچ پەڕەیەک نەدۆزرایەوە گونجاوبێت لەگەڵ داواکارییەکەت.</string>
   <string name="error_can_not_process_link">ناتوانرێت ئەم بەسترە نیشان بدرێت</string>
   <string name="page_protected_autoconfirmed">ئەم پەڕەیە نیمچە-پارێزراوە.</string>
   <string name="page_protected_sysop">ئەم پەڕەیە بە تەواوی پارێزراوە.</string>
@@ -236,7 +234,6 @@
   <string name="crash_report_quit">داخستن</string>
   <string name="article_menu_bar_bookmark">زیادکردنی ئەم وتارە بۆ پێڕستێکی خوێندنەوە</string>
   <string name="article_menu_bar_share">ھاوبەشکردنی بەستەری وتارەکە</string>
-  <string name="article_menu_bar_navigate">ئاڕاستەکردن بۆ شوێنی وتارەکە</string>
   <string name="article_header_edit_hint">دەستکاری...</string>
   <string name="article_header_edit_description">دەستکاریی وەسفی سەرناو</string>
   <string name="article_header_edit_lead_section">دەستکاریی پێشەکی</string>
@@ -257,21 +254,16 @@
   <string name="reading_list_sort_by_name_desc">ڕیزکردن بەپێی ناو (پێچەوانە)</string>
   <string name="reading_list_sort_by_recent">ڕیزکردن بەپێی تازەیی</string>
   <string name="reading_list_sort_by_recent_desc">ڕیزکردن بەپێی کۆنی</string>
-  <string name="reading_list_menu_edit">دەستکاریی وردەکارییەکانی پێڕستی خوێندنەوە</string>
   <string name="reading_list_menu_delete">سڕینەوەی پێڕست</string>
   <string name="reading_list_menu_rename">ناونانەوە</string>
   <string name="reading_list_menu_edit_description">دەستکاریی وەسف</string>
   <string name="reading_list_name_sample">پێڕستی خوێندنەوەی من</string>
   <string name="reading_list_name_hint">ناوی ئەم پێڕستە</string>
   <string name="reading_list_description_hint">وەسف (ئارەزوومەندانە)</string>
-  <string name="reading_list_save_for_offline">بەردەستە بۆ خوێندنەوەی دەرھێڵ</string>
   <string name="reading_list_item_deleted">%s سڕایەوە لە پێڕست</string>
   <string name="reading_list_items_deleted">%d وتار سڕایەوە لە پێڕست</string>
   <string name="reading_list_item_delete_undo">پووچەڵکردنەوە</string>
   <string name="reading_list_deleted">%s ڕەشکراوە</string>
-  <string name="reading_list_edit_ok">باشە</string>
-  <string name="reading_list_edit_cancel">ھەڵوەشاندنەوە</string>
-  <string name="reading_list_delete_confirm">دڵنیای کە دەتەوێت ئەم پێڕستی خوێندنەوەیە بسڕدرێتەوە؟</string>
   <string name="reading_lists_empty">ھێشتا ھیچ پێڕستێکی خوێندنەوە بوونی نییە</string>
   <string name="reading_lists_empty_message">وتارەکان پاشەکەوت بکە بۆ پێڕستەکانی خوێندنەوە، کە دەتوانیت دواتر بیان بینیت، تەنانەت کاتێک دەرھێڵیش بیت.</string>
   <string name="reading_lists_onboarding_intro">دروستکردنی پێڕستەکانی خوێندنەوە لەو وتارانەی کە دەتەوێت دواتر بیان خوێنیتەوە، تەنانەت کاتێک دەرھێڵیش بیت!</string>
@@ -283,10 +275,7 @@
   <string name="reading_list_no_description">بێوەسف...</string>
   <string name="reading_list_empty">ھیچ وتارێکت لەم پێڕستە دانەناوە.</string>
   <string name="user_option_sync_label">ھەڵبژاردەکان</string>
-  <string name="notification_button_view_page">بینینی پەڕە</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
-  <string name="notification_button_view_edit_history">بینینی مێژووی دەستکاری</string>
-  <string name="notification_generic_title">ھۆشدار لە ویکیپیدیا</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; پەیامێکی جێھێشت لە پەڕەی لێدوانەکەت &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">دەستکاری گەڕێندرایەوە</string>
@@ -316,7 +305,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">ئەمڕۆ</string>
   <string name="view_announcement_card_negative_action">نا سپاس</string>
-  <string name="description_edit_header">دەستکاریکردن</string>
   <string name="description_edit_text_hint">وەسفی سەرناو</string>
   <string name="description_edit_save">پاشەکەوت</string>
   <string name="description_edit_add_description">زیادکردنی وەسفی سەرناو</string>

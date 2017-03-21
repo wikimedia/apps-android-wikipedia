@@ -102,7 +102,6 @@
   <string name="zero_learn_more_dismiss">Atmesti</string>
   <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra…</string>
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>
-  <string name="nav_item_random">Atsitiktinis</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
   <string name="preferences_privacy_settings_heading">Privatumas</string>
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
@@ -110,7 +109,6 @@
   <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
   <string name="preference_summary_auto_upload_crash_reports">Leisti programėlei siųsti strigčių ataskaitas į „HockeyApp“ arba trečiosios šalies paslaugų teikėjams automatiškai, todėl mes galėsime peržiūrėti jūsų klaidas ir ištaisyti jas greičiau bei lengviau.</string>
   <string name="history_search_list_hint">Paieškos istorija</string>
-  <string name="history_search_empty_message">Nerasta puslapių, atitinkančių jūsų užklausą.</string>
   <string name="error_can_not_process_link">Neina parodyti šios nuorodos</string>
   <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>
   <string name="page_protected_sysop">Šis puslapis buvo visiškai apsaugotas.</string>
@@ -220,7 +218,6 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="crash_report_quit">Išeiti</string>
   <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>
   <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
-  <string name="article_menu_bar_navigate">Eiti į straipsnį</string>
   <string name="article_header_edit_hint">Redaguoti...</string>
   <string name="article_header_edit_description">Redaguoti pavadinimo aprašymą</string>
   <string name="article_header_edit_lead_section">Redaguoti įžangą</string>
@@ -239,18 +236,13 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="reading_list_sort_by_name_desc">Rūšiuoti pagal pavadinimą (atvirkščiai)</string>
   <string name="reading_list_sort_by_recent">Rūšiuoti pagal naujausius</string>
   <string name="reading_list_sort_by_recent_desc">Rūšiuoti pagal seniausius</string>
-  <string name="reading_list_menu_edit">Keisti skaitymo sąrašo savybes</string>
   <string name="reading_list_menu_delete" fuzzy="true">Ištrinti skaitymo sąrašą</string>
   <string name="reading_list_name_sample">Mano skaitymo sąrašas</string>
   <string name="reading_list_name_hint">Sąrašo pavadinimas</string>
   <string name="reading_list_description_hint">Aprašymas (neprivalomas):</string>
-  <string name="reading_list_save_for_offline">Galima skaityti neprisijungus</string>
   <string name="reading_list_item_deleted">%s pašalintas iš sąrašo</string>
   <string name="reading_list_item_delete_undo">Anuliuoti</string>
   <string name="reading_list_deleted">%s ištrintas</string>
-  <string name="reading_list_edit_ok">GERAI</string>
-  <string name="reading_list_edit_cancel">Atšaukti</string>
-  <string name="reading_list_delete_confirm">Ar tikrai norite ištrinti šį skaitymo sąrašą?</string>
   <string name="reading_lists_empty">Dar nėra skaitymo sąrašų</string>
   <string name="reading_lists_onboarding_for_example">Pavyzdžiui</string>
   <string name="reading_lists_onboarding_example1">Lankytinos vietos</string>
@@ -259,10 +251,7 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="reading_lists_onboarding_got_it">Supratau</string>
   <string name="reading_list_no_description">Nėra aprašymo...</string>
   <string name="user_option_sync_label">Nustatymai</string>
-  <string name="notification_button_view_page">Žiūrėti puslapį</string>
   <string name="notification_button_view_user">Kalbėti su vartotoju</string>
-  <string name="notification_button_view_edit_history">Žiūrėti keitimų istoriją</string>
-  <string name="notification_generic_title">Pranešimas Vikipedijoje</string>
   <string name="notification_talk_title">Nauja žinutė Vikipedijoje</string>
   <string name="notification_thanks_title">Jums buvo padėkota!</string>
   <string name="view_continue_reading_card_title">Skaityti toliau</string>
@@ -288,7 +277,6 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Šiandien</string>
   <string name="view_announcement_card_negative_action">Ne, ačiū</string>
-  <string name="description_edit_header">Redaguojamas</string>
   <string name="description_edit_text_hint" fuzzy="true">Parašykite aprašymą!</string>
   <string name="description_edit_save">Išsaugoti</string>
   <string name="description_edit_add_description" fuzzy="true">Pridėti trumpą aprašymą</string>

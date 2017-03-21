@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Тргни</string>
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед…</string>
   <string name="send_feedback">Испрати мислење за прилогот</string>
-  <string name="nav_item_random">Случајна</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
   <string name="preferences_privacy_settings_heading">Лични податоци</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Прилогот да испраќа извештаи за уривање на HockeyApp / надворешен услужник за да може уривањата да се разгледуваат и поправаат полесно и побрзо.</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
   <string name="history_search_list_hint">Историја на пребарувањето</string>
-  <string name="history_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
   <string name="error_can_not_process_link">Не можам да ја прикажам оваа врска</string>
   <string name="page_protected_autoconfirmed">Оваа страница е полузаштитена.</string>
   <string name="page_protected_sysop">Оваа страница е наполно заштитена.</string>
@@ -251,7 +249,6 @@
   <string name="crash_report_quit">Излези</string>
   <string name="article_menu_bar_bookmark">Додај ја статијава во списокот за читање</string>
   <string name="article_menu_bar_share">Сподели врска за статијата</string>
-  <string name="article_menu_bar_navigate">Оди на местото на статијата</string>
   <string name="article_header_edit_hint">Уреди...</string>
   <string name="article_header_edit_description">Уреди опис на насловот</string>
   <string name="article_header_edit_lead_section">Уреди вовед</string>
@@ -272,21 +269,16 @@
   <string name="reading_list_sort_by_name_desc">Подреди по назив (обратно)</string>
   <string name="reading_list_sort_by_recent">Подреди по скорешност</string>
   <string name="reading_list_sort_by_recent_desc">Подреди по дамнешност</string>
-  <string name="reading_list_menu_edit">Уреди подробности во списокот за читање</string>
   <string name="reading_list_menu_delete">Избриши список</string>
   <string name="reading_list_menu_rename">Преименувај</string>
   <string name="reading_list_menu_edit_description">Измени опис</string>
   <string name="reading_list_name_sample">Мој список за читање</string>
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
-  <string name="reading_list_save_for_offline">Достапна за вонмрежно читање</string>
   <string name="reading_list_item_deleted">%s е отстранета од списокот</string>
   <string name="reading_list_items_deleted">%d статии се отстранети од списокот</string>
   <string name="reading_list_item_delete_undo">Откажи</string>
   <string name="reading_list_deleted">%s е избришана</string>
-  <string name="reading_list_edit_ok">ОК</string>
-  <string name="reading_list_edit_cancel">Откажи</string>
-  <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете овој список за читање?</string>
   <string name="reading_lists_empty">Засега нема списоци за читање</string>
   <string name="reading_lists_empty_message">Зачувувајте ги статиите во списоци за читање, за да можете да им се навратите подоцна, дури и кога немате линија.</string>
   <string name="reading_lists_onboarding_intro">Создајте списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
@@ -295,14 +287,10 @@
   <string name="reading_lists_onboarding_example2">Омилени животни</string>
   <string name="reading_lists_onboarding_example3">Вселена!</string>
   <string name="reading_lists_onboarding_got_it">Јасно</string>
-  <string name="reading_lists_onboarding_page_delete">Совет: Повлечете ја било која страница налево или надесно за да ја отстраните од списоков.</string>
   <string name="reading_list_no_description">Нема опис...</string>
   <string name="reading_list_empty">Немате ставено статии во списоков.</string>
   <string name="user_option_sync_label">Поставки</string>
-  <string name="notification_button_view_page">Погл. страницата</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
-  <string name="notification_button_view_edit_history">Историја на уредувањата</string>
-  <string name="notification_generic_title">Известување на Википедија</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>
   <string name="notification_talk">em&gt;%1$s&lt;/em&gt; ви остави порака на вашата страница за разговор &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
@@ -333,7 +321,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Денес</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
-  <string name="description_edit_header">Уредување</string>
   <string name="description_edit_text_hint">Опис на насловот</string>
   <string name="description_edit_save">Зачувај</string>
   <string name="description_edit_add_description">Додај опис на насловот</string>

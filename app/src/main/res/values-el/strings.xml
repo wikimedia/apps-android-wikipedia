@@ -101,7 +101,6 @@
   <string name="zero_learn_more_dismiss">Απόρριψη</string>
   <string name="edit_preview_fetching_dialog_message">Προετοιμάζοντας προεπισκόπηση…</string>
   <string name="send_feedback">Αποστολή σχολίων για την εφαρμογή</string>
-  <string name="nav_item_random">Τυχαία</string>
   <string name="create_account_account_created_toast">Ο λογαριασμός δημιουργήθηκε!</string>
   <string name="preferences_privacy_settings_heading">Απόρρητο</string>
   <string name="preference_title_eventlogging_opt_in">Στείλτε εκθέσεις χρήσης</string>
@@ -109,7 +108,6 @@
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους (%s). Παρακαλούμε αφαιρέστε τους και προσπαθήστε ξανά.</string>
   <string name="history_search_list_hint">Ιστορικό αναζήτησης</string>
-  <string name="history_search_empty_message">Δεν βρέθηκαν σελίδες που αντιστοιχούν στο ερώτημά σας.</string>
   <string name="error_can_not_process_link">Αυτός ο σύνδεσμος δεν στάθηκε δυνατό να εμφανιστεί</string>
   <string name="page_protected_autoconfirmed">Αυτή η σελίδα είναι ημιπροστατευμένη</string>
   <string name="page_protected_sysop">Αυτή η σελίδα είναι πλήρως προσταστατευμένη.</string>

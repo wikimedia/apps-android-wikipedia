@@ -103,7 +103,6 @@
   <string name="zero_learn_more_dismiss">ଖାରଜ</string>
   <string name="edit_preview_fetching_dialog_message">ଦେଖଣା ଆହରଣ କରୁଛି</string>
   <string name="send_feedback">ଆପ ବାବଦରେ ମତାମତ ପଠାନ୍ତୁ</string>
-  <string name="nav_item_random">ଯାହିତାହି</string>
   <string name="create_account_account_created_toast">ଖାତାଟି ଖୋଲିଗଲା!</string>
   <string name="preferences_privacy_settings_heading">ଗୋପନୀୟତା</string>
   <string name="preference_title_eventlogging_opt_in">ବ୍ୟବହାର ବିବରଣୀ ପଠାନ୍ତୁ</string>
@@ -111,7 +110,6 @@
   <string name="preference_title_auto_upload_crash_reports">କ୍ରାସ ବିବରଣୀ ପଠାନ୍ତୁ</string>
   <string name="editing_error_spamblacklist">ଅଟକାଯାଇଥିବା ଡୋମେନସବୁ (%s) ମିଳିଲା । ଦୟାକରି ସେସବୁ କାଢ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
   <string name="history_search_list_hint">ଇତିହାସରୁ ଖୋଜିବେ</string>
-  <string name="history_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
   <string name="error_can_not_process_link">ଲିଙ୍କ ଦେଖାଇ ହେଲାନାହିଁ</string>
   <string name="page_protected_autoconfirmed">ଏହି ପୃଷ୍ଠାଟି କିଛିକାଂଶରେ କିଳାଯାଇଛି ।</string>
   <string name="page_protected_sysop">ଏହି ପୃଷ୍ଠାଟି ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ କିଳାଯାଇଛି ।</string>

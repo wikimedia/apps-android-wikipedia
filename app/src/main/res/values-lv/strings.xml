@@ -87,7 +87,6 @@
   <string name="zero_learn_more_learn_more">Uzzini vairāk</string>
   <string name="zero_learn_more_dismiss">Paslēpt</string>
   <string name="send_feedback">Sūtīt atsauksmes par lietotni</string>
-  <string name="nav_item_random">Nejaušs raksts</string>
   <string name="create_account_account_created_toast">Konts izveidots!</string>
   <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
   <string name="preference_title_eventlogging_opt_in">Sūtīt lietojuma ziņojumus</string>
@@ -176,14 +175,10 @@
   <string name="reading_list_item_deleted">%s izņemts no saraksta</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>
   <string name="reading_list_deleted">%s izdzēsts</string>
-  <string name="reading_list_edit_ok">Labi</string>
-  <string name="reading_list_edit_cancel">Atcelt</string>
   <string name="reading_lists_onboarding_example2">Mīļākie dzīvnieki</string>
   <string name="reading_lists_onboarding_example3">Kosmiskā telpa!</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="user_option_sync_label">Izvēles</string>
-  <string name="notification_button_view_page">Skatīt lapu</string>
-  <string name="notification_button_view_edit_history">Skatīt labojumu vēsturi</string>
   <string name="notification_reverted_title">Atcelts labojums</string>
   <string name="view_continue_reading_card_title">Turpini lasīt</string>
   <string name="view_because_you_read_card_title">Jo tu lasīji</string>
@@ -204,7 +199,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
-  <string name="description_edit_header">Labo</string>
   <string name="description_edit_text_hint" fuzzy="true">Uzraksti aprakstu!</string>
   <string name="description_edit_save">Saglabāt</string>
   <string name="description_edit_add_description" fuzzy="true">Pievieno īsu aprakstu!</string>

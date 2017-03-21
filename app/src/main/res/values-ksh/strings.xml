@@ -101,7 +101,6 @@
   <string name="zero_learn_more_dismiss">Fott domet</string>
   <string name="edit_preview_fetching_dialog_message">aam holle …</string>
   <string name="send_feedback">En Rökmäldong jävve</string>
-  <string name="nav_item_random">Zohfall</string>
   <string name="create_account_account_created_toast">Aanjemäldt</string>
   <string name="preferences_privacy_settings_heading">Prevahtheit</string>
   <string name="preference_title_eventlogging_opt_in">Bereeschte met Dahte övver der Jebruch afflivvere</string>
@@ -109,7 +108,6 @@
   <string name="preference_title_auto_upload_crash_reports">Bereeschte övver Fähler scheke</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Määd et müjjelesch, Fähler automattesch aan de HockeyApp  udder ene äxtärne Deens scheke, esu dat mer dä Fähler flökker repparehre kann, dä do henger schtisch?</string>
   <string name="history_search_list_hint">Söhk en de Verjangeheijt</string>
-  <string name="history_search_empty_message">Kein Sigge paße op Ding Aanfrohch.</string>
   <string name="error_can_not_process_link">Heh dä Lengk kunnte mer nit aanzeije</string>
   <string name="page_protected_autoconfirmed">Heh di Sigg es hallef jeschöz.</string>
   <string name="page_protected_sysop">Heh di Sigg es jeschöz.</string>
@@ -219,12 +217,9 @@ Wells De se neu aanfange udder ophühre?</string>
   <string name="reading_list_menu_delete" fuzzy="true">Schmiiß heh di Leß zom Lässe fott</string>
   <string name="reading_list_name_sample">Ming Leß zom Lässe</string>
   <string name="reading_list_name_hint">Der Nahme vun heh dä Leß</string>
-  <string name="reading_list_save_for_offline">Parraht för et Lässe der ohne Internet</string>
   <string name="reading_list_item_deleted">%s es uß dä Leß jenumme</string>
   <string name="reading_list_item_delete_undo">Retuhr nämme</string>
   <string name="reading_list_deleted">%s es fott jeschmeßße</string>
-  <string name="reading_list_edit_ok">Johd</string>
-  <string name="reading_list_edit_cancel">Ophühre</string>
   <string name="reading_lists_empty" fuzzy="true">keijn Leß zom Lässe heh.</string>
   <string name="reading_lists_onboarding_intro">Määt Leßte vun Atikelle, di mer schpääder lässe well, sällfs wam_mer off-laijn es.</string>
   <string name="reading_lists_onboarding_for_example">För e Beijschpell</string>

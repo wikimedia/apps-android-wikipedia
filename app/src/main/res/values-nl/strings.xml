@@ -109,7 +109,6 @@
   <string name="zero_learn_more_dismiss">Sluiten</string>
   <string name="edit_preview_fetching_dialog_message">Voorvertoning aan het ophalen…</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
-  <string name="nav_item_random">Willekeurig</string>
   <string name="create_account_account_created_toast">Gebruiker aangemaakt</string>
   <string name="preferences_privacy_settings_heading">Privacy</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
@@ -118,7 +117,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Sta de app toe om automatisch crashrapporteren naar HockeyApp, een dienstverlener, te sturen zodat we de omstandigheden van uw crash kunnen analyseren en fouten sneller kunnen herstellen.</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
   <string name="history_search_list_hint">In geschiedenis zoeken</string>
-  <string name="history_search_empty_message">Geen pagina\'s gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="error_can_not_process_link">Kon de koppeling niet weergeven</string>
   <string name="page_protected_autoconfirmed">Deze pagina is semibeveiligd.</string>
   <string name="page_protected_sysop">Deze pagina is volledig beveiligd.</string>
@@ -238,7 +236,6 @@
   <string name="crash_report_quit">Afsluiten</string>
   <string name="article_menu_bar_bookmark">Deze pagina toevoegen aan een leeslijst</string>
   <string name="article_menu_bar_share">Koppeling naar pagina delen</string>
-  <string name="article_menu_bar_navigate">Naar de locatie van de pagina navigeren</string>
   <string name="article_header_edit_hint">Bewerken...</string>
   <string name="article_header_edit_description">Beschrijving bewerken</string>
   <string name="article_header_edit_lead_section">Inleiding bewerken</string>
@@ -257,18 +254,13 @@
   <string name="reading_list_sort_by_name_desc">Sorteren op naam (achterstevoren)</string>
   <string name="reading_list_sort_by_recent">Sorteren op meest recente</string>
   <string name="reading_list_sort_by_recent_desc">Sorteren op minst recente</string>
-  <string name="reading_list_menu_edit">Details van leeslijst bewerken</string>
   <string name="reading_list_menu_delete" fuzzy="true">Leeslijst verwijderen</string>
   <string name="reading_list_name_sample">Mijn leeslijst</string>
   <string name="reading_list_name_hint">Naam van deze lijst</string>
   <string name="reading_list_description_hint">Beschrijving (optioneel)</string>
-  <string name="reading_list_save_for_offline">Beschikbaar voor offline lezen</string>
   <string name="reading_list_item_deleted">%s verwijderd uit de lijst</string>
   <string name="reading_list_item_delete_undo">Ongedaan maken</string>
   <string name="reading_list_deleted">%s verwijderd</string>
-  <string name="reading_list_edit_ok">OK</string>
-  <string name="reading_list_edit_cancel">Annuleren</string>
-  <string name="reading_list_delete_confirm">Weet u zeker dat u deze leeslijst wilt verwijderen?</string>
   <string name="reading_lists_empty" fuzzy="true">Er zijn nog geen leeslijsten aangemaakt.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Organiseer de pagina\'s die je bekijkt in leeslijsten! Tik terwijl je een pagina bekijkt op het bladwijzerpictogram onderaan de werkbalk om deze toe te voegen aan een leeslijst.</string>
   <string name="reading_lists_onboarding_intro">Maak leeslijsten van pagina\'s die u later wilt lezen, zelfs als u offline bent!</string>
@@ -277,12 +269,8 @@
   <string name="reading_lists_onboarding_example2">Favoriete dieren</string>
   <string name="reading_lists_onboarding_example3">Ruimtevaart!</string>
   <string name="reading_lists_onboarding_got_it">Begrepen</string>
-  <string name="reading_lists_onboarding_page_delete">Tip: veeg elke pagina die u van deze leeslijst wilt verwijderen naar links of rechts.</string>
   <string name="user_option_sync_label">Voorkeuren</string>
-  <string name="notification_button_view_page">Pagina bekijken</string>
   <string name="notification_button_view_user">Met gebruiker overleggen</string>
-  <string name="notification_button_view_edit_history">Bewerkingsgeschiedenis bekijken</string>
-  <string name="notification_generic_title">Melding op Wikipedia</string>
   <string name="notification_talk_title">Nieuw bericht op Wikipedia</string>
   <string name="notification_talk" fuzzy="true">%1$s heeft een bericht achtergelaten op uw overlegpagina \"%2$s\"</string>
   <string name="notification_reverted_title">Bewerking teruggedraaid</string>
@@ -312,7 +300,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Vandaag</string>
   <string name="view_announcement_card_negative_action">Nee, bedankt</string>
-  <string name="description_edit_header">Bezig met bewerken</string>
   <string name="description_edit_text_hint">Titelbeschrijving</string>
   <string name="description_edit_save">Opslaan</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>

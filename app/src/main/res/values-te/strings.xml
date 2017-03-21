@@ -102,14 +102,12 @@
   <string name="zero_learn_more_dismiss">రద్దుచేయి</string>
   <string name="edit_preview_fetching_dialog_message">ప్రివ్యూ వస్తుంది…</string>
   <string name="send_feedback">అనువర్తనం గురించి ఫిర్యాదులు/సలహాలు పంపించండి</string>
-  <string name="nav_item_random">యాదృచ్చికం</string>
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
   <string name="preferences_privacy_settings_heading">అంతరంగికత</string>
   <string name="preference_title_eventlogging_opt_in">వాడుక నివేదికని పంపండి</string>
   <string name="preference_summary_eventlogging_opt_in">ఈ అనువర్తనం మెరుగుపరచుటకు, మీరు ఈ అనువర్తనం ఎలా వాడుతున్నారో అన్న సమాచారం సేకరించటానికి వికీపీడియాకి అనుమతి ఇవ్వండి</string>
   <string name="editing_error_spamblacklist">ఆమోదంకాని డోమైన్లకి (%s) లింక్లు కొనుగోనబడ్డాయి. దయచేసి వాటిని తొలగించి మళ్ళి ప్రయత్నించండి.</string>
   <string name="history_search_list_hint">శోధన చరిత్ర</string>
-  <string name="history_search_empty_message">మీరడిగిన పోలికలు సరిపోయే పేజీ లేదు.</string>
   <string name="error_can_not_process_link">ఈ లింకుని చూపించలేకపోతున్నాము</string>
   <string name="page_protected_autoconfirmed">ఈ పేజి సగం-రక్షించబడింది.</string>
   <string name="page_protected_sysop">ఈ పేజి పూర్తిగా రక్షించబడింది.</string>
@@ -209,8 +207,6 @@
   <string name="nav_item_reading_lists">నా జాబితాలు</string>
   <string name="reading_list_item_count_singular">1 వ్యాసం</string>
   <string name="reading_list_item_count_plural">%d వ్యాసాలు</string>
-  <string name="reading_list_edit_ok">సరే</string>
-  <string name="reading_list_edit_cancel">రద్దుచేయి</string>
   <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
   <string name="reading_lists_onboarding_example1">చూడాల్సిన ప్రదేశాలు</string>
   <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>
@@ -218,7 +214,6 @@
   <string name="reading_lists_onboarding_got_it">అర్థమైంది</string>
   <string name="reading_list_no_description">వివరణ లేదు…</string>
   <string name="user_option_sync_label">అభిరుచులు</string>
-  <string name="notification_button_view_page">పేజీ చూడండి</string>
   <string name="menu_feed_overflow_label">మరిన్ని ఎంపికలు</string>
   <string name="view_card_footer_button">ఇంకా చూడండి</string>
   <string name="view_card_news_title">వార్తల్లో</string>

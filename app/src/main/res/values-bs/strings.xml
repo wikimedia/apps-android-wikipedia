@@ -111,7 +111,6 @@
   <string name="zero_learn_more_dismiss">Zatvori</string>
   <string name="edit_preview_fetching_dialog_message">Učitavam pregled...</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
-  <string name="nav_item_random">Nasumično</string>
   <string name="create_account_account_created_toast">Korisnički račun napravljen!</string>
   <string name="preferences_privacy_settings_heading">Privatnost</string>
   <string name="preference_title_eventlogging_opt_in">Šalji izvještaje o korištenju</string>
@@ -120,7 +119,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izvještaje o padu aplikacije HockeyAppu / nezavisnom pružaocu usluga da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
   <string name="editing_error_spamblacklist">Otkriven link ka blokiranim domenama (%s). Uklonite ih i pokušajte ponovo.</string>
   <string name="history_search_list_hint">Pretraži historiju</string>
-  <string name="history_search_empty_message">Nijedna stranica ne odgovara Vašem upitu.</string>
   <string name="error_can_not_process_link">Ne mogu prikazati link</string>
   <string name="page_protected_autoconfirmed">Ova stranica je poluzaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je potpuno zaštićena.</string>
@@ -242,7 +240,6 @@
   <string name="crash_report_quit">Zatvori</string>
   <string name="article_menu_bar_bookmark">Dodaj ovaj članak na spisak za čitanje</string>
   <string name="article_menu_bar_share">Podijeli link ovog članka</string>
-  <string name="article_menu_bar_navigate">Idi na lokaciju članka</string>
   <string name="article_header_edit_hint">Uredi...</string>
   <string name="article_header_edit_description">Uredi opis naslova</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
@@ -263,18 +260,13 @@
   <string name="reading_list_sort_by_name_desc">Sortiraj po imenu (obrnuto)</string>
   <string name="reading_list_sort_by_recent">Sortiraj po najnovijem</string>
   <string name="reading_list_sort_by_recent_desc">Sortiraj po najstarijem</string>
-  <string name="reading_list_menu_edit">Uredi detalje spiska za čitanje</string>
   <string name="reading_list_menu_delete">Obriši spisak</string>
   <string name="reading_list_name_sample">Moj spisak za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog spiska</string>
   <string name="reading_list_description_hint">Opis (neobavezno)</string>
-  <string name="reading_list_save_for_offline">Dostupan kad ste van mreže</string>
   <string name="reading_list_item_deleted">Članak \"%s\" uklonjen je sa spiska</string>
   <string name="reading_list_item_delete_undo">Poništi</string>
   <string name="reading_list_deleted">Spisak \"%s\" obrisan</string>
-  <string name="reading_list_edit_ok">U redu</string>
-  <string name="reading_list_edit_cancel">Odustani</string>
-  <string name="reading_list_delete_confirm">Jeste li sigurni da želite obrisati ovaj spisak za čitanje?</string>
   <string name="reading_lists_empty">Zasad nema spiskova za čitanje</string>
   <string name="reading_lists_empty_message" fuzzy="true">Organizirajte članke koje Vas zanimaju u spiskove za čitanje! Kad nađete članak, dodirnite ikonu u obliku markera za knjigu na donjoj alatnoj traci da biste ga dodali na spisak za čitanje.</string>
   <string name="reading_lists_onboarding_intro">Napravite spiskove za čitanje od članaka koje želite čitati kasnije, čak i kad ste van mreže!</string>
@@ -283,12 +275,8 @@
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
   <string name="reading_lists_onboarding_example3">Svemir!</string>
   <string name="reading_lists_onboarding_got_it">Razumijem</string>
-  <string name="reading_lists_onboarding_page_delete">Savjet: Brzo prevucite prstom ulijevo ili udesno preko neke stranice da biste je uklonili sa spiska za čitanje.</string>
   <string name="user_option_sync_label">Postavke</string>
-  <string name="notification_button_view_page">Pogledaj stranicu</string>
   <string name="notification_button_view_user">Razgovaraj s korisnikom</string>
-  <string name="notification_button_view_edit_history">Vidi historiju izmjena</string>
-  <string name="notification_generic_title">Obavještenje na Wikipediji</string>
   <string name="notification_talk_title">Nova poruka na Wikipediji</string>
   <string name="notification_talk" fuzzy="true">%1$s Vam je ostavio/-la poruku na Vašoj stranici za razgovor \"%2$s\"</string>
   <string name="notification_reverted_title">Vraćena izmjena</string>
@@ -318,7 +306,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Danas</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
-  <string name="description_edit_header">Uređujete</string>
   <string name="description_edit_text_hint">Napišite opis!</string>
   <string name="description_edit_save">Sačuvaj</string>
   <string name="description_edit_add_description">Dodaj opis naslova</string>

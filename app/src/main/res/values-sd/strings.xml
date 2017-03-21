@@ -114,7 +114,6 @@
   <string name="zero_learn_more_dismiss">برخواست</string>
   <string name="edit_preview_fetching_dialog_message">پيش نگاھ ٺاهيندي…</string>
   <string name="send_feedback">ايپ جي پذيرائي موڪليو</string>
-  <string name="nav_item_random">بلاترتيب</string>
   <string name="create_account_account_created_toast">کاتو کلي چڪو!</string>
   <string name="preferences_privacy_settings_heading">ّذاتيات</string>
   <string name="preference_title_eventlogging_opt_in">استعمال جون رپورٽون اماڻيو</string>
@@ -122,7 +121,6 @@
   <string name="preference_title_auto_upload_crash_reports">ڊهي پوڻ جي رپورٽ اماڻيو</string>
   <string name="editing_error_spamblacklist">بلاڪ ٿيل ڊومينس جا ڳنڍڻا (%s) مليا آھن. براءِ مھرباني انھن کي ھٽايو ۽ ٻيھر ڪوشش ڪريو.</string>
   <string name="history_search_list_hint">سوانح ۾ ڳوليو</string>
-  <string name="history_search_empty_message">توهان جي ڳولا سان ملندڙ ڪي بہ صفحا نہ لڌا.</string>
   <string name="error_can_not_process_link">اهو ڳنڍڻو ڏيکاري نہ ٿو سگھجي.</string>
   <string name="page_protected_autoconfirmed">هيءُ صفحو نيم تحفظيل آهي.</string>
   <string name="page_protected_sysop">هيءُ صفحو پوريءَ ريت تحفظيل آهي.</string>
@@ -245,7 +243,6 @@
   <string name="crash_report_quit">نڪرو</string>
   <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ شامل ڪريو</string>
   <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
-  <string name="article_menu_bar_navigate">مضمون جي مڪانيت ڏانهن وڃو</string>
   <string name="article_header_edit_hint">سنواريو...</string>
   <string name="article_header_edit_description">عنوان جي تشريح سنواريو</string>
   <string name="article_header_edit_lead_section">تعارف سنواريو</string>
@@ -266,21 +263,16 @@
   <string name="reading_list_sort_by_name_desc">نالي سان مرتب ڪريو (reverse)</string>
   <string name="reading_list_sort_by_recent">سڀ کان ھاڻوڪي سان مرتب ڪريو</string>
   <string name="reading_list_sort_by_recent_desc">سڀ کا گھٽ ھاڻوڪي سان مرتب ڪريو</string>
-  <string name="reading_list_menu_edit">پڙھڻ جي فھرست جون تفصيلون ترميميو</string>
   <string name="reading_list_menu_delete">فھرست ڊاھيو</string>
   <string name="reading_list_menu_rename">ٻيھر نالو ڏيو</string>
   <string name="reading_list_menu_edit_description">تشريح سنواريو</string>
   <string name="reading_list_name_sample">منھنجي پڙھڻ جي فھرست</string>
   <string name="reading_list_name_hint">فھرست جو نالو</string>
   <string name="reading_list_description_hint">وضاحت (آپشنل)</string>
-  <string name="reading_list_save_for_offline">آفلائين پڙھڻ لاءِ موجود</string>
   <string name="reading_list_item_deleted">%s کي فھرست مان ھٽايو ويو</string>
   <string name="reading_list_items_deleted">%d مضمون فھرست مان ڪڍيل</string>
   <string name="reading_list_item_delete_undo">اڻڪريو</string>
   <string name="reading_list_deleted">%s ڊاھيو ويو</string>
-  <string name="reading_list_edit_ok">ٺيڪ</string>
-  <string name="reading_list_edit_cancel">رد</string>
-  <string name="reading_list_delete_confirm">ڇا توھان کي پڪ آھي تہ توھان ھي پڙھڻ جي فھرست ڊاھڻ ٿا چاھيو؟</string>
   <string name="reading_lists_empty">اڃان ڪابہ پڙھڻ جي فھرست ناھي</string>
   <string name="reading_lists_empty_message">مضمونن کي پڙھڻ جي فھرستن ۾ سانڍيو تہ جيئن توھان انھن کي پوءِ ڏسي سگھو، ڀلي جڏھن توھان آف لائين ھجو.</string>
   <string name="reading_lists_onboarding_intro">انھن مضمونن مان پڙھڻ جون فھرستون ٺاھيو جيڪي توھان بعد ۾ پڙھڻ چاھيو، حتيٰ ڪہ جڏھن توھان آفلائين آھيو!</string>
@@ -289,14 +281,10 @@
   <string name="reading_lists_onboarding_example2">پسنديده جانور</string>
   <string name="reading_lists_onboarding_example3">پولار!</string>
   <string name="reading_lists_onboarding_got_it">سمجھي ويئو</string>
-  <string name="reading_lists_onboarding_page_delete">ٽپ:ڪنھن صفحي کي پڙھڻ جي فھرست مان ھٽائڻ لاءِ ان کي کاٻي يا ساڄي پاسي ڇڪيو.</string>
   <string name="reading_list_no_description">تشريح ناھي...</string>
   <string name="reading_list_empty">ھن فھرست ۾ ڪي بہ مضمون وڌل ناھن.</string>
   <string name="user_option_sync_label">ترجيحون</string>
-  <string name="notification_button_view_page">صفحو ڏسو</string>
   <string name="notification_button_view_user">يوزر سان ڳالھ</string>
-  <string name="notification_button_view_edit_history">ترميمي سوانح ڏسو</string>
-  <string name="notification_generic_title">وڪيپيڊيا تي اطلاع</string>
   <string name="notification_talk_title">وڪيپيڊيا تي نئون پيغام</string>
   <string name="notification_talk">%1$s توھان جي بحث صفحي \'\'\'%2$s\'\'\' تي پيغام ڇڏيو</string>
   <string name="notification_reverted_title">ورايل ترميم</string>
@@ -326,7 +314,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
-  <string name="description_edit_header">ترميم ڪندي</string>
   <string name="description_edit_text_hint">عنوان  جي تشريح</string>
   <string name="description_edit_save">سانڍيو</string>
   <string name="description_edit_add_description">عنوان جي تشريح شامل ڪريو</string>

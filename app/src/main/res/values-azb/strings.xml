@@ -85,13 +85,11 @@
   <string name="zero_interstitial_cancel">بوردا قال</string>
   <string name="zero_learn_more_learn_more" fuzzy="true">داها چوْخ اوْخویون</string>
   <string name="zero_learn_more_dismiss">رد ائت</string>
-  <string name="nav_item_random">تصادوفی</string>
   <string name="create_account_account_created_toast">حساب یارادیلدی!</string>
   <string name="preferences_privacy_settings_heading">شخصی حریم</string>
   <string name="preference_title_eventlogging_opt_in">ایشلتمه راپورتلارینی گؤندر</string>
   <string name="preference_title_auto_upload_crash_reports">خطا راپورتو گؤندر</string>
   <string name="history_search_list_hint">آختاریش گئچمیشی</string>
-  <string name="history_search_empty_message">ایستگینیز اوچون هئچ بیر صفحه تاپیلمادی.</string>
   <string name="error_can_not_process_link">بۇ باغلانتینی گؤسترمک اوْلماییر</string>
   <string name="page_protected_autoconfirmed">بۇ صفحه یاریم‌قوْروما آلتیندادیر.</string>
   <string name="page_protected_sysop">بۇ صفحه بۆتون‌قوْروما آلتیندادیر.</string>
@@ -159,8 +157,6 @@
   <string name="reading_list_sort_by_name_desc">آدینا گؤره دۆزولموش (ترس)</string>
   <string name="reading_list_sort_by_recent">ان سوْنونا گؤره دۆزولموش</string>
   <string name="reading_list_sort_by_recent_desc">ان سوْنونا گؤره دۆزولموش (ترس)</string>
-  <string name="reading_list_edit_ok">اوْلسون</string>
-  <string name="reading_list_edit_cancel">وازگئچ</string>
   <string name="reading_lists_onboarding_for_example">میثال اۆچون</string>
   <string name="reading_lists_onboarding_example3">فضا!</string>
   <string name="reading_lists_onboarding_got_it">آنلادیم</string>

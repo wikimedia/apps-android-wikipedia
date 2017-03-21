@@ -175,8 +175,6 @@ Shown in the preferences screen along with the following:
 {{Identical|Dismiss}}</string>
   <string name="edit_preview_fetching_dialog_message">Message shown to the user while the user is waiting for the preview of their edit to be shown</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
-  <string name="nav_item_random">{{Identical|Random}}
-Shown in left navigation. Tapping it produces a random page.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
 * {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="preferences_privacy_settings_heading">Section title for privacy related settings
@@ -194,7 +192,6 @@ Shown in the preferences screen along with the following:
   <string name="preference_summary_auto_upload_crash_reports">Description of preference that when checked checked enables automatic upload of crash reports.</string>
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>
   <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user types.</string>
-  <string name="history_search_empty_message">Message shown when no history items were found that match the user\'s query.</string>
   <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
   <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
   <string name="page_protected_sysop">Message shown to users when editing a fully protected page</string>
@@ -384,7 +381,6 @@ Shown in the preferences screen along with the following:
 {{Identical|Quit}}</string>
   <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
-  <string name="article_menu_bar_navigate">Describes the action performed when pressing the navigate button in the page toolbar underneath the leading image.</string>
   <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.
 {{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
@@ -409,7 +405,6 @@ Shown in the preferences screen along with the following:
   <string name="reading_list_sort_by_name_desc">Menu option to sort reading lists by name, in reverse order.</string>
   <string name="reading_list_sort_by_recent">Menu option to sort reading lists by last-accessed time.</string>
   <string name="reading_list_sort_by_recent_desc">Menu option to sort reading lists by last-accessed time, in reverse order.</string>
-  <string name="reading_list_menu_edit">Button label to edit the details of the current reading list.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
   <string name="reading_list_menu_rename">Menu item for changing the name of a reading list.
 {{Identical|Rename}}</string>
@@ -417,17 +412,11 @@ Shown in the preferences screen along with the following:
   <string name="reading_list_name_sample">Default name for a new reading list.</string>
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
-  <string name="reading_list_save_for_offline">Checkbox label for setting whether this list is available for offline reading.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.
 {{Identical|Undo}}</string>
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
-  <string name="reading_list_edit_ok">Button label to accept changes made when editing reading list details.
-{{Identical|OK}}</string>
-  <string name="reading_list_edit_cancel">Button label to cancel changes when editing reading list details.
-{{Identical|Cancel}}</string>
-  <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list.</string>
   <string name="reading_lists_empty">Title message shown when there are no reading lists.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists, and the location of the button to add an article to a reading list.</string>
   <string name="reading_lists_onboarding_intro">Short introductory statement about reading lists to be shown in the onboarding screen, emphasizing that reading lists are available for offline access.</string>
@@ -436,15 +425,11 @@ Shown in the preferences screen along with the following:
   <string name="reading_lists_onboarding_example2">Second example of a reading list title, in this case favorite animals.</string>
   <string name="reading_lists_onboarding_example3">Third example of a reading list title, in this case space (as in outer space, cosmos).</string>
   <string name="reading_lists_onboarding_got_it">Label for the button that dismisses an introductory dialog that tells the user about the new Reading Lists feature.</string>
-  <string name="reading_lists_onboarding_page_delete">Message for a tooltip that gives the user a hint that they can remove an page from a reading list by swiping it left or right.</string>
   <string name="reading_list_no_description">Text to show when the reading list does not have a description.</string>
   <string name="reading_list_empty">Message shown when a reading list does not contain any articles.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>
-  <string name="notification_button_view_page">Button label for navigating to the page that is the subject of the notification.</string>
   <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
-  <string name="notification_button_view_edit_history">Button label for navigating to the edit history of the page that is the subject of the notification.</string>
-  <string name="notification_generic_title">Title for any general notification from Wikipedia.</string>
   <string name="notification_talk_title">Title for notification when the user receives a new message on their Talk page.</string>
   <string name="notification_talk">Text of notification when the user receives a new message on their Talk page. The \"%1$s\" symbol corresponds to the user who left the message, and the \"%2$s\" symbol is the title of the talk page of the user.</string>
   <string name="notification_reverted_title">Title for notification when an edit made by the user is reverted.</string>
@@ -480,8 +465,6 @@ Shown in the preferences screen along with the following:
 {{Identical|Today}}</string>
   <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.
 {{Identical|No thanks}}</string>
-  <string name="description_edit_header">Label above the current article title indicating that the description for this title is being edited.
-{{Identical|Editing}}</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.
 {{Identical|Save}}</string>

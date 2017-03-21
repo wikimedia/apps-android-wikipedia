@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">हटायें</string>
   <string name="edit_preview_fetching_dialog_message">प्रीव्यू लाया जा रहा है…</string>
   <string name="send_feedback">एप फीडबैक भेजें</string>
-  <string name="nav_item_random">कोई भी</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
   <string name="preferences_privacy_settings_heading">गोपनियता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजें</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">एप को क्रैश रिपोर्ट हॉकीएप/एक थर्ड-पार्टी सर्विस को अपने आप भेजने की अनुमति दें ताकि हम तेज़ी से व आसानी से आपके क्रैश को देख कर उसे फिक्स कर सकें।</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित डोमेन (%s) के लिंक पाये गए हैं। कृपया इन्हें हटायें और पुनः प्रयास करें।</string>
   <string name="history_search_list_hint">इतिहास खोजें</string>
-  <string name="history_search_empty_message">खोज परिणाम में कोई पृष्ठ नहीं मिले।</string>
   <string name="error_can_not_process_link">यह लिंक दिखाया नहीं जा सका</string>
   <string name="page_protected_autoconfirmed">यह पृष्ठ अर्ध-सुरक्षित है।</string>
   <string name="page_protected_sysop">यह पृष्ठ पूर्ण सुरक्षित है।</string>
@@ -249,7 +247,6 @@
   <string name="crash_report_quit">बंद करें</string>
   <string name="article_menu_bar_bookmark">इस लेख को पठन सूची में जोड़ें</string>
   <string name="article_menu_bar_share">आर्टिकल लिंक को साझा करें</string>
-  <string name="article_menu_bar_navigate">लेख के स्थान पर जायें</string>
   <string name="article_header_edit_hint">सम्पादित करें</string>
   <string name="article_header_edit_description">शीर्षक वर्णन को सम्पादित करें</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादित करें</string>
@@ -270,21 +267,16 @@
   <string name="reading_list_sort_by_name_desc">नाम से छांटें (उल्टा)</string>
   <string name="reading_list_sort_by_recent">हाल ही के में से छांटें</string>
   <string name="reading_list_sort_by_recent_desc">पहले के में से छांटें</string>
-  <string name="reading_list_menu_edit">पठन सूची विवरण सम्पादित करें</string>
   <string name="reading_list_menu_delete">सूची को मिटायें</string>
   <string name="reading_list_menu_rename">नाम बदलें</string>
   <string name="reading_list_menu_edit_description">विवरण सम्पादित करें</string>
   <string name="reading_list_name_sample">मेरी पठन सूची</string>
   <string name="reading_list_name_hint">सूची का नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_save_for_offline">ऑफलाइन पढ़ने हेतु उपलब्ध</string>
   <string name="reading_list_item_deleted">%s सूची में से हटाया गया</string>
   <string name="reading_list_items_deleted">%d लेख सूची से हटाये गए</string>
   <string name="reading_list_item_delete_undo">अनडू</string>
   <string name="reading_list_deleted">%s मिटा दिया गया</string>
-  <string name="reading_list_edit_ok">ठीक है</string>
-  <string name="reading_list_edit_cancel">रद्द करें</string>
-  <string name="reading_list_delete_confirm">क्या आप पठन सूची को मिटाने हेतु निश्चित हैं?</string>
   <string name="reading_lists_empty">अभी तक कोई रीडिंग सूची नहीं</string>
   <string name="reading_lists_empty_message">रीडिंग सूची में लेख सहेजें ताकि आप उन्हें बाद में देख सकें, आपके ऑफलाइन होने पर भी।</string>
   <string name="reading_lists_onboarding_intro">जिन लेखों को आप बाद में, ऑफ़लाइन होने पर भी पढ़ना चाहते हैं, उनकी पठन सूचियाँ बनायें!</string>
@@ -293,14 +285,10 @@
   <string name="reading_lists_onboarding_example2">पसंदीदा पशु</string>
   <string name="reading_lists_onboarding_example3">ब्रह्माण्ड!</string>
   <string name="reading_lists_onboarding_got_it">समझ गया</string>
-  <string name="reading_lists_onboarding_page_delete">सलाह: रीडिंग लिस्ट में से किसी भी पेज को हटाने के लिए उसे दाएं या बाएं स्वाइप करें।</string>
   <string name="reading_list_no_description">कोई विवरण नहीं...</string>
   <string name="reading_list_empty">आपके पास इस सूची में कोई लेख नहीं जुड़े हुए हैं।</string>
   <string name="user_option_sync_label">वरीयता</string>
-  <string name="notification_button_view_page">पृष्ठ देखें</string>
   <string name="notification_button_view_user">सदस्य से बात करें</string>
-  <string name="notification_button_view_edit_history">संपादन इतिहास देखें</string>
-  <string name="notification_generic_title">विकिपीडिया पर सूचना</string>
   <string name="notification_talk_title">विकिपीडिया पर नया सन्देश</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ने आपके वार्ता पेज &lt;strong&gt;%2$s&lt;/strong&gt; पर एक सन्देश छोड़ा है</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
@@ -331,7 +319,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_announcement_card_negative_action">नहीं धन्यवाद</string>
-  <string name="description_edit_header">सम्पादित किया जा रहा है</string>
   <string name="description_edit_text_hint">शीर्षक विवरण</string>
   <string name="description_edit_save">सहेजें</string>
   <string name="description_edit_add_description">शीर्षक विवरण जोड़ें</string>

@@ -76,7 +76,6 @@
   <string name="zero_learn_more_learn_more">Даведацца больш</string>
   <string name="zero_learn_more_dismiss">Адхіліць</string>
   <string name="edit_preview_fetching_dialog_message">Атрыманне папярэдняга прагляду...</string>
-  <string name="nav_item_random">Выпадковы</string>
   <string name="create_account_account_created_toast">Рахунак створаны!</string>
   <string name="preferences_privacy_settings_heading">Канфідэнцыяльнасць</string>
   <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы аб выкарыстанні</string>
@@ -84,7 +83,6 @@
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы аб збоях</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблакаваныя дамены (%s). Калі ласка, выдаліце іх і паспрабуйце зноў.</string>
   <string name="history_search_list_hint">Гісторыя пошуку</string>
-  <string name="history_search_empty_message">Ня знойдзена старонак, якія адпавядаюць Вашаму запыту.</string>
   <string name="error_can_not_process_link">Не магчыма адлюстраваць гэтую спасылку</string>
   <string name="page_protected_can_not_edit" fuzzy="true">У вас няма дазволу на змяненне гэтай старонкі</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка пад аховай</string>
@@ -126,8 +124,6 @@
   <string name="reading_list_sort_by_name">Сартаваць паводле назвы</string>
   <string name="reading_list_sort_by_name_desc">Сартаваць паводле назвы (зваротна)</string>
   <string name="reading_list_description_hint">Апісанне (неабавязкова)</string>
-  <string name="reading_list_edit_ok">Добра</string>
-  <string name="reading_list_edit_cancel">Скасаваць</string>
   <string name="view_main_page_card_title">Сёння ў Вікіпедыі</string>
   <string name="view_main_page_card_subtitle">Галоўная старонка на %s</string>
   <string name="view_featured_image_card_title">Выява дня</string>

@@ -101,7 +101,6 @@
   <string name="zero_learn_more_dismiss">Адхіліць</string>
   <string name="edit_preview_fetching_dialog_message">Атрыманьне папярэдняга прагляду...</string>
   <string name="send_feedback">Дастаць водгук пра дастасаваньне</string>
-  <string name="nav_item_random">Выпадковы</string>
   <string name="create_account_account_created_toast">Рахунак створаны!</string>
   <string name="preferences_privacy_settings_heading">Прыватнасьць</string>
   <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы пра карыстаньне</string>
@@ -110,7 +109,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў HockeyApp / пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
   <string name="history_search_list_hint">Гісторыя пошуку</string>
-  <string name="history_search_empty_message">Няма страронак, якія адпавядаюць Вашаму запыту.</string>
   <string name="error_can_not_process_link">Не атрымалася адлюстраваць гэтую спасылку</string>
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>
@@ -223,7 +221,6 @@
   <string name="crash_report_quit">Выйсьці</string>
   <string name="article_menu_bar_bookmark" fuzzy="true">Захаваць артыкул для пазьнейшага афляйн чытаньня</string>
   <string name="article_menu_bar_share">Падзяліцца спасылкай на артыкул</string>
-  <string name="article_menu_bar_navigate">Накіроўваць да месцазнаходжаньня артылкула</string>
   <string name="view_continue_reading_card_subtitle_today">Сёньня</string>
   <string name="description_edit_save">Захаваць</string>
 </resources>

@@ -115,7 +115,6 @@
   <string name="zero_learn_more_dismiss">Ausblenden</string>
   <string name="edit_preview_fetching_dialog_message">Vorschau wird abgerufen …</string>
   <string name="send_feedback">App-Rückmeldung senden</string>
-  <string name="nav_item_random">Zufällig</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
   <string name="preferences_privacy_settings_heading">Datenschutz</string>
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
@@ -124,7 +123,6 @@
   <string name="preference_summary_auto_upload_crash_reports">Erlaubt der App, automatisch Absturzberichte an HockeyApp/einen Drittpartei-Diensteanbieter zu senden, so dass wir deinen Absturz überprüfen und den Fehler schneller und einfacher beheben können.</string>
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
   <string name="history_search_list_hint">Verlauf durchsuchen</string>
-  <string name="history_search_empty_message">Es wurden keine Seiten mit deiner Suchanfrage gefunden.</string>
   <string name="error_can_not_process_link">Dieser Link konnte nicht angezeigt werden</string>
   <string name="page_protected_autoconfirmed">Diese Seite wurde halbgesperrt.</string>
   <string name="page_protected_sysop">Diese Seite wurde vollgesperrt.</string>
@@ -251,7 +249,6 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="crash_report_quit">Beenden</string>
   <string name="article_menu_bar_bookmark">Füge diesen Artikel zu einer Leseliste hinzu</string>
   <string name="article_menu_bar_share">Artikellink teilen</string>
-  <string name="article_menu_bar_navigate">Zum Standort des Artikels navigieren</string>
   <string name="article_header_edit_hint">Bearbeiten …</string>
   <string name="article_header_edit_description">Titelbeschreibung bearbeiten</string>
   <string name="article_header_edit_lead_section">Einführung bearbeiten</string>
@@ -272,21 +269,16 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_sort_by_name_desc">Nach Name sortieren (umgekehrt)</string>
   <string name="reading_list_sort_by_recent">Nach zuletzt gelesen sortieren</string>
   <string name="reading_list_sort_by_recent_desc">Nach zuletzt gelesen sortieren (umgekehrt)</string>
-  <string name="reading_list_menu_edit">Einzelheiten der Leseliste bearbeiten</string>
   <string name="reading_list_menu_delete">Liste löschen</string>
   <string name="reading_list_menu_rename">Umbenennen</string>
   <string name="reading_list_menu_edit_description">Beschreibung bearbeiten</string>
   <string name="reading_list_name_sample">Meine Leseliste</string>
   <string name="reading_list_name_hint">Name dieser Liste</string>
   <string name="reading_list_description_hint">Beschreibung (optional)</string>
-  <string name="reading_list_save_for_offline">Verfügbar zum Offline-Lesen</string>
   <string name="reading_list_item_deleted">%s von der Liste entfernt</string>
   <string name="reading_list_items_deleted">%d Artikel aus der Liste entfernt</string>
   <string name="reading_list_item_delete_undo">Rückgängig</string>
   <string name="reading_list_deleted">%s gelöscht</string>
-  <string name="reading_list_edit_ok">Okay</string>
-  <string name="reading_list_edit_cancel">Abbrechen</string>
-  <string name="reading_list_delete_confirm">Bist du sicher, dass du diese Leseliste löschen möchtest?</string>
   <string name="reading_lists_empty">Es gibt noch keine Leselisten.</string>
   <string name="reading_lists_empty_message">Speichere Artikel in Leselisten, so dass du sie später ansehen kannst, auch wenn du offline bist.</string>
   <string name="reading_lists_onboarding_intro">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist!</string>
@@ -295,14 +287,10 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_onboarding_example2">Lieblingstiere</string>
   <string name="reading_lists_onboarding_example3">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
-  <string name="reading_lists_onboarding_page_delete">Tipp: Wische eine beliebige Seite nach links oder rechts, um sie aus dieser Leseliste zu entfernen.</string>
   <string name="reading_list_no_description">Keine Beschreibung …</string>
   <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
   <string name="user_option_sync_label">Einstellungen</string>
-  <string name="notification_button_view_page">Seite ansehen</string>
   <string name="notification_button_view_user">Mit dem Benutzer diskutieren</string>
-  <string name="notification_button_view_edit_history">Versionsgeschichte ansehen</string>
-  <string name="notification_generic_title">Benachrichtigung auf Wikipedia</string>
   <string name="notification_talk_title">Neue Nachricht auf Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; hinterließ eine Nachricht auf deiner Diskussionsseite &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Zurückgesetzte Bearbeitung</string>
@@ -333,7 +321,6 @@ Möchtest du die App neu starten oder beenden?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Heute</string>
   <string name="view_announcement_card_negative_action">Nein, danke</string>
-  <string name="description_edit_header">Bearbeiten</string>
   <string name="description_edit_text_hint">Titelbeschreibung</string>
   <string name="description_edit_save">Speichern</string>
   <string name="description_edit_add_description">Titelbeschreibung hinzufügen</string>
