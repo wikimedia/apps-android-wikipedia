@@ -297,7 +297,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         PageActionToolbarHideHandler pageActionToolbarHideHandler = new PageActionToolbarHideHandler(tabLayout);
         pageActionToolbarHideHandler.setScrollView(webView);
 
-        errorView = (WikiErrorView)rootView.findViewById(R.id.page_error);
+        errorView = (WikiErrorView) rootView.findViewById(R.id.page_error);
 
         return rootView;
     }
@@ -892,9 +892,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         hidePageContent();
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
-        if (getActivity() != null) {
-            refreshView.setEnabled(!ThrowableUtil.is404(getActivity(), caught));
-        }
+        refreshView.setEnabled(!ThrowableUtil.is404(getContext(), caught));
         errorState = true;
 
         if (getPageLoadCallbacks() != null) {

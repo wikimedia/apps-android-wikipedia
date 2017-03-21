@@ -7,14 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/search_error_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:visibility="gone"
-        />
-
     <LinearLayout
             android:id="@+id/search_results_container"
             android:visibility="gone"
@@ -42,6 +34,16 @@
                 android:layout_height="match_parent" />
 
     </LinearLayout>
+
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/search_error_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/base80"
+        android:visibility="gone"/>
 
     <org.wikipedia.views.SearchEmptyView
         android:id="@+id/search_empty_view"

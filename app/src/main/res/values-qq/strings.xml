@@ -373,6 +373,7 @@ Shown in the preferences screen along with the following:
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
+  <string name="view_wiki_error_message_offline">Error message shown when network cannot be reached when loading a page</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
   <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
   <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.

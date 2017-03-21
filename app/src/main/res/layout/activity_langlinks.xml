@@ -1,59 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="?attr/window_background_color">
-    <ProgressBar
-            android:id="@+id/langlinks_load_progress"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            />
-    <TextView android:id="@+id/langlinks_empty"
-              android:layout_width="wrap_content" android:layout_height="wrap_content"
-              android:layout_gravity="center"
-              android:text="@string/langlinks_empty"
-              android:textAlignment="center"
-              style="?android:textAppearanceLarge"
-              android:layout_marginLeft="16dp"
-              android:layout_marginRight="16dp"
-              android:visibility="gone"
-        />
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/window_background_color">
 
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/langlinks_error"
+    <ProgressBar
+        android:id="@+id/langlinks_load_progress"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
+
+    <TextView
+        android:id="@+id/langlinks_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone"
-        tools:visibility="visible"/>
+        android:text="@string/langlinks_empty"
+        android:textAlignment="center"
+        style="?android:textAppearanceLarge"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:visibility="gone" />
 
     <LinearLayout
-            android:id="@+id/langlinks_list_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:visibility="visible"
-            >
+        android:id="@+id/langlinks_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:hint="@string/langlinks_filter_hint">
+
             <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/langlinks_filter"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:imeOptions="actionDone|flagNoExtractUi"
-                    android:maxLines="1" />
+                android:id="@+id/langlinks_filter"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
-        <TextView android:id="@+id/langlinks_no_match"
+
+        <TextView
+            android:id="@+id/langlinks_no_match"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -62,11 +59,23 @@
             style="?android:textAppearanceLarge"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:visibility="gone"
-            />
-        <ListView android:id="@+id/langlinks_list"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent" />
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/langlinks_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
 
     </LinearLayout>
+
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/langlinks_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/base80"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 </FrameLayout>
