@@ -175,17 +175,22 @@ public class WikiSite implements Parcelable {
         return "/w/" + segment;
     }
 
+
+    @NonNull public Uri uri() {
+        return uri;
+    }
+
     /**
      * @return The canonical URL. e.g., https://en.wikipedia.org.
      */
-    public String url() {
+    @NonNull public String url() {
         return uri.toString();
     }
 
     /**
      * @return The canonical URL for segment. e.g., https://en.wikipedia.org/w/foo.
      */
-    public String url(@NonNull String segment) {
+    @NonNull public String url(@NonNull String segment) {
         return url() + path(segment);
     }
 
