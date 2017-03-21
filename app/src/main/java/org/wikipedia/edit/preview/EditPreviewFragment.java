@@ -332,26 +332,8 @@ public class EditPreviewFragment extends Fragment {
                     return;
                 }
                 progressDialog.dismiss();
-
-                L.d(caught);
-                final AlertDialog retryDialog = new AlertDialog.Builder(getActivity())
-                        .setMessage(caught.getLocalizedMessage())
-                        .setPositiveButton(R.string.dialog_message_edit_failed_retry,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        showPreview(title, wikiText);
-                                        dialog.dismiss();
-                                    }
-                                })
-                        .setNegativeButton(R.string.dialog_message_edit_failed_cancel,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                }).create();
-                retryDialog.show();
+                parentActivity.showError(caught);
+                L.e(caught);
             }
         });
     }

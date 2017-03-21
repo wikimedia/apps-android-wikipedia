@@ -1,129 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="?attr/window_background_color">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/window_background_color">
+
     <ProgressBar
-            android:id="@+id/edit_section_load_progress"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            />
-    <LinearLayout
-            android:id="@+id/edit_section_error"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:visibility="visible"
-            >
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:text="@string/error_network_error"
-                  style="?android:textAppearanceLarge"
-                />
+        android:id="@+id/edit_section_load_progress"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
 
-        <TextView
-            style="@style/ButtonProgressive"
-            android:id="@+id/edit_section_error_retry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_section_error_retry"
-            android:layout_gravity="center" />
-
-    </LinearLayout>
     <ScrollView
-            android:id="@+id/edit_section_container"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:id="@+id/edit_section_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible">
         <org.wikipedia.views.PlainPasteEditText
-                android:id="@+id/edit_section_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:gravity="top|start"
-                android:imeOptions="actionNone"
-                android:scrollbars="vertical"
-                android:textColor="?attr/edit_text_color"
-                />
+            android:id="@+id/edit_section_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:gravity="top|start"
+            android:imeOptions="actionNone"
+            android:scrollbars="vertical"
+            android:textColor="?attr/edit_text_color" />
     </ScrollView>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <fragment
+            android:id="@+id/edit_section_preview_fragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-        <fragment android:layout_width="match_parent"
-                  android:layout_height="0dp"
-                  android:layout_weight="1"
-                  class="org.wikipedia.edit.preview.EditPreviewFragment"
-                  android:id="@+id/edit_section_preview_fragment"
-                  tools:layout="@layout/fragment_preview_edit"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            class="org.wikipedia.edit.preview.EditPreviewFragment"
+            tools:layout="@layout/fragment_preview_edit"/>
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <fragment
+            android:id="@+id/edit_section_summary_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-        <fragment android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  class="org.wikipedia.edit.summaries.EditSummaryFragment"
-                  android:id="@+id/edit_section_summary_fragment"
-                  tools:layout="@layout/fragment_preview_summary"/>
+            class="org.wikipedia.edit.summaries.EditSummaryFragment"
+            tools:layout="@layout/fragment_preview_summary"/>
     </LinearLayout>
 
     <include layout="@layout/group_captcha" />
 
-    <ScrollView android:id="@+id/edit_section_abusefilter_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:background="?attr/window_background_color"
-            >
+    <ScrollView
+        android:id="@+id/edit_section_abusefilter_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/window_background_color"
+        android:visibility="gone"
+        tools:visibility="visible">
         <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-            <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/abusefilter_background_color"
-                    >
+                android:layout_height="wrap_content"
+                android:background="?attr/abusefilter_background_color">
                 <ImageView
-                        android:id="@+id/edit_section_abusefilter_image"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:srcCompat="@drawable/ic_abusefilter_warn"
-                        android:layout_margin="24dp"
-                        android:layout_gravity="center_horizontal"
-                        android:contentDescription="@null"/>
+                    android:id="@+id/edit_section_abusefilter_image"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="24dp"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/ic_abusefilter_warn"
+                    android:contentDescription="@null"/>
             </LinearLayout>
             <TextView
-                    android:id="@+id/edit_section_abusefilter_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/abusefilter_title_warn"/>
+                android:id="@+id/edit_section_abusefilter_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/abusefilter_title_warn"/>
             <TextView
-                    android:id="@+id/edit_section_abusefilter_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="@string/abusefilter_text_warn"/>
-
+                android:id="@+id/edit_section_abusefilter_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/abusefilter_text_warn"/>
         </LinearLayout>
     </ScrollView>
 
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/view_edit_section_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 </FrameLayout>

@@ -10,7 +10,7 @@ public class MwException extends RuntimeException {
         this.error = error;
     }
 
-    @Nullable String getTitle() {
+    @Nullable public String getTitle() {
         return error.getTitle();
     }
 
