@@ -115,21 +115,6 @@ public final class FileUtil {
     }
 
     /**
-     * Write the contents of a String to a stream.
-     * @param outputStream Stream to which the contents will be written.
-     * @param contents String with the contents to be written.
-     * @throws IOException
-     */
-    public static void writeToStream(OutputStream outputStream, String contents) throws IOException {
-        OutputStreamWriter writer = new OutputStreamWriter(outputStream);
-        try {
-            writer.write(contents);
-        } finally {
-            writer.close();
-        }
-    }
-
-    /**
      * Reads the contents of this page from storage.
      * @return Page object with the contents of the page.
      * @throws IOException
@@ -195,7 +180,5 @@ public final class FileUtil {
         return dir;
     }
 
-    private FileUtil() {
-
-    }
+    private FileUtil() { }
 }
