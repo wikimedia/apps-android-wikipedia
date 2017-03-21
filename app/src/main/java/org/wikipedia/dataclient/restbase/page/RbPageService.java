@@ -56,18 +56,6 @@ public interface RbPageService {
     @NonNull Call<RbPageRemaining> sections(@NonNull @Path("title") String title,
                                             @Nullable @Query("noimages") Boolean noImages);
 
-    /**
-     * Gets all page content of a given title -- for refreshing a saved page
-     * Note: the only difference in the URL from #pageLead is the sections=all instead of 0.
-     *
-     * @param title the page title to be used including prefix
-     * @param noImages add the noimages flag to the request if true
-     */
-    @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
-    @GET("page/mobile-sections/{title}")
-    Call<RbPageCombo> pageCombo(@Path("title") String title,
-                                @Query("noimages") Boolean noImages);
-
     // todo: this Content Service-only endpoint is under page/ but that implementation detail should
     //       probably not be reflected here. Move to WordDefinitionClient
     /**

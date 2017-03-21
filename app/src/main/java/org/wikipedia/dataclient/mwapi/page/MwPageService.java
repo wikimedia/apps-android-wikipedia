@@ -67,19 +67,4 @@ public interface MwPageService {
             + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
     @NonNull Call<MwMobileViewPageRemaining> sections(@NonNull @Query("page") String title,
                                                       @Nullable @Query("noimages") Boolean noImages);
-
-    /**
-     * Gets all page content of a given title -- for refreshing a saved page
-     * Note: the only difference in the URL from #pageLead is the sections=all instead of 0.
-     *
-     * @param title the page title to be used including prefix
-     * @param noImages add the noimages flag to the request if true
-     */
-    @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
-            + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
-            + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
-            + "%7Cpageprops&pageprops=wikibase_item&onlyrequestedsections=1&sections=all"
-            + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
-    Call<MwMobileViewPageCombo> pageCombo(@Query("page") String title,
-                                          @Query("noimages") Boolean noImages);
 }

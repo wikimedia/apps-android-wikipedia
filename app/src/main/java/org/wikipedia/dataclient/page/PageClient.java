@@ -2,8 +2,6 @@ package org.wikipedia.dataclient.page;
 
 import android.support.annotation.NonNull;
 
-import java.io.IOException;
-
 import retrofit2.Call;
 
 /**
@@ -36,14 +34,4 @@ public interface PageClient {
      * @param noImages add the noimages flag to the request if true
      */
     @NonNull <T extends PageRemaining> Call<T> sections(@NonNull String title, boolean noImages);
-
-    /**
-     * Gets all page content of a given title.  Used in the saved page sync background service.
-     * Synchronous call.
-     *
-     * @param title the page title to be used including prefix
-     * @param noImages add the noimages flag to the request if true
-     * @throws IOException when the request did not succeed
-     */
-    PageCombo pageCombo(String title, boolean noImages) throws IOException;
 }

@@ -111,8 +111,4 @@ public class Section {
     @NonNull public String getContent() {
         return defaultString(text);
     }
-
-    public void setContent(String content) {
-        this.text = content;
-    }
 }

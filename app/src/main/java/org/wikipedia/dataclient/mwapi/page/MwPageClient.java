@@ -2,17 +2,12 @@ package org.wikipedia.dataclient.mwapi.page;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageCombo;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.dataclient.page.PageSummary;
 
-import java.io.IOException;
-
 import retrofit2.Call;
-import retrofit2.Response;
 
 /**
  * Retrofit web service client for MediaWiki PHP API.
@@ -40,17 +35,6 @@ public class MwPageClient implements PageClient {
     @NonNull @Override public Call<? extends PageRemaining> sections(@NonNull String title,
                                                                      boolean noImages) {
         return service.sections(title, optional(noImages));
-    }
-
-    @Override public PageCombo pageCombo(String title, boolean noImages) throws IOException {
-        Response<MwMobileViewPageCombo> rsp = service.pageCombo(title, optional(noImages)).execute();
-        if (!rsp.body().hasError()) {
-            return rsp.body();
-        }
-        ServiceError err = rsp.body() == null || rsp.body().getError() == null
-                ? null
-                : rsp.body().getError();
-        throw new IOException(err == null ? rsp.message() : err.getDetails());
     }
 
     /**
