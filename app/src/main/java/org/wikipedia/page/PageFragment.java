@@ -47,6 +47,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.DarkModeMarshaller;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.gallery.GalleryActivity;
@@ -404,6 +405,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
             }
         });
+        webView.setWebViewClient(new OkHttpWebViewClient());
     }
 
     private void handleInternalLink(PageTitle title) {
