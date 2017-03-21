@@ -33,7 +33,6 @@
     <color name="dark_gray">@color/base30</color>
     <color name="foundation_gray">@color/base50</color>
     <color name="light_gray">@color/base70</color>
-    <color name="lightest_gray">@color/base80</color>
 
     <color name="dark_blue">@color/accent30</color>
     <color name="foundation_blue">@color/accent50</color>
@@ -41,15 +40,10 @@
 
     <color name="dark_green">@color/green30</color>
     <color name="foundation_green">@color/green50</color>
-    <color name="light_green">@color/green90</color>
 
-    <color name="dark_red">@color/red30</color>
     <color name="foundation_red">@color/red50</color>
-    <color name="light_red">@color/red90</color>
 
-    <color name="dark_yellow">@color/yellow30</color>
     <color name="foundation_yellow">@color/yellow50</color>
-    <color name="light_yellow">@color/yellow90</color>
 
     <!-- TODO: consolidate and map all of the below colors to all of the above colors. -->
 
@@ -91,7 +85,6 @@
     <color name="link_preview_offline_text_light">#898989</color>
     <color name="link_preview_button_background_light">#eaf0f0f0</color>
     <color name="link_preview_button_background_light_highlight">#eac0c0c0</color>
-    <color name="nav_text_light">#303030</color>
     <color name="list_item_text_primary_light">#333</color>
     <color name="list_item_text_secondary_light">#777</color>
     <color name="multi_select_background_light">@color/accent90</color>
@@ -114,7 +107,6 @@
     <color name="link_preview_offline_text_dark">#a0a0a0</color>
     <color name="link_preview_button_background_dark">#ea303030</color>
     <color name="link_preview_button_background_dark_highlight">#ea505050</color>
-    <color name="nav_text_dark">#d0d0d0</color>
     <color name="list_item_text_primary_dark">#d0d0d0</color>
     <color name="list_item_text_secondary_dark">#808080</color>
     <color name="multi_select_background_dark">@color/accent30</color>
@@ -138,7 +130,6 @@
     <color name="feed_text_tertiary_light">#71777d</color>
     <color name="feed_text_tertiary_dark">#aaa</color>
     <color name="feed_image_border">#1f000000</color>
-    <color name="reading_list_add_background">@color/base70</color>
 
     <color name="feed_window_background_light">#eaecf0</color>
     <color name="feed_window_background_dark">#222</color>
