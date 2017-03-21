@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/window_background_color">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_username_hint">
+                <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/login_username_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?android:textAppearanceMedium"
+                    android:inputType="textVisiblePassword|textNoSuggestions"
+                    android:imeOptions="flagNoExtractUi"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.PasswordTextInput
+                android:id="@+id/login_password_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:passwordToggleEnabled="true"
+                android:hint="@string/login_password_hint" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_2fa_hint" >
+                <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/login_2fa_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?android:textAppearanceMedium"
+                    android:inputType="textVisiblePassword|textNoSuggestions"
+                    android:imeOptions="flagNoExtractUi"
+                    android:maxLines="1"
+                    android:visibility="gone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/login_button"
+                style="@style/ButtonProgressive"
+                android:text="@string/menu_login"
+                android:enabled="false" />
+
+            <TextView
+                android:id="@+id/login_create_account_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:padding="8dp"
+                android:text="@string/login_create_account_link"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?attr/link_color" />
+
+            <TextView
+                android:id="@+id/privacy_policy_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:padding="8dp"
+                android:text="@string/privacy_policy_description"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?attr/link_color"
+                android:clickable="true"
+                android:onClick="showPrivacyPolicy" />
+        </LinearLayout>
+    </ScrollView>
+
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/view_login_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+</FrameLayout>
