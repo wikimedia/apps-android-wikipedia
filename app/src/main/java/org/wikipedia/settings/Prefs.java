@@ -422,14 +422,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_reading_list_tutorial_enabled, enabled);
     }
 
-    public static boolean isReadingListPageDeleteTutorialEnabled() {
-        return getBoolean(R.string.preference_key_reading_list_page_delete_tutorial_enabled, true);
-    }
-
-    public static void setReadingListPageDeleteTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_reading_list_page_delete_tutorial_enabled, enabled);
-    }
-
     public static boolean isTocTutorialEnabled() {
         return getBoolean(R.string.preference_key_toc_tutorial_enabled, true);
     }

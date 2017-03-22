@@ -166,10 +166,6 @@
             android:title="@string/preference_key_reading_list_tutorial_enabled" />
 
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_reading_list_page_delete_tutorial_enabled"
-            android:title="@string/preference_key_reading_list_page_delete_tutorial_enabled" />
-
-        <SwitchPreferenceCompat
             android:key="@string/preference_key_zero_tutorial_enabled"
             android:title="@string/preference_key_zero_tutorial_enabled" />
 
