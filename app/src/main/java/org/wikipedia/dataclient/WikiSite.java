@@ -306,6 +306,9 @@ public class WikiSite implements Parcelable {
 
     /** @param authority Host and optional port. */
     @NonNull private String authorityToMobile(@NonNull String authority) {
+        if (authority.startsWith("m.") || authority.contains(".m.")) {
+            return authority;
+        }
         String subdomain = languageCodeToSubdomain(languageCode);
         return authority.replaceFirst("^" + subdomain + "\\.?", "$0m.");
     }
