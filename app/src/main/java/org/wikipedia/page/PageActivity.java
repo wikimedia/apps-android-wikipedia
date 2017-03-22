@@ -437,7 +437,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             }
             return;
         }
-
+        getSupportActionBar().setTitle("");
         app.getSessionFunnel().backPressed();
         if (pageFragment.onBackPressed()) {
             return;
@@ -561,6 +561,16 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public void onPageSearchRequested() {
         openSearchFragment(SearchInvokeSource.TOOLBAR, null);
+    }
+
+    @Override
+    public void onPageLoadError(@NonNull PageTitle title) {
+        getSupportActionBar().setTitle(title.getDisplayText());
+    }
+
+    @Override
+    public void onPageLoadErrorRetry() {
+        getSupportActionBar().setTitle("");
     }
 
     @Override

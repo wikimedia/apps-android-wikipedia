@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -27,6 +28,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appenguin.onboarding.ToolTip;
@@ -125,6 +127,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPagePopFragment();
         @Nullable AppCompatActivity getActivity();
         void onPageInvalidateOptionsMenu();
+        void onPageLoadError(@NonNull PageTitle title);
+        void onPageLoadErrorRetry();
         boolean shouldLoadFromBackStack();
         boolean shouldShowTabList();
     }
@@ -186,6 +190,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             = new TabLayout.OnTabSelectedListener() {
         @Override
         public void onTabSelected(TabLayout.Tab tab) {
+            // TODO: Add "disabled" state to article action tabs and take this into account
             PageActionTab.of(tab.getPosition()).select(pageActionTabsCallback);
         }
 
@@ -341,6 +346,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorView.setRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (callback() != null) {
+                    callback().onPageLoadErrorRetry();
+                }
                 refreshPage();
             }
         });
@@ -884,14 +892,24 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         if (pageRefreshed) {
             pageRefreshed = false;
-            FeedbackUtil.showError(getActivity(), caught);
         }
 
         hidePageContent();
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+
+        View contentTopOffset = errorView.findViewById(R.id.view_wiki_error_article_content_top_offset);
+        View tabLayoutOffset = errorView.findViewById(R.id.view_wiki_error_article_tab_layout_offset);
+        contentTopOffset.setLayoutParams(getContentTopOffsetParams(getContext()));
+        contentTopOffset.setVisibility(View.VISIBLE);
+        tabLayoutOffset.setLayoutParams(getTabLayoutOffsetParams());
+        tabLayoutOffset.setVisibility(View.VISIBLE);
+
         refreshView.setEnabled(!ThrowableUtil.is404(getContext(), caught));
         errorState = true;
+        if (callback() != null) {
+            callback().onPageLoadError(getTitle());
+        }
 
         if (getPageLoadCallbacks() != null) {
             getPageLoadCallbacks().onLoadError(caught);
@@ -1391,6 +1409,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 model.getCurEntry().getSource(),
                 timeSpentSec));
         new UpdateHistoryTask(model.getCurEntry(), app).execute();
+    }
+
+    private LinearLayout.LayoutParams getContentTopOffsetParams(@NonNull Context context) {
+        return new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, getContentTopOffsetPx(context));
+    }
+
+    private LinearLayout.LayoutParams getTabLayoutOffsetParams() {
+        return new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, tabLayout.getHeight());
     }
 
     @Nullable

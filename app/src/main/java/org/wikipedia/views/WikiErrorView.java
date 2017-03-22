@@ -10,9 +10,11 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.page.PageActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +25,9 @@ public class WikiErrorView extends LinearLayout {
     @BindView(R.id.view_wiki_error_icon) ImageView icon;
     @BindView(R.id.view_wiki_error_text) TextView errorText;
     @BindView(R.id.view_wiki_error_button) TextView button;
+    @BindView(R.id.view_wiki_error_footer_text) TextView footerText;
+    @BindView(R.id.view_wiki_error_article_content_top_offset) Space contentTopOffset;
+    @BindView(R.id.view_wiki_error_article_tab_layout_offset) Space tabLayoutOffset;
 
     @Nullable private OnClickListener retryListener;
     @Nullable private OnClickListener backListener;
@@ -59,14 +64,36 @@ public class WikiErrorView extends LinearLayout {
 
     public void setError(@Nullable Throwable caught) {
         Resources resources = getContext().getResources();
-        ErrorType errorType = caught != null && is404(getContext(), caught) ? ErrorType.GENERIC : ErrorType.OFFLINE;
+        ErrorType errorType = getErrorType(getContext(), caught);
         icon.setImageDrawable(ContextCompat.getDrawable(getContext(), errorType.icon()));
         errorText.setText(resources.getString(errorType.text()));
         button.setText(resources.getString(errorType.buttonText()));
         button.setOnClickListener(errorType.buttonClickListener(this));
+        if (errorType.hasFooterText()) {
+            footerText.setText(resources.getString(errorType.footerText()));
+        }
     }
 
+    private ErrorType getErrorType(@NonNull Context context, @Nullable Throwable caught) {
+        if (caught != null && !is404(context, caught)) {
+            if (context instanceof PageActivity) {
+                return ErrorType.PAGE_OFFLINE;
+            }
+            return ErrorType.OFFLINE;
+        }
+        return ErrorType.GENERIC;
+    }
+
+
     private enum ErrorType {
+        PAGE_OFFLINE(R.drawable.ic_no_article, R.string.page_offline_notice_cannot_load_while_offline,
+                R.string.page_error_retry, R.string.page_offline_notice_add_to_reading_list) {
+            @Nullable @Override
+            OnClickListener buttonClickListener(@NonNull WikiErrorView errorView) {
+                return errorView.getRetryListener();
+            }
+        },
+
         OFFLINE(R.drawable.ic_portable_wifi_off_black_24px, R.string.view_wiki_error_message_offline,
                 R.string.page_error_retry) {
             @Nullable @Override
@@ -102,6 +129,10 @@ public class WikiErrorView extends LinearLayout {
 
         @StringRes int footerText() {
             return footerText;
+        }
+
+        boolean hasFooterText() {
+            return footerText != 0;
         }
 
         @Nullable abstract OnClickListener buttonClickListener(@NonNull WikiErrorView errorView);

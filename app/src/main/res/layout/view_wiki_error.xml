@@ -1,33 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView
-        android:id="@+id/view_wiki_error_icon"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_margin="24dp"
-        app:srcCompat="@drawable/ic_error_black_24dp"
-        android:tint="@color/view_wiki_error_icon_tint"
-        android:contentDescription="@null"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/view_wiki_error_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/error_message_generic"
-        android:textColor="@color/view_wiki_error_text_color"
-        android:textSize="16sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
-        style="@style/Widget.AppCompat.Button"
-        android:id="@+id/view_wiki_error_button"
-        android:layout_width="wrap_content"
+        <Space
+            android:id="@+id/view_wiki_error_article_content_top_offset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/view_wiki_error_icon"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="24dp"
+            app:srcCompat="@drawable/ic_error_black_24dp"
+            android:tint="@color/view_wiki_error_icon_tint"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/view_wiki_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_message_generic"
+            android:textColor="@color/view_wiki_error_text_color"
+            android:textSize="16sp" />
+
+        <TextView
+            style="@style/Widget.AppCompat.Button"
+            android:id="@+id/view_wiki_error_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/white"
+            android:text="@string/page_error_back_to_main"
+            android:minHeight="36dp"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/view_wiki_error_text_color"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
         android:layout_margin="16dp"
-        android:background="@android:color/white"
-        android:text="@string/page_error_back_to_main"
-        android:minHeight="36dp"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/view_wiki_error_text_color"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/view_wiki_error_footer_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:gravity="center_horizontal"
+            android:textSize="14sp"
+            android:textColor="@color/view_wiki_error_text_color"
+            android:lineSpacingMultiplier="1.2"
+            tools:text="Footer text, if any, appears here."/>
+
+        <Space
+            android:id="@+id/view_wiki_error_article_tab_layout_offset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+    </LinearLayout>
 </merge>
