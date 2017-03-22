@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.mwapi.page;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.dataclient.page.PageRemaining;
@@ -15,17 +16,15 @@ import java.util.List;
 public class MwMobileViewPageRemaining implements PageRemaining {
     @SuppressWarnings("unused") @Nullable private Mobileview mobileview;
 
-    @Override
-    public void mergeInto(Page page) {
-        page.addRemainingSections(getSections());
+    @Override public void mergeInto(Page page) {
+        page.addRemainingSections(sections());
     }
 
-    private List<Section> getSections() {
-        if (mobileview != null) {
-            return mobileview.getSections();
-        } else {
+    @NonNull @Override public List<Section> sections() {
+        if (mobileview == null || mobileview.getSections() == null) {
             return Collections.emptyList();
         }
+        return mobileview.getSections();
     }
 
     /**

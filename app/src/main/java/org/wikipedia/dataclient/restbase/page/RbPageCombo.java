@@ -53,7 +53,7 @@ public class RbPageCombo implements PageCombo {
         Page page = new Page(lead.adjustPageTitle(title), lead.getSections(),
                 toPageProperties(title.getWikiSite()));
         if (remaining != null) {
-            page.augmentRemainingSections(remaining.getSections());
+            page.augmentRemainingSections(remaining.sections());
         }
         return page;
     }
@@ -67,6 +67,12 @@ public class RbPageCombo implements PageCombo {
     @Nullable
     public String getTitlePronunciationUrl() {
         return lead == null ? null : lead.getTitlePronunciationUrl();
+    }
+
+    @Nullable
+    @Override
+    public String getLeadImageUrl(int leadThumbnailWidth) {
+        return lead == null ? null : lead.getLeadImageUrl(leadThumbnailWidth);
     }
 
     @Nullable

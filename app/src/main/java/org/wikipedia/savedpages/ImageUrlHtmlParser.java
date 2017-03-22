@@ -1,16 +1,15 @@
 package org.wikipedia.savedpages;
 
-import android.graphics.drawable.Drawable;
 import android.support.annotation.VisibleForTesting;
-import android.text.Html;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.html.ImageTagParser;
+import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.Section;
-import org.wikipedia.util.StringUtil;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -122,17 +121,12 @@ public final class ImageUrlHtmlParser {
          */
         @VisibleForTesting
         public void extractUrlsInSection(String html) {
-            StringUtil.fromHtml(html, imageGetter, null);
-        }
-
-        /** Custom ImageGetter which collects all img src URLs. */
-        private Html.ImageGetter imageGetter = new Html.ImageGetter() {
-            @Override
-            public Drawable getDrawable(String url) {
+            PageImageUrlParser parser = new PageImageUrlParser(new ImageTagParser(),
+                    new PixelDensityDescriptorParser());
+            for (String url : parser.parse(html)) {
                 urlMap.put(url, urlToFilePath(url));
-                return null;
             }
-        };
+        }
 
         private String urlToFilePath(String url) {
             return imgDir + md5string(url) + getFileExtension(url);

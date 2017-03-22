@@ -38,7 +38,7 @@ import static org.hamcrest.Matchers.startsWith;
         assertThat(imageUrlHtmlParser.toJSON().toString(), is(IMG_MAP_JSON_OUTPUT));
     }
 
-    @Test public void testNonClosedImgTag() {
+    @Test public void testNonClosedImgTagWithSrcSet() {
         // abbreviated main page on 2014-06-10; like most main pages right now it has img tags that are not closed
         builder.extractUrlsInSection(
                 "<div id=\"mainpage\"><h2>Today's featured article</h2><div id=\"mp-tfa\" style=\"padding:2px 5px\">\n"
@@ -56,7 +56,8 @@ import static org.hamcrest.Matchers.startsWith;
                 + "</div></div>"
         );
         ImageUrlHtmlParser imageUrlHtmlParser = builder.build();
-        assertThat(imageUrlHtmlParser.size(), is(2));
+        final int size = 6;
+        assertThat(imageUrlHtmlParser.size(), is(size));
         assertThat(imageUrlHtmlParser.entrySet().iterator().next().getKey(), is("//upload.wikimedia.org/wikipedia/en/thumb/7/79/foo.jpg"));
         assertThat(imageUrlHtmlParser.entrySet().iterator().next().getValue(), startsWith(BASE_DIR));
     }
