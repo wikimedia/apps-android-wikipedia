@@ -15,6 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.Icon;
@@ -44,6 +45,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -365,8 +367,9 @@ public class NearbyFragment extends Fragment {
                             if (!isResumed()) {
                                 return;
                             }
+                            ThrowableUtil.AppError error = ThrowableUtil.getAppError(getActivity(), caught);
+                            Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
                             L.e(caught);
-                            FeedbackUtil.showError(getActivity(), caught);
                             onLoaded();
                         }
                     });
