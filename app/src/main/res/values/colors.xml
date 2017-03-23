@@ -141,4 +141,7 @@
 
     <color name="view_wiki_error_icon_tint">@color/base30</color>
     <color name="view_wiki_error_text_color">@color/base30</color>
+
+    <color name="page_action_tab_enabled">@android:color/white</color>
+    <color name="page_action_tab_disabled">@color/base30</color>
 </resources>

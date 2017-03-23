@@ -82,6 +82,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ConfigurableTabLayout;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiDrawerLayout;
@@ -165,7 +166,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiErrorView errorView;
     private WikiDrawerLayout tocDrawer;
-    private TabLayout tabLayout;
+    private ConfigurableTabLayout tabLayout;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -190,8 +191,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             = new TabLayout.OnTabSelectedListener() {
         @Override
         public void onTabSelected(TabLayout.Tab tab) {
-            // TODO: Add "disabled" state to article action tabs and take this into account
-            PageActionTab.of(tab.getPosition()).select(pageActionTabsCallback);
+            if (tabLayout.isEnabled(tab)) {
+                PageActionTab.of(tab.getPosition()).select(pageActionTabsCallback);
+            }
         }
 
         @Override
@@ -294,7 +296,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
 
-        tabLayout = (TabLayout) rootView.findViewById(R.id.page_actions_tab_layout);
+        tabLayout = (ConfigurableTabLayout) rootView.findViewById(R.id.page_actions_tab_layout);
         tabLayout.addOnTabSelectedListener(pageActionTabListener);
 
         PageActionToolbarHideHandler pageActionToolbarHideHandler = new PageActionToolbarHideHandler(tabLayout);
@@ -630,6 +632,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         errorState = false;
         errorView.setVisibility(View.GONE);
+        tabLayout.enableAllTabs();
 
         model.setTitle(title);
         model.setTitleOriginal(title);
@@ -905,6 +908,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabLayoutOffset.setLayoutParams(getTabLayoutOffsetParams());
         tabLayoutOffset.setVisibility(View.VISIBLE);
 
+        disableActionTabs();
+
         refreshView.setEnabled(!ThrowableUtil.is404(getContext(), caught));
         errorState = true;
         if (callback() != null) {
@@ -923,6 +928,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         errorView.setVisibility(View.GONE);
+        tabLayout.enableAllTabs();
         errorState = false;
 
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
@@ -1417,6 +1423,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private LinearLayout.LayoutParams getTabLayoutOffsetParams() {
         return new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, tabLayout.getHeight());
+    }
+
+    private void disableActionTabs() {
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            if (!PageActionTab.of(i).equals(PageActionTab.ADD_TO_READING_LIST)) {
+                tabLayout.disableTab(i);
+            }
+        }
     }
 
     @Nullable

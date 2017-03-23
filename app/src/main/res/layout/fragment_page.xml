@@ -127,7 +127,7 @@
                     android:background="@color/base80"
                     android:visibility="gone"/>
 
-                <org.wikipedia.page.ArticleTabLayout
+                <org.wikipedia.page.PageActionTabLayout
                     android:id="@+id/page_actions_tab_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -1,23 +1,23 @@
 package org.wikipedia.page;
 
 import android.content.Context;
-import android.support.design.widget.TabLayout;
 import android.util.AttributeSet;
 
 import org.wikipedia.R;
+import org.wikipedia.views.ConfigurableTabLayout;
 
 import butterknife.ButterKnife;
 
-public class ArticleTabLayout extends TabLayout {
-    public ArticleTabLayout(Context context) {
+public class PageActionTabLayout extends ConfigurableTabLayout {
+    public PageActionTabLayout(Context context) {
         this(context, null);
     }
 
-    public ArticleTabLayout(Context context, AttributeSet attrs) {
+    public PageActionTabLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ArticleTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PageActionTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         inflate(getContext(), R.layout.view_article_tab_layout, this);
         ButterKnife.bind(this);
