@@ -254,14 +254,16 @@
   <string name="reading_list_sort_by_name_desc">Sorteren op naam (achterstevoren)</string>
   <string name="reading_list_sort_by_recent">Sorteren op meest recente</string>
   <string name="reading_list_sort_by_recent_desc">Sorteren op minst recente</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Leeslijst verwijderen</string>
+  <string name="reading_list_menu_delete">Lijst verwijderen</string>
+  <string name="reading_list_menu_rename">Hernoemen</string>
+  <string name="reading_list_menu_edit_description">Beschrijving bewerken</string>
   <string name="reading_list_name_sample">Mijn leeslijst</string>
   <string name="reading_list_name_hint">Naam van deze lijst</string>
   <string name="reading_list_description_hint">Beschrijving (optioneel)</string>
   <string name="reading_list_item_deleted">%s verwijderd uit de lijst</string>
   <string name="reading_list_item_delete_undo">Ongedaan maken</string>
   <string name="reading_list_deleted">%s verwijderd</string>
-  <string name="reading_lists_empty" fuzzy="true">Er zijn nog geen leeslijsten aangemaakt.</string>
+  <string name="reading_lists_empty">Er zijn nog geen leeslijsten aangemaakt</string>
   <string name="reading_lists_empty_message" fuzzy="true">Organiseer de pagina\'s die je bekijkt in leeslijsten! Tik terwijl je een pagina bekijkt op het bladwijzerpictogram onderaan de werkbalk om deze toe te voegen aan een leeslijst.</string>
   <string name="reading_lists_onboarding_intro">Maak leeslijsten van pagina\'s die u later wilt lezen, zelfs als u offline bent!</string>
   <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>
@@ -269,6 +271,7 @@
   <string name="reading_lists_onboarding_example2">Favoriete dieren</string>
   <string name="reading_lists_onboarding_example3">Ruimtevaart!</string>
   <string name="reading_lists_onboarding_got_it">Begrepen</string>
+  <string name="reading_list_no_description">Geen beschrijving...</string>
   <string name="user_option_sync_label">Voorkeuren</string>
   <string name="notification_button_view_user">Met gebruiker overleggen</string>
   <string name="notification_talk_title">Nieuw bericht op Wikipedia</string>
