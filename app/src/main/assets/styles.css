@@ -538,6 +538,9 @@ span.mw-ref {
 	unicode-bidi: embed;
 }
 
+/* Upstream bug in stylelint makes it complain aboout the case of 'mw-Ref' */
+/* stylelint-disable value-keyword-case */
+
 /* With a group set */
 span.mw-ref a[data-mw-group]:after {
 	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, decimal ) ']';
@@ -573,6 +576,7 @@ span.mw-ref a:after {
 
 /* Hide the default rendering in browsers that support content
  * generation by selecting for :after pseudo-element.*/
+/* stylelint-disable-next-line selector-type-no-unknown */
 x-thereisnoelementwiththisname:after,
 span.mw-reflink-text {
 	display: none;
@@ -609,6 +613,7 @@ span[rel='mw:referencedBy'] a:after {
 
 /* Hide the default rendering in browsers that support content
  * generation by selecting for :after pseudo-element.*/
+/* stylelint-disable-next-line selector-type-no-unknown */
 x-thereisnoelementwiththisname[rel='mw:referencedBy']:before,
 span.mw-linkback-text {
 	display: none;
