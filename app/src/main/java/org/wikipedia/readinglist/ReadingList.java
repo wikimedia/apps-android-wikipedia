@@ -20,7 +20,6 @@ import static org.wikipedia.readinglist.ReadingLists.SORT_BY_RECENT_DESC;
 
 public final class ReadingList extends ReadingListRow {
     @NonNull private final List<ReadingListPage> pages;
-    private boolean emptyListSavePagesState = true;
 
     public static ReadingList fromCursor(@NonNull Cursor cursor) {
         ReadingListRow list = ReadingList.DATABASE_TABLE.fromCursor(cursor);
@@ -80,27 +79,6 @@ public final class ReadingList extends ReadingListRow {
 
     public void setDescription(@NonNull String description) {
         description(description);
-    }
-
-    public void setSaveOffline(boolean saved) {
-        emptyListSavePagesState = saved;
-
-        for (ReadingListPage page : pages) {
-            page.savedOrSaving(saved);
-        }
-    }
-
-    public boolean getSaveOffline() {
-        if (pages.isEmpty()) {
-            return emptyListSavePagesState;
-        }
-
-        for (ReadingListPage page : pages) {
-            if (!page.savedOrSaving()) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public void sort(int sortMode) {

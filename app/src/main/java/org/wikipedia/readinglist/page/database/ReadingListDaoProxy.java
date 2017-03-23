@@ -30,7 +30,7 @@ public final class ReadingListDaoProxy {
         long now = System.currentTimeMillis();
         return ReadingListPage
                 .builder()
-                .diskStatus(list.getSaveOffline() ? DiskStatus.OUTDATED : DiskStatus.ONLINE)
+                .diskStatus(DiskStatus.OUTDATED)
                 .key(key(title))
                 .listKeys(listKey(list))
                 .site(title.getWikiSite())

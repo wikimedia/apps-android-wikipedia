@@ -156,6 +156,11 @@ public final class ReadingListData {
         }
     }
 
+    public synchronized void setPageOffline(@NonNull ReadingListPage page, boolean offline) {
+        page.setOffline(offline);
+        ReadingListPageDao.instance().upsert(page);
+    }
+
     public synchronized void removeList(@NonNull ReadingList list) {
         listClient().delete(list, listClient().getPrimaryKeySelectionArgs(list));
         for (ReadingListPage page : list.getPages()) {

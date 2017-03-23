@@ -661,7 +661,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                             pageActionTabsCallback.updateBookmark(true);
                             page.touch();
                             ReadingListPageDao.instance().upsert(page);
-                            if (page.savedOrSaving()) {
+                            if (page.isOffline()) {
                                 // TODO: mark the page outdated only if the revision ID from the server
                                 // is newer than the one on disk.
                                 ReadingListPageDao.instance().markOutdated(page);
