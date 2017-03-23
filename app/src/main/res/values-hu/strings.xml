@@ -104,7 +104,7 @@
   <string name="zero_charged_verbiage">Az ingyenes Wikipédia-hozzáférés már nem aktív.</string>
   <string name="zero_warn_when_leaving">Figyelmeztet, ha elhagyom a Wikipédia Zérót</string>
   <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia appot, ami költségekkel járhat.</string>
-  <string name="zero_webpage_title">Wikipedia Zero GyIK</string>
+  <string name="zero_webpage_title">Wikipédia Zéró GyIK</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zéró</string>
   <string name="zero_interstitial_title">Wikipédia Zéró elhagyása</string>
   <string name="zero_interstitial_leave_app">Adatforgalmi díj lehet. Folytatod a külső oldalon?</string>
@@ -328,6 +328,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="description_edit_help_about_wikidata">A Wikidatáról</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-útmutató leírások készítéséről</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/hu</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
   <string name="description_edit_success_saved">Leírás elmentve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
