@@ -1,11 +1,5 @@
 -dontobfuscate
 
-# --- Mapbox ---
-# TODO: remove when the next Mapbox release is available.
--keep class com.mapbox.mapboxsdk.style.functions.** { *; }
--keep class com.mapbox.mapboxsdk.storage.** { *; }
-# --- /Mapbox ---
-
 # --- Fresco ---
 # Keep our interfaces so they can be used by other ProGuard rules.
 # See http://sourceforge.net/p/proguard/bugs/466/
