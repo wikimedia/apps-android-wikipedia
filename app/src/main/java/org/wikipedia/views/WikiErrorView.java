@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
 
+import org.mediawiki.api.json.ApiException;
 import org.wikipedia.R;
 import org.wikipedia.page.PageActivity;
 
@@ -20,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static org.wikipedia.util.ThrowableUtil.is404;
+import static org.wikipedia.util.ThrowableUtil.isOffline;
 
 public class WikiErrorView extends LinearLayout {
     @BindView(R.id.view_wiki_error_icon) ImageView icon;
@@ -75,7 +77,17 @@ public class WikiErrorView extends LinearLayout {
     }
 
     private ErrorType getErrorType(@NonNull Context context, @Nullable Throwable caught) {
-        if (caught != null && !is404(context, caught)) {
+        // apps-android-java-mwapi wraps all exceptions in an ApiException.  Strip it so we get
+        // useful information about the underlying cause.
+        // TODO: update when the apps-android-java-mwapi dependency is dropped (T141127)
+        if (caught instanceof ApiException) {
+            caught = caught.getCause();
+        }
+
+        if (caught != null && is404(context, caught)) {
+            return ErrorType.PAGE_MISSING;
+        }
+        if (caught != null && isOffline(caught)) {
             if (context instanceof PageActivity) {
                 return ErrorType.PAGE_OFFLINE;
             }
@@ -86,6 +98,15 @@ public class WikiErrorView extends LinearLayout {
 
 
     private enum ErrorType {
+        PAGE_MISSING(R.drawable.ic_error_black_24dp, R.string.error_page_does_not_exist,
+                R.string.page_error_back_to_main) {
+            @Nullable @Override
+            OnClickListener buttonClickListener(@NonNull WikiErrorView errorView) {
+                return errorView.getBackListener();
+            }
+        },
+
+
         PAGE_OFFLINE(R.drawable.ic_no_article, R.string.page_offline_notice_cannot_load_while_offline,
                 R.string.page_error_retry, R.string.page_offline_notice_add_to_reading_list) {
             @Nullable @Override

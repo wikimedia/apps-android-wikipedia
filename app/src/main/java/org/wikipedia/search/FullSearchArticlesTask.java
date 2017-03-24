@@ -76,7 +76,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 // the only reason for a JSONException is if the response is an empty array.
                 return new SearchResults();
             } else {
-                throw new RuntimeException(e);
+                throw e;
             }
         }
 

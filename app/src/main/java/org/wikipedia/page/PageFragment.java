@@ -98,6 +98,7 @@ import static butterknife.ButterKnife.findById;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -130,6 +131,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageInvalidateOptionsMenu();
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorRetry();
+        void onPageLoadErrorBackPressed();
         boolean shouldLoadFromBackStack();
         boolean shouldShowTabList();
     }
@@ -357,7 +359,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorView.setBackClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                boolean back = onBackPressed();
+
+                // Needed if we're coming from another activity or fragment
+                if (!back && callback() != null) {
+                    // noinspection ConstantConditions
+                    callback().onPageLoadErrorBackPressed();
+                }
             }
         });
 
@@ -908,7 +916,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabLayoutOffset.setLayoutParams(getTabLayoutOffsetParams());
         tabLayoutOffset.setVisibility(View.VISIBLE);
 
-        disableActionTabs();
+        disableActionTabs(caught);
 
         refreshView.setEnabled(!ThrowableUtil.is404(getContext(), caught));
         errorState = true;
@@ -1425,9 +1433,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, tabLayout.getHeight());
     }
 
-    private void disableActionTabs() {
+    private void disableActionTabs(@Nullable Throwable caught) {
+        boolean offline = caught != null && isOffline(caught);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            if (!PageActionTab.of(i).equals(PageActionTab.ADD_TO_READING_LIST)) {
+            if (!(offline && PageActionTab.of(i).equals(PageActionTab.ADD_TO_READING_LIST))) {
                 tabLayout.disableTab(i);
             }
         }

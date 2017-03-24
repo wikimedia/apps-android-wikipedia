@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.login.LoginClient;
 
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
 
@@ -82,7 +83,7 @@ public final class ThrowableUtil {
     }
 
     public static boolean isOffline(@NonNull Throwable caught) {
-        return caught instanceof UnknownHostException;
+        return caught instanceof UnknownHostException || caught instanceof SocketException;
     }
 
     private static boolean isNetworkError(@NonNull Throwable e) {
