@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/view_link_preview_error_icon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_margin="24dp"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/ic_error_black_24dp"
+        android:tint="?attr/link_preview_offline_text_color"
+        android:contentDescription="@null"/>
+    <TextView
+        android:id="@+id/view_link_preview_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:textSize="18sp"
+        android:textColor="?attr/link_preview_offline_text_color"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:lineSpacingMultiplier="1.2"
+        android:text="@string/error_message_generic"/>
+</merge>

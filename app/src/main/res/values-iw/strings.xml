@@ -227,7 +227,6 @@
   <string name="text_copied">הטקסט הועתק ללוח.</string>
   <string name="button_continue_to_article">לקרוא את הערך</string>
   <string name="button_add_to_reading_list">הוספה לרשימת קריאה</string>
-  <string name="dialog_link_preview_offline_notice">אי־אפשר לטעון ערך ללא חיבור לרשת. אפשר להוסיף ערך לרשימת קריאה והוא ייטען ויישמר אחרי התחברות לרשת.</string>
   <string name="button_get_directions">לקבל כיוונים</string>
   <string name="error_no_maps_app">לא מצאתי שום אפליקציה שנותנת כיוונים.</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>

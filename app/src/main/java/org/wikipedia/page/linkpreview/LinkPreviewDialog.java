@@ -45,12 +45,13 @@ import retrofit2.Response;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+import static org.wikipedia.util.ThrowableUtil.is404;
+import static org.wikipedia.util.ThrowableUtil.isOffline;
 
 public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
-        implements DialogInterface.OnDismissListener {
+        implements LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
     public interface Callback {
-        void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
-                                   boolean inNewTab);
+        void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab);
         void onLinkPreviewCopyLink(@NonNull PageTitle title);
         void onLinkPreviewAddToList(@NonNull PageTitle title);
         void onLinkPreviewShareLink(@NonNull PageTitle title);
@@ -60,7 +61,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private LinearLayout dialogContainer;
     private View contentContainer;
-    private View offlineContainer;
+    private LinkPreviewErrorView errorContainer;
     private ProgressBar progressBar;
     private TextView extractText;
     private SimpleDraweeView thumbnailView;
@@ -88,8 +89,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         WikipediaApp app = WikipediaApp.getInstance();
         pageTitle = getArguments().getParcelable("title");
         entrySource = getArguments().getInt("entrySource");
@@ -98,7 +98,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
         dialogContainer = (LinearLayout) rootView.findViewById(R.id.dialog_link_preview_container);
         contentContainer = rootView.findViewById(R.id.dialog_link_preview_content_container);
-        offlineContainer = rootView.findViewById(R.id.dialog_link_preview_offline_container);
+        errorContainer = (LinkPreviewErrorView) rootView.findViewById(R.id.dialog_link_preview_error_container);
         progressBar = (ProgressBar) rootView.findViewById(R.id.link_preview_progress);
         toolbarView = rootView.findViewById(R.id.link_preview_toolbar);
         toolbarView.setOnClickListener(goToPageListener);
@@ -198,6 +198,18 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         }
     }
 
+    @Override
+    public void onAddToList() {
+        if (callback() != null) {
+            callback().onLinkPreviewAddToList(pageTitle);
+        }
+    }
+
+    @Override
+    public void onDismiss() {
+        dismiss();
+    }
+
     private void loadContent() {
         PageClientFactory
                 .create(pageTitle.getWikiSite(), pageTitle.namespace())
@@ -205,7 +217,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .enqueue(linkPreviewNetworkOnLoadCallback);
     }
 
-    private void tryLoadingFromCache() {
+    private void tryLoadingFromCache(@Nullable final Throwable networkException) {
         L.v("Loading link preview from Saved Pages");
         new LoadSavedPageTask(pageTitle) {
             @Override public void onFinish(Page page) {
@@ -219,7 +231,11 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 if (!isAdded()) {
                     return;
                 }
-                showPreviewOfflineNotice();
+                if (networkException != null) {
+                    showError(networkException);
+                } else {
+                    showError(caught);
+                }
                 L.e("Page summary cache request failed", caught);
             }
         }.execute();
@@ -230,14 +246,17 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         setPreviewContents(contents);
     }
 
-    private void showPreviewOfflineNotice() {
+    private void showError(@Nullable Throwable caught) {
         dialogContainer.setLayoutTransition(null);
         progressBar.setVisibility(View.GONE);
         contentContainer.setVisibility(View.GONE);
-        offlineContainer.setVisibility(View.VISIBLE);
-        overlayView.setPrimaryButtonText(getResources().getString(R.string.button_add_to_reading_list));
         overlayView.showSecondaryButton(false);
-        overlayView.setCallback(new OverlayViewOfflineCallback());
+        errorContainer.setVisibility(View.VISIBLE);
+        errorContainer.setError(caught);
+        errorContainer.setCallback(this);
+        LinkPreviewErrorType errorType = LinkPreviewErrorType.get(getContext(), caught);
+        overlayView.setPrimaryButtonText(getResources().getString(errorType.buttonText()));
+        overlayView.setCallback(errorType.buttonAction(errorContainer));
     }
 
     private void setPreviewContents(@NonNull LinkPreviewContents contents) {
@@ -258,15 +277,22 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             if (summary != null && !summary.hasError()) {
                 showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
             } else {
-                tryLoadingFromCache();
+                tryLoadingFromCache(null);
                 logError(summary.hasError() ? summary.getError() : null,
                         "Page summary network request failed");
             }
         }
 
-        @Override public void onFailure(Call<PageSummary> call, Throwable t) {
-            tryLoadingFromCache();
-            L.e(t);
+        @Override public void onFailure(Call<PageSummary> call, Throwable caught) {
+            L.e(caught);
+            if (is404(getContext(), caught)) {
+                // If the page doesn't exist, show an error immediately without checking the cache.
+                showError(caught);
+            } else {
+                // If we're offline, check the cache but pass along the exception so that we show
+                // the correct error message if the page isn't found in the cache.
+                tryLoadingFromCache(isOffline(caught) ? caught : null);
+            }
         }
     };
 
@@ -369,19 +395,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         @Override
         public void onSecondaryClick() {
             goToExternalMapsApp();
-        }
-    }
-
-    private class OverlayViewOfflineCallback implements LinkPreviewOverlayView.Callback {
-        @Override
-        public void onPrimaryClick() {
-            if (callback() != null) {
-                callback().onLinkPreviewAddToList(pageTitle);
-            }
-        }
-
-        @Override
-        public void onSecondaryClick() {
         }
     }
 

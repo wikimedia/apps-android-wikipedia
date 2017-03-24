@@ -227,7 +227,6 @@
   <string name="text_copied">Текст скопирован в буфер обмена.</string>
   <string name="button_continue_to_article">Читать статью</string>
   <string name="button_add_to_reading_list">Добавить в список для чтения</string>
-  <string name="dialog_link_preview_offline_notice">Статья не может быть загружена при нахождении в автономном режиме. Добавьте её в список для чтения, и он будет загружена, как только вы окажетесь онлайн.</string>
   <string name="button_get_directions">Проложить маршрут</string>
   <string name="error_no_maps_app">Не удалось найти ни одного приложения, которое бы прокладывало маршрут.</string>
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>

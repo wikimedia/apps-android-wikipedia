@@ -227,7 +227,6 @@
   <string name="text_copied">Testu copiáu al cartafueyu.</string>
   <string name="button_continue_to_article">Lleer el artículu</string>
   <string name="button_add_to_reading_list">Añadir a llista de llectura</string>
-  <string name="dialog_link_preview_offline_notice">L\'artículu nun puede cargase mentanto teas sin conexón. Añádelo a una llista de llectura y descargaráse  cuando vuelvas a coneutate.</string>
   <string name="button_get_directions">Recibir indicaciones</string>
   <string name="error_no_maps_app">Nun pudo alcontrase nenguna app qu\'ufra indicaciones</string>
   <string name="preference_title_show_link_previews">Amosar vistes previes de los enllaces</string>

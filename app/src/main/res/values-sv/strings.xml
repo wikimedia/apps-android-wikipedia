@@ -227,7 +227,6 @@
   <string name="text_copied">Texten kopierades till urklipp.</string>
   <string name="button_continue_to_article">Läs artikeln</string>
   <string name="button_add_to_reading_list">Lägg till i läslista</string>
-  <string name="dialog_link_preview_offline_notice">Artikeln kan inte läsas in när du är offline. Lägg till den i en läslista så kommer den laddas ned när du är online.</string>
   <string name="button_get_directions">Få vägbeskrivningar</string>
   <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>

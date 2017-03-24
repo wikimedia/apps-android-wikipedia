@@ -225,7 +225,6 @@
   <string name="text_copied">Szöveg másolva a vágólapra.</string>
   <string name="button_continue_to_article">Olvasd el a cikket</string>
   <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
-  <string name="dialog_link_preview_offline_notice">Nem lehet betölteni a szócikket kapcsolat nélkül. Add hozzá egy olvasólistához, hogy automatikusan letöltődjön, amikor kapcsolódsz az internethez.</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>

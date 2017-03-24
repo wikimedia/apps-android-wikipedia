@@ -227,7 +227,6 @@
   <string name="text_copied">Metin panoya kopyalandı.</string>
   <string name="button_continue_to_article">Maddeyi oku</string>
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
-  <string name="dialog_link_preview_offline_notice">Madde çevrimdışı olarak yüklenemez. Bir okuma listesine eklerseniz, çevrimiçi olduğunuzda indirilecektir.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_show_link_previews">Bağlantı ön izlemelerini görüntüle</string>

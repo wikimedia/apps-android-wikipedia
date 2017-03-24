@@ -227,7 +227,6 @@
   <string name="text_copied">O texto copiouse no portapapeis.</string>
   <string name="button_continue_to_article">Artigo lido</string>
   <string name="button_add_to_reading_list">Engadir á lista de lectura</string>
-  <string name="dialog_link_preview_offline_notice">O artigo non se pode cargar mentras está sen conexión. Engádao a unha lista de lectura e descargarase cando estea  conectado.</string>
   <string name="button_get_directions">Obter as direccións</string>
   <string name="error_no_maps_app">Imposible atopar unha aplicación que proporcione as direccións.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>

@@ -227,7 +227,6 @@
   <string name="text_copied">Текстот е ставен во меѓускладот.</string>
   <string name="button_continue_to_article">Прочитајте ја статијата</string>
   <string name="button_add_to_reading_list">Додај во список за читање</string>
-  <string name="dialog_link_preview_offline_notice">Статијата не може да се вчита додека не сте на линија. Додајте ја во списокот за читање за да се преземе кога ќе добиете линија.</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
