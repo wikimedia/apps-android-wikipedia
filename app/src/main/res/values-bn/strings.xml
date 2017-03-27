@@ -225,6 +225,8 @@
   <string name="address_copied">ঠিকানা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="text_copied">লেখা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="button_continue_to_article">নিবন্ধ পড়ুন</string>
+  <string name="button_add_to_reading_list">পড়ার তালিকায় যোগ করুন</string>
+  <string name="dialog_link_preview_offline_notice">অফলাইনে থাকাকালীন নিবন্ধ লোড করা যাবে না। একটি পড়ার তালিকায় যোগ করুন ও যখন আপনি অনলাইনে আসবেন তখন এটি ডাউনলোড করা হবে।</string>
   <string name="button_get_directions">দিক নির্দেশনা পান</string>
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
@@ -233,6 +235,8 @@
   <string name="error_voice_search_not_available">দুঃখিত, কণ্ঠ শনাক্তকরণ উপলব্ধ নয়।</string>
   <string name="location_service_disabled">অবস্থান পরিষেবা অক্ষম।</string>
   <string name="enable_location_service">সক্রিয় করুন</string>
+  <string name="location_permissions_enable_prompt">আপনি কাছাকাছি স্থান দেখার জন্য অবস্থানের অনুমতি সক্রিয় করুন।</string>
+  <string name="location_permissions_enable_action">চালু করুন</string>
   <string name="error_webview_updating">Android System WebView এই মুহুর্তে হালনাগাদ করা হচ্ছে। কয়েক মুহূর্ত পর আবার চেষ্টা করুন।</string>
   <string name="multi_select_items_selected">%dটি নির্বাচিত</string>
   <string name="crash_report_dialog_title">দুঃখিত, অ্যাপ্লিকেশন শেষ বার বিধ্বস্ত হয়েছিল</string>
@@ -288,6 +292,10 @@
   <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
   <string name="reading_list_no_description">কোন বিবরণ নেই...</string>
   <string name="reading_list_empty">এই তালিকায় আপনি কোন নিবন্ধ যোগ করেন নি।</string>
+  <string name="reading_list_article_make_offline">এই নিবন্ধটি অফলাইনে উপলব্ধ করুন</string>
+  <string name="reading_list_article_remove_offline">এই নিবন্ধটি অফলাইনে উপলব্ধ করবেন না</string>
+  <string name="reading_list_article_offline_message">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</string>
+  <string name="reading_list_article_not_offline_message">এই নিবন্ধটি আর অফলাইনে উপলব্ধ হবে না।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_button_view_user">ব‍্যবহারকারীর সঙ্গে আলাপ করুন</string>
   <string name="notification_talk_title">উইকিপিডিয়ায় নতুন বার্তা</string>

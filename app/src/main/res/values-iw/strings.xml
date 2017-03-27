@@ -226,6 +226,8 @@
   <string name="address_copied">הכתובת הועתקה ללוח.</string>
   <string name="text_copied">הטקסט הועתק ללוח.</string>
   <string name="button_continue_to_article">לקרוא את הערך</string>
+  <string name="button_add_to_reading_list">הוספה לרשימת קריאה</string>
+  <string name="dialog_link_preview_offline_notice">אי־אפשר לטעון ערך ללא חיבור לרשת. אפשר להוסיף ערך לרשימת קריאה והוא ייטען ויישמר אחרי התחברות לרשת.</string>
   <string name="button_get_directions">לקבל כיוונים</string>
   <string name="error_no_maps_app">לא מצאתי שום אפליקציה שנותנת כיוונים.</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>
+  <string name="location_permissions_enable_prompt">נא להפעיל הרשאת מיקום כדי לראות מקומות לידך.</string>
+  <string name="location_permissions_enable_action">להפעיל</string>
   <string name="error_webview_updating">מתבצע עדכון של Android System WebView. נא לנסות שוב בעוד רגע.</string>
   <string name="multi_select_items_selected">נבחרו %d</string>
   <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
@@ -289,6 +293,10 @@
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="reading_list_no_description">אין תיאור...</string>
   <string name="reading_list_empty">אין לך ערכים להוסיף לרשימה הזאת.</string>
+  <string name="reading_list_article_make_offline">לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
+  <string name="reading_list_article_remove_offline">לא לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
+  <string name="reading_list_article_offline_message">הערך הזה יהיה זמין ללא חיבור לרשת.</string>
+  <string name="reading_list_article_not_offline_message">הערך הזה יהיה עוד זמין ללא חיבור לרשת.</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_button_view_user">לדבר עם משתמש</string>
   <string name="notification_talk_title">הודעה חדשה בוויקיפדיה</string>

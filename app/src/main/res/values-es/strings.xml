@@ -226,6 +226,8 @@
   <string name="address_copied">Dirección copiada en el portapapeles.</string>
   <string name="text_copied">Texto copiado en el portapapeles.</string>
   <string name="button_continue_to_article">Leer artículo</string>
+  <string name="button_add_to_reading_list">Añadir a lista de lectura</string>
+  <string name="dialog_link_preview_offline_notice">El artículo no se puede cargar mientras estás sin conexión. Añádelo a una lista de lectura y se descargará cuando te conectes.</string>
   <string name="button_get_directions">Obtener indicaciones</string>
   <string name="error_no_maps_app">No se pudo encontrar ninguna aplicación que proporcione indicaciones.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>

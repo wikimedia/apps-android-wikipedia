@@ -226,6 +226,8 @@
   <string name="address_copied">Adres panoya kopyalandı.</string>
   <string name="text_copied">Metin panoya kopyalandı.</string>
   <string name="button_continue_to_article">Maddeyi oku</string>
+  <string name="button_add_to_reading_list">Okuma listesine ekle</string>
+  <string name="dialog_link_preview_offline_notice">Madde çevrimdışı olarak yüklenemez. Bir okuma listesine eklerseniz, çevrimiçi olduğunuzda indirilecektir.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_show_link_previews">Bağlantı ön izlemelerini görüntüle</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
   <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
   <string name="enable_location_service">Etkinleştir</string>
+  <string name="location_permissions_enable_prompt">Yakınınızdaki yerleri görmek için konum izinlerini etkinleştirin.</string>
+  <string name="location_permissions_enable_action">Aç</string>
   <string name="error_webview_updating">Android Sistem Web Görünümü şu an güncelleniyor. Lütfen birazdan tekrar deneyin.</string>
   <string name="multi_select_items_selected">%d seçili</string>
   <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
@@ -287,6 +291,10 @@
   <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="reading_list_no_description">Tanımlama yok...</string>
   <string name="reading_list_empty">Bu listeye eklediğiniz hiç madde yok.</string>
+  <string name="reading_list_article_make_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yap</string>
+  <string name="reading_list_article_remove_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yapma</string>
+  <string name="reading_list_article_offline_message">Bu maddeye artık çevrimdışı olarak erişilebilir.</string>
+  <string name="reading_list_article_not_offline_message">Bu maddeye artık çevrimdışı olarak erişilemez.</string>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>
   <string name="notification_talk_title">Vikipedi\'de yeni mesaj</string>

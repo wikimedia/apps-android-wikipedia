@@ -226,6 +226,8 @@
   <string name="address_copied">Adresse in die Zwischenablage kopiert.</string>
   <string name="text_copied">Text in die Zwischenablage kopiert.</string>
   <string name="button_continue_to_article">Artikel lesen</string>
+  <string name="button_add_to_reading_list">Zur Leseliste hinzufügen</string>
+  <string name="dialog_link_preview_offline_notice">Der Artikel kann nicht geladen werden, während du offline bist. Füge ihn zu einer Leseliste hinzu und er wird heruntergeladen, sobald du wieder online bist.</string>
   <string name="button_get_directions">Richtungen abrufen</string>
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">Leider ist die Stimmenerkennung nicht verfügbar.</string>
   <string name="location_service_disabled">Standortdienste sind deaktiviert.</string>
   <string name="enable_location_service">Aktivieren</string>
+  <string name="location_permissions_enable_prompt">Standortberechtigungen aktivieren, um Orte in deiner Nähe anzusehen.</string>
+  <string name="location_permissions_enable_action">Anschalten</string>
   <string name="error_webview_updating">Das Android-System WebView wird derzeit aktualisiert. Bitte versuche es gleich noch einmal.</string>
   <string name="multi_select_items_selected">%d ausgewählt</string>
   <string name="crash_report_dialog_title">Leider ist die App beim letzten Mal abgestürzt</string>
@@ -289,6 +293,10 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_list_no_description">Keine Beschreibung …</string>
   <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
+  <string name="reading_list_article_make_offline">Diesen Artikel offline verfügbar machen</string>
+  <string name="reading_list_article_remove_offline">Diesen Artikel nicht offline verfügbar machen</string>
+  <string name="reading_list_article_offline_message">Dieser Artikel ist jetzt offline verfügbar.</string>
+  <string name="reading_list_article_not_offline_message">Dieser Artikel ist nicht mehr offline verfügbar.</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_button_view_user">Mit dem Benutzer diskutieren</string>
   <string name="notification_talk_title">Neue Nachricht auf Wikipedia</string>

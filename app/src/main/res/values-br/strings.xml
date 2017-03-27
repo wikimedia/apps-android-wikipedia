@@ -226,6 +226,8 @@
   <string name="address_copied">Chomlec\'h eilet er golver</string>
   <string name="text_copied">Testenn kopiet er golver.</string>
   <string name="button_continue_to_article">Lenn ar pennad</string>
+  <string name="button_add_to_reading_list">Ouzhpennañ d\'ar roll lenn</string>
+  <string name="dialog_link_preview_offline_notice">N\'haller ket kargañ ar pennad pa vezit ezlinenn. E ouzhpennañ d\'ar roll lenn ha pellgarget e vo diwezhatoc\'h pa viot enlinenn.</string>
   <string name="button_get_directions">Kaout an tuioù</string>
   <string name="error_no_maps_app">Ne c\'haller kavout arload ebet hag a ro tuioù.</string>
   <string name="preference_title_show_link_previews">Diskwel alberzoù al liammoù</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">Ho tigarez, ne c\'haller ket digejañ ar gomz.</string>
   <string name="location_service_disabled">Diweredekaet eo ar servijoù lec\'hiañ.</string>
   <string name="enable_location_service">Gweredekaat</string>
+  <string name="location_permissions_enable_prompt">Gweredekaat an aotre lec\'hiañ evit gwelet lec\'hioù tost deoc\'h.</string>
+  <string name="location_permissions_enable_action">Enaouiñ</string>
   <string name="error_webview_updating">Emañ ar WebView eus ar riezhiad Android o hizivaat evit ar mare. Klaskit en-dro a-benn ur pennadig.</string>
   <string name="multi_select_items_selected">%d diuzet</string>
   <string name="crash_report_dialog_title">Hon digarezit, c\'hwitet eo an arload ar wech diwezhañ</string>
@@ -289,6 +293,10 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_lists_onboarding_got_it">Kaout anezhañ</string>
   <string name="reading_list_no_description">Deskrivadur ebet...</string>
   <string name="reading_list_empty">N\'hoc\'h eus pennad ebet ouzhpennet d\'ar roll-mañ.</string>
+  <string name="reading_list_article_make_offline">Aotren gwelet ar pennad-mañ ezlinenn</string>
+  <string name="reading_list_article_remove_offline">Na aotren gwelet ar pennad-mañ ezlinenn</string>
+  <string name="reading_list_article_offline_message">Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken.</string>
+  <string name="reading_list_article_not_offline_message">Ne c\'hallor ket gwelet ar pennad-mañ ezlinenn pelloc\'h.</string>
   <string name="user_option_sync_label">Penndibaboù</string>
   <string name="notification_button_view_user">Komz gant an implijer</string>
   <string name="notification_talk_title">Kemennadenn nevez war Wikipedia</string>

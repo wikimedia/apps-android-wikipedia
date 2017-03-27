@@ -226,6 +226,8 @@
   <string name="address_copied">網址已複製至剪貼簿。</string>
   <string name="text_copied">文字已複製至剪貼簿。</string>
   <string name="button_continue_to_article">閱讀條目</string>
+  <string name="button_add_to_reading_list">新增至閱讀清單</string>
+  <string name="dialog_link_preview_offline_notice">條目不能在離線時載入。若添加條目至閱讀清單可在您重新上線時下載。</string>
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">很抱歉，語音辨識不可用。</string>
   <string name="location_service_disabled">位置服務處於停用狀態。</string>
   <string name="enable_location_service">啟用</string>
+  <string name="location_permissions_enable_prompt">啟用位置許可權限來查看靠近您所在的地點。</string>
+  <string name="location_permissions_enable_action">啟動</string>
   <string name="error_webview_updating">Android系統的WebView正在更新。請稍候再試。</string>
   <string name="multi_select_items_selected">%d個已選擇</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
@@ -289,6 +293,10 @@
   <string name="reading_lists_onboarding_got_it">知道了</string>
   <string name="reading_list_no_description">沒有描述…</string>
   <string name="reading_list_empty">您沒有添加至此清單的條目。</string>
+  <string name="reading_list_article_make_offline">讓此條目可離線使用</string>
+  <string name="reading_list_article_remove_offline">不讓此條目可離線使用</string>
+  <string name="reading_list_article_offline_message">此條目現在可離線使用。</string>
+  <string name="reading_list_article_not_offline_message">此條目不再可離線使用。</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_button_view_user">與使用者對話</string>
   <string name="notification_talk_title">維基百科上的新訊息</string>

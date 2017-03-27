@@ -62,6 +62,7 @@
   <string name="dialog_message_leaving_edit_stay">البقاء</string>
   <string name="menu_show_toc">جدول المحتويات</string>
   <string name="search_no_results_found">لا توجد نتائج</string>
+  <string name="search_reading_lists_no_results">لم يعثر على نتائج في قوائم القراءة</string>
   <string name="edit_section_captcha_message">للمساعدة على الحماية ضد البريد المزعج الآلي، فضلاً أدخل الكلمات التي تظهر أدناه</string>
   <string name="edit_section_captcha_hint">كرر الكلمات من فوق</string>
   <string name="title_captcha">أدخل كلمة التحقق</string>
@@ -80,6 +81,7 @@
   <string name="history_empty_title" fuzzy="true">لا صفحات مفتوحة مؤخرًا هنا!</string>
   <string name="history_empty_message" fuzzy="true">تاريخ تصفحك فارغ، يبدو بأنك قد حذفت جميع مدخلات التاريخ. في المرة القادمة التي تزور فيها إحدى الصفحات بإمكانك العودة إليها مباشرةً من هنا.</string>
   <string name="delete_selected_history">حذف</string>
+  <string name="delete_selected_items">إزالة العناصر المختارة</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يكيبيد&lt;big&gt;يا&lt;/big&gt;</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
   <string name="login_create_account_link">ليس لديك حساب؟ انضم إلى ويكيبيديا</string>
@@ -219,6 +221,7 @@
   <string name="address_copied">العنوان تم نسخه إلى الحافظة.</string>
   <string name="text_copied">تم نسخ النص  إلى الحافظة.</string>
   <string name="button_continue_to_article">اقرأ المقالة</string>
+  <string name="button_add_to_reading_list">أضف إلى قائمة القراءة</string>
   <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>

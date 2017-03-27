@@ -226,6 +226,8 @@
   <string name="address_copied">O enderezo copiouse no portapapeis.</string>
   <string name="text_copied">O texto copiouse no portapapeis.</string>
   <string name="button_continue_to_article">Artigo lido</string>
+  <string name="button_add_to_reading_list">Engadir á lista de lectura</string>
+  <string name="dialog_link_preview_offline_notice">O artigo non se pode cargar mentras está sen conexión. Engádao a unha lista de lectura e descargarase cando estea  conectado.</string>
   <string name="button_get_directions">Obter as direccións</string>
   <string name="error_no_maps_app">Imposible atopar unha aplicación que proporcione as direccións.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">O recoñecemento de voz non está dispoñible.</string>
   <string name="location_service_disabled">Os servizos de localización están desactivados.</string>
   <string name="enable_location_service">Activar</string>
+  <string name="location_permissions_enable_prompt">Activar os dereitos de localización para ver os lugares preto de vostede.</string>
+  <string name="location_permissions_enable_action">Activar</string>
   <string name="error_webview_updating">O WebView do sistema Android está a actualizarse nestes momentos. Por favor, inténteo de novo nun momento.</string>
   <string name="multi_select_items_selected">%d seleccionados</string>
   <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
@@ -289,6 +293,10 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_no_description">Sen descrición...</string>
   <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
+  <string name="reading_list_article_make_offline">Facer que este artigo estea dispoñible sen conexión</string>
+  <string name="reading_list_article_remove_offline">Non facer este artigo dispoñible sen conexión</string>
+  <string name="reading_list_article_offline_message">Agora este artigo estará dispoñible sen conexión.</string>
+  <string name="reading_list_article_not_offline_message">Este artigo xa non estará dispoñible sen conexión.</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Conversar co usuario</string>
   <string name="notification_talk_title">Mensaxe nova na Wikipedia</string>
