@@ -236,6 +236,8 @@
   <string name="error_voice_search_not_available">对不起，语言识别不可用。</string>
   <string name="location_service_disabled">位置服务被禁用。</string>
   <string name="enable_location_service">启用</string>
+  <string name="location_permissions_enable_prompt">启用位置权限来查看您附近的地点。</string>
+  <string name="location_permissions_enable_action">打开</string>
   <string name="error_webview_updating">Android系统的WebView当前正在更新。请稍后再试。</string>
   <string name="multi_select_items_selected">%d已选择</string>
   <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
@@ -291,6 +293,10 @@
   <string name="reading_lists_onboarding_got_it">明白了</string>
   <string name="reading_list_no_description">无描述…</string>
   <string name="reading_list_empty">您没有添加至此列表的条目。</string>
+  <string name="reading_list_article_make_offline">使该条目离线时可用</string>
+  <string name="reading_list_article_remove_offline">不要使该条目离线时可用</string>
+  <string name="reading_list_article_offline_message">该条目现在可以离线使用。</string>
+  <string name="reading_list_article_not_offline_message">该条目将不再可以离线使用。</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_button_view_user">与用户讨论</string>
   <string name="notification_talk_title">维基百科上的新消息</string>

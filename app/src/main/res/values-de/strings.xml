@@ -236,6 +236,8 @@
   <string name="error_voice_search_not_available">Leider ist die Stimmenerkennung nicht verfügbar.</string>
   <string name="location_service_disabled">Standortdienste sind deaktiviert.</string>
   <string name="enable_location_service">Aktivieren</string>
+  <string name="location_permissions_enable_prompt">Standortberechtigungen aktivieren, um Orte in deiner Nähe anzusehen.</string>
+  <string name="location_permissions_enable_action">Anschalten</string>
   <string name="error_webview_updating">Das Android-System WebView wird derzeit aktualisiert. Bitte versuche es gleich noch einmal.</string>
   <string name="multi_select_items_selected">%d ausgewählt</string>
   <string name="crash_report_dialog_title">Leider ist die App beim letzten Mal abgestürzt</string>
@@ -291,6 +293,10 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_list_no_description">Keine Beschreibung …</string>
   <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
+  <string name="reading_list_article_make_offline">Diesen Artikel offline verfügbar machen</string>
+  <string name="reading_list_article_remove_offline">Diesen Artikel nicht offline verfügbar machen</string>
+  <string name="reading_list_article_offline_message">Dieser Artikel ist jetzt offline verfügbar.</string>
+  <string name="reading_list_article_not_offline_message">Dieser Artikel ist nicht mehr offline verfügbar.</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_button_view_user">Mit dem Benutzer diskutieren</string>
   <string name="notification_talk_title">Neue Nachricht auf Wikipedia</string>

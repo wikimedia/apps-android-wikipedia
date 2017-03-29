@@ -217,6 +217,7 @@
   <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="text_copied">Text an den Tëschespäicher kopéiert.</string>
   <string name="button_continue_to_article">Artikel liesen</string>
+  <string name="button_add_to_reading_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="button_get_directions">Richtunge kréien</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
@@ -225,6 +226,8 @@
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="location_service_disabled">Lokalisatiouns-Servicer sinn ausgeschalt.</string>
   <string name="enable_location_service">Aschalten</string>
+  <string name="location_permissions_enable_prompt">Lokalisatiounsrechter aschalte fir d\'Plazen no bäi Iech ze weisen</string>
+  <string name="location_permissions_enable_action">Aschalten</string>
   <string name="multi_select_items_selected">%d erausgesicht</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
   <string name="crash_report_dialog_text">Wëllt Dir e Rapport iwwer de Crash un HockeyApp / en onofhängege Service-Provider schécke fir datt Wikimedia Äre Crash nokucke kann an de Feeler verbessere kann, den en ausgeléist huet?</string>
@@ -279,6 +282,10 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="reading_list_no_description">Keng Beschreiwung...</string>
   <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht dobäigesat.</string>
+  <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>
+  <string name="reading_list_article_remove_offline">Dësen Artikel net offline disponibel maachen</string>
+  <string name="reading_list_article_offline_message">Dësen Artikel ass elo offline disponibel.</string>
+  <string name="reading_list_article_not_offline_message">Dësen Artikel ass net méi offline disponibel.</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_button_view_user">Mam Benotzer schwätzen</string>
   <string name="notification_talk_title">Neie Message op Wikipedia</string>

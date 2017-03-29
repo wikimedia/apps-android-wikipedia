@@ -236,6 +236,8 @@
   <string name="error_voice_search_not_available">За жал, гласовното препознавање не е достапно.</string>
   <string name="location_service_disabled">Местоположбените услуги се оневозможени.</string>
   <string name="enable_location_service">Овозможи</string>
+  <string name="location_permissions_enable_prompt">Вклучете дозволи за местоположба, за да ги гледате местата околу вас.</string>
+  <string name="location_permissions_enable_action">Вклучи</string>
   <string name="error_webview_updating">WebView за Андроид во моментов се подновува. Обидете се повторно набргу.</string>
   <string name="multi_select_items_selected">%d избрани</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
@@ -291,6 +293,10 @@
   <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="reading_list_no_description">Нема опис...</string>
   <string name="reading_list_empty">Немате ставено статии во списоков.</string>
+  <string name="reading_list_article_make_offline">Направи ја статијава достапна вонмрежно</string>
+  <string name="reading_list_article_remove_offline">Не ја прави статијава достапна вонмрежно</string>
+  <string name="reading_list_article_offline_message">Статијава сега ќе биде достапна вонмрежно.</string>
+  <string name="reading_list_article_not_offline_message">Статијава повеќе нема да биде достапна вонмрежно.</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>

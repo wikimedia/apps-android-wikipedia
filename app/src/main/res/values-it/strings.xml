@@ -281,6 +281,10 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="reading_list_no_description">Nessuna descrizione…</string>
   <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
+  <string name="reading_list_article_make_offline">Rendi questa voce disponibile non in linea</string>
+  <string name="reading_list_article_remove_offline">Non rendere questa voce disponibile non in linea</string>
+  <string name="reading_list_article_offline_message">Questa voce ora è disponibile non in linea.</string>
+  <string name="reading_list_article_not_offline_message">Questa voce non sarà più disponibile non in linea.</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_talk_title">Nuovo messaggio su Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ti ha lasciato un messaggio sulla tua pagina di discussione &lt;strong&gt;%2$s&lt;/strong&gt;</string>

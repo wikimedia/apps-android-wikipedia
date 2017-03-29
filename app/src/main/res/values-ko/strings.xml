@@ -234,6 +234,7 @@
   <string name="error_voice_search_not_available">죄송합니다. 음성 인식을 이용할 수 없습니다.</string>
   <string name="location_service_disabled">위치 서비스를 사용할 수 없습니다.</string>
   <string name="enable_location_service">활성화</string>
+  <string name="location_permissions_enable_action">켜기</string>
   <string name="error_webview_updating">Android System WebView가 현재 업데이트되고 있습니다. 잠시 후 다시 시도해 주십시오.</string>
   <string name="multi_select_items_selected">%d개 선택됨</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
@@ -289,6 +290,10 @@
   <string name="reading_lists_onboarding_got_it">알겠습니다</string>
   <string name="reading_list_no_description">설명 없음...</string>
   <string name="reading_list_empty">이 목록에 추가한 글이 없습니다.</string>
+  <string name="reading_list_article_make_offline">이 글을 오프라인에서 읽을 수 있게 하기</string>
+  <string name="reading_list_article_remove_offline">이 글을 오프라인에서 읽지 못하게 하기</string>
+  <string name="reading_list_article_offline_message">이 글은 이제 오프라인에서 읽을 수 있습니다.</string>
+  <string name="reading_list_article_not_offline_message">이 글은 더 이상 오프라인에서 읽을 수 없습니다.</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_button_view_user">사용자와 대화하기</string>
   <string name="notification_talk_title">위키백과에서의 새 메시지</string>
