@@ -13,7 +13,7 @@ import org.wikipedia.util.ThrowableUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static org.wikipedia.util.ThrowableUtil.isRetryable;
+import static org.wikipedia.util.ThrowableUtil.is404;
 
 public class WikiErrorView extends FrameLayout {
     @BindView(R.id.error_text) TextView errorTextView;
@@ -33,7 +33,7 @@ public class WikiErrorView extends FrameLayout {
 
     public WikiErrorView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        inflate(context, R.layout.custom_error_view, this);
+        inflate(context, R.layout.view_wiki_error, this);
         ButterKnife.bind(this);
     }
 
@@ -49,13 +49,13 @@ public class WikiErrorView extends FrameLayout {
         ThrowableUtil.AppError error = ThrowableUtil.getAppError(getContext(), e);
         errorTextView.setText(error.getError());
         messageTextView.setText(error.getDetail());
-        updateButton(isRetryable(error));
+        updateButton(is404(error));
     }
 
-    private void updateButton(boolean retryable) {
-        OnClickListener listener = retryable ? retryListener : backListener;
+    private void updateButton(boolean is404) {
+        OnClickListener listener = is404 ? backListener : retryListener;
         button.setVisibility(listener == null ? GONE : VISIBLE);
-        button.setText(retryable ? R.string.page_error_retry : R.string.page_error_back_to_main);
+        button.setText(is404 ? R.string.page_error_back_to_main : R.string.page_error_retry);
         button.setOnClickListener(listener);
     }
 }
