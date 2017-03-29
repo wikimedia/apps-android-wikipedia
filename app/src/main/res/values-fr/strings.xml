@@ -227,6 +227,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
   <string name="text_copied">Texte copié dans le presse-papier.</string>
   <string name="button_continue_to_article">Lire l’article</string>
+  <string name="button_add_to_reading_list">Ajouter à la liste de lecture</string>
+  <string name="dialog_link_preview_offline_notice">L’article ne peut pas être chargé hors connexion. Ajoutez-le à une liste de lecture et il sera téléchargé une fois que vous serez connecté.</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application qui fournit des directions.</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>

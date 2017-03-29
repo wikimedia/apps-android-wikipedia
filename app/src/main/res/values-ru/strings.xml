@@ -43,7 +43,7 @@
   <string name="talk_page_link_text">Обсуждение</string>
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
   <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете иметь более высокий уровень конфиденциальности.</string>
+  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
@@ -226,6 +226,8 @@
   <string name="address_copied">Адрес скопирован в буфер обмена.</string>
   <string name="text_copied">Текст скопирован в буфер обмена.</string>
   <string name="button_continue_to_article">Читать статью</string>
+  <string name="button_add_to_reading_list">Добавить в список для чтения</string>
+  <string name="dialog_link_preview_offline_notice">Статья не может быть загружена при нахождении в автономном режиме. Добавьте её в список для чтения, и он будет загружена, как только вы окажетесь онлайн.</string>
   <string name="button_get_directions">Проложить маршрут</string>
   <string name="error_no_maps_app">Не удалось найти ни одного приложения, которое бы прокладывало маршрут.</string>
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>

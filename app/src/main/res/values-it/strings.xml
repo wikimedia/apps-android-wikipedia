@@ -222,6 +222,7 @@
   <string name="address_copied">Indirizzo copiato negli appunti.</string>
   <string name="text_copied">Testo copiato negli appunti.</string>
   <string name="button_continue_to_article">Leggi voce</string>
+  <string name="button_add_to_reading_list">Aggiungi all\'elenco di lettura</string>
   <string name="button_get_directions">Ottieni indicazioni</string>
   <string name="error_no_maps_app">Impossibile trovare applicazioni che forniscono indicazioni.</string>
   <string name="preference_title_show_link_previews">Mostra anteprime collegamenti</string>

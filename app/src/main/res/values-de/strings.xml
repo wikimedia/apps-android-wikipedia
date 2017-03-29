@@ -226,6 +226,8 @@
   <string name="address_copied">Adresse in die Zwischenablage kopiert.</string>
   <string name="text_copied">Text in die Zwischenablage kopiert.</string>
   <string name="button_continue_to_article">Artikel lesen</string>
+  <string name="button_add_to_reading_list">Zur Leseliste hinzufügen</string>
+  <string name="dialog_link_preview_offline_notice">Der Artikel kann nicht geladen werden, während du offline bist. Füge ihn zu einer Leseliste hinzu und er wird heruntergeladen, sobald du wieder online bist.</string>
   <string name="button_get_directions">Richtungen abrufen</string>
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>

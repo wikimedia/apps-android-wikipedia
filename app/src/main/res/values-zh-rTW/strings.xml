@@ -226,6 +226,8 @@
   <string name="address_copied">網址已複製至剪貼簿。</string>
   <string name="text_copied">文字已複製至剪貼簿。</string>
   <string name="button_continue_to_article">閱讀條目</string>
+  <string name="button_add_to_reading_list">新增至閱讀清單</string>
+  <string name="dialog_link_preview_offline_notice">條目不能在離線時載入。若添加條目至閱讀清單可在您重新上線時下載。</string>
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>

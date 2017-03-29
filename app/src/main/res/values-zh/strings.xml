@@ -226,6 +226,8 @@
   <string name="address_copied">地址已复制至剪贴板。</string>
   <string name="text_copied">文本已复制至剪贴板。</string>
   <string name="button_continue_to_article">阅读条目</string>
+  <string name="button_add_to_reading_list">添加至阅读列表</string>
+  <string name="dialog_link_preview_offline_notice">条目不能在离线时加载。可添加到阅读列表，这样当您恢复在线时条目将自动下载。</string>
   <string name="button_get_directions">路线导航</string>
   <string name="error_no_maps_app">找不到任何提供导航的应用程序。</string>
   <string name="preference_title_show_link_previews">显示链接预览</string>
