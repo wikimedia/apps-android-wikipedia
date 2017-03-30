@@ -226,6 +226,8 @@
   <string name="address_copied">Adressen kopierades till urklipp.</string>
   <string name="text_copied">Texten kopierades till urklipp.</string>
   <string name="button_continue_to_article">Läs artikeln</string>
+  <string name="button_add_to_reading_list">Lägg till i läslista</string>
+  <string name="dialog_link_preview_offline_notice">Artikeln kan inte läsas in när du är offline. Lägg till den i en läslista så kommer den laddas ned när du är online.</string>
   <string name="button_get_directions">Få vägbeskrivningar</string>
   <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">Tyvärr, röststyrning är inte tillgänglig.</string>
   <string name="location_service_disabled">Platstjänster är inaktiverade.</string>
   <string name="enable_location_service">Aktivera</string>
+  <string name="location_permissions_enable_prompt">Aktivera platsbehörigheter för att se platser nära dig.</string>
+  <string name="location_permissions_enable_action">Slå på</string>
   <string name="error_webview_updating">Androidsystemets WebView uppdateras för tillfället. Försök igen om en stund.</string>
   <string name="multi_select_items_selected">%d markerade</string>
   <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
@@ -289,6 +293,10 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="reading_list_no_description">Ingen beskrivning...</string>
   <string name="reading_list_empty">Du har inte lagt till några artiklar i denna lista.</string>
+  <string name="reading_list_article_make_offline">Gör denna artikel tillgänglig offline</string>
+  <string name="reading_list_article_remove_offline">Gör inte denna artikel tillgänglig offline</string>
+  <string name="reading_list_article_offline_message">Denna artikel kommer nu vara tillgänglig offline.</string>
+  <string name="reading_list_article_not_offline_message">Denna artikel kommer inte längre vara tillgänglig offline.</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_button_view_user">Diskutera med användare</string>
   <string name="notification_talk_title">Nytt meddelande på Wikipedia</string>

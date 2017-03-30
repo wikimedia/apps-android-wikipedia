@@ -7,6 +7,8 @@
   <string name="yes">はい</string>
   <string name="no">いいえ</string>
   <string name="search_hint">ウィキペディアを検索</string>
+  <string name="search_hint_search_history">検索履歴</string>
+  <string name="search_hint_search_reading_list">あとで読むリストを検索</string>
   <string name="nav_item_history">履歴</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
@@ -38,7 +40,7 @@
   <string name="nearby_zoom_to_location">地図上の場所へズームする</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="talk_page_link_text">ノート</string>
-  <string name="content_license_html" fuzzy="true">特記なき場合、コンテンツは&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
+  <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
@@ -75,8 +77,8 @@
   <string name="login_success_toast">ログインに成功しました!</string>
   <string name="preference_title_logout">ログアウト</string>
   <string name="toast_logout_complete">ログアウトしました</string>
-  <string name="history_empty_title" fuzzy="true">履歴はまだありません!</string>
-  <string name="history_empty_message" fuzzy="true">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
+  <string name="history_empty_title">履歴はまだありません！</string>
+  <string name="history_empty_message">これまで読んだページを追跡できます。</string>
   <string name="delete_selected_history">削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
   <string name="create_account_username_hint">利用者名</string>
@@ -120,7 +122,7 @@
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
   <string name="page_protected_other">このページは %s レベルに保護されています。</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">このページを編集する権限がありません</string>
+  <string name="page_protected_can_not_edit">残念ながら、あなたのアカウントにはこのページを編集する権限がありません。</string>
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
@@ -135,7 +137,7 @@
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
   <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 ライセンス&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;クリエイティブ・コモンズ表示 - 継承ライセンス&lt;/a&gt;の下で提供されます。</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ウィキメディア財団&lt;/a&gt;の製品です</string>
+  <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;ウィキメディア財団&lt;/a&gt;の製品</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
   <string name="user_blocked_from_editing_title">ブロック済み</string>
@@ -216,6 +218,7 @@
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
   <string name="text_copied">テキストがクリップボードにコピーされました。</string>
   <string name="button_continue_to_article">記事を読む</string>
+  <string name="button_add_to_reading_list">あとで読むリストに追加</string>
   <string name="button_get_directions">ルートを検索</string>
   <string name="error_no_maps_app">ルートを示すアプリケーションが見つかりませんでした。</string>
   <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
@@ -252,15 +255,15 @@
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
   <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>
   <string name="reading_list_sort_by_recent_desc">古い方から並べ替え</string>
-  <string name="reading_list_menu_delete" fuzzy="true">あとで読むリストを削除</string>
+  <string name="reading_list_menu_delete">リストを削除</string>
   <string name="reading_list_name_sample">あなたのあとで読むリスト</string>
   <string name="reading_list_name_hint">このリストの名称</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>
   <string name="reading_list_item_deleted">%s はリストから削除されました</string>
   <string name="reading_list_item_delete_undo">取り消す</string>
   <string name="reading_list_deleted">%s は削除されました</string>
-  <string name="reading_lists_empty" fuzzy="true">あとで読むリストはありません</string>
-  <string name="reading_lists_empty_message" fuzzy="true">あとで読むリストで記事を整理しましょう。記事を読んでいるときに、下のツールバーにあるブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
+  <string name="reading_lists_empty">あとで読むリストはありません</string>
+  <string name="reading_lists_empty_message">記事をあとで読むリストに保存することで、ネットに接続していないときでも閲覧することができます。</string>
   <string name="reading_lists_onboarding_intro">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
   <string name="reading_lists_onboarding_for_example">例えば</string>
   <string name="reading_lists_onboarding_example1">行ってみたい場所</string>
@@ -290,8 +293,12 @@
     <item quantity="other">%d日前</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今日</string>
-  <string name="description_edit_text_hint" fuzzy="true">要約欄を記入してください</string>
+  <string name="view_announcement_card_negative_action">いいえ</string>
+  <string name="description_edit_text_hint">編集の要約</string>
   <string name="description_edit_save">保存</string>
   <string name="description_edit_add_description">説明を追加</string>
+  <string name="description_edit_help_about_wikidata">ウィキデータについて</string>
   <string name="description_edit_success_done">完了</string>
+  <string name="description_edit_tutorial_button_label_continue">次へ</string>
+  <string name="description_edit_tutorial_keep_it_short">短めに</string>
 </resources>

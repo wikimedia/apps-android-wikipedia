@@ -41,7 +41,7 @@
   <string name="nearby_zoom_to_location">Priblížte sa k polohe na mape</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="talk_page_link_text">Diskusia</string>
-  <string name="content_license_html" fuzzy="true">Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
   <string name="preference_title_language">Jazyk</string>
@@ -62,6 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">Zostať</string>
   <string name="menu_show_toc">Obsah</string>
   <string name="search_no_results_found">Neboli nájdené žiadne výsledky</string>
+  <string name="search_reading_list_no_results">V zozname \"%s\" neboli nájdené žiadne výsledky</string>
+  <string name="search_reading_lists_no_results">V zoznamoch na prečítanie neboli nájdené žiadne výsledky</string>
+  <string name="search_history_no_results">V histórii neboli nájdené žiadne výsledky</string>
   <string name="edit_section_captcha_message">Kvôli ochrane pred automatizovaným spamom, prosím zadajte slová ktoré sa objavujú nižšie.</string>
   <string name="edit_section_captcha_hint">Zadajte text z obrázku vyššie</string>
   <string name="title_captcha">Zadajte text</string>
@@ -76,9 +79,10 @@
   <string name="login_success_toast">Prihlásenie bolo úspešné!</string>
   <string name="preference_title_logout">Odhlásiť sa</string>
   <string name="toast_logout_complete">Ste odhlásený.</string>
-  <string name="history_empty_title" fuzzy="true">Nemáte žiadne nedávno zobrazené stránky!</string>
+  <string name="history_empty_title">Žiadne nedávno zobrazené články</string>
   <string name="history_empty_message" fuzzy="true">Vaša história je prázdna.</string>
   <string name="delete_selected_history">Vymazať</string>
+  <string name="delete_selected_items">Vymazať vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Používateľské meno</string>
   <string name="login_create_account_link">Ešte nemáte účet? Pripojte sa k Wikipédii.</string>
@@ -121,7 +125,8 @@
   <string name="page_protected_autoconfirmed">Táto stránka je polozamknutá.</string>
   <string name="page_protected_sysop">Táto stránka je zamknutá.</string>
   <string name="page_protected_other">Táto stránka je zamknutá do nasledovných úrovní: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Nemáte práva na úpravu tohto článku</string>
+  <string name="page_protected_can_not_edit">Mrzí nás to, no váš účet v súčasnosti nemá dostatočné práva na úpravu tohto článku.</string>
+  <string name="page_protected_can_not_edit_anon">Mrzí nás to, no túto stránku momentálne nie je možné anonymne upravovať.</string>
   <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
   <string name="settings_item_preferences">Nastavenia</string>
   <string name="settings_activity_title">Nastavenia</string>
@@ -130,13 +135,15 @@
   <string name="terms_of_use_description">Podmienky používania</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy/sk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/sk</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_translators_heading">Prekladatelia</string>
   <string name="about_translators_translatewiki">Táto aplikácia bola preložená s pomocou dobrovoľných prekladateľov na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
   <string name="about_app_license">Zdrojový kód dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrite&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHube&lt;/a&gt; na základe &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licencie Apache 2.0&lt;/a&gt;. Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; licenciou Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Nadácie Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Produkt &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Nadácie Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikácii</string>
   <string name="edit_abandon_confirm">Na stránke boli vykonané úpravy. Naozaj chcete opustiť stránku bez uloženia úprav?</string>
   <string name="user_blocked_from_editing_title">Zablokované</string>
@@ -217,6 +224,7 @@
   <string name="address_copied">Adresa bola skopírovaná do schránky.</string>
   <string name="text_copied">Text bol skopírovaný do schránky.</string>
   <string name="button_continue_to_article">Prečítať si článok</string>
+  <string name="button_add_to_reading_list">Pridať do zoznamu na prečítanie</string>
   <string name="button_get_directions">Nájsť trasu</string>
   <string name="error_no_maps_app">Nenašli sme žiadne aplikácie poskytujúce navigáciu.</string>
   <string name="preference_title_show_link_previews">Zobrazovať náhľady odkazov</string>
@@ -225,6 +233,8 @@
   <string name="error_voice_search_not_available">Ospravedlňujeme sa, rozpoznávanie hlasu nie je k dispozícii.</string>
   <string name="location_service_disabled">Služby určovania polohy sú zakázané.</string>
   <string name="enable_location_service">Povoliť</string>
+  <string name="error_webview_updating">Android System WebView sa práve aktualizuje. Skúste to, prosím, neskôr.</string>
+  <string name="multi_select_items_selected">Vybraných: %d</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_text">Chcete odoslať správu o zlyhaní HockeyApp? Wikimedia tak bude môcť toto zlyhanie preskúmať a opraviť chybu, ktorá toto zlyhanie spôsobila. HockeyApp je poskytovateľ služieb (tretia strana).</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
@@ -267,14 +277,16 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_item_deleted">Článok %s bol odstránený zo zoznamu na prečítanie</string>
   <string name="reading_list_item_delete_undo">Vrátiť</string>
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>
-  <string name="reading_lists_empty" fuzzy="true">Nemáte žiadne zoznamy na prečítanie.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Usporiadajte si články do zoznamov na prečítanie! Pri prehliadaní článku ťuknite na ikonu záložky na panely nástrojov v spodnej časti obrazovky a pridajte si ho tak do zoznamu na prečítanie.</string>
+  <string name="reading_lists_empty">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
+  <string name="reading_lists_empty_message">Uložte si články do zoznamov na prečítanie, aby ste si ich mohli pozrieť aj neskôr (dokonca aj offline).</string>
   <string name="reading_lists_onboarding_intro">Z článkov, ktoré si chcete prečítať neskôr si môžete vytvoriť zoznamy na prečítanie!</string>
   <string name="reading_lists_onboarding_for_example">Napríklad</string>
   <string name="reading_lists_onboarding_example1">Miesta, ktoré chcem navštíviť</string>
   <string name="reading_lists_onboarding_example2">Obľúbené zvieratá</string>
   <string name="reading_lists_onboarding_example3">Vesmír!</string>
   <string name="reading_lists_onboarding_got_it">Rozumiem</string>
+  <string name="reading_list_no_description">Bez popisu...</string>
+  <string name="reading_list_empty">V tomto zozname nemáte žiadne články.</string>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="notification_button_view_user">Kontaktovať používateľa</string>
   <string name="notification_talk_title">Máte novú správu na Wikipédii</string>
@@ -328,9 +340,14 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
+  <string name="description_edit_help_tips">Tipy na tvorbu popisov</string>
   <string name="description_edit_help_tips_examples">Napríklad:</string>
   <string name="description_edit_help_tips_example1">obraz od Leonarda da Vinciho</string>
+  <string name="description_edit_help_tips_example1_hint">popis článku o Mone Lise</string>
   <string name="description_edit_help_tips_example2">najvyššia hora na Zemi</string>
+  <string name="description_edit_help_tips_example2_hint">popis článku o Mont Evereste</string>
   <string name="description_edit_help_more_info">Viac informácií</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
+  <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
+  <string name="description_edit_revert_reason2">váš príspevok vyzeral ako experiment alebo vandalizmus</string>
 </resources>

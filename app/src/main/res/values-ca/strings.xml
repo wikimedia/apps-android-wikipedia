@@ -82,8 +82,9 @@
   <string name="preference_title_logout">Finalitza la sessió</string>
   <string name="toast_logout_complete">Sessió finalitzada</string>
   <string name="history_empty_title">No hi ha articles vists recentment</string>
-  <string name="history_empty_message" fuzzy="true">Probablement les heu eliminades totes. La pròxima vegada que aneu a una pàgina podreu tornar-hi des d\'aquí.</string>
+  <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="delete_selected_history">Esborra</string>
+  <string name="delete_selected_items">Elimina els elements seleccionats</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
   <string name="login_create_account_link">No teniu un compte? Uniu-vos a la Viquipèdia</string>
@@ -225,6 +226,7 @@
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="text_copied">Text copiat al porta-retalls.</string>
   <string name="button_continue_to_article">Llegeix l\'article</string>
+  <string name="button_add_to_reading_list">Afegeix a la llista de lectura</string>
   <string name="button_get_directions">Obtén indicacions</string>
   <string name="error_no_maps_app">No es pot trobar cap aplicació que proporcioni direccions.</string>
   <string name="preference_title_show_link_previews">Mostra l\'enllaç de vistes prèvies</string>
@@ -233,6 +235,8 @@
   <string name="error_voice_search_not_available">Ho sentim, el reconeixement de veu no està disponible.</string>
   <string name="location_service_disabled">Els serveis d\'ubicació estan inhabilitats.</string>
   <string name="enable_location_service">Habilita</string>
+  <string name="location_permissions_enable_action">Activa</string>
+  <string name="multi_select_items_selected">%d seleccionats</string>
   <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
   <string name="crash_report_dialog_text">Voleu enviar d\'un informe d\'errors a HockeyApp / un proveïdor de serveis extern de manera que Wikimedia pugui revisar l\'error i corregir-ne la causa?</string>
   <string name="crash_report_dialog_dont_send_button">Omet</string>
@@ -266,7 +270,7 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_sort_by_name_desc">Ordena per nom (invers)</string>
   <string name="reading_list_sort_by_recent">Ordena per més recent</string>
   <string name="reading_list_sort_by_recent_desc">Ordena per menys recent</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Elimina la llista de lectura</string>
+  <string name="reading_list_menu_delete">Elimina la llista</string>
   <string name="reading_list_menu_rename">Reanomena</string>
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
@@ -275,8 +279,8 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_item_deleted">%s suprimit de la llista</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="reading_lists_empty" fuzzy="true">No hi ha cap llista de lectura.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organitzeu els articles que llegiu en llistes de lectura! En navegar per un article, feu un toc a la icona d\'adreces d\'interès a la barra d\'eines inferior per afegir-lo a la llista de lectura.</string>
+  <string name="reading_lists_empty">Encara no hi ha cap llista de lectura.</string>
+  <string name="reading_lists_empty_message">Deseu els articles a les llistes de lectura per tal de veure\'ls més endavant, fins i tot quan estigueu fora de línia.</string>
   <string name="reading_lists_onboarding_intro">Creeu llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan estigueu fora de línia!</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Llocs per visitar</string>
@@ -285,6 +289,9 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_lists_onboarding_got_it">Entesos</string>
   <string name="reading_list_no_description">Sense descripció…</string>
   <string name="reading_list_empty">No teniu articles afegits a la llista.</string>
+  <string name="reading_list_article_make_offline">Fes aquest article disponible fora de línia</string>
+  <string name="reading_list_article_offline_message">Aquest article estarà disponible fora de línia a partir d\'ara.</string>
+  <string name="reading_list_article_not_offline_message">Aquest article no continuarà estant disponible fora de línia.</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_button_view_user">Parla amb l\'usuari</string>
   <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>

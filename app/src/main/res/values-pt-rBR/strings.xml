@@ -224,6 +224,7 @@
   <string name="error_voice_search_not_available">Desculpe, o reconhecimento de voz não está disponível.</string>
   <string name="location_service_disabled">Os serviços de localização estão desativados.</string>
   <string name="enable_location_service">Habilitar</string>
+  <string name="location_permissions_enable_prompt">Habilite as permissões de localização para ver lugares próximos a você.</string>
   <string name="crash_report_dialog_title">Desculpe, o aplicativo encerrou inesperadamente da última vez</string>
   <string name="crash_report_dialog_text">Gostaria de enviar um relatório de falha ao HockeyApp / um provedor de serviço de terceiros para que a Wikimedia possa analisar a falha e corrigi-la?</string>
   <string name="crash_report_dialog_dont_send_button">Pular</string>

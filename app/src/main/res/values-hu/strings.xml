@@ -224,6 +224,8 @@
   <string name="address_copied">Cím másolva a vágólapra.</string>
   <string name="text_copied">Szöveg másolva a vágólapra.</string>
   <string name="button_continue_to_article">Olvasd el a cikket</string>
+  <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
+  <string name="dialog_link_preview_offline_notice">Nem lehet betölteni a szócikket kapcsolat nélkül. Add hozzá egy olvasólistához, hogy automatikusan letöltődjön, amikor kapcsolódsz az internethez.</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
@@ -232,6 +234,8 @@
   <string name="error_voice_search_not_available">Sajnáljuk, a hangfelismerés nem elérhető.</string>
   <string name="location_service_disabled">A helyszolgáltatások nem érhetők el.</string>
   <string name="enable_location_service">Engedélyezés</string>
+  <string name="location_permissions_enable_prompt" fuzzy="true">Engedélyezd a hozzáférést a földrajzi helyhez, hogy megnézhesd a közeli dolgokat.</string>
+  <string name="location_permissions_enable_action">Bekapcsolás</string>
   <string name="error_webview_updating">Az Android System WebView frissítés alatt áll. Próbáld újra néhány másodperc múlva.</string>
   <string name="multi_select_items_selected">%d kiválasztva</string>
   <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
@@ -287,6 +291,10 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_lists_onboarding_got_it">Értem</string>
   <string name="reading_list_no_description">Nincs leírás…</string>
   <string name="reading_list_empty">Nem adtál szócikket ehhez a listához.</string>
+  <string name="reading_list_article_make_offline">A szócikk elérhetővé tétele kapcsolat nélkül</string>
+  <string name="reading_list_article_remove_offline">A szócikk kapcsolat nélkül nem elérhetővé tétele</string>
+  <string name="reading_list_article_offline_message">A szócikk mostantól kapcsolat nélkül is elérhető.</string>
+  <string name="reading_list_article_not_offline_message">A szócikk mostantól nem érhető el kapcsolat nélkül.</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_button_view_user">Üzenethagyás a szerkesztőnek</string>
   <string name="notification_talk_title">Új üzenet a Wikipédián</string>

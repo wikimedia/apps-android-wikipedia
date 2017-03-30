@@ -226,7 +226,7 @@
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="location_service_disabled">Lokalisatiouns-Servicer sinn ausgeschalt.</string>
   <string name="enable_location_service">Aschalten</string>
-  <string name="location_permissions_enable_prompt">Lokalisatiounsrechter aschalte fir d\'Plazen no bäi Iech ze weisen</string>
+  <string name="location_permissions_enable_prompt">Lokalisatiounsrechter aschalte fir d\'Plazen no bäi Iech ze gesinn.</string>
   <string name="location_permissions_enable_action">Aschalten</string>
   <string name="multi_select_items_selected">%d erausgesicht</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>

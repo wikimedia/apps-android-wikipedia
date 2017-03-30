@@ -226,6 +226,8 @@
   <string name="address_copied">نشانی در حافظه موقت ذخیره شد</string>
   <string name="text_copied">متن در حافظهٔ موقت ذخیره شد.</string>
   <string name="button_continue_to_article">مطالعهٔ مقاله</string>
+  <string name="button_add_to_reading_list">افزودن به فهرست مطالعه</string>
+  <string name="dialog_link_preview_offline_notice">در حالت آفلاین امکان بارگیری مقاله وجود ندارد. به فهرست مطالعه افزوده شود تا در زمانی که اینترنت در دسترس بود قابل مطالعه باشد.</string>
   <string name="button_get_directions">دریافت مسیر</string>
   <string name="error_no_maps_app">نمی تواند اپلیکیشنی برای یافتن جهت پیدا کند.</string>
   <string name="preference_title_show_link_previews">نمایش پیوند پیش‌نمایش‌ها</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">با عرض پوزش، تشخیص صوتی میسر نیست</string>
   <string name="location_service_disabled">خدمات مکان‌یابی غیرفعال شده‌است.</string>
   <string name="enable_location_service">فعال</string>
+  <string name="location_permissions_enable_prompt" fuzzy="true">فعال کردن اجازه مشاهده موقعیت برای یافتن مکان‌های اطرافتان.</string>
+  <string name="location_permissions_enable_action">روشن کردن</string>
   <string name="error_webview_updating">سامانه مشاهدهٔ وب اندروید در حال بروزرسانی‌ست. لطفاً چند وقت دیگر از نو تلاش کنید.</string>
   <string name="multi_select_items_selected">%d انتخاب شد</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
@@ -287,6 +291,10 @@
   <string name="reading_lists_onboarding_got_it">گرفتم</string>
   <string name="reading_list_no_description">بدون توصیف...</string>
   <string name="reading_list_empty">مقاله‌ای به فهرست نیافزوید.</string>
+  <string name="reading_list_article_make_offline">در حالت آفلاین مقاله را در دسترس قرار بده</string>
+  <string name="reading_list_article_remove_offline">در حالت آفلاین مقاله را در دسترس قرار نده</string>
+  <string name="reading_list_article_offline_message">اکنون در حالت آفلاین مقاله در دسترس است.</string>
+  <string name="reading_list_article_not_offline_message">دیگر در حالت آفلاین مقاله در دسترس نیست.</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_button_view_user">بحث با کاربر</string>
   <string name="notification_talk_title">پیام جدید در ویکی‌پدیا</string>
