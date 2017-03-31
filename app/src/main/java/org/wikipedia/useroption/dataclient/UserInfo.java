@@ -27,7 +27,9 @@ public class UserInfo {
         if (options != null) {
             for (Map.Entry<String, ?> entry : options.entrySet()) {
                 if (entry.getKey().startsWith("userjs-")) {
-                    ret.add(new UserOption(entry.getKey(), (String) entry.getValue()));
+                    // T161866 entry.valueOf() should always return a String but doesn't
+                    ret.add(new UserOption(entry.getKey(),
+                            entry.getValue() == null ? null : String.valueOf(entry.getValue())));
                 }
             }
         }
