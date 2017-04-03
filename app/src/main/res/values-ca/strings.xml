@@ -235,6 +235,7 @@
   <string name="error_voice_search_not_available">Ho sentim, el reconeixement de veu no està disponible.</string>
   <string name="location_service_disabled">Els serveis d\'ubicació estan inhabilitats.</string>
   <string name="enable_location_service">Habilita</string>
+  <string name="location_permissions_enable_prompt">Activa els permisos d\'ubicació per a veure els llocs propers.</string>
   <string name="location_permissions_enable_action">Activa</string>
   <string name="multi_select_items_selected">%d seleccionats</string>
   <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
@@ -290,6 +291,7 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_no_description">Sense descripció…</string>
   <string name="reading_list_empty">No teniu articles afegits a la llista.</string>
   <string name="reading_list_article_make_offline">Fes aquest article disponible fora de línia</string>
+  <string name="reading_list_article_remove_offline">No facis que l\'article estigui disponible for a de línia</string>
   <string name="reading_list_article_offline_message">Aquest article estarà disponible fora de línia a partir d\'ara.</string>
   <string name="reading_list_article_not_offline_message">Aquest article no continuarà estant disponible fora de línia.</string>
   <string name="user_option_sync_label">Preferències</string>
@@ -304,6 +306,7 @@ Voleu començar de nou o sortir?</string>
   <string name="view_because_you_read_card_title">Com has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_card_subtitle">Llegiu un article a l\'atzar de la Viquipèdia</string>
+  <string name="view_random_card_error">No s\'ha pogut carregar una pàgina aleatòria de la xarxa o de les vostres llistes de lectura.</string>
   <string name="view_main_page_card_title">Avui a la Viquipèdia</string>
   <string name="view_main_page_card_subtitle">Pàgina principal a %s</string>
   <string name="view_featured_image_card_title">Foto del dia</string>
@@ -333,6 +336,7 @@ Voleu començar de nou o sortir?</string>
   <string name="description_edit_help_wikidata_guide">Guia de Wikidata per a escriure descripcions</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ca</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Gràcies pel vostre continu interès en editar descripcions! Per a fer edicions addicionals, inicieu una sessió amb el vostre compte de Viquipèdia.</string>
   <string name="description_edit_success_saved">S\'ha desat la descripció!</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>

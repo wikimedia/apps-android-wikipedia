@@ -226,6 +226,8 @@
   <string name="address_copied">Адресу скопійовано до буферу обміну.</string>
   <string name="text_copied">Текст скопійовано в буфер обміну.</string>
   <string name="button_continue_to_article">Читати статтю</string>
+  <string name="button_add_to_reading_list">Додати до списку для читання</string>
+  <string name="dialog_link_preview_offline_notice">Статтю не можна завантажити без інтернет-з\'єднання. Додайте її до списку для читання, і її буде завантажено, як тільки Ви знову матимете доступ до інтернету.</string>
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
@@ -234,6 +236,8 @@
   <string name="error_voice_search_not_available">На жаль, розпізнавання голосу не підтримується.</string>
   <string name="location_service_disabled">Служби локалізації вимкнені.</string>
   <string name="enable_location_service">Увімкнути</string>
+  <string name="location_permissions_enable_prompt">Дайте дозвіл на визначення розташування, щоб мати змогу побачити місця поблизу.</string>
+  <string name="location_permissions_enable_action">Увімкнути</string>
   <string name="error_webview_updating">Веб-перегляд для Android-систем наразі оновлюється. Будь ласка, спробуйте ще раз за деякий час.</string>
   <string name="multi_select_items_selected">%d вибрано</string>
   <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>
@@ -289,6 +293,10 @@
   <string name="reading_lists_onboarding_got_it">Зрозуміло</string>
   <string name="reading_list_no_description">Немає опису...</string>
   <string name="reading_list_empty">У Вас немає статей, доданих до цього списку</string>
+  <string name="reading_list_article_make_offline">Зробити цю статтю доступною офлайн</string>
+  <string name="reading_list_article_remove_offline">Не робити цю статтю доступною офлайн</string>
+  <string name="reading_list_article_offline_message">Ця стаття тепер буде доступна офлайн.</string>
+  <string name="reading_list_article_not_offline_message">Ця стаття більше не буде доступна офлайн.</string>
   <string name="user_option_sync_label">Налаштування</string>
   <string name="notification_button_view_user">Поговорити з користувачем</string>
   <string name="notification_talk_title">Нове повідомлення у Вікіпедії</string>

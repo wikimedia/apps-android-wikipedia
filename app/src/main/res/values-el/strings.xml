@@ -54,6 +54,7 @@
   <string name="dialog_message_leaving_edit_stay">Παραμονή</string>
   <string name="menu_show_toc">Πίνακας Περιεχομένων</string>
   <string name="search_no_results_found">Δεν βρέθηκαν αποτελέσματα</string>
+  <string name="search_history_no_results">Δε βρέθηκαν αποτελέσματα στο ιστορικό</string>
   <string name="edit_section_captcha_message">Για να βοηθήσετε στην προστασία από αυτόματα ανεπιθύμητα μηνύματα, παρακαλούμε εισάγετε τις λέξεις που εμφανίζονται από κάτω</string>
   <string name="edit_section_captcha_hint">Επαναλάβετε τις λέξεις από πάνω</string>
   <string name="title_captcha">Εισάγετε CAPTCHA</string>
@@ -195,6 +196,7 @@
   <string name="format_error_server_code">Κωδικός: «%s»</string>
   <string name="button_continue_to_article">Πλήρες άρθρο</string>
   <string name="nav_item_donate">Υποστηρίξτε τη Βικιπαίδεια</string>
+  <string name="location_permissions_enable_action">Ενεργοποίηση</string>
   <string name="crash_report_dialog_dont_send_button">Παράβλεψη</string>
   <string name="crash_report_dialog_always_send_button">Αποστολή πάντα</string>
   <string name="crash_report_dialog_send_button">Αποστολή</string>
@@ -212,12 +214,16 @@
   <string name="reading_list_sort">Ταξινόμηση</string>
   <string name="reading_list_sort_by_name">Ταξινόμηση κατά όνομα</string>
   <string name="reading_list_sort_by_name_desc">Ταξινόμηση κατά όνομα (αντίστροφα)</string>
+  <string name="reading_list_menu_delete">Διαγραφή λίστας</string>
+  <string name="reading_list_menu_rename">Μετονομασία</string>
   <string name="reading_list_item_delete_undo">Αναίρεση</string>
   <string name="reading_list_deleted">Διεγράφη η %s</string>
   <string name="reading_lists_onboarding_for_example">Παραδείγματος χάριν</string>
   <string name="reading_lists_onboarding_example2">Αγαπημένα ζώα</string>
   <string name="reading_lists_onboarding_example3">Το διάστημα!</string>
   <string name="reading_lists_onboarding_got_it">Κατάλαβα</string>
+  <string name="reading_list_no_description">Χωρίς περιγραφή...</string>
+  <string name="reading_list_article_not_offline_message">Αυτό το άρθρο δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="view_card_news_title">Στις ειδήσεις</string>

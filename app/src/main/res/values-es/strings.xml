@@ -236,6 +236,8 @@
   <string name="error_voice_search_not_available">El reconocimiento de voz no está disponible.</string>
   <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
   <string name="enable_location_service">Activar</string>
+  <string name="location_permissions_enable_prompt">Activar los permisos de ubicación para ver lugares cercanos a ti.</string>
+  <string name="location_permissions_enable_action">Activar</string>
   <string name="error_webview_updating">El sistema de Android WebView se está actualizado. Inténtalo de nuevo en un momento.</string>
   <string name="multi_select_items_selected">%d seleccionados</string>
   <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
@@ -291,6 +293,10 @@
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_no_description">Sin descripción…</string>
   <string name="reading_list_empty">No tienes artículos añadidos a esta lista.</string>
+  <string name="reading_list_article_make_offline">Permitir que este artículo esté disponible sin conexión.</string>
+  <string name="reading_list_article_remove_offline">No permitir que este artículo esté disponible sin conexión.</string>
+  <string name="reading_list_article_offline_message">Este artículo ahora estará disponible sin conexión.</string>
+  <string name="reading_list_article_not_offline_message">Este artículo ya no estará disponible sin conexión.</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Discute con el usuario</string>
   <string name="notification_talk_title">Mensaje nuevo en Wikipedia</string>
@@ -332,7 +338,7 @@
   <string name="description_edit_help_about_wikidata">Acerca de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir descripciones</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/es</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/es</string>
   <string name="description_edit_anon_limit">¡Gracias por tu continuo interés en la edición de descripciones! Para realizar cambios adicionales, inicia sesión en tu cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al cambiar la descripción del título, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Descripción guardada</string>

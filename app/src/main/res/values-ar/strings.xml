@@ -62,7 +62,9 @@
   <string name="dialog_message_leaving_edit_stay">البقاء</string>
   <string name="menu_show_toc">جدول المحتويات</string>
   <string name="search_no_results_found">لا توجد نتائج</string>
+  <string name="search_reading_list_no_results">لا نتائج في %s</string>
   <string name="search_reading_lists_no_results">لم يعثر على نتائج في قوائم القراءة</string>
+  <string name="search_history_no_results">لا نتائج في التاريخ</string>
   <string name="edit_section_captcha_message">للمساعدة على الحماية ضد البريد المزعج الآلي، فضلاً أدخل الكلمات التي تظهر أدناه</string>
   <string name="edit_section_captcha_hint">كرر الكلمات من فوق</string>
   <string name="title_captcha">أدخل كلمة التحقق</string>
@@ -284,9 +286,12 @@
   <string name="reading_lists_onboarding_got_it">فهمت</string>
   <string name="reading_list_no_description">لا وصف...</string>
   <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
+  <string name="reading_list_article_make_offline">إتاحة هذه المقالة دون اتصال</string>
+  <string name="reading_list_article_offline_message">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_button_view_user">التحدث مع المستخدم</string>
   <string name="notification_talk_title">رسالة جديدة على ويكيبيديا</string>
+  <string name="notification_reverted_title">تعديل ملغى</string>
   <string name="notification_thanks_title">لقد تمّ شُكرك!</string>
   <string name="view_continue_reading_card_title">واصل القراءة</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>

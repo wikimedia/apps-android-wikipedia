@@ -236,7 +236,7 @@
   <string name="error_voice_search_not_available">با عرض پوزش، تشخیص صوتی میسر نیست</string>
   <string name="location_service_disabled">خدمات مکان‌یابی غیرفعال شده‌است.</string>
   <string name="enable_location_service">فعال</string>
-  <string name="location_permissions_enable_prompt" fuzzy="true">فعال کردن اجازه مشاهده موقعیت برای یافتن مکان‌های اطرافتان.</string>
+  <string name="location_permissions_enable_prompt">فعال کردن اجازه مشاهده موقعیت برای یافتن مکان‌های اطرافتان.</string>
   <string name="location_permissions_enable_action">روشن کردن</string>
   <string name="error_webview_updating">سامانه مشاهدهٔ وب اندروید در حال بروزرسانی‌ست. لطفاً چند وقت دیگر از نو تلاش کنید.</string>
   <string name="multi_select_items_selected">%d انتخاب شد</string>
