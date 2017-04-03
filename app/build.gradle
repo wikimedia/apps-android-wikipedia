@@ -159,7 +159,7 @@ dependencies {
 
     String okHttpVersion = '3.6.0'
     String retrofitVersion = '2.2.0'
-    String supportVersion = '25.3.0'
+    String supportVersion = '25.3.1'
     String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.4.0'
     String frescoVersion = '1.1.0'
