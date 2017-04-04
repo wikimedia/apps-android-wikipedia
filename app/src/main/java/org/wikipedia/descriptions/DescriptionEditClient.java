@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
+import org.json.JSONArray;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
@@ -18,7 +20,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ReleaseUtil;
 
 import java.util.Arrays;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -30,7 +31,6 @@ import retrofit2.http.POST;
  * Data Client to submit a new or updated description to wikidata.org.
  */
 public class DescriptionEditClient {
-    private static List<String> ENABLED_LANGUAGES = Arrays.asList("ru", "he", "ca");
     private static final String ABUSEFILTER_DISALLOWED = "abusefilter-disallowed";
     private static final String ABUSEFILTER_WARNING = "abusefilter-warning";
 
@@ -44,7 +44,24 @@ public class DescriptionEditClient {
     public static boolean isEditAllowed(@NonNull Page page) {
         PageProperties props = page.getPageProperties();
         return !TextUtils.isEmpty(props.getWikiBaseItem())
-                && (ENABLED_LANGUAGES.contains(page.getTitle().getWikiSite().languageCode()) || ReleaseUtil.isPreBetaRelease());
+                && (!isLanguageBlacklisted(page.getTitle().getWikiSite().languageCode())
+                || ReleaseUtil.isPreBetaRelease());
+    }
+
+    private static boolean isLanguageBlacklisted(@NonNull String lang) {
+        JSONArray blacklist = WikipediaApp.getInstance().getRemoteConfig().getConfig()
+                .optJSONArray("descriptionEditLangBlacklist");
+        if (blacklist != null) {
+            for (int i = 0; i < blacklist.length(); i++) {
+                if (lang.equals(blacklist.optString(i))) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return Arrays.asList("en", "de", "it", "fr", "es", "ja", "nl", "pt", "tr", "zh-hant")
+                    .contains(lang);
+        }
     }
 
     @NonNull private final WikiCachedService<Service> cachedService
