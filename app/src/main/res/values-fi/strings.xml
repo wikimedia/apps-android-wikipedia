@@ -224,7 +224,6 @@
   <string name="text_copied">Teksti kopioitu leikepöydälle.</string>
   <string name="button_continue_to_article">Lue artikkeli</string>
   <string name="button_add_to_reading_list">Lisää lukulistaan</string>
-  <string name="dialog_link_preview_offline_notice">Artikkelia ei voi ladata offline-tilassa. Lisää lukulistaan ja se tullaan lataamaan, kun olet taas online-tilassa.</string>
   <string name="button_get_directions">Hae reittiohjeet</string>
   <string name="error_no_maps_app">Yhtäkään reittiohjeita tarjoavaa sovellusta ei löytynyt</string>
   <string name="preference_title_show_link_previews">Näytä linkkien esikatselut</string>

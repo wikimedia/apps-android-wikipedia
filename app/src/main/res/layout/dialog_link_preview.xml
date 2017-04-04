@@ -94,31 +94,14 @@
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/dialog_link_preview_offline_container"
+        <org.wikipedia.page.linkpreview.LinkPreviewErrorView
+            android:id="@+id/dialog_link_preview_error_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:visibility="gone">
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:layout_margin="24dp"
-                android:layout_gravity="center_horizontal"
-                app:srcCompat="@drawable/ic_no_article"
-                android:tint="?attr/link_preview_offline_text_color"
-                android:contentDescription="@null"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="42dp"
-                android:layout_marginRight="42dp"
-                android:textSize="18sp"
-                android:textColor="?attr/link_preview_offline_text_color"
-                android:textAlignment="center"
-                android:lineSpacingMultiplier="1.2"
-                android:text="@string/dialog_link_preview_offline_notice"/>
-        </LinearLayout>
+        </org.wikipedia.page.linkpreview.LinkPreviewErrorView>
 
         <!-- Bottom padding for overlay button -->
         <View

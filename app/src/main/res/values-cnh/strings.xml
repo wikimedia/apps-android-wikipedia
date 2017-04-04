@@ -178,5 +178,4 @@
   <string name="format_error_server_message">Cakuat: \"%s\"</string>
   <string name="format_error_server_code">Code: \"%s\"</string>
   <string name="button_add_to_reading_list">Relding cazin ah telh</string>
-  <string name="dialog_link_preview_offline_notice">Hi cabia cu offline in a rel kho lo. Na relding cazin ah telh law, na online tikah a download te lai.</string>
 </resources>

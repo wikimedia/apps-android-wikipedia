@@ -227,7 +227,6 @@
   <string name="text_copied">Testenn kopiet er golver.</string>
   <string name="button_continue_to_article">Lenn ar pennad</string>
   <string name="button_add_to_reading_list">Ouzhpennañ d\'ar roll lenn</string>
-  <string name="dialog_link_preview_offline_notice">N\'haller ket kargañ ar pennad pa vezit ezlinenn. E ouzhpennañ d\'ar roll lenn ha pellgarget e vo diwezhatoc\'h pa viot enlinenn.</string>
   <string name="button_get_directions">Kaout an tuioù</string>
   <string name="error_no_maps_app">Ne c\'haller kavout arload ebet hag a ro tuioù.</string>
   <string name="preference_title_show_link_previews">Diskwel alberzoù al liammoù</string>

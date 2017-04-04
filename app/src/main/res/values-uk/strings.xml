@@ -227,7 +227,6 @@
   <string name="text_copied">Текст скопійовано в буфер обміну.</string>
   <string name="button_continue_to_article">Читати статтю</string>
   <string name="button_add_to_reading_list">Додати до списку для читання</string>
-  <string name="dialog_link_preview_offline_notice">Статтю не можна завантажити без інтернет-з\'єднання. Додайте її до списку для читання, і її буде завантажено, як тільки Ви знову матимете доступ до інтернету.</string>
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>

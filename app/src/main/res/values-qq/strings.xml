@@ -348,7 +348,8 @@ Shown in the preferences screen along with the following:
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
   <string name="button_add_to_reading_list">Button text for adding the current page to a reading list.</string>
-  <string name="dialog_link_preview_offline_notice">Notice informing the user that the article cannot be loaded while the app is offline, and inviting the user to add the page to a reading list to be donwloaded when back online.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Message informing the user that an article cannot be loaded while the app is offline. This message is followed by page_offline_notice_add_to_reading_list.</string>
+  <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be donwloaded when the app is online. This message follows page_offline_notice_cannot_load_while_offline.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.
@@ -369,6 +370,9 @@ Shown in the preferences screen along with the following:
   <string name="location_permissions_enable_action">Button label for requesting to turn on location permissions.</string>
   <string name="error_webview_updating">Error informing the user that the System WebView is being updated, meaning that the app cannot be launched right now, and that the user should try again in a moment.</string>
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
+  <string name="error_message_generic">Generic message informing the user that an error occurred</string>
+  <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview</string>
+  <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
   <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
   <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.

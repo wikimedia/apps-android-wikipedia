@@ -227,7 +227,6 @@
   <string name="text_copied">متن در حافظهٔ موقت ذخیره شد.</string>
   <string name="button_continue_to_article">مطالعهٔ مقاله</string>
   <string name="button_add_to_reading_list">افزودن به فهرست مطالعه</string>
-  <string name="dialog_link_preview_offline_notice">در حالت آفلاین امکان بارگیری مقاله وجود ندارد. به فهرست مطالعه افزوده شود تا در زمانی که اینترنت در دسترس بود قابل مطالعه باشد.</string>
   <string name="button_get_directions">دریافت مسیر</string>
   <string name="error_no_maps_app">نمی تواند اپلیکیشنی برای یافتن جهت پیدا کند.</string>
   <string name="preference_title_show_link_previews">نمایش پیوند پیش‌نمایش‌ها</string>
