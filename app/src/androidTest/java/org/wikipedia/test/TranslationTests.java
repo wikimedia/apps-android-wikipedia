@@ -66,7 +66,7 @@ import static org.junit.Assert.fail;
                 // tag (html) parameters
                 for (Res res : tagRes) {
                     if (res.id == R.string.wp_stylized
-                        && (lang.startsWith("iw") || lang.startsWith("he"))
+                        && (lang.startsWith("iw") || lang.startsWith("he") || lang.startsWith("ckb"))
                             || res.id == R.string.notification_talk
                             || res.id == R.string.notification_reverted
                             || res.id == R.string.notification_thanks) {
