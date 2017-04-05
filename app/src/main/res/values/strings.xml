@@ -259,6 +259,7 @@
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
+    <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_dialog_title">Sorry, app crashed last time</string>

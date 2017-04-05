@@ -177,10 +177,13 @@
 
     <org.wikipedia.views.WikiErrorView
         android:id="@+id/page_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:visibility="gone" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/base80"
+        android:visibility="gone"/>
 
     <android.support.v4.widget.Space
         android:id="@+id/fragment_page_tool_tip_select_text_target"
