@@ -622,32 +622,32 @@ span.mw-linkback-text {
 		vertical-align: top;
 		display: inline-block;
 	}
-	
+
 	ul.gallery,
 	li.gallerybox {
 		zoom: 1;
 		*display: inline;
 	}
-	
+
 	ul.gallery {
 		margin: 2px;
 		padding: 2px;
 		display: block;
 	}
-	
+
 	li.gallerycaption {
 		font-weight: bold;
 		text-align: center;
 		display: block;
 		word-wrap: break-word;
 	}
-	
+
 	li.gallerybox div.thumb {
 		text-align: center;
 		border: 1px solid #ccc;
 		margin: 2px;
 	}
-	
+
 	div.gallerytext {
 		overflow: hidden;
 		font-size: 94%;
@@ -1316,4 +1316,154 @@ h3.section_heading {
   font-family: 'Helvetica Neue', 'Helvetica', 'Nimbus Sans L', 'Arial', 'Liberation Sans', sans-serif;
   font-weight: bold;
   padding: 15px 0 0 !important;
+}/**
+ * Style Parsoid HTML+RDFa output consistent with wikitext from PHP parser.
+ */
+/*csslint regex-selectors:false */
+/*
+ * Auto-numbered external links
+ * Parsoid renders those as link without content, and lets CSS do the
+ * counting. This way the counting style can be customized, and counts update
+ * automatically when content is modified.
+ */
+.mw-body-content {
+  counter-reset: mw-numbered-ext-link;
+}
+.mw-body-content a[rel~='mw:ExtLink']:empty:after {
+  content: '[' counter(mw-numbered-ext-link) ']';
+  counter-increment: mw-numbered-ext-link;
+}
+/**
+ * References
+ *
+ * Parser and Extension:Cite output reference numbers for <sup>[1]</sup> for <ref> tags.
+ *
+ * Markup:
+ * Cake is good<sup>[2]</sup>
+ * The cake is a lie<span class="reference">[1]</span>
+ *
+ * Styleguide 1.1.
+ */
+span.reference {
+  font-size: 80%;
+  line-height: 1;
+  vertical-align: super;
+  unicode-bidi: -moz-isolate;
+  unicode-bidi: isolate;
+}
+sup,
+sub {
+  line-height: 1;
+}
+/**
+ * Block media items
+ */
+figure[typeof*='mw:Image'],
+figure[typeof*='mw:Video'],
+figure[typeof*='mw:Audio'] {
+  margin: 0;
+}
+figure[typeof*='mw:Image'] a,
+figure[typeof*='mw:Video'] a,
+figure[typeof*='mw:Audio'] a {
+  border: 0;
+}
+figure[typeof*='mw:Image'].mw-halign-right,
+figure[typeof*='mw:Video'].mw-halign-right,
+figure[typeof*='mw:Audio'].mw-halign-right {
+  /* @noflip */
+  margin: 0.5em 0 1.3em 1.4em;
+  /* @noflip */
+  clear: right;
+  /* @noflip */
+  float: right;
+}
+figure[typeof*='mw:Image'].mw-halign-left,
+figure[typeof*='mw:Video'].mw-halign-left,
+figure[typeof*='mw:Audio'].mw-halign-left {
+  /* @noflip */
+  margin: 0.5em 1.4em 1.3em 0;
+  /* @noflip */
+  clear: left;
+  /* @noflip */
+  float: left;
+}
+figure[typeof*='mw:Image'].mw-halign-none,
+figure[typeof*='mw:Video'].mw-halign-none,
+figure[typeof*='mw:Audio'].mw-halign-none {
+  margin: 0;
+  clear: none;
+  float: none;
+}
+figure[typeof*='mw:Image'].mw-halign-center,
+figure[typeof*='mw:Video'].mw-halign-center,
+figure[typeof*='mw:Audio'].mw-halign-center {
+  margin: 0 auto 0.5em auto;
+  display: table;
+  clear: none;
+  float: none;
+}
+figure[typeof*='mw:Image'] > figcaption,
+figure[typeof*='mw:Video'] > figcaption,
+figure[typeof*='mw:Audio'] > figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  /* In mw-core the font-size is duplicated, 94% in thumbiner
+		 * and again 94% in thumbcaption. 88.4% for font size of the
+		 * caption results in the same behavior. */
+  font-size: 88.4%;
+  line-height: 1.4em;
+  text-align: left;
+  border: 1px solid #c8ccd1;
+  border-top: 0;
+  /* taken from .thumbcaption, plus .thumbinner */
+  padding: 0 6px 6px 6px;
+  background-color: #f8f9fa;
+}
+figure[typeof*='mw:Image'] > figcaption table,
+figure[typeof*='mw:Video'] > figcaption table,
+figure[typeof*='mw:Audio'] > figcaption table {
+  /* reset caption side for tables inside figcaptions */
+  caption-side: top;
+}
+figure[typeof~='mw:Image/Thumb'],
+figure[typeof~='mw:Video/Thumb'],
+figure[typeof~='mw:Audio/Thumb'],
+figure[typeof~='mw:Image/Frame'],
+figure[typeof~='mw:Video/Frame'],
+figure[typeof~='mw:Audio/Frame'] {
+  display: table;
+  overflow: auto;
+  text-align: center;
+  border: 1px solid #c8ccd1;
+  border-bottom: 0;
+  border-collapse: collapse;
+  background-color: #f8f9fa;
+  margin: 0.5em 0 1.3em 1.4em;
+  clear: right;
+  float: right;
+}
+figure[typeof~='mw:Image/Thumb'] > *:first-child > img,
+figure[typeof~='mw:Video/Thumb'] > *:first-child > video,
+figure[typeof~='mw:Audio/Thumb'] > *:first-child > video,
+figure[typeof~='mw:Image/Frame'] > *:first-child > img,
+figure[typeof~='mw:Video/Frame'] > *:first-child > video,
+figure[typeof~='mw:Audio/Frame'] > *:first-child > video {
+  border: 1px solid #c8ccd1;
+  margin: 3px;
+  background: #fff;
+}
+/* Same as img.thumbborder in content.css */
+.mw-image-border > *:first-child > img,
+.mw-image-border > *:first-child > video {
+  border: 1px solid #eaecf0;
+}
+/* Hide the caption for frameless and plain floated images */
+figure[typeof~='mw:Image/Frameless'] > figcaption,
+figure[typeof~='mw:Video/Frameless'] > figcaption,
+figure[typeof~='mw:Audio/Frameless'] > figcaption,
+figure[typeof~='mw:Image'] > figcaption,
+figure[typeof~='mw:Video'] > figcaption,
+figure[typeof~='mw:Audio'] > figcaption {
+  display: none;
 }
