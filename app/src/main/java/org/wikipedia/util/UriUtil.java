@@ -10,6 +10,7 @@ import android.text.TextUtils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
@@ -61,13 +62,23 @@ public final class UriUtil {
         }
     }
 
+    @NonNull public static String resolveProtocolRelativeUrl(@NonNull WikiSite wiki,
+                                                             @NonNull String url) {
+        String ret = resolveProtocolRelativeUrl(url);
+
+        // also handle images like /w/extensions/ImageMap/desc-20.png?15600 on Estados Unidos
+        return (ret.startsWith("./") || ret.startsWith("/w/") || ret.startsWith("/wiki/"))
+                ? wiki.uri().buildUpon().appendEncodedPath(ret.replaceFirst("/", "")).build().toString()
+                : ret;
+    }
+
     /**
      * Resolves a potentially protocol relative URL to a 'full' URL
      *
      * @param url Url to check for (and fix) protocol relativeness
      * @return A fully qualified, protocol specified URL
      */
-    public static String resolveProtocolRelativeUrl(String url) {
+    @NonNull public static String resolveProtocolRelativeUrl(@NonNull String url) {
         return (url.startsWith("//") ? WikipediaApp.getInstance().getWikiSite().scheme() + ":" + url
                 : url);
     }
