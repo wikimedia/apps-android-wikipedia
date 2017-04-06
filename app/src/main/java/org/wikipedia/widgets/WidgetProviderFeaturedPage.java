@@ -79,7 +79,8 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 app.getWikiSite());
 
         getApiService(title)
-                .lead(title.getPrefixedText(), DimenUtil.calculateLeadImageWidth(),
+                .lead(null, PageClient.CacheOption.CACHE, title.getPrefixedText(),
+                        DimenUtil.calculateLeadImageWidth(),
                         !app.isImageDownloadEnabled())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {
