@@ -31,15 +31,7 @@ public class ReadingListPageObserver extends ContentObserver {
     }
 
     @Override public void onChange(boolean selfChange, Uri uri) {
-        // The content observer is notified of changes to the registered URI's parent (here,
-        // content://org.wikipedia.dev/readinglist/page) as well as the specific URI
-        // we're interested in. We can double-check the URI here to prevent multiple calls to
-        // notifyDataSetChanged for the same underlying change, which could otherwise produce an
-        // unpleasant flickering effect on the changed feed card, especially if it has an image.
-        if (uri != ReadingListPageContract.Disk.URI) {
-            return;
-        }
-        if (callback != null) {
+        if (callback != null && uri == ReadingListPageContract.Disk.URI) {
             callback.onChange();
         }
         WikipediaApp.getInstance().startService(new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
