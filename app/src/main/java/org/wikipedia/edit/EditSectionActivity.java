@@ -26,7 +26,6 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import org.mediawiki.api.json.ApiException;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -37,6 +36,7 @@ import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.csrf.CsrfToken;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.edit.preview.EditPreviewFragment;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
@@ -54,6 +54,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.WikiErrorView;
 
 import java.util.concurrent.TimeUnit;
 
@@ -74,10 +75,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private WikipediaApp app;
 
     private PageTitle title;
-    public PageTitle getPageTitle() {
-        return title;
-    }
-
     private int sectionID;
     private String sectionHeading;
     private PageProperties pageProps;
@@ -92,7 +89,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private View sectionProgress;
     private ScrollView sectionContainer;
-    private View sectionError;
+    private WikiErrorView errorView;
 
     private View abusefilterContainer;
     private ImageView abuseFilterImage;
@@ -123,6 +120,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             finish();
         }
     };
+
+    public PageTitle getPageTitle() {
+        return title;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -158,8 +159,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         sectionProgress = findViewById(R.id.edit_section_load_progress);
         sectionContainer = (ScrollView) findViewById(R.id.edit_section_container);
         sectionContainer.setSmoothScrollingEnabled(false);
-        sectionError = findViewById(R.id.edit_section_error);
-        TextView sectionErrorRetry = (TextView) findViewById(R.id.edit_section_error_retry);
+        errorView = (WikiErrorView) findViewById(R.id.view_edit_section_error);
 
         abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
         abuseFilterImage = (ImageView) findViewById(R.id.edit_section_abusefilter_image);
@@ -192,14 +192,20 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             handleAbuseFilter();
         }
 
-        sectionErrorRetry.setOnClickListener(new View.OnClickListener() {
+        errorView.setRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ViewAnimations.crossFade(sectionError, sectionProgress);
+                errorView.setVisibility(View.GONE);
                 fetchSectionText();
             }
         });
 
+        errorView.setBackClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         setConditionalTextDirection(sectionText, title.getWikiSite().languageCode());
 
@@ -351,16 +357,14 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                                     // no longer attached to activity!
                                     return;
                                 }
-                                if (caught instanceof ApiException) {
-                                    // This is a fairly standard editing exception. Handle it appropriately.
-                                    handleEditingException((ApiException) caught);
-                                } else if (caught instanceof UserNotLoggedInException) {
+                                if (caught instanceof UserNotLoggedInException) {
                                     retry();
+                                } else if (caught instanceof MwException) {
+                                    handleEditingException((MwException) caught);
+                                    L.e(caught);
                                 } else {
-                                    // If it's not an API exception, we have no idea what's wrong.
-                                    // Show the user a generic error message.
-                                    L.w(caught);
                                     showRetryDialog(caught);
+                                    L.e(caught);
                                 }
                             }
                         });
@@ -368,9 +372,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
             @Override
             public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull Throwable caught) {
-                // This is a simple, static API call and an API error is highly unlikely.
-                // In the event of failure, it's likely a network issue.
-                FeedbackUtil.showError(EditSectionActivity.this, caught);
+                showError(caught);
+                L.e(caught);
             }
         });
     }
@@ -408,10 +411,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     /**
      * Processes API error codes encountered during editing, and handles them as appropriate.
-     * @param e The ApiException to handle.
+     * @param caught The MwException to handle.
      */
-    private void handleEditingException(@NonNull ApiException e) {
-        String code = e.getCode();
+    private void handleEditingException(@NonNull MwException caught) {
+        String code = caught.getTitle();
         if (User.isLoggedIn() && ("badtoken".equals(code) || "assertuserfailed".equals(code))) {
             retry();
         } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
@@ -452,7 +455,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         } else {
             // an unknown error occurred, so just dismiss the progress dialog and show a message.
             progressDialog.dismiss();
-            FeedbackUtil.showError(this, e);
+            FeedbackUtil.showError(this, caught);
         }
     }
 
@@ -466,35 +469,39 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                         if (result.pass()) {
                             doSave();
                         } else {
-                            onLoginError();
+                            if (!progressDialog.isShowing()) {
+                                // no longer attached to activity!
+                                return;
+                            }
+                            progressDialog.dismiss();
+                            FeedbackUtil.showMessage(EditSectionActivity.this, result.getMessage());
                         }
                     }
 
                     @Override
                     public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
-                        FeedbackUtil.showError(EditSectionActivity.this,
-                                new LoginClient.LoginFailedException(getResources()
-                                        .getString(R.string.login_2fa_other_workflow_error_msg)));
-                        onLoginError();
-                    }
-
-                    @Override
-                    public void error(@NonNull Throwable caught) {
-                        onLoginError();
-                    }
-
-                    private void onLoginError() {
                         if (!progressDialog.isShowing()) {
                             // no longer attached to activity!
                             return;
                         }
                         progressDialog.dismiss();
+                        FeedbackUtil.showError(EditSectionActivity.this,
+                                new LoginClient.LoginFailedException(getResources()
+                                        .getString(R.string.login_2fa_other_workflow_error_msg)));
+                    }
 
-                        // TODO: The view shown here states "cannot connect to the Internet" regardless
-                        // of the actual cause of failure (which could also be an API error or malformed
-                        // response). Update this to provide more specificity and accuracy. (T154805)
-                        ViewAnimations.crossFade(sectionText, sectionError);
-                        sectionError.setVisibility(View.VISIBLE);
+                    @Override
+                    public void error(@NonNull Throwable caught) {
+                        showErrorView(caught);
+                    }
+
+                    private void showErrorView(@Nullable Throwable caught) {
+                        if (!progressDialog.isShowing()) {
+                            // no longer attached to activity!
+                            return;
+                        }
+                        progressDialog.dismiss();
+                        showError(caught);
                     }
                 });
     }
@@ -628,6 +635,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         return true;
     }
 
+    public void showError(@Nullable Throwable caught) {
+        errorView.setError(caught);
+        errorView.setVisibility(View.VISIBLE);
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -647,15 +659,10 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 }
 
                 @Override
-                public void failure(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull Throwable throwable) {
-                    // TODO: The view shown here states "cannot connect to the Internet" regardless
-                    // of the actual cause of failure (which could also be an API error or malformed
-                    // response). Update this to provide more specificity and accuracy. (T154805)
-                    ViewAnimations.crossFade(sectionProgress, sectionError);
-                    // Not sure why this is required, but without it tapping retry hides langLinksError
-                    // FIXME: INVESTIGATE WHY THIS HAPPENS!
-                    // Also happens in {@link PageFragment}
-                    sectionError.setVisibility(View.VISIBLE);
+                public void failure(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull Throwable caught) {
+                    sectionProgress.setVisibility(View.GONE);
+                    showError(caught);
+                    L.e(caught);
                 }
             });
         } else {
