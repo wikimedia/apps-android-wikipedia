@@ -28,6 +28,7 @@ import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
+import org.wikipedia.views.WikiErrorView;
 
 import java.util.List;
 
@@ -48,8 +49,9 @@ public class LoginActivity extends ThemedActionBarActivity {
     private EditText twoFactorText;
     private View loginButton;
     private ProgressDialog progressDialog;
-    @Nullable private String firstStepToken;
+    private WikiErrorView errorView;
 
+    @Nullable private String firstStepToken;
     private LoginFunnel funnel;
     private String loginSource;
     private LoginClient loginClient;
@@ -70,12 +72,27 @@ public class LoginActivity extends ThemedActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wiki_login);
+        setContentView(R.layout.activity_login);
 
         usernameText = (EditText) findViewById(R.id.login_username_text);
         passwordText = ((PasswordTextInput) findViewById(R.id.login_password_input)).getEditText();
         twoFactorText = (EditText) findViewById(R.id.login_2fa_text);
         View createAccountLink = findViewById(R.id.login_create_account_link);
+        errorView = (WikiErrorView) findViewById(R.id.view_login_error);
+
+        errorView.setBackClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        errorView.setRetryClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                errorView.setVisibility(View.GONE);
+            }
+        });
 
         // We enable the login button as soon as the username and password fields are filled
         // Tapping does further validation
@@ -247,8 +264,10 @@ public class LoginActivity extends ThemedActionBarActivity {
 
                     finish();
                 } else if (result.fail()) {
-                    funnel.logError(result.getMessage());
-                    handleError(result.getMessage());
+                    String message = result.getMessage();
+                    FeedbackUtil.showMessage(LoginActivity.this, message);
+                    funnel.logError(message);
+                    L.w("Login failed with result " + message);
                 }
             }
 
@@ -272,7 +291,11 @@ public class LoginActivity extends ThemedActionBarActivity {
                     return;
                 }
                 progressDialog.dismiss();
-                FeedbackUtil.showError(LoginActivity.this, caught);
+                if (caught instanceof LoginClient.LoginFailedException) {
+                    FeedbackUtil.showError(LoginActivity.this, caught);
+                } else {
+                    showError(caught);
+                }
             }
         };
     }
@@ -281,11 +304,6 @@ public class LoginActivity extends ThemedActionBarActivity {
     public void onBackPressed() {
         hideSoftKeyboard(this);
         super.onBackPressed();
-    }
-
-    private void handleError(String message) {
-        FeedbackUtil.showMessage(this, message);
-        L.e("Login failed with result " + message);
     }
 
     @Override
@@ -300,5 +318,10 @@ public class LoginActivity extends ThemedActionBarActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("loginShowing", true);
+    }
+
+    private void showError(@NonNull Throwable caught) {
+        errorView.setError(caught);
+        errorView.setVisibility(View.VISIBLE);
     }
 }
