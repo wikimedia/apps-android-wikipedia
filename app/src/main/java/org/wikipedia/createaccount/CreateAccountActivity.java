@@ -28,6 +28,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
+import org.wikipedia.views.WikiErrorView;
 
 import java.util.List;
 
@@ -62,12 +63,12 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     // https://github.com/ragunathjawahar/android-saripaar/issues/102
     @OptionalEmail(messageResId = R.string.create_account_email_error)
     private EditText emailEdit;
-
     private TextView createAccountButton;
     private TextView createAccountButtonCaptcha;
     private ProgressDialog progressDialog;
-    private CaptchaHandler captchaHandler;
+    private WikiErrorView errorView;
 
+    private CaptchaHandler captchaHandler;
     private CreateAccountResult createAccountResult;
     private Validator validator;
     private CreateAccountFunnel funnel;
@@ -93,6 +94,20 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
+
+        errorView = (WikiErrorView) findViewById(R.id.view_create_account_error);
+        errorView.setBackClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        errorView.setRetryClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                errorView.setVisibility(View.GONE);
+            }
+        });
 
         wiki = WikipediaApp.getInstance().getWikiSite();
         createAccountInfoClient = new CreateAccountInfoClient();
@@ -218,7 +233,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         FeedbackUtil.showPrivacyPolicy(this);
     }
 
-    public void handleError(@NonNull String message) {
+    public void handleAccountCreationError(@NonNull String message) {
         FeedbackUtil.showMessage(this, message);
         L.w("Account creation failed with result " + message);
     }
@@ -229,7 +244,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             public void success(@NonNull Call<MwQueryResponse<CreateAccountInfo>> call,
                                 @NonNull CreateAccountInfoResult result) {
                 if (result.token() == null) {
-                    handleError(getString(R.string.create_account_generic_error));
+                    handleAccountCreationError(getString(R.string.create_account_generic_error));
                 } else if (result.hasCaptcha()) {
                     captchaHandler.handleCaptcha(result.token(), new CaptchaResult(result.captchaId()));
                 } else {
@@ -240,7 +255,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             @Override
             public void failure(@NonNull Call<MwQueryResponse<CreateAccountInfo>> call,
                                 @NonNull Throwable caught) {
-                handleError(caught.getMessage());
+                showError(caught);
                 L.e(caught);
             }
         });
@@ -280,7 +295,11 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                             return;
                         }
                         progressDialog.dismiss();
-                        FeedbackUtil.showError(CreateAccountActivity.this, caught);
+                        if (caught instanceof CreateAccountException) {
+                            handleAccountCreationError(caught.getMessage());
+                        } else {
+                            showError(caught);
+                        }
                     }
                 });
     }
@@ -311,5 +330,10 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         funnel.logSuccess();
         hideSoftKeyboard(CreateAccountActivity.this);
         finish();
+    }
+
+    private void showError(@NonNull Throwable caught) {
+        errorView.setError(caught);
+        errorView.setVisibility(View.VISIBLE);
     }
 }
