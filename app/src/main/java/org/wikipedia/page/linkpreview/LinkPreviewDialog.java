@@ -229,6 +229,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         LinkPreviewErrorType errorType = LinkPreviewErrorType.get(getContext(), caught);
         overlayView.setPrimaryButtonText(getResources().getString(errorType.buttonText()));
         overlayView.setCallback(errorType.buttonAction(errorContainer));
+        if (errorType != LinkPreviewErrorType.OFFLINE) {
+            toolbarView.setOnClickListener(null);
+            overflowButton.setVisibility(View.GONE);
+        }
     }
 
     private void setPreviewContents(@NonNull LinkPreviewContents contents) {
