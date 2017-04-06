@@ -48,10 +48,10 @@
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
   <string name="langlinks_no_match">Nie znaleziono języków pasujących do twojego zapytania.</string>
   <string name="langlinks_activity_title">Inne języki</string>
-  <string name="menu_save_changes">Zapisz zmiany</string>
+  <string name="menu_save_changes" fuzzy="true">Zapisz zmiany</string>
   <string name="edit_section_error_retry">Ponów próbę</string>
-  <string name="dialog_saving_in_progress">Zapisywanie…</string>
-  <string name="edit_saved_successfully">Edycja została zapisana!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Zapisywanie…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Edycja została zapisana!</string>
   <string name="dialog_message_edit_failed">Edycja nie powiodła się!</string>
   <string name="dialog_message_edit_failed_retry">Ponów próbę</string>
   <string name="dialog_message_edit_failed_cancel">Anuluj</string>
@@ -148,7 +148,7 @@
   <string name="user_anon_blocked_from_editing">Edycja z tego adresu IP została zablokowana</string>
   <string name="edit_how_page_improved">Jak poprawiłeś/-aś stronę?</string>
   <string name="edit_next">Następne</string>
-  <string name="edit_done">Zapisz</string>
+  <string name="edit_done" fuzzy="true">Zapisz</string>
   <string name="edit_preview">Podgląd</string>
   <string name="edit_summary_tag_typo">Poprawiono literówkę</string>
   <string name="edit_summary_tag_grammar">Poprawiono gramatykę</string>
@@ -157,8 +157,8 @@
   <string name="edit_summary_tag_other_hint">Co poprawiłaś/eś na tej stronie</string>
   <string name="find_next">Znajdź następny</string>
   <string name="find_previous">Znajdź poprzedni</string>
-  <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją zapisać?</string>
-  <string name="abusefilter_title_disallow">Nie możesz zapisać tej edycji. Wróć do niej i popraw ją.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją zapisać?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Nie możesz zapisać tej edycji. Wróć do niej i popraw ją.</string>
   <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może zawierać jeden lub więcej z następujących błedów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnetrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>
   <string name="abusefilter_text_disallow">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną lub wandalizm.&lt;br /&gt;&lt;br /&gt;Wikipedia to encyklopedia i mogą w niej się znaleźć wyłącznie neutralne encyklopedyczne treści.</string>
   <string name="dialog_page_issues">Problemy ze stroną</string>
@@ -229,6 +229,7 @@
   <string name="error_voice_search_not_available">Przepraszamy, rozpoznawanie mowy nie jest dostępne.</string>
   <string name="enable_location_service">Włącz</string>
   <string name="location_permissions_enable_action">Włącz</string>
+  <string name="error_message_generic">Wystąpił błąd</string>
   <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
@@ -295,7 +296,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="view_continue_reading_card_subtitle_today">Dzisiaj</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
   <string name="description_edit_text_hint">Opis tytułu</string>
-  <string name="description_edit_save">Zapisz</string>
+  <string name="description_edit_save" fuzzy="true">Zapisz</string>
   <string name="description_edit_add_description">Dodaj opis tytułu</string>
   <string name="description_edit_edit_description">Edytuj opis</string>
   <string name="description_edit_cancel_hint">Anuluj</string>
@@ -303,7 +304,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/pl</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Opis zapisany!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Opis zapisany!</string>
   <string name="description_edit_success_done">Gotowe</string>
   <string name="description_edit_tutorial_button_label_continue">Kontynuuj</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>

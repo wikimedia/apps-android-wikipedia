@@ -46,10 +46,10 @@
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
   <string name="langlinks_no_match">Nerasta kalbų, atitinkančių jūsų užklausą.</string>
   <string name="langlinks_activity_title">Kitos kalbos</string>
-  <string name="menu_save_changes">Įrašyti pakeitimus</string>
+  <string name="menu_save_changes">Paskelbti Pakeitimus</string>
   <string name="edit_section_error_retry">Bandyti dar kartą</string>
-  <string name="dialog_saving_in_progress">Įrašoma…</string>
-  <string name="edit_saved_successfully">Redagavimas įrašytas!</string>
+  <string name="dialog_saving_in_progress">Skelbiama...</string>
+  <string name="edit_saved_successfully">Redagavimas paskelbtas!</string>
   <string name="dialog_message_edit_failed">Redaguoti nepavyko!</string>
   <string name="dialog_message_edit_failed_retry">Bandyti dar kartą</string>
   <string name="dialog_message_edit_failed_cancel">Atšaukti</string>
@@ -132,7 +132,7 @@
   <string name="user_anon_blocked_from_editing">Jūsų IP adresas yra užblokuotas nuo redagavimo.</string>
   <string name="edit_how_page_improved">Kaip pagerinote puslapį?</string>
   <string name="edit_next">Kitas</string>
-  <string name="edit_done">Įrašyti</string>
+  <string name="edit_done">Paskelbti</string>
   <string name="edit_preview">Peržiūra</string>
   <string name="edit_summary_tag_typo">Pataisyta klaida</string>
   <string name="edit_summary_tag_grammar">Pataisyta gramatika</string>
@@ -141,6 +141,7 @@
   <string name="edit_summary_tag_other_hint">Kiti būdai, kaip galite pagerinti puslapį</string>
   <string name="find_next">Rasti kitą</string>
   <string name="find_previous">Rasti ankstesnį</string>
+  <string name="abusefilter_title_warn">Panašu, kad šie pakeitimai nekonstruktyvūs. Ar tikrai norite juos paskelbti?</string>
   <string name="abusefilter_title_disallow">Jūs negalite išsaugoti šio keitimo. Prašome grįžti atgal ir pakeisti jį.</string>
   <string name="dialog_page_issues">Puslapio klausimai</string>
   <string name="button_page_issues">Puslapio klausimai</string>
@@ -199,6 +200,8 @@
   <string name="text_copied">Tekstas nukopijuotas į iškarpinę.</string>
   <string name="button_continue_to_article">Skaityti straipsnį</string>
   <string name="button_add_to_reading_list">Įtraukti į skaitymo sąrašą</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Neprisijungus, įrašas negali būti įkeltas.</string>
+  <string name="page_offline_notice_add_to_reading_list">Pridėkite straipsnį prie skaitomų sąrašo ir jis bus pakrautas kai vėl prisijungsite.</string>
   <string name="button_get_directions">Gauti kryptis</string>
   <string name="error_no_maps_app">Nepavyko rasti jokių programėlių, kurios suteikia kryptis.</string>
   <string name="preference_title_show_link_previews">Rodyti nuorodos peržiūras</string>
@@ -209,6 +212,9 @@
   <string name="enable_location_service">Įjungti</string>
   <string name="location_permissions_enable_prompt">Įjunkite vietovės teises, kad matytumėte vietas šalia savęs.</string>
   <string name="location_permissions_enable_action">Įjungti</string>
+  <string name="error_message_generic">Įvyko klaida</string>
+  <string name="view_link_preview_error_button_dismiss">Atšaukti</string>
+  <string name="error_page_does_not_exist">Šis puslapis neekzistuoja</string>
   <string name="crash_report_dialog_title">Atleiskite, programėlė praeitą kartą užlūžo</string>
   <string name="crash_report_dialog_dont_send_button">Praleisti</string>
   <string name="crash_report_dialog_always_send_button">Siųsti visada</string>
@@ -287,13 +293,13 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="view_continue_reading_card_subtitle_today">Šiandien</string>
   <string name="view_announcement_card_negative_action">Ne, ačiū</string>
   <string name="description_edit_text_hint" fuzzy="true">Parašykite aprašymą!</string>
-  <string name="description_edit_save">Išsaugoti</string>
+  <string name="description_edit_save">Paskelbti</string>
   <string name="description_edit_add_description" fuzzy="true">Pridėti trumpą aprašymą</string>
   <string name="description_edit_edit_description">Redaguoti aprašymą</string>
   <string name="description_edit_cancel_hint">Atšaukti</string>
   <string name="description_edit_help_about_wikidata">Apie Vikiduomenis</string>
   <string name="description_edit_help_wikidata_guide">Vikiduomenų gidas aprašymų rašymui</string>
-  <string name="description_edit_success_saved">Aprašymas išsaugotas!</string>
+  <string name="description_edit_success_saved">Aprašymas paskelbtas!</string>
   <string name="description_edit_success_encouragement">Jūs ką tik padarėte Vikipediją geresne visiems</string>
   <string name="description_edit_success_done">Atlikta</string>
   <string name="description_edit_success_did_you_know">Ar žinote?</string>

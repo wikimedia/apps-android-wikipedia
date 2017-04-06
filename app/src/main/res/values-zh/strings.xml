@@ -50,10 +50,10 @@
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
   <string name="langlinks_no_match">未找到匹配您的查询的语言。</string>
   <string name="langlinks_activity_title">其他语言</string>
-  <string name="menu_save_changes">保存修改</string>
+  <string name="menu_save_changes">发布更改</string>
   <string name="edit_section_error_retry">重试</string>
-  <string name="dialog_saving_in_progress">正在保存…</string>
-  <string name="edit_saved_successfully">编辑已保存！</string>
+  <string name="dialog_saving_in_progress">正在发布…</string>
+  <string name="edit_saved_successfully">编辑已发布！</string>
   <string name="dialog_message_edit_failed">编辑失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">您的IP地址已经被封禁，不能编辑。</string>
   <string name="edit_how_page_improved">您是如何改善该页面的？</string>
   <string name="edit_next">下一步</string>
-  <string name="edit_done">保存</string>
+  <string name="edit_done">发布</string>
   <string name="edit_preview">预览</string>
   <string name="edit_summary_tag_typo">修正错别字</string>
   <string name="edit_summary_tag_grammar">修正语病</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
   <string name="find_next">查找下一个</string>
   <string name="find_previous">查找上一个</string>
-  <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要保存？</string>
-  <string name="abusefilter_title_disallow">您不能保存该编辑。请返回更改。</string>
+  <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要发布它么？</string>
+  <string name="abusefilter_title_disallow">您不能发布该编辑。请返回更改。</string>
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全文大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>
   <string name="abusefilter_text_disallow">自动过滤器识别该编辑为没有潜在建设性的编辑或是潜在的破坏。&lt;br /&gt;&lt;br /&gt;维基百科是一部百科全书，只收录中立、有关注度的内容。</string>
   <string name="dialog_page_issues">页面问题</string>
@@ -227,6 +227,8 @@
   <string name="text_copied">文本已复制至剪贴板。</string>
   <string name="button_continue_to_article">阅读条目</string>
   <string name="button_add_to_reading_list">添加至阅读列表</string>
+  <string name="page_offline_notice_cannot_load_while_offline">条目不能在离线时加载。</string>
+  <string name="page_offline_notice_add_to_reading_list">添加条目至阅读列表，这样当您恢复在线时它将自动被下载。</string>
   <string name="button_get_directions">路线导航</string>
   <string name="error_no_maps_app">找不到任何提供导航的应用程序。</string>
   <string name="preference_title_show_link_previews">显示链接预览</string>
@@ -239,6 +241,9 @@
   <string name="location_permissions_enable_action">打开</string>
   <string name="error_webview_updating">Android系统的WebView当前正在更新。请稍后再试。</string>
   <string name="multi_select_items_selected">%d已选择</string>
+  <string name="error_message_generic">发生错误</string>
+  <string name="view_link_preview_error_button_dismiss">关闭</string>
+  <string name="error_page_does_not_exist">该页面不存在</string>
   <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
   <string name="crash_report_dialog_text">您是否希望发送崩溃报告至HockeyApp/第三方服务提供方，这样维基媒体可以浏览您的崩溃报告，并修复导致它的漏洞？</string>
   <string name="crash_report_dialog_dont_send_button">跳过</string>
@@ -329,7 +334,7 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
   <string name="description_edit_text_hint">标题描述</string>
-  <string name="description_edit_save">保存</string>
+  <string name="description_edit_save">发布</string>
   <string name="description_edit_add_description">添加标题描述</string>
   <string name="description_edit_edit_description">编辑描述</string>
   <string name="description_edit_cancel_hint">取消</string>
@@ -340,7 +345,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感谢您对继续编辑描述感兴趣！要做出额外编辑，请登录您的维基百科账户。</string>
   <string name="description_edit_license_notice">通过更改标题描述，表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
-  <string name="description_edit_success_saved">描述已保存！</string>
+  <string name="description_edit_success_saved">描述已发布！</string>
   <string name="description_edit_success_encouragement">您只是让维基百科更好地服务大家</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道吗？</string>

@@ -50,10 +50,10 @@
   <string name="langlinks_empty">N\'haller ket kaout ar bajenn-mañ e yezhoù all</string>
   <string name="langlinks_no_match">N\'eus bet kavet yezh ebet a glot gant ho reked.</string>
   <string name="langlinks_activity_title">Yezhoù all</string>
-  <string name="menu_save_changes">Enrollañ ar c\'hemmoù</string>
+  <string name="menu_save_changes" fuzzy="true">Enrollañ ar c\'hemmoù</string>
   <string name="edit_section_error_retry">Klask en-dro</string>
-  <string name="dialog_saving_in_progress">Oc\'h enrollañ…</string>
-  <string name="edit_saved_successfully">Kemm enrollet!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Oc\'h enrollañ…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Kemm enrollet!</string>
   <string name="dialog_message_edit_failed">C\'hwitet ar c\'hemm !</string>
   <string name="dialog_message_edit_failed_retry">Klask en-dro</string>
   <string name="dialog_message_edit_failed_cancel">Nullañ</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">Stanket eo bet ho chomlec\'h IP evit cheñch traoù.</string>
   <string name="edit_how_page_improved">Penaos eo bet gwellaet ar bajenn-mañ ganeoc\'h ?</string>
   <string name="edit_next">War-lerc\'h</string>
-  <string name="edit_done">Enrollañ</string>
+  <string name="edit_done" fuzzy="true">Enrollañ</string>
   <string name="edit_preview">Rakwelet</string>
   <string name="edit_summary_tag_typo">Vi-koukoug reizhet</string>
   <string name="edit_summary_tag_grammar">Fazi yezhadur reizhet</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Doareoù all da wellaat ar bajenn</string>
   <string name="find_next">Kavout an hini da-heul</string>
   <string name="find_previous">Kavout an hini a-raok</string>
-  <string name="abusefilter_title_warn">War a seblant ne vo ket degaset kalz a dra gant ar c\'hemm-mañ. Ha sur oc\'h e fell deoc\'h enrollañ anezhañ ?</string>
-  <string name="abusefilter_title_disallow">Ne c\'hallit ket enrollañ ar c\'hemm-mañ. Distroit ha kemmit anezhañ.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">War a seblant ne vo ket degaset kalz a dra gant ar c\'hemm-mañ. Ha sur oc\'h e fell deoc\'h enrollañ anezhañ ?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Ne c\'hallit ket enrollañ ar c\'hemm-mañ. Distroit ha kemmit anezhañ.</string>
   <string name="abusefilter_text_warn">Ur sil emgefre en deus anavezet ar c\'hemm-mañ. Hervezañ ne zegaso ket kalz a dra. Ennañ e c\'hallfe bezañ un elfenn pe meur a hini &lt;br/br/&gt;Bizskrivañ pep tra gant pennlizherennoù&lt;br/&gt;. Pennadoù goullo pe posteloù strobus &lt;br/&gt;. Liammoù pe skeudennoù diavaez  diazaz&lt;br/&gt;. Arouezennoù bizskrivet en-dro.</string>
   <string name="abusefilter_text_disallow">Ur sil emgefreek en deus anavezet ar c\'hemm-mañ evel unan na zegas ket kalz a dra pe evel un dra a zegas drast &lt;br/&gt;&lt;br/&gt;. Un holloueziadur eo Wikipedia. Ne c\'haller lakaat nemet traoù neptu ha pouezus e-barzh.</string>
   <string name="dialog_page_issues">Kaozioù war ar bajenn</string>
@@ -329,7 +329,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="view_continue_reading_card_subtitle_today">Hiziv</string>
   <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
   <string name="description_edit_text_hint">Deskrivadur an titl</string>
-  <string name="description_edit_save">Enrollañ</string>
+  <string name="description_edit_save" fuzzy="true">Enrollañ</string>
   <string name="description_edit_add_description">Ouzhpennañ deskrivadur an titl</string>
   <string name="description_edit_edit_description">Kemmañ an deskrivadur</string>
   <string name="description_edit_cancel_hint">Nullañ</string>
@@ -340,7 +340,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Trugarez da ziskouez oc\'h dedennet da zegas cheñchamantoù en deskrivadurioù. Trugarez ! Evit ober muioc\'h a gemmoù, kevreit ouzh ho kont Wikipedia.</string>
   <string name="description_edit_license_notice">Pa gemann deskrivadur an titl e tegemeran an &lt;a href=\"%1$s\"&gt; Divizoù implijout&lt;/a&gt; ha lakaat ma tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ha ne c\'hallan ket distreiñ war ma diviz.</string>
-  <string name="description_edit_success_saved">Enrollet eo an deskrivadur ervat !</string>
+  <string name="description_edit_success_saved" fuzzy="true">Enrollet eo an deskrivadur ervat !</string>
   <string name="description_edit_success_encouragement">Emaoc\'h o paouez gwellaat Wikipedia evit mad an holl</string>
   <string name="description_edit_success_done">Graet</string>
   <string name="description_edit_success_did_you_know">Ha gouzout a raec\'h ?</string>

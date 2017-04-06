@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Kaca iki ora ana ing basa liya.</string>
   <string name="langlinks_no_match">Basa sing tinemu ora ana sing mathuk karo panjaluké panjenengan.</string>
   <string name="langlinks_activity_title">Basa liya</string>
-  <string name="menu_save_changes">Simpen owahan</string>
+  <string name="menu_save_changes" fuzzy="true">Simpen owahan</string>
   <string name="edit_section_error_retry">Jajal manèh</string>
-  <string name="dialog_saving_in_progress">Nyimpen...</string>
-  <string name="edit_saved_successfully">Besutan kasimpen!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Nyimpen...</string>
+  <string name="edit_saved_successfully" fuzzy="true">Besutan kasimpen!</string>
   <string name="dialog_message_edit_failed">Besutan ora dadi!</string>
   <string name="dialog_message_edit_failed_retry">Jajal manèh</string>
   <string name="dialog_message_edit_failed_cancel">Wurung</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">Alamat IP panjenengan diblokir saka panyuntingan ing wiki iki.</string>
   <string name="edit_how_page_improved">Carane sira nambah kaca?</string>
   <string name="edit_next">Sabanjuré</string>
-  <string name="edit_done">Simpen</string>
+  <string name="edit_done" fuzzy="true">Simpen</string>
   <string name="edit_preview">Pratuduh</string>
   <string name="edit_summary_tag_typo">Ndandani kesalahan ketik</string>
   <string name="edit_summary_tag_grammar">Ndandani tata bahasa</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Cara liyane sing nambah kaca</string>
   <string name="find_next">Golèk sabanjuré</string>
   <string name="find_previous">Golèk sadurungé</string>
-  <string name="abusefilter_title_warn">Iki uga ngowahi ora konstruktif. Apa panjenengan yakin arep kanggo nyimpen?</string>
-  <string name="abusefilter_title_disallow">Sampeyan ora bisa nyimpen kaca iki. Mangga bali lan ngganti.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Iki uga ngowahi ora konstruktif. Apa panjenengan yakin arep kanggo nyimpen?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Sampeyan ora bisa nyimpen kaca iki. Mangga bali lan ngganti.</string>
   <string name="abusefilter_text_warn">Lan filter otomatis wis dikenali kaca iki minangka potensi ora konstruktif. Iku bisa uga ana sawijining utawa luwih saka ing ngisor iki:&lt;br /&gt;&lt;br /&gt;· Ngetik ing kabeh huruf&lt;br /&gt;· Mengosongkan artikel utawa spam&lt;br /&gt;· Pranala njaba salaras utawa gambar&lt;br /&gt;· Karakter mbaleni</string>
   <string name="abusefilter_text_disallow">Lan filter otomatis wis dikenali kaca iki minangka potensi ora konstruktif, utawa potensial vandalisme.&lt;br /&gt;&lt;br /&gt;Wikipedia punika satunggaling ènsiklopédhi lan mung Neutral, isi kacathet ing kene.</string>
   <string name="dialog_page_issues">Masalah kaca</string>
@@ -322,7 +322,7 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="view_continue_reading_card_subtitle_today">Dina iki</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
   <string name="description_edit_text_hint">Katrangan judhul</string>
-  <string name="description_edit_save">Simpen</string>
+  <string name="description_edit_save" fuzzy="true">Simpen</string>
   <string name="description_edit_add_description">Tambah panyadra judhul</string>
   <string name="description_edit_edit_description">Sunting gambaran</string>
   <string name="description_edit_cancel_hint">Batal</string>
@@ -333,7 +333,7 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
   <string name="description_edit_license_notice">Miturut ngganti panyadra judhul, aku setuju kanggo ugi wonten &lt;a href=\"%1$s\"&gt;Katemtuan Panggunaan&lt;/a&gt;, lan kanggo nerbitaké panganggo saya ing lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Andharan disimpen!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Andharan disimpen!</string>
   <string name="description_edit_success_encouragement">Sampeyan mung saiki nggawe Wikipedia luwih kanggo semua orang</string>
   <string name="description_edit_success_done">Rampung</string>
   <string name="description_edit_success_did_you_know">Sampéyan ngerti?</string>

@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
   <string name="langlinks_no_match">Hakuasi vastaavia kieliä ei löytynyt.</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
-  <string name="menu_save_changes">Tallenna muutokset</string>
+  <string name="menu_save_changes">Julkaise muutokset</string>
   <string name="edit_section_error_retry">Yritä uudelleen</string>
-  <string name="dialog_saving_in_progress">Tallennetaan…</string>
-  <string name="edit_saved_successfully">Muokkaus tallennettu!</string>
+  <string name="dialog_saving_in_progress">Julkaistaan...</string>
+  <string name="edit_saved_successfully">Muokkaus julkaistu!</string>
   <string name="dialog_message_edit_failed">Muokkaus epäonnistui!</string>
   <string name="dialog_message_edit_failed_retry">Yritä uudelleen</string>
   <string name="dialog_message_edit_failed_cancel">Peru</string>
@@ -150,7 +150,7 @@
   <string name="user_anon_blocked_from_editing">IP-osoitteesi on estetty.</string>
   <string name="edit_how_page_improved">Miten paransit sivua?</string>
   <string name="edit_next">Seuraava</string>
-  <string name="edit_done">Tallenna</string>
+  <string name="edit_done">Julkaise</string>
   <string name="edit_preview">Esikatselu</string>
   <string name="edit_summary_tag_typo">Kirjoitusvirhe korjattu</string>
   <string name="edit_summary_tag_grammar">Kielioppia korjattu</string>
@@ -159,8 +159,8 @@
   <string name="edit_summary_tag_other_hint">Muita sivulle tehtyjä parannuksia</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
-  <string name="abusefilter_title_warn">Tämä saattaa olla haitallinen muokkaus. Haluatko varmasti tallentaa sen?</string>
-  <string name="abusefilter_title_disallow">Et voi tallentaa tätä muokkausta. Palaa takaisin ja muuta sitä.</string>
+  <string name="abusefilter_title_warn">Tämä saattaa olla haitallinen muokkaus. Haluatko varmasti julkaista sen?</string>
+  <string name="abusefilter_title_disallow">Et voi julkaista tätä muokkausta. Palaa takaisin ja muuta sitä.</string>
   <string name="abusefilter_text_warn">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi. Se saattaa sisältää yhden tai useampia seuraavista asioista:&lt;br /&gt;&lt;br /&gt;· Kokonaan isoilla kirjaimilla kirjoitettu teksti&lt;br /&gt;· Artikkeleiden tyhjentäminen tai mainostaminen&lt;br /&gt;· Aiheeseen liittymättömät linkit tai kuvat&lt;br /&gt;· Toistuvat merkkijonot</string>
   <string name="abusefilter_text_disallow">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi tai mahdolliseksi vandalismiksi.&lt;br /&gt;&lt;br /&gt;Wikipedia on tietosanakirja, ja vain neutraali, merkittävä sisältö kuuluu tänne.</string>
   <string name="dialog_page_issues">Sivun ongelmat</string>
@@ -224,6 +224,7 @@
   <string name="text_copied">Teksti kopioitu leikepöydälle.</string>
   <string name="button_continue_to_article">Lue artikkeli</string>
   <string name="button_add_to_reading_list">Lisää lukulistaan</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Artikkelia ei voida ladata offline-tilassa.</string>
   <string name="button_get_directions">Hae reittiohjeet</string>
   <string name="error_no_maps_app">Yhtäkään reittiohjeita tarjoavaa sovellusta ei löytynyt</string>
   <string name="preference_title_show_link_previews">Näytä linkkien esikatselut</string>
@@ -326,7 +327,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="view_continue_reading_card_subtitle_today">Tänään</string>
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
   <string name="description_edit_text_hint">Otsikkokuvaus</string>
-  <string name="description_edit_save">Tallenna</string>
+  <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_add_description">Lisää otsikkokuvaus</string>
   <string name="description_edit_edit_description">Muokkaa kuvausta</string>
   <string name="description_edit_cancel_hint">Peruuta</string>
@@ -336,7 +337,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/fi</string>
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tilillesi.</string>
   <string name="description_edit_license_notice">Muuttamalla otsikkokuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
-  <string name="description_edit_success_saved">Kuvaus tallennettu!</string>
+  <string name="description_edit_success_saved">Kuvaus julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>

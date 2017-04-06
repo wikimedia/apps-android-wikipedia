@@ -50,10 +50,10 @@
   <string name="langlinks_empty">ეს გვერდი მიუწვდომელია სხვა ენებზე</string>
   <string name="langlinks_no_match">თქვენს მოთხოვნაზე არც ერთი ენა არ მოიძებნა.</string>
   <string name="langlinks_activity_title">სხვა ენები</string>
-  <string name="menu_save_changes">ცვლილებების შენახვა</string>
+  <string name="menu_save_changes" fuzzy="true">ცვლილებების შენახვა</string>
   <string name="edit_section_error_retry">გამეორება</string>
-  <string name="dialog_saving_in_progress">შენახვა…</string>
-  <string name="edit_saved_successfully">ცვლილება შენახულია!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">შენახვა…</string>
+  <string name="edit_saved_successfully" fuzzy="true">ცვლილება შენახულია!</string>
   <string name="dialog_message_edit_failed">ცვლილება ვერ მოხერხდა!</string>
   <string name="dialog_message_edit_failed_retry">გამეორება</string>
   <string name="dialog_message_edit_failed_cancel">გაუქმება</string>
@@ -143,7 +143,7 @@
   <string name="user_anon_blocked_from_editing">თქვენი IP მისამართი დაბლოკილია.</string>
   <string name="edit_how_page_improved">რითი გააუმჯობესეთ გვერდი?</string>
   <string name="edit_next">შემდეგი</string>
-  <string name="edit_done">შენახვა</string>
+  <string name="edit_done" fuzzy="true">შენახვა</string>
   <string name="edit_preview">წინასწარი გადახედვა</string>
   <string name="edit_summary_tag_typo">ტიპოგრაფიული შესწორება</string>
   <string name="edit_summary_tag_grammar">გრამატიკის შესწორება</string>
@@ -152,8 +152,8 @@
   <string name="edit_summary_tag_other_hint">როგორ გაუუმჯობესეთ</string>
   <string name="find_next">შემდეგის მოძიება</string>
   <string name="find_previous">წინას მოძიება</string>
-  <string name="abusefilter_title_warn">შესაძლოა ეს არაკონსტრუქციული რედაქტირებაა. გსურთ მისი შენახვა?</string>
-  <string name="abusefilter_title_disallow">ამ ცვლილების შენახვა არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">შესაძლოა ეს არაკონსტრუქციული რედაქტირებაა. გსურთ მისი შენახვა?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">ამ ცვლილების შენახვა არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
   <string name="dialog_page_issues">გვერდის საკითხები</string>
   <string name="button_page_issues">გვერდის საკითხები</string>
   <string name="text_size_select">შრიფტის ზომა</string>
@@ -291,12 +291,12 @@
   <string name="view_continue_reading_card_subtitle_today">დღეს</string>
   <string name="view_announcement_card_negative_action">არა, გმადლობთ</string>
   <string name="description_edit_text_hint">სათაურის აღწერა</string>
-  <string name="description_edit_save">დამახსოვრება</string>
+  <string name="description_edit_save" fuzzy="true">დამახსოვრება</string>
   <string name="description_edit_add_description">სათაურის აღწერის დამატება</string>
   <string name="description_edit_edit_description">აღწერის რედაქტირება</string>
   <string name="description_edit_cancel_hint">გაუქმება</string>
   <string name="description_edit_help_about_wikidata">ვიკიმონაცემების შესახებ</string>
-  <string name="description_edit_success_saved">აღწერა დამახსოვრებულია</string>
+  <string name="description_edit_success_saved" fuzzy="true">აღწერა დამახსოვრებულია</string>
   <string name="description_edit_success_done">გაკეთდა</string>
   <string name="description_edit_success_did_you_know">იცოდით?</string>
   <string name="description_edit_tutorial_title_descriptions">სათაურის აღწერილობა</string>

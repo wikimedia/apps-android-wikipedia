@@ -45,10 +45,10 @@
   <string name="langlinks_empty">ഈ താൾ മറ്റ് ഭാഷകളിൽ ലഭ്യമല്ല</string>
   <string name="langlinks_no_match">താങ്കളുടെ ആവശ്യവുമായി പൊരുത്തപ്പെടുന്ന ഭാഷകൾ ഒന്നും കണ്ടെത്താനായില്ല.</string>
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
-  <string name="menu_save_changes">മാറ്റങ്ങൾ സേവ് ചെയ്യുക</string>
+  <string name="menu_save_changes" fuzzy="true">മാറ്റങ്ങൾ സേവ് ചെയ്യുക</string>
   <string name="edit_section_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
-  <string name="dialog_saving_in_progress">സേവ് ചെയ്യുന്നു…</string>
-  <string name="edit_saved_successfully">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">സേവ് ചെയ്യുന്നു…</string>
+  <string name="edit_saved_successfully" fuzzy="true">തിരുത്ത് സേവ് ചെയ്തിരിക്കുന്നു!</string>
   <string name="dialog_message_edit_failed">തിരുത്ത് പരാജയപ്പെട്ടു!</string>
   <string name="dialog_message_edit_failed_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="dialog_message_edit_failed_cancel">റദ്ദാക്കുക</string>
@@ -131,7 +131,7 @@
   <string name="user_anon_blocked_from_editing">തിരുത്തുന്നതിൽ നിന്നും താങ്കളുടെ ഐ.പി. വിലാസത്തെ തടഞ്ഞിരിക്കുന്നു.</string>
   <string name="edit_how_page_improved">താങ്കൾ എങ്ങനെയാണ് താൾ മെച്ചപ്പെടുത്തിയത്?</string>
   <string name="edit_next">അടുത്തത്</string>
-  <string name="edit_done">സേവ് ചെയ്യുക</string>
+  <string name="edit_done" fuzzy="true">സേവ് ചെയ്യുക</string>
   <string name="edit_preview">എങ്ങനെയുണ്ടെന്നു കാണുക</string>
   <string name="edit_summary_tag_typo">അക്ഷരപിശക് തിരുത്തി</string>
   <string name="edit_summary_tag_grammar">വ്യാകരണം ശരിയാക്കി</string>
@@ -184,7 +184,7 @@
   <string name="view_continue_reading_card_title">വായന തുടരുക</string>
   <string name="view_announcement_card_negative_action">വേണ്ട, നന്ദി</string>
   <string name="description_edit_text_hint" fuzzy="true">ഒരു വിവരണം എഴുതുക!</string>
-  <string name="description_edit_save">സേവ് ചെയ്യുക</string>
+  <string name="description_edit_save" fuzzy="true">സേവ് ചെയ്യുക</string>
   <string name="description_edit_add_description" fuzzy="true">ഹ്രസ്വ വിവരണം ചേർക്കുക</string>
   <string name="description_edit_edit_description">വിവരണം തിരുത്തുക</string>
   <string name="description_edit_cancel_hint">റദ്ദാക്കുക</string>

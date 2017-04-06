@@ -45,10 +45,10 @@
   <string name="langlinks_empty">Tädä sivuu ei ole toizil kielil</string>
   <string name="langlinks_no_match">Ečittävii kielii ei löydynyh</string>
   <string name="langlinks_activity_title">Toizet kielet</string>
-  <string name="menu_save_changes">Tallenda muutokset</string>
+  <string name="menu_save_changes" fuzzy="true">Tallenda muutokset</string>
   <string name="edit_section_error_retry">Opi uvvessah</string>
-  <string name="dialog_saving_in_progress">Tallendetah...</string>
-  <string name="edit_saved_successfully">Kohendus on tallendettu!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Tallendetah...</string>
+  <string name="edit_saved_successfully" fuzzy="true">Kohendus on tallendettu!</string>
   <string name="dialog_message_edit_failed">Haireh kohendukses!</string>
   <string name="dialog_message_edit_failed_retry">Opi uvvessah</string>
   <string name="dialog_message_edit_failed_cancel">Hylgiä</string>
@@ -119,7 +119,7 @@
   <string name="user_anon_blocked_from_editing">IP-adressan kohendusoigevuot on estetty täs wikis.</string>
   <string name="edit_how_page_improved">Kui kohendit tädä sivuu?</string>
   <string name="edit_next">Tulii</string>
-  <string name="edit_done">Tallenda</string>
+  <string name="edit_done" fuzzy="true">Tallenda</string>
   <string name="edit_preview">Ezikačo</string>
   <string name="edit_summary_tag_typo">Kirjutushaireh kohendettu</string>
   <string name="edit_summary_tag_grammar">Kielioppii kohendettu</string>
@@ -128,7 +128,7 @@
   <string name="edit_summary_tag_other_hint">Toizii sivule luajittuloi kohenduksii</string>
   <string name="find_next">Eči tulii</string>
   <string name="find_previous">Eči ielline</string>
-  <string name="abusefilter_title_disallow">Et voi tallendua tädä kohendustu. Mene järilleh da muuta sidä.</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Et voi tallendua tädä kohendustu. Mene järilleh da muuta sidä.</string>
   <string name="dialog_page_issues">Sivun probliemat</string>
   <string name="button_page_issues">Sivun probliemat</string>
   <string name="text_size_select">Fontan kogo</string>

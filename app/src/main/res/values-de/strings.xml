@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Diese Seite ist nicht in anderen Sprachen verfügbar.</string>
   <string name="langlinks_no_match">Keine Sprachen mit deiner Suchanfrage gefunden.</string>
   <string name="langlinks_activity_title">Andere Sprachen</string>
-  <string name="menu_save_changes">Änderungen speichern</string>
+  <string name="menu_save_changes">Änderungen veröffentlichen</string>
   <string name="edit_section_error_retry">Erneut versuchen</string>
-  <string name="dialog_saving_in_progress">Speichere …</string>
-  <string name="edit_saved_successfully">Bearbeitung gespeichert!</string>
+  <string name="dialog_saving_in_progress">Veröffentliche …</string>
+  <string name="edit_saved_successfully">Bearbeitung veröffentlicht!</string>
   <string name="dialog_message_edit_failed">Bearbeitung fehlgeschlagen!</string>
   <string name="dialog_message_edit_failed_retry">Erneut versuchen</string>
   <string name="dialog_message_edit_failed_cancel">Abbrechen</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">Deine IP-Adresse wurde für Bearbeitungen gesperrt.</string>
   <string name="edit_how_page_improved">Wie hast du die Seite verbessert?</string>
   <string name="edit_next">Nächste</string>
-  <string name="edit_done">Speichern</string>
+  <string name="edit_done">Veröffentlichen</string>
   <string name="edit_preview">Vorschau</string>
   <string name="edit_summary_tag_typo">Tippfehler korrigiert</string>
   <string name="edit_summary_tag_grammar">Grammatik korrigiert</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Andere Wege, wie du die Seite verbessert hast</string>
   <string name="find_next">Nächste finden</string>
   <string name="find_previous">Vorherige finden</string>
-  <string name="abusefilter_title_warn">Dies könnte eine unkonstruktive Bearbeitung sein. Bist du sicher, dass du sie speichern möchtest?</string>
-  <string name="abusefilter_title_disallow">Du kannst diese Bearbeitung nicht speichern. Bitte gehe zurück und ändere sie ab.</string>
+  <string name="abusefilter_title_warn">Dies könnte eine unkonstruktive Bearbeitung sein. Bist du sicher, dass du sie veröffentlichen möchtest?</string>
+  <string name="abusefilter_title_disallow">Du kannst diese Bearbeitung nicht veröffentlichen. Bitte gehe zurück und ändere sie ab.</string>
   <string name="abusefilter_text_warn">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv identifiziert. Sie könnte eine oder mehrere der folgenden Dinge beinhalten:&lt;br /&gt;&lt;br /&gt;· Eingeben aller Kapitälchen&lt;br /&gt;· Artikel leeren oder Einbringen von Spam&lt;br /&gt;· Irrelevante externe Links oder Bilder&lt;br /&gt;· Wiederholte Zeichen</string>
   <string name="abusefilter_text_disallow">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv oder als potenziellen Vandalismus identifiziert.&lt;br /&gt;&lt;br /&gt;Wikipedia ist eine Enzyklopädie und ausschließlich neutraler, relevanter Inhalt gehört hierher.</string>
   <string name="dialog_page_issues">Seitenprobleme</string>
@@ -227,6 +227,8 @@
   <string name="text_copied">Text in die Zwischenablage kopiert.</string>
   <string name="button_continue_to_article">Artikel lesen</string>
   <string name="button_add_to_reading_list">Zur Leseliste hinzufügen</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Der Artikel kann nicht geladen werden, während du offline bist.</string>
+  <string name="page_offline_notice_add_to_reading_list">Füge den Artikel zu einer Leseliste hinzu und er wird heruntergeladen, sobald du wieder online bist.</string>
   <string name="button_get_directions">Richtungen abrufen</string>
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
@@ -239,6 +241,10 @@
   <string name="location_permissions_enable_action">Anschalten</string>
   <string name="error_webview_updating">Das Android-System WebView wird derzeit aktualisiert. Bitte versuche es gleich noch einmal.</string>
   <string name="multi_select_items_selected">%d ausgewählt</string>
+  <string name="error_message_generic">Es ist ein Fehler aufgetreten</string>
+  <string name="view_link_preview_error_button_dismiss">Ausblenden</string>
+  <string name="error_page_does_not_exist">Diese Seite ist nicht vorhanden</string>
+  <string name="view_wiki_error_message_offline">Es konnte keine Verbindung mit dem Internet hergestellt werden</string>
   <string name="crash_report_dialog_title">Leider ist die App beim letzten Mal abgestürzt</string>
   <string name="crash_report_dialog_text">Möchtest du einen Absturzbericht an HockeyApp/einen Drittpartei-Diensteanbieter senden, so dass Wikimedia deinen Absturz überprüfen und den verursachenden Fehler beheben kann?</string>
   <string name="crash_report_dialog_dont_send_button">Überspringen</string>
@@ -329,7 +335,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="view_continue_reading_card_subtitle_today">Heute</string>
   <string name="view_announcement_card_negative_action">Nein, danke</string>
   <string name="description_edit_text_hint">Titelbeschreibung</string>
-  <string name="description_edit_save">Speichern</string>
+  <string name="description_edit_save">Veröffentlichen</string>
   <string name="description_edit_add_description">Titelbeschreibung hinzufügen</string>
   <string name="description_edit_edit_description">Beschreibung bearbeiten</string>
   <string name="description_edit_cancel_hint">Abbrechen</string>
@@ -340,7 +346,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Vielen Dank für dein fortwährendes Interesse an der Bearbeitung von Beschreibungen! Um zusätzliche Bearbeitungen durchzuführen, melde dich bitte bei deinem Wikipedia-Benutzerkonto an.</string>
   <string name="description_edit_license_notice">Durch das Ändern der Titelbeschreibungen stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
-  <string name="description_edit_success_saved">Beschreibung gespeichert!</string>
+  <string name="description_edit_success_saved">Beschreibung veröffentlicht!</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>
   <string name="description_edit_success_did_you_know">Schon gewusst?</string>

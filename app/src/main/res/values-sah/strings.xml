@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Бу сирэй атын тылынан суох эбит.</string>
   <string name="langlinks_no_match">Көрдөбүлгэр сөп түбэһэр тыллар көстүбэтилэр.</string>
   <string name="langlinks_activity_title">Атын омук тыллара</string>
-  <string name="menu_save_changes">Уларытыылары бигэргэтии</string>
+  <string name="menu_save_changes" fuzzy="true">Уларытыылары бигэргэтии</string>
   <string name="edit_section_error_retry">Хатылаа</string>
-  <string name="dialog_saving_in_progress">Бигэргэнэр...</string>
-  <string name="edit_saved_successfully">Уларытыыҥ бигэргэннэ!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Бигэргэнэр...</string>
+  <string name="edit_saved_successfully" fuzzy="true">Уларытыыҥ бигэргэннэ!</string>
   <string name="dialog_message_edit_failed">Уларытыы алҕаһа!</string>
   <string name="dialog_message_edit_failed_retry">Хатылаа</string>
   <string name="dialog_message_edit_failed_cancel">Салҕаама</string>
@@ -142,7 +142,7 @@
   <string name="user_anon_blocked_from_editing">Бу IP-ттан уларытар бобуллубут эбит.</string>
   <string name="edit_how_page_improved">Бу сирэй тугун уларыттыҥ?</string>
   <string name="edit_next">Аныгыскы</string>
-  <string name="edit_done">Бигэргэт</string>
+  <string name="edit_done" fuzzy="true">Бигэргэт</string>
   <string name="edit_preview">Хайдах буолара</string>
   <string name="edit_summary_tag_typo">Сыыһата көннөрүлүннэ</string>
   <string name="edit_summary_tag_grammar">Таба суруйуу көннөрүлүннэ</string>
@@ -151,8 +151,8 @@
   <string name="edit_summary_tag_other_hint">Тупсарыыҥ атын ньымалара</string>
   <string name="find_next">Салгыы көрдөө</string>
   <string name="find_previous">Эрдэтээҥини бул</string>
-  <string name="abusefilter_title_warn">Бу көннөрүү омсолоох курдук. Бигэргэтэҕин дуо?</string>
-  <string name="abusefilter_title_disallow">Көннөрүүнү бигэргэтэр кыаҕыҥ суох эбит. Бука диэн төннүн уонна уларыт.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Бу көннөрүү омсолоох курдук. Бигэргэтэҕин дуо?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Көннөрүүнү бигэргэтэр кыаҕыҥ суох эбит. Бука диэн төннүн уонна уларыт.</string>
   <string name="abusefilter_text_warn">Аптамаатынан сыаналыыр сиидэ көннөрүүгүн омсолоох курдук быһаарда. Манна суруллубуттан биирдэстэрэ баар буолуон сөп:&lt;br /&gt;&lt;br /&gt;· Улахан буукубаларынан эрэ суруллубут&lt;br /&gt;· Элбэх биир көрүҥнээх ыстатыйа биитэр спаам ыытыы&lt;br /&gt;· Барсыбат тас сигэлэр эбэтэр ойуулар&lt;br /&gt;· Хос-хос хатыланар бэлиэлэр</string>
   <string name="abusefilter_text_disallow">Көмүскүүр сиидэ уларытыыгын туһата суохха эбэтэр вандааллааһыҥҥа майгыннатта.&lt;br /&gt;&lt;br /&gt; Бикипиэдьийэ - энциклопедия, онон манна бэйэ сыһыана көстүө суохтаах уонна суолталааҕы эрэ угуллуохтаах.</string>
   <string name="dialog_page_issues">Сирэйгэ ыйытыылар</string>
@@ -301,14 +301,14 @@
   <string name="view_continue_reading_card_subtitle_today">Бүгүн</string>
   <string name="view_announcement_card_negative_action">Суох, махтанабын</string>
   <string name="description_edit_text_hint" fuzzy="true">Ойуулааһыны суруй!</string>
-  <string name="description_edit_save">Бигэргэт</string>
+  <string name="description_edit_save" fuzzy="true">Бигэргэт</string>
   <string name="description_edit_add_description" fuzzy="true">Кылгас быһаарыы эбии</string>
   <string name="description_edit_edit_description">Быһаарыыны уларытыы</string>
   <string name="description_edit_cancel_hint">Таҕыс</string>
   <string name="description_edit_help_title">Көмө: баһы ойуулааһын</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Бигэргэтилиннэ!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Бигэргэтилиннэ!</string>
   <string name="description_edit_success_encouragement">Бикипиэдьийэни тупсаҕай гынан биэрдиҥ</string>
   <string name="description_edit_success_done">Оҥоһулунна</string>
   <string name="description_edit_success_did_you_know">Билэҕин дуо?</string>

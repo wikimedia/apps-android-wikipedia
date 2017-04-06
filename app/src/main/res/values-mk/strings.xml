@@ -53,7 +53,7 @@
   <string name="menu_save_changes">Зачувај промени</string>
   <string name="edit_section_error_retry">Повтори</string>
   <string name="dialog_saving_in_progress">Зачувувам…</string>
-  <string name="edit_saved_successfully">Уредувањето е зачувано!</string>
+  <string name="edit_saved_successfully">Уредувањето е објавено!</string>
   <string name="dialog_message_edit_failed">Уредувањето не успеа!</string>
   <string name="dialog_message_edit_failed_retry">Повтори</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">Вашата IP-адреса е блокирана и не може да уредува на ова вики.</string>
   <string name="edit_how_page_improved">На кој начин ја подобривте страницата?</string>
   <string name="edit_next">Следно</string>
-  <string name="edit_done">Зачувај</string>
+  <string name="edit_done">Објави</string>
   <string name="edit_preview">Преглед</string>
   <string name="edit_summary_tag_typo">Исправена грешка при пишување</string>
   <string name="edit_summary_tag_grammar">Исправена граматиката</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
   <string name="find_next">Најди следно</string>
   <string name="find_previous">Најди претходно</string>
-  <string name="abusefilter_title_warn">Ова уредување може да е неконструктивно. Дали сигурно сакате да го зачувате?</string>
-  <string name="abusefilter_title_disallow">Не можете да го зачувате уредувањево. Вратете се и изменето го.</string>
+  <string name="abusefilter_title_warn">Ова уредување може да е неконструктивно. Дали сигурно сакате да го објавите?</string>
+  <string name="abusefilter_title_disallow">Не можете да го објавите уредувањево. Вратете се и изменето го.</string>
   <string name="abusefilter_text_warn">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно. Може да содржи едно од следниве:&lt;br /&gt;&lt;br /&gt;· Текст напишан со големи букви&lt;br /&gt;· Празнење на статии или спамирање&lt;br /&gt;· Нерелевантни надворешни врски или слики&lt;br /&gt;· Повторување на знаци</string>
   <string name="abusefilter_text_disallow">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно или потенцијално вандалистичко. &lt;br /&gt;&lt;br /&gt;Википедија е енциклопедија —  тука припаѓа само неутрална и значајна содржина.</string>
   <string name="dialog_page_issues">Проблеми со страницата</string>
@@ -227,6 +227,8 @@
   <string name="text_copied">Текстот е ставен во меѓускладот.</string>
   <string name="button_continue_to_article">Прочитајте ја статијата</string>
   <string name="button_add_to_reading_list">Додај во список за читање</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
+  <string name="page_offline_notice_add_to_reading_list">Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
@@ -239,6 +241,10 @@
   <string name="location_permissions_enable_action">Вклучи</string>
   <string name="error_webview_updating">WebView за Андроид во моментов се подновува. Обидете се повторно набргу.</string>
   <string name="multi_select_items_selected">%d избрани</string>
+  <string name="error_message_generic">Се појави грешка</string>
+  <string name="view_link_preview_error_button_dismiss">Тргни</string>
+  <string name="error_page_does_not_exist">Оваа страница не постои.</string>
+  <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>
@@ -329,7 +335,7 @@
   <string name="view_continue_reading_card_subtitle_today">Денес</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
   <string name="description_edit_text_hint">Опис на насловот</string>
-  <string name="description_edit_save">Зачувај</string>
+  <string name="description_edit_save">Објави</string>
   <string name="description_edit_add_description">Додај опис на насловот</string>
   <string name="description_edit_edit_description">Уреди опис</string>
   <string name="description_edit_cancel_hint">Откажи</string>
@@ -340,7 +346,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English?uselang=mk</string>
   <string name="description_edit_anon_limit">Ви благодариме за постојаниот интерес за уредување на описите! За да направите уште уредувања, ќе мора да се најавите со вашата сметка на Википедија.</string>
   <string name="description_edit_license_notice">Менувајќи го описот на насловот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
-  <string name="description_edit_success_saved">Описот е зачуван!</string>
+  <string name="description_edit_success_saved">Описот е објавен!</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>

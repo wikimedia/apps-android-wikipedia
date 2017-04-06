@@ -39,10 +39,10 @@
   <string name="langlinks_empty">এই পৃষ্ঠাটো আন ভাষাত উপলব্ধ নহয়</string>
   <string name="langlinks_no_match">আপোনাৰ অনুসন্ধানৰ সৈতে মিল থকা কোনো ভাষা পোৱা নগ\'ল।</string>
   <string name="langlinks_activity_title">আন ভাষাসমূহ</string>
-  <string name="menu_save_changes">সালসলনি সাঁচি থওক</string>
+  <string name="menu_save_changes" fuzzy="true">সালসলনি সাঁচি থওক</string>
   <string name="edit_section_error_retry">পুনৰ চেষ্টা কৰক</string>
-  <string name="dialog_saving_in_progress">সাঁচি থোৱা হৈছে…</string>
-  <string name="edit_saved_successfully">সম্পাদনা সাঁচি থোৱা হৈছে!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">সাঁচি থোৱা হৈছে…</string>
+  <string name="edit_saved_successfully" fuzzy="true">সম্পাদনা সাঁচি থোৱা হৈছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা ব্যৰ্থ হৈছে!</string>
   <string name="dialog_message_edit_failed_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="dialog_message_edit_failed_cancel">বাতিল কৰক</string>
@@ -127,7 +127,7 @@
   <string name="user_anon_blocked_from_editing">আপোনাৰ আই পি ঠিকনাক সম্পাদনাৰ পৰা বাৰণ কৰা হৈছে।</string>
   <string name="edit_how_page_improved">আপুনি পৃষ্ঠাটো কেনেকৈ উন্নত কৰিলে?</string>
   <string name="edit_next">পৰৱৰ্তী</string>
-  <string name="edit_done">সাঁচি থওক</string>
+  <string name="edit_done" fuzzy="true">সাঁচি থওক</string>
   <string name="edit_preview">প্ৰাক্‌দৰ্শন</string>
   <string name="edit_summary_tag_typo">বানান শুধৰণি</string>
   <string name="edit_summary_tag_grammar">ব্যাকৰণ শুধৰণি</string>
@@ -136,8 +136,8 @@
   <string name="edit_summary_tag_other_hint">পৃষ্ঠাটো উন্নত কৰাত আপোনাৰ অন্য অৱদান</string>
   <string name="find_next">পৰৱৰ্তী বিচাৰক</string>
   <string name="find_previous">পূৰ্বৱৰ্তী বিচাৰক</string>
-  <string name="abusefilter_title_warn">এইটো সম্ভৱ এটা অগঠনমূলক সম্পাদনা। আপুনি এইটো সাঁচিব বুলি নিশ্চিতনে?</string>
-  <string name="abusefilter_title_disallow">আপুনি এই সম্পাদনাটো সাঁচিব নোৱাৰে। অনুগ্ৰহ কৰি ঘূৰি গৈ এইটো সলাওক।</string>
+  <string name="abusefilter_title_warn" fuzzy="true">এইটো সম্ভৱ এটা অগঠনমূলক সম্পাদনা। আপুনি এইটো সাঁচিব বুলি নিশ্চিতনে?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">আপুনি এই সম্পাদনাটো সাঁচিব নোৱাৰে। অনুগ্ৰহ কৰি ঘূৰি গৈ এইটো সলাওক।</string>
   <string name="abusefilter_text_warn">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বুলি চিহ্নিত কৰিছে। ইয়াত তলৰ এটা বা অধিক থাকিব পাৰে:&lt;br /&gt;&lt;br /&gt;· প্ৰবন্ধ খালি কৰা বা স্পামিং&lt;br /&gt;· অপ্ৰয়োজনীয় বাহ্যিক সংযোগ বা ছবি&lt;br /&gt;· চিহ্নৰ পুনৰাবৃত্তি</string>
   <string name="abusefilter_text_disallow">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বা ধ্বংসমূলক বুলি চিহ্নিত কৰিছে।&lt;br /&gt;&lt;br /&gt;ৱিকিপিডিয়া এখন বিশ্বকোষ আৰু ইয়াত কেৱল নিৰপেক্ষ, উল্লেখযোগ্য বিষয় থাকিব পাৰে।</string>
   <string name="dialog_page_issues">পৃষ্ঠা সমস্যা</string>

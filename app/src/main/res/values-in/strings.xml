@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain.</string>
   <string name="langlinks_no_match">Tidak ada bahasa yang ditemukan yang cocok dengan permintaan Anda.</string>
   <string name="langlinks_activity_title">Bahasa lain</string>
-  <string name="menu_save_changes">Simpan perubahan</string>
+  <string name="menu_save_changes" fuzzy="true">Simpan perubahan</string>
   <string name="edit_section_error_retry">Coba lagi</string>
-  <string name="dialog_saving_in_progress">Sedang menyimpan…</string>
-  <string name="edit_saved_successfully">Suntingan telah disimpan!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Sedang menyimpan…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Suntingan telah disimpan!</string>
   <string name="dialog_message_edit_failed">Penyuntingan gagal!</string>
   <string name="dialog_message_edit_failed_retry">Coba lagi</string>
   <string name="dialog_message_edit_failed_cancel">Batal</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">Alamat IP Anda telah diblokir dari penyuntingan.</string>
   <string name="edit_how_page_improved">Bagaimana Anda menyempurnakan halaman ini?</string>
   <string name="edit_next">Selanjutnya</string>
-  <string name="edit_done">Simpan</string>
+  <string name="edit_done" fuzzy="true">Simpan</string>
   <string name="edit_preview">Pratayang</string>
   <string name="edit_summary_tag_typo">Perbaikan kesalahan ketik</string>
   <string name="edit_summary_tag_grammar">Perbaikan tata bahasa</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Cara lain Anda menyempurnakan halaman</string>
   <string name="find_next">Cari berikutnya</string>
   <string name="find_previous">Cari sebelumnya</string>
-  <string name="abusefilter_title_warn">Ini mungkin suntingan yang tidak konstruktif. Apakah Anda yakin ingin menyimpannya?</string>
-  <string name="abusefilter_title_disallow">Anda tidak dapat menyimpan suntingan ini. Harap kembali dan mengubahnya.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Ini mungkin suntingan yang tidak konstruktif. Apakah Anda yakin ingin menyimpannya?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Anda tidak dapat menyimpan suntingan ini. Harap kembali dan mengubahnya.</string>
   <string name="abusefilter_text_warn">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif. Ini mungkin berisi satu atau lebih hal berikut:&lt;br /&gt;&lt;br /&gt;· Mengetik dengan semua huruf besar&lt;br /&gt;· Mengosongkan artikel atau spam &lt;br /&gt;· Pranala luar atau gambar yang tidak relevan &lt;br /&gt;· Karakter berulang</string>
   <string name="abusefilter_text_disallow">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif, atau berpotensi vandalisme.&lt;br /&gt;&lt;br /&gt;Wikipedia adalah merupakan ensiklopedia dan selalu netral, konten penting berada di sini.</string>
   <string name="dialog_page_issues">Masalah halaman</string>
@@ -322,7 +322,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
   <string name="view_announcement_card_negative_action">Tidak, terima kasih</string>
   <string name="description_edit_text_hint">Deskripsi judul</string>
-  <string name="description_edit_save">Simpan</string>
+  <string name="description_edit_save" fuzzy="true">Simpan</string>
   <string name="description_edit_add_description">Tambah deskripsi judul</string>
   <string name="description_edit_edit_description">Sunting deskripsi</string>
   <string name="description_edit_cancel_hint">Batal</string>
@@ -333,7 +333,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih atas kepercayaan Anda dalam menyunting deskripsi! Untuk melakukan penyuntingan tambahan, silakan masuk log ke akun Wikipedia Anda.</string>
   <string name="description_edit_license_notice">Dengan mengubah deskripsi judul, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Deskripsi disimpan!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Deskripsi disimpan!</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
   <string name="description_edit_success_did_you_know">Tahukah Anda?</string>

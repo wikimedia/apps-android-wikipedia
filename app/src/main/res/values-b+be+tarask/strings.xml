@@ -43,10 +43,10 @@
   <string name="langlinks_empty">Гэтая старонка недаступная на іншых мовах.</string>
   <string name="langlinks_no_match">Няма моваў, якія адпавядаюць Вашаму запыту.</string>
   <string name="langlinks_activity_title">Іншыя мовы</string>
-  <string name="menu_save_changes">Захаваць зьмены</string>
+  <string name="menu_save_changes" fuzzy="true">Захаваць зьмены</string>
   <string name="edit_section_error_retry">Паўтарыць</string>
-  <string name="dialog_saving_in_progress">Захаваньне...</string>
-  <string name="edit_saved_successfully">Рэдагаваньне захаванае!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Захаваньне...</string>
+  <string name="edit_saved_successfully" fuzzy="true">Рэдагаваньне захаванае!</string>
   <string name="dialog_message_edit_failed">Памылка рэдагаваньня!</string>
   <string name="dialog_message_edit_failed_retry">Паўтарыць</string>
   <string name="dialog_message_edit_failed_cancel">Скасаваць</string>
@@ -132,7 +132,7 @@
   <string name="user_anon_blocked_from_editing">Рэдагаваньне з Вашага IP-адраса было заблякаванае.</string>
   <string name="edit_how_page_improved">Як Вы палепшылі старонку?</string>
   <string name="edit_next">Далей</string>
-  <string name="edit_done">Захаваць</string>
+  <string name="edit_done" fuzzy="true">Захаваць</string>
   <string name="edit_preview">Папярэдні прагляд</string>
   <string name="edit_summary_tag_typo">Выпраўленая абдрукоўка</string>
   <string name="edit_summary_tag_grammar">Выпраўленая артаграфія</string>
@@ -141,8 +141,8 @@
   <string name="edit_summary_tag_other_hint">Іншыя шляхі якімі Вы палепшылі старонку</string>
   <string name="find_next">Працягваць пошук</string>
   <string name="find_previous">Знайсьці папярэдняе</string>
-  <string name="abusefilter_title_warn">Гэтае рэдагаваньне можа быць неканструктыўным. Вы ўпэўнены, што жадаеце яе захаваць?</string>
-  <string name="abusefilter_title_disallow">Вы ня можаце захаваць рэтае рэдагаваньне. Калі ласка, вярніцеся і зьмяніце яе.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Гэтае рэдагаваньне можа быць неканструктыўным. Вы ўпэўнены, што жадаеце яе захаваць?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Вы ня можаце захаваць рэтае рэдагаваньне. Калі ласка, вярніцеся і зьмяніце яе.</string>
   <string name="abusefilter_text_warn">Аўтаматызаваны фільтар вызначыў гэтае рэдагаваньне як патэнцыйна неканструктыўнае. Яно можа ўтрымліваць адно з:&lt;br /&gt;&lt;br /&gt;· Набранае вялікімі літарамі&lt;br /&gt;· Выдаленьне артыкула ці спам&lt;br /&gt;· Неадпаверныя вонкавыя спасылкі ці выявы&lt;br /&gt;· Паўтараючыяся сымбалі</string>
   <string name="abusefilter_text_disallow">Аўтаматызаваны фільтар вызначыў гэтае рэдагаваньне як патэнцыйна неканструктыўнае ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпэдыя гэта энцыкляпэдыя і тут могуць існаваць толькі нэўтральныя і зьмястоўныя артыкулы.</string>
   <string name="dialog_page_issues">Хібы старонкі</string>
@@ -222,5 +222,5 @@
   <string name="article_menu_bar_bookmark" fuzzy="true">Захаваць артыкул для пазьнейшага афляйн чытаньня</string>
   <string name="article_menu_bar_share">Падзяліцца спасылкай на артыкул</string>
   <string name="view_continue_reading_card_subtitle_today">Сёньня</string>
-  <string name="description_edit_save">Захаваць</string>
+  <string name="description_edit_save" fuzzy="true">Захаваць</string>
 </resources>

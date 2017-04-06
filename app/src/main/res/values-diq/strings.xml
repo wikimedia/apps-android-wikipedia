@@ -44,10 +44,10 @@
   <string name="langlinks_filter_hint">Cı geyre</string>
   <string name="langlinks_empty">Na wesiqa zıwanan de binan de çıniya</string>
   <string name="langlinks_activity_title">Zıwanê bini</string>
-  <string name="menu_save_changes">Vurnayışa qeyd ke</string>
+  <string name="menu_save_changes" fuzzy="true">Vurnayışa qeyd ke</string>
   <string name="edit_section_error_retry">Fına</string>
-  <string name="dialog_saving_in_progress">Beno qeyd...</string>
-  <string name="edit_saved_successfully">Vırnayış starya!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Beno qeyd...</string>
+  <string name="edit_saved_successfully" fuzzy="true">Vırnayış starya!</string>
   <string name="dialog_message_edit_failed">Vırnayış xırabiya!</string>
   <string name="dialog_message_edit_failed_retry">Fına</string>
   <string name="dialog_message_edit_failed_cancel">Bıtexelne</string>
@@ -110,7 +110,7 @@
   <string name="about_activity_title">Heqa</string>
   <string name="user_blocked_from_editing_title">Kılit biyo</string>
   <string name="edit_next">Bahdoyên</string>
-  <string name="edit_done">Qeyd ke</string>
+  <string name="edit_done" fuzzy="true">Qeyd ke</string>
   <string name="edit_preview">Verqayt</string>
   <string name="edit_summary_tag_grammar">Gramer timarya</string>
   <string name="edit_summary_tag_links">Gırey debyay</string>
@@ -172,7 +172,7 @@
   <string name="view_continue_reading_card_subtitle_today">Ewro</string>
   <string name="view_announcement_card_negative_action">Nê, teşekur</string>
   <string name="description_edit_text_hint" fuzzy="true">Yew şınasnayış bınusê</string>
-  <string name="description_edit_save">Qeyd kerê</string>
+  <string name="description_edit_save" fuzzy="true">Qeyd kerê</string>
   <string name="description_edit_add_description" fuzzy="true">Şınasnayış cı ke</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>

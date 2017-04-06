@@ -49,10 +49,10 @@
   <string name="langlinks_empty">ئەم پەڕەیە بە زمانەکانی تر بەردەست نییە.</string>
   <string name="langlinks_no_match">ھیچ زمانێک نەدۆزرایەوە گونجاوبێت لەگەڵ داواکارییەکەت.</string>
   <string name="langlinks_activity_title">زمانەکانی تر</string>
-  <string name="menu_save_changes">پاشەکەوتکردنی گۆڕانکارییەکان</string>
+  <string name="menu_save_changes" fuzzy="true">پاشەکەوتکردنی گۆڕانکارییەکان</string>
   <string name="edit_section_error_retry">ھەوڵداناوە</string>
-  <string name="dialog_saving_in_progress">پاشەکەوتکردن…</string>
-  <string name="edit_saved_successfully">دەستکاری پاشەکەوت کرا!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">پاشەکەوتکردن…</string>
+  <string name="edit_saved_successfully" fuzzy="true">دەستکاری پاشەکەوت کرا!</string>
   <string name="dialog_message_edit_failed">دەستکاری پاشەکەوت کرا!</string>
   <string name="dialog_message_edit_failed_retry">ھەوڵداناوە</string>
   <string name="dialog_message_edit_failed_cancel">ھەڵیوەشێنەوە</string>
@@ -145,7 +145,7 @@
   <string name="user_anon_blocked_from_editing">ناونیشانی ئای پییەکەت بەربەست کراوە لە دەستکاریکردن.</string>
   <string name="edit_how_page_improved">چۆن پەڕەکەت باشترکرد؟</string>
   <string name="edit_next">دواتر</string>
-  <string name="edit_done">پاشەکەوت</string>
+  <string name="edit_done" fuzzy="true">پاشەکەوت</string>
   <string name="edit_preview">پێشبینین</string>
   <string name="edit_summary_tag_typo">چاککردنی ھەڵەی نووسین</string>
   <string name="edit_summary_tag_grammar">چاککردنی ڕێزمان</string>
@@ -154,8 +154,8 @@
   <string name="edit_summary_tag_other_hint">ڕێگەی تر کە پەڕەکەت پێشخستوە</string>
   <string name="find_next">پاشتر بدۆزەرەوە</string>
   <string name="find_previous">پێشوو بدۆزەرەوە</string>
-  <string name="abusefilter_title_warn">ئەمە لەوانەیە دەستکارییەکی ڕووخێنەر بێت. دڵنیای لەوەی کە دەتەوێت پاشەکەوتی بکەی؟</string>
-  <string name="abusefilter_title_disallow">ناتوانی ئەم گۆڕانکارییە پاشەکەوت بکەی. تکایە بگەڕێوە و بی گۆڕە.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">ئەمە لەوانەیە دەستکارییەکی ڕووخێنەر بێت. دڵنیای لەوەی کە دەتەوێت پاشەکەوتی بکەی؟</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">ناتوانی ئەم گۆڕانکارییە پاشەکەوت بکەی. تکایە بگەڕێوە و بی گۆڕە.</string>
   <string name="dialog_page_issues">پێشھاتەکانی پەڕە</string>
   <string name="button_page_issues">گرفتەکانی پەڕە</string>
   <string name="text_size_select">قەبارەی فۆنت</string>
@@ -306,7 +306,7 @@
   <string name="view_continue_reading_card_subtitle_today">ئەمڕۆ</string>
   <string name="view_announcement_card_negative_action">نا سپاس</string>
   <string name="description_edit_text_hint">وەسفی سەرناو</string>
-  <string name="description_edit_save">پاشەکەوت</string>
+  <string name="description_edit_save" fuzzy="true">پاشەکەوت</string>
   <string name="description_edit_add_description">زیادکردنی وەسفی سەرناو</string>
   <string name="description_edit_edit_description">دەستکاریی وەسف</string>
   <string name="description_edit_cancel_hint">ھەڵوەشاندنەوە</string>
@@ -315,7 +315,7 @@
   <string name="description_edit_help_wikidata_guide">ڕێبەری ویکیداتا بۆ نووسینی وەسفەکان</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">وەسف پاشەکەوتکرا!</string>
+  <string name="description_edit_success_saved" fuzzy="true">وەسف پاشەکەوتکرا!</string>
   <string name="description_edit_success_encouragement">تۆ ویکیپیدیا باشتر دەکەیت بۆ ھەموو خەڵکی</string>
   <string name="description_edit_success_done">کرا</string>
   <string name="description_edit_success_did_you_know">دەتزانی؟</string>

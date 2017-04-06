@@ -42,10 +42,10 @@
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
   <string name="langlinks_no_match">Δεν βρέθηκαν γλώσσες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>
-  <string name="menu_save_changes">Αποθήκευση αλλαγών</string>
+  <string name="menu_save_changes" fuzzy="true">Αποθήκευση αλλαγών</string>
   <string name="edit_section_error_retry">Ξαναπροσπαθήστε</string>
-  <string name="dialog_saving_in_progress">Αποθήκευση…</string>
-  <string name="edit_saved_successfully">Η επεξεργασία αποθηκεύτηκε!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Αποθήκευση…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Η επεξεργασία αποθηκεύτηκε!</string>
   <string name="dialog_message_edit_failed">Η επεξεργασία απέτυχε!</string>
   <string name="dialog_message_edit_failed_retry">Ξαναπροσπαθήστε</string>
   <string name="dialog_message_edit_failed_cancel">Ακύρωση</string>
@@ -135,7 +135,7 @@
   <string name="user_anon_blocked_from_editing">Η διεύθυνση IP σας έχει αποκλειστεί από την επεξεργασία.</string>
   <string name="edit_how_page_improved">Πώς βελτιώσατε τη σελίδα;</string>
   <string name="edit_next">Επόμενο</string>
-  <string name="edit_done">Αποθήκευση</string>
+  <string name="edit_done" fuzzy="true">Αποθήκευση</string>
   <string name="edit_preview">Προεπισκόπιση</string>
   <string name="edit_summary_tag_typo">Διόρθωση ορθογραφίας</string>
   <string name="edit_summary_tag_grammar">Διόρθωση γραμματικής</string>
@@ -144,8 +144,8 @@
   <string name="edit_summary_tag_other_hint">Άλλοι τρόποι που βελτίωσατε τη σελίδα</string>
   <string name="find_next">Εύρεση επομένου</string>
   <string name="find_previous">Εύρεση προηγουμένου</string>
-  <string name="abusefilter_title_warn">Αυτή μπορεί να είναι μια μη εποικοδομητική επεξεργασία. Είσαι σίγουρος ότι θέλεις να την αποθηκεύσεις;</string>
-  <string name="abusefilter_title_disallow">Δεν μπορείτε να αποθηκεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Αυτή μπορεί να είναι μια μη εποικοδομητική επεξεργασία. Είσαι σίγουρος ότι θέλεις να την αποθηκεύσεις;</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Δεν μπορείτε να αποθηκεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
   <string name="abusefilter_text_warn">Ένα αυτοματοποιημένο φίλτρο έχει αναγνωρίσει αυτή την επεξεργασία ως δυνητικά μη εποικοδομητική. Μπορεί να περιέχει ένα ή περισσότερα από τα ακόλουθα:&lt;br /&gt;&lt;br /&gt;· Πληκτρολόγηση με όλα κεφαλαία&lt;br /&gt;· Άδειασμα λημμάτων ή spamming&lt;br /&gt;· Άσχετες εξωτερικές συνδέσεις ή εικόνες&lt;br /&gt;· Επανάληψη χαρακτήρων</string>
   <string name="abusefilter_text_disallow">Ένα αυτοματοποιημένο φίλτρο έχει αναγνωρίσει αυτή την επεξεργασία ως δυνητικά μη εποικοδομητική, ή πιθανό βανδαλισμό.&lt;br /&gt;&lt;br /&gt;Η Βικιπαίδεια είναι μια εγκυκλοπαίδεια και μόνο ουδέτερο, αξιοσημείωτο περιεχόμενο ανήκει εδώ.</string>
   <string name="dialog_page_issues">Προβλήματα σελίδας</string>

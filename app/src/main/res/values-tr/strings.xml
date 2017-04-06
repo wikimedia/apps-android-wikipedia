@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
   <string name="langlinks_no_match">Sorgunuzla eşleşen bir dil bulunamadı.</string>
   <string name="langlinks_activity_title">Diğer diller</string>
-  <string name="menu_save_changes">Değişiklikleri kaydet</string>
+  <string name="menu_save_changes" fuzzy="true">Değişiklikleri kaydet</string>
   <string name="edit_section_error_retry">Tekrar dene</string>
-  <string name="dialog_saving_in_progress">Kaydediliyor…</string>
-  <string name="edit_saved_successfully">Değişiklik kaydedildi!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Kaydediliyor…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Değişiklik kaydedildi!</string>
   <string name="dialog_message_edit_failed">Değişiklik başarısız!</string>
   <string name="dialog_message_edit_failed_retry">Tekrar dene</string>
   <string name="dialog_message_edit_failed_cancel">İptal</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">IP adresinizin değişiklik yapması engellendi.</string>
   <string name="edit_how_page_improved">Sayfayı hangi yönden geliştirdiniz?</string>
   <string name="edit_next">İleri</string>
-  <string name="edit_done">Kaydet</string>
+  <string name="edit_done" fuzzy="true">Kaydet</string>
   <string name="edit_preview">Ön izleme</string>
   <string name="edit_summary_tag_typo">Yazım hatası düzeltildi</string>
   <string name="edit_summary_tag_grammar">Gramer düzeltildi</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Sayfayı geliştirdiğiniz diğer yönler</string>
   <string name="find_next">Sonrakini bul</string>
   <string name="find_previous">Öncekini bul</string>
-  <string name="abusefilter_title_warn">Bu yapıcı olmayan bir düzenleme olabilir. Kaydetmek istediğinize emin misiniz?</string>
-  <string name="abusefilter_title_disallow">Bu düzenlemeyi kaydedemezsiniz. Lütfen geri dönüp değiştirin.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Bu yapıcı olmayan bir düzenleme olabilir. Kaydetmek istediğinize emin misiniz?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Bu düzenlemeyi kaydedemezsiniz. Lütfen geri dönüp değiştirin.</string>
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>
   <string name="abusefilter_text_disallow">Bir otomatik süzgeç, bu değişikliği potansiyel yapıcı olmayan veya muhtemel vandalizm olarak tanımlamıştır.&lt;br /&gt;&lt;br /&gt; Vikipedi bir ansiklopedidir ve sadece kayda değer, tarafsız içerikler burada yer alabilir.</string>
   <string name="dialog_page_issues">Sayfa sorunları</string>
@@ -327,7 +327,7 @@
   <string name="view_continue_reading_card_subtitle_today">Bugün</string>
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
   <string name="description_edit_text_hint">Başlık tanımı</string>
-  <string name="description_edit_save">Kaydet</string>
+  <string name="description_edit_save" fuzzy="true">Kaydet</string>
   <string name="description_edit_add_description">Başlık tanımı ekle</string>
   <string name="description_edit_edit_description">Tanımı düzenle</string>
   <string name="description_edit_cancel_hint">İptal</string>
@@ -338,7 +338,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tanımları düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
   <string name="description_edit_license_notice">Başlık tanımını değiştirerek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
-  <string name="description_edit_success_saved">tanıtım kaydedildi</string>
+  <string name="description_edit_success_saved" fuzzy="true">tanıtım kaydedildi</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Tamam</string>
   <string name="description_edit_success_did_you_know">Biliyor musunuz?</string>

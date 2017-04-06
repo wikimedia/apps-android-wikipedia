@@ -47,10 +47,10 @@
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
   <string name="langlinks_no_match">तपाईंको क्वेरीसँग मिल्ने कुनै भाषाहरू फेला परेनन्।</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
-  <string name="menu_save_changes">परिवर्तनहरू बचत गर्नुहोस्</string>
+  <string name="menu_save_changes" fuzzy="true">परिवर्तनहरू बचत गर्नुहोस्</string>
   <string name="edit_section_error_retry">पुन: प्रयास गर्नुहोस्</string>
-  <string name="dialog_saving_in_progress">बचत गर्दै…</string>
-  <string name="edit_saved_successfully">बचत भएकोलाई सम्पादन गर्नुहोस्!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">बचत गर्दै…</string>
+  <string name="edit_saved_successfully" fuzzy="true">बचत भएकोलाई सम्पादन गर्नुहोस्!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>
   <string name="dialog_message_edit_failed_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="dialog_message_edit_failed_cancel">रद्द गर्नुहोस्</string>
@@ -138,7 +138,7 @@
   <string name="user_anon_blocked_from_editing">तपाईंको IP ठेगानालाई सम्पादन गर्न रोक लगाइएको छ।</string>
   <string name="edit_how_page_improved">तपाईंले कसरी पृष्ठमा सुधार ल्याउनुभयो?</string>
   <string name="edit_next">अर्को</string>
-  <string name="edit_done">सङ्ग्रह गर्नुहोस्</string>
+  <string name="edit_done" fuzzy="true">सङ्ग्रह गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_summary_tag_typo">टाइपो सुधार गरियो</string>
   <string name="edit_summary_tag_grammar">व्याकरण सुधार गरियो</string>
@@ -147,7 +147,7 @@
   <string name="edit_summary_tag_other_hint">तपाईंले पृष्ठमा सुधार गर्नुभएका अन्य तरिकाहरू</string>
   <string name="find_next">अर्को खोज्नुहोस्</string>
   <string name="find_previous">पछिल्लो खोज्नुहोस्</string>
-  <string name="abusefilter_title_disallow">तपाईं यो सम्पादन बचत गर्न सक्नुहुन्न। कृपया अघिल्लो पृष्ठमा गएर यसलाई सम्पादन गर्नुहोस्।</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">तपाईं यो सम्पादन बचत गर्न सक्नुहुन्न। कृपया अघिल्लो पृष्ठमा गएर यसलाई सम्पादन गर्नुहोस्।</string>
   <string name="dialog_page_issues">पृष्ठका समस्याहरू</string>
   <string name="button_page_issues">पृष्ठका समस्याहरू</string>
   <string name="text_size_select">अक्षरको आकार</string>
@@ -274,7 +274,7 @@
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
   <string name="description_edit_text_hint" fuzzy="true">कुनै विवरण लेख्नुहोस्!</string>
-  <string name="description_edit_save">सङ्ग्रह गर्नुहोस्</string>
+  <string name="description_edit_save" fuzzy="true">सङ्ग्रह गर्नुहोस्</string>
   <string name="description_edit_add_description" fuzzy="true">छोटो विवरण थप्नुहोस्</string>
   <string name="description_edit_cancel_hint">रद्द गर्नुहोस्</string>
   <string name="description_edit_success_done">भयो</string>

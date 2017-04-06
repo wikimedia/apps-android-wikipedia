@@ -44,10 +44,10 @@
   <string name="langlinks_empty">Di Sigg es nit in ander Schprohche ze han.</string>
   <string name="langlinks_no_match">Kein Schprohche paße op Ding Aanfrohch.</string>
   <string name="langlinks_activity_title">Ander Schprohche</string>
-  <string name="menu_save_changes">Änderonge faßhallde</string>
+  <string name="menu_save_changes" fuzzy="true">Änderonge faßhallde</string>
   <string name="edit_section_error_retry">Norr_ens versöhke</string>
-  <string name="dialog_saving_in_progress">Aam Affschpeischere …</string>
-  <string name="edit_saved_successfully">De Änderonge sin jesescjert!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Aam Affschpeischere …</string>
+  <string name="edit_saved_successfully" fuzzy="true">De Änderonge sin jesescjert!</string>
   <string name="dialog_message_edit_failed">Dat Ändere is donevve jejange:</string>
   <string name="dialog_message_edit_failed_retry">Norr_ens versöhke</string>
   <string name="dialog_message_edit_failed_cancel">Ophühre</string>
@@ -134,7 +134,7 @@
   <string name="user_anon_blocked_from_editing">Ding IP-Adräß es jeschpächt jähje et Ändere em Wikki.</string>
   <string name="edit_how_page_improved">Wi häs De di Sigg bäßer jemaat?</string>
   <string name="edit_next">Näx</string>
-  <string name="edit_done">Faßhalde</string>
+  <string name="edit_done" fuzzy="true">Faßhalde</string>
   <string name="edit_preview">Vörschou</string>
   <string name="edit_summary_tag_typo">Tipfähler fott jemaat</string>
   <string name="edit_summary_tag_grammar">Jrammatek reparrehrt</string>
@@ -143,8 +143,8 @@
   <string name="edit_summary_tag_other_hint">Söns jät verbäßert aan dä Sigg</string>
   <string name="find_next">Dä näxte fenge</string>
   <string name="find_previous">Der vörreje fenge</string>
-  <string name="abusefilter_title_warn">Dat süht nit wi en johde Ännderong us. Wells De dat verhaftesch esu faßjehallde han?</string>
-  <string name="abusefilter_title_disallow">Do kanns heh di Änderong nit faßhallde lohße. Jangk retuhr un änder se.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Dat süht nit wi en johde Ännderong us. Wells De dat verhaftesch esu faßjehallde han?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Do kanns heh di Änderong nit faßhallde lohße. Jangk retuhr un änder se.</string>
   <string name="dialog_page_issues">Sigge issues</string>
   <string name="text_size_select">Schreffjrahd</string>
   <string name="color_theme_select">Ußsinn</string>

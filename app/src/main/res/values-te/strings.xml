@@ -43,10 +43,10 @@
 
 .</string>
   <string name="langlinks_activity_title">ఇతర భాషలు</string>
-  <string name="menu_save_changes">మార్పులను భద్రపరచు</string>
+  <string name="menu_save_changes" fuzzy="true">మార్పులను భద్రపరచు</string>
   <string name="edit_section_error_retry">మళ్ళీ ప్రయత్నించు</string>
-  <string name="dialog_saving_in_progress">భద్రపరుస్తున్నాం…</string>
-  <string name="edit_saved_successfully">సవరణ భద్రపరచపడింది!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">భద్రపరుస్తున్నాం…</string>
+  <string name="edit_saved_successfully" fuzzy="true">సవరణ భద్రపరచపడింది!</string>
   <string name="dialog_message_edit_failed">సవరణ విఫలమయ్యింది!</string>
   <string name="dialog_message_edit_failed_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="dialog_message_edit_failed_cancel">రద్దుచేయి</string>
@@ -134,7 +134,7 @@
   <string name="user_anon_blocked_from_editing">సవరించకుండా మీ ఐపి చిరునామా నిరోధించబడింది</string>
   <string name="edit_how_page_improved">మీరు పేజీని ఎలా మెరుగుపరచారు?</string>
   <string name="edit_next">తదుపరి</string>
-  <string name="edit_done">భద్రపరచు</string>
+  <string name="edit_done" fuzzy="true">భద్రపరచు</string>
   <string name="edit_preview">మునుజూపు</string>
   <string name="edit_summary_tag_typo">అక్షర దోషం స్థిరం</string>
   <string name="edit_summary_tag_grammar">వ్యాకరణం స్థిరం</string>
@@ -143,8 +143,8 @@
   <string name="edit_summary_tag_other_hint">మీరు పేజీని ఇతర మార్గాలలో అభివృద్ధి చేశారు</string>
   <string name="find_next">తదుపరి కనుగొను</string>
   <string name="find_previous">మునుపటిది కనుగొను</string>
-  <string name="abusefilter_title_warn">ఇది అనిర్మాణాత్మక సవరణ అయ్యుండవచ్చు. ఖచ్చితంగా భద్రపరచాలనుకుంటున్నారా?</string>
-  <string name="abusefilter_title_disallow">ఈ సవరణని మీరు భద్రపరచలేరు. దయచేసి వెనెక్కి వెళ్లి మార్చండి.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">ఇది అనిర్మాణాత్మక సవరణ అయ్యుండవచ్చు. ఖచ్చితంగా భద్రపరచాలనుకుంటున్నారా?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">ఈ సవరణని మీరు భద్రపరచలేరు. దయచేసి వెనెక్కి వెళ్లి మార్చండి.</string>
   <string name="abusefilter_text_warn">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను అనిర్మాణాత్మకంగా ఉన్నట్టు గుర్తించింది. సవరణలో వీటిలో ఒకటి లేదా ఎక్కువ ఉండి ఉండవచ్చు: &lt;br /&gt;&lt;br /&gt;· అన్ని పెద్ద అక్షరాలలో టైపు చేయటం &lt;br /&gt;· వ్యాసాని ఖాళీ లేదా స్పామ్ చేయటం &lt;br /&gt;· అసందర్భోచిత బయటి లింకులు లేదా చిత్రాలు &lt;br /&gt;· పునరావృతమవుతున్న అక్షరాలు</string>
   <string name="abusefilter_text_disallow">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను బహుశా అనిర్మాణాత్మకంగా లేదా విధ్వంసకారంగా ఉన్నట్టు గుర్తించింది.&lt;br /&gt;&lt;br /&gt;వికీపీడియా ఒక ఎన్సైక్లోపీడియా, అందులో నిష్పక్షపాతకమైన, ముఖ్యమైన విషయాలు మాత్రమే ఉండాలి.</string>
   <string name="dialog_page_issues">పేజి సమస్యలు</string>
@@ -223,11 +223,11 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">నేడు</string>
   <string name="description_edit_text_hint">శీర్షిక వివరణ</string>
-  <string name="description_edit_save">భద్రపరచు</string>
+  <string name="description_edit_save" fuzzy="true">భద్రపరచు</string>
   <string name="description_edit_edit_description">వివరణను మార్చు</string>
   <string name="description_edit_cancel_hint">రద్దుచేయి</string>
   <string name="description_edit_help_about_wikidata">వికీడేటా గురించి</string>
-  <string name="description_edit_success_saved">వివరణ భద్రమయ్యింది!</string>
+  <string name="description_edit_success_saved" fuzzy="true">వివరణ భద్రమయ్యింది!</string>
   <string name="description_edit_success_done">పూర్తయ్యింది</string>
   <string name="description_edit_success_did_you_know">మీకు తెలుసా?</string>
   <string name="description_edit_tutorial_title_descriptions">శీర్షిక వివరణలు</string>

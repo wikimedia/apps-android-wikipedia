@@ -51,10 +51,10 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="langlinks_empty">Cette page n’est pas disponible dans d’autres langues</string>
   <string name="langlinks_no_match">Aucune langue trouvée correspondant à votre requête.</string>
   <string name="langlinks_activity_title">Autres langues</string>
-  <string name="menu_save_changes">Enregistrer les modifications</string>
+  <string name="menu_save_changes">Publier les modifications</string>
   <string name="edit_section_error_retry">Réessayer</string>
-  <string name="dialog_saving_in_progress">Enregistrement…</string>
-  <string name="edit_saved_successfully">Modification enregistrée !</string>
+  <string name="dialog_saving_in_progress">Publication…</string>
+  <string name="edit_saved_successfully">Modification publiée !</string>
   <string name="dialog_message_edit_failed">Échec de l’enregistrement !</string>
   <string name="dialog_message_edit_failed_retry">Réessayer</string>
   <string name="dialog_message_edit_failed_cancel">Annuler</string>
@@ -154,7 +154,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="user_anon_blocked_from_editing">Votre adresse IP a été bloquée pour les modifications.</string>
   <string name="edit_how_page_improved">Comment avez-vous amélioré cette page ?</string>
   <string name="edit_next">Suivant</string>
-  <string name="edit_done">Enregistrer</string>
+  <string name="edit_done">Publier</string>
   <string name="edit_preview">Aperçu</string>
   <string name="edit_summary_tag_typo">Faute de frappe corrigée</string>
   <string name="edit_summary_tag_grammar">Faute de grammaire corrigée</string>
@@ -163,8 +163,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="edit_summary_tag_other_hint">Autres façons d’améliorer la page</string>
   <string name="find_next">Rechercher le suivant</string>
   <string name="find_previous">Rechercher le précédent</string>
-  <string name="abusefilter_title_warn">Cela pourrait être une modification non constructive. Êtes-vous sûr de vouloir l’enregistrer ?</string>
-  <string name="abusefilter_title_disallow">Vous ne pouvez pas enregistrer cette modification. Veuillez revenir en arrière et la changer.</string>
+  <string name="abusefilter_title_warn">Cela pourrait être une modification non constructive. Êtes-vous sûr de vouloir la publier ?</string>
+  <string name="abusefilter_title_disallow">Vous ne pouvez pas publier cette modification. Veuillez revenir en arrière et la changer.</string>
   <string name="abusefilter_text_warn">Un filtre automatique a identifié cette modification comme potentiellement non constructive. Elle pourrait contenir un ou plusieurs des éléments suivants :&lt;br /&gt;&lt;br /&gt;· Saisie toute en majuscules&lt;br /&gt;· Découpage d’articles ou pourriel&lt;br /&gt;· Liens ou images externes inappropriés&lt;br /&gt;· Caractères répétés</string>
   <string name="abusefilter_text_disallow">Un filtre automatique a identifié cette modification comme étant potentiellement non constructive ou comme un acte de vandalisme éventuel.&lt;br /&gt;&lt;br /&gt; Wikipédia est une encyclopédie et seul un contenu neutre et respectable peut y figurer.</string>
   <string name="dialog_page_issues">Discussions sur la page</string>
@@ -228,6 +228,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="text_copied">Texte copié dans le presse-papier.</string>
   <string name="button_continue_to_article">Lire l’article</string>
   <string name="button_add_to_reading_list">Ajouter à la liste de lecture</string>
+  <string name="page_offline_notice_cannot_load_while_offline">L’article ne peut pas être chargé hors connexion.</string>
+  <string name="page_offline_notice_add_to_reading_list">Ajoutez l’article à une liste de lecture et il sera téléchargé quand vous serez de nouveau connecté.</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application qui fournit des directions.</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
@@ -240,6 +242,9 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="location_permissions_enable_action">Activer</string>
   <string name="error_webview_updating">Le WebView du système Android est actuellement en cours de mise à jour. Veuillez réessayer dans un moment.</string>
   <string name="multi_select_items_selected">%d sélectionné</string>
+  <string name="error_message_generic">Une erreur s’est produite</string>
+  <string name="view_link_preview_error_button_dismiss">Rejeter</string>
+  <string name="error_page_does_not_exist">Cette page n’existe pas</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>
@@ -330,7 +335,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="view_continue_reading_card_subtitle_today">Aujourd’hui</string>
   <string name="view_announcement_card_negative_action">Non merci</string>
   <string name="description_edit_text_hint">Description du titre</string>
-  <string name="description_edit_save">Enregistrer</string>
+  <string name="description_edit_save">Publier</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
   <string name="description_edit_edit_description">Modifier la description</string>
   <string name="description_edit_cancel_hint">Annuler</string>
@@ -341,7 +346,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier des descriptions ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
   <string name="description_edit_license_notice">En modifiant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">Description enregistrée !</string>
+  <string name="description_edit_success_saved">Description publiée !</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleur pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>

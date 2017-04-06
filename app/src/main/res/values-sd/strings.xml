@@ -50,10 +50,10 @@
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
   <string name="langlinks_no_match">توهان جي پڇا سان ملندڙ ڪا بہ ٻولي نہ لڌي.</string>
   <string name="langlinks_activity_title">ٻيون ٻوليون</string>
-  <string name="menu_save_changes">تبديليون سانڍيو</string>
+  <string name="menu_save_changes" fuzzy="true">تبديليون سانڍيو</string>
   <string name="edit_section_error_retry">ٻيهر ڪوشش ڪريو</string>
-  <string name="dialog_saving_in_progress">سانڍيندي…</string>
-  <string name="edit_saved_successfully">ترميم سانڍجي وئي!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">سانڍيندي…</string>
+  <string name="edit_saved_successfully" fuzzy="true">ترميم سانڍجي وئي!</string>
   <string name="dialog_message_edit_failed">ترميم ناڪام وئي!</string>
   <string name="dialog_message_edit_failed_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="dialog_message_edit_failed_cancel">رد</string>
@@ -149,7 +149,7 @@
   <string name="user_anon_blocked_from_editing">توهان جو آءِ پِي پتو سنوارڻ کان بندشيويو آهي.</string>
   <string name="edit_how_page_improved">توهان ان صفحي کي ڪيئن سڌاريو؟</string>
   <string name="edit_next">اڳيون</string>
-  <string name="edit_done">سانڍيو</string>
+  <string name="edit_done" fuzzy="true">سانڍيو</string>
   <string name="edit_preview">پيش نگاھ</string>
   <string name="edit_summary_tag_typo">هجي درست ڪئي</string>
   <string name="edit_summary_tag_grammar">گرامر درست ڪيو</string>
@@ -158,8 +158,8 @@
   <string name="edit_summary_tag_other_hint">هن صفحي کي توهان ٻين ڪهڙن طريقن سان سڌاريو</string>
   <string name="find_next">اڳيون لھو</string>
   <string name="find_previous">پويون لھو</string>
-  <string name="abusefilter_title_warn">هي هڪ غير تخليقي ترميم لڳي ٿي، ڇا توهان انکي سانڍڻ چاهيو ٿا؟</string>
-  <string name="abusefilter_title_disallow">توهان هي ترميم سانڍي نٿا سگھو. براءِ مهرباني واپس وڃو ۽ انکي تبديل ڪريو.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">هي هڪ غير تخليقي ترميم لڳي ٿي، ڇا توهان انکي سانڍڻ چاهيو ٿا؟</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">توهان هي ترميم سانڍي نٿا سگھو. براءِ مهرباني واپس وڃو ۽ انکي تبديل ڪريو.</string>
   <string name="abusefilter_text_warn">ھڪ خودڪاربڻايل ڇاڻيءَ ھن ترميم کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي. ان ۾ ھيٺين مان ھڪ شامل ٿي سگھن ٿا:&lt;br /&gt;&lt;br /&gt;· سڀني قسمن جي اکرن ۾ ٽائيپ ڪندي&lt;br /&gt;· مضمونن کي خالي ڪندي يا بگاڙيندي&lt;br /&gt;· اڻلاڳپيل خارجي ڳنڍڻا يا عڪس&lt;br /&gt;· نشانيون ورجائيندي</string>
   <string name="abusefilter_text_disallow">ھڪ خودڪاربڻايل ڇاڻيءَ ھن ترميم کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي، يا ڳجھي وحشيت.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ صرف اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
   <string name="dialog_page_issues">صفحي جا مسئلا</string>
@@ -315,7 +315,7 @@
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
   <string name="description_edit_text_hint">عنوان  جي تشريح</string>
-  <string name="description_edit_save">سانڍيو</string>
+  <string name="description_edit_save" fuzzy="true">سانڍيو</string>
   <string name="description_edit_add_description">عنوان جي تشريح شامل ڪريو</string>
   <string name="description_edit_edit_description">تشريح سنواريو</string>
   <string name="description_edit_cancel_hint">رد</string>
@@ -324,7 +324,7 @@
   <string name="description_edit_help_wikidata_guide">تشريحون لکڻ لاءِ وڪيڊيٽا رھنما (گائيڊ)</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">تشريح سانڍجي وئي!</string>
+  <string name="description_edit_success_saved" fuzzy="true">تشريح سانڍجي وئي!</string>
   <string name="description_edit_success_encouragement">توھان وڪيپيڊيا کي ھر ڪنھن لاءِ بھتر بڻايو</string>
   <string name="description_edit_success_done">ٿي ويو</string>
   <string name="description_edit_success_did_you_know">ڇا توهان کي ڄاڻ هئي؟</string>

@@ -45,10 +45,10 @@
   <string name="langlinks_empty">Iste pagina non es disponibile in altere linguas</string>
   <string name="langlinks_no_match">Nulle lingua trovate que corresponde a tu recerca.</string>
   <string name="langlinks_activity_title">Altere linguas</string>
-  <string name="menu_save_changes">Salveguardar modificationes</string>
+  <string name="menu_save_changes" fuzzy="true">Salveguardar modificationes</string>
   <string name="edit_section_error_retry">Reprobar</string>
-  <string name="dialog_saving_in_progress">Salveguarda…</string>
-  <string name="edit_saved_successfully">Modification salveguardate!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Salveguarda…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Modification salveguardate!</string>
   <string name="dialog_message_edit_failed">Modification fallite!</string>
   <string name="dialog_message_edit_failed_retry">Reprobar</string>
   <string name="dialog_message_edit_failed_cancel">Cancellar</string>
@@ -110,7 +110,7 @@
   <string name="user_blocked_from_editing_title">Blocate</string>
   <string name="edit_how_page_improved">Como ha tu ameliorate le pagina?</string>
   <string name="edit_next">Sequente</string>
-  <string name="edit_done">Salveguardar</string>
+  <string name="edit_done" fuzzy="true">Salveguardar</string>
   <string name="edit_preview">Previsualisation</string>
   <string name="edit_summary_tag_typo">Error dactylographic corrigite</string>
   <string name="edit_summary_tag_grammar">Grammatica corrigite</string>
@@ -119,8 +119,8 @@
   <string name="edit_summary_tag_other_hint">Altere manieras del quales tu ha meliorate iste pagina</string>
   <string name="find_next">Cercar sequente</string>
   <string name="find_previous">Cargar precedente</string>
-  <string name="abusefilter_title_warn">Iste pote esser un modification non constructive. Es tu secur de voler salveguardar lo?</string>
-  <string name="abusefilter_title_disallow">Tu non pote salveguardar iste modification. Per favor retorna e cambia lo.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Iste pote esser un modification non constructive. Es tu secur de voler salveguardar lo?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Tu non pote salveguardar iste modification. Per favor retorna e cambia lo.</string>
   <string name="dialog_page_issues">Problemas con le pagina</string>
   <string name="button_page_issues">Problemas con le pagina</string>
   <string name="text_size_select">Dimension del litteras</string>

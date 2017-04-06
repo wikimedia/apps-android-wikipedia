@@ -47,10 +47,10 @@
   <string name="langlinks_empty">یہ صفحہ دوسری زبانوں میں دستیاب نہیں ہے۔</string>
   <string name="langlinks_no_match">تلاش کے مطلوبہ نتائج کسی زبان میں نہیں ملے۔</string>
   <string name="langlinks_activity_title">دیگر زبانیں</string>
-  <string name="menu_save_changes">تبدیلیاں محفوظ کریں</string>
+  <string name="menu_save_changes" fuzzy="true">تبدیلیاں محفوظ کریں</string>
   <string name="edit_section_error_retry">دوبارہ کوشش کریں</string>
-  <string name="dialog_saving_in_progress">محفوظ ہورہا ہے…</string>
-  <string name="edit_saved_successfully">ترمیم محفوظ ہوگئی!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">محفوظ ہورہا ہے…</string>
+  <string name="edit_saved_successfully" fuzzy="true">ترمیم محفوظ ہوگئی!</string>
   <string name="dialog_message_edit_failed">ترمیم محفوظ نہیں ہو سکی!</string>
   <string name="dialog_message_edit_failed_retry">دوبارہ کوشش کریں</string>
   <string name="dialog_message_edit_failed_cancel">منسوخ</string>
@@ -138,7 +138,7 @@
   <string name="user_anon_blocked_from_editing">آپ کے دستورشبکی پتے کے ترمیم کرنے پر پابندی لگ گئی ہے۔</string>
   <string name="edit_how_page_improved">اس صفحہ پر آپ نے کیسے درستی کی؟</string>
   <string name="edit_next">اگلا</string>
-  <string name="edit_done">محفوظ</string>
+  <string name="edit_done" fuzzy="true">محفوظ</string>
   <string name="edit_preview">نمائش</string>
   <string name="edit_summary_tag_typo">درستی املا</string>
   <string name="edit_summary_tag_grammar">درستی قواعد</string>
@@ -147,8 +147,8 @@
   <string name="edit_summary_tag_other_hint">دوسرے طریقے جن سے آپ نے اس صفحہ کو بہتر کیا</string>
   <string name="find_next">اگلا ڈھونڈیں</string>
   <string name="find_previous">پچھلا ڈھونڈیں</string>
-  <string name="abusefilter_title_warn">یہ ایک غیرتعمیری ترمیم ہوسکتی ہے۔ کیاآپ اسے یقینی طور پر محفوظ کرنا چاہتے ہیں؟</string>
-  <string name="abusefilter_title_disallow">آپ اس ترمیم کو محفوظ نہیں کرسکتے۔ پیچھے جاکر اسے بدلیے۔</string>
+  <string name="abusefilter_title_warn" fuzzy="true">یہ ایک غیرتعمیری ترمیم ہوسکتی ہے۔ کیاآپ اسے یقینی طور پر محفوظ کرنا چاہتے ہیں؟</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">آپ اس ترمیم کو محفوظ نہیں کرسکتے۔ پیچھے جاکر اسے بدلیے۔</string>
   <string name="abusefilter_text_warn">ایک خودکار فلٹر نے اس ترمیم کی شناخت امکانی طور پر غیرتعمیری شناخت کی ہے۔ اس میں مندرجہ میں سے ایک یا اس سے زیادہ ہوسکتے ہیں:&lt;br /&gt;&lt;br /&gt;
 سارے حروف کیاپیٹل ہیں۔&lt;br /&gt;مضمون کو خالی کرنا یا تشہیری مواد شامل کرنا۔&lt;br /&gt;غیرمتعلقہ خارجی روابط یا تصاویر۔&lt;br /&gt;ٹائپ شدہ حروف کا تکرار۔</string>
   <string name="abusefilter_text_disallow">ایک خودکار فلٹر نے اس ترمیم شناخت امکانی طور پر غیرتعمیری یا امکانی طور پر تخریب کاری کے طور پر کی ہے۔ &lt;br /&gt;&lt;br /&gt; ویکیپیدیا ایک دائرۃالمعارف ہے اور صرف غیرجانبدار، قابل ذکر مواد یہاں سے تعلق رکھتا ہے۔</string>
@@ -287,6 +287,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">آج</string>
   <string name="description_edit_text_hint" fuzzy="true">وضاحت لکھیں</string>
-  <string name="description_edit_save">محفوظ کریں</string>
+  <string name="description_edit_save" fuzzy="true">محفوظ کریں</string>
   <string name="description_edit_add_description" fuzzy="true">وضاحت شامل کریں</string>
 </resources>

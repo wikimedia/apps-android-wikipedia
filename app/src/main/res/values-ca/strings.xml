@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Aquesta pàgina no està disponible en altres idiomes.</string>
   <string name="langlinks_no_match">No s\'ha trobat cap idioma que coincideixi amb la consulta.</string>
   <string name="langlinks_activity_title">Altres idiomes</string>
-  <string name="menu_save_changes">Desa els canvis</string>
+  <string name="menu_save_changes" fuzzy="true">Desa els canvis</string>
   <string name="edit_section_error_retry">Tornar-ho a provar</string>
-  <string name="dialog_saving_in_progress">S’està desant…</string>
-  <string name="edit_saved_successfully">Modificació desada!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">S’està desant…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Modificació desada!</string>
   <string name="dialog_message_edit_failed">La modificació no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Tornar-ho a provar</string>
   <string name="dialog_message_edit_failed_cancel">Cancel·lar</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">S\'ha bloquejat l\'edició des de la vostra IP.</string>
   <string name="edit_how_page_improved">Com heu millorat la pàgina?</string>
   <string name="edit_next">Següent</string>
-  <string name="edit_done">Desa</string>
+  <string name="edit_done" fuzzy="true">Desa</string>
   <string name="edit_preview">Vista prèvia</string>
   <string name="edit_summary_tag_typo">Errada corregida</string>
   <string name="edit_summary_tag_grammar">Errada gramatical corregida</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Altres formes com heu millorat la pàgina</string>
   <string name="find_next">Cercar el següent</string>
   <string name="find_previous">Cercar l\'anterior</string>
-  <string name="abusefilter_title_warn">Això podria ser una modificació no constructiva. Segur que voleu desar-la?</string>
-  <string name="abusefilter_title_disallow">No podeu desar aquesta modificació. Aneu enrere i canvieu-la.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Això podria ser una modificació no constructiva. Segur que voleu desar-la?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">No podeu desar aquesta modificació. Aneu enrere i canvieu-la.</string>
   <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs o imatges irrellevants&lt;br /&gt;· Caràcters que es repeteixin</string>
   <string name="abusefilter_text_disallow">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial.&lt;br /&gt;&lt;br /&gt;La Viquipèdia és una enciclopèdia i només hi tenen cabuda els continguts neutrals i notoris.</string>
   <string name="dialog_page_issues">Problemes de la pàgina</string>
@@ -278,6 +278,7 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_name_hint">Nom de la llista</string>
   <string name="reading_list_description_hint">Descripció (opcional)</string>
   <string name="reading_list_item_deleted">%s suprimit de la llista</string>
+  <string name="reading_list_items_deleted">%d articles esborrats de la llista</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="reading_lists_empty">Encara no hi ha cap llista de lectura.</string>
@@ -327,7 +328,7 @@ Voleu començar de nou o sortir?</string>
   <string name="view_continue_reading_card_subtitle_today">Avui</string>
   <string name="view_announcement_card_negative_action">No, gràcies</string>
   <string name="description_edit_text_hint">Descripció de títol</string>
-  <string name="description_edit_save">Desa</string>
+  <string name="description_edit_save" fuzzy="true">Desa</string>
   <string name="description_edit_add_description">Afegeix una descripció de títol</string>
   <string name="description_edit_edit_description">Modifica la descripció</string>
   <string name="description_edit_cancel_hint">Cancel·la</string>
@@ -337,7 +338,7 @@ Voleu començar de nou o sortir?</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ca</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Gràcies pel vostre continu interès en editar descripcions! Per a fer edicions addicionals, inicieu una sessió amb el vostre compte de Viquipèdia.</string>
-  <string name="description_edit_success_saved">S\'ha desat la descripció!</string>
+  <string name="description_edit_success_saved" fuzzy="true">S\'ha desat la descripció!</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
@@ -350,10 +351,12 @@ Voleu començar de nou o sortir?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
   <string name="description_edit_help_about_title">Quant a</string>
+  <string name="description_edit_help_description">Les descripcions del títol d\'un article ajuden als lectors a entendre la temàtica d\'un cop d\'ull</string>
   <string name="description_edit_help_tips">Consells per a crear descripcions</string>
   <string name="description_edit_help_tips_examples">Per exemple:</string>
   <string name="description_edit_help_tips_example1">quadre de Leonardo da Vinci</string>
   <string name="description_edit_help_tips_example2">La muntanya més alta de la Terra</string>
+  <string name="description_edit_help_tips_example2_hint">descripció d\'un títol d\'un article sobre l\'Everest</string>
   <string name="description_edit_help_more_info">Més informació</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
 </resources>

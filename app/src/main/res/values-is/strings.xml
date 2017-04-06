@@ -43,10 +43,10 @@
   <string name="langlinks_empty">Þessi síða er ekki tiltæk á öðrum tungumálum.</string>
   <string name="langlinks_no_match">Engin tungumál fundust sem samsvara leitarskilyrðunum.</string>
   <string name="langlinks_activity_title">Önnur tungumál</string>
-  <string name="menu_save_changes">Vista breytingar</string>
+  <string name="menu_save_changes" fuzzy="true">Vista breytingar</string>
   <string name="edit_section_error_retry">Reyna aftur</string>
-  <string name="dialog_saving_in_progress">Vista…</string>
-  <string name="edit_saved_successfully">Breytingin vistuð!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Vista…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Breytingin vistuð!</string>
   <string name="dialog_message_edit_failed">Breytingin mistókst!</string>
   <string name="dialog_message_edit_failed_retry">Reyna aftur</string>
   <string name="dialog_message_edit_failed_cancel">Hætta við</string>
@@ -134,7 +134,7 @@
   <string name="user_anon_blocked_from_editing">IP-vistfangið þitt hefur verið útilokað frá breytingum.</string>
   <string name="edit_how_page_improved">Hvernig bættirðu síðuna?</string>
   <string name="edit_next">Næsta</string>
-  <string name="edit_done">Vista</string>
+  <string name="edit_done" fuzzy="true">Vista</string>
   <string name="edit_preview">Forskoðun</string>
   <string name="edit_summary_tag_typo">Lagaði innsláttarvillu</string>
   <string name="edit_summary_tag_grammar">Lagaði málfræði</string>
@@ -143,8 +143,8 @@
   <string name="edit_summary_tag_other_hint">Aðrar leiðir sem þú notaðir til að bæta síðuna</string>
   <string name="find_next">Finna næsta</string>
   <string name="find_previous">Finna fyrra</string>
-  <string name="abusefilter_title_warn">Þetta lítur ekki út fyrir að vera uppbyggileg breyting, ert þú viss um að þú viljir vista hana?</string>
-  <string name="abusefilter_title_disallow">Þú getur ekki vistað þessa breytingu. Vinsamlegast breyttu henni.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Þetta lítur ekki út fyrir að vera uppbyggileg breyting, ert þú viss um að þú viljir vista hana?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Þú getur ekki vistað þessa breytingu. Vinsamlegast breyttu henni.</string>
   <string name="abusefilter_text_warn">Sjálfvirk sía hefur greint þessa breytingu sem mögulega eyðileggjandi. Hún gæti innihaldið eitt af eftirtöldu:&lt;br /&gt;&lt;br /&gt;· Eintómir hástafir&lt;br /&gt;· Tæming greina eða þvaður&lt;br /&gt;· Óviðeigandi ytri tenglar eða myndir&lt;br /&gt;· Endurteknir stafir</string>
   <string name="abusefilter_text_disallow">Sjálfvirk sía hefur greint þessa breytingu sem eyðileggjandi eða sem tilraun til skemmdarverks. &lt;br /&gt;&lt;br /&gt;Wikipedia er alfræðirit og því tilheyrir aðeins hlutlaust og markvert efni.</string>
   <string name="dialog_page_issues">Vandamál varðandi síðu</string>

@@ -45,10 +45,10 @@
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>
   <string name="langlinks_no_match">ไม่พบภาษาที่ตรงกับคำค้นหาของคุณ</string>
   <string name="langlinks_activity_title">ภาษาอื่น</string>
-  <string name="menu_save_changes">บันทึกการเปลี่ยนแปลง</string>
+  <string name="menu_save_changes" fuzzy="true">บันทึกการเปลี่ยนแปลง</string>
   <string name="edit_section_error_retry">ลองใหม่</string>
-  <string name="dialog_saving_in_progress">กำลังบันทึก…</string>
-  <string name="edit_saved_successfully">การแก้ไขบันทึกแล้ว!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">กำลังบันทึก…</string>
+  <string name="edit_saved_successfully" fuzzy="true">การแก้ไขบันทึกแล้ว!</string>
   <string name="dialog_message_edit_failed">การแก้ไขล้มเหลว!</string>
   <string name="dialog_message_edit_failed_retry">ลองใหม่</string>
   <string name="dialog_message_edit_failed_cancel">ยกเลิก</string>
@@ -113,7 +113,7 @@
   <string name="about_activity_title">เกี่ยวกับ</string>
   <string name="user_blocked_from_editing_title">ถูกบล็อก</string>
   <string name="edit_next">ถัดไป</string>
-  <string name="edit_done">บันทึก</string>
+  <string name="edit_done" fuzzy="true">บันทึก</string>
   <string name="edit_preview">แสดงตัวอย่าง</string>
   <string name="edit_summary_tag_typo">แก้ไขการสะกด</string>
   <string name="edit_summary_tag_grammar">แก้ไขไวยากรณ์</string>

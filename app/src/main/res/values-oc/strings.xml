@@ -51,10 +51,10 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="langlinks_empty">Aquesta pagina es pas disponibla dins d’autras lengas</string>
   <string name="langlinks_no_match">Cap de lenga pas trobat que corresponda a vòstra requèsta.</string>
   <string name="langlinks_activity_title">Autras lengas</string>
-  <string name="menu_save_changes">Enregistrar las modificacions</string>
+  <string name="menu_save_changes" fuzzy="true">Enregistrar las modificacions</string>
   <string name="edit_section_error_retry">Ensajar tornarmai</string>
-  <string name="dialog_saving_in_progress">Enregistrament…</string>
-  <string name="edit_saved_successfully">Modificacion enregistrada !</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Enregistrament…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Modificacion enregistrada !</string>
   <string name="dialog_message_edit_failed">Fracàs de l’enregistrament !</string>
   <string name="dialog_message_edit_failed_retry">Ensajar tornarmai</string>
   <string name="dialog_message_edit_failed_cancel">Anullar</string>
@@ -136,7 +136,7 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="user_logged_in_blocked_from_editing">Vòstre compte d\'utilizaire es estat blocat per las modificacions sus aqueste wiki.</string>
   <string name="edit_how_page_improved">Cossí avètz melhorat aquesta pagina?</string>
   <string name="edit_next">Seguent</string>
-  <string name="edit_done">Enregistrar</string>
+  <string name="edit_done" fuzzy="true">Enregistrar</string>
   <string name="edit_preview">Apercebut</string>
   <string name="edit_summary_tag_typo">Fauta de picada corregida</string>
   <string name="edit_summary_tag_grammar">Fauta de gramatica corregida</string>
@@ -273,7 +273,7 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="view_continue_reading_card_subtitle_today">Uèi</string>
   <string name="view_announcement_card_negative_action">Non mercé</string>
   <string name="description_edit_text_hint">Descripcion del títol</string>
-  <string name="description_edit_save">Enregistrar</string>
+  <string name="description_edit_save" fuzzy="true">Enregistrar</string>
   <string name="description_edit_add_description">Apondre una descripcion del títol</string>
   <string name="description_edit_edit_description">Modificar la descripcion</string>
   <string name="description_edit_cancel_hint">Anullar</string>
@@ -282,7 +282,7 @@ Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &
   <string name="description_edit_help_wikidata_guide">Guida Wikidata per escriure de descripcions</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/oc</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Descripcion enregistrada !</string>
+  <string name="description_edit_success_saved" fuzzy="true">Descripcion enregistrada !</string>
   <string name="description_edit_success_done">Fait</string>
   <string name="description_edit_success_did_you_know">O sabiatz ?</string>
   <string name="description_edit_tutorial_title_descriptions">Descripcions del títol</string>

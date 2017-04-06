@@ -81,11 +81,11 @@ Shown in the preferences screen along with the following:
   <string name="langlinks_no_match">Message shown when the user requested a list of languages in which the current article is available, and filtered that list using a search, but their search query does not match any of the other languages the article is available in.</string>
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.
 {{Identical|Otherlanguages}}</string>
-  <string name="menu_save_changes">{{Identical|Save changes}}</string>
+  <string name="menu_save_changes">{{Identical|Publish changes}}</string>
   <string name="edit_section_error_retry">Text for button that retries page loading when tapped.
 {{Identical|Retry}}</string>
   <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.
-{{Identical|Saving}}</string>
+{{Identical|Publishing}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
   <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
   <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save.
@@ -237,7 +237,7 @@ Please test the URL to make sure it works</string>
   <string name="edit_next">Button text to go \"next\" after the editing screen to the preview screen.
 {{Identical|Next}}</string>
   <string name="edit_done">Button text to finish editing and save the changes.
-{{Identical|Save}}</string>
+{{Identical|Publish}}</string>
   <string name="edit_preview">Header text to show above the preview of the edited article.
 {{Identical|Preview}}</string>
   <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo</string>
@@ -349,7 +349,7 @@ Shown in the preferences screen along with the following:
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
   <string name="button_add_to_reading_list">Button text for adding the current page to a reading list.</string>
   <string name="page_offline_notice_cannot_load_while_offline">Message informing the user that an article cannot be loaded while the app is offline. This message is followed by page_offline_notice_add_to_reading_list.</string>
-  <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be donwloaded when the app is online. This message follows page_offline_notice_cannot_load_while_offline.</string>
+  <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be donwloaded when the app is online. This message follows {{msg-wm|Wikipedia-android-strings-page_offline_notice_cannot_load_while_offline}}.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.
@@ -371,7 +371,8 @@ Shown in the preferences screen along with the following:
   <string name="error_webview_updating">Error informing the user that the System WebView is being updated, meaning that the app cannot be launched right now, and that the user should try again in a moment.</string>
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
-  <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview</string>
+  <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview
+{{Identical|Dismiss}}</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
   <string name="view_wiki_error_message_offline">Error message shown when network cannot be reached when loading a page</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
@@ -478,7 +479,7 @@ Shown in the preferences screen along with the following:
 {{Identical|No thanks}}</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.
-{{Identical|Save}}</string>
+{{Identical|Publish}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.

@@ -47,10 +47,10 @@
   <string name="langlinks_empty">Denne siden er ikke tilgjengelig på andre språk</string>
   <string name="langlinks_no_match">Ingen språk ble funnet som matchet søket ditt.</string>
   <string name="langlinks_activity_title">Andre språk</string>
-  <string name="menu_save_changes">Lagre endringer</string>
+  <string name="menu_save_changes" fuzzy="true">Lagre endringer</string>
   <string name="edit_section_error_retry">Prøv igjen</string>
-  <string name="dialog_saving_in_progress">Lagrer…</string>
-  <string name="edit_saved_successfully">Redigering lagret!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Lagrer…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Redigering lagret!</string>
   <string name="dialog_message_edit_failed">Redigering feilet!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igjen</string>
   <string name="dialog_message_edit_failed_cancel">Avbryt</string>
@@ -140,7 +140,7 @@
   <string name="user_anon_blocked_from_editing">IP-adressen din har blitt blokkert fra å redigere.</string>
   <string name="edit_how_page_improved">Hvordan forbedret du siden?</string>
   <string name="edit_next">Neste</string>
-  <string name="edit_done">Lagre</string>
+  <string name="edit_done" fuzzy="true">Lagre</string>
   <string name="edit_preview">Forhåndsvis</string>
   <string name="edit_summary_tag_typo">Fikset typo</string>
   <string name="edit_summary_tag_grammar">Korrigerte grammatikk</string>
@@ -149,8 +149,8 @@
   <string name="edit_summary_tag_other_hint">Andre måter du kan forbedre denne siden</string>
   <string name="find_next">Finn neste</string>
   <string name="find_previous">Finn forrige</string>
-  <string name="abusefilter_title_warn">Dette er muligens en lite konstruktiv redigering. Er du sikker på at du vil lagre?</string>
-  <string name="abusefilter_title_disallow">Du kan ikke lagre denne redigeringen. Vennligst gå tilbake og prøv igjen.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Dette er muligens en lite konstruktiv redigering. Er du sikker på at du vil lagre?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Du kan ikke lagre denne redigeringen. Vennligst gå tilbake og prøv igjen.</string>
   <string name="abusefilter_text_warn">Redigeringen har blitt identifisert som potensielt destruktiv av et automatisk filter. Den kan inneholde en eller flere av følgende ting:&lt;br /&gt;&lt;br /&gt;· Hele ord skrevet med store bokstaver&lt;br /&gt;· Tømming av artikkelen eller spamming&lt;br /&gt;· Irrelevante eksterne lenker eller bilder&lt;br /&gt;· Gjentagende tegn</string>
   <string name="abusefilter_text_disallow">Redigeringen har blitt identifisert som potentiselt destruktiv, eller som potensiell vandalisme av et automatisk filter.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopedi og kun nøytralt og relevant innhold hører hjemme her.</string>
   <string name="dialog_page_issues">Problemer med siden</string>
@@ -299,7 +299,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nei takk</string>
   <string name="description_edit_text_hint" fuzzy="true">Skriv en beskrivelse!</string>
-  <string name="description_edit_save">Lagre</string>
+  <string name="description_edit_save" fuzzy="true">Lagre</string>
   <string name="description_edit_add_description" fuzzy="true">Legg til en kort beskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
@@ -308,7 +308,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-guide for å skrive beskrivelser</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/nb</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Beskrivelse lagret!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Beskrivelse lagret!</string>
   <string name="description_edit_success_encouragement">Du gjorde nettopp Wikipedia bedre for alle</string>
   <string name="description_edit_success_done">Ferdig</string>
   <string name="description_edit_success_did_you_know">Visste du at?</string>

@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>
   <string name="langlinks_no_match">Ingen fundne sprog der passer til din forespørgsel.</string>
   <string name="langlinks_activity_title">Andre sprog</string>
-  <string name="menu_save_changes">Gem ændringer</string>
+  <string name="menu_save_changes" fuzzy="true">Gem ændringer</string>
   <string name="edit_section_error_retry">Prøv igen</string>
-  <string name="dialog_saving_in_progress">Gemmer…</string>
-  <string name="edit_saved_successfully">Redigering gemt!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Gemmer…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Redigering gemt!</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
   <string name="dialog_message_edit_failed_cancel">Annuller</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">Din IP-adresse er blevet blokeret fra at redigere.</string>
   <string name="edit_how_page_improved">Hvordan har du forbedret siden?</string>
   <string name="edit_next">Næste</string>
-  <string name="edit_done">Gem</string>
+  <string name="edit_done" fuzzy="true">Gem</string>
   <string name="edit_preview">Forhåndsvis</string>
   <string name="edit_summary_tag_typo">Rettet stavefejl</string>
   <string name="edit_summary_tag_grammar">Rettet grammatik</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
-  <string name="abusefilter_title_warn">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på du ønsker at gemme den?</string>
-  <string name="abusefilter_title_disallow">Du kan ikke gemme denne redigering. Gå venligst tilbage og ændre den.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på du ønsker at gemme den?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Du kan ikke gemme denne redigering. Gå venligst tilbage og ændre den.</string>
   <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
   <string name="abusefilter_text_disallow">Et automatisk filter har identificeret denne redigering som potentielt ukonstruktiv, eller potentielt hærværk.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopædi, og kun neutralt og relevant indhold hører til her.</string>
   <string name="dialog_page_issues">Problemer med siden</string>
@@ -322,7 +322,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
-  <string name="description_edit_save">Gem</string>
+  <string name="description_edit_save" fuzzy="true">Gem</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
@@ -333,7 +333,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tak for din fortsatte interesse i at redigere beskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
   <string name="description_edit_license_notice">Ved at ændre titelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
-  <string name="description_edit_success_saved">Beskrivelse gemt!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Beskrivelse gemt!</string>
   <string name="description_edit_success_encouragement">Du har lige gjort Wikipedia bedre for alle</string>
   <string name="description_edit_success_done">Færdig</string>
   <string name="description_edit_success_did_you_know">Vidste du at?</string>

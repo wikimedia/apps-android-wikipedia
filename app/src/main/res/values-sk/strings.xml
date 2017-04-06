@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
   <string name="langlinks_no_match">Zadaný výraz nezodpovedá žiadnemu jazyku.</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
-  <string name="menu_save_changes">Uložiť zmeny</string>
+  <string name="menu_save_changes" fuzzy="true">Uložiť zmeny</string>
   <string name="edit_section_error_retry">Obnoviť</string>
-  <string name="dialog_saving_in_progress">Ukladanie…</string>
-  <string name="edit_saved_successfully">Úprava uložená!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Ukladanie…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Úprava uložená!</string>
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
   <string name="dialog_message_edit_failed_cancel">Zrušiť</string>
@@ -151,7 +151,7 @@
   <string name="user_anon_blocked_from_editing">Vaša IP adresa bola pre úpravy zablokovaná.</string>
   <string name="edit_how_page_improved">Ako ste vylepšili stránku?</string>
   <string name="edit_next">Ďalej</string>
-  <string name="edit_done">Uložiť</string>
+  <string name="edit_done" fuzzy="true">Uložiť</string>
   <string name="edit_preview">Náhľad</string>
   <string name="edit_summary_tag_typo">Opravený preklep</string>
   <string name="edit_summary_tag_grammar">Oprava pravopisu</string>
@@ -160,8 +160,8 @@
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste zlepšili túto stránku</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
-  <string name="abusefilter_title_warn">Táto úprava môže byť nekonštruktívna. Naozaj ju chcete uložiť?</string>
-  <string name="abusefilter_title_disallow">Túto úpravu nie je možné uložiť. Vráťte sa prosím späť a zmeňte ju.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Táto úprava môže byť nekonštruktívna. Naozaj ju chcete uložiť?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Túto úpravu nie je možné uložiť. Vráťte sa prosím späť a zmeňte ju.</string>
   <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>
   <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo ako vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
   <string name="dialog_page_issues">Problémy stránky</string>
@@ -319,7 +319,7 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
   <string name="description_edit_text_hint">Popis článku</string>
-  <string name="description_edit_save">Uložiť</string>
+  <string name="description_edit_save" fuzzy="true">Uložiť</string>
   <string name="description_edit_add_description">Pridať popis článku</string>
   <string name="description_edit_edit_description">Upraviť popis</string>
   <string name="description_edit_cancel_hint">Zrušiť</string>
@@ -328,7 +328,7 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="description_edit_help_wikidata_guide">Návod na písanie popisov na Wikiúdajoch</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/sk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Popis bol uložený!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Popis bol uložený!</string>
   <string name="description_edit_success_encouragement">Wikipédia je vďaka vám lepšia než predtým</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>

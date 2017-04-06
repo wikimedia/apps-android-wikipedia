@@ -50,10 +50,10 @@
   <string name="langlinks_empty">此頁面沒有其他語言版本。</string>
   <string name="langlinks_no_match">未找到符合您的查詢的語言。</string>
   <string name="langlinks_activity_title">其他語言</string>
-  <string name="menu_save_changes">儲存修改</string>
+  <string name="menu_save_changes">發佈修改</string>
   <string name="edit_section_error_retry">重試</string>
-  <string name="dialog_saving_in_progress">儲存中…</string>
-  <string name="edit_saved_successfully">已儲存編輯！</string>
+  <string name="dialog_saving_in_progress">發佈中…</string>
+  <string name="edit_saved_successfully">已發佈編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">您的 IP 位址已被封鎖，無法編輯。</string>
   <string name="edit_how_page_improved">您如何改善此頁面？</string>
   <string name="edit_next">下一步</string>
-  <string name="edit_done">儲存</string>
+  <string name="edit_done">發佈</string>
   <string name="edit_preview">預覽</string>
   <string name="edit_summary_tag_typo">修正筆誤</string>
   <string name="edit_summary_tag_grammar">修正語法</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
   <string name="find_next">尋找下一筆</string>
   <string name="find_previous">尋找上一筆</string>
-  <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。你確定你想要儲存它？</string>
-  <string name="abusefilter_title_disallow">您不能儲存此編輯。請返回並修正。</string>
+  <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。你確定你想要發佈它？</string>
+  <string name="abusefilter_title_disallow">您不能發佈此編輯。請返回並修正。</string>
   <string name="abusefilter_text_warn">自動過濾器認為您的編輯缺乏建設性。 可能由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 空白的文章內容或含有垃圾訊息&lt;br /&gt;· 含有無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
   <string name="abusefilter_text_disallow">自動過濾器已識別此編輯為潛在非建設性或潛在性破壞。&lt;br/&gt;&lt;br/&gt;維基百科是一本僅擁有中立與值得注意內容的百科全書。</string>
   <string name="dialog_page_issues">頁面問題</string>
@@ -227,6 +227,8 @@
   <string name="text_copied">文字已複製至剪貼簿。</string>
   <string name="button_continue_to_article">閱讀條目</string>
   <string name="button_add_to_reading_list">新增至閱讀清單</string>
+  <string name="page_offline_notice_cannot_load_while_offline">條目不能在離線時載入。</string>
+  <string name="page_offline_notice_add_to_reading_list">添加條目至閱讀清單，這可在您返回上線時下載。</string>
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
@@ -239,6 +241,9 @@
   <string name="location_permissions_enable_action">啟動</string>
   <string name="error_webview_updating">Android系統的WebView正在更新。請稍候再試。</string>
   <string name="multi_select_items_selected">%d個已選擇</string>
+  <string name="error_message_generic">發生錯誤</string>
+  <string name="view_link_preview_error_button_dismiss">關閉</string>
+  <string name="error_page_does_not_exist">此頁面不存在</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
@@ -329,7 +334,7 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="description_edit_text_hint">標題描述</string>
-  <string name="description_edit_save">儲存</string>
+  <string name="description_edit_save">發佈</string>
   <string name="description_edit_add_description">增加標題描述</string>
   <string name="description_edit_edit_description">編輯描述</string>
   <string name="description_edit_cancel_hint">取消</string>
@@ -340,7 +345,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_anon_limit">感謝您保持著對於編輯描述的興致！要進行額外編輯，請登入您的維基百科帳號。</string>
   <string name="description_edit_license_notice">透過更改標題描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤銷所發表出我的個人貢獻。</string>
-  <string name="description_edit_success_saved">描述已儲存！</string>
+  <string name="description_edit_success_saved">描述已發佈！</string>
   <string name="description_edit_success_encouragement">您為了大家讓維基百科變得更好</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道嗎？</string>

@@ -49,10 +49,10 @@
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
   <string name="langlinks_no_match">入力したキーワードに一致する言語が見つかりません。</string>
   <string name="langlinks_activity_title">他の言語で読む</string>
-  <string name="menu_save_changes">変更を保存</string>
+  <string name="menu_save_changes" fuzzy="true">変更を保存</string>
   <string name="edit_section_error_retry">再試行</string>
-  <string name="dialog_saving_in_progress">保存中…</string>
-  <string name="edit_saved_successfully">保存しました!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">保存中…</string>
+  <string name="edit_saved_successfully" fuzzy="true">保存しました!</string>
   <string name="dialog_message_edit_failed">編集の保存に失敗しました!</string>
   <string name="dialog_message_edit_failed_retry">再試行</string>
   <string name="dialog_message_edit_failed_cancel">中止</string>
@@ -145,7 +145,7 @@
   <string name="user_anon_blocked_from_editing">あなたの IP アドレスは編集ブロックされています。</string>
   <string name="edit_how_page_improved">このページでどんな点を改善しましたか？</string>
   <string name="edit_next">次へ</string>
-  <string name="edit_done">保存</string>
+  <string name="edit_done" fuzzy="true">保存</string>
   <string name="edit_preview">プレビュー</string>
   <string name="edit_summary_tag_typo">タイプミスを修正</string>
   <string name="edit_summary_tag_grammar">文法を修正</string>
@@ -154,8 +154,8 @@
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
-  <string name="abusefilter_title_warn">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
-  <string name="abusefilter_title_disallow">この編集は保存できません。戻って変更してください。</string>
+  <string name="abusefilter_title_warn" fuzzy="true">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">この編集は保存できません。戻って変更してください。</string>
   <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;・すべて大文字で書かれている&lt;br /&gt;・記事が白紙化されている、もしくはスパムである&lt;br /&gt;・関係のない外部リンクや画像が挿入されている&lt;br /&gt;・一定の文字が繰り返されている</string>
   <string name="abusefilter_text_disallow">自動フィルターによって、この編集が建設的でないか、荒らしである可能性があると判断されました。&lt;br /&gt;&lt;br /&gt;ウィキペディアは百科事典であり、中立的で特筆性のあるコンテンツのみを記載する必要があります。</string>
   <string name="dialog_page_issues">ページの問題点</string>
@@ -295,7 +295,7 @@
   <string name="view_continue_reading_card_subtitle_today">今日</string>
   <string name="view_announcement_card_negative_action">いいえ</string>
   <string name="description_edit_text_hint">編集の要約</string>
-  <string name="description_edit_save">保存</string>
+  <string name="description_edit_save" fuzzy="true">保存</string>
   <string name="description_edit_add_description">説明を追加</string>
   <string name="description_edit_help_about_wikidata">ウィキデータについて</string>
   <string name="description_edit_success_done">完了</string>

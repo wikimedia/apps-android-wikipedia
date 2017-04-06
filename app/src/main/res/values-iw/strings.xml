@@ -50,10 +50,10 @@
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
   <string name="langlinks_no_match">לא נמצאות שפות התואמות לשאילתה שלך.</string>
   <string name="langlinks_activity_title">שפות אחרות</string>
-  <string name="menu_save_changes">שמירת השינויים</string>
+  <string name="menu_save_changes">פרסום השינויים</string>
   <string name="edit_section_error_retry">לנסות שוב</string>
-  <string name="dialog_saving_in_progress">שמירה…</string>
-  <string name="edit_saved_successfully">העריכה נשמרה!</string>
+  <string name="dialog_saving_in_progress">פרסום…</string>
+  <string name="edit_saved_successfully">העריכה פורסמה!</string>
   <string name="dialog_message_edit_failed">העריכה נכשלה!</string>
   <string name="dialog_message_edit_failed_retry">לנסות שוב</string>
   <string name="dialog_message_edit_failed_cancel">ביטול</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">כתובת ה־IP שלך נחסמה מעריכה.</string>
   <string name="edit_how_page_improved">איך שיפרת את הדף?</string>
   <string name="edit_next">הבא</string>
-  <string name="edit_done">שמירה</string>
+  <string name="edit_done">פרסום</string>
   <string name="edit_preview">תצוגה מקדימה</string>
   <string name="edit_summary_tag_typo">תיקון טעות הקלדה</string>
   <string name="edit_summary_tag_grammar">תיקנתי דקדוק</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">איך עוד שיפרת את הדף</string>
   <string name="find_next">חיפוש הבא</string>
   <string name="find_previous">חיפוש הקודם</string>
-  <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. באמת לשמור אותה?</string>
-  <string name="abusefilter_title_disallow">לא ניתן לשמור את העריכה הזאת. נא לחזור ולשנות אותה.</string>
+  <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. האם באמת לפרסם אותה?</string>
+  <string name="abusefilter_title_disallow">לא ניתן לפרסם את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך מתאים לכאן.</string>
   <string name="dialog_page_issues">בעיות בדף</string>
@@ -227,6 +227,8 @@
   <string name="text_copied">הטקסט הועתק ללוח.</string>
   <string name="button_continue_to_article">לקרוא את הערך</string>
   <string name="button_add_to_reading_list">הוספה לרשימת קריאה</string>
+  <string name="page_offline_notice_cannot_load_while_offline">אי־אפשר לטעון ערך ללא חיבור לרשת.</string>
+  <string name="page_offline_notice_add_to_reading_list">הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="button_get_directions">לקבל כיוונים</string>
   <string name="error_no_maps_app">לא מצאתי שום אפליקציה שנותנת כיוונים.</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
@@ -239,6 +241,9 @@
   <string name="location_permissions_enable_action">להפעיל</string>
   <string name="error_webview_updating">מתבצע עדכון של Android System WebView. נא לנסות שוב בעוד רגע.</string>
   <string name="multi_select_items_selected">נבחרו %d</string>
+  <string name="error_message_generic">אירעה שגיאה</string>
+  <string name="view_link_preview_error_button_dismiss">סגירה</string>
+  <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
   <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>
@@ -329,7 +334,7 @@
   <string name="view_continue_reading_card_subtitle_today">היום</string>
   <string name="view_announcement_card_negative_action">לא, תודה</string>
   <string name="description_edit_text_hint">תיאור הכותרת</string>
-  <string name="description_edit_save">שמירה</string>
+  <string name="description_edit_save">פרסום</string>
   <string name="description_edit_add_description">הוספת תיאור כותרת</string>
   <string name="description_edit_edit_description">עריכת התיאור</string>
   <string name="description_edit_cancel_hint">ביטול</string>
@@ -340,7 +345,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">תודה על ההתעניינות בעריכת תיאורים! כדי לעשות עריכות נוספות, נא להיכנס לחשבון הוויקיפדיה שלך.</string>
   <string name="description_edit_license_notice">שינוי תיאור הכותרת מהווה את הסכמתי ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ואת הסכמתי לשחרר באופן בלתי־חוזר את התרומות שלי לפי תנאי רישיון &lt;a href=\"%2$s\"&gt;קריאייטוב קומונז CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved">התיאור נשמר!</string>
+  <string name="description_edit_success_saved">התיאור פורסם!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>

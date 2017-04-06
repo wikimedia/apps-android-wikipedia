@@ -48,10 +48,10 @@
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen</string>
   <string name="langlinks_no_match">Geen talen gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="langlinks_activity_title">Andere talen</string>
-  <string name="menu_save_changes">Wijzigingen opslaan</string>
+  <string name="menu_save_changes" fuzzy="true">Wijzigingen opslaan</string>
   <string name="edit_section_error_retry">Opnieuw proberen</string>
-  <string name="dialog_saving_in_progress">Bezig met opslaan…</string>
-  <string name="edit_saved_successfully">Bewerking opgeslagen!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">Bezig met opslaan…</string>
+  <string name="edit_saved_successfully" fuzzy="true">Bewerking opgeslagen!</string>
   <string name="dialog_message_edit_failed">Bewerking mislukt!</string>
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
   <string name="dialog_message_edit_failed_cancel">Annuleren</string>
@@ -144,7 +144,7 @@
   <string name="user_anon_blocked_from_editing">Uw IP-adres is geblokkeerd en kan niet bewerken.</string>
   <string name="edit_how_page_improved">Hoe heeft u de pagina verbeterd?</string>
   <string name="edit_next">Volgende</string>
-  <string name="edit_done">Opslaan</string>
+  <string name="edit_done" fuzzy="true">Opslaan</string>
   <string name="edit_preview">Voorvertoning</string>
   <string name="edit_summary_tag_typo">Spelfout gecorrigeerd</string>
   <string name="edit_summary_tag_grammar">Grammatica gecorrigeerd</string>
@@ -153,8 +153,8 @@
   <string name="edit_summary_tag_other_hint">Andere manieren waarop hoe u de pagina hebt verbeterd</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
-  <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u die wilt opslaan?</string>
-  <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u die wilt opslaan?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
   <string name="abusefilter_text_warn">Een geautomatiseerde filter heeft deze bewerking als potentieel onconstructief geïdentificeerd. Het kan een of meer van de volgende bevatten:&lt;br /&gt;&lt;br /&gt;· Getypt in hoofdletters&lt;br /&gt;· Leeghalen van pagina\'s of spammen&lt;br /&gt;· Irrelevant externe koppelingen of afbeeldingen&lt;br /&gt;· Tekens herhalen</string>
   <string name="abusefilter_text_disallow">Een geautomatiseerde filter heeft deze bewerking als niet-constructief of potentieel vandalisme geïdentificeerd.&lt;br /&gt;&lt;br /&gt;Wikipedia is een encyclopedie en alleen neutrale, relevante inhoud hoort hier thuis.</string>
   <string name="dialog_page_issues">Paginaproblemen</string>
@@ -304,7 +304,7 @@
   <string name="view_continue_reading_card_subtitle_today">Vandaag</string>
   <string name="view_announcement_card_negative_action">Nee, bedankt</string>
   <string name="description_edit_text_hint">Titelbeschrijving</string>
-  <string name="description_edit_save">Opslaan</string>
+  <string name="description_edit_save" fuzzy="true">Opslaan</string>
   <string name="description_edit_add_description">Titelbeschrijving toevoegen</string>
   <string name="description_edit_edit_description">Beschrijving bewerken</string>
   <string name="description_edit_cancel_hint">Annuleren</string>
@@ -313,7 +313,7 @@
   <string name="description_edit_help_wikidata_guide">Wikidata gids voor het schrijven van beschrijvingen</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/nl</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">Beschrijving opgeslagen!</string>
+  <string name="description_edit_success_saved" fuzzy="true">Beschrijving opgeslagen!</string>
   <string name="description_edit_success_encouragement">U hebt zojuist Wikipedia voor iedereen beter gemaakt</string>
   <string name="description_edit_success_done">Afgerond</string>
   <string name="description_edit_success_did_you_know">Wist u dat?</string>

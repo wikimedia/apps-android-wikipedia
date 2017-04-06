@@ -47,10 +47,10 @@
   <string name="langlinks_empty">စာမျက်နှာသည် အခြားဘာသာဖြင့် မရှိသေးပါ။</string>
   <string name="langlinks_no_match">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှ မတွေ့ရှိပါ။</string>
   <string name="langlinks_activity_title">အခြားဘာသာစကားများ</string>
-  <string name="menu_save_changes">အပြောင်းအလဲများ သိမ်းရန်</string>
+  <string name="menu_save_changes" fuzzy="true">အပြောင်းအလဲများ သိမ်းရန်</string>
   <string name="edit_section_error_retry">ပြန်လုပ်</string>
-  <string name="dialog_saving_in_progress">သိမ်းနေပါပြီ…</string>
-  <string name="edit_saved_successfully">တည်းဖြတ်မှု သိမ်းပြီး!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">သိမ်းနေပါပြီ…</string>
+  <string name="edit_saved_successfully" fuzzy="true">တည်းဖြတ်မှု သိမ်းပြီး!</string>
   <string name="dialog_message_edit_failed">တည်းဖြတ်မှု မအောင်မြင်!</string>
   <string name="dialog_message_edit_failed_retry">ပြန်လုပ်</string>
   <string name="dialog_message_edit_failed_cancel">မလုပ်တော့ပါ</string>
@@ -138,7 +138,7 @@
   <string name="user_anon_blocked_from_editing">တည်းဖြတ်ခြင်းမှ သင့်အိုင်ပီလိပ်စာအား ပိတ်ပင်ထားသည်။</string>
   <string name="edit_how_page_improved">စာမျက်နှာကို မည်သို့ တိုးတက်ကောင်းမွန်အောင် လုပ်မည်နည်း?</string>
   <string name="edit_next">ရှေ့</string>
-  <string name="edit_done">သိမ်းရန်</string>
+  <string name="edit_done" fuzzy="true">သိမ်းရန်</string>
   <string name="edit_preview">နမူနာ</string>
   <string name="edit_summary_tag_typo">စာလုံးပေါင်း ပြင်ခဲ့သည်</string>
   <string name="edit_summary_tag_grammar">သဒ္ဒါပြင်ခဲ့သည်</string>
@@ -147,8 +147,8 @@
   <string name="edit_summary_tag_other_hint">စာမျက်နှာအား တိုးတက်ကောင်းမွန်စေခဲ့သည့် အခြားနည်းလမ်းများ</string>
   <string name="find_next">ရှေ့တွင် ရှာရန်</string>
   <string name="find_previous">နောက်တွင် ရှာရန်</string>
-  <string name="abusefilter_title_warn">ဤတည်းဖြတ်မှုသည် အပြုသဘောမဆောင်သည့် တည်းဖြတ်မှု ဖြစ်နိုင်သည်။ ဤသည်ကို သိမ်းဆည်းရန်မှာ သေချာပါသလား?</string>
-  <string name="abusefilter_title_disallow">ဤတည်းဖြတ်မှုအား မသိမ်းဆည်းနိုင်ပါ။ ကျေးဇူးပြု၍ နောက်ပြန်သွားပြီး ပြင်ဆင်ပါ။</string>
+  <string name="abusefilter_title_warn" fuzzy="true">ဤတည်းဖြတ်မှုသည် အပြုသဘောမဆောင်သည့် တည်းဖြတ်မှု ဖြစ်နိုင်သည်။ ဤသည်ကို သိမ်းဆည်းရန်မှာ သေချာပါသလား?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">ဤတည်းဖြတ်မှုအား မသိမ်းဆည်းနိုင်ပါ။ ကျေးဇူးပြု၍ နောက်ပြန်သွားပြီး ပြင်ဆင်ပါ။</string>
   <string name="abusefilter_text_warn">အလိုအလျောက်စစ်ဆေးချက်မှ ဤတည်းဖြတ်မှုသည် အပြုသဘောမဆောင်ကြောင်း တွေ့ရှိရပါသည်။ ယင်းတွင် အောက်ပါအချက် တစ်ခု သို့ ထို့ထက်ပိုပါနိုင်ပါသည်:&lt;br /&gt;&lt;br /&gt;· စာလုံးကြီးများဖြင့် ရိုက်ထားခြင်း&lt;br /&gt;· ဆောင်းပါးအား ဗလာပြုလုပ်ခြင်း သို့ အနှောက်အယှက်ဖြစ်စေခြင်း&lt;br /&gt;· မသက်ဆိုင်သော ပြင်ပလင့်ခ်များ သို့ ပုံများ&lt;br /&gt;· စာလုံးများ ထပ်ကာထပ်ကာ ရေးသားခြင်း</string>
   <string name="abusefilter_text_disallow">အလိုအလျောက်စစ်ဆေးချက်မှ ဤတည်းဖြတ်မှုသည် အပြုသဘောမဆောင်ကြောင်း သို့မဟုတ် ဖျက်လိုဖျက်ဆီးဖြစ်ကြောင်း တွေ့ရှိရပါသည်။&lt;br /&gt;&lt;br /&gt;ဝီကီပီးဒီးယားသည် စွယ်စုံကျမ်းတစ်ခု ဖြစ်ပြီး ဘက်မလိုက်သော အရေးပါထင်ရှားသည့် အကြောင်းအရာများသာ ဤနေရာတွင် ရှိသင့်ပါသည်။</string>
   <string name="dialog_page_issues">စာမျက်နှာ ကိစ္စရပ်များ</string>
@@ -297,7 +297,7 @@
   <string name="view_continue_reading_card_subtitle_today">ယနေ့</string>
   <string name="view_announcement_card_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
   <string name="description_edit_text_hint" fuzzy="true">ဖော်ပြချက်တစ်ခု ရေးသားရန်!</string>
-  <string name="description_edit_save">သိမ်းရန်</string>
+  <string name="description_edit_save" fuzzy="true">သိမ်းရန်</string>
   <string name="description_edit_add_description" fuzzy="true">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
   <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
   <string name="description_edit_cancel_hint">မလုပ်တော့</string>
@@ -306,7 +306,7 @@
   <string name="description_edit_help_wikidata_guide">ဖော်ပြချက်များ ရေးသားရန်အတွက် ဝီကီဒေတာ လမ်းညွှန်</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved">ဖော်ပြချက် သိမ်းပြီး!</string>
+  <string name="description_edit_success_saved" fuzzy="true">ဖော်ပြချက် သိမ်းပြီး!</string>
   <string name="description_edit_success_encouragement">အားလုံးအတွက် ဝီကီပီးဒီးယားအား ပိုကောင်းရန် သင်လုပ်ဆောင်ခဲ့ပြီ</string>
   <string name="description_edit_success_done">ပြီးပြီ</string>
   <string name="description_edit_success_did_you_know">သင်သိပါသလား?</string>

@@ -50,10 +50,10 @@
   <string name="langlinks_empty">पृष्ठ अन्य भाषा में उपलब्ध नहीं है</string>
   <string name="langlinks_no_match">खोज परिणाम में कोई भाषा नहीं मिली।</string>
   <string name="langlinks_activity_title">अन्य भाषाएँ</string>
-  <string name="menu_save_changes">परिवर्तन सहेजें</string>
+  <string name="menu_save_changes" fuzzy="true">परिवर्तन सहेजें</string>
   <string name="edit_section_error_retry">पुन: प्रयास</string>
-  <string name="dialog_saving_in_progress">सहेजा जा रहा है…</string>
-  <string name="edit_saved_successfully">सम्पादन सहेजा गया!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">सहेजा जा रहा है…</string>
+  <string name="edit_saved_successfully" fuzzy="true">सम्पादन सहेजा गया!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल रहा!</string>
   <string name="dialog_message_edit_failed_retry">पुन: प्रयास करें</string>
   <string name="dialog_message_edit_failed_cancel">रद्द करें</string>
@@ -151,7 +151,7 @@
   <string name="user_anon_blocked_from_editing">आपके आईपी पते द्वारा संपादन करना अवरुद्ध कर दिया गया है</string>
   <string name="edit_how_page_improved">आपने पृष्ठ में सुधार कैसे किया?</string>
   <string name="edit_next">अगला</string>
-  <string name="edit_done">सहेजें</string>
+  <string name="edit_done" fuzzy="true">सहेजें</string>
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_summary_tag_typo">छोटा सा सुधार किया।</string>
   <string name="edit_summary_tag_grammar">व्याकरण में सुधार</string>
@@ -160,8 +160,8 @@
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>
   <string name="find_next">अगला ढूँढें</string>
   <string name="find_previous">पिछला ढूँढें</string>
-  <string name="abusefilter_title_warn">यह संपादन निर्माण रहित हो सकता है। क्या आप इसे सहेजना चाहते हैं?</string>
-  <string name="abusefilter_title_disallow">आप इस संपादन को सहेज नही सकते। कृपया पीछे जा कर इसे बदलें।</string>
+  <string name="abusefilter_title_warn" fuzzy="true">यह संपादन निर्माण रहित हो सकता है। क्या आप इसे सहेजना चाहते हैं?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">आप इस संपादन को सहेज नही सकते। कृपया पीछे जा कर इसे बदलें।</string>
   <string name="abusefilter_text_warn">एक स्वचलित फ़िल्टर ने इस संपादन को संभवतः अरचनात्मक पाया है। इसमें एक या एक से अधिक निम्न कारण हो सकते हैं:&lt;br/&gt;&lt;br/&gt;सभी को कैपिटल लैटर में लिखना&lt;br/&gt;।लेखों को रिक्त करना या स्पैमिंग&lt;br/&gt;। अक्षरों को बार बार दोहराना।</string>
   <string name="abusefilter_text_disallow">एक स्वचलित फ़िल्टर ने इस संपादन को संभवतः अरचनात्मक या बर्बता युक्त पाया है।&lt;br/&gt;&lt;br/&gt;विकिपीडिया एक इनसाइक्लोपीडिया है और केवल तटस्थ(न्यूट्रल), नोट करने योग्य सामग्री ही यहाँ रखी जा सकती है।</string>
   <string name="dialog_page_issues">पृष्ठ समस्या</string>
@@ -320,7 +320,7 @@
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_announcement_card_negative_action">नहीं धन्यवाद</string>
   <string name="description_edit_text_hint">शीर्षक विवरण</string>
-  <string name="description_edit_save">सहेजें</string>
+  <string name="description_edit_save" fuzzy="true">सहेजें</string>
   <string name="description_edit_add_description">शीर्षक विवरण जोड़ें</string>
   <string name="description_edit_edit_description">वर्णन सम्पादित करें</string>
   <string name="description_edit_cancel_hint">रद्द करें</string>
@@ -331,7 +331,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
   <string name="description_edit_anon_limit">विवरण संपादन में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए कृपया अपने विकिपीडिया अकाउंट में लॉगिन करें।</string>
   <string name="description_edit_license_notice">शीर्षक विवरण बदलने पर मैं  &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt; से सहमत हूँ और  बिना परिवर्तन के अपने योगदानों को &lt;a href=\"%2$s\"&gt;क्रिएटिव कॉमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत रिलीज़ करता हूँ।</string>
-  <string name="description_edit_success_saved">वर्णन सहेजा गया!</string>
+  <string name="description_edit_success_saved" fuzzy="true">वर्णन सहेजा गया!</string>
   <string name="description_edit_success_encouragement">अपने अभी विकिपीडिया को सभी के लिए और अच्छा बना दिया</string>
   <string name="description_edit_success_done">पूर्ण</string>
   <string name="description_edit_success_did_you_know">क्या आप जानते थे?</string>

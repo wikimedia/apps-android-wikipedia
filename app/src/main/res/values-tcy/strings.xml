@@ -44,10 +44,10 @@
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇತೆ ಬಾಸೆಲೆಡ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
   <string name="langlinks_no_match">ಇರೇನಾ ವಿಚಾರಿಸಾಯಿನಾ ಪ್ರಶ್ನೆಗ್  ಸರಿಯಾಪುನಾ ಒವ್ವೆ ಬಾಸೆ ತಿಕೀಜಿ.</string>
   <string name="langlinks_activity_title">ಬೇತೆ ಬಾಸೆಲೆಡ್</string>
-  <string name="menu_save_changes">ಬದಲಾವನೆನ್ ಒರಿಪಾಲೆ</string>
+  <string name="menu_save_changes" fuzzy="true">ಬದಲಾವನೆನ್ ಒರಿಪಾಲೆ</string>
   <string name="edit_section_error_retry">ನನೊರ ಪ್ರಯತ್ನ ಮಾನ್ಪುಲೇ</string>
-  <string name="dialog_saving_in_progress">ಒರಿಪಾವೊತುಂಡು...</string>
-  <string name="edit_saved_successfully">ಸಂಪಾದನೆನ್ ಒರಿಪಾಂಡ್!</string>
+  <string name="dialog_saving_in_progress" fuzzy="true">ಒರಿಪಾವೊತುಂಡು...</string>
+  <string name="edit_saved_successfully" fuzzy="true">ಸಂಪಾದನೆನ್ ಒರಿಪಾಂಡ್!</string>
   <string name="dialog_message_edit_failed">ಸಂಪಾದನೆನ್ ಒರಿಪಾಯರಾ ಅಯಿಜಿ!</string>
   <string name="dialog_message_edit_failed_retry">ನನೊರ ಪ್ರಯತ್ನ ಮಾನ್ಪುಲೇ</string>
   <string name="dialog_message_edit_failed_cancel">ವಜಾ ಮಲ್ಪುಲೆ</string>
@@ -113,7 +113,7 @@
   <string name="user_blocked_from_editing_title">ಇರೆನ್ ಉಲಯಿ ಪೋಯೆರಾ ಬುಡ್ಪುಜೆರ್</string>
   <string name="edit_how_page_improved">ವಾ ನಮೂಡೆಡ್ ಈ ಲೇಖನೊನ್ ಎಡ್ಡೆ ಮಾಲ್ತಾರ್?</string>
   <string name="edit_next">ನನತಾ</string>
-  <string name="edit_done">ಒರಿಪಾಲೆ</string>
+  <string name="edit_done" fuzzy="true">ಒರಿಪಾಲೆ</string>
   <string name="edit_preview">ದುಂಬುತಾ</string>
   <string name="edit_summary_tag_grammar">ವ್ಯಾಕರಣ ಸರಿ ಅಂಡ್</string>
   <string name="edit_summary_tag_links">ಕೊಂಡಿ ಸೇರ್ಸಾನ್ಡ್</string>
@@ -198,7 +198,7 @@
   <string name="menu_feed_card_dismissed">ಅಭಿಪ್ರಾಯೊ ದೆಂಗಾಲೆ</string>
   <string name="menu_feed_overflow_label">ನಾನಾತ್ ಆಯ್ಕೆಲೂ</string>
   <string name="view_continue_reading_card_subtitle_today">ಇನಿ</string>
-  <string name="description_edit_save">ಒರಿಪಾಲೆ</string>
+  <string name="description_edit_save" fuzzy="true">ಒರಿಪಾಲೆ</string>
   <string name="description_edit_add_description">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
   <string name="description_edit_cancel_hint">ವಜಾ ಮಲ್ಪುಲೆ</string>
   <string name="description_edit_help_about_wikidata">ವಿಕಿಡಾಟ ತಾ ಬಗ್ಗೆ</string>
