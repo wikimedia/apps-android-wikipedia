@@ -5,7 +5,6 @@ import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
-import android.support.test.filters.SmallTest;
 import android.support.v4.content.ContextCompat;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
@@ -25,7 +24,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@SmallTest public class AppTextViewWithImagesTest extends ViewTest {
+public class AppTextViewWithImagesTest extends ViewTest {
     private AppTextViewWithImages subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_XS, WIDTH_DP_S, WIDTH_DP_M, WIDTH_DP_XL}) int widthDp,

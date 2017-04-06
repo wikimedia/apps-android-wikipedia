@@ -1,7 +1,6 @@
 package org.wikipedia.edit.richtext;
 
 import android.support.annotation.NonNull;
-import android.support.test.filters.SmallTest;
 import android.view.ContextThemeWrapper;
 import android.widget.EditText;
 
@@ -16,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
-@SmallTest public class SyntaxHighlighterTest {
+public class SyntaxHighlighterTest {
     @Test
     public void testSyntaxHighlight() {
         final String testStr = "foo {{template1}} bar {{template2}} baz";

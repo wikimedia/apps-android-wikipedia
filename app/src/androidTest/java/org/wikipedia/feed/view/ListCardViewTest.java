@@ -1,7 +1,6 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.support.test.filters.SmallTest;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.View;
@@ -25,7 +24,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.wikipedia.feed.view.FeedAdapter.Callback;
 
-@SmallTest public class ListCardViewTest extends ViewTest {
+public class ListCardViewTest extends ViewTest {
     private ListCardView<Card> subject;
 
     @Before public void setUp() {

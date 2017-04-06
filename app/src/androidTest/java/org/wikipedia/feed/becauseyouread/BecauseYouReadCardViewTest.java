@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -30,7 +29,7 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@SmallTest public class BecauseYouReadCardViewTest extends ViewTest {
+public class BecauseYouReadCardViewTest extends ViewTest {
     private static final int TODAY = 0;
     private static final int TOMORROW = 1;
 

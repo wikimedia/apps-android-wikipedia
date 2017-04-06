@@ -1,7 +1,6 @@
 package org.wikipedia.descriptions;
 
 import android.support.annotation.NonNull;
-import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -24,7 +23,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.wikipedia.descriptions.DescriptionEditView.Callback;
 
-@SmallTest public class DescriptionEditViewTest extends ViewTest {
+public class DescriptionEditViewTest extends ViewTest {
     private DescriptionEditView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_XL, WIDTH_DP_L}) int widthDp,

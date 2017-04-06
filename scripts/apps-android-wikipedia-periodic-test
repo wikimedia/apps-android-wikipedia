@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-./gradlew clean testAllAlphaRelease -Pandroid.testInstrumentationRunnerArguments.size=small -Dorg.gradle.jvmargs=-Xmx4096M -Dorg.gradle.daemon=true
+./gradlew clean checkstyle lintAlphaRelease testAllAlphaRelease
 
 scripts/diff-screenshots

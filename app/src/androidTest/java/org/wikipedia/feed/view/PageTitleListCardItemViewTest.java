@@ -1,7 +1,6 @@
 package org.wikipedia.feed.view;
 
 import android.support.annotation.NonNull;
-import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -26,7 +25,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.mock;
 import static org.wikipedia.feed.view.ListCardItemView.Callback;
 
-@SmallTest public class PageTitleListCardItemViewTest extends ViewTest {
+public class PageTitleListCardItemViewTest extends ViewTest {
     private ListCardItemView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,

@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.wikipedia.Constants;
@@ -22,7 +21,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 /**
  * Tests for getting suggestions for further reading.
  */
-@SmallTest public class SuggestionsTaskTest {
+public class SuggestionsTaskTest {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en"); // suggestions don't seem to work on testwiki
 
     private WikipediaApp app = WikipediaApp.getInstance();

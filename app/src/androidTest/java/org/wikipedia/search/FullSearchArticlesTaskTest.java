@@ -1,6 +1,5 @@
 package org.wikipedia.search;
 
-import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.wikipedia.WikipediaApp;
@@ -16,7 +15,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 /**
  * Tests for full text search.
  */
-@SmallTest public class FullSearchArticlesTaskTest {
+public class FullSearchArticlesTaskTest {
     private static final int BATCH_SIZE = 12;
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 

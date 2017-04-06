@@ -1,6 +1,5 @@
 package android.support.design.widget;
 
-import android.support.test.filters.SmallTest;
 
 import org.junit.Before;
 import org.junit.experimental.theories.Theory;
@@ -18,7 +17,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
 
-@SmallTest public class PasswordTextInputTest extends ViewTest {
+public class PasswordTextInputTest extends ViewTest {
     private PasswordTextInput subject;
 
     @Before public void setUp() {

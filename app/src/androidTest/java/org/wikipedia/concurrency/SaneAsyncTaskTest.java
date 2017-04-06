@@ -2,7 +2,6 @@ package org.wikipedia.concurrency;
 
 import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
-import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.wikipedia.WikipediaApp;
@@ -13,7 +12,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.fail;
 
-@SmallTest public class SaneAsyncTaskTest {
+public class SaneAsyncTaskTest {
     @Test public void testFinishHandling() {
         final TestLatch latch = new TestLatch();
         final Integer returned = 42;

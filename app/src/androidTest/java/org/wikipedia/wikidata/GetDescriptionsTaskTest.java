@@ -1,6 +1,5 @@
 package org.wikipedia.wikidata;
 
-import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.wikipedia.WikipediaApp;
@@ -21,7 +20,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 /**
  * Tests retrieval of Wikidata descriptions through enwiki.
  */
-@SmallTest public class GetDescriptionsTaskTest {
+public class GetDescriptionsTaskTest {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
     @Test public void testOneTitle() throws Throwable {

@@ -3,7 +3,6 @@ package org.wikipedia.views;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.test.filters.SmallTest;
 import android.view.View;
 
 import org.apache.commons.lang3.StringUtils;
@@ -16,7 +15,7 @@ import org.wikipedia.test.view.TestStr;
 import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
-@SmallTest public class AppTextViewTest extends ViewTest {
+public class AppTextViewTest extends ViewTest {
     private AppTextView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,

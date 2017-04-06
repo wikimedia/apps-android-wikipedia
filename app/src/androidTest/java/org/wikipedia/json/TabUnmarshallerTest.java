@@ -1,6 +1,5 @@
 package org.wikipedia.json;
 
-import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
@@ -18,7 +17,7 @@ import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 
 // PageTitle.PageProperties.Location uses a Bundle which is incompatible with Robolectric
-@SmallTest public class TabUnmarshallerTest {
+public class TabUnmarshallerTest {
     @Test public void testUnmarshalNull() {
         assertThat(TabUnmarshaller.unmarshal(null), empty());
     }

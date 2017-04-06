@@ -139,7 +139,6 @@ android {
 
 apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
-apply from: '../gradle/src/spoon.gradle'
 apply from: '../gradle/src/screenshot.gradle'
 
 def compileSubprojectOrModule = { String projectName,
@@ -229,7 +228,6 @@ dependencies {
     androidTestCompile "com.android.support.test:rules:$testingSupportVersion" // JUnit Rules
     androidTestCompile "com.android.support.test:runner:$testingSupportVersion" // Android JUnit Runner
     androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
-    androidTestCompile 'com.squareup.spoon:spoon-client:1.7.0'
 }
 
 private setSigningConfigKey(config, Properties props) {

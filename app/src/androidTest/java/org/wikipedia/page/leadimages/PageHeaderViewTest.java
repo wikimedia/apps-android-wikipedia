@@ -4,7 +4,6 @@ import android.graphics.PointF;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.test.filters.SmallTest;
 import android.view.View;
 
 import com.facebook.testing.screenshot.ViewHelpers;
@@ -38,7 +37,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
 
-@SmallTest public class PageHeaderViewTest extends ViewTest {
+public class PageHeaderViewTest extends ViewTest {
     private PageHeaderView subject;
 
     @Theory public void testLayout(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,

@@ -3,7 +3,6 @@ package org.wikipedia.login;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.test.filters.SmallTest;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +18,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.fail;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
 
-@SmallTest public class LoginClientTest {
+public class LoginClientTest {
     private static final WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
     private static final String USERNAME = getString(org.wikipedia.test.R.string.test_username);
     private static final String PASSWORD = getString(org.wikipedia.test.R.string.test_password);

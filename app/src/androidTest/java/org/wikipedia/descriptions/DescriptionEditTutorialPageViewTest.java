@@ -1,7 +1,6 @@
 package org.wikipedia.descriptions;
 
 import android.support.annotation.NonNull;
-import android.support.test.filters.SmallTest;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 
@@ -21,7 +20,7 @@ import butterknife.ButterKnife;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-@SmallTest public class DescriptionEditTutorialPageViewTest extends ViewTest {
+public class DescriptionEditTutorialPageViewTest extends ViewTest {
     private DescriptionEditTutorialPageView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_XL, WIDTH_DP_L}) int widthDp, @NonNull FontScale fontScale) {

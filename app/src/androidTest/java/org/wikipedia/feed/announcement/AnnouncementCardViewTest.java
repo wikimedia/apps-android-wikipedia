@@ -3,7 +3,6 @@ package org.wikipedia.feed.announcement;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.test.filters.SmallTest;
 
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
@@ -16,7 +15,7 @@ import org.wikipedia.theme.Theme;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@SmallTest public class AnnouncementCardViewTest extends ViewTest {
+public class AnnouncementCardViewTest extends ViewTest {
     private static final String TEXT = "Hey Android readers,<br /><br /><strong>This is an announcement</strong>. Click the button below to execute the action that this announcement calls for.";
     private static final String ACTION = "Click here";
     private static final String FOOTER = "Here's a link to our <a href=\"https://wikimediafoundation.org/wiki/Survey_Privacy_Statement\">Privacy statement</a>.";

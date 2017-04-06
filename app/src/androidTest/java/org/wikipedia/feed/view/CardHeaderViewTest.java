@@ -2,7 +2,6 @@ package org.wikipedia.feed.view;
 
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
-import android.support.test.filters.SmallTest;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.widget.ImageView;
@@ -29,7 +28,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
-@SmallTest public class CardHeaderViewTest extends ViewTest {
+public class CardHeaderViewTest extends ViewTest {
     @ColorRes private static final int BLUE = R.color.foundation_blue;
     private CardHeaderView subject;
 

@@ -3,7 +3,6 @@ package org.wikipedia.richtext;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.test.filters.SmallTest;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -23,7 +22,7 @@ import org.wikipedia.views.AppTextView;
 
 import static org.apache.commons.lang3.StringUtils.defaultIfEmpty;
 
-@SmallTest public class LeadingSpanTest extends ViewTest {
+public class LeadingSpanTest extends ViewTest {
     private TextView textView;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,
