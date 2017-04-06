@@ -69,8 +69,6 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .addInterceptor(new CacheIfErrorInterceptor())
                 .addInterceptor(new CacheDelegateInterceptor(CacheDelegate.internalCache(SAVE_CACHE), CacheDelegate.internalCache(NET_CACHE)))
                 .addInterceptor(new WikipediaZeroResponseInterceptor(WikipediaApp.getInstance().getWikipediaZeroHandler()))
-                // this interceptor should appear last since it examines the final cache and network responses
-                .addInterceptor(new ResponseLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
                 .build();
     }
 }
