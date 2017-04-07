@@ -7,10 +7,12 @@ import org.junit.Test;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
+import org.wikipedia.test.ImmediateExecutorService;
 import org.wikipedia.test.MockWebServerTest;
 
 import okhttp3.CacheControl;
 import okhttp3.CacheDelegate;
+import okhttp3.Dispatcher;
 import okhttp3.Request;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -226,7 +228,11 @@ public class CacheDelegateInterceptorTest extends MockWebServerTest {
     private String executeRequest(@NonNull Request req) throws Throwable {
         // Note: raw non-Retrofit usage of OkHttp Requests requires that the Response body is read
         // for the cache to be written.
-        return okHttpClient().newCall(req).execute().body().string();
+        return OkHttpConnectionFactory.getClient()
+                .newBuilder()
+                .dispatcher(new Dispatcher(new ImmediateExecutorService()))
+                .build()
+                .newCall(req).execute().body().string();
     }
 
     @NonNull private Request newOnlyIfCachedRequest() {
