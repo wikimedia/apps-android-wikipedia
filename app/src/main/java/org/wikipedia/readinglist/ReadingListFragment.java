@@ -554,6 +554,7 @@ public class ReadingListFragment extends Fragment {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
+            appBarLayout.setExpanded(false, true);
             return super.onCreateActionMode(mode, menu);
         }
 
