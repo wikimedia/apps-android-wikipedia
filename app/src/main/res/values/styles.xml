@@ -209,9 +209,9 @@
 
     <style name="SimpleDraweeViewPlaceholder.Article">
         <item name="placeholderImage">@drawable/ic_image_gray_24dp</item>
-        <item name="placeholderImageScaleType">center</item>
+        <item name="placeholderImageScaleType">fitCenter</item>
         <item name="failureImage">@drawable/ic_image_gray_24dp</item>
-        <item name="failureImageScaleType">center</item>
+        <item name="failureImageScaleType">fitCenter</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.ReadingListThumbnail">

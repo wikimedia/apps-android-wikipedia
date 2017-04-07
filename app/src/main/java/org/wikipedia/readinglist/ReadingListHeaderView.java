@@ -2,7 +2,6 @@ package org.wikipedia.readinglist;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -125,9 +124,8 @@ public class ReadingListHeaderView extends FrameLayout {
     private void loadThumbnail(@NonNull FaceAndColorDetectImageView view, @Nullable String url) {
         if (TextUtils.isEmpty(url)) {
             view.getHierarchy().setFailureImage(R.drawable.ic_image_gray_24dp,
-                    ScalingUtils.ScaleType.CENTER);
-        } else {
-            view.loadImage(Uri.parse(url));
+                    ScalingUtils.ScaleType.FIT_CENTER);
         }
+        ViewUtil.loadImageUrlInto(view, url);
     }
 }

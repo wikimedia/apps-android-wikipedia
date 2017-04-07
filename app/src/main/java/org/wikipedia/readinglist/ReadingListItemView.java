@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
@@ -190,7 +191,8 @@ public class ReadingListItemView extends FrameLayout {
 
     private void loadThumbnail(@NonNull SimpleDraweeView view, @Nullable String url) {
         if (TextUtils.isEmpty(url)) {
-            view.getHierarchy().setFailureImage(R.drawable.ic_image_gray_24dp);
+            view.getHierarchy().setFailureImage(R.drawable.ic_image_gray_24dp,
+                    ScalingUtils.ScaleType.FIT_CENTER);
         } else {
             ViewUtil.loadImageUrlInto(view, url);
         }
