@@ -53,6 +53,7 @@
     <dimen name="bottomSheetMaxWidth">480dp</dimen>
     <!-- Default height with which bottom sheets peek out from the bottom -->
     <dimen name="bottomSheetPeekHeight">320dp</dimen>
+    <dimen name="readingListSheetPeekHeight">360dp</dimen>
     <!-- Default size of images in Link Preview thumbnail gallery -->
     <dimen name="linkPreviewImageSize">112dp</dimen>
 
