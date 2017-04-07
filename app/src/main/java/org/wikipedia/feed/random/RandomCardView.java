@@ -57,12 +57,12 @@ public class RandomCardView extends StaticCardView<RandomCard> {
             @Override
             public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
                 L.w("Failed to get random card from network. Falling back to reading lists.", t);
-                getRandomReadingListPage();
+                getRandomReadingListPage(t);
                 setProgress(false);
             }
         };
 
-        private void getRandomReadingListPage() {
+        private void getRandomReadingListPage(@NonNull final Throwable throwableIfEmpty) {
             ReadingListPageDao.instance().randomPage(new CallbackTask.Callback<PageTitle>() {
                 @Override public void success(@Nullable PageTitle title) {
                     if (getCallback() != null && getCard() != null) {
@@ -70,7 +70,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
                             getCallback().onSelectPage(getCard(),
                                     new HistoryEntry(title, HistoryEntry.SOURCE_FEED_RANDOM));
                         } else {
-                            getCallback().onError(new RuntimeException(getString(R.string.view_random_card_error)));
+                            getCallback().onError(throwableIfEmpty);
                         }
                     }
                 }
