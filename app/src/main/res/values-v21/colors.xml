@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="link_preview_button_background_light_highlight">@color/actionbar_highlight</color>
-</resources>

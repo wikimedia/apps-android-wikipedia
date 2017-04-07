@@ -140,27 +140,6 @@
         <item name="android:textColor">@color/page_info_heading</item>
     </style>
 
-    <!-- For dialog Animation -->
-    <style name="DialogAnimation">
-        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
-        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
-    </style>
-
-    <style name="BottomDialog" parent="Theme.Light.Dialog">
-        <item name="android:windowTitleStyle">@null</item>
-        <item name="android:windowBackground">@null</item>
-        <item name="android:backgroundDimAmount">0</item>
-        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
-    </style>
-
-    <style name="LinkPreviewDialog" parent="BottomDialog">
-        <item name="android:backgroundDimAmount">0.5</item>
-        <item name="android:colorControlNormal" tools:targetApi="21">@android:color/white</item>
-        <item name="colorControlNormal">@android:color/white</item>
-        <item name="colorControlActivated">@color/link_preview_button_background_light_highlight</item>
-        <item name="colorControlHighlight">@color/link_preview_button_background_light_highlight</item>
-    </style>
-
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
     </style>

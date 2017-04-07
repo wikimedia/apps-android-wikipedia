@@ -5,9 +5,8 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
@@ -16,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LinkPreviewOverlayView extends LinearLayout {
+public class LinkPreviewOverlayView extends FrameLayout {
     public interface Callback {
         void onPrimaryClick();
         void onSecondaryClick();
@@ -75,6 +74,5 @@ public class LinkPreviewOverlayView extends LinearLayout {
     private void init() {
         inflate(getContext(), R.layout.view_link_preview_overlay, this);
         ButterKnife.bind(this);
-        setVerticalGravity(Gravity.BOTTOM);
     }
 }

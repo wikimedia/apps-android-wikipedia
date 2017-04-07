@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/link_preview_background_color">
+        android:background="?attr/bottom_sheet_background_color">
         <TextView
             android:layout_width="0dp"
             android:layout_height="48dp"
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64.5dp"
-        android:background="?attr/link_preview_background_color">
+        android:background="?attr/bottom_sheet_background_color">
 
         <LinearLayout
             android:id="@+id/lists_container"
