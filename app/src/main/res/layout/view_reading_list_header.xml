@@ -27,24 +27,19 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="0.5dp"
-                android:layout_marginStart="0.5dp"
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:id="@+id/reading_list_header_image_1"/>
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="0.5dp"
-                android:layout_marginStart="0.5dp"
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:id="@+id/reading_list_header_image_2"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="0.5dp">
+            android:layout_weight="1">
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -55,16 +50,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="0.5dp"
-                android:layout_marginStart="0.5dp"
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:id="@+id/reading_list_header_image_4"/>
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginLeft="0.5dp"
-                android:layout_marginStart="0.5dp"
                 style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                 android:id="@+id/reading_list_header_image_5"/>
         </LinearLayout>

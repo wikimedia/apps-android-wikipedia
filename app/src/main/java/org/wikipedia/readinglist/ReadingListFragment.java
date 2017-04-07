@@ -120,7 +120,7 @@ public class ReadingListFragment extends Fragment {
         headerView.setClickable(false);
         headerView.setThumbnailVisible(false);
         headerView.setShowDescriptionEmptyHint(true);
-        headerView.setTitleTextSize(R.dimen.readingListTitleTextSize);
+        headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance);
 
         final String readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
         ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {

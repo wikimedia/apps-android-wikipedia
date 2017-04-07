@@ -242,6 +242,11 @@
         <item name="android:textColor">@color/foundation_red</item>
     </style>
 
+    <style name="ReadingListTitleTextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
         <item name="android:dropDownHorizontalOffset">@dimen/popup_menu_drop_down_horizontal_offset</item>
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>

@@ -81,7 +81,7 @@ public class ReadingListHeaderView extends FrameLayout {
 
         ViewUtil.setBackgroundDrawable(gradientView,
                 GradientUtil.getCubicGradient(ContextCompat.getColor(getContext(),
-                        R.color.new_lead_gradient_start), Gravity.TOP));
+                        R.color.lead_gradient_start), Gravity.TOP));
 
         if (isInEditMode()) {
             return;
