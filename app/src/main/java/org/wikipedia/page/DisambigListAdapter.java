@@ -12,12 +12,12 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.pageimages.PageImagesTask;
-import org.wikipedia.util.DimenUtil;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.pageimages.PageImagesClient;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.wikidata.GetDescriptionsTask;
@@ -25,6 +25,8 @@ import org.wikipedia.wikidata.GetDescriptionsTask;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import retrofit2.Call;
 
 /**
  * ListAdapter for disambiguation items.
@@ -57,29 +59,23 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        PageImagesTask imagesTask = new PageImagesTask(
-                app.getAPIForSite(wiki),
-                wiki,
-                titleList,
-                (int)(Constants.PREFERRED_THUMB_SIZE * DimenUtil.getDensityScalar())) {
-            @Override
-            public void onFinish(Map<PageTitle, String> result) {
-                for (Map.Entry<PageTitle, String> entry : result.entrySet()) {
-                    if (entry.getValue() == null) {
-                        continue;
+        new PageImagesClient().request(wiki, titleList,
+                new PageImagesClient.Callback() {
+                    @Override public void success(@NonNull Call<MwQueryResponse<PageImagesClient.QueryResult>> call,
+                                                  @NonNull Map<PageTitle, PageImage> results) {
+                        for (Map.Entry<PageTitle, PageImage> entry : results.entrySet()) {
+                            if (entry.getValue() == null || entry.getValue().getImageName() == null) {
+                                continue;
+                            }
+                            pageImagesCache.put(entry.getKey().getPrefixedText(), entry.getValue().getImageName());
+                        }
+                        notifyDataSetInvalidated();
                     }
-                    pageImagesCache.put(entry.getKey().getPrefixedText(), entry.getValue());
-                }
-                notifyDataSetInvalidated();
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                // Don't actually do anything.
-                // Thumbnails are expendable
-            }
-        };
-        imagesTask.execute();
+                    @Override public void failure(@NonNull Call<MwQueryResponse<PageImagesClient.QueryResult>> call, @NonNull Throwable caught) {
+                        // Don't actually do anything.
+                        // Thumbnails are expendable
+                    }
+                });
     }
 
     /**

@@ -21,6 +21,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
@@ -33,7 +34,7 @@ import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImagesTask;
+import org.wikipedia.pageimages.PageImagesClient;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
@@ -44,7 +45,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -589,22 +590,22 @@ public class PageFragmentLoadState {
                 new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
 
         // Fetch larger thumbnail URL from the network, and save it to our DB.
-        (new PageImagesTask(app.getAPIForSite(model.getTitle().getWikiSite()), model.getTitle().getWikiSite(),
-                Arrays.asList(new PageTitle[]{model.getTitle()}), Constants.PREFERRED_THUMB_SIZE) {
-            @Override
-            public void onFinish(Map<PageTitle, String> result) {
-                if (result.containsKey(model.getTitle())) {
-                    PageImage pi = new PageImage(model.getTitle(), result.get(model.getTitle()));
-                    app.getDatabaseClient(PageImage.class).upsert(pi, PageImageHistoryContract.Image.SELECTION);
-                    updateThumbnail(result.get(model.getTitle()));
-                }
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                L.w(caught);
-            }
-        }).execute();
+        new PageImagesClient().request(model.getTitle().getWikiSite(), Collections.singletonList(model.getTitle()),
+                new PageImagesClient.Callback() {
+                    @Override public void success(@NonNull Call<MwQueryResponse<PageImagesClient.QueryResult>> call,
+                                                  @NonNull Map<PageTitle, PageImage> results) {
+                        if (results.containsKey(model.getTitle())) {
+                            PageImage pageImage = results.get(model.getTitle());
+                            app.getDatabaseClient(PageImage.class)
+                                    .upsert(pageImage, PageImageHistoryContract.Image.SELECTION);
+                            updateThumbnail(pageImage.getImageName());
+                        }
+                    }
+                    @Override public void failure(@NonNull Call<MwQueryResponse<PageImagesClient.QueryResult>> call,
+                                                  @NonNull Throwable caught) {
+                        L.w(caught);
+                    }
+                });
     }
 
     private void loadRemainingSections(final int startSequenceNum) {
