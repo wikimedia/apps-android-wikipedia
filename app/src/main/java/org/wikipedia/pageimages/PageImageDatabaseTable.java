@@ -3,11 +3,8 @@ package org.wikipedia.pageimages;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.PageImageHistoryContract;
@@ -16,6 +13,8 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
+
+// todo: network caching preserves images. Remove this class and drop table?
 public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     private static final int DB_VER_NAMESPACE_ADDED = 7;
     private static final int DB_VER_NORMALIZED_TITLES = 8;
@@ -42,30 +41,6 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         contentValues.put(Col.TITLE.getName(), obj.getTitle().getPrefixedText());
         contentValues.put(Col.IMAGE_NAME.getName(), obj.getImageName());
         return contentValues;
-    }
-
-    // TODO: move to JsonPageLoadStrategy.
-    @Nullable
-    public String getImageUrlForTitle(WikipediaApp app, PageTitle title) {
-        Cursor c = null;
-        String thumbnail = null;
-        try {
-            String searchStr = title.getPrefixedText().replace("'", "''");
-            String selection = getTableName() + "." + Col.TITLE.getName() + "='" + searchStr + "'";
-            c = app.getDatabaseClient(PageImage.class).select(
-                    selection, new String[] {}, "");
-            if (c.getCount() > 0) {
-                c.moveToFirst();
-                thumbnail = Col.IMAGE_NAME.val(c);
-            }
-        } catch (SQLiteException e) {
-            // page title doesn't exist in database... no problem if it fails.
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-        }
-        return thumbnail;
     }
 
     @NonNull
