@@ -16,7 +16,7 @@
             android:minHeight="@dimen/bottomSheetPeekHeight"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:background="?attr/link_preview_background_color"
+            android:background="?attr/bottom_sheet_background_color"
             android:orientation="vertical">
 
             <LinearLayout

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<merge
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:alpha="0.85"
+    android:background="?attr/bottom_sheet_background_color">
 
     <TextView
         android:id="@+id/link_preview_secondary_button"
@@ -13,7 +16,7 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:textColor="@color/gray_highlight"
-        android:background="?attr/link_preview_button_background"
+        android:background="?attr/selectableItemBackground"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:textSize="14sp"
         android:text="@string/button_get_directions"/>
@@ -25,10 +28,10 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:textColor="?attr/link_color"
-        android:background="?attr/link_preview_button_background"
+        android:background="?attr/selectableItemBackground"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:textSize="14sp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/button_continue_to_article"/>
 
-</merge>
+</LinearLayout>

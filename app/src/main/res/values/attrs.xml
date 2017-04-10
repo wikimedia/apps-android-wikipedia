@@ -24,7 +24,7 @@
     <attr name="toc_button_color" format="reference"/>
     <attr name="tool_tip_default_color" format="reference"/>
     <attr name="link_preview_toolbar_color" format="reference"/>
-    <attr name="link_preview_background_color" format="reference"/>
+    <attr name="bottom_sheet_background_color" format="reference"/>
     <attr name="link_preview_text_color" format="reference"/>
     <attr name="link_preview_offline_text_color" format="reference"/>
     <attr name="nav_background_color" format="reference"/>
@@ -60,10 +60,6 @@
 
     <declare-styleable name="IntPreference">
         <attr name="intPreferenceStyle" format="reference" />
-    </declare-styleable>
-
-    <declare-styleable name="LinkPreviewButtonBackground">
-        <attr name="link_preview_button_background" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="DescriptionEditTutorialPageView">

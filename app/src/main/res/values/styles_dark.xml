@@ -49,10 +49,9 @@
         <item name="tab_shadow_color">@color/tab_shadow_dark</item>
         <item name="tool_tip_default_color">@color/tool_tip_default_dark</item>
         <item name="link_preview_toolbar_color">@color/link_preview_toolbar_dark</item>
-        <item name="link_preview_background_color">@color/link_preview_background_dark</item>
+        <item name="bottom_sheet_background_color">@color/base20</item>
         <item name="link_preview_text_color">@color/link_preview_text_dark</item>
         <item name="link_preview_offline_text_color">@color/link_preview_offline_text_dark</item>
-        <item name="link_preview_button_background">@drawable/link_preview_button_background_dark</item>
         <item name="nav_background_color">@android:color/black</item>
         <item name="nav_item_color">@android:color/white</item>
         <item name="list_item_text_primary_color">@color/list_item_text_primary_dark</item>
