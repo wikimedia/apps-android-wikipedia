@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Языки, соответствующие вашему запросу, не найдены.</string>
   <string name="langlinks_activity_title">Другие языки</string>
   <string name="menu_save_changes">Опубликовать изменения</string>
-  <string name="edit_section_error_retry">Повторить</string>
   <string name="dialog_saving_in_progress">Сохраняется…</string>
   <string name="edit_saved_successfully">Правка сохранена!</string>
   <string name="dialog_message_edit_failed">Ошибка редактирования!</string>

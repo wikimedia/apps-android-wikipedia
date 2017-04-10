@@ -46,7 +46,6 @@
   <string name="langlinks_no_match">Nuk u gjet asnjë gjuhë që përputhet me kërkimin tuaj.</string>
   <string name="langlinks_activity_title">Gjuhët e tjera</string>
   <string name="menu_save_changes">Ruaj ndryshimet</string>
-  <string name="edit_section_error_retry">Riprovo</string>
   <string name="dialog_saving_in_progress">Duke ruajtur…</string>
   <string name="edit_saved_successfully">Redaktimi u shpëtua!</string>
   <string name="dialog_message_edit_failed">Redaktimi dështoi!</string>

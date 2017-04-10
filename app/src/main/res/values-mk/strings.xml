@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Не пронајдов јазици што одговараат на бараното.</string>
   <string name="langlinks_activity_title">Други јазици</string>
   <string name="menu_save_changes">Зачувај промени</string>
-  <string name="edit_section_error_retry">Повтори</string>
   <string name="dialog_saving_in_progress">Зачувувам…</string>
   <string name="edit_saved_successfully">Уредувањето е објавено!</string>
   <string name="dialog_message_edit_failed">Уредувањето не успеа!</string>

@@ -48,7 +48,6 @@
   <string name="langlinks_no_match">Nema jezika koji odgovaraju Vašem upitu.</string>
   <string name="langlinks_activity_title">Drugi jezici</string>
   <string name="menu_save_changes" fuzzy="true">Spremi promjene</string>
-  <string name="edit_section_error_retry">Pokušaj ponovo</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Sprema se…</string>
   <string name="edit_saved_successfully" fuzzy="true">Uređivanje spremljeno.</string>
   <string name="dialog_message_edit_failed">Greška u uređivanju.</string>

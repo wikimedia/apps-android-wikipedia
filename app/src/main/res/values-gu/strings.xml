@@ -29,7 +29,6 @@
   <string name="langlinks_no_match">તમારી પૃચ્છાને અનુકૂળ કોઈ ભાષા મળી નથી.</string>
   <string name="langlinks_activity_title">અન્ય ભાષાઓ</string>
   <string name="menu_save_changes">ફેરફારો સાચવો</string>
-  <string name="edit_section_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="dialog_saving_in_progress">સચવાઈ રહ્યું છે…</string>
   <string name="edit_saved_successfully">સચવાયેલું સંપાદિત કરો!</string>
   <string name="dialog_message_edit_failed">સંપાદન અસફળ!</string>

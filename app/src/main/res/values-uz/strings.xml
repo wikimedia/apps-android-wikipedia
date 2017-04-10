@@ -29,7 +29,6 @@
   <string name="langlinks_no_match">So\'rovingizga mos til topilmadi.</string>
   <string name="langlinks_activity_title">Boshqa tillarda</string>
   <string name="menu_save_changes">O‘zgarishlarni saqlash</string>
-  <string name="edit_section_error_retry">Qayta urinib koʻrish</string>
   <string name="dialog_saving_in_progress">Saqlanyapti…</string>
   <string name="edit_saved_successfully">Tahrir saqlandi!</string>
   <string name="dialog_message_edit_failed">Tahrirni saqlab bo\'lmadi!</string>

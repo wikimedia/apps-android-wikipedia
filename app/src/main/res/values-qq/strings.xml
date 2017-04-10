@@ -82,8 +82,6 @@ Shown in the preferences screen along with the following:
   <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.
 {{Identical|Otherlanguages}}</string>
   <string name="menu_save_changes">{{Identical|Publish changes}}</string>
-  <string name="edit_section_error_retry">Text for button that retries page loading when tapped.
-{{Identical|Retry}}</string>
   <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.
 {{Identical|Publishing}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>

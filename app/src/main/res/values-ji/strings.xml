@@ -46,7 +46,6 @@
   <string name="langlinks_no_match">קיין שפראכן נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
   <string name="langlinks_activity_title">אַנדערע שפראַכן</string>
   <string name="menu_save_changes" fuzzy="true">אויפהיטן ענדערונגען</string>
-  <string name="edit_section_error_retry">פרובירן ווידער</string>
   <string name="dialog_saving_in_progress" fuzzy="true">אויפהיטנדיק…</string>
   <string name="edit_saved_successfully" fuzzy="true">רעדאקטירונג אויפגעהיטן!</string>
   <string name="dialog_message_edit_failed">רעדאקטירונג אדורכגעפאלן!</string>

@@ -46,7 +46,6 @@
   <string name="langlinks_no_match">Zure kontsultarekin bat egiten duen hizkuntzarik ez da aurkitu.</string>
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
   <string name="menu_save_changes" fuzzy="true">Aldaketak gorde</string>
-  <string name="edit_section_error_retry">Saiatu berriro</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Gordetzen…</string>
   <string name="edit_saved_successfully" fuzzy="true">Aldaketa gordeta!</string>
   <string name="dialog_message_edit_failed">Errorea aldaketan!</string>

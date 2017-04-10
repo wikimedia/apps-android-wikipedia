@@ -40,7 +40,6 @@
   <string name="langlinks_no_match">আপোনাৰ অনুসন্ধানৰ সৈতে মিল থকা কোনো ভাষা পোৱা নগ\'ল।</string>
   <string name="langlinks_activity_title">আন ভাষাসমূহ</string>
   <string name="menu_save_changes" fuzzy="true">সালসলনি সাঁচি থওক</string>
-  <string name="edit_section_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="dialog_saving_in_progress" fuzzy="true">সাঁচি থোৱা হৈছে…</string>
   <string name="edit_saved_successfully" fuzzy="true">সম্পাদনা সাঁচি থোৱা হৈছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা ব্যৰ্থ হৈছে!</string>

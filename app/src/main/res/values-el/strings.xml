@@ -43,7 +43,6 @@
   <string name="langlinks_no_match">Δεν βρέθηκαν γλώσσες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>
   <string name="menu_save_changes" fuzzy="true">Αποθήκευση αλλαγών</string>
-  <string name="edit_section_error_retry">Ξαναπροσπαθήστε</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Αποθήκευση…</string>
   <string name="edit_saved_successfully" fuzzy="true">Η επεξεργασία αποθηκεύτηκε!</string>
   <string name="dialog_message_edit_failed">Η επεξεργασία απέτυχε!</string>

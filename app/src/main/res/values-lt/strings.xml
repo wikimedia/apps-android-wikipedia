@@ -47,7 +47,6 @@
   <string name="langlinks_no_match">Nerasta kalbų, atitinkančių jūsų užklausą.</string>
   <string name="langlinks_activity_title">Kitos kalbos</string>
   <string name="menu_save_changes">Paskelbti Pakeitimus</string>
-  <string name="edit_section_error_retry">Bandyti dar kartą</string>
   <string name="dialog_saving_in_progress">Skelbiama...</string>
   <string name="edit_saved_successfully">Redagavimas paskelbtas!</string>
   <string name="dialog_message_edit_failed">Redaguoti nepavyko!</string>

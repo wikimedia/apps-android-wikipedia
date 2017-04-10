@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Нема мов, що відповідають вашому запиту.</string>
   <string name="langlinks_activity_title">Інші мови</string>
   <string name="menu_save_changes">Опублікувати зміни</string>
-  <string name="edit_section_error_retry">Повторити</string>
   <string name="dialog_saving_in_progress">Публікація…</string>
   <string name="edit_saved_successfully">Редагування опубліковано!</string>
   <string name="dialog_message_edit_failed">Невдале редагування!</string>

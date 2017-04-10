@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Không tìm thấy ngôn ngữ trùng với truy vấn của bạn.</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
   <string name="menu_save_changes" fuzzy="true">Lưu các thay đổi</string>
-  <string name="edit_section_error_retry">Thử lại</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Đang lưu…</string>
   <string name="edit_saved_successfully" fuzzy="true">Đã lưu sửa đổi!</string>
   <string name="dialog_message_edit_failed">Sửa đổi thất bại!</string>

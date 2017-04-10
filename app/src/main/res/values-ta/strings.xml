@@ -45,7 +45,6 @@
   <string name="langlinks_no_match">உங்கள் வினவலுடன் பொருந்தக்கூடிய மொழிகள் காணப்படவில்லை.</string>
   <string name="langlinks_activity_title">மற்ற மொழிகளில்</string>
   <string name="menu_save_changes" fuzzy="true">மாற்றங்களைச் சேமி</string>
-  <string name="edit_section_error_retry">மறு முயற்சி செய்</string>
   <string name="dialog_saving_in_progress" fuzzy="true">சேமிக்கிறது…</string>
   <string name="edit_saved_successfully" fuzzy="true">தொகுப்பு சேமிக்கப்பட்டது!</string>
   <string name="dialog_message_edit_failed">தொகுப்பு சேமிக்கத் தவறிவிட்டது!</string>

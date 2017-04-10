@@ -24,7 +24,6 @@
   <string name="langlinks_empty">See lehekülg ei ole teistes keeltes saadaval</string>
   <string name="langlinks_activity_title">Teised keeled</string>
   <string name="menu_save_changes">Salvesta muudatused</string>
-  <string name="edit_section_error_retry">Proovi uuesti</string>
   <string name="dialog_saving_in_progress">Salvestamine…</string>
   <string name="edit_saved_successfully">Muudatus(ed) salvestatud!</string>
   <string name="dialog_message_edit_failed">Muudatus ebaõnnestus!</string>

@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Hakuasi vastaavia kieliä ei löytynyt.</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>
   <string name="menu_save_changes">Julkaise muutokset</string>
-  <string name="edit_section_error_retry">Yritä uudelleen</string>
   <string name="dialog_saving_in_progress">Julkaistaan...</string>
   <string name="edit_saved_successfully">Muokkaus julkaistu!</string>
   <string name="dialog_message_edit_failed">Muokkaus epäonnistui!</string>

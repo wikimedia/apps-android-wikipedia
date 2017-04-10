@@ -27,7 +27,6 @@
   <string name="langlinks_no_match">Сіздің сұранысыңызға сәйкес тілдер табылмады.</string>
   <string name="langlinks_activity_title">Басқа тілдер</string>
   <string name="menu_save_changes">Өзгерістерді сақтау</string>
-  <string name="edit_section_error_retry">Қайталау</string>
   <string name="dialog_saving_in_progress">Сақталуда...</string>
   <string name="edit_saved_successfully">Өңдеме сақталды!</string>
   <string name="dialog_message_edit_failed">Өңделмеді!</string>

@@ -28,7 +28,6 @@
   <string name="langlinks_no_match">ನಿಮ್ಮ ಪ್ರಶ್ನೆಗೆ ಸರಿಹೊಂದುವ ಯಾವುದೇ ಭಾಷೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ .</string>
   <string name="langlinks_activity_title">ಇತರೆ ಭಾಷೆಗಳು</string>
   <string name="menu_save_changes">ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ</string>
-  <string name="edit_section_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="dialog_saving_in_progress">ಉಳಿಸಲಾಗುತ್ತಿದೆ....</string>
   <string name="edit_saved_successfully">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿದೆ!</string>
   <string name="dialog_message_edit_failed">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿಲ್ಲ!</string>

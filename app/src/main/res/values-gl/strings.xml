@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Non se atopou ningunha lingua que coincidise coa súa pescuda.</string>
   <string name="langlinks_activity_title">Outras linguas</string>
   <string name="menu_save_changes" fuzzy="true">Gardar os cambios</string>
-  <string name="edit_section_error_retry">Reintentar</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Gardando…</string>
   <string name="edit_saved_successfully" fuzzy="true">Gardouse a edición!</string>
   <string name="dialog_message_edit_failed">Fallou a edición!</string>

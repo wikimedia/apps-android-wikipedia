@@ -48,7 +48,6 @@
   <string name="langlinks_no_match">Nicio limbă nu corespunde interogării dumneavoastră.</string>
   <string name="langlinks_activity_title">Alte limbi</string>
   <string name="menu_save_changes" fuzzy="true">Salvează modificările</string>
-  <string name="edit_section_error_retry">Reîncercare</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Se salvează…</string>
   <string name="edit_saved_successfully" fuzzy="true">Modificare salvată!</string>
   <string name="dialog_message_edit_failed">Salvarea nu a reușit!</string>

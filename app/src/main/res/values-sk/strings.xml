@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Zadaný výraz nezodpovedá žiadnemu jazyku.</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
   <string name="menu_save_changes" fuzzy="true">Uložiť zmeny</string>
-  <string name="edit_section_error_retry">Obnoviť</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Ukladanie…</string>
   <string name="edit_saved_successfully" fuzzy="true">Úprava uložená!</string>
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>

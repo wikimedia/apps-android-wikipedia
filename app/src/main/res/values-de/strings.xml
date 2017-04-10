@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Keine Sprachen mit deiner Suchanfrage gefunden.</string>
   <string name="langlinks_activity_title">Andere Sprachen</string>
   <string name="menu_save_changes">Änderungen veröffentlichen</string>
-  <string name="edit_section_error_retry">Erneut versuchen</string>
   <string name="dialog_saving_in_progress">Veröffentliche …</string>
   <string name="edit_saved_successfully">Bearbeitung veröffentlicht!</string>
   <string name="dialog_message_edit_failed">Bearbeitung fehlgeschlagen!</string>
