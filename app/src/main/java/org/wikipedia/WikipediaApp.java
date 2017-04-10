@@ -23,7 +23,6 @@ import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
-import org.wikipedia.csrf.CsrfTokenStorage;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
@@ -93,7 +92,6 @@ public class WikipediaApp extends Application {
     private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
 
     private Database database;
-    private CsrfTokenStorage csrfTokenStorage;
     private String userAgent;
     private WikiSite wiki;
     @NonNull private UserIdClient idClient = new UserIdClient();
@@ -156,7 +154,6 @@ public class WikipediaApp extends Application {
         initAppLang();
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
-        csrfTokenStorage = new CsrfTokenStorage();
         database = new Database(this);
 
         enableWebViewDebugging();
@@ -370,10 +367,6 @@ public class WikipediaApp extends Application {
         return remoteConfig;
     }
 
-    public CsrfTokenStorage getCsrfTokenStorage() {
-        return csrfTokenStorage;
-    }
-
     @NonNull public SharedPreferenceCookieManager getCookieManager() {
         return SharedPreferenceCookieManager.getInstance();
     }
@@ -382,7 +375,6 @@ public class WikipediaApp extends Application {
         L.v("logging out");
         AccountUtil.removeAccount();
         UserOptionDao.instance().clear();
-        getCsrfTokenStorage().clearAllTokens();
         getCookieManager().clearAllCookies();
         User.clearUser();
     }

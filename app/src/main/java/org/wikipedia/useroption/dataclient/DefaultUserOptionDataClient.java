@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.csrf.CsrfToken;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
@@ -19,6 +18,7 @@ import org.wikipedia.util.log.L;
 import java.io.IOException;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -50,45 +50,67 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     }
 
     @Override
-    public void post(@NonNull UserOption option) throws IOException {
-        Response<PostResponse> rsp = service.post(getToken(), option.key(), option.val()).execute();
-        rsp.body().check(wiki);
+    public void post(@NonNull final UserOption option) throws IOException {
+        new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
+            @Override
+            public void success(@NonNull String token) {
+                service.post(token, option.key(), option.val()).enqueue(new Callback<PostResponse>() {
+                    @Override
+                    public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
+                        if (response.body() != null && !response.body().success(response.body().result())) {
+                            L.e("Bad response for wiki " + wiki.host() + " = " + response.body().result());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<PostResponse> call, Throwable caught) {
+                        L.e(caught);
+                    }
+                });
+            }
+        });
     }
 
     @Override
-    public void delete(@NonNull String key) throws IOException {
-        service.delete(getToken(), key).execute().body().check(wiki);
-    }
-
-    @NonNull private String getToken() throws IOException {
-        if (app().getCsrfTokenStorage().token(wiki) == null) {
-            requestToken();
-        }
-
-        String token = app().getCsrfTokenStorage().token(wiki);
-        if (token == null) {
-            throw new IOException("No token for " + wiki.authority());
-        }
-        return token;
-    }
-
-    private void requestToken() {
-        new CsrfTokenClient().request(wiki, new CsrfTokenClient.Callback() {
+    public void delete(@NonNull final String key) throws IOException {
+        new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
             @Override
-            public void success(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull String token) {
-                app().getCsrfTokenStorage().token(wiki, token);
-            }
+            public void success(@NonNull String token) {
+                service.delete(token, key).enqueue(new Callback<PostResponse>() {
+                    @Override
+                    public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
+                        if (response.body() != null && !response.body().success(response.body().result())) {
+                            L.e("Bad response for wiki " + wiki.host() + " = " + response.body().result());
+                        }
+                    }
 
-            @Override
-            public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull Throwable caught) {
-                // Don't worry about it; will be retried next time.
-                L.w(caught);
+                    @Override
+                    public void onFailure(Call<PostResponse> call, Throwable caught) {
+                        L.e(caught);
+                    }
+                });
             }
         });
     }
 
     private static WikipediaApp app() {
         return WikipediaApp.getInstance();
+    }
+
+    private class TokenCallback implements CsrfTokenClient.Callback {
+        @Override
+        public void success(@NonNull String token) {
+        }
+
+        @Override
+        public void failure(@NonNull Throwable caught) {
+            L.e(caught);
+        }
+
+        @Override
+        public void twoFactorPrompt() {
+            // TODO: warn the user that they need to re-login with 2FA.
+        }
     }
 
     // todo: rename service
@@ -115,16 +137,6 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
         public String result() {
             return options;
-        }
-
-        public void check(@NonNull WikiSite wiki) throws IOException {
-            if (!success(options)) {
-                if (badToken()) {
-                    app().getCsrfTokenStorage().token(wiki, null);
-                }
-
-                throw new IOException("Bad response for wiki " + wiki.host() + " = " + result());
-            }
         }
     }
 

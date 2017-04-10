@@ -7,7 +7,6 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
@@ -47,9 +46,6 @@ public class LoginClient {
     public void request(@NonNull final WikiSite wiki, @NonNull final String userName,
                         @NonNull final String password, @NonNull final LoginCallback cb) {
         cancel();
-
-        // HACK: T124384
-        WikipediaApp.getInstance().getCsrfTokenStorage().clearAllTokens();
 
         tokenCall = cachedService.service(wiki).requestLoginToken();
         tokenCall.enqueue(new Callback<MwQueryResponse<LoginToken>>() {

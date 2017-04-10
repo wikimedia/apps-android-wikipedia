@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import com.google.gson.JsonParseException;
 
-import org.wikipedia.csrf.CsrfToken;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -24,7 +24,6 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public final class NotificationClient {
-    @NonNull private final WikiSite wiki;
     @NonNull private final Service service;
     @NonNull private final CsrfTokenClient editTokenClient;
 
@@ -41,9 +40,8 @@ public final class NotificationClient {
     }
 
     private NotificationClient(@NonNull WikiSite wiki) {
-        this.wiki = wiki;
         service = RetrofitFactory.newInstance(wiki).create(Service.class);
-        editTokenClient = new CsrfTokenClient();
+        editTokenClient = new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite());
     }
 
     @VisibleForTesting
@@ -82,9 +80,9 @@ public final class NotificationClient {
 
     public void markRead(List<Notification> notifications) {
         final String idListStr = TextUtils.join("|", notifications);
-        editTokenClient.request(wiki, new CsrfTokenClient.Callback() {
+        editTokenClient.request(new CsrfTokenClient.Callback() {
             @Override
-            public void success(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull String token) {
+            public void success(@NonNull String token) {
                 requestMarkRead(service, token, idListStr).enqueue(new retrofit2.Callback<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>>() {
                     @Override
                     public void onResponse(Call<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> call, Response<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> response) {
@@ -99,8 +97,13 @@ public final class NotificationClient {
             }
 
             @Override
-            public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call, @NonNull Throwable t) {
+            public void failure(@NonNull Throwable t) {
                 L.e(t);
+            }
+
+            @Override
+            public void twoFactorPrompt() {
+                // TODO: warn user.
             }
         });
     }
