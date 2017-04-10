@@ -220,6 +220,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void showError(@Nullable Throwable caught) {
         dialogContainer.setLayoutTransition(null);
+        dialogContainer.setMinimumHeight(0);
         progressBar.setVisibility(View.GONE);
         contentContainer.setVisibility(View.GONE);
         overlayView.showSecondaryButton(false);
