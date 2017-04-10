@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Ця сторінка не доступна іншими мовами.</string>
   <string name="langlinks_no_match">Нема мов, що відповідають вашому запиту.</string>
   <string name="langlinks_activity_title">Інші мови</string>
-  <string name="menu_save_changes" fuzzy="true">Зберегти зміни</string>
+  <string name="menu_save_changes">Опублікувати зміни</string>
   <string name="edit_section_error_retry">Повторити</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Збереження…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Редагування збережено!</string>
+  <string name="dialog_saving_in_progress">Публікація…</string>
+  <string name="edit_saved_successfully">Редагування опубліковано!</string>
   <string name="dialog_message_edit_failed">Невдале редагування!</string>
   <string name="dialog_message_edit_failed_retry">Повторити</string>
   <string name="dialog_message_edit_failed_cancel">Скасувати</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">Вашу IP-адресу було заблоковано для редагування.</string>
   <string name="edit_how_page_improved">Як Ви поліпшили сторінку?</string>
   <string name="edit_next">Далі</string>
-  <string name="edit_done" fuzzy="true">Зберегти</string>
+  <string name="edit_done">Опублікувати</string>
   <string name="edit_preview">Попередній перегляд</string>
   <string name="edit_summary_tag_typo">Виправлена описка</string>
   <string name="edit_summary_tag_grammar">Виправлена граматика</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Інші аспекти, в яких Ви поліпшили сторінку</string>
   <string name="find_next">Знайти наступне</string>
   <string name="find_previous">Знайти попереднє</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Це може редагування бути неконструктивним. Ви впевнені, що хочете його зберегти?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Ви не можете зберегти це редагування. Будь ласка, поверніться назад і змініть його.</string>
+  <string name="abusefilter_title_warn">Це редагування може бути неконструктивним. Ви впевнені, що хочете його опублікувати?</string>
+  <string name="abusefilter_title_disallow">Ви не можете опублікувати це редагування. Будь ласка, поверніться назад і змініть його.</string>
   <string name="abusefilter_text_warn">Автоматичний фільтр визначив це редагування як потенційно неконструктивне. У ньому може бути щось із цього:&lt;br /&gt;&lt;br /&gt;· Набрано повністю великими літерами&lt;br /&gt;· Очищення статті або спам&lt;br /&gt;· Невідповідні зовнішні посилання чи зображення&lt;br /&gt;· Повторювані символи</string>
   <string name="abusefilter_text_disallow">Автоматизований фільтр визначив це редагування як потенційно неконструктивне або потенційний вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедія — це енциклопедія, і розміщений у ній може бути тільки нейтральний і значимий вміст.</string>
   <string name="dialog_page_issues">Питання по сторінці</string>

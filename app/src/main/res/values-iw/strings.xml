@@ -244,6 +244,7 @@
   <string name="error_message_generic">אירעה שגיאה</string>
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
+  <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
   <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>

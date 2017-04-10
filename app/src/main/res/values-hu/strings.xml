@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>
   <string name="langlinks_no_match">Nem található a kérésnek megfelelő nyelv.</string>
   <string name="langlinks_activity_title">További nyelvek</string>
-  <string name="menu_save_changes" fuzzy="true">Módosítások mentése</string>
+  <string name="menu_save_changes">Változtatások közzététele</string>
   <string name="edit_section_error_retry">Újra</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Mentés…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Szerkesztése elmentve!</string>
+  <string name="dialog_saving_in_progress">Közzététel…</string>
+  <string name="edit_saved_successfully">Szerkesztés közzétéve!</string>
   <string name="dialog_message_edit_failed">Szerkesztés nem sikerült!</string>
   <string name="dialog_message_edit_failed_retry">Újra</string>
   <string name="dialog_message_edit_failed_cancel">Mégse</string>
@@ -151,7 +151,7 @@
   <string name="user_anon_blocked_from_editing">Az IP-címed el van tiltva a szerkesztéstől.</string>
   <string name="edit_how_page_improved">Hogy javítottad a lapot?</string>
   <string name="edit_next">Következő</string>
-  <string name="edit_done" fuzzy="true">Mentés</string>
+  <string name="edit_done">Közzététel</string>
   <string name="edit_preview">Előnézet</string>
   <string name="edit_summary_tag_typo">Elírás javítása</string>
   <string name="edit_summary_tag_grammar">Nyelvtani javítás</string>
@@ -160,8 +160,8 @@
   <string name="edit_summary_tag_other_hint">Más módok, ahogy javítottad a lapot</string>
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan el akarod menteni?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Nem mentheted el ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
+  <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan közzé akarod tenni?</string>
+  <string name="abusefilter_title_disallow">Nem teheted közzé ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
   <string name="abusefilter_text_warn">Egy automatikus szűrő potenciálisan nem konstruktívnak találta a szerkesztésedet. Az alábbiak közül egyet vagy többet tartalmazhat:&lt;br /&gt;&lt;br /&gt;· Csupa nagybetűs szöveg&lt;br /&gt;· A szócikk teljes tartalmának eltávolítása vagy spam&lt;br /&gt;· Irreleváns külső linkek vagy képek&lt;br /&gt;· Karakterismétlés</string>
   <string name="abusefilter_text_disallow">Egy automatikus szűrő potenciálisan nem konstruktívnak vagy vandálnak találta a szerkesztésedet.&lt;br /&gt;&lt;br /&gt;A Wikipédia egy enciklopédia és csak semleges, nevezetes tartalom való ide.</string>
   <string name="dialog_page_issues">A lap problémái</string>
@@ -225,6 +225,8 @@
   <string name="text_copied">Szöveg másolva a vágólapra.</string>
   <string name="button_continue_to_article">Olvasd el a cikket</string>
   <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
+  <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
+  <string name="page_offline_notice_add_to_reading_list">Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
@@ -237,6 +239,10 @@
   <string name="location_permissions_enable_action">Bekapcsolás</string>
   <string name="error_webview_updating">Az Android System WebView frissítés alatt áll. Próbáld újra néhány másodperc múlva.</string>
   <string name="multi_select_items_selected">%d kiválasztva</string>
+  <string name="error_message_generic">Hiba történt</string>
+  <string name="view_link_preview_error_button_dismiss">Bezárás</string>
+  <string name="error_page_does_not_exist">Ez a lap nem létezik</string>
+  <string name="view_wiki_error_message_offline">Nem sikerült csatlakozni az internethez</string>
   <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
   <string name="crash_report_dialog_text">Szeretnél küldeni egy összeomlási jelentést a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy a Wikimédia átnézhesse az összeomlást és kijavíthassa az ezt okozó hibát?</string>
   <string name="crash_report_dialog_dont_send_button">Kihagy</string>
@@ -327,7 +333,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="view_continue_reading_card_subtitle_today">Ma</string>
   <string name="view_announcement_card_negative_action">Nem, köszönöm</string>
   <string name="description_edit_text_hint">Cím leírása</string>
-  <string name="description_edit_save" fuzzy="true">Mentés</string>
+  <string name="description_edit_save">Közzététel</string>
   <string name="description_edit_add_description">Adj meg egy címleírást</string>
   <string name="description_edit_edit_description">Leírás szerkesztése</string>
   <string name="description_edit_cancel_hint">Mégse</string>
@@ -337,7 +343,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/hu</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Leírás elmentve!</string>
+  <string name="description_edit_success_saved">Leírás közzétéve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
   <string name="description_edit_success_did_you_know">Tudtad?</string>

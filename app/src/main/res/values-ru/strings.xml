@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Эта страница недоступна на других языках.</string>
   <string name="langlinks_no_match">Языки, соответствующие вашему запросу, не найдены.</string>
   <string name="langlinks_activity_title">Другие языки</string>
-  <string name="menu_save_changes" fuzzy="true">Сохранить изменения</string>
+  <string name="menu_save_changes">Опубликовать изменения</string>
   <string name="edit_section_error_retry">Повторить</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Сохраняется…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Правка сохранена!</string>
+  <string name="dialog_saving_in_progress">Сохраняется…</string>
+  <string name="edit_saved_successfully">Правка сохранена!</string>
   <string name="dialog_message_edit_failed">Ошибка редактирования!</string>
   <string name="dialog_message_edit_failed_retry">Повторить</string>
   <string name="dialog_message_edit_failed_cancel">Отмена</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">Редактирование с вашего IP-адреса было заблокировано.</string>
   <string name="edit_how_page_improved">Как именно вы улучшили страницу?</string>
   <string name="edit_next">Далее</string>
-  <string name="edit_done" fuzzy="true">Сохранить</string>
+  <string name="edit_done">Сохранить</string>
   <string name="edit_preview">Предпросмотр</string>
   <string name="edit_summary_tag_typo">Исправлена опечатка</string>
   <string name="edit_summary_tag_grammar">Исправлено правописание</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Другие способы, которыми вы улучшили страницу</string>
   <string name="find_next">Найти далее</string>
   <string name="find_previous">Найти ранее</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Эта правка может быть деструктивной. Вы уверены, что хотите сохранить её?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
+  <string name="abusefilter_title_warn">Эта правка может быть деструктивной. Вы уверены, что хотите сохранить её?</string>
+  <string name="abusefilter_title_disallow">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
   <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>
   <string name="abusefilter_text_disallow">Автоматизированный фильтр определил эту правку как потенциально неконструктивную или как потенциальный вандализм.&lt;br /&gt;&lt;br /&gt;Википедия — это энциклопедия, и здесь приемлемо только нейтральное и значимое содержимое.</string>
   <string name="dialog_page_issues">Вопросы по странице</string>
@@ -227,6 +227,8 @@
   <string name="text_copied">Текст скопирован в буфер обмена.</string>
   <string name="button_continue_to_article">Читать статью</string>
   <string name="button_add_to_reading_list">Добавить в список для чтения</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Статья не может быть загружена без подключения к Интернету.</string>
+  <string name="page_offline_notice_add_to_reading_list">Добавьте эту статью в список к прочтению, и она будет загружена, как только появится подключение к сети.</string>
   <string name="button_get_directions">Проложить маршрут</string>
   <string name="error_no_maps_app">Не удалось найти ни одного приложения, которое бы прокладывало маршрут.</string>
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>
@@ -235,16 +237,21 @@
   <string name="error_voice_search_not_available">К сожалению, распознавание речи недоступно.</string>
   <string name="location_service_disabled">Службы Геолокации отключены.</string>
   <string name="enable_location_service">Включить</string>
+  <string name="location_permissions_enable_prompt">Разрешить определять местоположение, чтобы видеть места неподалёку от себя.</string>
   <string name="location_permissions_enable_action">Включить</string>
   <string name="error_webview_updating">Android System WebView в настоящее время обновляется. Пожалуйста, попробуйте снова чуть позже.</string>
   <string name="multi_select_items_selected">%d выбрано</string>
+  <string name="error_message_generic">Произошла ошибка</string>
+  <string name="view_link_preview_error_button_dismiss">Закрыть</string>
+  <string name="error_page_does_not_exist">Такой страницы не существует</string>
+  <string name="view_wiki_error_message_offline">Не удаётся подключиться к Интернету</string>
   <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
   <string name="crash_report_dialog_text">Вы хотите отправить отчёт об ошибке в HockeyApp / сторонний сервис-провайдер, чтобы в Викимедиа могли просмотреть информацию об аварии и исправить ошибку, вызвавшую её?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустить</string>
   <string name="crash_report_dialog_always_send_button">Всегда отправлять</string>
   <string name="crash_report_dialog_send_button">Отправить</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
-  <string name="crash_report_relaunch_or_quit">Мы к сожалению, в приложении Википедии произошла ошибка, в результате чего оно было закрыто.
+  <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.
 
 Вы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
@@ -328,7 +335,7 @@
   <string name="view_continue_reading_card_subtitle_today">Сегодня</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="description_edit_text_hint">Описание</string>
-  <string name="description_edit_save" fuzzy="true">Сохранить</string>
+  <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_add_description">Добавить описание</string>
   <string name="description_edit_edit_description">Править описание</string>
   <string name="description_edit_cancel_hint">Отмена</string>
@@ -337,9 +344,9 @@
   <string name="description_edit_help_wikidata_guide">Руководство для Викиданных по созданию описаний</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ru</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/ru</string>
-  <string name="description_edit_anon_limit">Благодарим Вас за изменения описаний! Для того, чтобы вводить дополнительные изменения, необходимо войти в Ваш аккаунт на Википедии.</string>
-  <string name="description_edit_license_notice">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию под лицензией &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Описание сохранено!</string>
+  <string name="description_edit_anon_limit">Спасибо вам за неослабевающий интерес к изменению описаний! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
+  <string name="description_edit_license_notice">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
@@ -363,8 +370,8 @@
   <string name="description_edit_help_more_info">Подробная информация</string>
   <string name="description_edit_help_meta_info">Описания хранятся в Викиданных. Викиданные (Wikidata) — это проект Фонда Викимедиа: свободная, совместно наполняемая, многоязычная, вторичная база данных, в которой собрана структурированная информация для обеспечения поддержки Википедии, Викисклада, других проектов Викимедиа и не только их.</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
-  <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то не правильно. Возможные причины для отмения правки:</string>
-  <string name="description_edit_revert_reason1">Ваше изменение не следовало один из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
-  <string name="description_edit_revert_reason2">Ваше изменение выглядело как эксперимент или вандализм.</string>
-  <string name="description_edit_revert_history">Если вы заинтересованы, просмотрите &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
+  <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то неправильное. Возможные причины для отмены вашей правки:</string>
+  <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">ваш вклад выглядел как эксперимент или вандализм.</string>
+  <string name="description_edit_revert_history">Если интересно, взгляните на &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
 </resources>

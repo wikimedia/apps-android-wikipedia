@@ -50,10 +50,10 @@
   <string name="langlinks_empty">Esta páxina nun ta disponible n\'otres llingües</string>
   <string name="langlinks_no_match">Nun s\'alcontraron llingües que casen cola to consulta.</string>
   <string name="langlinks_activity_title">Otres llingües</string>
-  <string name="menu_save_changes" fuzzy="true">Guardar los cambios</string>
+  <string name="menu_save_changes">Publicar los cambios</string>
   <string name="edit_section_error_retry">Reintentar</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Guardando...</string>
-  <string name="edit_saved_successfully" fuzzy="true">Edición guardada</string>
+  <string name="dialog_saving_in_progress">Espublizando...</string>
+  <string name="edit_saved_successfully">Edición publicada</string>
   <string name="dialog_message_edit_failed">Falló la edición</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Encaboxar</string>
@@ -153,7 +153,7 @@
   <string name="user_anon_blocked_from_editing">La to direición IP tien bloquiada la edición.</string>
   <string name="edit_how_page_improved">¿Cómo ameyorasti la páxina?</string>
   <string name="edit_next">Siguiente</string>
-  <string name="edit_done" fuzzy="true">Guardar</string>
+  <string name="edit_done">Espublizar</string>
   <string name="edit_preview">Vista previa</string>
   <string name="edit_summary_tag_typo">Igua ortográfica</string>
   <string name="edit_summary_tag_grammar">Igua gramatical</string>
@@ -162,8 +162,8 @@
   <string name="edit_summary_tag_other_hint">Otres maneres en qu\'ameyorasti la páxina</string>
   <string name="find_next">Alcontrar siguiente</string>
   <string name="find_previous">Alcontrar anterior</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Esta pué ser una edición non constructiva. ¿Tas seguru de que quies guardala?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Nun pues guardar esta edición. Por favor vuelve atrás y cámbiala.</string>
+  <string name="abusefilter_title_warn">Esta pué ser una edición non constructiva. ¿Tas seguru de que quies publicala?</string>
+  <string name="abusefilter_title_disallow">Nun puedes espublizar esta edición. Por favor vuelve atrás y cámbiala.</string>
   <string name="abusefilter_text_warn">Un filtru automáticu identificó esta edición como posiblemente non constructiva. Pué contener una o más de les siguientes:&lt;br /&gt;&lt;br /&gt;· Escribir too en mayúscules&lt;br /&gt;· Dexar artículos en blanco o facer spam&lt;br /&gt;· Enllaces o imaxes esternos irrelevantes&lt;br /&gt;· Caráuteres repetíos</string>
   <string name="abusefilter_text_disallow">Un filtru automáticu identificó esta edición como potencialmente non constructiva, o posible vandalismu.&lt;br /&gt;&lt;br /&gt;Wikipedia ye una enciclopedia y sólo pué ponese equí conteníu neutral y notable.</string>
   <string name="dialog_page_issues">Problemes de la páxina</string>
@@ -227,6 +227,8 @@
   <string name="text_copied">Testu copiáu al cartafueyu.</string>
   <string name="button_continue_to_article">Lleer el artículu</string>
   <string name="button_add_to_reading_list">Añadir a llista de llectura</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Nun pué cargase l\'artículu en tando sin conexón.</string>
+  <string name="page_offline_notice_add_to_reading_list">Añade l\'artículu a una llista de llectura y se descargará en coneutando.</string>
   <string name="button_get_directions">Recibir indicaciones</string>
   <string name="error_no_maps_app">Nun pudo alcontrase nenguna app qu\'ufra indicaciones</string>
   <string name="preference_title_show_link_previews">Amosar vistes previes de los enllaces</string>
@@ -239,6 +241,10 @@
   <string name="location_permissions_enable_action">Activar</string>
   <string name="error_webview_updating">La WebView del sistema Android ta anovándose agora. Téntalo nun momentu.</string>
   <string name="multi_select_items_selected">%d seleicionaos</string>
+  <string name="error_message_generic">Hebo un error</string>
+  <string name="view_link_preview_error_button_dismiss">Descartar</string>
+  <string name="error_page_does_not_exist">Esta páxina nun esiste</string>
+  <string name="view_wiki_error_message_offline">Nun pudo coneutase a internet</string>
   <string name="crash_report_dialog_title">Sentímoslo, l\'aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Quies unviar un informe de cuelgue a HockeyApp / un fornidor de serviciu d\'un terceru pa que Wikimedia pueda revisar el cuelgue ya iguar el fallu que lu causó?</string>
   <string name="crash_report_dialog_dont_send_button">Saltar</string>
@@ -329,7 +335,7 @@
   <string name="view_continue_reading_card_subtitle_today">Güei</string>
   <string name="view_announcement_card_negative_action">Non, gracies</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>
-  <string name="description_edit_save" fuzzy="true">Guardar</string>
+  <string name="description_edit_save">Espublizar</string>
   <string name="description_edit_add_description">Amestar una descripción del títulu</string>
   <string name="description_edit_edit_description">Editar la descripción</string>
   <string name="description_edit_cancel_hint">Encaboxar</string>
@@ -340,7 +346,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">¡Gracies pol to interés continuáu na edición de descripciones! Pa realizar más cambeos, anicia sesión na to cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al camudar la descripción del títulu, aceptes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y a lliberar ensin torgues les tos contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Guardóse la descripción</string>
+  <string name="description_edit_success_saved">Espublizóse la descripción</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
   <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>

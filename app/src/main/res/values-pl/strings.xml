@@ -230,6 +230,7 @@
   <string name="enable_location_service">Włącz</string>
   <string name="location_permissions_enable_action">Włącz</string>
   <string name="error_message_generic">Wystąpił błąd</string>
+  <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z Internetem</string>
   <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>

@@ -235,6 +235,7 @@
   <string name="error_message_generic">Si è verificato un errore</string>
   <string name="view_link_preview_error_button_dismiss">Nascondi</string>
   <string name="error_page_does_not_exist">Questa pagina non esiste</string>
+  <string name="view_wiki_error_message_offline">Non è possibile connettersi ad Internet</string>
   <string name="crash_report_dialog_title">Spiacenti, l\'ultima volta l\'applicazione è andata in errore</string>
   <string name="crash_report_dialog_text">Vuoi inviare una segnalazione sull\'errore a HockeyApp / un fornitore terzo di servizi, in modo che Wikimedia possa rivedere il tuo errore e correggere il bug più che lo ha causato?</string>
   <string name="crash_report_dialog_dont_send_button">Salta</string>

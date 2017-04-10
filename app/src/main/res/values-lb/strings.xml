@@ -232,6 +232,7 @@
   <string name="multi_select_items_selected">%d erausgesicht</string>
   <string name="error_message_generic">Et ass e Feeler geschitt</string>
   <string name="error_page_does_not_exist">Dës Säit gëtt et net</string>
+  <string name="view_wiki_error_message_offline">Kann net mam Internet verbannen</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
   <string name="crash_report_dialog_text">Wëllt Dir e Rapport iwwer de Crash un HockeyApp / en onofhängege Service-Provider schécke fir datt Wikimedia Äre Crash nokucke kann an de Feeler verbessere kann, den en ausgeléist huet?</string>
   <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>

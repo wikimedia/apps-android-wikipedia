@@ -245,6 +245,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Rejeter</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
+  <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>

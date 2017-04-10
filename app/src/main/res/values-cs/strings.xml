@@ -47,10 +47,10 @@
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích</string>
   <string name="langlinks_no_match">Nenalezeny žádné jazyky odpovídající vašemu dotazu.</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>
-  <string name="menu_save_changes" fuzzy="true">Uložit změny</string>
+  <string name="menu_save_changes">Zveřejnit změny</string>
   <string name="edit_section_error_retry">Zkusit znovu</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Ukládá se…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Editace uložena!</string>
+  <string name="dialog_saving_in_progress">Zveřejňuje se…</string>
+  <string name="edit_saved_successfully">Editace zveřejněna!</string>
   <string name="dialog_message_edit_failed">Editace se nezdařila!</string>
   <string name="dialog_message_edit_failed_retry">Zkusit znovu</string>
   <string name="dialog_message_edit_failed_cancel">Storno</string>
@@ -140,7 +140,7 @@
   <string name="user_anon_blocked_from_editing">Vaší IP adrese byla zablokována možnost editovat.</string>
   <string name="edit_how_page_improved">Jak jste stránku vylepšili?</string>
   <string name="edit_next">Další</string>
-  <string name="edit_done" fuzzy="true">Uložit</string>
+  <string name="edit_done">Zveřejnit</string>
   <string name="edit_preview">Náhled</string>
   <string name="edit_summary_tag_typo">Opraven překlep</string>
   <string name="edit_summary_tag_grammar">Oprava pravopisu</string>
@@ -149,8 +149,8 @@
   <string name="edit_summary_tag_other_hint">Jiný způsob, jakým jste vylepšili stránku</string>
   <string name="find_next">Najít další</string>
   <string name="find_previous">Najít předchozí</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete uložit?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Tuto editaci nemůžete uložit. Prosím, vraťte se zpět a změnte ji.</string>
+  <string name="abusefilter_title_warn">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete zveřejnit?</string>
+  <string name="abusefilter_title_disallow">Tuto editaci nemůžete zveřejnit. Prosím, vraťte se zpět a změnte ji.</string>
   <string name="abusefilter_text_warn">Automatický filtr identifikoval tuto editaci jako potenciálně nekonstruktivní. Mohla obsahovat něco z:&lt;br /&gt;&lt;br /&gt;· Text pouze velkými písmeny&lt;br /&gt;· Mazání obsahu nebo spam&lt;br /&gt;· Nerelevantní externí odkazy nebo obrázky&lt;br /&gt;· Opakované znaky</string>
   <string name="abusefilter_text_disallow">Automatický filtr identifikoval tuto editaci jako potenciálně nekonstruktivní nebo možný vandalismus.&lt;br /&gt;&lt;br /&gt;Wikipedie je encyklopedie, do které patří pouze neutrální, významný obsah.</string>
   <string name="dialog_page_issues">Nedostatky stránky</string>
@@ -299,7 +299,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
   <string name="description_edit_text_hint">Popis titulku</string>
-  <string name="description_edit_save" fuzzy="true">Uložit</string>
+  <string name="description_edit_save">Zveřejnit</string>
   <string name="description_edit_add_description">Přidat popis titulku</string>
   <string name="description_edit_edit_description">Upravit popis</string>
   <string name="description_edit_cancel_hint">Zrušit</string>
@@ -308,7 +308,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="description_edit_help_wikidata_guide">Návod na Wikidatech k vytváření popisů</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/cs</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/cs</string>
-  <string name="description_edit_success_saved" fuzzy="true">Popis byl uložen!</string>
+  <string name="description_edit_success_saved">Popis byl zveřejněn!</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Věděli jste, že?</string>

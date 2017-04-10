@@ -50,10 +50,10 @@
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়।</string>
   <string name="langlinks_no_match">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
-  <string name="menu_save_changes" fuzzy="true">পরিবর্তন সংরক্ষণ</string>
+  <string name="menu_save_changes">পরিবর্তন প্রকাশ করুন</string>
   <string name="edit_section_error_retry">পুনঃচেষ্টা</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">সংরক্ষণ করা হচ্ছে …</string>
-  <string name="edit_saved_successfully" fuzzy="true">সম্পাদনা সংরক্ষিত হয়েছে!</string>
+  <string name="dialog_saving_in_progress">প্রকাশ করা হচ্ছে...</string>
+  <string name="edit_saved_successfully">সম্পাদনা প্রকাশিত হয়েছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা সংরক্ষণ ব্যর্থ!</string>
   <string name="dialog_message_edit_failed_retry">পুনঃচেষ্টা করুন</string>
   <string name="dialog_message_edit_failed_cancel">বাতিল</string>
@@ -152,7 +152,7 @@
   <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাকে সম্পাদনা করা থেকে বাধা দেয়া হয়েছে।</string>
   <string name="edit_how_page_improved">কীভাবে আপনি পাতাটি উন্নত করেছেন?</string>
   <string name="edit_next">পরবর্তী</string>
-  <string name="edit_done" fuzzy="true">সংরক্ষণ</string>
+  <string name="edit_done">প্রকাশ করুন</string>
   <string name="edit_preview">প্রাকদর্শন</string>
   <string name="edit_summary_tag_typo">বানান ঠিক করা হয়েছে</string>
   <string name="edit_summary_tag_grammar">ব্যাকরণ ঠিক করা হয়েছে</string>
@@ -161,8 +161,8 @@
   <string name="edit_summary_tag_other_hint">অন্যান্য যে পদ্ধতিতে আপনি পাতাটির মান উন্নয়ন করেছেন</string>
   <string name="find_next">পরবর্তী খুঁজুন</string>
   <string name="find_previous">পূর্বেরটি খুঁজুন</string>
-  <string name="abusefilter_title_warn" fuzzy="true">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি সংরক্ষণ করতে চান?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">আপনি এই সম্পাদনা সংরক্ষণ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
+  <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি প্রকাশ করতে চান?</string>
+  <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা প্রকাশ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
   <string name="abusefilter_text_warn">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক হিসাবে চিহ্নিত করেছে। এতে নিম্নলিখিতগুলি এক বা একাধিক বার থাকতে পারে:&lt;br /&gt;&lt;br /&gt;· নিবন্ধ খালি করা বা স্প্যামিং করা&lt;br /&gt;· অপ্রাসঙ্গিক বাহ্যিক লিঙ্ক বা ছবি&lt;br /&gt;· অক্ষরের পুনরাবৃত্তি</string>
   <string name="abusefilter_text_disallow">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক বা ধ্বংসপ্রবণতার প্রচেষ্টা হিসাবে চিহ্নিত করেছে।&lt;br /&gt;&lt;br /&gt;উইকিপিডিয়া একটি বিশ্বকোষ এবং শুধুমাত্র নিরপেক্ষ, উল্লেখযোগ্য বিষয়বস্তু এখানে অন্তর্ভুক্ত হবে।</string>
   <string name="dialog_page_issues">পাতার সমস্যা</string>
@@ -226,6 +226,8 @@
   <string name="text_copied">লেখা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="button_continue_to_article">নিবন্ধ পড়ুন</string>
   <string name="button_add_to_reading_list">পড়ার তালিকায় যোগ করুন</string>
+  <string name="page_offline_notice_cannot_load_while_offline">নিবন্ধ অফলাইনে থাকাকালীন সময়ে লোড করা যাবে না।</string>
+  <string name="page_offline_notice_add_to_reading_list">নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
   <string name="button_get_directions">দিক নির্দেশনা পান</string>
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
@@ -238,6 +240,10 @@
   <string name="location_permissions_enable_action">চালু করুন</string>
   <string name="error_webview_updating">Android System WebView এই মুহুর্তে হালনাগাদ করা হচ্ছে। কয়েক মুহূর্ত পর আবার চেষ্টা করুন।</string>
   <string name="multi_select_items_selected">%dটি নির্বাচিত</string>
+  <string name="error_message_generic">একটি ত্রুটি দেখা দিয়েছে</string>
+  <string name="view_link_preview_error_button_dismiss">খারিজ</string>
+  <string name="error_page_does_not_exist">এই পাতার অস্তিত্ব নেই</string>
+  <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
   <string name="crash_report_dialog_title">দুঃখিত, অ্যাপ্লিকেশন শেষ বার বিধ্বস্ত হয়েছিল</string>
   <string name="crash_report_dialog_text">আপনি কি স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে চান যাতে উইকিমিডিয়া আপনার ত্রুটি পর্যালোচনা করতে পারে এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারে?</string>
   <string name="crash_report_dialog_dont_send_button">উপেক্ষা করো</string>
@@ -328,7 +334,7 @@
   <string name="view_continue_reading_card_subtitle_today">আজ</string>
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
-  <string name="description_edit_save" fuzzy="true">সংরক্ষণ</string>
+  <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
   <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
@@ -339,7 +345,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
   <string name="description_edit_anon_limit">বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
   <string name="description_edit_license_notice">শিরোনামের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
-  <string name="description_edit_success_saved" fuzzy="true">বিবরণ সংরক্ষণ করা হয়েছে!</string>
+  <string name="description_edit_success_saved">বিবরণ প্রকাশিত হয়েছে!</string>
   <string name="description_edit_success_encouragement">আপনি এইমাত্র সবার জন্য উইকিপিডিয়াকে আরো উত্তম করলেন</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
   <string name="description_edit_success_did_you_know">আপনি জানেন কি?</string>

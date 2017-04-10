@@ -58,6 +58,9 @@
   <string name="dialog_message_leaving_edit_stay">Likti</string>
   <string name="menu_show_toc">Turinys</string>
   <string name="search_no_results_found">Rezultatų nerasta</string>
+  <string name="search_reading_list_no_results">Nerasta rezultatų „%s“</string>
+  <string name="search_reading_lists_no_results">Nerasta rezultatų skaitymo sąrašuose</string>
+  <string name="search_history_no_results">Istorijoje rezultatų nerasta</string>
   <string name="edit_section_captcha_hint">Pakartoti žodžius iš viršaus</string>
   <string name="title_captcha">Įveskite saugos kodą</string>
   <string name="edit_section_captcha_reload">Bakstelėkite CAPTCHA, kad atnaujinti</string>
@@ -70,7 +73,7 @@
   <string name="login_success_toast">Sėkmingai prisijungėte!</string>
   <string name="preference_title_logout">Atsijungti</string>
   <string name="toast_logout_complete">Atsijungėte</string>
-  <string name="history_empty_title" fuzzy="true">Naujausių puslapių nėra!</string>
+  <string name="history_empty_title">Nėra neseniai peržiūrėtų straipsnių</string>
   <string name="history_empty_message" fuzzy="true">Tikriausiai viską panaikinote. Kitą kartą, kai eisite į kurį nors puslapį, iš čia galėsite į jį sugrįžti.</string>
   <string name="delete_selected_history">Naikinti</string>
   <string name="delete_selected_items">Ištrinti pasirinktus elementus</string>
@@ -212,9 +215,11 @@
   <string name="enable_location_service">Įjungti</string>
   <string name="location_permissions_enable_prompt">Įjunkite vietovės teises, kad matytumėte vietas šalia savęs.</string>
   <string name="location_permissions_enable_action">Įjungti</string>
+  <string name="multi_select_items_selected">%d pasirinkta</string>
   <string name="error_message_generic">Įvyko klaida</string>
   <string name="view_link_preview_error_button_dismiss">Atšaukti</string>
   <string name="error_page_does_not_exist">Šis puslapis neekzistuoja</string>
+  <string name="view_wiki_error_message_offline">Nepavyko prisijungti prie interneto</string>
   <string name="crash_report_dialog_title">Atleiskite, programėlė praeitą kartą užlūžo</string>
   <string name="crash_report_dialog_dont_send_button">Praleisti</string>
   <string name="crash_report_dialog_always_send_button">Siųsti visada</string>
@@ -252,6 +257,7 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="reading_list_name_hint">Sąrašo pavadinimas</string>
   <string name="reading_list_description_hint">Aprašymas (neprivalomas):</string>
   <string name="reading_list_item_deleted">%s pašalintas iš sąrašo</string>
+  <string name="reading_list_items_deleted">%d straipsnių pašalinta iš sąrašo</string>
   <string name="reading_list_item_delete_undo">Anuliuoti</string>
   <string name="reading_list_deleted">%s ištrintas</string>
   <string name="reading_lists_empty">Dar nėra skaitymo sąrašų</string>
@@ -261,6 +267,7 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="reading_lists_onboarding_example3">Kosmosas!</string>
   <string name="reading_lists_onboarding_got_it">Supratau</string>
   <string name="reading_list_no_description">Nėra aprašymo...</string>
+  <string name="reading_list_empty">Neturite pridėtų į sąrašą straipsnių.</string>
   <string name="reading_list_article_make_offline">Versti šį straipsnį būti prieinamam neprisijungus</string>
   <string name="reading_list_article_remove_offline">Neversti šio straipsnio prieinamu neprisijungus</string>
   <string name="reading_list_article_offline_message">Šis straipsnis dabar bus prieinamas neprisijungus.</string>
