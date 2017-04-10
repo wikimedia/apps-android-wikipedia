@@ -218,9 +218,9 @@
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>
         <item name="android:contentDescription">@null</item>
-        <item name="placeholderImage">?attr/feed_window_background_color</item>
-        <item name="failureImage">?attr/feed_window_background_color</item>
-        <item name="backgroundImage">?attr/feed_window_background_color</item>
+        <item name="placeholderImage">@color/base70</item>
+        <item name="failureImage">@color/base70</item>
+        <item name="backgroundImage">@color/base70</item>
         <item name="roundedCornerRadius">2dp</item>
         <item name="roundTopLeft">false</item>
         <item name="roundTopRight">false</item>

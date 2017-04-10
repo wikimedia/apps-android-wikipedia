@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -23,6 +24,7 @@ import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
@@ -105,15 +107,6 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         View createButton = rootView.findViewById(R.id.create_button);
         createButton.setOnClickListener(createClickListener);
 
-        View closeButton = rootView.findViewById(R.id.close_button);
-        FeedbackUtil.setToolbarButtonLongPressToast(closeButton);
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
-
         if (savedInstanceState == null) {
             // Log a click event, but only the first time the dialog is shown.
             new ReadingListsFunnel(pageTitle.getWikiSite()).logAddClick(invokeSource);
@@ -121,6 +114,13 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
         updateLists();
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        BottomSheetBehavior.from((View) getView().getParent()).setPeekHeight(DimenUtil
+                .roundedDpToPx(DimenUtil.getDimension(R.dimen.readingListSheetPeekHeight)));
     }
 
     @Override
