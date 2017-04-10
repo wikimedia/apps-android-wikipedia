@@ -43,7 +43,6 @@
   <string name="langlinks_no_match">Ձեր հարցումով լեզուներ չեն գտնվել:</string>
   <string name="langlinks_activity_title">Այլ լեզուներ</string>
   <string name="menu_save_changes">Հիշել փոփոխությունները</string>
-  <string name="edit_section_error_retry">Կրկնել</string>
   <string name="dialog_saving_in_progress">Պահպանվում է…</string>
   <string name="edit_saved_successfully">Խմբագրումը պահպանվեց</string>
   <string name="dialog_message_edit_failed">Խմբագրումը չեղարկվեց</string>

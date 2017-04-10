@@ -65,7 +65,6 @@
     <string name="langlinks_no_match">No languages found matching your query.</string>
     <string name="langlinks_activity_title">Other languages</string>
     <string name="menu_save_changes">Publish changes</string>
-    <string name="edit_section_error_retry">Retry</string>
     <string name="dialog_saving_in_progress">Publishing…</string>
     <string name="edit_saved_successfully">Edit published!</string>
     <string name="dialog_message_edit_failed">Edit failed!</string>

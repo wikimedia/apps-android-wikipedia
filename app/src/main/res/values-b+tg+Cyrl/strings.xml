@@ -41,7 +41,6 @@
   <string name="langlinks_no_match">Бо пурсиши шумо ягон саҳифа пайдо нашуд.</string>
   <string name="langlinks_activity_title">Дигар забонҳо</string>
   <string name="menu_save_changes">Захиракунии тағйирот</string>
-  <string name="edit_section_error_retry">Дубора саъй кунед</string>
   <string name="dialog_saving_in_progress">Дар ҳоли захиракунӣ...</string>
   <string name="edit_saved_successfully">Вироиш захира шуд!</string>
   <string name="dialog_message_edit_failed">Вироиш муваффақ шуд!</string>

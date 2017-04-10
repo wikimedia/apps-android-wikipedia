@@ -27,7 +27,6 @@
   <string name="langlinks_empty">Henda síðan er ikki tøk á øðrum málum.</string>
   <string name="langlinks_activity_title">Onnur mál</string>
   <string name="menu_save_changes">Goym broytingar</string>
-  <string name="edit_section_error_retry">Royn aftur</string>
   <string name="dialog_saving_in_progress">Goymir…</string>
   <string name="edit_saved_successfully">Rættingin er goymd!</string>
   <string name="dialog_message_edit_failed">Rættingin miseydnaðist!</string>

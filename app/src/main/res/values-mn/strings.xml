@@ -20,7 +20,6 @@
   <string name="menu_page_other_languages">Бусад хэл дээр унших</string>
   <string name="langlinks_activity_title">Бусад хэл</string>
   <string name="menu_save_changes">Өөрчлөлтөө хадгалах</string>
-  <string name="edit_section_error_retry">Дахин оролд</string>
   <string name="dialog_saving_in_progress">Хадгалж байна…</string>
   <string name="edit_saved_successfully">Хадгалснаа засах!</string>
   <string name="dialog_message_edit_failed">Алдаатайг засах!</string>

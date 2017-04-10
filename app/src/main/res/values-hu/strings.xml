@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Nem található a kérésnek megfelelő nyelv.</string>
   <string name="langlinks_activity_title">További nyelvek</string>
   <string name="menu_save_changes">Változtatások közzététele</string>
-  <string name="edit_section_error_retry">Újra</string>
   <string name="dialog_saving_in_progress">Közzététel…</string>
   <string name="edit_saved_successfully">Szerkesztés közzétéve!</string>
   <string name="dialog_message_edit_failed">Szerkesztés nem sikerült!</string>

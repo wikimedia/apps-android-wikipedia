@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো ভাষা নেই।</string>
   <string name="langlinks_activity_title">অন্যান্য ভাষাসমূহ</string>
   <string name="menu_save_changes">পরিবর্তন প্রকাশ করুন</string>
-  <string name="edit_section_error_retry">পুনঃচেষ্টা</string>
   <string name="dialog_saving_in_progress">প্রকাশ করা হচ্ছে...</string>
   <string name="edit_saved_successfully">সম্পাদনা প্রকাশিত হয়েছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা সংরক্ষণ ব্যর্থ!</string>

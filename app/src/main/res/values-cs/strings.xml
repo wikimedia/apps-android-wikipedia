@@ -48,7 +48,6 @@
   <string name="langlinks_no_match">Nenalezeny žádné jazyky odpovídající vašemu dotazu.</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>
   <string name="menu_save_changes">Zveřejnit změny</string>
-  <string name="edit_section_error_retry">Zkusit znovu</string>
   <string name="dialog_saving_in_progress">Zveřejňuje se…</string>
   <string name="edit_saved_successfully">Editace zveřejněna!</string>
   <string name="dialog_message_edit_failed">Editace se nezdařila!</string>

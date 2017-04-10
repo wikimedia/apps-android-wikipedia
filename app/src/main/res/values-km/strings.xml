@@ -31,7 +31,6 @@
   <string name="langlinks_no_match">រកមិនឃើញភាសាត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
   <string name="langlinks_activity_title">ភាសា​ដទៃ​ទៀត</string>
   <string name="menu_save_changes">រក្សាទុកបន្លាស់ប្ដូរ</string>
-  <string name="edit_section_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="dialog_saving_in_progress">កំពុង​រក្សា​ទុក…</string>
   <string name="edit_saved_successfully">បាន​រក្សា​ទុក​ការ​កែ​ប្រែ!</string>
   <string name="dialog_message_edit_failed">កែប្រែ​បាន​បរាជ័យ!</string>

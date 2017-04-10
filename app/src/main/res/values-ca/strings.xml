@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">No s\'ha trobat cap idioma que coincideixi amb la consulta.</string>
   <string name="langlinks_activity_title">Altres idiomes</string>
   <string name="menu_save_changes" fuzzy="true">Desa els canvis</string>
-  <string name="edit_section_error_retry">Tornar-ho a provar</string>
   <string name="dialog_saving_in_progress" fuzzy="true">S’està desant…</string>
   <string name="edit_saved_successfully" fuzzy="true">Modificació desada!</string>
   <string name="dialog_message_edit_failed">La modificació no s\'ha desat!</string>

@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">N\'eus bet kavet yezh ebet a glot gant ho reked.</string>
   <string name="langlinks_activity_title">Yezhoù all</string>
   <string name="menu_save_changes" fuzzy="true">Enrollañ ar c\'hemmoù</string>
-  <string name="edit_section_error_retry">Klask en-dro</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Oc\'h enrollañ…</string>
   <string name="edit_saved_successfully" fuzzy="true">Kemm enrollet!</string>
   <string name="dialog_message_edit_failed">C\'hwitet ar c\'hemm !</string>

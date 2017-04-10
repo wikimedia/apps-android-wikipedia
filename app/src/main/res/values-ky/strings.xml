@@ -31,7 +31,6 @@
   <string name="langlinks_no_match">Сиздин сурооңузга төп тил табылбады.</string>
   <string name="langlinks_activity_title">Башка тилдер</string>
   <string name="menu_save_changes">Өзгөртүүлөрдү сактоо</string>
-  <string name="edit_section_error_retry">Кайра аракет кылуу</string>
   <string name="dialog_saving_in_progress">Сакталууда…</string>
   <string name="edit_saved_successfully">Оңдоо сакталды!</string>
   <string name="dialog_message_edit_failed">Оңдоо катасы!</string>

@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">검색어와 일치하는 언어를 찾을 수 없습니다.</string>
   <string name="langlinks_activity_title">다른 언어</string>
   <string name="menu_save_changes">변경사항 게시</string>
-  <string name="edit_section_error_retry">다시 시도</string>
   <string name="dialog_saving_in_progress">게시 중...</string>
   <string name="edit_saved_successfully">편집이 게시됐습니다!</string>
   <string name="dialog_message_edit_failed">편집에 실패했습니다!</string>

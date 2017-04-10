@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">未找到匹配您的查询的语言。</string>
   <string name="langlinks_activity_title">其他语言</string>
   <string name="menu_save_changes">发布更改</string>
-  <string name="edit_section_error_retry">重试</string>
   <string name="dialog_saving_in_progress">正在发布…</string>
   <string name="edit_saved_successfully">编辑已发布！</string>
   <string name="dialog_message_edit_failed">编辑失败！</string>

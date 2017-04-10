@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">未找到符合您的查詢的語言。</string>
   <string name="langlinks_activity_title">其他語言</string>
   <string name="menu_save_changes">發佈修改</string>
-  <string name="edit_section_error_retry">重試</string>
   <string name="dialog_saving_in_progress">發佈中…</string>
   <string name="edit_saved_successfully">已發佈編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>

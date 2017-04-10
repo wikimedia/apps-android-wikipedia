@@ -48,7 +48,6 @@
   <string name="langlinks_no_match">ਤੁਹਾਡੀ ਪੁੱਛਗਿੱਛ ਨਾਲ਼ ਮਿਲਦੀਆਂ ਕੋਈ ਬੋਲੀਆਂ ਨਹੀਂ ਲੱਭੀਆਂ।</string>
   <string name="langlinks_activity_title">ਹੋਰ ਬੋਲੀਆਂ</string>
   <string name="menu_save_changes" fuzzy="true">ਤਬਦੀਲੀਆਂ ਸਾਂਭੋ</string>
-  <string name="edit_section_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_saving_in_progress" fuzzy="true">ਸਾਂਭਿਆ ਜਾ ਰਿਹਾ ਹੈ…</string>
   <string name="edit_saved_successfully" fuzzy="true">ਸੋਧ ਸਾਂਭੀ ਗਈ!</string>
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>

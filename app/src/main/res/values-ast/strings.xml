@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">Nun s\'alcontraron llingües que casen cola to consulta.</string>
   <string name="langlinks_activity_title">Otres llingües</string>
   <string name="menu_save_changes">Publicar los cambios</string>
-  <string name="edit_section_error_retry">Reintentar</string>
   <string name="dialog_saving_in_progress">Espublizando...</string>
   <string name="edit_saved_successfully">Edición publicada</string>
   <string name="dialog_message_edit_failed">Falló la edición</string>

@@ -52,7 +52,6 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="langlinks_no_match">Aucune langue trouvée correspondant à votre requête.</string>
   <string name="langlinks_activity_title">Autres langues</string>
   <string name="menu_save_changes">Publier les modifications</string>
-  <string name="edit_section_error_retry">Réessayer</string>
   <string name="dialog_saving_in_progress">Publication…</string>
   <string name="edit_saved_successfully">Modification publiée !</string>
   <string name="dialog_message_edit_failed">Échec de l’enregistrement !</string>

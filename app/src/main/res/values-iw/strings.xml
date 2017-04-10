@@ -51,7 +51,6 @@
   <string name="langlinks_no_match">לא נמצאות שפות התואמות לשאילתה שלך.</string>
   <string name="langlinks_activity_title">שפות אחרות</string>
   <string name="menu_save_changes">פרסום השינויים</string>
-  <string name="edit_section_error_retry">לנסות שוב</string>
   <string name="dialog_saving_in_progress">פרסום…</string>
   <string name="edit_saved_successfully">העריכה פורסמה!</string>
   <string name="dialog_message_edit_failed">העריכה נכשלה!</string>

@@ -28,7 +28,6 @@
   <string name="langlinks_empty">Ukurasa huu haupatikani katika lugha zingine.</string>
   <string name="langlinks_activity_title">Lugha zingine</string>
   <string name="menu_save_changes">Hifadhi mabadiliko</string>
-  <string name="edit_section_error_retry">Jaribu tena</string>
   <string name="dialog_saving_in_progress">Inahifadhi…</string>
   <string name="edit_saved_successfully">Hariri imehifadhiwa!</string>
   <string name="dialog_message_edit_failed_retry">Jaribu tena</string>
