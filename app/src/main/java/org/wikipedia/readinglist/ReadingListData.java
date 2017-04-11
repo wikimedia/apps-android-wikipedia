@@ -107,9 +107,15 @@ public final class ReadingListData {
     }
 
     public void addTitleToList(@NonNull final ReadingList list,
-                               @NonNull final ReadingListPage page) {
+                               @NonNull final ReadingListPage page,
+                               boolean undo) {
         list.add(page);
         page.addListKey(list.key());
+
+        if (!undo) {
+            setPageOffline(page, true);
+        }
+
         saveListInfo(list, page);
     }
 

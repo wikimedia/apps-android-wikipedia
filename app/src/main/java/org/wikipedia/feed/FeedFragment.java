@@ -42,7 +42,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class FeedFragment extends Fragment implements BackPressedHandler {
+public class FeedFragment extends Fragment implements BackPressedHandler, ReadingListPageObserver.Listener {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
     @BindView(R.id.fragment_feed_header) View feedHeader;
@@ -95,11 +95,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         unbinder = ButterKnife.bind(this, view);
         feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
-        app.getReadingListPageObserver().setCallback(new ReadingListPageObserver.Callback() {
-            @Override public void onChange() {
-                feedAdapter.notifyDataSetChanged();
-            }
-        });
+        app.getReadingListPageObserver().addListener(this);
         feedView.setAdapter(feedAdapter);
         feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
@@ -188,7 +184,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         feedView.removeOnScrollListener(feedScrollListener);
         feedView.setCallback((FeedAdapter.Callback) null);
         feedView.setAdapter(null);
-        app.getReadingListPageObserver().setCallback(null);
+        app.getReadingListPageObserver().removeListener(this);
         feedAdapter = null;
         unbinder.unbind();
         unbinder = null;
@@ -249,6 +245,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public boolean onBackPressed() {
         return false;
+    }
+
+    @Override public void onReadingListPageStatusChanged() {
+        feedAdapter.notifyDataSetChanged();
     }
 
     @Nullable private Callback getCallback() {

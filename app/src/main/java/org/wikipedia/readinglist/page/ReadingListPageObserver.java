@@ -12,19 +12,26 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.savedpages.SavedPageSyncService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ReadingListPageObserver extends ContentObserver {
-    public interface Callback {
-        void onChange();
+    public interface Listener {
+        void onReadingListPageStatusChanged();
     }
 
-    @Nullable private Callback callback;
+    @NonNull private List<Listener> listeners = new ArrayList<>();
 
     public ReadingListPageObserver(@Nullable Handler handler) {
         super(handler);
     }
 
-    public void setCallback(@Nullable Callback cb) {
-        callback = cb;
+    public void addListener(@NonNull Listener listener) {
+        listeners.add(listener);
+    }
+
+    public void removeListener(@NonNull Listener listener) {
+        listeners.remove(listener);
     }
 
     @Override public void onChange(boolean selfChange) {
@@ -32,13 +39,19 @@ public class ReadingListPageObserver extends ContentObserver {
     }
 
     @Override public void onChange(boolean selfChange, Uri uri) {
-        if (callback != null && uri == ReadingListPageContract.Disk.URI) {
-            callback.onChange();
+        if (uri.equals(ReadingListPageContract.Disk.URI)) {
+            notifyListeners();
         }
         WikipediaApp.getInstance().startService(new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
     }
 
     public void register(@NonNull Context context) {
         context.getContentResolver().registerContentObserver(ReadingListPageContract.Disk.URI, false, this);
+    }
+
+    private void notifyListeners() {
+        for (Listener listener : listeners) {
+            listener.onReadingListPageStatusChanged();
+        }
     }
 }

@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
@@ -33,6 +34,7 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.ReadingListPageObserver;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.settings.Prefs;
@@ -56,7 +58,7 @@ import butterknife.Unbinder;
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_TITLE;
 import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_ASC;
 
-public class ReadingListFragment extends Fragment {
+public class ReadingListFragment extends Fragment implements ReadingListPageObserver.Listener {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
     @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
     @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
@@ -67,6 +69,7 @@ public class ReadingListFragment extends Fragment {
     private Unbinder unbinder;
 
     @Nullable private ReadingList readingList;
+    @Nullable private String readingListTitle;
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
     private ReadingListItemView headerView;
     @Nullable private ActionMode actionMode;
@@ -99,6 +102,8 @@ public class ReadingListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_reading_list, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        WikipediaApp.getInstance().getReadingListPageObserver().addListener(this);
+
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
@@ -122,22 +127,8 @@ public class ReadingListFragment extends Fragment {
         headerView.setShowDescriptionEmptyHint(true);
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance);
 
-        final String readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
-        ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
-            @Override
-            public void success(List<ReadingList> lists) {
-                if (getActivity() == null) {
-                    return;
-                }
-                readingLists.set(lists);
-                readingList = readingLists.get(readingListTitle);
-                if (readingList != null) {
-                    searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results,
-                            readingList.getTitle()));
-                }
-                update();
-            }
-        });
+        readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
+        updateReadingListData();
 
         return view;
     }
@@ -153,6 +144,7 @@ public class ReadingListFragment extends Fragment {
         readingLists.set(Collections.<ReadingList>emptyList());
         recyclerView.setAdapter(null);
         appBarLayout.removeOnOffsetChangedListener(appBarListener);
+        WikipediaApp.getInstance().getReadingListPageObserver().removeListener(this);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -202,6 +194,10 @@ public class ReadingListFragment extends Fragment {
         }
     }
 
+    @Override public void onReadingListPageStatusChanged() {
+        updateReadingListData();
+    }
+
     private AppCompatActivity getAppCompatActivity() {
         return (AppCompatActivity) getActivity();
     }
@@ -215,6 +211,24 @@ public class ReadingListFragment extends Fragment {
         headerImageView.setReadingList(readingList);
         readingList.sort(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
+    }
+
+    private void updateReadingListData() {
+        ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
+            @Override
+            public void success(List<ReadingList> lists) {
+                if (getActivity() == null) {
+                    return;
+                }
+                readingLists.set(lists);
+                readingList = readingLists.get(readingListTitle);
+                if (readingList != null) {
+                    searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results,
+                            readingList.getTitle()));
+                }
+                update();
+            }
+        });
     }
 
     private void setSearchQuery(@Nullable String query) {
@@ -269,7 +283,7 @@ public class ReadingListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 for (ReadingListPage page : pages) {
-                    ReadingList.DAO.addTitleToList(readingList, page);
+                    ReadingList.DAO.addTitleToList(readingList, page, true);
                     ReadingListPageDao.instance().markOutdated(page);
                 }
                 update();
