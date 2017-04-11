@@ -15,15 +15,11 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.DescriptionEditFunnel;
-import org.wikipedia.csrf.CsrfToken;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginClient.LoginFailedException;
-import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.User;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
@@ -53,7 +49,7 @@ public class DescriptionEditFragment extends Fragment {
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
-    @Nullable private Call<MwQueryResponse<CsrfToken>> editTokenCall;
+    @Nullable private CsrfTokenClient csrfClient;
     @Nullable private Call<DescriptionEdit> descriptionEditCall;
     @Nullable private DescriptionEditFunnel funnel;
 
@@ -138,9 +134,9 @@ public class DescriptionEditFragment extends Fragment {
             descriptionEditCall.cancel();
             descriptionEditCall = null;
         }
-        if (editTokenCall != null) {
-            editTokenCall.cancel();
-            editTokenCall = null;
+        if (csrfClient != null) {
+            csrfClient.cancel();
+            csrfClient = null;
         }
     }
 
@@ -154,91 +150,45 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private class EditViewCallback implements DescriptionEditView.Callback {
-        private static final int MAX_RETRIES = 1;
-        private int retries = 0;
         private final WikiSite wikiData = new WikiSite("www.wikidata.org", "");
-        private final WikiSite loginWiki = pageTitle.getWikiSite();
 
         @Override
         public void onSaveClick() {
             editView.setError(null);
             editView.setSaveState(true);
 
-            retries = 0;
             cancelCalls();
 
-            requestEditToken();
+            csrfClient = new CsrfTokenClient(new WikiSite("www.wikidata.org", ""),
+                    pageTitle.getWikiSite());
+            getEditTokenThenSave(false);
 
             if (funnel != null) {
                 funnel.logSaveAttempt();
             }
         }
 
-        /** fetch edit token from Wikidata */
-        private void requestEditToken() {
-            editTokenCall = new CsrfTokenClient().request(wikiData,
-                    new CsrfTokenClient.Callback() {
-                        @Override public void success(@NonNull Call<MwQueryResponse<CsrfToken>> call,
-                                                      @NonNull String editToken) {
-                            postDescription(editToken);
-                        }
-
-                        @Override public void failure(@NonNull Call<MwQueryResponse<CsrfToken>> call,
-                                                      @NonNull Throwable caught) {
-                            L.w("could not get edit token: ", caught);
-                            retryWithLogin(caught);
-                        }
-                    });
-        }
-
-        /**
-         * Refresh all tokens/cookies, then retry the previous request.
-         * This is needed when the edit token was not retrieved because the login session expired.
-         */
-        private void retryWithLogin(@NonNull Throwable caught) {
-            if (retries < MAX_RETRIES && User.getUser() != null) {
-                retries++;
-
-                WikipediaApp app = WikipediaApp.getInstance();
-                app.getCsrfTokenStorage().clearAllTokens();
-                app.getCookieManager().clearAllCookies();
-
-                login(User.getUser(), new RetryCallback() {
-                    @Override public void retry() {
-                        L.i("retrying...");
-                        requestEditToken();
-                    }
-                });
-            } else {
-                editFailed(caught);
+        private void getEditTokenThenSave(boolean forceLogin) {
+            if (csrfClient == null) {
+                return;
             }
-        }
+            csrfClient.request(forceLogin, new CsrfTokenClient.Callback() {
+                @Override
+                public void success(@NonNull String token) {
+                    postDescription(token);
+                }
 
-        private void login(@NonNull final User user, @NonNull final RetryCallback retryCallback) {
-            new LoginClient().request(loginWiki,
-                    user.getUsername(),
-                    user.getPassword(),
-                    new LoginClient.LoginCallback() {
-                        @Override
-                        public void success(@NonNull LoginResult loginResult) {
-                            if (loginResult.pass()) {
-                                retryCallback.retry();
-                            } else {
-                                editFailed(new LoginFailedException(loginResult.getMessage()));
-                            }
-                        }
+                @Override
+                public void failure(@NonNull Throwable caught) {
+                    editFailed(caught);
+                }
 
-                        @Override
-                        public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
-                            editFailed(new LoginFailedException(getResources()
-                                            .getString(R.string.login_2fa_other_workflow_error_msg)));
-                        }
-
-                        @Override
-                        public void error(@NonNull Throwable caught) {
-                            editFailed(caught);
-                        }
-                    });
+                @Override
+                public void twoFactorPrompt() {
+                    editFailed(new LoginFailedException(getResources()
+                            .getString(R.string.login_2fa_other_workflow_error_msg)));
+                }
+            });
         }
 
         /* send updated description to Wikidata */
@@ -269,9 +219,10 @@ public class DescriptionEditFragment extends Fragment {
                             }
                         }
 
-                        @Override public void invalidLogin(@NonNull Call<DescriptionEdit> call,
-                                                           @NonNull Throwable caught) {
-                            retryWithLogin(caught);
+                        @Override
+                        public void invalidLogin(@NonNull Call<DescriptionEdit> call,
+                                                 @NonNull Throwable caught) {
+                            getEditTokenThenSave(true);
                         }
 
                         @Override public void failure(@NonNull Call<DescriptionEdit> call,
@@ -301,9 +252,5 @@ public class DescriptionEditFragment extends Fragment {
         public void onCancelClick() {
             finish();
         }
-    }
-
-    private interface RetryCallback {
-        void retry();
     }
 }
