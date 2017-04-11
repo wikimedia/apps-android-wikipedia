@@ -322,6 +322,9 @@
     <string name="reading_list_article_remove_offline">Don\'t make this article available offline</string>
     <string name="reading_list_article_offline_message">This article will now be available offline.</string>
     <string name="reading_list_article_not_offline_message">This article will no longer be available offline.</string>
+    <string name="reading_list_add_to_other_list">Add to another reading list</string>
+    <string name="reading_list_remove_from_list">Remove from %s</string>
+    <string name="reading_list_remove_from_lists">Remove from reading lists</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

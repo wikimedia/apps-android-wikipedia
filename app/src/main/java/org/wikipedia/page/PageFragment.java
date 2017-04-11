@@ -67,6 +67,7 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
@@ -124,6 +125,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Nullable PageLoadCallbacks onPageGetPageLoadCallbacks();
         void onPageAddToReadingList(@NonNull PageTitle title,
                                     @NonNull AddToReadingListDialog.InvokeSource source);
+        void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         @Nullable View onPageGetContentView();
         @Nullable View onPageGetTabsContainerView();
         void onPagePopFragment();
@@ -148,6 +150,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
     @Nullable private PageInfo pageInfo;
+    private boolean pageSavedToList;
 
     /**
      * List of tabs, each of which contains a backstack of page titles.
@@ -212,7 +215,23 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageActionTab.Callback pageActionTabsCallback = new PageActionTab.Callback() {
         @Override
         public void onAddToReadingListTabSelected() {
-            addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+            if (pageSavedToList) {
+                new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
+                    @Override
+                    public void onAddRequest(@Nullable ReadingListPage page) {
+                        addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+                    }
+
+                    @Override
+                    public void onDeleted(@Nullable ReadingListPage page) {
+                        if (callback() != null) {
+                            callback().onPageRemoveFromReadingLists(getTitle());
+                        }
+                    }
+                }).show(getTitle());
+            } else {
+                addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+            }
         }
 
         @Override
@@ -983,6 +1002,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
+        pageSavedToList = pageSaved;
         TabLayout.Tab bookmarkTab
                 = tabLayout.getTabAt(PageActionTab.ADD_TO_READING_LIST.code());
         if (bookmarkTab != null) {
