@@ -37,6 +37,7 @@ import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.ReadingListPageObserver;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
+import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -284,6 +285,7 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
             public void onClick(View v) {
                 for (ReadingListPage page : pages) {
                     ReadingList.DAO.addTitleToList(readingList, page, true);
+                    ReadingListSynchronizer.instance().bumpRevAndSync();
                     ReadingListPageDao.instance().markOutdated(page);
                 }
                 update();
@@ -302,6 +304,7 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
                     @Override
                     public void onSuccess(@NonNull CharSequence text) {
                         ReadingList.DAO.renameAndSaveListInfo(readingList, text.toString());
+                        ReadingListSynchronizer.instance().bumpRevAndSync();
                         update();
                         funnel.logModifyList(readingList, readingLists.size());
                     }
@@ -323,6 +326,7 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
             public void onSuccess(@NonNull CharSequence text) {
                 readingList.setDescription(text.toString());
                 ReadingList.DAO.saveListInfo(readingList);
+                ReadingListSynchronizer.instance().bumpRevAndSync();
                 update();
                 funnel.logModifyList(readingList, readingLists.size());
             }
@@ -391,6 +395,7 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
             }
         }
         if (!selectedPages.isEmpty()) {
+            ReadingListSynchronizer.instance().bumpRevAndSync();
             funnel.logDeleteItem(readingList, readingLists.size());
             showDeleteItemsUndoSnackbar(readingList, selectedPages);
             update();
@@ -471,6 +476,7 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
             if (readingList != null) {
                 showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
                 ReadingList.DAO.removeTitleFromList(readingList, page);
+                ReadingListSynchronizer.instance().bumpRevAndSync();
                 funnel.logDeleteItem(readingList, readingLists.size());
                 update();
             }

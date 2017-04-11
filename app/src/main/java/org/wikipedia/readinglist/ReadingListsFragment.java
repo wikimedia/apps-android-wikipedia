@@ -17,12 +17,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.otto.Subscribe;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
+import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -44,6 +48,7 @@ public class ReadingListsFragment extends Fragment {
 
     private ReadingLists readingLists = new ReadingLists();
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
+    private EventBusMethods eventBusMethods = new EventBusMethods();
 
     private ReadingListAdapter adapter = new ReadingListAdapter();
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
@@ -77,6 +82,7 @@ public class ReadingListsFragment extends Fragment {
         readingListView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
 
+        WikipediaApp.getInstance().getBus().register(eventBusMethods);
         updateLists();
         return view;
     }
@@ -89,6 +95,7 @@ public class ReadingListsFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
         readingListView.setAdapter(null);
         unbinder.unbind();
         unbinder = null;
@@ -240,6 +247,7 @@ public class ReadingListsFragment extends Fragment {
                         public void onSuccess(@NonNull CharSequence text) {
                             ReadingList.DAO.renameAndSaveListInfo(readingList, text.toString());
                             updateLists();
+                            ReadingListSynchronizer.instance().bumpRevAndSync();
                             funnel.logModifyList(readingList, readingLists.size());
                         }
                     }).show();
@@ -259,6 +267,7 @@ public class ReadingListsFragment extends Fragment {
                     readingList.setDescription(text.toString());
                     ReadingList.DAO.saveListInfo(readingList);
                     updateLists();
+                    ReadingListSynchronizer.instance().bumpRevAndSync();
                     funnel.logModifyList(readingList, readingLists.size());
                 }
             }).show();
@@ -283,6 +292,7 @@ public class ReadingListsFragment extends Fragment {
         if (readingList != null) {
             showDeleteListUndoSnackbar(readingList);
             ReadingList.DAO.removeList(readingList);
+            ReadingListSynchronizer.instance().bumpRevAndSync();
             funnel.logDeleteList(readingList, readingLists.size());
             updateLists();
         }
@@ -296,6 +306,7 @@ public class ReadingListsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ReadingList.DAO.addList(readingList);
+                ReadingListSynchronizer.instance().bumpRevAndSync();
                 updateLists();
             }
         });
@@ -341,6 +352,19 @@ public class ReadingListsFragment extends Fragment {
         @Override
         protected String getSearchHintString() {
             return getContext().getResources().getString(R.string.search_hint_search_my_lists);
+        }
+    }
+
+    private class EventBusMethods {
+        @Subscribe public void on(ReadingListSyncEvent event) {
+            readingListView.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (isAdded()) {
+                        updateLists();
+                    }
+                }
+            });
         }
     }
 }

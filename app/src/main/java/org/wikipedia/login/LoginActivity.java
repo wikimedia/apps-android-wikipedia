@@ -25,6 +25,7 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
@@ -252,6 +253,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                 progressDialog.dismiss();
                 if (result.pass()) {
                     funnel.logSuccess();
+                    ReadingListSynchronizer.instance().sync();
 
                     Bundle extras = getIntent().getExtras();
                     AccountAuthenticatorResponse response = extras == null
