@@ -1,4 +1,4 @@
-package org.wikipedia.savedpages;
+package org.wikipedia.readinglist.page;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListPageContract;
+import org.wikipedia.savedpages.SavedPageSyncService;
 
 public class ReadingListPageObserver extends ContentObserver {
     public interface Callback {

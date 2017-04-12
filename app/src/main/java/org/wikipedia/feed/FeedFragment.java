@@ -30,7 +30,7 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.savedpages.ReadingListPageObserver;
+import org.wikipedia.readinglist.page.ReadingListPageObserver;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
