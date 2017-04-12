@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- todo: replace FrameLayout with Behavior. this is a hack to move the FAB up and isn't good practice -->
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -17,16 +16,33 @@
         app:mapbox_uiLogo="false">
     </com.mapbox.mapboxsdk.maps.MapView>
 
+    <TextView
+        android:id="@+id/osm_license"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/base20"
+        android:textColorLink="?attr/link_color"
+        android:alpha="0.6"
+        android:shadowColor="@android:color/white"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="10"
+        android:textSize="12sp" />
+
     <android.support.design.widget.FloatingActionButton
-        style="@style/FloatingActionButton"
         android:id="@+id/user_location_button"
+        style="@style/FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        app:srcCompat="@drawable/ic_my_location_white_24dp"
         android:contentDescription="@string/nearby_zoom_to_location"
-        app:elevation="4dp"
+        app:backgroundTint="@color/foundation_blue"
         app:borderWidth="0dp"
-        app:backgroundTint="@color/foundation_blue" />
+        app:elevation="4dp"
+        app:srcCompat="@drawable/ic_my_location_white_24dp" />
 
 </FrameLayout>

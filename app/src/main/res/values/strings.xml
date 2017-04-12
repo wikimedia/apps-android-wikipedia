@@ -52,6 +52,7 @@
     <string name="nearby_distance_in_meters">%d m</string>
     <string name="nearby_distance_in_kilometers">%.2f km</string>
     <string name="nearby_zoom_to_location">Zoom to a location on the map</string>
+    <string name="nearby_osm_license"><![CDATA[&copy; &nbsp;<a href=\"https://www.openstreetmap.org/copyright/\">OpenStreetMap</a> contributors]]></string>
 
     <string name="last_updated_text">Last updated %s</string>
     <string name="talk_page_link_text">Talk</string>
