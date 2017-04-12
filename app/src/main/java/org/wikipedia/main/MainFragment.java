@@ -113,7 +113,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             }
         });
 
-
         if (savedInstanceState == null) {
             handleIntent(getActivity().getIntent());
         }
@@ -487,8 +486,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void goToTab(@NonNull NavTab tab) {
-        viewPager.setCurrentItem(tab.code());
-        tabLayout.setCurrentTab(tab);
+        tabLayout.setSelectedItemId(tab.code());
         cancelSearch();
     }
 
