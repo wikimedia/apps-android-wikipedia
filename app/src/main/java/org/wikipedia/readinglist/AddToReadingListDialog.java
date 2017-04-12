@@ -213,7 +213,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     }
 
                     showViewListSnackBar(readingList, message);
-                    ReadingList.DAO.addTitleToList(readingList, page);
+                    ReadingList.DAO.addTitleToList(readingList, page, false);
                     dismiss();
                 }
             }
