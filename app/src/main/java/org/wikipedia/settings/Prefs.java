@@ -494,6 +494,14 @@ public final class Prefs {
         setLong(R.string.preference_key_last_description_edit_time, time);
     }
 
+    public static long getReadingListSyncRev() {
+        return getLong(R.string.preference_key_reading_list_sync_rev, 0);
+    }
+
+    public static void setReadingListSyncRev(long rev) {
+        setLong(R.string.preference_key_reading_list_sync_rev, rev);
+    }
+
     public static int getTotalAnonDescriptionsEdited() {
         return getInt(R.string.preference_key_total_anon_descriptions_edited, 0);
     }

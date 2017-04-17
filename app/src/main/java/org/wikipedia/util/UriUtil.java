@@ -18,6 +18,7 @@ import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 import static org.wikipedia.zero.WikipediaZeroHandler.showZeroExitInterstitialDialog;
 
@@ -37,6 +38,14 @@ public final class UriUtil {
             // return the original string.
             L.d("URL decoding failed. String was: " + url);
             return url;
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @NonNull public static String encodeURL(@NonNull String url) {
+        try {
+            return URLEncoder.encode(url, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }

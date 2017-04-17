@@ -53,6 +53,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
@@ -112,6 +113,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 return true;
             }
         });
+
+        ReadingListSynchronizer.instance().sync();
 
         if (savedInstanceState == null) {
             handleIntent(getActivity().getIntent());

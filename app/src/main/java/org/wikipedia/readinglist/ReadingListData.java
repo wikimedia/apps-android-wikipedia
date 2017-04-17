@@ -28,18 +28,22 @@ public final class ReadingListData {
                               @NonNull CallbackTask.Callback<List<ReadingList>> callback) {
         CallbackTask.execute(new CallbackTask.Task<List<ReadingList>>() {
             @Override public List<ReadingList> execute() {
-                List<ReadingList> rows = new ArrayList<>();
-                Cursor cursor = lists(searchQuery);
-                try {
-                    while (cursor.moveToNext()) {
-                        rows.add(ReadingList.fromCursor(cursor));
-                    }
-                } finally {
-                    cursor.close();
-                }
-                return rows;
+                return queryMruLists(searchQuery);
             }
         }, callback);
+    }
+
+    public List<ReadingList> queryMruLists(@Nullable String searchQuery) {
+        List<ReadingList> rows = new ArrayList<>();
+        Cursor cursor = lists(searchQuery);
+        try {
+            while (cursor.moveToNext()) {
+                rows.add(ReadingList.fromCursor(cursor));
+            }
+        } finally {
+            cursor.close();
+        }
+        return rows;
     }
 
     @NonNull public Cursor lists(@Nullable String searchQuery) {
