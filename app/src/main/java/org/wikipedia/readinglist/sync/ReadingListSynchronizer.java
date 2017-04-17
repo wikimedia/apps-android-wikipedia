@@ -20,6 +20,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -51,6 +52,10 @@ public class ReadingListSynchronizer {
     }
 
     public void sync() {
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            // TODO: remove when ready for beta/production
+            return;
+        }
         if (!User.isLoggedIn()) {
             L.d("Not logged in, so skipping sync of reading lists.");
             return;
