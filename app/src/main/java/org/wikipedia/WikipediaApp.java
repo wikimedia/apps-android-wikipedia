@@ -88,7 +88,7 @@ public class WikipediaApp extends Application {
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
-    @NonNull private ReadingListPageObserver readingListPageObserver = new ReadingListPageObserver(null);
+    private ReadingListPageObserver readingListPageObserver;
     private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
 
     private Database database;
@@ -169,6 +169,7 @@ public class WikipediaApp extends Application {
         AccountUtil.createAccountForLoggedInUser();
 
         UserOptionContentResolver.registerAppSyncObserver(this);
+        readingListPageObserver = new ReadingListPageObserver(new Handler(getMainLooper()));
         readingListPageObserver.register(this);
 
         listenForNotifications();
