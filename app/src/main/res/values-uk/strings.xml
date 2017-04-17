@@ -226,6 +226,8 @@
   <string name="text_copied">Текст скопійовано в буфер обміну.</string>
   <string name="button_continue_to_article">Читати статтю</string>
   <string name="button_add_to_reading_list">Додати до списку для читання</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Статтю неможливо завантажити, перебуваючи поза мережею.</string>
+  <string name="page_offline_notice_add_to_reading_list">Додайте статтю до списку для читання, і її буде завантажено, як тільки Ви отримаєте доступ до мережі.</string>
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
@@ -238,6 +240,10 @@
   <string name="location_permissions_enable_action">Увімкнути</string>
   <string name="error_webview_updating">Веб-перегляд для Android-систем наразі оновлюється. Будь ласка, спробуйте ще раз за деякий час.</string>
   <string name="multi_select_items_selected">%d вибрано</string>
+  <string name="error_message_generic">Сталася помилка</string>
+  <string name="view_link_preview_error_button_dismiss">Відхилити</string>
+  <string name="error_page_does_not_exist">Ця сторінка не існує</string>
+  <string name="view_wiki_error_message_offline">Не вдається підключитися до інтернету.</string>
   <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>
   <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустити</string>
@@ -295,6 +301,9 @@
   <string name="reading_list_article_remove_offline">Не робити цю статтю доступною офлайн</string>
   <string name="reading_list_article_offline_message">Ця стаття тепер буде доступна офлайн.</string>
   <string name="reading_list_article_not_offline_message">Ця стаття більше не буде доступна офлайн.</string>
+  <string name="reading_list_add_to_other_list">Додати до іншого списку для читання</string>
+  <string name="reading_list_remove_from_list">Вилучити з %s</string>
+  <string name="reading_list_remove_from_lists">Вилучити зі списків для читання</string>
   <string name="user_option_sync_label">Налаштування</string>
   <string name="notification_button_view_user">Поговорити з користувачем</string>
   <string name="notification_talk_title">Нове повідомлення у Вікіпедії</string>
@@ -329,7 +338,7 @@
   <string name="view_continue_reading_card_subtitle_today">Сьогодні</string>
   <string name="view_announcement_card_negative_action">Ні, дякую</string>
   <string name="description_edit_text_hint">Опис назви</string>
-  <string name="description_edit_save" fuzzy="true">Зберегти</string>
+  <string name="description_edit_save">Опублікувати</string>
   <string name="description_edit_add_description">Додати опис назви</string>
   <string name="description_edit_edit_description">Редагувати опис</string>
   <string name="description_edit_cancel_hint">Скасувати</string>
@@ -340,7 +349,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Дякуємо за Ваш незмінний інтерес до редагування описів! Щоб здійснити додаткові редагування, будь ласка, увійдіть зі свого облікового запису у Вікіпедії.</string>
   <string name="description_edit_license_notice">Змінюючи опис назви, я погоджуюсь на &lt;a href=\"%1$s\"&gt;Умови використання&lt;/a&gt;, і на невідкличну публікацію моїх редагувань на умовах ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Опис збережено!</string>
+  <string name="description_edit_success_saved">Опис опубліковано!</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Чи знаєте ви?</string>

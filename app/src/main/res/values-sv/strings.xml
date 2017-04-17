@@ -50,9 +50,9 @@
   <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>
   <string name="langlinks_no_match">Inga språk som matchade din sökning hittades.</string>
   <string name="langlinks_activity_title">Andra språk</string>
-  <string name="menu_save_changes" fuzzy="true">Spara ändringar</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Sparar…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Redigeringen sparades!</string>
+  <string name="menu_save_changes">Publicera ändringar</string>
+  <string name="dialog_saving_in_progress">Publicerar…</string>
+  <string name="edit_saved_successfully">Redigeringen publicerades!</string>
   <string name="dialog_message_edit_failed">Redigeringen gick inte att spara!</string>
   <string name="dialog_message_edit_failed_retry">Försök igen</string>
   <string name="dialog_message_edit_failed_cancel">Avbryt</string>
@@ -152,7 +152,7 @@
   <string name="user_anon_blocked_from_editing">Din IP-adress har blockerats från redigering.</string>
   <string name="edit_how_page_improved">Hur förbättrade du sidan?</string>
   <string name="edit_next">Nästa</string>
-  <string name="edit_done" fuzzy="true">Spara</string>
+  <string name="edit_done">Publicera</string>
   <string name="edit_preview">Förhandsgranska</string>
   <string name="edit_summary_tag_typo">Rättade felstavning</string>
   <string name="edit_summary_tag_grammar">Rättade grammatik</string>
@@ -161,8 +161,8 @@
   <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat sidan</string>
   <string name="find_next">Sök nästa</string>
   <string name="find_previous">Sök föregående</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill spara den?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Du kan inte spara denna redigering. Gå tillbaka och ändra den.</string>
+  <string name="abusefilter_title_warn">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill publicera den?</string>
+  <string name="abusefilter_title_disallow">Du kan inte publicera denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>
   <string name="abusefilter_text_disallow">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv eller potentiell vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia är en encyklopedi och endast neutralt, nämnvärt innehåll hör hemma här.</string>
   <string name="dialog_page_issues">Sidproblem</string>
@@ -226,6 +226,8 @@
   <string name="text_copied">Texten kopierades till urklipp.</string>
   <string name="button_continue_to_article">Läs artikeln</string>
   <string name="button_add_to_reading_list">Lägg till i läslista</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Artikeln kan inte läsas in i offlineläge.</string>
+  <string name="page_offline_notice_add_to_reading_list">Lägg till artikeln i en läslista och den kommer att laddas ned så fort du blir online igen.</string>
   <string name="button_get_directions">Få vägbeskrivningar</string>
   <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
@@ -238,6 +240,10 @@
   <string name="location_permissions_enable_action">Slå på</string>
   <string name="error_webview_updating">Androidsystemets WebView uppdateras för tillfället. Försök igen om en stund.</string>
   <string name="multi_select_items_selected">%d markerade</string>
+  <string name="error_message_generic">Ett fel inträffade</string>
+  <string name="view_link_preview_error_button_dismiss">Stäng</string>
+  <string name="error_page_does_not_exist">Denna sida finns inte</string>
+  <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
   <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
   <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
   <string name="crash_report_dialog_dont_send_button">Hoppa över</string>
@@ -295,6 +301,9 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_article_remove_offline">Gör inte denna artikel tillgänglig offline</string>
   <string name="reading_list_article_offline_message">Denna artikel kommer nu vara tillgänglig offline.</string>
   <string name="reading_list_article_not_offline_message">Denna artikel kommer inte längre vara tillgänglig offline.</string>
+  <string name="reading_list_add_to_other_list">Lägg till en annan läslista</string>
+  <string name="reading_list_remove_from_list">Ta bort from %s</string>
+  <string name="reading_list_remove_from_lists">Ta bort från läslistor</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_button_view_user">Diskutera med användare</string>
   <string name="notification_talk_title">Nytt meddelande på Wikipedia</string>
@@ -328,7 +337,7 @@ Vill du starta om eller avsluta?</string>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
-  <string name="description_edit_save" fuzzy="true">Spara</string>
+  <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
   <string name="description_edit_edit_description">Redigera beskrivning</string>
   <string name="description_edit_cancel_hint">Avbryt</string>
@@ -339,7 +348,7 @@ Vill du starta om eller avsluta?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tack för ditt fortsatta intresse för att redigera beskrivningar! För att redigera mera, logga in på ditt Wikipedia-konto.</string>
   <string name="description_edit_license_notice">Genom att ändra titelbeskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Beskrivningen sparades!</string>
+  <string name="description_edit_success_saved">Beskrivningen publicerades!</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
   <string name="description_edit_success_did_you_know">Visste du att?</string>

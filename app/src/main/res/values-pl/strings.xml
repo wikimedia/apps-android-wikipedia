@@ -229,6 +229,8 @@
   <string name="enable_location_service">Włącz</string>
   <string name="location_permissions_enable_action">Włącz</string>
   <string name="error_message_generic">Wystąpił błąd</string>
+  <string name="view_link_preview_error_button_dismiss">Odrzuć</string>
+  <string name="error_page_does_not_exist">Ta strona nie istnieje</string>
   <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z Internetem</string>
   <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
@@ -272,6 +274,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="reading_list_article_remove_offline">Artykuł nie będzie dostępny w trybie offline</string>
   <string name="reading_list_article_offline_message">Ten artykuł będzie dostępny w trybie offline.</string>
   <string name="reading_list_article_not_offline_message">Ten artykuł nie będzie dostępny w trybie offline.</string>
+  <string name="reading_list_remove_from_list">Usuń z %s</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>

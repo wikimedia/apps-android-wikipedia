@@ -301,6 +301,9 @@
   <string name="reading_list_article_remove_offline">不要使该条目离线时可用</string>
   <string name="reading_list_article_offline_message">该条目现在可以离线使用。</string>
   <string name="reading_list_article_not_offline_message">该条目将不再可以离线使用。</string>
+  <string name="reading_list_add_to_other_list">添加到另一个阅读列表</string>
+  <string name="reading_list_remove_from_list">从%s中移除</string>
+  <string name="reading_list_remove_from_lists">从阅读列表中移除</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_button_view_user">与用户讨论</string>
   <string name="notification_talk_title">维基百科上的新消息</string>

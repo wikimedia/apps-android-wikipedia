@@ -50,9 +50,9 @@
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
   <string name="langlinks_no_match">No se encontraron idiomas que coincidan con tu consulta.</string>
   <string name="langlinks_activity_title">Otros idiomas</string>
-  <string name="menu_save_changes" fuzzy="true">Guardar cambios</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Guardando…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Se ha guardado la edición.</string>
+  <string name="menu_save_changes">Publicar cambios</string>
+  <string name="dialog_saving_in_progress">Publicando…</string>
+  <string name="edit_saved_successfully">Edición guardada.</string>
   <string name="dialog_message_edit_failed">¡Error de edición!</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
@@ -152,7 +152,7 @@
   <string name="user_anon_blocked_from_editing">Se bloqueó la edición desde tu dirección IP.</string>
   <string name="edit_how_page_improved">¿Cómo has mejorado la página?</string>
   <string name="edit_next">Siguiente</string>
-  <string name="edit_done" fuzzy="true">Guardar</string>
+  <string name="edit_done">Publicar</string>
   <string name="edit_preview">Vista previa</string>
   <string name="edit_summary_tag_typo">Ortografía corregida</string>
   <string name="edit_summary_tag_grammar">Gramática corregida</string>
@@ -161,8 +161,8 @@
   <string name="edit_summary_tag_other_hint">Otras formas en las que has mejorado la página</string>
   <string name="find_next">Buscar siguiente</string>
   <string name="find_previous">Buscar anterior</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Esta parece una edición no constructiva. ¿Confirmas que quieres guardarla?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">No puedes guardar esta edición. Por favor vuelve atrás y cámbiala.</string>
+  <string name="abusefilter_title_warn">Esta parece una edición no constructiva. ¿Confirmas que quieres publicarla?</string>
+  <string name="abusefilter_title_disallow">No puedes publicar esta edición. Vuelve atrás y cámbiala.</string>
   <string name="abusefilter_text_warn">Un filtro automático ha identificado esta edición como potencialmente no constructiva. Puede contener uno o más de los siguientes:&lt;br&gt;&lt;br&gt;· Escrito en mayúsculas&lt;br&gt;· Borrado de artículos o spam&lt;br&gt;· Enlaces externos o imágenes irrelevantes&lt;br&gt;· Caracteres repetidos</string>
   <string name="abusefilter_text_disallow">Un filtro automático ha identificado esta edición como potencialmente no constructiva, o probable vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia es una enciclopedía y sólo contenido neutral y notable pertenece aquí.</string>
   <string name="dialog_page_issues">Problemas de la página</string>
@@ -226,6 +226,8 @@
   <string name="text_copied">Texto copiado en el portapapeles.</string>
   <string name="button_continue_to_article">Leer artículo</string>
   <string name="button_add_to_reading_list">Añadir a lista de lectura</string>
+  <string name="page_offline_notice_cannot_load_while_offline">El artículo no se puede cargar mientras no haya conexión.</string>
+  <string name="page_offline_notice_add_to_reading_list">Añade el artículo a una lista de lactura y se descargará cuando te vuelvas a conectar.</string>
   <string name="button_get_directions">Obtener indicaciones</string>
   <string name="error_no_maps_app">No se pudo encontrar ninguna aplicación que proporcione indicaciones.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>
@@ -238,6 +240,10 @@
   <string name="location_permissions_enable_action">Activar</string>
   <string name="error_webview_updating">El sistema de Android WebView se está actualizado. Inténtalo de nuevo en un momento.</string>
   <string name="multi_select_items_selected">%d seleccionados</string>
+  <string name="error_message_generic">Ocurrió un error</string>
+  <string name="view_link_preview_error_button_dismiss">Descartar</string>
+  <string name="error_page_does_not_exist">Esta página no existe</string>
+  <string name="view_wiki_error_message_offline">No se pudo conectar a Internet.</string>
   <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Te gustaría enviar un informe de fallo a HockeyApp / un proveedor de servicios de terceros para que Wikimedia pueda revisar tu fallo y corregir el error que lo causó?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -295,6 +301,9 @@
   <string name="reading_list_article_remove_offline">No permitir que este artículo esté disponible sin conexión.</string>
   <string name="reading_list_article_offline_message">Este artículo ahora estará disponible sin conexión.</string>
   <string name="reading_list_article_not_offline_message">Este artículo ya no estará disponible sin conexión.</string>
+  <string name="reading_list_add_to_other_list">Añadir a otra lista de lectura</string>
+  <string name="reading_list_remove_from_list">Quitar de %s</string>
+  <string name="reading_list_remove_from_lists">Quitar de las listas de lectura</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Discute con el usuario</string>
   <string name="notification_talk_title">Mensaje nuevo en Wikipedia</string>
@@ -328,7 +337,7 @@
   <string name="view_continue_reading_card_subtitle_today">Hoy</string>
   <string name="view_announcement_card_negative_action">No, gracias</string>
   <string name="description_edit_text_hint">Descripción de título</string>
-  <string name="description_edit_save" fuzzy="true">Guardar</string>
+  <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Añade descripción de título</string>
   <string name="description_edit_edit_description">Editar descripción</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
@@ -339,7 +348,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/es</string>
   <string name="description_edit_anon_limit">¡Gracias por tu continuo interés en la edición de descripciones! Para realizar cambios adicionales, inicia sesión en tu cuenta de Wikipedia.</string>
   <string name="description_edit_license_notice">Al cambiar la descripción del título, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Descripción guardada</string>
+  <string name="description_edit_success_saved">Descripción publicada</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>

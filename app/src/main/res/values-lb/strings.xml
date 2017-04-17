@@ -289,6 +289,9 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_article_remove_offline">Dësen Artikel net offline disponibel maachen</string>
   <string name="reading_list_article_offline_message">Dësen Artikel ass elo offline disponibel.</string>
   <string name="reading_list_article_not_offline_message">Dësen Artikel ass net méi offline disponibel.</string>
+  <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht derbäisetzen</string>
+  <string name="reading_list_remove_from_list">Vu(n) %s erofhuelen</string>
+  <string name="reading_list_remove_from_lists">Vu Lieslëschten erofhuelen</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_button_view_user">Mam Benotzer schwätzen</string>
   <string name="notification_talk_title">Neie Message op Wikipedia</string>

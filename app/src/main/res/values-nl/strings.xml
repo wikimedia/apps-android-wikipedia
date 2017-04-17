@@ -48,9 +48,9 @@
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen</string>
   <string name="langlinks_no_match">Geen talen gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="langlinks_activity_title">Andere talen</string>
-  <string name="menu_save_changes" fuzzy="true">Wijzigingen opslaan</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Bezig met opslaan…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Bewerking opgeslagen!</string>
+  <string name="menu_save_changes">Wijzigingen publiceren</string>
+  <string name="dialog_saving_in_progress">Bezig met publiceren...</string>
+  <string name="edit_saved_successfully">Bewerking gepubliceerd!</string>
   <string name="dialog_message_edit_failed">Bewerking mislukt!</string>
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
   <string name="dialog_message_edit_failed_cancel">Annuleren</string>

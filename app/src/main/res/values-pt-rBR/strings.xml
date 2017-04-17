@@ -48,7 +48,7 @@
   <string name="langlinks_no_match">Nenhum idioma correspondente com a sua pesquisa.</string>
   <string name="langlinks_activity_title">Outros idiomas</string>
   <string name="menu_save_changes" fuzzy="true">Salvar mudanças</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Salvando…</string>
+  <string name="dialog_saving_in_progress">Publicando…</string>
   <string name="edit_saved_successfully" fuzzy="true">Edição salva!</string>
   <string name="dialog_message_edit_failed">Falha de edição!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
@@ -142,7 +142,7 @@
   <string name="user_anon_blocked_from_editing">O seu endereço IP foi bloqueado de editar.</string>
   <string name="edit_how_page_improved">Como você contribuiu para melhorar a página?</string>
   <string name="edit_next">Próximo</string>
-  <string name="edit_done" fuzzy="true">Salvar</string>
+  <string name="edit_done">Publicar</string>
   <string name="edit_preview">Pré-visualização</string>
   <string name="edit_summary_tag_typo">Corrigiu erro ortográfico</string>
   <string name="edit_summary_tag_grammar">Corrigiu gramática</string>

@@ -50,9 +50,9 @@
   <string name="langlinks_empty">Aquesta pàgina no està disponible en altres idiomes.</string>
   <string name="langlinks_no_match">No s\'ha trobat cap idioma que coincideixi amb la consulta.</string>
   <string name="langlinks_activity_title">Altres idiomes</string>
-  <string name="menu_save_changes" fuzzy="true">Desa els canvis</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">S’està desant…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Modificació desada!</string>
+  <string name="menu_save_changes">Publica els canvis</string>
+  <string name="dialog_saving_in_progress">S’estan publicant…</string>
+  <string name="edit_saved_successfully">Modificació publicada!</string>
   <string name="dialog_message_edit_failed">La modificació no s\'ha desat!</string>
   <string name="dialog_message_edit_failed_retry">Tornar-ho a provar</string>
   <string name="dialog_message_edit_failed_cancel">Cancel·lar</string>
@@ -152,7 +152,7 @@
   <string name="user_anon_blocked_from_editing">S\'ha bloquejat l\'edició des de la vostra IP.</string>
   <string name="edit_how_page_improved">Com heu millorat la pàgina?</string>
   <string name="edit_next">Següent</string>
-  <string name="edit_done" fuzzy="true">Desa</string>
+  <string name="edit_done">Publica</string>
   <string name="edit_preview">Vista prèvia</string>
   <string name="edit_summary_tag_typo">Errada corregida</string>
   <string name="edit_summary_tag_grammar">Errada gramatical corregida</string>
@@ -161,8 +161,8 @@
   <string name="edit_summary_tag_other_hint">Altres formes com heu millorat la pàgina</string>
   <string name="find_next">Cercar el següent</string>
   <string name="find_previous">Cercar l\'anterior</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Això podria ser una modificació no constructiva. Segur que voleu desar-la?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">No podeu desar aquesta modificació. Aneu enrere i canvieu-la.</string>
+  <string name="abusefilter_title_warn">Això podria ser una modificació no constructiva. Segur que voleu publicar-la?</string>
+  <string name="abusefilter_title_disallow">No podeu publicar la modificació. Aneu enrere i canvieu-la.</string>
   <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs o imatges irrellevants&lt;br /&gt;· Caràcters que es repeteixin</string>
   <string name="abusefilter_text_disallow">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial.&lt;br /&gt;&lt;br /&gt;La Viquipèdia és una enciclopèdia i només hi tenen cabuda els continguts neutrals i notoris.</string>
   <string name="dialog_page_issues">Problemes de la pàgina</string>
@@ -226,6 +226,7 @@
   <string name="text_copied">Text copiat al porta-retalls.</string>
   <string name="button_continue_to_article">Llegeix l\'article</string>
   <string name="button_add_to_reading_list">Afegeix a la llista de lectura</string>
+  <string name="page_offline_notice_cannot_load_while_offline">No es pot carregar l\'article mentre estigueu fora de línia.</string>
   <string name="button_get_directions">Obtén indicacions</string>
   <string name="error_no_maps_app">No es pot trobar cap aplicació que proporcioni direccions.</string>
   <string name="preference_title_show_link_previews">Mostra l\'enllaç de vistes prèvies</string>
@@ -237,6 +238,10 @@
   <string name="location_permissions_enable_prompt">Activa els permisos d\'ubicació per a veure els llocs propers.</string>
   <string name="location_permissions_enable_action">Activa</string>
   <string name="multi_select_items_selected">%d seleccionats</string>
+  <string name="error_message_generic">S\'ha produït un error</string>
+  <string name="view_link_preview_error_button_dismiss">Descarta</string>
+  <string name="error_page_does_not_exist">La pàgina no existeix</string>
+  <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
   <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
   <string name="crash_report_dialog_text">Voleu enviar d\'un informe d\'errors a HockeyApp / un proveïdor de serveis extern de manera que Wikimedia pugui revisar l\'error i corregir-ne la causa?</string>
   <string name="crash_report_dialog_dont_send_button">Omet</string>
@@ -327,7 +332,7 @@ Voleu començar de nou o sortir?</string>
   <string name="view_continue_reading_card_subtitle_today">Avui</string>
   <string name="view_announcement_card_negative_action">No, gràcies</string>
   <string name="description_edit_text_hint">Descripció de títol</string>
-  <string name="description_edit_save" fuzzy="true">Desa</string>
+  <string name="description_edit_save">Publica</string>
   <string name="description_edit_add_description">Afegeix una descripció de títol</string>
   <string name="description_edit_edit_description">Modifica la descripció</string>
   <string name="description_edit_cancel_hint">Cancel·la</string>

@@ -47,7 +47,7 @@
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
   <string name="langlinks_no_match">तपाईंको क्वेरीसँग मिल्ने कुनै भाषाहरू फेला परेनन्।</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
-  <string name="menu_save_changes" fuzzy="true">परिवर्तनहरू बचत गर्नुहोस्</string>
+  <string name="menu_save_changes">परिवर्तनहरू बचत गर्नुहोस्</string>
   <string name="dialog_saving_in_progress" fuzzy="true">बचत गर्दै…</string>
   <string name="edit_saved_successfully" fuzzy="true">बचत भएकोलाई सम्पादन गर्नुहोस्!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल भयो!</string>

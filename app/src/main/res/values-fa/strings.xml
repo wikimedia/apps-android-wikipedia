@@ -50,9 +50,9 @@
   <string name="langlinks_empty">این صفحه به زبان های دیگر در دسترس نمی‌باشد.</string>
   <string name="langlinks_no_match">هیچ زبانی برای درخواست شما یافت نشد</string>
   <string name="langlinks_activity_title">زبان‌های دیگر</string>
-  <string name="menu_save_changes" fuzzy="true">ذخیره کردن تغییرات</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">در حال ذخیره‌سازی…</string>
-  <string name="edit_saved_successfully" fuzzy="true">ویرایش ذخیره شد!</string>
+  <string name="menu_save_changes">منتشر کردن تغییرات</string>
+  <string name="dialog_saving_in_progress">در حال منتشرسازی…</string>
+  <string name="edit_saved_successfully">ویرایش منتشرشده!</string>
   <string name="dialog_message_edit_failed">ویرایش نشد!</string>
   <string name="dialog_message_edit_failed_retry">تلاش مجدد</string>
   <string name="dialog_message_edit_failed_cancel">انصراف</string>
@@ -152,7 +152,7 @@
   <string name="user_anon_blocked_from_editing">نشانی آی‌پی شما در برابر ویرایش، مسدود شده‌است.</string>
   <string name="edit_how_page_improved">چگونه مقاله را بهبود دادید؟</string>
   <string name="edit_next">بعدی</string>
-  <string name="edit_done" fuzzy="true">ذخیره</string>
+  <string name="edit_done">منتشر</string>
   <string name="edit_preview">پیش‌نمایش</string>
   <string name="edit_summary_tag_typo">اشتباهات اصلاح شد</string>
   <string name="edit_summary_tag_grammar">دستور زبان  اصلاح شد</string>
@@ -161,8 +161,8 @@
   <string name="edit_summary_tag_other_hint">راه‌های دیگر برای بهبود صفحه</string>
   <string name="find_next">یافتن بعدی</string>
   <string name="find_previous">یافتن قبلی</string>
-  <string name="abusefilter_title_warn" fuzzy="true">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید ذخیره‌اش کنید؟</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">شما نمی‌توانید این ویرایش را ذخیره کنید. لطفاً بازگردید و تغییرش دهید.</string>
+  <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید منتشرش کنید؟</string>
+  <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را منتشر کنید. لطفاً بازگردید و تغییرش دهید.</string>
   <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
   <string name="abusefilter_text_disallow">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده، یا خرابکاری بالقوه شناسایی کرده‌است.&lt;br /&gt;&lt;br /&gt;ویکی‌پدیا یک دانشنامه است و فقط محتوای بی طرف و قابل توجه به اینجا تعلق دارند.</string>
   <string name="dialog_page_issues">موضوعات صفحه</string>
@@ -226,6 +226,8 @@
   <string name="text_copied">متن در حافظهٔ موقت ذخیره شد.</string>
   <string name="button_continue_to_article">مطالعهٔ مقاله</string>
   <string name="button_add_to_reading_list">افزودن به فهرست مطالعه</string>
+  <string name="page_offline_notice_cannot_load_while_offline">امکان بارگیری مقاله در حالت آفلاین وجود ندارد.</string>
+  <string name="page_offline_notice_add_to_reading_list">افزودن مقاله به فهرست خواندن و زمانی که برخط شدید، دانلود خواهد شد.</string>
   <string name="button_get_directions">دریافت مسیر</string>
   <string name="error_no_maps_app">نمی تواند اپلیکیشنی برای یافتن جهت پیدا کند.</string>
   <string name="preference_title_show_link_previews">نمایش پیوند پیش‌نمایش‌ها</string>
@@ -238,6 +240,10 @@
   <string name="location_permissions_enable_action">روشن کردن</string>
   <string name="error_webview_updating">سامانه مشاهدهٔ وب اندروید در حال بروزرسانی‌ست. لطفاً چند وقت دیگر از نو تلاش کنید.</string>
   <string name="multi_select_items_selected">%d انتخاب شد</string>
+  <string name="error_message_generic">خطایی رخ داد</string>
+  <string name="view_link_preview_error_button_dismiss">نپذیرفتن</string>
+  <string name="error_page_does_not_exist">این صفحه وجود ندارد</string>
+  <string name="view_wiki_error_message_offline">امکان اتصال به اینترنت وجود ندارد</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
   <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
   <string name="crash_report_dialog_dont_send_button">رها کردن</string>
@@ -293,6 +299,9 @@
   <string name="reading_list_article_remove_offline">در حالت آفلاین مقاله را در دسترس قرار نده</string>
   <string name="reading_list_article_offline_message">اکنون در حالت آفلاین مقاله در دسترس است.</string>
   <string name="reading_list_article_not_offline_message">دیگر در حالت آفلاین مقاله در دسترس نیست.</string>
+  <string name="reading_list_add_to_other_list">افزودن به فهرست مطالعهٔ دیگر</string>
+  <string name="reading_list_remove_from_list">حذف از %s</string>
+  <string name="reading_list_remove_from_lists">حذف از فهرست‌های خواندن</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_button_view_user">بحث با کاربر</string>
   <string name="notification_talk_title">پیام جدید در ویکی‌پدیا</string>
@@ -326,7 +335,7 @@
   <string name="view_continue_reading_card_subtitle_today">امروز</string>
   <string name="view_announcement_card_negative_action">نه ممنون</string>
   <string name="description_edit_text_hint">توضیحات عنوان</string>
-  <string name="description_edit_save" fuzzy="true">ذخیره</string>
+  <string name="description_edit_save">منتشر</string>
   <string name="description_edit_add_description">افزودن توضیحات عنوان</string>
   <string name="description_edit_edit_description">ویرایش توضیحات</string>
   <string name="description_edit_cancel_hint">لغو</string>
@@ -337,7 +346,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">به خاطر ویرایش توضیحات ممنون! برای ویرایش‌های بیشتر با حساب ویکی‌پدیا وارد سامانه شوید.</string>
   <string name="description_edit_license_notice">با تغییر توضیحات عنوان، موافق &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; و انتشار تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; هستم.</string>
-  <string name="description_edit_success_saved" fuzzy="true">توضیحات ذخیره شده‌است!</string>
+  <string name="description_edit_success_saved">توضیحات منتشر شده‌است!</string>
   <string name="description_edit_success_encouragement">شما ویکی‌پدیا را برای همه بهتر کردید</string>
   <string name="description_edit_success_done">انجام شد</string>
   <string name="description_edit_success_did_you_know">آیا می‌دانستید که؟</string>

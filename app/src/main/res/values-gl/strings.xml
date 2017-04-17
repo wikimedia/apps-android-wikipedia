@@ -50,9 +50,9 @@
   <string name="langlinks_empty">Esta páxina non está dispoñible noutras linguas</string>
   <string name="langlinks_no_match">Non se atopou ningunha lingua que coincidise coa súa pescuda.</string>
   <string name="langlinks_activity_title">Outras linguas</string>
-  <string name="menu_save_changes" fuzzy="true">Gardar os cambios</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Gardando…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Gardouse a edición!</string>
+  <string name="menu_save_changes">Publicar os cambios</string>
+  <string name="dialog_saving_in_progress">Publicando…</string>
+  <string name="edit_saved_successfully">Publicouse a edición!</string>
   <string name="dialog_message_edit_failed">Fallou a edición!</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
@@ -152,7 +152,7 @@
   <string name="user_anon_blocked_from_editing">O seu enderezo IP está bloqueado e non pode editar.</string>
   <string name="edit_how_page_improved">Como mellorou a páxina?</string>
   <string name="edit_next">Seguinte</string>
-  <string name="edit_done" fuzzy="true">Gardar</string>
+  <string name="edit_done">Publicar</string>
   <string name="edit_preview">Vista previa</string>
   <string name="edit_summary_tag_typo">Corrección ortográfica</string>
   <string name="edit_summary_tag_grammar">Corrección gramatical</string>
@@ -161,8 +161,8 @@
   <string name="edit_summary_tag_other_hint">Outras formas nas que mellorou a páxina</string>
   <string name="find_next">Atopar o seguinte</string>
   <string name="find_previous">Atopar o anterior</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Esta semella unha edición non construtiva. Está seguro de querer gardala?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Non pode gardar esta edición. Por favor, vaia á páxina anterior e modifíquea.</string>
+  <string name="abusefilter_title_warn">Esta semella unha edición non construtiva. Está seguro de querer publicala?</string>
+  <string name="abusefilter_title_disallow">Non pode publicar esta edición. Por favor, vaia á páxina anterior e modifíquea.</string>
   <string name="abusefilter_text_warn">Un filtro automático identificou esta edición como potencialmente non construtiva. Pode conter un ou varios dos seguintes problemas:&lt;br /&gt;&lt;br /&gt;· Está escrito todo en maiúsculas&lt;br /&gt;· É un artigo en branco ou que contén spam&lt;br /&gt;· Contén ligazóns externas ou imaxes irrelevantes&lt;br /&gt;· Contén caracteres repetidos</string>
   <string name="abusefilter_text_disallow">Un filtro automático identificou esta edición como potencialmente non construtiva ou posible vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipedia é unha enciclopedía e nela unicamente son pertinentes os contidos neutrais e relevantes.</string>
   <string name="dialog_page_issues">Problemas da páxina</string>
@@ -238,6 +238,10 @@
   <string name="location_permissions_enable_action">Activar</string>
   <string name="error_webview_updating">O WebView do sistema Android está a actualizarse nestes momentos. Por favor, inténteo de novo nun momento.</string>
   <string name="multi_select_items_selected">%d seleccionados</string>
+  <string name="error_message_generic">Houbo un erro</string>
+  <string name="view_link_preview_error_button_dismiss">Descartar</string>
+  <string name="error_page_does_not_exist">Esta páxina non existe</string>
+  <string name="view_wiki_error_message_offline">Non se puido conectar a Internet</string>
   <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
   <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -295,6 +299,9 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_article_remove_offline">Non facer este artigo dispoñible sen conexión</string>
   <string name="reading_list_article_offline_message">Agora este artigo estará dispoñible sen conexión.</string>
   <string name="reading_list_article_not_offline_message">Este artigo xa non estará dispoñible sen conexión.</string>
+  <string name="reading_list_add_to_other_list">Engadir a outra lista de lectura</string>
+  <string name="reading_list_remove_from_list">Eliminar de %s</string>
+  <string name="reading_list_remove_from_lists">Eliminar das listas de lectura</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Conversar co usuario</string>
   <string name="notification_talk_title">Mensaxe nova na Wikipedia</string>
@@ -328,7 +335,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="view_continue_reading_card_subtitle_today">Hoxe</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="description_edit_text_hint">Descrición de título</string>
-  <string name="description_edit_save" fuzzy="true">Gardar</string>
+  <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Engadir unha descrición de título</string>
   <string name="description_edit_edit_description">Editar a descrición</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
@@ -339,7 +346,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Grazas polo seu contínuo interés en editar descriciónsǃ Para facer edicións adicionais, por favor, comece sesión na súa conta de Wikipedia.</string>
   <string name="description_edit_license_notice">Ao cambiar a descrición de título, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e a liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Descrición gardadaǃ</string>
+  <string name="description_edit_success_saved">Descrición publicada!</string>
   <string name="description_edit_success_encouragement">Acaba de mellorar Wikipedia para todo o mundo</string>
   <string name="description_edit_success_done">Feito</string>
   <string name="description_edit_success_did_you_know">Sabía que...?</string>

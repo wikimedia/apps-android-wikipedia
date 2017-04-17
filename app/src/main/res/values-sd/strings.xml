@@ -50,9 +50,9 @@
   <string name="langlinks_empty">هيءُ صفحو ٻين ٻولين ۾ دستياب نہ آهي.</string>
   <string name="langlinks_no_match">توهان جي پڇا سان ملندڙ ڪا بہ ٻولي نہ لڌي.</string>
   <string name="langlinks_activity_title">ٻيون ٻوليون</string>
-  <string name="menu_save_changes" fuzzy="true">تبديليون سانڍيو</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">سانڍيندي…</string>
-  <string name="edit_saved_successfully" fuzzy="true">ترميم سانڍجي وئي!</string>
+  <string name="menu_save_changes">تبديليون ڇاپيو</string>
+  <string name="dialog_saving_in_progress">ڇاپيندي…</string>
+  <string name="edit_saved_successfully">ترميم ڇاپجي وئي!</string>
   <string name="dialog_message_edit_failed">ترميم ناڪام وئي!</string>
   <string name="dialog_message_edit_failed_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="dialog_message_edit_failed_cancel">رد</string>
@@ -148,7 +148,7 @@
   <string name="user_anon_blocked_from_editing">توهان جو آءِ پِي پتو سنوارڻ کان بندشيويو آهي.</string>
   <string name="edit_how_page_improved">توهان ان صفحي کي ڪيئن سڌاريو؟</string>
   <string name="edit_next">اڳيون</string>
-  <string name="edit_done" fuzzy="true">سانڍيو</string>
+  <string name="edit_done">ڇاپڻ</string>
   <string name="edit_preview">پيش نگاھ</string>
   <string name="edit_summary_tag_typo">هجي درست ڪئي</string>
   <string name="edit_summary_tag_grammar">گرامر درست ڪيو</string>
@@ -157,8 +157,8 @@
   <string name="edit_summary_tag_other_hint">هن صفحي کي توهان ٻين ڪهڙن طريقن سان سڌاريو</string>
   <string name="find_next">اڳيون لھو</string>
   <string name="find_previous">پويون لھو</string>
-  <string name="abusefilter_title_warn" fuzzy="true">هي هڪ غير تخليقي ترميم لڳي ٿي، ڇا توهان انکي سانڍڻ چاهيو ٿا؟</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">توهان هي ترميم سانڍي نٿا سگھو. براءِ مهرباني واپس وڃو ۽ انکي تبديل ڪريو.</string>
+  <string name="abusefilter_title_warn">هي هڪ غير تخليقي ترميم لڳي ٿي، ڇا توهان انکي ڇاپڻ چاهيو ٿا؟</string>
+  <string name="abusefilter_title_disallow">توهان هي ترميم ڇاپي نٿا سگھو. براءِ مھرباني واپس وڃو ۽ انکي تبديل ڪريو.</string>
   <string name="abusefilter_text_warn">ھڪ خودڪاربڻايل ڇاڻيءَ ھن ترميم کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي. ان ۾ ھيٺين مان ھڪ شامل ٿي سگھن ٿا:&lt;br /&gt;&lt;br /&gt;· سڀني قسمن جي اکرن ۾ ٽائيپ ڪندي&lt;br /&gt;· مضمونن کي خالي ڪندي يا بگاڙيندي&lt;br /&gt;· اڻلاڳپيل خارجي ڳنڍڻا يا عڪس&lt;br /&gt;· نشانيون ورجائيندي</string>
   <string name="abusefilter_text_disallow">ھڪ خودڪاربڻايل ڇاڻيءَ ھن ترميم کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي، يا ڳجھي وحشيت.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ صرف اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
   <string name="dialog_page_issues">صفحي جا مسئلا</string>
@@ -221,6 +221,7 @@
   <string name="address_copied">پتي جو پرت ڪلپبورڊ رکيو ويو.</string>
   <string name="text_copied">ٽيڪسٽ جو پرت ڪلپبورڊ تي رکيو ويو.</string>
   <string name="button_continue_to_article">مضمون پڙهو</string>
+  <string name="button_add_to_reading_list">پڙھڻ جي فھرست ۾ وجھو</string>
   <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
   <string name="error_no_maps_app">ھدايتون مھيا ڪندڙ ڪي بہ ايپس لڀجي نہ سگھيون.</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن جي پيش نگاھ ڏيکاريو</string>
@@ -229,7 +230,12 @@
   <string name="error_voice_search_not_available">معاف ڪجو، آواز شناس موجود نہ آھي.</string>
   <string name="location_service_disabled">مڪانيت سرور معذور ڪيل آھن.</string>
   <string name="enable_location_service">فعاليو</string>
+  <string name="location_permissions_enable_action">ھلايو</string>
   <string name="multi_select_items_selected">%d چونڊيل</string>
+  <string name="error_message_generic">ڪا خرابي پيش آئي</string>
+  <string name="view_link_preview_error_button_dismiss">برخاست ڪريو</string>
+  <string name="error_page_does_not_exist">ھي صفحو وجود نٿو رکي</string>
+  <string name="view_wiki_error_message_offline">انٽرنيٽ سان ڳنڍي نٿو سگھي</string>
   <string name="crash_report_dialog_title">معاف ڪجو، پوئين ڀيري ايپ خراب ٿي وئي</string>
   <string name="crash_report_dialog_dont_send_button">ڇڏيو</string>
   <string name="crash_report_dialog_always_send_button">ھميشہ اماڻيو</string>
@@ -314,7 +320,7 @@
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
   <string name="description_edit_text_hint">عنوان  جي تشريح</string>
-  <string name="description_edit_save" fuzzy="true">سانڍيو</string>
+  <string name="description_edit_save">ڇاپيو</string>
   <string name="description_edit_add_description">عنوان جي تشريح شامل ڪريو</string>
   <string name="description_edit_edit_description">تشريح سنواريو</string>
   <string name="description_edit_cancel_hint">رد</string>

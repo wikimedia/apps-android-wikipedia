@@ -300,6 +300,9 @@
   <string name="reading_list_article_remove_offline">এই নিবন্ধটি অফলাইনে উপলব্ধ করবেন না</string>
   <string name="reading_list_article_offline_message">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</string>
   <string name="reading_list_article_not_offline_message">এই নিবন্ধটি আর অফলাইনে উপলব্ধ হবে না।</string>
+  <string name="reading_list_add_to_other_list">আরেকটি পড়ার তালিকা থেকে সরান</string>
+  <string name="reading_list_remove_from_list">%s থেকে সরান</string>
+  <string name="reading_list_remove_from_lists">পড়ার তালিকা থেকে সরান</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_button_view_user">ব‍্যবহারকারীর সঙ্গে আলাপ করুন</string>
   <string name="notification_talk_title">উইকিপিডিয়ায় নতুন বার্তা</string>

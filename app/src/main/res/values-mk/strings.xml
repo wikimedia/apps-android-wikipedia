@@ -301,6 +301,9 @@
   <string name="reading_list_article_remove_offline">Не ја прави статијава достапна вонмрежно</string>
   <string name="reading_list_article_offline_message">Статијава сега ќе биде достапна вонмрежно.</string>
   <string name="reading_list_article_not_offline_message">Статијава повеќе нема да биде достапна вонмрежно.</string>
+  <string name="reading_list_add_to_other_list">Стави во список за читање</string>
+  <string name="reading_list_remove_from_list">Отсрани од %s</string>
+  <string name="reading_list_remove_from_lists">Отстрани од списоци за читање</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>

@@ -50,9 +50,9 @@
   <string name="langlinks_empty">पृष्ठ अन्य भाषा में उपलब्ध नहीं है</string>
   <string name="langlinks_no_match">खोज परिणाम में कोई भाषा नहीं मिली।</string>
   <string name="langlinks_activity_title">अन्य भाषाएँ</string>
-  <string name="menu_save_changes" fuzzy="true">परिवर्तन सहेजें</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">सहेजा जा रहा है…</string>
-  <string name="edit_saved_successfully" fuzzy="true">सम्पादन सहेजा गया!</string>
+  <string name="menu_save_changes">परिवर्तन प्रकाशित करें</string>
+  <string name="dialog_saving_in_progress">प्रकाशित किया जा रहा है…</string>
+  <string name="edit_saved_successfully">सम्पादन प्रकाशित किया गया!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल रहा!</string>
   <string name="dialog_message_edit_failed_retry">पुन: प्रयास करें</string>
   <string name="dialog_message_edit_failed_cancel">रद्द करें</string>
@@ -150,7 +150,7 @@
   <string name="user_anon_blocked_from_editing">आपके आईपी पते द्वारा संपादन करना अवरुद्ध कर दिया गया है</string>
   <string name="edit_how_page_improved">आपने पृष्ठ में सुधार कैसे किया?</string>
   <string name="edit_next">अगला</string>
-  <string name="edit_done" fuzzy="true">सहेजें</string>
+  <string name="edit_done">प्रकाशित करें</string>
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_summary_tag_typo">छोटा सा सुधार किया।</string>
   <string name="edit_summary_tag_grammar">व्याकरण में सुधार</string>
@@ -159,8 +159,8 @@
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>
   <string name="find_next">अगला ढूँढें</string>
   <string name="find_previous">पिछला ढूँढें</string>
-  <string name="abusefilter_title_warn" fuzzy="true">यह संपादन निर्माण रहित हो सकता है। क्या आप इसे सहेजना चाहते हैं?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">आप इस संपादन को सहेज नही सकते। कृपया पीछे जा कर इसे बदलें।</string>
+  <string name="abusefilter_title_warn">यह संपादन निर्माण रहित हो सकता है। क्या आप इसे प्रकाशित चाहते हैं?</string>
+  <string name="abusefilter_title_disallow">आप इस संपादन को प्रकाशित नहीं कर सकते। कृपया पीछे जा कर इसे बदलें।</string>
   <string name="abusefilter_text_warn">एक स्वचलित फ़िल्टर ने इस संपादन को संभवतः अरचनात्मक पाया है। इसमें एक या एक से अधिक निम्न कारण हो सकते हैं:&lt;br/&gt;&lt;br/&gt;सभी को कैपिटल लैटर में लिखना&lt;br/&gt;।लेखों को रिक्त करना या स्पैमिंग&lt;br/&gt;। अक्षरों को बार बार दोहराना।</string>
   <string name="abusefilter_text_disallow">एक स्वचलित फ़िल्टर ने इस संपादन को संभवतः अरचनात्मक या बर्बता युक्त पाया है।&lt;br/&gt;&lt;br/&gt;विकिपीडिया एक इनसाइक्लोपीडिया है और केवल तटस्थ(न्यूट्रल), नोट करने योग्य सामग्री ही यहाँ रखी जा सकती है।</string>
   <string name="dialog_page_issues">पृष्ठ समस्या</string>
@@ -223,6 +223,8 @@
   <string name="address_copied">एड्रेस को क्लिपबोर्ड पर कॉपी कर लिया गया है।</string>
   <string name="text_copied">टेक्स्ट को क्लिपबोर्ड पर कॉपी कर लिया गया है।</string>
   <string name="button_continue_to_article">लेख पढ़ें</string>
+  <string name="button_add_to_reading_list">पठन सूची में जोड़ें</string>
+  <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
   <string name="button_get_directions">दिशानिर्देश पाएं</string>
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>
   <string name="preference_title_show_link_previews">कड़ी की झलक दिखायें</string>

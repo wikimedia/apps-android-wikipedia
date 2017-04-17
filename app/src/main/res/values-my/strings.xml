@@ -7,6 +7,9 @@
   <string name="yes">လုပ်မည်</string>
   <string name="no">မလုပ်ပါ</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
+  <string name="search_hint_search_history">ရှာဖွေမှု သမိုင်း</string>
+  <string name="search_hint_search_my_lists">မိမိ၏ စောင့်ကြည့်စာရင်းအား ရှာဖွေပါ</string>
+  <string name="search_hint_search_reading_list">ဖတ်ရှုစာရင်းအား ရှာဖွေပါ</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="error_network_error">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
@@ -38,7 +41,7 @@
   <string name="nearby_zoom_to_location">မြေပုံပေါ်တွင် တည်နေရာကို ဆွဲယူကြည့်ရန်</string>
   <string name="last_updated_text">နောက်ဆုံးပြင်ခဲ့ချိန် %s</string>
   <string name="talk_page_link_text">ဆွေးနွေးချက်</string>
-  <string name="content_license_html" fuzzy="true">အထူးသတိပေးမထားပါက အချက်အလက်များအား &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; အနေဖြင့် ရယူသုံးစွဲနိုင်သည်။</string>
+  <string name="content_license_html">အထူးသတိပေးမထားပါက အချက်အလက်များအား &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; အနေဖြင့် ရယူသုံးစွဲနိုင်သည်။</string>
   <string name="edit_save_action_license_logged_in">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။</string>
   <string name="edit_save_action_license_anon">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။ တည်းဖြတ်မှုများအား သင်၏ အိုင်ပီလိပ်စာဖြင့်သိမ်းထားမည်ဖြစ်သည်။ သင် ဆိုဒ်သို့&lt;a href=\"https://#login\"&gt;ဝင်ရောက်ထားပါက&lt;/a&gt; လုံခြုံမှုပိုရှိမည်ဖြစ်သည်။</string>
   <string name="preference_title_language">ဝီကီပီးဒီးယား ဘာသာစကား</string>
@@ -47,9 +50,9 @@
   <string name="langlinks_empty">စာမျက်နှာသည် အခြားဘာသာဖြင့် မရှိသေးပါ။</string>
   <string name="langlinks_no_match">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှ မတွေ့ရှိပါ။</string>
   <string name="langlinks_activity_title">အခြားဘာသာစကားများ</string>
-  <string name="menu_save_changes" fuzzy="true">အပြောင်းအလဲများ သိမ်းရန်</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">သိမ်းနေပါပြီ…</string>
-  <string name="edit_saved_successfully" fuzzy="true">တည်းဖြတ်မှု သိမ်းပြီး!</string>
+  <string name="menu_save_changes">ပြောင်းလဲမှုများကို လွှင့်တင်ရန်</string>
+  <string name="dialog_saving_in_progress">လွှင့်တင်နေသည်...</string>
+  <string name="edit_saved_successfully">တည်းဖြတ်မှု လွှင့်တင်ပြီး</string>
   <string name="dialog_message_edit_failed">တည်းဖြတ်မှု မအောင်မြင်!</string>
   <string name="dialog_message_edit_failed_retry">ပြန်လုပ်</string>
   <string name="dialog_message_edit_failed_cancel">မလုပ်တော့ပါ</string>
@@ -58,6 +61,8 @@
   <string name="dialog_message_leaving_edit_stay">နေရန်</string>
   <string name="menu_show_toc">မာတိကာ</string>
   <string name="search_no_results_found">မည်သည့်ရလဒ်မျှ မရပါ</string>
+  <string name="search_reading_list_no_results">\"%s\" ထဲတွင် ရလဒ် မတွေ့ပါ</string>
+  <string name="search_history_no_results">ရာဇဝင်ထဲတွင် ရလဒ် မတွေ့ပါ</string>
   <string name="edit_section_captcha_message">အလိုအလျောက်ပေးပို့နေသော မေးလ်များရန်မှ ကာကွယ်ရန် အောက်ပါ စာလုံးများကို လိုက်ရိုက်ကြည့်ပါ။</string>
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
   <string name="title_captcha">CAPTCHA ဖြည့်ပါ</string>
@@ -72,9 +77,10 @@
   <string name="login_success_toast">လော့ဂ်အင်ဝင်ခြင်း အောင်မြင်သည်!</string>
   <string name="preference_title_logout">ထွက်ရန်</string>
   <string name="toast_logout_complete">လော့ဂ်အောက်ထွက်ပြီးပြီ</string>
-  <string name="history_empty_title" fuzzy="true">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
-  <string name="history_empty_message" fuzzy="true">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
+  <string name="history_empty_title">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
+  <string name="history_empty_message">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
   <string name="delete_selected_history">ဖျက်​ပါ​</string>
+  <string name="delete_selected_items">ရွေးချယ်ထားသော အကြောင်းအရာများကို ဖျက်ပါ</string>
   <string name="wp_stylized">&lt;big&gt;ဝီ&lt;/big&gt;ကီပီးဒီး&lt;big&gt;ယား&lt;/big&gt;</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
   <string name="login_create_account_link">အကောင့် မရှိဘူးလား? ဝီကီပီးဒီးယားနဲ့ ချိတ်ဆက်လိုက်ပါ</string>
@@ -85,6 +91,7 @@
   <string name="create_account_password_repeat_hint">စကားဝှက် ထပ်ရိုက်ပါ။</string>
   <string name="create_account_passwords_mismatch_error">စကားဝှက်များ ကိုက်ညီမှုမရှိပါ</string>
   <string name="create_account_email_error">တရားမဝင်သော အီးမေးလ်လိပ်စာ</string>
+  <string name="create_account_username_error">အသုံးပြုသူအမည်၌ တရားမဝင်သော အက္ခရာများ</string>
   <string name="create_account_generic_error">အကောင့်ဖန်တီးမရနိုင်ပါ</string>
   <string name="create_account_next">ရှေ့</string>
   <string name="create_account_button">အကောင့် ဖန်တီးရန်</string>
@@ -116,13 +123,16 @@
   <string name="page_protected_autoconfirmed">ဤစာမျက်နှာအား တစ်စိတ်တစ်ပိုင်း ကာကွယ်ထားသည်။</string>
   <string name="page_protected_sysop">ဤစာမျက်နှာအား အပြည့်အဝ ကာကွယ်ထားသည်။</string>
   <string name="page_protected_other">ဤစာမျက်နှာအား အောက်ပါအဆင့်များသို့ ကာကွယ်ထားသည်: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">ဤစာမျက်နှာကို တည်းဖြတ်ခွင့်မရှိပါ</string>
+  <string name="page_protected_can_not_edit">ယခုအချိန်၌ ဤစာမျက်နှာကို တည်းဖြတ်ရန် သင်၏အကောင့်တွင် လုံလောက်သောခွင့်ပြုချက် မရှိပါ</string>
+  <string name="page_protected_can_not_edit_anon">ယခုအချိန်၌ ဤစာမျက်နှာအား အမည်မဖော်လိုသူအဖြစ် တည်းဖြတ်မရနိုင်ပါ</string>
   <string name="page_protected_can_not_edit_title">ဤစာမျက်နှာအား ကာကွယ်ထားသည်</string>
   <string name="settings_item_preferences">အပြင်အဆင်များ</string>
   <string name="settings_activity_title">အပြင်အဆင်များ</string>
   <string name="about_description">ဝီကီပီးဒီးယားအက်ပ် အကြောင်း</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="terms_of_use_description">အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">အသုံးပြုထားသော စာကြည့်တိုက်များ</string>
   <string name="about_contributors_heading">ဆောင်ရွက်ပေးထားသူများ</string>
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
@@ -137,7 +147,7 @@
   <string name="user_anon_blocked_from_editing">တည်းဖြတ်ခြင်းမှ သင့်အိုင်ပီလိပ်စာအား ပိတ်ပင်ထားသည်။</string>
   <string name="edit_how_page_improved">စာမျက်နှာကို မည်သို့ တိုးတက်ကောင်းမွန်အောင် လုပ်မည်နည်း?</string>
   <string name="edit_next">ရှေ့</string>
-  <string name="edit_done" fuzzy="true">သိမ်းရန်</string>
+  <string name="edit_done">လွှင့်တင်ရန်</string>
   <string name="edit_preview">နမူနာ</string>
   <string name="edit_summary_tag_typo">စာလုံးပေါင်း ပြင်ခဲ့သည်</string>
   <string name="edit_summary_tag_grammar">သဒ္ဒါပြင်ခဲ့သည်</string>
@@ -146,8 +156,8 @@
   <string name="edit_summary_tag_other_hint">စာမျက်နှာအား တိုးတက်ကောင်းမွန်စေခဲ့သည့် အခြားနည်းလမ်းများ</string>
   <string name="find_next">ရှေ့တွင် ရှာရန်</string>
   <string name="find_previous">နောက်တွင် ရှာရန်</string>
-  <string name="abusefilter_title_warn" fuzzy="true">ဤတည်းဖြတ်မှုသည် အပြုသဘောမဆောင်သည့် တည်းဖြတ်မှု ဖြစ်နိုင်သည်။ ဤသည်ကို သိမ်းဆည်းရန်မှာ သေချာပါသလား?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">ဤတည်းဖြတ်မှုအား မသိမ်းဆည်းနိုင်ပါ။ ကျေးဇူးပြု၍ နောက်ပြန်သွားပြီး ပြင်ဆင်ပါ။</string>
+  <string name="abusefilter_title_warn">ဤတည်းဖြတ်မှုသည် အပြုသဘောမဆောင်သည့် တည်းဖြတ်မှု ဖြစ်နိုင်သည်။ ဤသည်ကို လွှင့်တင်ရန်မှာ သေချာပါသလား?</string>
+  <string name="abusefilter_title_disallow">ဤတည်းဖြတ်မှုအား မလွှင့်နိုင်ပါ။ ကျေးဇူးပြု၍ နောက်ပြန်သွားပြီး ပြင်ဆင်ပါ။</string>
   <string name="abusefilter_text_warn">အလိုအလျောက်စစ်ဆေးချက်မှ ဤတည်းဖြတ်မှုသည် အပြုသဘောမဆောင်ကြောင်း တွေ့ရှိရပါသည်။ ယင်းတွင် အောက်ပါအချက် တစ်ခု သို့ ထို့ထက်ပိုပါနိုင်ပါသည်:&lt;br /&gt;&lt;br /&gt;· စာလုံးကြီးများဖြင့် ရိုက်ထားခြင်း&lt;br /&gt;· ဆောင်းပါးအား ဗလာပြုလုပ်ခြင်း သို့ အနှောက်အယှက်ဖြစ်စေခြင်း&lt;br /&gt;· မသက်ဆိုင်သော ပြင်ပလင့်ခ်များ သို့ ပုံများ&lt;br /&gt;· စာလုံးများ ထပ်ကာထပ်ကာ ရေးသားခြင်း</string>
   <string name="abusefilter_text_disallow">အလိုအလျောက်စစ်ဆေးချက်မှ ဤတည်းဖြတ်မှုသည် အပြုသဘောမဆောင်ကြောင်း သို့မဟုတ် ဖျက်လိုဖျက်ဆီးဖြစ်ကြောင်း တွေ့ရှိရပါသည်။&lt;br /&gt;&lt;br /&gt;ဝီကီပီးဒီးယားသည် စွယ်စုံကျမ်းတစ်ခု ဖြစ်ပြီး ဘက်မလိုက်သော အရေးပါထင်ရှားသည့် အကြောင်းအရာများသာ ဤနေရာတွင် ရှိသင့်ပါသည်။</string>
   <string name="dialog_page_issues">စာမျက်နှာ ကိစ္စရပ်များ</string>
@@ -210,6 +220,7 @@
   <string name="address_copied">လိပ်စာအား ကူးယူပြီး။</string>
   <string name="text_copied">စာသားအား ကူးယူပြီး။</string>
   <string name="button_continue_to_article">ဆောင်းပါး ဖတ်ရှုရန်</string>
+  <string name="button_add_to_reading_list">ဖတ်ရှုစာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="button_get_directions">လမ်းညွှန် ရယူရန်</string>
   <string name="error_no_maps_app">ဤလမ်းညွှန်ချက်အား ထောက်ပံ့ပေးနိုင်သည့် app များ ရှာမတွေ့ပါ။</string>
   <string name="preference_title_show_link_previews">နမူနာလင့်ခ်ပြရန်</string>
@@ -218,6 +229,12 @@
   <string name="error_voice_search_not_available">စိတ်မကောင်းပါ။ အသံမှတ်သားခိုင်းစေခြင်း မရရှိနိုင်ပါ။</string>
   <string name="location_service_disabled">တည်နေရာဝန်ဆောင်မှုများ ပိတ်ထားသည်။</string>
   <string name="enable_location_service">လုပ်ဆောင်ပါ</string>
+  <string name="location_permissions_enable_prompt">အနီးအနားနေရာများကို မြင်နိုင်ရန် တည်နေရာပြ ခွင့်ပြုချက်ကို ဖွင့်မည်</string>
+  <string name="location_permissions_enable_action">ဖွင့်မည်</string>
+  <string name="error_message_generic">အမှားတစ်ခု ဖြစ်ခဲ့သည်</string>
+  <string name="view_link_preview_error_button_dismiss">ဖြုတ်ရန်</string>
+  <string name="error_page_does_not_exist">ဤစာမျက်နှာ မရှိပါ</string>
+  <string name="view_wiki_error_message_offline">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="crash_report_dialog_title">စိတ်မကောင်းပါ။ နောက်ဆုံးအကြိမ်က app သည် crash ဖြစ်ခဲ့သည်။</string>
   <string name="crash_report_dialog_text">တတိယ ဝန်ဆောင်မှုလုပ်ငန်းဖြစ်သော HockeyApp သို့ app မှ ပျက်မှု အစီရင်ခံချက်အား ပေးပို့လိုပါသလား? ထိုသို့ပြုလုပ်ခြင်းဖြင့် ဝီကီမီဒီယာမှ သင့်အစီရင်ခံချက်အား ကြည့်ရှုကာ ပြင်ဆင်ပေးနိုင်ပါလိမ့်မည်။</string>
   <string name="crash_report_dialog_dont_send_button">ကျော်ရန်</string>
@@ -238,6 +255,7 @@
   <string name="reading_list_untitled">အမည်မပေးထား</string>
   <string name="reading_list_save_to">စာဖတ်စာရင်းသို့ သိမ်းရန်</string>
   <string name="reading_list_create_new">အသစ်ဖန်တီးရန်</string>
+  <string name="reading_list_entry_empty">ခေါင်းစဉ်တစ်ခု ရိုက်ထည့်ပါ</string>
   <string name="reading_list_added_to_named">%s သို့ ပေါင်းထည့်ပြီး။</string>
   <string name="reading_list_added_to_unnamed">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပြီး။</string>
   <string name="reading_list_already_exists">ထိုစာရင်းထဲတွင် ဤဆောင်းပါး ရှိနှင့်ပြီး ဖြစ်သည်။</string>
@@ -249,33 +267,39 @@
   <string name="reading_list_sort_by_name_desc">အမည်ဖြင့် စီစဉ် (ပြောင်းပြန်)</string>
   <string name="reading_list_sort_by_recent">မကြာမီကဖြင့် စီစဉ်</string>
   <string name="reading_list_sort_by_recent_desc">အနည်းဆုံး မကြာမီဖြင့် စီစဉ်</string>
-  <string name="reading_list_menu_delete" fuzzy="true">စာဖတ်စာရင်း ဖျက်ရန်</string>
+  <string name="reading_list_menu_delete">စာဖတ်စာရင်း ဖျက်ရန်</string>
+  <string name="reading_list_menu_rename">အမည်ပြန်မှည့်ရန်</string>
+  <string name="reading_list_menu_edit_description">ဖော်ပြချက်တစ်ခု ထည့်ရန်</string>
   <string name="reading_list_name_sample">ကျွန်ုပ်၏ စာဖတ်စာရင်း</string>
   <string name="reading_list_name_hint">ဤစာရင်း၏ အမည်</string>
   <string name="reading_list_description_hint">ဖော်ပြချက် (မထည့်လည်းရသည်)</string>
   <string name="reading_list_item_deleted">%s ကို စာရင်းမှ ဖယ်ရှားပြီး</string>
   <string name="reading_list_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="reading_list_deleted">%s ကို ဖျက်ပြီး</string>
-  <string name="reading_lists_empty" fuzzy="true">စာဖတ်စာရင်း မရှိ။</string>
-  <string name="reading_lists_empty_message" fuzzy="true">သင်ကြည့်သော ဆောင်းပါးများအား သင့်စာဖတ်စာရင်းသို့ ထည့်ပါ! ဆောင်းပါးအား ဖတ်ရှုနေစဉ် အောက်ခြေ toolbar ရှိ စာညှပ်ပုံအား နှိပ်ပြီး စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ။</string>
+  <string name="reading_lists_empty">စာဖတ်စာရင်း မရှိ။</string>
+  <string name="reading_lists_empty_message">သင်ကြည့်သော ဆောင်းပါးများအား သင့်စာဖတ်စာရင်းသို့ ထည့်ပါ၊ ဆောင်းပါးအား ဖတ်ရှုနေစဉ် အောက်ခြေ toolbar ရှိ စာညှပ်ပုံအား နှိပ်ပြီး စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ။</string>
   <string name="reading_lists_onboarding_intro">နောင်မှဖတ်ရှုလိုသည်များအား စာဖတ်စာရင်းအဖြစ် ဖန်တီးပါ။ အော့ဖ်လိုင်း ဖြစ်နေစဉ်တွင်တောင်မှ ဖတ်ရှုနိုင်ပါသည်။</string>
   <string name="reading_lists_onboarding_for_example">နမူနာအားဖြင့်</string>
   <string name="reading_lists_onboarding_example1">လည်ပတ်ရန် နေရာများ</string>
   <string name="reading_lists_onboarding_example2">အနှစ်သက်ဆုံး တိရစ္ဆာန်များ</string>
   <string name="reading_lists_onboarding_example3">အာကာသ!</string>
   <string name="reading_lists_onboarding_got_it">ရပြီဟေ့</string>
+  <string name="reading_list_no_description">ဖော်ပြချက် မရှိ</string>
+  <string name="reading_list_empty">ဤစာရင်း၌ သင်ပေါင်းထည့်ထားသော ဆောင်းပါးမရှိပါ</string>
+  <string name="reading_list_remove_from_lists">ဖတ်ရှုစာရင်းမှ ဖယ်ထုတ်ရန်</string>
   <string name="user_option_sync_label">ရွေးချယ်စရာများ</string>
   <string name="notification_button_view_user">အသုံးပြုသူနှင့် ဆွေးနွေးရန်</string>
   <string name="notification_talk_title">ဝီကီပီးဒီးယားရှိ စာတိုအသစ်</string>
-  <string name="notification_talk" fuzzy="true">သင့်ဆွေးနွေးချက် စာမျက်နှာရှိ  \"%2$s\" တွင် %1$s က စာတိုအသစ် ချန်ထားခဲ့သည်</string>
+  <string name="notification_talk">သင့်ဆွေးနွေးချက် စာမျက်နှာရှိ  \"%2$s\" တွင် %1$s က စာတိုအသစ် ချန်ထားခဲ့သည်</string>
   <string name="notification_reverted_title">တည်းဖြတ်မှု နောက်ပြန်ပြင်ခဲ့ခြင်း</string>
-  <string name="notification_reverted" fuzzy="true">\"%2$s\" ဆောင်းပါးရှိ သင့်တည်းဖြတ်မှုအား %1$s က နောက်ပြန်ပြင်ခဲ့သည်။</string>
+  <string name="notification_reverted">\"%2$s\" ဆောင်းပါးရှိ သင့်တည်းဖြတ်မှုအား %1$s က နောက်ပြန်ပြင်ခဲ့သည်။</string>
   <string name="notification_thanks_title">သင့်အား ကျေးဇူးတင်ခဲ့သည်!</string>
-  <string name="notification_thanks" fuzzy="true">\"%2$s\" စာမျက်နှာရှိ သင့်တည်းဖြတ်မှုအတွက် %1$s က ကျေးဇူးတင်ခဲ့သည်</string>
+  <string name="notification_thanks">\"%2$s\" စာမျက်နှာရှိ သင့်တည်းဖြတ်မှုအတွက် %1$s က ကျေးဇူးတင်ခဲ့သည်</string>
   <string name="view_continue_reading_card_title">ဆက်လက်ဖတ်ရှုရန်</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
   <string name="view_random_card_subtitle">ဝီကီပီးဒီးယားမှ ကျပန်းဆောင်းပါးတစ်ပုဒ်အား ဖတ်ပါ</string>
+  <string name="view_random_card_error">ကွန်ယက် သို့မဟုတ် သင်၏ ဖတ်ရှုစာရင်းများမှ မဖော်ပြပေးနိုင်ပါ</string>
   <string name="view_main_page_card_title">ယနေ့အတွက် ဝီကီပီးဒီးယား</string>
   <string name="view_main_page_card_subtitle">%s အတွက် ဗဟိုစာမျက်နှာ</string>
   <string name="view_featured_image_card_title">ယနေ့အတွက် ဓာတ်ပုံ</string>
@@ -295,9 +319,9 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">ယနေ့</string>
   <string name="view_announcement_card_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
-  <string name="description_edit_text_hint" fuzzy="true">ဖော်ပြချက်တစ်ခု ရေးသားရန်!</string>
-  <string name="description_edit_save" fuzzy="true">သိမ်းရန်</string>
-  <string name="description_edit_add_description" fuzzy="true">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
+  <string name="description_edit_text_hint">ဖော်ပြချက် ခေါင်းစဉ်</string>
+  <string name="description_edit_save">လွှင့်တင်ရန်</string>
+  <string name="description_edit_add_description">ဖော်ပြချက်အတို ပေါင်းထည့်ရန်</string>
   <string name="description_edit_edit_description">ဖော်ပြချက် ပြင်ဆင်ရန်</string>
   <string name="description_edit_cancel_hint">မလုပ်တော့</string>
   <string name="description_edit_help_title">အကူအညီ:ခေါင်းစဉ် ဖော်ပြချက်များ</string>
@@ -305,7 +329,7 @@
   <string name="description_edit_help_wikidata_guide">ဖော်ပြချက်များ ရေးသားရန်အတွက် ဝီကီဒေတာ လမ်းညွှန်</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved" fuzzy="true">ဖော်ပြချက် သိမ်းပြီး!</string>
+  <string name="description_edit_success_saved">ဖော်ပြချက် လွှင့်တင်ပြီး!</string>
   <string name="description_edit_success_encouragement">အားလုံးအတွက် ဝီကီပီးဒီးယားအား ပိုကောင်းရန် သင်လုပ်ဆောင်ခဲ့ပြီ</string>
   <string name="description_edit_success_done">ပြီးပြီ</string>
   <string name="description_edit_success_did_you_know">သင်သိပါသလား?</string>
@@ -317,4 +341,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
+  <string name="description_edit_help_about_title">အကြောင်းအရာ</string>
+  <string name="description_edit_help_tips">ဖော်ပြချက်ဖန်တီးရန် နည်းလမ်းများ</string>
+  <string name="description_edit_help_tips_examples">နမူနာအားဖြင့်</string>
+  <string name="description_edit_help_tips_example1">လီယိုနာဒို ဗင်စီ၏ ပန်းချီလက်ရာ</string>
+  <string name="description_edit_help_tips_example2">ကမ္ဘာ့အမြင့်ဆုံးတောင်</string>
+  <string name="description_edit_help_more_info">သတင်းအချက်အလက် ပို၍</string>
+  <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
 </resources>

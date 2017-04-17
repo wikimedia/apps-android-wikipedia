@@ -50,9 +50,9 @@
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
   <string name="langlinks_no_match">Nije pronađen niti jedan jezik koji odgovara Vašem upitu.</string>
   <string name="langlinks_activity_title">Drugi jezici</string>
-  <string name="menu_save_changes" fuzzy="true">Sačuvaj izmjene</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Čuvam...</string>
-  <string name="edit_saved_successfully" fuzzy="true">Izmjena je sačuvana!</string>
+  <string name="menu_save_changes">Objavi izmjene</string>
+  <string name="dialog_saving_in_progress">Objavljujem...</string>
+  <string name="edit_saved_successfully">Izmjena je objavljena!</string>
   <string name="dialog_message_edit_failed">Čuvanje izmjene nije uspjelo!</string>
   <string name="dialog_message_edit_failed_retry">Pokušaj ponovo</string>
   <string name="dialog_message_edit_failed_cancel">Otkaži</string>
@@ -80,6 +80,7 @@
   <string name="history_empty_title">Nema nedavno posjećenih članaka</string>
   <string name="history_empty_message" fuzzy="true">Vjerovatno ste ih sve obrisali. Kad sljedeći put posjetite stranicu, ovdje je lahko možete ponovo pronaći.</string>
   <string name="delete_selected_history">Obriši</string>
+  <string name="delete_selected_items">Obriši izabrane stavke</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Korisničko ime</string>
   <string name="login_create_account_link">Nemate račun? Pridružite se Wikipediji</string>
@@ -145,7 +146,7 @@
   <string name="user_anon_blocked_from_editing">Vašoj IP-adresi blokirano je uređivanje.</string>
   <string name="edit_how_page_improved">Kako ste poboljšali ovu stranicu?</string>
   <string name="edit_next">Sljedeće</string>
-  <string name="edit_done" fuzzy="true">Sačuvaj</string>
+  <string name="edit_done">Objavi</string>
   <string name="edit_preview">Pregled</string>
   <string name="edit_summary_tag_typo">Popravljen tipfeler</string>
   <string name="edit_summary_tag_grammar">Popravljena gramatička greška</string>
@@ -226,6 +227,8 @@
   <string name="error_voice_search_not_available">Izvinjavamo se, prepoznavanje govora nije dostupno.</string>
   <string name="location_service_disabled">Usluge lokacije su isključene.</string>
   <string name="enable_location_service">Uključi</string>
+  <string name="location_permissions_enable_action">Uključi</string>
+  <string name="error_webview_updating">WebView za Android trenutno se ažurira. Pokušajte ponovo za koji trenutak.</string>
   <string name="crash_report_dialog_title">Izvinjavamo se, aplikacija je pala prethodni put</string>
   <string name="crash_report_dialog_text">Želite li poslati izvještaj o padu aplikacije HockeyAppu / nezavisnom pružaocu usluga tako da ga Wikimedia može pregledati i popraviti programsku grešku koja ga je izazvala?</string>
   <string name="crash_report_dialog_dont_send_button">Preskoči</string>
@@ -260,6 +263,7 @@
   <string name="reading_list_sort_by_recent">Sortiraj po najnovijem</string>
   <string name="reading_list_sort_by_recent_desc">Sortiraj po najstarijem</string>
   <string name="reading_list_menu_delete">Obriši spisak</string>
+  <string name="reading_list_menu_edit_description">Uredi opis</string>
   <string name="reading_list_name_sample">Moj spisak za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog spiska</string>
   <string name="reading_list_description_hint">Opis (neobavezno)</string>
@@ -306,7 +310,7 @@
   <string name="view_continue_reading_card_subtitle_today">Danas</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
   <string name="description_edit_text_hint">Napišite opis!</string>
-  <string name="description_edit_save" fuzzy="true">Sačuvaj</string>
+  <string name="description_edit_save">Objavi</string>
   <string name="description_edit_add_description">Dodaj opis naslova</string>
   <string name="description_edit_edit_description">Uredi opis</string>
   <string name="description_edit_cancel_hint">Odustani</string>
@@ -317,7 +321,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Hvala Vam na kontinuiranom interesovanju za uređivanje opisa! Da biste napravili još izmjena, prijavite se na svoj račun na Wikipediji.</string>
   <string name="description_edit_license_notice" fuzzy="true">Mijenjanjem opisa naslova prihvatam &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažem da svoj doprinos objavim pod licencom  &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Opis sačuvan!</string>
+  <string name="description_edit_success_saved">Opis objavljen!</string>
   <string name="description_edit_success_encouragement">Upravo ste svima poboljšali Wikipediju</string>
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Jeste li znali?</string>

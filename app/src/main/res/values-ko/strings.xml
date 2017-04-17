@@ -160,7 +160,7 @@
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
   <string name="abusefilter_title_warn">비생산적인 편집일 수도 있습니다. 그래도 게시하겠습니까?</string>
-  <string name="abusefilter_title_disallow">이 편집을 게시할 수 없습니다. 뒤로 이동한 다음 바꿔주세요.</string>
+  <string name="abusefilter_title_disallow">이 편집을 게시할 수 없습니다. 뒤로 돌아가서 바꿔주세요.</string>
   <string name="abusefilter_text_warn">자동화된 필터가 이 편집을 잠재적으로 비생산적인 것으로 식별합니다. 다음 중 하나 이상을 포함할 수 있습니다:&lt;br /&gt;&lt;br /&gt;· 모두 대문자로 입력&lt;br /&gt;· 문서가 비어 있거나 스팸을 넣음&lt;br /&gt;· 관련 없는 바깥 링크나 그림&lt;br /&gt;· 글자 반복</string>
   <string name="abusefilter_text_disallow">자동화된 필터가 이 편집을 잠재적으로 비생산적이나, 잠재적으로 훼손한 것으로 식별합니다.&lt;br /&gt;&lt;br /&gt;위키백과는 백과사전이자 중립적이며, 주목할만한 내용만이 여기에 들어갑니다.</string>
   <string name="dialog_page_issues">문서 이슈</string>
@@ -225,7 +225,7 @@
   <string name="button_continue_to_article">문서 읽기</string>
   <string name="button_add_to_reading_list">읽기 목록에 추가</string>
   <string name="page_offline_notice_cannot_load_while_offline">오프라인 상태에서는 글을 불러올 수 없습니다.</string>
-  <string name="page_offline_notice_add_to_reading_list">글을 읽기 목록에 추가하면 온라인 상태로 복귀할 때 다운로드됩니다.</string>
+  <string name="page_offline_notice_add_to_reading_list">문서를 읽기 목록에 추가하면 온라인에 있을 때 다운로드됩니다.</string>
   <string name="button_get_directions">경로 얻기</string>
   <string name="error_no_maps_app">주어진 경로의 앱을 찾지 못하였습니다.</string>
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
@@ -298,6 +298,9 @@
   <string name="reading_list_article_remove_offline">이 글을 오프라인에서 읽지 못하게 하기</string>
   <string name="reading_list_article_offline_message">이 글은 이제 오프라인에서 읽을 수 있습니다.</string>
   <string name="reading_list_article_not_offline_message">이 글은 더 이상 오프라인에서 읽을 수 없습니다.</string>
+  <string name="reading_list_add_to_other_list">다른 읽기 목록에 추가하기</string>
+  <string name="reading_list_remove_from_list">&amp;%s에서 제거하기</string>
+  <string name="reading_list_remove_from_lists">읽기목록에서 제거하기</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_button_view_user">사용자와 대화하기</string>
   <string name="notification_talk_title">위키백과에서의 새 메시지</string>

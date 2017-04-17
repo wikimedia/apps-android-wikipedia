@@ -40,9 +40,9 @@
   <string name="langlinks_filter_hint">Meklēt</string>
   <string name="langlinks_empty">Šī lapa nav pieejama citās valodās</string>
   <string name="langlinks_activity_title">Citas valodas</string>
-  <string name="menu_save_changes" fuzzy="true">Saglabāt izmaiņas</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Saglabā…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Labojums saglabāts!</string>
+  <string name="menu_save_changes">Publicēt izmaiņas</string>
+  <string name="dialog_saving_in_progress">Publicē...</string>
+  <string name="edit_saved_successfully">Labojums publicēts!</string>
   <string name="dialog_message_edit_failed">Neizdevās labot!</string>
   <string name="dialog_message_edit_failed_retry">Mēģināt vēlreiz</string>
   <string name="dialog_message_edit_failed_cancel">Atcelt</string>
@@ -104,7 +104,7 @@
   <string name="user_blocked_from_editing_title">Bloķēts</string>
   <string name="edit_how_page_improved">Kā tu uzlaboji lapu?</string>
   <string name="edit_next">Tālāk</string>
-  <string name="edit_done" fuzzy="true">Saglabāt</string>
+  <string name="edit_done">Publicēt</string>
   <string name="edit_preview">Pirmskats</string>
   <string name="edit_summary_tag_typo">Labota pareizrakstības kļūda</string>
   <string name="edit_summary_tag_grammar">Labota gramatikas kļūda</string>
@@ -148,6 +148,8 @@
   <string name="preference_title_show_link_previews">Rādīt saišu priekšskatījumus</string>
   <string name="nav_item_donate">Atbalstīt Vikipēdiju</string>
   <string name="enable_location_service">Iespējot</string>
+  <string name="error_message_generic">Notika kļūda</string>
+  <string name="error_page_does_not_exist">Šī lapa nepastāv</string>
   <string name="crash_report_dialog_dont_send_button">Izlaist</string>
   <string name="crash_report_dialog_always_send_button">Vienmēr sūtīt</string>
   <string name="crash_report_dialog_send_button">Sūtīt</string>
@@ -177,6 +179,7 @@
   <string name="reading_lists_onboarding_example2">Mīļākie dzīvnieki</string>
   <string name="reading_lists_onboarding_example3">Kosmiskā telpa!</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
+  <string name="reading_list_remove_from_list">Noņemt no %s</string>
   <string name="user_option_sync_label">Izvēles</string>
   <string name="notification_reverted_title">Atcelts labojums</string>
   <string name="view_continue_reading_card_title">Turpini lasīt</string>
@@ -199,12 +202,12 @@
   <string name="view_continue_reading_card_subtitle_today">Šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
   <string name="description_edit_text_hint" fuzzy="true">Uzraksti aprakstu!</string>
-  <string name="description_edit_save" fuzzy="true">Saglabāt</string>
+  <string name="description_edit_save">Publicēt</string>
   <string name="description_edit_add_description" fuzzy="true">Pievieno īsu aprakstu!</string>
   <string name="description_edit_edit_description">Labot aprakstu</string>
   <string name="description_edit_cancel_hint">Atcelt</string>
   <string name="description_edit_help_about_wikidata">Par Vikidatiem</string>
-  <string name="description_edit_success_saved" fuzzy="true">Apraksts saglabāts!</string>
+  <string name="description_edit_success_saved">Apraksts publicēts!</string>
   <string name="description_edit_success_encouragement">Tu tikko padarīji Vikipēdiju labāku visiem</string>
   <string name="description_edit_success_done">Gatavs</string>
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
