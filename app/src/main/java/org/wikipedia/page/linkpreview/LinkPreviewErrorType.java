@@ -13,7 +13,7 @@ enum LinkPreviewErrorType {
     // Note: The string resource corresponding to the 'text' field will be updated programmatically
     // for the OFFLINE type to accommodate error view design requirements.  See
     // LinkPreviewErrorView.setError() for further discussion.
-    OFFLINE(R.drawable.ic_portable_wifi_off_black_24px, R.string.error_message_generic,
+    OFFLINE(R.drawable.ic_no_article, R.string.error_message_generic,
             R.string.button_add_to_reading_list) {
         @NonNull @Override
         LinkPreviewOverlayView.Callback buttonAction(@NonNull LinkPreviewErrorView errorView) {
