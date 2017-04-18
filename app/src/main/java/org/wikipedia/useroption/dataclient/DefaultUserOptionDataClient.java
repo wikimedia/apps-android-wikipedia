@@ -60,15 +60,18 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
                         if (response.body() != null && !response.body().success(response.body().result())) {
                             L.e("Bad response for wiki " + wiki.host() + " = " + response.body().result());
                         }
+                        notifyThis();
                     }
 
                     @Override
                     public void onFailure(Call<PostResponse> call, Throwable caught) {
                         L.e(caught);
+                        notifyThis();
                     }
                 });
             }
         });
+        waitForThis();
     }
 
     @Override
@@ -82,15 +85,30 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
                         if (response.body() != null && !response.body().success(response.body().result())) {
                             L.e("Bad response for wiki " + wiki.host() + " = " + response.body().result());
                         }
+                        notifyThis();
                     }
 
                     @Override
                     public void onFailure(Call<PostResponse> call, Throwable caught) {
                         L.e(caught);
+                        notifyThis();
                     }
                 });
             }
         });
+        waitForThis();
+    }
+
+    private synchronized void waitForThis() {
+        try {
+            wait();
+        } catch (InterruptedException e) {
+            L.d(e);
+        }
+    }
+
+    private synchronized void notifyThis() {
+        notify();
     }
 
     private static WikipediaApp app() {
