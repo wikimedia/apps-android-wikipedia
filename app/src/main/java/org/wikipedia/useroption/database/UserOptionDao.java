@@ -15,7 +15,9 @@ import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 public final class UserOptionDao extends BaseDao<UserOption> {
     public interface Callback<T> {
@@ -24,6 +26,9 @@ public final class UserOptionDao extends BaseDao<UserOption> {
 
     @NonNull private static final String THEME_KEY = "userjs-app-pref-theme";
     @NonNull private static final String FONT_SIZE_KEY = "userjs-app-pref-font-size";
+
+    @NonNull private static final List<String> SYNCED_OPTIONS
+            = Arrays.asList(THEME_KEY, FONT_SIZE_KEY);
 
     @NonNull private static UserOptionDao INSTANCE = new UserOptionDao();
 
@@ -64,8 +69,10 @@ public final class UserOptionDao extends BaseDao<UserOption> {
 
     public synchronized void reconcileTransaction(@NonNull Collection<UserOption> rows) {
         for (UserOption row : rows) {
-            httpDao.completeTransaction(new UserOptionRow(row));
-            upsert(row);
+            if (SYNCED_OPTIONS.contains(row.key())) {
+                httpDao.completeTransaction(new UserOptionRow(row));
+                upsert(row);
+            }
         }
 
         // TODO: the user option sync adapter downloads all options from the service and should
