@@ -58,14 +58,15 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
 
     private void upload() throws IOException {
         List<UserOptionRow> rows = new ArrayList<>(UserOptionDao.instance().startTransaction());
-        L.i("uploading " + rows.size() + " option(s)");
         while (!rows.isEmpty()) {
             UserOptionRow row = rows.get(0);
 
             try {
                 if (row.status() == HttpStatus.DELETED) {
+                    L.i("deleting user option: " + row.key());
                     UserOptionDataClientSingleton.instance().delete(row.key());
-                } else {
+                } else if (!row.status().synced()) {
+                    L.i("uploading user option: " + row.key());
                     //noinspection ConstantConditions
                     UserOptionDataClientSingleton.instance().post(row.dat());
                 }
