@@ -74,16 +74,20 @@ public final class ThrowableUtil {
         return result;
     }
 
-    public static boolean is404(@NonNull Context ctx, @NonNull Throwable e) {
-        return is404(ThrowableUtil.getAppError(ctx, e));
-    }
-
-    public static boolean is404(@NonNull ThrowableUtil.AppError e) {
-        return e.getDetail() != null && e.getDetail().contains("404");
-    }
-
     public static boolean isOffline(@NonNull Throwable caught) {
         return caught instanceof UnknownHostException || caught instanceof SocketException;
+    }
+
+    public static boolean is404(@NonNull Context ctx, @NonNull Throwable caught) {
+        return is404(caught) || is404(ThrowableUtil.getAppError(ctx, caught));
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber") private static boolean is404(@NonNull Throwable caught) {
+        return caught instanceof HttpStatusException && ((HttpStatusException) caught).code() == 404;
+    }
+
+    private static boolean is404(@NonNull ThrowableUtil.AppError e) {
+        return e.getDetail() != null && e.getDetail().contains("404");
     }
 
     private static boolean isNetworkError(@NonNull Throwable e) {
