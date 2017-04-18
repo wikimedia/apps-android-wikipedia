@@ -57,7 +57,7 @@ public final class UserOptionDao extends BaseDao<UserOption> {
             @Override
             public void onFinish(UserOption result) {
                 super.onFinish(result);
-                callback.success(result == null ? null : Integer.valueOf(result.val()));
+                callback.success(result == null ? null : (int) Float.parseFloat(result.val()));
             }
         }.execute();
     }
