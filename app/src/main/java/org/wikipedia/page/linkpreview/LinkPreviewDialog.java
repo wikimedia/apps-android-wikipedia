@@ -262,6 +262,9 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
         @Override public void onFailure(Call<PageSummary> call, Throwable caught) {
             L.e(caught);
+            if (!isAdded()) {
+                return;
+            }
             showError(caught);
         }
     };
