@@ -15,6 +15,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.login.LoginClient;
 
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
 
@@ -75,7 +76,9 @@ public final class ThrowableUtil {
     }
 
     public static boolean isOffline(@NonNull Throwable caught) {
-        return caught instanceof UnknownHostException || caught instanceof SocketException;
+        return caught instanceof UnknownHostException
+                || caught instanceof SocketException
+                || caught instanceof SocketTimeoutException;
     }
 
     public static boolean is404(@NonNull Context ctx, @NonNull Throwable caught) {
