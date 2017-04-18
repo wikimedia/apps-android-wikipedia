@@ -285,6 +285,9 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
         @Override public void onFailure(Call<PageSummary> call, Throwable caught) {
             L.e(caught);
+            if (!isAdded()) {
+                return;
+            }
             if (is404(getContext(), caught)) {
                 // If the page doesn't exist, show an error immediately without checking the cache.
                 showError(caught);
