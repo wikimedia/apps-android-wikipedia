@@ -839,7 +839,7 @@ ul.mw-gallery-slideshow li.gallerycarousel {
 }
 a.disambig_button {
   text-decoration: none;
-  color: #555555;
+  color: #555;
   float: left;
 }
 a.disambig_button:active {
@@ -861,7 +861,7 @@ a.edit_section_button.android {
   height: 28px;
   width: 28px;
   margin-right: 8px;
-  border: none;
+  border: 0;
   background-image: url(file:///android_asset/images/edit.png);
   background-size: 28px 28px;
   background-position: center;
@@ -875,7 +875,7 @@ a.edit_section_button.android:active {
 }
 a.edit_section_button.android:before {
   /* inactive background transform */
-  content: "";
+  content: '';
   position: absolute;
   z-index: -1;
   border-radius: 50%;
@@ -1035,11 +1035,11 @@ See https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templat
 }
 /* Generate interpuncts */
 #content .hlist dt:after {
-  content: ": ";
+  content: ': ';
 }
 #content .hlist dd:after,
 #content .hlist li:after {
-  content: " · ";
+  content: ' · ';
   font-weight: bold;
 }
 #content .hlist dd:last-child:after,
@@ -1057,7 +1057,7 @@ See https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templat
 #content .hlist li dd:first-child:before,
 #content .hlist li dt:first-child:before,
 #content .hlist li li:first-child:before {
-  content: " (";
+  content: ' (';
   font-weight: normal;
 }
 #content .hlist dd dd:last-child:after,
@@ -1069,7 +1069,7 @@ See https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templat
 #content .hlist li dd:last-child:after,
 #content .hlist li dt:last-child:after,
 #content .hlist li li:last-child:after {
-  content: ") ";
+  content: ') ';
   font-weight: normal;
 }
 /* Put ordinals in front of ordered list items */
@@ -1080,12 +1080,12 @@ See https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templat
   counter-increment: list-item;
 }
 #content .hlist ol > li:before {
-  content: " " counter(list-item) " ";
+  content: ' ' counter(list-item) ' ';
 }
 #content .hlist dd ol > li:first-child:before,
 #content .hlist dt ol > li:first-child:before,
 #content .hlist li ol > li:first-child:before {
-  content: " (" counter(list-item) " ";
+  content: ' (' counter(list-item) ' ';
 }
 /* Unbulleted lists e.g. Barack Obama page */
 .plainlist ul {
@@ -1102,7 +1102,7 @@ See https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templat
 Please document here what pages use this
 */
 .compact-ambox table.ambox {
-  border: none;
+  border: 0;
   border-collapse: collapse;
   background: transparent;
   margin: 0 0 0 1.6em !important;
@@ -1278,8 +1278,8 @@ h2.section_heading {
 }
 h3.section_heading {
   font-family: 'Helvetica Neue', 'Helvetica', 'Nimbus Sans L', 'Arial', 'Liberation Sans', sans-serif;
-  font-weight: 700;
-  padding: 15px 0 0!important;
+  font-weight: bold;
+  padding: 15px 0 0 !important;
 }
 
 div.issues_container {
@@ -1289,9 +1289,9 @@ div.issues_container {
   padding-bottom: 1px;
   width: 100%;
   display: block;
-  font-size: .9em;
+  font-size: 0.9em;
   letter-spacing: 0.02em;
-  color: #555555;
+  color: #555;
 }
 span.issues_separator {
   padding-left: 0.6em;
@@ -1300,7 +1300,7 @@ span.issues_separator {
 }
 a.issues_button {
   text-decoration: none;
-  color: #555555;
+  color: #555;
   float: left;
 }
 a.issues_button:active {
@@ -1313,7 +1313,7 @@ a.issues_button:active {
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-top: 4px solid rgba(0, 0, 0, 0.4);
   border-radius: 100%;
-  -webkit-animation: rot .6s infinite linear;
+  -webkit-animation: rot 0.6s infinite linear;
 }
 @-webkit-keyframes rot {
   from {
@@ -1350,16 +1350,16 @@ a.issues_button:active {
   -webkit-margin-end: 0 !important;
 }
 .content figure img {
-  margin: .6em auto .6em auto;
+  margin: 0.6em auto 0.6em auto;
   display: block;
   clear: both;
 }
 .content figcaption {
-  margin: .5em 0 0;
-  font-size: .8em;
+  margin: 0.5em 0 0;
+  font-size: 0.8em;
   line-height: 1.5;
   padding: 0 !important;
-  color: #555555;
+  color: #555;
   width: auto !important;
 }
 
@@ -1378,10 +1378,7 @@ table.infobox caption {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12), 0 0 1px 0 rgba(0, 0, 0, 0.18);
 }
 .app_table_collapsed_container {
-  padding-left: 12px;
-  padding-right: 48px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 48px 12px 12px;
   line-height: 120%;
   background-color: #f8f8f8;
   background-repeat: no-repeat;
@@ -1394,7 +1391,7 @@ table.infobox caption {
   background-image: url(/w/extensions/MobileApp/images/table_expand.png?1f7f0)!ie;
 }
 .app_table_collapse_close {
-  border-radius: 2px 2px 0px 0px;
+  border-radius: 2px 2px 0 0;
 }
 .app_table_collapse_icon {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4zjOaXUAAAAoBJREFUaEPtmE1uE0EQhW3Mzyk4iiU4AFn6BJbtvbfeIIQEAUEUCEnE/58ImCQCIRCSxVk4AGyyYwN5L+qOxuXXM90zthCiS/ricXV11avunhkrrWzZsmXLlu2fttlstjJGo9GN4XB4VY0tC+lcBhC+Dv6QwWBwTcUsA+lsCgTf9uI92I3rKrYp0tkECL1jxXt4pNScJkhnXSByw4oWrKu5dZHOOuDYbAqxEh4xlaMO0pkKjsZ9JbQMHjWVKxXpTKANMQ+suAQ2RM4kpDOSNlZxW4hK5Z7IHY10RsCV3zVCaoN7Yos5TY0opLOCNgo+VEIEn8EX45NwN5nb1KpEOkN0u90zKPRYCRB8Go/HFwivzViIXdRJakI6FRSPlX8iiio+gPN+Lq/BRzdWCncXc6KbkE6LW/lnqqDgoNfrnbM56MPYoYmVcJdZ0+ZQSGcRJkLSF7ZIgOlkMjmr8hDXxL6ZE+JpTBPS6UGSDrb0lUkcYq9MvIcxiH1n5kpQ+3lVE9JJkKADXhcTlsC4jsqjcE3sFeYHwXF6ic9gbunkBHT/ppioBB6vaPEezgGNF2jBwdVB129NghBR5zQE5nfcCqvcc7gFXWhi7kvK+QSPmoj3MEfsE44La++z0wsn/r2dFCD5hVOGayL2BTn3pDv54x5vByZQgq2s/bulgpSfKPv+XZP0gkGBTVN02bCJHVVbcEjtvJGmZkCCxHdFwVXAJraUBsGUDayBXwXnAjift0ShlcLdVloKUPOaD76CL0eFQc9vjK3sfzpVoPZNajCayBE1M+Y0uN/vX3TP5O/gJ/iGoMt+/G8BTZeg5Sv4QW3USK1+PFu2bNmyZcuW7f+1VusYzYvU+uNoBCAAAAAASUVORK5CYII=);
@@ -1405,12 +1402,9 @@ table.infobox caption {
 }
 .app_table_collapsed_bottom {
   color: #808080;
-  padding-left: 12px;
-  padding-right: 48px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 48px 12px 12px;
   line-height: 120%;
-  border-radius: 0px 0px 2px 2px;
+  border-radius: 0 0 2px 2px;
   background-color: #f8f8f8;
   background-repeat: no-repeat;
   background-position: 95% 50%;
