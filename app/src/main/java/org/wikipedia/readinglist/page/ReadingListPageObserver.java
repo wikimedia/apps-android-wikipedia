@@ -1,16 +1,13 @@
 package org.wikipedia.readinglist.page;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListPageContract;
-import org.wikipedia.savedpages.SavedPageSyncService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +39,6 @@ public class ReadingListPageObserver extends ContentObserver {
         if (uri.equals(ReadingListPageContract.Disk.URI)) {
             notifyListeners();
         }
-        WikipediaApp.getInstance().startService(new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
     }
 
     public void register(@NonNull Context context) {

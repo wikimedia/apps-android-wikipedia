@@ -142,7 +142,7 @@ public class SavedPageSyncService extends IntentService {
             L.e("Failed to save page " + title, e);
             return false;
         }
-
+        L.i("Saved page " + title);
         return true;
     }
 
