@@ -101,5 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:background="@color/base80"
+        android:orientation="vertical"
         android:visibility="gone"/>
 </FrameLayout>
