@@ -33,11 +33,8 @@
     <!-- For Nearby feature -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-feature android:name="android.hardware.location" android:required="false" />
-    <uses-feature android:name="android.hardware.LOCATION" android:required="false" />
     <uses-feature android:name="android.hardware.location.gps" android:required="false" />
-    <uses-feature android:name="android.hardware.location.GPS" android:required="false" />
     <uses-feature android:name="android.hardware.location.network" android:required="false" />
-    <uses-feature android:name="android.hardware.WIFI" android:required="false" />
 
     <!--
         Don't let Google Play filter out devices that just have fake touch
