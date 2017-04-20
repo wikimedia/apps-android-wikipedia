@@ -84,7 +84,7 @@ public class WikiErrorView extends LinearLayout {
             caught = caught.getCause();
         }
 
-        if (caught != null && is404(context, caught)) {
+        if (caught != null && is404(caught)) {
             return ErrorType.PAGE_MISSING;
         }
         if (caught != null && isOffline(caught)) {

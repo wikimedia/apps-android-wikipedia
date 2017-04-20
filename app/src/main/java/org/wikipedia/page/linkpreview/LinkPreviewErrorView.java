@@ -54,7 +54,7 @@ public class LinkPreviewErrorView extends LinearLayout {
     }
 
     public void setError(@Nullable Throwable caught) {
-        LinkPreviewErrorType errorType = LinkPreviewErrorType.get(getContext(), caught);
+        LinkPreviewErrorType errorType = LinkPreviewErrorType.get(caught);
         icon.setImageDrawable(ContextCompat.getDrawable(getContext(), errorType.icon()));
 
         // HACK: This message is delivered in one piece in a link preview but as a separate primary

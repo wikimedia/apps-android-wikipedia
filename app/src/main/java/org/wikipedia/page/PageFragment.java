@@ -937,7 +937,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         disableActionTabs(caught);
 
-        refreshView.setEnabled(!ThrowableUtil.is404(getContext(), caught));
+        refreshView.setEnabled(!ThrowableUtil.is404(caught));
         errorState = true;
         if (callback() != null) {
             callback().onPageLoadError(getTitle());
