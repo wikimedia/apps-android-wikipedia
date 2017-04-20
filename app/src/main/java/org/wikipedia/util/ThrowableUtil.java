@@ -43,7 +43,15 @@ public final class ThrowableUtil {
         return false;
     }
 
-    @NonNull
+    /**
+     * DEPRECATED: This is a rarely-used function intended to sift through server error responses
+     * and pass through the relevant bits along with standardized strings in certain cases.
+     *
+     * Getting the handful of canned strings depends on processing contexts that might be null by
+     * the time we make it here.  Further, we're moving away from using raw server messages in favor
+     * of statically defined XML error views, which are safer.  This should no longer be used.
+     */
+    @NonNull @Deprecated
     public static AppError getAppError(@NonNull Context context, @NonNull Throwable e) {
         Throwable inner = ThrowableUtil.getInnermostThrowable(e);
         AppError result;
@@ -73,8 +81,8 @@ public final class ThrowableUtil {
         return result;
     }
 
-    public static boolean is404(@NonNull Context ctx, @NonNull Throwable e) {
-        return is404(ThrowableUtil.getAppError(ctx, e));
+    @SuppressWarnings("checkstyle:magicnumber") public static boolean is404(@NonNull Throwable caught) {
+        return caught instanceof HttpStatusException && ((HttpStatusException) caught).code() == 404;
     }
 
     public static boolean is404(@NonNull ThrowableUtil.AppError e) {
@@ -92,7 +100,7 @@ public final class ThrowableUtil {
                 || ThrowableUtil.throwableContainsException(e, SSLException.class);
     }
 
-    @NonNull
+    @NonNull @Deprecated
     private static String getApiError(@NonNull Context context, @NonNull ApiException e) {
         String text;
         if ("missingtitle".equals(e.getCode()) || "invalidtitle".equals(e.getCode())) {
@@ -104,7 +112,7 @@ public final class ThrowableUtil {
     }
 
     // TODO: migrate this to ApiException.toString()
-    @NonNull
+    @NonNull @Deprecated
     private static String getApiErrorMessage(@NonNull Context c, @NonNull ApiException e) {
         String text;
         if (e.getInfo() != null) {
@@ -120,7 +128,7 @@ public final class ThrowableUtil {
         return text;
     }
 
-    public static class AppError {
+    @Deprecated public static class AppError {
         private String error;
         private String detail;
         public AppError(@NonNull String error, @Nullable String detail) {

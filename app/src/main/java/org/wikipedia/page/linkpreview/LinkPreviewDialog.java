@@ -254,7 +254,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         errorContainer.setVisibility(View.VISIBLE);
         errorContainer.setError(caught);
         errorContainer.setCallback(this);
-        LinkPreviewErrorType errorType = LinkPreviewErrorType.get(getContext(), caught);
+        LinkPreviewErrorType errorType = LinkPreviewErrorType.get(caught);
         overlayView.setPrimaryButtonText(getResources().getString(errorType.buttonText()));
         overlayView.setCallback(errorType.buttonAction(errorContainer));
     }
@@ -288,7 +288,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             if (!isAdded()) {
                 return;
             }
-            if (is404(getContext(), caught)) {
+            if (is404(caught)) {
                 // If the page doesn't exist, show an error immediately without checking the cache.
                 showError(caught);
             } else {

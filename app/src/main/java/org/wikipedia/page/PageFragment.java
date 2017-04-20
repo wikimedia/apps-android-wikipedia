@@ -892,9 +892,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         hidePageContent();
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
-        if (getActivity() != null) {
-            refreshView.setEnabled(!ThrowableUtil.is404(getActivity(), caught));
-        }
+        errorView.setEnabled(!ThrowableUtil.is404(caught));
         errorState = true;
 
         if (getPageLoadCallbacks() != null) {

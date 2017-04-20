@@ -1,6 +1,5 @@
 package org.wikipedia.page.linkpreview;
 
-import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -61,8 +60,8 @@ enum LinkPreviewErrorType {
 
     @NonNull abstract LinkPreviewOverlayView.Callback buttonAction(@NonNull LinkPreviewErrorView errorView);
 
-    @NonNull public static LinkPreviewErrorType get(@NonNull Context context, @Nullable Throwable caught) {
-        if (caught != null && ThrowableUtil.is404(context, caught)) {
+    @NonNull public static LinkPreviewErrorType get(@Nullable Throwable caught) {
+        if (caught != null && ThrowableUtil.is404(caught)) {
             return LinkPreviewErrorType.PAGE_MISSING;
         }
         if (caught != null && ThrowableUtil.isOffline(caught)) {
