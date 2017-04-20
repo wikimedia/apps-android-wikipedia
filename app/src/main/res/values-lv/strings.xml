@@ -61,6 +61,7 @@
   <string name="preference_title_logout">Iziet</string>
   <string name="toast_logout_complete">Jūs esat izgājis</string>
   <string name="delete_selected_history">Dzēst</string>
+  <string name="delete_selected_items">Dzēst izvēlētos vienumus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPĒDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Lietotājvārds</string>
   <string name="login_create_account_link">Jums vēl nav sava konta? Pievienojies Vikipēdijai</string>
@@ -148,6 +149,7 @@
   <string name="preference_title_show_link_previews">Rādīt saišu priekšskatījumus</string>
   <string name="nav_item_donate">Atbalstīt Vikipēdiju</string>
   <string name="enable_location_service">Iespējot</string>
+  <string name="location_permissions_enable_action">Ieslēgt</string>
   <string name="error_message_generic">Notika kļūda</string>
   <string name="error_page_does_not_exist">Šī lapa nepastāv</string>
   <string name="crash_report_dialog_dont_send_button">Izlaist</string>
@@ -213,6 +215,7 @@
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
   <string name="description_edit_tutorial_button_label_continue">Turpināt</string>
   <string name="description_edit_tutorial_button_label_start_editing">Sākt labošanu</string>
+  <string name="description_edit_help_about_title">Par</string>
   <string name="description_edit_help_tips_examples">Piemēram:</string>
   <string name="description_edit_help_more_info">Vairāk informācijas</string>
 </resources>
