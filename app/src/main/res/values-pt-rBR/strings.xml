@@ -7,6 +7,9 @@
   <string name="yes">Sim</string>
   <string name="no">Não</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
+  <string name="search_hint_search_history">Histórico de pesquisa</string>
+  <string name="search_hint_search_my_lists">Pesquisar nas minhas listas</string>
+  <string name="search_hint_search_reading_list">Pesquisar na lista de leitura</string>
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
@@ -38,7 +41,7 @@
   <string name="nearby_zoom_to_location">Amplie a um local no mapa</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="talk_page_link_text">Discussão</string>
-  <string name="content_license_html" fuzzy="true">O conteúdo está disponível sob &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado o contrário</string>
+  <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license_logged_in">Ao salvar, você estará concordando com os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao salvar, você estará concordando com os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar sessão&lt;/a&gt;, você terá mais privacidade.</string>
   <string name="preference_title_language">Idioma da WIkipédia</string>
@@ -47,9 +50,9 @@
   <string name="langlinks_empty">Esta página não está disponível em outros idiomas.</string>
   <string name="langlinks_no_match">Nenhum idioma correspondente com a sua pesquisa.</string>
   <string name="langlinks_activity_title">Outros idiomas</string>
-  <string name="menu_save_changes" fuzzy="true">Salvar mudanças</string>
+  <string name="menu_save_changes">Publicar alterações</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Edição salva!</string>
+  <string name="edit_saved_successfully">Editar publicado!</string>
   <string name="dialog_message_edit_failed">Falha de edição!</string>
   <string name="dialog_message_edit_failed_retry">Tentar novamente</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
@@ -58,6 +61,9 @@
   <string name="dialog_message_leaving_edit_stay">Ficar</string>
   <string name="menu_show_toc">Índice</string>
   <string name="search_no_results_found">Nenhum resultado encontrado</string>
+  <string name="search_reading_list_no_results">Nenhum resultado encontrado em \"%s\"</string>
+  <string name="search_reading_lists_no_results">Nenhum resultado encontrado em listas de leitura</string>
+  <string name="search_history_no_results">Nenhum resultado encontrado no histórico</string>
   <string name="edit_section_captcha_message">Para ajudar a proteger contra spam automatizado, digite as palavras abaixo</string>
   <string name="edit_section_captcha_hint">Repita as palavras de cima</string>
   <string name="title_captcha">Digite o CAPTCHA</string>
@@ -74,9 +80,10 @@
   <string name="login_success_toast">Autenticação bem sucedida!</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Saiu</string>
-  <string name="history_empty_title" fuzzy="true">Nenhuma página recente aqui!</string>
-  <string name="history_empty_message" fuzzy="true">Seu histórico está vazio. Na próxima vez que você buscar uma página, você pode acessar a mesma por aqui.</string>
+  <string name="history_empty_title">Nenhum artigo visto recentemente</string>
+  <string name="history_empty_message">Acompanhe o que você está lendo aqui.</string>
   <string name="delete_selected_history">Apagar</string>
+  <string name="delete_selected_items">Excluir itens selecionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuário</string>
   <string name="login_create_account_link">Ainda não possui uma conta? Junte-se à Wikipédia</string>
@@ -119,7 +126,8 @@
   <string name="page_protected_autoconfirmed">Esta página foi semiprotegida.</string>
   <string name="page_protected_sysop">Esta página foi totalmente protegida.</string>
   <string name="page_protected_other">Esta página foi protegida no seguinte nível: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Você não tem permissão para editar esta página</string>
+  <string name="page_protected_can_not_edit">Desculpe, a sua conta não tem os privilégios necessários para editar esta página neste momento.</string>
+  <string name="page_protected_can_not_edit_anon">Desculpe, esta página não pode ser editada anonimamente neste momento.</string>
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
   <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
@@ -128,13 +136,15 @@
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Termos_de_Uso</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
   <string name="about_app_license">Código fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Um produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundação Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Um produto da &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fundação Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
   <string name="user_blocked_from_editing_title">Bloqueado(a)</string>
@@ -151,8 +161,8 @@
   <string name="edit_summary_tag_other_hint">Outras maneiras de como você melhorou a página</string>
   <string name="find_next">Encontrar próxima</string>
   <string name="find_previous">Encontrar anterior</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Esta edição pode não ser benéfica. Você tem certeza de que gostaria de salvá-la?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Você não pode salvar esta edição. Volte e altere-a.</string>
+  <string name="abusefilter_title_warn">Isso pode ser uma edição não construtiva. Tem certeza de que deseja publicá-lo?</string>
+  <string name="abusefilter_title_disallow">Não pode publicar esta edição. Por favor, volte atrás e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou que esta edição contém possíveis erros. Ela pode conter uma ou mais das seguintes características:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de letras maiúsculas;&lt;br/&gt;· Entradas em branco ou com spam;&lt;br/&gt;· Imagens ou ligações externas irrelevantes; e&lt;br/&gt;· Repetição de caracteres.</string>
   <string name="abusefilter_text_disallow">Um filtro automático identificou que esta edição possivelmente contém erros ou vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipédia é uma enciclopédia e somente conteúdo neutro e notável podem ser adicionados aqui.</string>
   <string name="dialog_page_issues">Problemas da página</string>
@@ -215,6 +225,9 @@
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>
   <string name="button_continue_to_article">Leia o artigo</string>
+  <string name="button_add_to_reading_list">Adicionar à lista de leitura</string>
+  <string name="page_offline_notice_cannot_load_while_offline">O artigo não pode ser carregado enquanto estiver offline.</string>
+  <string name="page_offline_notice_add_to_reading_list">Adicione o artigo a uma lista de leitura e ele será baixado assim que estiver online novamente.</string>
   <string name="button_get_directions">Obter itinerário</string>
   <string name="error_no_maps_app">Não foi possível encontrar aplicativos que forneceçam rotas.</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
@@ -224,6 +237,13 @@
   <string name="location_service_disabled">Os serviços de localização estão desativados.</string>
   <string name="enable_location_service">Habilitar</string>
   <string name="location_permissions_enable_prompt">Habilite as permissões de localização para ver lugares próximos a você.</string>
+  <string name="location_permissions_enable_action">Ativar</string>
+  <string name="error_webview_updating">O Android System WebView está sendo atualizado. Tente novamente em um momento.</string>
+  <string name="multi_select_items_selected">%d selecionado</string>
+  <string name="error_message_generic">Ocorreu um erro</string>
+  <string name="view_link_preview_error_button_dismiss">Ignorar</string>
+  <string name="error_page_does_not_exist">Esta página não existe</string>
+  <string name="view_wiki_error_message_offline">Não foi possível conectar-se à Internet</string>
   <string name="crash_report_dialog_title">Desculpe, o aplicativo encerrou inesperadamente da última vez</string>
   <string name="crash_report_dialog_text">Gostaria de enviar um relatório de falha ao HockeyApp / um provedor de serviço de terceiros para que a Wikimedia possa analisar a falha e corrigi-la?</string>
   <string name="crash_report_dialog_dont_send_button">Pular</string>
@@ -244,6 +264,8 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="reading_list_untitled">Sem título</string>
   <string name="reading_list_save_to">Salvar na lista de leitura</string>
   <string name="reading_list_create_new">Criar novo</string>
+  <string name="reading_list_title_exists">A lista de leitura \"%s\" já existe.</string>
+  <string name="reading_list_entry_empty">Introduza um título, por favor.</string>
   <string name="reading_list_added_to_named">Adicionado para %s.</string>
   <string name="reading_list_added_to_unnamed">Adicionado à lista de leitura.</string>
   <string name="reading_list_already_exists">Este artigo já está nessa lista.</string>
@@ -255,33 +277,46 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverter)</string>
   <string name="reading_list_sort_by_recent">Classificar por mais recente</string>
   <string name="reading_list_sort_by_recent_desc">Ordenar pelo menos recente</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Excluir lista de leitura</string>
+  <string name="reading_list_menu_delete">Excluir lista</string>
+  <string name="reading_list_menu_rename">Renomear</string>
+  <string name="reading_list_menu_edit_description">Editar descrição</string>
   <string name="reading_list_name_sample">Minha lista de leitura</string>
   <string name="reading_list_name_hint">Nome da lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
   <string name="reading_list_item_deleted">%s removido da lista</string>
+  <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s apagado</string>
-  <string name="reading_lists_empty" fuzzy="true">Não existem listas de leitura aqui.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organize os artigos em que navega em listas de leitura! Ao ler um artigo, toque rapidamente no ícone de marcador, localizado abaixo da barra de ferramentas, para adicioná-lo a uma lista de leitura.</string>
+  <string name="reading_lists_empty">Nenhuma lista de leitura ainda</string>
+  <string name="reading_lists_empty_message">Salve os artigos nas listas de leitura para que você possa visualizá-los mais tarde, mesmo quando estiver offline.</string>
   <string name="reading_lists_onboarding_intro">Crie listas de leitura de artigos que deseja ler mais tarde, mesmo quando você estiver offline!</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares para visitar</string>
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
   <string name="reading_lists_onboarding_example3">Espaço!</string>
   <string name="reading_lists_onboarding_got_it">Entendi</string>
+  <string name="reading_list_no_description">Sem descrição...</string>
+  <string name="reading_list_empty">Você não tem artigos adicionados a esta lista.</string>
+  <string name="reading_list_article_make_offline">Disponibilizar este artigo offline</string>
+  <string name="reading_list_article_remove_offline">Não disponibilize este artigo offline</string>
+  <string name="reading_list_article_offline_message">Este artigo agora estará disponível off-line.</string>
+  <string name="reading_list_article_not_offline_message">Este artigo não estará mais disponível off-line.</string>
+  <string name="reading_list_add_to_other_list">Adicionar a outra lista de leitura</string>
+  <string name="reading_list_remove_from_list">Remover de %s</string>
+  <string name="reading_list_remove_from_lists">Remover das listas de leitura</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_button_view_user">Falar com usuário</string>
   <string name="notification_talk_title">Nova mensagem na Wikipédia</string>
-  <string name="notification_talk" fuzzy="true">%1$s deixou uma mensagem em sua página de discussão \"%2$s\"</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; deixou uma mensagem na sua página de discussão &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Edição revertida</string>
-  <string name="notification_reverted" fuzzy="true">Sua edição no artigo \"%2$s\" foi revertida por %1$s.</string>
+  <string name="notification_reverted">A sua edição do artigo &lt;strong&gt;%2$s&lt;/strong&gt; foi desfeita por &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Você recebeu um agradecimento!</string>
-  <string name="notification_thanks" fuzzy="true">%1$s agradeceu por sua edição na página \"%2$s\"</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; agradeceu-lhe a edição na página &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Continue lendo</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
   <string name="view_random_card_title">Aleatório</string>
   <string name="view_random_card_subtitle">Ler um artigo aleatório da Wikipédia</string>
+  <string name="view_random_card_error">Não foi possível carregar uma página aleatória a partir da rede ou das suas listas de leitura.</string>
   <string name="view_main_page_card_title">Hoje na Wikipédia</string>
   <string name="view_main_page_card_subtitle">Página principal em %s</string>
   <string name="view_featured_image_card_title">Imagem do dia</string>
@@ -302,7 +337,7 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="view_continue_reading_card_subtitle_today">Hoje</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
   <string name="description_edit_text_hint">Descrição do título</string>
-  <string name="description_edit_save" fuzzy="true">Salvar</string>
+  <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>
   <string name="description_edit_edit_description">Editar descrição</string>
   <string name="description_edit_cancel_hint">Cancelar</string>
@@ -312,8 +347,8 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/pt-br</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Obrigado pelo seu interesse contínuo em editar descrições! Para efetuar edições adicionais, faça login na sua conta da Wikipedia</string>
-  <string name="description_edit_license_notice" fuzzy="true">Ao alterar a descrição do título, concordo com a &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e de libertar irrevogavelmente as minhas contribuições &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licença.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Descrição salvada!</string>
+  <string name="description_edit_license_notice">Ao alterar a descrição do título, concordo com as &lt;a href=\"%1$s\"&gt;Condições de Uso&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_success_saved">Descrição publicada!</string>
   <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
   <string name="description_edit_success_done">Concluído</string>
   <string name="description_edit_success_did_you_know">Você sabia?</string>
@@ -340,5 +375,5 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Sua contribuição parecia uma experiência ou vandalismo.</string>
-  <string name="description_edit_revert_history" fuzzy="true">Se estiver interessado, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Se estiver interessado, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
 </resources>

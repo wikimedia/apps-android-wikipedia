@@ -227,6 +227,7 @@
   <string name="button_continue_to_article">Lenn ar pennad</string>
   <string name="button_add_to_reading_list">Ouzhpennañ d\'ar roll lenn</string>
   <string name="page_offline_notice_cannot_load_while_offline">N\'haller ket kargañ ar pennad pa vezet ezlinenn.</string>
+  <string name="page_offline_notice_add_to_reading_list">Ouzhpennit ar pennad d\'ur roll lenn hag e vo pellgarget kentañ tro ma viot enlinenn.</string>
   <string name="button_get_directions">Kaout an tuioù</string>
   <string name="error_no_maps_app">Ne c\'haller kavout arload ebet hag a ro tuioù.</string>
   <string name="preference_title_show_link_previews">Diskwel alberzoù al liammoù</string>
@@ -239,6 +240,7 @@
   <string name="location_permissions_enable_action">Enaouiñ</string>
   <string name="error_webview_updating">Emañ ar WebView eus ar riezhiad Android o hizivaat evit ar mare. Klaskit en-dro a-benn ur pennadig.</string>
   <string name="multi_select_items_selected">%d diuzet</string>
+  <string name="error_message_generic">Ur fazi zo c\'hoarvezet</string>
   <string name="view_link_preview_error_button_dismiss">Disteurel</string>
   <string name="error_page_does_not_exist">N\'eus ket eus ar bajenn-mañ.</string>
   <string name="view_wiki_error_message_offline">N\'haller ket kevreañ ouzh ar Genrouedad</string>
