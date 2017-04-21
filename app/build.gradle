@@ -197,7 +197,7 @@ dependencies {
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0@aar') {
         transitive = true
     }
-    compile 'net.hockeyapp.android:HockeySDK:4.0.1'
+    compile 'net.hockeyapp.android:HockeySDK:4.1.3'
     compile 'org.apache.commons:commons-lang3:3.5'
     compile 'org.jsoup:jsoup:1.10.2'
 
