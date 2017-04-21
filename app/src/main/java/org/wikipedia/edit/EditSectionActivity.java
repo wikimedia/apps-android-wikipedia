@@ -458,9 +458,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             }
             builder.show();
         } else {
-            // an unknown error occurred, so just dismiss the progress dialog and show a message.
             progressDialog.dismiss();
-            FeedbackUtil.showError(this, caught);
+            showError(caught);
         }
     }
 

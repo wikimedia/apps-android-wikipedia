@@ -26,7 +26,6 @@ import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
@@ -361,10 +360,8 @@ public class SearchResultsFragment extends Fragment {
                 if (callback != null) {
                     callback.getFunnel().searchError(true, timeToDisplay);
                 }
+                // if there's an error just log it and let the existing prefix search results be.
                 updateProgressBar(false);
-
-                // since this is a follow-up search just show a message
-                FeedbackUtil.showError(getView(), caught);
             }
         }.execute();
     }
