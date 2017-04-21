@@ -41,6 +41,7 @@ public class PageItemView<T> extends FrameLayout {
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
     @BindView(R.id.page_list_item_action_button) ImageView actionView;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
+    @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
@@ -78,6 +79,10 @@ public class PageItemView<T> extends FrameLayout {
 
     public void setActionHint(@StringRes int id) {
         actionView.setContentDescription(getContext().getString(id));
+    }
+
+    public void setHeaderText(@Nullable CharSequence text) {
+        headerView.setText(text);
     }
 
     public void setSelected(boolean selected) {

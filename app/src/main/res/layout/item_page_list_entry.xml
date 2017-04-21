@@ -18,7 +18,7 @@
     <!-- TODO: this probably shouldn't be part of an item cell since it has to do with a collection
                of cells and nothing to do with an individual. This manifests visually when the cell
                is interacted with and the additional spacing is exposed. -->
-    <TextView
+    <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/page_list_header_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
