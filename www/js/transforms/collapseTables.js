@@ -1,4 +1,4 @@
-var getTableHeader = require("applib").CollapseElement.getTableHeader;
+var getTableHeader = require("applib").CollapseTable.getTableHeader;
 var transformer = require("../transformer");
 
 function handleTableCollapseOrExpandClick() {

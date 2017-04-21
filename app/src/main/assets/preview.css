@@ -622,32 +622,32 @@ span.mw-linkback-text {
 		vertical-align: top;
 		display: inline-block;
 	}
-
+	
 	ul.gallery,
 	li.gallerybox {
 		zoom: 1;
 		*display: inline;
 	}
-
+	
 	ul.gallery {
 		margin: 2px;
 		padding: 2px;
 		display: block;
 	}
-
+	
 	li.gallerycaption {
 		font-weight: bold;
 		text-align: center;
 		display: block;
 		word-wrap: break-word;
 	}
-
+	
 	li.gallerybox div.thumb {
 		text-align: center;
 		border: 1px solid #ccc;
 		margin: 2px;
 	}
-
+	
 	div.gallerytext {
 		overflow: hidden;
 		font-size: 94%;
@@ -914,48 +914,6 @@ table.infobox caption {
   background-repeat: no-repeat;
   background-position: 95% 50%;
   background-size: 16px 16px;
-}
-
-.wideImageOverride {
-  /* Center images. */
-  display: block;
-  clear: both;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media (orientation: portrait) {
-  .wideImageOverride {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-}
-@media (orientation: portrait) and (min-device-width: 768px) {
-  .wideImageOverride {
-    width: 60% !important;
-    max-width: 60% !important;
-    height: auto !important;
-  }
-}
-@media (orientation: portrait) and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 3) {
-  .wideImageOverride {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-}
-@media (orientation: landscape) {
-  .wideImageOverride {
-    width: 50% !important;
-    max-width: 50% !important;
-    height: auto !important;
-  }
-}
-/* Center text beneath images now that images are centered. */
-.thumbinner,
-.gallerytext,
-figcaption {
-  text-align: center;
 }/* Hide the stupid editlink */
 .edit-page {
   display: none;

@@ -1,44 +1,17 @@
+var maybeWidenImage = require('applib').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 
 var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
 
-function widenAncestors (el) {
-    while ((el = el.parentElement) && !el.classList.contains('content_block')) {
-        // Only widen if there was a width setting. Keeps changes minimal.
-        if (el.style.width) {
-            el.style.width = '100%';
-        }
-        if (el.style.maxWidth) {
-            el.style.maxWidth = '100%';
-        }
-        if (el.style.float) {
-            el.style.float = 'none';
-        }
-    }
-}
-
-function shouldWidenImage(image) {
-    if (
-        image.width >= 64 &&
-        image.hasAttribute('srcset') &&
-        !image.hasAttribute('hasOverflowXContainer') &&
-        image.parentNode.className === "image" &&
-        !utilities.isNestedInTable(image)
-        ) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function makeRoomForImageWidening(image) {
-    // Expand containment so css wideImageOverride width percentages can take effect.
-    widenAncestors (image);
-
-    // Remove width and height attributes so wideImageOverride width percentages can take effect.
-    image.removeAttribute("width");
-    image.removeAttribute("height");
+function isGalleryImage(image) {
+  return (
+      image.width >= 64 &&
+      image.hasAttribute('srcset') &&
+      image.parentNode.className === "image" &&
+      // todo: remove addImageOverflowContainers transform. See T160970
+      !image.hasAttribute('hasOverflowXContainer')
+    );
 }
 
 function getStretchRatio(image) {
@@ -68,17 +41,11 @@ function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
     }
 }
 
-function widenImage(image) {
-    makeRoomForImageWidening (image);
-    image.classList.add("wideImageOverride");
-    useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
-}
-
-function maybeWidenImage() {
+function onImageLoad() {
     var image = this;
-    image.removeEventListener('load', maybeWidenImage, false);
-    if (shouldWidenImage(image)) {
-        widenImage(image);
+    image.removeEventListener('load', onImageLoad, false);
+    if (isGalleryImage(image) && maybeWidenImage(image)) {
+        useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
     }
 }
 
@@ -87,6 +54,6 @@ transformer.register( "widenImages", function( content ) {
     for ( var i = 0; i < images.length; i++ ) {
         // Load event used so images w/o style or inline width/height
         // attributes can still have their size determined reliably.
-        images[i].addEventListener('load', maybeWidenImage, false);
+        images[i].addEventListener('load', onImageLoad, false);
     }
 } );
