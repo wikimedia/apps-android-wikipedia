@@ -58,6 +58,12 @@ android {
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
         vectorDrawables.useSupportLibrary = true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                argument('butterknife.minSdk', minSdkVersion.apiString)
+            }
+        }
     }
 
     sourceSets {
