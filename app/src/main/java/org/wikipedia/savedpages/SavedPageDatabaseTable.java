@@ -15,7 +15,7 @@ import org.wikipedia.util.log.L;
  * No longer used, but upgrade logic reserved for database version upgrades which occur sequentially
  * (see discussion at https://phabricator.wikimedia.org/rAPAWaf070d5914d3614b91be6b033961e39372241a92).
  */
-public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
+@Deprecated public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     private static final int DB_VER_INTRODUCED = 4;
     private static final int DB_VER_NAMESPACE_ADDED = 6;
     private static final int DB_VER_NORMALIZED_TITLES = 8;
