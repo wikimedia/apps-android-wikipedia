@@ -183,7 +183,7 @@ dependencies {
     compile "com.facebook.fresco:animated-gif:$frescoVersion"
     compile "com.facebook.fresco:fresco:$frescoVersion"
     compile "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
-    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.google.code.gson:gson:2.8'
     compile 'com.romandanylyk:pageindicatorview:0.1.2'
     compile "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // for JavaNetCookieJar
     compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
