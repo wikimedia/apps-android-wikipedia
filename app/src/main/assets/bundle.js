@@ -759,7 +759,7 @@ transformer.register( "addImageOverflowXContainers", function( content ) {
     }
 } );
 },{"../transformer":14,"../utilities":25}],17:[function(require,module,exports){
-var getTableHeader = require("applib").CollapseElement.getTableHeader;
+var getTableHeader = require("applib").CollapseTable.getTableHeader;
 var transformer = require("../transformer");
 
 function handleTableCollapseOrExpandClick() {
@@ -1106,47 +1106,20 @@ transformer.register( "setDivWidth", function( content ) {
     }
 } );
 },{"../transformer":14}],24:[function(require,module,exports){
+var maybeWidenImage = require('applib').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 
 var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
 
-function widenAncestors (el) {
-    while ((el = el.parentElement) && !el.classList.contains('content_block')) {
-        // Only widen if there was a width setting. Keeps changes minimal.
-        if (el.style.width) {
-            el.style.width = '100%';
-        }
-        if (el.style.maxWidth) {
-            el.style.maxWidth = '100%';
-        }
-        if (el.style.float) {
-            el.style.float = 'none';
-        }
-    }
-}
-
-function shouldWidenImage(image) {
-    if (
-        image.width >= 64 &&
-        image.hasAttribute('srcset') &&
-        !image.hasAttribute('hasOverflowXContainer') &&
-        image.parentNode.className === "image" &&
-        !utilities.isNestedInTable(image)
-        ) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function makeRoomForImageWidening(image) {
-    // Expand containment so css wideImageOverride width percentages can take effect.
-    widenAncestors (image);
-
-    // Remove width and height attributes so wideImageOverride width percentages can take effect.
-    image.removeAttribute("width");
-    image.removeAttribute("height");
+function isGalleryImage(image) {
+  return (
+      image.width >= 64 &&
+      image.hasAttribute('srcset') &&
+      image.parentNode.className === "image" &&
+      // todo: remove addImageOverflowContainers transform. See T160970
+      !image.hasAttribute('hasOverflowXContainer')
+    );
 }
 
 function getStretchRatio(image) {
@@ -1176,17 +1149,11 @@ function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
     }
 }
 
-function widenImage(image) {
-    makeRoomForImageWidening (image);
-    image.classList.add("wideImageOverride");
-    useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
-}
-
-function maybeWidenImage() {
+function onImageLoad() {
     var image = this;
-    image.removeEventListener('load', maybeWidenImage, false);
-    if (shouldWidenImage(image)) {
-        widenImage(image);
+    image.removeEventListener('load', onImageLoad, false);
+    if (isGalleryImage(image) && maybeWidenImage(image)) {
+        useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
     }
 }
 
@@ -1195,10 +1162,11 @@ transformer.register( "widenImages", function( content ) {
     for ( var i = 0; i < images.length; i++ ) {
         // Load event used so images w/o style or inline width/height
         // attributes can still have their size determined reliably.
-        images[i].addEventListener('load', maybeWidenImage, false);
+        images[i].addEventListener('load', onImageLoad, false);
     }
 } );
-},{"../transformer":14,"../utilities":25}],25:[function(require,module,exports){
+
+},{"../transformer":14,"../utilities":25,"applib":26}],25:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -1344,12 +1312,149 @@ var getTableHeader = function getTableHeader(element, pageTitle) {
   return thArray;
 };
 
-var CollapseElement = {
+var CollapseTable = {
   getTableHeader: getTableHeader
 };
 
+/**
+ * Returns closest ancestor of element which matches selector.
+ * Similar to 'closest' methods as seen here:
+ *  https://api.jquery.com/closest/
+ *  https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+ * @param  {!Element} el        Element
+ * @param  {!string} selector   Selector to look for in ancestors of 'el'
+ * @return {?HTMLElement}       Closest ancestor of 'el' matching 'selector'
+ */
+var findClosest = function findClosest(el, selector) {
+  while ((el = el.parentElement) && !el.matches(selector)) {
+    // Intentionally empty.
+    // Reminder: the parenthesis around 'el = el.parentElement' are also intentional.
+  }
+  return el;
+};
+
+/**
+ * Determines if element has a table ancestor.
+ * @param  {!Element}  el   Element
+ * @return {boolean}        Whether table ancestor of 'el' is found
+ */
+var isNestedInTable = function isNestedInTable(el) {
+  return findClosest(el, 'table') !== null;
+};
+
+var elementUtilities = {
+  findClosest: findClosest,
+  isNestedInTable: isNestedInTable
+};
+
+/**
+ * To widen an image element a css class called 'wideImageOverride' is applied to the image element,
+ * however, ancestors of the image element can prevent the widening from taking effect. This method
+ * makes minimal adjustments to ancestors of the image element being widened so the image widening
+ * can take effect.
+ * @param  {!HTMLElement} el Element whose ancestors will be widened
+ */
+var widenAncestors = function widenAncestors(el) {
+  while ((el = el.parentElement) && !el.classList.contains('content_block')) {
+    // Reminder: the parenthesis around 'el = el.parentElement' are intentional.
+    if (el.style.width) {
+      el.style.width = '100%';
+    }
+    if (el.style.maxWidth) {
+      el.style.maxWidth = '100%';
+    }
+    if (el.style.float) {
+      el.style.float = 'none';
+    }
+  }
+};
+
+/**
+ * Some images should not be widended. This method makes that determination.
+ * @param  {!HTMLElement} image   The image in question
+ * @return {boolean}              Whether 'image' should be widened
+ */
+var shouldWidenImage = function shouldWidenImage(image) {
+  // Images within a "<div class='noresize'>...</div>" should not be widened.
+  // Example exhibiting links overlaying such an image:
+  //   'enwiki > Counties of England > Scope and structure > Local government'
+  if (elementUtilities.findClosest(image, "[class*='noresize']")) {
+    return false;
+  }
+
+  // Side-by-side images should not be widened. Often their captions mention 'left' and 'right', so
+  // we don't want to widen these as doing so would stack them vertically.
+  // Examples exhibiting side-by-side images:
+  //    'enwiki > Cold Comfort (Inside No. 9) > Casting'
+  //    'enwiki > Vincent van Gogh > Letters'
+  if (elementUtilities.findClosest(image, "div[class*='tsingle']")) {
+    return false;
+  }
+
+  // Imagemaps, which expect images to be specific sizes, should not be widened.
+  // Examples can be found on 'enwiki > Kingdom (biology)':
+  //    - first non lead image is an image map
+  //    - 'Three domains of life > Phylogenetic Tree of Life' image is an image map
+  if (image.hasAttribute('usemap')) {
+    return false;
+  }
+
+  // Images in tables should not be widened - doing so can horribly mess up table layout.
+  if (elementUtilities.isNestedInTable(image)) {
+    return false;
+  }
+
+  return true;
+};
+
+/**
+ * Removes barriers to images widening taking effect.
+ * @param  {!HTMLElement} image   The image in question
+ */
+var makeRoomForImageWidening = function makeRoomForImageWidening(image) {
+  widenAncestors(image);
+
+  // Remove width and height attributes so wideImageOverride width percentages can take effect.
+  image.removeAttribute('width');
+  image.removeAttribute('height');
+};
+
+/**
+ * Widens the image.
+ * @param  {!HTMLElement} image   The image in question
+ */
+var widenImage = function widenImage(image) {
+  makeRoomForImageWidening(image);
+  image.classList.add('wideImageOverride');
+};
+
+/**
+ * Widens an image if the image is found to be fit for widening.
+ * @param  {!HTMLElement} image   The image in question
+ * @return {boolean}              Whether or not 'image' was widened
+ */
+var maybeWidenImage = function maybeWidenImage(image) {
+  if (shouldWidenImage(image)) {
+    widenImage(image);
+    return true;
+  }
+  return false;
+};
+
+var WidenImage = {
+  maybeWidenImage: maybeWidenImage,
+  test: {
+    shouldWidenImage: shouldWidenImage,
+    widenAncestors: widenAncestors
+  }
+};
+
 var index = {
-  CollapseElement: CollapseElement
+  CollapseTable: CollapseTable,
+  WidenImage: WidenImage,
+  test: {
+    ElementUtilities: elementUtilities
+  }
 };
 
 module.exports = index;
