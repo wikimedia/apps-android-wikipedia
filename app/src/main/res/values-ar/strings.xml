@@ -50,7 +50,7 @@
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
   <string name="langlinks_no_match">لا تتوفر لغات مطابقة لبحثك.</string>
   <string name="langlinks_activity_title">لغات أخرى</string>
-  <string name="menu_save_changes" fuzzy="true">حفظ التغييرات</string>
+  <string name="menu_save_changes">انشر التغييرات</string>
   <string name="dialog_saving_in_progress" fuzzy="true">جارٍ الحفظ…</string>
   <string name="edit_saved_successfully" fuzzy="true">تم حفظ التعديل!</string>
   <string name="dialog_message_edit_failed">فشل التعديل!</string>
@@ -79,7 +79,7 @@
   <string name="login_success_toast">تم تسجيل الدخول بنجاح!</string>
   <string name="preference_title_logout">تسجيل الخروج</string>
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
-  <string name="history_empty_title" fuzzy="true">لا صفحات مفتوحة مؤخرًا هنا!</string>
+  <string name="history_empty_title">لا مقالات معروضة مؤخرًا!</string>
   <string name="history_empty_message" fuzzy="true">تاريخ تصفحك فارغ، يبدو بأنك قد حذفت جميع مدخلات التاريخ. في المرة القادمة التي تزور فيها إحدى الصفحات بإمكانك العودة إليها مباشرةً من هنا.</string>
   <string name="delete_selected_history">حذف</string>
   <string name="delete_selected_items">إزالة العناصر المختارة</string>
@@ -233,6 +233,8 @@
   <string name="enable_location_service">تمكين</string>
   <string name="location_permissions_enable_prompt">تمكين أذونات الموقع للاطلاع على الأماكن القريبة منك.</string>
   <string name="error_webview_updating">يجري تحديث Android System WebView الآن. يرجى المحاولة مرة أخرى بعد لحظات.</string>
+  <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
+  <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
   <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
   <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعة العطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
   <string name="crash_report_dialog_dont_send_button">تجاوز</string>
@@ -266,7 +268,7 @@
   <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>
   <string name="reading_list_sort_by_recent">فرز حسب الأحدث</string>
   <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>
-  <string name="reading_list_menu_delete" fuzzy="true">احذف قائمة القراءة</string>
+  <string name="reading_list_menu_delete">احذف القائمة</string>
   <string name="reading_list_menu_rename">أعد التسمية</string>
   <string name="reading_list_menu_edit_description">عدل الوصف</string>
   <string name="reading_list_name_sample">قائمة قراءاتي</string>
