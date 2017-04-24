@@ -24,6 +24,10 @@
 {{Identical|Go back}}</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.
 {{Identical|Clear history}}</string>
+  <string name="history_item_deleted">Message shown when an article is removed from the browsing history. The \"%s\" symbol is replaced with the name of the article.</string>
+  <string name="history_items_deleted">Message shown when multiple articles are removed from the browsing history. The \"%d\" symbol is replaced with the number of articles removed.</string>
+  <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.
+{{Identical|Undo}}</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
