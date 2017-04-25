@@ -267,7 +267,7 @@ public class NearbyFragment extends Fragment {
     }
 
     private boolean locationPermitted() {
-        return ContextCompat.checkSelfPermission(getActivity(),
+        return ContextCompat.checkSelfPermission(WikipediaApp.getInstance(),
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
