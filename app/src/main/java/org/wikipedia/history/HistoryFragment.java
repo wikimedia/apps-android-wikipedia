@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -36,6 +37,7 @@ import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
+import org.wikipedia.views.SwipeableItemTouchHelperCallback;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -89,6 +91,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         unbinder = ButterKnife.bind(this, view);
 
         searchEmptyView.setEmptyText(R.string.search_history_no_results);
+
+        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(getContext());
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
+        itemTouchHelper.attachToRecyclerView(historyList);
 
         historyList.setLayoutManager(new LinearLayoutManager(getContext()));
         historyList.setAdapter(adapter);
@@ -337,15 +343,18 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private class HistoryEntryItemHolder extends DefaultViewHolder<PageItemView<IndexedHistoryEntry>> {
+    private class HistoryEntryItemHolder extends DefaultViewHolder<PageItemView<IndexedHistoryEntry>>
+            implements SwipeableItemTouchHelperCallback.Callback {
+        private int index;
+
         HistoryEntryItemHolder(PageItemView<IndexedHistoryEntry> itemView) {
             super(itemView);
         }
 
         void bindItem(@NonNull Cursor cursor) {
+            index = cursor.getPosition();
             IndexedHistoryEntry indexedEntry
-                    = new IndexedHistoryEntry(HistoryEntry.DATABASE_TABLE.fromCursor(cursor),
-                    cursor.getPosition());
+                    = new IndexedHistoryEntry(HistoryEntry.DATABASE_TABLE.fromCursor(cursor), index);
             getView().setItem(indexedEntry);
             getView().setTitle(indexedEntry.getEntry().getTitle().getDisplayText());
             getView().setDescription(indexedEntry.getEntry().getTitle().getDescription());
@@ -368,6 +377,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         private String getDateString(Date date) {
             return DateFormat.getDateInstance().format(date);
+        }
+
+        @Override
+        public void onSwipe() {
+            selectedIndices.add(index);
+            deleteSelectedPages();
         }
     }
 

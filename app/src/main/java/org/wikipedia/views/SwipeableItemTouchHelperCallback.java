@@ -1,4 +1,4 @@
-package org.wikipedia.readinglist;
+package org.wikipedia.views;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,7 +14,7 @@ import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 
-class ReadingListItemTouchHelperCallback extends ItemTouchHelper.Callback {
+public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
     private static final float DELETE_ICON_PADDING_DP = 16f;
     private Paint deleteBackgroundPaint = new Paint();
     private Paint deleteIconPaint = new Paint();
@@ -22,10 +22,10 @@ class ReadingListItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @NonNull private Bitmap deleteIcon;
 
     public interface Callback {
-        void onDismiss();
+        void onSwipe();
     }
 
-    ReadingListItemTouchHelperCallback(@NonNull Context context) {
+    public SwipeableItemTouchHelperCallback(@NonNull Context context) {
         deleteBackgroundPaint.setStyle(Paint.Style.FILL);
         deleteBackgroundPaint.setColor(Color.RED);
         itemBackgroundPaint.setStyle(Paint.Style.FILL);
@@ -47,7 +47,7 @@ class ReadingListItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder holder) {
         final int dragFlags = 0; //ItemTouchHelper.UP | ItemTouchHelper.DOWN;
-        final int swipeFlags = holder instanceof ReadingListFragment.ReadingListPageItemHolder
+        final int swipeFlags = holder instanceof Callback
                 ? ItemTouchHelper.START | ItemTouchHelper.END : 0;
         return makeMovementFlags(dragFlags, swipeFlags);
     }
@@ -60,7 +60,7 @@ class ReadingListItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
         if (viewHolder instanceof Callback) {
-            ((Callback) viewHolder).onDismiss();
+            ((Callback) viewHolder).onSwipe();
         }
     }
 
