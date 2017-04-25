@@ -271,6 +271,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler, Readin
         }
 
         @Override
+        public void onRetryFromOffline() {
+            funnel.requestMore(coordinator.getAge());
+            coordinator.moreFromOffline(app.getWikiSite());
+        }
+
+        @Override
         public void onError(@NonNull Throwable t) {
             FeedbackUtil.showError(getActivity(), t);
         }
