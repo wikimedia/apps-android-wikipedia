@@ -254,6 +254,9 @@ public class SearchResultsFragment extends Fragment {
                 searchResultsList.post(new Runnable() {
                     @Override
                     public void run() {
+                        if (!isAdded()) {
+                            return;
+                        }
                         searchResultsList.setSelectionAfterHeaderView();
                     }
                 });
