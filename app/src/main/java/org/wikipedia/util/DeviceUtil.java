@@ -77,14 +77,6 @@ public final class DeviceUtil {
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
     }
 
-    public static boolean isOnline(Context context) {
-        ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        return ((connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null
-                && connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected())
-                || (connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null
-                && connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected()));
-    }
-
     public static boolean isLocationServiceEnabled(@NonNull Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             int locationMode = Settings.Secure.LOCATION_MODE_OFF;

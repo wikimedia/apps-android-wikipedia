@@ -20,7 +20,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -49,12 +48,6 @@ public class SavedPageSyncService extends IntentService {
     }
 
     @Override protected void onHandleIntent(@Nullable Intent intent) {
-        // todo: allow deletes while offline
-        if (!DeviceUtil.isOnline(this)) {
-            L.i("Device is offline; aborting sync service");
-            return;
-        }
-
         List<ReadingListPageDiskRow> queue = new ArrayList<>();
         Collection<ReadingListPageDiskRow> rows = dao.startDiskTransaction();
 
