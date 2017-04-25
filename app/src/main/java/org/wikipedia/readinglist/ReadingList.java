@@ -2,6 +2,7 @@ package org.wikipedia.readinglist;
 
 import android.database.Cursor;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.apache.commons.lang3.Validate;
 import org.wikipedia.database.contract.ReadingListContract;
@@ -53,6 +54,13 @@ public final class ReadingList extends ReadingListRow {
 
     @NonNull public List<ReadingListPage> getPages() {
         return pages;
+    }
+
+    @Nullable public ReadingListPage get(int index) {
+        if (index < 0 || index >= pages.size()) {
+            return null;
+        }
+        return pages.get(index);
     }
 
     public void remove(@NonNull ReadingListPage page) {
