@@ -46,6 +46,7 @@ import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
+import org.wikipedia.views.SwipeableItemTouchHelperCallback;
 import org.wikipedia.views.TextInputDialog;
 
 import java.util.ArrayList;
@@ -112,7 +113,7 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
         appBarLayout.addOnOffsetChangedListener(appBarListener);
         toolBarLayout.setCollapsedTitleTextColor(Color.WHITE);
 
-        ItemTouchHelper.Callback touchCallback = new ReadingListItemTouchHelperCallback(getContext());
+        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(getContext());
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
@@ -453,8 +454,8 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
         }
     }
 
-    class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>>
-                implements ReadingListItemTouchHelperCallback.Callback {
+    private class ReadingListPageItemHolder extends DefaultViewHolder<PageItemView<ReadingListPage>>
+                implements SwipeableItemTouchHelperCallback.Callback {
         private ReadingListPage page;
 
         ReadingListPageItemHolder(PageItemView<ReadingListPage> itemView) {
@@ -472,7 +473,7 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
         }
 
         @Override
-        public void onDismiss() {
+        public void onSwipe() {
             if (readingList != null) {
                 showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
                 ReadingList.DAO.removeTitleFromList(readingList, page);
