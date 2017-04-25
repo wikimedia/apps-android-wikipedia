@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist.sync;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -16,6 +17,7 @@ import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListData;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.dataclient.UserInfo;
@@ -52,12 +54,14 @@ public class ReadingListSynchronizer {
     }
 
     public void sync() {
+        // TODO: remove when ready for beta/production
         if (!ReleaseUtil.isPreBetaRelease()) {
-            // TODO: remove when ready for beta/production
+            syncSavedPages();
             return;
         }
         if (!User.isLoggedIn()) {
             L.d("Not logged in, so skipping sync of reading lists.");
+            syncSavedPages();
             return;
         }
         CallbackTask.execute(new CallbackTask.Task<Void>() {
@@ -95,6 +99,7 @@ public class ReadingListSynchronizer {
                             L.d("Local and remote reading lists are in sync.");
                         }
                     }
+                    syncSavedPages();
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -241,5 +246,9 @@ public class ReadingListSynchronizer {
     private static RemoteReadingLists makeRemoteReadingLists() {
         List<ReadingList> lists = ReadingListData.instance().queryMruLists(null);
         return new RemoteReadingLists(Prefs.getReadingListSyncRev(), lists);
+    }
+
+    private void syncSavedPages() {
+        WikipediaApp.getInstance().startService(new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
     }
 }
