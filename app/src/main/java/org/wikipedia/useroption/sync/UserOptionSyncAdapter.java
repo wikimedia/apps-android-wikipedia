@@ -49,14 +49,14 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
         }
     }
 
-    private void download() throws IOException {
+    private synchronized void download() throws IOException {
         UserInfo info = UserOptionDataClientSingleton.instance().get();
         Collection<UserOption> options = info.userjsOptions();
         L.i("downloaded " + options.size() + " option(s)");
         UserOptionDao.instance().reconcileTransaction(options);
     }
 
-    private void upload() throws IOException {
+    private synchronized void upload() throws IOException {
         List<UserOptionRow> rows = new ArrayList<>(UserOptionDao.instance().startTransaction());
         while (!rows.isEmpty()) {
             UserOptionRow row = rows.get(0);
