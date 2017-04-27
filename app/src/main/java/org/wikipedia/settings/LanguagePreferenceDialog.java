@@ -19,7 +19,6 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppLanguageSelectFunnel;
-import org.wikipedia.language.AppLanguageState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,19 +67,8 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String lang = (String) languagesList.getAdapter().getItem(i);
                 if (!lang.equals(app.getAppOrSystemLanguageCode())) {
-
-                    boolean systemLanguage = lang.equals(app.getSystemLanguageCode());
-                    String appCode = systemLanguage
-                            ? AppLanguageState.SYSTEM_LANGUAGE_CODE
-                            : lang;
-
-                    app.setAppLanguageCode(appCode);
-
-                    // Always use the nonnull language code for MRU languages so the list is updated
-                    // with the actual language used. Note: there are likely nulls in this list from
-                    // previous code. You can see the actual list in dev settings.
+                    app.setAppLanguageCode(lang);
                     app.setMruLanguageCode(lang);
-
                     funnel.logSelect();
                 }
                 dismiss();
