@@ -10,6 +10,8 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.progress.ProgressCard;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +25,7 @@ public abstract class FeedCoordinatorBase {
 
     public interface FeedUpdateListener {
         void insert(Card card, int pos);
+        void swap(Card card, int pos);
         void remove(Card card, int pos);
     }
 
@@ -64,11 +67,15 @@ public abstract class FeedCoordinatorBase {
         }
         pendingClients.clear();
         cards.clear();
-        insertCard(progressCard, 0);
     }
 
     public void more(@NonNull WikiSite wiki) {
         this.wiki = wiki;
+
+        if (cards.size() == 0) {
+            insertCard(progressCard, 0);
+        }
+
         if (cards.size() > 1) {
             currentAge++;
         }
@@ -97,12 +104,12 @@ public abstract class FeedCoordinatorBase {
         insertCard(card, position);
     }
 
-    void moreFromOffline(@NonNull WikiSite wiki) {
-        int lastIndex = cards.size() - 1;
-        Card card = cards.get(lastIndex);
+    void retryFromOffline(@NonNull WikiSite wiki) {
+        Card card = cards.get(lastIndex());
         if (card instanceof OfflineCard) {
-            removeCard(card, lastIndex);
+            swapCard(progressCard, lastIndex());
         }
+        currentAge--;
         more(wiki);
     }
 
@@ -110,6 +117,10 @@ public abstract class FeedCoordinatorBase {
 
     protected void addPendingClient(FeedClient client) {
         pendingClients.add(client);
+    }
+
+    private int lastIndex() {
+        return cards.size() - 1;
     }
 
     private void requestNextCard(@NonNull WikiSite wiki) {
@@ -140,8 +151,14 @@ public abstract class FeedCoordinatorBase {
         }
 
         @Override public void error(@NonNull Throwable caught) {
-            //noinspection ConstantConditions
-            requestNextCard(wiki);
+            if (ThrowableUtil.isOffline(caught)) {
+                appendCard(new OfflineCard());
+                removeProgressCard();
+            } else {
+                //noinspection ConstantConditions
+                requestNextCard(wiki);
+                L.w(caught);
+            }
         }
     }
 
@@ -154,6 +171,14 @@ public abstract class FeedCoordinatorBase {
         cards.add(position, card);
         if (updateListener != null) {
             updateListener.insert(card, position);
+        }
+    }
+
+    private void swapCard(@NonNull Card card, int position) {
+        cards.remove(cards.get(position));
+        cards.add(position, card);
+        if (updateListener != null) {
+            updateListener.swap(card, position);
         }
     }
 

@@ -13,6 +13,7 @@ import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.news.NewsListCardView;
+import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -54,6 +55,10 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
 
         //noinspection unchecked
         ((FeedCardView<Card>) view).setCard(item);
+
+        if (view instanceof OfflineCardView && position == 1) {
+            ((OfflineCardView) view).setTopPadding();
+        }
     }
 
     @Override public void onViewAttachedToWindow(DefaultViewHolder<T> holder) {
