@@ -82,20 +82,20 @@ public class DescriptionEditClient {
                                          @NonNull String description,
                                          @NonNull String editToken,
                                          @NonNull Callback cb) {
-        return request(cachedService.service(wiki), pageTitle, description,
-                pageTitle.getWikiSite().languageCode(), editToken, User.isLoggedIn(), cb);
+        return request(cachedService.service(wiki), pageTitle, description, editToken,
+                User.isLoggedIn(), cb);
     }
 
     @SuppressWarnings("WeakerAccess") @VisibleForTesting
     Call<DescriptionEdit> request(@NonNull Service service,
                                   @NonNull PageTitle pageTitle,
                                   @NonNull String description,
-                                  @NonNull String languageCode,
                                   @NonNull String editToken,
                                   boolean loggedIn,
                                   @NonNull final Callback cb) {
 
-        Call<DescriptionEdit> call = service.edit(languageCode, languageCode, languageCode + "wiki",
+        Call<DescriptionEdit> call = service.edit(pageTitle.getWikiSite().languageCode(),
+                pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
                 pageTitle.getPrefixedText(), description, editToken,
                 loggedIn ? "user" : null);
         call.enqueue(new retrofit2.Callback<DescriptionEdit>() {

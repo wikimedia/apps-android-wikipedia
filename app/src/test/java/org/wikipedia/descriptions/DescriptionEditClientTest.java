@@ -149,7 +149,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
 
     private Call<DescriptionEdit> request(@NonNull Callback cb) {
         final PageTitle pageTitle = new PageTitle("foo", WikiSite.forLanguageCode("en"));
-        return subject.request(service(Service.class), pageTitle, "some new description", "en",
+        return subject.request(service(Service.class), pageTitle, "some new description",
                 MOCK_EDIT_TOKEN, false, cb);
     }
 }

@@ -141,6 +141,16 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.mobileAuthority(), is("m.wikipedia.org"));
     }
 
+    @Test public void testDbNameLanguage() {
+        WikiSite subject = new WikiSite("en.wikipedia.org", "en");
+        assertThat(subject.dbName(), is("enwiki"));
+    }
+
+    @Test public void testDbNameSpecialLanguage() {
+        WikiSite subject = new WikiSite("no.wikipedia.org", "nb");
+        assertThat(subject.dbName(), is("nowiki"));
+    }
+
     @Test public void testHost() {
         WikiSite subject = WikiSite.forLanguageCode("test");
         assertThat(subject.host(), is("test.wikipedia.org"));
