@@ -14,6 +14,8 @@
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="page_error_back_to_main">Zréck goen</string>
   <string name="menu_clear_all_history">Historique läschen</string>
+  <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
+  <string name="history_item_delete_undo">Réckgängeg maachen</string>
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>

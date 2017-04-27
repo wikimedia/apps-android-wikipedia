@@ -15,6 +15,9 @@
   <string name="page_error_retry">Reintentar</string>
   <string name="page_error_back_to_main">Volver</string>
   <string name="menu_clear_all_history">Llimpiar historial</string>
+  <string name="history_item_deleted">%s desaniciáu del historial</string>
+  <string name="history_items_deleted">%d artículos desaniciaos del historial</string>
+  <string name="history_item_delete_undo">Desfacer</string>
   <string name="page_does_not_exist_error">Esta páxina nun esiste.</string>
   <string name="dialog_title_clear_history">Llimpiar l\'historial de navegación</string>
   <string name="dialog_message_clear_history">Esto desaniciará tol historial de navegación, y zarrará cualquier llingüeta abierta. ¿Tas seguru?</string>
@@ -301,6 +304,9 @@
   <string name="reading_list_article_remove_offline">Nun facer qu\'esti artículu tea disponible sin conexón</string>
   <string name="reading_list_article_offline_message">Esti artículu agora tará disponible sin conexón.</string>
   <string name="reading_list_article_not_offline_message">Esti artículu yá nun tará disponible sin conexón.</string>
+  <string name="reading_list_add_to_other_list">Añadir a otra llista de llectura</string>
+  <string name="reading_list_remove_from_list">Quitar de %s</string>
+  <string name="reading_list_remove_from_lists">Quitar de llistes de llectura</string>
   <string name="user_option_sync_label">Preferencies</string>
   <string name="notification_button_view_user">Falar col usuariu</string>
   <string name="notification_talk_title">Mensaxe nuevu en Wikipedia</string>

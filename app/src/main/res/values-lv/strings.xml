@@ -11,6 +11,7 @@
   <string name="page_error_retry">Mēģināt vēlreiz</string>
   <string name="page_error_back_to_main">Atpakaļ</string>
   <string name="menu_clear_all_history">Notīrīt vēsturi</string>
+  <string name="history_item_delete_undo">Atsaukt</string>
   <string name="page_does_not_exist_error">Šī lapa neeksistē.</string>
   <string name="dialog_title_clear_history">Dzēst pārlūkošanas vēsturi</string>
   <string name="dialog_message_clear_history" fuzzy="true">Vai tiešām vēlaties notīrīt visu vēsturi?</string>

@@ -123,7 +123,7 @@
   <string name="page_protected_autoconfirmed">Ova stranica je poluzaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je potpuno zaštićena.</string>
   <string name="page_protected_other">Ova stranica je zaštićena na sljedećim nivoima: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Nemate prava da uređujete ovu stranicu</string>
+  <string name="page_protected_can_not_edit">Žao nam je, ali Vaš račun trenutno nema pravo uređivati ovu stranicu.</string>
   <string name="page_protected_can_not_edit_title">Ova stranica je zaštićena</string>
   <string name="settings_item_preferences">Postavke</string>
   <string name="settings_activity_title">Postavke</string>
@@ -138,7 +138,7 @@
   <string name="about_translators_translatewiki">Ovu aplikaciju preveli su prevodioci volonteri na sajtu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
   <string name="about_app_license">Izvorni kôd dostupan je na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licencom Apache 2.0&lt;/a&gt;. Osim gdje je drukčije navedeno, sadržaj je dostupan pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;slobodnom licencom Autorstvo-Dijeliti pod istim uvjetima&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Proizvod &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Zadužbine Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Proizvod &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Zadužbine Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaciji</string>
   <string name="edit_abandon_confirm">Izmijenili ste stranicu. Jeste li sigurni da želite izaći bez da sačuvate izmjene?</string>
   <string name="user_blocked_from_editing_title">Blokirani ste</string>
@@ -155,8 +155,8 @@
   <string name="edit_summary_tag_other_hint">Neki drugi načini na koje ste poboljšali ovu stranicu</string>
   <string name="find_next">Pronađi sljedeće</string>
   <string name="find_previous">Pronađi prethodno</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Moguće je da je ovo nekonstruktivna izmjena. Jeste li sigurni da je želite sačuvati?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Ne možete sačuvati ovu izmjenu. Vratite se i promijenite je.</string>
+  <string name="abusefilter_title_warn">Moguće je da je ovo nekonstruktivna izmjena. Jeste li sigurni da je želite objaviti?</string>
+  <string name="abusefilter_title_disallow">Ne možete objaviti ovu izmjenu. Vratite se i promijenite je.</string>
   <string name="abusefilter_text_warn">Automatizirani filter označio je Vašu izmjenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sljedećeg:&lt;br /&gt;&lt;br /&gt;· Pisanje svega velikim slovima&lt;br /&gt;· Brisanje ili dodavanje neželjenog sadržaja&lt;br /&gt;· Nevažne vanjske linkove ili slike&lt;br /&gt;· Nekoliko istih znakova uzastopno</string>
   <string name="abusefilter_text_disallow">Automatizirani filter označio je Vašu izmjenu kao potencijalno nekonstruktivnu ili vandalizam.&lt;br /&gt;&lt;br /&gt;Wikipedia je enciklopedija i pripada joj samo neutralan i provjerljiv sadržaj.</string>
   <string name="dialog_page_issues">Problemi sa sadržajem</string>
@@ -283,9 +283,9 @@
   <string name="notification_talk_title">Nova poruka na Wikipediji</string>
   <string name="notification_talk" fuzzy="true">%1$s Vam je ostavio/-la poruku na Vašoj stranici za razgovor \"%2$s\"</string>
   <string name="notification_reverted_title">Vraćena izmjena</string>
-  <string name="notification_reverted" fuzzy="true">%1$s je vratio/-la Vašu izmjenu članka \"%2$s\".</string>
+  <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; je vratio/-la Vašu izmjenu članka &lt;strong&gt;%2$s&lt;/strong&gt;.</string>
   <string name="notification_thanks_title">Neko Vam se zahvalio!</string>
-  <string name="notification_thanks" fuzzy="true">%1$s Vam se zahvalio/-la na Vašoj izmjeni stranice \"%2$s\"</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; Vam se zahvalio/-la na Vašoj izmjeni stranice &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Nastavite sa čitanjem</string>
   <string name="view_because_you_read_card_title">Jer ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
@@ -348,5 +348,5 @@
   <string name="description_edit_revert_intro">Znamo da ste dali sve od sebe, ali je jedan od pregledavača procijenio da Vašu izmjenu ne možemo prihvatiti. Evo nekoliko mogućih razloga zašto je Vaša izmjena vraćena:</string>
   <string name="description_edit_revert_reason1">Vaš doprinos nije slijedio jednu od &lt;a href=\"%1$s\"&gt;smjernica&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Vaš doprinos djelovao je kao eksperiment ili vandalizam.</string>
-  <string name="description_edit_revert_history" fuzzy="true">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;historiju izmjena&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;historiju izmjena&lt;/a&gt;.</string>
 </resources>

@@ -15,6 +15,8 @@
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="page_error_back_to_main">ফিরে যান</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
+  <string name="history_item_deleted">ইতিহাস থেকে %s সরানো হয়েছে</string>
+  <string name="history_items_deleted">ইতিহাস থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
   <string name="page_does_not_exist_error">এই পাতার অস্তিত্ব নেই।</string>
   <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>

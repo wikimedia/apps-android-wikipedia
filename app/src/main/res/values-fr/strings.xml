@@ -15,6 +15,9 @@
   <string name="page_error_retry">Réessayer</string>
   <string name="page_error_back_to_main">Revenir en arrière</string>
   <string name="menu_clear_all_history">Effacer l’historique</string>
+  <string name="history_item_deleted">%s supprimé de l’historique</string>
+  <string name="history_items_deleted">%d articles supprimés de l’historique</string>
+  <string name="history_item_delete_undo">Annuler</string>
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
   <string name="dialog_message_clear_history">Cela supprimera tout l’historique de navigation, et fermera tous les onglets ouverts actuellement. Êtes-vous sûr ?</string>

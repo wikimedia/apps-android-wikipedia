@@ -15,6 +15,9 @@
   <string name="page_error_retry">重試</string>
   <string name="page_error_back_to_main">返回</string>
   <string name="menu_clear_all_history">清除歷史</string>
+  <string name="history_item_deleted">%s已從歷史移除</string>
+  <string name="history_items_deleted">%d個條目已從歷史移除</string>
+  <string name="history_item_delete_undo">還原</string>
   <string name="page_does_not_exist_error">此頁面不存在！</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>

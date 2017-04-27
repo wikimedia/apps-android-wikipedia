@@ -223,6 +223,7 @@
   <string name="text_copied">تم نسخ النص  إلى الحافظة.</string>
   <string name="button_continue_to_article">اقرأ المقالة</string>
   <string name="button_add_to_reading_list">أضف إلى قائمة القراءة</string>
+  <string name="page_offline_notice_cannot_load_while_offline">لا يمكن تحميل المقالة في حالة عدم الاتصال.</string>
   <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
@@ -289,6 +290,8 @@
   <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
   <string name="reading_list_article_make_offline">إتاحة هذه المقالة دون اتصال</string>
   <string name="reading_list_article_offline_message">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</string>
+  <string name="reading_list_add_to_other_list">أضف لقائمة قراءة أخرى</string>
+  <string name="reading_list_remove_from_lists">أزل من قائمة القراءة</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_button_view_user">التحدث مع المستخدم</string>
   <string name="notification_talk_title">رسالة جديدة على ويكيبيديا</string>

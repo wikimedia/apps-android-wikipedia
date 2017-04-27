@@ -15,6 +15,9 @@
   <string name="page_error_retry">Klask en-dro</string>
   <string name="page_error_back_to_main">Distreiñ</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
+  <string name="history_item_deleted">%s lamet eus ar roll-istor</string>
+  <string name="history_items_deleted">%d pennad tennet eus ar roll-istor</string>
+  <string name="history_item_delete_undo">Dizober</string>
   <string name="page_does_not_exist_error">N\'eus ket eus ar bajenn-se.</string>
   <string name="dialog_title_clear_history">Diverkañ istor ar merdeiñ ?</string>
   <string name="dialog_message_clear_history">An dra-se a zilamo istor ar merdeiñ hag a serro an holl ivinelloù zo digor bremañ. Ha suc\'h oc\'h ?</string>
