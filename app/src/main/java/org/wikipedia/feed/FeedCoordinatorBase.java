@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.progress.ProgressCard;
 import org.wikipedia.settings.Prefs;
 
@@ -96,6 +97,15 @@ public abstract class FeedCoordinatorBase {
         insertCard(card, position);
     }
 
+    void moreFromOffline(@NonNull WikiSite wiki) {
+        int lastIndex = cards.size() - 1;
+        Card card = cards.get(lastIndex);
+        if (card instanceof OfflineCard) {
+            removeCard(card, lastIndex);
+        }
+        more(wiki);
+    }
+
     protected abstract void buildScript(int age);
 
     protected void addPendingClient(FeedClient client) {
@@ -115,30 +125,29 @@ public abstract class FeedCoordinatorBase {
         if (pos < 0) {
             return;
         }
-        cards.remove(progressCard);
-        if (updateListener != null) {
-            updateListener.remove(progressCard, pos);
-        }
+        removeCard(progressCard, pos);
     }
 
     private class ClientRequestCallback implements FeedClient.Callback {
-        @Override
-        public void success(@NonNull List<? extends Card> cardList) {
+        @Override public void success(@NonNull List<? extends Card> cardList) {
             for (Card card : cardList) {
                 if (!isCardHidden(card)) {
-                    int progressPos = cards.indexOf(progressCard);
-                    insertCard(card, progressPos >= 0 ? progressPos : cards.size());
+                    appendCard(card);
                 }
             }
             //noinspection ConstantConditions
             requestNextCard(wiki);
         }
 
-        @Override
-        public void error(@NonNull Throwable caught) {
+        @Override public void error(@NonNull Throwable caught) {
             //noinspection ConstantConditions
             requestNextCard(wiki);
         }
+    }
+
+    private void appendCard(@NonNull Card card) {
+        int progressPos = cards.indexOf(progressCard);
+        insertCard(card, progressPos >= 0 ? progressPos : cards.size());
     }
 
     private void insertCard(@NonNull Card card, int position) {

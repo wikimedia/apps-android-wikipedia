@@ -83,7 +83,7 @@ public final class ThrowableUtil {
         return result;
     }
 
-    public static boolean isOffline(@NonNull Throwable caught) {
+    public static boolean isOffline(@Nullable Throwable caught) {
         return caught instanceof UnknownHostException
                 || caught instanceof SocketException
                 || caught instanceof SocketTimeoutException;

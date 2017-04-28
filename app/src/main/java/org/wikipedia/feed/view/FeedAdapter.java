@@ -25,6 +25,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
             AnnouncementCardView.Callback, FeaturedArticleCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
+        void onRetryFromOffline();
         void onError(@NonNull Throwable t);
     }
 
