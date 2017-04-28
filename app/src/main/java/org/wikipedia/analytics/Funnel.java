@@ -147,7 +147,7 @@ import java.util.UUID;
                 new EventLoggingEvent(
                         schemaName,
                         revision,
-                        getDBNameForWikiSite(wiki == null ? app.getWikiSite() : wiki),
+                        wiki == null ? app.getWikiSite().dbName() : wiki.dbName(),
                         preprocessData(eventData)
                 ).log();
             }
@@ -181,17 +181,5 @@ import java.util.UUID;
     /** @return The session identifier used by {@link #preprocessSessionToken}. */
     @Nullable protected String getSessionToken() {
         return sessionToken;
-    }
-
-    /**
-     * Returns db name for given wiki
-     *
-     * WARNING: HARDCODED TO WORK FOR WIKIPEDIA ONLY
-     *
-     * @param wiki WikiSite object to get dbname for
-     * @return dbname for given wiki object
-     */
-    private String getDBNameForWikiSite(WikiSite wiki) {
-        return wiki.languageCode() + "wiki"; // todo: revise with known exceptions
     }
 }

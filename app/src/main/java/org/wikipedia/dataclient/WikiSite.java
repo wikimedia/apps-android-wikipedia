@@ -233,6 +233,10 @@ public class WikiSite implements Parcelable {
         return titleForInternalLink(path);
     }
 
+    @NonNull public String dbName() {
+        return languageCodeToSubdomain(languageCode) + "wiki";
+    }
+
     // Auto-generated
     @Override
     public boolean equals(Object o) {
