@@ -15,12 +15,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesClient;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
-import org.wikipedia.wikidata.GetDescriptionsTask;
+import org.wikipedia.wikidata.GetDescriptionsClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +83,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
      * Start getting Wikidata descriptions (directly from the current Wikipedia wiki).
      */
     private void fetchDescriptions() {
-        List<PageTitle> titleList = new ArrayList<>();
+        final List<PageTitle> titleList = new ArrayList<>();
         for (DisambigResult r : items) {
             titleList.add(r.getTitle());
         }
@@ -90,16 +91,26 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        new GetDescriptionsTask(app.getSiteApi(), wiki, titleList) {
-            @Override
-            public void onFinish(Map<PageTitle, Void> result) {
+        new GetDescriptionsClient().request(wiki, titleList, new GetDescriptionsClient.Callback() {
+            @Override public void success(@NonNull Call<MwQueryResponse<GetDescriptionsClient.QueryResult>> call,
+                                          @NonNull List<MwQueryPage> results) {
+                for (MwQueryPage page : results) {
+                    PageTitle pageTitle = new PageTitle(null, page.title(), wiki);
+                    for (PageTitle title : titleList) {
+                        if (title.getPrefixedText().equals(pageTitle.getPrefixedText())
+                                || title.getDisplayText().equals(pageTitle.getDisplayText())) {
+                            title.setDescription(page.description());
+                            break;
+                        }
+                    }
+                }
                 notifyDataSetChanged();
             }
-            @Override
-            public void onCatch(Throwable caught) {
+            @Override public void failure(@NonNull Call<MwQueryResponse<GetDescriptionsClient.QueryResult>> call,
+                                          @NonNull Throwable caught) {
                 // descriptions are expendable
             }
-        }.execute();
+        });
     }
 
     class ViewHolder {
