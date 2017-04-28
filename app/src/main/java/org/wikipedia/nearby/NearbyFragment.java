@@ -12,9 +12,11 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mapbox.mapboxsdk.Mapbox;
@@ -43,10 +45,12 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
@@ -75,6 +79,7 @@ public class NearbyFragment extends Fragment {
     private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 50;
 
     @BindView(R.id.mapview) MapView mapView;
+    @BindView(R.id.osm_license) TextView osmLicenseTextView;
     private Unbinder unbinder;
 
     @Nullable private MapboxMap mapboxMap;
@@ -109,6 +114,10 @@ public class NearbyFragment extends Fragment {
         markerIconPassive = IconFactory.getInstance(getContext())
                 .fromBitmap(ResourceUtil.bitmapFromVectorDrawable(getContext(),
                         R.drawable.ic_map_marker));
+
+        osmLicenseTextView.setText(StringUtil.fromHtml(getString(R.string.nearby_osm_license)));
+        osmLicenseTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        RichTextUtil.removeUnderlinesFromLinks(osmLicenseTextView);
 
         mapView.onCreate(savedInstanceState);
 
