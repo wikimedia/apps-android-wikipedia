@@ -1,6 +1,7 @@
 package okhttp3;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.io.IOException;
 
@@ -18,6 +19,18 @@ public class CacheDelegate {
 
     public CacheDelegate(@NonNull Cache cache) {
         this.cache = cache;
+    }
+
+    @NonNull public DiskLruCache diskLruCache() {
+        return cache.cache;
+    }
+
+    @Nullable public DiskLruCache.Snapshot entry(@NonNull Request req) {
+        try {
+            return cache.cache.get(key(req.url().toString()));
+        } catch (IOException ignore) {
+            return null;
+        }
     }
 
     // Copy of Cache.get(). Calling this method modifies the Cache. If the URL is present, it's

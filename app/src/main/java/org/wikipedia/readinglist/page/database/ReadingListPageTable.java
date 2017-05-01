@@ -16,6 +16,7 @@ import java.util.List;
 
 public class ReadingListPageTable extends DatabaseTable<ReadingListPageRow> {
     private static final int DB_VER_INTRODUCED = 12;
+    private static final int DB_VER_SIZE_ADDED = 17;
 
     public ReadingListPageTable() {
         super(ReadingListPageContract.TABLE_PAGE, ReadingListPageContract.Page.URI);
@@ -36,6 +37,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPageRow> {
                 .atime(PageCol.ATIME.val(cursor))
                 .thumbnailUrl(PageCol.THUMBNAIL_URL.val(cursor))
                 .description(PageCol.DESCRIPTION.val(cursor))
+                .physicalSize(PageCol.PHYSICAL_SIZE.val(cursor))
+                .logicalSize(PageCol.LOGICAL_SIZE.val(cursor))
                 .build();
     }
 
@@ -56,6 +59,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPageRow> {
                 cols.add(PageCol.THUMBNAIL_URL);
                 cols.add(PageCol.DESCRIPTION);
                 return cols.toArray(new Column<?>[cols.size()]);
+            case DB_VER_SIZE_ADDED:
+                return new Column<?>[]{PageCol.PHYSICAL_SIZE, PageCol.LOGICAL_SIZE};
             default:
                 return super.getColumnsAdded(version);
         }
@@ -74,6 +79,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPageRow> {
         contentValues.put(PageCol.ATIME.getName(), row.atime());
         contentValues.put(PageCol.THUMBNAIL_URL.getName(), row.thumbnailUrl());
         contentValues.put(PageCol.DESCRIPTION.getName(), row.description());
+        contentValues.put(PageCol.PHYSICAL_SIZE.getName(), row.physicalSize());
+        contentValues.put(PageCol.LOGICAL_SIZE.getName(), row.logicalSize());
         return contentValues;
     }
 

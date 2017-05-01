@@ -34,6 +34,16 @@ public class ReadingListPageRow extends BaseModel {
     @Nullable private String thumbnailUrl;
     @Nullable private String description;
 
+    // The size in bytes for an offline page and all page resources downloaded by
+    // SavedPageSyncService. Null or 0 if DiskStatus.ONLINE or not yet downloaded. Outdated if
+    // the saved page cache size is later exceeded and resources are evicted. Written to by
+    // SavedPageSyncService.
+    // @see ReadingListPageContract.PageCol.PHYSICAL_SIZE
+    // @see ReadingListPageContract.PageCol.LOGICAL_SIZE
+    @Nullable private final Long physicalSize;
+    // The size on disk in bytes.
+    @Nullable private final Long logicalSize;
+
     public static Builder<?> builder() {
         //noinspection rawtypes
         return new Builder();
@@ -102,6 +112,14 @@ public class ReadingListPageRow extends BaseModel {
         return description;
     }
 
+    @Nullable public Long physicalSize() {
+        return physicalSize;
+    }
+
+    @Nullable public Long logicalSize() {
+        return logicalSize;
+    }
+
     protected ReadingListPageRow(@NonNull Builder<?> builder) {
         key = builder.key;
         listKeys = new ArraySet<>(builder.listKeys);
@@ -113,6 +131,8 @@ public class ReadingListPageRow extends BaseModel {
         atime = builder.atime;
         thumbnailUrl = builder.thumbnailUrl;
         description = builder.description;
+        physicalSize = builder.physicalSize;
+        logicalSize = builder.logicalSize;
     }
 
     @SuppressWarnings("unchecked")
@@ -127,6 +147,8 @@ public class ReadingListPageRow extends BaseModel {
         private Long atime;
         private String thumbnailUrl;
         private String description;
+        private Long physicalSize;
+        private Long logicalSize;
 
         public Clazz copy(@NonNull ReadingListPageRow copy) {
             return key(copy.key)
@@ -137,7 +159,9 @@ public class ReadingListPageRow extends BaseModel {
                     .mtime(copy.mtime)
                     .atime(copy.atime)
                     .thumbnailUrl(copy.thumbnailUrl)
-                    .description(copy.description);
+                    .description(copy.description)
+                    .physicalSize(copy.physicalSize)
+                    .logicalSize(copy.logicalSize);
         }
 
         public Clazz key(@NonNull String key) {
@@ -193,6 +217,16 @@ public class ReadingListPageRow extends BaseModel {
 
         public Clazz description(@Nullable String description) {
             this.description = description;
+            return (Clazz) this;
+        }
+
+        public Clazz physicalSize(@Nullable Long physicalSize) {
+            this.physicalSize = physicalSize;
+            return (Clazz) this;
+        }
+
+        public Clazz logicalSize(@Nullable Long logicalSize) {
+            this.logicalSize = logicalSize;
             return (Clazz) this;
         }
 
