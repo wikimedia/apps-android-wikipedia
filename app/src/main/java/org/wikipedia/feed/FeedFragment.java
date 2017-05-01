@@ -122,6 +122,15 @@ public class FeedFragment extends Fragment implements BackPressedHandler, Readin
                 }
             }
 
+            @Override public void swap(Card card, int pos) {
+                if (isAdded()) {
+                    swipeRefreshLayout.setRefreshing(false);
+                    if (feedView != null && feedAdapter != null) {
+                        feedAdapter.notifyItemChanged(pos);
+                    }
+                }
+            }
+
             @Override public void remove(Card card, int pos) {
                 if (isAdded()) {
                     swipeRefreshLayout.setRefreshing(false);
@@ -273,7 +282,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler, Readin
         @Override
         public void onRetryFromOffline() {
             funnel.requestMore(coordinator.getAge());
-            coordinator.moreFromOffline(app.getWikiSite());
+            coordinator.retryFromOffline(app.getWikiSite());
         }
 
         @Override
