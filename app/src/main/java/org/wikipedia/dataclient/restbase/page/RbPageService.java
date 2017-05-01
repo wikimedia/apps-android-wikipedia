@@ -20,9 +20,9 @@ import retrofit2.http.Query;
  */
 public interface RbPageService {
     String ACCEPT_HEADER_MOBILE_SECTIONS = "accept: application/json; charset=utf-8; "
-            + "profile=\"https://www.mediawiki.org/wiki/Specs/mobile-sections/0.8.0\"";
+            + "profile=\"https://www.mediawiki.org/wiki/Specs/mobile-sections/0.10.1\"";
     String ACCEPT_HEADER_DEFINITION = "accept: application/json; charset=utf-8; "
-            + "profile=\"https://www.mediawiki.org/wiki/Specs/definition/0.7.0\"";
+            + "profile=\"https://www.mediawiki.org/wiki/Specs/definition/0.7.1\"";
 
     /**
      * Gets a page summary for a given title -- for link previews
