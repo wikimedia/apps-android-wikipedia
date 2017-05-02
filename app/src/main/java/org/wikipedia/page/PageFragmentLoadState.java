@@ -190,6 +190,13 @@ public class PageFragmentLoadState {
         }
         PageBackStackItem item = backStack.get(backStack.size() - 1);
         item.setScrollY(webView.getScrollY());
+        if (model.getTitle() != null) {
+            // Preserve metadata of the current PageTitle into our backstack, so that
+            // this data would be available immediately upon loading PageFragment, instead
+            // of only after loading the lead section.
+            item.getTitle().setDescription(model.getTitle().getDescription());
+            item.getTitle().setThumbUrl(model.getTitle().getThumbUrl());
+        }
     }
 
     public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
