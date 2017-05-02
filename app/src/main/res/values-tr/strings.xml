@@ -15,6 +15,8 @@
   <string name="page_error_retry">Tekrar dene</string>
   <string name="page_error_back_to_main">Geri git</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
+  <string name="history_item_deleted">%s,tarayıcı geçmişinden silindi.</string>
+  <string name="history_item_delete_undo">Geri al</string>
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
   <string name="dialog_title_clear_history">Göz atma geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu, tüm tarama geçmişinizi silecek ve açık bütün sekmeleri kapatacak. Emin misiniz?</string>
@@ -39,6 +41,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Harita üzerinde bir yere yakınlaştır</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; katılımcıları</string>
   <string name="last_updated_text">Son güncelleme %s</string>
   <string name="talk_page_link_text">Tartışma</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
@@ -334,6 +337,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Bugün</string>
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
+  <string name="view_offline_card_text">İçerik çevrimdışı iken yüklenemez.</string>
   <string name="description_edit_text_hint">Başlık tanımı</string>
   <string name="description_edit_save">Yayımla</string>
   <string name="description_edit_add_description">Başlık tanımı ekle</string>

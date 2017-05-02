@@ -15,6 +15,9 @@
   <string name="page_error_retry">Reintentar</string>
   <string name="page_error_back_to_main">Volver</string>
   <string name="menu_clear_all_history">Limpar o historial</string>
+  <string name="history_item_deleted">%s eliminado do historial</string>
+  <string name="history_items_deleted">%d artigos eliminados do historial</string>
+  <string name="history_item_delete_undo">Desfacer</string>
   <string name="page_does_not_exist_error">Esta páxina non existe.</string>
   <string name="dialog_title_clear_history">Limpar historial de navegación</string>
   <string name="dialog_message_clear_history">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>

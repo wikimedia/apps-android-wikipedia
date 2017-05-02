@@ -15,6 +15,7 @@
   <string name="page_error_back_to_main">Zréck goen</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
+  <string name="history_items_deleted">%d Artikelen aus dem Verlaf vum Browser erausgeholl</string>
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
@@ -323,6 +324,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Haut</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
+  <string name="view_offline_card_text">Et ka keen INhalt geluede gi wann Dir offline sidd.</string>
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>

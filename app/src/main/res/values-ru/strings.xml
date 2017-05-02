@@ -15,6 +15,9 @@
   <string name="page_error_retry">Повторить</string>
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Очистить историю</string>
+  <string name="history_item_deleted">Статья \"%s\" удалена из истории просмотров</string>
+  <string name="history_items_deleted">%d статей удалено из истории просмотров</string>
+  <string name="history_item_delete_undo">Вернуть</string>
   <string name="page_does_not_exist_error">Такой страницы не существует.</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>

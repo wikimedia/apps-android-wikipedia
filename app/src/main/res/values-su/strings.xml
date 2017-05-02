@@ -15,6 +15,9 @@
   <string name="page_error_retry">Cobaan deui</string>
   <string name="page_error_back_to_main">Balik deui</string>
   <string name="menu_clear_all_history">Kosongkeun jujutan</string>
+  <string name="history_item_deleted">%s dipupus tina daptar</string>
+  <string name="history_items_deleted">%d artikel dipupus tina daptar</string>
+  <string name="history_item_delete_undo">Bolaykeun</string>
   <string name="page_does_not_exist_error">Ieu kaca taya dikieuna.</string>
   <string name="dialog_title_clear_history">Pupus jujutan panyungsian</string>
   <string name="dialog_message_clear_history">Ieu bakal mupus sakumna jujutan sungsian anjeun, sarta nutup tab nu kiwari kabuka kénéh. Yakin ieu téh?</string>

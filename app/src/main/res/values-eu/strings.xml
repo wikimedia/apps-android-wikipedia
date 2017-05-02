@@ -12,6 +12,9 @@
   <string name="page_error_retry">Saiatu berriro</string>
   <string name="page_error_back_to_main">Atzera joan</string>
   <string name="menu_clear_all_history">Historia garbitu</string>
+  <string name="history_item_deleted">%s historiatik kendu da</string>
+  <string name="history_items_deleted">%d artikulu kendu dira historiatik</string>
+  <string name="history_item_delete_undo">Desegin</string>
   <string name="page_does_not_exist_error">Orri hori ez da existitzen.</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
   <string name="nav_item_saved_pages">Gordetako orrialdeak</string>
@@ -35,6 +38,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoom egin mapa bateko kokapenean</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;eko lankideak</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
   <string name="talk_page_link_text">Esan</string>
   <string name="content_license_html">Edukia eskuragarri &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
@@ -45,9 +49,9 @@
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
   <string name="langlinks_no_match">Zure kontsultarekin bat egiten duen hizkuntzarik ez da aurkitu.</string>
   <string name="langlinks_activity_title">Beste hizkuntzak</string>
-  <string name="menu_save_changes" fuzzy="true">Aldaketak gorde</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Gordetzen…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Aldaketa gordeta!</string>
+  <string name="menu_save_changes">Aldaketak argitaratu</string>
+  <string name="dialog_saving_in_progress">Argitaratzen…</string>
+  <string name="edit_saved_successfully">Aldaketa argitaratu da!</string>
   <string name="dialog_message_edit_failed">Errorea aldaketan!</string>
   <string name="dialog_message_edit_failed_retry">Saiatu berriro</string>
   <string name="dialog_message_edit_failed_cancel">Utzi</string>
@@ -121,6 +125,8 @@
   <string name="about_description">Wikipediaren aplikazioari buruz</string>
   <string name="privacy_policy_description">Pribatutasun politika</string>
   <string name="terms_of_use_description">Erabilera-baldintzak</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.eu</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eu</string>
   <string name="about_libraries_heading">Erabilitako liburutegiak</string>
   <string name="about_contributors_heading">Ekarleak</string>
   <string name="about_translators_heading">Itzultzaileak</string>
@@ -132,7 +138,7 @@
   <string name="user_anon_blocked_from_editing">Zure IP helbidea editatzeko blokeatua izan da</string>
   <string name="edit_how_page_improved">Nola hobetu duzu orria?</string>
   <string name="edit_next">Hurrengoa</string>
-  <string name="edit_done" fuzzy="true">Gorde</string>
+  <string name="edit_done">Argitaratu</string>
   <string name="edit_preview">Aurrebista</string>
   <string name="edit_summary_tag_typo">Ortografia zuzenketa</string>
   <string name="edit_summary_tag_grammar">Gramatika zuzenketa</string>
@@ -235,10 +241,12 @@
   <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
   <string name="reading_lists_onboarding_example3">Espazioa!</string>
   <string name="reading_lists_onboarding_got_it">Ulertu dut</string>
+  <string name="reading_list_remove_from_list">Kendu %s-tik</string>
   <string name="user_option_sync_label">Hobespenak</string>
   <string name="notification_button_view_user">Hitz egin erabiltzeari</string>
   <string name="notification_talk_title">Mezu berria Wikipedian</string>
   <string name="notification_thanks_title">Eskerrak eman dizkizute!</string>
+  <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
   <string name="view_main_page_card_title">Gaur Wikipedian</string>
   <string name="view_featured_image_card_download">Deskargatu</string>
   <string name="menu_feed_card_dismiss">Txartel hau ezkutatu</string>
@@ -255,9 +263,10 @@
   <string name="view_continue_reading_card_subtitle_today">Gaur</string>
   <string name="view_announcement_card_negative_action">Ez, eskerrik asko</string>
   <string name="description_edit_text_hint">Izenburuaren deskribapena</string>
-  <string name="description_edit_save" fuzzy="true">Gorde</string>
+  <string name="description_edit_save">Argitaratu</string>
   <string name="description_edit_cancel_hint">Utzi</string>
   <string name="description_edit_help_about_wikidata">Wikidatari buruz</string>
+  <string name="description_edit_success_saved">Deskribapea argiraratu da!</string>
   <string name="description_edit_success_done">Egina</string>
   <string name="description_edit_success_did_you_know">Ba al zenekien?</string>
   <string name="description_edit_tutorial_button_label_continue">Jarraitu</string>
@@ -267,6 +276,8 @@
   <string name="description_edit_help_about_title">Honi buruz</string>
   <string name="description_edit_help_tips_examples">Adibidez:</string>
   <string name="description_edit_help_tips_example1">Leonardo da Vinciren margolana</string>
+  <string name="description_edit_help_tips_example2">Lurreko mendirik garaiena</string>
+  <string name="description_edit_help_tips_example2_hint">Everest Mendiari buruzko artikuluarentzako izenburu-deskribapena</string>
   <string name="description_edit_help_more_info">Informazio gehiago</string>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
 </resources>

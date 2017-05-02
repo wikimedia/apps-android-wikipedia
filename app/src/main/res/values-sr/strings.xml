@@ -142,7 +142,7 @@
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
   <string name="abusefilter_title_warn">Ово је можда неконструктивна измена. Да ли сте сигурни да желите да је објавите?</string>
-  <string name="abusefilter_title_disallow">Не можете да објавите ову измену. Молимо вратите се назад и промените је.</string>
+  <string name="abusefilter_title_disallow">Не можете да објавите ову измену. Вратите се назад и промените је.</string>
   <string name="dialog_page_issues">Проблеми са страницом</string>
   <string name="button_page_issues">Проблеми са страницом</string>
   <string name="text_size_select">Величина фонта</string>

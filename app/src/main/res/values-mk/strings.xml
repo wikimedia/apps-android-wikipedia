@@ -15,6 +15,9 @@
   <string name="page_error_retry">Повтори</string>
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
+  <string name="history_item_deleted">%s е отстранета од историјата</string>
+  <string name="history_items_deleted">%d статии се отстранети од списокот</string>
+  <string name="history_item_delete_undo">Врати</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
@@ -39,6 +42,7 @@
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Приближи на некое место на картата</string>
+  <string name="nearby_osm_license">&amp;copy; учесници на&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последна измена: %s</string>
   <string name="talk_page_link_text">Разговор</string>
   <string name="content_license_html">Содржината е достапна под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
@@ -307,7 +311,7 @@
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>
-  <string name="notification_talk">em&gt;%1$s&lt;/em&gt; ви остави порака на вашата страница за разговор &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ви остави порака на вашата страница за разговор &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_reverted">Вашето уредување на статијата &lt;strong&gt;%2$s&lt;/strong&gt; е отповикано од &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Добивте благодарност!</string>
@@ -336,6 +340,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Денес</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
+  <string name="view_offline_card_text">Содржината не може да се вчита додека не сте на линија.</string>
   <string name="description_edit_text_hint">Опис на насловот</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_add_description">Додај опис на насловот</string>
