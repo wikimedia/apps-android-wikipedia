@@ -149,14 +149,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp">
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="4dp"
                 app:srcCompat="@drawable/ic_license_cc"
                 android:tint="@color/dark_gray"
@@ -166,8 +166,8 @@
                 android:id="@+id/view_description_edit_license_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"
                 android:linksClickable="true"
