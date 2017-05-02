@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-export ANDROID_HOME="$PWD/.sdk"
+export ANDROID_HOME="${ANDROID_HOME:-$PWD/.sdk}"
 
 ./gradlew clean checkstyle lintAlphaRelease testAllAlphaRelease
 
