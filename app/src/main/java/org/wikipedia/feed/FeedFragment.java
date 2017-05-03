@@ -30,7 +30,6 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.readinglist.page.ReadingListPageObserver;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
@@ -42,7 +41,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class FeedFragment extends Fragment implements BackPressedHandler, ReadingListPageObserver.Listener {
+public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
     @BindView(R.id.fragment_feed_header) View feedHeader;
@@ -96,7 +95,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler, Readin
 
         unbinder = ButterKnife.bind(this, view);
         feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
-        app.getReadingListPageObserver().addListener(this);
         feedView.setAdapter(feedAdapter);
         feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
@@ -150,10 +148,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler, Readin
         }
     }
 
-    public void onBecomeActiveTab() {
-        feedAdapter.notifyDataSetChanged();
-    }
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -163,7 +157,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler, Readin
     @Override
     public void onResume() {
         super.onResume();
-        feedAdapter.notifyDataSetChanged();
         funnel.enter();
 
     }
@@ -194,7 +187,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler, Readin
         feedView.removeOnScrollListener(feedScrollListener);
         feedView.setCallback((FeedAdapter.Callback) null);
         feedView.setAdapter(null);
-        app.getReadingListPageObserver().removeListener(this);
         feedAdapter = null;
         unbinder.unbind();
         unbinder = null;
@@ -255,10 +247,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler, Readin
     @Override
     public boolean onBackPressed() {
         return false;
-    }
-
-    @Override public void onReadingListPageStatusChanged() {
-        feedAdapter.notifyDataSetChanged();
     }
 
     @Nullable private Callback getCallback() {

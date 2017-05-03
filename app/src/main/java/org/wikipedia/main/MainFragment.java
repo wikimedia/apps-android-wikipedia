@@ -423,13 +423,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
-        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
-        if (fragment instanceof FeedFragment) {
-            ((FeedFragment) fragment).onBecomeActiveTab();
-        }
-        if (callback() != null) {
+        Callback callback = callback();
+        if (callback != null) {
             NavTab tab = NavTab.of(position);
-            callback().onTabChanged(tab);
+            callback.onTabChanged(tab);
         }
     }
 
