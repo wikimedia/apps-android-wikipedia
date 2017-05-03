@@ -134,28 +134,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_developer_settings, enabled);
     }
 
-    @NonNull
-    public static String getEditTokenWikis() {
-        return getString(R.string.preference_key_edittoken_wikis, "");
-    }
-
-    public static void setEditTokenWikis(@Nullable String wikis) {
-        setString(R.string.preference_key_edittoken_wikis, wikis);
-    }
-
-    @Nullable
-    public static String getEditTokenForWiki(@NonNull String wiki) {
-        return getString(getEditTokenForWikiKey(wiki), null);
-    }
-
-    public static void setEditTokenForWiki(@NonNull String wiki, @Nullable String token) {
-        setString(getEditTokenForWikiKey(wiki), token);
-    }
-
-    public static void removeEditTokenForWiki(@NonNull String wiki) {
-        remove(getEditTokenForWikiKey(wiki));
-    }
-
     public static void removeLoginUsername() {
         remove(R.string.preference_key_login_username);
     }
@@ -440,10 +418,6 @@ public final class Prefs {
 
     public static boolean isImageDownloadEnabled() {
         return getBoolean(R.string.preference_key_show_images, true);
-    }
-
-    public static String getEditTokenForWikiKey(String wiki) {
-        return getKey(R.string.preference_key_edittoken_for_wiki_format, wiki);
     }
 
     public static String getCookiesForDomainKey(@NonNull String domain) {

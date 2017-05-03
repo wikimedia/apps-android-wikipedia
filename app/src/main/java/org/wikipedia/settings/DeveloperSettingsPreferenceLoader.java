@@ -47,7 +47,6 @@ import java.util.List;
         loadPreferences(R.xml.developer_preferences);
         setUpRestBaseCheckboxes();
         setUpCookies((PreferenceCategory) findPreference(R.string.preferences_developer_cookies_key));
-        setUpEditTokens((PreferenceCategory) findPreference(R.string.preferences_developer_edit_tokens_key));
         setUpCrashButton(findPreference(getCrashButtonKey()));
         setUpUserOptionButton(findPreference(getUserOptionButtonKey()));
         setUpRemoteLogButton(findPreference(R.string.preference_key_remote_log));
@@ -132,15 +131,6 @@ import java.util.List;
         List<String> domains = Prefs.getCookieDomainsAsList();
         for (String domain : domains) {
             String key = Prefs.getCookiesForDomainKey(domain);
-            Preference pref = newDataStringPref(key, domain);
-            cat.addPreference(pref);
-        }
-    }
-
-    private void setUpEditTokens(@NonNull PreferenceCategory cat) {
-        List<String> domains = Prefs.getCookieDomainsAsList();
-        for (String domain : domains) {
-            String key = Prefs.getEditTokenForWikiKey(domain);
             Preference pref = newDataStringPref(key, domain);
             cat.addPreference(pref);
         }

@@ -184,17 +184,4 @@
         <!-- dynamically added site entries -->
 
     </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/preferences_developer_edit_tokens_heading"
-        android:key="@string/preferences_developer_edit_tokens_key">
-
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            style="@style/DataStringPreference"
-            android:key="@string/preference_key_edittoken_wikis"
-            android:title="@string/preference_key_edittoken_wikis" />
-
-        <!-- dynamically added site entries -->
-
-    </PreferenceCategory>
 </android.support.v7.preference.PreferenceScreen>

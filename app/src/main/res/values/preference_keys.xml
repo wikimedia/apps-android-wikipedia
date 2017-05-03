@@ -3,8 +3,6 @@
     <string name="preference_key_language">content_language</string>
     <string name="preference_key_cookie_domains">cookie_domains</string>
     <string name="preference_key_cookies_for_domain_format">cookies_for_domain_%1$s</string>
-    <string name="preference_key_edittoken_wikis">edittoken_wikis</string>
-    <string name="preference_key_edittoken_for_wiki_format">edittoken_for_wiki_%1$s</string>
     <string name="preference_key_zero_interstitial">zero_warn_when_leaving</string>
     <string name="preference_key_zero_config_hash">zeroConfigHash</string>
     <string name="preference_key_zero_tutorial_enabled">zeroTutorialEnabled</string>
