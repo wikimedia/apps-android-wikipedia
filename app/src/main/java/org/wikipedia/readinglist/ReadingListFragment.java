@@ -31,6 +31,7 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainActivity;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
@@ -41,6 +42,7 @@ import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.MultiSelectActionModeCallback;
@@ -60,7 +62,8 @@ import butterknife.Unbinder;
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_TITLE;
 import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_ASC;
 
-public class ReadingListFragment extends Fragment implements ReadingListPageObserver.Listener {
+public class ReadingListFragment extends Fragment implements ReadingListPageObserver.Listener,
+        ReadingListItemActionsDialog.Callback {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
     @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
     @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
@@ -84,6 +87,7 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
     private ItemCallback itemCallback = new ItemCallback();
     private SearchCallback searchActionModeCallback = new SearchCallback();
     private MultiSelectActionModeCallback multiSelectActionModeCallback = new MultiSelectCallback();
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
     private String currentSearchQuery;
@@ -403,6 +407,17 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
         }
     }
 
+    private void deleteSinglePage(@Nullable ReadingListPage page) {
+        if (readingList == null || page == null) {
+            return;
+        }
+        showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
+        ReadingList.DAO.removeTitleFromList(readingList, page);
+        ReadingListSynchronizer.instance().bumpRevAndSync();
+        funnel.logDeleteItem(readingList, readingLists.size());
+        update();
+    }
+
     private void delete() {
         if (readingList != null) {
             startActivity(MainActivity.newIntent(getContext())
@@ -411,11 +426,40 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
         }
     }
 
-    private void setPageItemViewState(@NonNull PageItemView view, @NonNull ReadingListPage page) {
-        view.setActionIcon(page.isOffline() ? R.drawable.ic_offline_pin_black_24dp
-                : R.drawable.ic_download_circle_black_24px);
-        view.setActionHint(page.isOffline() ? R.string.reading_list_article_remove_offline
-                : R.string.reading_list_article_make_offline);
+    @Override
+    public void onToggleOffline(int pageIndex) {
+        ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
+        if (page != null) {
+            ReadingListData.instance().setPageOffline(page, !page.isOffline());
+            FeedbackUtil.showMessage(getActivity(), page.isOffline()
+                    ? R.string.reading_list_article_offline_message
+                    : R.string.reading_list_article_not_offline_message);
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onShare(int pageIndex) {
+        ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
+        if (page != null) {
+            ShareUtil.shareText(getContext(), ReadingListDaoProxy.pageTitle(page));
+        }
+    }
+
+    @Override
+    public void onAddToOther(int pageIndex) {
+        ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
+        if (page != null) {
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    AddToReadingListDialog.newInstance(ReadingListDaoProxy.pageTitle(page),
+                            AddToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
+        }
+    }
+
+    @Override
+    public void onDelete(int pageIndex) {
+        ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
+        deleteSinglePage(page);
     }
 
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
@@ -469,18 +513,14 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
             getView().setDescription(page.description());
             getView().setImageUrl(page.thumbnailUrl());
             getView().setSelected(page.isSelected());
-            setPageItemViewState(getView(), page);
+            getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
+            getView().setActionHint(R.string.abc_action_menu_overflow_description);
+            getView().setStatusIcon(R.drawable.ic_download_circle_black_24px, !page.isOffline());
         }
 
         @Override
         public void onSwipe() {
-            if (readingList != null) {
-                showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
-                ReadingList.DAO.removeTitleFromList(readingList, page);
-                ReadingListSynchronizer.instance().bumpRevAndSync();
-                funnel.logDeleteItem(readingList, readingLists.size());
-                update();
-            }
+            deleteSinglePage(page);
         }
     }
 
@@ -561,13 +601,11 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
 
         @Override
         public void onActionClick(@Nullable ReadingListPage page, @NonNull PageItemView view) {
-            if (page != null) {
-                ReadingListData.instance().setPageOffline(page, !page.isOffline());
-                setPageItemViewState(view, page);
-                FeedbackUtil.showMessage(getActivity(), page.isOffline()
-                        ? R.string.reading_list_article_offline_message
-                        : R.string.reading_list_article_not_offline_message);
+            if (page == null || readingList == null) {
+                return;
             }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    ReadingListItemActionsDialog.newInstance(page, readingList));
         }
     }
 
