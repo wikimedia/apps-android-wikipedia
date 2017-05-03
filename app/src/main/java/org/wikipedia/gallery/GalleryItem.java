@@ -7,7 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.ImageLicense;
-import org.wikipedia.page.ImageLicenseFetchTask;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -149,9 +148,21 @@ class GalleryItem {
                 String value = extmetadata.getJSONObject(key).getString("value");
                 metadata.put(key, value);
             }
-            license = ImageLicenseFetchTask.imageLicenseFromMetadata(extmetadata);
+            license = imageLicenseFromMetadata(extmetadata);
         } else {
             license = new ImageLicense();
         }
+    }
+
+    @NonNull
+    public static ImageLicense imageLicenseFromMetadata(JSONObject extmetadata) {
+        return new ImageLicense(getValueForOptionalKey(extmetadata, "License"),
+                getValueForOptionalKey(extmetadata, "LicenseShortName"),
+                getValueForOptionalKey(extmetadata, "LicenseUrl"));
+    }
+
+    @NonNull
+    private static String getValueForOptionalKey(JSONObject object, String key) {
+        return object.has(key) ? object.optJSONObject(key).optString("value") : "";
     }
 }
