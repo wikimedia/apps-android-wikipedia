@@ -759,7 +759,7 @@ transformer.register( "addImageOverflowXContainers", function( content ) {
     }
 } );
 },{"../transformer":14,"../utilities":25}],17:[function(require,module,exports){
-var getTableHeader = require("applib").CollapseTable.getTableHeader;
+var getTableHeader = require("wikimedia-page-library").CollapseTable.getTableHeader;
 var transformer = require("../transformer");
 
 function handleTableCollapseOrExpandClick() {
@@ -862,7 +862,7 @@ transformer.register( "hideTables", function( content ) {
 module.exports = {
     handleTableCollapseOrExpandClick: handleTableCollapseOrExpandClick
 };
-},{"../transformer":14,"applib":26}],18:[function(require,module,exports){
+},{"../transformer":14,"wikimedia-page-library":26}],18:[function(require,module,exports){
 var transformer = require("../transformer");
 var collapseTables = require("./collapseTables");
 
@@ -1106,7 +1106,7 @@ transformer.register( "setDivWidth", function( content ) {
     }
 } );
 },{"../transformer":14}],24:[function(require,module,exports){
-var maybeWidenImage = require('applib').WidenImage.maybeWidenImage;
+var maybeWidenImage = require('wikimedia-page-library').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 
@@ -1166,7 +1166,7 @@ transformer.register( "widenImages", function( content ) {
     }
 } );
 
-},{"../transformer":14,"../utilities":25,"applib":26}],25:[function(require,module,exports){
+},{"../transformer":14,"../utilities":25,"wikimedia-page-library":26}],25:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -1264,6 +1264,11 @@ module.exports = {
 },{}],26:[function(require,module,exports){
 'use strict';
 
+// This file exists for CSS packaging only. It imports the CSS which is to be
+// packaged in the override CSS build product.
+
+// todo: delete Empty.css when other overrides exist
+
 /**
   Tries to get an array of table header (TH) contents from a given table. If
   there are no TH elements in the table, an empty array is returned.
@@ -1274,7 +1279,7 @@ module.exports = {
 var getTableHeader = function getTableHeader(element, pageTitle) {
   var thArray = [];
 
-  if (element.children === undefined || element.children === null) {
+  if (!element.children) {
     return thArray;
   }
 
@@ -1317,6 +1322,23 @@ var CollapseTable = {
 };
 
 /**
+ * Polyfill function that tells whether a given element matches a selector.
+ * @param {!Element} el Element
+ * @param {!string} selector Selector to look for
+ * @returns {!boolean} Whether the element matches the selector
+ */
+var matchesSelectorCompat = function matchesSelectorCompat(el, selector) {
+  if (el.matches) {
+    return el.matches(selector);
+  } else if (el.matchesSelector) {
+    return el.matchesSelector(selector);
+  } else if (el.webkitMatchesSelector) {
+    return el.webkitMatchesSelector(selector);
+  }
+  return false;
+};
+
+/**
  * Returns closest ancestor of element which matches selector.
  * Similar to 'closest' methods as seen here:
  *  https://api.jquery.com/closest/
@@ -1325,12 +1347,12 @@ var CollapseTable = {
  * @param  {!string} selector   Selector to look for in ancestors of 'el'
  * @return {?HTMLElement}       Closest ancestor of 'el' matching 'selector'
  */
-var findClosest = function findClosest(el, selector) {
-  while ((el = el.parentElement) && !el.matches(selector)) {
+var findClosestAncestor = function findClosestAncestor(el, selector) {
+  var parentElement = void 0;
+  for (parentElement = el.parentElement; parentElement && !matchesSelectorCompat(parentElement, selector); parentElement = parentElement.parentElement) {
     // Intentionally empty.
-    // Reminder: the parenthesis around 'el = el.parentElement' are also intentional.
   }
-  return el;
+  return parentElement;
 };
 
 /**
@@ -1339,11 +1361,11 @@ var findClosest = function findClosest(el, selector) {
  * @return {boolean}        Whether table ancestor of 'el' is found
  */
 var isNestedInTable = function isNestedInTable(el) {
-  return findClosest(el, 'table') !== null;
+  return !!findClosestAncestor(el, 'table');
 };
 
 var elementUtilities = {
-  findClosest: findClosest,
+  findClosestAncestor: findClosestAncestor,
   isNestedInTable: isNestedInTable
 };
 
@@ -1355,16 +1377,15 @@ var elementUtilities = {
  * @param  {!HTMLElement} el Element whose ancestors will be widened
  */
 var widenAncestors = function widenAncestors(el) {
-  while ((el = el.parentElement) && !el.classList.contains('content_block')) {
-    // Reminder: the parenthesis around 'el = el.parentElement' are intentional.
-    if (el.style.width) {
-      el.style.width = '100%';
+  for (var parentElement = el.parentElement; parentElement && !parentElement.classList.contains('content_block'); parentElement = parentElement.parentElement) {
+    if (parentElement.style.width) {
+      parentElement.style.width = '100%';
     }
-    if (el.style.maxWidth) {
-      el.style.maxWidth = '100%';
+    if (parentElement.style.maxWidth) {
+      parentElement.style.maxWidth = '100%';
     }
-    if (el.style.float) {
-      el.style.float = 'none';
+    if (parentElement.style.float) {
+      parentElement.style.float = 'none';
     }
   }
 };
@@ -1378,7 +1399,7 @@ var shouldWidenImage = function shouldWidenImage(image) {
   // Images within a "<div class='noresize'>...</div>" should not be widened.
   // Example exhibiting links overlaying such an image:
   //   'enwiki > Counties of England > Scope and structure > Local government'
-  if (elementUtilities.findClosest(image, "[class*='noresize']")) {
+  if (elementUtilities.findClosestAncestor(image, "[class*='noresize']")) {
     return false;
   }
 
@@ -1387,7 +1408,7 @@ var shouldWidenImage = function shouldWidenImage(image) {
   // Examples exhibiting side-by-side images:
   //    'enwiki > Cold Comfort (Inside No. 9) > Casting'
   //    'enwiki > Vincent van Gogh > Letters'
-  if (elementUtilities.findClosest(image, "div[class*='tsingle']")) {
+  if (elementUtilities.findClosestAncestor(image, "div[class*='tsingle']")) {
     return false;
   }
 
@@ -1449,7 +1470,7 @@ var WidenImage = {
   }
 };
 
-var index = {
+var pagelib$1 = {
   CollapseTable: CollapseTable,
   WidenImage: WidenImage,
   test: {
@@ -1457,7 +1478,11 @@ var index = {
   }
 };
 
-module.exports = index;
+// This file exists for CSS packaging only. It imports the override CSS
+// JavaScript index file, which also exists only for packaging, as well as the
+// real JavaScript, transform/index, it simply re-exports.
+
+module.exports = pagelib$1;
 
 
 },{}]},{},[2,9,25,14,15,16,17,18,23,24,19,20,21,22,1,5,6,7,8,4,11,12,13]);

@@ -93,7 +93,7 @@ module.exports = function ( grunt ) {
                     // Preview files
                     { src: [ "preview.js", "preview.html" ], dest: distFolder },
 
-                    { src: [ "node_modules/applib/build/applib.css" ], dest: distFolder + 'applib.css' }
+                    { src: [ "node_modules/wikimedia-page-library/build/wikimedia-page-library-transform.css" ], dest: distFolder + 'wikimedia-page-library.css' }
                 ]
             }
         },

@@ -1,0 +1,56 @@
+.wideImageOverride {
+  /* Center images. */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* Ensure widening can take effect with proportional height change */
+  height: auto !important;
+}
+
+@media (orientation: portrait) {
+  .wideImageOverride {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Tablet override */
+  @media (min-device-width: 768px) {
+    .wideImageOverride {
+      width: 60% !important;
+      max-width: 60% !important;
+      height: auto !important;
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  .wideImageOverride {
+    width: 50% !important;
+    max-width: 50% !important;
+    height: auto !important;
+  }
+}
+
+/* Center text beneath images now that images are centered. */
+.thumbinner, .gallerytext {
+  text-align: center;
+}
+
+/* Parsoid: center text beneath images now that images are centered. */
+figcaption {
+  text-align: center;
+}
+
+/* Add a little breathing room beneath thumb captions - see enwiki "Vincent van Gogh > Paris (1886-1888)" */
+.thumbcaption {
+  margin-bottom: 1.5em !important;
+}
+
+/* Wrangle extra margin - see enwiki "Claude Monet > Impressionism" */
+li.gallerybox div.thumb > div {
+  margin: 0px !important;
+}
+div.gallerytext > p {
+  margin-top: 0px !important;
+}

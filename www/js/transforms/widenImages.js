@@ -1,4 +1,4 @@
-var maybeWidenImage = require('applib').WidenImage.maybeWidenImage;
+var maybeWidenImage = require('wikimedia-page-library').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 

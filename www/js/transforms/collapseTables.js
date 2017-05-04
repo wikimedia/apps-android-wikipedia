@@ -1,4 +1,4 @@
-var getTableHeader = require("applib").CollapseTable.getTableHeader;
+var getTableHeader = require("wikimedia-page-library").CollapseTable.getTableHeader;
 var transformer = require("../transformer");
 
 function handleTableCollapseOrExpandClick() {
