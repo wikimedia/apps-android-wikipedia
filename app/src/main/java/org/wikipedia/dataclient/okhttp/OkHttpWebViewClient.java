@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.annotation.VisibleForTesting;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -12,7 +13,11 @@ import android.webkit.WebViewClient;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.util.log.L;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -23,9 +28,16 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class OkHttpWebViewClient extends WebViewClient {
+
+    /*
+    Note: Any data transformations performed here are only for the benefit of WebViews.
+    They should not be made into general Interceptors.
+    */
+
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String HEADER_CONTENT_ENCODING = "content-encoding";
+    private static final String CONTENT_TYPE_SVG = "image/svg+xml";
 
     @SuppressWarnings("deprecation") @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
@@ -36,7 +48,7 @@ public class OkHttpWebViewClient extends WebViewClient {
         try {
             Response rsp = request(url);
             return new WebResourceResponse(rsp.header(HEADER_CONTENT_TYPE),
-                    rsp.header(HEADER_CONTENT_ENCODING), rsp.body().byteStream());
+                    rsp.header(HEADER_CONTENT_ENCODING), getInputStream(rsp));
         } catch (IOException e) {
             L.e(e);
         }
@@ -56,7 +68,7 @@ public class OkHttpWebViewClient extends WebViewClient {
                     rsp.header(HEADER_CONTENT_ENCODING), rsp.code(),
                     StringUtils.defaultIfBlank(rsp.message(), "Unknown error"),
                     toMap(rsp.headers()),
-                    rsp.body().byteStream());
+                    getInputStream(rsp));
         } catch (IOException e) {
             L.e(e);
         }
@@ -75,5 +87,38 @@ public class OkHttpWebViewClient extends WebViewClient {
             map.put(headers.name(i), headers.value(i));
         }
         return map;
+    }
+
+    @NonNull private InputStream getInputStream(@NonNull Response rsp) throws IOException {
+        InputStream inputStream = rsp.body().byteStream();
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT
+                && CONTENT_TYPE_SVG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
+            return transformSvgFile(inputStream);
+        }
+
+        return inputStream;
+    }
+
+    /*
+    T107775
+    In API 18 and below, the system WebView does not perform correct rendering of SVG
+    files that specify dimensions with "ex" units. This code rewrites usages of "ex"
+    units with "em" before the SVG arrives at the WebView.
+    */
+    @VisibleForTesting
+    @NonNull
+    static InputStream transformSvgFile(@NonNull InputStream inputStream) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.contains("<svg")) {
+                line = line.replace("ex\"", "em\"").replace("ex;", "em;");
+            }
+            sb.append(line);
+        }
+        inputStream.close();
+        return new ByteArrayInputStream(sb.toString().getBytes());
     }
 }
