@@ -301,6 +301,7 @@
   <string name="reading_lists_onboarding_got_it">明白了</string>
   <string name="reading_list_no_description">无描述…</string>
   <string name="reading_list_empty">您没有添加至此列表的条目。</string>
+  <string name="reading_list_article_offline">在线可用</string>
   <string name="reading_list_article_make_offline">使该条目离线时可用</string>
   <string name="reading_list_article_remove_offline">不要使该条目离线时可用</string>
   <string name="reading_list_article_offline_message">该条目现在可以离线使用。</string>

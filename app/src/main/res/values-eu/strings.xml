@@ -202,6 +202,7 @@
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
   <string name="nav_item_donate">Wikipedia Lagundu</string>
   <string name="enable_location_service">Gaitu</string>
+  <string name="view_wiki_error_message_offline">Ezin izan da Internetera konektatu</string>
   <string name="crash_report_dialog_dont_send_button">Utzi</string>
   <string name="crash_report_dialog_always_send_button">Beti bidali</string>
   <string name="crash_report_dialog_send_button">Bidali</string>
@@ -241,7 +242,10 @@
   <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
   <string name="reading_lists_onboarding_example3">Espazioa!</string>
   <string name="reading_lists_onboarding_got_it">Ulertu dut</string>
+  <string name="reading_list_article_offline">Erabilgarri lineaz kanpo</string>
+  <string name="reading_list_add_to_other_list">Gehitu beste irakurketa-zerrenda batera</string>
   <string name="reading_list_remove_from_list">Kendu %s-tik</string>
+  <string name="reading_list_remove_from_lists">Kendu irakurketa-zerrendetatik</string>
   <string name="user_option_sync_label">Hobespenak</string>
   <string name="notification_button_view_user">Hitz egin erabiltzeari</string>
   <string name="notification_talk_title">Mezu berria Wikipedian</string>

@@ -301,6 +301,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_list_no_description">Keine Beschreibung …</string>
   <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
+  <string name="reading_list_article_offline">Offline verfügbar</string>
   <string name="reading_list_article_make_offline">Diesen Artikel offline verfügbar machen</string>
   <string name="reading_list_article_remove_offline">Diesen Artikel nicht offline verfügbar machen</string>
   <string name="reading_list_article_offline_message">Dieser Artikel ist jetzt offline verfügbar.</string>

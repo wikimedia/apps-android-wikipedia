@@ -299,6 +299,7 @@
   <string name="reading_lists_onboarding_got_it">알겠습니다</string>
   <string name="reading_list_no_description">설명 없음...</string>
   <string name="reading_list_empty">이 목록에 추가한 글이 없습니다.</string>
+  <string name="reading_list_article_offline">오프라인에서 읽을 수 있음</string>
   <string name="reading_list_article_make_offline">이 글을 오프라인에서 읽을 수 있게 하기</string>
   <string name="reading_list_article_remove_offline">이 글을 오프라인에서 읽지 못하게 하기</string>
   <string name="reading_list_article_offline_message">이 글은 이제 오프라인에서 읽을 수 있습니다.</string>

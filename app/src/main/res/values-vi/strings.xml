@@ -15,6 +15,9 @@
   <string name="page_error_retry">Thử lại</string>
   <string name="page_error_back_to_main">Quay lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
+  <string name="history_item_deleted">%s đã được xoá khỏi lược sử</string>
+  <string name="history_items_deleted" fuzzy="true">%d bài viết đã được xoá khỏi lược sử</string>
+  <string name="history_item_delete_undo">Hoàn tác</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
   <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
   <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
@@ -39,6 +42,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Phóng to đến một địa điểm trên bản đồ</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Những người đóng góp của &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
   <string name="talk_page_link_text">Thảo luận</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
@@ -50,9 +54,9 @@
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác.</string>
   <string name="langlinks_no_match">Không tìm thấy ngôn ngữ trùng với truy vấn của bạn.</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
-  <string name="menu_save_changes" fuzzy="true">Lưu các thay đổi</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Đang lưu…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Đã lưu sửa đổi!</string>
+  <string name="menu_save_changes">Công bố thay đổi</string>
+  <string name="dialog_saving_in_progress">Đang công bố...</string>
+  <string name="edit_saved_successfully">Thay đổi đã được công bố!</string>
   <string name="dialog_message_edit_failed">Sửa đổi thất bại!</string>
   <string name="dialog_message_edit_failed_retry">Thử lại</string>
   <string name="dialog_message_edit_failed_cancel">Hủy bỏ</string>
@@ -61,6 +65,9 @@
   <string name="dialog_message_leaving_edit_stay">Ở lại</string>
   <string name="menu_show_toc">Mục lục</string>
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
+  <string name="search_reading_list_no_results">Không tìm thấy kết quả trong \"%s\"</string>
+  <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách xem</string>
+  <string name="search_history_no_results">Không tìm thấy kết quả trong lược sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
   <string name="edit_section_captcha_hint">Lặp lại các từ bên trên</string>
   <string name="title_captcha">Nhập CAPTCHA</string>
@@ -77,9 +84,10 @@
   <string name="login_success_toast">Đã đăng nhập thành công!</string>
   <string name="preference_title_logout">Đăng xuất</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
-  <string name="history_empty_title" fuzzy="true">Không có trang gần đây tại đây!</string>
-  <string name="history_empty_message" fuzzy="true">Có lẽ bạn đã xóa toàn bộ. Lần sau xem một trang, trang sẽ xuất hiện tại đây để truy cập sau.</string>
+  <string name="history_empty_title">Không có mục xem gần đây tại đây!</string>
+  <string name="history_empty_message">Theo dõi nhưng gì bạn đã xem qua tại đây.</string>
   <string name="delete_selected_history">Xóa</string>
+  <string name="delete_selected_items">Xoá mục đã chọn</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="login_create_account_link">Chưa có tài khoản? Hãy tham gia Wikipedia</string>
@@ -122,7 +130,8 @@
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>
   <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>
   <string name="page_protected_other">Trang này đã bị khóa ở mức độ sau: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Bạn không có quyền sửa đổi trang này.</string>
+  <string name="page_protected_can_not_edit">Rất tiếc, tài khoản của bạn không có đủ quyền để chỉnh sửa trang vào lúc này.</string>
+  <string name="page_protected_can_not_edit_anon">Rất tiếc, không thể chỉnh sửa ẩn danh vào lúc này.</string>
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
   <string name="settings_item_preferences">Tùy chọn</string>
   <string name="settings_activity_title">Tùy chọn</string>
@@ -131,13 +140,15 @@
   <string name="terms_of_use_description">Điều khoản sử dụng</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Quy_định_quyền_riêng_tư?uselang=vi</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Thư viện được sử dụng</string>
   <string name="about_contributors_heading">Người đóng góp</string>
   <string name="about_translators_heading">Biên dịch viên</string>
   <string name="about_translators_translatewiki">Ứng dụng này được biên dịch bởi những người tình nguyện tại &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Giấy phép</string>
   <string name="about_app_license">Mã nguồn có sẵn tại &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; và &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; theo &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Giấy phép Apache 2.0&lt;/a&gt;. Trừ khi được chỉ rõ, toàn bộ nội dung được phát hành theo &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Nguyên_văn_Giấy_phép_Creative_Commons_Ghi_công–Chia_sẻ_tương_tự_phiên_bản_3.0_Chưa_chuyển_đổi\"&gt;Giấy phép Creative Commons Ghi công–Chia sẻ tương tự&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Một sản phẩm của &lt;a href=\"http://wikimediafoundation.org/wiki/Trang_chủ?uselang=vi\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Một sản phẩm của &lt;a href=\"http://wikimediafoundation.org/wiki/Trang_chủ?uselang=vi\"&gt;Quỹ Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Giới thiệu</string>
   <string name="edit_abandon_confirm">Trang đã được sửa đổi. Bạn có chắc chắn muốn thoát mà không lưu các thay đổi của bạn?</string>
   <string name="user_blocked_from_editing_title">Cấm</string>
@@ -145,7 +156,7 @@
   <string name="user_anon_blocked_from_editing">Địa chỉ IP của bạn đã bị cấm không được sửa đổi.</string>
   <string name="edit_how_page_improved">Bạn đã cải thiện trang này như thế nào?</string>
   <string name="edit_next">Tiếp</string>
-  <string name="edit_done" fuzzy="true">Lưu</string>
+  <string name="edit_done">Công bố</string>
   <string name="edit_preview">Xem thử</string>
   <string name="edit_summary_tag_typo">Sửa chính tả</string>
   <string name="edit_summary_tag_grammar">Sửa câu cú</string>
@@ -154,8 +165,8 @@
   <string name="edit_summary_tag_other_hint">Những cách khác để cải thiện trang</string>
   <string name="find_next">Tìm tiếp</string>
   <string name="find_previous">Tìm trước</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Sửa đổi này có vẻ không có tính xây dựng. Bạn có chắc chắn muốn lưu nó?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Bạn không thể lưu sửa đổi này. Vui lòng quay lại và thay đổi nó.</string>
+  <string name="abusefilter_title_warn">Sửa đổi này có vẻ không có tính xây dựng. Bạn có chắc chắn muốn công bố nó?</string>
+  <string name="abusefilter_title_disallow">Bạn không thể công bố sửa đổi này. Vui lòng quay lại và thay đổi nó.</string>
   <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
   <string name="abusefilter_text_disallow">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng hoặc là sự phá hoại.&lt;br /&gt;&lt;br /&gt;Là một bách khoa toàn thư, Wikipedia chỉ chấp nhận các nội dung trung lập và nổi bật.</string>
   <string name="dialog_page_issues">Vấn đề trang</string>
@@ -218,6 +229,9 @@
   <string name="address_copied">Đã chép địa chỉ vào bảng tạm.</string>
   <string name="text_copied">Đã chép vào clipboard.</string>
   <string name="button_continue_to_article">Đọc bài</string>
+  <string name="button_add_to_reading_list">Thêm vào danh sách đọc</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Không thể tải bài viết khi ngoại tuyến</string>
+  <string name="page_offline_notice_add_to_reading_list">Thêm bài viết vào danh sách độc và nó sẽ được tải xuống khi bạn trưc tuyến.</string>
   <string name="button_get_directions">Chỉ đường</string>
   <string name="error_no_maps_app">Không tìm thấy ứng dụng nào có khả năng chỉ đường.</string>
   <string name="preference_title_show_link_previews">Hiện bản xem trước</string>
@@ -226,6 +240,14 @@
   <string name="error_voice_search_not_available">Rất tiếc, chức năng nhận dạng tiếng nói không có sẵn.</string>
   <string name="location_service_disabled">Dịch vụ định vị đang tắt.</string>
   <string name="enable_location_service">Kích hoạt</string>
+  <string name="location_permissions_enable_prompt">Kích hoạt quyền định vị để xem địa điểm gần bạn.</string>
+  <string name="location_permissions_enable_action">Bật</string>
+  <string name="error_webview_updating">Android System WebView đang được cập nhật. Hãy thử lại trong chốc lát.</string>
+  <string name="multi_select_items_selected">Đã chọn %d</string>
+  <string name="error_message_generic">Đã xảy ra lỗi</string>
+  <string name="view_link_preview_error_button_dismiss">Bỏ qua</string>
+  <string name="error_page_does_not_exist">Trang này không tồn tại</string>
+  <string name="view_wiki_error_message_offline">Không thể kết nối với Internet</string>
   <string name="crash_report_dialog_title">Rất tiếc, ứng dụng gặp sự cố lần trước</string>
   <string name="crash_report_dialog_text">Bạn có muốn gửi một báo cáo đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để Wikimedia có thể xem xét và sửa lỗi gây ra sự cố này không?</string>
   <string name="crash_report_dialog_dont_send_button">Bỏ qua</string>
@@ -257,21 +279,29 @@
   <string name="reading_list_sort_by_name_desc">Sắp xếp theo tên (ngược)</string>
   <string name="reading_list_sort_by_recent">Sắp xếp theo lúc xem (gần đây nhất)</string>
   <string name="reading_list_sort_by_recent_desc">Sắp xếp theo lúc xem (lâu nhất)</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Xóa danh sách đọc</string>
+  <string name="reading_list_menu_delete">Xóa danh sách</string>
+  <string name="reading_list_menu_rename">Đổi tên</string>
+  <string name="reading_list_menu_edit_description">Chỉnh sửa miêu tả</string>
   <string name="reading_list_name_sample">Danh sách đọc của tôi</string>
   <string name="reading_list_name_hint">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
   <string name="reading_list_item_deleted">Đã xóa %s khỏi danh sách</string>
+  <string name="reading_list_items_deleted">%d bài viết đã được xoá khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
-  <string name="reading_lists_empty" fuzzy="true">Không có danh sách đọc.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Sắp xếp các bài mà bạn duyệt xem vào danh sách đọc! Khi nào xem một bài, chỉ việc chạm vào hình dấu trang trong thanh công cụ cuối trang để thêm nó vào một danh sách đọc.</string>
+  <string name="reading_lists_empty">Vẫn chưa có danh sách đọc</string>
+  <string name="reading_lists_empty_message">Lưu các bài viết vào danh sách đọc để có thể xem chúng sau này, kể cả khi bạn ngoại tuyến.</string>
   <string name="reading_lists_onboarding_intro">Tạo danh sách các bài viết bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến.</string>
   <string name="reading_lists_onboarding_for_example">Ví dụ</string>
   <string name="reading_lists_onboarding_example1">Các địa điểm để tham quan</string>
   <string name="reading_lists_onboarding_example2">Loài vật ưa thích</string>
   <string name="reading_lists_onboarding_example3">Vũ trụ!</string>
   <string name="reading_lists_onboarding_got_it">Được rồi</string>
+  <string name="reading_list_no_description">Không có miêu tả</string>
+  <string name="reading_list_empty">Bạn chưa có bài viết nào được thêm vào danh sách này.</string>
+  <string name="reading_list_article_offline">Khả dụng ngoại tuyến</string>
+  <string name="reading_list_article_make_offline">Làm bài viết này khả dụng ngoại tuyến</string>
+  <string name="reading_list_article_remove_offline">Không làm bài viết này khả dụng ngoại tuyến</string>
   <string name="user_option_sync_label">Tùy chọn</string>
   <string name="notification_button_view_user">Thảo luận với người dùng</string>
   <string name="notification_talk_title">Tin nhắn mới tại Wikipedia</string>

@@ -301,6 +301,7 @@
   <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="reading_list_no_description">Нема опис...</string>
   <string name="reading_list_empty">Немате ставено статии во списоков.</string>
+  <string name="reading_list_article_offline">Достапно вонмрежно</string>
   <string name="reading_list_article_make_offline">Направи ја статијава достапна вонмрежно</string>
   <string name="reading_list_article_remove_offline">Не ја прави статијава достапна вонмрежно</string>
   <string name="reading_list_article_offline_message">Статијава сега ќе биде достапна вонмрежно.</string>
