@@ -25,7 +25,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.mock;
 import static org.wikipedia.feed.view.ListCardItemView.Callback;
 
-public class PageTitleListCardItemViewTest extends ViewTest {
+public class ListCardItemViewTest extends ViewTest {
     private ListCardItemView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,
