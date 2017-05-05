@@ -1,0 +1,109 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "normalized": [
+      {
+        "fromencoded": false,
+        "from": "File:Mark_Selby_at_Snooker_German_Masters_(DerHexer)_2015-02-04_02.jpg",
+        "to": "File:Mark Selby at Snooker German Masters (DerHexer) 2015-02-04 02.jpg"
+      }
+    ],
+    "pages": [
+      {
+        "ns": 6,
+        "title": "File:Mark Selby at Snooker German Masters (DerHexer) 2015-02-04 02.jpg",
+        "missing": true,
+        "known": true,
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "extmetadata": {
+              "DateTime": {
+                "value": "2015-02-11 20:27:39",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Mark Selby at Snooker German Masters (DerHexer) 2015-02-04 02",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Files by DerHexer|German Masters 2015-Day 1, Session 2|Images with extracted images|Mark Selby|Personality rights warning|Self-published work|Uploaded with VicuñaUploader",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Picture taken in Berlin during the <a href=\"https://en.wikipedia.org/wiki/2015_German_Masters\" class=\"extiw\" title=\"en:2015 German Masters\">Snooker German Masters in 2015</a>. Mark Selby.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2015-02-04 15:19",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Artist": {
+                "value": "<a href=\"//commons.wikimedia.org/wiki/User:DerHexer\" title=\"User:DerHexer\">DerHexer</a>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC BY-SA 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Attribution-Share Alike 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "AttributionRequired": {
+                "value": "true",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Attribution": {
+                "value": "DerHexer, Wikimedia Commons, CC-by-sa 4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/licenses/by-sa/4.0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "personality",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc-by-sa-4.0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

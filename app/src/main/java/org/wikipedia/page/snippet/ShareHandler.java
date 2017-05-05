@@ -25,8 +25,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.dataclient.mwapi.MwQueryImageLicensePage;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.ImageLicense;
-import org.wikipedia.page.ImageLicenseFetchTask;
+import org.wikipedia.page.ImageLicenseFetchClient;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.NoDimBottomSheetDialog;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
@@ -42,7 +45,9 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.Arrays;
-import java.util.Map;
+import java.util.List;
+
+import retrofit2.Call;
 
 import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
 
@@ -125,30 +130,36 @@ public class ShareHandler {
     private void shareSnippet(@NonNull CharSequence input) {
         final String selectedText = StringUtil.sanitizeText(input.toString());
         final PageTitle title = fragment.getTitle();
+        final String leadImageNameText = fragment.getPage().getPageProperties().getLeadImageName() != null
+                ? fragment.getPage().getPageProperties().getLeadImageName() : "";
 
-        (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getWikiSite()),
-                    title.getWikiSite(),
-                    new PageTitle("File:" + fragment.getPage().getPageProperties().getLeadImageName(), title.getWikiSite())) {
 
-            @Override
-            public void onFinish(@NonNull Map<PageTitle, ImageLicense> result) {
-                ImageLicense leadImageLicense = (ImageLicense) result.values().toArray()[0];
+        new ImageLicenseFetchClient().request(title.getWikiSite(),
+                new PageTitle(Namespace.FILE.toLegacyString(),
+                              leadImageNameText,
+                              title.getWikiSite()),
+                new ImageLicenseFetchClient.Callback() {
+                    @Override public void success(@NonNull Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call,
+                                                  @NonNull List<MwQueryImageLicensePage> pages) {
+                        MwQueryImageLicensePage page = pages.get(0);
+                        ImageLicense leadImageLicense = new ImageLicense(page.imageLicense(),
+                                page.imageLicenseShortName(),
+                                page.imageLicenseUrl());
 
-                final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.getContext(),
-                        fragment.getLeadImageBitmap(),
-                        title.getDisplayText(),
-                        fragment.getPage().isMainPage() ? "" : StringUtils.capitalize(title.getDescription()),
-                        selectedText,
-                        leadImageLicense);
+                        final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.getContext(),
+                                fragment.getLeadImageBitmap(),
+                                title.getDisplayText(),
+                                fragment.getPage().isMainPage() ? "" : StringUtils.capitalize(title.getDescription()),
+                                selectedText,
+                                leadImageLicense);
 
-                fragment.showBottomSheet(new PreviewDialog(fragment, snippetBitmap, title, selectedText, funnel));
-            }
+                        fragment.showBottomSheet(new PreviewDialog(fragment, snippetBitmap, title, selectedText, funnel));
+                    }
 
-            @Override
-            public void onCatch(Throwable caught) {
-                L.d("Error fetching image license info for " + title.getDisplayText() + ": " + caught.getMessage(), caught);
-            }
-        }).execute();
+                    @Override public void failure(@NonNull Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call, @NonNull Throwable caught) {
+                        L.e("Error fetching image license info for " + title.getDisplayText(), caught);
+                    }
+                });
     }
 
     /**
