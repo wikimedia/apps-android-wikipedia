@@ -44,7 +44,6 @@ import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListRow;
-import org.wikipedia.readinglist.page.ReadingListPageObserver;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageHttpRow;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
@@ -88,7 +87,6 @@ public class WikipediaApp extends Application {
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
-    private ReadingListPageObserver readingListPageObserver;
     private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
 
     private Database database;
@@ -169,8 +167,6 @@ public class WikipediaApp extends Application {
         AccountUtil.createAccountForLoggedInUser();
 
         UserOptionContentResolver.registerAppSyncObserver(this);
-        readingListPageObserver = new ReadingListPageObserver(new Handler(getMainLooper()));
-        readingListPageObserver.register(this);
 
         listenForNotifications();
     }
@@ -181,10 +177,6 @@ public class WikipediaApp extends Application {
 
     public Bus getBus() {
         return bus;
-    }
-
-    @NonNull public ReadingListPageObserver getReadingListPageObserver() {
-        return readingListPageObserver;
     }
 
     public String getUserAgent() {

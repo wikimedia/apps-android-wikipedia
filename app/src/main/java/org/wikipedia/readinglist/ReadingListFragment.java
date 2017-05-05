@@ -25,7 +25,6 @@ import android.widget.TextView;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
@@ -35,7 +34,6 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.ReadingListPageObserver;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
@@ -62,8 +60,7 @@ import butterknife.Unbinder;
 import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_TITLE;
 import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_ASC;
 
-public class ReadingListFragment extends Fragment implements ReadingListPageObserver.Listener,
-        ReadingListItemActionsDialog.Callback {
+public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
     @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
     @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
@@ -108,8 +105,6 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
         View view = inflater.inflate(R.layout.fragment_reading_list, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        WikipediaApp.getInstance().getReadingListPageObserver().addListener(this);
-
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
@@ -150,7 +145,6 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
         readingLists.set(Collections.<ReadingList>emptyList());
         recyclerView.setAdapter(null);
         appBarLayout.removeOnOffsetChangedListener(appBarListener);
-        WikipediaApp.getInstance().getReadingListPageObserver().removeListener(this);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -198,10 +192,6 @@ public class ReadingListFragment extends Fragment implements ReadingListPageObse
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override public void onReadingListPageStatusChanged() {
-        updateReadingListData();
     }
 
     private AppCompatActivity getAppCompatActivity() {

@@ -30,6 +30,7 @@ import butterknife.OnClick;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
+
     public interface Callback {
         void onAddFeaturedPageToList(@NonNull FeaturedArticleCard card, @NonNull HistoryEntry entry);
         void onRemoveFeaturedPageFromList(@NonNull FeaturedArticleCard card, @NonNull HistoryEntry entry);
@@ -197,7 +198,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         @Override
         public void onClick(View v) {
             if (getCallback() != null && getCard() != null) {
-                getCallback().onSharePage(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                getCallback().onSharePage(getEntry());
             }
         }
     }
