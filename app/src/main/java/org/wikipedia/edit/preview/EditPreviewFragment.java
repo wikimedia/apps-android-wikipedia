@@ -366,8 +366,8 @@ public class EditPreviewFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
         webview.destroy();
+        super.onDestroyView();
     }
 
     public boolean handleBackPressed() {
