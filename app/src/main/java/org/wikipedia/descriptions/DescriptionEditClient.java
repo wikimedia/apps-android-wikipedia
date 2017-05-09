@@ -142,7 +142,7 @@ public class DescriptionEditClient {
     }
 
     @VisibleForTesting interface Service {
-        @POST("w/api.php?action=wbsetdescription&format=json") @FormUrlEncoded
+        @POST("w/api.php?action=wbsetdescription&format=json&formatversion=2") @FormUrlEncoded
         Call<DescriptionEdit> edit(@NonNull @Field("language") String language,
                                    @NonNull @Field("uselang") String useLang,
                                    @NonNull @Field("site") String site,
