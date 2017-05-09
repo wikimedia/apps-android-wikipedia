@@ -163,7 +163,7 @@ public class CsrfTokenClient {
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&meta=tokens&type=csrf")
+        @GET("w/api.php?action=query&format=json&formatversion=2&meta=tokens&type=csrf")
         Call<MwQueryResponse<CsrfToken>> request();
     }
 }

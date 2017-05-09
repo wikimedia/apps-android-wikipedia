@@ -30,7 +30,7 @@ public class CsrfTokenClientTest extends MockWebServerTest {
     @Test public void testRequestSuccess() throws Throwable {
         User.clearUser();
         String expected = "b6f7bd58c013ab30735cb19ecc0aa08258122cba+\\";
-        enqueueFromFile("edittoken.json");
+        enqueueFromFile("csrf_token.json");
 
         Callback cb = mock(Callback.class);
         request(cb);
