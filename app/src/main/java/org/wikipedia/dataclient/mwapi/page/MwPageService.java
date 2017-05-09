@@ -66,7 +66,7 @@ public interface MwPageService {
      * @param title the page title to be used including prefix
      * @param noImages add the noimages flag to the request if true
      */
-    @GET("w/api.php?action=mobileview&format=json&prop="
+    @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
             + "text%7Csections&onlyrequestedsections=1&sections=1-"
             + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
     @NonNull Call<MwMobileViewPageRemaining> sections(@Nullable @Header("Cache-Control") String cacheControl,
