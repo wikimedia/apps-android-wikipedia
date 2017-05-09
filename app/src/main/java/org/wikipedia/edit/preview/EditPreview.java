@@ -15,20 +15,15 @@ class EditPreview extends MwPostResponse {
     }
 
     @Nullable String result() {
-        return parse != null ? parse.text().result() : null;
+        return parse != null ? parse.text() : null;
     }
 
     private static class Parse {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private Text text;
-        @NonNull Text text() {
+        @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
+        @SuppressWarnings("unused") @SerializedName("pageid") private int pageId;
+        @SuppressWarnings("unused,NullableProblems") @NonNull private String text;
+        @NonNull String text() {
             return text;
-        }
-    }
-
-    private static class Text {
-        @SuppressWarnings("unused,NullableProblems") @SerializedName("*") @NonNull private String result;
-        @NonNull String result() {
-            return result;
         }
     }
 }
