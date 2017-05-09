@@ -33,15 +33,17 @@ public class WikitextClient {
         call.enqueue(new retrofit2.Callback<MwQueryResponse<Wikitext>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<Wikitext>> call, Response<MwQueryResponse<Wikitext>> response) {
-                if (response.body().hasError()) {
+                // noinspection ConstantConditions
+                if (response.body().success() && response.body().query().wikitext() != null) {
+                    // noinspection ConstantConditions
+                    cb.success(call, response.body().query().wikitext());
+                } else if (response.body().hasError()) {
+                    // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
-                    return;
-                } else if (response.body().query().wikitext() == null) {
+                } else {
                     Throwable t = new JsonParseException("Error parsing wikitext from query response");
                     cb.failure(call, t);
-                    return;
                 }
-                cb.success(call, response.body().query().wikitext());
             }
 
             @Override
@@ -58,7 +60,7 @@ public class WikitextClient {
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&prop=revisions&rvprop=content&rvlimit=1")
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=revisions&rvprop=content&rvlimit=1")
         Call<MwQueryResponse<Wikitext>> request(@NonNull @Query("titles") String title, @Query("rvsection") int section);
     }
 }
