@@ -6,6 +6,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.UtcDate;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -25,10 +26,14 @@ public final class DateUtil {
     }
 
     public static String getFeedCardDateString(@NonNull Calendar date) {
-        return getFeedCardDateString(date.getTime());
+        return getShortDateString(date.getTime());
     }
 
     public static String getFeedCardDateString(@NonNull Date date) {
+        return getShortDateString(date);
+    }
+
+    public static String getShortDateString(@NonNull Date date) {
         // todo: consider allowing TWN date formats. It would be useful to have but might be
         //       difficult for translators to write correct format specifiers without being able to
         //       test them. We should investigate localization support in date libraries such as
@@ -40,6 +45,12 @@ public final class DateUtil {
 
     public static UtcDate getUtcRequestDateFor(int age) {
         return new UtcDate(age);
+    }
+
+    public static Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {
+        SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ROOT);
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return df.parse(dateStr);
     }
 
     private DateUtil() {

@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +36,7 @@ import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesClient;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
@@ -44,6 +46,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -258,6 +261,9 @@ public class PageFragmentLoadState {
                         app.getSessionFunnel().leadSectionFetchEnd();
                         PageLead lead = rsp.body();
                         onLeadSectionLoaded(lead, startSequenceNum);
+                        if (rsp.raw().cacheResponse() != null) {
+                            showPageOfflineMessage(rsp.raw().header("date", ""));
+                        }
                     }
 
                     @Override public void onFailure(Call<PageLead> call, Throwable t) {
@@ -475,6 +481,21 @@ public class PageFragmentLoadState {
 
     private boolean isAnonEditingDisabled() {
         return getRemoteConfig().optBoolean("disableAnonEditing", false);
+    }
+
+    private void showPageOfflineMessage(@NonNull String dateHeader) {
+        if (!fragment.isAdded()) {
+            return;
+        }
+        try {
+            String dateStr = DateUtil.getShortDateString(DateUtil
+                    .getHttpLastModifiedDate(dateHeader));
+            Toast.makeText(fragment.getContext().getApplicationContext(),
+                    fragment.getString(R.string.page_offline_notice_last_date, dateStr),
+                    Toast.LENGTH_LONG).show();
+        } catch (ParseException e) {
+            // ignore
+        }
     }
 
     private JSONObject getRemoteConfig() {
