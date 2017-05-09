@@ -688,7 +688,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void updateBookmark() {
         ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
-                new CallbackTask.Callback<ReadingListPage>() {
+                new CallbackTask.DefaultCallback<ReadingListPage>() {
                     @Override public void success(@Nullable ReadingListPage page) {
                         if (!isAdded()) {
                             return;

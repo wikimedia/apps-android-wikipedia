@@ -63,7 +63,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
         };
 
         private void getRandomReadingListPage(@NonNull final Throwable throwableIfEmpty) {
-            ReadingListPageDao.instance().randomPage(new CallbackTask.Callback<PageTitle>() {
+            ReadingListPageDao.instance().randomPage(new CallbackTask.DefaultCallback<PageTitle>() {
                 @Override public void success(@Nullable PageTitle title) {
                     if (getCallback() != null && getCard() != null) {
                         if (title != null) {

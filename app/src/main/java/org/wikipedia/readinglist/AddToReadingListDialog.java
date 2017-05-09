@@ -155,9 +155,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateLists() {
-        ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
-            @Override
-            public void success(List<ReadingList> rows) {
+        ReadingList.DAO.queryMruLists(null, new CallbackTask.DefaultCallback<List<ReadingList>>() {
+            @Override public void success(List<ReadingList> rows) {
                 readingLists.set(rows);
                 readingLists.sort(Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC));
                 adapter.notifyDataSetChanged();
@@ -198,9 +197,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
     private void addAndDismiss(final ReadingList readingList) {
         final ReadingListPage page = findOrCreatePage(readingList, pageTitle);
-        ReadingList.DAO.listContainsTitleAsync(readingList, page, new CallbackTask.Callback<Boolean>() {
-            @Override
-            public void success(Boolean contains) {
+        ReadingList.DAO.listContainsTitleAsync(readingList, page, new CallbackTask.DefaultCallback<Boolean>() {
+            @Override public void success(Boolean contains) {
                 if (isAdded()) {
                     String message;
                     if (contains) {

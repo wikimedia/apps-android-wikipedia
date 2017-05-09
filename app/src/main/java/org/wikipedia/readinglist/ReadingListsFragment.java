@@ -160,9 +160,8 @@ public class ReadingListsFragment extends Fragment {
 
     private void updateLists(@Nullable final String searchQuery) {
         ReadingList.DAO.queryMruLists(searchQuery,
-                new CallbackTask.Callback<List<ReadingList>>() {
-            @Override
-            public void success(List<ReadingList> rows) {
+                new CallbackTask.DefaultCallback<List<ReadingList>>() {
+            @Override public void success(List<ReadingList> rows) {
                 if (getActivity() == null) {
                     return;
                 }

@@ -31,9 +31,8 @@ public class ReadingListBookmarkMenu {
 
     public void show(@NonNull PageTitle title) {
         ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(title),
-                new CallbackTask.Callback<ReadingListPage>() {
-                    @Override
-                    public void success(@Nullable ReadingListPage page) {
+                new CallbackTask.DefaultCallback<ReadingListPage>() {
+                    @Override public void success(@Nullable ReadingListPage page) {
                         if (!ViewCompat.isAttachedToWindow(anchorView)) {
                             return;
                         }

@@ -214,9 +214,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void updateReadingListData() {
-        ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
-            @Override
-            public void success(List<ReadingList> lists) {
+        ReadingList.DAO.queryMruLists(null, new CallbackTask.DefaultCallback<List<ReadingList>>() {
+            @Override public void success(List<ReadingList> lists) {
                 if (getActivity() == null) {
                     return;
                 }
@@ -695,7 +694,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
-    private final class PageListCountCallback implements CallbackTask.Callback<ReadingListPage> {
+    private final class PageListCountCallback extends CallbackTask.DefaultCallback<ReadingListPage> {
         private ReadingListPage page;
         private PageListCountCallback(@NonNull ReadingListPage page) {
             this.page = page;

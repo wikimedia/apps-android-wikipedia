@@ -3,13 +3,16 @@ package org.wikipedia.concurrency;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.util.log.L;
+
 public class CallbackTask<T> extends SaneAsyncTask<T> {
     public interface Callback<T> {
-        void success(T row);
+        void success(T result);
+        void failure(Throwable caught);
     }
 
     public interface Task<T> {
-        T execute();
+        T execute() throws Throwable;
     }
 
     @NonNull private final Task<T> task;
@@ -37,6 +40,22 @@ public class CallbackTask<T> extends SaneAsyncTask<T> {
         if (callback != null) {
             callback.success(result);
             callback = null;
+        }
+    }
+
+    @Override public void onCatch(Throwable caught) {
+        super.onCatch(caught);
+        if (callback != null) {
+            callback.failure(caught);
+            callback = null;
+        }
+    }
+
+    public static class DefaultCallback<T> implements Callback<T> {
+        @Override public void success(T result) {
+        }
+        @Override public void failure(Throwable caught) {
+            L.e(caught);
         }
     }
 }

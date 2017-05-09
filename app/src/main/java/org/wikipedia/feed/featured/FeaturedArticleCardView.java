@@ -107,9 +107,8 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     private void footer(@NonNull FeaturedArticleCard card) {
         PageTitle title = new PageTitle(card.articleTitle(), card.wikiSite());
         ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(title),
-                new CallbackTask.Callback<ReadingListPage>() {
-                    @Override
-                    public void success(@Nullable ReadingListPage page) {
+                new CallbackTask.DefaultCallback<ReadingListPage>() {
+                    @Override public void success(@Nullable ReadingListPage page) {
                         boolean listContainsTitle = page != null;
 
                         int actionIcon = listContainsTitle
