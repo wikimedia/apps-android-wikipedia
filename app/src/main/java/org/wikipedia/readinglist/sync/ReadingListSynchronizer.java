@@ -110,6 +110,10 @@ public class ReadingListSynchronizer {
         }, null);
     }
 
+    public void syncSavedPages() {
+        WikipediaApp.getInstance().startService(new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
+    }
+
     private class SyncRunnable implements Runnable {
         @Override
         public void run() {
@@ -247,9 +251,5 @@ public class ReadingListSynchronizer {
     private static RemoteReadingLists makeRemoteReadingLists() {
         List<ReadingList> lists = ReadingListData.instance().queryMruLists(null);
         return new RemoteReadingLists(Prefs.getReadingListSyncRev(), lists);
-    }
-
-    private void syncSavedPages() {
-        WikipediaApp.getInstance().startService(new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
     }
 }

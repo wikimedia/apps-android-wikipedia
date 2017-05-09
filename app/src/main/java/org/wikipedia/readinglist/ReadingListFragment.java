@@ -463,6 +463,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     ? R.string.reading_list_article_offline_message
                     : R.string.reading_list_article_not_offline_message);
             adapter.notifyDataSetChanged();
+            ReadingListSynchronizer.instance().syncSavedPages();
         }
     }
 
