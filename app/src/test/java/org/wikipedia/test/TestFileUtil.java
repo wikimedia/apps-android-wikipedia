@@ -2,6 +2,7 @@ package org.wikipedia.test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public final class TestFileUtil {
@@ -18,6 +19,13 @@ public final class TestFileUtil {
 
     public static String readFile(File file) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
+        String ret = scanner.useDelimiter(MULTILINE_START_ANCHOR_REGEX).next();
+        scanner.close();
+        return ret;
+    }
+
+    public static String readStream(InputStream stream) throws FileNotFoundException {
+        Scanner scanner = new Scanner(stream);
         String ret = scanner.useDelimiter(MULTILINE_START_ANCHOR_REGEX).next();
         scanner.close();
         return ret;
