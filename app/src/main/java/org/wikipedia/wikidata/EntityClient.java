@@ -74,17 +74,15 @@ public final class EntityClient {
                 .enqueue(new LabelCallbackAdapter(callback, qNumber, langCode));
     }
 
-    @VisibleForTesting
-    @NonNull
+    @VisibleForTesting @NonNull
     Call<Entity.EntitiesResponse> requestLabels(@NonNull Service service,
                                                 @NonNull final String qNumber,
                                                 @NonNull final String langCode) {
         return service.getLabels(qNumber, langCode);
     }
 
-    @VisibleForTesting
-    interface Service {
-        String ACTION = "w/api.php?action=wbgetentities&format=json";
+    @VisibleForTesting interface Service {
+        String ACTION = "w/api.php?action=wbgetentities&format=json&formatversion=2";
 
         @GET(ACTION + "&props=labels&languagefallback=1")
         @NonNull Call<Entity.EntitiesResponse> getLabels(@Query("ids") @NonNull String idList,
