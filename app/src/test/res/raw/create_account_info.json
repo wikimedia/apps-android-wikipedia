@@ -1,9 +1,12 @@
 {
-  "batchcomplete": "",
+  "batchcomplete": true,
   "query": {
     "authmanagerinfo": {
-      "canauthenticatenow": "",
-      "cancreateaccounts": "",
+      "canauthenticatenow": true,
+      "cancreateaccounts": true,
+      "canlinkaccounts": false,
+      "haspreservedstate": false,
+      "hasprimarypreservedstate": false,
       "preservedusername": "",
       "requests": [
         {
@@ -18,20 +21,26 @@
           "fields": {
             "captchaId": {
               "type": "hidden",
-              "value": "389780711",
+              "value": "272460457",
               "label": "CAPTCHA ID",
-              "help": "This value should be sent back unchanged."
+              "help": "This value should be sent back unchanged.",
+              "optional": false,
+              "sensitive": false
             },
             "captchaInfo": {
               "type": "null",
-              "value": "/w/index.php?title=Special:Captcha/image&wpCaptchaId=389780711",
-              "label": "To help protect against automated account creation, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):",
-              "help": "Description of the CAPTCHA."
+              "value": "/w/index.php?title=Special:Captcha/image&wpCaptchaId=272460457",
+              "label": "To edit this page, please enter the words that appear below in the box ([[Special:Captcha/help|more info]]):",
+              "help": "Description of the CAPTCHA.",
+              "optional": false,
+              "sensitive": false
             },
             "captchaWord": {
               "type": "string",
               "label": "CAPTCHA",
-              "help": "Solution of the CAPTCHA."
+              "help": "Solution of the CAPTCHA.",
+              "optional": false,
+              "sensitive": false
             }
           }
         },
@@ -45,19 +54,23 @@
             "username": {
               "type": "string",
               "label": "Username",
-              "help": "Username for authentication."
+              "help": "Username for authentication.",
+              "optional": false,
+              "sensitive": false
             },
             "password": {
               "type": "password",
               "label": "Password",
               "help": "Password for authentication.",
-              "sensitive": ""
+              "optional": false,
+              "sensitive": true
             },
             "retype": {
               "type": "password",
               "label": "Retype password:",
               "help": "Password again to confirm.",
-              "sensitive": ""
+              "optional": false,
+              "sensitive": true
             }
           }
         },
@@ -73,7 +86,8 @@
               "value": "",
               "label": "Campaign",
               "help": "Identifies the campaign leading to an account creation.",
-              "optional": ""
+              "optional": true,
+              "sensitive": false
             }
           }
         },
@@ -87,7 +101,9 @@
             "username": {
               "type": "string",
               "label": "Username",
-              "help": "Username for authentication."
+              "help": "Username for authentication.",
+              "optional": false,
+              "sensitive": false
             }
           }
         },
@@ -102,14 +118,15 @@
               "type": "string",
               "label": "Email",
               "help": "Email address",
-              "optional": ""
+              "optional": true,
+              "sensitive": false
             }
           }
         }
       ]
     },
     "tokens": {
-      "createaccounttoken": "0a696a98f61c08f0c9491cf15453e3a0587fa3b6+\\"
+      "createaccounttoken": "5d78e6a823be0901eeae9f6486f752da59123760+\\"
     }
   }
 }
