@@ -3,8 +3,7 @@ package org.wikipedia.dataclient.mwapi;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.google.gson.annotations.SerializedName;
-
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
 
 import java.util.Collections;
@@ -47,7 +46,7 @@ public class MwServiceError implements ServiceError {
     @Nullable public String getMessageHtml(@NonNull String messageName) {
         for (Message msg : messages) {
             if (messageName.equals(msg.name)) {
-                return msg.getHtmlValue();
+                return msg.html();
             }
         }
         return null;
@@ -62,15 +61,11 @@ public class MwServiceError implements ServiceError {
     }
 
     private static final class Message {
-        @SuppressWarnings("unused") private String name;
-        @SuppressWarnings("unused") private MessageHtml html;
+        @SuppressWarnings("unused") @Nullable private String name;
+        @SuppressWarnings("unused") @Nullable private String html;
 
-        @NonNull private String getHtmlValue() {
-            return html != null ? html.value : "";
+        @NonNull private String html() {
+            return StringUtils.defaultString(html);
         }
-    }
-
-    private static class MessageHtml {
-        @SuppressWarnings("unused") @SerializedName("*") private String value;
     }
 }
