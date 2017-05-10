@@ -114,7 +114,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
-        transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
 
         if (!window.isNetworkMetered) {
             transformer.transform( "widenImages", content ); // offsetWidth
@@ -185,7 +184,6 @@ function elementsForSection( section ) {
 
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
-        transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
 
         if (!window.isNetworkMetered) {
             transformer.transform( "widenImages", content ); // offsetWidth

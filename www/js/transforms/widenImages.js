@@ -8,9 +8,7 @@ function isGalleryImage(image) {
   return (
       image.width >= 64 &&
       image.hasAttribute('srcset') &&
-      image.parentNode.className === "image" &&
-      // todo: remove addImageOverflowContainers transform. See T160970
-      !image.hasAttribute('hasOverflowXContainer')
+      image.parentNode.className === "image"
     );
 }
 
