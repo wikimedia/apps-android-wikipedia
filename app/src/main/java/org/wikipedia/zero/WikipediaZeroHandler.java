@@ -188,6 +188,12 @@ public class WikipediaZeroHandler {
                     @Override
                     public void success(@NonNull Call<ZeroConfig> call, @NonNull ZeroConfig config) {
                         L.i("New Wikipedia Zero config: " + config);
+
+                        if (!config.isEligible()) {
+                            acquiringCarrierMessage = false;
+                            return;
+                        }
+
                         xCarrier = xCarrierFromHeader; // ex. "123-45"
                         zeroCarrierString = xCarrierFromHeader;
                         zeroCarrierMetaString = xCarrierMetaFromHeader; // ex. "wap"; default ""

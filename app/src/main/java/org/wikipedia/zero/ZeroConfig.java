@@ -7,11 +7,10 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 
 public class ZeroConfig extends BaseModel {
-    @SuppressWarnings("unused, NullableProblems") @Required @NonNull private String message;
+    @SuppressWarnings("unused") @Nullable private String message;
     @SuppressWarnings("unused") @ColorInt private int background = Color.WHITE;
     @SuppressWarnings("unused") @ColorInt private int foreground = Color.BLACK;
     @SuppressWarnings("unused") @Nullable private String exitTitle;
@@ -20,7 +19,11 @@ public class ZeroConfig extends BaseModel {
     @SuppressWarnings("unused") @Nullable private Uri partnerInfoUrl;
     @SuppressWarnings("unused") @Nullable private Uri bannerUrl;
 
-    @NonNull public String getMessage() {
+    public boolean isEligible() {
+        return message != null;
+    }
+
+    @Nullable public String getMessage() {
         return message;
     }
 
