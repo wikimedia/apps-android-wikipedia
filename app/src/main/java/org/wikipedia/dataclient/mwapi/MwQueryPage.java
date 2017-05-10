@@ -55,9 +55,9 @@ public class MwQueryPage extends BaseModel {
         @NonNull public String lang() {
             return lang;
         }
-        @SerializedName("*") @SuppressWarnings("unused,NullableProblems") @NonNull private String localizedTitle;
-        @NonNull public String localizedTitle() {
-            return localizedTitle;
+        @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
+        @NonNull public String title() {
+            return title;
         }
     }
 

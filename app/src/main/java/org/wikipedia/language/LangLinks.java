@@ -8,25 +8,20 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 class LangLinks {
-    @SuppressWarnings("unused") @Nullable private Map<String, MwQueryPage> pages;
+    @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
 
     @NonNull List<PageTitle> langLinks() {
         List<PageTitle> result = new ArrayList<>();
-        if (pages == null) {
+        if (pages == null || pages.isEmpty() || pages.get(0).langLinks() == null) {
             return result;
         }
-        Iterator<Map.Entry<String, MwQueryPage>> i = pages.entrySet().iterator();
-        MwQueryPage page = i.next().getValue();
-        if (page.langLinks() == null) {
-            return result;
-        }
-        for (MwQueryPage.LangLink langLink : page.langLinks()) {
-            result.add(new PageTitle(langLink.localizedTitle(), WikiSite.forLanguageCode(langLink.lang())));
+        // noinspection ConstantConditions
+        for (MwQueryPage.LangLink link : pages.get(0).langLinks()) {
+            PageTitle title = new PageTitle(link.title(), WikiSite.forLanguageCode(link.lang()));
+            result.add(title);
         }
         return result;
     }
