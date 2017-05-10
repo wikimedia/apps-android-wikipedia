@@ -18,6 +18,7 @@ import retrofit2.Call;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.isA;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
@@ -54,12 +55,16 @@ public class ZeroConfigClientTest extends MockWebServerTest {
         RecordedRequest req = server().takeRequest();
         assertRequestIssued(req, USER_AGENT);
 
+        ArgumentCaptor<ZeroConfig> captor = ArgumentCaptor.forClass(ZeroConfig.class);
         //noinspection unchecked
-        verify(cb).failure(any(Call.class), any(JsonParseException.class));
+        verify(cb).success(any(Call.class), captor.capture());
+        ZeroConfig config = captor.getValue();
+
+        assertEquals(config, new ZeroConfig());
     }
 
     @Test public void testRequestMalformed() throws Throwable {
-        enqueueFromFile("wikipedia_zero_test_malformed.json");
+        server().enqueue("'");
 
         Callback cb = mock(Callback.class);
         request(cb);
