@@ -1,8 +1,8 @@
 {
-  "batchcomplete": "",
+  "batchcomplete": true,
   "query": {
-    "pages": {
-      "605046": {
+    "pages": [
+      {
         "title": "Bean Hollow State Beach",
         "coordinates": [
           {
@@ -22,6 +22,6 @@
           ]
         }
       }
-    }
+    ]
   }
 }

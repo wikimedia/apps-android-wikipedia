@@ -1,8 +1,8 @@
 {
-  "batchcomplete": "",
+  "batchcomplete": true,
   "query": {
-    "pages": {
-      "605046": {
+    "pages": [
+      {
         "title": "Bean Hollow State Beach",
         "coordinates": [
           {
@@ -23,7 +23,7 @@
           ]
         }
       },
-      "1561351": {
+      {
         "title": "Pescadero, California",
         "coordinates": [
           {
@@ -44,7 +44,7 @@
           ]
         }
       },
-      "6493028": {
+      {
         "title": "Pescadero State Beach",
         "coordinates": [
           {
@@ -60,6 +60,6 @@
           "height": 213
         }
       }
-    }
+    ]
   }
 }
