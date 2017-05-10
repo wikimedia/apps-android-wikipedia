@@ -83,7 +83,7 @@ class EditClient {
 
     @VisibleForTesting interface Service {
         @FormUrlEncoded
-        @POST("w/api.php?action=edit&format=json")
+        @POST("w/api.php?action=edit&format=json&formatversion=2")
         @SuppressWarnings("checkstyle:parameternumber")
         Call<Edit> edit(@NonNull @Field("title") String title,
                         @Field("section") int section,
