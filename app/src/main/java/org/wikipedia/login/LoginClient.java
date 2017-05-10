@@ -156,21 +156,20 @@ public class LoginClient {
 
         /** Request a login token to be used later to log in. */
         @NonNull
-        @POST("w/api.php?format=json&formatversion=2&action=query"
-                + "&meta=tokens&type=login")
+        @POST("w/api.php?format=json&formatversion=2&action=query&meta=tokens&type=login")
         Call<MwQueryResponse<LoginToken>> requestLoginToken();
 
         /** Actually log in. Has to be x-www-form-urlencoded */
         @NonNull
         @FormUrlEncoded
-        @POST("w/api.php?action=clientlogin&format=json&rememberMe=true")
+        @POST("w/api.php?action=clientlogin&format=json&formatversion=2&rememberMe=true")
         Call<LoginResponse> logIn(@Field("username") String user, @Field("password") String pass,
                                   @Field("logintoken") String token, @Field("loginreturnurl") String url);
 
         /** Actually log in. Has to be x-www-form-urlencoded */
         @NonNull
         @FormUrlEncoded
-        @POST("w/api.php?action=clientlogin&format=json&rememberMe=true")
+        @POST("w/api.php?action=clientlogin&format=json&formatversion=2&rememberMe=true")
         Call<LoginResponse> logIn(@Field("username") String user, @Field("password") String pass,
                                   @Field("OATHToken") String twoFactorCode, @Field("logintoken") String token,
                                   @Field("logincontinue") boolean loginContinue);
