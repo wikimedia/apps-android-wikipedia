@@ -899,6 +899,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void onPageLoadComplete() {
         refreshView.setEnabled(true);
+        if (callback() != null) {
+            callback().onPageInvalidateOptionsMenu();
+        }
+        setupToC(model, pageFragmentLoadState.isFirstPage());
         editHandler.setPage(model.getPage());
         initPageScrollFunnel();
 
@@ -987,7 +991,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void setupToC(PageViewModel model, boolean isFirstPage) {
+    private void setupToC(PageViewModel model, boolean isFirstPage) {
         tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), isFirstPage);
         tocHandler.setEnabled(true);
     }
