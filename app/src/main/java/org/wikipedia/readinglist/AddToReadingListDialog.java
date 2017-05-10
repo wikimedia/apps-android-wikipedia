@@ -268,7 +268,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         }
 
         public void bindItem(ReadingList readingList) {
-            itemView.setReadingList(readingList);
+            itemView.setReadingList(readingList, ReadingListItemView.Description.SUMMARY);
         }
 
         public ReadingListItemView getView() {

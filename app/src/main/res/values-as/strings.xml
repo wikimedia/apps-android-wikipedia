@@ -266,8 +266,6 @@
   <string name="reading_list_added_to_unnamed">পঢ়া তালিকাত যোগ কৰা হৈছে।</string>
   <string name="reading_list_already_exists">এই প্ৰবন্ধটো ইতিমধ্যে সেই তালিকাত আছে।</string>
   <string name="reading_list_added_view_button">তালিকা চাওক</string>
-  <string name="reading_list_item_count_singular">এটা প্ৰবন্ধ</string>
-  <string name="reading_list_item_count_plural">%dটা প্ৰবন্ধ</string>
   <string name="reading_list_sort">সজাওক</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী সজাওক</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী সজাওক (বিপৰীত)</string>

@@ -272,8 +272,6 @@
   <string name="reading_list_added_to_unnamed">Ditambahaké nyang pratélan wacan.</string>
   <string name="reading_list_already_exists">Artikel iki wis ana ing pratélan iku.</string>
   <string name="reading_list_added_view_button">Deleng pratélan</string>
-  <string name="reading_list_item_count_singular">1 artikel</string>
-  <string name="reading_list_item_count_plural">%d artikel</string>
   <string name="reading_list_sort">Urutaké</string>
   <string name="reading_list_sort_by_name">Urutaké miturut jeneng</string>
   <string name="reading_list_sort_by_name_desc">Urutaké miturut jeneng (kuwalikan)</string>

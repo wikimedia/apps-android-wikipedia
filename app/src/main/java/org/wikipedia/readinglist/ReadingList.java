@@ -81,6 +81,32 @@ public final class ReadingList extends ReadingListRow {
         pages.add(0, page);
     }
 
+    // The size of all resources in bytes.
+    public long physicalSize() {
+        long sum = 0;
+        for (ReadingListPage page : pages) {
+            sum += page.physicalSize() == null ? 0 : page.physicalSize();
+        }
+        return sum;
+    }
+
+    // The size of all resources on disk in bytes.
+    public long logicalSize() {
+        long sum = 0;
+        for (ReadingListPage page : pages) {
+            sum += page.logicalSize() == null ? 0 : page.logicalSize();
+        }
+        return sum;
+    }
+
+    public int pagesOffline() {
+        int sum = 0;
+        for (ReadingListPage page : pages) {
+            sum += page.isOffline() ? 1 : 0;
+        }
+        return sum;
+    }
+
     public void setTitle(@NonNull String title) {
         title(title);
     }

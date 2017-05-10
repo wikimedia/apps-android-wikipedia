@@ -173,8 +173,6 @@
   <string name="reading_list_added_to_unnamed">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="reading_list_already_exists">ഈ ലേഖനം പട്ടികയിൽ നേരത്തേയുണ്ട്.</string>
   <string name="reading_list_added_view_button">പട്ടിക കാണുക</string>
-  <string name="reading_list_item_count_singular">1 ലേഖനം</string>
-  <string name="reading_list_item_count_plural">%d ലേഖനങ്ങൾ</string>
   <string name="reading_list_sort">ക്രമീകരിക്കുക</string>
   <string name="reading_list_sort_by_name">പേരനുസരിച്ച് ക്രമപ്പെടുത്തുക</string>
   <string name="reading_list_name_sample">എന്റെ വായനാ പട്ടിക</string>

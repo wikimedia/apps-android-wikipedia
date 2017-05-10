@@ -246,8 +246,6 @@
   <string name="reading_list_added_to_unnamed">Ychwanegwyd i\'r rhestr ddarllen.</string>
   <string name="reading_list_already_exists">Mae\'r erthygl hon ar y rhestr yn barod.</string>
   <string name="reading_list_added_view_button">Gweld y rhestr</string>
-  <string name="reading_list_item_count_singular">1 erthygl</string>
-  <string name="reading_list_item_count_plural">%d erthygl</string>
   <string name="reading_list_sort">Didioli (sortio)</string>
   <string name="reading_list_sort_by_name">Sortio yn ôl yr enw</string>
   <string name="reading_list_sort_by_name_desc">Sortio yn ôl yr enw (z-a)</string>

@@ -272,8 +272,6 @@
   <string name="reading_list_added_to_unnamed">Dodano na spisak za čitanje.</string>
   <string name="reading_list_already_exists">Ovaj članak već je na tom spisku.</string>
   <string name="reading_list_added_view_button">Pogledaj spisak</string>
-  <string name="reading_list_item_count_singular">1 članak</string>
-  <string name="reading_list_item_count_plural">%d član(a)ka</string>
   <string name="reading_list_sort">Sortiraj</string>
   <string name="reading_list_sort_by_name">Sortiraj po imenu</string>
   <string name="reading_list_sort_by_name_desc">Sortiraj po imenu (obrnuto)</string>

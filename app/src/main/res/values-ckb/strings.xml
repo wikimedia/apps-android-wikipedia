@@ -268,8 +268,6 @@
   <string name="reading_list_added_to_unnamed">زیادکرا بۆ پێڕستی خوێندنەوە.</string>
   <string name="reading_list_already_exists">ئەم وتارە ھەر لەنێو ئەو پێڕستە بووە.</string>
   <string name="reading_list_added_view_button">پێڕستی بینین</string>
-  <string name="reading_list_item_count_singular">١ وتار</string>
-  <string name="reading_list_item_count_plural">%d وتار</string>
   <string name="reading_list_sort">ڕیزکردن</string>
   <string name="reading_list_sort_by_name">ڕیزکردن بەپێی ناو</string>
   <string name="reading_list_sort_by_name_desc">ڕیزکردن بەپێی ناو (پێچەوانە)</string>

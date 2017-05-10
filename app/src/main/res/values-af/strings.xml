@@ -256,8 +256,6 @@
   <string name="reading_list_added_to_unnamed">Tot leeslys toegevoeg.</string>
   <string name="reading_list_already_exists">Hierdie artikel is reeds in daardie lys.</string>
   <string name="reading_list_added_view_button">Bekyk lys</string>
-  <string name="reading_list_item_count_singular">1 artikel</string>
-  <string name="reading_list_item_count_plural">%d artikels</string>
   <string name="reading_list_sort">Sorteer</string>
   <string name="reading_list_sort_by_name">Sorteer volgens naam</string>
   <string name="reading_list_sort_by_name_desc">Sorteer volgens naam (omgekeer)</string>

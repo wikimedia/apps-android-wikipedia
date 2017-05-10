@@ -258,8 +258,6 @@
   <string name="reading_list_added_to_unnamed">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပြီး။</string>
   <string name="reading_list_already_exists">ထိုစာရင်းထဲတွင် ဤဆောင်းပါး ရှိနှင့်ပြီး ဖြစ်သည်။</string>
   <string name="reading_list_added_view_button">စာရင်းအား ကြည့်ရန်</string>
-  <string name="reading_list_item_count_singular">ဆောင်းပါး ၁ ခု</string>
-  <string name="reading_list_item_count_plural">ဆောင်းပါးများ %d ခု</string>
   <string name="reading_list_sort">စီစဉ်</string>
   <string name="reading_list_sort_by_name">အမည်ဖြင့် စီစဉ်</string>
   <string name="reading_list_sort_by_name_desc">အမည်ဖြင့် စီစဉ် (ပြောင်းပြန်)</string>

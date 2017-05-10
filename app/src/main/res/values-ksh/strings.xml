@@ -206,8 +206,6 @@
   <string name="reading_list_added_to_unnamed">En de Leß zom Lässe jedonn.</string>
   <string name="reading_list_already_exists">Dat heh es ald en dä Leß.</string>
   <string name="reading_list_added_view_button">De Leß belohre</string>
-  <string name="reading_list_item_count_singular">Eije Atikel</string>
-  <string name="reading_list_item_count_plural">%d Sigge</string>
   <string name="reading_list_sort">Zottehre</string>
   <string name="reading_list_sort_by_name">Nohm Nahme</string>
   <string name="reading_list_sort_by_recent">Nohm Dattom</string>

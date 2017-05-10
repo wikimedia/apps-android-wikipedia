@@ -40,7 +40,7 @@
   <string name="menu_text_select_edit_here">Menu item caption for editing the current section at the currently highlighted word.</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature\n{{Identical|Nearby}}</string>
   <string name="nearby_distance_in_meters">Distance to the place mentioned in the nearby page in meters. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
-  <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
+  <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a number with 2 digits after the decimal point.</string>
   <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
   <string name="nearby_osm_license">Copyright message with a link to the OpenStreetMap Copyright and License. (Please preserve the anchor tag in its exact form.)</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
@@ -272,8 +272,10 @@
   <string name="reading_list_added_to_unnamed">Message shown when an article is added to an untitled reading list.</string>
   <string name="reading_list_already_exists">Message shown when an article already exists in the selected reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
-  <string name="reading_list_item_count_singular">Label when a reading list contains one article (singular).</string>
-  <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%d\" symbol is replaced with the number of articles.\n{{Identical|Article}}</string>
+  <string name="format_reading_list_statistical_summary_singular">Summary shown for a reading list that contains one article (singular); this string is formatted with a parameter containing the number of mebibytes / megabytes saved to disk for offline page reading.</string>
+  <string name="format_reading_list_statistical_summary_plural">Summary shown for a reading list that contains zero or multiple articles (plural); this string is formatted with two arguments: 1) the number of pages in the list, 2) a parameter containing the total number of mebibytes / megabytes saved to disk for offline page reading.</string>
+  <string name="format_reading_list_statistical_detail_singular">Detailed description shown for a reading list that contains one article (singular); this string is formatted with two arguments: 1) the number, zero or one, of pages saved to disk for offline reading, 2) a parameter containing the number of mebibytes / megabytes saved to disk for offline page reading.</string>
+  <string name="format_reading_list_statistical_detail_plural">Detailed description shown for a reading list that contains zero or multiple articles (plural); this string is formatted with three arguments: 1) the number of pages saved to disk for offline reading, 2) the number of pages in the list total, 3) a parameter containing the total number of mebibytes / megabytes saved to disk for offline page reading.</string>
   <string name="reading_list_sort">Button label to sort reading lists.\n{{Identical|Sort}}</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>
   <string name="reading_list_sort_by_name_desc">Menu option to sort reading lists by name, in reverse order.</string>

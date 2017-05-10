@@ -186,8 +186,6 @@
   <string name="article_header_edit_description">רעדאקטירן טיטל־באשרײבונג</string>
   <string name="article_header_edit_lead_section">רעדאקטירן אריינפֿיר</string>
   <string name="nav_item_reading_lists">מיינע ליסטעס</string>
-  <string name="reading_list_item_count_singular">איין ארטיקל</string>
-  <string name="reading_list_item_count_plural">%d ארטיקלען</string>
   <string name="reading_list_sort">סארטירן</string>
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
   <string name="reading_lists_onboarding_example3">ליידיג פלאץ!</string>

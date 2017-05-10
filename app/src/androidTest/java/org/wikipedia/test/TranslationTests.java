@@ -8,6 +8,7 @@ import android.support.annotation.PluralsRes;
 import android.support.annotation.StringRes;
 import android.util.DisplayMetrics;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.wikipedia.R;
 import org.wikipedia.model.BaseModel;
@@ -15,6 +16,7 @@ import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.log.L;
 
 import java.lang.reflect.Field;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,8 +34,13 @@ import static org.junit.Assert.fail;
  * TODO: check content_license_html is valid HTML
  */
 public class TranslationTests {
+    // todo: consider regular expressions.
+    private static final String POSSIBLE_PARAM_FLOAT_FIRST = "%1$.2f";
+    private static final String POSSIBLE_PARAM_FLOAT_THIRD = "%3$.2f";
+
     /** Add more if needed, but then also add some tests. */
-    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%1$d", "%2$d", "%d", "%.2f", "^1"};
+    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d",
+            "%1$d", "%2$d", "%.2f", POSSIBLE_PARAM_FLOAT_FIRST, POSSIBLE_PARAM_FLOAT_THIRD, "^1"};
 
     private final StringBuilder mismatches = new StringBuilder();
 
@@ -47,6 +54,8 @@ public class TranslationTests {
         List<Res> twoDecimalParamRes = new ResourceCollector("%2$d").collectParameterResources(defaultLang);
         List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources(defaultLang);
         List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources(defaultLang);
+        List<Res> floatFirstParamRes = new ResourceCollector(POSSIBLE_PARAM_FLOAT_FIRST).collectParameterResources(defaultLang);
+        List<Res> floatThirdParamRes = new ResourceCollector(POSSIBLE_PARAM_FLOAT_THIRD).collectParameterResources(defaultLang);
         List<Res> textUtilTemplateParamRes = new ResourceCollector("^1").collectParameterResources(defaultLang);
         List<Res> pluralRes = collectPluralResources();
         // todo: flag usage of templates {{}}.
@@ -106,6 +115,18 @@ public class TranslationTests {
                 for (Res res : floatParamRes) {
                     final float param1 = .27f;
                     checkTranslationHasParameter(res, "%.2f", param1, "0,27");
+                }
+
+                for (Res res : floatFirstParamRes) {
+                    @SuppressWarnings("checkstyle:magicnumber") float input = 1.23f;
+                    String expected = NumberFormat.getInstance(myLocale).format(input);
+                    testTranslation(res, expected, input);
+                }
+
+                for (Res res : floatThirdParamRes) {
+                    @SuppressWarnings("checkstyle:magicnumber") float input = 1.23f;
+                    String expected = NumberFormat.getInstance(myLocale).format(input);
+                    testTranslation(res, expected, null, null, input);
                 }
 
                 // template format for com.android.TextUtils.expandTemplate
@@ -193,9 +214,27 @@ public class TranslationTests {
         }
     }
 
+    private <T> void testTranslation(@NonNull Res res, @NonNull CharSequence expected,
+                                     @NonNull T... input) {
+        testTranslation(res, new CharSequence[] {expected}, input);
+    }
+
+    private <T> void testTranslation(@NonNull Res res, @NonNull CharSequence[] expectedAny,
+                                     @NonNull T... input) {
+        String result = getString(res.id, (Object[]) input);
+        String msg = myLocale + ":" + res.name + " = \"" + result + "\"";
+        if (StringUtils.indexOfAny(result, (CharSequence[]) expectedAny) < 0) {
+            msg += " is missing any of \"" + Arrays.toString(expectedAny) + "\"";
+            L.e(msg);
+            mismatches.append(msg).append("\n");
+        } else {
+            L.i(msg);
+        }
+    }
+
     private void checkTranslationHasTwoParameters(Res res, String paramName, Object val1, Object val2) {
         L.i(myLocale + ":" + res.name + ":" + paramName);
-        String translatedString = getString(res.id, val1, val2);
+        String translatedString = getString(res.id, val1, val2, null, null, null, null, null, null, null, null, null);
         L.d(translatedString);
         if (!translatedString.contains(String.format(paramName, val1))
                 || !translatedString.contains(String.format(paramName, val2))) {

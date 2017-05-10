@@ -117,8 +117,6 @@
   <string name="reading_list_added_to_unnamed">Дададзена ў спіс для чытання.</string>
   <string name="reading_list_already_exists">Гэтая артыкул ўжо знаходзіцца ў гэтым спісе.</string>
   <string name="reading_list_added_view_button">Прагляд спіса</string>
-  <string name="reading_list_item_count_singular">1 артыкул</string>
-  <string name="reading_list_item_count_plural">%d артыкулаў</string>
   <string name="reading_list_sort">Сартаваць</string>
   <string name="reading_list_sort_by_name">Сартаваць паводле назвы</string>
   <string name="reading_list_sort_by_name_desc">Сартаваць паводле назвы (зваротна)</string>

@@ -228,8 +228,6 @@
   <string name="reading_list_added_to_unnamed">अध्ययन सूचीमा थप गरियो।</string>
   <string name="reading_list_already_exists">यो लेख पहिलेदेखि नै त्यो सूचीमा छ।</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
-  <string name="reading_list_item_count_singular">1 लेख</string>
-  <string name="reading_list_item_count_plural">%d लेखहरू</string>
   <string name="reading_list_sort">श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_by_name">नाम अनुसार श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_by_name_desc">नाम अनुसार श्रेणीबद्ध गर्नुहोस् (उल्टो क्रममा)</string>

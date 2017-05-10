@@ -266,8 +266,6 @@
   <string name="reading_list_added_to_unnamed">پڙھڻ جي فھرست ۾ شامل ڪئي.</string>
   <string name="reading_list_already_exists">ھي مضمون اڳ ئي ان فھرست ۾ آھي.</string>
   <string name="reading_list_added_view_button">فهرست ڏسو</string>
-  <string name="reading_list_item_count_singular">1 مضمون</string>
-  <string name="reading_list_item_count_plural">%d مضمون</string>
   <string name="reading_list_sort">مرتب ڪريو</string>
   <string name="reading_list_sort_by_name">نالي سان مرتب ڪريو</string>
   <string name="reading_list_sort_by_name_desc">نالي سان مرتب ڪريو (reverse)</string>

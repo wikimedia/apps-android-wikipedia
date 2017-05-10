@@ -272,8 +272,6 @@
   <string name="reading_list_added_to_unnamed">Añadíu a llista de llectura.</string>
   <string name="reading_list_already_exists">Esti artículu yá ta nesa llista.</string>
   <string name="reading_list_added_view_button">Ver llista</string>
-  <string name="reading_list_item_count_singular">1 artículu</string>
-  <string name="reading_list_item_count_plural">%d artículos</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inversu)</string>
