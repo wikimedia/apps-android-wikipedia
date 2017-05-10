@@ -91,7 +91,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":25}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":24}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -217,7 +217,7 @@ module.exports = {
     setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"./bridge":2,"./constant":3,"./loader":8,"./utilities":25}],5:[function(require,module,exports){
+},{"./bridge":2,"./constant":3,"./loader":8,"./utilities":24}],5:[function(require,module,exports){
 var transformer = require('./transformer');
 
 transformer.register( 'displayDisambigLink', function( content ) {
@@ -465,7 +465,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
-        transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
 
         if (!window.isNetworkMetered) {
             transformer.transform( "widenImages", content ); // offsetWidth
@@ -536,7 +535,6 @@ function elementsForSection( section ) {
 
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
-        transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
 
         if (!window.isNetworkMetered) {
             transformer.transform( "widenImages", content ); // offsetWidth
@@ -690,46 +688,6 @@ transformer.register( "addDarkModeStyles", function( content ) {
     }
 } );
 },{"../dark":4,"../transformer":14}],16:[function(require,module,exports){
-var transformer = require("../transformer");
-var utilities = require("../utilities");
-
-function shouldAddImageOverflowXContainer(image) {
-    if ((image.width > document.getElementById('content').offsetWidth) && !utilities.isNestedInTable(image)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function addImageOverflowXContainer(image, ancestor) {
-    image.setAttribute('hasOverflowXContainer', 'true'); // So "widenImages" transform knows instantly not to widen this one.
-    var div = document.createElement( 'div' );
-    div.className = 'image_overflow_x_container';
-    ancestor.parentElement.insertBefore( div, ancestor );
-    div.appendChild(ancestor);
-}
-
-function maybeAddImageOverflowXContainer() {
-    var image = this;
-    if (shouldAddImageOverflowXContainer(image)) {
-        var ancestor = utilities.firstAncestorWithMultipleChildren(image);
-        if (ancestor) {
-            addImageOverflowXContainer(image, ancestor);
-        }
-    }
-}
-
-transformer.register( "addImageOverflowXContainers", function( content ) {
-    // Wrap wide images in a <div style="overflow-x:auto">...</div> so they can scroll
-    // side to side if needed without causing the entire section to scroll side to side.
-    var images = content.getElementsByTagName('img');
-    for (var i = 0; i < images.length; ++i) {
-        // Load event used so images w/o style or inline width/height
-        // attributes can still have their size determined reliably.
-        images[i].addEventListener('load', maybeAddImageOverflowXContainer, false);
-    }
-} );
-},{"../transformer":14,"../utilities":25}],17:[function(require,module,exports){
 var getTableHeader = require("wikimedia-page-library").CollapseTable.getTableHeader;
 var transformer = require("../transformer");
 
@@ -833,7 +791,7 @@ transformer.register( "hideTables", function( content ) {
 module.exports = {
     handleTableCollapseOrExpandClick: handleTableCollapseOrExpandClick
 };
-},{"../transformer":14,"wikimedia-page-library":26}],18:[function(require,module,exports){
+},{"../transformer":14,"wikimedia-page-library":25}],17:[function(require,module,exports){
 var transformer = require("../transformer");
 var collapseTables = require("./collapseTables");
 
@@ -879,7 +837,7 @@ transformer.register( "hideRefs", function( content ) {
         bottomDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
     }
 } );
-},{"../transformer":14,"./collapseTables":17}],19:[function(require,module,exports){
+},{"../transformer":14,"./collapseTables":16}],18:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "anchorPopUpMediaTransforms", function( content ) {
@@ -912,7 +870,7 @@ transformer.register( "anchorPopUpMediaTransforms", function( content ) {
     }
 } );
 
-},{"../../transformer":14}],20:[function(require,module,exports){
+},{"../../transformer":14}],19:[function(require,module,exports){
 var transformer = require("../../transformer");
 var bridge = require("../../bridge");
 
@@ -961,7 +919,7 @@ transformer.register( "hideIPA", function( content ) {
         containerSpan.onclick = ipaClickHandler;
     }
 } );
-},{"../../bridge":2,"../../transformer":14}],21:[function(require,module,exports){
+},{"../../bridge":2,"../../transformer":14}],20:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "hideRedLinks", function( content ) {
@@ -974,7 +932,7 @@ transformer.register( "hideRedLinks", function( content ) {
         redLink.parentNode.replaceChild( replacementSpan, redLink );
     }
 } );
-},{"../../transformer":14}],22:[function(require,module,exports){
+},{"../../transformer":14}],21:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 // Move the first non-empty paragraph (and related elements) to the top of the section.
@@ -1058,7 +1016,7 @@ function addTrailingNodes( span, nodes, startIndex ) {
     }
 }
 
-},{"../../transformer":14}],23:[function(require,module,exports){
+},{"../../transformer":14}],22:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "setDivWidth", function( content ) {
@@ -1076,7 +1034,7 @@ transformer.register( "setDivWidth", function( content ) {
         }
     }
 } );
-},{"../transformer":14}],24:[function(require,module,exports){
+},{"../transformer":14}],23:[function(require,module,exports){
 var maybeWidenImage = require('wikimedia-page-library').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 var utilities = require("../utilities");
@@ -1087,9 +1045,7 @@ function isGalleryImage(image) {
   return (
       image.width >= 64 &&
       image.hasAttribute('srcset') &&
-      image.parentNode.className === "image" &&
-      // todo: remove addImageOverflowContainers transform. See T160970
-      !image.hasAttribute('hasOverflowXContainer')
+      image.parentNode.className === "image"
     );
 }
 
@@ -1137,7 +1093,7 @@ transformer.register( "widenImages", function( content ) {
     }
 } );
 
-},{"../transformer":14,"../utilities":25,"wikimedia-page-library":26}],25:[function(require,module,exports){
+},{"../transformer":14,"../utilities":24,"wikimedia-page-library":25}],24:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -1232,7 +1188,7 @@ module.exports = {
     firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}],26:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 // This file exists for CSS packaging only. It imports the CSS which is to be
@@ -1456,4 +1412,4 @@ var pagelib$1 = {
 module.exports = pagelib$1;
 
 
-},{}]},{},[2,9,25,14,15,16,17,18,23,24,19,20,21,22,1,5,6,7,8,4,11,12,13]);
+},{}]},{},[2,9,24,14,15,16,17,22,23,18,19,20,21,1,5,6,7,8,4,11,12,13]);
