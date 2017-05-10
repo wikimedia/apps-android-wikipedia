@@ -1,8 +1,8 @@
 {
-  "batchcomplete": "",
+  "batchcomplete": true,
   "query": {
-    "pages": {
-      "605046": {
+    "pages": [
+      {
         "title": "Bean Hollow State Beach",
         "thumbnail": {
           "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Bean_Hollow_State_Beach_2003.jpg/320px-Bean_Hollow_State_Beach_2003.jpg",
@@ -15,6 +15,6 @@
           ]
         }
       }
-    }
+    ]
   }
 }
