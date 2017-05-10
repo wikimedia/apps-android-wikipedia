@@ -20,7 +20,7 @@ import retrofit2.http.Query;
  */
 public interface RbPageService {
     String ACCEPT_HEADER_MOBILE_SECTIONS = "accept: application/json; charset=utf-8; "
-            + "profile=\"https://www.mediawiki.org/wiki/Specs/mobile-sections/0.10.1\"";
+            + "profile=\"https://www.mediawiki.org/wiki/Specs/mobile-sections/0.10.2\"";
     String ACCEPT_HEADER_DEFINITION = "accept: application/json; charset=utf-8; "
             + "profile=\"https://www.mediawiki.org/wiki/Specs/definition/0.7.1\"";
 
