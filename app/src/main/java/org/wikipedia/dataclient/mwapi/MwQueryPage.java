@@ -54,9 +54,9 @@ public class MwQueryPage extends BaseModel {
     }
 
     public static class Revision {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String contentformat;
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String contentmodel;
-        @SerializedName("*") @SuppressWarnings("unused,NullableProblems") @NonNull private String content;
+        @SuppressWarnings("unused,NullableProblems") @SerializedName("contentformat") @NonNull private String contentFormat;
+        @SuppressWarnings("unused,NullableProblems") @SerializedName("contentmodel") @NonNull private String contentModel;
+        @SuppressWarnings("unused,NullableProblems") @NonNull private String content;
         @NonNull public String content() {
             return content;
         }

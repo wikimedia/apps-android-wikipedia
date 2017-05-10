@@ -4,8 +4,8 @@
     "continue": "||"
   },
   "query": {
-    "pages": {
-      "46498401": {
+    "pages": [
+      {
         "pageid": 46498401,
         "ns": 2,
         "title": "User:Mhollo/sandbox",
@@ -13,10 +13,10 @@
           {
             "contentformat": "text/x-wiki",
             "contentmodel": "wikitext",
-            "*": "\\o/\n\ntest12\n\n3"
+            "content": "\\o/\n\ntest12\n\n3"
           }
         ]
       }
-    }
+    ]
   }
 }
