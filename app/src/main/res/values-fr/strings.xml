@@ -302,6 +302,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_lists_onboarding_got_it">L’obtenir</string>
   <string name="reading_list_no_description">Aucune description…</string>
   <string name="reading_list_empty">Vous n’avez aucun article ajouté à cette liste.</string>
+  <string name="reading_list_article_offline">Disponible hors connexion</string>
   <string name="reading_list_article_make_offline">Marquer cet article comme disponible hors connexion</string>
   <string name="reading_list_article_remove_offline">Ne pas marquer cet article comme disponible hors connexion</string>
   <string name="reading_list_article_offline_message">Cet article est désormais disponible hors connexion.</string>

@@ -301,6 +301,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_lists_onboarding_got_it">Kaout anezhañ</string>
   <string name="reading_list_no_description">Deskrivadur ebet...</string>
   <string name="reading_list_empty">N\'hoc\'h eus pennad ebet ouzhpennet d\'ar roll-mañ.</string>
+  <string name="reading_list_article_offline">A c\'haller tizhout ezlinenn</string>
   <string name="reading_list_article_make_offline">Aotren gwelet ar pennad-mañ ezlinenn</string>
   <string name="reading_list_article_remove_offline">Na aotren gwelet ar pennad-mañ ezlinenn</string>
   <string name="reading_list_article_offline_message">Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken.</string>

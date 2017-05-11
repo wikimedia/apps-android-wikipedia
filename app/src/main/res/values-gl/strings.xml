@@ -301,6 +301,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_no_description">Sen descrición...</string>
   <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
+  <string name="reading_list_article_offline">Dispoñible sen conexión</string>
   <string name="reading_list_article_make_offline">Facer que este artigo estea dispoñible sen conexión</string>
   <string name="reading_list_article_remove_offline">Non facer este artigo dispoñible sen conexión</string>
   <string name="reading_list_article_offline_message">Agora este artigo estará dispoñible sen conexión.</string>

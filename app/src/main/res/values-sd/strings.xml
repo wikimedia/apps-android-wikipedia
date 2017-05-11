@@ -93,10 +93,10 @@
   <string name="create_account_login_link">اڳ ئي کاتو اٿو؟ داخل ٿيو</string>
   <string name="create_account_activity_title">کاتو کوليو</string>
   <string name="dialog_create_account_checking_progress">تصديق ڪندي</string>
-  <string name="create_account_email_hint">برق ٽپال (مرضيءَ موجب)</string>
+  <string name="create_account_email_hint">برقٽپال (اختياري)</string>
   <string name="create_account_password_repeat_hint">ڳجھولفظ ورجايو</string>
   <string name="create_account_passwords_mismatch_error">ڳجھالفظ نٿا ملن</string>
-  <string name="create_account_email_error">ناقابل ڪار برق ٽپال پتو</string>
+  <string name="create_account_email_error">ناقابلِڪار برقٽپال پتو</string>
   <string name="create_account_username_error">يوزنانءَ ۾ ناقابلڪار نشانيون</string>
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
@@ -295,6 +295,7 @@
   <string name="reading_lists_onboarding_got_it">سمجھي ويئو</string>
   <string name="reading_list_no_description">تشريح ناھي...</string>
   <string name="reading_list_empty">ھن فھرست ۾ ڪي بہ مضمون وڌل ناھن.</string>
+  <string name="reading_list_article_offline">آفلائين موجود</string>
   <string name="reading_list_article_make_offline">ھن مضمون کي آفلائين موجود ڪرايو</string>
   <string name="reading_list_article_remove_offline">ھن مضمون کي آفلائين موجود نہ ڪرايو</string>
   <string name="reading_list_article_offline_message">ھي مضمون ھاڻي آفلائين موجود ھوندو.</string>

@@ -288,6 +288,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="reading_list_no_description">Keng Beschreiwung...</string>
   <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht dobäigesat.</string>
+  <string name="reading_list_article_offline">Offline disponibel</string>
   <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>
   <string name="reading_list_article_remove_offline">Dësen Artikel net offline disponibel maachen</string>
   <string name="reading_list_article_offline_message">Dësen Artikel ass elo offline disponibel.</string>

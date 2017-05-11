@@ -299,6 +299,7 @@
   <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
   <string name="reading_list_no_description">কোন বিবরণ নেই...</string>
   <string name="reading_list_empty">এই তালিকায় আপনি কোন নিবন্ধ যোগ করেন নি।</string>
+  <string name="reading_list_article_offline">অফলাইনে উপলব্ধ</string>
   <string name="reading_list_article_make_offline">এই নিবন্ধটি অফলাইনে উপলব্ধ করুন</string>
   <string name="reading_list_article_remove_offline">এই নিবন্ধটি অফলাইনে উপলব্ধ করবেন না</string>
   <string name="reading_list_article_offline_message">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</string>

@@ -301,6 +301,7 @@
   <string name="reading_lists_onboarding_got_it">Razumijem</string>
   <string name="reading_list_no_description">Nema opisa...</string>
   <string name="reading_list_empty">Niste dodali nijedan članak na ovaj spisak.</string>
+  <string name="reading_list_article_offline">Dostupno van mreže</string>
   <string name="reading_list_article_make_offline">Omogući vanmrežnu dostupnost ovog članka</string>
   <string name="reading_list_article_remove_offline">Onemogući vanmrežnu dostupnost ovog članka</string>
   <string name="reading_list_article_offline_message">Ovaj članak sad će biti dostupan van mreže.</string>
