@@ -2,6 +2,9 @@ package org.wikipedia;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.IntRange;
@@ -10,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.Window;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
@@ -130,7 +134,7 @@ public class WikipediaApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        Boolean bool=isNetworkAvailable();
         zeroHandler = new WikipediaZeroHandler(this);
 
         // HockeyApp exception handling interferes with the test runner, so enable it only for
@@ -177,6 +181,29 @@ public class WikipediaApp extends Application {
 
     public Bus getBus() {
         return bus;
+    }
+
+    private boolean isNetworkAvailable(){
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.getApplicationContext().getSystemService(this.getApplicationContext().CONNECTIVITY_SERVICE);
+        if(connectivityManager==null){
+            //Log.w("log_tag","not available");
+            Toast toast=Toast.makeText(this,"no service available",Toast.LENGTH_LONG);
+            toast.show();
+        }
+        else{
+            NetworkInfo[] networkInfos=connectivityManager.getAllNetworkInfo();
+            if (networkInfos!=null){
+                for (int i=0;i<networkInfos.length;i++){
+                    if(networkInfos[i].getState()==NetworkInfo.State.CONNECTED){
+                        //Log.w("log_tag","internet available");
+                        return true;
+                    }
+                }
+            }
+        }
+        Toast toast=Toast.makeText(this,"no service available",Toast.LENGTH_LONG);
+        toast.show();
+        return false;
     }
 
     public String getUserAgent() {
