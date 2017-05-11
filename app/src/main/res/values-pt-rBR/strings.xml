@@ -301,6 +301,7 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="reading_lists_onboarding_got_it">Entendi</string>
   <string name="reading_list_no_description">Sem descrição...</string>
   <string name="reading_list_empty">Você não tem artigos adicionados a esta lista.</string>
+  <string name="reading_list_article_offline">Disponível offline</string>
   <string name="reading_list_article_make_offline">Disponibilizar este artigo offline</string>
   <string name="reading_list_article_remove_offline">Não disponibilize este artigo offline</string>
   <string name="reading_list_article_offline_message">Este artigo agora estará disponível off-line.</string>

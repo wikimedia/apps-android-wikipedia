@@ -301,6 +301,7 @@
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="reading_list_no_description">אין תיאור...</string>
   <string name="reading_list_empty">אין לך ערכים להוסיף לרשימה הזאת.</string>
+  <string name="reading_list_article_offline">זמין ללא חיבור לרשת</string>
   <string name="reading_list_article_make_offline">לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
   <string name="reading_list_article_remove_offline">לא לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
   <string name="reading_list_article_offline_message">הערך הזה יהיה זמין ללא חיבור לרשת.</string>

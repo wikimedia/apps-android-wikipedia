@@ -16,6 +16,7 @@
   <string name="page_error_back_to_main">Geri git</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="history_item_deleted">%s,tarayıcı geçmişinden silindi.</string>
+  <string name="history_items_deleted">%d madde geçmişten silindi</string>
   <string name="history_item_delete_undo">Geri al</string>
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
   <string name="dialog_title_clear_history">Göz atma geçmişini temizle</string>
@@ -298,6 +299,7 @@
   <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="reading_list_no_description">Tanımlama yok...</string>
   <string name="reading_list_empty">Bu listeye eklediğiniz hiç madde yok.</string>
+  <string name="reading_list_article_offline">Çevrim dışı olarak erişilebilir</string>
   <string name="reading_list_article_make_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yap</string>
   <string name="reading_list_article_remove_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yapma</string>
   <string name="reading_list_article_offline_message">Bu maddeye artık çevrimdışı olarak erişilebilir.</string>

@@ -15,6 +15,8 @@
   <string name="page_error_retry">أعد المحاولة</string>
   <string name="page_error_back_to_main">ارجع إلى الخلف</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
+  <string name="history_item_deleted">أزيلت %s من القائمة</string>
+  <string name="history_item_delete_undo">رجوع</string>
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
@@ -39,6 +41,7 @@
   <string name="nearby_distance_in_meters">%d م</string>
   <string name="nearby_distance_in_kilometers">%.2f كم</string>
   <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
+  <string name="nearby_osm_license">مساهمين &amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;أوبن ستريت ماب&lt;/a&gt;</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="talk_page_link_text">نقاش</string>
   <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
@@ -51,8 +54,8 @@
   <string name="langlinks_no_match">لا تتوفر لغات مطابقة لبحثك.</string>
   <string name="langlinks_activity_title">لغات أخرى</string>
   <string name="menu_save_changes">انشر التغييرات</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">جارٍ الحفظ…</string>
-  <string name="edit_saved_successfully" fuzzy="true">تم حفظ التعديل!</string>
+  <string name="dialog_saving_in_progress">جارٍ النشر…</string>
+  <string name="edit_saved_successfully">تم نشر التعديل!</string>
   <string name="dialog_message_edit_failed">فشل التعديل!</string>
   <string name="dialog_message_edit_failed_retry">إعادة المحاولة</string>
   <string name="dialog_message_edit_failed_cancel">إلغاء</string>
@@ -80,7 +83,7 @@
   <string name="preference_title_logout">تسجيل الخروج</string>
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
   <string name="history_empty_title">لا مقالات معروضة مؤخرًا!</string>
-  <string name="history_empty_message" fuzzy="true">تاريخ تصفحك فارغ، يبدو بأنك قد حذفت جميع مدخلات التاريخ. في المرة القادمة التي تزور فيها إحدى الصفحات بإمكانك العودة إليها مباشرةً من هنا.</string>
+  <string name="history_empty_message">يمكنك متابعة ما كنت تقرأه هنا.</string>
   <string name="delete_selected_history">حذف</string>
   <string name="delete_selected_items">إزالة العناصر المختارة</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يكيبيد&lt;big&gt;يا&lt;/big&gt;</string>
@@ -149,7 +152,7 @@
   <string name="user_anon_blocked_from_editing">تم منع عنوان الآي بي الخاص بك من التعديل.</string>
   <string name="edit_how_page_improved">كيف حسّنت الصفحة؟</string>
   <string name="edit_next">التالي</string>
-  <string name="edit_done" fuzzy="true">احفظ</string>
+  <string name="edit_done">انشر</string>
   <string name="edit_preview">معاينة</string>
   <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
   <string name="edit_summary_tag_grammar">تم إصلاح النحو</string>
@@ -158,8 +161,8 @@
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
-  <string name="abusefilter_title_warn" fuzzy="true">هذا التعديل ربما لا يكون بنّاءً. هل أنت متأكد من أنك تريد حفظه؟</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">لا يمكنك حفظ هذا التعديل. فضلًا عُد وغيّره.</string>
+  <string name="abusefilter_title_warn">هذا التعديل ربما لا يكون بنّاءً. هل أنت متأكد من أنك تريد نشره؟</string>
+  <string name="abusefilter_title_disallow">لا يمكنك نشر هذا التعديل. فضلًا عُد وغيّره.</string>
   <string name="abusefilter_text_warn">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ. قد يحتوي التعديل على حالة أو أكثر مما يلي:&lt;br /&gt;&lt;br /&gt;· كتابة الكل بأحرف كبيرة&lt;br /&gt;· إفراغ المقالات أو إضافة وصلات السبام&lt;br /&gt;· إضافة وصلات خارجية أو صور ليست لها صلة بالموضوع&lt;br /&gt;· تكرار أحرف</string>
   <string name="abusefilter_text_disallow">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ، أو تخريب محتمل.&lt;br /&gt;&lt;br /&gt;ويكيبيديا موسوعة ومحايدة فقط، ولا تقبل سوى بالمحتوى الذي يُحقق الملحوظية.</string>
   <string name="dialog_page_issues">مشاكل في مضمون الصفحة</string>
@@ -233,7 +236,10 @@
   <string name="location_service_disabled">خدمات الموقع معطلة.</string>
   <string name="enable_location_service">تمكين</string>
   <string name="location_permissions_enable_prompt">تمكين أذونات الموقع للاطلاع على الأماكن القريبة منك.</string>
+  <string name="location_permissions_enable_action">تشغيل</string>
   <string name="error_webview_updating">يجري تحديث Android System WebView الآن. يرجى المحاولة مرة أخرى بعد لحظات.</string>
+  <string name="error_message_generic">حدث خطأ</string>
+  <string name="view_link_preview_error_button_dismiss">أغلق</string>
   <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
   <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
   <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
@@ -288,9 +294,13 @@
   <string name="reading_lists_onboarding_got_it">فهمت</string>
   <string name="reading_list_no_description">لا وصف...</string>
   <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
+  <string name="reading_list_article_offline">موجود بدون اتصال بالشبكة</string>
   <string name="reading_list_article_make_offline">إتاحة هذه المقالة دون اتصال</string>
+  <string name="reading_list_article_remove_offline">عدم إتاحة هذه المقالة دون اتصال</string>
   <string name="reading_list_article_offline_message">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</string>
+  <string name="reading_list_article_not_offline_message">ستصبح هذه المقالة غير متاحة في حالة عدم الاتصال.</string>
   <string name="reading_list_add_to_other_list">أضف لقائمة قراءة أخرى</string>
+  <string name="reading_list_remove_from_list">إزالة من %s</string>
   <string name="reading_list_remove_from_lists">أزل من قائمة القراءة</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_button_view_user">التحدث مع المستخدم</string>
@@ -321,7 +331,7 @@
   <string name="view_continue_reading_card_subtitle_today">اليوم</string>
   <string name="view_announcement_card_negative_action">لا شكرًا</string>
   <string name="description_edit_text_hint">وصف العنوان</string>
-  <string name="description_edit_save" fuzzy="true">احفظ</string>
+  <string name="description_edit_save">انشر</string>
   <string name="description_edit_add_description">إضافة وصف للعنوان</string>
   <string name="description_edit_edit_description">عدل الوصف</string>
   <string name="description_edit_cancel_hint">ألغ</string>
@@ -331,7 +341,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_license_notice">بتغييري لوصف العنوان، أنا أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وعلى نشر مساهماتي بصورة لا رجعة فيها تحت ترخيص &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="description_edit_success_saved" fuzzy="true">حُفظ الوصف!</string>
+  <string name="description_edit_success_saved">نُشر الوصف!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
@@ -353,4 +363,5 @@
   <string name="description_edit_help_tips_example2_hint">وصف عنوان لمقال حول جبل ايفرست</string>
   <string name="description_edit_help_more_info">مزيد من المعلومات</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
+  <string name="description_edit_revert_reason2">مساهمتك ظهرت كتجربة أو تخريب.</string>
 </resources>
