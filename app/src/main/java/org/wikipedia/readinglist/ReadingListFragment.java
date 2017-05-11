@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,12 +9,14 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,6 +44,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.MultiSelectActionModeCallback;
@@ -419,12 +423,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     @Override
     public void onToggleOffline(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
-        if (page != null) {
-            ReadingListData.instance().setPageOffline(page, !page.isOffline());
-            FeedbackUtil.showMessage(getActivity(), page.isOffline()
-                    ? R.string.reading_list_article_offline_message
-                    : R.string.reading_list_article_not_offline_message);
-            adapter.notifyDataSetChanged();
+        if (page == null) {
+            return;
+        }
+        if (page.isOffline()) {
+            ReadingList.DAO.anyListContainsTitleAsync(page.key(), new PageListCountCallback(page));
+        } else {
+            toggleOffline(page);
         }
     }
 
@@ -450,6 +455,42 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     public void onDelete(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
         deleteSinglePage(page);
+    }
+
+    private void toggleOffline(@NonNull ReadingListPage page) {
+        ReadingListData.instance().setPageOffline(page, !page.isOffline());
+        if (getActivity() != null) {
+            FeedbackUtil.showMessage(getActivity(), page.isOffline()
+                    ? R.string.reading_list_article_offline_message
+                    : R.string.reading_list_article_not_offline_message);
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void showMultiListPageConfirmToggleDialog(@NonNull final ReadingListPage page) {
+        if (getActivity() == null) {
+            return;
+        }
+        AlertDialog dialog = new AlertDialog.Builder(getContext())
+                .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
+                .setMessage(getConfirmToggleOfflineMessage(page))
+                .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline,
+                        new ConfirmRemoveFromOfflineListener(page))
+                .setNegativeButton(android.R.string.cancel, null)
+                .create();
+        dialog.show();
+        TextView text = (TextView) dialog.findViewById(android.R.id.message);
+        text.setLineSpacing(0, 1.3f);
+    }
+
+    @NonNull private Spanned getConfirmToggleOfflineMessage(@NonNull ReadingListPage page) {
+        String result = getString(R.string.reading_list_confirm_remove_article_from_offline_message,
+                "<b>" +  page.title() + "</b>");
+        for (String key : page.listKeys()) {
+            result += "<br>&nbsp;&nbsp;<b>&#8226; " + ReadingListDaoProxy.listName(key) + "</b>";
+        }
+        return StringUtil.fromHtml(result);
     }
 
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
@@ -643,6 +684,30 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             unselectAllPages();
             actionMode = null;
             super.onDestroyActionMode(mode);
+        }
+    }
+
+    private final class PageListCountCallback implements CallbackTask.Callback<ReadingListPage> {
+        private ReadingListPage page;
+        private PageListCountCallback(@NonNull ReadingListPage page) {
+            this.page = page;
+        }
+        @Override public void success(ReadingListPage fromDb) {
+            if (fromDb.listKeys().size() > 1) {
+                showMultiListPageConfirmToggleDialog(page);
+            } else {
+                toggleOffline(page);
+            }
+        }
+    }
+
+    private final class ConfirmRemoveFromOfflineListener implements DialogInterface.OnClickListener {
+        private ReadingListPage page;
+        private ConfirmRemoveFromOfflineListener(@NonNull ReadingListPage page) {
+            this.page = page;
+        }
+        @Override public void onClick(DialogInterface dialog, int which) {
+            toggleOffline(page);
         }
     }
 }

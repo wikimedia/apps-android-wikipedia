@@ -446,6 +446,9 @@ Shown in the preferences screen along with the following:
   <string name="reading_list_add_to_other_list">Menu item to add an article to another reading list (when the article already exists in one or more lists).</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific reading list. The %s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple reading lists to which it might belong.</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Label for a dialog button confirming that the user wants to remove the selected list from offline availability for all reading lists.</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Title for a dialog warning the user that the page the user has selected to remove from offline availability appears in multiple lists.</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">Message for a dialog warning the user that the page the user has selected to remove from offline availability appears in multiple lists.  The names of the lists appear below.  The \"%s\" symbol is the title of the page of the user selected to remove.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>
   <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
