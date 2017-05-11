@@ -71,11 +71,7 @@ public class PageFragmentLoadState {
         void call(@Nullable Throwable error);
     }
 
-    private static final int STATE_NO_FETCH = 1;
-    private static final int STATE_INITIAL_FETCH = 2;
-    private static final int STATE_COMPLETE_FETCH = 3;
-
-    private int state = STATE_NO_FETCH;
+    private boolean loading;
 
     /**
      * List of lightweight history items to serve as the backstack for this fragment.
@@ -142,7 +138,7 @@ public class PageFragmentLoadState {
             pushBackStack();
         }
 
-        state = STATE_NO_FETCH;
+        loading = true;
 
         // increment our sequence number, so that any async tasks that depend on the sequence
         // will invalidate themselves upon completion.
@@ -170,7 +166,7 @@ public class PageFragmentLoadState {
     }
 
     public boolean isLoading() {
-        return state != STATE_COMPLETE_FETCH;
+        return loading;
     }
 
     public void loadFromBackStack() {
@@ -246,6 +242,10 @@ public class PageFragmentLoadState {
         }, sequenceNumber.get());
     }
 
+    public boolean isFirstPage() {
+        return backStack.size() <= 1 && !webView.canGoBack();
+    }
+
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
@@ -271,7 +271,7 @@ public class PageFragmentLoadState {
     protected void commonSectionFetchOnCatch(Throwable caught, int startSequenceNum) {
         ErrorCallback callback = networkErrorCallback;
         networkErrorCallback = null;
-        state = STATE_COMPLETE_FETCH;
+        loading = false;
         if (fragment.callback() != null) {
             fragment.callback().onPageInvalidateOptionsMenu();
         }
@@ -333,49 +333,6 @@ public class PageFragmentLoadState {
         });
     }
 
-    private void performActionForState(int forState) {
-        if (!fragment.isAdded()) {
-            return;
-        }
-        switch (forState) {
-            case STATE_NO_FETCH:
-                if (fragment.callback() != null) {
-                    fragment.callback().onPageUpdateProgressBar(true, true, 0);
-                }
-                loadLeadSection(sequenceNumber.get());
-                break;
-            case STATE_INITIAL_FETCH:
-                loadRemainingSections(sequenceNumber.get());
-                break;
-            case STATE_COMPLETE_FETCH:
-                editHandler.setPage(model.getPage());
-                layoutLeadImage(new Runnable() {
-                    @Override
-                    public void run() {
-                        displayNonLeadSection(1);
-                    }
-                });
-                break;
-            default:
-                throw new RuntimeException("Unknown state encountered " + state);
-        }
-    }
-
-    private void setState(int state) {
-        if (!fragment.isAdded()) {
-            return;
-        }
-        this.state = state;
-        if (fragment.callback() != null) {
-            fragment.callback().onPageInvalidateOptionsMenu();
-        }
-
-        // FIXME: Move this out into a PageComplete event of sorts
-        if (state == STATE_COMPLETE_FETCH) {
-            fragment.setupToC(model, isFirstPage());
-        }
-    }
-
     private void loadOnWebViewReady() {
         // stage any section-specific link target from the title, since the title may be
         // replaced (normalized)
@@ -393,18 +350,21 @@ public class PageFragmentLoadState {
 
     private void loadFromNetwork(final ErrorCallback errorCallback) {
         networkErrorCallback = errorCallback;
-        setState(STATE_NO_FETCH);
-        performActionForState(state);
+        if (!fragment.isAdded()) {
+            return;
+        }
+        loading = true;
+        if (fragment.callback() != null) {
+            fragment.callback().onPageInvalidateOptionsMenu();
+            fragment.callback().onPageUpdateProgressBar(true, true, 0);
+        }
+        loadLeadSection(sequenceNumber.get());
     }
 
     private void updateThumbnail(String thumbUrl) {
         model.getTitle().setThumbUrl(thumbUrl);
         model.getTitleOriginal().setThumbUrl(thumbUrl);
         fragment.invalidateTabs();
-    }
-
-    private boolean isFirstPage() {
-        return backStack.size() <= 1 && !webView.canGoBack();
     }
 
     /**
@@ -586,8 +546,11 @@ public class PageFragmentLoadState {
         layoutLeadImage(new Runnable() {
             @Override
             public void run() {
-                setState(STATE_INITIAL_FETCH);
-                performActionForState(state);
+                if (!fragment.isAdded()) {
+                    return;
+                }
+                fragment.callback().onPageInvalidateOptionsMenu();
+                loadRemainingSections(sequenceNumber.get());
             }
         });
 
@@ -644,8 +607,7 @@ public class PageFragmentLoadState {
         pageRemaining.mergeInto(model.getPage());
 
         displayNonLeadSection(1);
-        setState(STATE_COMPLETE_FETCH);
-
+        loading = false;
         fragment.onPageLoadComplete();
     }
 
