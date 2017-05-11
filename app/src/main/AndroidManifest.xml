@@ -45,7 +45,8 @@
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
     <application
-        android:allowBackup="false"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/full_backup_rules"
         tools:replace="android:allowBackup"
         android:supportsRtl="true"
         android:icon="@mipmap/launcher"
