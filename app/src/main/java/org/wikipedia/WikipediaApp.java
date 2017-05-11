@@ -134,7 +134,6 @@ public class WikipediaApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Boolean bool=isNetworkAvailable();
         zeroHandler = new WikipediaZeroHandler(this);
 
         // HockeyApp exception handling interferes with the test runner, so enable it only for
@@ -181,29 +180,6 @@ public class WikipediaApp extends Application {
 
     public Bus getBus() {
         return bus;
-    }
-
-    private boolean isNetworkAvailable(){
-        ConnectivityManager connectivityManager = (ConnectivityManager) this.getApplicationContext().getSystemService(this.getApplicationContext().CONNECTIVITY_SERVICE);
-        if(connectivityManager==null){
-            //Log.w("log_tag","not available");
-            Toast toast=Toast.makeText(this,"no service available",Toast.LENGTH_LONG);
-            toast.show();
-        }
-        else{
-            NetworkInfo[] networkInfos=connectivityManager.getAllNetworkInfo();
-            if (networkInfos!=null){
-                for (int i=0;i<networkInfos.length;i++){
-                    if(networkInfos[i].getState()==NetworkInfo.State.CONNECTED){
-                        //Log.w("log_tag","internet available");
-                        return true;
-                    }
-                }
-            }
-        }
-        Toast toast=Toast.makeText(this,"no service available",Toast.LENGTH_LONG);
-        toast.show();
-        return false;
     }
 
     public String getUserAgent() {

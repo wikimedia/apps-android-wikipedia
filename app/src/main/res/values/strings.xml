@@ -8,7 +8,7 @@
 
     <string name="yes">Yes</string>
     <string name="no">No</string>
-
+    <string name="dialog_offline">Offline mode : you are DISCONNECTED</string>
     <string name="search_hint">Search Wikipedia</string>
     <string name="search_hint_search_history">Search history</string>
     <string name="search_hint_search_my_lists">Search my lists</string>
