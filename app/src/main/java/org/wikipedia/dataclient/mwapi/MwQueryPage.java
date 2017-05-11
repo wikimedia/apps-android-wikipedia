@@ -18,6 +18,7 @@ import java.util.List;
 public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") private int pageid;
     @SuppressWarnings("unused") private int ns;
+    @SuppressWarnings("unused") private int index;
     @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private List<LangLink> langlinks;
     @SuppressWarnings("unused") @Nullable private List<Revision> revisions;
@@ -28,6 +29,10 @@ public class MwQueryPage extends BaseModel {
 
     @NonNull public String title() {
         return title;
+    }
+
+    public int index() {
+        return index;
     }
 
     @Nullable public List<LangLink> langLinks() {
