@@ -94,6 +94,7 @@ public class ReadingListSynchronizer {
                             L.d("Updating local reading lists from server.");
                             reconcileAsRightJoin(remoteReadingLists);
                             Prefs.setReadingListSyncRev(remoteReadingLists.rev());
+                            WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
                             postEvent(new ReadingListSyncEvent());
                         } else {
                             L.d("Local and remote reading lists are in sync.");
