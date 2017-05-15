@@ -139,7 +139,7 @@ public class Page {
         return !isMainPage() && getTitle().namespace() == Namespace.MAIN;
     }
 
-    public JSONObject toJSON() {
+    @VisibleForTesting JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
             json.putOpt("version", version);

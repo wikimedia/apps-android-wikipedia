@@ -32,6 +32,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
@@ -77,6 +78,7 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     @Nullable private PageTitle pageTitle;
     @Nullable private WikiSite wiki;
+    @NonNull private GalleryCollectionClient client = new GalleryCollectionClient();
 
     private ViewGroup toolbarContainer;
     private ViewGroup infoContainer;
@@ -466,25 +468,39 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
             return;
         }
         updateProgressBar(true, true, 0);
-        new GalleryCollectionFetchTask(app.getAPIForSite(pageTitle.getWikiSite()),
-                pageTitle.getWikiSite(), pageTitle) {
-            @Override public void onGalleryResult(GalleryCollection result) {
-                updateProgressBar(false, true, 0);
-                applyGalleryCollection(result);
+
+        CallbackTask.execute(new CallbackTask.Task<Map<String, ImageInfo>>() {
+            @Override public Map<String, ImageInfo> execute() throws Throwable {
+                return client.request(pageTitle.getWikiSite(), pageTitle, false);
             }
-            @Override public void onCatch(Throwable caught) {
+        }, new CallbackTask.Callback<Map<String, ImageInfo>>() {
+            @Override public void success(Map<String, ImageInfo> result) {
+                updateProgressBar(false, true, 0);
+                applyGalleryCollection(buildCollection(result));
+            }
+
+            @Override public void failure(Throwable caught) {
                 updateProgressBar(false, true, 0);
                 showError(caught, false);
-                L.e("Failed to fetch gallery collection.", caught);
             }
-        }.execute();
+        });
+    }
+
+    @NonNull private GalleryCollection buildCollection(Map<String, ImageInfo> result) {
+        List<GalleryItem> list = new ArrayList<>();
+        for (Map.Entry<String, ImageInfo> entry : result.entrySet()) {
+            if (GalleryCollection.shouldIncludeImage(entry.getValue())) {
+                list.add(new GalleryItem(entry.getKey(), entry.getValue()));
+            }
+        }
+        return new GalleryCollection(list);
     }
 
     /**
      * Apply a complete collection of media to our scrollable gallery.
      * @param collection GalleryCollection to apply to the ViewPager.
      */
-    protected void applyGalleryCollection(@NonNull GalleryCollection collection) {
+    private void applyGalleryCollection(@NonNull GalleryCollection collection) {
         // remove the page transformer while we operate on the pager...
         galleryPager.setPageTransformer(false, null);
         // first, verify that the collection contains the item that the user

@@ -87,8 +87,7 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<MwQueryResponse<MwQueryResponse.Pages>> request(
-            @NonNull ImageLicenseFetchClient.Callback cb) {
+    private Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull ImageLicenseFetchClient.Callback cb) {
         return subject.request(service(ImageLicenseFetchClient.Service.class), PAGE_TITLE_MARK_SELBY, cb);
     }
 }

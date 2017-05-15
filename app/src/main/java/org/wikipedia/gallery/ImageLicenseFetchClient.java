@@ -26,23 +26,21 @@ public class ImageLicenseFetchClient {
     }
 
     public Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull WikiSite wiki,
-                                                                @NonNull PageTitle title,
-                                                                @NonNull Callback cb) {
+                                                      @NonNull PageTitle title,
+                                                      @NonNull Callback cb) {
         return request(cachedService.service(wiki), title, cb);
     }
 
-    @VisibleForTesting
-    Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull Service service,
-                                                         @NonNull final PageTitle title,
-                                                         @NonNull final Callback cb) {
+    @VisibleForTesting Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull Service service,
+                                                                  @NonNull final PageTitle title,
+                                                                  @NonNull final Callback cb) {
         Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(title.toString());
 
         call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
             @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                              Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
-                if (response.body().success()
-                        && response.body().query().pages() != null
-                        && response.body().query().pages().get(0) != null) {
+                if (response.body().success()) {
+                    // noinspection ConstantConditions
                     MwQueryPage page = response.body().query().pages().get(0);
                     cb.success(call, page.imageInfo() != null && page.imageInfo().getMetadata() != null
                             ? new ImageLicense(page.imageInfo().getMetadata())
@@ -63,6 +61,7 @@ public class ImageLicenseFetchClient {
 
         return call;
     }
+
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=extmetadata")
         Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles);

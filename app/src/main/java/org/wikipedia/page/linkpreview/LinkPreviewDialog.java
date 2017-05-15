@@ -24,19 +24,26 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryCollection;
-import org.wikipedia.gallery.GalleryCollectionFetchTask;
+import org.wikipedia.gallery.GalleryCollectionClient;
+import org.wikipedia.gallery.GalleryItem;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
+import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -69,7 +76,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private PageTitle pageTitle;
     private int entrySource;
     @Nullable private Location location;
-
+    @NonNull private GalleryCollectionClient client = new GalleryCollectionClient();
     private LinkPreviewFunnel funnel;
 
     public static LinkPreviewDialog newInstance(PageTitle title, int entrySource, @Nullable Location location) {
@@ -117,8 +124,22 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
         thumbnailGallery = (GalleryThumbnailScrollView) rootView.findViewById(R.id.link_preview_thumbnail_gallery);
         if (app.isImageDownloadEnabled()) {
-            new GalleryThumbnailFetchTask(pageTitle).execute();
-            thumbnailGallery.setGalleryViewListener(galleryViewListener);
+            CallbackTask.execute(new CallbackTask.Task<Map<String, ImageInfo>>() {
+                @Override public Map<String, ImageInfo> execute() throws Throwable {
+                    return client.request(pageTitle.getWikiSite(), pageTitle, true);
+
+                }
+            }, new CallbackTask.Callback<Map<String, ImageInfo>>() {
+                @Override public void success(@Nullable Map<String, ImageInfo> result) {
+                    setThumbGallery(result);
+                    thumbnailGallery.setGalleryViewListener(galleryViewListener);
+                }
+
+                @Override
+                public void failure(Throwable caught) {
+                    L.w("Failed to fetch gallery collection.", caught);
+                }
+            });
         }
 
         overflowButton = rootView.findViewById(R.id.link_preview_overflow_button);
@@ -218,6 +239,18 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         setPreviewContents(contents);
     }
 
+    private void setThumbGallery(Map<String, ImageInfo> result) {
+        List<GalleryItem> list = new ArrayList<>();
+        for (Map.Entry<String, ImageInfo> entry : result.entrySet()) {
+            if (GalleryCollection.shouldIncludeImage(entry.getValue())) {
+                list.add(new GalleryItem(entry.getKey(), entry.getValue()));
+            }
+        }
+        if (!list.isEmpty()) {
+            thumbnailGallery.setGalleryCollection(new GalleryCollection(list));
+        }
+    }
+
     private void showError(@Nullable Throwable caught) {
         dialogContainer.setLayoutTransition(null);
         dialogContainer.setMinimumHeight(0);
@@ -300,26 +333,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             return false;
         }
     };
-
-    private class GalleryThumbnailFetchTask extends GalleryCollectionFetchTask {
-        GalleryThumbnailFetchTask(PageTitle title) {
-            super(WikipediaApp.getInstance().getAPIForSite(title.getWikiSite()), title.getWikiSite(), title,
-                    true);
-        }
-
-        @Override
-        public void onGalleryResult(GalleryCollection result) {
-            if (result.getItemList() != null && !result.getItemList().isEmpty()) {
-                thumbnailGallery.setGalleryCollection(result);
-            }
-        }
-
-        @Override
-        public void onCatch(Throwable caught) {
-            // Don't worry about showing a notification to the user if this fails.
-            L.w("Failed to fetch gallery collection.", caught);
-        }
-    }
 
     private GalleryThumbnailScrollView.GalleryViewListener galleryViewListener
             = new GalleryThumbnailScrollView.GalleryViewListener() {

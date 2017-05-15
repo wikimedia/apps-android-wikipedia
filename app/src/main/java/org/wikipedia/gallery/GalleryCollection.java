@@ -1,28 +1,25 @@
 package org.wikipedia.gallery;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class GalleryCollection {
     private static final int MIN_IMAGE_SIZE = 64;
 
-    @Nullable private List<GalleryItem> itemList;
+    @NonNull private List<GalleryItem> itemList;
 
-    @Nullable
-    public List<GalleryItem> getItemList() {
+    @NonNull public List<GalleryItem> getItemList() {
         return itemList;
     }
 
-    public JSONObject toJSON() {
+    @VisibleForTesting public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
             JSONArray itemsJSON = new JSONArray();
@@ -56,19 +53,16 @@ public class GalleryCollection {
         }
     }
 
-    public GalleryCollection(@NonNull Map<PageTitle, GalleryItem> galleryMap) {
-        itemList = new ArrayList<>();
-        for (PageTitle title : galleryMap.keySet()) {
-            GalleryItem item = galleryMap.get(title);
-            if (item.getWidth() < MIN_IMAGE_SIZE || item.getHeight() < MIN_IMAGE_SIZE) {
-                // reject gallery items if they're too small
-                continue;
-            } else if (item.getMimeType().contains("svg") || item.getMimeType().contains("png")) {
-                // also reject SVG and PNG items by default, because they're likely to be
-                // logos and/or presentational images
-                continue;
-            }
-            itemList.add(item);
-        }
+    public static boolean shouldIncludeImage(@NonNull ImageInfo info) {
+        return !isTooSmall(info) && !isWrongMimeType(info);
+    }
+
+    private static boolean isTooSmall(@NonNull ImageInfo info) {
+        return info.getWidth() < MIN_IMAGE_SIZE || info.getHeight() < MIN_IMAGE_SIZE;
+    }
+
+    private static boolean isWrongMimeType(@NonNull ImageInfo info) {
+        return info.getMimeType() != null
+                && (info.getMimeType().contains("svg") || info.getMimeType().contains("png"));
     }
 }

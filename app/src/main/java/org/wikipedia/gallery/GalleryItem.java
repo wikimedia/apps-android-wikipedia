@@ -1,37 +1,72 @@
 package org.wikipedia.gallery;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.json.GsonUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-class GalleryItem {
-
-    private JSONObject json;
-    private String name;
-    private String url;
-    private String mimeType;
-    private HashMap<String, String> metadata;
-    private String thumbUrl;
+public class GalleryItem {
+    @NonNull private String name;
+    @Nullable private String url;
+    @NonNull private String mimeType;
+    @Nullable private Map<String, String> metadata;
+    @Nullable private String thumbUrl;
     private int width;
     private int height;
     @NonNull private ImageLicense license;
 
-    public JSONObject toJSON() {
-        return json;
+    public GalleryItem(@NonNull String title, @NonNull ImageInfo imageInfo) {
+        this.name = title;
+        this.url = StringUtils.defaultString(imageInfo.getOriginalUrl(), "");
+        this.mimeType = imageInfo.getMimeType();
+        this.thumbUrl = imageInfo.getThumbUrl();
+        this.width = imageInfo.getWidth();
+        this.height = imageInfo.getHeight();
+        this.license = imageInfo.getMetadata() != null
+                ? new ImageLicense(imageInfo.getMetadata())
+                : new ImageLicense();
+
+        try {
+            this.metadata = imageInfo.getMetadata().toMap();
+        } catch (IllegalAccessException e) {
+            L.e(e);
+        } catch (NullPointerException e) {
+            // oh well
+        }
     }
 
-    public String getName() {
+    // GalleryItem constructor for Featured Images from the feed, where we know enough to display it
+    // in the gallery but don't have a lot of extra info
+    GalleryItem(String name) {
+        this.name = name;
+        this.url = null;
+        this.mimeType = "*/*";
+        this.thumbUrl = null;
+        this.metadata = null;
+        this.width = 0;
+        this.height = 0;
+        this.license = new ImageLicense();
+    }
+
+    @NonNull public String getName() {
         return name;
     }
 
-    public String getUrl() {
+    // TODO: Convert to Uri
+    @Nullable public String getUrl() {
         return url;
     }
 
@@ -39,7 +74,7 @@ class GalleryItem {
         this.url = url;
     }
 
-    public String getMimeType() {
+    @NonNull public String getMimeType() {
         return mimeType;
     }
 
@@ -47,11 +82,13 @@ class GalleryItem {
         this.mimeType = mimeType;
     }
 
-    public Map<String, String> getMetadata() {
+    // TODO: Use an ExtMetadata object instead of a Map
+    @Nullable public Map<String, String> getMetadata() {
         return metadata;
     }
 
-    public String getThumbUrl() {
+    // TODO: Convert to Uri
+    @Nullable public String getThumbUrl() {
         return thumbUrl;
     }
 
@@ -87,20 +124,8 @@ class GalleryItem {
         return license.getLicenseUrl();
     }
 
-    GalleryItem(String name) {
-        this.json = null;
-        this.name = name;
-        this.url = null;
-        this.mimeType = "*/*";
-        this.thumbUrl = null;
-        this.metadata = null;
-        this.width = 0;
-        this.height = 0;
-        this.license = new ImageLicense();
-    }
-
-    GalleryItem(JSONObject json) throws JSONException {
-        this.json = json;
+    // TODO: Update consumers and remove
+    @Deprecated GalleryItem(JSONObject json) throws JSONException {
         this.name = json.getString("title");
         this.metadata = new HashMap<>();
         JSONObject objinfo;
@@ -125,9 +150,6 @@ class GalleryItem {
             // "imageinfo" or "videoinfo". In this case, we don't want to throw an exception, but
             // instead just set everything to zero or null, so that this item will be filtered out
             // when the GalleryCollection is constructed.
-            width = 0;
-            height = 0;
-            thumbUrl = null;
             mimeType = "*/*";
             this.license = new ImageLicense();
             return;
@@ -147,21 +169,14 @@ class GalleryItem {
                 String value = extmetadata.getJSONObject(key).getString("value");
                 metadata.put(key, value);
             }
-            license = imageLicenseFromMetadata(extmetadata);
+            ExtMetadata metadataObj = GsonUnmarshaller.unmarshal(ExtMetadata.class, extmetadata.toString());
+            license = new ImageLicense(metadataObj);
         } else {
             license = new ImageLicense();
         }
     }
 
-    @NonNull
-    public static ImageLicense imageLicenseFromMetadata(JSONObject extmetadata) {
-        return new ImageLicense(getValueForOptionalKey(extmetadata, "License"),
-                getValueForOptionalKey(extmetadata, "LicenseShortName"),
-                getValueForOptionalKey(extmetadata, "LicenseUrl"));
-    }
-
-    @NonNull
-    private static String getValueForOptionalKey(JSONObject object, String key) {
-        return object.has(key) ? object.optJSONObject(key).optString("value") : "";
+    @VisibleForTesting public JSONObject toJSON() throws JSONException {
+        return new JSONObject(GsonMarshaller.marshal(GsonUtil.getDefaultGson(), this));
     }
 }
