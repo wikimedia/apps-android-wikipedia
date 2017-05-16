@@ -97,11 +97,13 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/page_list_item_status_icon"
+            android:id="@+id/page_list_item_action_secondary"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="8dp"
             android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_download_circle_black_24px"
             android:tint="@color/base50"
             android:contentDescription="@null"
@@ -109,7 +111,7 @@
             tools:visibility="visible"/>
 
         <ImageView
-            android:id="@+id/page_list_item_action_button"
+            android:id="@+id/page_list_item_action_primary"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="8dp"

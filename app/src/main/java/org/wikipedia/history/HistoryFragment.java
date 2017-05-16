@@ -471,6 +471,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onActionClick(@Nullable IndexedHistoryEntry entry, @NonNull PageItemView view) {
         }
+        @Override
+        public void onSecondaryActionClick(@Nullable IndexedHistoryEntry entry, @NonNull PageItemView view) {
+        }
     }
 
     private class HistorySearchCallback extends SearchActionModeCallback {
