@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/read_more_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/list_item_vertical_padding"
+    android:paddingBottom="@dimen/list_item_vertical_padding"
+    android:visibility="gone">
+    <org.wikipedia.views.ConfigurableTextView
+        android:id="@+id/read_more_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:paddingBottom="16dp"
+        android:paddingLeft="@dimen/list_item_horizontal_padding"
+        android:fontFamily="serif"
+        android:textSize="24sp"
+        android:text="@string/read_more_section" />
+    <org.wikipedia.views.ConfigurableListView
+        android:id="@+id/read_more_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+</LinearLayout>
