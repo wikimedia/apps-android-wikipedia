@@ -25,6 +25,9 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.util.FeedbackUtil;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 import static org.wikipedia.Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID;
 
 /** Displays a list of recent searches */
@@ -34,19 +37,20 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     }
 
     private Parent parentFragment;
-    private View container;
-    private ListView recentSearchesList;
     private RecentSearchesAdapter adapter;
-    private ImageView deleteButton;
+
+    @BindView(R.id.recent_searches_list) ListView recentSearchesList;
+    @BindView(R.id.search_empty_container) View searchEmptyView;
+    @BindView(R.id.recent_searches_container) View recentSearchesContainer;
+    @BindView(R.id.recent_searches) View recentSearches;
+    @BindView(R.id.recent_searches_delete_button) ImageView deleteButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_recent, container, false);
-        parentFragment = (Parent) getParentFragment();
-        this.container = rootView.findViewById(R.id.recent_searches_container);
-        recentSearchesList = (ListView) rootView.findViewById(R.id.recent_searches_list);
+        ButterKnife.bind(this, rootView);
 
-        deleteButton = (ImageView) rootView.findViewById(R.id.recent_searches_delete_button);
+        parentFragment = (Parent) getParentFragment();
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,11 +74,11 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     }
 
     public void show() {
-        container.setVisibility(View.VISIBLE);
+        recentSearchesContainer.setVisibility(View.VISIBLE);
     }
 
     public void hide() {
-        container.setVisibility(View.GONE);
+        recentSearchesContainer.setVisibility(View.GONE);
     }
 
     @Override
@@ -118,8 +122,9 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             return;
         }
         adapter.swapCursor(cursorLoader);
-        boolean visible = recentSearchesList.getCount() > 0;
-        deleteButton.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+        boolean searchesEmpty = recentSearchesList.getCount() == 0;
+        searchEmptyView.setVisibility(searchesEmpty ? View.VISIBLE : View.INVISIBLE);
+        recentSearches.setVisibility(!searchesEmpty ? View.VISIBLE : View.INVISIBLE);
     }
 
     @Override
