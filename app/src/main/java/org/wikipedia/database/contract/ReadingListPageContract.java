@@ -60,11 +60,38 @@ public final class ReadingListPageContract {
         StrColumn THUMBNAIL_URL = new StrColumn(TABLE_PAGE, "thumbnailUrl", "text");
         StrColumn DESCRIPTION = new StrColumn(TABLE_PAGE, "description", "text");
 
+        // The cumulative size in bytes for an offline page and all page resources downloaded by
+        // SavedPageSyncService. Null or 0 if DiskStatus.ONLINE, not yet downloaded, or not yet
+        // downloaded since these columns were added. Outdated if the saved page cache size is later
+        // exceeded and resources are evicted. Written to by SavedPageSyncService.
+        // Android appears to present the user with logical size in app settings so it is the
+        // preferred metric to display and physical size will likely never be used. Since quantities
+        // are aggregated across files, neither can be derived from the other.
+        // wc -c /data/data/org.wikipedia.dev/files/okhttp-cache/*.[0-9]|tail -n1
+        // stat -c %s /data/data/org.wikipedia.dev/files/okhttp-cache/*.[0-9]
+        LongColumn PHYSICAL_SIZE = new LongColumn(TABLE_PAGE, "physicalSize", "integer");
+        // du -c /data/data/org.wikipedia.dev/files/okhttp-cache/*.[0-9]|tail -n1
+        // Block size: stat -c %B /data/data/org.wikipedia.dev/files/okhttp-cache
+        LongColumn LOGICAL_SIZE = new LongColumn(TABLE_PAGE, "logicalSize", "integer");
+
+        // Example:
+        // 1 Download the Obama article.
+        //   - Physical size recorded by us is 5 729 692 bytes.
+        //   - Logical size recorded by us is 6 754 304 bytes (6 596 kibibytes).
+        // 2 Terminate the app and check the sizes (note: journal size is never included):
+        //   - Physical: wc -c /data/data/org.wikipedia.dev/files/okhttp-cache/*.[0-9]|tail -n1 => 5 729 692 bytes.
+        //   - Logical: du -c /data/data/org.wikipedia.dev/files/okhttp-cache/*.[0-9]|tail -n1 => 6 596 kibibytes.
+        //   - The size of "data" is about 6 868 kibibytes (6.7070313 mebibytes):
+        //     - Calculate the size of all data: du -c /data/data/org.wikipedia.dev|tail -n1 => 13 736 kibibytes.
+        //     - Subtract the size of the cache: du -c /data/data/org.wikipedia.dev/cache|tail -n1 => 6 868 kibibytes.
+        // 3 Open settings: data size is 6.71 mebibytes.
+        // 4 Dump the database records: sqlite3 /data/data/org.wikipedia.dev/databases/wikipedia.db '.dump readinglistpage'
+
         String[] SELECTION = DbUtil.qualifiedNames(KEY);
         String[] ALL = DbUtil.qualifiedNames(ID, KEY, LIST_KEYS, SITE, LANG, NAMESPACE, TITLE,
-                DISK_PAGE_REV, MTIME, ATIME, THUMBNAIL_URL, DESCRIPTION);
+                DISK_PAGE_REV, MTIME, ATIME, THUMBNAIL_URL, DESCRIPTION, PHYSICAL_SIZE, LOGICAL_SIZE);
         String[] CONTENT = DbUtil.qualifiedNames(KEY, LIST_KEYS, SITE, LANG, NAMESPACE, TITLE,
-                DISK_PAGE_REV, MTIME, ATIME, THUMBNAIL_URL, DESCRIPTION);
+                DISK_PAGE_REV, MTIME, ATIME, THUMBNAIL_URL, DESCRIPTION, PHYSICAL_SIZE, LOGICAL_SIZE);
     }
 
     public static final HttpColumns<ReadingListPageRow> HTTP_COLS = new HttpColumns<>(TABLE_HTTP);

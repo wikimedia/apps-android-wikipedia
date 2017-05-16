@@ -1,7 +1,10 @@
 package okhttp3.internal.cache;
 
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
@@ -10,13 +13,25 @@ import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
 import org.wikipedia.test.ImmediateExecutorService;
 import org.wikipedia.test.MockWebServerTest;
 
+import java.nio.charset.StandardCharsets;
+
 import okhttp3.CacheControl;
 import okhttp3.CacheDelegate;
 import okhttp3.Dispatcher;
 import okhttp3.Request;
+import okhttp3.mockwebserver.MockResponse;
+import okio.Buffer;
+import okio.GzipSink;
+import okio.Sink;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.wikipedia.dataclient.okhttp.cache.DiskLruCacheUtil.okHttpResponseBodySize;
+import static org.wikipedia.dataclient.okhttp.cache.DiskLruCacheUtil.okHttpResponseMetadataSize;
 
 public class CacheDelegateInterceptorTest extends MockWebServerTest {
     private static final String URL = "url";
@@ -32,14 +47,84 @@ public class CacheDelegateInterceptorTest extends MockWebServerTest {
         saveCache.remove(req);
     }
 
-    // Sanity check that both caches are truly empty
-    @Test(expected = HttpStatusException.class) public void testAssumptions() throws Throwable {
+    // Both the network and saved cache are expected to be empty after each test's setUp().
+    @Test(expected = HttpStatusException.class) public void testAssumptionCacheIsEmptyAfterSetUp() throws Throwable {
         Request req = newOnlyIfCachedRequest();
 
         assertCached(netCache, req, false);
         assertCached(saveCache, req, false);
 
         executeRequest(req);
+    }
+
+    // The size on disk of an empty body is expected to be zero.
+    @Test public void testAssumptionCacheSizeEmptyBody() throws Throwable {
+        Request req = newRequest();
+        requestResponse("", req);
+
+        DiskLruCache.Snapshot snapshot = netCache.entry(req);
+
+        assertThat(okHttpResponseBodySize(snapshot), is(0L));
+    }
+
+    // The size on disk of a nonempty body is expected to be nonzero.
+    @Test public void testAssumptionCacheSizeNonemptyBody() throws Throwable {
+        Request req = newRequest();
+        requestResponse("A", req);
+
+        DiskLruCache.Snapshot snapshot = netCache.entry(req);
+        assertThat(okHttpResponseBodySize(snapshot), is(1L));
+    }
+
+    // The size on disk of OkHttp metadata is expected to be nonzero.
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Test public void testAssumptionCacheSizeMetadataIsNonzero() throws Throwable {
+        Request req = newRequest();
+        requestResponse("A", req);
+
+        DiskLruCache.Snapshot snapshot = netCache.entry(req);
+
+        // The size on disk of OkHttp metadata overhead is expected to be nonzero and necessary to
+        // consider when calculating disk usage for a page and all of it's resources so that more
+        // just the Content-Length header need be considered for each resource response.
+        assertThat(okHttpResponseMetadataSize(snapshot), notNullValue());
+    }
+
+    // Although OkHttp decompresses gzipped service responses seamlessly, the cache is expected to
+    // persist them in compressed form and report the compressed size, not the decompressed size.
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Test public void testAssumptionCacheSizeCompressedSizeIsReported() throws Throwable {
+        String interval = "0123456789"; // One cycle.
+        String body = StringUtils.repeat(interval, 100_000); // The body is many intervals.
+
+        Buffer buffer = new Buffer();
+        Sink sink = new GzipSink(buffer);
+        Buffer uncompressedBuffer = new Buffer().writeString(body, StandardCharsets.UTF_8);
+        long uncompressedSize = uncompressedBuffer.size();
+        sink.write(uncompressedBuffer, uncompressedBuffer.size());
+        sink.close();
+
+        // The compressed size is expected to be worse than one interval but at least 100x better
+        // than all intervals.
+        long compressedSize = buffer.size();
+        assertThat(compressedSize,
+                allOf(greaterThan((long) interval.length()), lessThan(uncompressedSize / 100L)));
+
+        // Enqueue a compressed response.
+        MockResponse serviceResponse = new MockResponse()
+                .addHeader("Content-Encoding", "gzip")
+                .setBody(buffer);
+        server().enqueue(serviceResponse);
+
+        Request req = newRequest();
+        String rsp = executeRequest(req);
+        server().takeRequest();
+        assertThat(rsp, is(body));
+
+        DiskLruCache.Snapshot snapshot = netCache.entry(req);
+
+        // The size on disk is expected to be the compressed size.
+        assertThat(okHttpResponseBodySize(snapshot), is(compressedSize));
     }
 
     @Test public void testInterceptWriteNetCacheNoHeader() throws Throwable {

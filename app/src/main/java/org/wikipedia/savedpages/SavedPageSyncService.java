@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.okhttp.cache.DiskLruCacheUtil;
 import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
@@ -21,17 +21,22 @@ import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import okhttp3.CacheControl;
 import okhttp3.CacheDelegate;
 import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.internal.cache.DiskLruCache;
 import retrofit2.Call;
 
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.SAVE_CACHE;
@@ -41,10 +46,12 @@ public class SavedPageSyncService extends IntentService {
     @NonNull private final CacheDelegate cacheDelegate = new CacheDelegate(SAVE_CACHE);
     @NonNull private final PageImageUrlParser pageImageUrlParser
             = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
+    private long blockSize;
 
     public SavedPageSyncService() {
         super("SavedPageSyncService");
         dao = ReadingListPageDao.instance();
+        blockSize = FileUtil.blockSize(cacheDelegate.diskLruCache().getDirectory());
     }
 
     @Override protected void onHandleIntent(@Nullable Intent intent) {
@@ -109,41 +116,48 @@ public class SavedPageSyncService extends IntentService {
     private void saveNewEntries(List<ReadingListPageDiskRow> queue) {
         while (!queue.isEmpty()) {
             ReadingListPageDiskRow row = queue.get(0);
-            boolean ok = savePageFor(row);
-            if (!ok) {
+            PageTitle pageTitle = makeTitleFrom(row);
+            if (pageTitle == null) {
+                // todo: won't this fail forever or until the page is marked unsaved / removed somehow?
                 dao.failDiskTransaction(queue);
                 break;
             }
-            dao.completeDiskTransaction(row);
+
+            AggregatedResponseSize size;
+            try {
+                size = savePageFor(pageTitle);
+            } catch (IOException e) {
+                dao.failDiskTransaction(queue);
+                break;
+            }
+
+            ReadingListPageDiskRow rowWithUpdatedSize = new ReadingListPageDiskRow(row,
+                    ReadingListPageRow.builder().copy(row.dat()).logicalSize(size.logicalSize()).physicalSize(size.physicalSize()).build());
+            dao.completeDiskTransaction(rowWithUpdatedSize);
             queue.remove(row);
         }
     }
 
-    private boolean savePageFor(@NonNull ReadingListPageDiskRow row) {
-        PageTitle pageTitle = makeTitleFrom(row);
-        if (pageTitle == null) {
-            return false;
-        }
+    @NonNull private AggregatedResponseSize savePageFor(@NonNull PageTitle pageTitle) throws IOException {
+        AggregatedResponseSize size = new AggregatedResponseSize(0, 0, 0);
+
+        Call<PageLead> leadCall = reqPageLead(null, pageTitle);
+        Call<PageRemaining> sectionsCall = reqPageSections(null, pageTitle);
+
+        retrofit2.Response<PageLead> leadRsp = leadCall.execute();
+        size = size.add(responseSize(leadRsp));
+        retrofit2.Response<PageRemaining> sectionsRsp = sectionsCall.execute();
+        size = size.add(responseSize(sectionsRsp));
+
+        Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
+        imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
+
+        size = size.add(reqSaveImage(pageTitle.getWikiSite(), imageUrls));
 
         String title = pageTitle.getPrefixedText();
-        ImmutablePair<PageLead, PageRemaining> page;
-        try {
-            page = reqPage(null, pageTitle);
-            reqSaveImage(pageTitle.getWikiSite(), pageImageUrlParser.parse(page.getLeft()));
-            reqSaveImage(pageTitle.getWikiSite(), pageImageUrlParser.parse(page.getRight()));
-        } catch (IOException e) {
-            L.e("Failed to save page " + title, e);
-            return false;
-        }
-        L.i("Saved page " + title);
-        return true;
-    }
+        L.i("Saved page " + title + " (" + size + ")");
 
-    @NonNull private ImmutablePair<PageLead, PageRemaining> reqPage(@Nullable CacheControl cacheControl,
-                                                                    @NonNull PageTitle pageTitle) throws IOException {
-        PageLead lead = reqPageLead(cacheControl, pageTitle).execute().body();
-        PageRemaining sections = reqPageSections(cacheControl, pageTitle).execute().body();
-        return new ImmutablePair<>(lead, sections);
+        return size;
     }
 
     @NonNull private Call<PageLead> reqPageLead(@Nullable CacheControl cacheControl,
@@ -169,18 +183,25 @@ public class SavedPageSyncService extends IntentService {
         return client.sections(cacheControl, cacheOption, title, noImages);
     }
 
-    private void reqSaveImage(@NonNull WikiSite wiki, @NonNull List<String> urls) throws IOException {
+    private AggregatedResponseSize reqSaveImage(@NonNull WikiSite wiki, @NonNull Iterable<String> urls) throws IOException {
+        AggregatedResponseSize size = new AggregatedResponseSize(0, 0, 0);
         for (String url : urls) {
-            reqSaveImage(wiki, url);
+            size = size.add(reqSaveImage(wiki, url));
         }
+        return size;
     }
 
-    private void reqSaveImage(@NonNull WikiSite wiki, @NonNull String url) throws IOException {
+    @NonNull private ResponseSize reqSaveImage(@NonNull WikiSite wiki, @NonNull String url) throws IOException {
         Request request = saveImageReq(wiki, url);
+
+        Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();
 
         // Note: raw non-Retrofit usage of OkHttp Requests requires that the Response body is read
         // for the cache to be written.
-        OkHttpConnectionFactory.getClient().newCall(request).execute().body().close();
+        rsp.body().close();
+
+        // Size must be checked after the body has been written.
+        return responseSize(rsp);
     }
 
     @NonNull private Request saveImageReq(@NonNull WikiSite wiki, @NonNull String url) {
@@ -189,6 +210,24 @@ public class SavedPageSyncService extends IntentService {
                 .addHeader(SaveHeader.FIELD, SaveHeader.VAL_ENABLED)
                 .url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
                 .build();
+    }
+
+    @NonNull private ResponseSize responseSize(@NonNull Response rsp) {
+        return responseSize(rsp.request());
+    }
+
+    @NonNull private ResponseSize responseSize(@NonNull retrofit2.Response rsp) {
+        return responseSize(rsp.raw().request());
+    }
+
+    @NonNull private ResponseSize responseSize(@NonNull Request req) {
+        return responseSize(cacheDelegate.entry(req));
+    }
+
+    @NonNull private ResponseSize responseSize(@Nullable DiskLruCache.Snapshot snapshot) {
+        long metadataSize = DiskLruCacheUtil.okHttpResponseMetadataSize(snapshot);
+        long bodySize = DiskLruCacheUtil.okHttpResponseBodySize(snapshot);
+        return new ResponseSize(metadataSize, bodySize);
     }
 
     @Nullable private PageTitle makeTitleFrom(@NonNull ReadingListPageDiskRow row) {
@@ -203,4 +242,67 @@ public class SavedPageSyncService extends IntentService {
     @NonNull private PageClient newPageClient(@NonNull PageTitle title) {
         return PageClientFactory.create(title.getWikiSite(), title.namespace());
     }
+
+    private static class AggregatedResponseSize {
+        private final long physicalSize;
+        private final long logicalSize;
+        private final int responsesAggregated;
+
+        AggregatedResponseSize(long physicalSize, long logicalSize, int responsesAggregated) {
+            this.physicalSize = physicalSize;
+            this.logicalSize = logicalSize;
+            this.responsesAggregated = responsesAggregated;
+        }
+
+        @Override public String toString() {
+            return "responses=" + responsesAggregated() + " physical=" + physicalSize() + "B logical=" + logicalSize() + "B";
+        }
+
+        long physicalSize() {
+            return physicalSize;
+        }
+
+        // The size on disk.
+        long logicalSize() {
+            return logicalSize;
+        }
+
+        int responsesAggregated() {
+            return responsesAggregated;
+        }
+
+        @NonNull AggregatedResponseSize add(@NonNull ResponseSize size) {
+            return new AggregatedResponseSize(physicalSize + size.physicalSize(),
+                    logicalSize + size.logicalSize(), responsesAggregated() + 1);
+        }
+
+        @NonNull AggregatedResponseSize add(@NonNull AggregatedResponseSize size) {
+            return new AggregatedResponseSize(physicalSize + size.physicalSize(),
+                    logicalSize + size.logicalSize(), responsesAggregated() + size.responsesAggregated());
+        }
+    }
+
+    private class ResponseSize {
+        private final long metadataSize;
+        private final long bodySize;
+
+        ResponseSize(long metadataSize, long bodySize) {
+            this.metadataSize = metadataSize;
+            this.bodySize = bodySize;
+        }
+
+        @Override public String toString() {
+            return "physical metadata=" + metadataSize + "B physical body=" + bodySize
+                    + "B physical=" + physicalSize() + "B logical=" + logicalSize() + "B";
+        }
+
+        long physicalSize() {
+            return metadataSize + bodySize;
+        }
+
+        long logicalSize() {
+            return FileUtil.physicalToLogicalSize(metadataSize, blockSize)
+                    + FileUtil.physicalToLogicalSize(bodySize, blockSize);
+        }
+     }
 }
