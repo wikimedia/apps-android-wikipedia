@@ -1,16 +1,23 @@
 package org.wikipedia.page;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -102,7 +109,7 @@ public class PageFragmentLoadState {
     private LeadImagesHandler leadImagesHandler;
     private PageToolbarHideHandler toolbarHideHandler;
     private EditHandler editHandler;
-
+    private AlertDialog.Builder alertDialogBuilder;
     private BottomContentInterface bottomContentHandler;
 
     @SuppressWarnings("checkstyle:parameternumber")
@@ -121,9 +128,9 @@ public class PageFragmentLoadState {
         this.bridge = bridge;
         this.toolbarHideHandler = toolbarHideHandler;
         this.leadImagesHandler = leadImagesHandler;
-
         setUpBridgeListeners();
-
+        if (!isNetworkAvailable())
+            Toast.makeText(app.getApplicationContext(),R.string.dialog_offline,Toast.LENGTH_LONG).show();
         bottomContentHandler = new BottomContentHandler(fragment, bridge, webView,
                 fragment.getLinkHandler(),
                 (ViewGroup) fragment.getView().findViewById(R.id.bottom_content_container));
@@ -659,6 +666,26 @@ public class PageFragmentLoadState {
                     sequenceNumber.get() - 1));
         }
     }
+
+    private boolean isNetworkAvailable(){
+        ConnectivityManager connectivityManager = (ConnectivityManager) app.getApplicationContext().getSystemService(app.getApplicationContext().CONNECTIVITY_SERVICE);
+        if(connectivityManager==null){
+            return false;
+        }
+        else{
+            NetworkInfo[] networkInfos=connectivityManager.getAllNetworkInfo();
+            if (networkInfos!=null){
+                for (int i=0;i<networkInfos.length;i++){
+                    if(networkInfos[i].getState()==NetworkInfo.State.CONNECTED){
+                        Log.w("log_tag","internet available");
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
 
     /**
      * Monotonically increasing sequence number to maintain synchronization when loading page

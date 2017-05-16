@@ -1,6 +1,8 @@
 package org.wikipedia.settings;
 
+import android.app.Activity;
 import android.content.Context;
+import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDialog;
@@ -10,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
@@ -46,8 +51,6 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
         app = WikipediaApp.getInstance();
         languageCodes = app.getAppMruLanguageCodes();
         funnel = new AppLanguageSelectFunnel(initiatedFromSearchBar);
-
-        enableInitialSoftInputFocus();
     }
 
     @Override
@@ -102,12 +105,6 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
     public void cancel() {
         funnel.logCancel();
         super.cancel();
-    }
-
-    private void enableInitialSoftInputFocus() {
-        int mode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
-                | WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE;
-        getWindow().setSoftInputMode(mode);
     }
 
     private static final class LanguagesAdapter extends BaseAdapter {
