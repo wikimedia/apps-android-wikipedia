@@ -34,13 +34,14 @@ public class PageItemView<T> extends FrameLayout {
         boolean onLongClick(@Nullable T item);
         void onThumbClick(@Nullable T item);
         void onActionClick(@Nullable T item, @NonNull PageItemView view);
+        void onSecondaryActionClick(@Nullable T item, @NonNull PageItemView view);
     }
 
     @BindView(R.id.page_list_item_title) TextView titleView;
     @BindView(R.id.page_list_item_description) TextView descriptionView;
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
-    @BindView(R.id.page_list_item_action_button) ImageView actionView;
-    @BindView(R.id.page_list_item_status_icon) ImageView statusIconView;
+    @BindView(R.id.page_list_item_action_primary) ImageView primaryActionView;
+    @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
     @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
 
@@ -74,17 +75,23 @@ public class PageItemView<T> extends FrameLayout {
     }
 
     public void setActionIcon(@DrawableRes int id) {
-        actionView.setImageResource(id);
-        actionView.setVisibility(VISIBLE);
+        primaryActionView.setImageResource(id);
+        primaryActionView.setVisibility(VISIBLE);
     }
 
     public void setActionHint(@StringRes int id) {
-        actionView.setContentDescription(getContext().getString(id));
+        primaryActionView.setContentDescription(getContext().getString(id));
     }
 
-    public void setStatusIcon(@DrawableRes int id, boolean show) {
-        statusIconView.setImageResource(id);
-        statusIconView.setVisibility(show ? VISIBLE : GONE);
+    public void setSecondaryActionIcon(@DrawableRes int id, boolean show) {
+        if (show) {
+            secondaryActionView.setImageResource(id);
+        }
+        secondaryActionView.setVisibility(show ? VISIBLE : GONE);
+    }
+
+    public void setSecondaryActionHint(@StringRes int id) {
+        secondaryActionView.setContentDescription(getContext().getString(id));
     }
 
     public void setHeaderText(@Nullable CharSequence text) {
@@ -117,9 +124,15 @@ public class PageItemView<T> extends FrameLayout {
         }
     }
 
-    @OnClick(R.id.page_list_item_action_button) void onActionClick() {
+    @OnClick(R.id.page_list_item_action_primary) void onActionClick() {
         if (callback != null) {
             callback.onActionClick(item, this);
+        }
+    }
+
+    @OnClick(R.id.page_list_item_action_secondary) void onSecondaryActionClick() {
+        if (callback != null) {
+            callback.onSecondaryActionClick(item, this);
         }
     }
 
@@ -130,7 +143,8 @@ public class PageItemView<T> extends FrameLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        FeedbackUtil.setToolbarButtonLongPressToast(actionView);
+        FeedbackUtil.setToolbarButtonLongPressToast(primaryActionView);
+        FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
     private void updateSelectedState() {

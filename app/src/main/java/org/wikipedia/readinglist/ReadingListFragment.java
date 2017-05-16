@@ -546,7 +546,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setSelected(page.isSelected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
-            getView().setStatusIcon(R.drawable.ic_download_circle_black_24px, !page.isOffline());
+            getView().setSecondaryActionIcon(R.drawable.ic_download_circle_black_24px, !page.isOffline());
+            getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
         }
 
         @Override
@@ -637,6 +638,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
                     ReadingListItemActionsDialog.newInstance(page, readingList));
+        }
+
+        @Override
+        public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull PageItemView view) {
+            if (page != null) {
+                toggleOffline(page);
+            }
         }
     }
 
