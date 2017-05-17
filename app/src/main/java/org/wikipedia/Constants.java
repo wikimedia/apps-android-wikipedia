@@ -10,6 +10,10 @@ public final class Constants {
     public static final String WIKIPEDIA_URL = "https://wikipedia.org/";
     public static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
 
+    public static final String ACCEPT_HEADER_PREFIX = "accept: application/json; charset=utf-8; "
+            + "profile=\"https://www.mediawiki.org/wiki/Specs/";
+    public static final String ACCEPT_HEADER_SUMMARY = ACCEPT_HEADER_PREFIX + "summary/1.1.2\"";
+
     public static final int ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 44;
     public static final int ACTIVITY_REQUEST_VOICE_SEARCH = 45;
     public static final int ACTIVITY_REQUEST_LANGLINKS = 50;

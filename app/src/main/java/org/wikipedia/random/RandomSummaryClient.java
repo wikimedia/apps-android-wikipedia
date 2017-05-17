@@ -15,6 +15,9 @@ import org.wikipedia.util.log.L;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
+
+import static org.wikipedia.Constants.ACCEPT_HEADER_SUMMARY;
 
 public class RandomSummaryClient {
     @NonNull private final WikiCachedService<Service> cachedService
@@ -51,6 +54,7 @@ public class RandomSummaryClient {
     }
 
     @VisibleForTesting interface Service {
+        @Headers(ACCEPT_HEADER_SUMMARY)
         @GET("page/random/summary")
         @NonNull Call<RbPageSummary> get();
     }

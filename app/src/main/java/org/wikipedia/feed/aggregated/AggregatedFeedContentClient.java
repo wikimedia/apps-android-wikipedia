@@ -28,6 +28,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
 
+import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
+
 public class AggregatedFeedContentClient implements FeedClient {
 
     @Nullable private Call<AggregatedFeedContent> call;
@@ -63,8 +65,7 @@ public class AggregatedFeedContentClient implements FeedClient {
          * @param day two-digit day
          */
         @NonNull
-        @Headers("accept: application/json; charset=utf-8; "
-                + "profile=\"https://www.mediawiki.org/wiki/Specs/aggregated-feed/0.5.0\"")
+        @Headers(ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
         @GET("feed/featured/{year}/{month}/{day}")
         Call<AggregatedFeedContent> get(@Path("year") String year,
                                         @Path("month") String month,

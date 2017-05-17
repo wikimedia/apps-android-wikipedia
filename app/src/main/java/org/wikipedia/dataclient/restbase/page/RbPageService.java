@@ -15,21 +15,25 @@ import retrofit2.http.Headers;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
+import static org.wikipedia.Constants.ACCEPT_HEADER_SUMMARY;
+
 /**
  * Retrofit service for mobile content service endpoints.
  */
 public interface RbPageService {
-    String ACCEPT_HEADER_MOBILE_SECTIONS = "accept: application/json; charset=utf-8; "
-            + "profile=\"https://www.mediawiki.org/wiki/Specs/mobile-sections/0.10.2\"";
-    String ACCEPT_HEADER_DEFINITION = "accept: application/json; charset=utf-8; "
-            + "profile=\"https://www.mediawiki.org/wiki/Specs/definition/0.7.1\"";
+    String ACCEPT_HEADER_MOBILE_SECTIONS = ACCEPT_HEADER_PREFIX + "mobile-sections/0.10.2\"";
+    String ACCEPT_HEADER_DEFINITION = ACCEPT_HEADER_PREFIX + "definition/0.7.1\"";
 
     /**
      * Gets a page summary for a given title -- for link previews
      *
      * @param title the page title to be used including prefix
      */
-    @Headers("x-analytics: preview=1")
+    @Headers({
+            "x-analytics: preview=1",
+            ACCEPT_HEADER_SUMMARY
+    })
     @GET("page/summary/{title}")
     @NonNull Call<RbPageSummary> summary(@NonNull @Path("title") String title);
 
