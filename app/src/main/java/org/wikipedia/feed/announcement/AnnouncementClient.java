@@ -25,6 +25,8 @@ import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 
+import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
+
 public class AnnouncementClient implements FeedClient {
     private static final String PLATFORM_CODE = "AndroidApp";
 
@@ -52,12 +54,11 @@ public class AnnouncementClient implements FeedClient {
 
     @VisibleForTesting
     interface Service {
-
         /**
          * Gets a list of announcements that are currently in effect.
          */
         @NonNull
-        @Headers("accept: application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/announcements/0.1.0\"")
+        @Headers(ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
         @GET("feed/announcements")
         Call<AnnouncementList> get();
     }
