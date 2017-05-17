@@ -43,78 +43,10 @@
                     android:orientation="vertical"
                     android:visibility="gone">
 
-                    <!-- Read more -->
-                    <LinearLayout
-                        android:id="@+id/read_more_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingTop="@dimen/list_item_vertical_padding"
-                        android:paddingBottom="@dimen/list_item_vertical_padding"
-                        android:visibility="gone">
-                        <org.wikipedia.views.ConfigurableTextView
-                            android:id="@+id/read_more_header"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:paddingRight="@dimen/list_item_horizontal_padding"
-                            android:paddingBottom="16dp"
-                            android:paddingLeft="@dimen/list_item_horizontal_padding"
-                            android:fontFamily="serif"
-                            android:textSize="24sp"
-                            android:text="@string/read_more_section" />
-                        <org.wikipedia.views.ConfigurableListView
-                            android:id="@+id/read_more_list"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp" />
-                    </LinearLayout>
+                    <include layout="@layout/fragment_page_read_more"/>
 
-                    <!-- Bottom content (view in browser link, license, last updated) -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingBottom="16dp"
-                        android:background="?attr/subtle_gray_color">
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="8dp"
-                            android:background="@drawable/toolbar_bottom_shadow"/>
+                    <include layout="@layout/fragment_page_bottom_content"/>
 
-                        <TextView
-                            android:id="@+id/page_external_link"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="8dp"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            style="?android:textAppearanceSmall"
-                            android:text="@string/page_view_in_browser"
-                            android:textColor="?attr/link_color"
-                            android:gravity="center"/>
-                        <TextView
-                            android:id="@+id/page_last_updated_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            style="?android:textAppearanceSmall"
-                            android:textIsSelectable="true"
-                            android:textColorLink="?attr/link_color"/>
-                        <TextView
-                            android:id="@+id/page_license_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="8dp"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            style="?android:textAppearanceSmall"
-                            android:textIsSelectable="true"
-                            android:textColorLink="?attr/link_color"
-                            android:gravity="center"/>
-                    </LinearLayout>
                 </LinearLayout>
 
                 <org.wikipedia.views.WikiErrorView
@@ -141,47 +73,7 @@
 
         </org.wikipedia.views.SwipeRefreshLayoutWithScroll>
 
-        <!-- Table of contents -->
-        <FrameLayout
-                android:layout_width="288dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end">
-
-            <ProgressBar
-                android:id="@+id/page_toc_in_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:progressBarStyleLarge"
-                android:indeterminate="true"
-                android:layout_gravity="center" />
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical">
-
-                <View android:layout_width="@dimen/shadow_thickness"
-                      android:layout_height="match_parent"
-                      android:background="@drawable/toc_shadow" />
-
-                <FrameLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:background="?attr/toc_background_color">
-
-                    <org.wikipedia.views.ConfigurableListView
-                            android:id="@+id/page_toc_list"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:visibility="gone"
-                            android:choiceMode="singleChoice" />
-                </FrameLayout>
-
-            </LinearLayout>
-
-        </FrameLayout>
+        <include layout="@layout/fragment_page_toc"/>
 
     </org.wikipedia.views.WikiDrawerLayout>
 
