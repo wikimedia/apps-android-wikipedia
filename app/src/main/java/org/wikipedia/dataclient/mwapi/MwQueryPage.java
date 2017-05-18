@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 
@@ -23,6 +24,7 @@ public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") @Nullable private List<Coordinates> coordinates;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable private Terms terms;
+    @SuppressWarnings("unused") @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
 
     @NonNull public String title() {
         return title;
@@ -51,6 +53,10 @@ public class MwQueryPage extends BaseModel {
 
     @Nullable public String description() {
         return terms != null && terms.description() != null ? terms.description().get(0) : null;
+    }
+
+    @Nullable public ImageInfo imageInfo() {
+        return imageInfo != null ? imageInfo.get(0) : null;
     }
 
     public static class Revision {

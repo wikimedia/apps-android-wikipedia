@@ -6,7 +6,7 @@ import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.mwapi.MwQueryImageLicensePage;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 
@@ -22,17 +22,17 @@ public class ImageLicenseFetchClient {
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull List<MwQueryImageLicensePage> results);
+        void success(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull ImageLicense result);
         void failure(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull Throwable caught);
     }
 
     public Call<MwQueryResponse<QueryResult>> request(@NonNull WikiSite wiki,
                                                       @NonNull PageTitle title,
                                                       @NonNull Callback cb) {
-        return request(wiki, cachedService.service(wiki), title, cb);
+        return request(cachedService.service(wiki), title, cb);
     }
 
-    @VisibleForTesting Call<MwQueryResponse<QueryResult>> request(final WikiSite wiki, @NonNull Service service,
+    @VisibleForTesting Call<MwQueryResponse<QueryResult>> request(@NonNull Service service,
                                                                   @NonNull final PageTitle title,
                                                                   @NonNull final Callback cb) {
         Call<MwQueryResponse<QueryResult>> call = service.request(title.toString());
@@ -40,9 +40,15 @@ public class ImageLicenseFetchClient {
         call.enqueue(new retrofit2.Callback<MwQueryResponse<QueryResult>>() {
             @Override public void onResponse(Call<MwQueryResponse<QueryResult>> call,
                                              Response<MwQueryResponse<QueryResult>> response) {
-                if (response.body().success()) {
-                    cb.success(call, response.body().query().pages());
+                if (response.body().success()
+                        && response.body().query().pages() != null
+                        && response.body().query().pages().get(0) != null) {
+                    MwQueryPage page = response.body().query().pages().get(0);
+                    cb.success(call, page.imageInfo() != null && page.imageInfo().getMetadata() != null
+                            ? new ImageLicense(page.imageInfo().getMetadata())
+                            : new ImageLicense());
                 } else if (response.body().hasError()) {
+                    // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
                 } else {
                     cb.failure(call, new IOException("An unknown error occurred."));
@@ -58,10 +64,9 @@ public class ImageLicenseFetchClient {
         return call;
     }
 
-
     public class QueryResult {
-        @SuppressWarnings("unused") @Nullable private List<MwQueryImageLicensePage> pages;
-        @Nullable List<MwQueryImageLicensePage> pages() {
+        @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
+        @Nullable List<MwQueryPage> pages() {
             return pages;
         }
     }

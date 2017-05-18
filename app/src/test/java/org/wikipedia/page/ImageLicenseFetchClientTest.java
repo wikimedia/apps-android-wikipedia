@@ -8,12 +8,9 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.mwapi.MwQueryImageLicensePage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.test.MockWebServerTest;
-
-import java.util.List;
 
 import retrofit2.Call;
 
@@ -41,16 +38,14 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
         Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call = request(cb);
 
         server().takeRequest();
-        ArgumentCaptor<List> captor = ArgumentCaptor.forClass(List.class);
+        ArgumentCaptor<ImageLicense> captor = ArgumentCaptor.forClass(ImageLicense.class);
         verify(cb).success(eq(call), captor.capture());
 
-        List<MwQueryImageLicensePage> result = captor.getValue();
-        MwQueryImageLicensePage mark = result.get(0);
+        ImageLicense result = captor.getValue();
 
-        assertThat(mark.title(), is("File:Mark Selby at Snooker German Masters (DerHexer) 2015-02-04 02.jpg"));
-        assertThat(mark.imageLicense(), is("cc-by-sa-4.0"));
-        assertThat(mark.imageLicenseShortName(), is("CC BY-SA 4.0"));
-        assertThat(mark.imageLicenseUrl(), is("http://creativecommons.org/licenses/by-sa/4.0"));
+        assertThat(result.getLicense(), is("cc-by-sa-4.0"));
+        assertThat(result.getLicenseShortName(), is("CC BY-SA 4.0"));
+        assertThat(result.getLicenseUrl(), is("http://creativecommons.org/licenses/by-sa/4.0"));
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
@@ -87,13 +82,12 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
                                        @NonNull ImageLicenseFetchClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(List.class));
+        verify(cb, never()).success(any(Call.class), any(ImageLicense.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 
     private Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> request(
             @NonNull ImageLicenseFetchClient.Callback cb) {
-        return subject.request(WIKISITE_TEST, service(ImageLicenseFetchClient.Service.class),
-                               PAGE_TITLE_MARK_SELBY, cb);
+        return subject.request(service(ImageLicenseFetchClient.Service.class), PAGE_TITLE_MARK_SELBY, cb);
     }
 }

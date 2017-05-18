@@ -25,7 +25,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.dataclient.mwapi.MwQueryImageLicensePage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchClient;
@@ -45,7 +44,6 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.Arrays;
-import java.util.List;
 
 import retrofit2.Call;
 
@@ -140,19 +138,13 @@ public class ShareHandler {
                               title.getWikiSite()),
                 new ImageLicenseFetchClient.Callback() {
                     @Override public void success(@NonNull Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call,
-                                                  @NonNull List<MwQueryImageLicensePage> pages) {
-                        MwQueryImageLicensePage page = pages.get(0);
-                        ImageLicense leadImageLicense = new ImageLicense(page.imageLicense(),
-                                page.imageLicenseShortName(),
-                                page.imageLicenseUrl());
-
+                                                  @NonNull ImageLicense result) {
                         final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.getContext(),
                                 fragment.getLeadImageBitmap(),
                                 title.getDisplayText(),
                                 fragment.getPage().isMainPage() ? "" : StringUtils.capitalize(title.getDescription()),
                                 selectedText,
-                                leadImageLicense);
-
+                                result);
                         fragment.showBottomSheet(new PreviewDialog(fragment, snippetBitmap, title, selectedText, funnel));
                     }
 

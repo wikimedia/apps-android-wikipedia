@@ -4,6 +4,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
+import org.wikipedia.gallery.ExtMetadata;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -15,14 +16,20 @@ public class ImageLicense {
     @NonNull private final String licenseShortName;
     @NonNull private final String licenseUrl;
 
-    public ImageLicense() {
-        this("", "", "");
+    public ImageLicense(@NonNull ExtMetadata metadata) {
+        this.license = metadata.license() != null ? metadata.license().value() : "";
+        this.licenseShortName = metadata.licenseShortName() != null ? metadata.licenseShortName().value() : "";
+        this.licenseUrl = metadata.licenseUrl() != null ? metadata.licenseUrl().value() : "";
     }
 
     public ImageLicense(@NonNull String license, @NonNull String licenseShortName, @NonNull String licenseUrl) {
         this.license = license;
         this.licenseShortName = licenseShortName;
         this.licenseUrl = licenseUrl;
+    }
+
+    public ImageLicense() {
+        this("", "", "");
     }
 
     @NonNull public String getLicense() {
