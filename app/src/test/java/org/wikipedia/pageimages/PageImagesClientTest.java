@@ -39,7 +39,7 @@ public class PageImagesClientTest extends MockWebServerTest {
         enqueueFromFile("reading_list_page_info.json");
 
         PageImagesClient.Callback cb = mock(PageImagesClient.Callback.class);
-        Call<MwQueryResponse<PageImagesClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
 
@@ -61,7 +61,7 @@ public class PageImagesClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         PageImagesClient.Callback cb = mock(PageImagesClient.Callback.class);
-        Call<MwQueryResponse<PageImagesClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -71,7 +71,7 @@ public class PageImagesClientTest extends MockWebServerTest {
         enqueue404();
 
         PageImagesClient.Callback cb = mock(PageImagesClient.Callback.class);
-        Call<MwQueryResponse<PageImagesClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -81,13 +81,13 @@ public class PageImagesClientTest extends MockWebServerTest {
         server().enqueue("'");
 
         PageImagesClient.Callback cb = mock(PageImagesClient.Callback.class);
-        Call<MwQueryResponse<PageImagesClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<PageImagesClient.QueryResult>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                        @NonNull PageImagesClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -95,7 +95,7 @@ public class PageImagesClientTest extends MockWebServerTest {
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<MwQueryResponse<PageImagesClient.QueryResult>> request(@NonNull PageImagesClient.Callback cb) {
+    private Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull PageImagesClient.Callback cb) {
         return subject.request(WIKISITE_TEST, service(PageImagesClient.Service.class),
                 Arrays.asList(PAGE_TITLE_BIDEN, PAGE_TITLE_OBAMA), cb);
     }

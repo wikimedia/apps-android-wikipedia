@@ -36,14 +36,11 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     private static final int MAX_CACHE_SIZE_IMAGES = 24;
     @NonNull private final LruCache<String, String> pageImagesCache = new LruCache<>(MAX_CACHE_SIZE_IMAGES);
     private final DisambigResult[] items;
-    private final WikipediaApp app;
-    private final WikiSite wiki;
+    private final WikiSite wiki = WikipediaApp.getInstance().getWikiSite();
 
     DisambigListAdapter(@NonNull Context context, @NonNull DisambigResult[] items) {
         super(context, 0, items);
         this.items = items;
-        app = (WikipediaApp) getContext().getApplicationContext();
-        wiki = app.getWikiSite();
         requestPageImages();
         fetchDescriptions();
     }
@@ -62,7 +59,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
 
         new PageImagesClient().request(wiki, titleList,
                 new PageImagesClient.Callback() {
-                    @Override public void success(@NonNull Call<MwQueryResponse<PageImagesClient.QueryResult>> call,
+                    @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                                   @NonNull Map<PageTitle, PageImage> results) {
                         for (Map.Entry<PageTitle, PageImage> entry : results.entrySet()) {
                             if (entry.getValue() == null || entry.getValue().getImageName() == null) {
@@ -72,7 +69,8 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
                         }
                         notifyDataSetInvalidated();
                     }
-                    @Override public void failure(@NonNull Call<MwQueryResponse<PageImagesClient.QueryResult>> call, @NonNull Throwable caught) {
+                    @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                                                  @NonNull Throwable caught) {
                         // Don't actually do anything.
                         // Thumbnails are expendable
                     }
@@ -92,7 +90,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         }
 
         new GetDescriptionsClient().request(wiki, titleList, new GetDescriptionsClient.Callback() {
-            @Override public void success(@NonNull Call<MwQueryResponse<GetDescriptionsClient.QueryResult>> call,
+            @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                           @NonNull List<MwQueryPage> results) {
                 for (MwQueryPage page : results) {
                     PageTitle pageTitle = new PageTitle(null, page.title(), wiki);
@@ -106,7 +104,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
                 }
                 notifyDataSetChanged();
             }
-            @Override public void failure(@NonNull Call<MwQueryResponse<GetDescriptionsClient.QueryResult>> call,
+            @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                           @NonNull Throwable caught) {
                 // descriptions are expendable
             }

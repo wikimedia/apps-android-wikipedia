@@ -65,7 +65,7 @@ final class ReadingListPageDetailFetcher {
         @Override public void handleBatch(@NonNull final List<PageTitle> titles, final int total,
                                           final BatchUtil.Callback<MwQueryPage> outerCallback) {
             CLIENT.request(titles.get(0).getWikiSite(), titles, new ReadingListPageInfoClient.Callback() {
-                @Override public void success(@NonNull Call<MwQueryResponse<ReadingListPageInfoClient.QueryResult>> call,
+                @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                               @NonNull List<MwQueryPage> queryResults) {
                     results.addAll(queryResults);
 
@@ -74,7 +74,7 @@ final class ReadingListPageDetailFetcher {
                     }
                 }
 
-                @Override public void failure(@NonNull Call<MwQueryResponse<ReadingListPageInfoClient.QueryResult>> call,
+                @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                               @NonNull Throwable caught) {
                     L.w(caught);
                     outerCallback.failure(caught);

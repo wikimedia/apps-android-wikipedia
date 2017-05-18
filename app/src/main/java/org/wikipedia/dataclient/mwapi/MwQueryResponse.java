@@ -5,6 +5,8 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class MwQueryResponse<T> extends MwResponse {
 
     @SuppressWarnings("unused") @SerializedName("batchcomplete")
@@ -27,5 +29,13 @@ public class MwQueryResponse<T> extends MwResponse {
     @VisibleForTesting
     protected void setQuery(@Nullable T query) {
         this.query = query;
+    }
+
+    public static class Pages {
+        private List<MwQueryPage> pages;
+
+        public List<MwQueryPage> pages() {
+            return pages;
+        }
     }
 }

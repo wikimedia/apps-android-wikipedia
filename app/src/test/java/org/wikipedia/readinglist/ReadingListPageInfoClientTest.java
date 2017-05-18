@@ -35,7 +35,7 @@ public class ReadingListPageInfoClientTest extends MockWebServerTest {
         enqueueFromFile("reading_list_page_info.json");
 
         ReadingListPageInfoClient.Callback cb = mock(ReadingListPageInfoClient.Callback.class);
-        Call<MwQueryResponse<ReadingListPageInfoClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
 
@@ -59,7 +59,7 @@ public class ReadingListPageInfoClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         ReadingListPageInfoClient.Callback cb = mock(ReadingListPageInfoClient.Callback.class);
-        Call<MwQueryResponse<ReadingListPageInfoClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -69,7 +69,7 @@ public class ReadingListPageInfoClientTest extends MockWebServerTest {
         enqueue404();
 
         ReadingListPageInfoClient.Callback cb = mock(ReadingListPageInfoClient.Callback.class);
-        Call<MwQueryResponse<ReadingListPageInfoClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -79,13 +79,13 @@ public class ReadingListPageInfoClientTest extends MockWebServerTest {
         server().enqueue("'");
 
         ReadingListPageInfoClient.Callback cb = mock(ReadingListPageInfoClient.Callback.class);
-        Call<MwQueryResponse<ReadingListPageInfoClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<ReadingListPageInfoClient.QueryResult>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                        @NonNull ReadingListPageInfoClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -93,7 +93,7 @@ public class ReadingListPageInfoClientTest extends MockWebServerTest {
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<MwQueryResponse<ReadingListPageInfoClient.QueryResult>> request(@NonNull ReadingListPageInfoClient.Callback cb) {
+    private Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull ReadingListPageInfoClient.Callback cb) {
         return subject.request(service(ReadingListPageInfoClient.Service.class),
                 Collections.singletonList(new PageTitle("test", WikiSite.forLanguageCode("test"))), cb);
     }

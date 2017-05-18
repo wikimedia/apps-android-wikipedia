@@ -1,7 +1,6 @@
 package org.wikipedia.wikidata;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
@@ -24,27 +23,32 @@ public class GetDescriptionsClient {
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull List<MwQueryPage> results);
-        void failure(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull Throwable caught);
+        void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                     @NonNull List<MwQueryPage> results);
+        void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                     @NonNull Throwable caught);
     }
 
-    public Call<MwQueryResponse<QueryResult>> request(@NonNull WikiSite wiki,
+    public Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull WikiSite wiki,
                                                       @NonNull List<PageTitle> titles,
                                                       @NonNull Callback cb) {
-        return request(wiki, cachedService.service(wiki), titles, cb);
+        return request(cachedService.service(wiki), titles, cb);
     }
 
-    @VisibleForTesting Call<MwQueryResponse<QueryResult>> request(final WikiSite wiki, @NonNull Service service,
-                                                                  @NonNull final List<PageTitle> titles,
-                                                                  @NonNull final Callback cb) {
-        Call<MwQueryResponse<QueryResult>> call = service.request(TextUtils.join("|", titles));
+    @VisibleForTesting
+    Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull Service service,
+                                                         @NonNull final List<PageTitle> titles,
+                                                         @NonNull final Callback cb) {
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(TextUtils.join("|", titles));
 
-        call.enqueue(new retrofit2.Callback<MwQueryResponse<QueryResult>>() {
-            @Override public void onResponse(Call<MwQueryResponse<QueryResult>> call,
-                                             Response<MwQueryResponse<QueryResult>> response) {
+        call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
+            @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                                             Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
                 if (response.body().success()) {
+                    // noinspection ConstantConditions
                     cb.success(call, response.body().query().pages());
                 } else if (response.body().hasError()) {
+                    // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
                 } else {
                     cb.failure(call, new IOException("An unknown error occurred."));
@@ -52,7 +56,7 @@ public class GetDescriptionsClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse<QueryResult>> call, Throwable t) {
+            public void onFailure(Call<MwQueryResponse<MwQueryResponse.Pages>> call, Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -60,16 +64,9 @@ public class GetDescriptionsClient {
         return call;
     }
 
-    public class QueryResult {
-        @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
-        @Nullable List<MwQueryPage> pages() {
-            return pages;
-        }
-    }
-
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageterms&wbptterms=description")
-        Call<MwQueryResponse<QueryResult>> request(@NonNull @Query("titles") String titles);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles);
 
     }
 }

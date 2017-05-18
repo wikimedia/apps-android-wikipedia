@@ -1,8 +1,6 @@
 package org.wikipedia.pageimages;
 
-
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
@@ -28,23 +26,27 @@ public class PageImagesClient {
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull Map<PageTitle, PageImage> results);
-        void failure(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull Throwable caught);
+        void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                     @NonNull Map<PageTitle, PageImage> results);
+        void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                     @NonNull Throwable caught);
     }
 
-    public Call<MwQueryResponse<QueryResult>> request(@NonNull WikiSite wiki,
-                                                      @NonNull List<PageTitle> titles,
-                                                      @NonNull Callback cb) {
+    public Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull WikiSite wiki,
+                                                                @NonNull List<PageTitle> titles,
+                                                                @NonNull Callback cb) {
         return request(wiki, cachedService.service(wiki), titles, cb);
     }
 
-    @VisibleForTesting Call<MwQueryResponse<QueryResult>> request(final WikiSite wiki, @NonNull Service service,
-                                                                  @NonNull final List<PageTitle> titles,
-                                                                  @NonNull final Callback cb) {
-        Call<MwQueryResponse<QueryResult>> call = service.request(TextUtils.join("|", titles), titles.size());
-        call.enqueue(new retrofit2.Callback<MwQueryResponse<QueryResult>>() {
-            @Override public void onResponse(Call<MwQueryResponse<QueryResult>> call,
-                                             Response<MwQueryResponse<QueryResult>> response) {
+    @VisibleForTesting
+    Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull final WikiSite wiki,
+                                                         @NonNull Service service,
+                                                         @NonNull final List<PageTitle> titles,
+                                                         @NonNull final Callback cb) {
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(TextUtils.join("|", titles), titles.size());
+        call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
+            @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                                             Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
                 Map<PageTitle, PageImage> pageImagesMap = new ArrayMap<>();
                 // error cases
                 if (response.body().success()) {
@@ -55,8 +57,10 @@ public class PageImagesClient {
                     }
                     Map<String, String> thumbnailSourcesMap = new ArrayMap<>();
 
+                    // noinspection ConstantConditions
                     for (MwQueryPage page : response.body().query().pages()) {
-                        thumbnailSourcesMap.put(new PageTitle(null, page.title(), wiki).getPrefixedText(), page.thumbUrl());
+                        thumbnailSourcesMap.put(new PageTitle(null, page.title(),
+                                wiki).getPrefixedText(), page.thumbUrl());
                     }
 
                     for (String key : titlesMap.keySet()) {
@@ -68,29 +72,24 @@ public class PageImagesClient {
 
                     cb.success(call, pageImagesMap);
                 } else if (response.body().hasError()) {
+                    // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
                 } else {
                     cb.failure(call, new IOException("An unknown error occurred."));
                 }
             }
 
-            @Override public void onFailure(Call<MwQueryResponse<QueryResult>> call, Throwable t) {
+            @Override public void onFailure(Call<MwQueryResponse<MwQueryResponse.Pages>> call, Throwable t) {
                 cb.failure(call, t);
             }
         });
         return call;
     }
 
-    public class QueryResult {
-        @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
-        @Nullable List<MwQueryPage> pages() {
-            return pages;
-        }
-    }
-
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageimages&piprop=thumbnail&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
-        Call<MwQueryResponse<QueryResult>> request(@NonNull @Query("titles") String titles,
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageimages&piprop=thumbnail"
+                + "&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
+        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles,
                                                    @Query("pilimit") int piLimit);
     }
 }

@@ -35,7 +35,7 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
         enqueueFromFile("image_license.json");
 
         ImageLicenseFetchClient.Callback cb = mock(ImageLicenseFetchClient.Callback.class);
-        Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         ArgumentCaptor<ImageLicense> captor = ArgumentCaptor.forClass(ImageLicense.class);
@@ -52,7 +52,7 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
         enqueueFromFile("api_error.json");
 
         ImageLicenseFetchClient.Callback cb = mock(ImageLicenseFetchClient.Callback.class);
-        Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -62,7 +62,7 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
         enqueue404();
 
         ImageLicenseFetchClient.Callback cb = mock(ImageLicenseFetchClient.Callback.class);
-        Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -72,13 +72,13 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
         server().enqueue("'");
 
         ImageLicenseFetchClient.Callback cb = mock(ImageLicenseFetchClient.Callback.class);
-        Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                        @NonNull ImageLicenseFetchClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -86,7 +86,7 @@ public class ImageLicenseFetchClientTest extends MockWebServerTest{
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<MwQueryResponse<ImageLicenseFetchClient.QueryResult>> request(
+    private Call<MwQueryResponse<MwQueryResponse.Pages>> request(
             @NonNull ImageLicenseFetchClient.Callback cb) {
         return subject.request(service(ImageLicenseFetchClient.Service.class), PAGE_TITLE_MARK_SELBY, cb);
     }

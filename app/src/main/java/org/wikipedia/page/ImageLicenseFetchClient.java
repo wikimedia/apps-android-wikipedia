@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
@@ -11,7 +10,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 
 import java.io.IOException;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -22,24 +20,25 @@ public class ImageLicenseFetchClient {
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull ImageLicense result);
-        void failure(@NonNull Call<MwQueryResponse<QueryResult>> call, @NonNull Throwable caught);
+        void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call, @NonNull ImageLicense result);
+        void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call, @NonNull Throwable caught);
     }
 
-    public Call<MwQueryResponse<QueryResult>> request(@NonNull WikiSite wiki,
-                                                      @NonNull PageTitle title,
-                                                      @NonNull Callback cb) {
+    public Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull WikiSite wiki,
+                                                                @NonNull PageTitle title,
+                                                                @NonNull Callback cb) {
         return request(cachedService.service(wiki), title, cb);
     }
 
-    @VisibleForTesting Call<MwQueryResponse<QueryResult>> request(@NonNull Service service,
-                                                                  @NonNull final PageTitle title,
-                                                                  @NonNull final Callback cb) {
-        Call<MwQueryResponse<QueryResult>> call = service.request(title.toString());
+    @VisibleForTesting
+    Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull Service service,
+                                                         @NonNull final PageTitle title,
+                                                         @NonNull final Callback cb) {
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(title.toString());
 
-        call.enqueue(new retrofit2.Callback<MwQueryResponse<QueryResult>>() {
-            @Override public void onResponse(Call<MwQueryResponse<QueryResult>> call,
-                                             Response<MwQueryResponse<QueryResult>> response) {
+        call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
+            @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                                             Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
                 if (response.body().success()
                         && response.body().query().pages() != null
                         && response.body().query().pages().get(0) != null) {
@@ -56,23 +55,15 @@ public class ImageLicenseFetchClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse<QueryResult>> call, Throwable t) {
+            public void onFailure(Call<MwQueryResponse<MwQueryResponse.Pages>> call, Throwable t) {
                 cb.failure(call, t);
             }
         });
 
         return call;
     }
-
-    public class QueryResult {
-        @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
-        @Nullable List<MwQueryPage> pages() {
-            return pages;
-        }
-    }
-
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=extmetadata")
-        Call<MwQueryResponse<QueryResult>> request(@NonNull @Query("titles") String titles);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles);
     }
 }
