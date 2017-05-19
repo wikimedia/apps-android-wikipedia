@@ -3,6 +3,7 @@ package org.wikipedia.page.leadimages;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
+import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -205,26 +206,37 @@ public class LeadImagesHandler {
         loadLeadImage(getLeadImageUrl());
     }
 
-    /**
-     * @param url Nullable URL with no scheme. For example, foo.bar.com/ instead of
-     *            http://foo.bar.com/.
-     */
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
-            String fullUrl = getTitle().getWikiSite().scheme() + ":" + url;
-            pageHeaderView.loadImage(fullUrl);
+            pageHeaderView.loadImage(url);
         } else {
             pageHeaderView.loadImage(null);
         }
     }
 
-    /**
-     * @return Nullable URL with no scheme. For example, foo.bar.com/ instead of
-     * http://foo.bar.com/.
-     */
-    @Nullable
-    private String getLeadImageUrl() {
-        return getPage() == null ? null : getPage().getPageProperties().getLeadImageUrl();
+    @Nullable private String getLeadImageUrl() {
+        String url = getPage() == null ? null : getPage().getPageProperties().getLeadImageUrl();
+        if (url == null) {
+            return null;
+        }
+
+        // Conditionally add the PageTitle's URL scheme and authority if these are missing from the
+        // PageProperties' URL.
+        Uri fullUri = Uri.parse(url);
+        String scheme = getTitle().getWikiSite().scheme();
+        String authority = getTitle().getWikiSite().authority();
+
+        if (fullUri.getScheme() != null) {
+            scheme = fullUri.getScheme();
+        }
+        if (fullUri.getAuthority() != null) {
+            authority = fullUri.getAuthority();
+        }
+        return new Uri.Builder()
+                .scheme(scheme)
+                .authority(authority)
+                .path(fullUri.getPath())
+                .toString();
     }
 
     private void startKenBurnsAnimation() {
