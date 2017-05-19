@@ -1,0 +1,66 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "ns": 6,
+        "title": "File:William Henry Bury.jpg",
+        "missing": true,
+        "known": true,
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "size": 300919,
+            "width": 600,
+            "height": 800,
+            "mime": "image/jpeg"
+          }
+        ]
+      },
+      {
+        "ns": 6,
+        "title": "File:F.G.Abberline.jpg",
+        "missing": true,
+        "known": true,
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "size": 68984,
+            "width": 196,
+            "height": 283,
+            "mime": "image/jpeg"
+          }
+        ]
+      },
+      {
+        "ns": 6,
+        "title": "File:Castle Street, Dundee.jpg",
+        "missing": true,
+        "known": true,
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "size": 591463,
+            "width": 1024,
+            "height": 646,
+            "mime": "image/jpeg"
+          }
+        ]
+      },
+      {
+        "pageid": 33285464,
+        "ns": 6,
+        "title": "File:Cscr-featured.svg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 68473,
+            "width": 462,
+            "height": 438,
+            "mime": "image/svg+xml"
+          }
+        ]
+      }
+    ]
+  }
+}

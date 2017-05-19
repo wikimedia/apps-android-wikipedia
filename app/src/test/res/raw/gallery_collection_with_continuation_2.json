@@ -1,0 +1,25 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "ns": 6,
+        "title": "File:Bar.jpg",
+        "missing": false,
+        "known": true,
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "size": 26421,
+            "width": 1600,
+            "height": 1600,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Bar.jpg",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bar.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=00000001",
+            "mime": "image/jpeg"
+          }
+        ]
+      }
+    ]
+  }
+}
