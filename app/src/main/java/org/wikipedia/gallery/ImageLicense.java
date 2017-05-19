@@ -1,10 +1,9 @@
-package org.wikipedia.page;
+package org.wikipedia.gallery;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
-import org.wikipedia.gallery.ExtMetadata;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 

@@ -1,4 +1,4 @@
-package org.wikipedia.page;
+package org.wikipedia.gallery;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
+import org.wikipedia.page.PageTitle;
 
 import java.io.IOException;
 

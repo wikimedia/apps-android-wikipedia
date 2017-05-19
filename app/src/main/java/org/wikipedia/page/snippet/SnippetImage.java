@@ -22,7 +22,7 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
-import org.wikipedia.page.ImageLicense;
+import org.wikipedia.gallery.ImageLicense;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
 

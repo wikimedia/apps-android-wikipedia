@@ -1,4 +1,4 @@
-package org.wikipedia.page;
+package org.wikipedia.gallery;
 
 import android.support.annotation.NonNull;
 
@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockWebServerTest;
 
 import retrofit2.Call;

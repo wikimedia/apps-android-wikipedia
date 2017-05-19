@@ -3,7 +3,6 @@ package org.wikipedia.gallery;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.page.ImageLicense;
 
 class FeaturedImageGalleryItem extends GalleryItem {
 
