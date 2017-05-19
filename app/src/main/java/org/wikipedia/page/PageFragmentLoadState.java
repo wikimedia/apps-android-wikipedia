@@ -436,7 +436,7 @@ public class PageFragmentLoadState {
                     .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
                     .put("isBeta", ReleaseUtil.isPreProdRelease()) // True for any non-production release type
                     .put("siteLanguage", model.getTitle().getWikiSite().languageCode())
-                    .put("siteBaseUrl", model.getTitle().getWikiSite().scheme() + "://" + model.getTitle().getWikiSite().host())
+                    .put("siteBaseUrl", model.getTitle().getWikiSite().url())
                     .put("isMainPage", page.isMainPage())
                     .put("fromRestBase", page.isFromRestBase())
                     .put("isNetworkMetered", DeviceUtil.isNetworkMetered(app))

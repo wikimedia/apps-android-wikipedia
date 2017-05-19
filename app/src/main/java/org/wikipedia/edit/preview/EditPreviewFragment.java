@@ -294,6 +294,7 @@ public class EditPreviewFragment extends Fragment {
         JSONObject payload = new JSONObject();
         try {
             payload.put("html", html);
+            payload.put("siteBaseUrl", parentActivity.getPageTitle().getWikiSite().url());
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
