@@ -32,6 +32,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.settings.LanguagePreferenceDialog;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.ViewUtil;
@@ -416,6 +417,11 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     }
 
     private void initLangButton() {
+        if (!Prefs.getMediaWikiBaseUriSupportsLangCode()) {
+            langButtonContainer.setVisibility(View.GONE);
+            return;
+        }
+
         langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
         formatLangButtonText();
         FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);

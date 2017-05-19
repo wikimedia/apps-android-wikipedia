@@ -42,25 +42,30 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
 
         updateLanguagePrefSummary();
 
-        findPreference(R.string.preference_key_language)
-                .setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), false);
-                langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        String name = defaultString(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
-                        if (getActivity() != null && !findPreference(R.string.preference_key_language).getSummary().equals(name)) {
-                            findPreference(R.string.preference_key_language).setSummary(name);
-                            getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
+        Preference contentLanguagePref = findPreference(R.string.preference_key_language);
+
+        if (!Prefs.getMediaWikiBaseUriSupportsLangCode()) {
+            contentLanguagePref.setVisible(false);
+        } else {
+            contentLanguagePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), false);
+                    langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            String name = defaultString(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
+                            if (getActivity() != null && !findPreference(R.string.preference_key_language).getSummary().equals(name)) {
+                                findPreference(R.string.preference_key_language).setSummary(name);
+                                getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
+                            }
                         }
-                    }
-                });
-                langPrefDialog.show();
-                return true;
-            }
-        });
+                    });
+                    langPrefDialog.show();
+                    return true;
+                }
+            });
+        }
 
         if (!BuildConfig.APPLICATION_ID.equals("org.wikipedia")) {
             overridePackageName();
