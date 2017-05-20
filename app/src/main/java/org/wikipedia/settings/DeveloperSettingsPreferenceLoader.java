@@ -36,6 +36,42 @@ import java.util.List;
         }
     };
 
+    @NonNull private final Preference.OnPreferenceChangeListener setMediaWikiBaseUriChangeListener
+            = new Preference.OnPreferenceChangeListener() {
+        /**
+         * Called when the mediaWikiBaseUri preference has been changed by the user. This is
+         * called before the state of the Preference is about to be updated and
+         * before the state is persisted.
+         *
+         * @param preference The changed Preference.
+         * @param newValue   The new value of the Preference.
+         * @return True to update the state of the Preference with the new value.
+         */
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object newValue) {
+            resetMediaWikiSettings();
+            return true;
+        }
+    };
+
+    @NonNull private final Preference.OnPreferenceChangeListener setMediaWikiMultiLangSupportChangeListener
+            = new Preference.OnPreferenceChangeListener() {
+        /**
+         * Called when the mediaWikiBaseUriSupportsLangCode preference has been changed by the user.
+         * This is called before the state of the Preference is about to be updated and
+         * before the state is persisted.
+         *
+         * @param preference The changed Preference.
+         * @param newValue   The new value of the Preference.
+         * @return True to update the state of the Preference with the new value.
+         */
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object newValue) {
+            resetMediaWikiSettings();
+            return true;
+        }
+    };
+
     /*package*/
     DeveloperSettingsPreferenceLoader(@NonNull PreferenceFragmentCompat fragment) {
         super(fragment);
@@ -46,11 +82,15 @@ import java.util.List;
     public void loadPreferences() {
         loadPreferences(R.xml.developer_preferences);
         setUpRestBaseCheckboxes();
+        setUpMediaWikiSettings();
         setUpCookies((PreferenceCategory) findPreference(R.string.preferences_developer_cookies_key));
         setUpCrashButton(findPreference(getCrashButtonKey()));
         setUpUserOptionButton(findPreference(getUserOptionButtonKey()));
         setUpRemoteLogButton(findPreference(R.string.preference_key_remote_log));
     }
+
+
+    // --- RESTBase settings start ---
 
     private void setUpRestBaseCheckboxes() {
         TwoStatePreference manualPreference = (TwoStatePreference) findPreference(getManualKey());
@@ -76,6 +116,33 @@ import java.util.List;
     private String getUseRestBaseKey() {
         return context.getString(R.string.preference_key_use_restbase);
     }
+
+    // --- RESTBase settings end ---
+
+    // --- MediaWiki settings start ---
+
+    private void setUpMediaWikiSettings() {
+        Preference uriPreference = findPreference(getMediaWikiBaseUriKey());
+        uriPreference.setOnPreferenceChangeListener(setMediaWikiBaseUriChangeListener);
+        TwoStatePreference multiLangPreference
+                = (TwoStatePreference) findPreference(getMediaWikiSupportsMultipleLanguages());
+        multiLangPreference.setOnPreferenceChangeListener(setMediaWikiMultiLangSupportChangeListener);
+    }
+
+    private String getMediaWikiBaseUriKey() {
+        return context.getString(R.string.preference_key_mediawiki_base_uri);
+    }
+
+    private String getMediaWikiSupportsMultipleLanguages() {
+        return context.getString(R.string.preference_key_mediawiki_base_uri_supports_lang_code);
+    }
+
+    private void resetMediaWikiSettings() {
+        WikipediaApp.getInstance().resetWikiSite();
+    }
+
+    // --- MediaWiki settings end ---
+
 
     private String getCrashButtonKey() {
         return context.getString(R.string.preferences_developer_crash_key);
