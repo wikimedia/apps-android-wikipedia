@@ -3,6 +3,7 @@
   <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
   <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
   <string name="app_name_alpha">Name of the alpha version of the application.</string>
+  <string name="app_name_mediawiki">Name of the generic MediaWiki version of the application.</string>
   <string name="wikimedia">Wikimedia\'s name.\n{{Identical|Wikimedia}}</string>
   <string name="search_hint">Hint text for the search box</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>

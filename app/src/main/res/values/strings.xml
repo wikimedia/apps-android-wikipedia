@@ -3,6 +3,7 @@
     <string name="app_name_prod">Wikipedia</string>
     <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
     <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
+    <string name="app_name_mediawiki" tools:ignore="UnusedResources">MediaWiki</string>
 
     <string name="wikimedia">Wikimedia</string>
 
