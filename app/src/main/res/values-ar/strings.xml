@@ -248,9 +248,7 @@
   <string name="crash_report_dialog_always_send_button">أرسل دائما</string>
   <string name="crash_report_dialog_send_button">أرسل</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
-  <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.
-
-تريد أن تبدأ من جديد أو إنهاء؟</string>
+  <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
   <string name="crash_report_quit">خروج</string>
   <string name="article_menu_bar_bookmark">أضف هذه المقالة لقائمة قراءة</string>
@@ -301,7 +299,7 @@
   <string name="reading_list_article_not_offline_message">ستصبح هذه المقالة غير متاحة في حالة عدم الاتصال.</string>
   <string name="reading_list_add_to_other_list">أضف لقائمة قراءة أخرى</string>
   <string name="reading_list_remove_from_list">إزالة من %s</string>
-  <string name="reading_list_remove_from_lists">أزل من قائمة القراءة</string>
+  <string name="reading_list_remove_from_lists">أزل من قوائم القراءة</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_button_view_user">التحدث مع المستخدم</string>
   <string name="notification_talk_title">رسالة جديدة على ويكيبيديا</string>

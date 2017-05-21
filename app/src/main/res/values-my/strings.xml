@@ -241,9 +241,7 @@
   <string name="crash_report_dialog_always_send_button">အမြဲတမ်းပို့ရန်</string>
   <string name="crash_report_dialog_send_button">ပို့</string>
   <string name="crash_report_activity_title">အပလီကေးရှင်း အမှား</string>
-  <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။
-
-ပြန်စမည်လော ထွက်မည်လော?</string>
+  <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>
   <string name="crash_report_quit">ထွက်</string>
   <string name="article_menu_bar_bookmark">ဤဆောင်းပါးအား စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>

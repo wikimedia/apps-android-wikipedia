@@ -213,9 +213,7 @@
   <string name="crash_report_dialog_always_send_button">Заўсёды дасылаць</string>
   <string name="crash_report_dialog_send_button">Даслаць</string>
   <string name="crash_report_activity_title">Памылка праграмы</string>
-  <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.
-
-Хочаце пачаць ізноў ці выйсьці?</string>
+  <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>
   <string name="crash_report_quit">Выйсьці</string>
   <string name="article_menu_bar_bookmark" fuzzy="true">Захаваць артыкул для пазьнейшага афляйн чытаньня</string>

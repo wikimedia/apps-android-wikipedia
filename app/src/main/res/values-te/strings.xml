@@ -39,9 +39,7 @@
   <string name="preference_languages_filter_hint">వెతుకు</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
   <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు.</string>
-  <string name="langlinks_no_match">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.
-
-.</string>
+  <string name="langlinks_no_match">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.\n\n.</string>
   <string name="langlinks_activity_title">ఇతర భాషలు</string>
   <string name="menu_save_changes" fuzzy="true">మార్పులను భద్రపరచు</string>
   <string name="dialog_saving_in_progress" fuzzy="true">భద్రపరుస్తున్నాం…</string>
@@ -69,8 +67,7 @@
   <string name="preference_title_logout">నిష్క్రమించండి</string>
   <string name="toast_logout_complete">బయటకు వచ్చేసారు</string>
   <string name="history_empty_title" fuzzy="true">ఇటీవలి పేజీలు ఏమీ లేవు.</string>
-  <string name="history_empty_message" fuzzy="true">మీరు బహుశా వాటిని అన్నిటిని తొలగించి ఉంటారు. తదుపరి సమయం
-మీరు ఒక పేజీకి వెళ్ళినప్పుడు మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
+  <string name="history_empty_message" fuzzy="true">మీరు బహుశా వాటిని అన్నిటిని తొలగించి ఉంటారు. తదుపరి సమయం\nమీరు ఒక పేజీకి వెళ్ళినప్పుడు మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
   <string name="delete_selected_history">తొలగించు</string>
   <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>
   <string name="create_account_username_hint">వాడుకరి పేరు</string>

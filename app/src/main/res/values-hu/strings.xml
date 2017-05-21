@@ -252,9 +252,7 @@
   <string name="crash_report_dialog_always_send_button">Küldés mindig</string>
   <string name="crash_report_dialog_send_button">Küldés</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
-  <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.
-
-Szeretnéd újrakezdeni, vagy kilépnél?</string>
+  <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
   <string name="crash_report_quit">Kilépés</string>
   <string name="article_menu_bar_bookmark">Cikk hozzáadása egy olvasólistához</string>
@@ -307,6 +305,9 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_list_add_to_other_list">Hozzáadás egy másik olvasási listához</string>
   <string name="reading_list_remove_from_list">Eltávolítás a következőről: %s</string>
   <string name="reading_list_remove_from_lists">Eltávolítás az olvasási listákról</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Eltávolítás a kapcsolat nélküliből</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_button_view_user">Üzenethagyás a szerkesztőnek</string>
   <string name="notification_talk_title">Új üzenet a Wikipédián</string>

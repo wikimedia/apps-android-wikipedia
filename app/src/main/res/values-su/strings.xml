@@ -42,10 +42,12 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zum kana lokasi na péta</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;kontributor &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Ayaran panungtung %s</string>
   <string name="talk_page_link_text">Obrolan</string>
   <string name="content_license_html">Eusi ditangtayungan ku &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; iwal mun disebutkeun séjén</string>
   <string name="edit_save_action_license_logged_in">Ku nyimpenna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ku nyimpenna, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamaéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan ditumbukeun ka alamat IP pakakas. Mun anjeun Anda &lt;a href=\"https://#login\"&gt;asu log&lt;/a&gt;, anjeun bakal meunang privasi leuwih.</string>
   <string name="preference_title_language">Basa Wikipédia</string>
   <string name="preference_languages_filter_hint">Paluruh</string>
   <string name="langlinks_filter_hint">Paluruh</string>
@@ -107,8 +109,7 @@
   <string name="zero_webpage_title">NLD Wikipédia Zéro</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zéro</string>
   <string name="zero_interstitial_title">Ninggalkeun Wikipédia Zéro</string>
-  <string name="zero_interstitial_leave_app">Biaya data meureun lumaku. Teruskeun waé ieu téh ka situs 
-éksternal?</string>
+  <string name="zero_interstitial_leave_app">Biaya data meureun lumaku. Teruskeun waé ieu téh ka situs \néksternal?</string>
   <string name="zero_interstitial_continue">Tinggalkeun</string>
   <string name="zero_interstitial_cancel">Mugen didieu</string>
   <string name="zero_learn_more">Operator sélular anjeun geus nyayagakeun aksés haratis kana kontén Wikipédia!</string>
@@ -213,6 +214,7 @@
   <string name="page_view_in_browser">Tempo kaca na panyungsi</string>
   <string name="tool_tip_toc_button">Titénan daptar eusi iraha baé ku cara noél ieu tumbul, atawa ngagilirkeunna ti lebah tungtung katuhu layar.</string>
   <string name="error_server_response">Sérver teu bisa méréskeun pamundutan.</string>
+  <string name="error_response_malformed">Respon ti sérver teu diformat kalawan bener.</string>
   <string name="error_unknown">Aya éror anu teu kanyahoan.</string>
   <string name="format_error_server_message">Talatah: \'\'%s\'\'</string>
   <string name="format_error_server_code">Kodeu: \"%s\"</string>
@@ -285,6 +287,7 @@
   <string name="reading_lists_onboarding_got_it">Ngarti</string>
   <string name="reading_list_no_description">Tanpa pedaran...</string>
   <string name="reading_list_empty">Anjeun teu mibanda artikel nu ditambahkeun ka ieu daptar.</string>
+  <string name="reading_list_article_offline">Nyangkaruk kalawan luring</string>
   <string name="reading_list_article_make_offline">Jieun ieu artikel sangkan sayaga na luring</string>
   <string name="reading_list_article_remove_offline">Teu kudu nyieun ieu artikel sayaga na luring</string>
   <string name="reading_list_article_offline_message">Ieu artikel bakal sayaga na luring ayeuna</string>
@@ -292,6 +295,8 @@
   <string name="reading_list_add_to_other_list">Tambahkeun kana daptar bacaan lianna</string>
   <string name="reading_list_remove_from_list">Hapus tina %s</string>
   <string name="reading_list_remove_from_lists">Piceun tina daptar bacaan</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Hapus tina luring</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artikel bijil dina sawatara daptar</string>
   <string name="user_option_sync_label">Préferénsi</string>
   <string name="notification_button_view_user">Ngobrol jeung pamaké</string>
   <string name="notification_talk_title">Talatah anyar na Wikipédia</string>
@@ -322,8 +327,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Poé ieu</string>
   <string name="view_announcement_card_negative_action">Teu kudu, nuhun</string>
-  <string name="description_edit_text_hint">
-Pedaran judul</string>
+  <string name="description_edit_text_hint">\nPedaran judul</string>
   <string name="description_edit_save">Medalkeun</string>
   <string name="description_edit_add_description">Tambahkeun pedaran judul</string>
   <string name="description_edit_edit_description">Édit pedaran</string>

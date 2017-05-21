@@ -47,8 +47,7 @@
   <string name="talk_page_link_text">Discussion</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"%1$s\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.
-Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
+  <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.\nLes modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="preference_title_language">Langue de Wikipédia</string>
   <string name="preference_languages_filter_hint">Rechercher</string>
   <string name="langlinks_filter_hint">Rechercher</string>
@@ -255,9 +254,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="crash_report_dialog_always_send_button">Toujours envoyer</string>
   <string name="crash_report_dialog_send_button">Envoyer</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
-  <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.
-
-Voudriez-vous redémarrer ou quitter ?</string>
+  <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nVoudriez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
   <string name="crash_report_quit">Quitter</string>
   <string name="article_menu_bar_bookmark">Ajouter cet article à une liste de lecture</string>
@@ -310,6 +307,9 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_add_to_other_list">Ajouter à une autre liste de lecture</string>
   <string name="reading_list_remove_from_list">Supprimer de %s</string>
   <string name="reading_list_remove_from_lists">Supprimer des listes de lecture</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Indisponible en mode déconnecté</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Article présent dans plusieurs listes</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s ne sera plus disponible en mode déconnecté dans toutes les listes de lecture :</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_button_view_user">Parler à l’utilisateur</string>
   <string name="notification_talk_title">Nouveau message sur Wikipédia</string>

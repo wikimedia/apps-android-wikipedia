@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Enviar sempre</string>
   <string name="crash_report_dialog_send_button">Enviar</string>
   <string name="crash_report_activity_title">Erro da aplicación</string>
-  <string name="crash_report_relaunch_or_quit">Sentímolo, a aplicación de Wikipedia tivo un erro e pechouse.
-
-Gustaríalle volver a comezar ou saír?</string>
+  <string name="crash_report_relaunch_or_quit">Sentímolo, a aplicación de Wikipedia tivo un erro e pechouse.\n\nGustaríalle volver a comezar ou saír?</string>
   <string name="crash_report_relaunch">Comezar de novo</string>
   <string name="crash_report_quit">Saír</string>
   <string name="article_menu_bar_bookmark">Engadir este artigo a unha lista de lectura</string>

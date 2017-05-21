@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Sempre enviar</string>
   <string name="crash_report_dialog_send_button">Enviar</string>
   <string name="crash_report_activity_title">Erro no aplicativo</string>
-  <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.
-
-Gostaria de reiniciá-lo ou sair?</string>
+  <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.\n\nGostaria de reiniciá-lo ou sair?</string>
   <string name="crash_report_relaunch">Reiniciar</string>
   <string name="crash_report_quit">Sair</string>
   <string name="article_menu_bar_bookmark">Adicionar este artigo a uma lista de leitura</string>
@@ -309,6 +307,9 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="reading_list_add_to_other_list">Adicionar a outra lista de leitura</string>
   <string name="reading_list_remove_from_list">Remover de %s</string>
   <string name="reading_list_remove_from_lists">Remover das listas de leitura</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Remover do modo offline</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece em várias listas</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s não estará mais disponível off-line para todas as listas de leitura:</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_button_view_user">Falar com usuário</string>
   <string name="notification_talk_title">Nova mensagem na Wikipédia</string>

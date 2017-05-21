@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Immer senden</string>
   <string name="crash_report_dialog_send_button">Senden</string>
   <string name="crash_report_activity_title">Anwendungsfehler</string>
-  <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.
-
-Möchtest du die App neu starten oder beenden?</string>
+  <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.\n\nMöchtest du die App neu starten oder beenden?</string>
   <string name="crash_report_relaunch">Neu starten</string>
   <string name="crash_report_quit">Beenden</string>
   <string name="article_menu_bar_bookmark">Füge diesen Artikel zu einer Leseliste hinzu</string>
@@ -309,6 +307,9 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_add_to_other_list">Zu einer anderen Leseliste hinzufügen</string>
   <string name="reading_list_remove_from_list">Von %s entfernen</string>
   <string name="reading_list_remove_from_lists">Von den Leselisten entfernen</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Von der Offlineliste entfernen</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Der Artikel erscheint in mehreren Listen</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s ist für keine Leseliste mehr offline verfügbar:</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_button_view_user">Mit dem Benutzer diskutieren</string>
   <string name="notification_talk_title">Neue Nachricht auf Wikipedia</string>

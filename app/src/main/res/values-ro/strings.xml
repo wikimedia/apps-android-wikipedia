@@ -222,9 +222,7 @@
   <string name="crash_report_dialog_always_send_button">Trimite întotdeauna</string>
   <string name="crash_report_dialog_send_button">Trimite</string>
   <string name="crash_report_activity_title">Eroare aplicație</string>
-  <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.
-
-Doriți să o reporniți sau să o închideți?</string>
+  <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
   <string name="crash_report_quit">Închide</string>
   <string name="article_menu_bar_bookmark">Adaugă acest articol într-o listă de lecturi</string>
@@ -280,4 +278,5 @@ Doriți să o reporniți sau să o închideți?</string>
     <item quantity="one">ieri</item>
     <item quantity="other">acum %d zile</item>
   </plurals>
+  <string name="view_offline_card_text">Conținutul nu poate fi incărcat in modul offline.</string>
 </resources>

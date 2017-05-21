@@ -252,9 +252,7 @@
   <string name="crash_report_dialog_always_send_button">हमेशा भेजें</string>
   <string name="crash_report_dialog_send_button">भेजें</string>
   <string name="crash_report_activity_title">एप्लीकेशन एरर</string>
-  <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी एरर को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। 
-
-क्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
+  <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी एरर को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
   <string name="crash_report_quit">बंद करें</string>
   <string name="article_menu_bar_bookmark">इस लेख को पठन सूची में जोड़ें</string>
@@ -307,6 +305,9 @@
   <string name="reading_list_add_to_other_list">अन्य रीडिंग लिस्ट में जोड़ें</string>
   <string name="reading_list_remove_from_list">%s से हटाएँ</string>
   <string name="reading_list_remove_from_lists">रीडिंग लिस्ट्स से हटाएँ</string>
+  <string name="reading_list_confirm_remove_article_from_offline">ऑफलाइन से हटायें</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">लेख एक से अधिक सूचियों में है</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s सभी ऑफलाइन रीडिंग लिस्ट में आगे उपलब्ध नहीं होगा</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_button_view_user">सदस्य से बात करें</string>
   <string name="notification_talk_title">विकिपीडिया पर नया सन्देश</string>
@@ -376,8 +377,7 @@
   <string name="description_edit_help_more_info">अधिक जानकारी</string>
   <string name="description_edit_help_meta_info">विवरणों को विकिडेटा द्वारा स्टोर और मेन्टेन किया जाता है जो विकिपीडिया और अन्य परियोजनाओं को मुक्त, सहयोग युक्त, बहुभाषी, सेकेंडरी डेटाबेस सपोर्ट देता, विकिमीडिया फाउंडेशन का एक प्रोजेक्ट है।</string>
   <string name="description_edit_revert_subtitle">विकिपीडिया में लिखने के लिए धन्यवाद!</string>
-  <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन रिव्युअर्स में से एक को चिंता है।
-आपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
+  <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन रिव्युअर्स में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
   <string name="description_edit_revert_reason2">आपका संपादन एक परिक्षण या बर्बरता जैसा लगा।</string>
   <string name="description_edit_revert_history">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>

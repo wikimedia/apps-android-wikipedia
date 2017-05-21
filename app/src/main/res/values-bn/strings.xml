@@ -252,9 +252,7 @@
   <string name="crash_report_dialog_always_send_button">সর্বদা পাঠান</string>
   <string name="crash_report_dialog_send_button">পাঠান</string>
   <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
-  <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।
-
-আপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
+  <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>
   <string name="article_menu_bar_bookmark">একটি পড়ার তালিকা এই নিবন্ধটি যোগ করে</string>
@@ -307,6 +305,7 @@
   <string name="reading_list_add_to_other_list">আরেকটি পড়ার তালিকা থেকে সরান</string>
   <string name="reading_list_remove_from_list">%s থেকে সরান</string>
   <string name="reading_list_remove_from_lists">পড়ার তালিকা থেকে সরান</string>
+  <string name="reading_list_confirm_remove_article_from_offline">অফলাইন থেকে সরান</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_button_view_user">ব‍্যবহারকারীর সঙ্গে আলাপ করুন</string>
   <string name="notification_talk_title">উইকিপিডিয়ায় নতুন বার্তা</string>

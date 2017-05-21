@@ -248,9 +248,7 @@
   <string name="crash_report_dialog_always_send_button">ھميشہ اماڻيو</string>
   <string name="crash_report_dialog_send_button">اماڻيو</string>
   <string name="crash_report_activity_title">ايپليڪيشن جي چُڪَ</string>
-  <string name="crash_report_relaunch_or_quit">اسان معذرتخواھ آهيون، وڪيپيڊيا ايپ هڪ خرابي کي منھن ڏنو ۽ بند ٿي وئي.
-
-ڇا توهان ٻيهر شروع ڪرڻ پسند ڪندئو يا بس؟</string>
+  <string name="crash_report_relaunch_or_quit">اسان معذرتخواھ آهيون، وڪيپيڊيا ايپ هڪ خرابي کي منھن ڏنو ۽ بند ٿي وئي.\n\nڇا توهان ٻيهر شروع ڪرڻ پسند ڪندئو يا بس؟</string>
   <string name="crash_report_relaunch">شروع ڪريو</string>
   <string name="crash_report_quit">نڪرو</string>
   <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ شامل ڪريو</string>

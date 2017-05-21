@@ -43,8 +43,7 @@
   <string name="talk_page_link_text">Discussion</string>
   <string name="content_license_html">Lo contengut es disponible jos &lt;a href=\"%1$s\"&gt;licéncia CC BY-SA 3.0&lt;/a&gt; levat indicacion contrària</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.
-Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &lt;a href=\"https://#login\"&gt;vos connectatz&lt;/a&gt;, auretz mai de confidencialitat.</string>
+  <string name="edit_save_action_license_anon">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.\nLas modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &lt;a href=\"https://#login\"&gt;vos connectatz&lt;/a&gt;, auretz mai de confidencialitat.</string>
   <string name="preference_title_language">Lenga de Wikipèdia</string>
   <string name="preference_languages_filter_hint">Recercar</string>
   <string name="langlinks_filter_hint">Recercar</string>

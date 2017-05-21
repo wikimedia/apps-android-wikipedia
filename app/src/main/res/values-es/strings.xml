@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Enviar siempre</string>
   <string name="crash_report_dialog_send_button">Enviar</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
-  <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.
-
-¿Te gustaría volver a empezar o salir?</string>
+  <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
   <string name="crash_report_relaunch">Iniciar de nuevo</string>
   <string name="crash_report_quit">Salir</string>
   <string name="article_menu_bar_bookmark">Añadir este artículo a una lista de lectura</string>
@@ -309,6 +307,9 @@
   <string name="reading_list_add_to_other_list">Añadir a otra lista de lectura</string>
   <string name="reading_list_remove_from_list">Quitar de %s</string>
   <string name="reading_list_remove_from_lists">Quitar de las listas de lectura</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Quitar de listas sin conexión</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Discute con el usuario</string>
   <string name="notification_talk_title">Mensaje nuevo en Wikipedia</string>

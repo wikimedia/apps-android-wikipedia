@@ -228,9 +228,7 @@
   <string name="crash_report_dialog_always_send_button">Danfon pob tro</string>
   <string name="crash_report_dialog_send_button">Danfon</string>
   <string name="crash_report_activity_title">Gwall</string>
-  <string name="crash_report_relaunch_or_quit">Cafwyd nam. Ymddiheurwn am hyn.
-
-Cychwyn eto neu roi\'r gorau iddi?</string>
+  <string name="crash_report_relaunch_or_quit">Cafwyd nam. Ymddiheurwn am hyn.\n\nCychwyn eto neu roi\'r gorau iddi?</string>
   <string name="crash_report_relaunch">Cychwyn eto</string>
   <string name="crash_report_quit">Rhoi\'r ffidil yn y to!</string>
   <string name="article_menu_bar_bookmark">Ychwanegwch yr erthygl hon i\'ch rhestr ddarllen</string>

@@ -1,107 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name_prod">Name of the application.
-{{Identical|Wikipedia}}</string>
-  <string name="app_name_beta">Name of the beta version of the application.
-{{Identical|Wikipedia Beta}}</string>
+  <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
+  <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
   <string name="app_name_alpha">Name of the alpha version of the application.</string>
-  <string name="wikimedia">Wikimedia\'s name.
-{{Identical|Wikimedia}}</string>
-  <string name="yes">Affirmative answer to a dialog box.
-{{Identical|Yes}}</string>
-  <string name="no">Negative answer to a dialog box.
-{{Identical|No}}</string>
+  <string name="wikimedia">Wikimedia\'s name.\n{{Identical|Wikimedia}}</string>
+  <string name="yes">Affirmative answer to a dialog box.\n{{Identical|Yes}}</string>
+  <string name="no">Negative answer to a dialog box.\n{{Identical|No}}</string>
   <string name="search_hint">Hint text for the search box</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_my_lists">Hint text for the search box when searching the set of reading lists</string>
   <string name="search_hint_search_reading_list">Hint text for the search box when searching for pages in a single reading list</string>
-  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.
-{{Identical|History}}</string>
+  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
-  <string name="page_error_retry">Text for button that retries page loading when tapped.
-{{Identical|Retry}}</string>
-  <string name="page_error_back_to_main">Text for the back button that goes to the last page visited when tapped.
-{{Identical|Go back}}</string>
-  <string name="menu_clear_all_history">Menu item text for clearing your reading history.
-{{Identical|Clear history}}</string>
+  <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
+  <string name="page_error_back_to_main">Text for the back button that goes to the last page visited when tapped.\n{{Identical|Go back}}</string>
+  <string name="menu_clear_all_history">Menu item text for clearing your reading history.\n{{Identical|Clear history}}</string>
   <string name="history_item_deleted">Message shown when an article is removed from the browsing history. The \"%s\" symbol is replaced with the name of the article.</string>
   <string name="history_items_deleted">Message shown when multiple articles are removed from the browsing history. The \"%d\" symbol is replaced with the number of articles removed.</string>
-  <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.
-{{Identical|Undo}}</string>
+  <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.\n{{Identical|Undo}}</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
-  <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.
-{{Identical|Saved page}}</string>
-  <string name="share_via">Dialog title text for Share list.
-
-The Share list contains the following menu items (localized):
-* Mail
-* Message</string>
+  <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.\n{{Identical|Saved page}}</string>
+  <string name="share_via">Dialog title text for Share list.\n\nThe Share list contains the following menu items (localized):\n* Mail\n* Message</string>
   <string name="search_redirect_from">Label shown when a search result is redirected from the original search query. The \"%s\" symbol is replaced with the redirect source.</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
-  <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.
-{{Identical|Change language}}</string>
+  <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_content_issues">Menu item for showing known issues on current page</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
-  <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
-{{Identical|Share}}</string>
-  <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.
-{{Identical|Open}}</string>
+  <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.\n{{Identical|Share}}</string>
+  <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
-  <string name="menu_text_select_copy">Menu item caption for copying text to the system clipboard for pasting later.
-{{Identical|Copy}}</string>
-  <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.
-{{Identical|Define}}</string>
-  <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.
-{{Identical|Share}}</string>
+  <string name="menu_text_select_copy">Menu item caption for copying text to the system clipboard for pasting later.\n{{Identical|Copy}}</string>
+  <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.\n{{Identical|Define}}</string>
+  <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.\n{{Identical|Share}}</string>
   <string name="menu_text_select_edit_here">Menu item caption for editing the current section at the currently highlighted word.</string>
-  <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
-{{Identical|Nearby}}</string>
+  <string name="nav_item_nearby">Entry in nav drawer for Nearby feature\n{{Identical|Nearby}}</string>
   <string name="nearby_distance_in_meters">Distance to the place mentioned in the nearby page in meters. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
   <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
   <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
   <string name="nearby_osm_license">Copyright message with a link to the OpenStreetMap Copyright and License. (Please preserve the anchor tag in its exact form.)</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
-  <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site. Some use the term discussions.
-{{Identical|Talk}}</string>
+  <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site. Some use the term discussions.\n{{Identical|Talk}}</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page. Please preserve the %1$s parameter, since this will be replaced with the actual URL.</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a login link before saving edits, only when the user has not logged in. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs. Also please do not change the href=\'https://#login\' part of the message.</string>
-  <string name="preference_title_language">Title for preference in settings screen for setting which language Wikipedia to use.
-
-Shown in the preferences screen along with the following:
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
-* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
-  <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.
-{{Identical|Search}}</string>
+  <string name="preference_title_language">Title for preference in settings screen for setting which language Wikipedia to use.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
+  <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.\n{{Identical|Search}}</string>
   <string name="langlinks_filter_hint">{{Identical|Search}}</string>
   <string name="langlinks_empty">Message shown when the user requested a list of languages in which the current article is available, but the current article is not available in any other language</string>
   <string name="langlinks_no_match">Message shown when the user requested a list of languages in which the current article is available, and filtered that list using a search, but their search query does not match any of the other languages the article is available in.</string>
-  <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.
-{{Identical|Otherlanguages}}</string>
+  <string name="langlinks_activity_title">Menu item that shows user list of languages the current article is available in.\n{{Identical|Otherlanguages}}</string>
   <string name="menu_save_changes">{{Identical|Publish changes}}</string>
-  <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.
-{{Identical|Publishing}}</string>
+  <string name="dialog_saving_in_progress">Text for progress dialog shown when an edit save is in progress.\n{{Identical|Publishing}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
   <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
-  <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save.
-{{Identical|Retry}}</string>
-  <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save.
-{{Identical|Cancel}}</string>
+  <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save.\n{{Identical|Retry}}</string>
+  <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save.\n{{Identical|Cancel}}</string>
   <string name="dialog_message_leaving_edit">Message for dialog box shown to users when they click on a link in an edit preview, informing them that if they leave the edit then they may lose their changes.</string>
-  <string name="dialog_message_leaving_edit_leave">Button text for choosing to leave the edit workflow when the user clicks on a link in preview.
-{{Identical|Leave}}</string>
-  <string name="dialog_message_leaving_edit_stay">Button text for choosing to stay inside edit workflow when the user clicks on a link in preview.
-{{Identical|Stay}}</string>
-  <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article.
-{{Identical|Table of contents}}</string>
+  <string name="dialog_message_leaving_edit_leave">Button text for choosing to leave the edit workflow when the user clicks on a link in preview.\n{{Identical|Leave}}</string>
+  <string name="dialog_message_leaving_edit_stay">Button text for choosing to stay inside edit workflow when the user clicks on a link in preview.\n{{Identical|Stay}}</string>
+  <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article.\n{{Identical|Table of contents}}</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
   <string name="search_reading_list_no_results">Message shown when there are no pages in the current reading list that match the specified search term. The %s symbol is replaced with the name of the reading list.</string>
   <string name="search_reading_lists_no_results">Message shown when there are no reading lists whose name matches the specified search term.</string>
@@ -121,23 +83,15 @@ Shown in the preferences screen along with the following:
   <string name="login_in_progress_dialog_message">A bubble that describes the in-progress action.</string>
   <string name="login_success_toast">A bubble that appears after logging in.</string>
   <string name="preference_title_logout">{{Identical|Log out}}</string>
-  <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.
-{{Identical|Logged out}}</string>
+  <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.\n{{Identical|Logged out}}</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
-  <string name="delete_selected_history">Menu item text for deleting the currently selected history entries
-{{Identical|Delete}}</string>
+  <string name="delete_selected_history">Menu item text for deleting the currently selected history entries\n{{Identical|Delete}}</string>
   <string name="delete_selected_items">Menu item hint for deleting selected items in a list.</string>
   <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
-  <string name="login_create_account_link">Link text on Login screen to go to Create Account screen.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-create account login link}}</string>
-  <string name="create_account_login_link">Link text on Create Account screen to go to Login screen.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-login create account link}}</string>
+  <string name="login_create_account_link">Link text on Login screen to go to Create Account screen.\n\nSee also:\n* {{msg-wm|Wikipedia-android-strings-create account login link}}</string>
+  <string name="create_account_login_link">Link text on Create Account screen to go to Login screen.\n\nSee also:\n* {{msg-wm|Wikipedia-android-strings-login create account link}}</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
   <string name="dialog_create_account_checking_progress">Message shown to the user while a request is sent to the server to create an account and the app is awaiting the server response</string>
   <string name="create_account_email_hint">Label shown inside the email text box in the account creation form, to inform the user what they have to enter into that box.</string>
@@ -146,50 +100,27 @@ See also:
   <string name="create_account_email_error">Used as an error message on creating a user account where the email address the user entered does not appear to be a valid email address.</string>
   <string name="create_account_username_error">Used as an error message on logging in or creating a user account where the username entered does not appear to be valid.</string>
   <string name="create_account_generic_error">Used as a generic error message during account creation when a more specific error message cannot be given to the user.</string>
-  <string name="create_account_next">Button text on Create Account screen to go \"next\" (to CAPTCHA).
-{{Identical|Next}}</string>
-  <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first).
-{{Identical|Create account}}</string>
-  <string name="preferences_general_heading">Preferences general heading.
-{{Identical|General}}</string>
+  <string name="create_account_next">Button text on Create Account screen to go \"next\" (to CAPTCHA).\n{{Identical|Next}}</string>
+  <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first).\n{{Identical|Create account}}</string>
+  <string name="preferences_general_heading">Preferences general heading.\n{{Identical|General}}</string>
   <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF</string>
-  <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link.
-
-Shown in the preferences screen along with the following:
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
-* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
+  <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="zero_warn_when_leaving_summary">Lengthy explanation of Wikipedia Zero for settings screen</string>
   <string name="zero_webpage_title">Link title for the Wikipedia Zero FAQ for the app</string>
-  <string name="zero_wikipedia_zero_heading">Settings heading for Wikipedia Zero.
-{{Identical|Wikipedia Zero}}</string>
+  <string name="zero_wikipedia_zero_heading">Settings heading for Wikipedia Zero.\n{{Identical|Wikipedia Zero}}</string>
   <string name="zero_interstitial_title">Dialog title text to inform Wikipedia Zero user that the user is about to leave the app for an external link</string>
   <string name="zero_interstitial_leave_app">Dialog text to ask Wikipedia Zero user whether the user wants to continue to an external site where standard data charges may apply</string>
   <string name="zero_interstitial_continue">Dialog button text for Wikipedia Zero user to leave the app for an external site where standard data charges may apply.</string>
-  <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero to stay in the app and thereby avoid leaving the app for an external site where standard data charges may apply.
-{{Identical|Stay here}}</string>
+  <string name="zero_interstitial_cancel">Dialog button text for Wikipedia Zero to stay in the app and thereby avoid leaving the app for an external site where standard data charges may apply.\n{{Identical|Stay here}}</string>
   <string name="zero_learn_more">Message of a dialog shown the first time Wikipedia Zero mode is On.</string>
-  <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app.
-{{Identical|Learn more}}</string>
-  <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app
-{{Identical|Dismiss}}</string>
+  <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app.\n{{Identical|Learn more}}</string>
+  <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app\n{{Identical|Dismiss}}</string>
   <string name="edit_preview_fetching_dialog_message">Message shown to the user while the user is waiting for the preview of their edit to be shown</string>
   <string name="send_feedback">Text to show for link used for sending feedback about the app.</string>
-  <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
-* {{msg-mw|Accountcreatedtext|message}}</string>
-  <string name="preferences_privacy_settings_heading">Section title for privacy related settings
-{{Identical|Privacy}}</string>
-  <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.
-
-Shown in the preferences screen along with the following:
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
-* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
+  <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.\n* {{msg-mw|Accountcreatedtext|message}}</string>
+  <string name="preferences_privacy_settings_heading">Section title for privacy related settings\n{{Identical|Privacy}}</string>
+  <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_title_auto_upload_crash_reports">Title of preference that when checked enables automatic upload of crash reports.</string>
   <string name="preference_summary_auto_upload_crash_reports">Description of preference that when checked checked enables automatic upload of crash reports.</string>
@@ -202,34 +133,21 @@ Shown in the preferences screen along with the following:
   <string name="page_protected_can_not_edit">Message in dialog box telling the user that their account does not currently have the sufficient rights to edit this page.</string>
   <string name="page_protected_can_not_edit_anon">Message in dialog box telling the user that this page is currently protected against anonymous editing.</string>
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
-  <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.
-{{Identical|Settings}}</string>
-  <string name="settings_activity_title">Title at the top of the Settings screen.
-{{Identical|Settings}}</string>
+  <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.\n{{Identical|Settings}}</string>
+  <string name="settings_activity_title">Title at the top of the Settings screen.\n{{Identical|Settings}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
-  <string name="privacy_policy_description">Summary of the preference item to show the terms of use.
-{{Identical|Privacy policy}}</string>
-  <string name="terms_of_use_description">Summary of the preference item to show the terms of use.
-{{Identical|Terms of use}}</string>
-  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de
-Please test the URL to make sure it works.</string>
-  <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://m.wikimediafoundation.org/wiki/Terms_of_Use/de
-Please test the URL to make sure it works</string>
+  <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
+  <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
+  <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
+  <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://m.wikimediafoundation.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
   <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
-  <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.
-{{Identical|Contributor}}</string>
-  <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.
-{{Identical|Translator}}</string>
-  <string name="about_translators_translatewiki">Credit given to translatewiki.net translators.
-
-{{doc-important|Please don\'t translate the link and the site title.}}</string>
-  <string name="about_app_license_heading">Heading for section that describes the license for the app itself.
-{{Identical|License}}</string>
-  <string name="about_app_license">Description of the license for the app, as well as links for finding our source code.
-
-  {{doc-important|Please don\'t translate links and link titles.}}</string>
+  <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
+  <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.\n{{Identical|Translator}}</string>
+  <string name="about_translators_translatewiki">Credit given to translatewiki.net translators.\n\n{{doc-important|Please don\'t translate the link and the site title.}}</string>
+  <string name="about_app_license_heading">Heading for section that describes the license for the app itself.\n{{Identical|License}}</string>
+  <string name="about_app_license">Description of the license for the app, as well as links for finding our source code.\n\n  {{doc-important|Please don\'t translate links and link titles.}}</string>
   <string name="about_wmf">Text and link specifying that this app was developed by the Wikimedia Foundation</string>
   <string name="about_activity_title">{{Identical|About}}</string>
   <string name="edit_abandon_confirm">Prompt for the user to abandon any changes that were made during editing.</string>
@@ -237,37 +155,26 @@ Please test the URL to make sure it works</string>
   <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
   <string name="user_anon_blocked_from_editing">Message shown in dialog box to users who are blocked from editing based on their IP address</string>
   <string name="edit_how_page_improved">Question that asks the user how they improved the article after editing</string>
-  <string name="edit_next">Button text to go \"next\" after the editing screen to the preview screen.
-{{Identical|Next}}</string>
-  <string name="edit_done">Button text to finish editing and save the changes.
-{{Identical|Publish}}</string>
-  <string name="edit_preview">Header text to show above the preview of the edited article.
-{{Identical|Preview}}</string>
+  <string name="edit_next">Button text to go \"next\" after the editing screen to the preview screen.\n{{Identical|Next}}</string>
+  <string name="edit_done">Button text to finish editing and save the changes.\n{{Identical|Publish}}</string>
+  <string name="edit_preview">Header text to show above the preview of the edited article.\n{{Identical|Preview}}</string>
   <string name="edit_summary_tag_typo">Clickable summary tag for fixing a typo</string>
   <string name="edit_summary_tag_grammar">Clickable summary tag for fixing grammar</string>
   <string name="edit_summary_tag_links">Clickable summary tag for adding link(s)</string>
-  <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text.
-{{Identical|Other}}</string>
+  <string name="edit_summary_tag_other">Clickable summary tag for a custom/other edit summary text.\n{{Identical|Other}}</string>
   <string name="edit_summary_tag_other_hint">Hint (input field placeholder) for the user to write a custom summary of edits</string>
-  <string name="find_next">Text for button that finds the next occurrence of a search term.
-{{Identical|Find next}}</string>
+  <string name="find_next">Text for button that finds the next occurrence of a search term.\n{{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="abusefilter_title_warn">Message that warns the user that their edit may be unconstructive, and asks if they want to continue saving it.</string>
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
   <string name="abusefilter_text_disallow">Explanation of why the edit was not allowed: potentially unconstructive, or potential vandalism.</string>
-  <string name="dialog_page_issues">Dialog title for article issues list (issues parsed from hatnote templates, such as \"needs additional citations\").
-{{Identical|Page issue}}</string>
-  <string name="button_page_issues">Label for button that shows the Page issues dialog.
-{{Identical|Page issue}}</string>
-  <string name="text_size_select">Label that describes text size selection
-{{Identical|Font size}}</string>
-  <string name="color_theme_select">Label that describes color theme selection
-{{Identical|Theme}}</string>
-  <string name="color_theme_light">Button label for Light color theme
-{{Identical|Light}}</string>
-  <string name="color_theme_dark">Button label for Dark color theme
-{{Identical|Dark}}</string>
+  <string name="dialog_page_issues">Dialog title for article issues list (issues parsed from hatnote templates, such as \"needs additional citations\").\n{{Identical|Page issue}}</string>
+  <string name="button_page_issues">Label for button that shows the Page issues dialog.\n{{Identical|Page issue}}</string>
+  <string name="text_size_select">Label that describes text size selection\n{{Identical|Font size}}</string>
+  <string name="color_theme_select">Label that describes color theme selection\n{{Identical|Theme}}</string>
+  <string name="color_theme_light">Button label for Light color theme\n{{Identical|Light}}</string>
+  <string name="color_theme_dark">Button label for Dark color theme\n{{Identical|Dark}}</string>
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
   <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
@@ -279,56 +186,32 @@ Please test the URL to make sure it works</string>
   <string name="table_close">{{Identical|Close}}</string>
   <string name="widget_name_featured_page">Name of the Widget (as seen in the Android widget picker) that displays today\'s featured page.</string>
   <string name="widget_title_featured_page">Text shown inside the widget that tells the user that the link below is today\'s featured page.</string>
-  <string name="widget_name_search">Name of the Widget (as seen in the Android widget picker) for searching Wikipedia
-
-Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
+  <string name="widget_name_search">Name of the Widget (as seen in the Android widget picker) for searching Wikipedia\n\nFollowed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="wiktionary_no_definitions_found">Message shown when a user requests a definition from Wiktionary but no definition is found.</string>
-  <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
-
-
-
-
-Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
-  <string name="alpha_update_notification_text">Text for notification when new alpha update is available.
-
-Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}.</string>
-  <string name="dialog_close_description">Button description for the close image button. The text is mainly for screen readers.
-{{Identical|Close}}</string>
-  <string name="preference_title_show_images">Preference title for selecting whether images are loaded in pages.
-
-Shown in the preferences screen along with the following:
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
-* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}
-
-{{Identical|Show image}}</string>
+  <string name="alpha_update_notification_title">Title for notification when new alpha update is available.\n\n\n\n\nFollowed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
+  <string name="alpha_update_notification_text">Text for notification when new alpha update is available.\n\nPreceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}.</string>
+  <string name="dialog_close_description">Button description for the close image button. The text is mainly for screen readers.\n{{Identical|Close}}</string>
+  <string name="preference_title_show_images">Preference title for selecting whether images are loaded in pages.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}\n\n{{Identical|Show image}}</string>
   <string name="preference_summary_show_images">Description of the preference for whether images are loaded, mentioning that this setting should be disabled if the user\'s internet connection is slow, or if their data plan is limited or restricted.</string>
-  <string name="read_more_section">Title of the Read More section at the bottom of each page.
-{{Identical|Read more}}</string>
+  <string name="read_more_section">Title of the Read More section at the bottom of each page.\n{{Identical|Read more}}</string>
   <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
   <string name="gallery_error_draw_failed">Error message shown when the current image could not be displayed.</string>
   <string name="license_title">Title for activity displaying the license text for a library that we use. The \"%s\" symbol is replaced with the name of the library for which the license is being shown.</string>
-  <string name="gallery_menu_share">Label for menu item to share the current image.
-{{Identical|Share}}</string>
+  <string name="gallery_menu_share">Label for menu item to share the current image.\n{{Identical|Share}}</string>
   <string name="gallery_share_error">Error message shown when there was a problem with sharing the image. The \"%s\" symbol is replaced with the actual error message from the system.</string>
   <string name="gallery_save_progress">Message shown when the current media item is being downloaded.</string>
   <string name="gallery_save_success">Message shown when the current media item was saved successfully to the local device.</string>
   <string name="gallery_error_video_failed">Error message displayed when a video fails to be played on the device.</string>
   <string name="gallery_save_image_write_permission_rationale">Message shown to explain that an extra write permission is needed to save an image.</string>
   <string name="err_cannot_save_file">Error message when we detect that a file cannot be written to storage.</string>
-  <string name="snippet_share_intro">Intro text included as part of the shared text snippet, aka Tweet-a-fact. Please do not translate the \"@Wikipedia\" in the message and preserve the spaces around it, as it refers specifically to Wikipedia\'s Twitter account. This message has two parameters. Please keep the parameters exactly as in the original English message.
-* %1$s is the title of the page the text snippet is from.
-* %2$s is an HTML link to the page.</string>
+  <string name="snippet_share_intro">Intro text included as part of the shared text snippet, aka Tweet-a-fact. Please do not translate the \"@Wikipedia\" in the message and preserve the spaces around it, as it refers specifically to Wikipedia\'s Twitter account. This message has two parameters. Please keep the parameters exactly as in the original English message.\n* %1$s is the title of the page the text snippet is from.\n* %2$s is an HTML link to the page.</string>
   <string name="expand_refs">Title for a button that, when clicked, will expand the list of references or notes at the bottom of a page.</string>
   <string name="share_snippet_button">Button on share snippet preview to share as image card.</string>
   <string name="share_normal_button">Button on share snippet preview to share as plain text.</string>
   <string name="snippet_share_preview_image_desc">Content description for the share a fact preview image. This string is only used for screen readers.</string>
   <string name="cc_logo">Content description of Creative Commons license logo icon shown before an edit is submitted.</string>
   <string name="captcha_image">Content description of the actual captcha image the user has to recognize to proceed.</string>
-  <string name="gallery_fair_use_license">Short name of the Fair Use license when applied to media that do not have attribution information.
-{{Identical|Fair use}}</string>
+  <string name="gallery_fair_use_license">Short name of the Fair Use license when applied to media that do not have attribution information.\n{{Identical|Fair use}}</string>
   <string name="gallery_uploader_unknown">Text displayed when the uploader of a media item is not known.</string>
   <string name="menu_new_tab">Text hint for the menu button used for creating a new tab.</string>
   <string name="menu_close_all_tabs">Text hint for the menu button used for closing all tabs.</string>
@@ -337,16 +220,12 @@ Shown in the preferences screen along with the following:
   <string name="tool_tip_select_text">Very short advice on how to highlight text for copying to the clipboard or sharing.</string>
   <string name="tool_tip_share">Very short advice on sharing highlighted text on social networks.</string>
   <string name="page_view_in_browser">Text for a link that will open the current page in an external browser app on the device.</string>
-  <string name="tool_tip_toc_button">Advice on accessing the table of contents for a page.
-
-\'\'\'In right-to-left languages\'\'\' (Hebrew, Arabic, etc.) write \'\'\'left\'\'\' edge and not \"right\".</string>
+  <string name="tool_tip_toc_button">Advice on accessing the table of contents for a page.\n\n\'\'\'In right-to-left languages\'\'\' (Hebrew, Arabic, etc.) write \'\'\'left\'\'\' edge and not \"right\".</string>
   <string name="error_server_response">Generic error message that tells the user that the server failed to complete the last request.</string>
   <string name="error_response_malformed">Generic error message that tells the user that the response from the server was not formatted correctly.</string>
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
-  <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API response from the server.
-{{Identical|Message}}</string>
-  <string name="format_error_server_code">Message displayed to the user that shows the actual error code received from the server. The \"%s\" symbol is replaced with the API error code.
-{{Identical|Code}}</string>
+  <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API response from the server.\n{{Identical|Message}}</string>
+  <string name="format_error_server_code">Message displayed to the user that shows the actual error code received from the server. The \"%s\" symbol is replaced with the API error code.\n{{Identical|Code}}</string>
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
@@ -355,50 +234,36 @@ Shown in the preferences screen along with the following:
   <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be donwloaded when the app is online. This message follows {{msg-wm|Wikipedia-android-strings-page_offline_notice_cannot_load_while_offline}}.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
-  <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.
-
-Shown in the preferences screen along with the following:
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
-* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
-* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
+  <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="nav_item_donate">Text in navigation sidebar that when tapped leads to a web page where the user may donate to Wikipedia.</string>
   <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>
   <string name="location_service_disabled">Message shown when trying to use location services but they are unavailable</string>
-  <string name="enable_location_service">Button label for enabling location services
-{{Identical|Enable}}</string>
+  <string name="enable_location_service">Button label for enabling location services\n{{Identical|Enable}}</string>
   <string name="location_permissions_enable_prompt">Message shown informing the user that if they enable the Location permission, they will be able to see places nearby.</string>
   <string name="location_permissions_enable_action">Button label for requesting to turn on location permissions.</string>
   <string name="error_webview_updating">Error informing the user that the System WebView is being updated, meaning that the app cannot be launched right now, and that the user should try again in a moment.</string>
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
-  <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview
-{{Identical|Dismiss}}</string>
+  <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
   <string name="view_wiki_error_message_offline">Error message shown when network cannot be reached when loading a page</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
   <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
-  <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.
-{{Identical|Skip}}</string>
+  <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.\n{{Identical|Skip}}</string>
   <string name="crash_report_dialog_always_send_button">In the dialog that pops up when the app crashes, text for button that prevents the pop up from being shown again and always sends a crash report.</string>
-  <string name="crash_report_dialog_send_button">In the dialog that pops up when the app crashes, text for button that sends a crash report once.
-{{Identical|Send}}</string>
+  <string name="crash_report_dialog_send_button">In the dialog that pops up when the app crashes, text for button that sends a crash report once.\n{{Identical|Send}}</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
-  <string name="crash_report_quit">Title of button user presses to quit the app after it crashes.
-{{Identical|Quit}}</string>
+  <string name="crash_report_quit">Title of button user presses to quit the app after it crashes.\n{{Identical|Quit}}</string>
   <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
-  <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.
-{{Identical|Edit}}</string>
+  <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.\n{{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
-  <string name="reading_list_untitled">Name for a reading list that has an empty title.
-{{Identical|Untitled}}</string>
+  <string name="reading_list_untitled">Name for a reading list that has an empty title.\n{{Identical|Untitled}}</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
@@ -408,25 +273,21 @@ Shown in the preferences screen along with the following:
   <string name="reading_list_already_exists">Message shown when an article already exists in the selected reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
   <string name="reading_list_item_count_singular">Label when a reading list contains one article (singular).</string>
-  <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%d\" symbol is replaced with the number of articles.
-{{Identical|Article}}</string>
-  <string name="reading_list_sort">Button label to sort reading lists.
-{{Identical|Sort}}</string>
+  <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%d\" symbol is replaced with the number of articles.\n{{Identical|Article}}</string>
+  <string name="reading_list_sort">Button label to sort reading lists.\n{{Identical|Sort}}</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>
   <string name="reading_list_sort_by_name_desc">Menu option to sort reading lists by name, in reverse order.</string>
   <string name="reading_list_sort_by_recent">Menu option to sort reading lists by last-accessed time.</string>
   <string name="reading_list_sort_by_recent_desc">Menu option to sort reading lists by last-accessed time, in reverse order.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
-  <string name="reading_list_menu_rename">Menu item for changing the name of a reading list.
-{{Identical|Rename}}</string>
+  <string name="reading_list_menu_rename">Menu item for changing the name of a reading list.\n{{Identical|Rename}}</string>
   <string name="reading_list_menu_edit_description">Menu item for changing the description of a reading list.</string>
   <string name="reading_list_name_sample">Default name for a new reading list.</string>
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
-  <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.
-{{Identical|Undo}}</string>
+  <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.\n{{Identical|Undo}}</string>
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
   <string name="reading_lists_empty">Title message shown when there are no reading lists.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists, and the location of the button to add an article to a reading list.</string>
@@ -449,8 +310,7 @@ Shown in the preferences screen along with the following:
   <string name="reading_list_confirm_remove_article_from_offline">Label for a dialog button confirming that the user wants to remove the selected list from offline availability for all reading lists.</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Title for a dialog warning the user that the page the user has selected to remove from offline availability appears in multiple lists.</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Message for a dialog warning the user that the page the user has selected to remove from offline availability appears in multiple lists.  The names of the lists appear below.  The \"%s\" symbol is the title of the page of the user selected to remove.</string>
-  <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
-{{Identical|Preferences}}</string>
+  <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
   <string name="notification_talk_title">Title for notification when the user receives a new message on their Talk page.</string>
   <string name="notification_talk">Text of notification when the user receives a new message on their Talk page. The \"%1$s\" symbol corresponds to the user who left the message, and the \"%2$s\" symbol is the title of the talk page of the user.</string>
@@ -466,35 +326,28 @@ Shown in the preferences screen along with the following:
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
-  <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.
-{{Identical|Download}}</string>
+  <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
   <string name="menu_feed_card_dismissed">Message to inform the user that the selected item has been hidden.</string>
   <string name="menu_feed_overflow_label">Label for toolbar menu item that shows the user more options, such as logging in and accessing the app settings.</string>
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
-  <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.
-{{Identical|Explore}}</string>
+  <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.\n{{Identical|Explore}}</string>
   <string name="view_card_footer_button">Feed card button label for requesting more similar cards.</string>
-  <string name="most_read_list_card_title">Feed card title for recently popular articles.
-{{Identical|Trending}}</string>
+  <string name="most_read_list_card_title">Feed card title for recently popular articles.\n{{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Subtitle for a day old \"continue reading\" card. The first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]]. Use the %d parameter to insert the number of days passed since the content (an article) was last seen.</item>
     <item quantity="other">Subtitle for a \"continue reading\" card two or more days old. The first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]]. Use the %d parameter to insert the number of days passed since the content (an article) was last seen.</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.
-{{Identical|Today}}</string>
-  <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.
-{{Identical|No thanks}}</string>
+  <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.\n{{Identical|Today}}</string>
+  <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.\n{{Identical|No thanks}}</string>
   <string name="view_offline_card_text">Message in the feed informing the user that additional content cannot be loaded while offline.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
-  <string name="description_edit_save">Hint for the button that is pressed for saving the new description.
-{{Identical|Publish}}</string>
+  <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
-  <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.
-{{Identical|Cancel}}</string>
+  <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.\n{{Identical|Cancel}}</string>
   <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
   <string name="description_edit_help_about_wikidata">Menu label for navigating to a page describing Wikidata.</string>
   <string name="description_edit_help_wikidata_guide">Menu label for navigating to the official Wikidata guide for composing descriptions.</string>
@@ -504,22 +357,17 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
-  <string name="description_edit_success_done">Button text to dismiss the description editing success screen
-{{Identical|Done}}</string>
-  <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app
-{{Identical|Did you know}}</string>
+  <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
+  <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>
   <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
   <string name="description_edit_tutorial_title_descriptions">Heading for a tutorial about editing page title descriptions.</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Summary of what page title descriptions are for.</string>
-  <string name="description_edit_tutorial_button_label_continue">Label for a button the user can push to continue to the next page of the tutorial.
-
-{{Identical|Continue}}</string>
+  <string name="description_edit_tutorial_button_label_continue">Label for a button the user can push to continue to the next page of the tutorial.\n\n{{Identical|Continue}}</string>
   <string name="description_edit_tutorial_keep_it_short">An instruction for the user to keep descriptions short.</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
-  <string name="description_edit_help_about_title">Heading for a dialog window that provides detailed information about Wikidata descriptions.
-{{Identical|About}}</string>
+  <string name="description_edit_help_about_title">Heading for a dialog window that provides detailed information about Wikidata descriptions.\n{{Identical|About}}</string>
   <string name="description_edit_help_description">Informative message that summarizes the purpose of descriptions.</string>
   <string name="description_edit_help_tips">Heading for a list of tips for creating effective descriptions.</string>
   <string name="description_edit_help_tips_description">A quick overview of some guidelines for creating descriptions. These can be adapted to your language; for example, if your language doesn\'t have small and capital letters, you don\'t have to mention it.</string>
@@ -528,8 +376,7 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_help_tips_example1_hint">Title description for the article mentioned in {{msg-wikimedia|Wikipedia-android-strings-description edit help tips example1\"}}</string>
   <string name="description_edit_help_tips_example2">An example description of a notable landmark or geological feature.</string>
   <string name="description_edit_help_tips_example2_hint">Title description for the article mentioned in {{msg-wikimedia|Wikipedia-android-strings-description edit help tips example2\"}}</string>
-  <string name="description_edit_help_more_info">Heading for further information about descriptions.
-{{Identical|More information}}</string>
+  <string name="description_edit_help_more_info">Heading for further information about descriptions.\n{{Identical|More information}}</string>
   <string name="description_edit_help_meta_info">Meta information about Wikidata descriptions and their role in Wikimedia Foundation projects.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>

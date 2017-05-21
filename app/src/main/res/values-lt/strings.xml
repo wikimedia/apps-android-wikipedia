@@ -224,9 +224,7 @@
   <string name="crash_report_dialog_always_send_button">Siųsti visada</string>
   <string name="crash_report_dialog_send_button">Siųsti</string>
   <string name="crash_report_activity_title">Aplikacijos klaida</string>
-  <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.
-
-Norėtumėte pradėti iš naujo ar baigti?</string>
+  <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.\n\nNorėtumėte pradėti iš naujo ar baigti?</string>
   <string name="crash_report_relaunch">Pradėti iš naujo</string>
   <string name="crash_report_quit">Išeiti</string>
   <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>

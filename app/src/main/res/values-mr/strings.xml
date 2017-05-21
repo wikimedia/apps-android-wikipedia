@@ -222,9 +222,7 @@
   <string name="crash_report_dialog_always_send_button">नेहमी पाठवा</string>
   <string name="crash_report_dialog_send_button">पाठवा</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटी</string>
-  <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॅपमध्ये त्रुटी उद्भवली आहे म्हणून ते रद्दबादल केल्या गेले.
-
-आपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
+  <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॅपमध्ये त्रुटी उद्भवली आहे म्हणून ते रद्दबादल केल्या गेले.\n\nआपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
   <string name="crash_report_relaunch">पुन्हा सुरु करा</string>
   <string name="crash_report_quit">रद्दबादल करा</string>
   <string name="article_menu_bar_bookmark">हा लेख वाचनयादीत जोडा</string>
