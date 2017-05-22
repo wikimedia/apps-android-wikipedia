@@ -253,9 +253,7 @@
   <string name="crash_report_dialog_always_send_button">Lähetä aina</string>
   <string name="crash_report_dialog_send_button">Lähetä</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
-  <string name="crash_report_relaunch_or_quit">Pahoittelut, Wikipedia-sovellus kohtasi virheen ja sovellus lopetettiin.
-
-Haluaisitko aloittaa alusta tai poistua?</string>
+  <string name="crash_report_relaunch_or_quit">Pahoittelut, Wikipedia-sovellus kohtasi virheen ja sovellus lopetettiin.\n\nHaluaisitko aloittaa alusta tai poistua?</string>
   <string name="crash_report_relaunch">Aloita alusta</string>
   <string name="crash_report_quit">Poistu</string>
   <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulistaan</string>

@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">总是发送</string>
   <string name="crash_report_dialog_send_button">发送</string>
   <string name="crash_report_activity_title">应用程序错误</string>
-  <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用程序发生了一个错误，并已终止。
-
-您要重启还是退出？</string>
+  <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用程序发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重新开始</string>
   <string name="crash_report_quit">退出</string>
   <string name="article_menu_bar_bookmark">添加此条目至阅读列表</string>
@@ -309,6 +307,9 @@
   <string name="reading_list_add_to_other_list">添加到另一个阅读列表</string>
   <string name="reading_list_remove_from_list">从%s中移除</string>
   <string name="reading_list_remove_from_lists">从阅读列表中移除</string>
+  <string name="reading_list_confirm_remove_article_from_offline">从离线内容中移除</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">出现在多个列表中的条目</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s将不再用于所有阅读列表中的离线内容：</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_button_view_user">与用户讨论</string>
   <string name="notification_talk_title">维基百科上的新消息</string>

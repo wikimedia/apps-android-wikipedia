@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Секогаш испраќај</string>
   <string name="crash_report_dialog_send_button">Испрати</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
-  <string name="crash_report_relaunch_or_quit">За жал, прилогот на Википедија наиде на грешка и беше запрен.
-
-Дали би сакале да почнете одново или да напуштите?</string>
+  <string name="crash_report_relaunch_or_quit">За жал, прилогот на Википедија наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
   <string name="crash_report_quit">Излези</string>
   <string name="article_menu_bar_bookmark">Додај ја статијава во списокот за читање</string>
@@ -309,6 +307,9 @@
   <string name="reading_list_add_to_other_list">Стави во список за читање</string>
   <string name="reading_list_remove_from_list">Отсрани од %s</string>
   <string name="reading_list_remove_from_lists">Отстрани од списоци за читање</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Отстрани од вонмрежни</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Статијата се јавува во повеќе списоци</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрно за сите списоци за читање:</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>

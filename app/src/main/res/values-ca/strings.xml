@@ -253,9 +253,7 @@
   <string name="crash_report_dialog_always_send_button">Envia sempre</string>
   <string name="crash_report_dialog_send_button">Envia</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
-  <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.
-
-Voleu començar de nou o sortir?</string>
+  <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
   <string name="crash_report_quit">Surt</string>
   <string name="article_menu_bar_bookmark">Afegeix l\'article a la llista de lectura</string>

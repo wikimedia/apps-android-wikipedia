@@ -194,9 +194,7 @@
   <string name="crash_report_dialog_always_send_button">Emmer Affscheke</string>
   <string name="crash_report_dialog_send_button">Avschecke</string>
   <string name="crash_report_activity_title">Fähler em Projramm</string>
-  <string name="crash_report_relaunch_or_quit">Schahd, De Wikkipehdija-Äpp es obb ene Fähler jeloufe un wood afjebroche.
-
-Wells De se neu aanfange udder ophühre?</string>
+  <string name="crash_report_relaunch_or_quit">Schahd, De Wikkipehdija-Äpp es obb ene Fähler jeloufe un wood afjebroche.\n\nWells De se neu aanfange udder ophühre?</string>
   <string name="crash_report_relaunch">Neu aanfange</string>
   <string name="crash_report_quit">Ophühre</string>
   <string name="article_menu_bar_bookmark">Donn di Sigg en en Leß zom Lässe</string>

@@ -236,9 +236,7 @@
   <string name="crash_report_dialog_always_send_button">Enviar sempre</string>
   <string name="crash_report_dialog_send_button">Enviar</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
-  <string name="crash_report_relaunch_or_quit">Lamentamos, mas ocorreu um erro e a aplicação da Wikipédia foi encerrada.
-
-Gostaria de recomeçar ou sair?</string>
+  <string name="crash_report_relaunch_or_quit">Lamentamos, mas ocorreu um erro e a aplicação da Wikipédia foi encerrada.\n\nGostaria de recomeçar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
   <string name="crash_report_quit">Sair</string>
   <string name="article_menu_bar_bookmark">Adicionar este artigo a uma lista de leitura</string>

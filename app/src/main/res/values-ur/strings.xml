@@ -148,8 +148,7 @@
   <string name="find_previous">پچھلا ڈھونڈیں</string>
   <string name="abusefilter_title_warn" fuzzy="true">یہ ایک غیرتعمیری ترمیم ہوسکتی ہے۔ کیاآپ اسے یقینی طور پر محفوظ کرنا چاہتے ہیں؟</string>
   <string name="abusefilter_title_disallow" fuzzy="true">آپ اس ترمیم کو محفوظ نہیں کرسکتے۔ پیچھے جاکر اسے بدلیے۔</string>
-  <string name="abusefilter_text_warn">ایک خودکار فلٹر نے اس ترمیم کی شناخت امکانی طور پر غیرتعمیری شناخت کی ہے۔ اس میں مندرجہ میں سے ایک یا اس سے زیادہ ہوسکتے ہیں:&lt;br /&gt;&lt;br /&gt;
-سارے حروف کیاپیٹل ہیں۔&lt;br /&gt;مضمون کو خالی کرنا یا تشہیری مواد شامل کرنا۔&lt;br /&gt;غیرمتعلقہ خارجی روابط یا تصاویر۔&lt;br /&gt;ٹائپ شدہ حروف کا تکرار۔</string>
+  <string name="abusefilter_text_warn">ایک خودکار فلٹر نے اس ترمیم کی شناخت امکانی طور پر غیرتعمیری شناخت کی ہے۔ اس میں مندرجہ میں سے ایک یا اس سے زیادہ ہوسکتے ہیں:&lt;br /&gt;&lt;br /&gt;\nسارے حروف کیاپیٹل ہیں۔&lt;br /&gt;مضمون کو خالی کرنا یا تشہیری مواد شامل کرنا۔&lt;br /&gt;غیرمتعلقہ خارجی روابط یا تصاویر۔&lt;br /&gt;ٹائپ شدہ حروف کا تکرار۔</string>
   <string name="abusefilter_text_disallow">ایک خودکار فلٹر نے اس ترمیم شناخت امکانی طور پر غیرتعمیری یا امکانی طور پر تخریب کاری کے طور پر کی ہے۔ &lt;br /&gt;&lt;br /&gt; ویکیپیدیا ایک دائرۃالمعارف ہے اور صرف غیرجانبدار، قابل ذکر مواد یہاں سے تعلق رکھتا ہے۔</string>
   <string name="dialog_page_issues">صفحہ کے مسائل</string>
   <string name="button_page_issues">صفحہ کے مسائل</string>
@@ -225,9 +224,7 @@
   <string name="crash_report_dialog_always_send_button">ہمیشہ بھیجیں</string>
   <string name="crash_report_dialog_send_button">بھیجیں</string>
   <string name="crash_report_activity_title">اپلیکیشن کی خطا</string>
-  <string name="crash_report_relaunch_or_quit">ہم معذرت خواہ ہیں کہ ویکی پیڈیا ایپ ایک خطا سے گزرکر مسدود ہوئی ہے۔ 
-
-کیا آپ پھر سے شروع کرنا چاہیں گے یا ترک کریں گے؟</string>
+  <string name="crash_report_relaunch_or_quit">ہم معذرت خواہ ہیں کہ ویکی پیڈیا ایپ ایک خطا سے گزرکر مسدود ہوئی ہے۔ \n\nکیا آپ پھر سے شروع کرنا چاہیں گے یا ترک کریں گے؟</string>
   <string name="crash_report_relaunch">پھر سے شروع کریں</string>
   <string name="crash_report_quit">ترک کریں</string>
   <string name="article_menu_bar_bookmark">اس مضمون کو کسی فہرست مطالعہ میں شامل کریں</string>

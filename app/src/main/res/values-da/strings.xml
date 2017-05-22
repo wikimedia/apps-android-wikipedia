@@ -241,9 +241,7 @@
   <string name="crash_report_dialog_always_send_button">Send altid</string>
   <string name="crash_report_dialog_send_button">Send</string>
   <string name="crash_report_activity_title">Applikationsfejl</string>
-  <string name="crash_report_relaunch_or_quit">Vi beklager, Wikipedia-appen er stødt på en fejl, og blev afsluttet.
-
-Vil du starte forfra eller afslutte?</string>
+  <string name="crash_report_relaunch_or_quit">Vi beklager, Wikipedia-appen er stødt på en fejl, og blev afsluttet.\n\nVil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
   <string name="crash_report_quit">Afslut</string>
   <string name="article_menu_bar_bookmark">Tilføj denne artikel til en læseliste</string>

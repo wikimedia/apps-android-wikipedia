@@ -226,9 +226,7 @@
   <string name="crash_report_dialog_always_send_button">Vždy posílat</string>
   <string name="crash_report_dialog_send_button">Odeslat</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
-  <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedia došlo k chybě a byla ukončena.
-
-Chcete začít znovu, nebo skončit?</string>
+  <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedia došlo k chybě a byla ukončena.\n\nChcete začít znovu, nebo skončit?</string>
   <string name="crash_report_relaunch">Začít znovu</string>
   <string name="crash_report_quit">Skončit</string>
   <string name="article_menu_bar_bookmark">Přidat tento článek do seznamu k přečtení</string>

@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Skicka alltid</string>
   <string name="crash_report_dialog_send_button">Skicka</string>
   <string name="crash_report_activity_title">Applikationsfel</string>
-  <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.
-
-Vill du starta om eller avsluta?</string>
+  <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
   <string name="crash_report_quit">Avsluta</string>
   <string name="article_menu_bar_bookmark">Lägg till denna artikel i en läslista</string>

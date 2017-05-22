@@ -238,9 +238,7 @@
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
   <string name="crash_report_dialog_send_button">Wyślij</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
-  <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.
-
-Chcesz ponownie ją uruchomić czy zamknąć?</string>
+  <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
   <string name="crash_report_quit">Wyjście</string>
   <string name="article_menu_bar_bookmark">Dodaj ten artykuł do listy do przeczytania</string>

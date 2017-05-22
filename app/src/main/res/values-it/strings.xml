@@ -244,9 +244,7 @@
   <string name="crash_report_dialog_always_send_button">Invia sempre</string>
   <string name="crash_report_dialog_send_button">Invia</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
-  <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.
-
-Vuoi riavviarla o uscire?</string>
+  <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
   <string name="crash_report_quit">Esci</string>
   <string name="article_menu_bar_bookmark">Aggiungi questa voce ad un elenco lettura</string>
@@ -294,6 +292,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_add_to_other_list">Aggiungi ad un altro elenco di lettura</string>
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dall\'elenco di lettura</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Voce appare in più elenchi</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_talk_title">Nuovo messaggio su Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ti ha lasciato un messaggio sulla tua pagina di discussione &lt;strong&gt;%2$s&lt;/strong&gt;</string>

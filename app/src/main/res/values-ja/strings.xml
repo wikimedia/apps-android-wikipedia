@@ -250,9 +250,7 @@
   <string name="crash_report_dialog_always_send_button">常に送信</string>
   <string name="crash_report_dialog_send_button">送信</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
-  <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。
-
-アプリを再起動しますか?　終了しますか?</string>
+  <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
   <string name="article_menu_bar_bookmark">この記事をあとで読むリストに追加</string>

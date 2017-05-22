@@ -250,9 +250,7 @@
   <string name="crash_report_dialog_always_send_button">Завжди надсилати</string>
   <string name="crash_report_dialog_send_button">Надіслати</string>
   <string name="crash_report_activity_title">Помилка програми</string>
-  <string name="crash_report_relaunch_or_quit">Перепрошуємо, у програмці Вікіпедії сталася помилка і її було закрито.
-
-Хочете почати спочатку чи вийти?</string>
+  <string name="crash_report_relaunch_or_quit">Перепрошуємо, у програмці Вікіпедії сталася помилка і її було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>
   <string name="article_menu_bar_bookmark">Зберегти статтю до списку читання</string>

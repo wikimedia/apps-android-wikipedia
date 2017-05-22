@@ -252,9 +252,7 @@
   <string name="crash_report_dialog_always_send_button">항상 보내기</string>
   <string name="crash_report_dialog_send_button">보내기</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
-  <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.
-
-다시 시작하거나 나가시겠습니까?</string>
+  <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>
   <string name="crash_report_quit">종료</string>
   <string name="article_menu_bar_bookmark">이 문서를 읽기 목록에 추가하기</string>
@@ -307,6 +305,8 @@
   <string name="reading_list_add_to_other_list">다른 읽기 목록에 추가하기</string>
   <string name="reading_list_remove_from_list">%s에서 제거하기</string>
   <string name="reading_list_remove_from_lists">읽기 목록에서 제거하기</string>
+  <string name="reading_list_confirm_remove_article_from_offline">오프라인에서 제거</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_button_view_user">사용자와 대화하기</string>
   <string name="notification_talk_title">위키백과에서의 새 메시지</string>

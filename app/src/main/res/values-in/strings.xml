@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Selalu kirim</string>
   <string name="crash_report_dialog_send_button">Kirim</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
-  <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.
-
-Apakah Anda ingin memulai kembali atau keluar?</string>
+  <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
   <string name="crash_report_quit">Keluar</string>
   <string name="article_menu_bar_bookmark">Tambahkan artikel ini ke dalam daftar bacaan</string>
@@ -309,6 +307,9 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_add_to_other_list">Tambahkan ke daftar bacaan yang lain</string>
   <string name="reading_list_remove_from_list">Hapus dari %s</string>
   <string name="reading_list_remove_from_lists">Hapus dari daftar bacaan</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Hapus dari luring</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artikel muncul dalam beberapa daftar</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_button_view_user">Bicara ke pengguna</string>
   <string name="notification_talk_title">Pesan baru di Wikipedia</string>

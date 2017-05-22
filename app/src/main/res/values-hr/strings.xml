@@ -148,9 +148,7 @@
   <string name="abusefilter_title_warn" fuzzy="true">Ovo uređivanje je možda nekonstruktivno. Želite li ga spremiti?</string>
   <string name="abusefilter_title_disallow" fuzzy="true">Ne možete spremiti ovo uređivanje. Vratite se natrag i promijenite ga.</string>
   <string name="abusefilter_text_warn">Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno. Moguće je da sadrži nešto od sljedećeg:&lt;br /&gt;&lt;br /&gt;· pisanje tiskanim slovima&lt;br /&gt;· brisanje članaka ili spamiranje&lt;br /&gt;· nevažne vanjske poveznice ili slike&lt;br /&gt;· ponavljanje znakova</string>
-  <string name="abusefilter_text_disallow">An automated filter has identified this edit as potentially unconstructive, or potential vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia is an encyclopedia and only neutral, notable content belongs here.
-
-Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno ili vandalizam.&lt;br /&gt;&lt;br /&gt;Wikipedija je enciklopedija i dodajite samo neutralan i provjerljiv sadržaj.</string>
+  <string name="abusefilter_text_disallow">An automated filter has identified this edit as potentially unconstructive, or potential vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia is an encyclopedia and only neutral, notable content belongs here.\n\nAutomatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno ili vandalizam.&lt;br /&gt;&lt;br /&gt;Wikipedija je enciklopedija i dodajite samo neutralan i provjerljiv sadržaj.</string>
   <string name="dialog_page_issues">Problemi sa stranicom</string>
   <string name="button_page_issues">Problemi sa stranicom</string>
   <string name="text_size_select">Veličina pisma</string>
@@ -223,9 +221,7 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="crash_report_dialog_always_send_button">Uvijek šalji</string>
   <string name="crash_report_dialog_send_button">Pošalji</string>
   <string name="crash_report_activity_title">Pogreška aplikacije</string>
-  <string name="crash_report_relaunch_or_quit">Žao nam je, ali aplikacija Wikipedija je prekinuta.
-
-Žalite li početi ponovno ili prekinuti?</string>
+  <string name="crash_report_relaunch_or_quit">Žao nam je, ali aplikacija Wikipedija je prekinuta.\n\nŽalite li početi ponovno ili prekinuti?</string>
   <string name="crash_report_relaunch">Počni ponovno</string>
   <string name="crash_report_quit">Prekini</string>
   <string name="article_menu_bar_bookmark">Spremi članak na popis za čitanje</string>

@@ -254,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Unviar siempre</string>
   <string name="crash_report_dialog_send_button">Unviar</string>
   <string name="crash_report_activity_title">Error de l\'aplicación:</string>
-  <string name="crash_report_relaunch_or_quit">Sentímoslo, la app de Wikipedia esperimentó un error y terminóse.
-
-¿Quies volver a arrancar o colar?</string>
+  <string name="crash_report_relaunch_or_quit">Sentímoslo, la app de Wikipedia esperimentó un error y terminóse.\n\n¿Quies volver a arrancar o colar?</string>
   <string name="crash_report_relaunch">Volver a arrancar</string>
   <string name="crash_report_quit">Colar</string>
   <string name="article_menu_bar_bookmark">Amestar esti artículu a una llista de llectura</string>

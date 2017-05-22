@@ -42,6 +42,7 @@
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Указать местоположение на карте</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Участники &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="talk_page_link_text">Обсуждение</string>
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
@@ -253,9 +254,7 @@
   <string name="crash_report_dialog_always_send_button">Всегда отправлять</string>
   <string name="crash_report_dialog_send_button">Отправить</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
-  <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.
-
-Вы хотите перезапустить его или выйти?</string>
+  <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
   <string name="crash_report_quit">Выйти</string>
   <string name="article_menu_bar_bookmark">Добавить эту статью в список для чтения</string>
@@ -300,6 +299,7 @@
   <string name="reading_lists_onboarding_got_it">Понятно</string>
   <string name="reading_list_no_description">Нет описания…</string>
   <string name="reading_list_empty">В этом списке нет добавленных статей.</string>
+  <string name="reading_list_article_offline">Доступно в автономном режиме</string>
   <string name="reading_list_article_make_offline">Сделать эта статью доступной в автономном режиме</string>
   <string name="reading_list_article_remove_offline">Статья не будет доступна в автономном режиме</string>
   <string name="reading_list_article_offline_message">Эта статья теперь будет доступна в автономном режиме.</string>
@@ -307,6 +307,9 @@
   <string name="reading_list_add_to_other_list">Добавить в другой список для чтения</string>
   <string name="reading_list_remove_from_list">Удалить из %s</string>
   <string name="reading_list_remove_from_lists">Удалить из списков для чтения</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Удалить из автономного режима</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">Статья %s больше не будет доступна из автономного режима для всех списков для чтения:</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_button_view_user">Написать участнику</string>
   <string name="notification_talk_title">Новое сообщение в Википедии</string>
@@ -339,6 +342,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Сегодня</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
+  <string name="view_offline_card_text">Содержимое не может быть загружено в оффлайн-режиме.</string>
   <string name="description_edit_text_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_add_description">Добавить описание</string>
