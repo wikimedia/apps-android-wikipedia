@@ -1,0 +1,78 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "ns": 6,
+        "title": "File:William Henry Bury.jpg",
+        "missing": true,
+        "known": true,
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "size": 300919,
+            "width": 600,
+            "height": 800,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/William_Henry_Bury.jpg",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:William_Henry_Bury.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=684021",
+            "mime": "image/jpeg"
+          }
+        ]
+      },
+      {
+        "ns": 6,
+        "title": "File:F.G.Abberline.jpg",
+        "missing": true,
+        "known": true,
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "size": 68984,
+            "width": 196,
+            "height": 283,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/F.G.Abberline.jpg",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:F.G.Abberline.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=2456964",
+            "mime": "image/jpeg"
+          }
+        ]
+      },
+      {
+        "ns": 6,
+        "title": "File:Castle Street, Dundee.jpg",
+        "missing": true,
+        "known": true,
+        "imagerepository": "shared",
+        "imageinfo": [
+          {
+            "size": 591463,
+            "width": 1024,
+            "height": 646,
+            "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Castle_Street%2C_Dundee.jpg",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Castle_Street,_Dundee.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=8076821",
+            "mime": "image/jpeg"
+          }
+        ]
+      },
+      {
+        "pageid": 33285464,
+        "ns": 6,
+        "title": "File:Cscr-featured.svg",
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "size": 68473,
+            "width": 462,
+            "height": 438,
+            "url": "https://upload.wikimedia.org/wikipedia/en/e/e7/Cscr-featured.svg",
+            "descriptionurl": "https://en.wikipedia.org/wiki/File:Cscr-featured.svg",
+            "descriptionshorturl": "https://en.wikipedia.org/w/index.php?curid=33285464",
+            "mime": "image/svg+xml"
+          }
+        ]
+      }
+    ]
+  }
+}
