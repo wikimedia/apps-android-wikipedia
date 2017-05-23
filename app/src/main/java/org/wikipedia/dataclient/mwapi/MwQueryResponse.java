@@ -20,7 +20,7 @@ public class MwQueryResponse<T> extends MwResponse {
         return batchComplete;
     }
 
-    @Nullable public Map<String, String> getContinuation() {
+    @Nullable public Map<String, String> continuation() {
         return continuation;
     }
 

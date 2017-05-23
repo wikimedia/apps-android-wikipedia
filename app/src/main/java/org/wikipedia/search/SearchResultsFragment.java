@@ -23,6 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -34,12 +35,14 @@ import org.wikipedia.views.WikiErrorView;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 import butterknife.Unbinder;
+import retrofit2.Call;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -73,13 +76,13 @@ public class SearchResultsFragment extends Fragment {
     private Unbinder unbinder;
 
     private WikipediaApp app;
-    @NonNull private final LruCache<String, List<SearchResult>> searchResultsCache
-            = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
+    private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private Handler searchHandler;
     private TitleSearchTask curSearchTask;
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
+    private FullTextSearchClient fullTextSearchClient = new FullTextSearchClient();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -306,67 +309,18 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void doFullTextSearch(final String searchTerm,
-                                  final SearchResults.ContinueOffset continueOffset,
+                                  final Map<String, String> continueOffset,
                                   final boolean clearOnSuccess) {
-        // Use nanoTime to measure the time the search was started.
         final long startTime = System.nanoTime();
-        new FullSearchArticlesTask(app.getAPIForSite(app.getWikiSite()), app.getWikiSite(),
-                                   searchTerm, BATCH_SIZE, continueOffset, false) {
-            @Override
-            public void onBeforeExecute() {
-                updateProgressBar(true);
-            }
+        updateProgressBar(true);
 
-            @Override
-            public void onFinish(SearchResults results) {
-                if (!isAdded()) {
-                    return;
-                }
-
-                if (clearOnSuccess) {
-                    clearResults(false);
-                }
-
-                Callback callback = callback();
-                // To ease data analysis and better make the funnel track with user behaviour,
-                // only transmit search results events if there are a nonzero number of results
-                final List<SearchResult> resultList = results.getResults();
-                if (!resultList.isEmpty() && callback != null) {
-                    // Calculate total time taken to display results, in milliseconds
-                    final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                    callback.getFunnel().searchResults(true, resultList.size(), timeToDisplay);
-                }
-
-                // append results to cache...
-                List<SearchResult> cachedTitles = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + searchTerm);
-                if (cachedTitles != null) {
-                    cachedTitles.addAll(resultList);
-                }
-
-                updateProgressBar(false);
-                searchErrorView.setVisibility(View.GONE);
-
-                // full text special:
-                SearchResultsFragment.this.lastFullTextResults = results;
-
-                displayResults(resultList);
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                if (!isAdded()) {
-                    return;
-                }
-                // Calculate total time taken to display results, in milliseconds
-                final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                Callback callback = callback();
-                if (callback != null) {
-                    callback.getFunnel().searchError(true, timeToDisplay);
-                }
-                // if there's an error just log it and let the existing prefix search results be.
-                updateProgressBar(false);
-            }
-        }.execute();
+        fullTextSearchClient.request(
+                app.getWikiSite(),
+                searchTerm,
+                continueOffset != null ? continueOffset.get("continue") : null,
+                continueOffset != null ? continueOffset.get("gsroffset") : null,
+                BATCH_SIZE,
+                new FullTextSearchCallback(searchTerm, startTime, clearOnSuccess));
     }
 
     @Nullable
@@ -556,9 +510,9 @@ public class SearchResultsFragment extends Fragment {
                 if (lastFullTextResults == null) {
                     // the first full text search
                     doFullTextSearch(currentSearchTerm, null, false);
-                } else if (lastFullTextResults.getContinueOffset() != null) {
+                } else if (lastFullTextResults.getContinuation() != null) {
                     // subsequent full text searches
-                    doFullTextSearch(currentSearchTerm, lastFullTextResults.getContinueOffset(), false);
+                    doFullTextSearch(currentSearchTerm, lastFullTextResults.getContinuation(), false);
                 }
             }
 
@@ -575,6 +529,70 @@ public class SearchResultsFragment extends Fragment {
                 }
             }
             return -1;
+        }
+    }
+
+    private void cache(@NonNull List<SearchResult> resultList, @NonNull String searchTerm) {
+        String cacheKey = app.getAppOrSystemLanguageCode() + "-" + searchTerm;
+        List<SearchResult> cachedTitles = searchResultsCache.get(cacheKey);
+        if (cachedTitles != null) {
+            cachedTitles.addAll(resultList);
+        }
+    }
+
+    private void log(@NonNull List<SearchResult> resultList, long startTime) {
+        // To ease data analysis and better make the funnel track with user behaviour,
+        // only transmit search results events if there are a nonzero number of results
+        if (!resultList.isEmpty() && callback() != null) {
+            int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+            // noinspection ConstantConditions
+            callback().getFunnel().searchResults(true, resultList.size(), timeToDisplay);
+        }
+    }
+
+    private final class FullTextSearchCallback implements FullTextSearchClient.Callback {
+        @NonNull private String searchTerm = "";
+        private long startTime;
+        private boolean clearOnSuccess;
+
+        private FullTextSearchCallback(@NonNull String searchTerm, long startTime, boolean clearOnSuccess) {
+            this.searchTerm = searchTerm;
+            this.startTime = startTime;
+            this.clearOnSuccess = clearOnSuccess;
+        }
+
+        @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                                      @NonNull SearchResults results) {
+            List<SearchResult> resultList = results.getResults();
+            cache(resultList, searchTerm);
+            log(resultList, startTime);
+
+            if (!isAdded()) {
+                return;
+            }
+            if (clearOnSuccess) {
+                clearResults(false);
+            }
+            updateProgressBar(false);
+            searchErrorView.setVisibility(View.GONE);
+
+            // full text special:
+            SearchResultsFragment.this.lastFullTextResults = results;
+
+            displayResults(resultList);
+        }
+
+        @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                                      @NonNull Throwable caught) {
+            // If there's an error, just log it and let the existing prefix search results be.
+            if (callback() != null) {
+                int responseTime = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+                // noinspection ConstantConditions
+                callback().getFunnel().searchError(true, responseTime);
+            }
+            if (isAdded()) {
+                updateProgressBar(false);
+            }
         }
     }
 

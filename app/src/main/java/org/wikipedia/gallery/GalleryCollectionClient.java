@@ -53,7 +53,7 @@ public class GalleryCollectionClient {
                 //
                 // noinspection ConstantConditions
                 result.putAll(currentResponse.query().images());
-                continuation = currentResponse.getContinuation();
+                continuation = currentResponse.continuation();
             } else if (currentResponse.hasError()) {
                 // noinspection ConstantConditions
                 throw new MwException(currentResponse.getError());
@@ -75,7 +75,7 @@ public class GalleryCollectionClient {
     }
 
     private MwQueryResponse<FilePagesWithImageInfo> continueFetch(@NonNull Service service, @NonNull PageTitle title,
-                                                                  boolean getThumbs, @Nullable Map<String, String> continuation)
+                                                                  boolean getThumbs, @NonNull Map<String, String> continuation)
             throws IOException {
         Call<MwQueryResponse<FilePagesWithImageInfo>> call = getThumbs
                 ? service.continueFetch("dimensions|mime|url", Integer.toString(PREFERRED_THUMB_SIZE),

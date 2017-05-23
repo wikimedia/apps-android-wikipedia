@@ -14,6 +14,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 /**
  * Tests for full text search.
+ * TODO: Remove.
  */
 public class FullSearchArticlesTaskTest {
     private static final int BATCH_SIZE = 12;
@@ -32,7 +33,7 @@ public class FullSearchArticlesTaskTest {
                         assertThat(results, notNullValue());
                         assertThat(results.getResults().size(), is(BATCH_SIZE));
                         assertThat(results.getSuggestion(), nullValue());
-                        assertThat(results.getContinueOffset(), notNullValue());
+                        assertThat(results.getContinuation(), notNullValue());
 
                         for (SearchResult result : results.getResults()) {
                             if (result.getPageTitle().getPrefixedText().equals("Test")) {
@@ -81,7 +82,7 @@ public class FullSearchArticlesTaskTest {
                         assertThat(results, notNullValue());
                         assertThat(results.getResults().size(), is(0));
                         assertThat(results.getSuggestion(), is(""));
-                        assertThat(results.getContinueOffset(), nullValue());
+                        assertThat(results.getContinuation(), nullValue());
                         latch.countDown();
                     }
                 }.execute();

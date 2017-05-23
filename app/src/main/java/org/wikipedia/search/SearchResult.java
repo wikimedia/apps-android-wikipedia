@@ -8,9 +8,10 @@ import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.PageTitle;
 
-public class SearchResult implements Parcelable {
+public class SearchResult extends BaseModel implements Parcelable {
     private PageTitle pageTitle;
     private final String redirectFrom;
 

@@ -1,5 +1,7 @@
 package org.wikipedia.search;
 
+import com.google.gson.reflect.TypeToken;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,6 +12,7 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 
@@ -18,22 +21,24 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
-public class FullSearchArticlesTask extends ApiTask<SearchResults> {
+// TODO: Delete this and its tests after SuggestionsTask is converted to a Retrofit client
+@Deprecated public class FullSearchArticlesTask extends ApiTask<SearchResults> {
     private final WikiSite wiki;
     private final String searchTerm;
     private final int maxResults;
-    private final FTContinueOffset continueOffset;
+    private final Map<String, String> continuation;
     private final boolean getMoreLike;
 
     public FullSearchArticlesTask(Api api, WikiSite wiki, String searchTerm, int maxResults,
-                                  SearchResults.ContinueOffset continueOffset,
+                                  Map<String, String> continuation,
                                   boolean getMoreLike) {
         super(api);
         this.wiki = wiki;
         this.searchTerm = searchTerm;
         this.maxResults = maxResults;
-        this.continueOffset = (FTContinueOffset) continueOffset;
+        this.continuation = continuation;
         this.getMoreLike = getMoreLike;
     }
 
@@ -55,13 +60,12 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 .param("pilicense", "any")
                 .param("pithumbsize", Integer.toString(Constants.PREFERRED_THUMB_SIZE))
                 .param("pilimit", maxResultsString);
-        if (continueOffset != null) {
-            req.param("continue", continueOffset.cont);
-            if (continueOffset.gsroffset > 0) {
-                req.param("gsroffset", Integer.toString(continueOffset.gsroffset));
+        if (continuation != null) {
+            req.param("continue", continuation.get("continue"));
+            String gsrOffset = continuation.get("gsroffset");
+            if (Integer.parseInt(gsrOffset) > 0) {
+                req.param("gsroffset", gsrOffset);
             }
-        } else {
-            req.param("continue", ""); // add empty continue to avoid the API warning
         }
         return req;
     }
@@ -80,12 +84,11 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             }
         }
 
-        FTContinueOffset nextContinueOffset = null;
+        Map<String, String> nextContinueOffset = null;
         final JSONObject continueData = data.optJSONObject("continue");
         if (continueData != null) {
-            String continueString = continueData.optString("continue", null);
-            Integer gsroffset = continueData.optInt("gsroffset");
-            nextContinueOffset = new FTContinueOffset(continueString, gsroffset);
+            nextContinueOffset = GsonUnmarshaller.unmarshal(new TypeToken<Map<String, String>>(){},
+                    continueData.toString());
         }
 
         JSONObject queryResult = data.optJSONObject("query");
@@ -141,15 +144,5 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             resultList.add(new SearchResult(new PageTitle(item.getString("title"), wiki, thumbUrl, description, properties)));
         }
         return new SearchResults(resultList, nextContinueOffset, null);
-    }
-
-    public final class FTContinueOffset extends SearchResults.ContinueOffset {
-        private String cont;
-        private int gsroffset;
-
-        private FTContinueOffset(String cont, int gsroffset) {
-            this.cont = cont;
-            this.gsroffset = gsroffset;
-        }
     }
 }
