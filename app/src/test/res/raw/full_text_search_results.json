@@ -1,0 +1,277 @@
+{
+  "batchcomplete": true,
+  "continue": {
+    "gsroffset": 20,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": [
+      {
+        "pageid": 45579,
+        "ns": 0,
+        "title": "Queens",
+        "index": 3,
+        "terms": {
+          "description": [
+            "borough of New York City, New York, United States",
+            "borough of New York City, New York, United States"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Queens_Montage_2012_1.png/285px-Queens_Montage_2012_1.png",
+          "width": 285,
+          "height": 320
+        }
+      },
+      {
+        "pageid": 413863,
+        "ns": 0,
+        "title": "A (New York City Subway service)",
+        "index": 10,
+        "terms": {
+          "description": [
+            "New York City Subway service"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Northbound_R46_A_train_at_88_St.jpg/320px-Northbound_R46_A_train_at_88_St.jpg",
+          "width": 320,
+          "height": 239
+        }
+      },
+      {
+        "pageid": 426995,
+        "ns": 0,
+        "title": "E (New York City Subway service)",
+        "index": 7,
+        "terms": {
+          "description": [
+            "New York City Subway service"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/R160_E_Train_at_Jamaica_Center.jpg/320px-R160_E_Train_at_Jamaica_Center.jpg",
+          "width": 320,
+          "height": 213
+        }
+      },
+      {
+        "pageid": 455504,
+        "ns": 0,
+        "title": "Independent Subway System",
+        "index": 12,
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/BMT_100_Nostalgia_Ride_%2819329819685%29.jpg/320px-BMT_100_Nostalgia_Ride_%2819329819685%29.jpg",
+          "width": 320,
+          "height": 214
+        }
+      },
+      {
+        "pageid": 587752,
+        "ns": 0,
+        "title": "Briarwood, Queens",
+        "index": 6,
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Normal_Rd_160_St_Briarwood_jeh.jpg/320px-Normal_Rd_160_St_Briarwood_jeh.jpg",
+          "width": 320,
+          "height": 256
+        }
+      },
+      {
+        "pageid": 1256263,
+        "ns": 0,
+        "title": "Queens Boulevard",
+        "index": 2
+      },
+      {
+        "pageid": 1440202,
+        "ns": 0,
+        "title": "New York City Subway nomenclature",
+        "index": 14,
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/InsideStation.JPG/320px-InsideStation.JPG",
+          "width": 320,
+          "height": 241
+        }
+      },
+      {
+        "pageid": 1458237,
+        "ns": 0,
+        "title": "IND Queens Boulevard Line",
+        "index": 1
+      },
+      {
+        "pageid": 1493748,
+        "ns": 0,
+        "title": "IND Crosstown Line",
+        "index": 9,
+        "terms": {
+          "description": [
+            "railway line"
+          ]
+        }
+      },
+      {
+        "pageid": 1495545,
+        "ns": 0,
+        "title": "63rd Street Lines",
+        "index": 17,
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/NYCS-line-trans-63rd.svg/320px-NYCS-line-trans-63rd.svg.png",
+          "width": 320,
+          "height": 170
+        }
+      },
+      {
+        "pageid": 1510026,
+        "ns": 0,
+        "title": "F (New York City Subway service)",
+        "index": 19,
+        "terms": {
+          "description": [
+            "New York City Subway service"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/MTA_NYC_Subway_F_train_arriving_at_Avenue_P.JPG/320px-MTA_NYC_Subway_F_train_arriving_at_Avenue_P.JPG",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 1619462,
+        "ns": 0,
+        "title": "Springfield Gardens, Queens",
+        "index": 15,
+        "terms": {
+          "description": [
+            "neighborhood"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/NYTel_140_Av_183_St_jeh.JPG/320px-NYTel_140_Av_183_St_jeh.JPG",
+          "width": 320,
+          "height": 278
+        }
+      },
+      {
+        "pageid": 2243580,
+        "ns": 0,
+        "title": "Forest Hills–71st Avenue (IND Queens Boulevard Line)",
+        "index": 5,
+        "terms": {
+          "description": [
+            "New York City IND Queens Boulevard Line subway station"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Forest_Hills_-_Manhattan_Bound_Platform.jpg/320px-Forest_Hills_-_Manhattan_Bound_Platform.jpg",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 4573843,
+        "ns": 0,
+        "title": "Kew Gardens–Union Turnpike (IND Queens Boulevard Line)",
+        "index": 4,
+        "terms": {
+          "description": [
+            "New York City IND Queens Boulevard Line subway station"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Kew_Gardens_-_Jamaica_Bound_Platform.jpg/320px-Kew_Gardens_-_Jamaica_Bound_Platform.jpg",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 5641637,
+        "ns": 0,
+        "title": "Jackson Heights–Roosevelt Avenue/74th Street (New York City Subway)",
+        "index": 20,
+        "terms": {
+          "description": [
+            "New York City subway station"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Jackson_Heights-Roosevelt_Avenue_Terminal.JPG/320px-Jackson_Heights-Roosevelt_Avenue_Terminal.JPG",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 5751551,
+        "ns": 0,
+        "title": "67th Avenue (IND Queens Boulevard Line)",
+        "index": 16,
+        "terms": {
+          "description": [
+            "New York City IND Queens Boulevard Line subway station"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/67th_Avenue_-_Manhattan_Bound_Platform.jpg/320px-67th_Avenue_-_Manhattan_Bound_Platform.jpg",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 5751848,
+        "ns": 0,
+        "title": "Woodhaven Boulevard (IND Queens Boulevard Line)",
+        "index": 8,
+        "terms": {
+          "description": [
+            "New York City IND Queens Boulevard Line subway station"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Woodhaven_Boulevard_-_Forest_Hills_Bound_Platform.jpg/320px-Woodhaven_Boulevard_-_Forest_Hills_Bound_Platform.jpg",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 6757992,
+        "ns": 0,
+        "title": "Woodhaven and Cross Bay Boulevards",
+        "index": 11,
+        "terms": {
+          "description": [
+            "highway in New York"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Woodhaven_Boulevard.jpg/320px-Woodhaven_Boulevard.jpg",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 7929179,
+        "ns": 0,
+        "title": "Union Turnpike (New York)",
+        "index": 18
+      },
+      {
+        "pageid": 24884614,
+        "ns": 0,
+        "title": "List of New York City Subway stations in Queens",
+        "index": 13,
+        "terms": {
+          "description": [
+            "Wikimedia list article"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/NYC_subway-4D.svg/296px-NYC_subway-4D.svg.png",
+          "width": 296,
+          "height": 320
+        }
+      }
+    ]
+  }
+}
