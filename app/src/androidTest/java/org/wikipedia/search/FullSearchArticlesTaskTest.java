@@ -32,7 +32,7 @@ public class FullSearchArticlesTaskTest {
                     public void onFinish(SearchResults results) {
                         assertThat(results, notNullValue());
                         assertThat(results.getResults().size(), is(BATCH_SIZE));
-                        assertThat(results.getSuggestion(), nullValue());
+                        assertThat(results.getSuggestion(), is(""));
                         assertThat(results.getContinuation(), notNullValue());
 
                         for (SearchResult result : results.getResults()) {
