@@ -1,51 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/recent_searches_container"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/window_background_color">
+    android:background="?attr/window_background_color"
+    android:id="@+id/recent_searches_container">
 
-    <FrameLayout android:layout_width="match_parent"
-                 android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_gravity="start"
-            android:gravity="center_vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold"
-            android:text="@string/search_recent_header" />
+    <LinearLayout
+        android:id="@+id/search_empty_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ImageView
-            android:id="@+id/recent_searches_delete_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="end"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_delete_white_24dp"
-            android:tint="@color/gray_highlight"
-            android:scaleType="centerInside"
-            android:contentDescription="@string/button_clear_all_recent_searches"
-            android:background="?attr/actionBarItemBackground"
-            android:longClickable="true" />
+            android:id="@+id/search_empty_image"
+            android:layout_width="150dp"
+            android:layout_height="148dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_search_splash" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/search_empty_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@string/search_empty_message"
+            android:textSize="16sp" />
+    </LinearLayout>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="?attr/list_separator_color" />
+        android:layout_height="match_parent"
+        android:background="?attr/window_background_color"
+        android:orientation="vertical"
+        android:id="@+id/recent_searches">
 
-    <ListView
-        android:id="@+id/recent_searches_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/search_recent_header"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/recent_searches_delete_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:contentDescription="@string/button_clear_all_recent_searches"
+                android:longClickable="true"
+                android:scaleType="centerInside"
+                android:tint="@color/gray_highlight"
+                app:srcCompat="@drawable/ic_delete_white_24dp" />
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/list_separator_color" />
+
+        <ListView
+            android:id="@+id/recent_searches_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>
