@@ -25,6 +25,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="12dp"
         android:textSize="14sp"
+        android:lineSpacingMultiplier="1.21"
         tools:text="Lorem ipsum"/>
 
     <LinearLayout
