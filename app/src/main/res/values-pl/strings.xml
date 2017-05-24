@@ -251,7 +251,6 @@
   <string name="reading_list_entry_empty">Wprowadź tytuł.</string>
   <string name="reading_list_already_exists">Ten artykuł znajduje się już na tej liście.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
-  <string name="reading_list_item_count_singular">1 artykuł</string>
   <string name="reading_list_sort">Sortuj</string>
   <string name="reading_list_sort_by_name">Sortuj według nazwy</string>
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>

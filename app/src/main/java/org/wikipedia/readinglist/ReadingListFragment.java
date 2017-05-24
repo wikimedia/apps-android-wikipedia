@@ -207,7 +207,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             return;
         }
         emptyView.setVisibility(readingList.getPages().isEmpty() ? View.VISIBLE : View.GONE);
-        headerView.setReadingList(readingList);
+        headerView.setReadingList(readingList, ReadingListItemView.Description.DETAIL);
         headerImageView.setReadingList(readingList);
         readingList.sort(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);

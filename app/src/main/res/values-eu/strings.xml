@@ -223,8 +223,6 @@
   <string name="reading_list_added_to_unnamed">Irakurketa zerrendara gehitu da.</string>
   <string name="reading_list_already_exists">Artikulu hau jadanik zerrendan dago.</string>
   <string name="reading_list_added_view_button">Ikusi zerrenda</string>
-  <string name="reading_list_item_count_singular">Artikulu 1</string>
-  <string name="reading_list_item_count_plural">%d artikulu</string>
   <string name="reading_list_sort">Sailkatu</string>
   <string name="reading_list_sort_by_name">Sailkatu izenaren arabera</string>
   <string name="reading_list_sort_by_name_desc">Izenen arabera antolatu (alderantzizkoa)</string>

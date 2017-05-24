@@ -272,8 +272,6 @@
   <string name="reading_list_added_to_unnamed">Ditambahkan ke senarai bacaan.</string>
   <string name="reading_list_already_exists">Rencana ini sudah terdapat dalam senarai itu.</string>
   <string name="reading_list_added_view_button">Lihat senarai</string>
-  <string name="reading_list_item_count_singular">1 rencana</string>
-  <string name="reading_list_item_count_plural">%d rencana</string>
   <string name="reading_list_sort">Isih</string>
   <string name="reading_list_sort_by_name">Isih ikut nama</string>
   <string name="reading_list_sort_by_name_desc">Isih ikut nama (terbalik)</string>

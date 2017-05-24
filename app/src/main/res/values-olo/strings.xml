@@ -155,8 +155,6 @@
   <string name="reading_list_untitled">Nimetöi</string>
   <string name="reading_list_create_new">Luaji uuzi</string>
   <string name="reading_list_added_to_named">Ližätty luvetteloh %s</string>
-  <string name="reading_list_item_count_singular">1 kirjutus</string>
-  <string name="reading_list_item_count_plural">%d kirjutustu</string>
   <string name="view_random_card_title">Piävyndähistämine</string>
   <string name="view_random_card_subtitle">Luve piävyndähine kirjutus Wikipedies</string>
   <string name="view_main_page_card_title">Tänäpäi Wikipedies</string>

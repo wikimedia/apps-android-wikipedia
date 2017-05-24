@@ -261,8 +261,6 @@
   <string name="reading_list_added_to_unnamed">Geus ditambahkeun kana daptar bacaan.</string>
   <string name="reading_list_already_exists">Ieu artikel geus aya na daptar tadi.</string>
   <string name="reading_list_added_view_button">Tempo daptar</string>
-  <string name="reading_list_item_count_singular">1 artikel</string>
-  <string name="reading_list_item_count_plural">%d artikel</string>
   <string name="reading_list_sort">Runtuykeun</string>
   <string name="reading_list_sort_by_name">Runtuykeun dumasar ngaran</string>
   <string name="reading_list_sort_by_name_desc">Runtuykeun dumasar ngaran (tibalik)</string>

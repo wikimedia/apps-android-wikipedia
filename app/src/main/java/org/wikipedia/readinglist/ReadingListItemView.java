@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.PopupMenu;
@@ -35,8 +36,10 @@ public class ReadingListItemView extends FrameLayout {
         void onDelete(@NonNull ReadingList readingList);
     }
 
+    public enum Description { DETAIL, SUMMARY }
+
     @BindView(R.id.item_title) TextView titleView;
-    @BindView(R.id.item_count) TextView countView;
+    @BindView(R.id.item_reading_list_statistical_description) TextView statisticalDescriptionView;
     @BindView(R.id.item_description) TextView descriptionView;
     @BindView(R.id.item_overflow_menu)View overflowButton;
 
@@ -71,12 +74,13 @@ public class ReadingListItemView extends FrameLayout {
         init();
     }
 
-    public void setReadingList(@NonNull ReadingList readingList) {
+    public void setReadingList(@NonNull ReadingList readingList, @NonNull Description description) {
         this.readingList = readingList;
 
-        countView.setText(readingList.getPages().size() == 1
-                ? getResources().getString(R.string.reading_list_item_count_singular)
-                : String.format(getResources().getString(R.string.reading_list_item_count_plural), readingList.getPages().size()));
+        CharSequence text = description == Description.DETAIL
+                ? buildStatisticalDetailText(readingList)
+                : buildStatisticalSummaryText(readingList);
+        statisticalDescriptionView.setText(text);
 
         updateDetails();
         if (imageContainer.getVisibility() == VISIBLE) {
@@ -149,7 +153,7 @@ public class ReadingListItemView extends FrameLayout {
             return;
         }
         titleView.setText(TextUtils.isEmpty(readingList.getTitle())
-                ? getResources().getString(R.string.reading_list_untitled)
+                ? getString(R.string.reading_list_untitled)
                 : readingList.getTitle());
         if (TextUtils.isEmpty(readingList.getDescription()) && showDescriptionEmptyHint) {
             descriptionView.setText(getContext().getString(R.string.reading_list_no_description));
@@ -195,6 +199,33 @@ public class ReadingListItemView extends FrameLayout {
         } else {
             ViewUtil.loadImageUrlInto(view, url);
         }
+    }
+
+    @NonNull private String buildStatisticalSummaryText(@NonNull ReadingList readingList) {
+        float listSize = statsTextListSize(readingList);
+        return readingList.getPages().size() == 1
+                ? getString(R.string.format_reading_list_statistical_summary_singular,
+                    listSize)
+                : getString(R.string.format_reading_list_statistical_summary_plural,
+                    readingList.getPages().size(), listSize);
+    }
+
+    @NonNull private String buildStatisticalDetailText(@NonNull ReadingList readingList) {
+        float listSize = statsTextListSize(readingList);
+        return readingList.getPages().size() == 1
+                ? getString(R.string.format_reading_list_statistical_detail_singular,
+                    readingList.pagesOffline(), listSize)
+                : getString(R.string.format_reading_list_statistical_detail_plural,
+                    readingList.pagesOffline(), readingList.getPages().size(), listSize);
+    }
+
+    private float statsTextListSize(@NonNull ReadingList readingList) {
+        int unitSize = Math.max(1, getResources().getInteger(R.integer.reading_list_item_size_bytes_per_unit));
+        return readingList.logicalSize() / (float) unitSize;
+    }
+
+    @NonNull private String getString(@StringRes int id, @Nullable Object... formatArgs) {
+        return getResources().getString(id, formatArgs);
     }
 
     private class OverflowMenuClickListener implements PopupMenu.OnMenuItemClickListener {

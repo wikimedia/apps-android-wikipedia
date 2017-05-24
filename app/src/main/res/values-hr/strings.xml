@@ -234,8 +234,6 @@
   <string name="reading_list_added_to_unnamed">Dodano na popis za čitanje.</string>
   <string name="reading_list_already_exists">Ovaj članak već postoji na popisu.</string>
   <string name="reading_list_added_view_button">Prikaz popisa</string>
-  <string name="reading_list_item_count_singular">Jedan članak</string>
-  <string name="reading_list_item_count_plural">%d članaka</string>
   <string name="reading_list_sort">Poredaj</string>
   <string name="reading_list_sort_by_name">Poredaj po nazivu</string>
   <string name="reading_list_sort_by_name_desc">Poredaj po nazivu (obrnuto)</string>

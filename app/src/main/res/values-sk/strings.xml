@@ -258,8 +258,6 @@
   <string name="reading_list_added_to_unnamed">Článok bol pridaný do zoznamu na prečítanie.</string>
   <string name="reading_list_already_exists">Tento článok sa už v zozname na prečítanie nachádza.</string>
   <string name="reading_list_added_view_button">Zobraziť zoznam</string>
-  <string name="reading_list_item_count_singular">1 článok</string>
-  <string name="reading_list_item_count_plural">%d článkov</string>
   <string name="reading_list_sort">Zoradiť</string>
   <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>
   <string name="reading_list_sort_by_name_desc">Zoradiť podľa názvu (v opačnom poradí)</string>

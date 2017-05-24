@@ -201,8 +201,6 @@
   <string name="crash_report_dialog_dont_send_button">దాటవేయి</string>
   <string name="crash_report_dialog_send_button">పంపించు</string>
   <string name="nav_item_reading_lists">నా జాబితాలు</string>
-  <string name="reading_list_item_count_singular">1 వ్యాసం</string>
-  <string name="reading_list_item_count_plural">%d వ్యాసాలు</string>
   <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
   <string name="reading_lists_onboarding_example1">చూడాల్సిన ప్రదేశాలు</string>
   <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>

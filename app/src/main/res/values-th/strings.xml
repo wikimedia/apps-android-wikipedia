@@ -168,8 +168,6 @@
   <string name="reading_list_added_to_unnamed">เพิ่มในรายการอ่าน</string>
   <string name="reading_list_already_exists">บทความนี้มีอยู่ในรายการอยู่แล้ว</string>
   <string name="reading_list_added_view_button">ดูรายการ</string>
-  <string name="reading_list_item_count_singular">1 บทความ</string>
-  <string name="reading_list_item_count_plural">%d บทความ</string>
   <string name="reading_list_sort">เรียงลำดับ</string>
   <string name="reading_list_sort_by_name">เรียงตามชื่อ</string>
   <string name="reading_list_sort_by_name_desc">เรียงตามชื่อ (แบบย้อนกลับ)</string>

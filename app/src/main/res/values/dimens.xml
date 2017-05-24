@@ -110,4 +110,7 @@
     <integer name="notification_poll_interval_minutes">10</integer>
     <integer name="notification_poll_timeout_days">1</integer>
 
+    <!-- Reading lists -->
+    <integer name="reading_list_item_size_bytes_per_unit">1048576</integer> <!-- 1 MiB -->
+
 </resources>
