@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import org.mediawiki.api.json.ApiException;
 import org.wikipedia.R;
-import org.wikipedia.page.PageActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,7 +65,7 @@ public class WikiErrorView extends LinearLayout {
 
     public void setError(@Nullable Throwable caught) {
         Resources resources = getContext().getResources();
-        ErrorType errorType = getErrorType(getContext(), caught);
+        ErrorType errorType = getErrorType(caught);
         icon.setImageDrawable(ContextCompat.getDrawable(getContext(), errorType.icon()));
         errorText.setText(resources.getString(errorType.text()));
         button.setText(resources.getString(errorType.buttonText()));
@@ -76,7 +75,7 @@ public class WikiErrorView extends LinearLayout {
         }
     }
 
-    private ErrorType getErrorType(@NonNull Context context, @Nullable Throwable caught) {
+    ErrorType getErrorType(@Nullable Throwable caught) {
         // apps-android-java-mwapi wraps all exceptions in an ApiException.  Strip it so we get
         // useful information about the underlying cause.
         // TODO: update when the apps-android-java-mwapi dependency is dropped (T141127)
@@ -88,16 +87,12 @@ public class WikiErrorView extends LinearLayout {
             return ErrorType.PAGE_MISSING;
         }
         if (caught != null && isOffline(caught)) {
-            if (context instanceof PageActivity) {
-                return ErrorType.PAGE_OFFLINE;
-            }
             return ErrorType.OFFLINE;
         }
         return ErrorType.GENERIC;
     }
 
-
-    private enum ErrorType {
+    enum ErrorType {
         PAGE_MISSING(R.drawable.ic_error_black_24dp, R.string.error_page_does_not_exist,
                 R.string.page_error_back_to_main) {
             @Nullable @Override

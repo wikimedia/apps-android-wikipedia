@@ -87,7 +87,7 @@ import org.wikipedia.views.ConfigurableTabLayout;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiDrawerLayout;
-import org.wikipedia.views.WikiErrorView;
+import org.wikipedia.views.WikiPageErrorView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -169,7 +169,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageToolbarHideHandler toolbarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    private WikiErrorView errorView;
+    private WikiPageErrorView errorView;
     private WikiDrawerLayout tocDrawer;
     private ConfigurableTabLayout tabLayout;
 
@@ -323,7 +323,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         PageActionToolbarHideHandler pageActionToolbarHideHandler = new PageActionToolbarHideHandler(tabLayout);
         pageActionToolbarHideHandler.setScrollView(webView);
 
-        errorView = (WikiErrorView) rootView.findViewById(R.id.page_error);
+        errorView = (WikiPageErrorView) rootView.findViewById(R.id.page_error);
 
         return rootView;
     }
