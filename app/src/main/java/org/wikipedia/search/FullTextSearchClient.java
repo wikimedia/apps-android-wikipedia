@@ -11,8 +11,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
-import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
@@ -53,7 +51,19 @@ public class FullTextSearchClient {
                     // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
                 } else {
-                    cb.failure(call, new IOException("An unknown error occurred."));
+                    // A 'morelike' search query with no results will just return an API warning:
+                    //
+                    // {
+                    //   "batchcomplete": true,
+                    //   "warnings": {
+                    //      "search": {
+                    //        "warnings": "No valid titles provided to 'morelike'."
+                    //      }
+                    //   }
+                    // }
+                    //
+                    // Just return an empty SearchResults() in this case.
+                    cb.success(call, new SearchResults());
                 }
             }
 

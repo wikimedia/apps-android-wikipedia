@@ -59,6 +59,16 @@ public class FullTextSearchClientTest extends MockWebServerTest {
         assertCallbackSuccess(call, cb);
     }
 
+    @Test public void testRequestSuccessNoResults() throws Throwable {
+        enqueueFromFile("full_text_search_results_empty.json");
+
+        FullTextSearchClient.Callback cb = mock(FullTextSearchClient.Callback.class);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(null, cb);
+
+        server().takeRequest();
+        assertCallbackSuccess(call, cb);
+    }
+
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
 
