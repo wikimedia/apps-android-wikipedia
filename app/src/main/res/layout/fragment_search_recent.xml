@@ -9,19 +9,18 @@
 
     <LinearLayout
         android:id="@+id/search_empty_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:background="@color/base80">
 
         <ImageView
             android:id="@+id/search_empty_image"
             android:layout_width="150dp"
             android:layout_height="148dp"
-            android:layout_gravity="center_horizontal"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_search_splash" />
 
@@ -29,11 +28,13 @@
             android:id="@+id/search_empty_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:gravity="center"
             android:text="@string/search_empty_message"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.25"/>
     </LinearLayout>
 
     <LinearLayout
