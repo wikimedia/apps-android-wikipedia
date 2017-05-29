@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">로그아웃됨</string>
   <string name="history_empty_title">최근에 본 글이 없습니다</string>
   <string name="history_empty_message">당신이 읽고 계신 문서를 여기에서 추적하세요.</string>
+  <string name="search_empty_message">당신의 언어로 우리 모두의 백과사전을 검색하고 읽기</string>
   <string name="delete_selected_history">삭제</string>
   <string name="delete_selected_items">선택된 개체 삭제</string>
   <string name="wp_stylized">&lt;big&gt;위&lt;/big&gt;키백&lt;big&gt;과&lt;/big&gt;</string>
@@ -230,6 +231,7 @@
   <string name="button_add_to_reading_list">읽기 목록에 추가</string>
   <string name="page_offline_notice_cannot_load_while_offline">오프라인 상태에서는 글을 불러올 수 없습니다.</string>
   <string name="page_offline_notice_add_to_reading_list">문서를 읽기 목록에 추가하면 온라인에 있을 때 다운로드됩니다.</string>
+  <string name="page_offline_notice_last_date">%s에 저장한 이 문서의 오프라인 버전을 읽고 있습니다.</string>
   <string name="button_get_directions">경로 얻기</string>
   <string name="error_no_maps_app">주어진 경로의 앱을 찾지 못하였습니다.</string>
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
@@ -270,6 +272,10 @@
   <string name="reading_list_added_to_unnamed">읽기 목록에 추가되었습니다.</string>
   <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
+  <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">1개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$d개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %3$.2f MiB</string>
   <string name="reading_list_sort">정렬</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
@@ -304,6 +310,7 @@
   <string name="reading_list_remove_from_list">%s에서 제거하기</string>
   <string name="reading_list_remove_from_lists">읽기 목록에서 제거하기</string>
   <string name="reading_list_confirm_remove_article_from_offline">오프라인에서 제거</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">글이 여러 목록으로 표시됩니다</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_button_view_user">사용자와 대화하기</string>

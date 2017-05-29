@@ -53,7 +53,7 @@
   <string name="langlinks_filter_hint">Golèk</string>
   <string name="langlinks_empty">Kaca iki ora ana ing basa liya.</string>
   <string name="langlinks_no_match">Basa sing tinemu ora ana sing mathuk karo panjaluké panjenengan.</string>
-  <string name="langlinks_activity_title">Basa liya</string>
+  <string name="langlinks_activity_title">Basa liyané</string>
   <string name="menu_save_changes">Babar owahan</string>
   <string name="dialog_saving_in_progress">Mbabar...</string>
   <string name="edit_saved_successfully">Besutané wis terbit!</string>
@@ -68,9 +68,9 @@
   <string name="search_reading_list_no_results">Ora ana kasil ing \"%s\"</string>
   <string name="search_reading_lists_no_results">Ora ana kasil ing pratélan wacan</string>
   <string name="search_history_no_results">Ora ana kasil ing sujarah</string>
-  <string name="edit_section_captcha_message">Kanggo ngreksa saka spam otomatis, mangga isènana tembung-tembung sing katon ngisor iki</string>
+  <string name="edit_section_captcha_message">Kanggo ngreksa saka spam otomatis, mangga isinen tembung-tembung sing katon ngisor iki</string>
   <string name="edit_section_captcha_hint">Balènana tembung-tembung ing ndhuwur</string>
-  <string name="title_captcha">Isènana CAPTCHA</string>
+  <string name="title_captcha">Isinen CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dudul CAPTCHA saperlu ngambali ngamot</string>
   <string name="edit_saved_page_refresh">Kaca sing sinimpen iki wis kadaluwarsa lan kudu dianyari murih bisa dibesut. Piyé yèn kaca iki dianyari?</string>
   <string name="nav_item_login">Mlebu log Wikipédia</string>
@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">Wis metu log</string>
   <string name="history_empty_title">Ora ana artikel sing bubar didelok</string>
   <string name="history_empty_message">Lacak apa-apa sing wis kokwaca ing kéné.</string>
+  <string name="search_empty_message">Golék lan maca Bauwarna Mardika ing basa sampeyan</string>
   <string name="delete_selected_history">Busak</string>
   <string name="delete_selected_items">Busak item sing pinilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">Tambahaké nyang pratélan wacan</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikel ora bisa dimot nalika ing njaban jaringan.</string>
   <string name="page_offline_notice_add_to_reading_list">Tambahaké artikel nyang pratélan wacan lan iku bakal kaundhuh nalika panjenengan bali nyang njeron jaringan.</string>
+  <string name="page_offline_notice_last_date">Panjenengan lagi maca vèrsi njaban jaringan artikel iki sing disimpen nalika %s.</string>
   <string name="button_get_directions">Golèk lor-kidul</string>
   <string name="error_no_maps_app">Ora bisa nemokaké apa aplikasi sing nyedhiyani pituduh.</string>
   <string name="preference_title_show_link_previews">Tampilake cuplikan pranala</string>
@@ -267,11 +269,15 @@
   <string name="reading_list_save_to">Simpen nyang pratélan wacan</string>
   <string name="reading_list_create_new">Gawé anyar</string>
   <string name="reading_list_title_exists">Pratélan wacan \"%s\" wis ana.</string>
-  <string name="reading_list_entry_empty">Mangga isènana sesirah.</string>
+  <string name="reading_list_entry_empty">Mangga isinen sesirah.</string>
   <string name="reading_list_added_to_named">Ditambahaké nyang %s.</string>
   <string name="reading_list_added_to_unnamed">Ditambahaké nyang pratélan wacan.</string>
   <string name="reading_list_already_exists">Artikel iki wis ana ing pratélan iku.</string>
   <string name="reading_list_added_view_button">Deleng pratélan</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 artikel kasedhiya offline, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d artikel kasedhiya offline, %3$.2f MiB</string>
   <string name="reading_list_sort">Urutaké</string>
   <string name="reading_list_sort_by_name">Urutaké miturut jeneng</string>
   <string name="reading_list_sort_by_name_desc">Urutaké miturut jeneng (kuwalikan)</string>

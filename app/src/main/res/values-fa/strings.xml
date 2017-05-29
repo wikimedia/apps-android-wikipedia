@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">خارج شد</string>
   <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده‌است</string>
   <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
+  <string name="search_empty_message">جستجو و مطالعهٔ دانشنامهٔ آزاد به زبان شما</string>
   <string name="delete_selected_history">حذف</string>
   <string name="delete_selected_items">حذف آیتم‌های انتخاب شده</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
@@ -305,6 +306,9 @@
   <string name="reading_list_add_to_other_list">افزودن به فهرست مطالعهٔ دیگر</string>
   <string name="reading_list_remove_from_list">حذف از %s</string>
   <string name="reading_list_remove_from_lists">حذف از فهرست‌های خواندن</string>
+  <string name="reading_list_confirm_remove_article_from_offline">حذف از آفلاین</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های خواند موجود نیست:</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_button_view_user">بحث با کاربر</string>
   <string name="notification_talk_title">پیام جدید در ویکی‌پدیا</string>

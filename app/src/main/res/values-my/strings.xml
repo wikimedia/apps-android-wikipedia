@@ -15,6 +15,9 @@
   <string name="page_error_retry">ပြန်လုပ်</string>
   <string name="page_error_back_to_main">နောက်သို့ ပြန်သွားရန်</string>
   <string name="menu_clear_all_history">မှတ်တမ်းအားရှင်းမည်</string>
+  <string name="history_item_deleted">%s ကို ရာဇဝင်မှတ်တမ်းမှ ဖယ်ရှားပြီး</string>
+  <string name="history_items_deleted">ဆောင်းပါး %d ခုကို ရာဇဝင်မှတ်တမ်းမှ ဖယ်ရှားပြီး</string>
+  <string name="history_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="page_does_not_exist_error">ဤစာမျက်နှာ မရှိပါ</string>
   <string name="dialog_title_clear_history">အသုံးပြုမှတ်တမ်း ရှင်းလင်းရန်</string>
   <string name="dialog_message_clear_history">သင်၏ အသုံးပြုမှတ်တမ်းများ အားလုံးကို ဖျက်ပြီး လက်ရှိဖွင့်ထားသမျှကို ပိတ်ပါမည်။ သင်သေချာပြီလား?</string>
@@ -39,6 +42,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">မြေပုံပေါ်တွင် တည်နေရာကို ဆွဲယူကြည့်ရန်</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; ပံ့ပိုးသူများ</string>
   <string name="last_updated_text">နောက်ဆုံးပြင်ခဲ့ချိန် %s</string>
   <string name="talk_page_link_text">ဆွေးနွေးချက်</string>
   <string name="content_license_html">အထူးသတိပေးမထားပါက အချက်အလက်များအား &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; အနေဖြင့် ရယူသုံးစွဲနိုင်သည်။</string>
@@ -62,6 +66,7 @@
   <string name="menu_show_toc">မာတိကာ</string>
   <string name="search_no_results_found">မည်သည့်ရလဒ်မျှ မရပါ</string>
   <string name="search_reading_list_no_results">\"%s\" ထဲတွင် ရလဒ် မတွေ့ပါ</string>
+  <string name="search_reading_lists_no_results">စာဖတ်စာရင်းမှ ရလဒ်များ မရှိပါ</string>
   <string name="search_history_no_results">ရာဇဝင်ထဲတွင် ရလဒ် မတွေ့ပါ</string>
   <string name="edit_section_captcha_message">အလိုအလျောက်ပေးပို့နေသော မေးလ်များရန်မှ ကာကွယ်ရန် အောက်ပါ စာလုံးများကို လိုက်ရိုက်ကြည့်ပါ။</string>
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
@@ -139,7 +144,7 @@
   <string name="about_translators_translatewiki">ဤအက်ပ်ကို &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ရှိ စေတနာ့ဝန်ထမ်း ဘာသာပြန်သူများက ဘာသာပြန်ပေးထားသည်။</string>
   <string name="about_app_license_heading">လိုင်စင်</string>
   <string name="about_app_license">ရင်းမြစ်ကုဒ်ကို &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; နှင့် &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; တို့တွင် &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။ သီးခြားဖော်ပြထားခြင်း မရှိပါက &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; ၏ ထုတ်ကုန်တစ်ခု</string>
+  <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; ၏ ထုတ်ကုန်တစ်ခု</string>
   <string name="about_activity_title">အကြောင်း</string>
   <string name="edit_abandon_confirm">ဤစာမျက်နှာသည် ပြောင်းလဲထားသည်။ သင့်ပြောင်းလဲမှုများအား မသိမ်းဆည်းဘဲ ထွက်ရန် သေချာပါသလား?</string>
   <string name="user_blocked_from_editing_title">ပိတ်ပင်ထားသည်</string>

@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">Одјавени сте</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
+  <string name="search_empty_message">Пребарувајте и читајте ја слободната енциклопедија на вашиот јазик</string>
   <string name="delete_selected_history">Избриши</string>
   <string name="delete_selected_items">Избриши ги избраните ставки</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">Додај во список за читање</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
   <string name="page_offline_notice_add_to_reading_list">Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
+  <string name="page_offline_notice_last_date">Читате вонмрежн а верзија на статијава, зачувана на %s.</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
@@ -272,6 +274,10 @@
   <string name="reading_list_added_to_unnamed">Додадено во списокот за читање.</string>
   <string name="reading_list_already_exists">Статијава веќе стои на тој список.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
+  <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МиБ</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МиБ</string>
+  <string name="format_reading_list_statistical_detail_singular">Вонмрежно достапна %1$d од 1 статија, %2$.2f МиБ</string>
+  <string name="format_reading_list_statistical_detail_plural">Вонмрежно достапни %1$d од %2$d статии, %3$.2f МиБ</string>
   <string name="reading_list_sort">Подреди</string>
   <string name="reading_list_sort_by_name">Подреди по назив</string>
   <string name="reading_list_sort_by_name_desc">Подреди по назив (обратно)</string>

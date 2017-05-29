@@ -86,8 +86,8 @@
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.\n{{Identical|Logged out}}</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
-  <string name="delete_selected_history">Menu item text for deleting the currently selected history entries\n{{Identical|Delete}}</string>
   <string name="search_empty_message">Brief explanation that there are currently no Search entries to look at. Just to fill an empty screen. This usually happens when a user just deleted search entries.</string>
+  <string name="delete_selected_history">Menu item text for deleting the currently selected history entries\n{{Identical|Delete}}</string>
   <string name="delete_selected_items">Menu item hint for deleting selected items in a list.</string>
   <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>

@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">Telah keluar log</string>
   <string name="history_empty_title">Tidak ada artikel yang baru dilihat</string>
   <string name="history_empty_message">Lacak apa yang Anda sudah baca di sini.</string>
+  <string name="search_empty_message">Cari dan baca ensiklopedia bebas dalam bahasa Anda</string>
   <string name="delete_selected_history">Hapus</string>
   <string name="delete_selected_items">Hapus butir yang dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">Tambahkan ke daftar bacaan</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikel tidak dapat dimuat saat luring.</string>
   <string name="page_offline_notice_add_to_reading_list">Tambahkan artikel ke daftar bacaan dan akan diunduh setelah Anda kembali daring.</string>
+  <string name="page_offline_notice_last_date">Anda sedang membaca versi luring dari artikel ini yang disimpan pada %s</string>
   <string name="button_get_directions">Dapatkan petunjuk arah</string>
   <string name="error_no_maps_app">Tidak dapat menemukan aplikasi yang memberikan petunjuk arah.</string>
   <string name="preference_title_show_link_previews">Tampilkan pratayang pranala</string>
@@ -272,6 +274,10 @@
   <string name="reading_list_added_to_unnamed">Telah ditambahkan ke daftar bacaan.</string>
   <string name="reading_list_already_exists">Artikel ini sudah ada dalam daftar itu.</string>
   <string name="reading_list_added_view_button">Lihat daftar</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 artikel tersedia luring, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d artikel tersedia luring, %3$.2f MiB</string>
   <string name="reading_list_sort">Urutkan</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>

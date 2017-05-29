@@ -346,12 +346,13 @@
   <string name="description_edit_tutorial_title_descriptions_summary">تُلخّص المقالة للتسهيل على القراء فهم الموضوع بلمحة</string>
   <string name="description_edit_tutorial_button_label_continue">استمر</string>
   <string name="description_edit_tutorial_keep_it_short">أبقها مختصرةً</string>
-  <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثاليٍّ سطر واحد، ما بين كلمين إلى اثنتا عشر كلمة</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
   <string name="description_edit_help_about_title">عن</string>
   <string name="description_edit_help_description">وصوف العناوين تُلخّص المقالة للتسهيل على القراء فهم الموضوع بلمحة.</string>
   <string name="description_edit_help_tips">تلميحات لإنشاء الوصوف</string>
+  <string name="description_edit_help_tips_description">يُفترض أن سطرا واحدا يكفي للوصف، ويكون بين كلمتين إلى اثنتا عشرة كلمة.</string>
   <string name="description_edit_help_tips_examples">على سبيل المثال:</string>
   <string name="description_edit_help_tips_example1">اللوحة بواسطة ليوناردو دا فينشي</string>
   <string name="description_edit_help_tips_example1_hint">وصف عنوان لمقال عن لوحة الموناليزا</string>

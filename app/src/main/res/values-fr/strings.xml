@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">Déconnecté</string>
   <string name="history_empty_title">Aucun article vu récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
+  <string name="search_empty_message">Rechercher et lire l’encyclopédie libre dans votre langue</string>
   <string name="delete_selected_history">Supprimer</string>
   <string name="delete_selected_items">Supprimer les éléments sélectionnés</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -154,7 +155,7 @@
   <string name="user_blocked_from_editing_title">Bloqué</string>
   <string name="user_logged_in_blocked_from_editing">Votre compte utilisateur a été bloqué pour les modifications sur ce wiki.</string>
   <string name="user_anon_blocked_from_editing">Votre adresse IP a été bloquée pour les modifications.</string>
-  <string name="edit_how_page_improved">Comment avez-vous amélioré cette page ?</string>
+  <string name="edit_how_page_improved">Comment avez-vous amélioré la page ?</string>
   <string name="edit_next">Suivant</string>
   <string name="edit_done">Publier</string>
   <string name="edit_preview">Aperçu</string>
@@ -212,7 +213,7 @@
   <string name="cc_logo">Licence Creative Commons</string>
   <string name="captcha_image">Image Captcha</string>
   <string name="gallery_fair_use_license">Utilisation normale</string>
-  <string name="gallery_uploader_unknown">Téléchargeur inconnu</string>
+  <string name="gallery_uploader_unknown">Téléverseur inconnu</string>
   <string name="menu_new_tab">Nouvel onglet</string>
   <string name="menu_close_all_tabs">Fermer tous les onglets</string>
   <string name="close_all_tabs_confirm">Êtes-vous sûr de vouloir fermer tous les onglets ?</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">Ajouter à la liste de lecture</string>
   <string name="page_offline_notice_cannot_load_while_offline">L’article ne peut pas être chargé hors connexion.</string>
   <string name="page_offline_notice_add_to_reading_list">Ajoutez l’article à une liste de lecture et il sera téléchargé quand vous serez de nouveau connecté.</string>
+  <string name="page_offline_notice_last_date">Vous lisez une version hors ligne sauvegardée le %s.</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application qui fournit des directions.</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
@@ -272,6 +274,10 @@
   <string name="reading_list_added_to_unnamed">Ajouté à la liste de lecture.</string>
   <string name="reading_list_already_exists">Cet article est déjà dans cette liste.</string>
   <string name="reading_list_added_view_button">Afficher la liste</string>
+  <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d article sur 1 article disponible hors ligne, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d article(s) sur %2$d articles disponible(s) hors ligne, %3$.2f MiB</string>
   <string name="reading_list_sort">Trier</string>
   <string name="reading_list_sort_by_name">Trier par nom</string>
   <string name="reading_list_sort_by_name_desc">Trier par nom (inverse)</string>
@@ -346,7 +352,7 @@
   <string name="description_edit_add_description">Ajouter une description du titre</string>
   <string name="description_edit_edit_description">Modifier la description</string>
   <string name="description_edit_cancel_hint">Annuler</string>
-  <string name="description_edit_help_title">Descriptions des titres Aide:</string>
+  <string name="description_edit_help_title">Aide : descriptions des titres</string>
   <string name="description_edit_help_about_wikidata">À propos de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guide de Wikidata pour écrire des descriptions</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
@@ -375,7 +381,7 @@
   <string name="description_edit_help_tips_example2">La plus haute montagne sur terre</string>
   <string name="description_edit_help_tips_example2_hint">description de titre pour un article sur le mont Everest</string>
   <string name="description_edit_help_more_info">Plus d’information</string>
-  <string name="description_edit_help_meta_info">Les descriptions sont stockées et mises à jour dans Wikidata, un projet de la Fondation Wikimédia qui fournit une base de données libre, collaborative, multilingue et secondaire supportant Wikipédia et d’autres projets.</string>
+  <string name="description_edit_help_meta_info">Les descriptions sont stockées et mises à jour dans Wikidata, un projet de la Fondation Wikimédia qui fournit une base de données libre, collaborative, multilingue et secondaire soutenant Wikipédia et d’autres projets.</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>

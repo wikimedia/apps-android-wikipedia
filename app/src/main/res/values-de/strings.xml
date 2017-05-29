@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">Abgemeldet</string>
   <string name="history_empty_title">Keine kürzlich besuchten Artikel</string>
   <string name="history_empty_message">Verfolge hier, was du gelesen hast.</string>
+  <string name="search_empty_message">Die freie Enzyklopädie in deiner Sprache suchen und lesen</string>
   <string name="delete_selected_history">Löschen</string>
   <string name="delete_selected_items">Ausgewählte Elemente löschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">Zur Leseliste hinzufügen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Der Artikel kann nicht geladen werden, während du offline bist.</string>
   <string name="page_offline_notice_add_to_reading_list">Füge den Artikel zu einer Leseliste hinzu und er wird heruntergeladen, sobald du wieder online bist.</string>
+  <string name="page_offline_notice_last_date">Du liest eine Offline-Version dieses Artikels, die am %s gespeichert wurde.</string>
   <string name="button_get_directions">Richtungen abrufen</string>
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
@@ -272,6 +274,10 @@
   <string name="reading_list_added_to_unnamed">Zur Leseliste hinzugefügt.</string>
   <string name="reading_list_already_exists">Dieser Artikel ist bereits in dieser Liste.</string>
   <string name="reading_list_added_view_button">Liste ansehen</string>
+  <string name="format_reading_list_statistical_summary_singular">Ein Artikel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d Artikel, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d Seiten von einem Artikel offline verfügbar, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d Seiten von %2$d Artikeln offline verfügbar, %3$.2f MiB</string>
   <string name="reading_list_sort">Sortieren</string>
   <string name="reading_list_sort_by_name">Nach Name sortieren</string>
   <string name="reading_list_sort_by_name_desc">Nach Name sortieren (umgekehrt)</string>

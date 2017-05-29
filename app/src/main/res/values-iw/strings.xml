@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">יצאת מהחשבון</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
+  <string name="search_empty_message">חיפוש וקריאה באנציקלופדיה החופשית בשפה שלך</string>
   <string name="delete_selected_history">מחיקה</string>
   <string name="delete_selected_items">מחיקת הפריטים שנבחרו</string>
   <string name="wp_stylized">ויקיפדיה</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">הוספה לרשימת קריאה</string>
   <string name="page_offline_notice_cannot_load_while_offline">אי־אפשר לטעון ערך ללא חיבור לרשת.</string>
   <string name="page_offline_notice_add_to_reading_list">הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
+  <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
   <string name="button_get_directions">לקבל כיוונים</string>
   <string name="error_no_maps_app">לא מצאתי שום אפליקציה שנותנת כיוונים.</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
@@ -272,6 +274,9 @@
   <string name="reading_list_added_to_unnamed">הוספה לרשימת קריאה.</string>
   <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
+  <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
   <string name="reading_list_sort">מיון</string>
   <string name="reading_list_sort_by_name">מיון לפי שם</string>
   <string name="reading_list_sort_by_name_desc">מיון לפי שם (אחורה)</string>

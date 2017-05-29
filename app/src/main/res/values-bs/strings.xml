@@ -85,7 +85,8 @@
   <string name="preference_title_logout">Odjavi me</string>
   <string name="toast_logout_complete">Odjavljeni ste</string>
   <string name="history_empty_title">Nema nedavno posjećenih članaka</string>
-  <string name="history_empty_message">Ovdje pratite šta ste čitali.</string>
+  <string name="history_empty_message">Ovdje pratite sve što ste čitali.</string>
+  <string name="search_empty_message">Pretražujte i čitajte slobodnu enciklopediju na Vašem jeziku</string>
   <string name="delete_selected_history">Obriši</string>
   <string name="delete_selected_items">Obriši izabrane stavke</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -145,7 +146,7 @@
   <string name="about_libraries_heading">Korištene biblioteke</string>
   <string name="about_contributors_heading">Saradnici</string>
   <string name="about_translators_heading">Prevodioci</string>
-  <string name="about_translators_translatewiki">Ovu aplikaciju preveli su prevodioci volonteri na sajtu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Aplikaciju su preveli dobrovoljci na sajtu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
   <string name="about_app_license">Izvorni kôd dostupan je na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licencom Apache 2.0&lt;/a&gt;. Osim gdje je drukčije navedeno, sadržaj je dostupan pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;slobodnom licencom Autorstvo-Dijeliti pod istim uvjetima&lt;/a&gt;.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Zadužbine Wikimedia&lt;/a&gt;</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
   <string name="page_offline_notice_add_to_reading_list">Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
+  <string name="page_offline_notice_last_date">Čitate vanmrežnu verziju članka, sačuvanu na %s.</string>
   <string name="button_get_directions">Dobij uputstva</string>
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>
   <string name="preference_title_show_link_previews">Prikaži preglede linkova</string>
@@ -272,6 +274,10 @@
   <string name="reading_list_added_to_unnamed">Dodano na spisak za čitanje.</string>
   <string name="reading_list_already_exists">Ovaj članak već je na tom spisku.</string>
   <string name="reading_list_added_view_button">Pogledaj spisak</string>
+  <string name="format_reading_list_statistical_summary_singular">1 članaka, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d članka, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">Vanmrežno je dostupno %1$d od 1 članka, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">Vanmrežno je dostupno %1$d od %2$d članka, %3$.2f MiB</string>
   <string name="reading_list_sort">Sortiraj</string>
   <string name="reading_list_sort_by_name">Sortiraj po imenu</string>
   <string name="reading_list_sort_by_name_desc">Sortiraj po imenu (obrnuto)</string>

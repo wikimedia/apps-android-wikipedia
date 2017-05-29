@@ -8,6 +8,7 @@
   <string name="no">Neen</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_search_history">Am Historique sichen</string>
+  <string name="search_hint_search_my_lists">A menge Lëschte sichen</string>
   <string name="search_hint_search_reading_list">Lieslëscht duerchsichen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
@@ -82,6 +83,7 @@
   <string name="toast_logout_complete">Ausgeloggt</string>
   <string name="history_empty_title">Keng Artikele rezent gekuckt</string>
   <string name="history_empty_message">Markéiert dat wat Dir hei geliest hutt.</string>
+  <string name="search_empty_message">An der fräier Enzyklopedie an Ärer Sprooch sichen a liesen</string>
   <string name="delete_selected_history">Läschen</string>
   <string name="delete_selected_items">Erausgesicht Elementer läschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -223,6 +225,7 @@
   <string name="button_continue_to_article">Artikel liesen</string>
   <string name="button_add_to_reading_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Den Artikel kann net geluede gi wann Dir offline sidd.</string>
+  <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel gespäichert de(n) %s.</string>
   <string name="button_get_directions">Richtunge kréien</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
@@ -235,6 +238,7 @@
   <string name="location_permissions_enable_action">Aschalten</string>
   <string name="multi_select_items_selected">%d erausgesicht</string>
   <string name="error_message_generic">Et ass e Feeler geschitt</string>
+  <string name="view_link_preview_error_button_dismiss">Verwerfen</string>
   <string name="error_page_does_not_exist">Dës Säit gëtt et net</string>
   <string name="view_wiki_error_message_offline">Kann net mam Internet verbannen</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
@@ -261,6 +265,9 @@
   <string name="reading_list_added_to_unnamed">Op d\'Lieslëscht derbäigesat.</string>
   <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
+  <string name="format_reading_list_statistical_summary_singular">Een Artikel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d Artikelen, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d Säite vun engem Artikel offline disponibel, %2$.2f MiB</string>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
@@ -294,6 +301,8 @@
   <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht derbäisetzen</string>
   <string name="reading_list_remove_from_list">Vu(n) %s erofhuelen</string>
   <string name="reading_list_remove_from_lists">Vu Lieslëschten erofhuelen</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artikel ass a verschiddene Lëschten</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="notification_button_view_user">Mam Benotzer schwätzen</string>
   <string name="notification_talk_title">Neie Message op Wikipedia</string>

@@ -104,7 +104,7 @@
   <string name="settings_item_preferences">ตั้งค่า</string>
   <string name="settings_activity_title">ตั้งค่า</string>
   <string name="about_description">เกี่ยวกับแอพลิเคชั่น Wikipedia</string>
-  <string name="privacy_policy_description">ข้อตกลงความเป็นส่วนตัว</string>
+  <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
   <string name="terms_of_use_description">ข้อตกลงในการใช้</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
