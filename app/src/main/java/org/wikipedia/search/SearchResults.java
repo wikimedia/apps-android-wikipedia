@@ -33,7 +33,7 @@ public class SearchResults {
     }
 
     /**
-     * Constructor for a list of Retrofit results from BecauseYouReadTask.
+     * Constructor for a list of Retrofit results from FullTextSearchClient.
      */
     public SearchResults(@NonNull List<MwQueryPage> pages, @NonNull WikiSite wiki,
                          @Nullable Map<String, String> continuation, @Nullable String suggestion) {
