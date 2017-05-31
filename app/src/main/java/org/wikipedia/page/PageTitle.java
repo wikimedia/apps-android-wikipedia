@@ -74,7 +74,6 @@ public class PageTitle implements Parcelable {
     @SerializedName("site") @NonNull private final WikiSite wiki;
     @Nullable private String description;
     @Nullable private final PageProperties properties;
-    @Nullable private int index;
 
     /**
      * Creates a new PageTitle object.
@@ -113,12 +112,6 @@ public class PageTitle implements Parcelable {
     public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description) {
         this(text, wiki, thumbUrl);
         this.description = description;
-    }
-
-    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @Nullable int index) {
-        this(text, wiki, thumbUrl);
-        this.description = description;
-        this.index = index;
     }
 
     public PageTitle(@Nullable String namespace, @NonNull String text, @NonNull WikiSite wiki) {
@@ -237,10 +230,6 @@ public class PageTitle implements Parcelable {
         return properties;
     }
 
-    @Nullable public int getIndex() {
-        return index;
-    }
-
     public boolean isMainPage() {
         if (properties != null) {
             return properties.isMainPage();
@@ -334,7 +323,6 @@ public class PageTitle implements Parcelable {
         parcel.writeParcelable(properties, flags);
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
-        parcel.writeInt(index);
     }
 
     @Override public boolean equals(Object o) {
@@ -397,6 +385,5 @@ public class PageTitle implements Parcelable {
         properties = in.readParcelable(PageProperties.class.getClassLoader());
         thumbUrl = in.readString();
         description = in.readString();
-        index = in.readInt();
     }
 }

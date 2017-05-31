@@ -11,6 +11,8 @@ import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -33,11 +35,24 @@ public class SearchResults {
     }
 
     /**
-     * Constructor for a list of Retrofit results from FullTextSearchClient.
+     * Constructor for a list of MwQueryPage search query results.
+     * @param pages the result pages
+     * @param wiki the wiki searched
+     * @param continuation info for search continuation
+     * @param suggestion a search suggestion to show to the user: "Did you mean ...?"
      */
     public SearchResults(@NonNull List<MwQueryPage> pages, @NonNull WikiSite wiki,
                          @Nullable Map<String, String> continuation, @Nullable String suggestion) {
         List<SearchResult> searchResults = new ArrayList<>();
+
+        // Sort the array based on the "index" property
+        Collections.sort(pages, new Comparator<MwQueryPage>() {
+            @Override
+            public int compare(MwQueryPage a, MwQueryPage b) {
+                return ((Integer) a.index()).compareTo(b.index());
+            }
+        });
+
         for (MwQueryPage page : pages) {
             searchResults.add(new SearchResult(page, wiki));
         }
@@ -47,10 +62,7 @@ public class SearchResults {
     }
 
     /**
-     * Constructor for when we get results.
-     * @param results the actual results
-     * @param continuation info for search continuation
-     * @param suggestion a search suggestion to show to the user: "Did you mean ...?"
+     * Constructor for filtered results (currently also used by legacy MW API AsyncTasks).
      */
     public SearchResults(@NonNull List<SearchResult> results,
                          @Nullable Map<String, String> continuation,

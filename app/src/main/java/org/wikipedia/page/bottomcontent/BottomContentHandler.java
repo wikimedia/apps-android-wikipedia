@@ -48,8 +48,6 @@ import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -335,20 +333,7 @@ public class BottomContentHandler implements BottomContentInterface,
                     public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                         @NonNull SearchResults results) {
                         funnel.setLatency(System.currentTimeMillis() - timeMillis);
-
-                        // Sort the array based on the "index" property
-                        Collections.sort(results.getResults(), new Comparator<SearchResult>() {
-                            @Override
-                            public int compare(SearchResult result, SearchResult t1) {
-                                int ret = ((Integer)result.getPageTitle().getIndex()).compareTo(t1.getPageTitle().getIndex());
-                                return ret;
-                            }
-                        });
-
-                        readMoreItems = SearchResults.filter(new SearchResults(results.getResults(), results.getContinuation(), null),
-                                entry.getTitle().getPrefixedText(),
-                                true);
-
+                        readMoreItems = SearchResults.filter(results, entry.getTitle().getPrefixedText(), true);
                         if (!readMoreItems.getResults().isEmpty()) {
                             // If there are results, set up section and make sure it's visible
                             setUpReadMoreSection(layoutInflater, readMoreItems);
