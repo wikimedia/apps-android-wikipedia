@@ -105,11 +105,9 @@ public abstract class FeedCoordinatorBase {
     }
 
     void retryFromOffline(@NonNull WikiSite wiki) {
-        Card card = cards.get(lastIndex());
-        if (card instanceof OfflineCard) {
+        if (lastCard() instanceof OfflineCard) {
             swapCard(progressCard, lastIndex());
         }
-        currentAge--;
         more(wiki);
     }
 
@@ -117,6 +115,10 @@ public abstract class FeedCoordinatorBase {
 
     protected void addPendingClient(FeedClient client) {
         pendingClients.add(client);
+    }
+
+    @Nullable private Card lastCard() {
+        return cards.get(lastIndex());
     }
 
     private int lastIndex() {
@@ -139,6 +141,17 @@ public abstract class FeedCoordinatorBase {
         removeCard(progressCard, pos);
     }
 
+    private void setOfflineState() {
+        removeProgressCard();
+        if (!(lastCard() instanceof OfflineCard)) {
+            appendCard(new OfflineCard());
+        }
+        pendingClients.clear();
+        if (currentAge > 0) {
+            currentAge--;
+        }
+    }
+
     private class ClientRequestCallback implements FeedClient.Callback {
         @Override public void success(@NonNull List<? extends Card> cardList) {
             for (Card card : cardList) {
@@ -152,8 +165,7 @@ public abstract class FeedCoordinatorBase {
 
         @Override public void error(@NonNull Throwable caught) {
             if (ThrowableUtil.isOffline(caught)) {
-                appendCard(new OfflineCard());
-                removeProgressCard();
+                setOfflineState();
             } else {
                 //noinspection ConstantConditions
                 requestNextCard(wiki);
