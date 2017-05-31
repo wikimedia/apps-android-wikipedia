@@ -23,11 +23,13 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.Constants;
 import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.LinkMovementMethodExt;
@@ -35,7 +37,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageContainerLongPressHandler;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.SuggestionsTask;
+import org.wikipedia.search.FullTextSearchClient;
 import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.DimenUtil;
@@ -46,15 +48,19 @@ import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import retrofit2.Call;
 
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class BottomContentHandler implements BottomContentInterface,
-                                                ObservableWebView.OnScrollChangeListener,
-                                                ObservableWebView.OnContentHeightChangedListener {
+        ObservableWebView.OnScrollChangeListener,
+        ObservableWebView.OnContentHeightChangedListener {
     private static final String TAG = "BottomContentHandler";
 
     private final PageFragment parentFragment;
@@ -131,8 +137,7 @@ public class BottomContentHandler implements BottomContentInterface,
                     case MotionEvent.ACTION_MOVE:
                         if (isPressed && !doingSlopEvent) {
                             int contentHeight = (int)(webView.getContentHeight() * DimenUtil.getDensityScalar());
-                            int maxScroll = contentHeight - webView.getScrollY()
-                                            - webView.getHeight();
+                            int maxScroll = contentHeight - webView.getScrollY() - webView.getHeight();
                             int scrollAmount = Math.min((int) (startY - event.getY()), maxScroll);
                             // manually scroll the WebView that's underneath us...
                             webView.scrollBy(0, scrollAmount);
@@ -323,31 +328,47 @@ public class BottomContentHandler implements BottomContentInterface,
             return;
         }
         final long timeMillis = System.currentTimeMillis();
-        new SuggestionsTask(app.getAPIForSite(entry.getTitle().getWikiSite()),
-                entry.getTitle().getWikiSite(), entry.getTitle().getPrefixedText(), false) {
-            @Override
-            public void onFinish(SearchResults results) {
-                funnel.setLatency(System.currentTimeMillis() - timeMillis);
-                readMoreItems = results;
-                if (!readMoreItems.getResults().isEmpty()) {
-                    // If there are results, set up section and make sure it's visible
-                    setUpReadMoreSection(layoutInflater, readMoreItems);
-                    showReadMore();
-                } else {
-                    // If there's no results, just hide the section
-                    hideReadMore();
-                }
-                layoutContent();
-            }
+        new FullTextSearchClient().request(entry.getTitle().getWikiSite(),
+                entry.getTitle().getPrefixedText(), null, null,
+                Constants.MAX_SUGGESTION_RESULTS * 2, new FullTextSearchClient.Callback() {
+                    @Override
+                    public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                                        @NonNull SearchResults results) {
+                        funnel.setLatency(System.currentTimeMillis() - timeMillis);
 
-            @Override
-            public void onCatch(Throwable caught) {
-                // Read More titles are expendable.
-                Log.w(TAG, "Error while fetching Read More titles.", caught);
-                // but lay out the bottom content anyway:
-                layoutContent();
-            }
-        }.execute();
+                        // Sort the array based on the "index" property
+                        Collections.sort(results.getResults(), new Comparator<SearchResult>() {
+                            @Override
+                            public int compare(SearchResult result, SearchResult t1) {
+                                int ret = ((Integer)result.getPageTitle().getIndex()).compareTo(t1.getPageTitle().getIndex());
+                                return ret;
+                            }
+                        });
+
+                        readMoreItems = SearchResults.filter(new SearchResults(results.getResults(), results.getContinuation(), null),
+                                entry.getTitle().getPrefixedText(),
+                                true);
+
+                        if (!readMoreItems.getResults().isEmpty()) {
+                            // If there are results, set up section and make sure it's visible
+                            setUpReadMoreSection(layoutInflater, readMoreItems);
+                            showReadMore();
+                        } else {
+                            // If there's no results, just hide the section
+                            hideReadMore();
+                        }
+                        layoutContent();
+                    }
+
+                    @Override
+                    public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call, @NonNull Throwable caught) {
+                        // Read More titles are expendable.
+                        Log.w(TAG, "Error while fetching Read More titles.", caught);
+                        // but lay out the bottom content anyway:
+                        layoutContent();
+                    }
+                }
+        );
     }
 
     private void hideReadMore() {
@@ -358,7 +379,7 @@ public class BottomContentHandler implements BottomContentInterface,
         if (parentFragment.isAdded()) {
             ((ConfigurableTextView) readMoreContainer.findViewById(R.id.read_more_header))
                     .setText(getStringForArticleLanguage(parentFragment.getTitle(), R.string.read_more_section),
-                                     pageTitle.getWikiSite().languageCode());
+                                                         pageTitle.getWikiSite().languageCode());
         }
         readMoreContainer.setVisibility(View.VISIBLE);
     }
