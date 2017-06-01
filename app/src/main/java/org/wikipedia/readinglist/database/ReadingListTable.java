@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.ReadingListContract;
@@ -16,14 +17,19 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.page.database.ReadingListPageDao;
+import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.savedpages.SavedPage;
+import org.wikipedia.util.FileUtil;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReadingListTable extends DatabaseTable<ReadingListRow> {
     private static final int DB_VER_INTRODUCED = 13;
     private static final int DB_VER_SAVED_PAGES_MIGRATED = 14;
+    private static final int DB_VER_READING_LISTS_REORGANIZED = 17;
 
     public ReadingListTable() {
         super(ReadingListContract.TABLE, ReadingListContract.List.URI);
@@ -61,6 +67,8 @@ public class ReadingListTable extends DatabaseTable<ReadingListRow> {
         super.upgradeSchema(db, fromVersion, toVersion);
         if (toVersion == DB_VER_SAVED_PAGES_MIGRATED) {
             migrateSavedPages(db);
+        } else if (toVersion == DB_VER_READING_LISTS_REORGANIZED) {
+            reorganizeReadingListCache();
         }
     }
 
@@ -127,5 +135,31 @@ public class ReadingListTable extends DatabaseTable<ReadingListRow> {
         } finally {
             cursor.close();
         }
+    }
+
+    private void reorganizeReadingListCache() {
+        CallbackTask.execute(new CallbackTask.Task<Void>() {
+            @Override public Void execute() throws Throwable {
+                // Completely remove any contents from the old "savedpages" directory, since they
+                // are now useless.
+                FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), "savedpages"));
+                // Mark all reading list pages as outdated, so that they will be re-downloaded,
+                // and thus re-cached in our new style, along with the newly-added size information.
+                Cursor c = ReadingListPageDao.instance().allPages();
+                try {
+                    if (c.getCount() == 0) {
+                        return null;
+                    }
+                    while (c.moveToNext()) {
+                        ReadingListPage page = ReadingListPage.fromCursor(c);
+                        ReadingListPageDao.instance().markOutdated(page);
+                    }
+                } finally {
+                    c.close();
+                }
+                ReadingListSynchronizer.instance().syncSavedPages();
+                return null;
+            }
+        }, null);
     }
 }

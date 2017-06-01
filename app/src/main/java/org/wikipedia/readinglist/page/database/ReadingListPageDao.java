@@ -50,6 +50,10 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         return client().select(uri, selection, selectionArgs, order);
     }
 
+    @NonNull public Cursor allPages() {
+        return client().select(ReadingListPageContract.PageWithDisk.URI, null, null, null);
+    }
+
     public void randomPage(@NonNull CallbackTask.Callback<PageTitle> callback) {
         CallbackTask.execute(new CallbackTask.Task<PageTitle>() {
             @Override public PageTitle execute() {

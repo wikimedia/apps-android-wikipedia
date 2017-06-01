@@ -3,6 +3,7 @@ package org.wikipedia.util;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.StatFs;
+import android.support.annotation.NonNull;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -71,12 +72,13 @@ public final class FileUtil {
         }
     }
 
-    public static void clearDirectory(File dir) {
-        if (dir.isDirectory()) {
-            for (String file : dir.list()) {
-                new File(dir, file).delete();
+    public static void deleteRecursively(@NonNull File f) {
+        if (f.isDirectory()) {
+            for (File child : f.listFiles()) {
+                deleteRecursively(child);
             }
         }
+        f.delete();
     }
 
     public static String sanitizeFileName(String fileName) {
