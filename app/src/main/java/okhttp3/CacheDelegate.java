@@ -19,6 +19,13 @@ public class CacheDelegate {
 
     public CacheDelegate(@NonNull Cache cache) {
         this.cache = cache;
+        if (!cache.cache.getDirectory().exists()) {
+            // When upgrading from previous versions where this cache didn't yet exist,
+            // make sure that the cache directory is created first.
+            // For example, SavedPageSyncService will immediately call Stat on this directory,
+            // which will cause a crash if it doesn't exist.
+            cache.cache.getDirectory().mkdirs();
+        }
     }
 
     @NonNull public DiskLruCache diskLruCache() {
