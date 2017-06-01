@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">Sesión pechada</string>
   <string name="history_empty_title">Non hai artigos vistos recentemente</string>
   <string name="history_empty_message">Manter un rexistro do que fuches lendo aquí.</string>
+  <string name="search_empty_message">Procure e lea a enciclopedia libre na súa lingua</string>
   <string name="delete_selected_history">Borrar</string>
   <string name="delete_selected_items">Eliminar os elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">Engadir á lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">O artigo non se pode cargar mentres non haxa conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
+  <string name="page_offline_notice_last_date">Está lendo unha versión sen conexión deste artigo gardado o %s.</string>
   <string name="button_get_directions">Obter as direccións</string>
   <string name="error_no_maps_app">Imposible atopar unha aplicación que proporcione as direccións.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>
@@ -272,6 +274,10 @@
   <string name="reading_list_added_to_unnamed">Engadido á lista de lectura.</string>
   <string name="reading_list_already_exists">Este artigo xa está nesa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d artigo de 1 artigo dispoñible sen conexión, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d artigo(s) de %2$d artigos dispoñible(s) sen conexión, %3$.2f MiB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
@@ -305,6 +311,9 @@
   <string name="reading_list_add_to_other_list">Engadir a outra lista de lectura</string>
   <string name="reading_list_remove_from_list">Eliminar de %s</string>
   <string name="reading_list_remove_from_lists">Eliminar das listas de lectura</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Quitar das listas sen conexión</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece en varias listas</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s xa non estará dispoñible sen conexión en ningunha lista de lectura:</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Conversar co usuario</string>
   <string name="notification_talk_title">Mensaxe nova na Wikipedia</string>

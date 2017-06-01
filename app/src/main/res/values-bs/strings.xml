@@ -123,8 +123,8 @@
   <string name="preferences_privacy_settings_heading">Privatnost</string>
   <string name="preference_title_eventlogging_opt_in">Šalji izvještaje o korištenju</string>
   <string name="preference_summary_eventlogging_opt_in">Dozvolite Wikimediji da prikupi informacije o tom kako koristite aplikaciju da bismo je poboljšali</string>
-  <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o padu aplikacije</string>
-  <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izvještaje o padu aplikacije HockeyAppu / nezavisnom pružaocu usluga da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
+  <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o rušenju aplikacije</string>
+  <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izvještaje o rušenju aplikacije HockeyAppu / nezavisnom pružaocu usluga da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
   <string name="editing_error_spamblacklist">Otkriven link ka blokiranim domenama (%s). Uklonite ih i pokušajte ponovo.</string>
   <string name="history_search_list_hint">Pretraži historiju</string>
   <string name="error_can_not_process_link">Ne mogu prikazati link</string>
@@ -250,8 +250,8 @@
   <string name="view_link_preview_error_button_dismiss">Odbaci</string>
   <string name="error_page_does_not_exist">Ova stranica ne postoji</string>
   <string name="view_wiki_error_message_offline">Ne mogu se povezati na internet</string>
-  <string name="crash_report_dialog_title">Izvinjavamo se, aplikacija je pala prethodni put</string>
-  <string name="crash_report_dialog_text">Želite li poslati izvještaj o padu aplikacije HockeyAppu / nezavisnom pružaocu usluga tako da ga Wikimedia može pregledati i popraviti programsku grešku koja ga je izazvala?</string>
+  <string name="crash_report_dialog_title">Izvinjavamo se, aplikacija se srušila prethodni put</string>
+  <string name="crash_report_dialog_text">Želite li poslati izvještaj o rušenju aplikacije HockeyAppu / nezavisnom pružaocu usluga tako da ga Wikimedia može pregledati i popraviti programsku grešku koja ju je izazvala?</string>
   <string name="crash_report_dialog_dont_send_button">Preskoči</string>
   <string name="crash_report_dialog_always_send_button">Uvijek pošalji</string>
   <string name="crash_report_dialog_send_button">Pošalji</string>
@@ -269,7 +269,7 @@
   <string name="reading_list_save_to">Sačuvaj na spisak za čitanje</string>
   <string name="reading_list_create_new">Napravi novi</string>
   <string name="reading_list_title_exists">Spisak za čitanje \"%s\" već postoji.</string>
-  <string name="reading_list_entry_empty">Upišite naslov.</string>
+  <string name="reading_list_entry_empty">Upišite naziv.</string>
   <string name="reading_list_added_to_named">Dodano na spisak %s.</string>
   <string name="reading_list_added_to_unnamed">Dodano na spisak za čitanje.</string>
   <string name="reading_list_already_exists">Ovaj članak već je na tom spisku.</string>

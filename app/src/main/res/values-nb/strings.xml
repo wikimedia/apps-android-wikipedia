@@ -84,6 +84,7 @@
   <string name="toast_logout_complete">Logget ut</string>
   <string name="history_empty_title">Ingen nylig besøkte sider</string>
   <string name="history_empty_message">Finn igjen det du har lest her.</string>
+  <string name="search_empty_message">Søk i og les den frie encyklopedien på ditt språk</string>
   <string name="delete_selected_history">Fjern</string>
   <string name="delete_selected_items">Fjern valgte sider</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -230,6 +231,7 @@
   <string name="button_add_to_reading_list">Legg til i leseliste</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelen kan ikke lastes uten nett</string>
   <string name="page_offline_notice_add_to_reading_list">Legger du til artikkelen i leselisten vil den bli hentet ned så fort du har nett igjen.</string>
+  <string name="page_offline_notice_last_date">Du leser en offlineutgave av denne artikkelen som ble lagret %s.</string>
   <string name="button_get_directions">Veibeskrivelse</string>
   <string name="error_no_maps_app">Fant ikke noen apper som kunne gi veibeskrivelse.</string>
   <string name="preference_title_show_link_previews">Forhåndsvis lenker</string>
@@ -270,6 +272,10 @@
   <string name="reading_list_added_to_unnamed">Lagt til i leseliste.</string>
   <string name="reading_list_already_exists">Denne artikkelen er allerede i listen.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikkel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikler tilgjengelig offline, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artikler tilgjengelig offline, %3$.2f MiB</string>
   <string name="reading_list_sort">Sorter</string>
   <string name="reading_list_sort_by_name">Sorter etter navn</string>
   <string name="reading_list_sort_by_name_desc">Sorter etter navn (omvendt)</string>

@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">Oturum kapandı</string>
   <string name="history_empty_title">Ziyaret edilmiş hiç madde yok.</string>
   <string name="history_empty_message">Okuduklarınızı buradan takip edin.</string>
+  <string name="search_empty_message">Özgür ansiklopediyi kendi dilinizde arayın ve okuyun</string>
   <string name="delete_selected_history">Sil</string>
   <string name="delete_selected_items">Seçili ögeleri sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
@@ -232,6 +233,7 @@
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
   <string name="page_offline_notice_cannot_load_while_offline">Madde çevrimdışıyken yüklenemez.</string>
   <string name="page_offline_notice_add_to_reading_list">Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
+  <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrim dışı sürümünü okuyorsunuz.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_show_link_previews">Bağlantı ön izlemelerini görüntüle</string>
@@ -272,6 +274,10 @@
   <string name="reading_list_added_to_unnamed">Okuma listesine eklendi.</string>
   <string name="reading_list_already_exists">Bu madde, seçtiğiniz listede mevcut.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
+  <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çivrim dışı erişilebilir, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$d maddenin %1$d tanesine çevrim dışı erişilebilir, %3$.2f MiB</string>
   <string name="reading_list_sort">Sırala</string>
   <string name="reading_list_sort_by_name">Ada göre sırala</string>
   <string name="reading_list_sort_by_name_desc">Ada göre sırala (tersten)</string>
@@ -305,6 +311,9 @@
   <string name="reading_list_add_to_other_list">Başka bir okuma listesine ekle</string>
   <string name="reading_list_remove_from_list">%s listesinden sil</string>
   <string name="reading_list_remove_from_lists">Okuma listelerinden sil</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Çevrim dışı erişimden sil</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Madde birden çok listede yer alıyor</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s artık şu listelerde çevrim dışı erişilebilir olmayacak:</string>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>
   <string name="notification_talk_title">Vikipedi\'de yeni mesaj</string>

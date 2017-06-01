@@ -233,6 +233,7 @@
   <string name="button_add_to_reading_list">Añadir a lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">El artículo no se puede cargar mientras no haya conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Añade el artículo a una lista de lactura y se descargará cuando te vuelvas a conectar.</string>
+  <string name="page_offline_notice_last_date">Estás leyendo una versión sin conexión de este artículo guardado en %s.</string>
   <string name="button_get_directions">Obtener indicaciones</string>
   <string name="error_no_maps_app">No se pudo encontrar ninguna aplicación que proporcione indicaciones.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>
@@ -273,6 +274,10 @@
   <string name="reading_list_added_to_unnamed">Añadido a lista de lectura.</string>
   <string name="reading_list_already_exists">Este artículo ya está en esa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artículo, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artículos, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artículos disponibles sin conexión, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artículos disponibles sin conexión, %3$.2f MiB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nombre</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nombre (inverso)</string>

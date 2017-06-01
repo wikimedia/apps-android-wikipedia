@@ -272,6 +272,7 @@
   <string name="reading_list_added_to_unnamed">Добавлено в список для чтения.</string>
   <string name="reading_list_already_exists">Эта статья уже находится в данном списке.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
+  <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МиБ</string>
   <string name="reading_list_sort">Сортировать</string>
   <string name="reading_list_sort_by_name">Сортировка по названию</string>
   <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>
@@ -335,7 +336,8 @@
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">Вчера</item>
+    <item quantity="one">%d день назад</item>
+    <item quantity="few">%d дня назад</item>
     <item quantity="other">%d дней назад</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Сегодня</string>

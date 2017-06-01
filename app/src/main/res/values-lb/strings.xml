@@ -268,6 +268,7 @@
   <string name="format_reading_list_statistical_summary_singular">Een Artikel, %1$.2f MiB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d Artikelen, %2$.2f MiB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d Säite vun engem Artikel offline disponibel, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d vun %2$d Artikelenm offline disponibel, %3$.2f MiB</string>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
@@ -356,7 +357,9 @@
   <string name="description_edit_tutorial_keep_it_short">Haalt se kuerz</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
+  <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
   <string name="description_edit_help_about_title">Iwwer</string>
+  <string name="description_edit_help_tips">Tuyaue fir d\'Uleeë vu Beschreiwungen</string>
   <string name="description_edit_help_tips_examples">Zum Beispill:</string>
   <string name="description_edit_help_tips_example1">Bild vum Leonardo da vinci</string>
   <string name="description_edit_help_tips_example1_hint">Titelbeschreiwung fir en Artikel iwwer d\'Mona Lisa</string>

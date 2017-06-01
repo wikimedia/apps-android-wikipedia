@@ -270,6 +270,10 @@
   <string name="reading_list_added_to_unnamed">পড়ার তালিকায় যোগ করা হয়েছে।</string>
   <string name="reading_list_already_exists">এই নিবন্ধটি ইতিমধ্যে সেই তালিকায় রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
+  <string name="format_reading_list_statistical_summary_singular">১টি নিবন্ধ, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$dটি নিবন্ধ, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">১টি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$dটি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %3$.2f MiB</string>
   <string name="reading_list_sort">বাছাই করুন</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>

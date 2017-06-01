@@ -43,7 +43,7 @@
   <string name="langlinks_empty">Гэтая старонка недаступная на іншых мовах.</string>
   <string name="langlinks_no_match">Няма моваў, якія адпавядаюць Вашаму запыту.</string>
   <string name="langlinks_activity_title">Іншыя мовы</string>
-  <string name="menu_save_changes" fuzzy="true">Захаваць зьмены</string>
+  <string name="menu_save_changes">Апублікаваць зьмены</string>
   <string name="dialog_saving_in_progress" fuzzy="true">Захаваньне...</string>
   <string name="edit_saved_successfully" fuzzy="true">Рэдагаваньне захаванае!</string>
   <string name="dialog_message_edit_failed">Памылка рэдагаваньня!</string>
