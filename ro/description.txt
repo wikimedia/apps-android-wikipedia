@@ -1,0 +1,12 @@
+Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire. Aplicația a fost rescrisă din temelii și este mai bună ca oricând.
+
+Caracteristici:
+   - Viteză: Noua noastră aplicație nativă vă permite să răsfoiți și să modificați Wikipedia mai rapid ca oricând.
+   - Editare: Puteți modifica Wikipedia! Autentificat(ă) sau nu, vă mulțumim pentru toate contribuțiile dumneavoastră.
+   - Pagini recente: Vă oferim un istoric al lecturărilor, în așa fel încât să accesați oricât de multe legături fără să vă rătăciți vreodată.
+   - Pagini salvate: Puteți salva anumite pagini pentru lecturare off-line și să le răsfoiți chiar și atunci când nu aveți o conexiune de date.
+   - Partajare: Folosiți-vă aplicațiile pentru rețele sociale pentru a împărtăși suma tuturor cunoștințelor omenirii.
+   - Suport lingvistic: Aplicația vă permite să schimbați cu ușurință limba în care citiți Wikipedia.
+   - Wikipedia Zero: Taxarea traficului de date este suspendată pentru operatorii de telefonie mobilă participanți.
+
+Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) cu Java și kitul de dezvoltare al Androidului, creați-vă propria versiune! https://github.com/wikimedia/apps-android-wikipedia

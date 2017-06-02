@@ -1,0 +1,12 @@
+Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
+
+Fonctionnalités :
+   - Vitesse : notre nouvelle application native vous permet de naviguer sur Wikipédia et de modifier plus vite que jamais.
+   - Modification : vous pouvez modifier Wikipédia ! connecté ou non, nous vous remercions pour toutes vos contributions.
+   - Pages récentes : nous conservons votre historique de lecture, afin que vous puissiez suivre autant de liens que vous voulez sans jamais être perdu.
+   - Pages enregistrées : vous pouvez enregistrer des pages pour une lecture hors ligne et y naviguer même sans avoir de connexion.
+   - Partager : utilisez vos applications de réseau social existantes pour partager la somme de tout le savoir humain.
+   - Support linguistique : l’application vous permet de basculer de façon transparente pour lire Wikipédia dans n’importe quelle langue.
+   - Wikipédia Zéro : les frais de données sont annulés pour les opérateurs mobiles participants.
+
+Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit de développement Android, alors venez créer votre variante ! https://github.com/wikimedia/apps-android-wikipedia
