@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import com.squareup.otto.Subscribe;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
+import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -69,6 +71,10 @@ public abstract class BaseActivity extends AppCompatActivity {
                 WikipediaApp.getInstance().getWikipediaZeroHandler()
                         .showZeroTutorialDialog(BaseActivity.this);
             }
+        }
+
+        @Subscribe public void on(NetworkConnectEvent event) {
+            ReadingListSynchronizer.instance().syncSavedPages();
         }
     }
 }

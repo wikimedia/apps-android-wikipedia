@@ -2,6 +2,8 @@ package org.wikipedia;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.IntRange;
@@ -21,6 +23,7 @@ import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.connectivity.NetworkConnectivityReceiver;
 import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
@@ -88,6 +91,7 @@ public class WikipediaApp extends Application {
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
     private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
+    private NetworkConnectivityReceiver connectivityReceiver = new NetworkConnectivityReceiver();
 
     private Database database;
     private String userAgent;
@@ -167,6 +171,8 @@ public class WikipediaApp extends Application {
         AccountUtil.createAccountForLoggedInUser();
 
         UserOptionContentResolver.registerAppSyncObserver(this);
+
+        registerConnectivityReceiver();
 
         listenForNotifications();
     }
@@ -575,5 +581,11 @@ public class WikipediaApp extends Application {
             result = Theme.getFallback();
         }
         return result;
+    }
+
+    // Register here rather than in AndroidManifest.xml so that we can target Android N.
+    // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
+    private void registerConnectivityReceiver() {
+        registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 }
