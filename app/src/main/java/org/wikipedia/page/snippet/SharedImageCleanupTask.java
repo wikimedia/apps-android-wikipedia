@@ -30,7 +30,7 @@ public class SharedImageCleanupTask extends RecurringTask {
 
     @Override
     protected void run(Date lastRun) {
-        FileUtil.clearDirectory(new File(ShareUtil.getShareFolder(context), "share"));
+        FileUtil.deleteRecursively(new File(ShareUtil.getShareFolder(context), "share"));
     }
 
     @Override

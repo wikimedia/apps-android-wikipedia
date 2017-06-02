@@ -148,7 +148,7 @@ public final class ShareUtil {
     public static File getClearShareFolder(Context context) {
         try {
             File dir = new File(getShareFolder(context), "share");
-            FileUtil.clearDirectory(dir);
+            FileUtil.deleteRecursively(dir);
             return dir;
         } catch (Throwable caught) {
             L.e("Caught " + caught.getMessage(), caught);
