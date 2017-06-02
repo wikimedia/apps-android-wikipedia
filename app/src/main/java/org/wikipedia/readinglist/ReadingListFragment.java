@@ -26,8 +26,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
@@ -39,6 +42,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
+import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
@@ -74,6 +78,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     private Unbinder unbinder;
 
+    @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
     @Nullable private ReadingList readingList;
     @Nullable private String readingListTitle;
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
@@ -135,6 +140,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
         updateReadingListData();
 
+        WikipediaApp.getInstance().getBus().register(eventBusMethods);
+
         return view;
     }
 
@@ -145,6 +152,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override public void onDestroyView() {
+        WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
+
         readingList = null;
         readingLists.set(Collections.<ReadingList>emptyList());
         recyclerView.setAdapter(null);
@@ -716,6 +725,14 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
         @Override public void onClick(DialogInterface dialog, int which) {
             toggleOffline(page);
+        }
+    }
+
+    private class EventBusMethods {
+        @Subscribe public void on(@NonNull ReadingListSyncEvent event) {
+            if (isAdded()) {
+                update();
+            }
         }
     }
 }

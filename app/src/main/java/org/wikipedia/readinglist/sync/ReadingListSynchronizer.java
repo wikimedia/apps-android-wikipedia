@@ -94,7 +94,6 @@ public class ReadingListSynchronizer {
                             reconcileAsRightJoin(remoteReadingLists);
                             Prefs.setReadingListSyncRev(remoteReadingLists.rev());
                             WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
-                            postEvent(new ReadingListSyncEvent());
                         } else {
                             L.d("Local and remote reading lists are in sync.");
                         }
@@ -122,12 +121,6 @@ public class ReadingListSynchronizer {
 
     private void bumpRev() {
         Prefs.setReadingListSyncRev(Prefs.getReadingListSyncRev() + 1);
-    }
-
-    private void postEvent(@NonNull Object event) {
-        // Note: this method posts from a background thread but subscribers expect events to be
-        // received on the main thead.
-        WikipediaApp.getInstance().getBus().post(event);
     }
 
     private void reconcileAsRightJoin(@NonNull RemoteReadingLists remoteReadingLists) {
