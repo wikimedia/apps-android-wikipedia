@@ -23,6 +23,7 @@ import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.concurrency.ThreadSafeBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
 import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
@@ -148,7 +149,7 @@ public class WikipediaApp extends Application {
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
-        bus = new Bus();
+        bus = new ThreadSafeBus();
 
         ViewAnimations.init(getResources());
         currentTheme = unmarshalCurrentTheme();
