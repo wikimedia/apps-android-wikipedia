@@ -14,9 +14,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
+
+import java.io.File;
 
 public class MediaDownloadReceiver extends BroadcastReceiver {
     private static final String FILE_NAMESPACE = "File:";
@@ -30,31 +33,39 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
     }
 
     public void download(@NonNull FeaturedImage featuredImage) {
-        String filename = FileUtil.sanitizeFileName(featuredImage.title());
-        String targetDirectory = Environment.DIRECTORY_PICTURES;
-        performDownloadRequest(featuredImage.image().source(), targetDirectory, filename, null);
+        String targetFileName = FileUtil.sanitizeFileName(featuredImage.title());
+        String targetDirectoryType = Environment.DIRECTORY_PICTURES;
+        performDownloadRequest(featuredImage.image().source(), targetDirectoryType, targetFileName, null);
     }
 
     public void download(@NonNull GalleryItem galleryItem) {
         String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(galleryItem.getName()));
-        String targetDirectory;
+        String targetDirectoryType;
         if (FileUtil.isVideo(galleryItem.getMimeType())) {
-            targetDirectory = Environment.DIRECTORY_MOVIES;
+            targetDirectoryType = Environment.DIRECTORY_MOVIES;
         } else if (FileUtil.isAudio(galleryItem.getMimeType())) {
-            targetDirectory = Environment.DIRECTORY_MUSIC;
+            targetDirectoryType = Environment.DIRECTORY_MUSIC;
         } else if (FileUtil.isImage(galleryItem.getMimeType())) {
-            targetDirectory = Environment.DIRECTORY_PICTURES;
+            targetDirectoryType = Environment.DIRECTORY_PICTURES;
         } else {
-            targetDirectory = Environment.DIRECTORY_DOWNLOADS;
+            targetDirectoryType = Environment.DIRECTORY_DOWNLOADS;
         }
-        performDownloadRequest(Uri.parse(galleryItem.getUrl()), targetDirectory, saveFilename,
+        performDownloadRequest(Uri.parse(galleryItem.getUrl()), targetDirectoryType, saveFilename,
                 galleryItem.getMimeType());
     }
 
-    private void performDownloadRequest(@NonNull Uri uri, @NonNull String targetDirectory,
-                                        @NonNull String filename, @Nullable String mimeType) {
+    private void performDownloadRequest(@NonNull Uri uri, @NonNull String targetDirectoryType,
+                                        @NonNull String targetFileName, @Nullable String mimeType) {
+        final String targetSubfolderName = WikipediaApp.getInstance().getString(R.string.app_name);
+        final File categoryFolder = Environment.getExternalStoragePublicDirectory(targetDirectoryType);
+        final File targetFolder = new File(categoryFolder, targetSubfolderName);
+        final File targetFile = new File(targetFolder, targetFileName);
+
+        // creates the directory if it doesn't exist else it's harmless
+        targetFolder.mkdir();
+
         DownloadManager.Request request = new DownloadManager.Request(uri);
-        request.setDestinationInExternalFilesDir(activity, targetDirectory, filename);
+        request.setDestinationUri(Uri.fromFile(targetFile));
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         if (mimeType != null) {
             request.setMimeType(mimeType);
