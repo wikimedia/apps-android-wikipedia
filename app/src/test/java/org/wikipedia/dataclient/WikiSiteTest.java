@@ -163,6 +163,16 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.dbName(), is("nowiki"));
     }
 
+    @Test public void testIsWikipediaTrue() {
+        WikiSite subject = WikiSite.forLanguageCode("test");
+        assertThat(subject.isWikipedia(), is(true));
+    }
+
+    @Test public void testIsWikipediaFalse() {
+        WikiSite subject = new WikiSite("bogus.org");
+        assertThat(subject.isWikipedia(), is(false));
+    }
+
     @Test public void testPath() {
         WikiSite subject = WikiSite.forLanguageCode("test");
         assertThat(subject.path("Segment"), is("/w/Segment"));

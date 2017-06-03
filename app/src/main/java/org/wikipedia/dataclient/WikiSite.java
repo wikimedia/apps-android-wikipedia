@@ -108,6 +108,13 @@ public class WikiSite implements Parcelable {
     }
 
     /**
+     * @return true if this WikiSite is pointing to a wikipedia.org domain.
+     */
+    public boolean isWikipedia() {
+        return uri.getHost().endsWith(".wikipedia.org");
+    }
+
+    /**
      * Like {@link #authority()} but with a "m." between the language subdomain and the rest of the host.
      * Examples:
      *

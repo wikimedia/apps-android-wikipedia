@@ -25,16 +25,16 @@ class FeedCoordinator extends FeedCoordinatorBase {
     }
 
     @Override
-    protected void buildScript(int age) {
+    protected void buildScript(int age, boolean isWikipedia) {
         boolean online = DeviceUtil.isOnline();
 
         conditionallyAddPendingClient(new SearchClient(), age == 0);
         conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online && OfflineManager.hasCompilation() && isPreBetaRelease());
         conditionallyAddPendingClient(new OnboardingClient(), age == 0);
-        conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && online);
-        conditionallyAddPendingClient(new AggregatedFeedContentClient(), online);
+        conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && isWikipedia && online);
+        conditionallyAddPendingClient(new AggregatedFeedContentClient(), isWikipedia && online);
         addPendingClient(new ContinueReadingClient());
-        conditionallyAddPendingClient(new OnThisDayClient(), online && isPreBetaRelease());
+        conditionallyAddPendingClient(new OnThisDayClient(), isWikipedia && online && isPreBetaRelease());
         conditionallyAddPendingClient(new MainPageClient(), age == 0);
         conditionallyAddPendingClient(new BecauseYouReadClient(), online);
         conditionallyAddPendingClient(new RandomClient(), age == 0);
