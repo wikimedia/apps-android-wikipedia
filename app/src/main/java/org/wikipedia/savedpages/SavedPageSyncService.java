@@ -20,6 +20,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
+import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.UriUtil;
@@ -78,6 +79,10 @@ public class SavedPageSyncService extends IntentService {
             }
         }
         saveNewEntries(queue);
+
+        // Note: this method posts from a background thread but subscribers expect events to be
+        // received on the main thead.
+        WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
     }
 
     private void deleteRow(@NonNull ReadingListPageDiskRow row) {
