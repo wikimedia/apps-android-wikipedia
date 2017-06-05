@@ -2,7 +2,6 @@ package org.wikipedia.readinglist.sync;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
@@ -125,12 +124,10 @@ public class ReadingListSynchronizer {
         Prefs.setReadingListSyncRev(Prefs.getReadingListSyncRev() + 1);
     }
 
-    private void postEvent(@NonNull final Object event) {
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override public void run() {
-                WikipediaApp.getInstance().getBus().post(event);
-            }
-        });
+    private void postEvent(@NonNull Object event) {
+        // Note: this method posts from a background thread but subscribers expect events to be
+        // received on the main thead.
+        WikipediaApp.getInstance().getBus().post(event);
     }
 
     private void reconcileAsRightJoin(@NonNull RemoteReadingLists remoteReadingLists) {
