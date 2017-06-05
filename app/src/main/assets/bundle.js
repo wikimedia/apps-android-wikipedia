@@ -91,7 +91,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":24}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":23}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -217,7 +217,7 @@ module.exports = {
     setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"./bridge":2,"./constant":3,"./loader":8,"./utilities":24}],5:[function(require,module,exports){
+},{"./bridge":2,"./constant":3,"./loader":8,"./utilities":23}],5:[function(require,module,exports){
 var transformer = require('./transformer');
 
 transformer.register( 'displayDisambigLink', function( content ) {
@@ -462,7 +462,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     // client only transformations:
     transformer.transform( "addDarkModeStyles", content ); // client setting
-    transformer.transform( "setDivWidth", content ); // offsetWidth
 
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
@@ -530,7 +529,6 @@ function elementsForSection( section ) {
     }
 
     transformer.transform( "addDarkModeStyles", content ); // client setting
-    transformer.transform( "setDivWidth", content ); // offsetWidth
 
     transformer.transform( "hideRefs", content ); // clickHandler
 
@@ -714,7 +712,7 @@ module.exports = {
     handleTableCollapseOrExpandClick: toggleCollapseClickCallback
 };
 
-},{"../transformer":14,"wikimedia-page-library":25}],17:[function(require,module,exports){
+},{"../transformer":14,"wikimedia-page-library":24}],17:[function(require,module,exports){
 var transformer = require("../transformer");
 var collapseTables = require("./collapseTables");
 
@@ -940,24 +938,6 @@ function addTrailingNodes( span, nodes, startIndex ) {
 }
 
 },{"../../transformer":14}],22:[function(require,module,exports){
-var transformer = require("../transformer");
-
-transformer.register( "setDivWidth", function( content ) {
-    var allDivs = content.querySelectorAll( 'div' );
-    var contentWrapper = document.getElementById( "content" );
-    var clientWidth = contentWrapper.offsetWidth;
-    for ( var i = 0; i < allDivs.length; i++ ) {
-        if (allDivs[i].style && allDivs[i].style.width) {
-            // if this div has an explicit width, and it's greater than our client width,
-            // then make it overflow (with scrolling), and reset its width to 100%
-            if (parseInt(allDivs[i].style.width) > clientWidth) {
-                allDivs[i].style.overflowX = "auto";
-                allDivs[i].style.width = "100%";
-            }
-        }
-    }
-} );
-},{"../transformer":14}],23:[function(require,module,exports){
 var maybeWidenImage = require('wikimedia-page-library').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 var utilities = require("../utilities");
@@ -1016,7 +996,7 @@ transformer.register( "widenImages", function( content ) {
     }
 } );
 
-},{"../transformer":14,"../utilities":24,"wikimedia-page-library":25}],24:[function(require,module,exports){
+},{"../transformer":14,"../utilities":23,"wikimedia-page-library":24}],23:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -1111,7 +1091,7 @@ module.exports = {
     firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}],25:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -1671,4 +1651,4 @@ return pagelib$1;
 })));
 
 
-},{}]},{},[2,9,24,14,15,16,17,22,23,18,19,20,21,1,5,6,7,8,4,11,12,13]);
+},{}]},{},[2,9,23,14,15,16,17,22,18,19,20,21,1,5,6,7,8,4,11,12,13]);

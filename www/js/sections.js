@@ -110,7 +110,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     // client only transformations:
     transformer.transform( "addDarkModeStyles", content ); // client setting
-    transformer.transform( "setDivWidth", content ); // offsetWidth
 
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
@@ -178,7 +177,6 @@ function elementsForSection( section ) {
     }
 
     transformer.transform( "addDarkModeStyles", content ); // client setting
-    transformer.transform( "setDivWidth", content ); // offsetWidth
 
     transformer.transform( "hideRefs", content ); // clickHandler
 
