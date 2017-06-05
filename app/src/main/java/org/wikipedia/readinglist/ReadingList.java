@@ -85,7 +85,7 @@ public final class ReadingList extends ReadingListRow {
     public long physicalSize() {
         long sum = 0;
         for (ReadingListPage page : pages) {
-            sum += page.physicalSize() == null ? 0 : page.physicalSize();
+            sum += !page.isOffline() || page.physicalSize() == null ? 0 : page.physicalSize();
         }
         return sum;
     }
@@ -94,7 +94,7 @@ public final class ReadingList extends ReadingListRow {
     public long logicalSize() {
         long sum = 0;
         for (ReadingListPage page : pages) {
-            sum += page.logicalSize() == null ? 0 : page.logicalSize();
+            sum += !page.isOffline() || page.logicalSize() == null ? 0 : page.logicalSize();
         }
         return sum;
     }
