@@ -86,7 +86,7 @@
   <string name="toast_logout_complete">Odjavljeni ste</string>
   <string name="history_empty_title">Nema nedavno posjećenih članaka</string>
   <string name="history_empty_message">Ovdje pratite sve što ste čitali.</string>
-  <string name="search_empty_message">Pretražujte i čitajte slobodnu enciklopediju na Vašem jeziku</string>
+  <string name="search_empty_message">Pretražujte i čitajte slobodnu enciklopediju na svom jeziku</string>
   <string name="delete_selected_history">Obriši</string>
   <string name="delete_selected_items">Obriši izabrane stavke</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>

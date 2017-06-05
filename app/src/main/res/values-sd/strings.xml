@@ -299,6 +299,8 @@
   <string name="reading_list_add_to_other_list">ھڪ ٻي پڙھڻ جي فھرست ۾ شامو ڪريو</string>
   <string name="reading_list_remove_from_list">%s مان ھٽايو</string>
   <string name="reading_list_remove_from_lists">پڙھڻ جي فھرستن ۾ شامل ڪريو</string>
+  <string name="reading_list_confirm_remove_article_from_offline">آفلائين مان ھٽايو</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">مضمون ڪيترين ئي فھرستن ۾ ظاھر ٿئي ٿو</string>
   <string name="user_option_sync_label">ترجيحون</string>
   <string name="notification_button_view_user">يوزر سان ڳالھ</string>
   <string name="notification_talk_title">وڪيپيڊيا تي نئون پيغام</string>

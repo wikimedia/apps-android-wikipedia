@@ -137,7 +137,7 @@
   <string name="settings_item_preferences">Configuración</string>
   <string name="settings_activity_title">Configuración</string>
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
-  <string name="privacy_policy_description">Política de privacidad</string>
+  <string name="privacy_policy_description">Normativa de privacidad</string>
   <string name="terms_of_use_description">Términos de uso</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/es</string>
@@ -233,7 +233,7 @@
   <string name="button_add_to_reading_list">Añadir a lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">El artículo no se puede cargar mientras no haya conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Añade el artículo a una lista de lactura y se descargará cuando te vuelvas a conectar.</string>
-  <string name="page_offline_notice_last_date">Estás leyendo una versión sin conexión de este artículo guardado en %s.</string>
+  <string name="page_offline_notice_last_date">Estás leyendo una versión sin conexión de este artículo guardada el %s.</string>
   <string name="button_get_directions">Obtener indicaciones</string>
   <string name="error_no_maps_app">No se pudo encontrar ninguna aplicación que proporcione indicaciones.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>

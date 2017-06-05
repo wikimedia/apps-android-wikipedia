@@ -85,6 +85,7 @@
   <string name="toast_logout_complete">Kirjauduit ulos</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemisistasi.</string>
+  <string name="search_empty_message">Etsi ja lue vapaata tietosanakirjaa omalla kielelläsi</string>
   <string name="delete_selected_history">Poista</string>
   <string name="delete_selected_items">Poista valitut kohteet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -231,6 +232,7 @@
   <string name="button_add_to_reading_list">Lisää lukulistaan</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelia ei voida ladata offline-tilassa.</string>
   <string name="page_offline_notice_add_to_reading_list">Lisää artikkeli lukulistaan ja se ladataan laitteeseesi, kun muodostat seuraavan kerran yhteyden verkkoon.</string>
+  <string name="page_offline_notice_last_date">Luet tämän artikkelin yhteydettömän tilan versiota, joka tallennettiin %s.</string>
   <string name="button_get_directions">Hae reittiohjeet</string>
   <string name="error_no_maps_app">Yhtäkään reittiohjeita tarjoavaa sovellusta ei löytynyt</string>
   <string name="preference_title_show_link_previews">Näytä linkkien esikatselut</string>
@@ -271,6 +273,8 @@
   <string name="reading_list_added_to_unnamed">Lisätty lukulistaan.</string>
   <string name="reading_list_already_exists">Tämä artikkeli on jo listalla.</string>
   <string name="reading_list_added_view_button">Näytä luettelo</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikkeli, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artikkelia, %2$.2f MiB</string>
   <string name="reading_list_sort">Lajittele</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan (käänteinen)</string>
