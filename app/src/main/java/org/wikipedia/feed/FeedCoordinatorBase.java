@@ -81,7 +81,7 @@ public abstract class FeedCoordinatorBase {
         }
 
         buildScript(currentAge, wiki);
-        requestNextCard(wiki);
+        requestCard(wiki);
     }
 
     public boolean finished() {
@@ -105,32 +105,32 @@ public abstract class FeedCoordinatorBase {
     }
 
     void retryFromOffline(@NonNull WikiSite wiki) {
-        if (lastCard() instanceof OfflineCard) {
-            swapCard(progressCard, lastIndex());
-        }
-        more(wiki);
+        // swap a progress card in where the offline card was
+        swapCard(progressCard, cards.size() - 1);
+        requestCard(wiki);
     }
 
     protected abstract void buildScript(int age, WikiSite wiki);
 
-    protected void addPendingClient(FeedClient client) {
+    void addPendingClient(FeedClient client) {
         pendingClients.add(client);
     }
 
-    @Nullable private Card lastCard() {
-        return cards.get(lastIndex());
-    }
-
-    private int lastIndex() {
-        return cards.size() - 1;
-    }
-
-    private void requestNextCard(@NonNull WikiSite wiki) {
+    // Call to kick off the request chain or to retry a failed request.  To move to the next pending
+    // client, call requestNextCard.
+    private void requestCard(@NonNull WikiSite wiki) {
         if (pendingClients.isEmpty()) {
             removeProgressCard();
             return;
         }
-        pendingClients.remove(0).request(context, wiki, currentAge, callback);
+        pendingClients.get(0).request(context, wiki, currentAge, callback);
+    }
+
+    private void requestNextCard(@NonNull WikiSite wiki) {
+        if (!pendingClients.isEmpty()) {
+            pendingClients.remove(0);
+        }
+        requestCard(wiki);
     }
 
     private void removeProgressCard() {
@@ -143,13 +143,7 @@ public abstract class FeedCoordinatorBase {
 
     private void setOfflineState() {
         removeProgressCard();
-        if (!(lastCard() instanceof OfflineCard)) {
-            appendCard(new OfflineCard());
-        }
-        pendingClients.clear();
-        if (currentAge > 0) {
-            currentAge--;
-        }
+        appendCard(new OfflineCard());
     }
 
     private class ClientRequestCallback implements FeedClient.Callback {
