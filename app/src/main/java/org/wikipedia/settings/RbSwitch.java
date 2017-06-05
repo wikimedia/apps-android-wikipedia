@@ -70,9 +70,10 @@ public final class RbSwitch {
         return isAdmitted(ticket, ENABLE_RESTBASE_PERCENT_CONFIG_KEY);
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private static boolean isAdmitted(@IntRange(from = 1, to = 100) int ticket, String configKey) {
         @IntRange(from = 0, to = 100) int admittedPct = WikipediaApp.getInstance()
-                .getRemoteConfig().getConfig().optInt(configKey, 0); // 0 = disable
+                .getRemoteConfig().getConfig().optInt(configKey, 100); // 0 = disable
         return ticket <= admittedPct;
     }
 

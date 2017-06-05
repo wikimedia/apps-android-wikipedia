@@ -291,7 +291,7 @@ public final class Prefs {
     }
 
     public static boolean useRestBase() {
-        return getBoolean(R.string.preference_key_use_restbase, false);
+        return getBoolean(R.string.preference_key_use_restbase, true);
     }
 
     public static void setUseRestBase(boolean enabled) {
