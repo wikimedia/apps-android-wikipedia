@@ -80,7 +80,7 @@ public abstract class FeedCoordinatorBase {
             currentAge++;
         }
 
-        buildScript(currentAge, wiki);
+        buildScript(currentAge);
         requestCard(wiki);
     }
 
@@ -110,7 +110,7 @@ public abstract class FeedCoordinatorBase {
         requestCard(wiki);
     }
 
-    protected abstract void buildScript(int age, WikiSite wiki);
+    protected abstract void buildScript(int age);
 
     void addPendingClient(FeedClient client) {
         pendingClients.add(client);
