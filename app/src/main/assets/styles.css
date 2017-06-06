@@ -682,6 +682,10 @@ img.tex {
 .mwe-math-element {
 	overflow-x: auto;
 	max-width: 100%;
+}/* Timelines can be very long and huge, like tables, so they should be scrollable. */
+.timeline-wrapper {
+	max-width: 100%;
+	overflow: auto;
 }@media print {
 	li.gallerybox {
 		vertical-align: top;
