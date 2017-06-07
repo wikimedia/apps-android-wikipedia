@@ -162,6 +162,8 @@ public class LeadImagesHandler {
 
         if (isMainPage()) {
             pageHeaderView.hide();
+            // explicitly set WebView padding, since onLayoutChange will not be called.
+            setWebViewPaddingTop();
         } else {
             if (!isLeadImageEnabled()) {
                 pageHeaderView.showText();
@@ -174,21 +176,12 @@ public class LeadImagesHandler {
         listener.onLayoutComplete(sequence);
     }
 
-    private void updatePadding() {
-        int padding;
-        if (isMainPage()) {
-            padding = Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar());
-        } else {
-            padding = Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar());
-        }
-
-        setWebViewPaddingTop(padding);
-    }
-
-    private void setWebViewPaddingTop(int padding) {
+    private void setWebViewPaddingTop() {
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingTop", padding);
+            payload.put("paddingTop", isMainPage()
+                    ? Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar())
+                    : Math.round(pageHeaderView.getHeight() / DimenUtil.getDensityScalar()));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -251,7 +244,7 @@ public class LeadImagesHandler {
             @SuppressWarnings("checkstyle:parameternumber")
             public void onLayoutChange(View v, int left, int top, int right, int bottom,
                                        int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                updatePadding();
+                setWebViewPaddingTop();
             }
         });
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
