@@ -181,9 +181,9 @@ public class GalleryItemFragment extends Fragment {
         }
         menu.findItem(R.id.menu_gallery_visit_page).setEnabled(galleryItem != null);
         menu.findItem(R.id.menu_gallery_share).setEnabled(galleryItem != null
-                && imageView.getDrawable() != null);
+                && !TextUtils.isEmpty(galleryItem.getUrl()) && imageView.getDrawable() != null);
         menu.findItem(R.id.menu_gallery_save).setEnabled(galleryItem != null
-                && imageView.getDrawable() != null);
+                && !TextUtils.isEmpty(galleryItem.getUrl()) && imageView.getDrawable() != null);
     }
 
     @Override
