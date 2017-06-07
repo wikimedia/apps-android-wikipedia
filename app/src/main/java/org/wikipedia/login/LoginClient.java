@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
@@ -34,7 +35,7 @@ public class LoginClient {
     @NonNull private final WikiCachedService<Service> cachedService
             = new MwCachedService<>(Service.class);
 
-    @Nullable private Call<MwQueryResponse<LoginToken>> tokenCall;
+    @Nullable private Call<MwQueryResponse> tokenCall;
     @Nullable private Call<LoginResponse> loginCall;
 
     public interface LoginCallback {
@@ -48,25 +49,23 @@ public class LoginClient {
         cancel();
 
         tokenCall = cachedService.service(wiki).requestLoginToken();
-        tokenCall.enqueue(new Callback<MwQueryResponse<LoginToken>>() {
-            @Override
-            public void onResponse(Call<MwQueryResponse<LoginToken>> call,
-                                   Response<MwQueryResponse<LoginToken>> response) {
-                MwQueryResponse<LoginToken> body = response.body();
-                LoginToken query = body.query();
-                if (query != null &&  query.getLoginToken() != null) {
-                    login(wiki, userName, password, null, query.getLoginToken(), cb);
-                } else if (body.getError() != null) {
-                    cb.error(new IOException("Failed to retrieve login token. "
-                            + body.getError().toString()));
+        tokenCall.enqueue(new Callback<MwQueryResponse>() {
+            @Override public void onResponse(Call<MwQueryResponse> call,
+                                             Response<MwQueryResponse> response) {
+                if (response.body().success()) {
+                    // noinspection ConstantConditions
+                    login(wiki, userName, password, null, response.body().query().loginToken(), cb);
+                } else if (response.body().getError() != null) {
+                    // noinspection ConstantConditions
+                    cb.error(new MwException(response.body().getError()));
                 } else {
                     cb.error(new IOException("Unexpected error trying to retrieve login token. "
-                            + body.toString()));
+                            + response.body().toString()));
                 }
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse<LoginToken>> call, Throwable caught) {
+            public void onFailure(Call<MwQueryResponse> call, Throwable caught) {
                 cb.error(caught);
             }
         });
@@ -112,8 +111,7 @@ public class LoginClient {
         UserExtendedInfoClient infoClient = new UserExtendedInfoClient();
         infoClient.request(wiki, userName, new UserExtendedInfoClient.Callback() {
             @Override
-            public void success(@NonNull Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call,
-                                int id, @NonNull Set<String> groups) {
+            public void success(@NonNull Call<MwQueryResponse> call, int id, @NonNull Set<String> groups) {
                 final User user = loginResult.getUser();
                 Map<String, Integer> idMap = new HashMap<>();
                 idMap.put(wiki.languageCode(), id);
@@ -123,8 +121,7 @@ public class LoginClient {
             }
 
             @Override
-            public void failure(@NonNull Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call,
-                              @NonNull Throwable caught) {
+            public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
                 L.e("Login succeeded but getting group information failed. " + caught);
                 cb.error(caught);
             }
@@ -157,7 +154,7 @@ public class LoginClient {
         /** Request a login token to be used later to log in. */
         @NonNull
         @POST("w/api.php?format=json&formatversion=2&action=query&meta=tokens&type=login")
-        Call<MwQueryResponse<LoginToken>> requestLoginToken();
+        Call<MwQueryResponse> requestLoginToken();
 
         /** Actually log in. Has to be x-www-form-urlencoded */
         @NonNull
@@ -175,28 +172,14 @@ public class LoginClient {
                                   @Field("logincontinue") boolean loginContinue);
     }
 
-    private static final class LoginToken {
-        @SerializedName("tokens") private Tokens tokens;
-
-        @Nullable String getLoginToken() {
-            return tokens == null ? null : tokens.loginToken;
-        }
-
-        private class Tokens {
-            @SerializedName("logintoken") @Nullable
-            private String loginToken;
-        }
-    }
-
     private static final class LoginResponse {
-        @SerializedName("error") @Nullable
+        @SuppressWarnings("unused") @SerializedName("error") @Nullable
         private MwServiceError error;
 
-        @SerializedName("clientlogin") @Nullable
+        @SuppressWarnings("unused") @SerializedName("clientlogin") @Nullable
         private ClientLogin clientLogin;
 
-        @Nullable
-        public MwServiceError getError() {
+        @Nullable public MwServiceError getError() {
             return error;
         }
 

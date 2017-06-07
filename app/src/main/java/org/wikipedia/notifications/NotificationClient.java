@@ -32,8 +32,7 @@ public final class NotificationClient {
         void failure(Throwable t);
     }
 
-    private static final NotificationClient INSTANCE
-            = new NotificationClient(new WikiSite("www.wikidata.org", ""));
+    private static final NotificationClient INSTANCE = new NotificationClient(new WikiSite("www.wikidata.org", ""));
 
     public static NotificationClient instance() {
         return INSTANCE;
@@ -44,24 +43,23 @@ public final class NotificationClient {
         editTokenClient = new CsrfTokenClient(wiki, WikipediaApp.getInstance().getWikiSite());
     }
 
-    @VisibleForTesting
-    static class CallbackAdapter implements retrofit2.Callback<MwQueryResponse<Notification.QueryNotifications>> {
+    @VisibleForTesting static class CallbackAdapter implements retrofit2.Callback<MwQueryResponse> {
         @NonNull private final Callback callback;
 
         CallbackAdapter(@NonNull Callback callback) {
             this.callback = callback;
         }
 
-        @Override public void onResponse(Call<MwQueryResponse<Notification.QueryNotifications>> call,
-                                         Response<MwQueryResponse<Notification.QueryNotifications>> response) {
+        @Override public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
             if (response.body() != null && response.body().query() != null) {
-                callback.success(response.body().query().get());
+                // noinspection ConstantConditions
+                callback.success(response.body().query().notifications());
             } else {
                 callback.failure(new JsonParseException("Notification response is malformed."));
             }
         }
 
-        @Override public void onFailure(Call<MwQueryResponse<Notification.QueryNotifications>> call, Throwable caught) {
+        @Override public void onFailure(Call<MwQueryResponse> call, Throwable caught) {
             L.v(caught);
             callback.failure(caught);
         }
@@ -83,14 +81,14 @@ public final class NotificationClient {
         editTokenClient.request(new CsrfTokenClient.Callback() {
             @Override
             public void success(@NonNull String token) {
-                requestMarkRead(service, token, idListStr).enqueue(new retrofit2.Callback<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>>() {
+                requestMarkRead(service, token, idListStr).enqueue(new retrofit2.Callback<MwQueryResponse>() {
                     @Override
-                    public void onResponse(Call<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> call, Response<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> response) {
+                    public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
                         // don't care about the response for now.
                     }
 
                     @Override
-                    public void onFailure(Call<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> call, Throwable t) {
+                    public void onFailure(Call<MwQueryResponse> call, Throwable t) {
                         L.e(t);
                     }
                 });
@@ -108,28 +106,25 @@ public final class NotificationClient {
         });
     }
 
-    @VisibleForTesting
-    @NonNull
-    Call<MwQueryResponse<Notification.QueryNotifications>> requestNotifications(@NonNull Service service, @NonNull String wikiList) {
+    @VisibleForTesting @NonNull
+    Call<MwQueryResponse> requestNotifications(@NonNull Service service, @NonNull String wikiList) {
         return service.getNotifications(wikiList);
     }
 
-    @VisibleForTesting
-    @NonNull
-    Call<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> requestMarkRead(@NonNull Service service, @NonNull String token, @NonNull String idList) {
+    @VisibleForTesting @NonNull
+    Call<MwQueryResponse> requestMarkRead(@NonNull Service service, @NonNull String token, @NonNull String idList) {
         return service.markRead(token, idList);
     }
 
-    @VisibleForTesting
-    interface Service {
+    @VisibleForTesting interface Service {
         String ACTION = "w/api.php?format=json&formatversion=2&action=";
 
         @GET(ACTION + "query&meta=notifications&notfilter=!read&notprop=list")
-        @NonNull Call<MwQueryResponse<Notification.QueryNotifications>> getNotifications(@Query("notwikis") @NonNull String wikiList);
+        @NonNull
+        Call<MwQueryResponse> getNotifications(@Query("notwikis") @NonNull String wikiList);
 
         @FormUrlEncoded
         @POST(ACTION + "echomarkread")
-        @NonNull Call<MwQueryResponse<MarkReadResponse.QueryMarkReadResponse>> markRead(@Field("token") @NonNull String token,
-                                                                                        @Field("list") @NonNull String idList);
+        Call<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @NonNull String idList);
     }
 }

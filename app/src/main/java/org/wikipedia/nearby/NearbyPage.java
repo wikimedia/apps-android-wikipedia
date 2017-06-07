@@ -9,7 +9,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 
 import java.util.List;
 
-class NearbyPage {
+public class NearbyPage {
     @SuppressWarnings("NullableProblems") @NonNull private String title;
     @Nullable private String thumbUrl;
     @Nullable private Location location;
@@ -17,7 +17,7 @@ class NearbyPage {
     /** calculated externally */
     private int distance;
 
-    NearbyPage(@NonNull MwQueryPage page) {
+    public NearbyPage(@NonNull MwQueryPage page) {
         title = page.title();
         thumbUrl = page.thumbUrl();
         List<MwQueryPage.Coordinates> coordinates = page.coordinates();

@@ -330,7 +330,7 @@ public class BottomContentHandler implements BottomContentInterface,
                 entry.getTitle().getPrefixedText(), null, null,
                 Constants.MAX_SUGGESTION_RESULTS * 2, new FullTextSearchClient.Callback() {
                     @Override
-                    public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                    public void success(@NonNull Call<MwQueryResponse> call,
                                         @NonNull SearchResults results) {
                         funnel.setLatency(System.currentTimeMillis() - timeMillis);
                         readMoreItems = SearchResults.filter(results, entry.getTitle().getPrefixedText(), true);
@@ -346,7 +346,7 @@ public class BottomContentHandler implements BottomContentInterface,
                     }
 
                     @Override
-                    public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call, @NonNull Throwable caught) {
+                    public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
                         // Read More titles are expendable.
                         Log.w(TAG, "Error while fetching Read More titles.", caught);
                         // but lay out the bottom content anyway:

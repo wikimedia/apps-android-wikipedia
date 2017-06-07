@@ -25,7 +25,7 @@ import static org.wikipedia.Constants.SUGGESTION_REQUEST_ITEMS;
 
 public class BecauseYouReadClient extends FullTextSearchClient implements FeedClient {
     @Nullable private MainPageReadMoreTopicTask readMoreTopicTask;
-    @Nullable private Call<MwQueryResponse<MwQueryResponse.Pages>> fullTextSearchCall;
+    @Nullable private Call<MwQueryResponse> fullTextSearchCall;
 
     @Override public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
                                   @NonNull final FeedClient.Callback cb) {
@@ -62,12 +62,12 @@ public class BecauseYouReadClient extends FullTextSearchClient implements FeedCl
                                         final FeedClient.Callback cb) {
         request(wiki, entry.getTitle().getDisplayText(), null, null, SUGGESTION_REQUEST_ITEMS,
                 new FullTextSearchClient.Callback() {
-            @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+            @Override public void success(@NonNull Call<MwQueryResponse> call,
                                           @NonNull SearchResults results) {
                 cb.success(Collections.singletonList(toBecauseYouReadCard(results, entry)));
             }
 
-            @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+            @Override public void failure(@NonNull Call<MwQueryResponse> call,
                                           @NonNull Throwable caught) {
                 cb.error(caught);
             }

@@ -21,18 +21,18 @@ import retrofit2.http.Query;
 public class WikitextClient {
     @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
-    public Call<MwQueryResponse<Wikitext>> request(@NonNull final WikiSite wiki, @NonNull final PageTitle title,
+    public Call<MwQueryResponse> request(@NonNull final WikiSite wiki, @NonNull final PageTitle title,
                                                    final int sectionID, @NonNull final Callback cb) {
         Service service = cachedService.service(wiki);
         return request(service, title, sectionID, cb);
     }
 
-    @VisibleForTesting Call<MwQueryResponse<Wikitext>> request(@NonNull Service service, @NonNull final PageTitle title,
+    @VisibleForTesting Call<MwQueryResponse> request(@NonNull Service service, @NonNull final PageTitle title,
                                                               final int sectionID, @NonNull final Callback cb) {
-        Call<MwQueryResponse<Wikitext>> call = service.request(title.getPrefixedText(), sectionID);
-        call.enqueue(new retrofit2.Callback<MwQueryResponse<Wikitext>>() {
+        Call<MwQueryResponse> call = service.request(title.getPrefixedText(), sectionID);
+        call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
-            public void onResponse(Call<MwQueryResponse<Wikitext>> call, Response<MwQueryResponse<Wikitext>> response) {
+            public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
                 // noinspection ConstantConditions
                 if (response.body().success() && response.body().query().wikitext() != null) {
                     // noinspection ConstantConditions
@@ -47,7 +47,7 @@ public class WikitextClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse<Wikitext>> call, Throwable t) {
+            public void onFailure(Call<MwQueryResponse> call, Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -55,12 +55,12 @@ public class WikitextClient {
     }
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull String wikitext);
-        void failure(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull Throwable caught);
+        void success(@NonNull Call<MwQueryResponse> call, @NonNull String wikitext);
+        void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught);
     }
 
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=revisions&rvprop=content&rvlimit=1")
-        Call<MwQueryResponse<Wikitext>> request(@NonNull @Query("titles") String title, @Query("rvsection") int section);
+        Call<MwQueryResponse> request(@NonNull @Query("titles") String title, @Query("rvsection") int section);
     }
 }

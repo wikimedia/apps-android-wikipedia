@@ -36,7 +36,7 @@ public class GalleryCollectionClient {
             throws IOException, MwException {
 
         Map<String, ImageInfo> result = new HashMap<>();
-        MwQueryResponse<FilePagesWithImageInfo> currentResponse;
+        MwQueryResponse currentResponse;
 
         Map<String, String> continuation = null;
         do {
@@ -65,19 +65,19 @@ public class GalleryCollectionClient {
         return result;
     }
 
-    private MwQueryResponse<FilePagesWithImageInfo> fetch(@NonNull Service service, @NonNull PageTitle title, boolean getThumbs)
+    private MwQueryResponse fetch(@NonNull Service service, @NonNull PageTitle title, boolean getThumbs)
             throws IOException {
-        Call<MwQueryResponse<FilePagesWithImageInfo>> call = getThumbs
+        Call<MwQueryResponse> call = getThumbs
                 ? service.fetch("dimensions|mime|url", Integer.toString(PREFERRED_THUMB_SIZE),
                     Integer.toString(PREFERRED_THUMB_SIZE), title.toString())
                 : service.fetch("dimensions|mime", null, null, title.toString());
         return call.execute().body();
     }
 
-    private MwQueryResponse<FilePagesWithImageInfo> continueFetch(@NonNull Service service, @NonNull PageTitle title,
-                                                                  boolean getThumbs, @NonNull Map<String, String> continuation)
+    private MwQueryResponse continueFetch(@NonNull Service service, @NonNull PageTitle title,
+                                          boolean getThumbs, @NonNull Map<String, String> continuation)
             throws IOException {
-        Call<MwQueryResponse<FilePagesWithImageInfo>> call = getThumbs
+        Call<MwQueryResponse> call = getThumbs
                 ? service.continueFetch("dimensions|mime|url", Integer.toString(PREFERRED_THUMB_SIZE),
                     Integer.toString(PREFERRED_THUMB_SIZE), title.toString(), continuation)
                 : service.continueFetch("dimensions|mime", null, null, title.toString(), continuation);
@@ -86,18 +86,20 @@ public class GalleryCollectionClient {
 
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&redirects=&gimlimit=" + MAX_ITEM_COUNT)
-        Call<MwQueryResponse<FilePagesWithImageInfo>> fetch(@NonNull @Query("iiprop") String properties,
-                                                            @Nullable @Query("iiurlwidth") String thumbWidth,
-                                                            @Nullable @Query("iiurlheight") String thumbHeight,
-                                                            @NonNull @Query("titles") String title);
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&redirects=&gimlimit="
+                + MAX_ITEM_COUNT)
+        Call<MwQueryResponse> fetch(@NonNull @Query("iiprop") String properties,
+                                    @Nullable @Query("iiurlwidth") String thumbWidth,
+                                    @Nullable @Query("iiurlheight") String thumbHeight,
+                                    @NonNull @Query("titles") String title);
 
         // N.B. @QueryMap will throw if it receives a null parameter, separate handling is required.
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&redirects=&gimlimit=" + MAX_ITEM_COUNT)
-        Call<MwQueryResponse<FilePagesWithImageInfo>> continueFetch(@NonNull @Query("iiprop") String properties,
-                                                                    @Nullable @Query("iiurlwidth") String thumbWidth,
-                                                                    @Nullable @Query("iiurlheight") String thumbHeight,
-                                                                    @NonNull @Query("titles") String title,
-                                                                    @NonNull @QueryMap Map<String, String> continuation);
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&redirects=&gimlimit="
+                + MAX_ITEM_COUNT)
+        Call<MwQueryResponse> continueFetch(@NonNull @Query("iiprop") String properties,
+                                            @Nullable @Query("iiurlwidth") String thumbWidth,
+                                            @Nullable @Query("iiurlheight") String thumbHeight,
+                                            @NonNull @Query("titles") String title,
+                                            @NonNull @QueryMap Map<String, String> continuation);
     }
 }

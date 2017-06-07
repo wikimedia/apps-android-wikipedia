@@ -5,16 +5,15 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
 import java.util.Map;
 
-public class MwQueryResponse<T> extends MwResponse {
+public class MwQueryResponse extends MwResponse {
 
     @SuppressWarnings("unused") @SerializedName("batchcomplete") private boolean batchComplete;
 
     @SuppressWarnings("unused") @SerializedName("continue") @Nullable private Map<String, String> continuation;
 
-    @Nullable private T query;
+    @Nullable private MwQueryResult query;
 
     public boolean batchComplete() {
         return batchComplete;
@@ -24,7 +23,7 @@ public class MwQueryResponse<T> extends MwResponse {
         return continuation;
     }
 
-    @Nullable public T query() {
+    @Nullable public MwQueryResult query() {
         return query;
     }
 
@@ -32,15 +31,9 @@ public class MwQueryResponse<T> extends MwResponse {
         return super.success() && query != null;
     }
 
-    @VisibleForTesting protected void setQuery(@Nullable T query) {
+    @VisibleForTesting protected void setQuery(@Nullable MwQueryResult query) {
         this.query = query;
     }
 
-    public static class Pages {
-        @SuppressWarnings("unused") private List<MwQueryPage> pages;
 
-        public List<MwQueryPage> pages() {
-            return pages;
-        }
-    }
 }

@@ -26,27 +26,24 @@ public class PageImagesClient {
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+        void success(@NonNull Call<MwQueryResponse> call,
                      @NonNull Map<PageTitle, PageImage> results);
-        void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+        void failure(@NonNull Call<MwQueryResponse> call,
                      @NonNull Throwable caught);
     }
 
-    public Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull WikiSite wiki,
+    public Call<MwQueryResponse> request(@NonNull WikiSite wiki,
                                                                 @NonNull List<PageTitle> titles,
                                                                 @NonNull Callback cb) {
         return request(wiki, cachedService.service(wiki), titles, cb);
     }
 
     @VisibleForTesting
-    Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull final WikiSite wiki,
-                                                         @NonNull Service service,
-                                                         @NonNull final List<PageTitle> titles,
-                                                         @NonNull final Callback cb) {
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(TextUtils.join("|", titles));
-        call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
-            @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
-                                             Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
+    Call<MwQueryResponse> request(@NonNull final WikiSite wiki, @NonNull Service service,
+                                  @NonNull final List<PageTitle> titles, @NonNull final Callback cb) {
+        Call<MwQueryResponse> call = service.request(TextUtils.join("|", titles));
+        call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
+            @Override public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
                 Map<PageTitle, PageImage> pageImagesMap = new ArrayMap<>();
                 // error cases
                 if (response.body().success()) {
@@ -69,7 +66,6 @@ public class PageImagesClient {
                             pageImagesMap.put(title, new PageImage(title, thumbnailSourcesMap.get(key)));
                         }
                     }
-
                     cb.success(call, pageImagesMap);
                 } else if (response.body().hasError()) {
                     // noinspection ConstantConditions
@@ -79,7 +75,7 @@ public class PageImagesClient {
                 }
             }
 
-            @Override public void onFailure(Call<MwQueryResponse<MwQueryResponse.Pages>> call, Throwable t) {
+            @Override public void onFailure(Call<MwQueryResponse> call, Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -89,6 +85,6 @@ public class PageImagesClient {
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageimages&piprop=thumbnail"
                 + "&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
-        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles);
+        Call<MwQueryResponse> request(@NonNull @Query("titles") String titles);
     }
 }

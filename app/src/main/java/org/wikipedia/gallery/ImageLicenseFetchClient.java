@@ -21,24 +21,23 @@ public class ImageLicenseFetchClient {
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call, @NonNull ImageLicense result);
-        void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call, @NonNull Throwable caught);
+        void success(@NonNull Call<MwQueryResponse> call, @NonNull ImageLicense result);
+        void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught);
     }
 
-    public Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull WikiSite wiki,
+    public Call<MwQueryResponse> request(@NonNull WikiSite wiki,
                                                       @NonNull PageTitle title,
                                                       @NonNull Callback cb) {
         return request(cachedService.service(wiki), title, cb);
     }
 
-    @VisibleForTesting Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull Service service,
+    @VisibleForTesting Call<MwQueryResponse> request(@NonNull Service service,
                                                                   @NonNull final PageTitle title,
                                                                   @NonNull final Callback cb) {
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(title.toString());
+        Call<MwQueryResponse> call = service.request(title.toString());
 
-        call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
-            @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
-                                             Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
+        call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
+            @Override public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
                 if (response.body().success()) {
                     // noinspection ConstantConditions
                     MwQueryPage page = response.body().query().pages().get(0);
@@ -54,7 +53,7 @@ public class ImageLicenseFetchClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse<MwQueryResponse.Pages>> call, Throwable t) {
+            public void onFailure(Call<MwQueryResponse> call, Throwable t) {
                 cb.failure(call, t);
             }
         });
@@ -64,6 +63,6 @@ public class ImageLicenseFetchClient {
 
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&iiprop=extmetadata")
-        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles);
+        Call<MwQueryResponse> request(@NonNull @Query("titles") String titles);
     }
 }

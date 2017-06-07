@@ -52,7 +52,6 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
     private WikipediaApp app;
     private LangLinksClient client;
-    private ClientCallback callback;
 
     private ListView langLinksList;
     private View langLinksProgress;
@@ -174,14 +173,16 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     }
 
     private class ClientCallback implements LangLinksClient.Callback {
-        @Override public void success(@NonNull Call<MwQueryResponse<LangLinks>> call, @NonNull List<PageTitle> links) {
+        @Override public void success(@NonNull Call<MwQueryResponse> call,
+                                      @NonNull List<PageTitle> links) {
             languageEntries = links;
             updateLanguageEntriesSupported(languageEntries);
             sortLanguageEntriesByMru(languageEntries);
             displayLangLinks();
         }
 
-        @Override public void failure(@NonNull Call<MwQueryResponse<LangLinks>> call, @NonNull Throwable caught) {
+        @Override public void failure(@NonNull Call<MwQueryResponse> call,
+                                      @NonNull Throwable caught) {
             ViewAnimations.crossFade(langLinksProgress, langLinksError);
             langLinksError.setError(caught);
         }

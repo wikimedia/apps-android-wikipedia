@@ -135,7 +135,7 @@ public class ShareHandler {
         new ImageLicenseFetchClient().request(title.getWikiSite(),
                 new PageTitle(Namespace.FILE.toLegacyString(), leadImageNameText, title.getWikiSite()),
                 new ImageLicenseFetchClient.Callback() {
-                    @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                    @Override public void success(@NonNull Call<MwQueryResponse> call,
                                                   @NonNull ImageLicense result) {
                         final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.getContext(),
                                 fragment.getLeadImageBitmap(),
@@ -146,7 +146,7 @@ public class ShareHandler {
                         fragment.showBottomSheet(new PreviewDialog(fragment, snippetBitmap, title, selectedText, funnel));
                     }
 
-                    @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                    @Override public void failure(@NonNull Call<MwQueryResponse> call,
                                                   @NonNull Throwable caught) {
                         L.e("Error fetching image license info for " + title.getDisplayText(), caught);
                     }

@@ -562,7 +562,7 @@ public class SearchResultsFragment extends Fragment {
             this.clearOnSuccess = clearOnSuccess;
         }
 
-        @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+        @Override public void success(@NonNull Call<MwQueryResponse> call,
                                       @NonNull SearchResults results) {
             List<SearchResult> resultList = results.getResults();
             cache(resultList, searchTerm);
@@ -583,7 +583,7 @@ public class SearchResultsFragment extends Fragment {
             displayResults(resultList);
         }
 
-        @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+        @Override public void failure(@NonNull Call<MwQueryResponse> call,
                                       @NonNull Throwable caught) {
             // If there's an error, just log it and let the existing prefix search results be.
             if (callback() != null) {

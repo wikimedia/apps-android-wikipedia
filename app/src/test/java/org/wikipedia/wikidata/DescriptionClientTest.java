@@ -39,7 +39,7 @@ public class DescriptionClientTest extends MockWebServerTest {
         enqueueFromFile("reading_list_page_info.json");
 
         DescriptionClient.Callback cb = mock(DescriptionClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         ArgumentCaptor<List> captor = ArgumentCaptor.forClass(List.class);
@@ -61,7 +61,7 @@ public class DescriptionClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         DescriptionClient.Callback cb = mock(DescriptionClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -71,7 +71,7 @@ public class DescriptionClientTest extends MockWebServerTest {
         enqueue404();
 
         DescriptionClient.Callback cb = mock(DescriptionClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -81,13 +81,13 @@ public class DescriptionClientTest extends MockWebServerTest {
         server().enqueue("'");
 
         DescriptionClient.Callback cb = mock(DescriptionClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
                                        @NonNull DescriptionClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -95,8 +95,7 @@ public class DescriptionClientTest extends MockWebServerTest {
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<MwQueryResponse<MwQueryResponse.Pages>> request(
-            @NonNull DescriptionClient.Callback cb) {
+    private Call<MwQueryResponse> request(@NonNull DescriptionClient.Callback cb) {
         return subject.request(service(DescriptionClient.Service.class),
                 Arrays.asList(PAGE_TITLE_BIDEN, PAGE_TITLE_OBAMA), cb);
     }

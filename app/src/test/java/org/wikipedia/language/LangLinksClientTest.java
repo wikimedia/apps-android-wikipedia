@@ -32,7 +32,7 @@ public class LangLinksClientTest extends MockWebServerTest {
         enqueueFromFile("lang_links.json");
 
         LangLinksClient.Callback cb = mock(LangLinksClient.Callback.class);
-        Call<MwQueryResponse<LangLinks>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb, expected);
@@ -43,7 +43,7 @@ public class LangLinksClientTest extends MockWebServerTest {
         enqueueFromFile("lang_links_empty.json");
 
         LangLinksClient.Callback cb = mock(LangLinksClient.Callback.class);
-        Call<MwQueryResponse<LangLinks>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb, expected);
@@ -53,7 +53,7 @@ public class LangLinksClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         LangLinksClient.Callback cb = mock(LangLinksClient.Callback.class);
-        Call<MwQueryResponse<LangLinks>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -63,7 +63,7 @@ public class LangLinksClientTest extends MockWebServerTest {
         enqueue404();
 
         LangLinksClient.Callback cb = mock(LangLinksClient.Callback.class);
-        Call<MwQueryResponse<LangLinks>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -73,13 +73,13 @@ public class LangLinksClientTest extends MockWebServerTest {
         server().enqueue("⨌⨀_⨀⨌");
 
         LangLinksClient.Callback cb = mock(LangLinksClient.Callback.class);
-        Call<MwQueryResponse<LangLinks>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse<LangLinks>> call,
+    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
                                        @NonNull LangLinksClient.Callback cb,
                                        @NonNull List<PageTitle> expected) {
         verify(cb).success(eq(call), eq(expected));
@@ -87,7 +87,7 @@ public class LangLinksClientTest extends MockWebServerTest {
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<LangLinks>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
                                        @NonNull LangLinksClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -103,7 +103,7 @@ public class LangLinksClientTest extends MockWebServerTest {
         return result;
     }
 
-    private Call<MwQueryResponse<LangLinks>> request(@NonNull LangLinksClient.Callback cb) {
+    private Call<MwQueryResponse> request(@NonNull LangLinksClient.Callback cb) {
         PageTitle title = new PageTitle(null, "Scientology", WikiSite.forLanguageCode("en"));
         return subject.request(service(LangLinksClient.Service.class), title, cb);
     }

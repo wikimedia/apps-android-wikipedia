@@ -391,7 +391,7 @@ public class NearbyFragment extends Fragment {
             client.request(wiki, mapboxMap.getCameraPosition().target.getLatitude(),
                     mapboxMap.getCameraPosition().target.getLongitude(), getMapRadius(),
                     new NearbyClient.Callback() {
-                        @Override public void success(@NonNull Call<MwQueryResponse<Nearby>> call,
+                        @Override public void success(@NonNull Call<MwQueryResponse> call,
                                                       @NonNull NearbyResult result) {
                             if (!isResumed()) {
                                 return;
@@ -401,7 +401,7 @@ public class NearbyFragment extends Fragment {
                             onLoaded();
                         }
 
-                        @Override public void failure(@NonNull Call<MwQueryResponse<Nearby>> call,
+                        @Override public void failure(@NonNull Call<MwQueryResponse> call,
                                                       @NonNull Throwable caught) {
                             if (!isResumed()) {
                                 return;

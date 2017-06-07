@@ -22,14 +22,14 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 
 public class CsrfTokenClient {
-    public static final String ANON_TOKEN = "+\\";
+    static final String ANON_TOKEN = "+\\";
     private static final int MAX_RETRIES = 1;
     @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
     @NonNull private final WikiSite csrfWikiSite;
     @NonNull private final WikiSite loginWikiSite;
     private int retries = 0;
 
-    @Nullable private Call<MwQueryResponse<CsrfToken>> csrfTokenCall;
+    @Nullable private Call<MwQueryResponse> csrfTokenCall;
     @NonNull private LoginClient loginClient = new LoginClient();
 
     public CsrfTokenClient(@NonNull WikiSite csrfWikiSite, @NonNull WikiSite loginWikiSite) {
@@ -61,7 +61,7 @@ public class CsrfTokenClient {
 
     @VisibleForTesting
     @NonNull
-    Call<MwQueryResponse<CsrfToken>> request(@NonNull Service service, @NonNull final Callback cb) {
+    Call<MwQueryResponse> request(@NonNull Service service, @NonNull final Callback cb) {
         return requestToken(service, new CsrfTokenClient.Callback() {
             @Override public void success(@NonNull String token) {
                 if (User.isLoggedIn() && token.equals(ANON_TOKEN)) {
@@ -127,15 +127,15 @@ public class CsrfTokenClient {
                 });
     }
 
-    @VisibleForTesting @NonNull Call<MwQueryResponse<CsrfToken>> requestToken(@NonNull Service service,
-                                                                              @NonNull final Callback cb) {
-        Call<MwQueryResponse<CsrfToken>> call = service.request();
-        call.enqueue(new retrofit2.Callback<MwQueryResponse<CsrfToken>>() {
+    @VisibleForTesting @NonNull Call<MwQueryResponse> requestToken(@NonNull Service service,
+                                                                   @NonNull final Callback cb) {
+        Call<MwQueryResponse> call = service.request();
+        call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
-            public void onResponse(Call<MwQueryResponse<CsrfToken>> call, Response<MwQueryResponse<CsrfToken>> response) {
+            public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
                 if (response.body().success()) {
                     // noinspection ConstantConditions
-                    cb.success(response.body().query().token());
+                    cb.success(response.body().query().csrfToken());
                 } else if (response.body().hasError()) {
                     // noinspection ConstantConditions
                     cb.failure(new MwException(response.body().getError()));
@@ -145,7 +145,7 @@ public class CsrfTokenClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse<CsrfToken>> call, Throwable t) {
+            public void onFailure(Call<MwQueryResponse> call, Throwable t) {
                 cb.failure(t);
             }
         });
@@ -164,6 +164,6 @@ public class CsrfTokenClient {
 
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&meta=tokens&type=csrf")
-        Call<MwQueryResponse<CsrfToken>> request();
+        Call<MwQueryResponse> request();
     }
 }

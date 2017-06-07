@@ -8,8 +8,6 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.wikidata.EntityClient;
 
-import java.util.List;
-
 public class Notification {
     public static final String TYPE_EDIT_USER_TALK = "edit-user-talk";
     public static final String TYPE_REVERTED = "reverted";
@@ -85,22 +83,6 @@ public class Notification {
 
         @NonNull public String name() {
             return name;
-        }
-    }
-
-    public static class NotificationList {
-        @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<Notification> list;
-
-        @NonNull public List<Notification> getNotifications() {
-            return list;
-        }
-    }
-
-    public static class QueryNotifications {
-        @SuppressWarnings("unused,NullableProblems") @Required @NonNull private NotificationList notifications;
-
-        @NonNull public List<Notification> get() {
-            return notifications.getNotifications();
         }
     }
 }

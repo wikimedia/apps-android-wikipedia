@@ -27,7 +27,7 @@ public class UserExtendedInfoClientTest extends MockWebServerTest {
         enqueueFromFile("user_extended_info.json");
 
         UserExtendedInfoClient.Callback cb = mock(UserExtendedInfoClient.Callback.class);
-        Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb);
@@ -37,7 +37,7 @@ public class UserExtendedInfoClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         UserExtendedInfoClient.Callback cb = mock(UserExtendedInfoClient.Callback.class);
-        Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, LoginClient.LoginFailedException.class);
@@ -47,7 +47,7 @@ public class UserExtendedInfoClientTest extends MockWebServerTest {
         enqueue404();
 
         UserExtendedInfoClient.Callback cb = mock(UserExtendedInfoClient.Callback.class);
-        Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -57,20 +57,20 @@ public class UserExtendedInfoClientTest extends MockWebServerTest {
         server().enqueue("┏━┓ ︵  /(^.^/)");
 
         UserExtendedInfoClient.Callback cb = mock(UserExtendedInfoClient.Callback.class);
-        Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call,
+    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
                                        @NonNull UserExtendedInfoClient.Callback cb) {
         verify(cb).success(eq(call), any(Integer.class), any(Set.class));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
                                        @NonNull UserExtendedInfoClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -78,7 +78,7 @@ public class UserExtendedInfoClientTest extends MockWebServerTest {
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<MwQueryResponse<UserExtendedInfoClient.QueryResult>> request(@NonNull UserExtendedInfoClient.Callback cb) {
+    private Call<MwQueryResponse> request(@NonNull UserExtendedInfoClient.Callback cb) {
         return subject.request(service(UserExtendedInfoClient.Service.class), "USER", cb);
     }
 }
