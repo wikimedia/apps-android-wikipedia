@@ -19,7 +19,7 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public class GetDescriptionsClient {
+public class DescriptionClient {
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public interface Callback {
