@@ -92,8 +92,8 @@ public class PrefixSearchClient {
         }
     }
 
-    private List<MwQueryPage> updateWithRedirectInfo(@NonNull List<MwQueryPage> pages,
-                                                     @NonNull List<MwQueryResult.Redirect> redirects) {
+    @VisibleForTesting static List<MwQueryPage> updateWithRedirectInfo(@NonNull List<MwQueryPage> pages,
+                                                                       @NonNull List<MwQueryResult.Redirect> redirects) {
         for (MwQueryPage page : pages) {
             for (MwQueryResult.Redirect redirect : redirects) {
                 // TODO: Looks like result pages and redirects can also be matched on the "index"
