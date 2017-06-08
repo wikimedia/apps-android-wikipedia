@@ -511,7 +511,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 getAppCompatActivity().supportInvalidateOptionsMenu();
             } else if (verticalOffset <= -appBarLayout.getTotalScrollRange() && !showOverflowMenu) {
                 showOverflowMenu = true;
-                toolBarLayout.setTitle(readingList.getTitle());
+                toolBarLayout.setTitle(readingList != null ? readingList.getTitle() : null);
                 getAppCompatActivity().supportInvalidateOptionsMenu();
             }
         }
