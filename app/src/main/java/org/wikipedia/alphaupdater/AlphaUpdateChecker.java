@@ -1,12 +1,12 @@
 package org.wikipedia.alphaupdater;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
@@ -72,16 +72,20 @@ public class AlphaUpdateChecker extends RecurringTask {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL));
         PendingIntent pintent = PendingIntent.getActivity(context, 0, intent, 0);
 
-        Notification notification = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.mipmap.launcher)
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
                 .setContentTitle(context.getString(R.string.alpha_update_notification_title))
                 .setContentText(context.getString(R.string.alpha_update_notification_text))
                 .setContentIntent(pintent)
-                .setAutoCancel(true)
-                .build();
+                .setAutoCancel(true);
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent);
+        } else {
+            notificationBuilder.setSmallIcon(R.mipmap.launcher);
+        }
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(1, notification);
+        manager.notify(1, notificationBuilder.build());
     }
 
     @Override
