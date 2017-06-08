@@ -23,6 +23,7 @@ public class FullTextSearchClient {
     }
 
     @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
+    @Nullable private Call<MwQueryResponse> call;
 
     public Call<MwQueryResponse> request(@NonNull WikiSite wiki, @NonNull String searchTerm,
                                          @Nullable String cont, @Nullable String gsrOffset,
@@ -35,9 +36,8 @@ public class FullTextSearchClient {
                                                      @NonNull String searchTerm,
                                                      @Nullable String cont,
                                                      @Nullable String gsrOffset,
-                                                     int limit,
-                                                     @NonNull final Callback cb) {
-        Call<MwQueryResponse> call = service.request(moreLike(searchTerm), limit, cont, gsrOffset);
+                                                     int limit, @NonNull final Callback cb) {
+        call = service.request(moreLike(searchTerm), limit, cont, gsrOffset);
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call,
@@ -72,6 +72,13 @@ public class FullTextSearchClient {
             }
         });
         return call;
+    }
+
+    void cancel() {
+        if (call != null) {
+            call.cancel();
+            call = null;
+        }
     }
 
     protected interface Service {

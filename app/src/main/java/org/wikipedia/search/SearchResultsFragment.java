@@ -32,6 +32,7 @@ import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
+import java.io.IOException;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,10 +79,10 @@ public class SearchResultsFragment extends Fragment {
     private WikipediaApp app;
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private Handler searchHandler;
-    private TitleSearchTask curSearchTask;
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
+    private PrefixSearchClient prefixSearchClient = new PrefixSearchClient();
     private FullTextSearchClient fullTextSearchClient = new FullTextSearchClient();
 
     @Override
@@ -207,105 +208,91 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void doTitlePrefixSearch(final String searchTerm) {
-        // Use nanoTime to measure the time the search was started.
+        cancelSearchTask();
         final long startTime = System.nanoTime();
-        TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getWikiSite()), app.getWikiSite(), searchTerm) {
-            @Override
-            public void onBeforeExecute() {
-                updateProgressBar(true);
-            }
 
+        prefixSearchClient.request(app.getWikiSite(), searchTerm, new PrefixSearchClient.Callback() {
             @Override
-            public void onFinish(SearchResults results) {
+            public void success(@NonNull Call<PrefixSearchResponse> call, @NonNull SearchResults results) {
                 if (!isAdded()) {
                     return;
                 }
-                Callback callback = callback();
-                List<SearchResult> resultList = results.getResults();
-                // To ease data analysis and better make the funnel track with user behaviour,
-                // only transmit search results events if there are a nonzero number of results
-                if (!resultList.isEmpty() && callback != null) {
-                    // Calculate total time taken to display results, in milliseconds
-                    final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                    callback.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
-                }
-
                 updateProgressBar(false);
                 searchErrorView.setVisibility(View.GONE);
-                if (!resultList.isEmpty()) {
-                    clearResults();
-                    displayResults(resultList);
-                }
-
-                // add titles to cache...
-                searchResultsCache.put(app.getAppOrSystemLanguageCode() + "-" + searchTerm, resultList);
-                curSearchTask = null;
-
-                final String suggestion = results.getSuggestion();
-                if (!suggestion.isEmpty()) {
-                    searchSuggestion.setText(StringUtil.fromHtml("<u>"
-                            + String.format(getString(R.string.search_did_you_mean), suggestion)
-                            + "</u>"));
-                    searchSuggestion.setTag(suggestion);
-                    searchSuggestion.setVisibility(View.VISIBLE);
-                } else {
-                    searchSuggestion.setVisibility(View.GONE);
-                }
-
-                // scroll to top, but post it to the message queue, because it should be done
-                // after the data set is updated.
-                searchResultsList.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (!isAdded()) {
-                            return;
-                        }
-                        searchResultsList.setSelectionAfterHeaderView();
-                    }
-                });
-
-                if (resultList.isEmpty()) {
-                    // kick off full text search if we get no results
-                    doFullTextSearch(currentSearchTerm, null, true);
-                }
+                handleResults(results, searchTerm, startTime);
             }
 
             @Override
-            public void onCatch(Throwable caught) {
+            public void failure(@NonNull Call<PrefixSearchResponse> call, @NonNull Throwable caught) {
+                if (callCanceledIoException(caught)) {
+                    return;
+                }
+                if (isAdded()) {
+                    updateProgressBar(false);
+                    searchErrorView.setVisibility(View.VISIBLE);
+                    searchErrorView.setError(caught);
+                    searchResultsContainer.setVisibility(View.GONE);
+                }
+                logError(false, startTime);
+            }
+        });
+    }
+
+    /* Catch and discard exceptions thrown when our Retrofit calls are (intentionally) canceled. */
+    private boolean callCanceledIoException(@NonNull Throwable caught) {
+        return caught instanceof IOException && "Canceled".equals(caught.getMessage());
+    }
+
+    private void handleResults(@NonNull SearchResults results, @NonNull String searchTerm, long startTime) {
+        List<SearchResult> resultList = results.getResults();
+        // To ease data analysis and better make the funnel track with user behaviour,
+        // only transmit search results events if there are a nonzero number of results
+        if (!resultList.isEmpty()) {
+            clearResults();
+            displayResults(resultList);
+            log(resultList, startTime);
+        }
+
+        handleSuggestion(results.getSuggestion());
+
+        // add titles to cache...
+        searchResultsCache.put(app.getAppOrSystemLanguageCode() + "-" + searchTerm, resultList);
+
+        // scroll to top, but post it to the message queue, because it should be done
+        // after the data set is updated.
+        searchResultsList.post(new Runnable() {
+            @Override
+            public void run() {
                 if (!isAdded()) {
                     return;
                 }
-                // Calculate total time taken to display results, in milliseconds
-                final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                Callback callback = callback();
-                if (callback != null) {
-                    callback.getFunnel().searchError(false, timeToDisplay);
-                }
-                updateProgressBar(false);
-
-                searchErrorView.setVisibility(View.VISIBLE);
-                searchErrorView.setError(caught);
-
-                searchResultsContainer.setVisibility(View.GONE);
-                curSearchTask = null;
+                searchResultsList.setSelectionAfterHeaderView();
             }
-        };
+        });
 
-        cancelSearchTask();
-        curSearchTask = searchTask;
-        searchTask.execute();
+        if (resultList.isEmpty()) {
+            // kick off full text search if we get no results
+            doFullTextSearch(currentSearchTerm, null, true);
+        }
+    }
+
+    private void handleSuggestion(@Nullable String suggestion) {
+        if (suggestion != null) {
+            searchSuggestion.setText(StringUtil.fromHtml("<u>"
+                    + String.format(getString(R.string.search_did_you_mean), suggestion)
+                    + "</u>"));
+            searchSuggestion.setTag(suggestion);
+            searchSuggestion.setVisibility(View.VISIBLE);
+        } else {
+            searchSuggestion.setVisibility(View.GONE);
+        }
     }
 
     private void cancelSearchTask() {
         updateProgressBar(false);
         searchHandler.removeMessages(MESSAGE_SEARCH);
-        if (curSearchTask != null) {
-            // This does not cancel the HTTP request itself
-            // But it does cancel the execution of onFinish
-            // This makes sure that a slower previous search query does not override
-            // the results of a newer search query
-            curSearchTask.cancel();
-        }
+        prefixSearchClient.cancel();
+        fullTextSearchClient.cancel();
     }
 
     private void doFullTextSearch(final String searchTerm,
@@ -544,11 +531,21 @@ public class SearchResultsFragment extends Fragment {
     private void log(@NonNull List<SearchResult> resultList, long startTime) {
         // To ease data analysis and better make the funnel track with user behaviour,
         // only transmit search results events if there are a nonzero number of results
-        if (!resultList.isEmpty() && callback() != null) {
-            int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+        if (callback() != null && !resultList.isEmpty()) {
             // noinspection ConstantConditions
-            callback().getFunnel().searchResults(true, resultList.size(), timeToDisplay);
+            callback().getFunnel().searchResults(true, resultList.size(), displayTime(startTime));
         }
+    }
+
+    private void logError(boolean fullText, long startTime) {
+        if (callback() != null) {
+            // noinspection ConstantConditions
+            callback().getFunnel().searchError(fullText, displayTime(startTime));
+        }
+    }
+
+    private int displayTime(long startTime) {
+        return (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
     }
 
     private final class FullTextSearchCallback implements FullTextSearchClient.Callback {
@@ -586,11 +583,7 @@ public class SearchResultsFragment extends Fragment {
         @Override public void failure(@NonNull Call<MwQueryResponse> call,
                                       @NonNull Throwable caught) {
             // If there's an error, just log it and let the existing prefix search results be.
-            if (callback() != null) {
-                int responseTime = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                // noinspection ConstantConditions
-                callback().getFunnel().searchError(true, responseTime);
-            }
+            logError(true, startTime);
             if (isAdded()) {
                 updateProgressBar(false);
             }
