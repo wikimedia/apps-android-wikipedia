@@ -537,6 +537,7 @@ public class SearchResultsFragment extends Fragment {
         List<SearchResult> cachedTitles = searchResultsCache.get(cacheKey);
         if (cachedTitles != null) {
             cachedTitles.addAll(resultList);
+            searchResultsCache.put(cacheKey, cachedTitles);
         }
     }
 
