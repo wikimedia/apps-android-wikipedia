@@ -36,7 +36,7 @@ public class ReadingListSynchronizer {
     private static final String READING_LISTS_SYNC_OPTION = "userjs-reading-lists-v1";
     private static final ReadingListSynchronizer INSTANCE = new ReadingListSynchronizer();
 
-    private final Handler syncHandler = new Handler();
+    private final Handler syncHandler = new Handler(WikipediaApp.getInstance().getMainLooper());
     private final SyncRunnable syncRunnable = new SyncRunnable();
 
     public static ReadingListSynchronizer instance() {
