@@ -46,7 +46,7 @@
   <string name="last_updated_text">%s को अन्तिम अपडेट हुई।</string>
   <string name="talk_page_link_text">वार्ता</string>
   <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
-  <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>
+  <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हैं।</string>
   <string name="edit_save_action_license_anon">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदानों को अपरिवर्तनीय रूप से लाइसेंस &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हैं। इस सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हैं तो आपके पास अधिक प्राइवेसी होगी।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">खोज</string>
@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
   <string name="history_empty_title">हाल ही में देखा गया कोई लेख नहीं</string>
   <string name="history_empty_message">ट्रैक करें जो आप यहाँ पढ़ रहे थे।</string>
+  <string name="search_empty_message">खोजें और मुक्त एनसाइक्लोपीडिया को अपनी भाषा में पढ़ें</string>
   <string name="delete_selected_history">हटायें</string>
   <string name="delete_selected_items">चयनित आइटम डिलीट करें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
@@ -230,6 +231,7 @@
   <string name="button_add_to_reading_list">पठन सूची में जोड़ें</string>
   <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
   <string name="page_offline_notice_add_to_reading_list">लेख को अपनी रीडिंग लिस्ट में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
+  <string name="page_offline_notice_last_date">आप %s पर सहेजे गए लेख का ऑफ़लाइन वर्ज़न पढ़ रहे हैं।</string>
   <string name="button_get_directions">दिशानिर्देश पाएं</string>
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>
   <string name="preference_title_show_link_previews">कड़ी की झलक दिखायें</string>
@@ -264,12 +266,16 @@
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
-  <string name="reading_list_title_exists">पाठक सूची \"%s\" पहले से है।</string>
-  <string name="reading_list_entry_empty">कृपया शीर्षक डालें</string>
+  <string name="reading_list_title_exists">रीडिंग सूची \"%s\" पहले से है।</string>
+  <string name="reading_list_entry_empty">कृपया शीर्षक डालें।</string>
   <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
   <string name="reading_list_added_to_unnamed">पठन सूची में जोड़ा गया।</string>
   <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
   <string name="reading_list_added_view_button">देखें</string>
+  <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d में से 1 लेख ऑफलाइन उपलब्ध हैं, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$d में से %1$d लेख ऑफलाइन उपलब्ध हैं, %3$.2f MiB</string>
   <string name="reading_list_sort">छांटें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
   <string name="reading_list_sort_by_name_desc">नाम से छांटें (उल्टा)</string>
@@ -374,7 +380,7 @@
   <string name="description_edit_help_tips_example2_hint">माउंट एवेरेस्ट के बारे में लेख के लिए शीर्षक विवरण</string>
   <string name="description_edit_help_more_info">अधिक जानकारी</string>
   <string name="description_edit_help_meta_info">विवरणों को विकिडेटा द्वारा स्टोर और मेन्टेन किया जाता है जो विकिपीडिया और अन्य परियोजनाओं को मुक्त, सहयोग युक्त, बहुभाषी, सेकेंडरी डेटाबेस सपोर्ट देता, विकिमीडिया फाउंडेशन का एक प्रोजेक्ट है।</string>
-  <string name="description_edit_revert_subtitle">विकिपीडिया में लिखने के लिए धन्यवाद!</string>
+  <string name="description_edit_revert_subtitle">विकिपीडिया में संपादन के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन रिव्युअर्स में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
   <string name="description_edit_revert_reason2">आपका संपादन एक परिक्षण या बर्बरता जैसा लगा।</string>

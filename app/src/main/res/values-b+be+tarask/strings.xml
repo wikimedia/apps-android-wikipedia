@@ -7,6 +7,8 @@
   <string name="yes">Так</string>
   <string name="no">Не</string>
   <string name="search_hint">Пошук па Вікіпэдыі</string>
+  <string name="search_hint_search_history">Шукаць у гісторыі</string>
+  <string name="search_hint_search_my_lists">Пошук у маіх сьпісах</string>
   <string name="nav_item_history">Гісторыя</string>
   <string name="error_network_error">Не атрымліваецца далучыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паспрабаваць ізноў</string>

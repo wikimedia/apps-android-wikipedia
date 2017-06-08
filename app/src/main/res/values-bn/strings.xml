@@ -17,6 +17,7 @@
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
   <string name="history_item_deleted">ইতিহাস থেকে %s সরানো হয়েছে</string>
   <string name="history_items_deleted">ইতিহাস থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
+  <string name="history_item_delete_undo">পূর্বাবস্থা</string>
   <string name="page_does_not_exist_error">এই পাতার অস্তিত্ব নেই।</string>
   <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
@@ -84,6 +85,7 @@
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
   <string name="history_empty_message">এখানে আপনি কি পড়ছেন তা অনুসরণ করুন।</string>
+  <string name="search_empty_message">আপনার ভাষায় বিনামূল্যে বিশ্বকোষ অনুসন্ধান করুন ও পড়ুন</string>
   <string name="delete_selected_history">অপসারণ</string>
   <string name="delete_selected_items">নির্বাচিত আইটেম অপসারণ করুন</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
@@ -340,6 +342,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">আজ</string>
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
+  <string name="view_offline_card_text">অফলাইনে থাকা অবস্থায় সামগ্রী লোড করা যাবে না।</string>
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
