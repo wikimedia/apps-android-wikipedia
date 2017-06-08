@@ -82,17 +82,6 @@ public final class FeedbackUtil {
         visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)));
     }
 
-    /**
-     * Set message for error popup on a TextView.
-     * @param textView the TextView or EditText to pop the error message from
-     * @param error the error message. Use null message to clear.
-     * @see TextView#setError
-     * @see <a href='http://stackoverflow.com/questions/14413575/how-to-write-style-to-error-text-of-edittext-in-android'>StackOverflow: How to write style to error text of EditText in Android?</a>
-     */
-    public static void setErrorPopup(TextView textView, String error) {
-        textView.setError(error);
-    }
-
     public static void setToolbarButtonLongPressToast(View... views) {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);

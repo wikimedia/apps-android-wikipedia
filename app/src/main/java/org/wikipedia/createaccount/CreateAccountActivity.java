@@ -4,18 +4,15 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.PasswordTextInput;
+import android.support.design.widget.TextInputLayout;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import com.mobsandgeeks.saripaar.ValidationError;
-import com.mobsandgeeks.saripaar.Validator;
-import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
-import com.mobsandgeeks.saripaar.annotation.Password;
-import com.mobsandgeeks.saripaar.annotation.Pattern;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -30,12 +27,11 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
 
-import java.util.List;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
 
 public class CreateAccountActivity extends ThemedActionBarActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
@@ -48,21 +44,20 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     public static final String CREATE_ACCOUNT_RESULT_USERNAME = "username";
     public static final String CREATE_ACCOUNT_RESULT_PASSWORD = "password";
 
+    public static final Pattern USERNAME_PATTERN = Pattern.compile("[^#<>\\[\\]|{}\\/@]*");
+    private static final int PASSWORD_MIN_LENGTH = 6;
+
+    enum ValidateResult {
+        SUCCESS, INVALID_USERNAME, INVALID_PASSWORD, PASSWORD_MISMATCH, INVALID_EMAIL
+    }
+
     private CreateAccountInfoClient createAccountInfoClient;
     private CreateAccountClient createAccountClient;
 
-    @Pattern(regex = "[^#<>\\[\\]|{}\\/@]*", messageResId = R.string.create_account_username_error)
-    private EditText usernameEdit;
+    private TextInputLayout usernameInput;
     private PasswordTextInput passwordInput;
-    @Password()
-    private EditText passwordEdit;
     private PasswordTextInput passwordRepeatInput;
-    @ConfirmPassword(messageResId = R.string.create_account_passwords_mismatch_error)
-    private EditText passwordRepeatEdit;
-    // TODO: remove and replace with @Optional annotation once it's available in the library
-    // https://github.com/ragunathjawahar/android-saripaar/issues/102
-    @OptionalEmail(messageResId = R.string.create_account_email_error)
-    private EditText emailEdit;
+    private TextInputLayout emailInput;
     private TextView createAccountButton;
     private TextView createAccountButtonCaptcha;
     private ProgressDialog progressDialog;
@@ -70,7 +65,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     private CaptchaHandler captchaHandler;
     private CreateAccountResult createAccountResult;
-    private Validator validator;
     private CreateAccountFunnel funnel;
     private WikiSite wiki;
 
@@ -79,16 +73,14 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        usernameEdit = (EditText) findViewById(R.id.create_account_username);
+        usernameInput = (TextInputLayout) findViewById(R.id.create_account_username);
         passwordRepeatInput = ((PasswordTextInput) findViewById(R.id.create_account_password_repeat));
-        passwordRepeatEdit = passwordRepeatInput.getEditText();
-        emailEdit = (EditText) findViewById(R.id.create_account_email);
+        emailInput = (TextInputLayout) findViewById(R.id.create_account_email);
         createAccountButton = (TextView) findViewById(R.id.create_account_submit_button);
         createAccountButtonCaptcha = (TextView) findViewById(R.id.captcha_submit_button);
-        EditText captchaText = (EditText) findViewById(R.id.captcha_text);
+        TextInputLayout captchaText = (TextInputLayout) findViewById(R.id.captcha_text);
         View primaryContainer = findViewById(R.id.create_account_primary_container);
         passwordInput = (PasswordTextInput) findViewById(R.id.create_account_password_input);
-        passwordEdit = passwordInput.getEditText();
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
@@ -117,36 +109,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                 progressDialog, primaryContainer, getString(R.string.create_account_activity_title),
                 getString(R.string.create_account_button));
 
-        // We enable the menu item as soon as the username and password fields are filled
-        // Tapping does further validation
-        validator = new Validator(this);
-        Validator.registerAnnotation(OptionalEmail.class);
-        validator.setValidationListener(new Validator.ValidationListener() {
-            @Override
-            public void onValidationSucceeded() {
-                if (captchaHandler.isActive() && captchaHandler.token() != null) {
-                    doCreateAccount(captchaHandler.token());
-                } else {
-                    getCreateAccountInfo();
-                }
-            }
-
-            @Override
-            public void onValidationFailed(List<ValidationError> errors) {
-                for (ValidationError error : errors) {
-                    View view = error.getView();
-                    String message = error.getCollatedErrorMessage(view.getContext());
-                    if (view instanceof EditText) {
-                        //Request focus on the EditText before setting error, so that error is visible
-                        view.requestFocus();
-                        setErrorPopup((EditText) view, message);
-                    } else {
-                        throw new RuntimeException("This should not be happening");
-                    }
-                }
-            }
-        });
-
         passwordInput.setOnShowPasswordListener(new PasswordTextInput.OnShowPasswordClickListener() {
             @Override public void onShowPasswordClick(boolean visible) {
                 passwordRepeatInput.setVisibility(visible ? View.GONE : View.VISIBLE);
@@ -159,7 +121,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             public void onValidationChanged(boolean isValid) {
                 createAccountButton.setEnabled(isValid);
             }
-        }, usernameEdit, passwordEdit);
+        }, usernameInput, passwordInput);
 
         // Don't allow user to continue when they're shown a captcha until they fill it in
         new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
@@ -172,14 +134,14 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validator.validate();
+                validateThenCreateAccount();
             }
         });
 
         createAccountButtonCaptcha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validator.validate();
+                validateThenCreateAccount();
             }
         });
 
@@ -188,7 +150,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_UP) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    validator.validate();
+                    validateThenCreateAccount();
                     return true;
                 }
                 return false;
@@ -265,13 +227,14 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         progressDialog.show();
 
         String email = null;
-        if (emailEdit.getText().length() != 0) {
-            email = emailEdit.getText().toString();
+        if (getText(emailInput).length() != 0) {
+            email = getText(emailInput).toString();
         }
-        String password = passwordEdit.getText().toString();
-        String repeat = passwordInput.isPasswordVisible() ? password : passwordRepeatEdit.getText().toString();
+        String password = getText(passwordInput).toString();
+        String repeat = passwordInput.isPasswordVisible() ? password
+                : getText(passwordRepeatInput).toString();
 
-        createAccountClient.request(wiki, usernameEdit.getText().toString(),
+        createAccountClient.request(wiki, getText(usernameInput).toString(),
                 password, repeat, token, email,
                 captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
                 captchaHandler.isActive() ? captchaHandler.captchaWord() : "null",
@@ -318,10 +281,74 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         super.onStop();
     }
 
+    private void clearErrors() {
+        usernameInput.setErrorEnabled(false);
+        passwordInput.setErrorEnabled(false);
+        passwordRepeatInput.setErrorEnabled(false);
+        emailInput.setErrorEnabled(false);
+    }
+
+    private void validateThenCreateAccount() {
+        clearErrors();
+        ValidateResult result = validateInput(getText(usernameInput), getText(passwordInput),
+                getText(passwordRepeatInput), !passwordInput.isPasswordVisible(),
+                getText(emailInput));
+
+        switch (result) {
+            case INVALID_USERNAME:
+                usernameInput.requestFocus();
+                usernameInput.setError(getString(R.string.create_account_username_error));
+                return;
+            case INVALID_PASSWORD:
+                passwordInput.requestFocus();
+                passwordInput.setError(getString(R.string.create_account_password_error));
+                return;
+            case PASSWORD_MISMATCH:
+                passwordRepeatInput.requestFocus();
+                passwordRepeatInput.setError(getString(R.string.create_account_passwords_mismatch_error));
+                return;
+            case INVALID_EMAIL:
+                emailInput.requestFocus();
+                emailInput.setError(getString(R.string.create_account_email_error));
+                return;
+            case SUCCESS:
+            default:
+                break;
+        }
+
+        if (captchaHandler.isActive() && captchaHandler.token() != null) {
+            doCreateAccount(captchaHandler.token());
+        } else {
+            getCreateAccountInfo();
+        }
+    }
+
+    @VisibleForTesting
+    static ValidateResult validateInput(@NonNull CharSequence username,
+                                         @NonNull CharSequence password,
+                                         @NonNull CharSequence passwordRepeat,
+                                         boolean passwordRepeatEnabled,
+                                         @NonNull CharSequence email) {
+        if (!USERNAME_PATTERN.matcher(username).matches()) {
+            return ValidateResult.INVALID_USERNAME;
+        } else if (password.length() < PASSWORD_MIN_LENGTH) {
+            return ValidateResult.INVALID_PASSWORD;
+        } else if (passwordRepeatEnabled && !passwordRepeat.equals(password)) {
+            return ValidateResult.PASSWORD_MISMATCH;
+        } else if (!TextUtils.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            return ValidateResult.INVALID_EMAIL;
+        }
+        return ValidateResult.SUCCESS;
+    }
+
+    @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
+        return input.getEditText() != null ? input.getEditText().getText() : "";
+    }
+
     private void finishWithUserResult(@NonNull CreateAccountSuccessResult result) {
         Intent resultIntent = new Intent();
         resultIntent.putExtra(CREATE_ACCOUNT_RESULT_USERNAME, result.getUsername());
-        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, passwordEdit.getText().toString());
+        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, getText(passwordInput).toString());
         setResult(RESULT_ACCOUNT_CREATED, resultIntent);
 
         createAccountResult = result;

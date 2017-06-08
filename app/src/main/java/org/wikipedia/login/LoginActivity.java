@@ -9,15 +9,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.PasswordTextInput;
+import android.support.design.widget.TextInputLayout;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.mobsandgeeks.saripaar.ValidationError;
-import com.mobsandgeeks.saripaar.Validator;
-import com.mobsandgeeks.saripaar.annotation.Pattern;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -31,10 +28,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
 
-import java.util.List;
-
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
 
 public class LoginActivity extends ThemedActionBarActivity {
     public static final int RESULT_LOGIN_SUCCESS = 1;
@@ -44,9 +38,8 @@ public class LoginActivity extends ThemedActionBarActivity {
     public static final String EDIT_SESSION_TOKEN = "edit_session_token";
     public static final String ACTION_CREATE_ACCOUNT = "action_create_account";
 
-    @Pattern(regex = "[^#<>\\[\\]|{}\\/@]*", messageResId = R.string.create_account_username_error)
-    private EditText usernameText;
-    private EditText passwordText;
+    private TextInputLayout usernameInput;
+    private TextInputLayout passwordInput;
     private EditText twoFactorText;
     private View loginButton;
     private ProgressDialog progressDialog;
@@ -57,7 +50,6 @@ public class LoginActivity extends ThemedActionBarActivity {
     private String loginSource;
     private LoginClient loginClient;
     private boolean wentStraightToCreateAccount;
-    private Validator validator;
 
     public static Intent newIntent(@NonNull Context context, @NonNull String source) {
         return newIntent(context, source, null);
@@ -75,8 +67,8 @@ public class LoginActivity extends ThemedActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        usernameText = (EditText) findViewById(R.id.login_username_text);
-        passwordText = ((PasswordTextInput) findViewById(R.id.login_password_input)).getEditText();
+        usernameInput = (TextInputLayout) findViewById(R.id.login_username_text);
+        passwordInput = (PasswordTextInput) findViewById(R.id.login_password_input);
         twoFactorText = (EditText) findViewById(R.id.login_2fa_text);
         View createAccountLink = findViewById(R.id.login_create_account_link);
         errorView = (WikiErrorView) findViewById(R.id.view_login_error);
@@ -95,44 +87,19 @@ public class LoginActivity extends ThemedActionBarActivity {
             }
         });
 
-        // We enable the login button as soon as the username and password fields are filled
-        // Tapping does further validation
-        validator = new Validator(this);
-        validator.setValidationListener(new Validator.ValidationListener() {
-            @Override
-            public void onValidationSucceeded() {
-                doLogin();
-            }
-
-            @Override
-            public void onValidationFailed(List<ValidationError> errors) {
-                for (ValidationError error : errors) {
-                    View view = error.getView();
-                    String message = error.getCollatedErrorMessage(view.getContext());
-                    if (view instanceof EditText) {
-                        //Request focus on the EditText before setting error, so that error is visible
-                        view.requestFocus();
-                        setErrorPopup((EditText) view, message);
-                    } else {
-                        throw new RuntimeException("This should not be happening");
-                    }
-                }
-            }
-        });
-
         // Don't allow user to attempt login until they've put in a username and password
         new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
             public void onValidationChanged(boolean isValid) {
                 loginButton.setEnabled(isValid);
             }
-        }, usernameText, passwordText);
+        }, usernameInput, passwordInput);
 
-        passwordText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        passwordInput.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    validator.validate();
+                    validateThenLogin();
                     return true;
                 }
                 return false;
@@ -143,7 +110,7 @@ public class LoginActivity extends ThemedActionBarActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validator.validate();
+                validateThenLogin();
             }
         });
 
@@ -183,6 +150,25 @@ public class LoginActivity extends ThemedActionBarActivity {
         setActionBarTheme();
     }
 
+    @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
+        return input.getEditText() != null ? input.getEditText().getText() : "";
+    }
+
+    private void clearErrors() {
+        usernameInput.setErrorEnabled(false);
+        passwordInput.setErrorEnabled(false);
+    }
+
+    private void validateThenLogin() {
+        clearErrors();
+        if (!CreateAccountActivity.USERNAME_PATTERN.matcher(getText(usernameInput)).matches()) {
+            usernameInput.requestFocus();
+            usernameInput.setError(getString(R.string.create_account_username_error));
+            return;
+        }
+        doLogin();
+    }
+
     private void logLoginStart() {
         if (loginSource.equals(LoginFunnel.SOURCE_EDIT)) {
             funnel.logStart(
@@ -210,8 +196,8 @@ public class LoginActivity extends ThemedActionBarActivity {
                 logLoginStart();
             }
             if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_CREATED) {
-                usernameText.setText(data.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME));
-                passwordText.setText(data.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_PASSWORD));
+                usernameInput.getEditText().setText(data.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME));
+                passwordInput.getEditText().setText(data.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_PASSWORD));
                 funnel.logCreateAccountSuccess();
                 FeedbackUtil.showMessage(this,
                         R.string.create_account_account_created_toast);
@@ -223,8 +209,8 @@ public class LoginActivity extends ThemedActionBarActivity {
     }
 
     private void doLogin() {
-        final String username = usernameText.getText().toString();
-        final String password = passwordText.getText().toString();
+        final String username = getText(usernameInput).toString();
+        final String password = getText(passwordInput).toString();
         final String twoFactorCode = twoFactorText.getText().toString();
 
         if (loginClient == null) {

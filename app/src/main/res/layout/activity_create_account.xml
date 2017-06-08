@@ -21,11 +21,11 @@
                 android:padding="16dp">
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/create_account_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/create_account_username_hint">
                     <org.wikipedia.views.PlainPasteEditText
-                        android:id="@+id/create_account_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="flagNoExtractUi"
@@ -49,12 +49,12 @@
                     android:hint="@string/create_account_password_repeat_hint" />
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/create_account_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:hint="@string/create_account_email_hint">
                     <org.wikipedia.views.PlainPasteEditText
-                        android:id="@+id/create_account_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionDone|flagNoExtractUi"

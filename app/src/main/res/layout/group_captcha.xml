@@ -51,12 +51,12 @@
             android:gravity="center"
             />
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/captcha_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="@string/edit_section_captcha_hint">
             <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/captcha_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
