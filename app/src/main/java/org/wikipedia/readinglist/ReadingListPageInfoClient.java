@@ -41,7 +41,7 @@ public class ReadingListPageInfoClient {
     public Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull Service service,
                                                       @NonNull List<PageTitle> titles,
                                                       @NonNull final Callback cb) {
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(TextUtils.join("|", titles), titles.size());
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(TextUtils.join("|", titles));
         call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
             @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                              Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
@@ -72,7 +72,6 @@ public class ReadingListPageInfoClient {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageimages|pageterms"
                 + "&piprop=thumbnail&pilicense=any&continue=&wbptterms=description&pithumbsize="
                 + Constants.PREFERRED_THUMB_SIZE)
-        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles,
-                                                             @Query("pilimit") int piLimit);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles);
     }
 }
