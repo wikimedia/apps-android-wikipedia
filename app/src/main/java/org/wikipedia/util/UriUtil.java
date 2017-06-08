@@ -76,7 +76,9 @@ public final class UriUtil {
         String ret = resolveProtocolRelativeUrl(url);
 
         // also handle images like /w/extensions/ImageMap/desc-20.png?15600 on Estados Unidos
+        // or like /api/rest_v1/page/graph/png/API/0/019dd76b5f4887040716e65de53802c5033cb40c.png
         return (ret.startsWith("./") || ret.startsWith("/w/") || ret.startsWith("/wiki/"))
+                || ret.startsWith("/api/")
                 ? wiki.uri().buildUpon().appendEncodedPath(ret.replaceFirst("/", "")).build().toString()
                 : ret;
     }
