@@ -21,7 +21,7 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesClient;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
-import org.wikipedia.wikidata.GetDescriptionsClient;
+import org.wikipedia.wikidata.DescriptionClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +89,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        new GetDescriptionsClient().request(wiki, titleList, new GetDescriptionsClient.Callback() {
+        new DescriptionClient().request(wiki, titleList, new DescriptionClient.Callback() {
             @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                           @NonNull List<MwQueryPage> results) {
                 for (MwQueryPage page : results) {

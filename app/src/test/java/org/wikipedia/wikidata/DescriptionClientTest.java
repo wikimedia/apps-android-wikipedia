@@ -28,17 +28,17 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
-public class GetDescriptionClientTest extends MockWebServerTest {
+public class DescriptionClientTest extends MockWebServerTest {
     private static final WikiSite WIKISITE_TEST = WikiSite.forLanguageCode("test");
     private static final PageTitle PAGE_TITLE_BIDEN = new PageTitle("Joe Biden", WIKISITE_TEST);
     private static final PageTitle PAGE_TITLE_OBAMA = new PageTitle("Barack Obama", WIKISITE_TEST);
 
-    @NonNull private final GetDescriptionsClient subject = new GetDescriptionsClient();
+    @NonNull private final DescriptionClient subject = new DescriptionClient();
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("reading_list_page_info.json");
 
-        GetDescriptionsClient.Callback cb = mock(GetDescriptionsClient.Callback.class);
+        DescriptionClient.Callback cb = mock(DescriptionClient.Callback.class);
         Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
@@ -60,7 +60,7 @@ public class GetDescriptionClientTest extends MockWebServerTest {
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
 
-        GetDescriptionsClient.Callback cb = mock(GetDescriptionsClient.Callback.class);
+        DescriptionClient.Callback cb = mock(DescriptionClient.Callback.class);
         Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
@@ -70,7 +70,7 @@ public class GetDescriptionClientTest extends MockWebServerTest {
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
 
-        GetDescriptionsClient.Callback cb = mock(GetDescriptionsClient.Callback.class);
+        DescriptionClient.Callback cb = mock(DescriptionClient.Callback.class);
         Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
@@ -80,7 +80,7 @@ public class GetDescriptionClientTest extends MockWebServerTest {
     @Test public void testRequestResponseMalformed() throws Throwable {
         server().enqueue("'");
 
-        GetDescriptionsClient.Callback cb = mock(GetDescriptionsClient.Callback.class);
+        DescriptionClient.Callback cb = mock(DescriptionClient.Callback.class);
         Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(cb);
 
         server().takeRequest();
@@ -88,7 +88,7 @@ public class GetDescriptionClientTest extends MockWebServerTest {
     }
 
     private void assertCallbackFailure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
-                                       @NonNull GetDescriptionsClient.Callback cb,
+                                       @NonNull DescriptionClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
         verify(cb, never()).success(any(Call.class), any(List.class));
@@ -96,8 +96,8 @@ public class GetDescriptionClientTest extends MockWebServerTest {
     }
 
     private Call<MwQueryResponse<MwQueryResponse.Pages>> request(
-            @NonNull GetDescriptionsClient.Callback cb) {
-        return subject.request(service(GetDescriptionsClient.Service.class),
+            @NonNull DescriptionClient.Callback cb) {
+        return subject.request(service(DescriptionClient.Service.class),
                 Arrays.asList(PAGE_TITLE_BIDEN, PAGE_TITLE_OBAMA), cb);
     }
 }
