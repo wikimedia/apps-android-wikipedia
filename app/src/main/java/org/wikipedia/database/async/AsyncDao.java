@@ -40,6 +40,13 @@ public abstract class AsyncDao<Status extends EnumCode, Dat, Row extends AsyncRo
         }
     }
 
+    public synchronized void failTransaction(@NonNull Row row) {
+        if (completableTransaction(row)) {
+            row.failTransaction();
+            upsert(row);
+        }
+    }
+
     protected void resetTransaction(@NonNull Row row, @NonNull Status status) {
         row.resetTransaction(status);
         upsert(row);
@@ -48,13 +55,6 @@ public abstract class AsyncDao<Status extends EnumCode, Dat, Row extends AsyncRo
     protected void startTransaction(@NonNull Row row) {
         row.startTransaction();
         upsert(row);
-    }
-
-    protected synchronized void failTransaction(@NonNull Row row) {
-        if (completableTransaction(row)) {
-            row.failTransaction();
-            upsert(row);
-        }
     }
 
     private boolean completableTransaction(@NonNull Row row) {

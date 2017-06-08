@@ -120,26 +120,30 @@ public class SavedPageSyncService extends IntentService {
 
     private void saveNewEntries(List<ReadingListPageDiskRow> queue) {
         while (!queue.isEmpty()) {
-            ReadingListPageDiskRow row = queue.get(0);
+            ReadingListPageDiskRow row = queue.remove(0);
             PageTitle pageTitle = makeTitleFrom(row);
             if (pageTitle == null) {
                 // todo: won't this fail forever or until the page is marked unsaved / removed somehow?
-                dao.failDiskTransaction(queue);
-                break;
+                dao.failDiskTransaction(row);
+                continue;
             }
 
             AggregatedResponseSize size;
             try {
                 size = savePageFor(pageTitle);
-            } catch (IOException e) {
-                dao.failDiskTransaction(queue);
-                break;
+            } catch (Exception e) {
+                // This can be an IOException from the storage media, or several types
+                // of network exceptions from malformed URLs, timeouts, etc.
+                // Let's log the error remotely for now, and get a feel for the kinds of errors
+                // that are typical in the wild.
+                dao.failDiskTransaction(row);
+                L.logRemoteErrorIfProd(e);
+                continue;
             }
 
             ReadingListPageDiskRow rowWithUpdatedSize = new ReadingListPageDiskRow(row,
                     ReadingListPageRow.builder().copy(row.dat()).logicalSize(size.logicalSize()).physicalSize(size.physicalSize()).build());
             dao.completeDiskTransaction(rowWithUpdatedSize);
-            queue.remove(row);
         }
     }
 

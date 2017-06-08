@@ -136,8 +136,8 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         }
     }
 
-    public synchronized void failDiskTransaction(@NonNull Collection<ReadingListPageDiskRow> rows) {
-        diskDao.failTransaction(rows);
+    public synchronized void failDiskTransaction(@NonNull ReadingListPageDiskRow row) {
+        diskDao.failTransaction(row);
     }
 
     public void clearAsync() {
