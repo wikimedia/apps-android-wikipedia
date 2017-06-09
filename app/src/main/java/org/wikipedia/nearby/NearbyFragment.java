@@ -228,6 +228,9 @@ public class NearbyFragment extends Fragment {
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
+                if (!isAdded()) {
+                    return;
+                }
                 NearbyFragment.this.mapboxMap = mapboxMap;
 
                 enableUserLocationMarker();
@@ -430,7 +433,7 @@ public class NearbyFragment extends Fragment {
     }
 
     private void showNearbyPages(NearbyResult result) {
-        if (mapboxMap == null) {
+        if (mapboxMap == null || getActivity() == null) {
             return;
         }
 
