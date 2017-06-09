@@ -19,6 +19,12 @@
 #-dontwarn okio.**
 -dontwarn javax.annotation.**
 -dontwarn com.android.volley.toolbox.**
+
+#-dontwarn for the ReturnsOwnership or Functional classes (used only by Infer)
+# https://github.com/facebook/fresco/issues/1716
+-dontwarn com.facebook.infer.annotation.ReturnsOwnership
+-dontwarn com.facebook.infer.annotation.Functional
+
 # --- /Fresco ---
 
 # --- Butter Knife ---
