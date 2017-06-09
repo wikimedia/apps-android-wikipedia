@@ -23,6 +23,7 @@ import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FileUtil;
+import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
@@ -81,7 +82,7 @@ public class SavedPageSyncService extends IntentService {
         saveNewEntries(queue);
 
         // Note: this method posts from a background thread but subscribers expect events to be
-        // received on the main thead.
+        // received on the main thread.
         WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
     }
 
@@ -134,10 +135,7 @@ public class SavedPageSyncService extends IntentService {
             } catch (Exception e) {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
-                // Let's log the error remotely for now, and get a feel for the kinds of errors
-                // that are typical in the wild.
                 dao.failDiskTransaction(row);
-                L.logRemoteErrorIfProd(e);
                 continue;
             }
 
@@ -195,7 +193,13 @@ public class SavedPageSyncService extends IntentService {
     private AggregatedResponseSize reqSaveImage(@NonNull WikiSite wiki, @NonNull Iterable<String> urls) throws IOException {
         AggregatedResponseSize size = new AggregatedResponseSize(0, 0, 0);
         for (String url : urls) {
-            size = size.add(reqSaveImage(wiki, url));
+            try {
+                size = size.add(reqSaveImage(wiki, url));
+            } catch (Exception e) {
+                if (isRetryable(e)) {
+                    throw e;
+                }
+            }
         }
         return size;
     }
@@ -219,6 +223,19 @@ public class SavedPageSyncService extends IntentService {
                 .addHeader(SaveHeader.FIELD, SaveHeader.VAL_ENABLED)
                 .url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
                 .build();
+    }
+
+    private boolean isRetryable(@NonNull Throwable t) {
+        /*
+        "Retryable" in this case refers to exceptions that will be rethrown up to the
+        outer exception handler, so that the entire page can be retried on the next pass
+        of the sync service.
+        Errors that do *not* qualify for retrying include:
+        - IllegalArgumentException (thrown for any kind of malformed URL)
+        - HTTP 404 status (for nonexistent media)
+        */
+        return !(t instanceof IllegalArgumentException
+                || ThrowableUtil.is404(t));
     }
 
     @NonNull private ResponseSize responseSize(@NonNull Response rsp) {
