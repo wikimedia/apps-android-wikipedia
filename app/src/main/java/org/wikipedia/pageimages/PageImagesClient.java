@@ -43,7 +43,7 @@ public class PageImagesClient {
                                                          @NonNull Service service,
                                                          @NonNull final List<PageTitle> titles,
                                                          @NonNull final Callback cb) {
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(TextUtils.join("|", titles), titles.size());
+        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(TextUtils.join("|", titles));
         call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
             @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
                                              Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
@@ -89,7 +89,6 @@ public class PageImagesClient {
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageimages&piprop=thumbnail"
                 + "&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
-        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles,
-                                                   @Query("pilimit") int piLimit);
+        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles);
     }
 }

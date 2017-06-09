@@ -35,10 +35,11 @@ public class FullTextSearchClient {
                                                                             @NonNull String searchTerm,
                                                                             @Nullable String cont,
                                                                             @Nullable String gsrOffset,
-                                                                            int limit, @NonNull final Callback cb) {
+                                                                            int limit,
+                                                                            @NonNull final Callback cb) {
 
         Call<MwQueryResponse<MwQueryResponse.Pages>> call =
-                service.request(moreLike(searchTerm), limit, limit, cont, gsrOffset);
+                service.request(moreLike(searchTerm), limit, cont, gsrOffset);
         call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
@@ -86,7 +87,6 @@ public class FullTextSearchClient {
         @GET(QUERY_PREFIX)
         @NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> request(@Query("gsrsearch") String searchTerm,
                                                                       @Query("gsrlimit") int gsrLimit,
-                                                                      @Query("pilimit") int piLimit,
                                                                       @Query("continue") String cont,
                                                                       @Query("gsroffset") String gsrOffset);
     }
