@@ -44,9 +44,15 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static okhttp3.internal.Util.closeQuietly;
 import static okhttp3.internal.Util.discard;
 
-/** Serves requests from the cache and writes responses to the cache. Copied from
- https://github.com/square/okhttp/blob/a27afaf/okhttp/src/main/java/okhttp3/internal/cache/CacheInterceptor.java
- to allow a custom cache strategy. Deviations are marked with "Change:". */
+/** Serves requests from the cache and writes responses to the cache. Copied from the OkHttp
+ repository (https://github.com/square/okhttp) to allow a custom cache strategy.
+
+ Last synchronized with OkHttp at the "parent-3.8.0" tag (last change: "Invalidate the cache even if
+ the response has no body." (c9496d3))
+
+ https://github.com/square/okhttp/blob/parent-3.8.0/okhttp/src/main/java/okhttp3/internal/cache/CacheInterceptor.java
+
+ Deviations are marked with "Change:". */
 public final class CacheDelegateInterceptor implements Interceptor {
   final InternalCache cache;
   // Change: add secondaryCache member variable
@@ -152,10 +158,23 @@ public final class CacheDelegateInterceptor implements Interceptor {
         .networkResponse(stripBody(networkResponse))
         .build();
 
-    if (HttpHeaders.hasBody(response)) {
-      // Change: add cacheCandidate parameter
-      CacheRequest cacheRequest = maybeCache(cacheCandidate, response, networkResponse.request(), cache);
-      response = cacheWritingResponse(cacheRequest, response);
+    if (cache != null) {
+      // Change: do not permit cache writes unless the page has been cached previously or the
+      // request is cacheable
+      if (HttpHeaders.hasBody(response) && CacheStrategy.isCacheable(response, networkRequest)
+              && (cacheCandidate != null || CacheDelegateStrategy.isCacheable(networkRequest))) {
+        // Offer this request to the cache.
+        CacheRequest cacheRequest = cache.put(response);
+        return cacheWritingResponse(cacheRequest, response);
+      }
+
+      if (HttpMethod.invalidatesCache(networkRequest.method())) {
+        try {
+          cache.remove(networkRequest);
+        } catch (IOException ignored) {
+          // The cache cannot be written.
+        }
+      }
     }
 
     return response;
@@ -163,35 +182,9 @@ public final class CacheDelegateInterceptor implements Interceptor {
 
   private static Response stripBody(Response response) {
     return response != null && response.body() != null
-        ? response.newBuilder().body(null).build()
-        : response;
-  }
+            ? response.newBuilder().body(null).build()
+            : response;
 
-  // Change: add cacheCandidate parameter
-  private CacheRequest maybeCache(Response cacheCandidate, Response userResponse, Request networkRequest,
-      InternalCache responseCache) throws IOException {
-    if (responseCache == null) return null;
-
-    // Should we cache this response for this request?
-    if (!CacheStrategy.isCacheable(userResponse, networkRequest)) {
-      if (HttpMethod.invalidatesCache(networkRequest.method())) {
-        try {
-          responseCache.remove(networkRequest);
-        } catch (IOException ignored) {
-          // The cache cannot be written.
-        }
-      }
-      return null;
-    }
-
-    // Change: do not permit cache writes unless the page has been cached previously or the request
-    // is cacheable
-    if (cacheCandidate == null && !CacheDelegateStrategy.isCacheable(networkRequest)) {
-      return null;
-    }
-
-    // Offer this request to the cache.
-    return responseCache.put(userResponse);
   }
 
   /**
