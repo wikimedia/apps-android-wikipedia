@@ -484,5 +484,9 @@ public final class Prefs {
         setInt(R.string.preference_key_total_anon_descriptions_edited, getTotalAnonDescriptionsEdited() + 1);
     }
 
+    public static boolean isReadingListSyncEnabled() {
+        return getBoolean(R.string.preference_key_sync_reading_lists, true);
+    }
+
     private Prefs() { }
 }

@@ -31,6 +31,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.wikipedia.readinglist.sync.RemoteReadingLists.RemoteReadingList;
 import static org.wikipedia.readinglist.sync.RemoteReadingLists.RemoteReadingListPage;
+import static org.wikipedia.settings.Prefs.isReadingListSyncEnabled;
 
 public class ReadingListSynchronizer {
     private static final String READING_LISTS_SYNC_OPTION = "userjs-reading-lists-v1";
@@ -58,8 +59,8 @@ public class ReadingListSynchronizer {
             syncSavedPages();
             return;
         }
-        if (!User.isLoggedIn()) {
-            L.d("Not logged in, so skipping sync of reading lists.");
+        if (!User.isLoggedIn() || !isReadingListSyncEnabled()) {
+            L.d("Skipping sync of reading lists.");
             syncSavedPages();
             return;
         }

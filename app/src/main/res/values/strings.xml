@@ -134,6 +134,9 @@
     <string name="edit_preview_fetching_dialog_message">Fetching preview…</string>
     <string name="send_feedback">Send app feedback</string>
     <string name="create_account_account_created_toast">Account created!</string>
+    <string name="preferences_heading_storage_and_syncing">Storage and syncing</string>
+    <string name="preference_title_sync_reading_lists">Sync reading lists</string>
+    <string name="preference_summary_sync_reading_lists">Allow Wikimedia to sync your reading lists when you log in</string>
     <string name="preferences_privacy_settings_heading">Privacy</string>
     <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
     <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
