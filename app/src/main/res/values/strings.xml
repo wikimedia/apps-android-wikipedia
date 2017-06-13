@@ -344,6 +344,8 @@
     <string name="reading_list_sync_reminder_title">Reading list sync is turned off</string>
     <string name="reading_list_sync_reminder_text">Your reading lists can be synchronized to your Wikipedia account if you allow syncing in the app settings.</string>
     <string name="reading_list_sync_reminder_action">Turn on</string>
+    <string name="reading_list_login_reminder_title">Sync reading lists</string>
+    <string name="reading_list_login_reminder_text">Your reading lists may now be saved to your Wikipedia account. Simply log in to your account, and your reading lists will be synchronized automatically.</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
