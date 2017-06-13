@@ -18,7 +18,9 @@
             android:title="@string/preference_title_show_link_previews"
             android:summary="@string/preference_summary_show_link_previews" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/preferences_heading_storage_and_syncing">
+    <PreferenceCategory
+        android:key="@string/preference_category_storage_sync"
+        android:title="@string/preferences_heading_storage_and_syncing">
         <SwitchPreferenceCompat
             android:key="@string/preference_key_sync_reading_lists"
             android:defaultValue="true"

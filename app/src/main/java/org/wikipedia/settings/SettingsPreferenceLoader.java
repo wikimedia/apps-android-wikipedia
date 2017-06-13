@@ -9,6 +9,7 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.ReleaseUtil;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -22,6 +23,12 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
     @Override
     public void loadPreferences() {
         loadPreferences(R.xml.preferences);
+
+        // TODO: remove when reading list syncing is ready for beta/prod.
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            findPreference(R.string.preference_category_storage_sync).setVisible(false);
+            findPreference(R.string.preference_key_sync_reading_lists).setVisible(false);
+        }
 
         if (!Prefs.isZeroTutorialEnabled()) {
             loadPreferences(R.xml.preferences_zero);
