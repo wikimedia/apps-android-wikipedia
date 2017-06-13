@@ -488,5 +488,13 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_sync_reading_lists, true);
     }
 
+    public static boolean isReadingListSyncReminderEnabled() {
+        return getBoolean(R.string.preference_key_reading_list_sync_reminder_enabled, true);
+    }
+
+    public static void setReadingListSyncReminderEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_reading_list_sync_reminder_enabled, enabled);
+    }
+
     private Prefs() { }
 }

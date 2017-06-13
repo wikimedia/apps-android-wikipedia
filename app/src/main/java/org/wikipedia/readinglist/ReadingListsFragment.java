@@ -1,10 +1,12 @@
 package org.wikipedia.readinglist;
 
+import android.animation.LayoutTransition;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,10 +27,14 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.login.User;
+import org.wikipedia.onboarding.OnboardingView;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.SearchEmptyView;
@@ -42,9 +48,11 @@ import butterknife.Unbinder;
 
 public class ReadingListsFragment extends Fragment {
     private Unbinder unbinder;
+    @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
     @BindView(R.id.empty_container) View emptyContainer;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
+    @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
 
     private ReadingLists readingLists = new ReadingLists();
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
@@ -84,6 +92,9 @@ public class ReadingListsFragment extends Fragment {
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
         updateLists();
+
+        contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        maybeShowOnboarding();
         return view;
     }
 
@@ -181,6 +192,7 @@ public class ReadingListsFragment extends Fragment {
             searchEmptyView.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
             emptyContainer.setVisibility(View.GONE);
         }
+        contentContainer.setVisibility(readingLists.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
     private class ReadingListItemHolder extends RecyclerView.ViewHolder {
@@ -364,6 +376,37 @@ public class ReadingListsFragment extends Fragment {
                     }
                 }
             });
+        }
+    }
+
+    private void maybeShowOnboarding() {
+        onboardingContainer.removeAllViews();
+
+        // TODO: remove pre-beta flag when ready.
+        if (User.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
+                && Prefs.isReadingListSyncReminderEnabled()
+                && ReleaseUtil.isPreBetaRelease()) {
+            OnboardingView onboardingView = new OnboardingView(getContext());
+            onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
+            onboardingView.setTitle(R.string.reading_list_sync_reminder_title);
+            onboardingView.setText(R.string.reading_list_sync_reminder_text);
+            onboardingView.setPositiveAction(R.string.reading_list_sync_reminder_action);
+            onboardingContainer.addView(onboardingView);
+            onboardingView.setCallback(new SyncReminderOnboardingCallback());
+        }
+    }
+
+    private class SyncReminderOnboardingCallback implements OnboardingView.Callback {
+        @Override
+        public void onPositiveAction() {
+            Prefs.setReadingListSyncReminderEnabled(false);
+            startActivity(SettingsActivity.newIntent(getContext()));
+        }
+
+        @Override
+        public void onNegativeAction() {
+            Prefs.setReadingListSyncReminderEnabled(false);
+            maybeShowOnboarding();
         }
     }
 }
