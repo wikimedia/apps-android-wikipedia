@@ -3,8 +3,10 @@ package org.wikipedia.csrf;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -12,7 +14,6 @@ import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
-import org.wikipedia.login.User;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -64,7 +65,7 @@ public class CsrfTokenClient {
     Call<MwQueryResponse> request(@NonNull Service service, @NonNull final Callback cb) {
         return requestToken(service, new CsrfTokenClient.Callback() {
             @Override public void success(@NonNull String token) {
-                if (User.isLoggedIn() && token.equals(ANON_TOKEN)) {
+                if (AccountUtil.isLoggedIn() && token.equals(ANON_TOKEN)) {
                     retryWithLogin(new RuntimeException("App believes we're logged in, but got anonymous token."), cb);
                 } else {
                     cb.success(token);
@@ -83,13 +84,15 @@ public class CsrfTokenClient {
     }
 
     private void retryWithLogin(@NonNull Throwable caught, @NonNull final Callback callback) {
-        if (retries < MAX_RETRIES && User.getUser() != null) {
+        if (retries < MAX_RETRIES
+                && !TextUtils.isEmpty(AccountUtil.getUserName())
+                && !TextUtils.isEmpty(AccountUtil.getPassword())) {
             retries++;
 
             WikipediaApp app = WikipediaApp.getInstance();
             app.getCookieManager().clearAllCookies();
 
-            login(User.getUser(), new RetryCallback() {
+            login(AccountUtil.getUserName(), AccountUtil.getPassword(), new RetryCallback() {
                 @Override public void retry() {
                     L.i("retrying...");
                     request(callback);
@@ -100,15 +103,15 @@ public class CsrfTokenClient {
         }
     }
 
-    private void login(@NonNull final User user, @NonNull final RetryCallback retryCallback,
+    private void login(@NonNull final String username, @NonNull final String password,
+                       @NonNull final RetryCallback retryCallback,
                        @NonNull final Callback callback) {
-        new LoginClient().request(loginWikiSite,
-                user.getUsername(),
-                user.getPassword(),
+        new LoginClient().request(loginWikiSite, username, password,
                 new LoginClient.LoginCallback() {
                     @Override
                     public void success(@NonNull LoginResult loginResult) {
                         if (loginResult.pass()) {
+                            AccountUtil.updateAccount(null, loginResult);
                             retryCallback.retry();
                         } else {
                             callback.failure(new LoginClient.LoginFailedException(loginResult.getMessage()));

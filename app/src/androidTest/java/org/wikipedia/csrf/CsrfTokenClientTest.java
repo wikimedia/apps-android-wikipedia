@@ -4,13 +4,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
-import org.wikipedia.login.User;
 import org.wikipedia.testlib.TestLatch;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
@@ -25,11 +23,6 @@ public class CsrfTokenClientTest {
     private static final WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
     private static final String USERNAME = getString(org.wikipedia.test.R.string.test_username);
     private static final String PASSWORD = getString(org.wikipedia.test.R.string.test_password);
-
-    @Before
-    public void setUp() {
-        User.disableStorage(); // don't change the app login from this test
-    }
 
     @Test
     public void testCsrfTokenForAnon() {

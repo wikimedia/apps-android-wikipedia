@@ -41,7 +41,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.language.AppLanguageState;
-import org.wikipedia.login.User;
 import org.wikipedia.login.UserIdClient;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.onboarding.OnboardingStateMachine;
@@ -168,8 +167,8 @@ public class WikipediaApp extends Application {
                 .build();
         Fresco.initialize(this, config);
 
-        // TODO: remove this code after all logged in users also have a system account or August 2016.
-        AccountUtil.createAccountForLoggedInUser();
+        // TODO: Remove when user accounts have been migrated to AccountManager (June 2018)
+        AccountUtil.migrateAccountFromSharedPrefs();
 
         UserOptionContentResolver.registerAppSyncObserver(this);
 
@@ -242,15 +241,6 @@ public class WikipediaApp extends Application {
         return wiki;
     }
 
-    /**
-     * Convenience method to get an API object for the app wiki.
-     *
-     * @return An API object that is equivalent to calling getAPIForSite(WikiSite)
-     */
-    public Api getSiteApi() {
-        return getAPIForSite(getWikiSite());
-    }
-
     @Nullable
     public String getAppLanguageCode() {
         return appLanguageState.getAppLanguageCode();
@@ -259,8 +249,7 @@ public class WikipediaApp extends Application {
     @NonNull
     public String getAppOrSystemLanguageCode() {
         String code = appLanguageState.getAppOrSystemLanguageCode();
-        // noinspection ConstantConditions
-        if (User.isLoggedIn() && !User.getUser().hasIdForLang(code)) {
+        if (AccountUtil.getIdForLanguage(code) == 0) {
             getIdForLanguage(code);
         }
         return code;
@@ -281,9 +270,8 @@ public class WikipediaApp extends Application {
         idClient.request(wikiSite, new UserIdClient.Callback() {
             @Override
             public void success(@NonNull Call<MwQueryResponse> call, int id) {
-                User user = User.getUser();
-                if (user != null) {
-                    user.putIdForLanguage(code, id);
+                if (AccountUtil.isLoggedIn()) {
+                    AccountUtil.putIdForLanguage(code, id);
                     L.v("Found user ID " + id + " for " + code);
                 }
             }
@@ -375,7 +363,6 @@ public class WikipediaApp extends Application {
         AccountUtil.removeAccount();
         UserOptionDao.instance().clear();
         getCookieManager().clearAllCookies();
-        User.clearUser();
     }
 
     public FunnelManager getFunnelManager() {

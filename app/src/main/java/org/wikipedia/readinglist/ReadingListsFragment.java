@@ -25,10 +25,10 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
-import org.wikipedia.login.User;
 import org.wikipedia.onboarding.OnboardingView;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
@@ -384,7 +384,7 @@ public class ReadingListsFragment extends Fragment {
         onboardingContainer.removeAllViews();
 
         // TODO: remove pre-beta flag when ready.
-        if (User.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
+        if (AccountUtil.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
                 && Prefs.isReadingListSyncReminderEnabled()
                 && ReleaseUtil.isPreBetaRelease()) {
             OnboardingView onboardingView = new OnboardingView(getContext());
@@ -395,7 +395,7 @@ public class ReadingListsFragment extends Fragment {
             onboardingContainer.addView(onboardingView);
             onboardingView.setCallback(new SyncReminderOnboardingCallback());
 
-        } else if (!User.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
+        } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
                 && ReleaseUtil.isPreBetaRelease()) {
             OnboardingView onboardingView = new OnboardingView(getContext());
             onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green50));

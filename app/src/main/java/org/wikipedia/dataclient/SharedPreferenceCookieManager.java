@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.util.ArraySet;
 import android.text.TextUtils;
 
-import org.wikipedia.login.User;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
@@ -57,7 +57,7 @@ public final class SharedPreferenceCookieManager extends CookieManager {
         for (String domainSpec: cookieJar.keySet()) {
             // For sites outside the wikipedia.org domain, like wikidata.org,
             // transfer the centralauth cookies from wikipedia.org, too, if the user is logged in
-            if (User.isLoggedIn()
+            if (AccountUtil.isLoggedIn()
                     && domain.equals("www.wikidata.org") && domainSpec.endsWith("wikipedia.org")) {
                 cookiesList.addAll(makeCookieList(cookieJar.get(domainSpec), CENTRALAUTH_PREFIX));
             }

@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.testlib.TestLatch;
@@ -20,11 +19,6 @@ public class LoginClientTest {
     private static final String USERNAME = getString(org.wikipedia.test.R.string.test_username);
     private static final String PASSWORD = getString(org.wikipedia.test.R.string.test_password);
     private final TestLatch completionLatch = new TestLatch();
-
-    @Before
-    public void setUp() {
-        User.disableStorage(); // don't change the app login from this test
-    }
 
     @Test
     public void testLogin() {
