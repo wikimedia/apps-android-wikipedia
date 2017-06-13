@@ -47,10 +47,6 @@
 
         <a href="https://square.github.io/retrofit/">Retrofit</a>
         <!-- https://raw.githubusercontent.com/square/retrofit/master/LICENSE.txt -->
-        (<a href="asset:///android_asset/licenses/Retrofit">license</a>),
-
-        <a href="https://github.com/ragunathjawahar/android-saripaar">Saripaar</a>
-        <!-- https://github.com/ragunathjawahar/android-saripaar#license -->
-        (<a href="asset:///android_asset/licenses/Saripaar">license</a>)
+        (<a href="asset:///android_asset/licenses/Retrofit">license</a>)
     </string>
 </resources>

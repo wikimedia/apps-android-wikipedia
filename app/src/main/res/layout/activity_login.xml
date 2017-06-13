@@ -16,11 +16,11 @@
             android:padding="16dp">
 
             <android.support.design.widget.TextInputLayout
+                android:id="@+id/login_username_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_username_hint">
                 <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/login_username_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="?android:textAppearanceMedium"
