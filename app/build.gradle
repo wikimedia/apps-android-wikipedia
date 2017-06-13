@@ -165,7 +165,7 @@ dependencies {
     String okHttpVersion = '3.8.0' // When updating this version, resync file copies under
                                    // app/src/main/java/okhttp3
     String retrofitVersion = '2.2.0'
-    String supportVersion = '25.3.1'
+    String supportVersion = '25.4.0'
     String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.5.1'
     String frescoVersion = '1.3.0' // When updating this version, resync file copies under

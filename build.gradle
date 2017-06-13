@@ -14,5 +14,6 @@ allprojects {
         mavenLocal()
         jcenter()
         maven { url 'https://oss.sonatype.org/content/groups/staging' }
+        maven { url 'https://maven.google.com' }
     }
 }
