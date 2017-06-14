@@ -124,11 +124,6 @@ import java.util.UUID;
      *                      depending on what they are logging.
      */
     protected void log(@Nullable WikiSite wiki, Object... params) {
-        if (!app.isEventLoggingEnabled()) {
-            // Do not send events if the user opted out of EventLogging
-            return;
-        }
-
         int rate = getSampleRate();
         if (rate != SAMPLE_LOG_DISABLE) {
             boolean chosen = app.getEventLogSamplingID() % rate == 0 || ReleaseUtil.isDevRelease();
@@ -144,12 +139,13 @@ import java.util.UUID;
                 }
                 L.d(logString);
 
-                new EventLoggingEvent(
+                EventLoggingEvent event = new EventLoggingEvent(
                         schemaName,
                         revision,
                         wiki == null ? app.getWikiSite().dbName() : wiki.dbName(),
                         preprocessData(eventData)
-                ).log();
+                );
+                app.getEventLoggingService().log(event.getData());
             }
         }
     }
