@@ -42,7 +42,7 @@ public class ExtendedBottomSheetDialogFragment extends BottomSheetDialogFragment
 
     private void setWindowLayout() {
         if (getDialog() != null) {
-            getDialog().getWindow().setLayout(dialogWidthPx(), ViewGroup.LayoutParams.WRAP_CONTENT);
+            getDialog().getWindow().setLayout(dialogWidthPx(), ViewGroup.LayoutParams.MATCH_PARENT);
         }
     }
 

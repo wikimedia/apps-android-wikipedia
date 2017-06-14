@@ -178,7 +178,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     @Override public void onResume() {
         super.onResume();
         if (overlayView == null) {
-            ViewGroup containerView = (ViewGroup) getDialog().findViewById(android.R.id.content);
+            ViewGroup containerView = (ViewGroup) getDialog().findViewById(R.id.container);
             overlayView = new LinkPreviewOverlayView(getContext());
             overlayView.setCallback(new OverlayViewCallback());
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
