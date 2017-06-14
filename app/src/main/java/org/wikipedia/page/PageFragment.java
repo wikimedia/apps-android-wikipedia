@@ -443,7 +443,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.setWebViewClient(new OkHttpWebViewClient());
     }
 
-    private void handleInternalLink(PageTitle title) {
+    private void handleInternalLink(@NonNull PageTitle title) {
         if (!isResumed()) {
             return;
         }
@@ -592,7 +592,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabsProvider.invalidate();
     }
 
-    public void openInNewBackgroundTabFromMenu(PageTitle title, HistoryEntry entry) {
+    public void openInNewBackgroundTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         if (noPagesOpen()) {
             openInNewForegroundTabFromMenu(title, entry);
         } else {
@@ -601,19 +601,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void openInNewForegroundTabFromMenu(PageTitle title, HistoryEntry entry) {
+    public void openInNewForegroundTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         openInNewTabFromMenu(title, entry, getForegroundTabPosition());
         pageFragmentLoadState.loadFromBackStack();
     }
 
-    public void openInNewTabFromMenu(PageTitle title,
-                                     HistoryEntry entry,
-                                     int position) {
+    public void openInNewTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
         openInNewTab(title, entry, position);
         tabFunnel.logOpenInNew(tabList.size());
     }
 
-    public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack) {
+    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean pushBackStack) {
         //is the new title the same as what's already being displayed?
         if (!getCurrentTab().getBackStack().isEmpty()
                 && getCurrentTab().getBackStack().get(getCurrentTab().getBackStack().size() - 1)
@@ -629,13 +627,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         loadPage(title, entry, pushBackStack, 0);
     }
 
-    public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack,
-                         int stagedScrollY) {
+    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
+                         boolean pushBackStack, int stagedScrollY) {
         loadPage(title, entry, pushBackStack, stagedScrollY, false);
     }
 
-    public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack,
-                         boolean pageRefreshed) {
+    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
+                         boolean pushBackStack, boolean pageRefreshed) {
         loadPage(title, entry, pushBackStack, 0, pageRefreshed);
     }
 
@@ -648,8 +646,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      * @param entry HistoryEntry associated with the new page.
      * @param pushBackStack Whether to push the new page onto the backstack.
      */
-    public void loadPage(PageTitle title, HistoryEntry entry, boolean pushBackStack,
-                         int stagedScrollY, boolean pageRefreshed) {
+    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
+                         boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
         // update the time spent reading of the current page, before loading the new one
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
@@ -890,7 +888,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      * Scroll to a specific section in the WebView.
      * @param sectionAnchor Anchor link of the section to scroll to.
      */
-    public void scrollToSection(String sectionAnchor) {
+    public void scrollToSection(@NonNull String sectionAnchor) {
         if (!isAdded() || tocHandler == null) {
             return;
         }
@@ -915,7 +913,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void onPageLoadError(Throwable caught) {
+    public void onPageLoadError(@NonNull Throwable caught) {
         if (!isAdded()) {
             return;
         }
@@ -991,7 +989,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private void setupToC(PageViewModel model, boolean isFirstPage) {
+    private void setupToC(@NonNull PageViewModel model, boolean isFirstPage) {
         tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), isFirstPage);
         tocHandler.setEnabled(true);
     }
@@ -1007,8 +1005,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
         pageSavedToList = pageSaved;
-        TabLayout.Tab bookmarkTab
-                = tabLayout.getTabAt(PageActionTab.ADD_TO_READING_LIST.code());
+        TabLayout.Tab bookmarkTab = tabLayout.getTabAt(PageActionTab.ADD_TO_READING_LIST.code());
         if (bookmarkTab != null) {
             bookmarkTab.setIcon(pageSaved ? R.drawable.ic_bookmark_white_24dp
                     : R.drawable.ic_bookmark_border_white_24dp);
@@ -1038,7 +1035,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         });
     }
 
-    private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
+    private void openInNewTab(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
         if (shouldCreateNewTab()) {
             // create a new tab
             Tab tab = new Tab();

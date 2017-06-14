@@ -48,7 +48,7 @@ public class HistoryEntry implements Parcelable {
         this(title, timestamp, source, 0);
     }
 
-    public HistoryEntry(PageTitle title, int source) {
+    public HistoryEntry(@NonNull PageTitle title, int source) {
         this(title, new Date(), source);
     }
 

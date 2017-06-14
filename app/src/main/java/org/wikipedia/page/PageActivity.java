@@ -326,7 +326,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
      * @param title Title of the page to load.
      * @param entry HistoryEntry associated with this page.
      */
-    public void loadPage(PageTitle title, HistoryEntry entry) {
+    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         loadPage(title, entry, TabPosition.CURRENT_TAB);
     }
 
@@ -339,9 +339,9 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
      *                 foreground tab.
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public void loadPage(final PageTitle title,
-                         final HistoryEntry entry,
-                         final TabPosition position) {
+    public void loadPage(@NonNull final PageTitle title,
+                         @NonNull final HistoryEntry entry,
+                         @NonNull final TabPosition position) {
         if (isDestroyed()) {
             return;
         }
@@ -380,7 +380,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         });
     }
 
-    public void loadPageInForegroundTab(PageTitle title, HistoryEntry entry) {
+    public void loadPageInForegroundTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         loadPage(title, entry, TabPosition.NEW_TAB_FOREGROUND);
     }
 
@@ -402,11 +402,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         loadPage(title, historyEntry, position);
     }
 
-    public void showLinkPreview(PageTitle title, int entrySource) {
+    public void showLinkPreview(@NonNull PageTitle title, int entrySource) {
         showLinkPreview(title, entrySource, null);
     }
 
-    public void showLinkPreview(PageTitle title, int entrySource, @Nullable Location location) {
+    public void showLinkPreview(@NonNull PageTitle title, int entrySource, @Nullable Location location) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
                 LinkPreviewDialog.newInstance(title, entrySource, location));
     }
@@ -704,7 +704,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         saveState(outState);
     }
 
-    private void saveState(Bundle outState) {
+    private void saveState(@NonNull Bundle outState) {
         outState.putBoolean("isSearching", isSearching());
         outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.getAppOrSystemLanguageCode());
     }
