@@ -341,6 +341,9 @@
     <string name="reading_list_confirm_remove_article_from_offline">Remove from offline</string>
     <string name="reading_list_confirm_remove_article_from_offline_title">Article appears in multiple lists</string>
     <string name="reading_list_confirm_remove_article_from_offline_message">%s will no longer be available offline for all reading lists:</string>
+    <string name="reading_list_sync_reminder_title">Reading list sync is turned off</string>
+    <string name="reading_list_sync_reminder_text">Your reading lists can be synchronized to your Wikipedia account if you allow syncing in the app settings.</string>
+    <string name="reading_list_sync_reminder_action">Turn on</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

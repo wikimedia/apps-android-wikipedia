@@ -50,11 +50,26 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/reading_list_list"
-        android:scrollbars="vertical"
+    <LinearLayout
+        android:id="@+id/reading_list_content_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/window_background_color" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true">
+
+        <FrameLayout
+            android:id="@+id/reading_list_onboarding_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/reading_list_list"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="?attr/window_background_color" />
+
+    </LinearLayout>
 
 </FrameLayout>

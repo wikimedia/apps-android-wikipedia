@@ -52,4 +52,5 @@
     <string name="preference_key_total_anon_descriptions_edited">totalAnonDescriptionsEdited</string>
     <string name="preference_category_storage_sync">storageAndSync</string>
     <string name="preference_key_sync_reading_lists">syncReadingLists</string>
+    <string name="preference_key_reading_list_sync_reminder_enabled">readingListSyncReminder</string>
 </resources>
