@@ -1,0 +1,308 @@
+{
+  "batchcomplete": true,
+  "continue": {
+    "sroffset": 1,
+    "gpsoffset": 20,
+    "continue": "gpsoffset||"
+  },
+  "query": {
+    "redirects": [
+      {
+        "index": 1,
+        "from": "Abama",
+        "to": "Narthecium"
+      },
+      {
+        "index": 2,
+        "from": "Abamax",
+        "to": "Amitriptyline"
+      }
+    ],
+    "pages": [
+      {
+        "pageid": 1934,
+        "ns": 0,
+        "title": "Abadan, Iran",
+        "index": 6,
+        "terms": {
+          "description": [
+            "city in Iran",
+            "city in Iran",
+            "city in Iran"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Abadan_Catalitic_facilities.jpg/314px-Abadan_Catalitic_facilities.jpg",
+          "width": 314,
+          "height": 320
+        }
+      },
+      {
+        "pageid": 2473,
+        "ns": 0,
+        "title": "Abacá",
+        "index": 8,
+        "terms": {
+          "description": [
+            "species of plant"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Musa_textilis_-_Manila_Hemp_-_desc-flower.jpg/320px-Musa_textilis_-_Manila_Hemp_-_desc-flower.jpg",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 2477,
+        "ns": 0,
+        "title": "Abakan",
+        "index": 9,
+        "terms": {
+          "description": [
+            "city in Russia, capital of the Republic of Khakassia"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Wallpaper_meria.jpg/320px-Wallpaper_meria.jpg",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 293833,
+        "ns": 0,
+        "title": "Abaza language",
+        "index": 19,
+        "terms": {
+          "description": [
+            "language of the Caucasus mountains in the Russian Karachay–Cherkess Republic by the Abazins"
+          ]
+        }
+      },
+      {
+        "pageid": 492154,
+        "ns": 0,
+        "title": "Abaiang",
+        "index": 16,
+        "terms": {
+          "description": [
+            "atoll"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/04_Map_of_Abaiang%2C_Kiribati.jpg/247px-04_Map_of_Abaiang%2C_Kiribati.jpg",
+          "width": 247,
+          "height": 320
+        }
+      },
+      {
+        "pageid": 583678,
+        "ns": 0,
+        "title": "Amitriptyline",
+        "index": 2,
+        "terms": {
+          "description": [
+            "chemical compound",
+            "chemical compound"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Amitriptyline2DACS.svg/318px-Amitriptyline2DACS.svg.png",
+          "width": 318,
+          "height": 320
+        }
+      },
+      {
+        "pageid": 770058,
+        "ns": 0,
+        "title": "Abacavir",
+        "index": 7,
+        "terms": {
+          "description": [
+            "chemical compound"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Abacavir.svg/320px-Abacavir.svg.png",
+          "width": 320,
+          "height": 253
+        }
+      },
+      {
+        "pageid": 951345,
+        "ns": 0,
+        "title": "Abamectin",
+        "index": 20,
+        "terms": {
+          "description": [
+            "avermectin"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Avermectins.png/320px-Avermectins.png",
+          "width": 320,
+          "height": 206
+        }
+      },
+      {
+        "pageid": 975842,
+        "ns": 0,
+        "title": "Abaqa Khan",
+        "index": 17,
+        "terms": {
+          "description": [
+            "Mongol ruler of Persia",
+            "Mongol ruler of Persia"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/AbaqaOnHorseArghunStandingGhazanAsAChild.jpg/320px-AbaqaOnHorseArghunStandingGhazanAsAChild.jpg",
+          "width": 320,
+          "height": 204
+        }
+      },
+      {
+        "pageid": 990183,
+        "ns": 0,
+        "title": "Abaya",
+        "index": 18,
+        "terms": {
+          "description": [
+            "Female dress"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Islamic_Clothing_Abaya.jpg/147px-Islamic_Clothing_Abaya.jpg",
+          "width": 147,
+          "height": 320
+        }
+      },
+      {
+        "pageid": 1089694,
+        "ns": 0,
+        "title": "Abacab",
+        "index": 11,
+        "terms": {
+          "description": [
+            "album"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/en/2/2c/Abacab.jpg",
+          "width": 314,
+          "height": 316
+        }
+      },
+      {
+        "pageid": 1142711,
+        "ns": 0,
+        "title": "Aba, Abia",
+        "index": 14,
+        "terms": {
+          "description": [
+            "city in Abia State, southern Nigeria"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Aba_Nigeria_hotel.jpg/320px-Aba_Nigeria_hotel.jpg",
+          "width": 320,
+          "height": 213
+        }
+      },
+      {
+        "pageid": 2060913,
+        "ns": 0,
+        "title": "Narthecium",
+        "index": 1,
+        "terms": {
+          "description": [
+            "genus of plants"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Narthecium_ossifragum_01.jpg/240px-Narthecium_ossifragum_01.jpg",
+          "width": 240,
+          "height": 320
+        }
+      },
+      {
+        "pageid": 5982795,
+        "ns": 0,
+        "title": "ABA All-Time Team",
+        "index": 13
+      },
+      {
+        "pageid": 9267310,
+        "ns": 0,
+        "title": "Abarangers",
+        "index": 10,
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/en/thumb/d/da/Abaranger.jpg/320px-Abaranger.jpg",
+          "width": 320,
+          "height": 240
+        }
+      },
+      {
+        "pageid": 9514706,
+        "ns": 0,
+        "title": "Abatacept",
+        "index": 12,
+        "terms": {
+          "description": [
+            "pharmaceutical drug"
+          ]
+        }
+      },
+      {
+        "pageid": 13777854,
+        "ns": 0,
+        "title": "Abama Open de Canarias",
+        "index": 3
+      },
+      {
+        "pageid": 22922593,
+        "ns": 0,
+        "title": "ABADÁ-Capoeira",
+        "index": 5
+      },
+      {
+        "pageid": 35995057,
+        "ns": 0,
+        "title": "Aba Mansuri",
+        "index": 4,
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Iran_location_map.svg/320px-Iran_location_map.svg.png",
+          "width": 320,
+          "height": 286
+        }
+      },
+      {
+        "pageid": 44057826,
+        "ns": 0,
+        "title": "Abacavir/dolutegravir/lamivudine",
+        "index": 15,
+        "terms": {
+          "description": [
+            "drug combination for HIV"
+          ]
+        },
+        "thumbnail": {
+          "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Abacavir%2C_dolutegravir_and_lamivudine.svg/200px-Abacavir%2C_dolutegravir_and_lamivudine.svg.png",
+          "width": 200,
+          "height": 320
+        }
+      }
+    ],
+    "searchinfo": {
+      "suggestion": "ababa",
+      "suggestionsnippet": "<em>ababa</em>"
+    },
+    "search": [
+      {
+        "ns": 0,
+        "title": "Abama Open de Canarias"
+      }
+    ]
+  }
+}
