@@ -86,7 +86,7 @@ public class CsrfTokenClientTest extends MockWebServerTest {
         verify(cb).failure(isA(throwable));
     }
 
-    private Call<MwQueryResponse<CsrfToken>> request(@NonNull Callback cb) {
+    private Call<MwQueryResponse> request(@NonNull Callback cb) {
         return subject.request(service(Service.class), cb);
     }
 }

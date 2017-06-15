@@ -280,7 +280,7 @@ public class WikipediaApp extends Application {
         final WikiSite wikiSite = WikiSite.forLanguageCode(code);
         idClient.request(wikiSite, new UserIdClient.Callback() {
             @Override
-            public void success(@NonNull Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call, int id) {
+            public void success(@NonNull Call<MwQueryResponse> call, int id) {
                 User user = User.getUser();
                 if (user != null) {
                     user.putIdForLanguage(code, id);
@@ -289,8 +289,7 @@ public class WikipediaApp extends Application {
             }
 
             @Override
-            public void failure(@NonNull Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call,
-                                @NonNull Throwable caught) {
+            public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
                 L.e("Failed to get user ID for " + wikiSite.languageCode(), caught);
             }
         });

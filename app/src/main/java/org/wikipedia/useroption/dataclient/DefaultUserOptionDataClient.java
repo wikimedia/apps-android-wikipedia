@@ -3,8 +3,6 @@ package org.wikipedia.useroption.dataclient;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.google.gson.annotations.SerializedName;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.ServiceError;
@@ -38,7 +36,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     @NonNull
     @Override
     public UserInfo get() throws IOException {
-        Response<MwQueryResponse<QueryUserInfo>> rsp = service.get().execute();
+        Response<MwQueryResponse> rsp = service.get().execute();
         if (rsp.body().success()) {
             //noinspection ConstantConditions
             return rsp.body().query().userInfo();
@@ -136,7 +134,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         String ACTION = "w/api.php?format=json&formatversion=2&action=";
 
         @GET(ACTION + "query&meta=userinfo&uiprop=options")
-        @NonNull Call<MwQueryResponse<QueryUserInfo>> get();
+        @NonNull Call<MwQueryResponse> get();
 
         @FormUrlEncoded
         @POST(ACTION + "options")
@@ -155,14 +153,6 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
         public String result() {
             return options;
-        }
-    }
-
-    private static class QueryUserInfo {
-        @SuppressWarnings("unused") @SerializedName("userinfo") private UserInfo userInfo;
-
-        UserInfo userInfo() {
-            return userInfo;
         }
     }
 }

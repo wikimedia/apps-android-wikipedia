@@ -59,7 +59,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
 
         new PageImagesClient().request(wiki, titleList,
                 new PageImagesClient.Callback() {
-                    @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                    @Override public void success(@NonNull Call<MwQueryResponse> call,
                                                   @NonNull Map<PageTitle, PageImage> results) {
                         for (Map.Entry<PageTitle, PageImage> entry : results.entrySet()) {
                             if (entry.getValue() == null || entry.getValue().getImageName() == null) {
@@ -69,7 +69,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
                         }
                         notifyDataSetInvalidated();
                     }
-                    @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                    @Override public void failure(@NonNull Call<MwQueryResponse> call,
                                                   @NonNull Throwable caught) {
                         // Don't actually do anything.
                         // Thumbnails are expendable
@@ -90,7 +90,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         }
 
         new DescriptionClient().request(wiki, titleList, new DescriptionClient.Callback() {
-            @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+            @Override public void success(@NonNull Call<MwQueryResponse> call,
                                           @NonNull List<MwQueryPage> results) {
                 for (MwQueryPage page : results) {
                     PageTitle pageTitle = new PageTitle(null, page.title(), wiki);
@@ -104,8 +104,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
                 }
                 notifyDataSetChanged();
             }
-            @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
-                                          @NonNull Throwable caught) {
+            @Override public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
                 // descriptions are expendable
             }
         });

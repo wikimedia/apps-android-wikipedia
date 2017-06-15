@@ -23,27 +23,23 @@ public class DescriptionClient {
     @NonNull private MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
-                     @NonNull List<MwQueryPage> results);
-        void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
-                     @NonNull Throwable caught);
+        void success(@NonNull Call<MwQueryResponse> call, @NonNull List<MwQueryPage> results);
+        void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught);
     }
 
-    public Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull WikiSite wiki,
-                                                      @NonNull List<PageTitle> titles,
-                                                      @NonNull Callback cb) {
+    public Call<MwQueryResponse> request(@NonNull WikiSite wiki, @NonNull List<PageTitle> titles,
+                                         @NonNull Callback cb) {
         return request(cachedService.service(wiki), titles, cb);
     }
 
     @VisibleForTesting
-    Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull Service service,
-                                                         @NonNull final List<PageTitle> titles,
-                                                         @NonNull final Callback cb) {
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = service.request(TextUtils.join("|", titles));
+    Call<MwQueryResponse> request(@NonNull Service service, @NonNull final List<PageTitle> titles,
+                                  @NonNull final Callback cb) {
+        Call<MwQueryResponse> call = service.request(TextUtils.join("|", titles));
 
-        call.enqueue(new retrofit2.Callback<MwQueryResponse<MwQueryResponse.Pages>>() {
-            @Override public void onResponse(Call<MwQueryResponse<MwQueryResponse.Pages>> call,
-                                             Response<MwQueryResponse<MwQueryResponse.Pages>> response) {
+        call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
+            @Override public void onResponse(Call<MwQueryResponse> call,
+                                             Response<MwQueryResponse> response) {
                 if (response.body().success()) {
                     // noinspection ConstantConditions
                     cb.success(call, response.body().query().pages());
@@ -56,17 +52,15 @@ public class DescriptionClient {
             }
 
             @Override
-            public void onFailure(Call<MwQueryResponse<MwQueryResponse.Pages>> call, Throwable t) {
+            public void onFailure(Call<MwQueryResponse> call, Throwable t) {
                 cb.failure(call, t);
             }
         });
-
         return call;
     }
 
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageterms&wbptterms=description")
-        Call<MwQueryResponse<MwQueryResponse.Pages>> request(@NonNull @Query("titles") String titles);
-
+        Call<MwQueryResponse> request(@NonNull @Query("titles") String titles);
     }
 }

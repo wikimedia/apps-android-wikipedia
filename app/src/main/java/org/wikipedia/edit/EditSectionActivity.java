@@ -40,7 +40,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.edit.preview.EditPreviewFragment;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.edit.summaries.EditSummaryFragment;
-import org.wikipedia.edit.wikitext.Wikitext;
 import org.wikipedia.edit.wikitext.WikitextClient;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginClient;
@@ -610,13 +609,13 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         if (sectionWikitext == null) {
             new WikitextClient().request(title.getWikiSite(), title, sectionID, new WikitextClient.Callback() {
                 @Override
-                public void success(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull String wikitext) {
+                public void success(@NonNull Call<MwQueryResponse> call, @NonNull String wikitext) {
                     sectionWikitext = wikitext;
                     displaySectionText();
                 }
 
                 @Override
-                public void failure(@NonNull Call<MwQueryResponse<Wikitext>> call, @NonNull Throwable caught) {
+                public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
                     sectionProgress.setVisibility(View.GONE);
                     showError(caught);
                     L.e(caught);

@@ -36,7 +36,7 @@ public class FullTextSearchClientTest extends MockWebServerTest {
         enqueueFromFile("full_text_search_results.json");
 
         FullTextSearchClient.Callback cb = mock(FullTextSearchClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(null, cb);
+        Call<MwQueryResponse> call = request(null, cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb);
@@ -53,7 +53,7 @@ public class FullTextSearchClientTest extends MockWebServerTest {
         assertThat(continuation.get("gsroffset"), is("20"));
 
         FullTextSearchClient.Callback cb = mock(FullTextSearchClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(continuation, cb);
+        Call<MwQueryResponse> call = request(continuation, cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb);
@@ -63,7 +63,7 @@ public class FullTextSearchClientTest extends MockWebServerTest {
         enqueueFromFile("full_text_search_results_empty.json");
 
         FullTextSearchClient.Callback cb = mock(FullTextSearchClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(null, cb);
+        Call<MwQueryResponse> call = request(null, cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb);
@@ -73,7 +73,7 @@ public class FullTextSearchClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         FullTextSearchClient.Callback cb = mock(FullTextSearchClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(null, cb);
+        Call<MwQueryResponse> call = request(null, cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -83,7 +83,7 @@ public class FullTextSearchClientTest extends MockWebServerTest {
         enqueue404();
 
         FullTextSearchClient.Callback cb = mock(FullTextSearchClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(null, cb);
+        Call<MwQueryResponse> call = request(null, cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -93,20 +93,20 @@ public class FullTextSearchClientTest extends MockWebServerTest {
         server().enqueue("'");
 
         FullTextSearchClient.Callback cb = mock(FullTextSearchClient.Callback.class);
-        Call<MwQueryResponse<MwQueryResponse.Pages>> call = request(null, cb);
+        Call<MwQueryResponse> call = request(null, cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
                                        @NonNull FullTextSearchClient.Callback cb) {
         verify(cb).success(eq(call), any(SearchResults.class));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
                                        @NonNull FullTextSearchClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -115,8 +115,8 @@ public class FullTextSearchClientTest extends MockWebServerTest {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    private Call<MwQueryResponse<MwQueryResponse.Pages>> request(@Nullable Map<String, String> continuation,
-                                                                 @NonNull FullTextSearchClient.Callback cb) {
+    private Call<MwQueryResponse> request(@Nullable Map<String, String> continuation,
+                                          @NonNull FullTextSearchClient.Callback cb) {
         return subject.request(service(FullTextSearchClient.Service.class), TESTWIKI, "qb",
                 valOrNull(continuation, "continue"), valOrNull(continuation, "gsroffset"), 20, cb);
     }

@@ -583,7 +583,7 @@ public class PageFragmentLoadState {
         // Fetch larger thumbnail URL from the network, and save it to our DB.
         new PageImagesClient().request(model.getTitle().getWikiSite(), Collections.singletonList(model.getTitle()),
                 new PageImagesClient.Callback() {
-                    @Override public void success(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                    @Override public void success(@NonNull Call<MwQueryResponse> call,
                                                   @NonNull Map<PageTitle, PageImage> results) {
                         if (results.containsKey(model.getTitle())) {
                             PageImage pageImage = results.get(model.getTitle());
@@ -592,7 +592,7 @@ public class PageFragmentLoadState {
                             updateThumbnail(pageImage.getImageName());
                         }
                     }
-                    @Override public void failure(@NonNull Call<MwQueryResponse<MwQueryResponse.Pages>> call,
+                    @Override public void failure(@NonNull Call<MwQueryResponse> call,
                                                   @NonNull Throwable caught) {
                         L.w(caught);
                     }

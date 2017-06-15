@@ -203,7 +203,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     public void getCreateAccountInfo() {
         createAccountInfoClient.request(wiki, new CreateAccountInfoClient.Callback() {
             @Override
-            public void success(@NonNull Call<MwQueryResponse<CreateAccountInfo>> call,
+            public void success(@NonNull Call<MwQueryResponse> call,
                                 @NonNull CreateAccountInfoResult result) {
                 if (result.token() == null) {
                     handleAccountCreationError(getString(R.string.create_account_generic_error));
@@ -215,7 +215,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
 
             @Override
-            public void failure(@NonNull Call<MwQueryResponse<CreateAccountInfo>> call,
+            public void failure(@NonNull Call<MwQueryResponse> call,
                                 @NonNull Throwable caught) {
                 showError(caught);
                 L.e(caught);

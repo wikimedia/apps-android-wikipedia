@@ -30,7 +30,7 @@ public class WikitextClientTest extends MockWebServerTest {
         enqueueFromFile("wikitext.json");
 
         WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
-        Call<MwQueryResponse<Wikitext>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb, expected);
@@ -40,7 +40,7 @@ public class WikitextClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
-        Call<MwQueryResponse<Wikitext>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -50,7 +50,7 @@ public class WikitextClientTest extends MockWebServerTest {
         enqueue404();
 
         WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
-        Call<MwQueryResponse<Wikitext>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -60,13 +60,13 @@ public class WikitextClientTest extends MockWebServerTest {
         server().enqueue("(-(-_(-_-)_-)-)");
 
         WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
-        Call<MwQueryResponse<Wikitext>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse<Wikitext>> call,
+    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
                                        @NonNull WikitextClient.Callback cb,
                                        @NonNull String expected) {
         verify(cb).success(eq(call), eq(expected));
@@ -74,7 +74,7 @@ public class WikitextClientTest extends MockWebServerTest {
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<Wikitext>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
                                        @NonNull WikitextClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -82,7 +82,7 @@ public class WikitextClientTest extends MockWebServerTest {
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<MwQueryResponse<Wikitext>> request(@NonNull WikitextClient.Callback cb) {
+    private Call<MwQueryResponse> request(@NonNull WikitextClient.Callback cb) {
         return subject.request(service(WikitextClient.Service.class), title, 0, cb);
     }
 }

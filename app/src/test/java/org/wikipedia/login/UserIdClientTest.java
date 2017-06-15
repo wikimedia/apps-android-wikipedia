@@ -26,7 +26,7 @@ public class UserIdClientTest extends MockWebServerTest {
         enqueueFromFile("user_info.json");
 
         UserIdClient.Callback cb = mock(UserIdClient.Callback.class);
-        Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb);
@@ -36,7 +36,7 @@ public class UserIdClientTest extends MockWebServerTest {
         enqueueFromFile("api_error.json");
 
         UserIdClient.Callback cb = mock(UserIdClient.Callback.class);
-        Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MwException.class);
@@ -46,7 +46,7 @@ public class UserIdClientTest extends MockWebServerTest {
         enqueue404();
 
         UserIdClient.Callback cb = mock(UserIdClient.Callback.class);
-        Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, HttpStatusException.class);
@@ -56,20 +56,20 @@ public class UserIdClientTest extends MockWebServerTest {
         server().enqueue("┏━┓ ︵  /(^.^/)");
 
         UserIdClient.Callback cb = mock(UserIdClient.Callback.class);
-        Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call = request(cb);
+        Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call,
+    private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
                                        @NonNull UserIdClient.Callback cb) {
         verify(cb).success(eq(call), any(Integer.class));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackFailure(@NonNull Call<MwQueryResponse<UserIdClient.QueryUserInfo>> call,
+    private void assertCallbackFailure(@NonNull Call<MwQueryResponse> call,
                                        @NonNull UserIdClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
@@ -77,7 +77,7 @@ public class UserIdClientTest extends MockWebServerTest {
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<MwQueryResponse<UserIdClient.QueryUserInfo>> request(@NonNull UserIdClient.Callback cb) {
+    private Call<MwQueryResponse> request(@NonNull UserIdClient.Callback cb) {
         return subject.request(service(UserIdClient.Service.class), cb);
     }
 }

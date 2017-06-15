@@ -51,8 +51,7 @@ public class NotificationClientTest extends MockWebServerTest {
     }
 
     private void request(@NonNull final NotificationClient.Callback cb) {
-        Call<MwQueryResponse<Notification.QueryNotifications>> call
-                = client.requestNotifications((service(NotificationClient.Service.class)),
+        Call<MwQueryResponse> call = client.requestNotifications((service(NotificationClient.Service.class)),
                 EntityClient.WIKIDATA_WIKI);
         call.enqueue(new NotificationClient.CallbackAdapter(cb));
     }
