@@ -26,6 +26,7 @@ public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable private Terms terms;
     @SuppressWarnings("unused") @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
+    @Nullable private String redirectFrom;
 
     @NonNull public String title() {
         return title;
@@ -62,6 +63,18 @@ public class MwQueryPage extends BaseModel {
 
     @Nullable public ImageInfo imageInfo() {
         return imageInfo != null ? imageInfo.get(0) : null;
+    }
+
+    @Nullable public String redirectFrom() {
+        return redirectFrom;
+    }
+
+    public void redirectFrom(@Nullable String from) {
+        redirectFrom = from;
+    }
+
+    public void appendTitleFragment(@Nullable String fragment) {
+        title += "#" + fragment;
     }
 
     public static class Revision {

@@ -16,15 +16,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-import static org.apache.commons.lang3.StringUtils.defaultString;
-
 /**
  * Simple Data Object to hold search result data for both prefix search and full text search.
  */
 public class SearchResults {
     @NonNull private List<SearchResult> results;
     @Nullable private Map<String, String> continuation;
-    @NonNull private String suggestion = "";
+    @Nullable private String suggestion;
 
     /**
      * Empty results. Use for fallback when something goes wrong.
@@ -58,7 +56,7 @@ public class SearchResults {
         }
         this.results = searchResults;
         this.continuation = continuation;
-        this.suggestion = defaultString(suggestion);
+        this.suggestion = suggestion;
     }
 
     /**
@@ -69,14 +67,14 @@ public class SearchResults {
                          @Nullable String suggestion) {
         this.results = results;
         this.continuation = continuation;
-        this.suggestion = defaultString(suggestion);
+        this.suggestion = suggestion;
     }
 
     @NonNull public List<SearchResult> getResults() {
         return results;
     }
 
-    @NonNull public String getSuggestion() {
+    @Nullable public String getSuggestion() {
         return suggestion;
     }
 

@@ -139,6 +139,19 @@ public class MwQueryResult extends BaseModel {
         @SuppressWarnings("unused") private int index;
         @SuppressWarnings("unused") @Nullable private String from;
         @SuppressWarnings("unused") @Nullable private String to;
+        @SuppressWarnings("unused") @SerializedName("tofragment") @Nullable private String toFragment;
+
+        @Nullable public String to() {
+            return to;
+        }
+
+        @Nullable public String from() {
+            return from;
+        }
+
+        @Nullable public String toFragment() {
+            return toFragment;
+        }
     }
 
     private static class ListUsersResponse {
