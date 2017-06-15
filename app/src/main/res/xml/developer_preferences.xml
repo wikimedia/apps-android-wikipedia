@@ -170,6 +170,10 @@
             android:title="@string/preference_key_reading_list_sync_reminder_enabled" />
 
         <SwitchPreferenceCompat
+            android:key="@string/preference_key_reading_list_login_reminder_enabled"
+            android:title="@string/preference_key_reading_list_login_reminder_enabled" />
+
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_zero_tutorial_enabled"
             android:title="@string/preference_key_zero_tutorial_enabled" />
 

@@ -26,6 +26,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.login.User;
 import org.wikipedia.onboarding.OnboardingView;
@@ -393,6 +394,18 @@ public class ReadingListsFragment extends Fragment {
             onboardingView.setPositiveAction(R.string.reading_list_sync_reminder_action);
             onboardingContainer.addView(onboardingView);
             onboardingView.setCallback(new SyncReminderOnboardingCallback());
+
+        } else if (!User.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
+                && ReleaseUtil.isPreBetaRelease()) {
+            OnboardingView onboardingView = new OnboardingView(getContext());
+            onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green50));
+            onboardingView.setPositiveTextColor(R.color.green50);
+            onboardingView.setTitle(R.string.reading_list_login_reminder_title);
+            onboardingView.setText(R.string.reading_list_login_reminder_text);
+            onboardingView.setNegativeAction(R.string.reading_lists_onboarding_got_it);
+            onboardingView.setPositiveAction(R.string.menu_login);
+            onboardingContainer.addView(onboardingView);
+            onboardingView.setCallback(new LoginReminderOnboardingCallback());
         }
     }
 
@@ -406,6 +419,22 @@ public class ReadingListsFragment extends Fragment {
         @Override
         public void onNegativeAction() {
             Prefs.setReadingListSyncReminderEnabled(false);
+            maybeShowOnboarding();
+        }
+    }
+
+    private class LoginReminderOnboardingCallback implements OnboardingView.Callback {
+        @Override
+        public void onPositiveAction() {
+            Prefs.setReadingListLoginReminderEnabled(false);
+            if (getParentFragment() instanceof FeedFragment.Callback) {
+                ((FeedFragment.Callback) getParentFragment()).onLoginRequested();
+            }
+        }
+
+        @Override
+        public void onNegativeAction() {
+            Prefs.setReadingListLoginReminderEnabled(false);
             maybeShowOnboarding();
         }
     }
