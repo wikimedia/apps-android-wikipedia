@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Os contrasinais non coinciden</string>
   <string name="create_account_email_error">O enderezo de correo electrónico non é válido</string>
   <string name="create_account_username_error">Caracteres non válidos no nome de usuario</string>
+  <string name="create_account_password_error">O contrasinal non é válido</string>
   <string name="create_account_generic_error">Non se puido crear a conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Crear unha conta</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">Procesando a vista previa…</string>
   <string name="send_feedback">Enviar comentarios sobre a aplicación</string>
   <string name="create_account_account_created_toast">Conta creada!</string>
+  <string name="preferences_heading_storage_and_syncing">Almacenamento e sincronización</string>
+  <string name="preference_title_sync_reading_lists">Sincronizar as listas de lectura</string>
+  <string name="preference_summary_sync_reading_lists">Permitir a Wikipedia sincronizar as súas listas de lectura cando se conecte</string>
   <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>

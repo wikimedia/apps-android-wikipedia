@@ -120,6 +120,9 @@
   <string name="edit_preview_fetching_dialog_message">取得預覽中…</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
+  <string name="preferences_heading_storage_and_syncing">儲存和同步</string>
+  <string name="preference_title_sync_reading_lists">同步閱讀清單</string>
+  <string name="preference_summary_sync_reading_lists">允許當您登入時讓維基媒體同步您的閱讀清單</string>
   <string name="preferences_privacy_settings_heading">隱私</string>
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>

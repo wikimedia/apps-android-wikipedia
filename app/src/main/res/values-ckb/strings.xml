@@ -85,6 +85,7 @@
   <string name="toast_logout_complete">چووە دەرەوە</string>
   <string name="history_empty_title">ھیچ وتارێکی تازەکراوە لێرە نییە</string>
   <string name="history_empty_message">ڕێڕەوی ئەوەی لێرە خوێندووتەتەوە.</string>
+  <string name="search_empty_message">گەڕان و خوێندنەوەی ئەم زانستنامە ئازادە بە زمانەکەی خۆت</string>
   <string name="delete_selected_history">سڕینەوە</string>
   <string name="delete_selected_items">سڕینەوەی دانە دیاریکراوەکان</string>
   <string name="wp_stylized">ویکیپیدیا</string>
@@ -229,6 +230,7 @@
   <string name="button_add_to_reading_list">زیادکردن بۆ پێڕستی خوێندنەوە</string>
   <string name="page_offline_notice_cannot_load_while_offline">وتارەکە ناتواندرێت بھێندرێت بەبێ ئینتەرنێت</string>
   <string name="page_offline_notice_add_to_reading_list">وتارەکە زیاد بکە پێڕستی خوێندنەوەت، دواتر دادەگیرێت کە بە ئینتەرنێتەوە ئاپەکەت بەکارھێنا.</string>
+  <string name="page_offline_notice_last_date">تۆ وەشانێکی بێ ئینتەرنێتی ئەم وتارە دەخوێنیتەوە کە پاشەکەوتکراوە لە %s.</string>
   <string name="button_get_directions">وەرگرتنی ئاڕاستەکان</string>
   <string name="error_no_maps_app">ھیچ ئاپێک نەدۆزرایەوە کە ئاڕاستەکان دابین بکات.</string>
   <string name="preference_title_show_link_previews">نیشاندانی پێشبینینی بەستەرەکان</string>
@@ -246,6 +248,7 @@
   <string name="error_page_does_not_exist">ئەم پەڕەیە بوونی نییە</string>
   <string name="view_wiki_error_message_offline">ئینتەرنێت نییە</string>
   <string name="crash_report_dialog_title">ببوورە، ئاپ لە جاری پێشوو تێکشکا</string>
+  <string name="crash_report_dialog_text">ئایا ئارەزوو دەکەیت سکاڵای تێکشکانی ئاپەکە بنێریت بۆ ھۆکی ئاپ / لایەنێکی سێیەم، بۆ ئەوەی ویکیپیدیا بتوانێت کێشەکە بدۆزێتەوە و چارەسەری بکات بۆ ئەوەی ئەمە لە داھاتوودا ڕوونەدات؟</string>
   <string name="crash_report_dialog_dont_send_button">پەڕاندن</string>
   <string name="crash_report_dialog_always_send_button">نێردرا</string>
   <string name="crash_report_dialog_send_button">ناردن</string>
@@ -268,6 +271,7 @@
   <string name="reading_list_added_to_unnamed">زیادکرا بۆ پێڕستی خوێندنەوە.</string>
   <string name="reading_list_already_exists">ئەم وتارە ھەر لەنێو ئەو پێڕستە بووە.</string>
   <string name="reading_list_added_view_button">پێڕستی بینین</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی بەبێ ئینتەرنێت.</string>
   <string name="reading_list_sort">ڕیزکردن</string>
   <string name="reading_list_sort_by_name">ڕیزکردن بەپێی ناو</string>
   <string name="reading_list_sort_by_name_desc">ڕیزکردن بەپێی ناو (پێچەوانە)</string>
@@ -301,6 +305,9 @@
   <string name="reading_list_add_to_other_list">زیادی بکە بۆ پێڕستێکی خوێندنەوەی تر</string>
   <string name="reading_list_remove_from_list">لە %s لای ببە</string>
   <string name="reading_list_remove_from_lists">لە پێڕستی خوێندنەوە لای ببە</string>
+  <string name="reading_list_confirm_remove_article_from_offline">لە پێڕستی پاشەکەوتکراوەکانی لاببە</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">وتارەکە لە چەند پێڕستێکدا دەردەکەوێت</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s چی تر بەردەست نابێت بۆ خوێندنەوە بەبێ ئینتەرنێت لە ھیچ کامێک لە پێڕستی خوێندنەوەکان:</string>
   <string name="user_option_sync_label">ھەڵبژاردەکان</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>
@@ -345,6 +352,7 @@
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">سوپاس بۆ بەردەوامبوونت لە دەستکاریکردن! بۆ دەستکاریکردنی زیاتر، تکایە بچۆ ژوورەوە بۆ ھەژماری ویکیپیدیاکەت.</string>
+  <string name="description_edit_license_notice">بە گۆڕینی ڕوونکردنەوەی ناوەکە، من &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt; پەسەند دەکەم و بەبێ پەشیمان بوونەوە بەشدارییەکانم بڵاو دەکەمەوە لەژێر مۆڵەتنامەی &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">وەسف پاشەکەوتکرا!</string>
   <string name="description_edit_success_encouragement">تۆ ویکیپیدیا باشتر دەکەیت بۆ ھەموو خەڵکی</string>
   <string name="description_edit_success_done">کرا</string>

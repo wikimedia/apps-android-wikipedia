@@ -15,6 +15,9 @@
   <string name="page_error_retry">Prøv igen</string>
   <string name="page_error_back_to_main">Gå tilbage</string>
   <string name="menu_clear_all_history">Ryd historik</string>
+  <string name="history_item_deleted">%s fjernet fra historikken</string>
+  <string name="history_items_deleted">%d artikler fjernet fra historikken</string>
+  <string name="history_item_delete_undo">Fortryd</string>
   <string name="page_does_not_exist_error">Denne side findes ikke.</string>
   <string name="dialog_title_clear_history">Ryd browserhistorikken</string>
   <string name="dialog_message_clear_history">Dette vil slette hele browserhistorikken og lukke alle åbne faner. Er du sikker?</string>
@@ -39,6 +42,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoom til et sted på kortet</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;-bidragsydere</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
   <string name="talk_page_link_text">Diskussion</string>
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
@@ -50,9 +54,9 @@
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>
   <string name="langlinks_no_match">Ingen fundne sprog der passer til din forespørgsel.</string>
   <string name="langlinks_activity_title">Andre sprog</string>
-  <string name="menu_save_changes" fuzzy="true">Gem ændringer</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Gemmer…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Redigering gemt!</string>
+  <string name="menu_save_changes">Offentliggør ændringer</string>
+  <string name="dialog_saving_in_progress">Offentliggører…</string>
+  <string name="edit_saved_successfully">Redigering offentliggjort!</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
   <string name="dialog_message_edit_failed_cancel">Annuller</string>
@@ -82,6 +86,7 @@
   <string name="toast_logout_complete">Logget af</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
   <string name="history_empty_message">Hold styr på hvad du har læst her.</string>
+  <string name="search_empty_message">Søg og læs den frie encyklopædi på dit sprog</string>
   <string name="delete_selected_history">Slet</string>
   <string name="delete_selected_items">Slet valgte elementer</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -95,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Adgangskoderne er ikke ens</string>
   <string name="create_account_email_error">Ugyldig e-mailadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brugernavn</string>
+  <string name="create_account_password_error">Adgangskoden er ugyldig</string>
   <string name="create_account_generic_error">Kunne ikke oprette konto</string>
   <string name="create_account_next">Næste</string>
   <string name="create_account_button">Opret konto</string>
@@ -111,10 +117,13 @@
   <string name="zero_interstitial_cancel">Bliv her</string>
   <string name="zero_learn_more">Din mobiloperatør har givet dig fri adgang til Wikipedia!</string>
   <string name="zero_learn_more_learn_more">Lær mere</string>
-  <string name="zero_learn_more_dismiss">Skjul</string>
+  <string name="zero_learn_more_dismiss">Luk</string>
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
   <string name="send_feedback">Send feedback</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
+  <string name="preferences_heading_storage_and_syncing">Lagring og synkronisering</string>
+  <string name="preference_title_sync_reading_lists">Synkroniser læselister</string>
+  <string name="preference_summary_sync_reading_lists">Tillad Wikimedia at synkronisere dine læselister når du logger på</string>
   <string name="preferences_privacy_settings_heading">Privatliv</string>
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
@@ -152,7 +161,7 @@
   <string name="user_anon_blocked_from_editing">Din IP-adresse er blevet blokeret fra at redigere.</string>
   <string name="edit_how_page_improved">Hvordan har du forbedret siden?</string>
   <string name="edit_next">Næste</string>
-  <string name="edit_done" fuzzy="true">Gem</string>
+  <string name="edit_done">Offentliggør</string>
   <string name="edit_preview">Forhåndsvis</string>
   <string name="edit_summary_tag_typo">Rettet stavefejl</string>
   <string name="edit_summary_tag_grammar">Rettet grammatik</string>
@@ -161,8 +170,8 @@
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på du ønsker at gemme den?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Du kan ikke gemme denne redigering. Gå venligst tilbage og ændre den.</string>
+  <string name="abusefilter_title_warn">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på at du ønsker at offentliggøre den?</string>
+  <string name="abusefilter_title_disallow">Du kan ikke offentliggøre denne redigering. Gå venligst tilbage og ændr den.</string>
   <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
   <string name="abusefilter_text_disallow">Et automatisk filter har identificeret denne redigering som potentielt ukonstruktiv, eller potentielt hærværk.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopædi, og kun neutralt og relevant indhold hører til her.</string>
   <string name="dialog_page_issues">Problemer med siden</string>
@@ -185,7 +194,7 @@
   <string name="widget_name_search">Wikipedia-søgning</string>
   <string name="wiktionary_no_definitions_found">Ingen definitioner fundet.</string>
   <string name="alpha_update_notification_title">Ny alpha opdatering tilgængelig</string>
-  <string name="alpha_update_notification_text">Tryk for at hente ned</string>
+  <string name="alpha_update_notification_text">Tryk for at hente</string>
   <string name="dialog_close_description">Luk</string>
   <string name="preference_title_show_images">Vis billeder</string>
   <string name="preference_summary_show_images">Slå indlæsning af billeder på sider til eller fra. Fravælg denne indstilling, hvis din internetforbindelse er langsom, eller hvis dit dataabonnement er begrænset.</string>
@@ -195,7 +204,7 @@
   <string name="license_title">Licens for %s</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
-  <string name="gallery_save_progress">Downloader fil…</string>
+  <string name="gallery_save_progress">Henter fil…</string>
   <string name="gallery_save_success">Filen er gemt.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder. Prøv venligst igen, og giv den ønskede tilladelse.</string>
@@ -225,6 +234,10 @@
   <string name="address_copied">Adressen er kopieret til udklipsholder.</string>
   <string name="text_copied">Tekst kopieret til udklipsholder.</string>
   <string name="button_continue_to_article">Læs artiklen</string>
+  <string name="button_add_to_reading_list">Tilføj til læseliste</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Artiklen kan ikke indlæses offline.</string>
+  <string name="page_offline_notice_add_to_reading_list">Tilføj artiklen til en læseliste, og den vil blive hentet når du er online igen.</string>
+  <string name="page_offline_notice_last_date">Du læser en offlineudgave af denne artikel gemt den %s.</string>
   <string name="button_get_directions">Få rutevejledninger</string>
   <string name="error_no_maps_app">Kunne ikke finde nogen apps, der giver rutevejledninger.</string>
   <string name="preference_title_show_link_previews">Vis forhåndsvisning af links</string>
@@ -233,8 +246,14 @@
   <string name="error_voice_search_not_available">Beklager, stemmegenkendelse er ikke tilgængelig.</string>
   <string name="location_service_disabled">Placeringstjenester er slået fra.</string>
   <string name="enable_location_service">Aktiver</string>
+  <string name="location_permissions_enable_prompt">Aktiver placeringstilladelser for at se steder i nærheden af dig.</string>
+  <string name="location_permissions_enable_action">Slå til</string>
   <string name="error_webview_updating">Android System WebView er i øjeblikket ved at blive opdateret. Prøv igen om et øjeblik.</string>
   <string name="multi_select_items_selected">%d valgt</string>
+  <string name="error_message_generic">Der opstod en fejl</string>
+  <string name="view_link_preview_error_button_dismiss">Luk</string>
+  <string name="error_page_does_not_exist">Denne side findes ikke.</string>
+  <string name="view_wiki_error_message_offline">Kan ikke oprette forbindelse til internet</string>
   <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
   <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
   <string name="crash_report_dialog_dont_send_button">Spring over</string>
@@ -259,6 +278,10 @@
   <string name="reading_list_added_to_unnamed">Tilføjet til læseliste.</string>
   <string name="reading_list_already_exists">Denne artikel er allerede på den liste.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d af 1 artikler tilgængelige offline, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d artikler tilgængelige offline, %3$.2f MiB</string>
   <string name="reading_list_sort">Sortér</string>
   <string name="reading_list_sort_by_name">Sortér efter navn</string>
   <string name="reading_list_sort_by_name_desc">Sortér efter navn (omvendt)</string>
@@ -284,6 +307,17 @@
   <string name="reading_lists_onboarding_got_it">Forstået</string>
   <string name="reading_list_no_description">Ingen beskrivelse...</string>
   <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>
+  <string name="reading_list_article_offline">Tilgængelig offline</string>
+  <string name="reading_list_article_make_offline">Gør denne artikel tilgængelig offline</string>
+  <string name="reading_list_article_remove_offline">Gør ikke denne artikel tilgængelig offline</string>
+  <string name="reading_list_article_offline_message">Denne artikel vil nu være tilgængelig offline.</string>
+  <string name="reading_list_article_not_offline_message">Denne artikel vil ikke længere være tilgængelig offline.</string>
+  <string name="reading_list_add_to_other_list">Tilføj til en anden læseliste</string>
+  <string name="reading_list_remove_from_list">Fjern fra %s</string>
+  <string name="reading_list_remove_from_lists">Fjern fra læselister</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Fjern fra offline</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artiklen forekommer i flere lister</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke længere være tilgængelig offline for alle læselister:</string>
   <string name="user_option_sync_label">Indstillinger</string>
   <string name="notification_button_view_user">Tal med bruger</string>
   <string name="notification_talk_title">Ny besked på Wikipedia</string>
@@ -300,7 +334,7 @@
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
   <string name="view_featured_image_card_title">Dagens billede</string>
-  <string name="view_featured_image_card_download">Download</string>
+  <string name="view_featured_image_card_download">Hent</string>
   <string name="menu_feed_card_dismiss">Skjul dette kort</string>
   <string name="menu_feed_card_dismissed">Kort skjult.</string>
   <string name="menu_feed_overflow_label">Flere indstillinger</string>
@@ -316,8 +350,9 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
+  <string name="view_offline_card_text">Indhold kan ikke indlæses offline.</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
-  <string name="description_edit_save" fuzzy="true">Gem</string>
+  <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
   <string name="description_edit_edit_description">Rediger beskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
@@ -328,7 +363,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Tak for din fortsatte interesse i at redigere beskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
   <string name="description_edit_license_notice">Ved at ændre titelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Beskrivelse gemt!</string>
+  <string name="description_edit_success_saved">Beskrivelsen blev offentliggjort!</string>
   <string name="description_edit_success_encouragement">Du har lige gjort Wikipedia bedre for alle</string>
   <string name="description_edit_success_done">Færdig</string>
   <string name="description_edit_success_did_you_know">Vidste du at?</string>

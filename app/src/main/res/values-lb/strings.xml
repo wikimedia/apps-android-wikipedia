@@ -97,6 +97,7 @@
   <string name="create_account_passwords_mismatch_error">D\'Passwierder sinn net déi selwescht</string>
   <string name="create_account_email_error">Net-valabel E-Mail-Adress</string>
   <string name="create_account_username_error">Net valabel Zeechen am Benotzernumm</string>
+  <string name="create_account_password_error">D\'Passwuert ass net valabel</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
   <string name="create_account_next">Weider</string>
   <string name="create_account_button">Benotzerkont uleeën</string>
@@ -359,7 +360,9 @@
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
   <string name="description_edit_help_about_title">Iwwer</string>
+  <string name="description_edit_help_description">D\'Beschreiwunge vun engem Titel resüméieren en Artikel fir de LIeser ze hëllefe fir de Sujet op ee Bléck ze verstoen.</string>
   <string name="description_edit_help_tips">Tuyaue fir d\'Uleeë vu Beschreiwungen</string>
+  <string name="description_edit_help_tips_description">Beschreiwunge sollten an eng Zeil passen an tëscht zwee an zwielef Wierder laang sinn. Si sinn net a grousse Buschtawen et sief dat éischt Wuert ass een Numm.</string>
   <string name="description_edit_help_tips_examples">Zum Beispill:</string>
   <string name="description_edit_help_tips_example1">Bild vum Leonardo da vinci</string>
   <string name="description_edit_help_tips_example1_hint">Titelbeschreiwung fir en Artikel iwwer d\'Mona Lisa</string>
@@ -367,5 +370,6 @@
   <string name="description_edit_help_tips_example2_hint">Titelbeschreiwung fir en Artikel iwwer de Mount Everest</string>
   <string name="description_edit_help_more_info">Méi Informatiounen</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
+  <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
 </resources>

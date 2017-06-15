@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">הססמאות אינן תואמות</string>
   <string name="create_account_email_error">כתובת דוא\"ל שגויה</string>
   <string name="create_account_username_error">תווים בלתי־תקינים בשם המשתמש</string>
+  <string name="create_account_password_error">הססמה אינה תקינה</string>
   <string name="create_account_generic_error">לא היה ניתן ליצור חשבון</string>
   <string name="create_account_next">הבא</string>
   <string name="create_account_button">יצירת חשבון</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
   <string name="send_feedback">לשלוח משוב על האפליקציה</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
+  <string name="preferences_heading_storage_and_syncing">אחסון וסנכרון</string>
+  <string name="preference_title_sync_reading_lists">סנכרון רשימות קריאה</string>
+  <string name="preference_summary_sync_reading_lists">לאפשר לוויקימדיה לסנכרן את רשימות הקריאה שלך בעת כניסה לחשבון</string>
   <string name="preferences_privacy_settings_heading">פרטיות</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך באפליקציה כדי לשפר אותה</string>

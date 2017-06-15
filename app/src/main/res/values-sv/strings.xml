@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Lösenorden matchar inte</string>
   <string name="create_account_email_error">Ogiltig e-postadress</string>
   <string name="create_account_username_error">Ogiltiga tecken i användarnamnet</string>
+  <string name="create_account_password_error">Lösenordet är ogiltigt</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
   <string name="create_account_next">Nästa</string>
   <string name="create_account_button">Skapa konto</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning…</string>
   <string name="send_feedback">Skicka återkoppling om appen</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
+  <string name="preferences_heading_storage_and_syncing">Lagring och synkning</string>
+  <string name="preference_title_sync_reading_lists">Synkroniserar läslistor</string>
+  <string name="preference_summary_sync_reading_lists">Tillåt Wikimedia att synkronisera dina läslistor när du loggar in</string>
   <string name="preferences_privacy_settings_heading">Integritet</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>

@@ -16,7 +16,7 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="history_item_deleted">%s е отстранета од историјата</string>
-  <string name="history_items_deleted">%d статии се отстранети од списокот</string>
+  <string name="history_items_deleted">%d статии се отстранети од историјата</string>
   <string name="history_item_delete_undo">Врати</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
@@ -68,7 +68,7 @@
   <string name="search_reading_list_no_results">Не најдов ништо за „%s“</string>
   <string name="search_reading_lists_no_results">Не најдов ништо во списоците за читање</string>
   <string name="search_history_no_results">Не најдов ништо во историјата</string>
-  <string name="edit_section_captcha_message">За да се аштитиме од автоматизиран спам, внесете ги долуприкажаните зборови</string>
+  <string name="edit_section_captcha_message">За да се заштитиме од автоматизиран спам, внесете ги долуприкажаните зборови</string>
   <string name="edit_section_captcha_hint">Повторете ги гореприкажаните зборови</string>
   <string name="title_captcha">Внесете го одговорот на сликичката</string>
   <string name="edit_section_captcha_reload">Допрете за да ја превчитате сликичката</string>
@@ -91,7 +91,7 @@
   <string name="delete_selected_items">Избриши ги избраните ставки</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="create_account_username_hint">Корисничко име</string>
-  <string name="login_create_account_link">Немате сметка? Приклучете се на Википедија</string>
+  <string name="login_create_account_link">Немате сметка? Придружете ни се на Википедија</string>
   <string name="create_account_login_link">Веќе имате сметка? Најавете се</string>
   <string name="create_account_activity_title">Направи кориничка сметка</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
@@ -100,11 +100,12 @@
   <string name="create_account_passwords_mismatch_error">Лозинките не се совпаѓаат</string>
   <string name="create_account_email_error">Неважечка е-пошта</string>
   <string name="create_account_username_error">Неважечки знаци или корисничко име</string>
+  <string name="create_account_password_error">Лозинката е неважечка</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
   <string name="create_account_next">Следно</string>
   <string name="create_account_button">Направи сметка</string>
   <string name="preferences_general_heading">Општи</string>
-  <string name="wikipedia_app_faq">ЧПП за Википедииниот прилог</string>
+  <string name="wikipedia_app_faq">ЧПП за прилогот „Википедија“</string>
   <string name="zero_charged_verbiage">Бесплатниот пристап до Википедија повеќе не е активен.</string>
   <string name="zero_warn_when_leaving">Предупреди ме доколку ја напуштам Википедија Нулта</string>
   <string name="zero_warn_when_leaving_summary">Ако Вашиот мобилен оператор се откажува од трошоците за пристап до податоци за прилогот на Википедија преку партнероство со Википедија Нулта, оставајќи ја поставкава избрана ќе знаете кога излегувате од нејзиниот бесплатен режим и почнува наплата.</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед…</string>
   <string name="send_feedback">Испрати мислење за прилогот</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
+  <string name="preferences_heading_storage_and_syncing">Склад и усогласување</string>
+  <string name="preference_title_sync_reading_lists">Усогласи списоци за читање</string>
+  <string name="preference_summary_sync_reading_lists">Дозволете ѝ на Викимедија да ги усогласува вашите списоци за читање кога ќе се највите</string>
   <string name="preferences_privacy_settings_heading">Лични податоци</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
@@ -201,11 +205,11 @@
   <string name="gallery_menu_share">Сподели</string>
   <string name="gallery_share_error">Не можев да ја споделам сликата: %s</string>
   <string name="gallery_save_progress">Ја преземам податотеката…</string>
-  <string name="gallery_save_success">Податотекта е успешно зачувана.</string>
+  <string name="gallery_save_success">Податотеката е успешно зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
-  <string name="gallery_save_image_write_permission_rationale">Дозвола за зачувување слики на вашиот уред. Обидете се повторно и дајте ја побараната дозвола.</string>
+  <string name="gallery_save_image_write_permission_rationale">Се бара дозвола за зачувување слики на вашиот уред. Обидете се повторно и дајте ја побараната дозвола.</string>
   <string name="err_cannot_save_file">Не можам да ја зачувам податотеката</string>
-  <string name="snippet_share_intro">Занимливост на @Википедија %1$s: %2$s</string>
+  <string name="snippet_share_intro">„%1$s“ на @Wikipedia: %2$s</string>
   <string name="expand_refs">Допрете за да проширите</string>
   <string name="share_snippet_button">Сподели како слика</string>
   <string name="share_normal_button">Сподели како текст</string>
@@ -233,7 +237,7 @@
   <string name="button_add_to_reading_list">Додај во список за читање</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
   <string name="page_offline_notice_add_to_reading_list">Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
-  <string name="page_offline_notice_last_date">Читате вонмрежн а верзија на статијава, зачувана на %s.</string>
+  <string name="page_offline_notice_last_date">Читате вонмрежна верзија на статијава, зачувана на %s.</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
@@ -256,7 +260,7 @@
   <string name="crash_report_dialog_always_send_button">Секогаш испраќај</string>
   <string name="crash_report_dialog_send_button">Испрати</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
-  <string name="crash_report_relaunch_or_quit">За жал, прилогот на Википедија наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
+  <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
   <string name="crash_report_quit">Излези</string>
   <string name="article_menu_bar_bookmark">Додај ја статијава во списокот за читање</string>
@@ -309,11 +313,11 @@
   <string name="reading_list_article_offline_message">Статијава сега ќе биде достапна вонмрежно.</string>
   <string name="reading_list_article_not_offline_message">Статијава повеќе нема да биде достапна вонмрежно.</string>
   <string name="reading_list_add_to_other_list">Стави во список за читање</string>
-  <string name="reading_list_remove_from_list">Отсрани од %s</string>
+  <string name="reading_list_remove_from_list">Отстрани од %s</string>
   <string name="reading_list_remove_from_lists">Отстрани од списоци за читање</string>
   <string name="reading_list_confirm_remove_article_from_offline">Отстрани од вонмрежни</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Статијата се јавува во повеќе списоци</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрно за сите списоци за читање:</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрежно за сите списоци за читање:</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>
@@ -341,8 +345,8 @@
   <string name="view_static_card_icon_content_description">Икона за картичка</string>
   <string name="view_card_news_title">Вести</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">вчера</item>
-    <item quantity="other">пред %d дена</item>
+    <item quantity="one">Вчера</item>
+    <item quantity="other">Пред %d дена</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Денес</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>

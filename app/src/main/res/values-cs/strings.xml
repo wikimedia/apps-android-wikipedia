@@ -75,6 +75,7 @@
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Zde sledujte, co jste dosud {{GENDER:|četl|četla|četl(a)}}.</string>
   <string name="delete_selected_history">Smazat</string>
+  <string name="delete_selected_items">Smazat vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
   <string name="login_create_account_link">Nemáte účet? Přidejte se k Wikipedii</string>
@@ -85,6 +86,7 @@
   <string name="create_account_password_repeat_hint">Opakovat heslo</string>
   <string name="create_account_passwords_mismatch_error">Hesla se neshodují</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
+  <string name="create_account_username_error">V uživatelském jménu jsou neplatné znaky</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_next">Další</string>
   <string name="create_account_button">Vytvořit účet</string>
@@ -248,6 +250,8 @@
   <string name="reading_list_sort_by_recent">Seřadit podle nejnovějších</string>
   <string name="reading_list_sort_by_recent_desc">Seřadit podle nejstarších</string>
   <string name="reading_list_menu_delete">Odstranit seznam</string>
+  <string name="reading_list_menu_rename">Přejmenovat</string>
+  <string name="reading_list_menu_edit_description">Editovat popis</string>
   <string name="reading_list_name_sample">Můj seznam k přečtení</string>
   <string name="reading_list_name_hint">Název tohoto seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
@@ -315,4 +319,5 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít s úpravami</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
+  <string name="description_edit_revert_subtitle">Děkujeme, že editujete Wikipediiǃ</string>
 </resources>

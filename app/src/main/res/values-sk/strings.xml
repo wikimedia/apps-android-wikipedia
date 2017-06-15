@@ -15,6 +15,9 @@
   <string name="page_error_retry">Obnoviť</string>
   <string name="page_error_back_to_main">Späť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
+  <string name="history_item_deleted">Článok %s bol odstránený z histórie</string>
+  <string name="history_items_deleted">%d bolo odstránených z histórie</string>
+  <string name="history_item_delete_undo">Vrátiť</string>
   <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
   <string name="dialog_message_clear_history">Týmto sa odstráni vaša história prehliadania a zavrú sa všetky otvorené karty. Naozaj chcete vymazať celú históriu?</string>
@@ -39,6 +42,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Priblížte sa k polohe na mape</string>
+  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;prispievatelia &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="talk_page_link_text">Diskusia</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
@@ -50,9 +54,9 @@
   <string name="langlinks_empty">Táto stránka nie je k dispozícii v iných jazykoch</string>
   <string name="langlinks_no_match">Zadaný výraz nezodpovedá žiadnemu jazyku.</string>
   <string name="langlinks_activity_title">Iné jazyky</string>
-  <string name="menu_save_changes" fuzzy="true">Uložiť zmeny</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Ukladanie…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Úprava uložená!</string>
+  <string name="menu_save_changes">Uverejniť zmeny</string>
+  <string name="dialog_saving_in_progress">Zverejňuje sa...</string>
+  <string name="edit_saved_successfully">Úprava bola uverejnená!</string>
   <string name="dialog_message_edit_failed">Úprava zlyhala!</string>
   <string name="dialog_message_edit_failed_retry">Znova</string>
   <string name="dialog_message_edit_failed_cancel">Zrušiť</string>
@@ -79,7 +83,7 @@
   <string name="preference_title_logout">Odhlásiť sa</string>
   <string name="toast_logout_complete">Ste odhlásený.</string>
   <string name="history_empty_title">Žiadne nedávno zobrazené články</string>
-  <string name="history_empty_message" fuzzy="true">Vaša história je prázdna.</string>
+  <string name="history_empty_message">Vaša história je prázdna.</string>
   <string name="delete_selected_history">Vymazať</string>
   <string name="delete_selected_items">Vymazať vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -150,7 +154,7 @@
   <string name="user_anon_blocked_from_editing">Vaša IP adresa bola pre úpravy zablokovaná.</string>
   <string name="edit_how_page_improved">Ako ste vylepšili stránku?</string>
   <string name="edit_next">Ďalej</string>
-  <string name="edit_done" fuzzy="true">Uložiť</string>
+  <string name="edit_done">Uverejniť</string>
   <string name="edit_preview">Náhľad</string>
   <string name="edit_summary_tag_typo">Opravený preklep</string>
   <string name="edit_summary_tag_grammar">Oprava pravopisu</string>
@@ -159,8 +163,8 @@
   <string name="edit_summary_tag_other_hint">Iné spôsoby, ako ste zlepšili túto stránku</string>
   <string name="find_next">Nájsť ďalšie</string>
   <string name="find_previous">Nájsť predchádzajúce</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Táto úprava môže byť nekonštruktívna. Naozaj ju chcete uložiť?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Túto úpravu nie je možné uložiť. Vráťte sa prosím späť a zmeňte ju.</string>
+  <string name="abusefilter_title_warn">Táto úprava môže byť nekonštruktívna. Naozaj ju chcete uverejniť?</string>
+  <string name="abusefilter_title_disallow">Túto úpravu nie je možné uverejniť. Vráťte sa ,prosím, späť a zmeňte ju.</string>
   <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>
   <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo ako vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
   <string name="dialog_page_issues">Problémy stránky</string>
@@ -234,6 +238,8 @@
   <string name="enable_location_service">Povoliť</string>
   <string name="error_webview_updating">Android System WebView sa práve aktualizuje. Skúste to, prosím, neskôr.</string>
   <string name="multi_select_items_selected">Vybraných: %d</string>
+  <string name="error_message_generic">Nastala chyba</string>
+  <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_text">Chcete odoslať správu o zlyhaní HockeyApp? Wikimedia tak bude môcť toto zlyhanie preskúmať a opraviť chybu, ktorá toto zlyhanie spôsobila. HockeyApp je poskytovateľ služieb (tretia strana).</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
@@ -258,6 +264,10 @@
   <string name="reading_list_added_to_unnamed">Článok bol pridaný do zoznamu na prečítanie.</string>
   <string name="reading_list_already_exists">Tento článok sa už v zozname na prečítanie nachádza.</string>
   <string name="reading_list_added_view_button">Zobraziť zoznam</string>
+  <string name="format_reading_list_statistical_summary_singular">1 článok, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d článkov, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článkov je dostupný offline, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d z %2$d článkov je dostupných offline, %3$.2f MiB</string>
   <string name="reading_list_sort">Zoradiť</string>
   <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>
   <string name="reading_list_sort_by_name_desc">Zoradiť podľa názvu (v opačnom poradí)</string>
@@ -270,6 +280,7 @@
   <string name="reading_list_name_hint">Názov zoznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinné)</string>
   <string name="reading_list_item_deleted">Článok %s bol odstránený zo zoznamu na prečítanie</string>
+  <string name="reading_list_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="reading_list_item_delete_undo">Vrátiť</string>
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>
   <string name="reading_lists_empty">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
@@ -282,6 +293,7 @@
   <string name="reading_lists_onboarding_got_it">Rozumiem</string>
   <string name="reading_list_no_description">Bez popisu...</string>
   <string name="reading_list_empty">V tomto zozname nemáte žiadne články.</string>
+  <string name="reading_list_remove_from_list">Odstrániť zo zoznamu %s</string>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="notification_button_view_user">Kontaktovať používateľa</string>
   <string name="notification_talk_title">Máte novú správu na Wikipédii</string>
@@ -314,7 +326,7 @@
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
   <string name="description_edit_text_hint">Popis článku</string>
-  <string name="description_edit_save" fuzzy="true">Uložiť</string>
+  <string name="description_edit_save">Uverejniť</string>
   <string name="description_edit_add_description">Pridať popis článku</string>
   <string name="description_edit_edit_description">Upraviť popis</string>
   <string name="description_edit_cancel_hint">Zrušiť</string>
@@ -323,7 +335,7 @@
   <string name="description_edit_help_wikidata_guide">Návod na písanie popisov na Wikiúdajoch</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/sk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved" fuzzy="true">Popis bol uložený!</string>
+  <string name="description_edit_success_saved">Popis bol uverejnený!</string>
   <string name="description_edit_success_encouragement">Wikipédia je vďaka vám lepšia než predtým</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>

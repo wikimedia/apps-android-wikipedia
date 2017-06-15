@@ -120,6 +120,9 @@
   <string name="edit_preview_fetching_dialog_message">Učitavam pregled...</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
   <string name="create_account_account_created_toast">Korisnički račun napravljen!</string>
+  <string name="preferences_heading_storage_and_syncing">Skladištenje i sinhroniziranje</string>
+  <string name="preference_title_sync_reading_lists">Sinhroniziraj spiskove za čitanje</string>
+  <string name="preference_summary_sync_reading_lists">Dozvoli Wikimediji da sinhronizira spiskove za čitanje kad se prijavite</string>
   <string name="preferences_privacy_settings_heading">Privatnost</string>
   <string name="preference_title_eventlogging_opt_in">Šalji izvještaje o korištenju</string>
   <string name="preference_summary_eventlogging_opt_in">Dozvolite Wikimediji da prikupi informacije o tom kako koristite aplikaciju da bismo je poboljšali</string>

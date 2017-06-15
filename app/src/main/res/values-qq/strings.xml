@@ -100,8 +100,8 @@
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
   <string name="create_account_email_error">Used as an error message on creating a user account where the email address the user entered does not appear to be a valid email address.</string>
   <string name="create_account_username_error">Used as an error message on logging in or creating a user account where the username entered does not appear to be valid.</string>
-  <string name="create_account_generic_error">Used as a generic error message during account creation when a more specific error message cannot be given to the user.</string>
   <string name="create_account_password_error">Error shown when the password is not valid.</string>
+  <string name="create_account_generic_error">Used as a generic error message during account creation when a more specific error message cannot be given to the user.</string>
   <string name="create_account_next">Button text on Create Account screen to go \"next\" (to CAPTCHA).\n{{Identical|Next}}</string>
   <string name="create_account_button">Button text on Create Account screen to go start creating the account (may also go to a CAPTCHA screen first).\n{{Identical|Create account}}</string>
   <string name="preferences_general_heading">Preferences general heading.\n{{Identical|General}}</string>
@@ -236,7 +236,7 @@
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
   <string name="button_add_to_reading_list">Button text for adding the current page to a reading list.</string>
   <string name="page_offline_notice_cannot_load_while_offline">Message informing the user that an article cannot be loaded while the app is offline. This message is followed by page_offline_notice_add_to_reading_list.</string>
-  <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be donwloaded when the app is online. This message follows {{msg-wm|Wikipedia-android-strings-page_offline_notice_cannot_load_while_offline}}.</string>
+  <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be downloaded when the app is online. This message follows {{msg-wm|Wikipedia-android-strings-page_offline_notice_cannot_load_while_offline}}.</string>
   <string name="page_offline_notice_last_date">Message that tells the user that the current article is loaded from offline storage. The %s symbol is replaced with the date when the article was saved.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>

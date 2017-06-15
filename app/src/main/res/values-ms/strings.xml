@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Kata laluan tidak sepadan</string>
   <string name="create_account_email_error">Alamat e-mel tidak sah</string>
   <string name="create_account_username_error">Aksara tidak sah dalam nama pengguna</string>
+  <string name="create_account_password_error">Kata laluan tidak sah</string>
   <string name="create_account_generic_error">Akaun tidak dapat dibuka</string>
   <string name="create_account_next">Seterusnya</string>
   <string name="create_account_button">Buka akaun</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat…</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
+  <string name="preferences_heading_storage_and_syncing">Penyimpanan dan penyegerakan</string>
+  <string name="preference_title_sync_reading_lists">Menyegerakkan senarai bacaan</string>
+  <string name="preference_summary_sync_reading_lists">Benarkan Wikimedia untuk menyegerakkan senarai bacaan anda apabila anda log masuk</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>

@@ -86,6 +86,7 @@
   <string name="toast_logout_complete">Сеанс был завершён</string>
   <string name="history_empty_title">Нет недавно просмотренных статей</string>
   <string name="history_empty_message">Отслеживайте то, что вы уже читали здесь.</string>
+  <string name="search_empty_message">Ищите и читайте свободную энциклопедию на своём языке</string>
   <string name="delete_selected_history">Удалить</string>
   <string name="delete_selected_items">Удалить выбранные элементы</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
@@ -99,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Пароли не совпадают</string>
   <string name="create_account_email_error">Недопустимый адрес электронной почты</string>
   <string name="create_account_username_error">Недопустимые символы в имени участника</string>
+  <string name="create_account_password_error">Некорректный пароль</string>
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
   <string name="create_account_next">Далее</string>
   <string name="create_account_button">Создать учётную запись</string>
@@ -119,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">Получение предварительного просмотра…</string>
   <string name="send_feedback">Отправить отзыв о приложении</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
+  <string name="preferences_heading_storage_and_syncing">Хранилище и синхронизация</string>
+  <string name="preference_title_sync_reading_lists">Синхронизировать список для чтения</string>
+  <string name="preference_summary_sync_reading_lists">Разрешить Викимедиа синхронизировать ваш список для чтения при авторизации</string>
   <string name="preferences_privacy_settings_heading">Конфиденциальность</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
@@ -274,6 +279,9 @@
   <string name="reading_list_already_exists">Эта статья уже находится в данном списке.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
   <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МиБ</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d статей, %2$.2f МиБ</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d из 1 статьи доступно оффлайн, %2$.2f МиБ</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d из %2$d статей доступно оффлайн, %3$.2f МиБ</string>
   <string name="reading_list_sort">Сортировать</string>
   <string name="reading_list_sort_by_name">Сортировка по названию</string>
   <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>

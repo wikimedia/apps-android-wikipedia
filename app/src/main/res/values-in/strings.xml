@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Kata sandi tidak cocok</string>
   <string name="create_account_email_error">Alamat surel tidak sah</string>
   <string name="create_account_username_error">Karakter tidak sah dalam nama pengguna</string>
+  <string name="create_account_password_error">Kata sandi tidak sah</string>
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_next">Selanjutnya</string>
   <string name="create_account_button">Buat akun baru</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">Mengambil pratayang…</string>
   <string name="send_feedback">Kirim umpan balik aplikasi</string>
   <string name="create_account_account_created_toast">Akun dibuat!</string>
+  <string name="preferences_heading_storage_and_syncing">Penyimpanan dan sinkronisasi</string>
+  <string name="preference_title_sync_reading_lists">Sinkronkan daftar bacaan</string>
+  <string name="preference_summary_sync_reading_lists">Izinkan Wikimedia menyinkronkan daftar bacaan Anda saat Anda masuk log</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>

@@ -47,7 +47,7 @@
   <string name="langlinks_activity_title">Іншыя мовы</string>
   <string name="menu_save_changes">Апублікаваць зьмены</string>
   <string name="dialog_saving_in_progress">Публікацыя…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Рэдагаваньне захаванае!</string>
+  <string name="edit_saved_successfully">Рэдагаваньне апублікаванае!</string>
   <string name="dialog_message_edit_failed">Памылка рэдагаваньня!</string>
   <string name="dialog_message_edit_failed_retry">Паўтарыць</string>
   <string name="dialog_message_edit_failed_cancel">Скасаваць</string>
@@ -70,8 +70,8 @@
   <string name="login_success_toast">Пасьпяховы ўваход у сыстэму!</string>
   <string name="preference_title_logout">Выйсьці</string>
   <string name="toast_logout_complete">Вы выйшлі з сыстэмы</string>
-  <string name="history_empty_title" fuzzy="true">Тут няма прагледжаных старонак!</string>
-  <string name="history_empty_message" fuzzy="true">Верагодна Вы выдалілі іх усе. Наступным разам, калі наведаеце старонку, Вы зможаце вярнуцца на яе проста адсюль.</string>
+  <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
+  <string name="history_empty_message">Сачыце тут за тым, што вы ўжо чыталі.</string>
   <string name="delete_selected_history">Выдаліць</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЭДЫ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Імя ўдзельніка</string>
@@ -88,7 +88,7 @@
   <string name="create_account_button">Стварыць рахунак</string>
   <string name="preferences_general_heading">Агульныя</string>
   <string name="wikipedia_app_faq">Частыя пытаньні па дастасаваньню Вікіпэдыя</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Вікіпэдыя Zero адключаная</string>
+  <string name="zero_charged_verbiage">Бясплатны доступ да Вікіпэдыі цяпер адключаны.</string>
   <string name="zero_warn_when_leaving">Папярэджваць, калі пакідаеце Вікіпэдыя Zero</string>
   <string name="zero_warn_when_leaving_summary">Калі Ваш мабільны апэратар не бяря аплату за доступ да дастасаваньня Вікіпэдыі праз партнёрства  Вікіпэдыя Zero, уключэньне гтага парамэтра дапаможа Вам даведвацца, калі Вы пакідаеце дастасаваньне Вікіпэдыя, і можа пачацца аплата за трафік.</string>
   <string name="zero_webpage_title">Частыя пытаньні па Вікіпэдыя Zero</string>
