@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="LinearLayout"
+    tools:layout_width="match_parent"
+    tools:layout_height="wrap_content"
+    tools:orientation="vertical">
+
+    <TextView
+        android:id="@+id/view_onboarding_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/RtlAwareTextView"
+        android:textColor="@android:color/white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:lineSpacingMultiplier="1.21"
+        tools:text="Lorem ipsum"/>
+
+    <TextView
+        android:id="@+id/view_onboarding_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/RtlAwareTextView"
+        android:textColor="@android:color/white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="14sp"
+        android:lineSpacingMultiplier="1.21"
+        tools:text="Lorem ipsum"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/view_onboarding_action_negative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textColor="@android:color/white"
+            android:text="@string/view_announcement_card_negative_action"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/view_onboarding_action_positive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            app:backgroundTint="@android:color/white"
+            android:textColor="@color/accent50"
+            tools:text="Lorem ipsum"/>
+    </LinearLayout>
+
+</merge>
