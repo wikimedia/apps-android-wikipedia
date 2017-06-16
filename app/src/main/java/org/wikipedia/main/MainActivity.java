@@ -2,19 +2,35 @@ package org.wikipedia.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.view.ActionMode;
 import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentToolbarActivity;
 import org.wikipedia.navtab.NavTab;
+import org.wikipedia.onboarding.InitialOnboardingActivity;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ReleaseUtil;
 
 public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         implements MainFragment.Callback {
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, MainActivity.class);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //TODO: remove pre-beta feature flag when ready.
+        if (ReleaseUtil.isPreBetaRelease()
+                && Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
+            startActivity(InitialOnboardingActivity.newIntent(this));
+        }
     }
 
     @Override protected MainFragment createFragment() {

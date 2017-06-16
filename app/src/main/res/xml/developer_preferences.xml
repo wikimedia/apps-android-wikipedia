@@ -146,6 +146,10 @@
     <PreferenceCategory android:title="@string/preferences_developer_onboarding_heading">
 
         <SwitchPreferenceCompat
+            android:key="@string/preference_key_initial_onboarding_enabled"
+            android:title="@string/preference_key_initial_onboarding_enabled" />
+
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_description_edit_tutorial_enabled"
             android:title="@string/preference_key_description_edit_tutorial_enabled" />
 

@@ -454,6 +454,15 @@
 
     <!-- Onboarding -->
     <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_continue">Continue</string>
+    <string name="onboarding_get_started">Get started</string>
+    <string name="onboarding_explore_title">New ways to explore</string>
+    <string name="onboarding_explore_text">Discover featured articles, trending topics, and reading suggestions on the Explore feed.</string>
+    <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
+    <string name="onboarding_reading_list_sync_text"><![CDATA[Create reading lists from articles you want to read later, even when you\'re offline. <a href="#login">Log in or create</a> your Wikipedia account to keep your reading lists backed up.]]></string>
+    <string name="onboarding_analytics_title">Send anonymous data</string>
+    <string name="onboarding_analytics_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
+    <string name="onboarding_analytics_switch_title">Send usage data</string>
     <!-- /Onboarding -->
 
 </resources>

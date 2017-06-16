@@ -400,4 +400,13 @@
   <string name="preference_title_color_theme">Title for a preference allowing the user to turn on the dark theme</string>
   <string name="preference_summary_color_theme">Description for a preference allowing the user to turn on the dark theme</string>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.</string>
+  <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.</string>
+  <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.</string>
+  <string name="onboarding_explore_title">Title for a tutorial screen about the Explore feed.</string>
+  <string name="onboarding_explore_text">Short explanatory text about the benefits of the Explore feed.</string>
+  <string name="onboarding_reading_list_sync_title">Title for a tutorial screen about synchronizing reading lists.</string>
+  <string name="onboarding_reading_list_sync_text">Short explanatory text about the benefits of synchronizing reading lists. (Please preserve the anchor tag in its exact form)</string>
+  <string name="onboarding_analytics_title">Title for a tutorial screen about anonymous usage reports sent by the app.</string>
+  <string name="onboarding_analytics_text">Short explanatory text about the benefits of allowing the app to send anonymous usage reports. (Please preserve the anchor tag in its exact form)</string>
+  <string name="onboarding_analytics_switch_title">Label for an on-off switch that enables sending anonymous usage reports.</string>
 </resources>

@@ -180,6 +180,10 @@
         <activity android:name=".readinglist.ReadingListActivity"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".onboarding.InitialOnboardingActivity"
+            android:theme="@style/AppTheme"/>
+
         <provider
                 android:authorities="${applicationId}"
                 android:name=".database.AppContentProvider"

@@ -286,6 +286,10 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_eventlogging_opt_in, true);
     }
 
+    public static void setEventLoggingEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_eventlogging_opt_in, enabled);
+    }
+
     public static boolean useRestBaseSetManually() {
         return getBoolean(R.string.preference_key_use_restbase_manual, false);
     }
@@ -514,6 +518,14 @@ public final class Prefs {
 
     public static void setReadingListsRemoteDeletePending(boolean pending) {
         setBoolean(R.string.preference_key_reading_lists_remote_delete_pending, pending);
+    }
+
+    public static boolean isInitialOnboardingEnabled() {
+        return getBoolean(R.string.preference_key_initial_onboarding_enabled, true);
+    }
+
+    public static void setInitialOnboardingEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_initial_onboarding_enabled, enabled);
     }
 
     private Prefs() { }

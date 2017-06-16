@@ -19,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.page.LinkMovementMethodExt;
+import org.wikipedia.util.StringUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +32,7 @@ public class OnboardingPageView extends LinearLayout {
         void onButtonClick(@NonNull OnboardingPageView view);
         void onSkipClick(@NonNull OnboardingPageView view);
         void onSwitchChange(@NonNull OnboardingPageView view, boolean checked);
+        void onLinkClick(@NonNull OnboardingPageView view, @NonNull String url);
     }
 
     public static class DefaultCallback implements Callback {
@@ -41,6 +44,9 @@ public class OnboardingPageView extends LinearLayout {
 
         @Override
         public void onSwitchChange(@NonNull OnboardingPageView view, boolean checked) { }
+
+        @Override
+        public void onLinkClick(@NonNull OnboardingPageView view, @NonNull String url) { }
     }
 
     @BindView(R.id.view_onboarding_page_image_protrude) ImageView imageViewProtrude;
@@ -77,6 +83,10 @@ public class OnboardingPageView extends LinearLayout {
 
     public void setCallback(@Nullable Callback callback) {
         this.callback = callback;
+    }
+
+    public void setSwitchChecked(boolean checked) {
+        switchView.setChecked(checked);
     }
 
     @OnClick(R.id.view_onboarding_page_button) public void onButtonClick() {
@@ -116,12 +126,22 @@ public class OnboardingPageView extends LinearLayout {
             imageViewProtrude.setImageDrawable(protrudeImage);
             imageViewCentered.setImageDrawable(centeredImage);
             primaryTextView.setText(primaryText);
-            secondaryTextView.setText(secondaryText);
+            secondaryTextView.setText(StringUtil.fromHtml(secondaryText));
             tertiaryTextView.setText(tertiaryText);
             button.setText(buttonText);
 
             switchContainer.setVisibility(TextUtils.isEmpty(switchText) ? GONE : VISIBLE);
             switchView.setText(switchText);
+
+            secondaryTextView.setMovementMethod(new LinkMovementMethodExt(
+                    new LinkMovementMethodExt.UrlHandler() {
+                        @Override
+                        public void onUrlClick(@NonNull String url, @Nullable String notUsed) {
+                            if (callback != null) {
+                                callback.onLinkClick(OnboardingPageView.this, url);
+                            }
+                        }
+                    }));
 
             array.recycle();
         }
