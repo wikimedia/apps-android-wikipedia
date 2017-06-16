@@ -43,13 +43,15 @@
 
             <TextView
                 android:id="@+id/share_as_image_button"
-                style="@style/ButtonBlueOnWhite"
+                style="@style/App.Button.Blue"
+                android:layout_margin="0dp"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/share_snippet_button" />
 
             <TextView
                 android:id="@+id/share_as_text_button"
-                style="@style/ButtonBlueOnWhite"
+                style="@style/App.Button.Blue"
+                android:layout_margin="0dp"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/share_normal_button" />
 

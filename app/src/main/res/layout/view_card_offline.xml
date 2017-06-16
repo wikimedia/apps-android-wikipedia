@@ -24,14 +24,7 @@
 
     <TextView
         android:id="@+id/view_card_offline_button_retry"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/App.Button.White"
         android:layout_margin="8dp"
-        android:background="@android:color/white"
-        android:text="@string/page_error_retry"
-        android:minHeight="36dp"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/view_wiki_error_text_color"/>
+        android:text="@string/page_error_retry"/>
 </LinearLayout>

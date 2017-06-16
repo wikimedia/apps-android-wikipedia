@@ -34,21 +34,19 @@
         android:layout_gravity="end"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
+
         <TextView
             android:id="@+id/view_announcement_action_negative"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="?attr/feed_text_tertiary_color"
-            android:text="@string/view_announcement_card_negative_action"/>
+            android:text="@string/view_announcement_card_negative_action"
+            android:textColor="?attr/feed_text_tertiary_color" />
 
         <TextView
             android:id="@+id/view_announcement_action_positive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="@style/App.Button.Blue"
             android:textColor="@android:color/white"
             tools:text="Lorem ipsum"/>
     </LinearLayout>

@@ -43,22 +43,19 @@
         android:layout_marginBottom="8dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp">
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/view_onboarding_action_negative"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@android:color/white"
-            android:text="@string/view_announcement_card_negative_action"/>
 
-        <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/view_onboarding_action_positive"
+        <TextView
+            android:id="@+id/view_onboarding_action_negative"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            style="@style/Widget.AppCompat.Button.Colored"
-            app:backgroundTint="@android:color/white"
+            android:text="@string/view_announcement_card_negative_action"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/view_onboarding_action_positive"
+            style="@style/App.Button.White"
             android:textColor="@color/accent50"
             tools:text="Lorem ipsum"/>
     </LinearLayout>

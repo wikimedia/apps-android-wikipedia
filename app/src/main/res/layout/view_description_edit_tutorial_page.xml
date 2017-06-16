@@ -2,7 +2,8 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="org.wikipedia.descriptions.DescriptionEditTutorialPageView"
+    tools:parentTag="LinearLayout"
+    tools:orientation="vertical"
     tools:layout_width="match_parent"
     tools:layout_height="match_parent">
 
@@ -36,7 +37,8 @@
                 android:layout_margin="6dp"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
-                android:fontFamily="sans-serif-medium" />
+                android:fontFamily="sans-serif-medium"
+                tools:text="Lorem ipsum" />
 
             <!-- todo: decide on a policy for handling unique color values -->
             <org.wikipedia.views.AppTextView
@@ -50,23 +52,15 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#8a000000"
-                android:lineSpacingMultiplier="1.22" />
+                android:lineSpacingMultiplier="1.22"
+                tools:text="Lorem ipsum" />
 
         </LinearLayout>
 
         <org.wikipedia.views.AppTextView
             android:id="@+id/view_description_edit_tutorial_page_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="36dp"
-            android:fontFamily="sans-serif-medium"
-            android:textAlignment="center"
-            android:layout_margin="0dp"
-            android:paddingLeft="17dp"
-            android:paddingRight="17dp"
-            android:textSize="14sp"
-            android:textAllCaps="true"
-            style="@style/ButtonBlue" />
+            tools:text="Lorem ipsum"
+            style="@style/App.Button.Blue" />
 
         <org.wikipedia.views.GoneIfEmptyTextView
             android:id="@+id/view_description_edit_tutorial_page_tertiary_text"

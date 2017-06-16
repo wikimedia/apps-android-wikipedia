@@ -7,6 +7,7 @@
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
+        <item name="android:buttonStyle">@style/App.Button</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
     </style>
 
@@ -94,44 +95,32 @@
         <item name="android:clickable">true</item>
     </style>
 
-    <!-- todo: rename App.Button -->
-    <style name="ButtonProgressive" parent="@style/Widget.AppCompat.Button">
-        <item name="android:textAllCaps">false</item>
-        <item name="android:layout_width">match_parent</item>
+    <style name="App.Button" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">16dp</item>
-        <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
-        <item name="android:paddingLeft">8dp</item>
-        <item name="android:paddingRight">8dp</item>
-        <item name="android:background">@drawable/button_selector_green_progressive</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="backgroundTint">@color/color_state_green</item>
         <item name="android:textColor">@android:color/white</item>
-
-        <!-- todo: move to a App.Button.Large -->
-        <item name="android:textSize">22sp</item>
     </style>
 
-    <style name="ButtonSecondary" parent="ButtonProgressive">
-        <item name="android:background">@drawable/button_selector_white</item>
-        <item name="android:textColor">@color/dark_green</item>
+    <style name="App.Button.Blue">
+        <item name="backgroundTint">@color/color_state_blue</item>
     </style>
 
-    <style name="ButtonBlueOnWhite" parent="ButtonProgressive">
-        <item name="android:background">@drawable/button_selector_white</item>
-        <item name="android:textColor">@color/dark_blue</item>
-        <item name="android:layout_marginTop">0dp</item>
+    <style name="App.Button.Gray">
+        <item name="backgroundTint">@color/color_state_gray</item>
     </style>
 
-    <style name="ButtonGray" parent="ButtonProgressive">
-        <item name="android:background">@drawable/button_selector_gray</item>
-    </style>
-
-    <style name="ButtonBlue" parent="ButtonProgressive">
-        <item name="android:background">@drawable/button_selector_blue</item>
+    <style name="App.Button.White">
+        <item name="backgroundTint">@color/color_state_white</item>
+        <item name="android:textColor">@color/base30</item>
     </style>
 
     <style name="TextHeadingGray" parent="@android:style/TextAppearance.Medium">
