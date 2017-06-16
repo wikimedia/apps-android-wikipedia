@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     android:background="@color/darkest_gray">
 
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/view_gallery_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@color/base80"
+        android:visibility="gone"/>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/gallery_item_pager"
         android:layout_width="match_parent"
@@ -83,13 +92,4 @@
                 android:maxLines="2"/>
         </LinearLayout>
     </LinearLayout>
-
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/view_gallery_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:background="@color/base80"
-        android:visibility="gone"/>
 </FrameLayout>
