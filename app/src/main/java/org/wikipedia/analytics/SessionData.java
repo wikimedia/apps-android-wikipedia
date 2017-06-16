@@ -19,6 +19,7 @@ public class SessionData {
     private int pagesFromNearby;
     private int pagesFromDisambig;
     private int pagesFromBack;
+    private int pagesWithNoDescription;
 
     public void addPageViewed(HistoryEntry entry) {
         switch (entry.getSource()) {
@@ -130,8 +131,16 @@ public class SessionData {
         return pagesFromBack;
     }
 
+    public int getPagesWithNoDescription() {
+        return pagesWithNoDescription;
+    }
+
     public void addPageFromBack() {
         this.pagesFromBack++;
+    }
+
+    public void addPageWithNoDescription() {
+        this.pagesWithNoDescription++;
     }
 
     public int getTotalPages() {

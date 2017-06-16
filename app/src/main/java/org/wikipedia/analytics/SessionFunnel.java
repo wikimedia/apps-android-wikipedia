@@ -19,7 +19,7 @@ public class SessionFunnel extends Funnel {
     public static final int MIN_SESSION_TIMEOUT = 1;
 
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
-    private static final int REVISION = 15522505;
+    private static final int REVISION = 16885702;
 
     private SessionData sessionData;
     private long leadSectionStartTime;
@@ -73,6 +73,11 @@ public class SessionFunnel extends Funnel {
         sessionData.addPageFromBack();
     }
 
+    public void noDescription() {
+        touchSession();
+        sessionData.addPageWithNoDescription();
+    }
+
     public void leadSectionFetchStart() {
         leadSectionStartTime = System.currentTimeMillis();
     }
@@ -108,6 +113,7 @@ public class SessionFunnel extends Funnel {
                 "fromNearby", sessionData.getPagesFromNearby(),
                 "fromDisambig", sessionData.getPagesFromDisambig(),
                 "fromBack", sessionData.getPagesFromBack(),
+                "noDescription", sessionData.getPagesWithNoDescription(),
                 "totalPages", sessionData.getTotalPages(),
                 "leadLatency", sessionData.getLeadLatency(),
                 "restLatency", sessionData.getRestLatency(),
