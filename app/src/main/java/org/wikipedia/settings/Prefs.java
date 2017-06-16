@@ -488,6 +488,10 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_sync_reading_lists, true);
     }
 
+    public static void setReadingListSyncEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_sync_reading_lists, enabled);
+    }
+
     public static boolean isReadingListSyncReminderEnabled() {
         return getBoolean(R.string.preference_key_reading_list_sync_reminder_enabled, true);
     }
@@ -502,6 +506,14 @@ public final class Prefs {
 
     public static void setReadingListLoginReminderEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_reading_list_login_reminder_enabled, enabled);
+    }
+
+    public static boolean isReadingListsRemoteDeletePending() {
+        return getBoolean(R.string.preference_key_reading_lists_remote_delete_pending, false);
+    }
+
+    public static void setReadingListsRemoteDeletePending(boolean pending) {
+        setBoolean(R.string.preference_key_reading_lists_remote_delete_pending, pending);
     }
 
     private Prefs() { }

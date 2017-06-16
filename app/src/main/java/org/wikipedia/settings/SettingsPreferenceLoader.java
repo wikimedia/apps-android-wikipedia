@@ -3,12 +3,15 @@ package org.wikipedia.settings;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
+import android.support.v7.preference.SwitchPreferenceCompat;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.util.ReleaseUtil;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -34,16 +37,11 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
             loadPreferences(R.xml.preferences_zero);
 
             findPreference(R.string.preference_key_zero_interstitial)
-                    .setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    if (newValue == Boolean.FALSE) {
-                        WikipediaApp.getInstance().getWikipediaZeroHandler().getZeroFunnel().logExtLinkAlways();
-                    }
-                    return true;
-                }
-            });
+                    .setOnPreferenceChangeListener(showZeroInterstitialListener);
         }
+
+        findPreference(R.string.preference_key_sync_reading_lists)
+                .setOnPreferenceChangeListener(syncReadingListsListener);
 
         loadPreferences(R.xml.preferences_about);
 
@@ -100,5 +98,67 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
     private void updateLanguagePrefSummary() {
         Preference languagePref = findPreference(R.string.preference_key_language);
         languagePref.setSummary(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
+    }
+
+    private Preference.OnPreferenceChangeListener showZeroInterstitialListener
+            = new Preference.OnPreferenceChangeListener() {
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object newValue) {
+            if (newValue == Boolean.FALSE) {
+                WikipediaApp.getInstance().getWikipediaZeroHandler().getZeroFunnel().logExtLinkAlways();
+            }
+            return true;
+        }
+    };
+
+    private Preference.OnPreferenceChangeListener syncReadingListsListener
+            = new Preference.OnPreferenceChangeListener() {
+        @Override public boolean onPreferenceChange(final Preference preference, Object newValue) {
+            final ReadingListSynchronizer synchronizer = ReadingListSynchronizer.instance();
+            if (newValue == Boolean.TRUE) {
+                ((SwitchPreferenceCompat) preference).setChecked(true);
+                Prefs.setReadingListSyncEnabled(true);
+                synchronizer.sync();
+            } else {
+                new AlertDialog.Builder(getActivity())
+                        .setMessage(R.string.reading_lists_confirm_remote_delete)
+                        .setPositiveButton(R.string.yes, new DeleteRemoteListsYesListener(preference, synchronizer))
+                        .setNegativeButton(R.string.no, new DeleteRemoteListsNoListener(preference))
+                        .show();
+            }
+            // clicks are handled and preferences updated accordingly; don't pass the result through
+            return false;
+        }
+    };
+
+    private final class DeleteRemoteListsYesListener implements DialogInterface.OnClickListener {
+        private Preference preference;
+        private ReadingListSynchronizer synchronizer;
+
+        private DeleteRemoteListsYesListener(Preference preference, ReadingListSynchronizer synchronizer) {
+            this.preference = preference;
+            this.synchronizer = synchronizer;
+        }
+
+        @Override public void onClick(DialogInterface dialog, int which) {
+            ((SwitchPreferenceCompat) preference).setChecked(false);
+            Prefs.setReadingListSyncEnabled(false);
+            Prefs.setReadingListsRemoteDeletePending(true);
+            synchronizer.sync();
+        }
+    }
+
+    private final class DeleteRemoteListsNoListener implements DialogInterface.OnClickListener {
+        private Preference preference;
+
+        private DeleteRemoteListsNoListener(Preference preference) {
+            this.preference = preference;
+        }
+
+        @Override public void onClick(DialogInterface dialog, int which) {
+            ((SwitchPreferenceCompat) preference).setChecked(true);
+            Prefs.setReadingListSyncEnabled(true);
+            Prefs.setReadingListsRemoteDeletePending(false);
+        }
     }
 }

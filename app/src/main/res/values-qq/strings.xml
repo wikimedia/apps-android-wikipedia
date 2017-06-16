@@ -323,6 +323,7 @@
   <string name="reading_list_sync_reminder_action">Button text for turning on synchronizing of reading lists.</string>
   <string name="reading_list_login_reminder_title">Title for a tutorial card that reminds the user that logging in will enable syncing of reading lists.</string>
   <string name="reading_list_login_reminder_text">Text for a tutorial card that reminds the user that logging in will enable syncing of reading lists.</string>
+  <string name="reading_lists_confirm_remote_delete">Warning message shown to a user to confirm that remotely stored reading list data used for syncing across devices should be deleted.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
   <string name="notification_talk_title">Title for notification when the user receives a new message on their Talk page.</string>

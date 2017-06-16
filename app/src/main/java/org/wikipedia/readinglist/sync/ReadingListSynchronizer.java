@@ -32,6 +32,7 @@ import java.util.concurrent.TimeUnit;
 import static org.wikipedia.readinglist.sync.RemoteReadingLists.RemoteReadingList;
 import static org.wikipedia.readinglist.sync.RemoteReadingLists.RemoteReadingListPage;
 import static org.wikipedia.settings.Prefs.isReadingListSyncEnabled;
+import static org.wikipedia.settings.Prefs.isReadingListsRemoteDeletePending;
 
 public class ReadingListSynchronizer {
     private static final String READING_LISTS_SYNC_OPTION = "userjs-reading-lists-v1";
@@ -54,14 +55,11 @@ public class ReadingListSynchronizer {
     }
 
     public void sync() {
-        // TODO: remove when ready for beta/production
-        if (!ReleaseUtil.isPreBetaRelease()) {
+        if (!ReleaseUtil.isPreBetaRelease()  // TODO: remove when ready for beta/production
+                || !User.isLoggedIn()
+                || !(isReadingListSyncEnabled() || isReadingListsRemoteDeletePending())) {
             syncSavedPages();
-            return;
-        }
-        if (!User.isLoggedIn() || !isReadingListSyncEnabled()) {
-            L.d("Skipping sync of reading lists.");
-            syncSavedPages();
+            L.d("Skipped sync of reading lists.");
             return;
         }
         CallbackTask.execute(new CallbackTask.Task<Void>() {
@@ -97,6 +95,9 @@ public class ReadingListSynchronizer {
                             WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
                         } else {
                             L.d("Local and remote reading lists are in sync.");
+                            if (isReadingListsRemoteDeletePending()) {
+                                deleteRemoteReadingLists();
+                            }
                         }
                     }
                     syncSavedPages();
@@ -111,6 +112,22 @@ public class ReadingListSynchronizer {
 
     public void syncSavedPages() {
         WikipediaApp.getInstance().startService(new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
+    }
+
+    private void deleteRemoteReadingLists() {
+        CallbackTask.execute(new CallbackTask.Task<Void>() {
+            @Override public Void execute() throws Throwable {
+                UserOptionDataClientSingleton.instance().post(new UserOption(READING_LISTS_SYNC_OPTION, null));
+                return null;
+            }
+        }, new CallbackTask.Callback<Void>() {
+            @Override public void success(Void result) {
+                Prefs.setReadingListsRemoteDeletePending(false);
+            }
+            @Override public void failure(Throwable caught) {
+                L.e("Failed to delete remote reading lists", caught);
+            }
+        });
     }
 
     private class SyncRunnable implements Runnable {
