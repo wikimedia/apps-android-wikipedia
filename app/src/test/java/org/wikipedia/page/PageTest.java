@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.server.BasePageLeadTest;
+import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.test.TestRunner;
 
 import java.util.ArrayList;

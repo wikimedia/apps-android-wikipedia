@@ -3,6 +3,7 @@ package org.wikipedia.dataclient.page;
 import android.support.annotation.NonNull;
 
 import org.junit.Test;
+import org.wikipedia.Constants;
 import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
 import org.wikipedia.test.MockWebServerTest;
 
@@ -83,4 +84,8 @@ public abstract class BasePageClientTest extends MockWebServerTest {
     }
 
     @NonNull protected abstract PageClient subject();
+
+    protected String preferredThumbSizeString() {
+        return Integer.toString(Constants.PREFERRED_THUMB_SIZE) + "px";
+    }
 }
