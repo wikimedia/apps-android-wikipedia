@@ -30,10 +30,10 @@ public class MwPageClient implements PageClient {
     @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
                                                             @NonNull CacheOption cacheOption,
                                                             @NonNull String title,
-                                                            int leadThumbnailWidth,
+                                                            int leadImageWidth,
                                                             boolean noImages) {
         return service.lead(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title, leadThumbnailWidth, optional(noImages));
+                optional(cacheOption.save()), title, leadImageWidth, optional(noImages));
     }
 
     @SuppressWarnings("unchecked")

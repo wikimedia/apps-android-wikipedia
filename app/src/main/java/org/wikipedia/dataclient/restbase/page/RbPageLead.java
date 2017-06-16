@@ -26,6 +26,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.Constants.PREFERRED_THUMB_SIZE;
 
 /**
  * Gson POJO for loading the first stage of page content.
@@ -174,14 +175,20 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     @Override
     @Nullable
-    public String getLeadImageUrl(int leadThumbnailWidth) {
-        return image != null ? image.getUrl(leadThumbnailWidth) : null;
+    public String getLeadImageUrl(int leadImageWidth) {
+        return image != null ? image.getUrl(leadImageWidth) : null;
     }
 
     @Override
     @Nullable
-    public String getLeadImageName() {
-        return image != null ? image.getFile() : null;
+    public String getThumbUrl() {
+        return image != null ? image.getUrl(PREFERRED_THUMB_SIZE) : null;
+    }
+
+    @Override
+    @Nullable
+    public String getLeadImageFileName() {
+        return image != null ? image.getFileName() : null;
     }
 
     @Override
@@ -239,16 +246,16 @@ public class RbPageLead implements PageLead, PageLeadProperties {
      * For the lead image File: page name
      */
     public static class Image {
-        @SuppressWarnings("unused") private String file;
+        @SuppressWarnings("unused") @SerializedName("file") private String fileName;
         @SuppressWarnings("unused") private ThumbUrls urls;
 
-        public String getFile() {
-            return file;
+        public String getFileName() {
+            return fileName;
         }
 
         @Nullable
-        public String getUrl(int leadImageThumbWidth) {
-            return urls != null ? urls.get(leadImageThumbWidth) : null;
+        public String getUrl(int width) {
+            return urls != null ? urls.get(width) : null;
         }
     }
 
@@ -256,22 +263,26 @@ public class RbPageLead implements PageLead, PageLeadProperties {
      * For the lead image URLs
      */
     public static class ThumbUrls {
-        private static final int SMALL = 640;
-        private static final int MEDIUM = 800;
-        private static final int LARGE = 1024;
-        @SuppressWarnings("unused") @SerializedName("640") private String small;
-        @SuppressWarnings("unused") @SerializedName("800") private String medium;
-        @SuppressWarnings("unused") @SerializedName("1024") private String large;
+        private static final int SMALL = 320;
+        private static final int MEDIUM = 640;
+        private static final int LARGE = 800;
+        private static final int XL = 1024;
+        @SuppressWarnings("unused") @SerializedName("320") private String small;
+        @SuppressWarnings("unused") @SerializedName("640") private String medium;
+        @SuppressWarnings("unused") @SerializedName("800") private String large;
+        @SuppressWarnings("unused") @SerializedName("1024") private String xl;
 
         @Nullable
-        public String get(int leadImageThumbWidth) {
-            switch (leadImageThumbWidth) {
+        public String get(int width) {
+            switch (width) {
                 case SMALL:
                     return small;
                 case MEDIUM:
                     return medium;
                 case LARGE:
                     return large;
+                case XL:
+                    return xl;
                 default:
                     return null;
             }

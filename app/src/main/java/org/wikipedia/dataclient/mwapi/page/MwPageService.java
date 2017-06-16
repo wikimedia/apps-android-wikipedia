@@ -45,7 +45,7 @@ public interface MwPageService {
      * Gets the lead section and initial metadata of a given title.
      *
      * @param title the page title with prefix if necessary
-     * @param leadThumbnailWidth one of the bucket widths for the lead image
+     * @param leadImageWidth one of the bucket widths for the lead image
      * @param noImages add the noimages flag to the request if true
      */
     @Headers("x-analytics: pageview=1")
@@ -57,7 +57,7 @@ public interface MwPageService {
     @NonNull Call<MwMobileViewPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
                                              @Header(SaveHeader.FIELD) Boolean save,
                                              @NonNull @Query("page") String title,
-                                             @Query("thumbwidth") int leadThumbnailWidth,
+                                             @Query("thumbwidth") int leadImageWidth,
                                              @Nullable @Query("noimages") Boolean noImages);
 
     /**

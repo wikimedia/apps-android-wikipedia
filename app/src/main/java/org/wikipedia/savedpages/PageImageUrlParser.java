@@ -51,16 +51,20 @@ public class PageImageUrlParser {
         return Collections.emptyList();
     }
 
-    @VisibleForTesting @NonNull List<String> parse(@NonNull PageLead lead, int leadThumbnailWidth) {
+    @VisibleForTesting @NonNull List<String> parse(@NonNull PageLead lead, int leadImageWidth) {
         List<String> urls = new ArrayList<>();
 
         if (lead.getTitlePronunciationUrl() != null) {
             urls.add(lead.getTitlePronunciationUrl());
         }
 
-        String leadImageUrl = lead.getLeadImageUrl(leadThumbnailWidth);
+        String leadImageUrl = lead.getLeadImageUrl(leadImageWidth);
+        String thumbUrl = lead.getThumbUrl();
         if (leadImageUrl != null) {
             urls.add(leadImageUrl);
+        }
+        if (thumbUrl != null) {
+            urls.add(thumbUrl);
         }
 
         String html = toHtml(lead);
