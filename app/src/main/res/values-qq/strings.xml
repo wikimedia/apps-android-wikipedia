@@ -399,4 +399,5 @@
   <string name="description_edit_revert_history">Message that allows the user to go to the edit history associated with the article. (Please preserve the anchor tag in its exact form)</string>
   <string name="preference_title_color_theme">Title for a preference allowing the user to turn on the dark theme</string>
   <string name="preference_summary_color_theme">Description for a preference allowing the user to turn on the dark theme</string>
+  <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.</string>
 </resources>

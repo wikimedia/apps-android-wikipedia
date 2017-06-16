@@ -175,7 +175,7 @@
 
         <activity
             android:name=".descriptions.DescriptionEditTutorialActivity"
-            android:theme="@style/PageTheme"/>
+            android:theme="@style/AppTheme"/>
 
         <activity android:name=".readinglist.ReadingListActivity"
             android:theme="@style/AppTheme" />

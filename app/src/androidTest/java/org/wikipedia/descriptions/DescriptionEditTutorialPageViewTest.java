@@ -9,6 +9,7 @@ import com.rd.PageIndicatorView;
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
 import org.wikipedia.R;
+import org.wikipedia.onboarding.OnboardingPageView;
 import org.wikipedia.test.theories.TestedOnBool;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
@@ -21,7 +22,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class DescriptionEditTutorialPageViewTest extends ViewTest {
-    private DescriptionEditTutorialPageView subject;
+    private OnboardingPageView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_XL, WIDTH_DP_L}) int widthDp, @NonNull FontScale fontScale) {
         for (DescriptionEditTutorialPage page : DescriptionEditTutorialPage.values()) {
@@ -55,8 +56,8 @@ public class DescriptionEditTutorialPageViewTest extends ViewTest {
     @Theory public void testSetCallback(@TestedOnBool boolean nul) {
         for (DescriptionEditTutorialPage page : DescriptionEditTutorialPage.values()) {
             setUp(page, WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT);
-            subject = new DescriptionEditTutorialPageView(ctx());
-            DescriptionEditTutorialPageView.Callback callback = nul ? null : mock(DescriptionEditTutorialPageView.Callback.class);
+            subject = new OnboardingPageView(ctx());
+            OnboardingPageView.Callback callback = nul ? null : mock(OnboardingPageView.Callback.class);
             subject.setCallback(callback);
 
             subject.onButtonClick();
@@ -69,13 +70,13 @@ public class DescriptionEditTutorialPageViewTest extends ViewTest {
     private void setUp(@NonNull DescriptionEditTutorialPage page, int widthDp, @NonNull LayoutDirection layoutDirection, @NonNull FontScale fontScale, @NonNull Theme theme) {
         super.setUp(widthDp, layoutDirection, fontScale, theme);
         LayoutInflater inflater = LayoutInflater.from(ctx());
-        subject = (DescriptionEditTutorialPageView) inflater.inflate(page.getLayout(), null, false);
+        subject = (OnboardingPageView) inflater.inflate(page.getLayout(), null, false);
         ButterKnife.bind(subject);
 
         ViewPager viewPager = new ViewPager(ctx());
         viewPager.setAdapter(new DescriptionEditTutorialPagerAdapter(mock(DescriptionEditTutorialPagerAdapter.Callback.class)));
 
-        PageIndicatorView pageIndicatorView = ButterKnife.findById(subject, R.id.view_description_edit_tutorial_page_indicator);
+        PageIndicatorView pageIndicatorView = ButterKnife.findById(subject, R.id.view_onboarding_page_indicator);
         pageIndicatorView.setViewPager(viewPager);
         pageIndicatorView.setSelection(page.code());
     }

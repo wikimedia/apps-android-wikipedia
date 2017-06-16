@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.onboarding.OnboardingPageView;
+
 class DescriptionEditTutorialPagerAdapter extends PagerAdapter {
     interface Callback {
         void onButtonClick(@NonNull DescriptionEditTutorialPage page);
+        void onSkipClick(@NonNull DescriptionEditTutorialPage page);
     }
 
     @Nullable private Callback callback;
@@ -21,23 +24,22 @@ class DescriptionEditTutorialPagerAdapter extends PagerAdapter {
 
     @Override public Object instantiateItem(ViewGroup container, int position) {
         DescriptionEditTutorialPage page = DescriptionEditTutorialPage.of(position);
-        DescriptionEditTutorialPageView view = inflate(page, container);
+        OnboardingPageView view = inflate(page, container);
         view.setTag(position);
         view.setCallback(viewCallback);
         return view;
     }
 
-    @NonNull public DescriptionEditTutorialPageView inflate(@NonNull DescriptionEditTutorialPage page,
+    @NonNull public OnboardingPageView inflate(@NonNull DescriptionEditTutorialPage page,
                                                             @NonNull ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        DescriptionEditTutorialPageView view =
-                (DescriptionEditTutorialPageView) inflater.inflate(page.getLayout(), parent, false);
+        OnboardingPageView view = (OnboardingPageView) inflater.inflate(page.getLayout(), parent, false);
         parent.addView(view);
         return view;
     }
 
     @Override public void destroyItem(ViewGroup container, int position, Object object) {
-        DescriptionEditTutorialPageView view = ((DescriptionEditTutorialPageView) object);
+        OnboardingPageView view = ((OnboardingPageView) object);
         view.setCallback(null);
         view.setTag(-1);
     }
@@ -50,10 +52,17 @@ class DescriptionEditTutorialPagerAdapter extends PagerAdapter {
         return view == object;
     }
 
-    private class ViewCallback implements DescriptionEditTutorialPageView.Callback {
-        @Override public void onButtonClick(@NonNull DescriptionEditTutorialPageView view) {
+    private class ViewCallback extends OnboardingPageView.DefaultCallback {
+        @Override public void onButtonClick(@NonNull OnboardingPageView view) {
             if (callback != null) {
                 callback.onButtonClick(DescriptionEditTutorialPage.of((int) view.getTag()));
+            }
+        }
+
+        @Override
+        public void onSkipClick(@NonNull OnboardingPageView view) {
+            if (callback != null) {
+                callback.onSkipClick(DescriptionEditTutorialPage.of((int) view.getTag()));
             }
         }
     }

@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class DescriptionEditTutorialFragment extends Fragment {
-    @BindView(R.id.fragment_description_edit_tutorial_view_pager) ViewPager viewPager;
+    @BindView(R.id.fragment_pager) ViewPager viewPager;
     private Unbinder unbinder;
 
     private PagerAdapter adapter;
@@ -38,7 +38,7 @@ public class DescriptionEditTutorialFragment extends Fragment {
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_description_edit_tutorial, container, false);
+        View view = inflater.inflate(R.layout.fragment_single_pager, container, false);
         unbinder = ButterKnife.bind(this, view);
         viewPager.setAdapter(adapter);
         return view;
@@ -79,6 +79,11 @@ public class DescriptionEditTutorialFragment extends Fragment {
             } else {
                 advancePage();
             }
+        }
+
+        @Override
+        public void onSkipClick(@NonNull DescriptionEditTutorialPage page) {
+            onStartEditingClick();
         }
     }
 }
