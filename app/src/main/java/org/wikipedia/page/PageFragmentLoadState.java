@@ -101,7 +101,7 @@ public class PageFragmentLoadState {
     private CommunicationBridge bridge;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    @NonNull private final WikipediaApp app = WikipediaApp.getInstance();
+    private WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
     private PageToolbarHideHandler toolbarHideHandler;
     private EditHandler editHandler;
@@ -563,6 +563,10 @@ public class PageFragmentLoadState {
         model.setTitle(page.getTitle());
 
         editHandler.setPage(model.getPage());
+
+        if (page.getTitle().getDescription() == null) {
+            app.getSessionFunnel().noDescription();
+        }
 
         layoutLeadImage(new Runnable() {
             @Override
