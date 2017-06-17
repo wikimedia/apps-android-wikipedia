@@ -1,113 +1,152 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/bottom_sheet_background_color"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:background="?attr/bottom_sheet_background_color">
+    android:paddingBottom="24dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="24dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="?attr/link_preview_text_color"
-        android:text="@string/reading_lists_onboarding_intro"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textAllCaps="true"
-        android:textColor="?attr/link_preview_text_color"
-        android:text="@string/reading_lists_onboarding_for_example"/>
-
-
-    <!--
-    Not yet able to use vector drawables with compound TextView...
-    https://code.google.com/p/android/issues/detail?id=204183. Here's what it might look like
-    (currently works on API 23 but not on API 16 and 19):
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:textSize="16sp"
-            android:textColor="?attr/link_preview_text_color"
-            android:text="@string/reading_lists_onboarding_example1"
-            android:drawablePadding="24dp"
-            android:drawableLeft="@drawable/ic_grid_gray_24dp"
-            android:drawableStart="@drawable/ic_grid_gray_24dp" />
-    -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="24dp"
-            android:layout_marginEnd="24dp"
-            app:srcCompat="@drawable/ic_grid_gray_24dp"
-            android:contentDescription="@null"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textSize="16sp"
-            android:textColor="?attr/link_preview_text_color"
-            android:text="@string/reading_lists_onboarding_example1"/>
-    </LinearLayout>
+        android:text="@string/reading_lists_onboarding_intro"
+        android:textColor="?attr/feed_text_primary_color"
+        android:textSize="16sp"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginBottom="16dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="24dp"
-            android:layout_marginEnd="24dp"
-            app:srcCompat="@drawable/ic_grid_gray_24dp"
-            android:contentDescription="@null"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textSize="16sp"
-            android:textColor="?attr/link_preview_text_color"
-            android:text="@string/reading_lists_onboarding_example2"/>
-    </LinearLayout>
+        android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/reading_lists_onboarding_for_example_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reading_lists_onboarding_for_example"
+                android:textAllCaps="true"
+                android:textColor="?attr/feed_text_tertiary_color"
+                android:textSize="14sp"/>
+
+            <!--
+        Not yet able to use vector drawables with compound TextView...
+        https://code.google.com/p/android/issues/detail?id=204183. Here's what it might look like
+        (currently works on API 23 but not on API 16 and 19):
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="?attr/link_preview_text_color"
+                android:text="@string/reading_lists_onboarding_example1"
+                android:drawablePadding="24dp"
+                android:drawableLeft="@drawable/ic_grid_gray_24dp"
+                android:drawableStart="@drawable/ic_grid_gray_24dp" />
+        -->
+
+            <LinearLayout
+                android:id="@+id/reading_lists_onboarding_example1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="12dp"
+                android:paddingStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reading_lists_onboarding_bullet_point"
+                    android:textColor="?attr/feed_text_tertiary_color"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reading_lists_onboarding_example1"
+                    android:textColor="?attr/feed_text_tertiary_color"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reading_lists_onboarding_example2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="12dp"
+                android:paddingStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reading_lists_onboarding_bullet_point"
+                    android:textColor="?attr/feed_text_tertiary_color"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reading_lists_onboarding_example2"
+                    android:textColor="?attr/feed_text_tertiary_color"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reading_lists_onboarding_example3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:paddingLeft="12dp"
+                android:paddingStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reading_lists_onboarding_bullet_point"
+                    android:textColor="?attr/feed_text_tertiary_color"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reading_lists_onboarding_example3"
+                    android:textColor="?attr/feed_text_tertiary_color"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
         <ImageView
+            android:id="@+id/reading_list_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="24dp"
-            android:layout_marginEnd="24dp"
-            app:srcCompat="@drawable/ic_grid_gray_24dp"
-            android:contentDescription="@null"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textSize="16sp"
-            android:textColor="?attr/link_preview_text_color"
-            android:text="@string/reading_lists_onboarding_example3"/>
+            app:srcCompat="@drawable/ic_reading_list"
+            android:contentDescription="@null"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:paddingStart="30dp" />
+
     </LinearLayout>
 
     <TextView
         android:id="@+id/onboarding_button"
-        android:layout_width="match_parent"
-        android:layout_margin="0dp"
         style="@style/App.Button.Blue"
+        android:paddingLeft="26dp"
+        android:paddingRight="26dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_gravity="end"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp"
         android:text="@string/reading_lists_onboarding_got_it"/>
 </LinearLayout>
