@@ -318,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Busak saka jaban jaringan</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel katon ing manéka pratélan</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s bakal ora ana manèh ing njaban jaringan tumrap kabèh pratélan wacan:</string>
+  <string name="reading_list_sync_reminder_title">Sinkronisasi dhaftar maca dipateni</string>
+  <string name="reading_list_sync_reminder_text">Dhaptar maca sampeyan bisa diselarasake karo akun Wikipedia yen ngidini sinkronisasi ing setelan aplikasi.</string>
+  <string name="reading_list_sync_reminder_action">Urubaké</string>
+  <string name="reading_list_login_reminder_title">Sinkronisasi dhaptar maca</string>
+  <string name="reading_list_login_reminder_text">Dhaptar maca sampeyan bisa saiki disimpen kanggo akun Wikipedia Panjenengan. Cukup mlebu log kanggo akun, lan dhaptar maca bakal disinkronake kanthi otomatis.</string>
+  <string name="reading_lists_confirm_remote_delete">Iki bakal mbusak dhaptar maca sadurunge nyelarasake saka panyimpenan remot. Nerusake?</string>
   <string name="user_option_sync_label">Pilalan</string>
   <string name="notification_button_view_user">Rembugan karo panganggo</string>
   <string name="notification_talk_title">Layang anyar ing Wikipédia</string>

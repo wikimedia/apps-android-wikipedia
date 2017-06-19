@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">비밀번호가 일치하지 않습니다</string>
   <string name="create_account_email_error">이메일 주소가 잘못되었습니다</string>
   <string name="create_account_username_error">사용자 이름에 유효하지 않은 문자가 있습니다</string>
+  <string name="create_account_password_error">비밀번호가 유효하지 않습니다</string>
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
   <string name="create_account_next">다음</string>
   <string name="create_account_button">계정 만들기</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중…</string>
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
+  <string name="preferences_heading_storage_and_syncing">보관 및 동기화</string>
+  <string name="preference_title_sync_reading_lists">읽기 목록 동기화</string>
+  <string name="preference_summary_sync_reading_lists">로그인할 때 위키미디어가 읽기 목록을 동기화할 수 있게 합니다</string>
   <string name="preferences_privacy_settings_heading">개인정보</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
@@ -312,6 +316,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">오프라인에서 제거</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">글이 여러 목록으로 표시됩니다</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s 문서는 모든 읽기 목록에 대해 오프라인에서 더 이상 읽을 수 없습니다:</string>
+  <string name="reading_list_sync_reminder_title">읽기 목록 동기화가 꺼져 있습니다</string>
+  <string name="reading_list_sync_reminder_text">앱 섲렁에서 동기화를 허용하면 읽기 목록을 위키백과 계정과 동기화할 수 있습니다.</string>
+  <string name="reading_list_sync_reminder_action">켜기</string>
+  <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
+  <string name="reading_list_login_reminder_text">읽기 목록이 이제 위키백과 계정에 저장됩니다. 계정에 로그인만 하면 읽기 목록이 자동으로 동기화됩니다.</string>
+  <string name="reading_lists_confirm_remote_delete">과거에 동기화된 읽기 목록을 원격 기억 장치에서 삭제합니다. 진행하시겠습니까?</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_button_view_user">사용자와 대화하기</string>
   <string name="notification_talk_title">위키백과에서의 새 메시지</string>

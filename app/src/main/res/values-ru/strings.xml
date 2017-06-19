@@ -318,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Удалить из автономного режима</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Статья %s больше не будет доступна из автономного режима для всех списков для чтения:</string>
+  <string name="reading_list_sync_reminder_title">Синхронизация списков для чтения выключена</string>
+  <string name="reading_list_sync_reminder_text">Ваши списки для чтения могут синхронизироваться с аккаунтом в Википедии, если вы разрешите синхронизацию в настройках приложения.</string>
+  <string name="reading_list_sync_reminder_action">Включить</string>
+  <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
+  <string name="reading_list_login_reminder_text">Теперь ваши списки для чтения могут быть сохранены в ваш аккаунт Википедии. Просто авторизуйтесь в аккаунт, и ваши списки будут синхронизированы автоматически.</string>
+  <string name="reading_lists_confirm_remote_delete">Это удалит все ранее синхронизированные списки для чтения из удалённого хранилища. Продолжить?</string>
   <string name="user_option_sync_label">Настройки</string>
   <string name="notification_button_view_user">Написать участнику</string>
   <string name="notification_talk_title">Новое сообщение в Википедии</string>

@@ -318,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Ta bort från offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikeln förekommer i flera listor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s kommer inte längre vara tillgänglig offline för alla läslistor:</string>
+  <string name="reading_list_sync_reminder_title">Synkronisering av läslistor är inaktiverad</string>
+  <string name="reading_list_sync_reminder_text">Dina läslistor kan synkroniseras med ditt Wikimedia-konto om du tillåter synkronisering i appens inställningar.</string>
+  <string name="reading_list_sync_reminder_action">Aktivera</string>
+  <string name="reading_list_login_reminder_title">Synkronisera läslistor</string>
+  <string name="reading_list_login_reminder_text">Dina läslistor kan nu sparas till ditt Wikimedia-konto. Logga in på ditt konto och dina läslistor kommer att synkroniseras automatiskt.</string>
+  <string name="reading_lists_confirm_remote_delete">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen. Vill du fortsätta?</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_button_view_user">Diskutera med användare</string>
   <string name="notification_talk_title">Nytt meddelande på Wikipedia</string>

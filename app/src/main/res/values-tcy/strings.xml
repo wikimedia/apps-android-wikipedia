@@ -13,9 +13,9 @@
   <string name="page_error_retry">ನನೊರ ಪ್ರಯತ್ನ ಮಾನ್ಪುಲೇ</string>
   <string name="page_error_back_to_main">ಪಿರವು ಪೋಲೇ</string>
   <string name="menu_clear_all_history">ಇತಿಹಾಸನೂ ಮಾಜಾಲೇ</string>
-  <string name="history_item_deleted">%s ಪಟ್ಟಿದ್ ದೆತುಂಡು</string>
-  <string name="history_items_deleted">%d ತತ್ ಲೆಕನೊಲೆನ್ ಇತಿಹಾಸೊದ್ ದೆತ್ತುನಂಡ್</string>
-  <string name="history_item_delete_undo">ದುಂಬುದಲೆಕೊ</string>
+  <string name="history_item_deleted">%s ಪನ್ಪಿ ಲೇಕನೊನು ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
+  <string name="history_items_deleted">%d ಲೆಕನೊಲೆನ್ ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
+  <string name="history_item_delete_undo">ದುಂಬುದಲೆಕೊ ಮಲ್ಪು</string>
   <string name="page_does_not_exist_error">ಈ ಪುಟೊ ನನಲ ಅಸ್ತಿತ್ವೊಡ್ ಇಜ್ಜಿ</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸ್ ಮಾಂತಿ ಇತಿಹಾಸೊನ್ ದೆಪ್ಪುಲೆ</string>
   <string name="dialog_message_clear_history">ಉಂದು ಇರ್ ಬ್ರೌಸ್ ಮಾಲ್ತಿನಾ ಮಾಂತಾ ಇತಿಹಾಸೊನ್ ಮಾಜಪುಂಡು, ಇತ್ತೇ ತೂಪುನಾ ಟ್ಯಾಬ್ ನ್ಲ ಉಂತಾಪುಂಡು. ಇರ್ ಒಪ್ಪುವರಾ?</string>
@@ -59,7 +59,7 @@
   <string name="dialog_message_leaving_edit_stay">ಇಪ್ಪುಲೇ</string>
   <string name="menu_show_toc">ಪರಿವಿಡಿ</string>
   <string name="search_no_results_found">ಒವ್ವೆ ವಿಚಾರೊಲ್ ತಿಕೀಜಿ</string>
-  <string name="search_reading_list_no_results">%s ಇಂಚಿತ್ತಿ ವಿಸಅಯೊಗ್ ದಾಲ ತಿಕಿಜ್ಜಿ</string>
+  <string name="search_reading_list_no_results">\"%s\" ಪನ್ಪಿ ವಿಸಯೊಗ್ ದಾಲ ತಿಕ್ಕಿಜಿ</string>
   <string name="edit_section_captcha_hint">ಮಿತ್ತ ಪದೊನ್ ಮುಲ್ಪ ಬರೆಲೆ</string>
   <string name="title_captcha">CAPTCHAನ್ ಬರೆಲೆ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ಬರಿಯಾರ ಮುಲ್ಪ ಒತ್ತುಲೆ</string>
@@ -74,7 +74,7 @@
   <string name="toast_logout_complete">ಲಾಗ್ ಔಟ್ ಅಯಾರ್</string>
   <string name="history_empty_title">ಮುಲ್ಪ ಇಂಚಿಪೋ ತೂಯಿನಾ ಪುಟೋ ಇಜ್ಜಿ</string>
   <string name="delete_selected_history">ಮಾಜಾಲೆ</string>
-  <string name="delete_selected_items">ಅಯ್ಕೆ ಮಾಂತುನೆನ್ ಮಾಜಾಲೆ</string>
+  <string name="delete_selected_items">ಆಯ್ಕೆ ಮಲ್ತಿನೆನ್ ಮಾಜಾಲೆ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
   <string name="login_create_account_link">ಖಾತೆ ಇಜ್ಜಾ? ವಿಕಿಪೀಡಿಯಾಗ್ ಸೇರ್ಲೆ</string>
@@ -161,7 +161,7 @@
   <string name="format_error_server_code">ಕೋಡ್: \"%s\"</string>
   <string name="button_continue_to_article">ಲೇಕನೋ ಓದುಲೆ</string>
   <string name="nav_item_donate">ವಿಕಿಪೀಡಿಯತಾ ಬೆಂಬಲಾ</string>
-  <string name="enable_location_service">ಸಕ್ರಿಯಾವಾದಿಪ್ಪುನ</string>
+  <string name="enable_location_service">ಸಕ್ರಿಯ ಮಲ್ಪು</string>
   <string name="error_message_generic">ಒಂಜಿ ದೋಷ ತೋಜುಂಡು</string>
   <string name="crash_report_dialog_dont_send_button">ಬುಡ್ಲೆ</string>
   <string name="crash_report_dialog_send_button">ಕಡಪುಡ್ಲೆ</string>

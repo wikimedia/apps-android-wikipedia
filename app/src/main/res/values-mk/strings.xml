@@ -318,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Отстрани од вонмрежни</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Статијата се јавува во повеќе списоци</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повеќе нема да биде достапно вонмрежно за сите списоци за читање:</string>
+  <string name="reading_list_sync_reminder_title">Усогласувањето на списокот за читање е исклучено</string>
+  <string name="reading_list_sync_reminder_text">Вашите списоци за читање може да се усогласат со вашата сметка на Википедија ако дозволите усогласување во поставките на прилогот.</string>
+  <string name="reading_list_sync_reminder_action">Вклучи</string>
+  <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
+  <string name="reading_list_login_reminder_text">Вашите списоци за читање може сега може да се зачуваат во вашата сметка на Википедија. Просто најавете се со сметката и списоците сами ќе се усогласат.</string>
+  <string name="reading_lists_confirm_remote_delete">Со ова ќе ги избришете претходно усогласените списоци за читање од далечинскиот склад. Да продолжам?</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>

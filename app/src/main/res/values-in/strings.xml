@@ -318,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Hapus dari luring</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel muncul dalam beberapa daftar</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi tersedia secara luring untuk semua daftar bacaan:</string>
+  <string name="reading_list_sync_reminder_title">Sinkronisasi daftar bacaan dimatikan</string>
+  <string name="reading_list_sync_reminder_text">Daftar bacaan Anda dapat disinkronkan ke akun Wikipedia Anda jika Anda mengizinkan sinkronisasi di pengaturan aplikasi.</string>
+  <string name="reading_list_sync_reminder_action">Nyalakan</string>
+  <string name="reading_list_login_reminder_title">Sinkronkan daftar bacaan</string>
+  <string name="reading_list_login_reminder_text">Daftar bacaan Anda sekarang dapat disimpan ke akun Wikipedia Anda. Cukup masuk log ke akun Anda, dan daftar bacaan Anda akan disinkronkan secara otomatis.</string>
+  <string name="reading_lists_confirm_remote_delete">Ini akan menghapus daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Lanjutkan?</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_button_view_user">Bicara ke pengguna</string>
   <string name="notification_talk_title">Pesan baru di Wikipedia</string>

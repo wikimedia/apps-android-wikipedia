@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Las contraseñas no coinciden</string>
   <string name="create_account_email_error">Dirección de correo electrónico no válida.</string>
   <string name="create_account_username_error">Caracteres no válidos en el nombre de usuario</string>
+  <string name="create_account_password_error">La contraseña no es válida</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear cuenta</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">Procesando la previsualización…</string>
   <string name="send_feedback">Enviar comentarios sobre la aplicación</string>
   <string name="create_account_account_created_toast">¡La cuenta fue creada!</string>
+  <string name="preferences_heading_storage_and_syncing">Almacenamiento y sincronización</string>
+  <string name="preference_title_sync_reading_lists">Sincronizar listas de lectura</string>
+  <string name="preference_summary_sync_reading_lists">Permitir a Wikimedia sincronizar mis listas de lectura cuando haya accedido</string>
   <string name="preferences_privacy_settings_heading">Privacidad</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
@@ -314,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de listas sin conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
+  <string name="reading_list_sync_reminder_title">Está desactivada la sincronización de listas de lectura</string>
+  <string name="reading_list_sync_reminder_text">Tus listas de lectura pueden sincronizarse con tu cuenta de Wikipedia si lo permites en la configuración de la aplicación.</string>
+  <string name="reading_list_sync_reminder_action">Activar</string>
+  <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
+  <string name="reading_list_login_reminder_text">Ahora tus listas de lectura pueden guardarse en tu cuenta de Wikipedia. Simplemente accede a tu cuenta y tus listas de lectura se sincronizarán automáticamente.</string>
+  <string name="reading_lists_confirm_remote_delete">Esto eliminará cualquier lista de lectura previamente sincronizada del almacenamiento remoto. ¿Procedemos?</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Discute con el usuario</string>
   <string name="notification_talk_title">Mensaje nuevo en Wikipedia</string>

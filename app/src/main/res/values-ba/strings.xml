@@ -48,8 +48,8 @@
   <string name="langlinks_no_match">Һеҙҙең һорау буйынса телдәр табылманы.</string>
   <string name="langlinks_activity_title">Башҡа телдәр</string>
   <string name="menu_save_changes" fuzzy="true">Үҙгәрештәрҙе һаҡларға</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Һаҡлау…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Үҙгәртеүҙәр һаҡланды!</string>
+  <string name="dialog_saving_in_progress">Һаҡлана…</string>
+  <string name="edit_saved_successfully">Үҙгәртеү һаҡланды!</string>
   <string name="dialog_message_edit_failed">Мөхәррирләү хатаһы!</string>
   <string name="dialog_message_edit_failed_retry">Ҡабатлау</string>
   <string name="dialog_message_edit_failed_cancel">Кире алырға</string>
@@ -72,8 +72,8 @@
   <string name="login_success_toast">Документацияны һаҡлау</string>
   <string name="preference_title_logout">Тамамлау</string>
   <string name="toast_logout_complete">Тамам</string>
-  <string name="history_empty_title" fuzzy="true">Яңыраҡ ҡаралған биттәр юҡ!</string>
-  <string name="history_empty_message" fuzzy="true">Һеҙ, моғайын, уларҙың бөтәһен дә юйғанһығыҙ. Икенсе тапҡыр, биткә инһәгеҙ, уға ошо урындан кире әйләнеп ҡайта алаһығыҙ.</string>
+  <string name="history_empty_title">Яңыраҡ ҡаралған биттәр юҡ!</string>
+  <string name="history_empty_message">Быға тиклем уҡығанығыҙҙы күҙәтеп барығыҙ.</string>
   <string name="delete_selected_history">Юйырға</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ҡатнашыусы исеме</string>

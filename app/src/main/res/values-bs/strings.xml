@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Lozinke se ne slažu</string>
   <string name="create_account_email_error">Neispravna adresa e-pošte</string>
   <string name="create_account_username_error">Neispravni znakovi u korisničkom imenu</string>
+  <string name="create_account_password_error">Lozinka nije ispravna</string>
   <string name="create_account_generic_error">Nije moguće napraviti korisnički račun</string>
   <string name="create_account_next">Sljedeće</string>
   <string name="create_account_button">Napravi korisnički račun</string>
@@ -317,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Ukloni iz vanmrežnih</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Članak se nalazi na nekoliko spiskova</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s više neće biti dostupan van mreže za sljedeće spiskove za čitanje:</string>
+  <string name="reading_list_sync_reminder_title">Sinhronizacija spiskova za čitanje je isključena</string>
+  <string name="reading_list_sync_reminder_text">Spiskove za čitanje možete sinhronizirati sa svojim računom na Wikipediji ako dozvolite sinhroniziranje u postavkama aplikacije.</string>
+  <string name="reading_list_sync_reminder_action">Uključi</string>
+  <string name="reading_list_login_reminder_title">Sinhroniziraj spiskove za čitanje</string>
+  <string name="reading_list_login_reminder_text">Spiskove za čitanje od sada možete sačuvati na svoj račun na Wikipediji. Jednostavno se prijavite na svoj račun i spiskovi za čitanje automatski će se sinhronizirati.</string>
+  <string name="reading_lists_confirm_remote_delete">Ovim ćete obrisati prethodno sinhonizirane spiskove s daljinskog skladištenja? Da nastavim?</string>
   <string name="user_option_sync_label">Postavke</string>
   <string name="notification_button_view_user">Razgovaraj s korisnikom</string>
   <string name="notification_talk_title">Nova poruka na Wikipediji</string>

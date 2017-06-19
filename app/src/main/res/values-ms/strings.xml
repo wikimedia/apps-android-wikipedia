@@ -121,7 +121,7 @@
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat…</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
-  <string name="preferences_heading_storage_and_syncing">Penyimpanan dan penyegerakan</string>
+  <string name="preferences_heading_storage_and_syncing">Storan dan penyegerakan</string>
   <string name="preference_title_sync_reading_lists">Menyegerakkan senarai bacaan</string>
   <string name="preference_summary_sync_reading_lists">Benarkan Wikimedia untuk menyegerakkan senarai bacaan anda apabila anda log masuk</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
@@ -318,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Padam dari luar talian</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Rencana muncul dalam beberapa senarai</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s tidak lagi akan tersedia di luar talian untuk semua senarai baca:</string>
+  <string name="reading_list_sync_reminder_title">Penyegerakan senarai bacaan dimatikan</string>
+  <string name="reading_list_sync_reminder_text">Senarai bacaan anda boleh disegerakkan ke akaun Wikipedia anda jika anda membenarkan penyegerakan dalam tetapan aplikasi.</string>
+  <string name="reading_list_sync_reminder_action">Hidupkan</string>
+  <string name="reading_list_login_reminder_title">Menyegerakkan senarai bacaan</string>
+  <string name="reading_list_login_reminder_text">Senarai bacaan anda kini boleh disimpan ke akaun Wikipedia anda. Hanya log masuk ke akaun anda, dan senarai bacaan anda akan disegerakkan secara automatik.</string>
+  <string name="reading_lists_confirm_remote_delete">Ini akan memadam sebarang senarai bacaan diselaraskan sebelumnya dari storan jauh. Teruskan?</string>
   <string name="user_option_sync_label">Keutamaan</string>
   <string name="notification_button_view_user">Bincang ke pengguna</string>
   <string name="notification_talk_title">Mesej baru pada Wikipedia</string>
