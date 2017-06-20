@@ -195,6 +195,10 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         creditText.setShadowLayer(2, 1, 1, color(R.color.lead_text_shadow));
 
         errorView = (WikiErrorView) findViewById(R.id.view_gallery_error);
+        ((ImageView) errorView.findViewById(R.id.view_wiki_error_icon))
+                .setColorFilter(ContextCompat.getColor(this, R.color.view_wiki_error_icon_tint_light));
+        ((TextView) errorView.findViewById(R.id.view_wiki_error_text))
+                .setTextColor(ContextCompat.getColor(this, R.color.view_wiki_error_text_color_light));
         errorView.setBackClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
