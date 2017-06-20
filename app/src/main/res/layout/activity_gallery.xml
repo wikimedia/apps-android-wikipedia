@@ -47,7 +47,7 @@
         android:orientation="vertical"
         android:paddingBottom="32dp"
         android:paddingTop="64dp">
-        <TextView
+        <org.wikipedia.views.AppTextView
             android:id="@+id/gallery_description_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 tools:src="@drawable/ic_license_cc"
                 android:contentDescription="@null"/>
-            <TextView
+            <org.wikipedia.views.AppTextView
                 android:id="@+id/gallery_credit_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
