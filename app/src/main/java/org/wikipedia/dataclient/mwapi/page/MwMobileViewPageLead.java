@@ -22,6 +22,9 @@ import org.wikipedia.util.log.L;
 import java.util.Collections;
 import java.util.List;
 
+import static org.wikipedia.Constants.PREFERRED_THUMB_SIZE;
+import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
+
 /**
  * Gson POJO for loading the first stage of page content.
  */
@@ -85,8 +88,12 @@ public class MwMobileViewPageLead implements PageLead {
         return null;
     }
 
-    @Nullable @Override public String getLeadImageUrl(int leadThumbnailWidth) {
-        return mobileview == null ? null : mobileview.getLeadImageUrl(leadThumbnailWidth);
+    @Nullable @Override public String getLeadImageUrl(int leadImageWidth) {
+        return mobileview == null ? null : mobileview.getLeadImageUrl(leadImageWidth);
+    }
+
+    @Nullable @Override public String getThumbUrl() {
+        return mobileview == null ? null : mobileview.getThumbUrl();
     }
 
     @Nullable
@@ -117,8 +124,8 @@ public class MwMobileViewPageLead implements PageLead {
         @SuppressWarnings("unused") private boolean mainpage;
         @SuppressWarnings("unused") private boolean disambiguation;
         @SuppressWarnings("unused") @Nullable private String description;
-        @SuppressWarnings("unused") @Nullable private Image image;
-        @SuppressWarnings("unused") @Nullable private Thumb thumb;
+        @SuppressWarnings("unused") @Nullable private PageImage pageImage;
+        @SuppressWarnings("unused") @SerializedName("thumb") @Nullable private PageImageThumb leadImage;
         @SuppressWarnings("unused") @Nullable private Protection protection;
         @SuppressWarnings("unused") @Nullable private List<Section> sections;
         @SuppressWarnings("unused") @Nullable private PageProps pageprops;
@@ -191,14 +198,20 @@ public class MwMobileViewPageLead implements PageLead {
 
         @Override
         @Nullable
-        public String getLeadImageUrl(int leadThumbnailWidth) {
-            return thumb != null ? thumb.getUrl() : null;
+        public String getLeadImageUrl(int leadImageWidth) {
+            return leadImage != null ? leadImage.getUrl() : null;
         }
 
         @Override
         @Nullable
-        public String getLeadImageName() {
-            return image != null ? image.getFile() : null;
+        public String getThumbUrl() {
+            return leadImage != null ? getUrlForSize(leadImage.getUrl(), PREFERRED_THUMB_SIZE) : null;
+        }
+
+        @Override
+        @Nullable
+        public String getLeadImageFileName() {
+            return pageImage != null ? pageImage.getFileName() : null;
         }
 
         @Override
@@ -237,18 +250,18 @@ public class MwMobileViewPageLead implements PageLead {
     /**
      * For the lead image File: page name
      */
-    public static class Image {
-        @SuppressWarnings("unused") private String file;
+    public static class PageImage {
+        @SuppressWarnings("unused") @SerializedName("file") private String fileName;
 
-        public String getFile() {
-            return file;
+        public String getFileName() {
+            return fileName;
         }
     }
 
     /**
      * For the lead image URL
      */
-    public static class Thumb {
+    public static class PageImageThumb {
         @SuppressWarnings("unused") private String url;
 
         public String getUrl() {
@@ -257,8 +270,7 @@ public class MwMobileViewPageLead implements PageLead {
     }
 
     static class PageProps {
-        @SuppressWarnings("unused") @SerializedName("wikibase_item") @Nullable
-        private String wikiBaseItem;
+        @SuppressWarnings("unused") @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
         @Nullable String getWikiBaseItem() {
             return wikiBaseItem;

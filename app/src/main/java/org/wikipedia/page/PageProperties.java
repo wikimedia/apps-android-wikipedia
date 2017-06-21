@@ -68,7 +68,7 @@ public class PageProperties implements Parcelable {
         // todo: don't hardcode this here
         leadImageUrl = core.getLeadImageUrl(DimenUtil.calculateLeadImageWidth());
 
-        leadImageName = core.getLeadImageName();
+        leadImageName = core.getLeadImageFileName();
         lastModified = new Date();
         String lastModifiedText = core.getLastModified();
         if (lastModifiedText != null) {

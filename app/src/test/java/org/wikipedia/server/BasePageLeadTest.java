@@ -46,7 +46,7 @@ public abstract class BasePageLeadTest {
         assertThat(props.getLanguageCount(), is(LANGUAGE_COUNT));
         assertThat(props.getDescription(), is("main page of a Wikimedia project"));
         assertThat(props.getLeadImageUrl(0), equalTo(null));
-        assertThat(props.getLeadImageName(), equalTo(null));
+        assertThat(props.getLeadImageFileName(), equalTo(null));
         assertThat(props.getSections().size(), is(1));
         assertThat(props.getSections().get(0).getId(), is(0));
         assertThat(props.getSections().get(0).getContent(), is("My lead section text"));
