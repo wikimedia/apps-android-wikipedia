@@ -4,8 +4,10 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.dataclient.okhttp.cache.DiskLruCacheUtil;
@@ -13,10 +15,12 @@ import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
@@ -131,7 +135,7 @@ public class SavedPageSyncService extends IntentService {
 
             AggregatedResponseSize size;
             try {
-                size = savePageFor(pageTitle);
+                size = savePageFor(row, pageTitle);
             } catch (Exception e) {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
@@ -145,7 +149,8 @@ public class SavedPageSyncService extends IntentService {
         }
     }
 
-    @NonNull private AggregatedResponseSize savePageFor(@NonNull PageTitle pageTitle) throws IOException {
+    @NonNull private AggregatedResponseSize savePageFor(@NonNull ReadingListPageDiskRow row,
+                                                        @NonNull PageTitle pageTitle) throws IOException {
         AggregatedResponseSize size = new AggregatedResponseSize(0, 0, 0);
 
         Call<PageLead> leadCall = reqPageLead(null, pageTitle);
@@ -155,6 +160,13 @@ public class SavedPageSyncService extends IntentService {
         size = size.add(responseSize(leadRsp));
         retrofit2.Response<PageRemaining> sectionsRsp = sectionsCall.execute();
         size = size.add(responseSize(sectionsRsp));
+
+        if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
+            persistPageThumbnail(pageTitle, leadRsp.body().getThumbUrl());
+        }
+        row.dat().setThumbnailUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
+                leadRsp.body().getThumbUrl()));
+        row.dat().setDescription(((PageLeadProperties) leadRsp.body()).getDescription());
 
         Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
         imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
@@ -223,6 +235,12 @@ public class SavedPageSyncService extends IntentService {
                 .addHeader(SaveHeader.FIELD, SaveHeader.VAL_ENABLED)
                 .url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
                 .build();
+    }
+
+    private void persistPageThumbnail(@NonNull PageTitle title, @NonNull String url) {
+        WikipediaApp.getInstance().getDatabaseClient(PageImage.class).upsert(
+                new PageImage(title, UriUtil.resolveProtocolRelativeUrl(title.getWikiSite(), url)),
+                PageImageHistoryContract.Image.SELECTION);
     }
 
     private boolean isRetryable(@NonNull Throwable t) {
