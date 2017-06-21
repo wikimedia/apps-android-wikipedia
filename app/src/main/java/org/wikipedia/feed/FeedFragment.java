@@ -27,6 +27,7 @@ import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.news.NewsItemCard;
+import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
@@ -380,6 +381,18 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onAnnouncementNegativeAction(@NonNull Card card) {
             onRequestDismissCard(card);
+        }
+
+        @Override
+        public void onGetRandomError(@NonNull Throwable t, @NonNull final RandomCardView view) {
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), t.getMessage(), FeedbackUtil.LENGTH_DEFAULT);
+            snackbar.setAction(R.string.page_error_retry, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    view.getRandomPage();
+                }
+            });
+            snackbar.show();
         }
     }
 
