@@ -1,10 +1,9 @@
-package org.wikipedia.server;
+package org.wikipedia.dataclient.page;
 
 import android.support.annotation.NonNull;
 
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.mwapi.page.MwMobileViewPageLead;
-import org.wikipedia.dataclient.page.PageLeadProperties;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -13,7 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Common test code for the two PageLead variants.
  */
-public abstract class BasePageLeadTest {
+public abstract class BasePageLeadTest extends BasePageClientTest {
     protected static final int ID = 15580374;
     protected static final long REVISION = 664887982L;
     protected static final int LANGUAGE_COUNT = 45;
