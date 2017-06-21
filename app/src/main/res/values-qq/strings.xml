@@ -91,6 +91,10 @@
   <string name="delete_selected_items">Menu item hint for deleting selected items in a list.</string>
   <string name="wp_stylized">A stylized string saying \"Wikipedia\". Used before wp_tag_line if no image representation exists. Usually the first and last characters are within big tags, if this fits the Wikipedia logo in your language.</string>
   <string name="create_account_username_hint">{{Identical|Username}}</string>
+  <string name="login_dont_have_account">Label asking the user if they do not yet have an account.</string>
+  <string name="login_join_wikipedia">Button label that lets the user create a new account on Wikipedia.</string>
+  <string name="login_forgot_password">Label asking the user if they have forgotten their password, and will allow them to reset it.</string>
+  <string name="create_account_already_have">Label asking the user if they already have an account.</string>
   <string name="login_create_account_link">Link text on Login screen to go to Create Account screen.\n\nSee also:\n* {{msg-wm|Wikipedia-android-strings-create account login link}}</string>
   <string name="create_account_login_link">Link text on Create Account screen to go to Login screen.\n\nSee also:\n* {{msg-wm|Wikipedia-android-strings-login create account link}}</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
@@ -409,4 +413,7 @@
   <string name="onboarding_analytics_title">Title for a tutorial screen about anonymous usage reports sent by the app.</string>
   <string name="onboarding_analytics_text">Short explanatory text about the benefits of allowing the app to send anonymous usage reports. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_analytics_switch_title">Label for an on-off switch that enables sending anonymous usage reports.</string>
+  <string name="onboarding_create_account_sync">Short explanation of the benefits of creating an account, which is the ability to synchronize your reading lists.</string>
+  <string name="onboarding_create_account_contributions">Short explanation of the benefits of creating an account, which is the ability to keep a record of your edits.</string>
+  <string name="onboarding_create_account_preferences">Short explanation of the benefits of creating an account, which is the ability to save your preferences.</string>
 </resources>

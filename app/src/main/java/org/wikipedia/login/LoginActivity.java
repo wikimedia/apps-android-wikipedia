@@ -5,10 +5,10 @@ import android.accounts.AccountManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.PasswordTextInput;
 import android.support.design.widget.TextInputLayout;
 import android.view.KeyEvent;
 import android.view.View;
@@ -22,13 +22,19 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class LoginActivity extends ThemedActionBarActivity {
     public static final int RESULT_LOGIN_SUCCESS = 1;
@@ -38,13 +44,13 @@ public class LoginActivity extends ThemedActionBarActivity {
     public static final String EDIT_SESSION_TOKEN = "edit_session_token";
     public static final String ACTION_CREATE_ACCOUNT = "action_create_account";
 
-    private TextInputLayout usernameInput;
-    private TextInputLayout passwordInput;
-    private EditText twoFactorText;
-    private View loginButton;
-    private ProgressDialog progressDialog;
-    private WikiErrorView errorView;
+    @BindView(R.id.login_username_text) TextInputLayout usernameInput;
+    @BindView(R.id.login_password_input) TextInputLayout passwordInput;
+    @BindView(R.id.login_2fa_text) EditText twoFactorText;
+    @BindView(R.id.view_login_error) WikiErrorView errorView;
+    @BindView(R.id.login_button) View loginButton;
 
+    private ProgressDialog progressDialog;
     @Nullable private String firstStepToken;
     private LoginFunnel funnel;
     private String loginSource;
@@ -66,12 +72,7 @@ public class LoginActivity extends ThemedActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        usernameInput = (TextInputLayout) findViewById(R.id.login_username_text);
-        passwordInput = (PasswordTextInput) findViewById(R.id.login_password_input);
-        twoFactorText = (EditText) findViewById(R.id.login_2fa_text);
-        View createAccountLink = findViewById(R.id.login_create_account_link);
-        errorView = (WikiErrorView) findViewById(R.id.view_login_error);
+        ButterKnife.bind(this);
 
         errorView.setBackClickListener(new View.OnClickListener() {
             @Override
@@ -106,21 +107,6 @@ public class LoginActivity extends ThemedActionBarActivity {
             }
         });
 
-        loginButton = findViewById(R.id.login_button);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateThenLogin();
-            }
-        });
-
-        createAccountLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startCreateAccountActivity();
-            }
-        });
-
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
         progressDialog.setCancelable(false);
@@ -141,8 +127,21 @@ public class LoginActivity extends ThemedActionBarActivity {
         setResult(RESULT_LOGIN_FAIL);
     }
 
-    public void showPrivacyPolicy(View v) {
+    @OnClick(R.id.login_button) void onLoginClick() {
+        validateThenLogin();
+    }
+
+    @OnClick(R.id.login_create_ccount_button) void onCreateAccountClick() {
+        startCreateAccountActivity();
+    }
+
+    @OnClick(R.id.privacy_policy_link) void onPrivacyPolicyClick() {
         FeedbackUtil.showPrivacyPolicy(this);
+    }
+
+    @OnClick(R.id.forgot_password_link) void onForgotPasswordClick() {
+        PageTitle title = new PageTitle("Special:PasswordReset", WikipediaApp.getInstance().getWikiSite());
+        visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
     }
 
     @Override

@@ -23,12 +23,16 @@ import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.regex.Pattern;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -54,15 +58,18 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     private CreateAccountInfoClient createAccountInfoClient;
     private CreateAccountClient createAccountClient;
 
-    private TextInputLayout usernameInput;
-    private PasswordTextInput passwordInput;
-    private PasswordTextInput passwordRepeatInput;
-    private TextInputLayout emailInput;
-    private TextView createAccountButton;
-    private TextView createAccountButtonCaptcha;
-    private ProgressDialog progressDialog;
-    private WikiErrorView errorView;
+    @BindView(R.id.create_account_primary_container) View primaryContainer;
+    @BindView(R.id.create_account_onboarding_container) View onboardingContainer;
+    @BindView(R.id.create_account_username) TextInputLayout usernameInput;
+    @BindView(R.id.create_account_password_input) PasswordTextInput passwordInput;
+    @BindView(R.id.create_account_password_repeat) PasswordTextInput passwordRepeatInput;
+    @BindView(R.id.create_account_email) TextInputLayout emailInput;
+    @BindView(R.id.create_account_submit_button) TextView createAccountButton;
+    @BindView(R.id.view_create_account_error) WikiErrorView errorView;
+    @BindView(R.id.captcha_text) TextInputLayout captchaText;
+    @BindView(R.id.captcha_submit_button) TextView createAccountButtonCaptcha;
 
+    private ProgressDialog progressDialog;
     private CaptchaHandler captchaHandler;
     private CreateAccountResult createAccountResult;
     private CreateAccountFunnel funnel;
@@ -72,22 +79,18 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+        ButterKnife.bind(this);
 
-        usernameInput = (TextInputLayout) findViewById(R.id.create_account_username);
-        passwordRepeatInput = ((PasswordTextInput) findViewById(R.id.create_account_password_repeat));
-        emailInput = (TextInputLayout) findViewById(R.id.create_account_email);
-        createAccountButton = (TextView) findViewById(R.id.create_account_submit_button);
-        createAccountButtonCaptcha = (TextView) findViewById(R.id.captcha_submit_button);
-        TextInputLayout captchaText = (TextInputLayout) findViewById(R.id.captcha_text);
-        View primaryContainer = findViewById(R.id.create_account_primary_container);
-        passwordInput = (PasswordTextInput) findViewById(R.id.create_account_password_input);
+        // TODO: remove when ready for beta/production.
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            onboardingContainer.setVisibility(View.GONE);
+        }
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
 
-        errorView = (WikiErrorView) findViewById(R.id.view_create_account_error);
         errorView.setBackClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,20 +134,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
         }, captchaText);
 
-        createAccountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateThenCreateAccount();
-            }
-        });
-
-        createAccountButtonCaptcha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validateThenCreateAccount();
-            }
-        });
-
         // Add listener so that when the user taps enter, it submits the captcha
         captchaText.setOnKeyListener(new OnKeyListener() {
             @Override
@@ -161,14 +150,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             createAccountResult = savedInstanceState.getParcelable("result");
         }
 
-        findViewById(R.id.create_account_login_link).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // already coming from LoginActivity
-                finish();
-            }
-        });
-
         funnel = new CreateAccountFunnel(WikipediaApp.getInstance(),
                 getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
 
@@ -180,6 +161,21 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         setResult(RESULT_ACCOUNT_NOT_CREATED);
     }
 
+    @OnClick({R.id.create_account_submit_button, R.id.captcha_submit_button}) void onCreateAccountClick() {
+        validateThenCreateAccount();
+    }
+
+    @OnClick(R.id.create_account_login_button) void onLoginClick() {
+        // This assumes that the CreateAccount activity was launched from the Login activity
+        // (since there's currently no other mechanism to invoke CreateAccountActivity),
+        // so finishing this activity will implicitly go back to Login.
+        finish();
+    }
+
+    @OnClick(R.id.privacy_policy_link) void onPrivacyPolicyClick() {
+        FeedbackUtil.showPrivacyPolicy(this);
+    }
+
     @Override
     protected void setTheme() {
         setActionBarTheme();
@@ -189,10 +185,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("result", createAccountResult);
-    }
-
-    public void showPrivacyPolicy(View v) {
-        FeedbackUtil.showPrivacyPolicy(this);
     }
 
     public void handleAccountCreationError(@NonNull String message) {

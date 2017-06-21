@@ -105,8 +105,12 @@
     <string name="delete_selected_items">Delete selected items</string>
     <string name="wp_stylized"><![CDATA[<big>W</big>IKIPEDI<big>A</big>]]></string>
     <string name="create_account_username_hint">Username</string>
-    <string name="login_create_account_link">Don\'t have an account? Join Wikipedia</string>
+    <string name="login_dont_have_account">Don\'t have an account?</string>
+    <string name="login_join_wikipedia">Join Wikipedia</string>
+    <string name="login_forgot_password">Forgot your password?</string>
+    <string name="create_account_already_have">Already have an account?</string>
     <string name="create_account_login_link">Already have an account? Log in</string>
+    <string name="login_create_account_link">Don\'t have an account? Join Wikipedia</string>
     <string name="create_account_activity_title">Create an account</string>
     <string name="dialog_create_account_checking_progress">Verifying</string>
     <string name="create_account_email_hint">Email (Optional)</string>
@@ -463,6 +467,9 @@
     <string name="onboarding_analytics_title">Send anonymous data</string>
     <string name="onboarding_analytics_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
+    <string name="onboarding_create_account_sync">Sync your reading lists</string>
+    <string name="onboarding_create_account_contributions">Keep track of your contributions</string>
+    <string name="onboarding_create_account_preferences">Save your preferences</string>
     <!-- /Onboarding -->
 
 </resources>

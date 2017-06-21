@@ -134,12 +134,12 @@
                 />
         <activity android:name=".login.LoginActivity"
                   android:label="@string/login_activity_title"
-                  android:windowSoftInputMode="stateVisible|adjustResize"
+                  android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".createaccount.CreateAccountActivity"
                   android:label="@string/create_account_activity_title"
-                  android:windowSoftInputMode="stateVisible|adjustResize"
+                  android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                 />
         <activity android:name=".gallery.GalleryActivity"

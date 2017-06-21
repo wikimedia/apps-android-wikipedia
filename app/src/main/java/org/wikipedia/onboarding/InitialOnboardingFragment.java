@@ -121,7 +121,7 @@ public class InitialOnboardingFragment extends Fragment implements BackPressedHa
                         .newIntent(getContext(), LoginFunnel.SOURCE_ONBOARDING),
                         Constants.ACTIVITY_REQUEST_LOGIN);
             } else if (url.equals("#privacy")) {
-                handleExternalLink(getActivity(), Uri.parse(getString(R.string.privacy_policy_url)));
+                FeedbackUtil.showPrivacyPolicy(getContext());
             } else  {
                 handleExternalLink(getActivity(), Uri.parse(url));
             }

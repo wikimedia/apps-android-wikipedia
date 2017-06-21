@@ -68,8 +68,9 @@
         </android.support.design.widget.TextInputLayout>
     <TextView
             android:id="@+id/captcha_submit_button"
+            android:layout_width="match_parent"
             android:text="@string/create_account_button"
-            style="@style/App.Button"
+            style="@style/App.Button.Blue"
             android:enabled="false"
             android:visibility="gone"
             tools:visibility="visible"

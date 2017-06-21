@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/window_background_color">
@@ -17,82 +18,83 @@
                 android:id="@+id/create_account_primary_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="vertical">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/create_account_username"
+                <include layout="@layout/inflate_create_account_onboarding" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/create_account_username_hint">
-                    <org.wikipedia.views.PlainPasteEditText
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/create_account_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="textVisiblePassword|textNoSuggestions"
-                        android:maxLines="1" />
-                </android.support.design.widget.TextInputLayout>
+                        android:hint="@string/create_account_username_hint">
+                        <org.wikipedia.views.PlainPasteEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="flagNoExtractUi"
+                            android:inputType="textVisiblePassword|textNoSuggestions"
+                            android:maxLines="1" />
+                    </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.PasswordTextInput
-                    android:id="@+id/create_account_password_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:passwordToggleEnabled="true"
-                    android:hint="@string/login_password_hint" />
-
-                <android.support.design.widget.PasswordTextInput
-                    android:id="@+id/create_account_password_repeat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/create_account_password_repeat_hint" />
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/create_account_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/create_account_email_hint">
-                    <org.wikipedia.views.PlainPasteEditText
+                    <android.support.design.widget.PasswordTextInput
+                        android:id="@+id/create_account_password_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:imeOptions="actionDone|flagNoExtractUi"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1" />
-                </android.support.design.widget.TextInputLayout>
+                        android:layout_marginTop="8dp"
+                        app:passwordToggleEnabled="true"
+                        android:hint="@string/login_password_hint" />
 
-                <TextView
-                    android:id="@+id/create_account_submit_button"
-                    android:text="@string/create_account_next"
-                    style="@style/App.Button"
-                    android:layout_gravity="center_horizontal"
-                    android:enabled="false" />
+                    <android.support.design.widget.PasswordTextInput
+                        android:id="@+id/create_account_password_repeat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/create_account_password_repeat_hint" />
 
-                <TextView
-                    android:id="@+id/create_account_login_link"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:padding="8dp"
-                    android:text="@string/create_account_login_link"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="?attr/link_color" />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/create_account_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/create_account_email_hint">
+                        <org.wikipedia.views.PlainPasteEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionDone|flagNoExtractUi"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1" />
+                    </android.support.design.widget.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/privacy_policy_link"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:padding="8dp"
-                    android:text="@string/privacy_policy_description"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="?attr/link_color"
-                    android:clickable="true"
-                    android:onClick="showPrivacyPolicy" />
+                    <TextView
+                        android:id="@+id/create_account_submit_button"
+                        android:layout_width="match_parent"
+                        android:text="@string/create_account_next"
+                        style="@style/App.Button.Blue"
+                        android:layout_gravity="center_horizontal"
+                        android:enabled="false" />
+
+                    <TextView
+                        android:id="@+id/privacy_policy_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:padding="8dp"
+                        android:text="@string/privacy_policy_description"
+                        android:textColor="?attr/link_color"
+                        android:clickable="true" />
+
+                </LinearLayout>
             </LinearLayout>
 
-            <include layout="@layout/group_captcha" />
+            <include layout="@layout/group_captcha"
+                tools:visibility="gone"/>
 
         </FrameLayout>
     </ScrollView>
