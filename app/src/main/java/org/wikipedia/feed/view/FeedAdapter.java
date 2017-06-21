@@ -14,6 +14,7 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.news.NewsListCardView;
 import org.wikipedia.feed.offline.OfflineCardView;
+import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -23,7 +24,8 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     public interface Callback extends ItemTouchHelperSwipeAdapter.Callback,
             ListCardItemView.Callback, CardHeaderView.Callback,
             FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
-            AnnouncementCardView.Callback, FeaturedArticleCardView.Callback {
+            AnnouncementCardView.Callback, FeaturedArticleCardView.Callback,
+            RandomCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onRetryFromOffline();
