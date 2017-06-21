@@ -145,7 +145,7 @@ import java.util.UUID;
                         wiki == null ? app.getWikiSite().dbName() : wiki.dbName(),
                         preprocessData(eventData)
                 );
-                app.getEventLoggingService().log(event.getData());
+                EventLoggingService.getInstance().log(event.getData());
             }
         }
     }

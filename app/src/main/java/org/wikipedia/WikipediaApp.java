@@ -20,7 +20,6 @@ import com.squareup.leakcanary.RefWatcher;
 import com.squareup.otto.Bus;
 
 import org.mediawiki.api.json.Api;
-import org.wikipedia.analytics.EventLoggingService;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
@@ -91,7 +90,6 @@ public class WikipediaApp extends Application {
     private final Map<String, Api> apis = new HashMap<>();
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
-    private EventLoggingService eventLoggingService;
     private SessionFunnel sessionFunnel;
     private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
     private NetworkConnectivityReceiver connectivityReceiver = new NetworkConnectivityReceiver();
@@ -158,7 +156,6 @@ public class WikipediaApp extends Application {
 
         initAppLang();
         funnelManager = new FunnelManager(this);
-        eventLoggingService = new EventLoggingService(this);
         sessionFunnel = new SessionFunnel(this);
         database = new Database(this);
 
@@ -384,10 +381,6 @@ public class WikipediaApp extends Application {
 
     public FunnelManager getFunnelManager() {
         return funnelManager;
-    }
-
-    public EventLoggingService getEventLoggingService() {
-        return eventLoggingService;
     }
 
     /**
