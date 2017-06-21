@@ -95,7 +95,6 @@ public class ReadingListsFragment extends Fragment {
         updateLists();
 
         contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        maybeShowOnboarding();
         return view;
     }
 
@@ -160,6 +159,7 @@ public class ReadingListsFragment extends Fragment {
             return;
         }
         if (visible) {
+            maybeShowOnboarding();
             updateLists();
         } else if (actionMode != null) {
             actionMode.finish();
