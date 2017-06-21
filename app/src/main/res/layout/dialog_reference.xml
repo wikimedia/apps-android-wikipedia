@@ -9,7 +9,7 @@
 
     <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_border" />
 
-    <TextView
+    <org.wikipedia.views.AppTextView
         android:id="@+id/reference_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

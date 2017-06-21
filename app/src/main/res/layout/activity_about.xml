@@ -56,7 +56,7 @@
                 android:layout_marginBottom="8dp"
                 style="?android:textAppearanceSmall"
                 android:text="@string/about_contributors_heading" />
-        <TextView
+        <org.wikipedia.views.AppTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layoutDirection="ltr"
@@ -75,7 +75,7 @@
                 android:layout_marginBottom="8dp"
                 style="?android:textAppearanceSmall"
                 android:text="@string/about_translators_heading" />
-        <TextView
+        <org.wikipedia.views.AppTextView
                 android:id="@+id/about_translators"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                 android:text="@string/about_libraries_heading"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp" />
-        <TextView
+        <org.wikipedia.views.AppTextView
                 android:id="@+id/activity_about_libraries"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                 android:text="@string/about_app_license_heading"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp" />
-        <TextView
+        <org.wikipedia.views.AppTextView
                 android:id="@+id/about_app_license"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
             android:tint="@color/dark_gray"
             android:contentDescription="@null" />
 
-        <TextView
+        <org.wikipedia.views.AppTextView
             android:id="@+id/about_wmf"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
