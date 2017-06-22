@@ -275,7 +275,7 @@
   <string name="reading_list_added_to_unnamed">Угулунна.</string>
   <string name="reading_list_already_exists">Бу ыстатыйа урут угуллубут эбит.</string>
   <string name="reading_list_added_view_button">Тиһилиги көрүү</string>
-  <string name="format_reading_list_statistical_summary_singular">1 ыстатыйа% 1$ 2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 ыстатыйа %1$.2f MiB</string>
   <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d ыстатыйалар, %2$.2f MiB</string>
   <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d из 1 аhaҕac ыстатыйа офлайн, %2$.2f MiB</string>
   <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d из %2$d аha5ac ыстатыйалар офлайн, %3$.2f MiB</string>
