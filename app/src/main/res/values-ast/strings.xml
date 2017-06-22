@@ -100,6 +100,7 @@
   <string name="create_account_passwords_mismatch_error">Les contraseñes nun casen</string>
   <string name="create_account_email_error">Direición de corréu inválida</string>
   <string name="create_account_username_error">Hai caráuteres inválidos nel nome d\'usuariu</string>
+  <string name="create_account_password_error">La contraseña ye inválida</string>
   <string name="create_account_generic_error">Nun pudo crease la cuenta</string>
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear una cuenta</string>
@@ -120,6 +121,9 @@
   <string name="edit_preview_fetching_dialog_message">Algamando vista previa...</string>
   <string name="send_feedback">Unviar comentariu sobro la app</string>
   <string name="create_account_account_created_toast">¡Cuenta creada!</string>
+  <string name="preferences_heading_storage_and_syncing">Almacenamientu y sincronización</string>
+  <string name="preference_title_sync_reading_lists">Sincronizar llistes de llectura</string>
+  <string name="preference_summary_sync_reading_lists">Permitir que Wikimedia sincronice les llistes de llectura al aniciar sesión</string>
   <string name="preferences_privacy_settings_heading">Intimidá</string>
   <string name="preference_title_eventlogging_opt_in">Unviar informes d\'usu</string>
   <string name="preference_summary_eventlogging_opt_in">Permite a Wikimedia collechar información tocante a cómo uses la app p\'ameyorala</string>
@@ -314,6 +318,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de les llistes sin conexón</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'artículu apaez en delles llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s yá nun tará disponible sin conexón pa nenguna llista de llectura:</string>
+  <string name="reading_list_sync_reminder_title">Ta desactivada la sincronización de llistes de llectura</string>
+  <string name="reading_list_sync_reminder_text">Les llistes de llectura de la to cuenta de Wikipedia pueden sincronizase si lo permites na configuración de l\'aplicación.</string>
+  <string name="reading_list_sync_reminder_action">Activar</string>
+  <string name="reading_list_login_reminder_title">Sincronizar llistes de llectura</string>
+  <string name="reading_list_login_reminder_text">Agora les tos llistes de llectura pueden guardase na cuenta de Wikipedia. Sólo anicia sesión cola to cuenta, y les llistes de llectura van sincronizase automáticamente.</string>
+  <string name="reading_lists_confirm_remote_delete">Esto desaniciará del almacenamientu remotu cualquier llista de llectura sincronizada con anterioidá. ¿Siguir?</string>
   <string name="user_option_sync_label">Preferencies</string>
   <string name="notification_button_view_user">Falar col usuariu</string>
   <string name="notification_talk_title">Mensaxe nuevu en Wikipedia</string>

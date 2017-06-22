@@ -317,6 +317,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע במספר רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
+  <string name="reading_list_sync_reminder_title">סנכרון רשימות מעקב כבוי</string>
+  <string name="reading_list_sync_reminder_text">רשימות המעקב יסונכרנו לחשבון הוויקיפדיה שלך אם תאשר סנכרון בהגדרות האפליקציה</string>
+  <string name="reading_list_sync_reminder_action">הדלק</string>
+  <string name="reading_list_login_reminder_title">סנכרן רשימות קריאה</string>
+  <string name="reading_list_login_reminder_text">רשימות המעקב יישמרו לחשבון הוויקיפדיה שלך. כשתיכנסו לחשבונכם, הן יסונכרנו באופן אוטומטי</string>
+  <string name="reading_lists_confirm_remote_delete">זה ימחק כל רשימות מעקב מסונכרנות קודמות מהזיכרון בשליטה מרחוק. האם ברצונך להמשיך?</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_button_view_user">לדבר עם משתמש</string>
   <string name="notification_talk_title">הודעה חדשה בוויקיפדיה</string>

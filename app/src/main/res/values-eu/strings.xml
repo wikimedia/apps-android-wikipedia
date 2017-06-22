@@ -7,6 +7,7 @@
   <string name="yes">Bai</string>
   <string name="no">Ez</string>
   <string name="search_hint">Bilatu Wikipedian</string>
+  <string name="search_hint_search_history">Bilatu historia</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="page_error_retry">Saiatu berriro</string>
@@ -76,8 +77,8 @@
   <string name="login_success_toast">Saio hasiera egina!</string>
   <string name="preference_title_logout">Saioa itxi</string>
   <string name="toast_logout_complete">Saioa itxita</string>
-  <string name="history_empty_title" fuzzy="true">Ez dauge azkenaldiko orririk hemen!</string>
-  <string name="history_empty_message" fuzzy="true">Ziurenik guztiak ezabatu dituzu. Orrialde batera zoazen hurrengoan hemendik berreskura ditzakezu.</string>
+  <string name="history_empty_title">Ez dago azkenaldian ikusitako orririk!</string>
+  <string name="history_empty_message">Egin hemen irakurri duzunaren jarraipena.</string>
   <string name="delete_selected_history">Ezabatu</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>
@@ -201,7 +202,10 @@
   <string name="button_get_directions">Helbidea lortu</string>
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
   <string name="nav_item_donate">Wikipedia Lagundu</string>
+  <string name="location_service_disabled">Kokapen zerbitzuak desgaituak daude.</string>
   <string name="enable_location_service">Gaitu</string>
+  <string name="location_permissions_enable_prompt">Gaitu kokapen baimenak zure gertukoak ikusteko.</string>
+  <string name="view_link_preview_error_button_dismiss">Utzi</string>
   <string name="view_wiki_error_message_offline">Ezin izan da Internetera konektatu</string>
   <string name="crash_report_dialog_dont_send_button">Utzi</string>
   <string name="crash_report_dialog_always_send_button">Beti bidali</string>
@@ -228,18 +232,23 @@
   <string name="reading_list_sort_by_name_desc">Izenen arabera antolatu (alderantzizkoa)</string>
   <string name="reading_list_sort_by_recent">Berrienetik zaharrenara ordenatu</string>
   <string name="reading_list_sort_by_recent_desc">Zaharrenetik berrienera ordenatu</string>
-  <string name="reading_list_menu_delete" fuzzy="true">Ezabatu irakurketa zerrenda</string>
+  <string name="reading_list_menu_delete">Ezabatu zerrenda</string>
+  <string name="reading_list_menu_rename">Izena aldatu</string>
+  <string name="reading_list_menu_edit_description">Aldatu deskribapena</string>
   <string name="reading_list_name_sample">Nire irakurketa zerrenda</string>
   <string name="reading_list_name_hint">Zerrenda honen izena</string>
   <string name="reading_list_description_hint">Deskribapena (aukerakoa)</string>
   <string name="reading_list_item_deleted">%s zerrendatik kendu da</string>
   <string name="reading_list_item_delete_undo">Desegin</string>
   <string name="reading_list_deleted">%s ezabatua</string>
+  <string name="reading_lists_empty">Irakurketa zerrendarik oraindik ez</string>
+  <string name="reading_lists_empty_message">Gorde artikuluak irakurketa zerrenda beranduago ikus ditzazun, nahiz eta offline irakurtzeko ere.</string>
   <string name="reading_lists_onboarding_for_example">Adibidez</string>
   <string name="reading_lists_onboarding_example1">Bisitatu beharreko lekuak</string>
   <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
   <string name="reading_lists_onboarding_example3">Espazioa!</string>
   <string name="reading_lists_onboarding_got_it">Ulertu dut</string>
+  <string name="reading_list_no_description">Deskribapenik ez...</string>
   <string name="reading_list_article_offline">Erabilgarri lineaz kanpo</string>
   <string name="reading_list_add_to_other_list">Gehitu beste irakurketa-zerrenda batera</string>
   <string name="reading_list_remove_from_list">Kendu %s-tik</string>
@@ -249,7 +258,11 @@
   <string name="notification_talk_title">Mezu berria Wikipedian</string>
   <string name="notification_thanks_title">Eskerrak eman dizkizute!</string>
   <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
+  <string name="view_random_card_title">Ausazkoa</string>
+  <string name="view_random_card_subtitle">Irakurri Wikipediako ausazko artikulu bat</string>
   <string name="view_main_page_card_title">Gaur Wikipedian</string>
+  <string name="view_main_page_card_subtitle">Azala %s(e)an</string>
+  <string name="view_featured_image_card_title">Eguneko irudia</string>
   <string name="view_featured_image_card_download">Deskargatu</string>
   <string name="menu_feed_card_dismiss">Txartel hau ezkutatu</string>
   <string name="menu_feed_overflow_label">Aukera gehiago</string>
@@ -266,11 +279,13 @@
   <string name="view_announcement_card_negative_action">Ez, eskerrik asko</string>
   <string name="description_edit_text_hint">Izenburuaren deskribapena</string>
   <string name="description_edit_save">Argitaratu</string>
+  <string name="description_edit_edit_description">Aldatu deskribapena</string>
   <string name="description_edit_cancel_hint">Utzi</string>
   <string name="description_edit_help_about_wikidata">Wikidatari buruz</string>
   <string name="description_edit_success_saved">Deskribapea argiraratu da!</string>
   <string name="description_edit_success_done">Egina</string>
   <string name="description_edit_success_did_you_know">Ba al zenekien?</string>
+  <string name="description_edit_tutorial_title_descriptions">Izenburuaren deskribapenak</string>
   <string name="description_edit_tutorial_button_label_continue">Jarraitu</string>
   <string name="description_edit_tutorial_keep_it_short">Labur mantendu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideala, lerro bakarra, bi eta hamabi hitz artean</string>

@@ -92,6 +92,7 @@
   <string name="create_account_passwords_mismatch_error">Hasła nie są identyczne</string>
   <string name="create_account_email_error">Nieprawidłowy adres e-mail</string>
   <string name="create_account_username_error">Nieprawidłowe znaki w nazwie użytkownika</string>
+  <string name="create_account_password_error">Hasło jest nieprawidłowe</string>
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="create_account_button">Utwórz konto</string>
@@ -251,6 +252,7 @@
   <string name="reading_list_entry_empty">Wprowadź tytuł.</string>
   <string name="reading_list_already_exists">Ten artykuł znajduje się już na tej liście.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MiB</string>
   <string name="reading_list_sort">Sortuj</string>
   <string name="reading_list_sort_by_name">Sortuj według nazwy</string>
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>
@@ -273,6 +275,7 @@
   <string name="reading_list_article_offline_message">Ten artykuł będzie dostępny w trybie offline.</string>
   <string name="reading_list_article_not_offline_message">Ten artykuł nie będzie dostępny w trybie offline.</string>
   <string name="reading_list_remove_from_list">Usuń z %s</string>
+  <string name="reading_list_sync_reminder_action">Włącz</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
