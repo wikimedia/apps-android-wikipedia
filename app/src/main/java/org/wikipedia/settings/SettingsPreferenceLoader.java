@@ -1,5 +1,6 @@
 package org.wikipedia.settings;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -38,14 +39,14 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
             loadPreferences(R.xml.preferences_zero);
 
             findPreference(R.string.preference_key_zero_interstitial)
-                    .setOnPreferenceChangeListener(showZeroInterstitialListener);
+                    .setOnPreferenceChangeListener(new ShowZeroInterstitialListener());
         }
 
         findPreference(R.string.preference_key_sync_reading_lists)
-                .setOnPreferenceChangeListener(syncReadingListsListener);
+                .setOnPreferenceChangeListener(new SyncReadingListsListener(getActivity()));
 
         findPreference(R.string.preference_key_color_theme)
-                .setOnPreferenceChangeListener(themeChangeListener);
+                .setOnPreferenceChangeListener(new ThemeChangeListener());
 
         loadPreferences(R.xml.preferences_about);
 
@@ -104,19 +105,22 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
         languagePref.setSummary(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
     }
 
-    private Preference.OnPreferenceChangeListener showZeroInterstitialListener
-            = new Preference.OnPreferenceChangeListener() {
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
+    private static class ShowZeroInterstitialListener implements Preference.OnPreferenceChangeListener {
+        @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
             if (newValue == Boolean.FALSE) {
                 WikipediaApp.getInstance().getWikipediaZeroHandler().getZeroFunnel().logExtLinkAlways();
             }
             return true;
         }
-    };
+    }
 
-    private Preference.OnPreferenceChangeListener syncReadingListsListener
-            = new Preference.OnPreferenceChangeListener() {
+    private static final class SyncReadingListsListener implements Preference.OnPreferenceChangeListener {
+        private Context context;
+
+        private SyncReadingListsListener(Context context) {
+            this.context = context;
+        }
+
         @Override public boolean onPreferenceChange(final Preference preference, Object newValue) {
             final ReadingListSynchronizer synchronizer = ReadingListSynchronizer.instance();
             if (newValue == Boolean.TRUE) {
@@ -124,7 +128,7 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
                 Prefs.setReadingListSyncEnabled(true);
                 synchronizer.sync();
             } else {
-                new AlertDialog.Builder(getActivity())
+                new AlertDialog.Builder(context)
                         .setMessage(R.string.reading_lists_confirm_remote_delete)
                         .setPositiveButton(R.string.yes, new DeleteRemoteListsYesListener(preference, synchronizer))
                         .setNegativeButton(R.string.no, new DeleteRemoteListsNoListener(preference))
@@ -135,17 +139,16 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
         }
     };
 
-    private Preference.OnPreferenceChangeListener themeChangeListener
-            = new Preference.OnPreferenceChangeListener() {
+    private static class ThemeChangeListener implements Preference.OnPreferenceChangeListener {
         @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
             WikipediaApp.getInstance().setCurrentTheme(Theme.ofMarshallingId((Integer) newValue));
             // The setCurrentTheme call updates the nonvolatile Preference state and updates the UI
             // accordingly. Return false since the pref state is already updated by the method call.
             return false;
         }
-    };
+    }
 
-    private final class DeleteRemoteListsYesListener implements DialogInterface.OnClickListener {
+    private static final class DeleteRemoteListsYesListener implements DialogInterface.OnClickListener {
         private Preference preference;
         private ReadingListSynchronizer synchronizer;
 
@@ -162,7 +165,7 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
         }
     }
 
-    private final class DeleteRemoteListsNoListener implements DialogInterface.OnClickListener {
+    private static final class DeleteRemoteListsNoListener implements DialogInterface.OnClickListener {
         private Preference preference;
 
         private DeleteRemoteListsNoListener(Preference preference) {
