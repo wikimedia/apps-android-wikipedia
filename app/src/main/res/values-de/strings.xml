@@ -87,7 +87,6 @@
   <string name="history_empty_title">Keine kürzlich besuchten Artikel</string>
   <string name="history_empty_message">Verfolge hier, was du gelesen hast.</string>
   <string name="search_empty_message">Die freie Enzyklopädie in deiner Sprache suchen und lesen</string>
-  <string name="delete_selected_history">Löschen</string>
   <string name="delete_selected_items">Ausgewählte Elemente löschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benutzername</string>

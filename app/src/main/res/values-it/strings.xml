@@ -85,7 +85,6 @@
   <string name="history_empty_title">Nessuna voce vista recentemente</string>
   <string name="history_empty_message">Traccia quello che hai letto qui.</string>
   <string name="search_empty_message">Cerca e leggi l\'enciclopedia libera nella tua lingua</string>
-  <string name="delete_selected_history">Cancella</string>
   <string name="delete_selected_items">Cancella gli elementi selezionati</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome utente</string>

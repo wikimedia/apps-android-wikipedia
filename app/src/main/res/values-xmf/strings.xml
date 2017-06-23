@@ -83,7 +83,6 @@
   <string name="toast_logout_complete">გიშულირი</string>
   <string name="history_empty_title">ბოლოს ძირაფილი ხასჷლეფი ვარე</string>
   <string name="search_empty_message">დოგორით დო იკითხით დუდიშული ენციკლოპედია თქვან ნინაშა</string>
-  <string name="delete_selected_history">ლასუა</string>
   <string name="delete_selected_items">გიშაგორილი ელემენტეფიშ ლასუა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მახვარებუშ ჯოხო</string>

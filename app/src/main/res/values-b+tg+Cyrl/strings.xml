@@ -65,7 +65,6 @@
   <string name="preference_title_logout">Хуруҷ</string>
   <string name="toast_logout_complete">Хориҷ шудед</string>
   <string name="history_empty_message">Шояд шумо ҳамаи онҳоро тоза карда бошед. Даъфаи дигар вақте ба саҳифае меравед шумо ба он саҳифа бори дигар аз инҷо рафта метавонед.</string>
-  <string name="delete_selected_history">Ҳазв</string>
   <string name="create_account_username_hint">Номи корбар</string>
   <string name="login_create_account_link">Ҳисобе надоред? Ба Википедиа бипайвандед</string>
   <string name="create_account_activity_title">Эҷоди ҳисоб</string>

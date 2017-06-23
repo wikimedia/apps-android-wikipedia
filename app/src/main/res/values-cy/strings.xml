@@ -82,7 +82,6 @@
   <string name="toast_logout_complete">Wedi allgofnodi</string>
   <string name="history_empty_title">Does yr un dalen diweddar yma!</string>
   <string name="history_empty_message">Traciwch yr hyn rydych wedi\'i ddarllen, yma.</string>
-  <string name="delete_selected_history">Dileu</string>
   <string name="delete_selected_items">Diewch yr eitemau a ddewisiwyd</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ICIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Enw defnyddiwr</string>

@@ -72,7 +72,6 @@
   <string name="toast_logout_complete">ଲଗ ଆଉଟ ହୋଇଗଲା</string>
   <string name="history_empty_title" fuzzy="true">କୌଣସି ନଗଦ ପୃଷ୍ଠା ନାହିଁ!</string>
   <string name="history_empty_message" fuzzy="true">ଆପଣ ବୋଧେ ସବୁ ଲିଭାଇ ଦେଇଛନ୍ତି । ଆଗକୁ ଆପଣ ଏକ ପୃଷ୍ଠାକୁ ଗଲେ ଏଇଠି ଦେଖିପାରିବେ ।</string>
-  <string name="delete_selected_history">ଲିଭାଇବେ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="login_create_account_link">ଆପଣଙ୍କର ଖାତା ନାହିଁ ? ଉଇକିପିଡିଆରେ ଯୋଗ ଦିଅନ୍ତୁ</string>

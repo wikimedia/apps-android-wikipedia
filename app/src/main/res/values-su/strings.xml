@@ -86,7 +86,6 @@
   <string name="toast_logout_complete">Kaluar log</string>
   <string name="history_empty_title">Taya artikel nu anyar ditempo</string>
   <string name="history_empty_message">Lacak naon nu geus ku anjeun baca di dieu.</string>
-  <string name="delete_selected_history">Pupus</string>
   <string name="delete_selected_items">Pupus leunjeuran nu dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Sandiasma</string>

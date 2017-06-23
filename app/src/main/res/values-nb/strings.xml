@@ -85,7 +85,6 @@
   <string name="history_empty_title">Ingen nylig besøkte sider</string>
   <string name="history_empty_message">Finn igjen det du har lest her.</string>
   <string name="search_empty_message">Søk i og les den frie encyklopedien på ditt språk</string>
-  <string name="delete_selected_history">Fjern</string>
   <string name="delete_selected_items">Fjern valgte sider</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brukernavn</string>

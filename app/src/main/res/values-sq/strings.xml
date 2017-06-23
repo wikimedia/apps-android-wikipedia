@@ -70,7 +70,6 @@
   <string name="preference_title_logout">Dil</string>
   <string name="toast_logout_complete">Dolët</string>
   <string name="history_empty_message">Ndoshta i keni fshirë të gjitha. Herën tjetër që shkoni në një faqe, ju mund të riktheheni te ajo nga këtu.</string>
-  <string name="delete_selected_history">Fshi</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Emri i përdoruesit</string>
   <string name="login_create_account_link">Nuk keni llogari? Bashkojuni Wikipedias</string>

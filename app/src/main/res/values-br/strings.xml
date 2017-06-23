@@ -86,7 +86,6 @@
   <string name="toast_logout_complete">Digevreet</string>
   <string name="history_empty_title">Pennad ebet lennet nevez zo</string>
   <string name="history_empty_message">Heuliañ ar pezh hoc\'h eus lennet amañ</string>
-  <string name="delete_selected_history">Diverkañ</string>
   <string name="delete_selected_items">Diverkañ an elfennoù diuzet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Anv implijer</string>

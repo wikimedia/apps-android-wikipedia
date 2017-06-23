@@ -46,7 +46,6 @@
   <string name="login_in_progress_dialog_message">Inakuingiza…</string>
   <string name="login_success_toast" fuzzy="true">Umefaulu kuingia</string>
   <string name="preference_title_logout">Toka</string>
-  <string name="delete_selected_history">Futa</string>
   <string name="wp_stylized">big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Jina la mtumiaji</string>
   <string name="login_create_account_link">Uko na akaunti? Jiunge na Wikipedia</string>

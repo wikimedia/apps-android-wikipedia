@@ -79,7 +79,6 @@
   <string name="toast_logout_complete">Sessão terminada</string>
   <string name="history_empty_title" fuzzy="true">Sem páginas recentes aqui.</string>
   <string name="history_empty_message" fuzzy="true">Provavelmente eliminou-as. Da próxima vez que aceder a uma página, pode regressar a ela a partir daqui.</string>
-  <string name="delete_selected_history">Eliminar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de utilizador</string>
   <string name="login_create_account_link">Não tem uma conta? Junte-se à Wikipédia</string>

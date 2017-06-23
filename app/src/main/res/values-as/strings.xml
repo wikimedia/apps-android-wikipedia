@@ -85,7 +85,6 @@
   <string name="toast_logout_complete">প্ৰস্থান হ\'ল</string>
   <string name="history_empty_title">কোনো শেহতীয়াকৈ পঢ়া পৃষ্ঠা নাই</string>
   <string name="history_empty_message">আপুনি ইয়াত কি পঢ়িছে সেয়া অনুসৰণ কৰক।</string>
-  <string name="delete_selected_history">বিলোপ কৰক</string>
   <string name="delete_selected_items">নিৰ্বাচিত আইটেম বিলোপ কৰক</string>
   <string name="wp_stylized">&lt;big&gt;ৱি&lt;/big&gt;কিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">সদস্যনাম</string>

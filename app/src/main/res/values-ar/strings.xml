@@ -84,7 +84,6 @@
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
   <string name="history_empty_title">لا مقالات معروضة مؤخرًا!</string>
   <string name="history_empty_message">يمكنك متابعة ما كنت تقرأه هنا.</string>
-  <string name="delete_selected_history">حذف</string>
   <string name="delete_selected_items">إزالة العناصر المختارة</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يكيبيد&lt;big&gt;يا&lt;/big&gt;</string>
   <string name="create_account_username_hint">اسم المستخدم</string>

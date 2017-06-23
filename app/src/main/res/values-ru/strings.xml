@@ -87,7 +87,6 @@
   <string name="history_empty_title">Нет недавно просмотренных статей</string>
   <string name="history_empty_message">Отслеживайте то, что вы уже читали здесь.</string>
   <string name="search_empty_message">Ищите и читайте свободную энциклопедию на своём языке</string>
-  <string name="delete_selected_history">Удалить</string>
   <string name="delete_selected_items">Удалить выбранные элементы</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Имя участника</string>

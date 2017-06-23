@@ -51,7 +51,6 @@
   <string name="toast_logout_complete">ನಿರ್ಗಮನ</string>
   <string name="history_empty_title">ಇಲ್ಲಿ ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ</string>
   <string name="history_empty_message" fuzzy="true">ನಿಮ್ಮ ಇತಿಹಾಸಪುಟ ಖಾಲಿಯಾಗಿದೆ.</string>
-  <string name="delete_selected_history">ಅಳಿಸಿ</string>
   <string name="create_account_username_hint">ಬಳಕೆದಾರರ ಹೆಸರು</string>
   <string name="login_create_account_link">ಖಾತೆಯಿಲ್ಲವೇ?ವಿಕಿಪೀಡಿಯ ಸೇರಿ</string>
   <string name="create_account_login_link">ಈಗಾಗಲೇ ಖಾತೆಯಿದೆಯೇ?ಲಾಗಿನ್ ಆಗಿ</string>

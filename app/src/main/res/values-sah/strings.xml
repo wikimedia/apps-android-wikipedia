@@ -87,7 +87,6 @@
   <string name="history_empty_title">Соторутааҕыта көрүллүбүт сирэй суох эбит</string>
   <string name="history_empty_message">Урут аахпыккын манна кэтээ.</string>
   <string name="search_empty_message">Босхо энциклопедияны тереебут тылга аа5ыы уонна бу</string>
-  <string name="delete_selected_history">Сотторуу</string>
   <string name="delete_selected_items">Талыллыбыты сот</string>
   <string name="wp_stylized">&lt;big&gt;Б&lt;/big&gt;ИКИПИЭДЬИЙ&lt;big&gt;Э&lt;/big&gt;</string>
   <string name="create_account_username_hint">Кыттааччы аата</string>

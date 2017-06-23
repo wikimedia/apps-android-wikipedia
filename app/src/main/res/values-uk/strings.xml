@@ -82,7 +82,6 @@
   <string name="toast_logout_complete">Ви вийшли із системи</string>
   <string name="history_empty_title">Немає недавно відвіданих сторінок</string>
   <string name="history_empty_message">Відстежувати те, що Ви вже читали тут.</string>
-  <string name="delete_selected_history">Видалити</string>
   <string name="delete_selected_items">Вилучити вибрані елементи</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>

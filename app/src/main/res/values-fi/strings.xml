@@ -86,7 +86,6 @@
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemisistasi.</string>
   <string name="search_empty_message">Etsi ja lue vapaata tietosanakirjaa omalla kielelläsi</string>
-  <string name="delete_selected_history">Poista</string>
   <string name="delete_selected_items">Poista valitut kohteet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>

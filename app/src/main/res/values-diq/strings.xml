@@ -66,7 +66,6 @@
   <string name="toast_logout_complete">Ronıştış racneya</string>
   <string name="history_empty_title" fuzzy="true">Perê peyêni çıni yê!</string>
   <string name="history_empty_message" fuzzy="true">Texmina şıma hrme esterıti. Eger kenşıma şınê yu pela se,  şıma şenê etiya ra acınrrsê</string>
-  <string name="delete_selected_history">Bestern</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Namey karberi</string>
   <string name="login_create_account_link">Hesabi şıma çıniyo?Wikipedia de qeyd bi</string>

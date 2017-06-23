@@ -87,7 +87,6 @@
   <string name="history_empty_title">Inga nyligen lästa artiklar</string>
   <string name="history_empty_message">Håll koll på vad du har läst här.</string>
   <string name="search_empty_message">Sök och läs den fria encyklopedin på ditt språk</string>
-  <string name="delete_selected_history">Radera</string>
   <string name="delete_selected_items">Radera markerade objekt</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Användarnamn</string>

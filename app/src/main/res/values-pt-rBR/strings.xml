@@ -86,7 +86,6 @@
   <string name="toast_logout_complete">Saiu</string>
   <string name="history_empty_title">Nenhum artigo visto recentemente</string>
   <string name="history_empty_message">Acompanhe o que você está lendo aqui.</string>
-  <string name="delete_selected_history">Apagar</string>
   <string name="delete_selected_items">Excluir itens selecionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuário</string>

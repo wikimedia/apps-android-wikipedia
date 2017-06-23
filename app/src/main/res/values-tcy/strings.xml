@@ -73,7 +73,6 @@
   <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
   <string name="toast_logout_complete">ಲಾಗ್ ಔಟ್ ಅಯಾರ್</string>
   <string name="history_empty_title">ಮುಲ್ಪ ಇಂಚಿಪೋ ತೂಯಿನಾ ಪುಟೋ ಇಜ್ಜಿ</string>
-  <string name="delete_selected_history">ಮಾಜಾಲೆ</string>
   <string name="delete_selected_items">ಆಯ್ಕೆ ಮಲ್ತಿನೆನ್ ಮಾಜಾಲೆ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>

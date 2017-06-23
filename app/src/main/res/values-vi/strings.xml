@@ -86,7 +86,6 @@
   <string name="toast_logout_complete">Đã đăng xuất</string>
   <string name="history_empty_title">Không có bài viết nào được xem gần đây</string>
   <string name="history_empty_message">Theo dõi nhưng gì bạn đã xem qua tại đây.</string>
-  <string name="delete_selected_history">Xóa</string>
   <string name="delete_selected_items">Xoá mục đã chọn</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Tên người dùng</string>
