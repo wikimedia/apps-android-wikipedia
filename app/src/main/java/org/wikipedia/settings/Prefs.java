@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -19,6 +20,7 @@ import org.wikipedia.json.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.StringUtil;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -509,6 +511,21 @@ public final class Prefs {
 
     public static void setInitialOnboardingEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_initial_onboarding_enabled, enabled);
+    }
+
+    public static void setReadingListsCurrentUser(@Nullable String userName) {
+        setString(R.string.preference_key_reading_lists_current_user_hash,
+                TextUtils.isEmpty(userName) ? "" : StringUtil.md5string(userName));
+    }
+
+    public static boolean hasReadingListsCurrentUser() {
+        return !TextUtils.isEmpty(getString(R.string.preference_key_reading_lists_current_user_hash, ""));
+    }
+
+    public static boolean isReadingListsCurrentUser(@Nullable String userName) {
+        return !TextUtils.isEmpty(userName)
+                && getString(R.string.preference_key_reading_lists_current_user_hash, "")
+                .equals(StringUtil.md5string(userName));
     }
 
     private Prefs() { }
