@@ -28,31 +28,25 @@
                 android:layout_gravity="center_horizontal">
             <TextView
                     android:id="@+id/buttonDecreaseTextSize"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/ButtonGray"
-                    android:layout_margin="0dp"
+                    style="@style/App.Button.Gray"
+                    android:padding="0dp"
+                    android:layout_width="56dp"
                     android:text="−"
                     android:textSize="26sp"
                     tools:ignore="HardcodedText"/>
             <TextView
                     android:id="@+id/buttonDefaultTextSize"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/ButtonGray"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginBottom="0dp"
+                    style="@style/App.Button.Gray"
+                    android:padding="0dp"
+                    android:layout_width="56dp"
                     android:text="○"
                     android:textSize="26sp"
                     tools:ignore="HardcodedText"/>
             <TextView
                     android:id="@+id/buttonIncreaseTextSize"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/ButtonGray"
-                    android:layout_margin="0dp"
+                    style="@style/App.Button.Gray"
+                    android:padding="0dp"
+                    android:layout_width="56dp"
                     android:text="+"
                     android:textSize="26sp"
                     tools:ignore="HardcodedText"/>
@@ -80,35 +74,13 @@
                 android:layout_marginBottom="26dp"
                 android:layout_gravity="center_horizontal">
             <TextView
-                    style="@style/Widget.AppCompat.Button.Borderless"
+                    style="@style/App.Button.White"
                     android:id="@+id/buttonColorsLight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="6dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="28dp"
-                    android:paddingRight="28dp"
-                    android:background="@drawable/button_selector_themelight"
-                    android:textColor="@android:color/black"
-                    android:text="@string/color_theme_light"
-                    />
+                    android:text="@string/color_theme_light" />
             <TextView
-                    style="@style/Widget.AppCompat.Button.Borderless"
+                    style="@style/App.Button.Gray"
                     android:id="@+id/buttonColorsDark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="6dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="28dp"
-                    android:paddingRight="28dp"
-                    android:background="@drawable/button_selector_themedark"
-                    android:textColor="@android:color/white"
-                    android:text="@string/color_theme_dark"
-                    />
+                    android:text="@string/color_theme_dark" />
         </LinearLayout>
 
     </LinearLayout>

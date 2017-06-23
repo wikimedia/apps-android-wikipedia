@@ -18,7 +18,6 @@
         android:textColor="@color/gray_highlight"
         android:background="?attr/selectableItemBackground"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:textSize="14sp"
         android:text="@string/button_get_directions"/>
     <TextView
         android:id="@+id/link_preview_primary_button"
@@ -30,7 +29,6 @@
         android:textColor="?attr/link_color"
         android:background="?attr/selectableItemBackground"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:textSize="14sp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/button_continue_to_article"/>
 

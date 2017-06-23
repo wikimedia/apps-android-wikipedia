@@ -107,10 +107,7 @@
     <TextView
         android:id="@+id/onboarding_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_margin="0dp"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:textSize="16sp"
-        android:textAllCaps="true"
+        style="@style/App.Button.Blue"
         android:text="@string/reading_lists_onboarding_got_it"/>
 </LinearLayout>

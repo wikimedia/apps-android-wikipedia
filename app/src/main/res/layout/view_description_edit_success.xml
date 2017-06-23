@@ -51,17 +51,8 @@
 
             <TextView
                 android:id="@+id/view_description_edit_success_done_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minHeight="36dp"
-                android:layout_gravity="center"
-                android:layout_margin="6dp"
-                style="@style/ButtonBlue"
-                android:text="@string/description_edit_success_done"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                android:textAllCaps="true"
-                android:fontFamily="sans-serif-medium" />
+                style="@style/App.Button.Blue"
+                android:text="@string/description_edit_success_done" />
         </LinearLayout>
 
         <LinearLayout
