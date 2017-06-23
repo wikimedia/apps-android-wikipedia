@@ -38,6 +38,7 @@ public class OkHttpWebViewClient extends WebViewClient {
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String HEADER_CONTENT_ENCODING = "content-encoding";
     private static final String CONTENT_TYPE_SVG = "image/svg+xml";
+    private static final String CONTENT_TYPE_OGG = "application/ogg";
 
     @SuppressWarnings("deprecation") @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
@@ -92,7 +93,11 @@ public class OkHttpWebViewClient extends WebViewClient {
     @NonNull private InputStream getInputStream(@NonNull Response rsp) throws IOException {
         InputStream inputStream = rsp.body().byteStream();
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
+                && CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
+            inputStream = new AvailableInputStream(rsp.body().byteStream(),
+                    rsp.body().contentLength());
+        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT
                 && CONTENT_TYPE_SVG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
             return transformSvgFile(inputStream);
         }
