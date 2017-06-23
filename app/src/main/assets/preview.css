@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/* GOAL: Upstream all these variables to core */
 /* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
 /* stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown */
 html,
@@ -92,7 +93,8 @@ ul {
 }
 table {
   border-collapse: collapse;
-}/* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
+}/* GOAL: Upstream all these variables to core */
+/* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
 /* stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown */
 html {
   -webkit-text-size-adjust: none;
@@ -320,6 +322,11 @@ a.new:visited,
 a.new:hover {
   color: #cc0000;
 }
+a.new > *,
+a.new:visited > *,
+a.new:hover > * {
+  color: #cc0000;
+}
 a.external {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVElEQVR42n3PgQkAIAhEUXdqJ3dqJ3e6IoTPUSQcgj4EQ5IlUiLE0Jil3PECXhcHGBhZ8kg4hwxAu3MZeCGeyFnAXp4hqNQPnt7QL0nADpD6wHccLvnAKksq8iiaAAAAAElFTkSuQmCC);
   background-image: url(/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf)!ie;
@@ -414,6 +421,8 @@ https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
 
 FIXME: Review all of these hacks to see if they still apply.
 */
+/* GOAL: Upstream all these variables to core */
+/* GOAL: Upstream all these variables to core */
 /* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
 /* stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown */
 .collapsible td {
