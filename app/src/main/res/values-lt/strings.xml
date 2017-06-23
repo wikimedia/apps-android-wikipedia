@@ -74,7 +74,6 @@
   <string name="toast_logout_complete">Atsijungėte</string>
   <string name="history_empty_title">Nėra neseniai peržiūrėtų straipsnių</string>
   <string name="history_empty_message" fuzzy="true">Tikriausiai viską panaikinote. Kitą kartą, kai eisite į kurį nors puslapį, iš čia galėsite į jį sugrįžti.</string>
-  <string name="delete_selected_history">Naikinti</string>
   <string name="delete_selected_items">Ištrinti pasirinktus elementus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Naudotojo vardas</string>

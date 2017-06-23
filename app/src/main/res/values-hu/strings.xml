@@ -86,7 +86,6 @@
   <string name="toast_logout_complete">Kijelentkezve</string>
   <string name="history_empty_title">Nem nemrég megtekintett cikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
-  <string name="delete_selected_history">Törlés</string>
   <string name="delete_selected_items">Kijelölt elemek törlése</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Szerkesztőnév</string>

@@ -61,7 +61,6 @@
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
   <string name="preference_title_logout">Iziet</string>
   <string name="toast_logout_complete">Jūs esat izgājis</string>
-  <string name="delete_selected_history">Dzēst</string>
   <string name="delete_selected_items">Dzēst izvēlētos vienumus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPĒDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Lietotājvārds</string>

@@ -87,7 +87,6 @@
   <string name="history_empty_title">No hi ha articles vists recentment</string>
   <string name="history_empty_message">Consulteu el que heu llegit aquí.</string>
   <string name="search_empty_message">Cerqueu i llegiu l\'enciclopèdia lliure en la vostra llengua</string>
-  <string name="delete_selected_history">Esborra</string>
   <string name="delete_selected_items">Elimina els elements seleccionats</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>

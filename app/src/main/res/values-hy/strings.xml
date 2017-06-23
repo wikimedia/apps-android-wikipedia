@@ -62,7 +62,6 @@
   <string name="login_success_toast">Հաջող մուտք</string>
   <string name="preference_title_logout">Դուրս գալ</string>
   <string name="history_empty_title">Վերջնադիտված էջեր չկան</string>
-  <string name="delete_selected_history">Ջնջել</string>
   <string name="wp_stylized">&lt;big&gt;Վ&lt;/big&gt;ԻՔԻՊԵԴԻ&lt;big&gt;Ա&lt;/big&gt;</string>
   <string name="create_account_username_hint">Մասնակցային անուն</string>
   <string name="login_create_account_link">Հաշիվ չունե՞ք։ Միացե՛ք Վիքիպեդիային:</string>

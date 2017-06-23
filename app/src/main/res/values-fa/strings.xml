@@ -87,7 +87,6 @@
   <string name="history_empty_title">اخیراً هیچ مقاله‌ای دیده نشده‌است</string>
   <string name="history_empty_message">پیگیری مواردی که قبلاً مطالعه کردید.</string>
   <string name="search_empty_message">جستجو و مطالعهٔ دانشنامهٔ آزاد به زبان شما</string>
-  <string name="delete_selected_history">حذف</string>
   <string name="delete_selected_items">حذف آیتم‌های انتخاب شده</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>

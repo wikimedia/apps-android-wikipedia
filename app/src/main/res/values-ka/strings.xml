@@ -85,7 +85,6 @@
   <string name="toast_logout_complete">გამოსული.</string>
   <string name="history_empty_title">ბოლოს ნანახი გვერდები არაა</string>
   <string name="history_empty_message">აკონტროლეთ რაც უკვე წაიკითხეთ.</string>
-  <string name="delete_selected_history">წაშლა</string>
   <string name="delete_selected_items">არჩეული ელემენტების წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მომხმარებლის სახელი</string>

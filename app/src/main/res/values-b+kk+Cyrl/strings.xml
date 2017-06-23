@@ -52,7 +52,6 @@
   <string name="preference_title_logout">Шығу</string>
   <string name="toast_logout_complete">Жүйеден шықтыңыз</string>
   <string name="history_empty_title">Мұнда жуықтағы беттер жоқ!</string>
-  <string name="delete_selected_history">Жою</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Қатысушы есімі</string>
   <string name="login_create_account_link">Сіз тіркелмегенсіз бе? Уикипедияға қосылыңыз</string>

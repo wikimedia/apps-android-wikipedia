@@ -87,7 +87,6 @@
   <string name="history_empty_title">Tidak ada artikel yang baru dilihat</string>
   <string name="history_empty_message">Lacak apa yang Anda sudah baca di sini.</string>
   <string name="search_empty_message">Cari dan baca ensiklopedia bebas dalam bahasa Anda</string>
-  <string name="delete_selected_history">Hapus</string>
   <string name="delete_selected_items">Hapus butir yang dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>

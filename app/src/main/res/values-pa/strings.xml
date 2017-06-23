@@ -74,7 +74,6 @@
   <string name="toast_logout_complete">ਬਾਹਰ ਆਏ</string>
   <string name="history_empty_title" fuzzy="true">ਇੱਥੇ ਕੋਈ ਹਾਲੀਆ ਵਰਕੇ ਨਹੀਂ!</string>
   <string name="history_empty_message" fuzzy="true">ਤੁਸੀਂ ਸ਼ਾਇਦ ਇਹ ਸਾਰੇ ਮਿਟਾ ਦਿੱਤੇ ਹਨ। ਅਗਲੀ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਸਫ਼ੇ \'ਤੇ ਜਾਉਂ ਤਾਂ ਤੁਸੀਂ ਇੱਥੋਂ ਉਹਦੇ ਤੱਕ ਪਰਤ ਸਕਦੇ ਹੋ।</string>
-  <string name="delete_selected_history">ਮਿਟਾਓ</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="create_account_username_hint">ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
   <string name="login_create_account_link">ਖਾਤਾ ਨਹੀਂ ਹੈ? ਵਿਕੀਪੀਡੀਆ \'ਚ ਸ਼ਾਮਿਲ ਹੋਵੋ</string>

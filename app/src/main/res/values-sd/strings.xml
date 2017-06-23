@@ -85,7 +85,6 @@
   <string name="toast_logout_complete">نڪري چڪا</string>
   <string name="history_empty_title">ڪي بہ تازا ڏٺل صفحا ڪونھن</string>
   <string name="history_empty_message">توھان ھتي جيڪو ڪجھ ڪري رھيا آھيو ان جو دڳ رکو.</string>
-  <string name="delete_selected_history">ڊاهيو</string>
   <string name="delete_selected_items">چونڊيل شيون ڊاھيو</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">يُوزرنانءُ</string>

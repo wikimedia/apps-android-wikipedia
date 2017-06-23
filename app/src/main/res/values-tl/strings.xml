@@ -61,7 +61,6 @@
   <string name="toast_logout_complete">Nakaalis na sa pagkakalagda</string>
   <string name="history_empty_title" fuzzy="true">Walang makabagong mga pahina rito!</string>
   <string name="history_empty_message" fuzzy="true">Maaaring nabura mo ang lahat ng mga iyon. Sa susunod pumunta ka sa pahinang maaaring makabalik doon mula rito.</string>
-  <string name="delete_selected_history">Burahin</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Pangalan ng tagagamit</string>
   <string name="login_create_account_link">Walang akawnt? Sumali sa Wikipedia</string>

@@ -87,7 +87,6 @@
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
   <string name="search_empty_message">Пребарувајте и читајте ја слободната енциклопедија на вашиот јазик</string>
-  <string name="delete_selected_history">Избриши</string>
   <string name="delete_selected_items">Избриши ги избраните ставки</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="create_account_username_hint">Корисничко име</string>

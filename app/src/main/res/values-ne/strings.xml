@@ -84,7 +84,6 @@
   <string name="history_empty_title">कुनै भर्खरै हेरिएका लेखहरू छैनन्</string>
   <string name="history_empty_message">आफूले पढिरहेका कुराहरूलाई यहाँबाट ट्र्याक गर्नुहोस्।</string>
   <string name="search_empty_message">स्वतन्त्र विश्वकोश आफ्नै भाषामा खोज्नुहोस् र पढ्नुहोस्</string>
-  <string name="delete_selected_history">हटाउनुहोस्</string>
   <string name="delete_selected_items">चयन गरिएका वस्तुहरू मेट्नुहोस्</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपिडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">प्रयोगकर्ताको नाम</string>

@@ -84,7 +84,6 @@
   <string name="toast_logout_complete">လော့ဂ်အောက်ထွက်ပြီးပြီ</string>
   <string name="history_empty_title">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
   <string name="history_empty_message">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
-  <string name="delete_selected_history">ဖျက်​ပါ​</string>
   <string name="delete_selected_items">ရွေးချယ်ထားသော အကြောင်းအရာများကို ဖျက်ပါ</string>
   <string name="wp_stylized">&lt;big&gt;ဝီ&lt;/big&gt;ကီပီးဒီး&lt;big&gt;ယား&lt;/big&gt;</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>

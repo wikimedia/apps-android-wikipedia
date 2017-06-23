@@ -86,7 +86,6 @@
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
   <string name="history_empty_message">এখানে আপনি কি পড়ছেন তা অনুসরণ করুন।</string>
   <string name="search_empty_message">আপনার ভাষায় বিনামূল্যে বিশ্বকোষ অনুসন্ধান করুন ও পড়ুন</string>
-  <string name="delete_selected_history">অপসারণ</string>
   <string name="delete_selected_items">নির্বাচিত আইটেম অপসারণ করুন</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>

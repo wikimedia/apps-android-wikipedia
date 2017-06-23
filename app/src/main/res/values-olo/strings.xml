@@ -71,7 +71,6 @@
   <string name="preference_title_logout">Kirjuttai ullos</string>
   <string name="toast_logout_complete">Ulloskirjutannuhes</string>
   <string name="history_empty_title" fuzzy="true">Ei jälgimäzii sivuloi!</string>
-  <string name="delete_selected_history">Poista</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;I&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäinimi</string>
   <string name="login_create_account_link">Ei vie tunnustu? Yhty Wikipedieh</string>

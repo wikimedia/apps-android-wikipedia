@@ -74,7 +74,6 @@
   <string name="toast_logout_complete">Odjavili ste se</string>
   <string name="history_empty_title" fuzzy="true">Ovdje nema nedavnih stranica.</string>
   <string name="history_empty_message" fuzzy="true">Vjerojatno ste ih izbrisali. Sljedeći put kad posjetite stranice, možete se vratiti na njih odavde.</string>
-  <string name="delete_selected_history">Izbriši</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Suradničko ime</string>
   <string name="login_create_account_link">Nemate suradnički račun? Pridružite se Wikipediji</string>

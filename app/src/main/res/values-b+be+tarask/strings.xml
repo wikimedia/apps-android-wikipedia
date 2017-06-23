@@ -72,7 +72,6 @@
   <string name="toast_logout_complete">Вы выйшлі з сыстэмы</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
   <string name="history_empty_message">Сачыце тут за тым, што вы ўжо чыталі.</string>
-  <string name="delete_selected_history">Выдаліць</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЭДЫ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Імя ўдзельніка</string>
   <string name="login_create_account_link">Ня маеце рахунак? Далучайцеся да Вікіпэдыі</string>

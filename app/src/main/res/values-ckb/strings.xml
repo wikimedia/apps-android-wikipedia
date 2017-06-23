@@ -86,7 +86,6 @@
   <string name="history_empty_title">ھیچ وتارێکی تازەکراوە لێرە نییە</string>
   <string name="history_empty_message">ڕێڕەوی ئەوەی لێرە خوێندووتەتەوە.</string>
   <string name="search_empty_message">گەڕان و خوێندنەوەی ئەم زانستنامە ئازادە بە زمانەکەی خۆت</string>
-  <string name="delete_selected_history">سڕینەوە</string>
   <string name="delete_selected_items">سڕینەوەی دانە دیاریکراوەکان</string>
   <string name="wp_stylized">ویکیپیدیا</string>
   <string name="create_account_username_hint">ناوی بەکارھێنەر</string>

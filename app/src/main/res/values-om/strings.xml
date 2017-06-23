@@ -37,7 +37,6 @@
   <string name="login_success_toast" fuzzy="true">Seenun milkaa\'e</string>
   <string name="preference_title_logout">Ba\'i</string>
   <string name="toast_logout_complete">Baatee jirta</string>
-  <string name="delete_selected_history">Balleessi</string>
   <string name="create_account_username_hint">Maqaa fayyadamaa</string>
   <string name="login_create_account_link">Eenyummeessa hinqabdu? Amma galmaa\'i.</string>
   <string name="create_account_login_link">Duraan eenyummeessa qabdaa? Seeni</string>

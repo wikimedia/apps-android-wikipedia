@@ -74,7 +74,6 @@
   <string name="toast_logout_complete">Тамам</string>
   <string name="history_empty_title">Яңыраҡ ҡаралған биттәр юҡ!</string>
   <string name="history_empty_message">Быға тиклем уҡығанығыҙҙы күҙәтеп барығыҙ.</string>
-  <string name="delete_selected_history">Юйырға</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ҡатнашыусы исеме</string>
   <string name="login_create_account_link">Һеҙҙең иҫәп яҙыуығыҙ юҡ. Википедияға ҡушылығыҙ</string>

@@ -87,7 +87,6 @@
   <string name="history_empty_title">Ziyaret edilmiş hiç madde yok.</string>
   <string name="history_empty_message">Okuduklarınızı buradan takip edin.</string>
   <string name="search_empty_message">Özgür ansiklopediyi kendi dilinizde arayın ve okuyun</string>
-  <string name="delete_selected_history">Sil</string>
   <string name="delete_selected_items">Seçili ögeleri sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>

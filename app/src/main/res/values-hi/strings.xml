@@ -87,7 +87,6 @@
   <string name="history_empty_title">हाल ही में देखा गया कोई लेख नहीं</string>
   <string name="history_empty_message">ट्रैक करें जो आप यहाँ पढ़ रहे थे।</string>
   <string name="search_empty_message">खोजें और मुक्त ज्ञानकोश को अपनी भाषा में पढ़ें</string>
-  <string name="delete_selected_history">हटायें</string>
   <string name="delete_selected_items">चयनित आइटम डिलीट करें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>

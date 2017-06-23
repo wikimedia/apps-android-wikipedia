@@ -76,7 +76,6 @@
   <string name="toast_logout_complete">Desconnectat</string>
   <string name="history_empty_title" fuzzy="true">Pas cap de pagina recenta aicí !</string>
   <string name="history_empty_message" fuzzy="true">Los avètz probablament destrusidas totas. Lo còp que ven qu\'aniretz sus una pagina, i poiretz tornar en començant d’aicí.</string>
-  <string name="delete_selected_history">Escafar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'utilizaire</string>
   <string name="login_create_account_link">Avètz pas de compte ? Rejonhètz Wikipèdia</string>

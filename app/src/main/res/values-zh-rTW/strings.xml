@@ -87,7 +87,6 @@
   <string name="history_empty_title">沒有近期檢視的頁面</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="search_empty_message">以您的語言來搜尋、閱讀自由的百科全書</string>
-  <string name="delete_selected_history">刪除</string>
   <string name="delete_selected_items">刪除已選擇項目</string>
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">使用者名稱</string>
