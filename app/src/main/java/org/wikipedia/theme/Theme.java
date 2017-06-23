@@ -5,8 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 
 import org.wikipedia.R;
+import org.wikipedia.model.EnumCode;
 
-public enum Theme {
+public enum Theme implements EnumCode {
     LIGHT(0, "light", R.style.Theme_Light),
     DARK(1, "dark", R.style.Theme_Dark);
 
@@ -29,6 +30,10 @@ public enum Theme {
     }
 
     public int getMarshallingId() {
+        return marshallingId;
+    }
+
+    @Override public int code() {
         return marshallingId;
     }
 

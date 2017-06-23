@@ -12,6 +12,7 @@ import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
+import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ReleaseUtil;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -42,6 +43,9 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(R.string.preference_key_sync_reading_lists)
                 .setOnPreferenceChangeListener(syncReadingListsListener);
+
+        findPreference(R.string.preference_key_color_theme)
+                .setOnPreferenceChangeListener(themeChangeListener);
 
         loadPreferences(R.xml.preferences_about);
 
@@ -127,6 +131,16 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
                         .show();
             }
             // clicks are handled and preferences updated accordingly; don't pass the result through
+            return false;
+        }
+    };
+
+    private Preference.OnPreferenceChangeListener themeChangeListener
+            = new Preference.OnPreferenceChangeListener() {
+        @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
+            WikipediaApp.getInstance().setCurrentTheme(Theme.ofMarshallingId((Integer) newValue));
+            // The setCurrentTheme call updates the nonvolatile Preference state and updates the UI
+            // accordingly. Return false since the pref state is already updated by the method call.
             return false;
         }
     };
