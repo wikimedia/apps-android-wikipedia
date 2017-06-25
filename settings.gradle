@@ -20,4 +20,3 @@ def includeExists = { String projectPath, String name ->
 }
 
 include ':app'
-includeExists ':java-mwapi:lib', 'json'

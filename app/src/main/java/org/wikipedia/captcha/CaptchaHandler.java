@@ -18,7 +18,6 @@ import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
 
-import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -182,14 +181,4 @@ public class CaptchaHandler {
         hideCaptcha();
         return true;
     }
-
-    public RequestBuilder populateBuilder(RequestBuilder builder) {
-        if (captchaResult == null) {
-            return builder;
-        }
-
-        return builder.param("captchaId", captchaResult.getCaptchaId())
-                      .param("captchaWord", captchaText.getText().toString());
-    }
-
 }
