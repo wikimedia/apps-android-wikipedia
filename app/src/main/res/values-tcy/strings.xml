@@ -76,8 +76,8 @@
   <string name="delete_selected_items">ಆಯ್ಕೆ ಮಲ್ತಿನೆನ್ ಮಾಜಾಲೆ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
-  <string name="login_create_account_link">ಖಾತೆ ಇಜ್ಜಾ? ವಿಕಿಪೀಡಿಯಾಗ್ ಸೇರ್ಲೆ</string>
   <string name="create_account_login_link">ಈರೆನ ಖಾತೆ ಉಂಡೇ? ಲಾಗ್ ಇನ್ ಅಲೇ</string>
+  <string name="login_create_account_link">ಖಾತೆ ಇಜ್ಜಾ? ವಿಕಿಪೀಡಿಯಾಗ್ ಸೇರ್ಲೆ</string>
   <string name="create_account_activity_title">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
   <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲನೆ ಮಾಲ್ಟನ್ತುಂಡು</string>
   <string name="create_account_email_hint">ಇಮೈಲ್ (ಇಚ್ಛೆ ಇತುಂಡ ಮಾತ್ರೋ)</string>
@@ -127,9 +127,6 @@
   <string name="dialog_page_issues">ಪುಟೊತ್ತಾ ಸಮಸ್ಯೆ</string>
   <string name="button_page_issues">ಪುಟೊತ್ತಾ ಸಮಸ್ಯೆ</string>
   <string name="text_size_select">ಅಕ್ಷರೊದ ಗಾತ್ರೊ</string>
-  <string name="color_theme_select">ಬಣ್ಣೊತಾ ಪಟ್ಟಿ</string>
-  <string name="color_theme_light">ಎಲಮೆ ಬಣ್ಣೊ</string>
-  <string name="color_theme_dark">ಕಡ್ಪೋ ಬಣ್ಣೊ</string>
   <string name="page_similar_titles">ಇಂಚಿನವೇ ಪುಟಕುಲು</string>
   <string name="search_recent_header">ಇನ್ಚಿಪ ನಾಡ್ನವು:</string>
   <string name="button_clear_all_recent_searches">ಇನ್ಚಿಪ ನಾಡ್ನೆನ್ ಮಾಜಾಲೇ</string>
@@ -167,6 +164,9 @@
   <string name="crash_report_quit">ಬುಡ್ಲೆ</string>
   <string name="article_header_edit_hint">ಸೇರ್ಸಲೇ...</string>
   <string name="article_header_edit_description">ತರೆ ಬರವುದಾ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
+  <string name="color_theme_select">ಬಣ್ಣೊತಾ ಪಟ್ಟಿ</string>
+  <string name="color_theme_light">ಎಲಮೆ ಬಣ್ಣೊ</string>
+  <string name="color_theme_dark">ಕಡ್ಪೋ ಬಣ್ಣೊ</string>
   <string name="nav_item_reading_lists">ಎನ್ನ ಓದುನ  ಲಿಸ್ಟ್</string>
   <string name="reading_list_untitled">ಪುದರಿಜ್ಜಿ</string>
   <string name="reading_list_save_to">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
@@ -211,4 +211,6 @@
   <string name="description_edit_tutorial_button_label_continue">ಮುಂದುವರೆಸಾಲೆ</string>
   <string name="description_edit_help_about_title">ಎಂಕ್ಲೆನ ಬಗ್ಗೆ</string>
   <string name="description_edit_help_tips_examples">ಉದಾಹರಣೆಗ್</string>
+  <string name="onboarding_skip">ಬುಡ್ಲೆ</string>
+  <string name="onboarding_continue">ಮುಂದುವರೆಸಾಲೆ</string>
 </resources>

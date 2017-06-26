@@ -62,8 +62,8 @@
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">کارن-نوم</string>
-  <string name="login_create_account_link">گڼون نه لرې؟ ويکيپېډيا سره يوځای شه</string>
   <string name="create_account_login_link">آيا له پخوا نه يو گڼون لرې؟ ورننوځه</string>
+  <string name="login_create_account_link">گڼون نه لرې؟ ويکيپېډيا سره يوځای شه</string>
   <string name="create_account_activity_title">يو گڼون جوړول</string>
   <string name="dialog_create_account_checking_progress">تاييدېدنه</string>
   <string name="create_account_email_hint">برېښليک (اختياري)</string>
@@ -117,9 +117,6 @@
   <string name="dialog_page_issues">د مخ ستونزې</string>
   <string name="button_page_issues">د مخ ستونزې</string>
   <string name="text_size_select">د ليکبڼې کچه</string>
-  <string name="color_theme_select">شازمکه</string>
-  <string name="color_theme_light">رڼا</string>
-  <string name="color_theme_dark">تياره</string>
   <string name="page_similar_titles">ورته مخونه</string>
   <string name="search_did_you_mean">آيا  \"%s\" مو مقصد و؟</string>
   <string name="search_recent_header">وروستنۍ پلټنې:</string>
@@ -159,6 +156,9 @@
   <string name="crash_report_activity_title">د کاريال تېروتنه</string>
   <string name="crash_report_relaunch">سر له نوي پيلول</string>
   <string name="crash_report_quit">بندول</string>
+  <string name="color_theme_select">شازمکه</string>
+  <string name="color_theme_light">رڼا</string>
+  <string name="color_theme_dark">تياره</string>
   <string name="nav_item_reading_lists" fuzzy="true">لوست لړليک</string>
   <string name="reading_list_untitled">بې سرليکه</string>
   <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>

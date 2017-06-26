@@ -86,11 +86,12 @@
   <string name="toast_logout_complete">Saiu</string>
   <string name="history_empty_title">Nenhum artigo visto recentemente</string>
   <string name="history_empty_message">Acompanhe o que você está lendo aqui.</string>
+  <string name="search_empty_message">Procure e leia a enciclopédia livre em seu idioma</string>
   <string name="delete_selected_items">Excluir itens selecionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuário</string>
-  <string name="login_create_account_link">Ainda não possui uma conta? Junte-se à Wikipédia</string>
   <string name="create_account_login_link">Já possui uma conta? Inicie sessão</string>
+  <string name="login_create_account_link">Ainda não possui uma conta? Junte-se à Wikipédia</string>
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="dialog_create_account_checking_progress">Verificando</string>
   <string name="create_account_email_hint">E-mail (Opcional)</string>
@@ -98,6 +99,7 @@
   <string name="create_account_passwords_mismatch_error">As senhas não coincidem</string>
   <string name="create_account_email_error">Endereço de e-mail inválido</string>
   <string name="create_account_username_error">Caracteres inválidos no nome de usuário</string>
+  <string name="create_account_password_error">A senha é inválida</string>
   <string name="create_account_generic_error">Não foi possível criar a conta</string>
   <string name="create_account_next">Próximo</string>
   <string name="create_account_button">Criar conta</string>
@@ -118,6 +120,9 @@
   <string name="edit_preview_fetching_dialog_message">Processando pré-visualização…</string>
   <string name="send_feedback">Enviar comentários sobre o aplicativo</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
+  <string name="preferences_heading_storage_and_syncing">Armazenamento e sincronização</string>
+  <string name="preference_title_sync_reading_lists">Sincronizar listas de leitura</string>
+  <string name="preference_summary_sync_reading_lists">Permitir que a Wikimedia sincronize suas listas de leitura quando você fizer logon</string>
   <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permite que a Wikimedia drecolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
@@ -171,9 +176,6 @@
   <string name="dialog_page_issues">Problemas da página</string>
   <string name="button_page_issues">Problemas da página</string>
   <string name="text_size_select">Tamanho da fonte</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Claro</string>
-  <string name="color_theme_dark">Escuro</string>
   <string name="page_similar_titles">Páginas similares</string>
   <string name="search_did_you_mean">Você quis dizer \"%s\"?</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
@@ -231,6 +233,7 @@
   <string name="button_add_to_reading_list">Adicionar à lista de leitura</string>
   <string name="page_offline_notice_cannot_load_while_offline">O artigo não pode ser carregado enquanto estiver offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Adicione o artigo a uma lista de leitura e ele será baixado assim que estiver online novamente.</string>
+  <string name="page_offline_notice_last_date">Você está lendo uma versão offline deste artigo salvo em %s.</string>
   <string name="button_get_directions">Obter itinerário</string>
   <string name="error_no_maps_app">Não foi possível encontrar aplicativos que forneceçam rotas.</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
@@ -261,6 +264,11 @@
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar descrição do título</string>
   <string name="article_header_edit_lead_section">Editar introdução</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Claro</string>
+  <string name="color_theme_dark">Escuro</string>
+  <string name="preference_title_color_theme">Tema escuro</string>
+  <string name="preference_summary_color_theme">Mude para usar o tema da cor escura do aplicativo</string>
   <string name="nav_item_reading_lists">Minhas listas</string>
   <string name="reading_list_untitled">Sem título</string>
   <string name="reading_list_save_to">Salvar na lista de leitura</string>
@@ -271,6 +279,10 @@
   <string name="reading_list_added_to_unnamed">Adicionado à lista de leitura.</string>
   <string name="reading_list_already_exists">Este artigo já está nessa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 artigos disponíveis off-line, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d artigos disponíveis off-line, %3$.2f MiB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverter)</string>
@@ -307,6 +319,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Remover do modo offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece em várias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s não estará mais disponível off-line para todas as listas de leitura:</string>
+  <string name="reading_list_sync_reminder_title">A sincronização da lista de leitura está desativada</string>
+  <string name="reading_list_sync_reminder_text">Suas listas de leitura podem ser sincronizadas com a sua conta Wikipedia se você permitir a sincronização nas configurações do aplicativo.</string>
+  <string name="reading_list_sync_reminder_action">Ativar</string>
+  <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
+  <string name="reading_list_login_reminder_text">Suas listas de leitura podem agora ser salvas na sua conta Wikipedia. Basta acessar sua conta e suas listas de leitura serão sincronizadas automaticamente.</string>
+  <string name="reading_lists_confirm_remote_delete">Isso eliminará todas as listas de leitura previamente sincronizadas do armazenamento remoto. Prosseguir?</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_button_view_user">Falar com usuário</string>
   <string name="notification_talk_title">Nova mensagem na Wikipédia</string>

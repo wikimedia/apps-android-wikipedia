@@ -74,8 +74,8 @@
   <string name="history_empty_message">Сачыце тут за тым, што вы ўжо чыталі.</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЭДЫ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Імя ўдзельніка</string>
-  <string name="login_create_account_link">Ня маеце рахунак? Далучайцеся да Вікіпэдыі</string>
   <string name="create_account_login_link">Ужо маеце рахунак? Увайсьці</string>
+  <string name="login_create_account_link">Ня маеце рахунак? Далучайцеся да Вікіпэдыі</string>
   <string name="create_account_activity_title">Стварыць рахунак</string>
   <string name="dialog_create_account_checking_progress">Праверка</string>
   <string name="create_account_email_hint">Адрас электроннай пошты (не абавязкова)</string>
@@ -148,9 +148,6 @@
   <string name="dialog_page_issues">Хібы старонкі</string>
   <string name="button_page_issues">Хібы старонкі</string>
   <string name="text_size_select">Памер штыфту</string>
-  <string name="color_theme_select">Афармленьне</string>
-  <string name="color_theme_light">Сьветлае</string>
-  <string name="color_theme_dark">Цёмнае</string>
   <string name="page_similar_titles">Падобныя старонкі</string>
   <string name="search_did_you_mean">Вы мелі на ўвазе \"%s\"?</string>
   <string name="search_recent_header">Апошнія пошукавыя запыты:</string>
@@ -219,6 +216,9 @@
   <string name="crash_report_quit">Выйсьці</string>
   <string name="article_menu_bar_bookmark" fuzzy="true">Захаваць артыкул для пазьнейшага афляйн чытаньня</string>
   <string name="article_menu_bar_share">Падзяліцца спасылкай на артыкул</string>
+  <string name="color_theme_select">Афармленьне</string>
+  <string name="color_theme_light">Сьветлае</string>
+  <string name="color_theme_dark">Цёмнае</string>
   <string name="view_continue_reading_card_subtitle_today">Сёньня</string>
   <string name="description_edit_save" fuzzy="true">Захаваць</string>
 </resources>

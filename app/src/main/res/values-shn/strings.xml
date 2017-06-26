@@ -90,8 +90,8 @@
   <string name="delete_selected_items">မွတ်ႇပႅတ်ႈ ၸိူဝ်းလိူၵ်ႈဝႆႉၼၼ်ႉ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ၸိုဝ်ႈၽူႈၸႂ်ႉတိုဝ်း</string>
-  <string name="login_create_account_link">ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးဝႆႉ ဢၶွင်ႉႁႃႉ? ၵပ်းတင်း ဝီႇၶီႇၽီးတီးယႃးလႄႈ</string>
   <string name="create_account_login_link">မီးဢၶွင်ႉဝႆႉယဝ်ႉႁႃႉ? လွၵ်ႉဢိၼ်ႇ</string>
+  <string name="login_create_account_link">ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးဝႆႉ ဢၶွင်ႉႁႃႉ? ၵပ်းတင်း ဝီႇၶီႇၽီးတီးယႃးလႄႈ</string>
   <string name="create_account_activity_title">ၵေႃႇသၢင်ႈဢၶွင်ႉ</string>
   <string name="dialog_create_account_checking_progress">တိုၵ်ႉၼႄႉၼွၼ်းယူႇ</string>
   <string name="create_account_email_hint">ဢီးမေးလ် (မီးသုၼ်ႇလိူၵ်ႈ)</string>
@@ -170,9 +170,6 @@
   <string name="dialog_page_issues">ၶေႃႈၶၼ် ၼႃႈလိၵ်ႈ</string>
   <string name="button_page_issues">ၶေႃႈၶၼ် ၼႃႈလိၵ်ႈ</string>
   <string name="text_size_select">သႅၼ်းၾွၼ်ႉ</string>
-  <string name="color_theme_select">ယူင်ႉႁၢင်ႈ</string>
-  <string name="color_theme_light">လႅင်း</string>
-  <string name="color_theme_dark">ၶမ်ႈ</string>
   <string name="page_similar_titles">ၼႃႈလိၵ်ႈ မိူၼ်ၵၼ်</string>
   <string name="search_did_you_mean">ၸဝ်ႈၵဝ်ႇ မၢႆထိုင်ဝႃႈ  \"%s\"?</string>
   <string name="search_recent_header">လွင်ႈၶူၼ်ႉႁႃ ၸိူဝ်းပႆႇႁိုင်:</string>
@@ -260,6 +257,9 @@
   <string name="article_header_edit_hint">မႄးထတ်း...</string>
   <string name="article_header_edit_description">မႄးထတ်း ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
   <string name="article_header_edit_lead_section">မႄးထတ်း ၶေႃႈတႄႇငဝ်ႈ</string>
+  <string name="color_theme_select">ယူင်ႉႁၢင်ႈ</string>
+  <string name="color_theme_light">လႅင်း</string>
+  <string name="color_theme_dark">ၶမ်ႈ</string>
   <string name="nav_item_reading_lists">သဵၼ်ႈမၢႆၵဝ်ၶႃႈ</string>
   <string name="reading_list_untitled">ဢမ်ႇမီးႁူဝ်ၶေႃႈ</string>
   <string name="reading_list_save_to">သိမ်းသႂ်ႇၸူး သဵၼ်ႈမၢႆလူ</string>

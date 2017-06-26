@@ -90,8 +90,12 @@
   <string name="delete_selected_items">Eliminar los elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
-  <string name="login_create_account_link">¿No tienes una cuenta? Únete a Wikipedia</string>
+  <string name="login_dont_have_account">¿No está registrado?</string>
+  <string name="login_join_wikipedia">Únete a Wikipedia</string>
+  <string name="login_forgot_password">¿Olvidaste la contraseña?</string>
+  <string name="create_account_already_have">¿Ya tienes una cuenta?</string>
   <string name="create_account_login_link">¿Ya tienes una cuenta? Accede</string>
+  <string name="login_create_account_link">¿No tienes una cuenta? Únete a Wikipedia</string>
   <string name="create_account_activity_title">Crear una cuenta</string>
   <string name="dialog_create_account_checking_progress">Verificando</string>
   <string name="create_account_email_hint">Correo electrónico (opcional)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">Problemas de la página</string>
   <string name="button_page_issues">Problemas de la página</string>
   <string name="text_size_select">Tamaño de letra</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Claro</string>
-  <string name="color_theme_dark">Oscuro</string>
   <string name="page_similar_titles">Páginas similares</string>
   <string name="search_did_you_mean">¿Quisiste decir «%s»?</string>
   <string name="search_recent_header">Búsquedas recientes:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar la descripción del título</string>
   <string name="article_header_edit_lead_section">Editar introducción</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Claro</string>
+  <string name="color_theme_dark">Oscuro</string>
+  <string name="preference_title_color_theme">Tema oscuro</string>
+  <string name="preference_summary_color_theme">Cambiar al tema oscuro de la aplicación</string>
   <string name="nav_item_reading_lists">Mis listas</string>
   <string name="reading_list_untitled">Sin título</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
@@ -317,7 +323,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de listas sin conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">El artículo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ya no estará disponible sin conexión en ninguna lista de lectura:</string>
-  <string name="reading_list_sync_reminder_title">Está desactivada la sincronización de listas de lectura</string>
+  <string name="reading_list_sync_reminder_title">La sincronización de listas de lectura está desactivada</string>
   <string name="reading_list_sync_reminder_text">Tus listas de lectura pueden sincronizarse con tu cuenta de Wikipedia si lo permites en la configuración de la aplicación.</string>
   <string name="reading_list_sync_reminder_action">Activar</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">tu contribución se veía como un experimento o vandalismo.</string>
   <string name="description_edit_revert_history">Si estás interesado, consulta el &lt;a href=\"%1$s\"&gt;historial de ediciones&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Saltar</string>
+  <string name="onboarding_continue">Continuar</string>
+  <string name="onboarding_get_started">Empieza</string>
+  <string name="onboarding_explore_title">Nuevas formas de explorar</string>
+  <string name="onboarding_explore_text">Descubrir artículos destacados, relevantes y sugerencias en la lista de Explorar.</string>
+  <string name="onboarding_reading_list_sync_title">Listas de lectura sincronizadas</string>
+  <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artículos que quieres leer más tarde, incluso cuando estés sin conexión. &lt;a href=\"#login\"&gt;Inicia sesión o crea&lt;/a&gt; tu cuenta de Wikipedia para mantener tus listas de lectura sincronizadas.</string>
+  <string name="onboarding_analytics_title">Enviar datos anónimos</string>
+  <string name="onboarding_analytics_text">Ayuda a mejorar la aplicación aportando información de como la usa. Los datos obtenidos son anónimos. &lt;a href=\"#privacy\"&gt;Leer más&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
+  <string name="onboarding_create_account_sync">Sincronizar tus listas de lectura</string>
+  <string name="onboarding_create_account_contributions">Mantente al tanto de tus aportes</string>
+  <string name="onboarding_create_account_preferences">Guardar tus preferencias</string>
 </resources>

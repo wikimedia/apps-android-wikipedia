@@ -90,8 +90,12 @@
   <string name="delete_selected_items">Избриши ги избраните ставки</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="create_account_username_hint">Корисничко име</string>
-  <string name="login_create_account_link">Немате сметка? Придружете ни се на Википедија</string>
+  <string name="login_dont_have_account">Немате сметка?</string>
+  <string name="login_join_wikipedia">Придружете ни се на Википедија</string>
+  <string name="login_forgot_password">Ја заборавивте лозинката?</string>
+  <string name="create_account_already_have">Веќе имате сметка?</string>
   <string name="create_account_login_link">Веќе имате сметка? Најавете се</string>
+  <string name="login_create_account_link">Немате сметка? Придружете ни се на Википедија</string>
   <string name="create_account_activity_title">Направи кориничка сметка</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Е-пошта (незадолжително)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">Проблеми со страницата</string>
   <string name="button_page_issues">Проблеми со страницата</string>
   <string name="text_size_select">Големина на фонтот</string>
-  <string name="color_theme_select">Изглед</string>
-  <string name="color_theme_light">Светол</string>
-  <string name="color_theme_dark">Темен</string>
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">Уреди...</string>
   <string name="article_header_edit_description">Уреди опис на насловот</string>
   <string name="article_header_edit_lead_section">Уреди вовед</string>
+  <string name="color_theme_select">Изглед</string>
+  <string name="color_theme_light">Светол</string>
+  <string name="color_theme_dark">Темен</string>
+  <string name="preference_title_color_theme">Темен изглед</string>
+  <string name="preference_summary_color_theme">Префрлете се на темниот изглед на прилогот</string>
   <string name="nav_item_reading_lists">Мои списоци</string>
   <string name="reading_list_untitled">Без наслов</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Прескокни</string>
+  <string name="onboarding_continue">Продолжи</string>
+  <string name="onboarding_get_started">Започнете</string>
+  <string name="onboarding_explore_title">Нови начини на истражување</string>
+  <string name="onboarding_explore_text">Откријте ги избраните статии, актуелните теми и предлозите за читање во каналот „Истражи“.</string>
+  <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
+  <string name="onboarding_reading_list_sync_text">Создавајте списоци за читање од статиите што сакате да ги прочитате подоцна, дури и кога немате линија. &lt;a href=\"#login\"&gt;Најавете се или направете&lt;/a&gt; ваша сметка на Википедија за да ги запазите списоците.</string>
+  <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
+  <string name="onboarding_analytics_text">Помогнете ни да ја подобриме алатката со тоа што ќе добиваме информации како ја користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>
+  <string name="onboarding_create_account_sync">Усогласи списоци за читање</string>
+  <string name="onboarding_create_account_contributions">Бидете во тек со вашите придонеси</string>
+  <string name="onboarding_create_account_preferences">Зачувајете ги вашите поставки</string>
 </resources>

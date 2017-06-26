@@ -90,8 +90,12 @@
   <string name="delete_selected_items">Busak item sing pinilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Jeneng panganggo</string>
-  <string name="login_create_account_link">Ora duwé akun? Gabunga Wikipédia</string>
+  <string name="login_dont_have_account">Durung duwé akun?</string>
+  <string name="login_join_wikipedia">Mèlua Wikipedia</string>
+  <string name="login_forgot_password">Lali tembung wadiné panjenengan?</string>
+  <string name="create_account_already_have">Wis duwé akun?</string>
   <string name="create_account_login_link">Wis duwé akun? Mlebua log</string>
+  <string name="login_create_account_link">Ora duwé akun? Gabunga Wikipédia</string>
   <string name="create_account_activity_title">Gawé akun</string>
   <string name="dialog_create_account_checking_progress">Lagi vèrifikasi</string>
   <string name="create_account_email_hint">Layang-èl (Manasuka)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">Masalah kaca</string>
   <string name="button_page_issues">Masalah kaca</string>
   <string name="text_size_select">Ukuran fon</string>
-  <string name="color_theme_select">Irah-irahan</string>
-  <string name="color_theme_light">Padhang</string>
-  <string name="color_theme_dark">Peteng</string>
   <string name="page_similar_titles">Kaca sairib</string>
   <string name="search_did_you_mean">Kersané panjenengan \"%s\"?</string>
   <string name="search_recent_header">Golèkan mentas waé:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">Mbesut...</string>
   <string name="article_header_edit_description">Besut andharané sesirah</string>
   <string name="article_header_edit_lead_section">Besut bebuka</string>
+  <string name="color_theme_select">Irah-irahan</string>
+  <string name="color_theme_light">Padhang</string>
+  <string name="color_theme_dark">Peteng</string>
+  <string name="preference_title_color_theme">Tema gelap</string>
+  <string name="preference_summary_color_theme">Ngalih nggunakake tema werna peteng karo aplikasi</string>
   <string name="nav_item_reading_lists">Pratélanku</string>
   <string name="reading_list_untitled">Tanpa sesirah</string>
   <string name="reading_list_save_to">Simpen nyang pratélan wacan</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi panjenengan kapandeng kaya pacoban utawa vandalisme.</string>
   <string name="description_edit_revert_history">Yen kasengsem, ndeleng &lt;a href=\"%1$s\"&gt;sujarah besutan&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Langkahi</string>
+  <string name="onboarding_continue">Banjuraké</string>
+  <string name="onboarding_get_started">Miwiti</string>
+  <string name="onboarding_explore_title">Cara anyar kanggo njelajah</string>
+  <string name="onboarding_explore_text">Nggoleki artikel pinilih, topik tren, lan saran bacaan ing umpan Jelajahi.</string>
+  <string name="onboarding_reading_list_sync_title">Dhaptar maca kanthi sinkron</string>
+  <string name="onboarding_reading_list_sync_text">Nggawe dhaptar maca saka artikel sing pengin dibaca mengko, sanajan panjenengan lagi luring. &lt;a href=\"#login\"&gt;Mlebu utawa gawé&lt;/a&gt; akun Wikipedia panjenengan supaya daftar dhaptar maca disimpen.</string>
+  <string name="onboarding_analytics_title">Kirimi dhata anonim</string>
+  <string name="onboarding_analytics_text">Mantu nggawe aplikasi luwih apik kanthi menehi katrangan babagan carane nggunakake. Data sing dikumpulake anonim. &lt;a href=\"#privacy\"&gt;Sinau luwih lengkap&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Kirimi dhata panggunaan</string>
+  <string name="onboarding_create_account_sync">Sinkronake dhaptar maca panjenengan</string>
+  <string name="onboarding_create_account_contributions">Nglacak sumbangan panjenengan</string>
+  <string name="onboarding_create_account_preferences">Simpen préperensi panjenengan</string>
 </resources>

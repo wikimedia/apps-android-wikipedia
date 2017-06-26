@@ -117,9 +117,6 @@
   <string name="dialog_page_issues">Lapas problēmas</string>
   <string name="button_page_issues">Lapas problēmas</string>
   <string name="text_size_select">Fonta lielums</string>
-  <string name="color_theme_select">Izskats</string>
-  <string name="color_theme_light">Gaišs</string>
-  <string name="color_theme_dark">Tumšs</string>
   <string name="page_similar_titles">Līdzīgas lapas</string>
   <string name="search_did_you_mean">Vai jūs domājāt \"%s\"?</string>
   <string name="table_infobox">Ātrie fakti</string>
@@ -159,6 +156,9 @@
   <string name="crash_report_relaunch">Sākt no jauna</string>
   <string name="crash_report_quit">Iziet</string>
   <string name="article_header_edit_hint">Labot...</string>
+  <string name="color_theme_select">Izskats</string>
+  <string name="color_theme_light">Gaišs</string>
+  <string name="color_theme_dark">Tumšs</string>
   <string name="nav_item_reading_lists">Mani saraksti</string>
   <string name="reading_list_untitled">Bez nosaukuma</string>
   <string name="reading_list_create_new">Izveidot jaunu</string>

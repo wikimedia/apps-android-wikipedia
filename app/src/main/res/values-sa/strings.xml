@@ -75,8 +75,8 @@
   <string name="history_empty_message" fuzzy="true">कदाचित् तानि सर्वाणि भवता/भवत्या अपाकृतानि । द्वितीयवारं यदा भवान्/भवती तत् पृष्ठं गच्छति, तदा इतः तत् पुनः प्राप्स्यति ।</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
-  <string name="login_create_account_link">लेखा नास्ति ? विकिपीडिया-जाले सदस्यता प्राप्यताम्</string>
   <string name="create_account_login_link">पूर्वमेव लेखा अस्ति किं ? प्रविश्यताम्</string>
+  <string name="login_create_account_link">लेखा नास्ति ? विकिपीडिया-जाले सदस्यता प्राप्यताम्</string>
   <string name="create_account_activity_title">सदस्यता प्राप्यताम्</string>
   <string name="dialog_create_account_checking_progress">सत्यापयति</string>
   <string name="create_account_email_hint">वि-पत्रम् (ऐच्छिकं)</string>
@@ -150,9 +150,6 @@
   <string name="dialog_page_issues">पृष्ठस्य समस्याः</string>
   <string name="button_page_issues">पृष्ठस्य समस्याः</string>
   <string name="text_size_select">वर्ण(font)मानम्</string>
-  <string name="color_theme_select">प्रसङ्गः (Theme)</string>
-  <string name="color_theme_light">शुभ्रम्</string>
-  <string name="color_theme_dark">श्यामम्</string>
   <string name="page_similar_titles">समानपृष्ठानि</string>
   <string name="search_did_you_mean">\"%s\" एषः भवताम् आशयः ?</string>
   <string name="search_recent_header">सद्यःकृतानि अन्वेषणानि :</string>
@@ -215,5 +212,8 @@
   <string name="crash_report_relaunch_or_quit">भवान्/भवती आरब्धुम् उत त्यक्तुम् इच्छति ?</string>
   <string name="crash_report_relaunch">प्रारभ्यताम्</string>
   <string name="crash_report_quit">त्यजतु</string>
+  <string name="color_theme_select">प्रसङ्गः (Theme)</string>
+  <string name="color_theme_light">शुभ्रम्</string>
+  <string name="color_theme_dark">श्यामम्</string>
   <string name="user_option_sync_label">इष्टतमानि</string>
 </resources>

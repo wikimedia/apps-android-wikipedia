@@ -76,8 +76,8 @@
   <string name="history_empty_message" fuzzy="true">ਤੁਸੀਂ ਸ਼ਾਇਦ ਇਹ ਸਾਰੇ ਮਿਟਾ ਦਿੱਤੇ ਹਨ। ਅਗਲੀ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਸਫ਼ੇ \'ਤੇ ਜਾਉਂ ਤਾਂ ਤੁਸੀਂ ਇੱਥੋਂ ਉਹਦੇ ਤੱਕ ਪਰਤ ਸਕਦੇ ਹੋ।</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="create_account_username_hint">ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
-  <string name="login_create_account_link">ਖਾਤਾ ਨਹੀਂ ਹੈ? ਵਿਕੀਪੀਡੀਆ \'ਚ ਸ਼ਾਮਿਲ ਹੋਵੋ</string>
   <string name="create_account_login_link">ਪਹਿਲੋਂ ਹੀ ਖਾਤਾ ਹੈ? ਦਾਖ਼ਲ ਹੋਵੋ</string>
+  <string name="login_create_account_link">ਖਾਤਾ ਨਹੀਂ ਹੈ? ਵਿਕੀਪੀਡੀਆ \'ਚ ਸ਼ਾਮਿਲ ਹੋਵੋ</string>
   <string name="create_account_activity_title">ਖਾਤਾ ਬਣਾਓ</string>
   <string name="dialog_create_account_checking_progress">ਤਸਦੀਕੀ ਜਾਰੀ</string>
   <string name="create_account_email_hint">ਈਮੇਲ (ਚੋਣਵੀਂ)</string>
@@ -150,9 +150,6 @@
   <string name="dialog_page_issues">ਸਫ਼ੇ ਦੇ ਮੁੱਦੇ</string>
   <string name="button_page_issues">ਸਫ਼ੇ ਦੇ ਮੁੱਦੇ</string>
   <string name="text_size_select">ਅੱਖਰਾਂ ਦਾ ਅਕਾਰ</string>
-  <string name="color_theme_select">ਵਿਸ਼ਾ-ਵਸਤੂ</string>
-  <string name="color_theme_light">ਹਲਕੀ</string>
-  <string name="color_theme_dark">ਗੂੜ੍ਹੀ</string>
   <string name="page_similar_titles">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ</string>
   <string name="search_did_you_mean">ਕੀ ਤੁਹਾਡਾ ਮਤਲਬ \"%s\" ਹੈ?</string>
   <string name="search_recent_header">ਹਾਲੀਆ ਖੋਜਾਂ</string>
@@ -215,6 +212,9 @@
   <string name="crash_report_quit">ਛੱਡੋ</string>
   <string name="article_menu_bar_bookmark">ਇਸ ਲੇਖ ਨੂੰ ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਜੋੜੋ</string>
   <string name="article_menu_bar_share">ਲੇਖ ਦੀ ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
+  <string name="color_theme_select">ਵਿਸ਼ਾ-ਵਸਤੂ</string>
+  <string name="color_theme_light">ਹਲਕੀ</string>
+  <string name="color_theme_dark">ਗੂੜ੍ਹੀ</string>
   <string name="nav_item_reading_lists" fuzzy="true">ਪੜ੍ਹਤ ਸੂਚੀਆਂ</string>
   <string name="reading_list_untitled">ਸਿਰਲੇਖ ਰਹਿਤ</string>
   <string name="reading_list_save_to">ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਸਾਂਭੋ</string>

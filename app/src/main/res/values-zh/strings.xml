@@ -90,8 +90,12 @@
   <string name="delete_selected_items">删除选定项目</string>
   <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">用户名</string>
-  <string name="login_create_account_link">没有账户？加入维基百科</string>
+  <string name="login_dont_have_account">没有账户？</string>
+  <string name="login_join_wikipedia">加入维基百科</string>
+  <string name="login_forgot_password">忘记了您的密码？</string>
+  <string name="create_account_already_have">已经拥有账户？</string>
   <string name="create_account_login_link">已经拥有账户？登录</string>
+  <string name="login_create_account_link">没有账户？加入维基百科</string>
   <string name="create_account_activity_title">创建账户</string>
   <string name="dialog_create_account_checking_progress">正在验证</string>
   <string name="create_account_email_hint">电子邮件地址（可选）</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">页面问题</string>
   <string name="button_page_issues">页面问题</string>
   <string name="text_size_select">字体大小</string>
-  <string name="color_theme_select">主题</string>
-  <string name="color_theme_light">日间</string>
-  <string name="color_theme_dark">夜间</string>
   <string name="page_similar_titles">类似页面</string>
   <string name="search_did_you_mean">您的意思是“%s”吗？</string>
   <string name="search_recent_header">最近搜索：</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">编辑…</string>
   <string name="article_header_edit_description">编辑标题描述</string>
   <string name="article_header_edit_lead_section">编辑介绍</string>
+  <string name="color_theme_select">主题</string>
+  <string name="color_theme_light">日间</string>
+  <string name="color_theme_dark">夜间</string>
+  <string name="preference_title_color_theme">黑暗主题</string>
+  <string name="preference_summary_color_theme">切换成应用的黑暗颜色主题</string>
   <string name="nav_item_reading_lists">我的列表</string>
   <string name="reading_list_untitled">未命名标题</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的贡献看起来像是试验或破坏。</string>
   <string name="description_edit_revert_history">如果您感兴趣，可查看&lt;a href=\"%1$s\"&gt;编辑历史&lt;/a&gt;。</string>
+  <string name="onboarding_skip">跳过</string>
+  <string name="onboarding_continue">继续</string>
+  <string name="onboarding_get_started">入门</string>
+  <string name="onboarding_explore_title">浏览的新方式</string>
+  <string name="onboarding_explore_text">在浏览订阅上发现特色条目、热门话题和阅读建议。</string>
+  <string name="onboarding_reading_list_sync_title">通过同步阅读列表</string>
+  <string name="onboarding_reading_list_sync_text">创建包含您希望日后阅读条目的阅读列表，这样即便您离线也可阅读。&lt;a href=\"#login\"&gt;登录或创建&lt;/a&gt;您的维基百科账户来保持您的阅读列表备份。</string>
+  <string name="onboarding_analytics_title">发送匿名数据</string>
+  <string name="onboarding_analytics_text">通过让我们知道您如何使用它，帮助应用做得更好。数据收集是匿名的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">发送使用数据</string>
+  <string name="onboarding_create_account_sync">同步您的阅读列表</string>
+  <string name="onboarding_create_account_contributions">保持追踪您的贡献</string>
+  <string name="onboarding_create_account_preferences">保存您的参数设置</string>
 </resources>

@@ -86,8 +86,8 @@
   <string name="delete_selected_items">Skrap gekose items</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
-  <string name="login_create_account_link">Nog nie \'n gebruiker? Word lid van Wikipedia</string>
   <string name="create_account_login_link">Het u reeds \'n rekening? Meld aan</string>
+  <string name="login_create_account_link">Nog nie \'n gebruiker? Word lid van Wikipedia</string>
   <string name="create_account_activity_title">Skep \'n gebruiker</string>
   <string name="dialog_create_account_checking_progress">Besig met verifiëring</string>
   <string name="create_account_email_hint">E-posadres (Opsioneel)</string>
@@ -164,9 +164,6 @@
   <string name="dialog_page_issues">Bladprobleme</string>
   <string name="button_page_issues">Bladprobleme</string>
   <string name="text_size_select">Lettergrootte</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Lig</string>
-  <string name="color_theme_dark">Donker</string>
   <string name="page_similar_titles">Soortgelyke bladsye</string>
   <string name="search_did_you_mean">Bedoel u \"%s\"?</string>
   <string name="search_recent_header">Onlangse soektogte</string>
@@ -245,6 +242,9 @@
   <string name="article_header_edit_hint">Wysig…</string>
   <string name="article_header_edit_description">Wysig titelbeskrywing</string>
   <string name="article_header_edit_lead_section">Wysig inleiding</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Lig</string>
+  <string name="color_theme_dark">Donker</string>
   <string name="nav_item_reading_lists">My lyste</string>
   <string name="reading_list_untitled">Naamloos</string>
   <string name="reading_list_save_to">Bewaar in leeslys</string>

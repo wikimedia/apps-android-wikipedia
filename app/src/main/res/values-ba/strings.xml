@@ -76,8 +76,8 @@
   <string name="history_empty_message">Быға тиклем уҡығанығыҙҙы күҙәтеп барығыҙ.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ҡатнашыусы исеме</string>
-  <string name="login_create_account_link">Һеҙҙең иҫәп яҙыуығыҙ юҡ. Википедияға ҡушылығыҙ</string>
   <string name="create_account_login_link">Һеҙ теркәлдегеҙме? Инегеҙ</string>
+  <string name="login_create_account_link">Һеҙҙең иҫәп яҙыуығыҙ юҡ. Википедияға ҡушылығыҙ</string>
   <string name="create_account_activity_title">Иҫәп яҙмаһын булдырырға</string>
   <string name="dialog_create_account_checking_progress">Тикшереү</string>
   <string name="create_account_email_hint">Электрон почта адресы (мотлаҡ түгел)</string>
@@ -152,9 +152,6 @@
   <string name="dialog_page_issues">Бит буйынса һорауҙар</string>
   <string name="button_page_issues">Бит буйынса һорауҙар</string>
   <string name="text_size_select">Шрифт ҙурлығы</string>
-  <string name="color_theme_select">Биҙәү</string>
-  <string name="color_theme_light">Асыҡ</string>
-  <string name="color_theme_dark">Ҡараңғы</string>
   <string name="page_similar_titles">Оҡшаш биттәр</string>
   <string name="search_did_you_mean">Бәлки һеҙ %s-ҙы күҙ уңында тотҡанһығыҙҙыр?</string>
   <string name="search_recent_header">Һуңғы эҙләүҙәр</string>
@@ -224,6 +221,9 @@
   <string name="crash_report_quit">Сығырға</string>
   <string name="article_menu_bar_bookmark">Мәҡәләне уҡыу теҙмәһенә өҫтәргә</string>
   <string name="article_menu_bar_share">Мәҡәләгә һылтанма менән уртаҡлашырға</string>
+  <string name="color_theme_select">Биҙәү</string>
+  <string name="color_theme_light">Асыҡ</string>
+  <string name="color_theme_dark">Ҡараңғы</string>
   <string name="nav_item_reading_lists" fuzzy="true">Уҡыу өсөн исемлектәр</string>
   <string name="reading_list_untitled">Исемһеҙ</string>
   <string name="reading_list_save_to">Уҡыу исемлегенә һаҡларға</string>

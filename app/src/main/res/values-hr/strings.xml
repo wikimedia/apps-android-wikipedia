@@ -76,8 +76,8 @@
   <string name="history_empty_message" fuzzy="true">Vjerojatno ste ih izbrisali. Sljedeći put kad posjetite stranice, možete se vratiti na njih odavde.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Suradničko ime</string>
-  <string name="login_create_account_link">Nemate suradnički račun? Pridružite se Wikipediji</string>
   <string name="create_account_login_link">Već imate suradnički račun? Prijavite se</string>
+  <string name="login_create_account_link">Nemate suradnički račun? Pridružite se Wikipediji</string>
   <string name="create_account_activity_title">Stvorite račun</string>
   <string name="dialog_create_account_checking_progress">Provjera</string>
   <string name="create_account_email_hint">Adresa e-pošte (neobvezatno)</string>
@@ -151,9 +151,6 @@
   <string name="dialog_page_issues">Problemi sa stranicom</string>
   <string name="button_page_issues">Problemi sa stranicom</string>
   <string name="text_size_select">Veličina pisma</string>
-  <string name="color_theme_select">Izgled</string>
-  <string name="color_theme_light">Svijetlo</string>
-  <string name="color_theme_dark">Tamno</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Možda ste imali na umu \"%s\"?</string>
   <string name="search_recent_header">Zadnja pretraživanja:</string>
@@ -225,6 +222,9 @@
   <string name="crash_report_quit">Prekini</string>
   <string name="article_menu_bar_bookmark">Spremi članak na popis za čitanje</string>
   <string name="article_menu_bar_share">Podijelite poveznicu na članak</string>
+  <string name="color_theme_select">Izgled</string>
+  <string name="color_theme_light">Svijetlo</string>
+  <string name="color_theme_dark">Tamno</string>
   <string name="nav_item_reading_lists">Moji popisi</string>
   <string name="reading_list_untitled">Bez naslova</string>
   <string name="reading_list_save_to">Dodaj na popis za čitanje</string>

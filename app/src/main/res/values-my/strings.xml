@@ -87,8 +87,8 @@
   <string name="delete_selected_items">ရွေးချယ်ထားသော အကြောင်းအရာများကို ဖျက်ပါ</string>
   <string name="wp_stylized">&lt;big&gt;ဝီ&lt;/big&gt;ကီပီးဒီး&lt;big&gt;ယား&lt;/big&gt;</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
-  <string name="login_create_account_link">အကောင့် မရှိဘူးလား? ဝီကီပီးဒီးယားနဲ့ ချိတ်ဆက်လိုက်ပါ</string>
   <string name="create_account_login_link">အကောင့် ရှိပြီးသားလား? မှတ်တမ်းဖြင့် ဝင်ပါ</string>
+  <string name="login_create_account_link">အကောင့် မရှိဘူးလား? ဝီကီပီးဒီးယားနဲ့ ချိတ်ဆက်လိုက်ပါ</string>
   <string name="create_account_activity_title">အကောင့် ဖန်တီးရန်</string>
   <string name="dialog_create_account_checking_progress">စိစစ်နေသည်</string>
   <string name="create_account_email_hint">အီးမေးလ် (ရှိပါက)</string>
@@ -167,9 +167,6 @@
   <string name="dialog_page_issues">စာမျက်နှာ ကိစ္စရပ်များ</string>
   <string name="button_page_issues">စာမျက်နှာ ကိစ္စရပ်များ</string>
   <string name="text_size_select">စာလုံး အရွယ်အစား</string>
-  <string name="color_theme_select">Theme</string>
-  <string name="color_theme_light">အလင်း</string>
-  <string name="color_theme_dark">အမှောင်</string>
   <string name="page_similar_titles">ဆင်တူစာမျက်နှာများ</string>
   <string name="search_did_you_mean">\"%s\" ဟု ဆိုလိုပါသလား?</string>
   <string name="search_recent_header">လတ်တလော ရှာဖွေမှုများ -</string>
@@ -253,6 +250,9 @@
   <string name="article_header_edit_hint">ပြင်ဆင်...</string>
   <string name="article_header_edit_description">ခေါင်းစဉ်ဖော်ပြချက် တည်းဖြတ်ရန်</string>
   <string name="article_header_edit_lead_section">မိတ်ဆက် တည်းဖြတ်ရန်</string>
+  <string name="color_theme_select">Theme</string>
+  <string name="color_theme_light">အလင်း</string>
+  <string name="color_theme_dark">အမှောင်</string>
   <string name="nav_item_reading_lists">ကျွန်ုပ်၏ စာရင်းများ</string>
   <string name="reading_list_untitled">အမည်မပေးထား</string>
   <string name="reading_list_save_to">စာဖတ်စာရင်းသို့ သိမ်းရန်</string>

@@ -77,8 +77,8 @@
   <string name="delete_selected_items">Ištrinti pasirinktus elementus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Naudotojo vardas</string>
-  <string name="login_create_account_link">Neturite paskyros? Prisijunkite prie Vikipedijos</string>
   <string name="create_account_login_link">Jau turite paskyrą? Prisijunkite</string>
+  <string name="login_create_account_link">Neturite paskyros? Prisijunkite prie Vikipedijos</string>
   <string name="create_account_activity_title">Kurti paskyrą</string>
   <string name="dialog_create_account_checking_progress">Tikrinama</string>
   <string name="create_account_email_hint">El. paštas (neprivaloma)</string>
@@ -147,9 +147,6 @@
   <string name="dialog_page_issues">Puslapio klausimai</string>
   <string name="button_page_issues">Puslapio klausimai</string>
   <string name="text_size_select">Šrifto dydis</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Šviesi</string>
-  <string name="color_theme_dark">Tamsi</string>
   <string name="page_similar_titles">Panašūs puslapiai</string>
   <string name="search_did_you_mean">Ar turėjote omenyje „%s“?</string>
   <string name="search_recent_header">Naujausios paieškos:</string>
@@ -231,6 +228,9 @@
   <string name="article_header_edit_hint">Redaguoti...</string>
   <string name="article_header_edit_description">Redaguoti pavadinimo aprašymą</string>
   <string name="article_header_edit_lead_section">Redaguoti įžangą</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Šviesi</string>
+  <string name="color_theme_dark">Tamsi</string>
   <string name="nav_item_reading_lists">Mano sąrašai</string>
   <string name="reading_list_untitled">Be pavadinimo</string>
   <string name="reading_list_save_to">Įtraukti į skaitymo sąrašą</string>

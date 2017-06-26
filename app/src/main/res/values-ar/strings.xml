@@ -87,8 +87,8 @@
   <string name="delete_selected_items">إزالة العناصر المختارة</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يكيبيد&lt;big&gt;يا&lt;/big&gt;</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
-  <string name="login_create_account_link">ليس لديك حساب؟ انضم إلى ويكيبيديا</string>
   <string name="create_account_login_link">لديك حساب؟ سجل دخولك</string>
+  <string name="login_create_account_link">ليس لديك حساب؟ انضم إلى ويكيبيديا</string>
   <string name="create_account_activity_title">إنشاء حساب</string>
   <string name="dialog_create_account_checking_progress">جارٍ التحقق…</string>
   <string name="create_account_email_hint">البريد الإلكتروني (اختياري)</string>
@@ -167,9 +167,6 @@
   <string name="dialog_page_issues">مشاكل في مضمون الصفحة</string>
   <string name="button_page_issues">مشاكل في مضمون الصفحة</string>
   <string name="text_size_select">حجم الخط</string>
-  <string name="color_theme_select">المظهر</string>
-  <string name="color_theme_light">فاتح</string>
-  <string name="color_theme_dark">غامق</string>
   <string name="page_similar_titles">صفحات مشابهة</string>
   <string name="search_did_you_mean">هل تقصد \"%s\"؟</string>
   <string name="search_recent_header">أحدث عمليات البحث:</string>
@@ -256,6 +253,9 @@
   <string name="article_header_edit_hint">تحرير...</string>
   <string name="article_header_edit_description">عدّل وصف العنوان</string>
   <string name="article_header_edit_lead_section">عدّل المقدمة</string>
+  <string name="color_theme_select">المظهر</string>
+  <string name="color_theme_light">فاتح</string>
+  <string name="color_theme_dark">غامق</string>
   <string name="nav_item_reading_lists">قوائمي</string>
   <string name="reading_list_untitled">غير معنونة</string>
   <string name="reading_list_save_to">احفظ في قائمة القراءة</string>

@@ -89,8 +89,9 @@
   <string name="delete_selected_items">নির্বাচিত আইটেম অপসারণ করুন</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
-  <string name="login_create_account_link">কোন অ্যাকাউন্ট নেই? উইকিপিডিয়ায় যোগ দিন</string>
+  <string name="create_account_already_have">ইতিমধ্যে একটি অ্যাকাউন্ট আছে?</string>
   <string name="create_account_login_link">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? প্রবেশ করুন</string>
+  <string name="login_create_account_link">কোন অ্যাকাউন্ট নেই? উইকিপিডিয়ায় যোগ দিন</string>
   <string name="create_account_activity_title">একটি অ্যাকাউন্ট খুলুন</string>
   <string name="dialog_create_account_checking_progress">যাচাই করা হচ্ছে</string>
   <string name="create_account_email_hint">ইমেইল (ঐচ্ছিক)</string>
@@ -172,9 +173,6 @@
   <string name="dialog_page_issues">পাতার সমস্যা</string>
   <string name="button_page_issues">পাতার সমস্যা</string>
   <string name="text_size_select">ফন্টের আকার</string>
-  <string name="color_theme_select">থিম</string>
-  <string name="color_theme_light">উজ্জ্বল</string>
-  <string name="color_theme_dark">কালো</string>
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
   <string name="search_did_you_mean">আপনি কি \"%s\" বুঝাচ্ছেন?</string>
   <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান:</string>
@@ -262,6 +260,10 @@
   <string name="article_header_edit_hint">সম্পাদনা…</string>
   <string name="article_header_edit_description">শিরোনামের বিবরণ সম্পাদনা করুন</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা করুন</string>
+  <string name="color_theme_select">থিম</string>
+  <string name="color_theme_light">উজ্জ্বল</string>
+  <string name="color_theme_dark">কালো</string>
+  <string name="preference_title_color_theme">কালো থিম</string>
   <string name="nav_item_reading_lists">আমার তালিকা</string>
   <string name="reading_list_untitled">শিরোনামহীন</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
@@ -381,4 +383,5 @@
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
   <string name="description_edit_revert_history">আপনি যদি আগ্রহী হন তাহলে, &lt;a href=\"%1$s\"&gt;সম্পাদনা ইতিহাস&lt;/a&gt; দেখুন।</string>
+  <string name="onboarding_skip">এড়ান</string>
 </resources>

@@ -73,8 +73,8 @@
   <string name="history_empty_message" fuzzy="true">Do hä se velleisch alle fott jeschmeße. Et nähkste Mohl woh de obb en Sigg jeihß, kanns De op se zeröck jonn.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKKIPEHDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Metmaacher_Nahme</string>
-  <string name="login_create_account_link">Noch keine Zohjang. Beij de Wikkipehdija aanmällde!</string>
   <string name="create_account_login_link">Do häß ald ene Zojang? Donn enlogge</string>
+  <string name="login_create_account_link">Noch keine Zohjang. Beij de Wikkipehdija aanmällde!</string>
   <string name="create_account_activity_title">Ene neue Zohjang aanmälde</string>
   <string name="dialog_create_account_checking_progress">Pröhve</string>
   <string name="create_account_email_hint">De e-mail-Adräß, kann och fott bliehve</string>
@@ -145,9 +145,6 @@
   <string name="abusefilter_title_disallow" fuzzy="true">Do kanns heh di Änderong nit faßhallde lohße. Jangk retuhr un änder se.</string>
   <string name="dialog_page_issues">Sigge issues</string>
   <string name="text_size_select">Schreffjrahd</string>
-  <string name="color_theme_select">Ußsinn</string>
-  <string name="color_theme_light">Häll</string>
-  <string name="color_theme_dark">Donkel</string>
   <string name="page_similar_titles">Ähnlejje Sigge</string>
   <string name="search_did_you_mean">Häß de \"%s\" jemeind?</string>
   <string name="search_recent_header">Köözlesch jesöhk:</string>
@@ -197,6 +194,9 @@
   <string name="crash_report_relaunch">Neu aanfange</string>
   <string name="crash_report_quit">Ophühre</string>
   <string name="article_menu_bar_bookmark">Donn di Sigg en en Leß zom Lässe</string>
+  <string name="color_theme_select">Ußsinn</string>
+  <string name="color_theme_light">Häll</string>
+  <string name="color_theme_dark">Donkel</string>
   <string name="nav_item_reading_lists" fuzzy="true">Leßte zom lässe</string>
   <string name="reading_list_untitled">Der ohne Övverschreff</string>
   <string name="reading_list_save_to">Donn op ming Leß zom Lässe</string>

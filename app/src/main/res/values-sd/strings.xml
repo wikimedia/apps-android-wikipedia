@@ -88,8 +88,8 @@
   <string name="delete_selected_items">چونڊيل شيون ڊاھيو</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">يُوزرنانءُ</string>
-  <string name="login_create_account_link">پنهنجو کاتو نہ ٿا رکو؟ وڪيپيڊيا ۾ شامل ٿيو</string>
   <string name="create_account_login_link">اڳ ئي کاتو اٿو؟ داخل ٿيو</string>
+  <string name="login_create_account_link">پنهنجو کاتو نہ ٿا رکو؟ وڪيپيڊيا ۾ شامل ٿيو</string>
   <string name="create_account_activity_title">کاتو کوليو</string>
   <string name="dialog_create_account_checking_progress">تصديق ڪندي</string>
   <string name="create_account_email_hint">برقٽپال (اختياري)</string>
@@ -167,9 +167,6 @@
   <string name="dialog_page_issues">صفحي جا مسئلا</string>
   <string name="button_page_issues">صفحي جا مسئلا</string>
   <string name="text_size_select">فونٽ جي ماپ</string>
-  <string name="color_theme_select">نظارو</string>
-  <string name="color_theme_light">هلڪو</string>
-  <string name="color_theme_dark">گهرو</string>
   <string name="page_similar_titles">ھڪجھڙا صفحا</string>
   <string name="search_did_you_mean">ڇا توهان جي مراد %s ھئي؟</string>
   <string name="search_recent_header">تازيون ڳولائون:</string>
@@ -255,6 +252,9 @@
   <string name="article_header_edit_hint">سنواريو...</string>
   <string name="article_header_edit_description">عنوان جي تشريح سنواريو</string>
   <string name="article_header_edit_lead_section">تعارف سنواريو</string>
+  <string name="color_theme_select">نظارو</string>
+  <string name="color_theme_light">هلڪو</string>
+  <string name="color_theme_dark">گهرو</string>
   <string name="nav_item_reading_lists">منھنجون فھرستون</string>
   <string name="reading_list_untitled">بلاعنوان</string>
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>

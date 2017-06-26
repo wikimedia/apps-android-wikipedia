@@ -89,8 +89,8 @@
   <string name="delete_selected_items">Diverkañ an elfennoù diuzet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Anv implijer</string>
-  <string name="login_create_account_link">N\'ho peus kont ebet ? Deuit da-gaout Wikipedia</string>
   <string name="create_account_login_link">Bet krouet ur gont c\'hoazh ? Kevreit</string>
+  <string name="login_create_account_link">N\'ho peus kont ebet ? Deuit da-gaout Wikipedia</string>
   <string name="create_account_activity_title">Krouiñ ur gont</string>
   <string name="dialog_create_account_checking_progress">O wiriañ</string>
   <string name="create_account_email_hint">Postel (diret)</string>
@@ -171,9 +171,6 @@
   <string name="dialog_page_issues">Kaozioù war ar bajenn</string>
   <string name="button_page_issues">Goulennoù war ar bajennoù</string>
   <string name="text_size_select">Ment ar font</string>
-  <string name="color_theme_select">Tem</string>
-  <string name="color_theme_light">Sklaer</string>
-  <string name="color_theme_dark">Teñval</string>
   <string name="page_similar_titles">Pajennoù kar</string>
   <string name="search_did_you_mean">\"%s\" emezit-c\'hwi ?</string>
   <string name="search_recent_header">Enklaskoù nevez :</string>
@@ -261,6 +258,9 @@
   <string name="article_header_edit_hint">Kemmañ...</string>
   <string name="article_header_edit_description">Kemmañ titl an deskrivadur</string>
   <string name="article_header_edit_lead_section">Kemmañ ar raklavar</string>
+  <string name="color_theme_select">Tem</string>
+  <string name="color_theme_light">Sklaer</string>
+  <string name="color_theme_dark">Teñval</string>
   <string name="nav_item_reading_lists">Ma rolloù</string>
   <string name="reading_list_untitled">Hep titl</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>

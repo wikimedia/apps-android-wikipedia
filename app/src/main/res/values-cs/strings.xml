@@ -77,15 +77,15 @@
   <string name="delete_selected_items">Smazat vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
-  <string name="login_create_account_link">Nemáte účet? Přidejte se k Wikipedii</string>
   <string name="create_account_login_link">Účet už máte? Přihlaste se</string>
+  <string name="login_create_account_link">Nemáte účet? Přidejte se k Wikipedii</string>
   <string name="create_account_activity_title">Vytvoření účtu</string>
   <string name="dialog_create_account_checking_progress">Ověřování</string>
   <string name="create_account_email_hint">E-mail (nepovinný)</string>
   <string name="create_account_password_repeat_hint">Opakovat heslo</string>
   <string name="create_account_passwords_mismatch_error">Hesla se neshodují</string>
   <string name="create_account_email_error">Neplatná e-mailová adresa</string>
-  <string name="create_account_username_error">V uživatelském jménu jsou neplatné znaky</string>
+  <string name="create_account_username_error">V uživatelském jménu jsou nepovolené znaky</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
   <string name="create_account_next">Další</string>
   <string name="create_account_button">Vytvořit účet</string>
@@ -156,9 +156,6 @@
   <string name="dialog_page_issues">Nedostatky stránky</string>
   <string name="button_page_issues">Nedostatky stránky</string>
   <string name="text_size_select">Velikost písma</string>
-  <string name="color_theme_select">Vzhled</string>
-  <string name="color_theme_light">Světlý</string>
-  <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
   <string name="search_recent_header">Nedávná hledání:</string>
@@ -235,6 +232,9 @@
   <string name="article_header_edit_hint">Upravit...</string>
   <string name="article_header_edit_description">Upravit popis názvu</string>
   <string name="article_header_edit_lead_section">Upravit úvod</string>
+  <string name="color_theme_select">Vzhled</string>
+  <string name="color_theme_light">Světlý</string>
+  <string name="color_theme_dark">Tmavý</string>
   <string name="nav_item_reading_lists">Moje seznamy</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>

@@ -88,8 +88,8 @@
   <string name="delete_selected_items">Fjern valgte sider</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brukernavn</string>
-  <string name="login_create_account_link">Har du ingen konto? Opprett en</string>
   <string name="create_account_login_link">Har du en konto allerede? Logg inn</string>
+  <string name="login_create_account_link">Har du ingen konto? Opprett en</string>
   <string name="create_account_activity_title">Opprett en konto</string>
   <string name="dialog_create_account_checking_progress">Verifiserer</string>
   <string name="create_account_email_hint">E-post (valgfri)</string>
@@ -170,9 +170,6 @@
   <string name="dialog_page_issues">Problemer med siden</string>
   <string name="button_page_issues">Problemer med siden</string>
   <string name="text_size_select">Skriftstørrelse</string>
-  <string name="color_theme_select">Drakt</string>
-  <string name="color_theme_light">Lys</string>
-  <string name="color_theme_dark">Mørk</string>
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_did_you_mean">Mente du «%s»?</string>
   <string name="search_recent_header">Nylige søk:</string>
@@ -261,6 +258,9 @@
   <string name="article_header_edit_hint">Rediger…</string>
   <string name="article_header_edit_description">Rediger tittelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger innledning</string>
+  <string name="color_theme_select">Drakt</string>
+  <string name="color_theme_light">Lys</string>
+  <string name="color_theme_dark">Mørk</string>
   <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_untitled">Uten navn</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>

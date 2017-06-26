@@ -76,8 +76,8 @@
   <string name="history_empty_message" fuzzy="true">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDI&lt;big&gt;O&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uzantnomo</string>
-  <string name="login_create_account_link">Ĉu vi ne havas konton? Aliĝu al Vikipedio</string>
   <string name="create_account_login_link">Ĉu vi jam havas konton? Ensalutu</string>
+  <string name="login_create_account_link">Ĉu vi ne havas konton? Aliĝu al Vikipedio</string>
   <string name="create_account_activity_title">Krei konton</string>
   <string name="dialog_create_account_checking_progress">Kontrolante</string>
   <string name="create_account_email_hint">Retpoŝto (Malnepra)</string>
@@ -144,9 +144,6 @@
   <string name="dialog_page_issues">Paĝaj problemoj</string>
   <string name="button_page_issues">Paĝaj problemoj</string>
   <string name="text_size_select">Tipara grandeco</string>
-  <string name="color_theme_select">Etoso</string>
-  <string name="color_theme_light">Hela</string>
-  <string name="color_theme_dark">Malhela</string>
   <string name="page_similar_titles">Similaj paĝoj</string>
   <string name="search_did_you_mean">Ĉu vi celis \"%s\"?</string>
   <string name="search_recent_header">Lastaj serĉoj:</string>
@@ -193,6 +190,9 @@
   <string name="crash_report_dialog_dont_send_button">Preterpasi</string>
   <string name="crash_report_dialog_always_send_button">Ĉiam sendi</string>
   <string name="crash_report_dialog_send_button">Sendi</string>
+  <string name="color_theme_select">Etoso</string>
+  <string name="color_theme_light">Hela</string>
+  <string name="color_theme_dark">Malhela</string>
   <string name="nav_item_reading_lists">Miaj listoj</string>
   <string name="reading_list_untitled">Sentitola</string>
   <string name="reading_list_create_new">Krei novan</string>

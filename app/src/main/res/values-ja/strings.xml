@@ -89,8 +89,8 @@
   <string name="delete_selected_items">選択した項目を削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
   <string name="create_account_username_hint">利用者名</string>
-  <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加しましょう</string>
   <string name="create_account_login_link">アカウントを既にお持ちの場合は、こちらからログインしてください</string>
+  <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加しましょう</string>
   <string name="create_account_activity_title">アカウント作成</string>
   <string name="dialog_create_account_checking_progress">検証中</string>
   <string name="create_account_email_hint">メール (省略可能)</string>
@@ -172,9 +172,6 @@
   <string name="dialog_page_issues">ページの問題点</string>
   <string name="button_page_issues">ページの問題点</string>
   <string name="text_size_select">フォントサイズ</string>
-  <string name="color_theme_select">テーマ</string>
-  <string name="color_theme_light">明</string>
-  <string name="color_theme_dark">暗</string>
   <string name="page_similar_titles">類似したページ</string>
   <string name="search_did_you_mean">もしかして: 「%s」</string>
   <string name="search_recent_header">最近の検索:</string>
@@ -259,6 +256,9 @@
   <string name="article_header_edit_hint">編集...</string>
   <string name="article_header_edit_description">説明を編集</string>
   <string name="article_header_edit_lead_section">導入部を編集</string>
+  <string name="color_theme_select">テーマ</string>
+  <string name="color_theme_light">明</string>
+  <string name="color_theme_dark">暗</string>
   <string name="nav_item_reading_lists">自分のリスト</string>
   <string name="reading_list_untitled">題名なし</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>

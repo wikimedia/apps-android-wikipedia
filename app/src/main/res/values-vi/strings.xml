@@ -89,8 +89,8 @@
   <string name="delete_selected_items">Xoá mục đã chọn</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Tên người dùng</string>
-  <string name="login_create_account_link">Chưa có tài khoản? Hãy tham gia Wikipedia</string>
   <string name="create_account_login_link">Đã có tài khoản? Đăng nhập</string>
+  <string name="login_create_account_link">Chưa có tài khoản? Hãy tham gia Wikipedia</string>
   <string name="create_account_activity_title">Mở tài khoản</string>
   <string name="dialog_create_account_checking_progress">Đang xác minh</string>
   <string name="create_account_email_hint">Thư điện tử (tùy chọn)</string>
@@ -171,9 +171,6 @@
   <string name="dialog_page_issues">Vấn đề trang</string>
   <string name="button_page_issues">Vấn đề trang</string>
   <string name="text_size_select">Kích thước chữ</string>
-  <string name="color_theme_select">Thiết kế</string>
-  <string name="color_theme_light">Sáng</string>
-  <string name="color_theme_dark">Tối</string>
   <string name="page_similar_titles">Trang tương tự</string>
   <string name="search_did_you_mean">Có phải bạn muốn tìm “%s”?</string>
   <string name="search_recent_header">Tìm kiếm gần đây:</string>
@@ -261,6 +258,9 @@
   <string name="article_header_edit_hint">Sửa đổi…</string>
   <string name="article_header_edit_description">Sửa miêu tả tiêu đề</string>
   <string name="article_header_edit_lead_section">Sửa lời đầu</string>
+  <string name="color_theme_select">Thiết kế</string>
+  <string name="color_theme_light">Sáng</string>
+  <string name="color_theme_dark">Tối</string>
   <string name="nav_item_reading_lists">Danh sách của tôi</string>
   <string name="reading_list_untitled">Không tên</string>
   <string name="reading_list_save_to">Lưu vào danh sách đọc</string>

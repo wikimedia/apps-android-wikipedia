@@ -76,8 +76,8 @@
   <string name="history_empty_message" fuzzy="true">آپ نے شاید سب حذف کر دیا ہے، اگلی مرتبہ آپ کوئی صفحہ کھولیں تو یہاں سے آپ اس پر واپس جا سکتے ہیں۔</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپیڈ&lt;big&gt;یا&lt;/big&gt;</string>
   <string name="create_account_username_hint">اسم صارف</string>
-  <string name="login_create_account_link">کھاتہ نہیں ہے؟ ویکیپیڈیا سے منسلک ہوں</string>
   <string name="create_account_login_link">کھاتہ موجود ہے؟ اس میں داخل ہوں</string>
+  <string name="login_create_account_link">کھاتہ نہیں ہے؟ ویکیپیڈیا سے منسلک ہوں</string>
   <string name="create_account_activity_title">کھاتہ بنائیں</string>
   <string name="dialog_create_account_checking_progress">تصدیق کی جارہی ہے</string>
   <string name="create_account_email_hint">ای۔میل (مرضی ہے)</string>
@@ -152,9 +152,6 @@
   <string name="dialog_page_issues">صفحہ کے مسائل</string>
   <string name="button_page_issues">صفحہ کے مسائل</string>
   <string name="text_size_select">فانٹ سائز</string>
-  <string name="color_theme_select">مرکزی خیال</string>
-  <string name="color_theme_light">ہلکا</string>
-  <string name="color_theme_dark">گہرا</string>
   <string name="page_similar_titles">یکساں صفحات</string>
   <string name="search_did_you_mean">کیا آپ کی مراد %s ہے؟</string>
   <string name="search_recent_header">حالیہ تلاش شدہ:</string>
@@ -228,6 +225,9 @@
   <string name="crash_report_quit">ترک کریں</string>
   <string name="article_menu_bar_bookmark">اس مضمون کو کسی فہرست مطالعہ میں شامل کریں</string>
   <string name="article_menu_bar_share">مضمون کا ربط دوسروں کو بھیجیں</string>
+  <string name="color_theme_select">مرکزی خیال</string>
+  <string name="color_theme_light">ہلکا</string>
+  <string name="color_theme_dark">گہرا</string>
   <string name="nav_item_reading_lists">مطالعہ کی فہرستیں</string>
   <string name="reading_list_untitled">بلا عنوان</string>
   <string name="reading_list_save_to">فہرست مطالعہ میں محفوظ کریں</string>

@@ -89,8 +89,8 @@
   <string name="delete_selected_items">سڕینەوەی دانە دیاریکراوەکان</string>
   <string name="wp_stylized">ویکیپیدیا</string>
   <string name="create_account_username_hint">ناوی بەکارھێنەر</string>
-  <string name="login_create_account_link">ھیچ ھەژمارێکت نییە؟ بەشداربە لە ویکیپیدیا</string>
   <string name="create_account_login_link">ھەژمارێکت ھەیە؟ بڕۆ ناوەوە</string>
+  <string name="login_create_account_link">ھیچ ھەژمارێکت نییە؟ بەشداربە لە ویکیپیدیا</string>
   <string name="create_account_activity_title">ھەژمارێک دروست بکە</string>
   <string name="dialog_create_account_checking_progress">پەسەندی دەکات</string>
   <string name="create_account_email_hint">ئیمەیڵ (ئارەزوومەندانە)</string>
@@ -169,9 +169,6 @@
   <string name="dialog_page_issues">پێشھاتەکانی پەڕە</string>
   <string name="button_page_issues">گرفتەکانی پەڕە</string>
   <string name="text_size_select">قەبارەی فۆنت</string>
-  <string name="color_theme_select">ڕووکار</string>
-  <string name="color_theme_light">سووك</string>
-  <string name="color_theme_dark">تاریک</string>
   <string name="page_similar_titles">پەڕە لێکچووەکان</string>
   <string name="search_did_you_mean">مەبەستت ئەمە بوو: \"%s\"؟</string>
   <string name="search_recent_header">گەڕانە تازەکان:</string>
@@ -260,6 +257,9 @@
   <string name="article_header_edit_hint">دەستکاری...</string>
   <string name="article_header_edit_description">دەستکاریی وەسفی سەرناو</string>
   <string name="article_header_edit_lead_section">دەستکاریی پێشەکی</string>
+  <string name="color_theme_select">ڕووکار</string>
+  <string name="color_theme_light">سووك</string>
+  <string name="color_theme_dark">تاریک</string>
   <string name="nav_item_reading_lists">پێڕستەکانم</string>
   <string name="reading_list_untitled">بێسەرناو</string>
   <string name="reading_list_save_to">پاشەکەوتکردن بۆ پێڕستی خوێندنەوە</string>

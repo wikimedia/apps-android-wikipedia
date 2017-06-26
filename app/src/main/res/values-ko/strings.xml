@@ -90,8 +90,12 @@
   <string name="delete_selected_items">선택된 개체 삭제</string>
   <string name="wp_stylized">&lt;big&gt;위&lt;/big&gt;키백&lt;big&gt;과&lt;/big&gt;</string>
   <string name="create_account_username_hint">사용자 이름</string>
-  <string name="login_create_account_link">계정이 없나요? 위키백과에 가입하세요</string>
+  <string name="login_dont_have_account">계정이 없나요?</string>
+  <string name="login_join_wikipedia">위키백과 가입</string>
+  <string name="login_forgot_password">비밀번호를 잊으셨나요?</string>
+  <string name="create_account_already_have">계정이 이미 있습니까?</string>
   <string name="create_account_login_link">계정이 이미 있습니까? 로그인하세요</string>
+  <string name="login_create_account_link">계정이 없나요? 위키백과에 가입하세요</string>
   <string name="create_account_activity_title">계정 만들기</string>
   <string name="dialog_create_account_checking_progress">확인하기</string>
   <string name="create_account_email_hint">이메일 (선택 사항)</string>
@@ -174,9 +178,6 @@
   <string name="dialog_page_issues">문서 이슈</string>
   <string name="button_page_issues">문서 이슈</string>
   <string name="text_size_select">글자 크기</string>
-  <string name="color_theme_select">테마</string>
-  <string name="color_theme_light">밝음</string>
-  <string name="color_theme_dark">어두움</string>
   <string name="page_similar_titles">비슷한 문서</string>
   <string name="search_did_you_mean">\"%s\"을(를) 찾으셨나요?</string>
   <string name="search_recent_header">최근 검색:</string>
@@ -265,6 +266,11 @@
   <string name="article_header_edit_hint">편집...</string>
   <string name="article_header_edit_description">제목 설명 편집</string>
   <string name="article_header_edit_lead_section">도입부 편집</string>
+  <string name="color_theme_select">테마</string>
+  <string name="color_theme_light">밝음</string>
+  <string name="color_theme_dark">어두움</string>
+  <string name="preference_title_color_theme">어두운 테마</string>
+  <string name="preference_summary_color_theme">앱의 어두운 색 테마로 전환</string>
   <string name="nav_item_reading_lists">내 목록</string>
   <string name="reading_list_untitled">제목 없음</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
@@ -394,4 +400,11 @@
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
   <string name="description_edit_revert_reason2">당신의 기여는 실험적이거나 문서 훼손처럼 보입니다.</string>
   <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
+  <string name="onboarding_skip">건너뛰기</string>
+  <string name="onboarding_continue">계속</string>
+  <string name="onboarding_get_started">시작하기</string>
+  <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
+  <string name="onboarding_analytics_title">익명 데이터 보내기</string>
+  <string name="onboarding_create_account_sync">읽기 목록 동기화</string>
+  <string name="onboarding_create_account_preferences">환경 설정 저장하기</string>
 </resources>

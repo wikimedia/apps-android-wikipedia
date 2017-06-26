@@ -90,8 +90,12 @@
   <string name="delete_selected_items">Radera markerade objekt</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Användarnamn</string>
-  <string name="login_create_account_link">Har du inget konto? Skapa ett</string>
+  <string name="login_dont_have_account">Har du inget konto?</string>
+  <string name="login_join_wikipedia">Registrera dig på Wikipedia</string>
+  <string name="login_forgot_password">Glömt ditt lösenord?</string>
+  <string name="create_account_already_have">Har du redan ett konto?</string>
   <string name="create_account_login_link">Har du redan ett konto? Logga in</string>
+  <string name="login_create_account_link">Har du inget konto? Skapa ett</string>
   <string name="create_account_activity_title">Skapa ett konto</string>
   <string name="dialog_create_account_checking_progress">Verifierar</string>
   <string name="create_account_email_hint">E-post (valfritt)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">Sidproblem</string>
   <string name="button_page_issues">Sidproblem</string>
   <string name="text_size_select">Teckenstorlek</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Ljus</string>
-  <string name="color_theme_dark">Mörk</string>
   <string name="page_similar_titles">Liknande sidor</string>
   <string name="search_did_you_mean">Menade du \"%s\"?</string>
   <string name="search_recent_header">Senaste sökningar:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">Redigera...</string>
   <string name="article_header_edit_description">Redigera titelns beskrivning</string>
   <string name="article_header_edit_lead_section">Redigera inledning</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Ljus</string>
+  <string name="color_theme_dark">Mörk</string>
+  <string name="preference_title_color_theme">Mörkt tema</string>
+  <string name="preference_summary_color_theme">Byt till appens mörka färgtema</string>
   <string name="nav_item_reading_lists">Mina listor</string>
   <string name="reading_list_untitled">Namnlös</string>
   <string name="reading_list_save_to">Spara i läslista</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Hoppa över</string>
+  <string name="onboarding_continue">Fortsätt</string>
+  <string name="onboarding_get_started">Kom igång</string>
+  <string name="onboarding_explore_title">Nya sätt att utforska</string>
+  <string name="onboarding_explore_text">Upptäck utmärkta artiklar, populära ämnen och läsförslag i Utforska-flödet.</string>
+  <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>
+  <string name="onboarding_reading_list_sync_text">Skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;a href=\"#login\"&gt;Logga in eller skapa&lt;/a&gt; ditt Wikipedia-konto för att säkerhetskopiera dina läslistor.</string>
+  <string name="onboarding_analytics_title">Skicka anonym data</string>
+  <string name="onboarding_analytics_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
+  <string name="onboarding_create_account_sync">Synkronisera dina läslistor</string>
+  <string name="onboarding_create_account_contributions">Håll koll på dina bidrag</string>
+  <string name="onboarding_create_account_preferences">Spara dina inställningar</string>
 </resources>

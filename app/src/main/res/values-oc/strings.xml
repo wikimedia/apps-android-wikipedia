@@ -78,8 +78,8 @@
   <string name="history_empty_message" fuzzy="true">Los avètz probablament destrusidas totas. Lo còp que ven qu\'aniretz sus una pagina, i poiretz tornar en començant d’aicí.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'utilizaire</string>
-  <string name="login_create_account_link">Avètz pas de compte ? Rejonhètz Wikipèdia</string>
   <string name="create_account_login_link">Avètz ja un compte ? Connectatz-vos</string>
+  <string name="login_create_account_link">Avètz pas de compte ? Rejonhètz Wikipèdia</string>
   <string name="create_account_activity_title">Crear un compte</string>
   <string name="dialog_create_account_checking_progress">Verificacion en cors</string>
   <string name="create_account_email_hint">Adreça de corrièr electronic (facultatiu)</string>
@@ -145,9 +145,6 @@
   <string name="dialog_page_issues">Discussions sus la pagina</string>
   <string name="button_page_issues">Questions sus la pagina</string>
   <string name="text_size_select">Talha de poliça</string>
-  <string name="color_theme_select">Tèma</string>
-  <string name="color_theme_light">Clar</string>
-  <string name="color_theme_dark">Escur</string>
   <string name="page_similar_titles">Paginas similaras</string>
   <string name="search_did_you_mean">Volètz dire « %s » ?</string>
   <string name="search_recent_header">Recèrcas recentas :</string>
@@ -209,6 +206,9 @@
   <string name="article_header_edit_hint">Modificar...</string>
   <string name="article_header_edit_description">Modificar la descripcion del títol</string>
   <string name="article_header_edit_lead_section">Modificar l\'introduccion</string>
+  <string name="color_theme_select">Tèma</string>
+  <string name="color_theme_light">Clar</string>
+  <string name="color_theme_dark">Escur</string>
   <string name="nav_item_reading_lists">Mas listas</string>
   <string name="reading_list_untitled">Sens títol</string>
   <string name="reading_list_save_to">Enregistrar dins la lista de lectura</string>
