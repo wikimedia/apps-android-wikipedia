@@ -34,6 +34,7 @@ import com.facebook.samples.zoomable.ZoomableDraweeView;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.PageTitle;
@@ -42,8 +43,6 @@ import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
-
-import java.io.File;
 
 import retrofit2.Call;
 
@@ -56,6 +55,11 @@ public class GalleryItemFragment extends Fragment {
     public static final String ARG_MIMETYPE = "mimeType";
     public static final String ARG_FEED_FEATURED_IMAGE = "feedFeaturedImage";
     public static final String ARG_AGE = "age";
+
+    public interface Callback {
+        void onDownload(@NonNull GalleryItem item);
+        void onShare(@NonNull GalleryItem item, @Nullable Bitmap bitmap, @NonNull String subject, @NonNull PageTitle title);
+    }
 
     private ProgressBar progressBar;
     private ZoomableDraweeView imageView;
@@ -404,33 +408,18 @@ public class GalleryItemFragment extends Fragment {
                 .build());
     }
 
-    /**
-     * Share the current image using an activity chooser, so that the user can choose the
-     * app with which to share the content.
-     * This is done by saving the image to a temporary file in external storage, then specifying
-     * that file in the share intent. The name of the temporary file is kept constant, so that
-     * it's overwritten every time an image is shared from the app, so that it takes up a
-     * constant amount of space.
-     */
     private void shareImage() {
         if (galleryItem == null) {
             return;
         }
-        parentActivity.getFunnel().logGalleryShare(pageTitle, galleryItem.getName());
-        new ImagePipelineBitmapGetter(getActivity(), galleryItem.getThumbUrl()){
+        new ImagePipelineBitmapGetter(galleryItem.getThumbUrl()){
             @Override
             public void onSuccess(@Nullable Bitmap bitmap) {
                 if (!isAdded()) {
                     return;
                 }
-                if (bitmap != null) {
-                    ShareUtil.shareImage(parentActivity,
-                            bitmap,
-                            new File(galleryItem.getUrl()).getName(),
-                            getShareSubject(),
-                            imageTitle.getCanonicalUri());
-                } else {
-                    ShareUtil.shareText(parentActivity, imageTitle);
+                if (callback() != null) {
+                    callback().onShare(galleryItem, bitmap, getShareSubject(), imageTitle);
                 }
             }
         }.get();
@@ -464,14 +453,16 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private void saveImage() {
-        if (galleryItem == null) {
-            return;
+        if (galleryItem != null && callback() != null) {
+            callback().onDownload(galleryItem);
         }
-        parentActivity.getFunnel().logGallerySave(pageTitle, galleryItem.getName());
-        parentActivity.getDownloadReceiver().download(galleryItem);
     }
 
     private boolean shouldHaveWhiteBackground(String mimeType) {
         return mimeType.contains("svg") || mimeType.contains("png") || mimeType.contains("gif");
+    }
+
+    @Nullable private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }

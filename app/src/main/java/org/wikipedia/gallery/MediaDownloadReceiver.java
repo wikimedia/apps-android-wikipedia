@@ -1,6 +1,5 @@
 package org.wikipedia.gallery;
 
-import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
@@ -16,7 +15,6 @@ import android.support.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
 
 import java.io.File;
@@ -24,21 +22,23 @@ import java.io.File;
 public class MediaDownloadReceiver extends BroadcastReceiver {
     private static final String FILE_NAMESPACE = "File:";
 
-    @NonNull private Activity activity;
-    @NonNull private DownloadManager downloadManager;
-
-    public MediaDownloadReceiver(@NonNull Activity activity) {
-        this.activity = activity;
-        downloadManager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
+    public interface Callback {
+        void onSuccess();
     }
 
-    public void download(@NonNull FeaturedImage featuredImage) {
-        String targetFileName = FileUtil.sanitizeFileName(featuredImage.title());
-        String targetDirectoryType = Environment.DIRECTORY_PICTURES;
-        performDownloadRequest(featuredImage.image().source(), targetDirectoryType, targetFileName, null);
+    @Nullable private Callback callback;
+
+    public void setCallback(@Nullable Callback callback) {
+        this.callback = callback;
     }
 
-    public void download(@NonNull GalleryItem galleryItem) {
+    public void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
+        String filename = FileUtil.sanitizeFileName(featuredImage.title());
+        String targetDirectory = Environment.DIRECTORY_PICTURES;
+        performDownloadRequest(context, featuredImage.image().source(), targetDirectory, filename, null);
+    }
+
+    public void download(@NonNull Context context, @NonNull GalleryItem galleryItem) {
         String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(galleryItem.getName()));
         String targetDirectoryType;
         if (FileUtil.isVideo(galleryItem.getMimeType())) {
@@ -50,11 +50,12 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         } else {
             targetDirectoryType = Environment.DIRECTORY_DOWNLOADS;
         }
-        performDownloadRequest(Uri.parse(galleryItem.getUrl()), targetDirectoryType, saveFilename,
-                galleryItem.getMimeType());
+        performDownloadRequest(context, Uri.parse(galleryItem.getUrl()), targetDirectoryType,
+                saveFilename, galleryItem.getMimeType());
     }
 
-    private void performDownloadRequest(@NonNull Uri uri, @NonNull String targetDirectoryType,
+    private void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
+                                        @NonNull String targetDirectoryType,
                                         @NonNull String targetFileName, @Nullable String mimeType) {
         final String targetSubfolderName = WikipediaApp.getInstance().getString(R.string.app_name);
         final File categoryFolder = Environment.getExternalStoragePublicDirectory(targetDirectoryType);
@@ -64,6 +65,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         // creates the directory if it doesn't exist else it's harmless
         targetFolder.mkdir();
 
+        DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setDestinationUri(Uri.fromFile(targetFile));
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
@@ -71,10 +73,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             request.setMimeType(mimeType);
         }
         request.allowScanningByMediaScanner();
-
-        downloadManager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
         downloadManager.enqueue(request);
-        FeedbackUtil.showMessage(activity, R.string.gallery_save_progress);
     }
 
     @Override
@@ -84,6 +83,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0);
             DownloadManager.Query query = new DownloadManager.Query();
             query.setFilterById(downloadId);
+            DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
             Cursor c = downloadManager.query(query);
             try {
                 if (c.moveToFirst()) {
@@ -91,8 +91,10 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
                     int pathIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI);
                     int mimeIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_MEDIA_TYPE);
                     if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(statusIndex)) {
-                        FeedbackUtil.showMessage(activity, R.string.gallery_save_success);
-                        notifyContentResolver(Uri.parse(c.getString(pathIndex)).getPath(),
+                        if (callback != null) {
+                            callback.onSuccess();
+                        }
+                        notifyContentResolver(context, Uri.parse(c.getString(pathIndex)).getPath(),
                                 c.getString(mimeIndex));
                     }
                 }
@@ -106,7 +108,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         return filename.startsWith(FILE_NAMESPACE) ? filename.substring(FILE_NAMESPACE.length()) : filename;
     }
 
-    private void notifyContentResolver(@NonNull String path, @NonNull String mimeType) {
+    private void notifyContentResolver(@NonNull Context context, @NonNull String path, @NonNull String mimeType) {
         ContentValues values = new ContentValues();
         Uri contentUri;
         if (FileUtil.isVideo(mimeType)) {
@@ -122,6 +124,6 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             values.put(MediaStore.Images.Media.MIME_TYPE, mimeType);
             contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         }
-        activity.getContentResolver().insert(contentUri, values);
+        context.getContentResolver().insert(contentUri, values);
     }
 }

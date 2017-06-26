@@ -1,6 +1,5 @@
 package org.wikipedia.gallery;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -18,19 +17,19 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import org.wikipedia.WikipediaApp;
+
 public abstract class ImagePipelineBitmapGetter {
-    private Context context;
     private String imageUrl;
 
-    public ImagePipelineBitmapGetter(Context context, String imageUrl) {
-        this.context = context;
+    public ImagePipelineBitmapGetter(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
     public abstract void onSuccess(@Nullable Bitmap bitmap);
 
     public void onError(Throwable t) {
-        Toast.makeText(context, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(WikipediaApp.getInstance(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
     public void get() {
@@ -38,7 +37,8 @@ public abstract class ImagePipelineBitmapGetter {
                 .setProgressiveRenderingEnabled(true)
                 .build();
         ImagePipeline imagePipeline = Fresco.getImagePipeline();
-        DataSource<CloseableReference<CloseableImage>> dataSource = imagePipeline.fetchDecodedImage(request, context);
+        DataSource<CloseableReference<CloseableImage>> dataSource
+                = imagePipeline.fetchDecodedImage(request, WikipediaApp.getInstance());
         dataSource.subscribe(new BitmapDataSubscriber(), UiThreadImmediateExecutorService.getInstance());
     }
 
