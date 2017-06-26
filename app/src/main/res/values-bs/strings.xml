@@ -90,8 +90,12 @@
   <string name="delete_selected_items">Obriši izabrane stavke</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Korisničko ime</string>
-  <string name="login_create_account_link">Nemate račun? Pridružite se Wikipediji</string>
+  <string name="login_dont_have_account">Nemate račun?</string>
+  <string name="login_join_wikipedia">Pridružite se Wikipediji</string>
+  <string name="login_forgot_password">Zaboravili ste lozinku?</string>
+  <string name="create_account_already_have">Već imate račun?</string>
   <string name="create_account_login_link">Već imate račun? Prijavite se</string>
+  <string name="login_create_account_link">Nemate račun? Pridružite se Wikipediji</string>
   <string name="create_account_activity_title">Napravi korisnički račun</string>
   <string name="dialog_create_account_checking_progress">Potvrđujem</string>
   <string name="create_account_email_hint">Adresa e-pošte (neobavezno)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">Problemi sa sadržajem</string>
   <string name="button_page_issues">Problemi sa sadržajem</string>
   <string name="text_size_select">Veličina fonta</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Svijetla</string>
-  <string name="color_theme_dark">Tamna</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Jeste li mislili \"%s\"?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">Uredi...</string>
   <string name="article_header_edit_description">Uredi opis naslova</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Svijetla</string>
+  <string name="color_theme_dark">Tamna</string>
+  <string name="preference_title_color_theme">Tamna tema</string>
+  <string name="preference_summary_color_theme">Mijenja izgled aplikacije prebacivanjem na tamnu temu</string>
   <string name="nav_item_reading_lists">Moji spiskovi</string>
   <string name="reading_list_untitled">Bez naslova</string>
   <string name="reading_list_save_to">Sačuvaj na spisak za čitanje</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">Vaš doprinos nije slijedio jednu od &lt;a href=\"%1$s\"&gt;smjernica&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Vaš doprinos djelovao je kao eksperiment ili vandalizam.</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;historiju izmjena&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Preskoči</string>
+  <string name="onboarding_continue">Nastavi</string>
+  <string name="onboarding_get_started">Započnite</string>
+  <string name="onboarding_explore_title">Novi načini za istraživanje</string>
+  <string name="onboarding_explore_text">Otkrijte odabrane članke, aktualne teme i prijedloge za čitanje na ekranu \"Istraži\".</string>
+  <string name="onboarding_reading_list_sync_title">Spiskovi za čitanje sa sinhroniziranjem</string>
+  <string name="onboarding_reading_list_sync_text">Napravite spiskove za čitanje od članaka koje želite pročitati kasnije, čak i kad niste na mreži. &lt;a href=\"#login\"&gt;Prijavite se ili napravite&lt;/a&gt; račun na Wikipediji da biste imali pričuvnu kopiju spiskova.</string>
+  <string name="onboarding_analytics_title">Šalji anonimne podatke</string>
+  <string name="onboarding_analytics_text">Pomozite nam da poboljšamo aplikaciju tako što ćete nam slati podatke o tome kako je koristite. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Detaljnije&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
+  <string name="onboarding_create_account_sync">Sinhronizirajte spiskove za čitanje</string>
+  <string name="onboarding_create_account_contributions">Pratite svoje doprinose</string>
+  <string name="onboarding_create_account_preferences">Sačuvajte svoje postavke</string>
 </resources>

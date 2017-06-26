@@ -90,8 +90,8 @@
   <string name="delete_selected_items">Elimina els elements seleccionats</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
-  <string name="login_create_account_link">No teniu un compte? Uniu-vos a la Viquipèdia</string>
   <string name="create_account_login_link">Ja teniu un compte? Inicia una sessió</string>
+  <string name="login_create_account_link">No teniu un compte? Uniu-vos a la Viquipèdia</string>
   <string name="create_account_activity_title">Crea un compte</string>
   <string name="dialog_create_account_checking_progress">S\'està verificant</string>
   <string name="create_account_email_hint">Adreça electrònica (opcional)</string>
@@ -172,9 +172,6 @@
   <string name="dialog_page_issues">Problemes de la pàgina</string>
   <string name="button_page_issues">Problemes de la pàgina</string>
   <string name="text_size_select">Mida de lletra</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Clar</string>
-  <string name="color_theme_dark">Fosc</string>
   <string name="page_similar_titles">Pàgines similars</string>
   <string name="search_did_you_mean">Voleu dir \"%s\"?</string>
   <string name="search_recent_header">Cerques recents:</string>
@@ -262,6 +259,9 @@
   <string name="article_header_edit_hint">Modifica…</string>
   <string name="article_header_edit_description">Modifica la descripció del títol</string>
   <string name="article_header_edit_lead_section">Modifica la introducció</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Clar</string>
+  <string name="color_theme_dark">Fosc</string>
   <string name="nav_item_reading_lists">Les meves llistes</string>
   <string name="reading_list_untitled">Sense títol</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>

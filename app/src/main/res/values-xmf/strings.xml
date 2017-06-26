@@ -86,8 +86,8 @@
   <string name="delete_selected_items">გიშაგორილი ელემენტეფიშ ლასუა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მახვარებუშ ჯოხო</string>
-  <string name="login_create_account_link">ვაგიღჷნანო ანგარიში? ქაკათით ვიკიპედიას.</string>
   <string name="create_account_login_link">დარეგისტრირებული რეთო? გემშართით.</string>
+  <string name="login_create_account_link">ვაგიღჷნანო ანგარიში? ქაკათით ვიკიპედიას.</string>
   <string name="create_account_activity_title">ანგარიშიშ გონწყუმა</string>
   <string name="dialog_create_account_checking_progress">გჷნომოწება</string>
   <string name="create_account_email_hint">Email (ვაუციო)</string>
@@ -148,9 +148,6 @@
   <string name="find_next">უკულიანიშ გორუა</string>
   <string name="find_previous">წიმოხონიშ გორუა</string>
   <string name="text_size_select">შრიფტიშ ზჷმა</string>
-  <string name="color_theme_select">უკახალენი ფონი</string>
-  <string name="color_theme_light">მორჩე</string>
-  <string name="color_theme_dark">რუმე</string>
   <string name="page_similar_titles">მოგვენი ხასჷლეფი</string>
   <string name="search_did_you_mean">%s-ს ხო ვაგორუნდით?</string>
   <string name="search_recent_header">ასერდე გორუნდით</string>
@@ -161,4 +158,7 @@
   <string name="wiktionary_no_definitions_found">გოთანჯუეფქ ვეგორინჷ.</string>
   <string name="preference_title_show_images">სურათეფიშ ძირაფა</string>
   <string name="menu_gallery_visit_page">გეგნორთით ფაილიშ ხასჷლაშა</string>
+  <string name="color_theme_select">უკახალენი ფონი</string>
+  <string name="color_theme_light">მორჩე</string>
+  <string name="color_theme_dark">რუმე</string>
 </resources>

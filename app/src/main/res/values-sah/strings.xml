@@ -90,8 +90,8 @@
   <string name="delete_selected_items">Талыллыбыты сот</string>
   <string name="wp_stylized">&lt;big&gt;Б&lt;/big&gt;ИКИПИЭДЬИЙ&lt;big&gt;Э&lt;/big&gt;</string>
   <string name="create_account_username_hint">Кыттааччы аата</string>
-  <string name="login_create_account_link">Бэлиэтэнэ илик этиҥ дуо? Бикипиэдьийэҕэ кыттыс</string>
   <string name="create_account_login_link">Бэлиэтэммитиҥ дуо? Киир</string>
+  <string name="login_create_account_link">Бэлиэтэнэ илик этиҥ дуо? Бикипиэдьийэҕэ кыттыс</string>
   <string name="create_account_activity_title">Бэлиэтэнии</string>
   <string name="dialog_create_account_checking_progress">Тургутуу</string>
   <string name="create_account_email_hint">Электрон почта (булгуччута суох)</string>
@@ -174,9 +174,6 @@
   <string name="dialog_page_issues">Сирэйгэ ыйытыылар</string>
   <string name="button_page_issues">Сирэйгэ ыйытыылар</string>
   <string name="text_size_select">Бичигин кээмэйэ</string>
-  <string name="color_theme_select">Тас көстүүтэ</string>
-  <string name="color_theme_light">Сырдык</string>
-  <string name="color_theme_dark">Хараҥа</string>
   <string name="page_similar_titles">Майгынныыр сирэйдэр</string>
   <string name="search_did_you_mean">Маны этээри гыммытыҥ буолуо \"%s\"?</string>
   <string name="search_recent_header">Кэлиҥҥи көрдөөһүннэр:</string>
@@ -264,6 +261,9 @@
   <string name="article_header_edit_hint">Уларыт...</string>
   <string name="article_header_edit_description">Бас туһунан суругу уларыт</string>
   <string name="article_header_edit_lead_section">Киириини уларыт</string>
+  <string name="color_theme_select">Тас көстүүтэ</string>
+  <string name="color_theme_light">Сырдык</string>
+  <string name="color_theme_dark">Хараҥа</string>
   <string name="nav_item_reading_lists">Тиһилигим</string>
   <string name="reading_list_untitled">Аата суох</string>
   <string name="reading_list_save_to">Ааҕар тиһиликкэ киллэр</string>

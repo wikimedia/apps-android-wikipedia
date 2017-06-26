@@ -68,8 +68,8 @@
   <string name="history_empty_message" fuzzy="true">Texmina şıma hrme esterıti. Eger kenşıma şınê yu pela se,  şıma şenê etiya ra acınrrsê</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Namey karberi</string>
-  <string name="login_create_account_link">Hesabi şıma çıniyo?Wikipedia de qeyd bi</string>
   <string name="create_account_login_link">Hesabê şıma esto? Cı kewê</string>
+  <string name="login_create_account_link">Hesabi şıma çıniyo?Wikipedia de qeyd bi</string>
   <string name="create_account_activity_title">Yew hesab ake</string>
   <string name="dialog_create_account_checking_progress">Teyid kerden</string>
   <string name="create_account_email_hint">Eposta (opsiyonel)</string>
@@ -118,9 +118,6 @@
   <string name="dialog_page_issues">Mewzuy perer</string>
   <string name="button_page_issues">Mewzuy perer</string>
   <string name="text_size_select">çapa fonti</string>
-  <string name="color_theme_select">Thema</string>
-  <string name="color_theme_light">Açığ</string>
-  <string name="color_theme_dark">Çığ</string>
   <string name="page_similar_titles">Zey cı peri</string>
   <string name="search_did_you_mean">To ker kı vacê %s?</string>
   <string name="search_recent_header">Cıgeyrışo peyên:</string>
@@ -144,6 +141,9 @@
   <string name="crash_report_dialog_send_button">Bırış</string>
   <string name="crash_report_activity_title">Xetay dezgehi</string>
   <string name="crash_report_relaunch">Fına sere kı</string>
+  <string name="color_theme_select">Thema</string>
+  <string name="color_theme_light">Açığ</string>
+  <string name="color_theme_dark">Çığ</string>
   <string name="reading_list_create_new">Newe bıvıraz</string>
   <string name="reading_list_added_to_named">Debya %s tede</string>
   <string name="reading_list_added_to_unnamed">Debya lista wendışi tede</string>

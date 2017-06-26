@@ -90,8 +90,12 @@
   <string name="delete_selected_items">מחיקת הפריטים שנבחרו</string>
   <string name="wp_stylized">ויקיפדיה</string>
   <string name="create_account_username_hint">שם משתמש</string>
-  <string name="login_create_account_link">אין לך חשבון? אנו מזמינים אותך להצטרף לוויקיפדיה</string>
+  <string name="login_dont_have_account">אין לך חשבון?</string>
+  <string name="login_join_wikipedia">להצטרף לוויקיפדיה</string>
+  <string name="login_forgot_password">שכחת את סיסמתך?</string>
+  <string name="create_account_already_have">כבר יש לך חשבון?</string>
   <string name="create_account_login_link">כבר יש לך חשבון? כניסה</string>
+  <string name="login_create_account_link">אין לך חשבון? אנו מזמינים אותך להצטרף לוויקיפדיה</string>
   <string name="create_account_activity_title">יצירת חשבון</string>
   <string name="dialog_create_account_checking_progress">אימות</string>
   <string name="create_account_email_hint">דואר אלקטרוני (לא חובה)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">בעיות בדף</string>
   <string name="button_page_issues">בעיות בדף</string>
   <string name="text_size_select">גודל גופן</string>
-  <string name="color_theme_select">עיצוב</string>
-  <string name="color_theme_light">בהיר</string>
-  <string name="color_theme_dark">כהה</string>
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">עריכה...</string>
   <string name="article_header_edit_description">עריכת תיאור הכותרת</string>
   <string name="article_header_edit_lead_section">עריכת ההקדמה</string>
+  <string name="color_theme_select">עיצוב</string>
+  <string name="color_theme_light">בהיר</string>
+  <string name="color_theme_dark">כהה</string>
+  <string name="preference_title_color_theme">ערכת נושא כהה</string>
+  <string name="preference_summary_color_theme">מעבר לשימוש בערכת צבעים כהים של היישום</string>
   <string name="nav_item_reading_lists">הרשימות שלי</string>
   <string name="reading_list_untitled">ללא כותרת</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
@@ -395,4 +401,17 @@
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">העריכה שלך נראתה כמו ניסוי או השחתה.</string>
   <string name="description_edit_revert_history">אם זה מעניין אותך, ר\' את &lt;a href=\"%1$s\"&gt;היסטוריית העריכות&lt;/a&gt;.</string>
+  <string name="onboarding_skip">לדלג</string>
+  <string name="onboarding_continue">להמשיך</string>
+  <string name="onboarding_get_started">להתחיל</string>
+  <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
+  <string name="onboarding_explore_text">לגלות ערכים מומלצים, נושאים חמים, והצעות לקריאה בהזנת \"לחקור\".</string>
+  <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
+  <string name="onboarding_reading_list_sync_text">צרו רשימות קריאה מערכים שאתם רוצים לקרוא מאוחר יותר, גם אם אינכם מחוברים. &lt;a href=\"#login\"&gt;נא להיכנס לחשבון הוויקיפדיה שלך או ליצור אותו&lt;/a&gt; כדי לשמור גיבוי של רשימות הקריאה שלך.</string>
+  <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
+  <string name="onboarding_analytics_text">עזרו לעשות את היישום טוב יותר על־ידי זה שתספרו לנו איך אתם משתמשים בו. איסוף את הנתונים אלמוני. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
+  <string name="onboarding_create_account_sync">סנכרון רשימות הקריאה שלכם</string>
+  <string name="onboarding_create_account_contributions">מעקב אחר התרומות שלך</string>
+  <string name="onboarding_create_account_preferences">שמירת העדפות</string>
 </resources>

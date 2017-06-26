@@ -75,8 +75,9 @@
   <string name="history_empty_message" fuzzy="true">அனைத்தையும் அழித்துவிட்டீர்கள் போல. அடுத்த முறை ஒருபக்கத்துக்கு செல்லும்போது அதற்கு இங்கிருந்து திரும்பச் செல்லலாம்.</string>
   <string name="wp_stylized">&lt;big&gt;வி&lt;/big&gt;க்கிப்பீடி&lt;big&gt;யா&lt;/big&gt;</string>
   <string name="create_account_username_hint">பயனர் பெயர்</string>
-  <string name="login_create_account_link">பயனர் கணக்கு இல்லையா? விக்கப்பீடியாவில் இணைக</string>
+  <string name="login_dont_have_account">பயனர் கணக்கு இல்லையா?</string>
   <string name="create_account_login_link">ஏற்கனவே பயனர் கணக்கு உள்ளதா? புகுபதிகை செய்க</string>
+  <string name="login_create_account_link">பயனர் கணக்கு இல்லையா? விக்கப்பீடியாவில் இணைக</string>
   <string name="create_account_activity_title">கணக்கு ஒன்றை உருவாக்கவும்</string>
   <string name="dialog_create_account_checking_progress">சரிபார்க்கிறது</string>
   <string name="create_account_email_hint">படிமம் (விருப்பத்துக்குரியது)</string>
@@ -141,9 +142,6 @@
   <string name="dialog_page_issues">பக்க சிக்கல்கள்</string>
   <string name="button_page_issues">பக்க சிக்கல்கள்</string>
   <string name="text_size_select">எழுத்துரு அளவு</string>
-  <string name="color_theme_select">பின்புலத்தோற்றங்கள்</string>
-  <string name="color_theme_light">வெளிச்சம்</string>
-  <string name="color_theme_dark">இருட்டான</string>
   <string name="page_similar_titles">ஒத்த பக்கங்கள்</string>
   <string name="search_did_you_mean">தாங்கள் குறிப்பது \"%s\"?</string>
   <string name="search_recent_header">அண்மைய தேடல்கள்</string>
@@ -189,6 +187,9 @@
   <string name="article_header_edit_hint">தொகுக்கவும்...</string>
   <string name="article_header_edit_description">தலைப்பு விவரத்தை தொகுக்கவும்</string>
   <string name="article_header_edit_lead_section">அறிமுகத்தைத் தொகுக்கவும்</string>
+  <string name="color_theme_select">பின்புலத்தோற்றங்கள்</string>
+  <string name="color_theme_light">வெளிச்சம்</string>
+  <string name="color_theme_dark">இருட்டான</string>
   <string name="nav_item_reading_lists">என் பட்டியல்</string>
   <string name="reading_list_untitled">தலைப்பு இல்லாதவை</string>
   <string name="reading_list_added_view_button" fuzzy="true">பார்வையிடுக</string>

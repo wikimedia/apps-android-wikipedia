@@ -81,8 +81,8 @@
   <string name="history_empty_message" fuzzy="true">Provavelmente eliminou-as. Da próxima vez que aceder a uma página, pode regressar a ela a partir daqui.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de utilizador</string>
-  <string name="login_create_account_link">Não tem uma conta? Junte-se à Wikipédia</string>
   <string name="create_account_login_link">Já possui uma conta? Inicie sessão</string>
+  <string name="login_create_account_link">Não tem uma conta? Junte-se à Wikipédia</string>
   <string name="create_account_activity_title">Criar uma conta</string>
   <string name="dialog_create_account_checking_progress">A verificar</string>
   <string name="create_account_email_hint">Endereço de correio eletrónico (Opcional)</string>
@@ -163,9 +163,6 @@
   <string name="dialog_page_issues">Problemas da página</string>
   <string name="button_page_issues">Problemas da página</string>
   <string name="text_size_select">Tamanho da fonte</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Claro</string>
-  <string name="color_theme_dark">Escuro</string>
   <string name="page_similar_titles">Páginas semelhantes</string>
   <string name="search_did_you_mean">Será que quis dizer \"%s\"?</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
@@ -243,6 +240,9 @@
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar descrição do título</string>
   <string name="article_header_edit_lead_section">Editar introdução</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Claro</string>
+  <string name="color_theme_dark">Escuro</string>
   <string name="nav_item_reading_lists">As minhas listas</string>
   <string name="reading_list_untitled">Sem título</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>

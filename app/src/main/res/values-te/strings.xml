@@ -70,8 +70,8 @@
   <string name="history_empty_message" fuzzy="true">మీరు బహుశా వాటిని అన్నిటిని తొలగించి ఉంటారు. తదుపరి సమయం\nమీరు ఒక పేజీకి వెళ్ళినప్పుడు మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
   <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>
   <string name="create_account_username_hint">వాడుకరి పేరు</string>
-  <string name="login_create_account_link">మీకు ఖాతా లేదా ? వికీపీడియాలో చేరండి</string>
   <string name="create_account_login_link">మీకు ఖాతా ఉందా ? లోపలకు రండి</string>
+  <string name="login_create_account_link">మీకు ఖాతా లేదా ? వికీపీడియాలో చేరండి</string>
   <string name="create_account_activity_title">ఖాతా సృష్టించుకోండి</string>
   <string name="dialog_create_account_checking_progress">ధృవీకరిస్తోంది</string>
   <string name="create_account_email_hint">ఈమెయిలు (ఐచ్చికం)</string>
@@ -145,9 +145,6 @@
   <string name="dialog_page_issues">పేజి సమస్యలు</string>
   <string name="button_page_issues">పుట విషయాలు</string>
   <string name="text_size_select">ఖతి పరిమాణం</string>
-  <string name="color_theme_select">నేపథ్యం</string>
-  <string name="color_theme_light">తేలికైన</string>
-  <string name="color_theme_dark">చీకటి</string>
   <string name="page_similar_titles">పోలిన పేజీలు</string>
   <string name="search_did_you_mean">ఇదేనా మీరంటున్నది \"%s\"?</string>
   <string name="search_recent_header">ఇటీవల వెతికినవి:</string>
@@ -199,6 +196,9 @@
   <string name="nav_item_donate">వికీపీడియాకి తోడ్పడండి</string>
   <string name="crash_report_dialog_dont_send_button">దాటవేయి</string>
   <string name="crash_report_dialog_send_button">పంపించు</string>
+  <string name="color_theme_select">నేపథ్యం</string>
+  <string name="color_theme_light">తేలికైన</string>
+  <string name="color_theme_dark">చీకటి</string>
   <string name="nav_item_reading_lists">నా జాబితాలు</string>
   <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
   <string name="reading_lists_onboarding_example1">చూడాల్సిన ప్రదేశాలు</string>

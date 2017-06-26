@@ -90,8 +90,8 @@
   <string name="delete_selected_items">चयनित आइटम डिलीट करें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
-  <string name="login_create_account_link">क्या अभी तक खाता नहीं है? विकिपीडिया में शामिल हों</string>
   <string name="create_account_login_link">पहले से खाता रखते हो? लॉग-इन</string>
+  <string name="login_create_account_link">क्या अभी तक खाता नहीं है? विकिपीडिया में शामिल हों</string>
   <string name="create_account_activity_title">खाता बनायें</string>
   <string name="dialog_create_account_checking_progress">सत्यापन चल रहा है</string>
   <string name="create_account_email_hint">ईमेल (वैकल्पिक)</string>
@@ -170,9 +170,6 @@
   <string name="dialog_page_issues">पृष्ठ समस्या</string>
   <string name="button_page_issues">पेज समस्याएं</string>
   <string name="text_size_select">फ़ॉन्ट का आकार</string>
-  <string name="color_theme_select">थीम</string>
-  <string name="color_theme_light">हल्का</string>
-  <string name="color_theme_dark">गहरा</string>
   <string name="page_similar_titles">समरूप पृष्ठ</string>
   <string name="search_did_you_mean">क्या आपका मतलब \"%s\" है?</string>
   <string name="search_recent_header">हाल की खोजें</string>
@@ -261,6 +258,9 @@
   <string name="article_header_edit_hint">सम्पादित करें</string>
   <string name="article_header_edit_description">शीर्षक वर्णन को सम्पादित करें</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादित करें</string>
+  <string name="color_theme_select">थीम</string>
+  <string name="color_theme_light">हल्का</string>
+  <string name="color_theme_dark">गहरा</string>
   <string name="nav_item_reading_lists">मेरी सूचियां</string>
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>

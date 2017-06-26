@@ -90,8 +90,8 @@
   <string name="delete_selected_items">Seçili ögeleri sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
-  <string name="login_create_account_link">Hesabınız yok mu? Vikipedi\'ye katılın</string>
   <string name="create_account_login_link">Zaten bir hesabınız var mı? Oturum açın</string>
+  <string name="login_create_account_link">Hesabınız yok mu? Vikipedi\'ye katılın</string>
   <string name="create_account_activity_title">Bir hesap oluştur</string>
   <string name="dialog_create_account_checking_progress">Doğrulanıyor</string>
   <string name="create_account_email_hint">E-posta (İsteğe bağlı)</string>
@@ -99,6 +99,7 @@
   <string name="create_account_passwords_mismatch_error">Parolalar eşleşmiyor</string>
   <string name="create_account_email_error">Geçersiz e-posta adresi</string>
   <string name="create_account_username_error">Kullanıcı adında geçersiz karakterler</string>
+  <string name="create_account_password_error">Parola geçersiz</string>
   <string name="create_account_generic_error">Hesap oluşturulamadı</string>
   <string name="create_account_next">İleri</string>
   <string name="create_account_button">Hesap oluştur</string>
@@ -119,6 +120,9 @@
   <string name="edit_preview_fetching_dialog_message">Ön izleme getiriliyor…</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
   <string name="create_account_account_created_toast">Hesap yaratıldı!</string>
+  <string name="preferences_heading_storage_and_syncing">Depolama ve senkronizasyon</string>
+  <string name="preference_title_sync_reading_lists">Okuma listelerini senkronize et</string>
+  <string name="preference_summary_sync_reading_lists">Oturum açtığınızda okuma listelerinizin senkronize edilmesi için Wikimedia\'ya izin verin</string>
   <string name="preferences_privacy_settings_heading">Gizlilik</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
@@ -172,9 +176,6 @@
   <string name="dialog_page_issues">Sayfa sorunları</string>
   <string name="button_page_issues">Sayfa sorunları</string>
   <string name="text_size_select">Yazı tipi boyutu</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Açık</string>
-  <string name="color_theme_dark">Koyu</string>
   <string name="page_similar_titles">Benzer sayfalar</string>
   <string name="search_did_you_mean">Bunu mu demek istediniz: \"%s\"?</string>
   <string name="search_recent_header">Son aramalar:</string>
@@ -263,6 +264,11 @@
   <string name="article_header_edit_hint">Düzenle...</string>
   <string name="article_header_edit_description">başlığın tanımını düzenle</string>
   <string name="article_header_edit_lead_section">tanıtımı düzenle</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Açık</string>
+  <string name="color_theme_dark">Koyu</string>
+  <string name="preference_title_color_theme">Koyu tema</string>
+  <string name="preference_summary_color_theme">Uygulamanın koyu renk temasına geçiş yapın</string>
   <string name="nav_item_reading_lists">Listelerim</string>
   <string name="reading_list_untitled">Başlıksız</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
@@ -313,6 +319,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Çevrim dışı erişimden sil</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Madde birden çok listede yer alıyor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artık şu listelerde çevrim dışı erişilebilir olmayacak:</string>
+  <string name="reading_list_sync_reminder_title">Okuma listesi senkronizasyonu kapatıldı</string>
+  <string name="reading_list_sync_reminder_text">Eğer uygulama ayarlarından senkronizasyon izni verirseniz, okuma listeleriniz Vikipedi hesabınızla senkronize edilebilir.</string>
+  <string name="reading_list_sync_reminder_action">Aç</string>
+  <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
+  <string name="reading_list_login_reminder_text">Artık okuma listeleriniz Vikipedi hesabınıza kaydedilebilir. Basitçe hesabınıza giriş yapın; okuma listeleriniz otomatik olarak senkronize edilecek.</string>
+  <string name="reading_lists_confirm_remote_delete">Bu, daha önce dış depoplamadan senkronize edilmiş tüm okumla listelerini silecek. Devam edilsin mi?</string>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>
   <string name="notification_talk_title">Vikipedi\'de yeni mesaj</string>

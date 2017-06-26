@@ -90,8 +90,12 @@
   <string name="delete_selected_items">Удалить выбранные элементы</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Имя участника</string>
-  <string name="login_create_account_link">У вас нет учётной записи? Присоединитесь к Википедии</string>
+  <string name="login_dont_have_account">Нет учётной записи?</string>
+  <string name="login_join_wikipedia">Присоединиться к Википедии</string>
+  <string name="login_forgot_password">Забыли пароль?</string>
+  <string name="create_account_already_have">Уже есть учётная запись?</string>
   <string name="create_account_login_link">Вы уже зарегистрированы? Войдите</string>
+  <string name="login_create_account_link">У вас нет учётной записи? Присоединитесь к Википедии</string>
   <string name="create_account_activity_title">Создать учётную запись</string>
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Адрес электронной почты (необязательно)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">Вопросы по странице</string>
   <string name="button_page_issues">Вопросы по странице</string>
   <string name="text_size_select">Размер шрифта</string>
-  <string name="color_theme_select">Оформление</string>
-  <string name="color_theme_light">Светлое</string>
-  <string name="color_theme_dark">Тёмное</string>
   <string name="page_similar_titles">Похожие страницы</string>
   <string name="search_did_you_mean">Возможно, вы имели в виду «%s»?</string>
   <string name="search_recent_header">Последние поиски:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">Править…</string>
   <string name="article_header_edit_description">Изменить описание</string>
   <string name="article_header_edit_lead_section">Редактировать введение</string>
+  <string name="color_theme_select">Оформление</string>
+  <string name="color_theme_light">Светлое</string>
+  <string name="color_theme_dark">Тёмное</string>
+  <string name="preference_title_color_theme">Тёмная тема</string>
+  <string name="preference_summary_color_theme">Переключите для использования тёмной темы оформления приложения</string>
   <string name="nav_item_reading_lists">Мои списки</string>
   <string name="reading_list_untitled">Без названия</string>
   <string name="reading_list_save_to">Сохранить в список для чтения</string>
@@ -397,4 +403,17 @@
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ваш вклад выглядел как эксперимент или вандализм.</string>
   <string name="description_edit_revert_history">Если интересно, взгляните на &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Пропустить</string>
+  <string name="onboarding_continue">Продолжить</string>
+  <string name="onboarding_get_started">Начать</string>
+  <string name="onboarding_explore_title">Новые способы исследования</string>
+  <string name="onboarding_explore_text">Обозревайте избранные статьи, популярные темы и предложения для чтения в ленте Explore.</string>
+  <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
+  <string name="onboarding_reading_list_sync_text">Создавайте списки для чтения из статей, которые вы хотите прочитать, даже если вы находитесь вне сети. &lt;a href=\"#login\"&gt;Авторизуйтесь или создайте учётную запись Википедии&lt;/a&gt; для резервного копирования списков для чтения.</string>
+  <string name="onboarding_analytics_title">Отправка анонимных данных</string>
+  <string name="onboarding_analytics_text">Помогите сделать приложение лучше, позволив нам знать, как вы используете его. Собранные данные анонимны. &lt;a href=\"#privacy\"&gt;Узнать больше&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Отправлять данные использования</string>
+  <string name="onboarding_create_account_sync">Синхронизация списков для чтения</string>
+  <string name="onboarding_create_account_contributions">Отслеживание вашего вклада</string>
+  <string name="onboarding_create_account_preferences">Сохранение ваших настроек</string>
 </resources>

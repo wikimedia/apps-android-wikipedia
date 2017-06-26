@@ -63,8 +63,8 @@
   <string name="history_empty_message" fuzzy="true">Maaaring nabura mo ang lahat ng mga iyon. Sa susunod pumunta ka sa pahinang maaaring makabalik doon mula rito.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Pangalan ng tagagamit</string>
-  <string name="login_create_account_link">Walang akawnt? Sumali sa Wikipedia</string>
   <string name="create_account_login_link">Mayroon ka nang akawnt? Lumagda</string>
+  <string name="login_create_account_link">Walang akawnt? Sumali sa Wikipedia</string>
   <string name="create_account_activity_title">Lumikha ng akawnt</string>
   <string name="dialog_create_account_checking_progress">Pinapatotoo (verifying)</string>
   <string name="create_account_email_hint">E-liham (Opsyonal)</string>
@@ -134,9 +134,6 @@
   <string name="dialog_page_issues">Mga isyu ng pahina</string>
   <string name="button_page_issues">Mga isyu ng pahina</string>
   <string name="text_size_select">Sukat ng estilo ng titik (font)</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Linaw</string>
-  <string name="color_theme_dark">Dilim</string>
   <string name="page_similar_titles">Kaparehong mga pahina</string>
   <string name="search_did_you_mean">Ibig mong sabihin ay \"%s\"?</string>
   <string name="search_recent_header">Mga kamakailang paghahanap:</string>
@@ -172,4 +169,7 @@
   <string name="menu_new_tab">Bagong talahanayan (tab)</string>
   <string name="button_close_tab">Isara ang talahanayan (tab)</string>
   <string name="button_continue_to_article">Basahin ang artikulo</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Linaw</string>
+  <string name="color_theme_dark">Dilim</string>
 </resources>

@@ -88,8 +88,8 @@
   <string name="delete_selected_items">არჩეული ელემენტების წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მომხმარებლის სახელი</string>
-  <string name="login_create_account_link">არ გაქვს ანგარიში? შეუერთდი ვიკიპედიას</string>
   <string name="create_account_login_link">უკვე გაქვთ ანგარიში? გაიარეთ ავტორიზაცია</string>
+  <string name="login_create_account_link">არ გაქვს ანგარიში? შეუერთდი ვიკიპედიას</string>
   <string name="create_account_activity_title">ანგარიშის შექმნა</string>
   <string name="dialog_create_account_checking_progress">გადამოწმება</string>
   <string name="create_account_email_hint">ელ-ფოსტა (არასავალდებულო)</string>
@@ -160,9 +160,6 @@
   <string name="dialog_page_issues">გვერდის საკითხები</string>
   <string name="button_page_issues">გვერდის საკითხები</string>
   <string name="text_size_select">შრიფტის ზომა</string>
-  <string name="color_theme_select">თემა</string>
-  <string name="color_theme_light">ნათელი</string>
-  <string name="color_theme_dark">ბნელი</string>
   <string name="page_similar_titles">მსგავსი გვერდები</string>
   <string name="search_did_you_mean">ხომ არ იგულისხმეთ „%s“?</string>
   <string name="search_recent_header">ბოლოს მოძიებულები</string>
@@ -241,6 +238,9 @@
   <string name="article_header_edit_hint">რედაქტირება</string>
   <string name="article_header_edit_description">სათაურის აღწერილობის რედაქტირება</string>
   <string name="article_header_edit_lead_section">შესავლის რედაქტირება</string>
+  <string name="color_theme_select">თემა</string>
+  <string name="color_theme_light">ნათელი</string>
+  <string name="color_theme_dark">ბნელი</string>
   <string name="nav_item_reading_lists">ჩემი სიები</string>
   <string name="reading_list_untitled">უსათაურო</string>
   <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>

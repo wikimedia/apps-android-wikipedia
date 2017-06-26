@@ -76,8 +76,8 @@
   <string name="history_empty_message" fuzzy="true">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nume de utilizator</string>
-  <string name="login_create_account_link">Nu aveți un cont? Alăturați-vă Wikipediei</string>
   <string name="create_account_login_link">Aveți deja un cont? Autentificați-vă</string>
+  <string name="login_create_account_link">Nu aveți un cont? Alăturați-vă Wikipediei</string>
   <string name="create_account_activity_title">Creare cont</string>
   <string name="dialog_create_account_checking_progress">Se verifică</string>
   <string name="create_account_email_hint">E-mail (opțional)</string>
@@ -154,9 +154,6 @@
   <string name="dialog_page_issues">Probleme pagină</string>
   <string name="button_page_issues">Probleme pagină</string>
   <string name="text_size_select">Dimensiunea fontului</string>
-  <string name="color_theme_select">Temă</string>
-  <string name="color_theme_light">Deschisă</string>
-  <string name="color_theme_dark">Închisă</string>
   <string name="page_similar_titles">Pagini similare</string>
   <string name="search_did_you_mean">Vă refereați la „%s”?</string>
   <string name="search_recent_header">Căutări recente:</string>
@@ -226,6 +223,9 @@
   <string name="crash_report_quit">Închide</string>
   <string name="article_menu_bar_bookmark">Adaugă acest articol într-o listă de lecturi</string>
   <string name="article_menu_bar_share">Distribuie legătura către articol</string>
+  <string name="color_theme_select">Temă</string>
+  <string name="color_theme_light">Deschisă</string>
+  <string name="color_theme_dark">Închisă</string>
   <string name="nav_item_reading_lists" fuzzy="true">Liste de lecturi</string>
   <string name="reading_list_untitled">Fără titlu</string>
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>

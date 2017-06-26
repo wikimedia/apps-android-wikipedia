@@ -90,8 +90,12 @@
   <string name="delete_selected_items">Hapus butir yang dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>
-  <string name="login_create_account_link">Belum punya akun? Bergabunglah dengan Wikipedia</string>
+  <string name="login_dont_have_account">Belum punya akun?</string>
+  <string name="login_join_wikipedia">Bergabunglah dengan Wikipedia</string>
+  <string name="login_forgot_password">Lupa kata sandi?</string>
+  <string name="create_account_already_have">Sudah memiliki akun?</string>
   <string name="create_account_login_link">Sudah memiliki akun? Masuk log</string>
+  <string name="login_create_account_link">Belum punya akun? Bergabunglah dengan Wikipedia</string>
   <string name="create_account_activity_title">Buat akun baru</string>
   <string name="dialog_create_account_checking_progress">Memverifikasi</string>
   <string name="create_account_email_hint">Alamat surel (Opsional)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">Masalah halaman</string>
   <string name="button_page_issues">Masalah halaman</string>
   <string name="text_size_select">Ukuran huruf</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Terang</string>
-  <string name="color_theme_dark">Gelap</string>
   <string name="page_similar_titles">Halaman yang serupa</string>
   <string name="search_did_you_mean">Apakah maksud Anda \"%s\"?</string>
   <string name="search_recent_header">Penelusuran terkini:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting deskripsi judul</string>
   <string name="article_header_edit_lead_section">Sunting pengantar</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Terang</string>
+  <string name="color_theme_dark">Gelap</string>
+  <string name="preference_title_color_theme">Tema gelap</string>
+  <string name="preference_summary_color_theme">Beralih menggunakan tema warna gelap aplikasi</string>
   <string name="nav_item_reading_lists">Daftar saya</string>
   <string name="reading_list_untitled">Tanpa judul</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi Anda tampak seperti uji coba atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Lewati</string>
+  <string name="onboarding_continue">Lanjutkan</string>
+  <string name="onboarding_get_started">Memulai</string>
+  <string name="onboarding_explore_title">Cara baru untuk menjelajah</string>
+  <string name="onboarding_explore_text">Temukan artikel pilihan, topik yang sedang tren, dan saran artikel di umpan Jelajahi.</string>
+  <string name="onboarding_reading_list_sync_title">Daftar bacaan dengan sinkronisasi</string>
+  <string name="onboarding_reading_list_sync_text">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan saat Anda sedang luring. &lt;a href=\"#login\"&gt;Masuk log atau buat&lt;/a&gt; akun Wikipedia Anda agar daftar bacaan Anda dicadangkan.</string>
+  <string name="onboarding_analytics_title">Kirim data anonim</string>
+  <string name="onboarding_analytics_text">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan adalah anonim. &lt;a href=\"#privacy\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Kirim data penggunaan</string>
+  <string name="onboarding_create_account_sync">Sinkronkan daftar bacaan Anda</string>
+  <string name="onboarding_create_account_contributions">Catat kontribusi Anda</string>
+  <string name="onboarding_create_account_preferences">Simpan preferensi Anda</string>
 </resources>

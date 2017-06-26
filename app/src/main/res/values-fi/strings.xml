@@ -89,8 +89,8 @@
   <string name="delete_selected_items">Poista valitut kohteet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>
-  <string name="login_create_account_link">Eikö sinulla ole tunnusta? Liity Wikipediaan</string>
   <string name="create_account_login_link">Onko sinulla jo tunnus? Kirjaudu sisään</string>
+  <string name="login_create_account_link">Eikö sinulla ole tunnusta? Liity Wikipediaan</string>
   <string name="create_account_activity_title">Luo uusi käyttäjätunnus</string>
   <string name="dialog_create_account_checking_progress">Vahvistetaan</string>
   <string name="create_account_email_hint">Sähköposti (valinnainen)</string>
@@ -171,9 +171,6 @@
   <string name="dialog_page_issues">Sivun ongelmat</string>
   <string name="button_page_issues">Sivun ongelmat</string>
   <string name="text_size_select">Kirjaisinkoko</string>
-  <string name="color_theme_select">Teema</string>
-  <string name="color_theme_light">Vaalea</string>
-  <string name="color_theme_dark">Tumma</string>
   <string name="page_similar_titles">Samankaltaiset sivut</string>
   <string name="search_did_you_mean">Tarkoititko \"%s\"?</string>
   <string name="search_recent_header">Äskettäin tehdyt haut:</string>
@@ -262,6 +259,9 @@
   <string name="article_header_edit_hint">Muokkaa…</string>
   <string name="article_header_edit_description">Muokkaa otsikon kuvausta</string>
   <string name="article_header_edit_lead_section">Muokkaa johdantoa</string>
+  <string name="color_theme_select">Teema</string>
+  <string name="color_theme_light">Vaalea</string>
+  <string name="color_theme_dark">Tumma</string>
   <string name="nav_item_reading_lists">Omat listat</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
@@ -307,6 +307,10 @@
   <string name="reading_list_add_to_other_list">Lisää toiseen lukulistaan</string>
   <string name="reading_list_remove_from_list">Poista lukulistalta %s</string>
   <string name="reading_list_remove_from_lists">Poista lukuluettelosta</string>
+  <string name="reading_list_sync_reminder_title">Lukuluetteloiden synkronointi on pois käytöstä</string>
+  <string name="reading_list_sync_reminder_text">Lukuluettelosi voidaan synkronoida Wikipedia-tunnuksellesi jos sallit synkronoinnin sovelluksen asetuksissa.</string>
+  <string name="reading_list_sync_reminder_action">Ota käyttöön</string>
+  <string name="reading_list_login_reminder_title">Synkronoi lukuluettelot</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_button_view_user">Keskustele käyttäjän kanssa</string>
   <string name="notification_talk_title">Uusi viesti Wikipediassa</string>

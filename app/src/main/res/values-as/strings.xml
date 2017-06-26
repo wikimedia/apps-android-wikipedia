@@ -88,8 +88,8 @@
   <string name="delete_selected_items">নিৰ্বাচিত আইটেম বিলোপ কৰক</string>
   <string name="wp_stylized">&lt;big&gt;ৱি&lt;/big&gt;কিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">সদস্যনাম</string>
-  <string name="login_create_account_link">কোনো একাউণ্ট নাই? ৱিকিপিডিয়াত যোগ দিয়ক</string>
   <string name="create_account_login_link">ইতিমধ্যে এটা একাউণ্ট আছে? প্ৰৱেশ কৰক</string>
+  <string name="login_create_account_link">কোনো একাউণ্ট নাই? ৱিকিপিডিয়াত যোগ দিয়ক</string>
   <string name="create_account_activity_title">এটা একাউণ্ট সৃষ্টি কৰক</string>
   <string name="dialog_create_account_checking_progress">সত্যাসত্য নিৰূপণ কৰা হৈ আছে</string>
   <string name="create_account_email_hint">ইমেইল (বৈকল্পিক)</string>
@@ -168,9 +168,6 @@
   <string name="dialog_page_issues">পৃষ্ঠা সমস্যা</string>
   <string name="button_page_issues">পৃষ্ঠা সমস্যা</string>
   <string name="text_size_select">ফ\'ণ্টৰ আকাৰ</string>
-  <string name="color_theme_select">থীম</string>
-  <string name="color_theme_light">পাতল</string>
-  <string name="color_theme_dark">ডাঠ</string>
   <string name="page_similar_titles">একে ধৰণৰ পৃষ্ঠা</string>
   <string name="search_did_you_mean">আপুনি \"%s\" বুজাইছেনে?</string>
   <string name="search_recent_header">শেহতীয়া সন্ধানসমূহ:</string>
@@ -256,6 +253,9 @@
   <string name="article_header_edit_hint">সম্পাদনা...</string>
   <string name="article_header_edit_description">শিৰোনামৰ বিৱৰণ সম্পাদনা কৰক</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা কৰক</string>
+  <string name="color_theme_select">থীম</string>
+  <string name="color_theme_light">পাতল</string>
+  <string name="color_theme_dark">ডাঠ</string>
   <string name="nav_item_reading_lists">মোৰ তালিকাসমূহ</string>
   <string name="reading_list_untitled">শিৰোনামহীন</string>
   <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>

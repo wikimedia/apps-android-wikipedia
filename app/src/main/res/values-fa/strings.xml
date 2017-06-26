@@ -90,8 +90,8 @@
   <string name="delete_selected_items">حذف آیتم‌های انتخاب شده</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
-  <string name="login_create_account_link">ایجاد حساب کاربری</string>
   <string name="create_account_login_link">حساب کاربری دارید؟ وارد شوید.</string>
+  <string name="login_create_account_link">ایجاد حساب کاربری</string>
   <string name="create_account_activity_title">ایجاد حساب کاربری</string>
   <string name="dialog_create_account_checking_progress">تأیید</string>
   <string name="create_account_email_hint">ایمیل (اختیاری)</string>
@@ -99,6 +99,7 @@
   <string name="create_account_passwords_mismatch_error">گذرواژه‌ها مطابقت ندارند</string>
   <string name="create_account_email_error">آدرس ایمیل غیر معتبر</string>
   <string name="create_account_username_error">نویسهٔ نامعتبر در نام کاربری شما</string>
+  <string name="create_account_password_error">گذرواژه نامعتبر است</string>
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
   <string name="create_account_next">بعدی</string>
   <string name="create_account_button">ایجاد حساب کاربری</string>
@@ -119,6 +120,9 @@
   <string name="edit_preview_fetching_dialog_message">واکشی پیش‌نمایش…</string>
   <string name="send_feedback">فرستادن بازخورد برنامه</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
+  <string name="preferences_heading_storage_and_syncing">ذخیره و همسازسازی</string>
+  <string name="preference_title_sync_reading_lists">همسازسازی فهرست‌های مطالعه</string>
+  <string name="preference_summary_sync_reading_lists">اجازه به ویکی‌مدیا برای همسازسازی فهرست‌های مطالعه وقتی که وارد سامانه شدید</string>
   <string name="preferences_privacy_settings_heading">حریم شخصی</string>
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
@@ -172,9 +176,6 @@
   <string name="dialog_page_issues">موضوعات صفحه</string>
   <string name="button_page_issues">موضوعات صفحه</string>
   <string name="text_size_select">اندازهٔ قلم</string>
-  <string name="color_theme_select">پوسته</string>
-  <string name="color_theme_light">روشن</string>
-  <string name="color_theme_dark">تیره</string>
   <string name="page_similar_titles">معانی مشابه</string>
   <string name="search_did_you_mean">منظورتان «%s» بود؟</string>
   <string name="search_recent_header">جستجوهای اخیر:</string>
@@ -263,6 +264,9 @@
   <string name="article_header_edit_hint">ویرایش...</string>
   <string name="article_header_edit_description">ویرایش توضیحات عنوان</string>
   <string name="article_header_edit_lead_section">ویرایش مقدمه</string>
+  <string name="color_theme_select">پوسته</string>
+  <string name="color_theme_light">روشن</string>
+  <string name="color_theme_dark">تیره</string>
   <string name="nav_item_reading_lists">فهرست‌های من</string>
   <string name="reading_list_untitled">بدون عنوان</string>
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
@@ -313,6 +317,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">حذف از آفلاین</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های خواند موجود نیست:</string>
+  <string name="reading_list_sync_reminder_title">همساز‌سازی فهرست مطالعه خاموش شده‌است</string>
+  <string name="reading_list_sync_reminder_text">اگر در تنظیمات به اپلیکیشن اجازه داده‌شود، امکان همساز‌سازی فهرست مقاله‌هایی که در ویکی‌پدیا مطالعه کردید وجود دارد.</string>
+  <string name="reading_list_sync_reminder_action">روشن کردن</string>
+  <string name="reading_list_login_reminder_title">همسازسازی فهرست‌های مطالعه</string>
+  <string name="reading_list_login_reminder_text">فهرست مطالعهٔ شما ممکن است در حساب کاربری شما در ویکی‌پدیا ذخیره شده باشد. با وارد شدن به حساب کاربریتان به راحتی می‌توانید آن را به صورت خودکار همساز کنید.</string>
+  <string name="reading_lists_confirm_remote_delete">اینکار فهرست‌های مطالعه‌ای که همساز کردید را حذف می‌کند. انجام شود؟</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_button_view_user">بحث با کاربر</string>
   <string name="notification_talk_title">پیام جدید در ویکی‌پدیا</string>

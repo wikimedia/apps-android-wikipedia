@@ -90,8 +90,12 @@
   <string name="delete_selected_items">Ausgewählte Elemente löschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benutzername</string>
-  <string name="login_create_account_link">Noch kein Benutzerkonto? Tritt der Wikipedia bei</string>
+  <string name="login_dont_have_account">Noch kein Benutzerkonto?</string>
+  <string name="login_join_wikipedia">Wikipedia beitreten</string>
+  <string name="login_forgot_password">Passwort vergessen?</string>
+  <string name="create_account_already_have">Hast du bereits ein Benutzerkonto?</string>
   <string name="create_account_login_link">Hast du bereits ein Benutzerkonto? Anmelden</string>
+  <string name="login_create_account_link">Noch kein Benutzerkonto? Tritt der Wikipedia bei</string>
   <string name="create_account_activity_title">Ein Benutzerkonto erstellen</string>
   <string name="dialog_create_account_checking_progress">Verifiziere</string>
   <string name="create_account_email_hint">E-Mail (optional)</string>
@@ -176,9 +180,6 @@
   <string name="dialog_page_issues">Seitenprobleme</string>
   <string name="button_page_issues">Seitenprobleme</string>
   <string name="text_size_select">Schriftgröße</string>
-  <string name="color_theme_select">Farbschema</string>
-  <string name="color_theme_light">Hell</string>
-  <string name="color_theme_dark">Dunkel</string>
   <string name="page_similar_titles">Ähnliche Seiten</string>
   <string name="search_did_you_mean">Meintest du „%s“?</string>
   <string name="search_recent_header">Letzte Suchanfragen:</string>
@@ -267,6 +268,11 @@
   <string name="article_header_edit_hint">Bearbeiten …</string>
   <string name="article_header_edit_description">Titelbeschreibung bearbeiten</string>
   <string name="article_header_edit_lead_section">Einführung bearbeiten</string>
+  <string name="color_theme_select">Farbschema</string>
+  <string name="color_theme_light">Hell</string>
+  <string name="color_theme_dark">Dunkel</string>
+  <string name="preference_title_color_theme">Dunkles Farbschema</string>
+  <string name="preference_summary_color_theme">Wechsle zur Verwendung der App in einem dunklen Farbschema</string>
   <string name="nav_item_reading_lists">Meine Listen</string>
   <string name="reading_list_untitled">Unbenannt</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Dein Beitrag sieht wie ein Experiment oder Vandalismus aus.</string>
   <string name="description_edit_revert_history">Falls du interessiert bist, sieh dir die &lt;a href=\"%1$s\"&gt;Versionsgeschichte&lt;/a&gt; an.</string>
+  <string name="onboarding_skip">Überspringen</string>
+  <string name="onboarding_continue">Fortfahren</string>
+  <string name="onboarding_get_started">Anfangen</string>
+  <string name="onboarding_explore_title">Neue Wege zum Entdecken</string>
+  <string name="onboarding_explore_text">Entdecke vorgestellte Artikel, aktuelle Themen und Lesevorschläge auf dem Entdecken-Feed.</string>
+  <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
+  <string name="onboarding_reading_list_sync_text">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist. &lt;a href=\"#login\"&gt;Melde dich an oder erstelle&lt;/a&gt; ein Wikipedia-Benutzerkonto, damit deine Leselisten immer gesichert werden.</string>
+  <string name="onboarding_analytics_title">Anonymisierte Daten senden</string>
+  <string name="onboarding_analytics_text">Hilf mit, die App besser zu machen, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#privacy\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
+  <string name="onboarding_create_account_sync">Synchronisiere deine Leselisten</string>
+  <string name="onboarding_create_account_contributions">Verfolge deine Beiträge</string>
+  <string name="onboarding_create_account_preferences">Speichere deine Einstellungen</string>
 </resources>

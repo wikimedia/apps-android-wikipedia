@@ -79,8 +79,8 @@
   <string name="history_empty_message" fuzzy="true">U heeft ze vast allemaal verwijderd. De volgende keer als u een pagina bezoekt, kunt u hem hier terugvinden.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
-  <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
   <string name="create_account_login_link">Hebt u al een account? Meld u aan</string>
+  <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
@@ -158,9 +158,6 @@
   <string name="dialog_page_issues">Paginaproblemen</string>
   <string name="button_page_issues">Paginaproblemen</string>
   <string name="text_size_select">Lettergrootte</string>
-  <string name="color_theme_select">Thema</string>
-  <string name="color_theme_light">Licht</string>
-  <string name="color_theme_dark">Donker</string>
   <string name="page_similar_titles">Vergelijkbare pagina\'s</string>
   <string name="search_did_you_mean">Bedoelde u \"%s\"?</string>
   <string name="search_recent_header">Recente zoekopdrachten:</string>
@@ -237,6 +234,9 @@
   <string name="article_header_edit_hint">Bewerken...</string>
   <string name="article_header_edit_description">Beschrijving bewerken</string>
   <string name="article_header_edit_lead_section">Inleiding bewerken</string>
+  <string name="color_theme_select">Thema</string>
+  <string name="color_theme_light">Licht</string>
+  <string name="color_theme_dark">Donker</string>
   <string name="nav_item_reading_lists">Mijn lijsten</string>
   <string name="reading_list_untitled">Naamloos</string>
   <string name="reading_list_save_to">Opslaan in leeslijst</string>

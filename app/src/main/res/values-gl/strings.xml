@@ -90,8 +90,8 @@
   <string name="delete_selected_items">Eliminar os elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuario</string>
-  <string name="login_create_account_link">Non ten unha conta? Únase á Wikipedia</string>
   <string name="create_account_login_link">Xa ten unha conta? Acceda ao sistema</string>
+  <string name="login_create_account_link">Non ten unha conta? Únase á Wikipedia</string>
   <string name="create_account_activity_title">Crear unha conta</string>
   <string name="dialog_create_account_checking_progress">Verificando</string>
   <string name="create_account_email_hint">Correo electrónico (opcional)</string>
@@ -176,9 +176,6 @@
   <string name="dialog_page_issues">Problemas da páxina</string>
   <string name="button_page_issues">Problemas da páxina</string>
   <string name="text_size_select">Tamaño da letra</string>
-  <string name="color_theme_select">Tema</string>
-  <string name="color_theme_light">Claro</string>
-  <string name="color_theme_dark">Escuro</string>
   <string name="page_similar_titles">Páxinas similares</string>
   <string name="search_did_you_mean">Quixo dicir \"%s\"?</string>
   <string name="search_recent_header">Buscas recentes:</string>
@@ -267,6 +264,9 @@
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar a descrición do título</string>
   <string name="article_header_edit_lead_section">Editar introdución</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="color_theme_light">Claro</string>
+  <string name="color_theme_dark">Escuro</string>
   <string name="nav_item_reading_lists">As miñas listas</string>
   <string name="reading_list_untitled">Sen título</string>
   <string name="reading_list_save_to">Gardar en lista de lectura</string>

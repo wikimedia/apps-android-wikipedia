@@ -66,8 +66,8 @@
   <string name="preference_title_logout">چیخیش</string>
   <string name="toast_logout_complete">چیخیلدی</string>
   <string name="create_account_username_hint">ایشلدن آدی</string>
-  <string name="login_create_account_link">حسابینیز یوْخ‌مو؟ ویکی‌پدیایا قاتیلین</string>
   <string name="create_account_login_link">قاباقجادان حسابینیز وارمی؟ گیرینیز.</string>
+  <string name="login_create_account_link">حسابینیز یوْخ‌مو؟ ویکی‌پدیایا قاتیلین</string>
   <string name="create_account_activity_title">حساب یارات</string>
   <string name="dialog_create_account_checking_progress">تأیید</string>
   <string name="create_account_email_hint">ایمیل (ایستگه باغلی)</string>
@@ -114,9 +114,6 @@
   <string name="edit_summary_tag_other">آیری</string>
   <string name="abusefilter_title_disallow" fuzzy="true">بۇ دییشدیرمه‌نی ذخیره ائده بیلمزسینیز. لۆطفاً قاییدیب اوْنو دییشدیرین.</string>
   <string name="text_size_select">فونت اؤلچوسو</string>
-  <string name="color_theme_select">تِم</string>
-  <string name="color_theme_light">آچیق</string>
-  <string name="color_theme_dark">توخ</string>
   <string name="page_similar_titles">بنزر صفحه‌لر</string>
   <string name="search_recent_header">ان سوْن آختاریشلار:</string>
   <string name="button_clear_all_recent_searches">ان سوْن آختاریشلاری سیل</string>
@@ -145,6 +142,9 @@
   <string name="crash_report_activity_title">برنامه خطاسی</string>
   <string name="crash_report_relaunch">یئنیدن باشلا</string>
   <string name="crash_report_quit">چیخیش</string>
+  <string name="color_theme_select">تِم</string>
+  <string name="color_theme_light">آچیق</string>
+  <string name="color_theme_dark">توخ</string>
   <string name="nav_item_reading_lists">منیم لیستلریم</string>
   <string name="reading_list_untitled">باشلیقسیز</string>
   <string name="reading_list_create_new">یئنی یارات</string>

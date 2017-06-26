@@ -87,8 +87,8 @@
   <string name="delete_selected_items">Vymazať vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Používateľské meno</string>
-  <string name="login_create_account_link">Ešte nemáte účet? Pripojte sa k Wikipédii.</string>
   <string name="create_account_login_link">Už máte účet? Prihlásiť sa.</string>
+  <string name="login_create_account_link">Ešte nemáte účet? Pripojte sa k Wikipédii.</string>
   <string name="create_account_activity_title">Vytvoriť nový účet</string>
   <string name="dialog_create_account_checking_progress">Overujem</string>
   <string name="create_account_email_hint">E-mail (voliteľné)</string>
@@ -169,9 +169,6 @@
   <string name="dialog_page_issues">Problémy stránky</string>
   <string name="button_page_issues">Problémy stránky</string>
   <string name="text_size_select">Veľkosť písma</string>
-  <string name="color_theme_select">Vzhľad</string>
-  <string name="color_theme_light">Svetlý</string>
-  <string name="color_theme_dark">Tmavý</string>
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_did_you_mean">Mali ste na mysli \"%s\"?</string>
   <string name="search_recent_header">Nedávno hľadané výrazy:</string>
@@ -253,6 +250,9 @@
   <string name="article_header_edit_hint">Upraviť...</string>
   <string name="article_header_edit_description">Upraviť popis</string>
   <string name="article_header_edit_lead_section">Upraviť úvod</string>
+  <string name="color_theme_select">Vzhľad</string>
+  <string name="color_theme_light">Svetlý</string>
+  <string name="color_theme_dark">Tmavý</string>
   <string name="nav_item_reading_lists">Moje zoznamy</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>

@@ -56,8 +56,8 @@
   <string name="history_empty_message" fuzzy="true">Na hloh dih hna i si men lai. Voidang cu cahmai na kal khawhnak ah kal cang.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Na min</string>
-  <string name="login_create_account_link">Account na ngei rih lo maw? Wikipedia hmang ve</string>
   <string name="create_account_login_link">Account na ngei cang maw? Ka hin lut</string>
+  <string name="login_create_account_link">Account na ngei rih lo maw? Wikipedia hmang ve</string>
   <string name="create_account_activity_title">Account sernak</string>
   <string name="dialog_create_account_checking_progress">A zohfel lio</string>
   <string name="create_account_email_hint">Email (na ngeih cun)</string>
@@ -125,9 +125,6 @@
   <string name="dialog_page_issues">Cahmai nambar</string>
   <string name="button_page_issues">Cahmai nambar</string>
   <string name="text_size_select">Cafang hmetngan</string>
-  <string name="color_theme_select">Muisam</string>
-  <string name="color_theme_light">Aceu</string>
-  <string name="color_theme_dark">Amui</string>
   <string name="page_similar_titles">Cahmai khat pawl</string>
   <string name="search_did_you_mean">Na chimduh mi cu \"%s\" si maw?</string>
   <string name="search_recent_header">Na kawlmi tete:</string>
@@ -175,4 +172,7 @@
   <string name="format_error_server_message">Cakuat: \"%s\"</string>
   <string name="format_error_server_code">Code: \"%s\"</string>
   <string name="button_add_to_reading_list">Relding cazin ah telh</string>
+  <string name="color_theme_select">Muisam</string>
+  <string name="color_theme_light">Aceu</string>
+  <string name="color_theme_dark">Amui</string>
 </resources>

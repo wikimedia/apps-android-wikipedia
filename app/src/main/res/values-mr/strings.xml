@@ -76,8 +76,8 @@
   <string name="history_empty_message" fuzzy="true">त्यातील आपण बहुतेक सर्वच वगळले आहेत. पुढील वेळेस आपल्यास कोणतेही पान हवे असेल तर तेथे, आपण येथून जाउ शकता.</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
-  <string name="login_create_account_link">आपले खाते नाही? विकिपीडियावर खाते तयार करा</string>
   <string name="create_account_login_link">आपले खाते आहे? प्रवेश करा</string>
+  <string name="login_create_account_link">आपले खाते नाही? विकिपीडियावर खाते तयार करा</string>
   <string name="create_account_activity_title">नवीन खाते तयार करा</string>
   <string name="dialog_create_account_checking_progress">सत्यापित होत आहे</string>
   <string name="create_account_email_hint">अंकपत्ता (‌वैकल्पिक)</string>
@@ -151,9 +151,6 @@
   <string name="dialog_page_issues">पानाची समस्या</string>
   <string name="button_page_issues">पानाच्या समस्या</string>
   <string name="text_size_select">टंकाचा आकार</string>
-  <string name="color_theme_select">देखावा</string>
-  <string name="color_theme_light">फिकट</string>
-  <string name="color_theme_dark">गडद</string>
   <string name="page_similar_titles">सारखी पाने</string>
   <string name="search_did_you_mean">तुम्हाला \"%s\" म्हणायचे आहे काय?</string>
   <string name="search_recent_header">अलीकडील शोध:</string>
@@ -229,6 +226,9 @@
   <string name="article_header_edit_hint">संपादन...</string>
   <string name="article_header_edit_description">शीर्षकाचे वर्णन संपादित करा</string>
   <string name="article_header_edit_lead_section">प्रास्ताविक संपादित करा</string>
+  <string name="color_theme_select">देखावा</string>
+  <string name="color_theme_light">फिकट</string>
+  <string name="color_theme_dark">गडद</string>
   <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_untitled">विनाशिर्षक</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>

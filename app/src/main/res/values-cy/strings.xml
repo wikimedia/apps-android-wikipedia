@@ -85,8 +85,8 @@
   <string name="delete_selected_items">Diewch yr eitemau a ddewisiwyd</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ICIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Enw defnyddiwr</string>
-  <string name="login_create_account_link">Heb gyfrif? Ymunwch â Wicipedia</string>
   <string name="create_account_login_link">Gyda chyfrif? Mewngofnodwch</string>
+  <string name="login_create_account_link">Heb gyfrif? Ymunwch â Wicipedia</string>
   <string name="create_account_activity_title">Crëwch gyfrif</string>
   <string name="dialog_create_account_checking_progress">Wrthi\' n dilysu</string>
   <string name="create_account_email_hint">E-bost (dewisol)</string>
@@ -160,9 +160,6 @@
   <string name="dialog_page_issues">Problemau ar y ddalen</string>
   <string name="button_page_issues">Problem ar y ddalen</string>
   <string name="text_size_select">Main y ffont</string>
-  <string name="color_theme_select">Thema</string>
-  <string name="color_theme_light">Golau</string>
-  <string name="color_theme_dark">Tywyll</string>
   <string name="page_similar_titles">Dalennau tebyg</string>
   <string name="search_did_you_mean">Oeddech chi\'n golygu \"%s\"?</string>
   <string name="search_recent_header">Chwiliadau diweddar</string>
@@ -235,6 +232,9 @@
   <string name="article_header_edit_hint">Golygu...</string>
   <string name="article_header_edit_description">Golygu disgrifiad y teitl</string>
   <string name="article_header_edit_lead_section">Golygu\'r rhan gyntaf</string>
+  <string name="color_theme_select">Thema</string>
+  <string name="color_theme_light">Golau</string>
+  <string name="color_theme_dark">Tywyll</string>
   <string name="nav_item_reading_lists">Fy rhestrau</string>
   <string name="reading_list_untitled">Dideitl</string>
   <string name="reading_list_save_to">Arbed i\'ch rhestr ddarllen</string>

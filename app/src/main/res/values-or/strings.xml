@@ -74,8 +74,8 @@
   <string name="history_empty_message" fuzzy="true">ଆପଣ ବୋଧେ ସବୁ ଲିଭାଇ ଦେଇଛନ୍ତି । ଆଗକୁ ଆପଣ ଏକ ପୃଷ୍ଠାକୁ ଗଲେ ଏଇଠି ଦେଖିପାରିବେ ।</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ସଭ୍ୟ ନାମ</string>
-  <string name="login_create_account_link">ଆପଣଙ୍କର ଖାତା ନାହିଁ ? ଉଇକିପିଡିଆରେ ଯୋଗ ଦିଅନ୍ତୁ</string>
   <string name="create_account_login_link">ଆଗରୁ ଆକାଉଣ୍ଟ ଅଛି? ଲଗ ଇନ</string>
+  <string name="login_create_account_link">ଆପଣଙ୍କର ଖାତା ନାହିଁ ? ଉଇକିପିଡିଆରେ ଯୋଗ ଦିଅନ୍ତୁ</string>
   <string name="create_account_activity_title">ଖାତାଟିଏ ଖୋଲନ୍ତୁ</string>
   <string name="dialog_create_account_checking_progress">ପରଖାଯାଉଛି</string>
   <string name="create_account_email_hint">ଇମେଲ (ଇଚ୍ଛାଧୀନ)</string>
@@ -146,11 +146,11 @@
   <string name="dialog_page_issues">ପୃଷ୍ଠା ଅସୁବିଧା</string>
   <string name="button_page_issues">ପୃଷ୍ଠା ଅସୁବିଧା</string>
   <string name="text_size_select">ଫଣ୍ଟ ଆକାର</string>
+  <string name="page_similar_titles">ସମାନ ଧରଣର ପୃଷ୍ଠା</string>
+  <string name="search_did_you_mean">ଆପଣ \"%s\" ଖୋଜୁଥିଲେ କି?</string>
   <string name="color_theme_select">ଥିମ</string>
   <string name="color_theme_light">ଫିକା</string>
   <string name="color_theme_dark">ଗାଢ଼</string>
-  <string name="page_similar_titles">ସମାନ ଧରଣର ପୃଷ୍ଠା</string>
-  <string name="search_did_you_mean">ଆପଣ \"%s\" ଖୋଜୁଥିଲେ କି?</string>
   <string name="view_random_card_subtitle">ଉଇକିପିଡିଆରୁ ଯେକୌଣସି ଏକ ଲେଖା ପଢନ୍ତୁ</string>
   <string name="view_main_page_card_title">ଆଜି ଦିନରେ ଉଇକିପିଡିଆର ଅବସ୍ଥା</string>
   <string name="view_featured_image_card_title">ଦିନର ବଛା ଛବି</string>

@@ -89,8 +89,8 @@
   <string name="delete_selected_items">Kijelölt elemek törlése</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Szerkesztőnév</string>
-  <string name="login_create_account_link">Nincs még fiókod? Csatlakozz a Wikipédiához!</string>
   <string name="create_account_login_link">Már van fiókod? Jelentkezz be!</string>
+  <string name="login_create_account_link">Nincs még fiókod? Csatlakozz a Wikipédiához!</string>
   <string name="create_account_activity_title">Regisztráció</string>
   <string name="dialog_create_account_checking_progress">Ellenőrzés</string>
   <string name="create_account_email_hint">E-mail-cím (opcionális)</string>
@@ -169,9 +169,6 @@
   <string name="dialog_page_issues">A lap problémái</string>
   <string name="button_page_issues">A lap problémái</string>
   <string name="text_size_select">Betűméret</string>
-  <string name="color_theme_select">Téma</string>
-  <string name="color_theme_light">Világos</string>
-  <string name="color_theme_dark">Sötét</string>
   <string name="page_similar_titles">Hasonló lapok</string>
   <string name="search_did_you_mean">Így értetted: „%s”?</string>
   <string name="search_recent_header">Legutóbbi keresések:</string>
@@ -259,6 +256,9 @@
   <string name="article_header_edit_hint">Szerkesztés…</string>
   <string name="article_header_edit_description">Címleírás szerkesztése</string>
   <string name="article_header_edit_lead_section">Bevezető szerkesztése</string>
+  <string name="color_theme_select">Téma</string>
+  <string name="color_theme_light">Világos</string>
+  <string name="color_theme_dark">Sötét</string>
   <string name="nav_item_reading_lists">Listáim</string>
   <string name="reading_list_untitled">Névtelen</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>

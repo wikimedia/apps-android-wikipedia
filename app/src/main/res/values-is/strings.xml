@@ -80,8 +80,8 @@
   <string name="delete_selected_items">Eyða völdum atriðum</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Notandanafn</string>
-  <string name="login_create_account_link">Ert þú ekki með aðgang? Stofna aðgang á Wikipedia</string>
   <string name="create_account_login_link">Ert þú með aðgang? Skráðu þig inn</string>
+  <string name="login_create_account_link">Ert þú ekki með aðgang? Stofna aðgang á Wikipedia</string>
   <string name="create_account_activity_title">Stofnaðu aðgang</string>
   <string name="dialog_create_account_checking_progress">Í yfirferð</string>
   <string name="create_account_email_hint">Netfang (valfrjálst)</string>
@@ -160,9 +160,6 @@
   <string name="dialog_page_issues">Vandamál varðandi síðu</string>
   <string name="button_page_issues">Vandamál varðandi síðu</string>
   <string name="text_size_select">Leturstærð</string>
-  <string name="color_theme_select">Þema</string>
-  <string name="color_theme_light">Ljóst</string>
-  <string name="color_theme_dark">Dökkt</string>
   <string name="page_similar_titles">Áþekkar síður</string>
   <string name="search_did_you_mean">Áttir þú við \"%s\"?</string>
   <string name="search_recent_header">Nýlegar leitir:</string>
@@ -242,6 +239,9 @@
   <string name="article_menu_bar_bookmark">Bæta þessari grein á leslista</string>
   <string name="article_menu_bar_share">Deila tengli á greinina</string>
   <string name="article_header_edit_hint">Breyta…</string>
+  <string name="color_theme_select">Þema</string>
+  <string name="color_theme_light">Ljóst</string>
+  <string name="color_theme_dark">Dökkt</string>
   <string name="reading_list_untitled">Ónefnt</string>
   <string name="reading_list_save_to">Vista í leslista</string>
   <string name="reading_list_create_new">Búa til nýjan</string>

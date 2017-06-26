@@ -71,8 +71,8 @@
   <string name="history_empty_title">קיין לעצטיקע געוויזענע בלעטער נישט דא.</string>
   <string name="wp_stylized">&lt;big&gt;וו&lt;/big&gt;יקיפעדי&lt;big&gt;ע&lt;/big&gt;</string>
   <string name="create_account_username_hint">באַניצער נאָמען</string>
-  <string name="login_create_account_link">איר האט נישט קיין קאנטע?טרעט ארײַן מיט וויקיפעדיע</string>
   <string name="create_account_login_link">איר האט שוין א קאנטע? לאגירט אריין</string>
+  <string name="login_create_account_link">איר האט נישט קיין קאנטע?טרעט ארײַן מיט וויקיפעדיע</string>
   <string name="create_account_activity_title">שאַפֿן אַ קאנטע</string>
   <string name="dialog_create_account_checking_progress">וועריפיצירן</string>
   <string name="create_account_email_hint">ע־פאסט (אפציאנאל)</string>
@@ -133,9 +133,6 @@
   <string name="dialog_page_issues">בלאט־פֿראגעס</string>
   <string name="button_page_issues">בלאט־פֿראגעס</string>
   <string name="text_size_select">פֿאנט גרייס</string>
-  <string name="color_theme_select">טעמע</string>
-  <string name="color_theme_light">העל</string>
-  <string name="color_theme_dark">טונקל</string>
   <string name="page_similar_titles">ענלעכע בלעטער</string>
   <string name="search_did_you_mean">צי האט איר געמיינט \"%s\"?</string>
   <string name="search_recent_header">לעצטיקע זוכן:</string>
@@ -184,6 +181,9 @@
   <string name="article_header_edit_hint">רעדאַקטירן...</string>
   <string name="article_header_edit_description">רעדאקטירן טיטל־באשרײבונג</string>
   <string name="article_header_edit_lead_section">רעדאקטירן אריינפֿיר</string>
+  <string name="color_theme_select">טעמע</string>
+  <string name="color_theme_light">העל</string>
+  <string name="color_theme_dark">טונקל</string>
   <string name="nav_item_reading_lists">מיינע ליסטעס</string>
   <string name="reading_list_sort">סארטירן</string>
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>

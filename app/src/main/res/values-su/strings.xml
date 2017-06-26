@@ -89,8 +89,8 @@
   <string name="delete_selected_items">Pupus leunjeuran nu dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Sandiasma</string>
-  <string name="login_create_account_link">Can gaduh akun? Gabung ka Wikipédia</string>
   <string name="create_account_login_link">Geus boga akun? Asup log</string>
+  <string name="login_create_account_link">Can gaduh akun? Gabung ka Wikipédia</string>
   <string name="create_account_activity_title">Jieun akun</string>
   <string name="dialog_create_account_checking_progress">Keur merifikasi</string>
   <string name="create_account_email_hint">Surélék (teu wajib)</string>
@@ -165,9 +165,6 @@
   <string name="dialog_page_issues">Masalah kaca</string>
   <string name="button_page_issues">Masalah kaca</string>
   <string name="text_size_select">Ukuran aksara</string>
-  <string name="color_theme_select">Téma</string>
-  <string name="color_theme_light">Caang</string>
-  <string name="color_theme_dark">Poék</string>
   <string name="page_similar_titles">Kaca nu sarua</string>
   <string name="search_did_you_mean">Maksud anjeun \'\'%s\'\' lain?</string>
   <string name="search_recent_header">Pamaluruhan kiwari:</string>
@@ -250,6 +247,9 @@
   <string name="article_header_edit_hint">Édit...</string>
   <string name="article_header_edit_description">Édit pedaran judul</string>
   <string name="article_header_edit_lead_section">Édit panganteur</string>
+  <string name="color_theme_select">Téma</string>
+  <string name="color_theme_light">Caang</string>
+  <string name="color_theme_dark">Poék</string>
   <string name="nav_item_reading_lists">Daptar kuring</string>
   <string name="reading_list_untitled">Taya judulan</string>
   <string name="reading_list_save_to">Simpen kana daptar bacaan</string>

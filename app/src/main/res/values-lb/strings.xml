@@ -87,8 +87,10 @@
   <string name="delete_selected_items">Erausgesicht Elementer läschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benotzernumm</string>
-  <string name="login_create_account_link">Hutt Dir kee Benotzerkont? Da maacht mat bei Wikipedia</string>
+  <string name="login_dont_have_account">Hutt Dir kee Benotzerkont?</string>
+  <string name="login_join_wikipedia">Maacht mat bei Wikipedia</string>
   <string name="create_account_login_link">Hutt Dir schonn e Benotzerkont? Loggt Iech an</string>
+  <string name="login_create_account_link">Hutt Dir kee Benotzerkont? Da maacht mat bei Wikipedia</string>
   <string name="create_account_activity_title">E Benotzerkont opmaachen</string>
   <string name="dialog_create_account_checking_progress">Nokucken</string>
   <string name="create_account_email_hint">E-Mail (Fakultativ)</string>
@@ -172,9 +174,6 @@
   <string name="dialog_page_issues">Problemer mat der Säit</string>
   <string name="button_page_issues">Problemer mat der Säit</string>
   <string name="text_size_select">Schrëftgréisst</string>
-  <string name="color_theme_select">Faarfschema</string>
-  <string name="color_theme_light">Hell</string>
-  <string name="color_theme_dark">Déischter</string>
   <string name="page_similar_titles">Ähnlech Säiten</string>
   <string name="search_did_you_mean">Mengt Dir \"%s\"?</string>
   <string name="search_recent_header">Rezent gesicht:</string>
@@ -258,6 +257,9 @@
   <string name="article_header_edit_hint">Änneren...</string>
   <string name="article_header_edit_description">Beschreiwung vum Titel änneren</string>
   <string name="article_header_edit_lead_section">Aféierung änneren</string>
+  <string name="color_theme_select">Faarfschema</string>
+  <string name="color_theme_light">Hell</string>
+  <string name="color_theme_dark">Déischter</string>
   <string name="nav_item_reading_lists">Meng Lëschten</string>
   <string name="reading_list_untitled">Ouni Titel</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
@@ -380,4 +382,8 @@
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Iwwersprangen</string>
+  <string name="onboarding_continue">Virufueren</string>
+  <string name="onboarding_get_started">Fir unzefänken</string>
+  <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
 </resources>

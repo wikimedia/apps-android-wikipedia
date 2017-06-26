@@ -81,8 +81,8 @@
   <string name="history_empty_message">Egin hemen irakurri duzunaren jarraipena.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>
-  <string name="login_create_account_link">Konturik ez duzu? Etorri Wikipediara</string>
   <string name="create_account_login_link">Kontua baduzu? Saioa hasi</string>
+  <string name="login_create_account_link">Konturik ez duzu? Etorri Wikipediara</string>
   <string name="create_account_activity_title">Kontua sortu</string>
   <string name="dialog_create_account_checking_progress">Egiaztatzen</string>
   <string name="create_account_email_hint">Helbide elektronikoa (Hautazkoa)</string>
@@ -149,9 +149,6 @@
   <string name="dialog_page_issues">Orriaren arazoak</string>
   <string name="button_page_issues">Orriaren arazoak</string>
   <string name="text_size_select">Letra-tamaina</string>
-  <string name="color_theme_select">Gaia</string>
-  <string name="color_theme_light">Argia</string>
-  <string name="color_theme_dark">Iluna</string>
   <string name="page_similar_titles">Antzeko orrialdeak</string>
   <string name="search_did_you_mean">\"%s\" esan nahi zenuen?</string>
   <string name="search_recent_header">Azken bilaketak:</string>
@@ -216,6 +213,9 @@
   <string name="article_header_edit_hint">Aldatu...</string>
   <string name="article_header_edit_description">Izenburuko deskribapena aldatu</string>
   <string name="article_header_edit_lead_section">Sarrera aldatu</string>
+  <string name="color_theme_select">Gaia</string>
+  <string name="color_theme_light">Argia</string>
+  <string name="color_theme_dark">Iluna</string>
   <string name="nav_item_reading_lists">Nire zerrendak</string>
   <string name="reading_list_untitled">Izenbururik gabe</string>
   <string name="reading_list_save_to">Gordu irakurketa zerrendan</string>
