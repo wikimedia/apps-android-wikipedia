@@ -22,13 +22,13 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditClient;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.login.User;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
@@ -274,7 +274,7 @@ public class LeadImagesHandler {
     }
 
     private void verifyLoggedInForDescriptionEdit() {
-        if (!User.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= parentFragment.getResources().getInteger(R.integer.description_max_anon_edits)) {
+        if (!AccountUtil.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= parentFragment.getResources().getInteger(R.integer.description_max_anon_edits)) {
             new AlertDialog.Builder(parentFragment.getContext())
                     .setMessage(R.string.description_edit_anon_limit)
                     .setPositiveButton(R.string.menu_login, new DialogInterface.OnClickListener() {

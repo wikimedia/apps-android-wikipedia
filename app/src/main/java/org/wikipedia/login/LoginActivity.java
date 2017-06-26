@@ -219,15 +219,14 @@ public class LoginActivity extends ThemedActionBarActivity {
 
         if (!twoFactorCode.isEmpty()) {
             loginClient.login(WikipediaApp.getInstance().getWikiSite(), username, password,
-                    twoFactorCode, firstStepToken, getCallback(username, password));
+                    twoFactorCode, firstStepToken, getCallback());
         } else {
             loginClient.request(WikipediaApp.getInstance().getWikiSite(), username, password,
-                    getCallback(username, password));
+                    getCallback());
         }
     }
 
-    private LoginClient.LoginCallback getCallback(@NonNull final String username,
-                                                  @NonNull final String password) {
+    private LoginClient.LoginCallback getCallback() {
         return new LoginClient.LoginCallback() {
             @Override
             public void success(@NonNull LoginResult result) {
@@ -244,7 +243,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                     AccountAuthenticatorResponse response = extras == null
                             ? null
                             : extras.<AccountAuthenticatorResponse>getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
-                    AccountUtil.createAccount(response, username, password);
+                    AccountUtil.updateAccount(response, result);
 
                     hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);

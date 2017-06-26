@@ -33,6 +33,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.csrf.CsrfTokenClient;
@@ -44,7 +45,6 @@ import org.wikipedia.edit.summaries.EditSummaryFragment;
 import org.wikipedia.edit.wikitext.WikitextClient;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginClient;
-import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -256,7 +256,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private void updateEditLicenseText() {
         TextView editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
-        editLicenseText.setText(StringUtil.fromHtml(String.format(getString(User.isLoggedIn()
+        editLicenseText.setText(StringUtil.fromHtml(String.format(getString(AccountUtil.isLoggedIn()
                         ? R.string.edit_save_action_license_logged_in
                         : R.string.edit_save_action_license_anon),
                 getString(R.string.terms_of_use_url),
@@ -333,7 +333,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         }
 
         new EditClient().request(title.getWikiSite(), title, sectionID,
-                sectionText.getText().toString(), token, summaryText, User.isLoggedIn(),
+                sectionText.getText().toString(), token, summaryText, AccountUtil.isLoggedIn(),
                 captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
                 captchaHandler.isActive() ? captchaHandler.captchaWord() : "null",
                 new EditClient.Callback() {
@@ -420,7 +420,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
      */
     private void handleEditingException(@NonNull MwException caught) {
         String code = caught.getTitle();
-        if (User.isLoggedIn() && ("badtoken".equals(code) || "assertuserfailed".equals(code))) {
+        if (AccountUtil.isLoggedIn() && ("badtoken".equals(code) || "assertuserfailed".equals(code))) {
             getEditTokenThenSave(true);
         } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
@@ -430,7 +430,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             progressDialog.dismiss();
             AlertDialog.Builder builder = new AlertDialog.Builder(EditSectionActivity.this);
             builder.setTitle(R.string.user_blocked_from_editing_title);
-            if (User.isLoggedIn()) {
+            if (AccountUtil.isLoggedIn()) {
                 builder.setMessage(R.string.user_logged_in_blocked_from_editing);
                 builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override

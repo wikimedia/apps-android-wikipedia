@@ -42,7 +42,6 @@ import static org.wikipedia.settings.PrefsIoUtil.setBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.setInt;
 import static org.wikipedia.settings.PrefsIoUtil.setLong;
 import static org.wikipedia.settings.PrefsIoUtil.setString;
-import static org.wikipedia.settings.PrefsIoUtil.setStringSet;
 
 /** Shared preferences utility for convenient POJO access. */
 public final class Prefs {
@@ -143,10 +142,6 @@ public final class Prefs {
         return getString(R.string.preference_key_login_password, null);
     }
 
-    public static void setLoginPassword(@Nullable String password) {
-        setString(R.string.preference_key_login_password, password);
-    }
-
     public static boolean hasLoginPassword() {
         return contains(R.string.preference_key_login_password);
     }
@@ -161,10 +156,6 @@ public final class Prefs {
         return GsonUnmarshaller.unmarshal(type, getString(R.string.preference_key_login_user_id_map, "{}"));
     }
 
-    public static void setLoginUserIds(@Nullable Map<String, Integer> ids) {
-        setString(R.string.preference_key_login_user_id_map, GsonMarshaller.marshal(ids));
-    }
-
     public static void removeLoginUserIds() {
         remove(R.string.preference_key_login_user_id_map);
     }
@@ -174,10 +165,6 @@ public final class Prefs {
         return getString(R.string.preference_key_login_username, null);
     }
 
-    public static void setLoginUsername(@Nullable String username) {
-        setString(R.string.preference_key_login_username, username);
-    }
-
     public static boolean hasLoginUsername() {
         return contains(R.string.preference_key_login_username);
     }
@@ -185,10 +172,6 @@ public final class Prefs {
     @Nullable
     public static Set<String> getLoginGroups() {
         return getStringSet(R.string.preference_key_login_groups, null);
-    }
-
-    public static void setLoginGroups(@Nullable Set<String> groups) {
-        setStringSet(R.string.preference_key_login_groups, groups);
     }
 
     public static void removeLoginGroups() {

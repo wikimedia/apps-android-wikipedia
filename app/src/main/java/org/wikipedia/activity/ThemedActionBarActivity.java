@@ -12,7 +12,6 @@ import com.squareup.otto.Subscribe;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.settings.Prefs;
@@ -49,7 +48,6 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AccountUtil.logOutIfAccountRemoved();
 
         // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
         // less probable.

@@ -11,7 +11,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.login.User;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 import org.wikipedia.wikidata.EntityClient;
@@ -27,7 +27,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (TextUtils.equals(intent.getAction(), ACTION_POLL)) {
 
-            if (User.isLoggedIn()
+            if (AccountUtil.isLoggedIn()
                     && lastDescriptionEditedWithin(context.getResources()
                     .getInteger(R.integer.notification_poll_timeout_days))) {
                 pollNotifications(context);

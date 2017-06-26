@@ -10,9 +10,9 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.login.User;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
@@ -54,7 +54,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         new AlertDialog.Builder(fragment.getActivity())
                 .setCancelable(false)
                 .setTitle(R.string.page_protected_can_not_edit_title)
-                .setMessage(User.isLoggedIn()
+                .setMessage(AccountUtil.isLoggedIn()
                         ? R.string.page_protected_can_not_edit
                         : R.string.page_protected_can_not_edit_anon)
                 .setPositiveButton(android.R.string.ok, null)

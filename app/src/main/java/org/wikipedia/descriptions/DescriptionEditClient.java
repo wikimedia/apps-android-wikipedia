@@ -7,13 +7,13 @@ import android.text.TextUtils;
 
 import org.json.JSONArray;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
-import org.wikipedia.login.User;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -83,7 +83,7 @@ public class DescriptionEditClient {
                                          @NonNull String editToken,
                                          @NonNull Callback cb) {
         return request(cachedService.service(wiki), pageTitle, description, editToken,
-                User.isLoggedIn(), cb);
+                AccountUtil.isLoggedIn(), cb);
     }
 
     @SuppressWarnings("WeakerAccess") @VisibleForTesting

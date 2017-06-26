@@ -19,6 +19,7 @@ import org.mediawiki.api.json.ApiException;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
@@ -30,7 +31,6 @@ import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.login.User;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
@@ -474,7 +474,7 @@ public class PageFragmentLoadState {
     }
 
     private boolean isPageEditable(Page page) {
-        return (User.isLoggedIn() || !isAnonEditingDisabled())
+        return (AccountUtil.isLoggedIn() || !isAnonEditingDisabled())
                 && !page.isFilePage()
                 && !page.isMainPage();
     }

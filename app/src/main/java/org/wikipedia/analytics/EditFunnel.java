@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.login.User;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.PageTitle;
 
 public class EditFunnel extends Funnel {
@@ -150,10 +150,10 @@ public class EditFunnel extends Funnel {
 
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        if (User.isLoggedIn()) {
+        if (AccountUtil.isLoggedIn()) {
             // noinspection ConstantConditions
             preprocessData(eventData, "userID",
-                    User.getUser().getIdForLanguage(title.getWikiSite().languageCode()));
+                    AccountUtil.getIdForLanguage(title.getWikiSite().languageCode()));
         }
         preprocessData(eventData, "pageNS", title.getNamespace());
         return super.preprocessData(eventData);

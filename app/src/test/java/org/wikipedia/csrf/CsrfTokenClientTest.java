@@ -11,7 +11,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
-import org.wikipedia.login.User;
 import org.wikipedia.test.MockWebServerTest;
 
 import retrofit2.Call;
@@ -28,7 +27,6 @@ public class CsrfTokenClientTest extends MockWebServerTest {
     @NonNull private final CsrfTokenClient subject = new CsrfTokenClient(TEST_WIKI, TEST_WIKI);
 
     @Test public void testRequestSuccess() throws Throwable {
-        User.clearUser();
         String expected = "b6f7bd58c013ab30735cb19ecc0aa08258122cba+\\";
         enqueueFromFile("csrf_token.json");
 
@@ -40,7 +38,6 @@ public class CsrfTokenClientTest extends MockWebServerTest {
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
-        User.clearUser();
         enqueueFromFile("api_error.json");
 
         Callback cb = mock(Callback.class);
@@ -51,7 +48,6 @@ public class CsrfTokenClientTest extends MockWebServerTest {
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {
-        User.clearUser();
         enqueue404();
 
         Callback cb = mock(Callback.class);
@@ -62,7 +58,6 @@ public class CsrfTokenClientTest extends MockWebServerTest {
     }
 
     @Test public void testRequestResponseMalformed() throws Throwable {
-        User.clearUser();
         server().enqueue("'");
 
         Callback cb = mock(Callback.class);

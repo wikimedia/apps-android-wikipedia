@@ -2,6 +2,7 @@ package org.wikipedia.login;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -16,7 +17,6 @@ import org.wikipedia.dataclient.retrofit.WikiCachedService;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -81,12 +81,12 @@ public class LoginClient {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
-                LoginResult loginResult = loginResponse.toLoginResult(password);
+                LoginResult loginResult = loginResponse.toLoginResult(wiki, password);
                 if (loginResult != null) {
-                    if (loginResult.pass() && loginResult.getUser() != null) {
+                    if (loginResult.pass() && !TextUtils.isEmpty(loginResult.getUserName())) {
                         // The server could do some transformations on user names, e.g. on some
                         // wikis is uppercases the first letter.
-                        String actualUserName = loginResult.getUser().getUsername();
+                        String actualUserName = loginResult.getUserName();
                         getExtendedInfo(wiki, actualUserName, loginResult, cb);
                     } else if ("UI".equals(loginResult.getStatus())) {
                         //TODO: Don't just assume this is a 2FA UI result
@@ -112,11 +112,10 @@ public class LoginClient {
         infoClient.request(wiki, userName, new UserExtendedInfoClient.Callback() {
             @Override
             public void success(@NonNull Call<MwQueryResponse> call, int id, @NonNull Set<String> groups) {
-                final User user = loginResult.getUser();
-                Map<String, Integer> idMap = new HashMap<>();
-                idMap.put(wiki.languageCode(), id);
-                User.setUser(new User(user, idMap, groups));
+                loginResult.setUserId(id);
+                loginResult.setGroups(groups);
                 cb.success(loginResult);
+
                 L.v("Found user ID " + id + " for " + wiki.languageCode());
             }
 
@@ -183,8 +182,8 @@ public class LoginClient {
             return error;
         }
 
-        LoginResult toLoginResult(String password) {
-            return clientLogin != null ? clientLogin.toLoginResult(password) : null;
+        @Nullable LoginResult toLoginResult(@NonNull WikiSite site, @NonNull String password) {
+            return clientLogin != null ? clientLogin.toLoginResult(site, password) : null;
         }
 
         private static class ClientLogin {
@@ -193,27 +192,21 @@ public class LoginClient {
             @SerializedName("message") @Nullable private String message;
             @SerializedName("username") @Nullable private String userName;
 
-            LoginResult toLoginResult(String password) {
-                User user = null;
-                String userMessage = null;
-                if ("PASS".equals(status)) {
-                    user = new User(userName, password);
-                } else if ("FAIL".equals(status)) {
-                    userMessage = message;
-                } else if ("UI".equals(status)) {
+            LoginResult toLoginResult(@NonNull WikiSite site, @NonNull String password) {
+                String userMessage = message;
+                if ("UI".equals(status)) {
                     if (requests != null) {
                         for (Request req : requests) {
                             if ("TOTPAuthenticationRequest".equals(req.id())) {
-                                return new LoginOAuthResult(status, message);
+                                return new LoginOAuthResult(site, status, userName, password, message);
                             }
                         }
                     }
-                    userMessage = message;
-                } else {
+                } else if (!"PASS".equals(status) && !"FAIL".equals(status)) {
                     //TODO: String resource -- Looks like needed for others in this class too
                     userMessage = "An unknown error occurred.";
                 }
-                return new LoginResult(status, user, userMessage);
+                return new LoginResult(site, status, userName, password, userMessage);
             }
         }
 

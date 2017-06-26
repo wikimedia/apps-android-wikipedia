@@ -5,11 +5,11 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.login.User;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingList;
@@ -56,7 +56,7 @@ public class ReadingListSynchronizer {
 
     public void sync() {
         if (!ReleaseUtil.isPreBetaRelease()  // TODO: remove when ready for beta/production
-                || !User.isLoggedIn()
+                || !AccountUtil.isLoggedIn()
                 || !(isReadingListSyncEnabled() || isReadingListsRemoteDeletePending())) {
             syncSavedPages();
             L.d("Skipped sync of reading lists.");

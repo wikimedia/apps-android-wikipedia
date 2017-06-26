@@ -7,12 +7,12 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.dataclient.restbase.RbServiceError;
-import org.wikipedia.login.User;
 import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
@@ -203,10 +203,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     }
 
     private boolean isLoggedInUserAllowedToEdit() {
-        User user = User.getUser();
-        return user != null
-                && protection != null
-                && user.isAllowed(protection.getEditRoles());
+        return protection != null && AccountUtil.isMemberOf(protection.getEditRoles());
     }
 
     @Override
