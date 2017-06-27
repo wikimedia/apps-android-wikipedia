@@ -262,8 +262,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
             emptyView.setVisibility(displayedPages.isEmpty() ? View.VISIBLE : View.GONE);
         } else {
+            recyclerView.setVisibility(displayedPages.isEmpty() ? View.GONE : View.VISIBLE);
             searchEmptyView.setVisibility(displayedPages.isEmpty() ? View.VISIBLE : View.GONE);
             emptyView.setVisibility(View.GONE);
         }
