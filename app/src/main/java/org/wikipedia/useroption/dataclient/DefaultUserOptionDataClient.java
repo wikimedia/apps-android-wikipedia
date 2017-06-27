@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.csrf.CsrfTokenClient;
-import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -28,27 +27,40 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     @NonNull private final WikiSite wiki;
     @NonNull private final Service service;
 
+    public interface UserInfoCallback {
+        void success(@NonNull UserInfo userInfo);
+    }
+
     public DefaultUserOptionDataClient(@NonNull WikiSite wiki) {
         this.wiki = wiki;
         service = RetrofitFactory.newInstance(wiki).create(Service.class);
     }
 
-    @NonNull
-    @Override
-    public UserInfo get() throws IOException {
-        Response<MwQueryResponse> rsp = service.get().execute();
-        if (rsp.body().success()) {
-            //noinspection ConstantConditions
-            return rsp.body().query().userInfo();
-        }
-        ServiceError err = rsp.body() == null || rsp.body().getError() == null
-                ? null
-                : rsp.body().getError();
-        throw new IOException(err == null ? rsp.message() : err.getDetails());
+    @Override public void get(@NonNull final UserInfoCallback callback) {
+        // Get a CSRF token, even though we won't use it, to ensure that the user is properly
+        // logged in. Otherwise, we might receive user-options for an anonymous IP "user".
+        new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
+            @Override
+            public void success(@NonNull String token) {
+                service.get().enqueue(new Callback<MwQueryResponse>() {
+                    @Override
+                    public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
+                        if (response.body() != null && response.body().success()) {
+                            //noinspection ConstantConditions
+                            callback.success(response.body().query().userInfo());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MwQueryResponse> call, Throwable t) {
+                        L.e(t);
+                    }
+                });
+            }
+        });
     }
 
-    @Override
-    public void post(@NonNull final UserOption option) throws IOException {
+    @Override public void post(@NonNull final UserOption option) throws IOException {
         new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
             @Override
             public void success(@NonNull String token) {
@@ -72,8 +84,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         waitForThis();
     }
 
-    @Override
-    public void delete(@NonNull final String key) throws IOException {
+    @Override public void delete(@NonNull final String key) throws IOException {
         new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
             @Override
             public void success(@NonNull String token) {

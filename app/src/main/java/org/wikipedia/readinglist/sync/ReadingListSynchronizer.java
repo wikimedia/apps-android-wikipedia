@@ -19,6 +19,7 @@ import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.useroption.UserOption;
+import org.wikipedia.useroption.dataclient.DefaultUserOptionDataClient;
 import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
 import org.wikipedia.util.ReleaseUtil;
@@ -62,12 +63,10 @@ public class ReadingListSynchronizer {
             L.d("Skipped sync of reading lists.");
             return;
         }
-        CallbackTask.execute(new CallbackTask.Task<Void>() {
+        UserOptionDataClientSingleton.instance().get(new DefaultUserOptionDataClient.UserInfoCallback() {
             @Override
-            public Void execute() {
+            public void success(@NonNull UserInfo info) {
                 try {
-                    UserInfo info = UserOptionDataClientSingleton.instance().get();
-
                     synchronized (ReadingListSynchronizer.this) {
                         long localRev = Prefs.getReadingListSyncRev();
                         RemoteReadingLists remoteReadingLists = null;
@@ -105,9 +104,8 @@ public class ReadingListSynchronizer {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                return null;
             }
-        }, null);
+        });
     }
 
     public void syncSavedPages() {
