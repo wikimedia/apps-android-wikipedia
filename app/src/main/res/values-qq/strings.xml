@@ -317,6 +317,7 @@
   <string name="reading_list_article_remove_offline">Hint for button that removes a reading list article from offline availability.</string>
   <string name="reading_list_article_offline_message">Message shown when a reading list article is made available for offline use.</string>
   <string name="reading_list_article_not_offline_message">Message shown when a reading list article is removed from offline availability.</string>
+  <string name="reading_list_article_save_in_progress">Message shown when the article is in the process of being downloaded, and is not yet available for offline access.</string>
   <string name="reading_list_add_to_other_list">Menu item to add an article to another reading list (when the article already exists in one or more lists).</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific reading list. The %s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple reading lists to which it might belong.</string>

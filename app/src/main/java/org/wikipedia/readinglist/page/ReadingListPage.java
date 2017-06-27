@@ -32,6 +32,10 @@ public final class ReadingListPage extends ReadingListPageRow {
         return diskStatus.savedOrSaving();
     }
 
+    public boolean isSaving() {
+        return diskStatus.saving();
+    }
+
     public void setOffline(boolean offline) {
         if (offline) {
             diskStatus = diskStatus == DiskStatus.SAVED ? DiskStatus.SAVED : DiskStatus.OUTDATED;

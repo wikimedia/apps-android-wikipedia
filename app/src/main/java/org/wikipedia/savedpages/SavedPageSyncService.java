@@ -84,7 +84,9 @@ public class SavedPageSyncService extends IntentService {
             }
         }
         saveNewEntries(queue);
+    }
 
+    private void sendSyncEvent() {
         // Note: this method posts from a background thread but subscribers expect events to be
         // received on the main thread.
         WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
@@ -124,6 +126,7 @@ public class SavedPageSyncService extends IntentService {
     }
 
     private void saveNewEntries(List<ReadingListPageDiskRow> queue) {
+        sendSyncEvent();
         while (!queue.isEmpty()) {
             ReadingListPageDiskRow row = queue.remove(0);
             PageTitle pageTitle = makeTitleFrom(row);
@@ -139,6 +142,7 @@ public class SavedPageSyncService extends IntentService {
             } catch (Exception e) {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
+                e.printStackTrace();
                 dao.failDiskTransaction(row);
                 continue;
             }
@@ -146,6 +150,7 @@ public class SavedPageSyncService extends IntentService {
             ReadingListPageDiskRow rowWithUpdatedSize = new ReadingListPageDiskRow(row,
                     ReadingListPageRow.builder().copy(row.dat()).logicalSize(size.logicalSize()).physicalSize(size.physicalSize()).build());
             dao.completeDiskTransaction(rowWithUpdatedSize);
+            sendSyncEvent();
         }
     }
 
@@ -163,9 +168,9 @@ public class SavedPageSyncService extends IntentService {
 
         if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
             persistPageThumbnail(pageTitle, leadRsp.body().getThumbUrl());
+            row.dat().setThumbnailUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
+                    leadRsp.body().getThumbUrl()));
         }
-        row.dat().setThumbnailUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
-                leadRsp.body().getThumbUrl()));
         row.dat().setDescription(((PageLeadProperties) leadRsp.body()).getDescription());
 
         Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));

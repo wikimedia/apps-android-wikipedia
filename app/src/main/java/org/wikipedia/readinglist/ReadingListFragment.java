@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
 
@@ -557,7 +558,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setSelected(page.isSelected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
-            getView().setSecondaryActionIcon(R.drawable.ic_download_circle_black_24px, !page.isOffline());
+            getView().setSecondaryActionIcon(page.isSaving()
+                    ? R.drawable.ic_download_started : R.drawable.ic_download_circle_gray_24dp,
+                    !page.isOffline() || page.isSaving());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
         }
 
@@ -654,7 +657,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull PageItemView view) {
             if (page != null) {
-                toggleOffline(page);
+                if (page.isSaving()) {
+                    Toast.makeText(getContext(), R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show();
+                } else {
+                    toggleOffline(page);
+                }
             }
         }
     }
@@ -733,7 +740,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private class EventBusMethods {
         @Subscribe public void on(@NonNull ReadingListSyncEvent event) {
             if (isAdded()) {
-                update();
+                updateReadingListData();
             }
         }
     }

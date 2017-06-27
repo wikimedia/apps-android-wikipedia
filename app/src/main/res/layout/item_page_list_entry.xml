@@ -103,8 +103,7 @@
             android:padding="8dp"
             android:clickable="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_download_circle_black_24px"
-            android:tint="@color/material_icon_default_gray"
+            app:srcCompat="@drawable/ic_download_circle_gray_24dp"
             android:contentDescription="@null"
             android:visibility="gone"
             tools:visibility="visible"/>

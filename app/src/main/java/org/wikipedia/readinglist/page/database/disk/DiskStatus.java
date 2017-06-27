@@ -43,6 +43,10 @@ public enum DiskStatus implements EnumCode {
         return this == SAVED || this == OUTDATED;
     }
 
+    public boolean saving() {
+        return this == OUTDATED;
+    }
+
     @Override public int code() {
         return code;
     }
