@@ -69,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:layout_marginTop="-2dp"
             android:layout_gravity="center_vertical">
 
             <TextView
@@ -86,11 +87,10 @@
                 android:id="@+id/page_list_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:textSize="14sp"
-                android:textColor="?attr/feed_text_secondary_color"
+                android:textColor="@color/base30"
                 android:lineSpacingMultiplier="1.2"
                 style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
@@ -101,11 +101,10 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="8dp"
-            android:layout_gravity="center_vertical"
             android:clickable="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_download_circle_black_24px"
-            android:tint="@color/base50"
+            android:tint="@color/material_icon_default_gray"
             android:contentDescription="@null"
             android:visibility="gone"
             tools:visibility="visible"/>
@@ -115,11 +114,10 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="8dp"
-            android:layout_gravity="center_vertical"
             android:clickable="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_favorite_white_24dp"
-            android:tint="@color/base50"
+            android:tint="@color/material_icon_default_gray"
             android:contentDescription="@null"
             android:visibility="gone"
             tools:visibility="visible"/>
