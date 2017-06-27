@@ -325,7 +325,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             return ValidateResult.INVALID_USERNAME;
         } else if (password.length() < PASSWORD_MIN_LENGTH) {
             return ValidateResult.INVALID_PASSWORD;
-        } else if (passwordRepeatEnabled && !passwordRepeat.equals(password)) {
+        } else if (passwordRepeatEnabled && !passwordRepeat.toString().equals(password.toString())) {
             return ValidateResult.PASSWORD_MISMATCH;
         } else if (!TextUtils.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return ValidateResult.INVALID_EMAIL;
