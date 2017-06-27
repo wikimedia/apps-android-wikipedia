@@ -3,13 +3,16 @@ package org.wikipedia.readinglist;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.util.ResourceUtil;
 
 public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {
@@ -40,6 +43,8 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         actionsView = new ReadingListItemActionsView(getContext());
+        actionsView.setBackgroundColor(ContextCompat.getColor(getContext(),
+                ResourceUtil.getThemedAttributeId(getContext(), R.attr.bottom_sheet_background_color)));
         actionsView.setCallback(itemActionsCallback);
         pageIndex = getArguments().getInt("pageIndex");
         actionsView.setState(getArguments().getString("pageTitle", ""),
