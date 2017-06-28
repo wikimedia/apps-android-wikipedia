@@ -35,6 +35,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
@@ -43,7 +44,8 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
-import java.util.Map;
+
+import retrofit2.Call;
 
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
@@ -249,32 +251,28 @@ public class GalleryItemFragment extends Fragment {
      */
     private void loadGalleryItem() {
         updateProgressBar(true, true, 0);
-        new GalleryItemFetchTask(app.getAPIForSite(imageTitle.getWikiSite()),
-                imageTitle.getWikiSite(), imageTitle, FileUtil.isVideo(mimeType)) {
-            @Override public void onFinish(Map<PageTitle, GalleryItem> result) {
-                if (!isAdded()) {
-                    return;
-                }
-                if (result.size() > 0) {
-                    galleryItem = (GalleryItem) result.values().toArray()[0];
-                    parentActivity.getGalleryCache().put((PageTitle) result.keySet().toArray()[0],
-                            galleryItem);
-                    loadMedia();
-                } else {
-                    updateProgressBar(false, true, 0);
-                    parentActivity.showError(null, true);
-                }
-            }
+        new GalleryItemClient().request(imageTitle.getWikiSite(), imageTitle,
+                new GalleryItemClient.Callback() {
+                    @Override
+                    public void success(@NonNull Call<MwQueryResponse> call, @NonNull GalleryItem result) {
+                        if (!isAdded()) {
+                            return;
+                        }
+                        galleryItem = result;
+                        parentActivity.getGalleryCache().put(pageTitle, result);
+                        loadMedia();
+                    }
 
-            @Override public void onCatch(Throwable caught) {
-                if (!isAdded()) {
-                    return;
-                }
-                updateProgressBar(false, true, 0);
-                parentActivity.showError(caught, true);
-                L.e(caught);
-            }
-        }.execute();
+                    @Override
+                    public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+                        if (!isAdded()) {
+                            return;
+                        }
+                        updateProgressBar(false, true, 0);
+                        parentActivity.showError(caught, true);
+                        L.e(caught);
+                    }
+                }, FileUtil.isVideo(mimeType));
     }
 
     /**

@@ -16,6 +16,7 @@ import org.wikipedia.util.log.L;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class GalleryItem {
@@ -27,6 +28,7 @@ public class GalleryItem {
     private int width;
     private int height;
     @NonNull private ImageLicense license;
+    @Nullable private List<Derivative> derivatives;
 
     public GalleryItem(@NonNull String title, @NonNull ImageInfo imageInfo) {
         this.name = title;
@@ -46,6 +48,38 @@ public class GalleryItem {
         } catch (NullPointerException e) {
             // oh well
         }
+    }
+
+    public GalleryItem(@NonNull String title, @NonNull VideoInfo videoInfo) {
+        this.name = title;
+        this.url = StringUtils.defaultString(getWebmUrlIfExists(videoInfo), "");
+        this.mimeType = videoInfo.getMimeType();
+        this.thumbUrl = videoInfo.getThumbUrl();
+        this.width = videoInfo.getWidth();
+        this.height = videoInfo.getHeight();
+        this.license = videoInfo.getMetadata() != null
+                ? new ImageLicense(videoInfo.getMetadata())
+                : new ImageLicense();
+
+        try {
+            this.metadata = videoInfo.getMetadata().toMap();
+        } catch (IllegalAccessException e) {
+            L.e(e);
+        } catch (NullPointerException e) {
+            // oh well
+        }
+        this.derivatives = videoInfo.getDerivatives();
+    }
+
+    private String getWebmUrlIfExists(@NonNull VideoInfo videoInfo) {
+        if (videoInfo.getDerivatives() != null) {
+            for (Derivative derivative : videoInfo.getDerivatives()) {
+                if (derivative.getType() != null && derivative.getType().contains("webm")) {
+                    return derivative.getSrc();
+                }
+            }
+        }
+        return null;
     }
 
     // GalleryItem constructor for Featured Images from the feed, where we know enough to display it
@@ -124,6 +158,10 @@ public class GalleryItem {
         return license.getLicenseUrl();
     }
 
+    @Nullable public List<Derivative> getDerivatives() {
+        return derivatives;
+    }
+
     // TODO: Update consumers and remove
     @Deprecated GalleryItem(JSONObject json) throws JSONException {
         this.name = json.getString("title");
@@ -136,9 +174,9 @@ public class GalleryItem {
             // in the case of video, look for a list of transcodings, so that we might
             // find a WebM version, which is playable in Android.
             if (objinfo.has("derivatives")) {
-                JSONArray derivatives = objinfo.getJSONArray("derivatives");
-                for (int i = 0; i < derivatives.length(); i++) {
-                    JSONObject derObj = derivatives.getJSONObject(i);
+                JSONArray derivativez = objinfo.getJSONArray("derivatives");
+                for (int i = 0; i < derivativez.length(); i++) {
+                    JSONObject derObj = derivativez.getJSONObject(i);
                     if (derObj.getString("type").contains("webm")) {
                         // that's the one!
                         this.url = derObj.getString("src");

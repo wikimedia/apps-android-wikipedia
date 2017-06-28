@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.gallery.ImageInfo;
+import org.wikipedia.gallery.VideoInfo;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.nearby.NearbyPage;
 import org.wikipedia.notifications.Notification;
@@ -92,6 +93,18 @@ public class MwQueryResult extends BaseModel {
             for (MwQueryPage page : pages) {
                 if (page.imageInfo() != null) {
                     result.put(page.title(), page.imageInfo());
+                }
+            }
+        }
+        return result;
+    }
+
+    @NonNull public Map<String, VideoInfo> videos() {
+        Map<String, VideoInfo> result = new HashMap<>();
+        if (pages != null) {
+            for (MwQueryPage page : pages) {
+                if (page.videoInfo() != null) {
+                    result.put(page.title(), page.videoInfo());
                 }
             }
         }
