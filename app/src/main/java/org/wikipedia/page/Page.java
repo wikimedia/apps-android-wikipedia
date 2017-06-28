@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.gallery.GalleryCollection;
 import org.wikipedia.settings.RbSwitch;
 
 import java.util.List;
@@ -21,28 +20,12 @@ public class Page {
     @NonNull private final PageProperties pageProperties;
 
     /**
-     * The media gallery collection associated with this page.
-     * This will be populated by the Gallery activity when necessary, and will be kept in
-     * the page cache because the page itself is cached. Subsequent instances of the Gallery
-     * activity will then be able to retrieve the page's gallery collection from cache.
-     */
-    @Nullable private GalleryCollection galleryCollection;
-
-    /**
      * An indicator what payload version the page content was originally retrieved from.
      * If it's set to RESTBASE_ORIGIN the it came from the Mobile Content Service
      * (via RESTBase). This is esp. useful for saved pages, so that an older saved page will get the
      * correct kind of DOM transformations applied.
      */
     private int version = MEDIAWIKI_ORIGIN;
-
-    @Nullable public GalleryCollection getGalleryCollection() {
-        return galleryCollection;
-    }
-
-    public void setGalleryCollection(@Nullable GalleryCollection collection) {
-        galleryCollection = collection;
-    }
 
     /** Regular constructor */
     public Page(@NonNull PageTitle title, @NonNull List<Section> sections,
@@ -55,8 +38,7 @@ public class Page {
         this.pageProperties = pageProperties;
     }
 
-    @VisibleForTesting
-    Page(@NonNull PageTitle title, @NonNull List<Section> sections,
+    @VisibleForTesting Page(@NonNull PageTitle title, @NonNull List<Section> sections,
          @NonNull PageProperties pageProperties, int version) {
         this.version = version;
         this.title = title;
