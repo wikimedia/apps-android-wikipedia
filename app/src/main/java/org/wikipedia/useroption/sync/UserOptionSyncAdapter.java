@@ -7,12 +7,14 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SyncResult;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.database.http.HttpStatus;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.useroption.database.UserOptionRow;
+import org.wikipedia.useroption.dataclient.DefaultUserOptionDataClient;
 import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
 import org.wikipedia.util.log.L;
@@ -50,10 +52,14 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     private synchronized void download() throws IOException {
-        UserInfo info = UserOptionDataClientSingleton.instance().get();
-        Collection<UserOption> options = info.userjsOptions();
-        L.i("downloaded " + options.size() + " option(s)");
-        UserOptionDao.instance().reconcileTransaction(options);
+        UserOptionDataClientSingleton.instance().get(new DefaultUserOptionDataClient.UserInfoCallback() {
+            @Override
+            public void success(@NonNull UserInfo userInfo) {
+                Collection<UserOption> options = userInfo.userjsOptions();
+                L.i("downloaded " + options.size() + " option(s)");
+                UserOptionDao.instance().reconcileTransaction(options);
+            }
+        });
     }
 
     private synchronized void upload() throws IOException {

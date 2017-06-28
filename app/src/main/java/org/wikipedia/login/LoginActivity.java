@@ -237,7 +237,6 @@ public class LoginActivity extends ThemedActionBarActivity {
                 progressDialog.dismiss();
                 if (result.pass()) {
                     funnel.logSuccess();
-                    ReadingListSynchronizer.instance().sync();
 
                     Bundle extras = getIntent().getExtras();
                     AccountAuthenticatorResponse response = extras == null
@@ -248,6 +247,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                     hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);
 
+                    ReadingListSynchronizer.instance().sync();
                     finish();
                 } else if (result.fail()) {
                     String message = result.getMessage();
