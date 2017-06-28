@@ -21,8 +21,10 @@ public class GalleryItem {
     @Nullable private List<Derivative> derivatives;
 
     public GalleryItem(@NonNull String title, @NonNull ImageInfo imageInfo) {
+        boolean video = imageInfo instanceof VideoInfo;
         this.name = title;
-        this.url = StringUtils.defaultString(imageInfo.getOriginalUrl(), "");
+        this.url = video ? StringUtils.defaultString(getWebmUrlIfExists((VideoInfo) imageInfo), "")
+                : StringUtils.defaultString(imageInfo.getOriginalUrl(), "");
         this.mimeType = imageInfo.getMimeType();
         this.thumbUrl = imageInfo.getThumbUrl();
         this.width = imageInfo.getWidth();
@@ -38,27 +40,10 @@ public class GalleryItem {
         } catch (NullPointerException e) {
             // oh well
         }
-    }
 
-    public GalleryItem(@NonNull String title, @NonNull VideoInfo videoInfo) {
-        this.name = title;
-        this.url = StringUtils.defaultString(getWebmUrlIfExists(videoInfo), "");
-        this.mimeType = videoInfo.getMimeType();
-        this.thumbUrl = videoInfo.getThumbUrl();
-        this.width = videoInfo.getWidth();
-        this.height = videoInfo.getHeight();
-        this.license = videoInfo.getMetadata() != null
-                ? new ImageLicense(videoInfo.getMetadata())
-                : new ImageLicense();
-
-        try {
-            this.metadata = videoInfo.getMetadata().toMap();
-        } catch (IllegalAccessException e) {
-            L.e(e);
-        } catch (NullPointerException e) {
-            // oh well
+        if (video) {
+            this.derivatives = ((VideoInfo) imageInfo).getDerivatives();
         }
-        this.derivatives = videoInfo.getDerivatives();
     }
 
     private String getWebmUrlIfExists(@NonNull VideoInfo videoInfo) {
