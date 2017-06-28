@@ -2,10 +2,10 @@ package org.wikipedia.readinglist;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -80,8 +80,7 @@ public class ReadingListHeaderView extends FrameLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT));
 
         ViewUtil.setBackgroundDrawable(gradientView,
-                GradientUtil.getCubicGradient(ContextCompat.getColor(getContext(),
-                        R.color.lead_gradient_start), Gravity.TOP));
+                GradientUtil.getCubicGradient(Color.BLACK, Gravity.TOP));
 
         if (isInEditMode()) {
             return;
@@ -107,7 +106,8 @@ public class ReadingListHeaderView extends FrameLayout {
     private void clearThumbnails() {
         for (FaceAndColorDetectImageView imageView : imageViews) {
             ViewUtil.loadImageUrlInto(imageView, null);
-            imageView.getHierarchy().setFailureImage(null);
+            imageView.getHierarchy().setFailureImage(R.drawable.ic_bookmark_gray_24dp,
+                    ScalingUtils.ScaleType.FIT_CENTER);
         }
     }
 
