@@ -4,13 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.gallery.GalleryCollection;
 import org.wikipedia.settings.RbSwitch;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -137,40 +133,6 @@ public class Page {
 
     public boolean isArticle() {
         return !isMainPage() && getTitle().namespace() == Namespace.MAIN;
-    }
-
-    @VisibleForTesting JSONObject toJSON() {
-        JSONObject json = new JSONObject();
-        try {
-            json.putOpt("version", version);
-            json.putOpt("title", getTitle().toJSON());
-            JSONArray sectionsJSON = new JSONArray();
-            for (Section section : getSections()) {
-                sectionsJSON.put(section.toJSON());
-            }
-            json.putOpt("sections", sectionsJSON);
-            json.putOpt("properties", pageProperties.toJSON());
-            if (galleryCollection != null) {
-                json.put("gallery", galleryCollection.toJSON());
-            }
-            return json;
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public Page(JSONObject json) {
-        version = json.optInt("version");
-        title = new PageTitle(json.optJSONObject("title"));
-        JSONArray sectionsJSON = json.optJSONArray("sections");
-        sections = new ArrayList<>(sectionsJSON.length());
-        for (int i = 0; i < sectionsJSON.length(); i++) {
-            sections.add(Section.fromJson(sectionsJSON.optJSONObject(i)));
-        }
-        pageProperties = new PageProperties(json.optJSONObject("properties"));
-        if (json.has("gallery")) {
-            galleryCollection = new GalleryCollection(json.optJSONObject("gallery"));
-        }
     }
 
     /** For old PHP API */

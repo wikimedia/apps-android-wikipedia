@@ -2,20 +2,10 @@ package org.wikipedia.gallery;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.text.TextUtils;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.json.GsonMarshaller;
-import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.log.L;
 
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -160,61 +150,5 @@ public class GalleryItem {
 
     @Nullable public List<Derivative> getDerivatives() {
         return derivatives;
-    }
-
-    // TODO: Update consumers and remove
-    @Deprecated GalleryItem(JSONObject json) throws JSONException {
-        this.name = json.getString("title");
-        this.metadata = new HashMap<>();
-        JSONObject objinfo;
-        if (json.has("imageinfo")) {
-            objinfo = (JSONObject)json.getJSONArray("imageinfo").get(0);
-        } else if (json.has("videoinfo")) {
-            objinfo = (JSONObject)json.getJSONArray("videoinfo").get(0);
-            // in the case of video, look for a list of transcodings, so that we might
-            // find a WebM version, which is playable in Android.
-            if (objinfo.has("derivatives")) {
-                JSONArray derivativez = objinfo.getJSONArray("derivatives");
-                for (int i = 0; i < derivativez.length(); i++) {
-                    JSONObject derObj = derivativez.getJSONObject(i);
-                    if (derObj.getString("type").contains("webm")) {
-                        // that's the one!
-                        this.url = derObj.getString("src");
-                    }
-                }
-            }
-        } else {
-            // In certain cases, the API returns a result with a valid "title", but no
-            // "imageinfo" or "videoinfo". In this case, we don't want to throw an exception, but
-            // instead just set everything to zero or null, so that this item will be filtered out
-            // when the GalleryCollection is constructed.
-            mimeType = "*/*";
-            this.license = new ImageLicense();
-            return;
-        }
-        if (TextUtils.isEmpty(url)) {
-            this.url = objinfo.optString("url", "");
-        }
-        mimeType = objinfo.getString("mime");
-        thumbUrl = objinfo.optString("thumburl", "");
-        width = objinfo.getInt("width");
-        height = objinfo.getInt("height");
-        JSONObject extmetadata = objinfo.optJSONObject("extmetadata");
-        if (extmetadata != null) {
-            Iterator<String> keys = extmetadata.keys();
-            while (keys.hasNext()) {
-                String key = keys.next();
-                String value = extmetadata.getJSONObject(key).getString("value");
-                metadata.put(key, value);
-            }
-            ExtMetadata metadataObj = GsonUnmarshaller.unmarshal(ExtMetadata.class, extmetadata.toString());
-            license = new ImageLicense(metadataObj);
-        } else {
-            license = new ImageLicense();
-        }
-    }
-
-    @VisibleForTesting public JSONObject toJSON() throws JSONException {
-        return new JSONObject(GsonMarshaller.marshal(GsonUtil.getDefaultGson(), this));
     }
 }
