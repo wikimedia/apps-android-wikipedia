@@ -17,27 +17,28 @@ public abstract class MultiSelectActionModeCallback implements ActionMode.Callba
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         mode.setTag(ACTION_MODE_TAG);
-        mode.getMenuInflater().inflate(R.menu.menu_action_mode_multi_select, menu);
         return true;
     }
 
-    @Override
-    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+    @Override public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
         return true;
     }
 
-    @Override
-    public boolean onActionItemClicked(ActionMode mode, MenuItem menuItem) {
+    @Override public boolean onActionItemClicked(ActionMode mode, MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.menu_delete_selected:
-                onDelete();
+                onDeleteSelected();
                 return true;
             default:
         }
         return false;
     }
 
-    protected abstract void onDelete();
+    protected abstract void onDeleteSelected();
+
+    protected String getTag() {
+        return ACTION_MODE_TAG;
+    }
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {

@@ -64,6 +64,7 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -248,7 +249,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                                                       @NonNull final FeaturedArticleCard card,
                                                       @NonNull HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(),
+                AddToReadingListDialog.newInstance(Collections.singletonList(entry.getTitle()),
                         AddToReadingListDialog.InvokeSource.FEED,
                         new DialogInterface.OnDismissListener() {
                             @Override public void onDismiss(DialogInterface dialogInterface) {

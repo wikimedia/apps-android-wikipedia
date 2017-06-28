@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.PluralsRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
@@ -284,6 +285,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         update();
     }
 
+    private void showMultiSelectOfflineStateChangeSnackbar(List<ReadingListPage> pages, boolean offline) {
+        String message = offline
+                ? getQuantityString(R.plurals.reading_list_article_offline_message, pages.size())
+                : getQuantityString(R.plurals.reading_list_article_not_offline_message, pages.size());
+        FeedbackUtil.showMessage(getActivity(), message);
+    }
+
     private void showDeleteItemsUndoSnackbar(final ReadingList readingList, final List<ReadingListPage> pages) {
         String message = pages.size() == 1
                 ? String.format(getString(R.string.reading_list_item_deleted), pages.get(0).title())
@@ -392,22 +400,72 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         adapter.notifyDataSetChanged();
     }
 
-    private void deleteSelectedPages() {
+    @NonNull
+    private List<ReadingListPage> getSelectedPages() {
+        List<ReadingListPage> result = new ArrayList<>();
         if (readingList == null) {
-            return;
+            return result;
         }
-        List<ReadingListPage> selectedPages = new ArrayList<>();
         for (ReadingListPage page : displayedPages) {
             if (page.isSelected()) {
-                selectedPages.add(page);
+                result.add(page);
                 page.setSelected(false);
-                ReadingList.DAO.removeTitleFromList(readingList, page);
             }
         }
+        return result;
+    }
+
+    private void deleteSelectedPages() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
         if (!selectedPages.isEmpty()) {
+            for (ReadingListPage page : selectedPages) {
+                ReadingList.DAO.removeTitleFromList(readingList, page);
+            }
             ReadingListSynchronizer.instance().bumpRevAndSync();
             funnel.logDeleteItem(readingList, readingLists.size());
             showDeleteItemsUndoSnackbar(readingList, selectedPages);
+            update();
+        }
+    }
+
+    private void removeSelectedPagesFromOffline() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            for (ReadingListPage page : selectedPages) {
+                if (page.isOffline()) {
+                    ReadingListData.instance().setPageOffline(page, false);
+                }
+            }
+            showMultiSelectOfflineStateChangeSnackbar(selectedPages, false);
+            adapter.notifyDataSetChanged();
+            update();
+        }
+    }
+
+    private void saveSelectedPagesForOffline() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            for (ReadingListPage page : selectedPages) {
+                if (!page.isOffline()) {
+                    ReadingListData.instance().setPageOffline(page, true);
+                }
+            }
+            showMultiSelectOfflineStateChangeSnackbar(selectedPages, true);
+            adapter.notifyDataSetChanged();
+            update();
+        }
+    }
+
+    private void addSelectedPagesToList() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            List<PageTitle> titles = new ArrayList<>();
+            for (ReadingListPage page : selectedPages) {
+                titles.add(ReadingListDaoProxy.pageTitle(page));
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    AddToReadingListDialog.newInstance(titles,
+                            AddToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
             update();
         }
     }
@@ -432,7 +490,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
-    public void onToggleOffline(int pageIndex) {
+    public void onToggleItemOffline(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
         if (page == null) {
             return;
@@ -445,7 +503,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
-    public void onShare(int pageIndex) {
+    public void onShareItem(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
         if (page != null) {
             ShareUtil.shareText(getContext(), ReadingListDaoProxy.pageTitle(page));
@@ -453,7 +511,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
-    public void onAddToOther(int pageIndex) {
+    public void onAddItemToOther(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
         if (page != null) {
             bottomSheetPresenter.show(getChildFragmentManager(),
@@ -463,7 +521,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
-    public void onDelete(int pageIndex) {
+    public void onDeleteItem(int pageIndex) {
         ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
         deleteSinglePage(page);
     }
@@ -472,8 +530,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         ReadingListData.instance().setPageOffline(page, !page.isOffline());
         if (getActivity() != null) {
             FeedbackUtil.showMessage(getActivity(), page.isOffline()
-                    ? R.string.reading_list_article_offline_message
-                    : R.string.reading_list_article_not_offline_message);
+                    ? getQuantityString(R.plurals.reading_list_article_offline_message, 1)
+                    : getQuantityString(R.plurals.reading_list_article_not_offline_message, 1));
             adapter.notifyDataSetChanged();
             ReadingListSynchronizer.instance().syncSavedPages();
         }
@@ -503,6 +561,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             result += "<br>&nbsp;&nbsp;<b>&#8226; " + ReadingListDaoProxy.listName(key) + "</b>";
         }
         return StringUtil.fromHtml(result);
+    }
+
+    @NonNull private String getQuantityString(@PluralsRes int id, int quantity, Object... formatArgs) {
+        return getResources().getQuantityString(id, quantity, formatArgs);
     }
 
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
@@ -693,20 +755,41 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private class MultiSelectCallback extends MultiSelectActionModeCallback {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        @Override public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            super.onCreateActionMode(mode, menu);
+            mode.getMenuInflater().inflate(R.menu.menu_action_mode_reading_list, menu);
             actionMode = mode;
-            return super.onCreateActionMode(mode, menu);
+            return true;
         }
 
-        @Override
-        protected void onDelete() {
+        @Override public boolean onActionItemClicked(ActionMode mode, MenuItem menuItem) {
+            switch (menuItem.getItemId()) {
+                case R.id.menu_delete_selected:
+                    onDeleteSelected();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_remove_from_offline:
+                    removeSelectedPagesFromOffline();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_save_for_offline:
+                    saveSelectedPagesForOffline();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_add_to_another_list:
+                    // addSelectedPagesToList();
+                    finishActionMode();
+                    return true;
+                default:
+            }
+            return false;
+        }
+
+        @Override protected void onDeleteSelected() {
             deleteSelectedPages();
-            finishActionMode();
         }
 
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
+        @Override public void onDestroyActionMode(ActionMode mode) {
             unselectAllPages();
             actionMode = null;
             super.onDestroyActionMode(mode);

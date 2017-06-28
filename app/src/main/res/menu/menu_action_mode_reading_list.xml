@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_delete_selected"
+        android:icon="@drawable/ic_delete_white_24dp"
+        android:title="@string/delete_selected_items"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_remove_from_offline"
+        android:title="@string/reading_list_action_menu_remove_from_offline"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_save_for_offline"
+        android:title="@string/reading_list_action_menu_save_for_offline"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_add_to_another_list"
+        android:title="@string/reading_list_action_menu_add_to_another_list"
+        app:showAsAction="never" />
+</menu>

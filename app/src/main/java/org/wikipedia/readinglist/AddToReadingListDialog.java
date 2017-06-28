@@ -2,6 +2,7 @@ package org.wikipedia.readinglist;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
@@ -29,6 +30,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
@@ -58,7 +60,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
-    private PageTitle pageTitle;
+    private List<PageTitle> titles;
     private ReadingListAdapter adapter;
     private View listsContainer;
     private View onboardingContainer;
@@ -70,14 +72,18 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
     public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source) {
-        return newInstance(title, source, null);
+        return newInstance(Collections.singletonList(title), source, null);
     }
 
-    public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source,
+    public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles, InvokeSource source) {
+        return newInstance(titles, source, null);
+    }
+
+    public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles, InvokeSource source,
                                                      @Nullable DialogInterface.OnDismissListener listener) {
         AddToReadingListDialog dialog = new AddToReadingListDialog();
         Bundle args = new Bundle();
-        args.putParcelable("title", title);
+        args.putParcelableArrayList("titles", new ArrayList<Parcelable>(titles));
         args.putInt("source", source.code());
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
@@ -87,7 +93,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pageTitle = getArguments().getParcelable("title");
+        titles = getArguments().getParcelableArrayList("titles");
         invokeSource = InvokeSource.of(getArguments().getInt("source"));
         adapter = new ReadingListAdapter();
     }
@@ -111,7 +117,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
         if (savedInstanceState == null) {
             // Log a click event, but only the first time the dialog is shown.
-            new ReadingListsFunnel(pageTitle.getWikiSite()).logAddClick(invokeSource);
+            new ReadingListsFunnel().logAddClick(invokeSource);
         }
 
         updateLists();
@@ -190,13 +196,13 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             public void onSuccess(@NonNull CharSequence text) {
                 list.setTitle(text.toString());
                 ReadingList.DAO.addList(list);
-                addAndDismiss(list);
+                addAndDismiss(list, titles);
             }
         }).show();
     }
 
-    private void addAndDismiss(final ReadingList readingList) {
-        final ReadingListPage page = findOrCreatePage(readingList, pageTitle);
+    private void addAndDismiss(final ReadingList readingList, final PageTitle title) {
+        final ReadingListPage page = findOrCreatePage(readingList, title);
         ReadingList.DAO.listContainsTitleAsync(readingList, page, new CallbackTask.DefaultCallback<Boolean>() {
             @Override public void success(Boolean contains) {
                 if (isAdded()) {
@@ -208,10 +214,9 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                                 ? getString(R.string.reading_list_added_to_unnamed)
                                 : String.format(getString(R.string.reading_list_added_to_named),
                                 readingList.getTitle());
-                        new ReadingListsFunnel(pageTitle.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
+                        new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
                         ReadingList.DAO.makeListMostRecent(readingList);
                     }
-
                     showViewListSnackBar(readingList, message);
                     ReadingList.DAO.addTitleToList(readingList, page, false);
                     ReadingListSynchronizer.instance().bumpRevAndSync();
@@ -219,6 +224,40 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 }
             }
         });
+    }
+
+    private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
+        if (titles.size() == 1) {
+            addAndDismiss(readingList, titles.get(0));
+        }
+        /*final Map<String, ReadingListPage> pages = new HashMap<>();
+        for (PageTitle title : titles) {
+            ReadingListPage page = findOrCreatePage(readingList, title);
+            pages.put(page.key(), page);
+        }
+        ReadingList.DAO.titlesNotInListAsync(readingList.key(), new ArrayList<>(pages.keySet()),
+                new CallbackTask.DefaultCallback<List<String>>() {
+            @Override public void success(List<String> result) {
+                if (isAdded()) {
+                    String message;
+                    if (result.size() == 0) {
+                        message = "The chosen list already contains all of the selected pages."; // todo: string res
+                    } else {
+                        message = TextUtils.isEmpty(readingList.getTitle())
+                                ? String.format("Added %d articles to reading list.", result.size()) // todo: string res
+                                : String.format("Added %1$d articles to %2$s", result.size(), readingList.getTitle()); // todo: string res
+                        new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
+                        ReadingList.DAO.makeListMostRecent(readingList);
+                    }
+                    showViewListSnackBar(readingList, message);
+                    for (String key : result) {
+                        ReadingList.DAO.addTitleToList(readingList, pages.get(key), false);
+                    }
+                    ReadingListSynchronizer.instance().bumpRevAndSync();
+                    dismiss();
+                }
+            }
+        });*/
     }
 
     private void showViewListSnackBar(@NonNull final ReadingList readingList, @NonNull String message) {
@@ -242,7 +281,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private class ReadingListItemCallback implements ReadingListItemView.Callback {
         @Override
         public void onClick(@NonNull ReadingList readingList) {
-            addAndDismiss(readingList);
+            addAndDismiss(readingList, titles);
         }
 
         @Override

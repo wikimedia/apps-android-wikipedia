@@ -16,10 +16,10 @@ import org.wikipedia.util.ResourceUtil;
 
 public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {
-        void onToggleOffline(int pageIndex);
-        void onShare(int pageIndex);
-        void onAddToOther(int pageIndex);
-        void onDelete(int pageIndex);
+        void onToggleItemOffline(int pageIndex);
+        void onShareItem(int pageIndex);
+        void onAddItemToOther(int pageIndex);
+        void onDeleteItem(int pageIndex);
     }
 
     private int pageIndex;
@@ -65,7 +65,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onToggleOffline() {
             dismiss();
             if (callback() != null) {
-                callback().onToggleOffline(pageIndex);
+                callback().onToggleItemOffline(pageIndex);
             }
         }
 
@@ -73,7 +73,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onShare() {
             dismiss();
             if (callback() != null) {
-                callback().onShare(pageIndex);
+                callback().onShareItem(pageIndex);
             }
         }
 
@@ -81,7 +81,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onAddToOther() {
             dismiss();
             if (callback() != null) {
-                callback().onAddToOther(pageIndex);
+                callback().onAddItemToOther(pageIndex);
             }
         }
 
@@ -89,7 +89,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onDelete() {
             dismiss();
             if (callback() != null) {
-                callback().onDelete(pageIndex);
+                callback().onDeleteItem(pageIndex);
             }
         }
     }

@@ -59,8 +59,7 @@ import static org.wikipedia.util.L10nUtil.isLangRTL;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class PageHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
-    @BindView(R.id.view_page_header_image)
-    PageHeaderImageView image;
+    @BindView(R.id.view_page_header_image) PageHeaderImageView image;
     @BindView(R.id.view_page_header_image_gradient) View gradient;
     @BindView(R.id.view_page_title_text) AppTextView titleText;
     @BindView(R.id.view_page_subtitle_text) AppTextView subtitleText;

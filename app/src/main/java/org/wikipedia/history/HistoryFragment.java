@@ -508,13 +508,15 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private class MultiSelectCallback extends MultiSelectActionModeCallback {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            super.onCreateActionMode(mode, menu);
+            mode.getMenuInflater().inflate(R.menu.menu_action_mode_history, menu);
             actionMode = mode;
             selectedIndices.clear();
             return super.onCreateActionMode(mode, menu);
         }
 
         @Override
-        protected void onDelete() {
+        protected void onDeleteSelected() {
             deleteSelectedPages();
             finishActionMode();
         }

@@ -315,8 +315,14 @@
   <string name="reading_list_article_offline">Label for a toggle switch to make a reading list article available offline or online.</string>
   <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>
   <string name="reading_list_article_remove_offline">Hint for button that removes a reading list article from offline availability.</string>
-  <string name="reading_list_article_offline_message">Message shown when a reading list article is made available for offline use.</string>
-  <string name="reading_list_article_not_offline_message">Message shown when a reading list article is removed from offline availability.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Message shown when a single reading list article is made available for offline use.</item>
+    <item quantity="other">Message shown when more than one reading list article is made available for offline use.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Message shown when a single reading list article is removed from offline availability.</item>
+    <item quantity="other">Message shown when more than one reading list article is removed from offline availability.</item>
+  </plurals>
   <string name="reading_list_add_to_other_list">Menu item to add an article to another reading list (when the article already exists in one or more lists).</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific reading list. The %s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple reading lists to which it might belong.</string>
@@ -330,6 +336,10 @@
   <string name="reading_list_login_reminder_text">Text for a tutorial card that reminds the user that logging in will enable syncing of reading lists.</string>
   <string name="reading_lists_confirm_remote_delete">Warning message shown to a user to confirm that remotely stored reading list data used for syncing across devices should be deleted.</string>
   <string name="reading_list_article_save_in_progress">Message shown when the article is in the process of being downloaded, and is not yet available for offline access.</string>
+  <string name="reading_list_action_menu_overflow_label">Label for a menu containing actions that may be performed on reading list entries selected by the user</string>
+  <string name="reading_list_action_menu_remove_from_offline">Label for a menu option allowing the user to remove selected articles from offline storage</string>
+  <string name="reading_list_action_menu_save_for_offline">Label for a menu option allowing the user to save article content for offline availability</string>
+  <string name="reading_list_action_menu_add_to_another_list">Label for a menu option allowing the user to add the selected articles to another reading list</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.\n{{Identical|Preferences}}</string>
   <string name="notification_button_view_user">Button label for navigating to the talk page of the user who is the agent of the notification.</string>
   <string name="notification_talk_title">Title for notification when the user receives a new message on their Talk page.</string>
