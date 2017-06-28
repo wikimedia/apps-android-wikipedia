@@ -12,8 +12,6 @@ import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.util.log.L;
 
-import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,7 +21,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public class DefaultUserOptionDataClient implements UserOptionDataClient {
+public class DefaultUserOptionDataClient {
     @NonNull private final WikiSite wiki;
     @NonNull private final Service service;
 
@@ -31,12 +29,17 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         void success(@NonNull UserInfo userInfo);
     }
 
+    public interface UserOptionPostCallback {
+        void success();
+        void failure(Throwable t);
+    }
+
     public DefaultUserOptionDataClient(@NonNull WikiSite wiki) {
         this.wiki = wiki;
         service = RetrofitFactory.newInstance(wiki).create(Service.class);
     }
 
-    @Override public void get(@NonNull final UserInfoCallback callback) {
+    public void get(@NonNull final UserInfoCallback callback) {
         // Get a CSRF token, even though we won't use it, to ensure that the user is properly
         // logged in. Otherwise, we might receive user-options for an anonymous IP "user".
         new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
@@ -60,7 +63,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         });
     }
 
-    @Override public void post(@NonNull final UserOption option) throws IOException {
+    public void post(@NonNull final UserOption option, @Nullable final UserOptionPostCallback callback) {
         new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
             @Override
             public void success(@NonNull String token) {
@@ -69,22 +72,24 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
                     public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
                         if (response.body() != null && !response.body().success(response.body().result())) {
                             L.e("Bad response for wiki " + wiki.host() + " = " + response.body().result());
+                        } else if (callback != null) {
+                            callback.success();
                         }
-                        notifyThis();
                     }
 
                     @Override
                     public void onFailure(Call<PostResponse> call, Throwable caught) {
                         L.e(caught);
-                        notifyThis();
+                        if (callback != null) {
+                            callback.failure(caught);
+                        }
                     }
                 });
             }
         });
-        waitForThis();
     }
 
-    @Override public void delete(@NonNull final String key) throws IOException {
+    public void delete(@NonNull final String key, @Nullable final UserOptionPostCallback callback) {
         new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
             @Override
             public void success(@NonNull String token) {
@@ -93,31 +98,21 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
                     public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
                         if (response.body() != null && !response.body().success(response.body().result())) {
                             L.e("Bad response for wiki " + wiki.host() + " = " + response.body().result());
+                        } else if (callback != null) {
+                            callback.success();
                         }
-                        notifyThis();
                     }
 
                     @Override
                     public void onFailure(Call<PostResponse> call, Throwable caught) {
                         L.e(caught);
-                        notifyThis();
+                        if (callback != null) {
+                            callback.failure(caught);
+                        }
                     }
                 });
             }
         });
-        waitForThis();
-    }
-
-    private synchronized void waitForThis() {
-        try {
-            wait();
-        } catch (InterruptedException e) {
-            L.d(e);
-        }
-    }
-
-    private synchronized void notifyThis() {
-        notify();
     }
 
     private static WikipediaApp app() {

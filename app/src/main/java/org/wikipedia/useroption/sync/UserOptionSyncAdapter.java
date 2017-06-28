@@ -19,7 +19,6 @@ import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
 import org.wikipedia.util.log.L;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -40,18 +39,13 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
 
         boolean uploadOnly = extras.getBoolean(ContentResolver.SYNC_EXTRAS_UPLOAD);
 
-        try {
-            upload();
-            if (!uploadOnly) {
-                download();
-            }
-        } catch (IOException e) {
-            L.d(e);
-            ++syncResult.stats.numIoExceptions;
+        upload();
+        if (!uploadOnly) {
+            download();
         }
     }
 
-    private synchronized void download() throws IOException {
+    private synchronized void download() {
         UserOptionDataClientSingleton.instance().get(new DefaultUserOptionDataClient.UserInfoCallback() {
             @Override
             public void success(@NonNull UserInfo userInfo) {
@@ -62,27 +56,30 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
         });
     }
 
-    private synchronized void upload() throws IOException {
-        List<UserOptionRow> rows = new ArrayList<>(UserOptionDao.instance().startTransaction());
+    private synchronized void upload() {
+        final List<UserOptionRow> rows = new ArrayList<>(UserOptionDao.instance().startTransaction());
         while (!rows.isEmpty()) {
-            UserOptionRow row = rows.get(0);
-
-            try {
-                if (row.status() == HttpStatus.DELETED) {
-                    L.i("deleting user option: " + row.key());
-                    UserOptionDataClientSingleton.instance().delete(row.key());
-                } else if (!row.status().synced()) {
-                    L.i("uploading user option: " + row.key());
-                    //noinspection ConstantConditions
-                    UserOptionDataClientSingleton.instance().post(row.dat());
+            final UserOptionRow row = rows.remove(0);
+            uploadSingle(row, new DefaultUserOptionDataClient.UserOptionPostCallback() {
+                @Override public void success() {
+                    UserOptionDao.instance().completeTransaction(row);
                 }
-            } catch (IOException e) {
-                UserOptionDao.instance().failTransaction(rows);
-                throw e;
-            }
+                @Override public void failure(Throwable t) {
+                    UserOptionDao.instance().failTransaction(rows);
+                }
+            });
+        }
+    }
 
-            UserOptionDao.instance().completeTransaction(row);
-            rows.remove(0);
+    private void uploadSingle(@NonNull UserOptionRow row,
+                              @NonNull DefaultUserOptionDataClient.UserOptionPostCallback callback) {
+        if (row.status() == HttpStatus.DELETED) {
+            L.i("deleting user option: " + row.key());
+            UserOptionDataClientSingleton.instance().delete(row.key(), callback);
+        } else if (!row.status().synced()) {
+            L.i("uploading user option: " + row.key());
+            //noinspection ConstantConditions
+            UserOptionDataClientSingleton.instance().post(row.dat(), callback);
         }
     }
 }

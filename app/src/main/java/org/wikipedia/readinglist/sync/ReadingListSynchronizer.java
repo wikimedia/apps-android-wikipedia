@@ -25,7 +25,6 @@ import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -65,45 +64,14 @@ public class ReadingListSynchronizer {
         }
         UserOptionDataClientSingleton.instance().get(new DefaultUserOptionDataClient.UserInfoCallback() {
             @Override
-            public void success(@NonNull UserInfo info) {
-                try {
-                    synchronized (ReadingListSynchronizer.this) {
-                        long localRev = Prefs.getReadingListSyncRev();
-                        RemoteReadingLists remoteReadingLists = null;
-
-                        for (UserOption option : info.userjsOptions()) {
-                            if (READING_LISTS_SYNC_OPTION.equals(option.key())) {
-                                remoteReadingLists = GsonUnmarshaller
-                                        .unmarshal(RemoteReadingLists.class, option.val());
-                            }
-                        }
-
-                        if ((remoteReadingLists == null) || (remoteReadingLists.rev() < localRev)) {
-                            if (localRev == 0) {
-                                // If this is the first time we're syncing, bump the rev explicitly.
-                                bumpRev();
-                            }
-                            L.d("Pushing local reading lists to server.");
-                            UserOptionDataClientSingleton.instance()
-                                    .post(new UserOption(READING_LISTS_SYNC_OPTION,
-                                            GsonMarshaller.marshal(makeRemoteReadingLists())));
-                        } else if (localRev < remoteReadingLists.rev()) {
-                            L.d("Updating local reading lists from server.");
-                            reconcileAsRightJoin(remoteReadingLists);
-                            Prefs.setReadingListSyncRev(remoteReadingLists.rev());
-                            WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
-                        } else {
-                            L.d("Local and remote reading lists are in sync.");
-                            if (isReadingListsRemoteDeletePending()) {
-                                deleteRemoteReadingLists();
-                            }
-                        }
+            public void success(@NonNull final UserInfo info) {
+                CallbackTask.execute(new CallbackTask.Task<Void>() {
+                    @Override public Void execute() throws Throwable {
+                        syncFromRemote(info);
+                        syncSavedPages();
+                        return null;
                     }
-                    syncSavedPages();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                });
             }
         });
     }
@@ -112,18 +80,51 @@ public class ReadingListSynchronizer {
         WikipediaApp.getInstance().startService(new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
     }
 
+    private synchronized void syncFromRemote(@NonNull UserInfo info) {
+        long localRev = Prefs.getReadingListSyncRev();
+        RemoteReadingLists remoteReadingLists = null;
+
+        for (UserOption option : info.userjsOptions()) {
+            if (READING_LISTS_SYNC_OPTION.equals(option.key())) {
+                remoteReadingLists = GsonUnmarshaller
+                        .unmarshal(RemoteReadingLists.class, option.val());
+            }
+        }
+
+        if ((remoteReadingLists == null) || (remoteReadingLists.rev() < localRev)) {
+            if (localRev == 0) {
+                // If this is the first time we're syncing, bump the rev explicitly.
+                bumpRev();
+            }
+            L.d("Pushing local reading lists to server.");
+            UserOptionDataClientSingleton.instance().post(new UserOption(READING_LISTS_SYNC_OPTION,
+                            GsonMarshaller.marshal(makeRemoteReadingLists())), null);
+        } else if (localRev < remoteReadingLists.rev()) {
+            L.d("Updating local reading lists from server.");
+            reconcileAsRightJoin(remoteReadingLists);
+            Prefs.setReadingListSyncRev(remoteReadingLists.rev());
+            WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
+        } else {
+            L.d("Local and remote reading lists are in sync.");
+            if (isReadingListsRemoteDeletePending()) {
+                deleteRemoteReadingLists();
+            }
+        }
+    }
+
     private void deleteRemoteReadingLists() {
         CallbackTask.execute(new CallbackTask.Task<Void>() {
             @Override public Void execute() throws Throwable {
-                UserOptionDataClientSingleton.instance().post(new UserOption(READING_LISTS_SYNC_OPTION, null));
+                UserOptionDataClientSingleton.instance().post(new UserOption(READING_LISTS_SYNC_OPTION, null),
+                        new DefaultUserOptionDataClient.UserOptionPostCallback() {
+                            @Override public void success() {
+                                Prefs.setReadingListsRemoteDeletePending(false);
+                            }
+
+                            @Override public void failure(Throwable t) {
+                            }
+                        });
                 return null;
-            }
-        }, new CallbackTask.Callback<Void>() {
-            @Override public void success(Void result) {
-                Prefs.setReadingListsRemoteDeletePending(false);
-            }
-            @Override public void failure(Throwable caught) {
-                L.e("Failed to delete remote reading lists", caught);
             }
         });
     }
