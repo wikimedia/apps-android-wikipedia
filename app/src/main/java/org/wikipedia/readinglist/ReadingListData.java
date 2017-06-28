@@ -149,6 +149,15 @@ public final class ReadingListData {
         }, callback);
     }
 
+    public void titlesNotInListAsync(@NonNull final String listKey, @NonNull final List<String> keys,
+                                     @NonNull CallbackTask.Callback<List<String>> callback) {
+        CallbackTask.execute(new CallbackTask.Task<List<String>>() {
+            @Override public List<String> execute() throws Throwable {
+                return titlesNotInList(listKey, keys);
+            }
+        }, callback);
+    }
+
     public synchronized void saveListInfo(@NonNull ReadingList list) {
         listClient().persist(list);
     }
@@ -178,6 +187,24 @@ public final class ReadingListData {
             ReadingListPageDao.instance().upsert(page);
         }
     }
+
+
+    private synchronized List<String> titlesNotInList(@NonNull String listKey, @NonNull List<String> keys) {
+        Cursor cursor = ReadingListPageDao.instance().pages(keys);
+        List<String> result = new ArrayList<>();
+        try {
+            while (cursor.moveToNext()) {
+                ReadingListPage page = ReadingListPage.fromCursor(cursor);
+                if (!page.listKeys().contains(listKey)) {
+                    result.add(page.key());
+                }
+            }
+            return result;
+        } finally {
+            cursor.close();
+        }
+    }
+
 
     @Nullable
     private synchronized ReadingListPage findPageInAnyList(String key) {

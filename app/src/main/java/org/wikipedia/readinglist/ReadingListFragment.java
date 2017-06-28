@@ -777,7 +777,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     finishActionMode();
                     return true;
                 case R.id.menu_add_to_another_list:
-                    // addSelectedPagesToList();
+                    addSelectedPagesToList();
                     finishActionMode();
                     return true;
                 default:

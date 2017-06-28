@@ -31,7 +31,9 @@ import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     public enum InvokeSource implements EnumCode {
@@ -229,8 +231,9 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
         if (titles.size() == 1) {
             addAndDismiss(readingList, titles.get(0));
+            return;
         }
-        /*final Map<String, ReadingListPage> pages = new HashMap<>();
+        final Map<String, ReadingListPage> pages = new HashMap<>();
         for (PageTitle title : titles) {
             ReadingListPage page = findOrCreatePage(readingList, title);
             pages.put(page.key(), page);
@@ -257,7 +260,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     dismiss();
                 }
             }
-        });*/
+        });
     }
 
     private void showViewListSnackBar(@NonNull final ReadingList readingList, @NonNull String message) {

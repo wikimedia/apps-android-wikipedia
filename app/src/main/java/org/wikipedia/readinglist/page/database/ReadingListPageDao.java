@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.CallbackTask;
@@ -21,6 +22,8 @@ import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
@@ -35,9 +38,13 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
     }
 
     @NonNull public Cursor page(@NonNull String key) {
+        return pages(Collections.singletonList(key));
+    }
+
+    @NonNull public Cursor pages(@NonNull List<String> keys) {
         Uri uri = ReadingListPageContract.PageWithDisk.URI;
-        String selection = Sql.SELECT_ROWS_WITH_KEY;
-        String[] selectionArgs = new String[] {key};
+        String selection = Sql.getSelectRowsWithKeysString(keys.size());
+        String[] selectionArgs = keys.toArray(new String[keys.size()]);
         String order = ReadingListPageContract.PageWithDisk.ORDER_ALPHABETICAL;
         return client().select(uri, selection, selectionArgs, order);
     }
@@ -182,12 +189,24 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         diskDao = new DiskRowDao<>(WikipediaApp.getInstance().getDatabaseClient(ReadingListPageDiskRow.class));
     }
 
-    private static class Sql {
-        private static final String SELECT_ROWS_WITH_KEY = ":keyCol == ?"
-            .replaceAll(":keyCol", ReadingListPageContract.Page.KEY.qualifiedName());
+    @VisibleForTesting static class Sql {
+        @VisibleForTesting static String getSelectRowsWithKeysString(int params) {
+            if (params < 0) {
+                throw new IllegalArgumentException();
+            }
+            if (params < 2) {
+                return ":keyCol == ?".replaceAll(":keyCol", ReadingListPageContract.Page.KEY.qualifiedName());
+            }
+            StringBuilder result = new StringBuilder(":keyCol IN (?");
+            for (int i = 2; i <= params; i++) {
+                result.append(",?");
+            }
+            result.append(")");
+            return result.toString().replaceAll(":keyCol", ReadingListPageContract.Page.KEY.qualifiedName());
+        }
 
         private static final String SELECT_ROWS_WITH_LIST_KEY = "',' || :listKeyCol || ',' like '%,' || ? || ',%'"
-             .replaceAll(":listKeyCol", ReadingListPageContract.Page.LIST_KEYS.qualifiedName());
+            .replaceAll(":listKeyCol", ReadingListPageContract.Page.LIST_KEYS.qualifiedName());
 
         private static String SELECT_ROWS_PENDING_DISK_TRANSACTION = ":transactionIdCol == :noTransactionId"
             .replaceAll(":transactionIdCol", ReadingListPageContract.DiskWithPage.DISK_TRANSACTION_ID.qualifiedName())
