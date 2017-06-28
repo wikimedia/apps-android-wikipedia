@@ -96,33 +96,6 @@ public class Page {
         return getTitle().namespace() == Namespace.MAIN;
     }
 
-    @Override public boolean equals(Object o) {
-        if (!(o instanceof Page)) {
-            return false;
-        }
-
-        Page other = (Page) o;
-        return title.equals(other.title)
-                && sections.equals(other.sections)
-                && pageProperties.equals(other.pageProperties);
-    }
-
-    @Override public int hashCode() {
-        int result = title.hashCode();
-        result = 31 * result + sections.hashCode();
-        result = 31 * result + pageProperties.hashCode();
-        return result;
-    }
-
-    @Override public String toString() {
-        return "Page{"
-                + "title=" + title
-                + ", sections=" + sections
-                + ", pageProperties=" + pageProperties
-                + ", version=" + version
-                + '}';
-    }
-
     public boolean isFilePage() {
         return title.isFilePage();
     }
