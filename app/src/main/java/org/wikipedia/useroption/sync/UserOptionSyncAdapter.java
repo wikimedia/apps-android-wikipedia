@@ -14,8 +14,8 @@ import org.wikipedia.database.http.HttpStatus;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.useroption.database.UserOptionRow;
-import org.wikipedia.useroption.dataclient.DefaultUserOptionDataClient;
 import org.wikipedia.useroption.dataclient.UserInfo;
+import org.wikipedia.useroption.dataclient.UserOptionDataClient;
 import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
 import org.wikipedia.util.log.L;
 
@@ -46,7 +46,7 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     private synchronized void download() {
-        UserOptionDataClientSingleton.instance().get(new DefaultUserOptionDataClient.UserInfoCallback() {
+        UserOptionDataClientSingleton.instance().get(new UserOptionDataClient.UserInfoCallback() {
             @Override
             public void success(@NonNull UserInfo userInfo) {
                 Collection<UserOption> options = userInfo.userjsOptions();
@@ -60,7 +60,7 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
         final List<UserOptionRow> rows = new ArrayList<>(UserOptionDao.instance().startTransaction());
         while (!rows.isEmpty()) {
             final UserOptionRow row = rows.remove(0);
-            uploadSingle(row, new DefaultUserOptionDataClient.UserOptionPostCallback() {
+            uploadSingle(row, new UserOptionDataClient.UserOptionPostCallback() {
                 @Override public void success() {
                     UserOptionDao.instance().completeTransaction(row);
                 }
@@ -72,7 +72,7 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     private void uploadSingle(@NonNull UserOptionRow row,
-                              @NonNull DefaultUserOptionDataClient.UserOptionPostCallback callback) {
+                              @NonNull UserOptionDataClient.UserOptionPostCallback callback) {
         if (row.status() == HttpStatus.DELETED) {
             L.i("deleting user option: " + row.key());
             UserOptionDataClientSingleton.instance().delete(row.key(), callback);

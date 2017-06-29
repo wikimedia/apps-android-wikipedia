@@ -21,7 +21,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public class DefaultUserOptionDataClient {
+public class UserOptionDataClient {
     @NonNull private final WikiSite wiki;
     @NonNull private final Service service;
 
@@ -34,7 +34,7 @@ public class DefaultUserOptionDataClient {
         void failure(Throwable t);
     }
 
-    public DefaultUserOptionDataClient(@NonNull WikiSite wiki) {
+    public UserOptionDataClient(@NonNull WikiSite wiki) {
         this.wiki = wiki;
         service = RetrofitFactory.newInstance(wiki).create(Service.class);
     }

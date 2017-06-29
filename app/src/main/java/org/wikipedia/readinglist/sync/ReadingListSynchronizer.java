@@ -19,8 +19,8 @@ import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.useroption.UserOption;
-import org.wikipedia.useroption.dataclient.DefaultUserOptionDataClient;
 import org.wikipedia.useroption.dataclient.UserInfo;
+import org.wikipedia.useroption.dataclient.UserOptionDataClient;
 import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -62,7 +62,7 @@ public class ReadingListSynchronizer {
             L.d("Skipped sync of reading lists.");
             return;
         }
-        UserOptionDataClientSingleton.instance().get(new DefaultUserOptionDataClient.UserInfoCallback() {
+        UserOptionDataClientSingleton.instance().get(new UserOptionDataClient.UserInfoCallback() {
             @Override
             public void success(@NonNull final UserInfo info) {
                 CallbackTask.execute(new CallbackTask.Task<Void>() {
@@ -116,7 +116,7 @@ public class ReadingListSynchronizer {
         CallbackTask.execute(new CallbackTask.Task<Void>() {
             @Override public Void execute() throws Throwable {
                 UserOptionDataClientSingleton.instance().post(new UserOption(READING_LISTS_SYNC_OPTION, null),
-                        new DefaultUserOptionDataClient.UserOptionPostCallback() {
+                        new UserOptionDataClient.UserOptionPostCallback() {
                             @Override public void success() {
                                 Prefs.setReadingListsRemoteDeletePending(false);
                             }

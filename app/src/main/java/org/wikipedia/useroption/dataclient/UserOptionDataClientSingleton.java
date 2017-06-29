@@ -3,18 +3,18 @@ package org.wikipedia.useroption.dataclient;
 import org.wikipedia.dataclient.WikiSite;
 
 public final class UserOptionDataClientSingleton {
-    public static DefaultUserOptionDataClient instance() {
+    public static UserOptionDataClient instance() {
         return LazyHolder.INSTANCE;
     }
 
     private UserOptionDataClientSingleton() { }
 
     private static class LazyHolder {
-        private static final DefaultUserOptionDataClient INSTANCE = instance();
+        private static final UserOptionDataClient INSTANCE = instance();
 
-        private static DefaultUserOptionDataClient instance() {
+        private static UserOptionDataClient instance() {
             WikiSite wiki = new WikiSite("meta.wikimedia.org", "");
-            return new DefaultUserOptionDataClient(wiki);
+            return new UserOptionDataClient(wiki);
         }
     }
 }
