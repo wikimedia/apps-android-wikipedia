@@ -280,7 +280,7 @@
   <string name="reading_lists_onboarding_for_example">Pikeun conto</string>
   <string name="reading_lists_onboarding_example1">Tempat sorangkeuneun</string>
   <string name="reading_lists_onboarding_example2">Sato karesep</string>
-  <string name="reading_lists_onboarding_example3">Jomantara!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Jomantara!</string>
   <string name="reading_lists_onboarding_got_it">Ngarti</string>
   <string name="reading_list_no_description">Tanpa pedaran...</string>
   <string name="reading_list_empty">Anjeun teu mibanda artikel nu ditambahkeun ka ieu daptar.</string>

@@ -249,7 +249,7 @@
   <string name="reading_lists_onboarding_for_example">Мәҫәлән</string>
   <string name="reading_lists_onboarding_example1">Барыу урындары</string>
   <string name="reading_lists_onboarding_example2">Яратҡан хайуандар</string>
-  <string name="reading_lists_onboarding_example3">Йыһан!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Йыһан!</string>
   <string name="reading_lists_onboarding_got_it">Аңланым</string>
   <string name="user_option_sync_label">Көйләүҙәр</string>
 </resources>

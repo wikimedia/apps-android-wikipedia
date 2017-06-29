@@ -263,7 +263,7 @@
   <string name="reading_lists_onboarding_for_example">उदाहरणका लागि</string>
   <string name="reading_lists_onboarding_example1">भ्रमण गर्ने ठाउँहरू</string>
   <string name="reading_lists_onboarding_example2">मनपर्ने जनावरहरू</string>
-  <string name="reading_lists_onboarding_example3">अन्तरिक्ष!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">अन्तरिक्ष!</string>
   <string name="reading_lists_onboarding_got_it">मैले बुझेँ</string>
   <string name="reading_list_add_to_other_list">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="reading_list_remove_from_list">%s बाट हटाउनुहोस्</string>

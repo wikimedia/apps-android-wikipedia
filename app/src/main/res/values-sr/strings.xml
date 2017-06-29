@@ -291,7 +291,7 @@
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посету</string>
   <string name="reading_lists_onboarding_example2">Омиљене животиње</string>
-  <string name="reading_lists_onboarding_example3">Свемир!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Свемир!</string>
   <string name="reading_lists_onboarding_got_it">Разумем</string>
   <string name="reading_list_no_description">Нема описа...</string>
   <string name="reading_list_empty">Немате чланака додатих на овај списак.</string>

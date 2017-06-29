@@ -254,7 +254,7 @@
   <string name="reading_lists_onboarding_for_example">مثلاً</string>
   <string name="reading_lists_onboarding_example1">دیکھنے کے مقامات</string>
   <string name="reading_lists_onboarding_example2">پسندیدہ جانور</string>
-  <string name="reading_lists_onboarding_example3">فضائے بسیط!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">فضائے بسیط!</string>
   <string name="reading_lists_onboarding_got_it">سمجھ گیا</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="view_continue_reading_card_title">پڑھنا جاری یکھیں</string>

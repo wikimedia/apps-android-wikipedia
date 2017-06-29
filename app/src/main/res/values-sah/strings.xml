@@ -231,6 +231,7 @@
   <string name="button_add_to_reading_list">Ааҕыы испииһэгэр эп</string>
   <string name="page_offline_notice_cannot_load_while_offline">Интэриниэтэ суох кыайан хачайдаммат ыстатыйа эбит.</string>
   <string name="page_offline_notice_add_to_reading_list">Ыстатыйаны ааҕар испииһэккэр киллэрдэххинэ, ситим баар буолла да хачайданыа.</string>
+  <string name="page_offline_notice_last_date" fuzzy="true">Эн биллибэт автор статьятын ааҕаҕыт %s</string>
   <string name="button_get_directions">Суолу салҕаа</string>
   <string name="error_no_maps_app">Суолу хайар биир да баайыл көстүбэтэ.</string>
   <string name="preference_title_show_link_previews">Сигэлэри эрдэ көрдөрүүнү холбоо</string>
@@ -299,7 +300,7 @@
   <string name="reading_lists_onboarding_for_example">Холобур</string>
   <string name="reading_lists_onboarding_example1">Сылдьыллыахтаах сирдэр</string>
   <string name="reading_lists_onboarding_example2">Сөбүлүүр кыылларым</string>
-  <string name="reading_lists_onboarding_example3">Космос куйаара!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Космос куйаара!</string>
   <string name="reading_lists_onboarding_got_it">Бу өйдөнөр</string>
   <string name="reading_list_no_description">Бу туһунан суох...</string>
   <string name="reading_list_empty">Испииһэккэ эбиллибит ыстатыйа суох эбит.</string>
@@ -313,12 +314,13 @@
   <string name="reading_list_remove_from_lists">Ааҕар испииһэктэртэн сот</string>
   <string name="reading_list_confirm_remove_article_from_offline">оффлайн эрэhиимин сотторуу</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Ыстатыйа хас да5аны испиhиэккэ кестер</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message" fuzzy="true">%s тутулуга суох эрэhиимнэ аны аha5aha суох буолар</string>
   <string name="reading_list_sync_reminder_title">Ааҕар испиhиэк мэнэйдэhиитэ араҕыста</string>
   <string name="reading_list_sync_reminder_text">Эhиги ааҕар испиhиэккитин приложения туруоруутугар көҥүл биэрдэххитинэ бикипиэдьийэҕэ баар бэлиэтэммит ааккыт мэнэйдэhиэн сөп</string>
   <string name="reading_list_sync_reminder_action">холбоо</string>
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
   <string name="reading_list_login_reminder_text">Эhиги аа5ар испиhиэккит Бикипиэдьийэ5э учуоттууп суруккутугар хаалар. Учуоттуур суруккар киир уонна эьиги аа5ар испиьиэккит мэнэйдэьиниэ</string>
-  <string name="reading_lists_confirm_remote_delete">Бу эрдэ мэнэйдэһинниллибит ааҕар испиһиэккитин сотторон кээһэр. Салгыыбын?\n\n\n\nЭто приведет к удалению любых ранее синхронизированных списков чтения из удаленного хранилища. Продолжить?</string>
+  <string name="reading_lists_confirm_remote_delete">Бу эрдэ мэнэйдэһинниллибит ааҕар испиһиэккитин сотторон кээһэр. Салгыыбын? Это приведет к удалению любых ранее синхронизированных списков чтения из удаленного хранилища. Продолжить?</string>
   <string name="user_option_sync_label">Туруоруулар</string>
   <string name="notification_button_view_user">Кыттааччыга сурук</string>
   <string name="notification_talk_title">Бикипиэдьийэҕэ саҥа сурук</string>

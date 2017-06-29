@@ -286,7 +286,7 @@
   <string name="reading_lists_onboarding_for_example">مثال طور</string>
   <string name="reading_lists_onboarding_example1">گھمڻ جون جڳھون</string>
   <string name="reading_lists_onboarding_example2">پسنديده جانور</string>
-  <string name="reading_lists_onboarding_example3">پولار!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">پولار!</string>
   <string name="reading_lists_onboarding_got_it">سمجھي ويئو</string>
   <string name="reading_list_no_description">تشريح ناھي...</string>
   <string name="reading_list_empty">ھن فھرست ۾ ڪي بہ مضمون وڌل ناھن.</string>

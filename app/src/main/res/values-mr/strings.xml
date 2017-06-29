@@ -255,7 +255,7 @@
   <string name="reading_lists_onboarding_for_example">उदाहरणार्थ</string>
   <string name="reading_lists_onboarding_example1">भेट द्यावयाची स्थाने</string>
   <string name="reading_lists_onboarding_example2">आवडते पशू</string>
-  <string name="reading_lists_onboarding_example3">अंतराळ!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">अंतराळ!</string>
   <string name="reading_lists_onboarding_got_it">समजले</string>
   <string name="user_option_sync_label">पसंतीक्रम</string>
   <string name="view_continue_reading_card_title">वाचन सुरू ठेवा</string>

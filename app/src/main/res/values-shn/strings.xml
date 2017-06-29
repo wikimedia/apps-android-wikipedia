@@ -291,7 +291,7 @@
   <string name="reading_lists_onboarding_for_example">တူဝ်ယၢင်ႇ</string>
   <string name="reading_lists_onboarding_example1">ဢွင်ႈတီႈ တႃႇ ၶဝ်ႈတူၺ်း</string>
   <string name="reading_lists_onboarding_example2">တူဝ်သတ်း ၸိူဝ်းလႆႈၸႂ်</string>
-  <string name="reading_lists_onboarding_example3">ဢွင်ႈတီႈ!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">ဢွင်ႈတီႈ!</string>
   <string name="reading_lists_onboarding_got_it">လႆႈယဝ်ႉ။</string>
   <string name="reading_list_no_description">ဢမ်ႇမီး ၶေႃႈသပ်းလႅင်း...</string>
   <string name="reading_list_empty">ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးပွင်ႈလိၵ်ႈ တွၼ်ႈတႃႇထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆဢၼ်ၼႆႉ။</string>

@@ -284,7 +284,7 @@
   <string name="reading_lists_onboarding_for_example">যেনে</string>
   <string name="reading_lists_onboarding_example1">চাবলগীয়া ঠাই</string>
   <string name="reading_lists_onboarding_example2">পছন্দৰ জীৱ-জন্তু</string>
-  <string name="reading_lists_onboarding_example3">মহাকাশ!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">মহাকাশ!</string>
   <string name="reading_lists_onboarding_got_it">বুজিছোঁ</string>
   <string name="reading_list_no_description">কোনো বিৱৰণ নাই...</string>
   <string name="reading_list_empty">এই তালিকাত আপুনি কোনো প্ৰবন্ধ যোগ কৰা নাই।</string>

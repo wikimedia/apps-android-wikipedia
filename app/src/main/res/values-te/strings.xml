@@ -203,7 +203,7 @@
   <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
   <string name="reading_lists_onboarding_example1">చూడాల్సిన ప్రదేశాలు</string>
   <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>
-  <string name="reading_lists_onboarding_example3">అంతరిక్షం!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">అంతరిక్షం!</string>
   <string name="reading_lists_onboarding_got_it">అర్థమైంది</string>
   <string name="reading_list_no_description">వివరణ లేదు…</string>
   <string name="user_option_sync_label">అభిరుచులు</string>

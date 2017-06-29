@@ -288,7 +288,7 @@
   <string name="reading_lists_onboarding_for_example">Наприклад</string>
   <string name="reading_lists_onboarding_example1">Місця для відвідування</string>
   <string name="reading_lists_onboarding_example2">Улюблені тварини</string>
-  <string name="reading_lists_onboarding_example3">Космос!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Космос!</string>
   <string name="reading_lists_onboarding_got_it">Зрозуміло</string>
   <string name="reading_list_no_description">Немає опису...</string>
   <string name="reading_list_empty">У Вас немає статей, доданих до цього списку</string>

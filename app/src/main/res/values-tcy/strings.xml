@@ -189,7 +189,7 @@
   <string name="reading_lists_onboarding_for_example">ಉದಾಹರಣೆಗ್</string>
   <string name="reading_lists_onboarding_example1">ಪೊವಾಡಯಿನಾ ಜಾಗೆಲು</string>
   <string name="reading_lists_onboarding_example2">ಇಸ್ಟೊದಾ ಮೃಗೋಕುಲು</string>
-  <string name="reading_lists_onboarding_example3">ಬಾನೋ!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">ಬಾನೋ!</string>
   <string name="reading_lists_onboarding_got_it">ಗೊತ್ತಂಡು</string>
   <string name="user_option_sync_label">ಪ್ರಾಶಸ್ತ್ಯೊಲು</string>
   <string name="notification_button_view_user">ಗಲಸುನರೇಡಾ ಪಾತೆರ್ಲೆ</string>

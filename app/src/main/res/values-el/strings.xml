@@ -216,7 +216,7 @@
   <string name="reading_list_deleted">Διεγράφη η %s</string>
   <string name="reading_lists_onboarding_for_example">Παραδείγματος χάριν</string>
   <string name="reading_lists_onboarding_example2">Αγαπημένα ζώα</string>
-  <string name="reading_lists_onboarding_example3">Το διάστημα!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Το διάστημα!</string>
   <string name="reading_lists_onboarding_got_it">Κατάλαβα</string>
   <string name="reading_list_no_description">Χωρίς περιγραφή...</string>
   <string name="reading_list_article_not_offline_message">Αυτό το άρθρο δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</string>

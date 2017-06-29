@@ -238,7 +238,7 @@
   <string name="reading_lists_onboarding_for_example">ਮਿਸਾਲ ਦੇ ਤੌਰ \'ਤੇ</string>
   <string name="reading_lists_onboarding_example1">ਦੌਰਾ ਕਰਨ ਲਈ ਸਥਾਨ</string>
   <string name="reading_lists_onboarding_example2">ਪਸੰਦੀਦਾ ਜਾਨਵਰ</string>
-  <string name="reading_lists_onboarding_example3">ਖਾਲੀ ਥਾਂ</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">ਖਾਲੀ ਥਾਂ</string>
   <string name="reading_lists_onboarding_got_it">ਸਮਝ ਗਿਆ</string>
   <string name="user_option_sync_label">ਤਰਜੀਹਾਂ</string>
   <string name="view_continue_reading_card_title">ਪੜ੍ਹਦੇ ਰਹੋ</string>

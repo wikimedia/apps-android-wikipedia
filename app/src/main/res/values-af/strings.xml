@@ -275,7 +275,7 @@
   <string name="reading_lists_onboarding_for_example">Byvoorbeeld</string>
   <string name="reading_lists_onboarding_example1">Plekke om te besoek</string>
   <string name="reading_lists_onboarding_example2">Gunstelingdiere</string>
-  <string name="reading_lists_onboarding_example3">Ruimte!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Ruimte!</string>
   <string name="reading_lists_onboarding_got_it">Het dit</string>
   <string name="reading_list_no_description">Geen beskrywing…</string>
   <string name="reading_list_empty">U het geen artikels tot hierdie lys toegevoeg nie.</string>

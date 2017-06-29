@@ -90,6 +90,10 @@
   <string name="delete_selected_items">حذف آیتم‌های انتخاب شده</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
+  <string name="login_dont_have_account">حساب کاربری ندارید؟</string>
+  <string name="login_join_wikipedia">به ویکی‌پدیا بپیوندید</string>
+  <string name="login_forgot_password">گذرواژه‌تان را فراموش کردید؟</string>
+  <string name="create_account_already_have">حساب کاربری دارید؟</string>
   <string name="create_account_login_link">حساب کاربری دارید؟ وارد شوید.</string>
   <string name="login_create_account_link">ایجاد حساب کاربری</string>
   <string name="create_account_activity_title">ایجاد حساب کاربری</string>
@@ -267,6 +271,8 @@
   <string name="color_theme_select">پوسته</string>
   <string name="color_theme_light">روشن</string>
   <string name="color_theme_dark">تیره</string>
+  <string name="preference_title_color_theme">سبک تیره</string>
+  <string name="preference_summary_color_theme">سویچ به سبک با رنگ تیره</string>
   <string name="nav_item_reading_lists">فهرست‌های من</string>
   <string name="reading_list_untitled">بدون عنوان</string>
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
@@ -302,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">برای مثال</string>
   <string name="reading_lists_onboarding_example1">مکان برای مشاهده</string>
   <string name="reading_lists_onboarding_example2">حیوانات مورد علاقه</string>
-  <string name="reading_lists_onboarding_example3">فضا!</string>
+  <string name="reading_lists_onboarding_example3">کاوش فضا</string>
   <string name="reading_lists_onboarding_got_it">گرفتم</string>
   <string name="reading_list_no_description">بدون توصیف...</string>
   <string name="reading_list_empty">مقاله‌ای به فهرست نیافزوید.</string>
@@ -323,6 +329,7 @@
   <string name="reading_list_login_reminder_title">همسازسازی فهرست‌های مطالعه</string>
   <string name="reading_list_login_reminder_text">فهرست مطالعهٔ شما ممکن است در حساب کاربری شما در ویکی‌پدیا ذخیره شده باشد. با وارد شدن به حساب کاربریتان به راحتی می‌توانید آن را به صورت خودکار همساز کنید.</string>
   <string name="reading_lists_confirm_remote_delete">اینکار فهرست‌های مطالعه‌ای که همساز کردید را حذف می‌کند. انجام شود؟</string>
+  <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_button_view_user">بحث با کاربر</string>
   <string name="notification_talk_title">پیام جدید در ویکی‌پدیا</string>
@@ -396,4 +403,17 @@
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>
   <string name="description_edit_revert_reason2">مشارکت شما شبیه یک تمرین یا خرابکاریست.</string>
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
+  <string name="onboarding_skip">رها کردن</string>
+  <string name="onboarding_continue">ادامه</string>
+  <string name="onboarding_get_started">شروع شد</string>
+  <string name="onboarding_explore_title">روش‌های جدید برای کاوش</string>
+  <string name="onboarding_explore_text">کاوش خصوصیات مقالات، رتبه موضوعات و خواندن پیشنهادها در بازخورد کاوش.</string>
+  <string name="onboarding_reading_list_sync_title">مطالعهٔ فهرست با همسان‌سازی</string>
+  <string name="onboarding_reading_list_sync_text">ایجاد فهرست‌های مطالعه از مقالاتی که شما قصد مطالعهٔ آنها را برای بعدا دارید، با وجودی که آفلاین هستید &lt;a href=\"#login\"&gt;به سامانه وارد شوید&lt;/a&gt; یا حساب کاربری ویکی‌پدیا ایجاد کنید تا از فهرست‌های خواند پشتیبانی داشته باشید.</string>
+  <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
+  <string name="onboarding_analytics_text">برای بهتر شدن کیفیت اپلیکیشن به ما اجازه دهید تا ببنیم چگونه از اپلیکیشن استفاده می‌کنید. داده‌ها به صورت ناشناس جمع‌آوری می‌شوند. &lt;a href=\"#privacy\"&gt;برای مطالعهٔ بیشتر&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">ارسال داده مصرفی</string>
+  <string name="onboarding_create_account_sync">همسازسازی فهرست‌های مطالعه شما</string>
+  <string name="onboarding_create_account_contributions">پیگیری ویرایش‌هایتان</string>
+  <string name="onboarding_create_account_preferences">ذخیره ترجیحاتتان</string>
 </resources>

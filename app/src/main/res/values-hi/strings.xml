@@ -90,6 +90,10 @@
   <string name="delete_selected_items">चयनित आइटम डिलीट करें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
+  <string name="login_dont_have_account">खाता नहीं है?</string>
+  <string name="login_join_wikipedia">विकिपीडिया के साथ जुड़ें</string>
+  <string name="login_forgot_password">क्या आप पासवर्ड भूल गए?</string>
+  <string name="create_account_already_have">पहले से ही अकाउंट है? $1</string>
   <string name="create_account_login_link">पहले से खाता रखते हो? लॉग-इन</string>
   <string name="login_create_account_link">क्या अभी तक खाता नहीं है? विकिपीडिया में शामिल हों</string>
   <string name="create_account_activity_title">खाता बनायें</string>
@@ -99,6 +103,7 @@
   <string name="create_account_passwords_mismatch_error">कूटशब्द (पासवर्ड) समान नहीं हैं</string>
   <string name="create_account_email_error">अवैध ईमेल पता</string>
   <string name="create_account_username_error">सदस्यनाम में अमान्य अक्षर</string>
+  <string name="create_account_password_error">ये पासवर्ड गलत है</string>
   <string name="create_account_generic_error">खाता नहीं बन सका।</string>
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>
@@ -119,6 +124,9 @@
   <string name="edit_preview_fetching_dialog_message">प्रीव्यू लाया जा रहा है…</string>
   <string name="send_feedback">एप फीडबैक भेजें</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
+  <string name="preferences_heading_storage_and_syncing">स्टोरेज और सिंक</string>
+  <string name="preference_title_sync_reading_lists">\nअपनी पठन सूचियों को सिंक करें</string>
+  <string name="preference_summary_sync_reading_lists">लोग-इन होते ही विकिपीडिया पठन सूचियां सिंक कर सके, इसकी अनुमति दें</string>
   <string name="preferences_privacy_settings_heading">गोपनियता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजें</string>
   <string name="preference_summary_eventlogging_opt_in">विकिमीडिया को जानकारी इकट्ठा करने की अनुमति दें कि आप कैसे एप को प्रयोग करते हैं ताकि एप को बेहतर बनाया जा सके</string>
@@ -261,6 +269,8 @@
   <string name="color_theme_select">थीम</string>
   <string name="color_theme_light">हल्का</string>
   <string name="color_theme_dark">गहरा</string>
+  <string name="preference_title_color_theme">अँधेरी थीम</string>
+  <string name="preference_summary_color_theme">अँधेरी थीम लगाएं</string>
   <string name="nav_item_reading_lists">मेरी सूचियां</string>
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
@@ -296,7 +306,7 @@
   <string name="reading_lists_onboarding_for_example">उदाहरण के लिए</string>
   <string name="reading_lists_onboarding_example1">जाने के स्थान</string>
   <string name="reading_lists_onboarding_example2">पसंदीदा पशु</string>
-  <string name="reading_lists_onboarding_example3">ब्रह्माण्ड!</string>
+  <string name="reading_lists_onboarding_example3">ब्रह्माण्ड अन्वेषण</string>
   <string name="reading_lists_onboarding_got_it">समझ गया</string>
   <string name="reading_list_no_description">कोई विवरण नहीं...</string>
   <string name="reading_list_empty">आपके पास इस सूची में कोई लेख नहीं जुड़े हुए हैं।</string>
@@ -311,6 +321,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">ऑफलाइन से हटायें</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">लेख एक से अधिक सूचियों में है</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s सभी ऑफलाइन रीडिंग लिस्ट में आगे उपलब्ध नहीं होगा</string>
+  <string name="reading_list_sync_reminder_title">पठान सूची का सिंक बंद है</string>
+  <string name="reading_list_sync_reminder_text">अगर आप ऍप सेटिंग्स में सिंक चालू कर दें तो आपकी पठन सूचियां विकिपीडिया अकाउंट से सिंक की जा सकेंगी</string>
+  <string name="reading_list_sync_reminder_action">चालू करें</string>
+  <string name="reading_list_login_reminder_title">\nअपनी पठन सूचियों को सिंक करें</string>
+  <string name="reading_list_login_reminder_text">अब आपकी पठन सूचियॉँ आपके विकिपीडिया अकाउंट पर सहेजी जा सकती हैं। बस अपने अकाउंट पर लोग-इन करिये और आपकी पठन सूचियां स्वतः ही सिंक हो जाएँगी।</string>
+  <string name="reading_lists_confirm_remote_delete">इससे आपकी, दूरस्थ स्टोरेज पर, पुरानी सिंक की हुयी सूचियाँ नष्ट हो जाएँगी। आगे बढ़ें?</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_button_view_user">सदस्य से बात करें</string>
   <string name="notification_talk_title">विकिपीडिया पर नया सन्देश</string>
@@ -384,4 +400,10 @@
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
   <string name="description_edit_revert_reason2">आपका संपादन एक परिक्षण या बर्बरता जैसा लगा।</string>
   <string name="description_edit_revert_history">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>
+  <string name="onboarding_skip">छोड़ें</string>
+  <string name="onboarding_continue">जारी रहना</string>
+  <string name="onboarding_get_started">शुरू करें</string>
+  <string name="onboarding_explore_title">अन्वेषण के नए तरीके</string>
+  <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
+  <string name="onboarding_create_account_sync">\nअपनी पठन सूचियों को सिंक करें</string>
 </resources>

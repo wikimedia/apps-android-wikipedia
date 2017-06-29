@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посета</string>
   <string name="reading_lists_onboarding_example2">Омилени животни</string>
-  <string name="reading_lists_onboarding_example3">Вселена!</string>
+  <string name="reading_lists_onboarding_example3">Истражување на вселената</string>
   <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="reading_list_no_description">Нема опис...</string>
   <string name="reading_list_empty">Немате ставено статии во списоков.</string>
@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
   <string name="reading_list_login_reminder_text">Вашите списоци за читање може сега може да се зачуваат во вашата сметка на Википедија. Просто најавете се со сметката и списоците сами ќе се усогласат.</string>
   <string name="reading_lists_confirm_remote_delete">Со ова ќе ги избришете претходно усогласените списоци за читање од далечинскиот склад. Да продолжам?</string>
+  <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>

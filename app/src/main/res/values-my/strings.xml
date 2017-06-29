@@ -282,7 +282,7 @@
   <string name="reading_lists_onboarding_for_example">နမူနာအားဖြင့်</string>
   <string name="reading_lists_onboarding_example1">လည်ပတ်ရန် နေရာများ</string>
   <string name="reading_lists_onboarding_example2">အနှစ်သက်ဆုံး တိရစ္ဆာန်များ</string>
-  <string name="reading_lists_onboarding_example3">အာကာသ!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">အာကာသ!</string>
   <string name="reading_lists_onboarding_got_it">ရပြီဟေ့</string>
   <string name="reading_list_no_description">ဖော်ပြချက် မရှိ</string>
   <string name="reading_list_empty">ဤစာရင်း၌ သင်ပေါင်းထည့်ထားသော ဆောင်းပါးမရှိပါ</string>

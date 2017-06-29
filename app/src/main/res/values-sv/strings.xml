@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
   <string name="reading_lists_onboarding_example1">Platser att besöka</string>
   <string name="reading_lists_onboarding_example2">Favoritdjur</string>
-  <string name="reading_lists_onboarding_example3">Rymden!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Rymden!</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="reading_list_no_description">Ingen beskrivning...</string>
   <string name="reading_list_empty">Du har inte lagt till några artiklar i denna lista.</string>
