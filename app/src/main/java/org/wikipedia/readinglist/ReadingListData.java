@@ -199,11 +199,11 @@ public final class ReadingListData {
     }
 
     private synchronized boolean listContainsTitle(@NonNull String listKey, @NonNull String key) {
-        Cursor cursor = ReadingListPageDao.instance().pages(listKey);
+        Cursor cursor = ReadingListPageDao.instance().page(key);
         try {
-            while (cursor.moveToNext()) {
+            if (cursor.moveToFirst()) {
                 ReadingListPage page = ReadingListPage.fromCursor(cursor);
-                if (page.key().equals(key)) {
+                if (page.listKeys().contains(listKey)) {
                     return true;
                 }
             }
