@@ -263,7 +263,7 @@
   <string name="reading_lists_onboarding_for_example">Například</string>
   <string name="reading_lists_onboarding_example1">Místa k navštívení</string>
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
-  <string name="reading_lists_onboarding_example3">Vesmír!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Vesmír!</string>
   <string name="reading_lists_onboarding_got_it">Jasně</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>

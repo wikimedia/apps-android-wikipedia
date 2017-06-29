@@ -9,11 +9,13 @@
   <string name="search_hint">Пошук па Вікіпэдыі</string>
   <string name="search_hint_search_history">Шукаць у гісторыі</string>
   <string name="search_hint_search_my_lists">Пошук у маіх сьпісах</string>
+  <string name="search_hint_search_reading_list">Пошук у сьпісе для чытаньня</string>
   <string name="nav_item_history">Гісторыя</string>
   <string name="error_network_error">Не атрымліваецца далучыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паспрабаваць ізноў</string>
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Ачысьціць гісторыю</string>
+  <string name="history_item_deleted">Артыкул %s выдалены з гісторыі</string>
   <string name="page_does_not_exist_error">Гэта старонка не існуе.</string>
   <string name="dialog_title_clear_history">Ачысьціць гісторыю прагляду</string>
   <string name="dialog_message_clear_history">Гэтае дзеяньне выдаліць усю гісторыю прагляду і зачыніць усе адкрытыя ўстаўкі. Вы ўпэўнены?</string>

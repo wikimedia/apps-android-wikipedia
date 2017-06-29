@@ -219,7 +219,7 @@
   <string name="reading_lists_onboarding_for_example">För e Beijschpell</string>
   <string name="reading_lists_onboarding_example1">Pläz zom Besöhke</string>
   <string name="reading_lists_onboarding_example2">Diere</string>
-  <string name="reading_lists_onboarding_example3">Plaz!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Plaz!</string>
   <string name="user_option_sync_label">Enschtällonge</string>
   <string name="view_continue_reading_card_title">Wigger lässe</string>
   <string name="view_because_you_read_card_title">Weijl De jelässe häs</string>

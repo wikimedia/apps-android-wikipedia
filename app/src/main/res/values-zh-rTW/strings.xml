@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">舉例</string>
   <string name="reading_lists_onboarding_example1">要瀏覽的項目</string>
   <string name="reading_lists_onboarding_example2">喜愛動物</string>
-  <string name="reading_lists_onboarding_example3">太空！</string>
+  <string name="reading_lists_onboarding_example3">太空探索！</string>
   <string name="reading_lists_onboarding_got_it">知道了</string>
   <string name="reading_list_no_description">沒有描述…</string>
   <string name="reading_list_empty">未有添加至此清單的條目。</string>
@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">同步閱讀清單</string>
   <string name="reading_list_login_reminder_text">您的閱讀清單現在可被儲存至您的維基百科帳號。只要您有登入帳號，您的閱讀清單就可自動同步。</string>
   <string name="reading_lists_confirm_remote_delete">這將會刪除之前來自於遠端儲存設備的任何已同步閱讀清單。確定要處理嗎？</string>
+  <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
   <string name="user_option_sync_label">偏好設定</string>
   <string name="notification_button_view_user">與使用者對話</string>
   <string name="notification_talk_title">維基百科的新訊息</string>

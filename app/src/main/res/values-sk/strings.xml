@@ -288,7 +288,7 @@
   <string name="reading_lists_onboarding_for_example">Napríklad</string>
   <string name="reading_lists_onboarding_example1">Miesta, ktoré chcem navštíviť</string>
   <string name="reading_lists_onboarding_example2">Obľúbené zvieratá</string>
-  <string name="reading_lists_onboarding_example3">Vesmír!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Vesmír!</string>
   <string name="reading_lists_onboarding_got_it">Rozumiem</string>
   <string name="reading_list_no_description">Bez popisu...</string>
   <string name="reading_list_empty">V tomto zozname nemáte žiadne články.</string>

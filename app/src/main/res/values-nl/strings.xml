@@ -265,7 +265,7 @@
   <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>
   <string name="reading_lists_onboarding_example1">Plaatsen om te bezoeken</string>
   <string name="reading_lists_onboarding_example2">Favoriete dieren</string>
-  <string name="reading_lists_onboarding_example3">Ruimtevaart!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Ruimtevaart!</string>
   <string name="reading_lists_onboarding_got_it">Begrepen</string>
   <string name="reading_list_no_description">Geen beschrijving...</string>
   <string name="user_option_sync_label">Voorkeuren</string>

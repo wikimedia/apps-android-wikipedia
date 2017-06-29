@@ -90,6 +90,10 @@
   <string name="delete_selected_items">Desaniciar los elementos esbillaos</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome d\'usuariu</string>
+  <string name="login_dont_have_account">¿Nun tienes una cuenta?</string>
+  <string name="login_join_wikipedia">Xúnite a Wikipedia</string>
+  <string name="login_forgot_password">¿Escaecisti la contraseña?</string>
+  <string name="create_account_already_have">¿Yá tienes una cuenta?</string>
   <string name="create_account_login_link">¿Yá tienes una cuenta? Anicia sesión</string>
   <string name="login_create_account_link">¿Nun tienes una cuenta? Xúnite a Wikipedia</string>
   <string name="create_account_activity_title">Crear una cuenta</string>
@@ -267,6 +271,8 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claru</string>
   <string name="color_theme_dark">Escuru</string>
+  <string name="preference_title_color_theme">Tema escura</string>
+  <string name="preference_summary_color_theme">Camudar a la tema escura de l\'aplicación</string>
   <string name="nav_item_reading_lists">Les mios llistes</string>
   <string name="reading_list_untitled">Ensin títulu</string>
   <string name="reading_list_save_to">Guardar na llista de llectura</string>
@@ -302,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Por casu</string>
   <string name="reading_lists_onboarding_example1">Llugares que visitar</string>
   <string name="reading_lists_onboarding_example2">Animales favoritos</string>
-  <string name="reading_lists_onboarding_example3">¡L\'espaciu!</string>
+  <string name="reading_lists_onboarding_example3">Esploración del espaciu</string>
   <string name="reading_lists_onboarding_got_it">Entendílo</string>
   <string name="reading_list_no_description">Ensin descripción...</string>
   <string name="reading_list_empty">Nun añadisti artículos a esta llista.</string>
@@ -396,4 +402,17 @@
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">la to contribución paecía un esperimentu o vandalismu.</string>
   <string name="description_edit_revert_history">Si tas interesáu, consulta &lt;a href=\"%1$s\"&gt;l\'historial d\'ediciones&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Saltar</string>
+  <string name="onboarding_continue">Siguir</string>
+  <string name="onboarding_get_started">Primeros pasos</string>
+  <string name="onboarding_explore_title">Nueves maneres d\'esplorar</string>
+  <string name="onboarding_explore_text">Descubrir artículos destacaos, tendencies d\'actualidá y suxerencies na canal Esplorar.</string>
+  <string name="onboarding_reading_list_sync_title">Llistes de llectura sincronizaes</string>
+  <string name="onboarding_reading_list_sync_text">Crear llistes de llectura a partir d\'artículos que quies lleer sero, inclusive cuando teas ensin conexón. &lt;a href=\"#login\"&gt;Anicia sesión o crea&lt;/a&gt; una cuenta de Wikipedia pa tener copia de seguranza de les llistes de llectura.</string>
+  <string name="onboarding_analytics_title">Unviar datos anónimos</string>
+  <string name="onboarding_analytics_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos llograos son anónimos. &lt;a href=\"#privacy\"&gt;Lleer más&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Unviar datos d\'usu</string>
+  <string name="onboarding_create_account_sync">Sincronizar les llistes de llectura</string>
+  <string name="onboarding_create_account_contributions">Siguir el rastru a les tos contribuciones</string>
+  <string name="onboarding_create_account_preferences">Guardar les preferencies</string>
 </resources>

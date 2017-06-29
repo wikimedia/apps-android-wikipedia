@@ -258,7 +258,7 @@
   <string name="reading_lists_onboarding_for_example">Pavyzdžiui</string>
   <string name="reading_lists_onboarding_example1">Lankytinos vietos</string>
   <string name="reading_lists_onboarding_example2">Mėgstami gyvūnai</string>
-  <string name="reading_lists_onboarding_example3">Kosmosas!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Kosmosas!</string>
   <string name="reading_lists_onboarding_got_it">Supratau</string>
   <string name="reading_list_no_description">Nėra aprašymo...</string>
   <string name="reading_list_empty">Neturite pridėtų į sąrašą straipsnių.</string>

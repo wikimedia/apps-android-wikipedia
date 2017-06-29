@@ -89,6 +89,8 @@
   <string name="delete_selected_items">নির্বাচিত আইটেম অপসারণ করুন</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
+  <string name="login_join_wikipedia">উইকিপিডিয়ায় যোগ দিন</string>
+  <string name="login_forgot_password">আপনার পাসওয়ার্ড ভুলে গেছেন?</string>
   <string name="create_account_already_have">ইতিমধ্যে একটি অ্যাকাউন্ট আছে?</string>
   <string name="create_account_login_link">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? প্রবেশ করুন</string>
   <string name="login_create_account_link">কোন অ্যাকাউন্ট নেই? উইকিপিডিয়ায় যোগ দিন</string>
@@ -299,7 +301,7 @@
   <string name="reading_lists_onboarding_for_example">উদাহরণস্বরূপ</string>
   <string name="reading_lists_onboarding_example1">ভ্রমণের জন্য স্থান</string>
   <string name="reading_lists_onboarding_example2">পছন্দের পশুপাখি</string>
-  <string name="reading_lists_onboarding_example3">মহাকাশ!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">মহাকাশ!</string>
   <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
   <string name="reading_list_no_description">কোন বিবরণ নেই...</string>
   <string name="reading_list_empty">এই তালিকায় আপনি কোন নিবন্ধ যোগ করেন নি।</string>

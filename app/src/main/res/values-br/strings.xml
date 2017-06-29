@@ -292,7 +292,7 @@
   <string name="reading_lists_onboarding_for_example">Da skouer</string>
   <string name="reading_lists_onboarding_example1">Lec\'hioù da weladenniñ</string>
   <string name="reading_lists_onboarding_example2">Loened karetañ</string>
-  <string name="reading_lists_onboarding_example3">Egor !</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Egor !</string>
   <string name="reading_lists_onboarding_got_it">Kaout anezhañ</string>
   <string name="reading_list_no_description">Deskrivadur ebet...</string>
   <string name="reading_list_empty">N\'hoc\'h eus pennad ebet ouzhpennet d\'ar roll-mañ.</string>

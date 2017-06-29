@@ -304,7 +304,7 @@
   <string name="reading_lists_onboarding_for_example">Örneğin</string>
   <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>
   <string name="reading_lists_onboarding_example2">En sevilen hayvanlar</string>
-  <string name="reading_lists_onboarding_example3">Uzay!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Uzay!</string>
   <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="reading_list_no_description">Tanımlama yok...</string>
   <string name="reading_list_empty">Bu listeye eklediğiniz hiç madde yok.</string>

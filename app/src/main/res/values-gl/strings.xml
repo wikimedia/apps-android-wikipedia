@@ -90,6 +90,10 @@
   <string name="delete_selected_items">Eliminar os elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuario</string>
+  <string name="login_dont_have_account">Non tes unha conta?</string>
+  <string name="login_join_wikipedia">Unirse á Wikipedia</string>
+  <string name="login_forgot_password">Esqueciches o contrasinal?</string>
+  <string name="create_account_already_have">Xa tes unha conta?</string>
   <string name="create_account_login_link">Xa ten unha conta? Acceda ao sistema</string>
   <string name="login_create_account_link">Non ten unha conta? Únase á Wikipedia</string>
   <string name="create_account_activity_title">Crear unha conta</string>
@@ -267,6 +271,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
+  <string name="preference_title_color_theme">Tema escuro</string>
   <string name="nav_item_reading_lists">As miñas listas</string>
   <string name="reading_list_untitled">Sen título</string>
   <string name="reading_list_save_to">Gardar en lista de lectura</string>
@@ -302,7 +307,7 @@
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
-  <string name="reading_lists_onboarding_example3">O espazoǃ</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">O espazoǃ</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_no_description">Sen descrición...</string>
   <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
@@ -396,4 +401,10 @@
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">a súa contribución semella unha proba ou vandalismo.</string>
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Omitir</string>
+  <string name="onboarding_continue">Continuar</string>
+  <string name="onboarding_get_started">Comezar</string>
+  <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>
+  <string name="onboarding_create_account_sync">Sincronizar as listas de lectura</string>
+  <string name="onboarding_create_account_preferences">Gardar as preferencias</string>
 </resources>

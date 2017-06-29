@@ -235,7 +235,7 @@
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Endreits a visitar</string>
   <string name="reading_lists_onboarding_example2">Animals favorits</string>
-  <string name="reading_lists_onboarding_example3">Espaci !</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Espaci !</string>
   <string name="reading_lists_onboarding_got_it">L’obténer</string>
   <string name="user_option_sync_label">Preferéncias</string>
   <string name="notification_button_view_user">Parlar a l\'utilizaire</string>

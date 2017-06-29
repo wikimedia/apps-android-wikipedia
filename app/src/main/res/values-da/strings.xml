@@ -302,7 +302,7 @@
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder at besøge</string>
   <string name="reading_lists_onboarding_example2">Ynglingsdyr</string>
-  <string name="reading_lists_onboarding_example3">Rummet!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Rummet!</string>
   <string name="reading_lists_onboarding_got_it">Forstået</string>
   <string name="reading_list_no_description">Ingen beskrivelse...</string>
   <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>

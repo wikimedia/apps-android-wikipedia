@@ -89,6 +89,8 @@
   <string name="create_account_username_hint">Benotzernumm</string>
   <string name="login_dont_have_account">Hutt Dir kee Benotzerkont?</string>
   <string name="login_join_wikipedia">Maacht mat bei Wikipedia</string>
+  <string name="login_forgot_password">Hutt Dir Äert Passwuert vergiess?</string>
+  <string name="create_account_already_have">Hutt Dir schonn e Benotzerkont?</string>
   <string name="create_account_login_link">Hutt Dir schonn e Benotzerkont? Loggt Iech an</string>
   <string name="login_create_account_link">Hutt Dir kee Benotzerkont? Da maacht mat bei Wikipedia</string>
   <string name="create_account_activity_title">E Benotzerkont opmaachen</string>
@@ -295,7 +297,7 @@
   <string name="reading_lists_onboarding_for_example">Zum Beispill</string>
   <string name="reading_lists_onboarding_example1">Plaze fir ze besichen</string>
   <string name="reading_lists_onboarding_example2">Lieblingsdéieren</string>
-  <string name="reading_lists_onboarding_example3">Weltraum!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="reading_list_no_description">Keng Beschreiwung...</string>
   <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht dobäigesat.</string>
@@ -385,5 +387,8 @@
   <string name="onboarding_skip">Iwwersprangen</string>
   <string name="onboarding_continue">Virufueren</string>
   <string name="onboarding_get_started">Fir unzefänken</string>
+  <string name="onboarding_reading_list_sync_title">Lieslëschten mat Synchroniséierung</string>
+  <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
   <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
+  <string name="onboarding_create_account_preferences">Späichert Är Astellungen</string>
 </resources>

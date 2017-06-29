@@ -177,7 +177,7 @@
   <string name="reading_list_item_delete_undo">Atsaukt</string>
   <string name="reading_list_deleted">%s izdzēsts</string>
   <string name="reading_lists_onboarding_example2">Mīļākie dzīvnieki</string>
-  <string name="reading_lists_onboarding_example3">Kosmiskā telpa!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Kosmiskā telpa!</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="reading_list_remove_from_list">Noņemt no %s</string>
   <string name="reading_list_sync_reminder_action">Ieslēgt</string>

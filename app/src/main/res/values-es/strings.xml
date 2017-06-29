@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Por ejemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
   <string name="reading_lists_onboarding_example2">Animales favoritos</string>
-  <string name="reading_lists_onboarding_example3">¡El espacio!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">¡El espacio!</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_no_description">Sin descripción…</string>
   <string name="reading_list_empty">No tienes artículos añadidos a esta lista.</string>

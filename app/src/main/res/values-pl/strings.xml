@@ -248,6 +248,7 @@
   <string name="color_theme_select">Skórka</string>
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
+  <string name="preference_title_color_theme">Ciemniejszy motyw</string>
   <string name="nav_item_reading_lists">Moje listy</string>
   <string name="reading_list_untitled">Bez tytułu</string>
   <string name="reading_list_save_to">Zapisz listę do przeczytania</string>
@@ -271,6 +272,7 @@
   <string name="reading_lists_onboarding_for_example">Na przykład</string>
   <string name="reading_lists_onboarding_example1">Miejsca do odwiedzenia</string>
   <string name="reading_lists_onboarding_example2">Ulubione zwierzęta</string>
+  <string name="reading_lists_onboarding_example3">Eksploracja kosmosu</string>
   <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="reading_list_no_description">Brak opisu...</string>
   <string name="reading_list_empty">Na tej liście nie ma dodanych artykułów.</string>

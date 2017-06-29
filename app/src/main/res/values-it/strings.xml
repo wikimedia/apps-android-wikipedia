@@ -88,6 +88,9 @@
   <string name="delete_selected_items">Cancella gli elementi selezionati</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome utente</string>
+  <string name="login_dont_have_account">Non hai un\'utenza?</string>
+  <string name="login_forgot_password">Hai dimenticato la password?</string>
+  <string name="create_account_already_have">Hai già un\'utenza?</string>
   <string name="create_account_login_link">Hai già un\'utenza? Accedi</string>
   <string name="login_create_account_link">Non hai un\'utenza? Iscriviti a Wikipedia.</string>
   <string name="create_account_activity_title">Registrati</string>
@@ -296,7 +299,7 @@
   <string name="reading_lists_onboarding_for_example">Per esempio</string>
   <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>
   <string name="reading_lists_onboarding_example2">Animali preferiti</string>
-  <string name="reading_lists_onboarding_example3">Spazio!</string>
+  <string name="reading_lists_onboarding_example3">Esplorazione spaziale</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="reading_list_no_description">Nessuna descrizione…</string>
   <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
@@ -367,4 +370,13 @@
   <string name="description_edit_help_more_info">Ulteriori informazioni</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Salta</string>
+  <string name="onboarding_continue">Continua</string>
+  <string name="onboarding_get_started">Inizia</string>
+  <string name="onboarding_explore_title">Nuovi modi per esplorare</string>
+  <string name="onboarding_analytics_title">Invia dati anonimi</string>
+  <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
+  <string name="onboarding_create_account_sync">Sincronizza i tuoi elenchi di lettura</string>
+  <string name="onboarding_create_account_contributions">Tieni traccia dei tuoi contributi</string>
+  <string name="onboarding_create_account_preferences">Salva le tue preferenze</string>
 </resources>

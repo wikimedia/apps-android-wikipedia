@@ -180,7 +180,7 @@
   <string name="reading_lists_onboarding_for_example">د بېلگې په توگه</string>
   <string name="reading_lists_onboarding_example1">د کتلو ځايونه</string>
   <string name="reading_lists_onboarding_example2">خواپوري ژوي</string>
-  <string name="reading_lists_onboarding_example3">تشيال!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">تشيال!</string>
   <string name="reading_lists_onboarding_got_it">وپوهېدم</string>
   <string name="user_option_sync_label">غوره توبونه</string>
   <string name="view_continue_reading_card_title">پرله پورې لوستل</string>

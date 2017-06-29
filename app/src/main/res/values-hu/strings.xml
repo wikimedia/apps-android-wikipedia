@@ -86,9 +86,14 @@
   <string name="toast_logout_complete">Kijelentkezve</string>
   <string name="history_empty_title">Nem nemrég megtekintett cikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
+  <string name="search_empty_message">Keresd és olvasd a cikkeket a saját nyelveden</string>
   <string name="delete_selected_items">Kijelölt elemek törlése</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Szerkesztőnév</string>
+  <string name="login_dont_have_account">Nincs még fiókod?</string>
+  <string name="login_join_wikipedia">Csatlakozz a Wikipédia csapatához</string>
+  <string name="login_forgot_password">Elfelejtett jelszó?</string>
+  <string name="create_account_already_have">Már van fiókod?</string>
   <string name="create_account_login_link">Már van fiókod? Jelentkezz be!</string>
   <string name="login_create_account_link">Nincs még fiókod? Csatlakozz a Wikipédiához!</string>
   <string name="create_account_activity_title">Regisztráció</string>
@@ -98,6 +103,7 @@
   <string name="create_account_passwords_mismatch_error">A jelszavak nem egyeznek</string>
   <string name="create_account_email_error">Érvénytelen e-mail-cím</string>
   <string name="create_account_username_error">Érvénytelen karakterek a szerkesztőnévben</string>
+  <string name="create_account_password_error">A jelszó érvénytelen.</string>
   <string name="create_account_generic_error">Nem sikerült a fiók létrehozása</string>
   <string name="create_account_next">Következő</string>
   <string name="create_account_button">Regisztráció</string>
@@ -118,7 +124,10 @@
   <string name="edit_preview_fetching_dialog_message">Előnézet készítése…</string>
   <string name="send_feedback">Visszajelzés küldése az alkalmazásról</string>
   <string name="create_account_account_created_toast">Fiók létrehozva!</string>
-  <string name="preferences_privacy_settings_heading">Adatvédelem</string>
+  <string name="preferences_heading_storage_and_syncing">Tárolás és szinkronizálás</string>
+  <string name="preference_title_sync_reading_lists">Olvasólisták szinkronizálása</string>
+  <string name="preference_summary_sync_reading_lists">Ha bejelentkezel, az olvasási listáid szinkronizálva lesznek</string>
+  <string name="preferences_privacy_settings_heading">Adatküldés</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
@@ -269,6 +278,7 @@
   <string name="reading_list_added_to_unnamed">Hozzáadva az olvasólistához.</string>
   <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d szócikk, %2$.2f MiB</string>
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
   <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>
@@ -290,7 +300,7 @@
   <string name="reading_lists_onboarding_for_example">Például</string>
   <string name="reading_lists_onboarding_example1">Látványosságok</string>
   <string name="reading_lists_onboarding_example2">Kedvenc állatok</string>
-  <string name="reading_lists_onboarding_example3">Űr!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Űr!</string>
   <string name="reading_lists_onboarding_got_it">Értem</string>
   <string name="reading_list_no_description">Nincs leírás…</string>
   <string name="reading_list_empty">Nem adtál szócikket ehhez a listához.</string>
@@ -305,6 +315,10 @@
   <string name="reading_list_confirm_remove_article_from_offline">Eltávolítás a kapcsolat nélküliből</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
+  <string name="reading_list_sync_reminder_title">Olvasási lista szinkronizálás kikapcsolva</string>
+  <string name="reading_list_sync_reminder_text">Olvasási listáidat szinkronizálhatod, ha bejelentkezel a Wikipédiába</string>
+  <string name="reading_list_sync_reminder_action">Bekapcsol</string>
+  <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_button_view_user">Üzenethagyás a szerkesztőnek</string>
   <string name="notification_talk_title">Új üzenet a Wikipédián</string>
@@ -315,7 +329,7 @@
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; megköszönte a szerkesztésedet a(z) &lt;strong&gt;%2$s&lt;/strong&gt; lapon.</string>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
-  <string name="view_random_card_title">Randomizáló</string>
+  <string name="view_random_card_title">Vaktában</string>
   <string name="view_random_card_subtitle">Olvass egy véletlenszerű cikket a Wikipédiáról</string>
   <string name="view_random_card_error">Nem sikerült a véletlenszerű lap betöltése a hálózatról vagy az olvasólistáidból.</string>
   <string name="view_main_page_card_title">Ma a Wikipédián</string>
@@ -336,7 +350,7 @@
     <item quantity="other">%d napja</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Ma</string>
-  <string name="view_announcement_card_negative_action">Nem, köszönöm</string>
+  <string name="view_announcement_card_negative_action">Köszönöm, nem</string>
   <string name="view_offline_card_text">A tartalom nem tölthető be kapcsolat nélkül.</string>
   <string name="description_edit_text_hint">Cím leírása</string>
   <string name="description_edit_save">Közzététel</string>
@@ -378,4 +392,12 @@
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
   <string name="description_edit_revert_reason2">tesztelésnek vagy vandalizmusnak tűnt</string>
   <string name="description_edit_revert_history">Többet megtudhatsz a visszavonás okáról a &lt;a href=\"%1$s\"&gt;laptörténetben&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Kihagy</string>
+  <string name="onboarding_continue">Tovább</string>
+  <string name="onboarding_get_started">Kezdés</string>
+  <string name="onboarding_reading_list_sync_title">Olvasási listák szinkronizálással</string>
+  <string name="onboarding_reading_list_sync_text">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
+  <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
+  <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>
+  <string name="onboarding_create_account_preferences">Beállítások mentése</string>
 </resources>

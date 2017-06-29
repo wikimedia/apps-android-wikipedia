@@ -146,7 +146,7 @@
   <string name="about_description">О приложении «Википедия»</string>
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Политика_конфиденциальности</string>
+  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Условия_использования</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Например</string>
   <string name="reading_lists_onboarding_example1">Места для посещения</string>
   <string name="reading_lists_onboarding_example2">Любимые животные</string>
-  <string name="reading_lists_onboarding_example3">Космос!</string>
+  <string name="reading_lists_onboarding_example3">Исследование космоса</string>
   <string name="reading_lists_onboarding_got_it">Понятно</string>
   <string name="reading_list_no_description">Нет описания…</string>
   <string name="reading_list_empty">В этом списке нет добавленных статей.</string>

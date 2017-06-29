@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Zum Beispiel</string>
   <string name="reading_lists_onboarding_example1">Zu besuchende Orte</string>
   <string name="reading_lists_onboarding_example2">Lieblingstiere</string>
-  <string name="reading_lists_onboarding_example3">Weltraum!</string>
+  <string name="reading_lists_onboarding_example3">Weltraumforschung</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_list_no_description">Keine Beschreibung …</string>
   <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Leselisten synchronisieren</string>
   <string name="reading_list_login_reminder_text">Deine Leselisten können jetzt in dein Wikipedia-Benutzerkonto gespeichert werden. Melde dich einfach bei deinem Benutzerkonto an und deine Leselisten werden automatisch synchronisiert.</string>
   <string name="reading_lists_confirm_remote_delete">Dies wird alle bisherigen synchronisierten Leselisten aus dem Fernspeicher löschen. Fortfahren?</string>
+  <string name="reading_list_article_save_in_progress">Das Herunterladen des Artikels läuft derzeit. Er ist offline verfügbar, wenn das Herunterladen abgeschlossen ist.</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_button_view_user">Mit dem Benutzer diskutieren</string>
   <string name="notification_talk_title">Neue Nachricht auf Wikipedia</string>

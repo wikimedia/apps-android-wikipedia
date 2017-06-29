@@ -89,6 +89,10 @@
   <string name="delete_selected_items">سڕینەوەی دانە دیاریکراوەکان</string>
   <string name="wp_stylized">ویکیپیدیا</string>
   <string name="create_account_username_hint">ناوی بەکارھێنەر</string>
+  <string name="login_dont_have_account">ھەژمارت نییە؟</string>
+  <string name="login_join_wikipedia">ببە بە ئەندامی ویکیپیدیا</string>
+  <string name="login_forgot_password">تێپەڕوشەکەت لەبیر کردووە؟</string>
+  <string name="create_account_already_have">ھەژمارێکت ھەیە؟</string>
   <string name="create_account_login_link">ھەژمارێکت ھەیە؟ بڕۆ ناوەوە</string>
   <string name="login_create_account_link">ھیچ ھەژمارێکت نییە؟ بەشداربە لە ویکیپیدیا</string>
   <string name="create_account_activity_title">ھەژمارێک دروست بکە</string>
@@ -98,6 +102,7 @@
   <string name="create_account_passwords_mismatch_error">تێپەڕوشەکان ھەماھەنگ نین</string>
   <string name="create_account_email_error">ناونیشانی ئیمەیڵی نەگونجاو</string>
   <string name="create_account_username_error">نووسەی ناڕەوا لە ھەژمارناو</string>
+  <string name="create_account_password_error">تێپەڕوشەکە ھەڵەیە</string>
   <string name="create_account_generic_error">ناتوانرێت هەژمار دروست بکرێت</string>
   <string name="create_account_next">دواتر</string>
   <string name="create_account_button">دروستکردنی ھەژمار</string>
@@ -118,6 +123,8 @@
   <string name="edit_preview_fetching_dialog_message">ھێنان و بردنی پێشبینین...</string>
   <string name="send_feedback">ناردنی فیدباکی ئاپ</string>
   <string name="create_account_account_created_toast">ھەژمار دروست کرا!</string>
+  <string name="preference_title_sync_reading_lists">خەزێنەکردنی پێڕستی خوێندنەوە</string>
+  <string name="preference_summary_sync_reading_lists">ڕێگە بە ویکیپیدیا بدە بۆ خەزێنەکردنی پێڕستی خوێندنەوەکەت لەکاتی ھاتنە ژوورەوەت</string>
   <string name="preferences_privacy_settings_heading">تایبەتێتی</string>
   <string name="preference_title_eventlogging_opt_in">ناردنی ڕاپۆرتەکانی بەکارھێنان</string>
   <string name="preference_summary_eventlogging_opt_in">ڕێگە بە بە ویکیمیدیا بدە بۆ کۆکردنەوەی زانیاری لەبارەی چۆنیەتی بەکارھێنانی ئاپەکە لەلایەن تۆوە، بە مەبەستی باشترکردنی ئاپەکە</string>
@@ -260,6 +267,8 @@
   <string name="color_theme_select">ڕووکار</string>
   <string name="color_theme_light">سووك</string>
   <string name="color_theme_dark">تاریک</string>
+  <string name="preference_title_color_theme">ڕووکەشی تاریک</string>
+  <string name="preference_summary_color_theme">گۆڕین بۆ بەکارھێنانی ڕووکەشی تاریک</string>
   <string name="nav_item_reading_lists">پێڕستەکانم</string>
   <string name="reading_list_untitled">بێسەرناو</string>
   <string name="reading_list_save_to">پاشەکەوتکردن بۆ پێڕستی خوێندنەوە</string>
@@ -270,7 +279,10 @@
   <string name="reading_list_added_to_unnamed">زیادکرا بۆ پێڕستی خوێندنەوە.</string>
   <string name="reading_list_already_exists">ئەم وتارە ھەر لەنێو ئەو پێڕستە بووە.</string>
   <string name="reading_list_added_view_button">پێڕستی بینین</string>
+  <string name="format_reading_list_statistical_summary_singular">1 وتار، %1$.٢f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d وتار، %2$.٢f MiB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی بەبێ ئینتەرنێت.</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d لە %2$d وتار بەردەستە بەبێ ئینتەرنێت، %3$.٢f MiB</string>
   <string name="reading_list_sort">ڕیزکردن</string>
   <string name="reading_list_sort_by_name">ڕیزکردن بەپێی ناو</string>
   <string name="reading_list_sort_by_name_desc">ڕیزکردن بەپێی ناو (پێچەوانە)</string>
@@ -292,7 +304,7 @@
   <string name="reading_lists_onboarding_for_example">بۆ نموونە</string>
   <string name="reading_lists_onboarding_example1">شوێنەکان بۆ سەردانکردن</string>
   <string name="reading_lists_onboarding_example2">ئاژەڵە دڵخوازەکان</string>
-  <string name="reading_lists_onboarding_example3">بۆشایی!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">بۆشایی!</string>
   <string name="reading_lists_onboarding_got_it">زانیم</string>
   <string name="reading_list_no_description">بێوەسف...</string>
   <string name="reading_list_empty">ھیچ وتارێکت لەم پێڕستە دانەناوە.</string>
@@ -307,6 +319,10 @@
   <string name="reading_list_confirm_remove_article_from_offline">لە پێڕستی پاشەکەوتکراوەکانی لاببە</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">وتارەکە لە چەند پێڕستێکدا دەردەکەوێت</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s چی تر بەردەست نابێت بۆ خوێندنەوە بەبێ ئینتەرنێت لە ھیچ کامێک لە پێڕستی خوێندنەوەکان:</string>
+  <string name="reading_list_sync_reminder_title">خەزێنەکردنی پێڕستی خوێندنەوە کوژاوەتە</string>
+  <string name="reading_list_sync_reminder_text">پێڕستی خوێندنەوەت دەخرێنە ناو ھەژماری ویکیپیدیاکەتەوە گەر ڕێگە بە خەزێنەکرن بدەیت لە ڕێکخستنەکانی ئاپەکەوە.</string>
+  <string name="reading_list_sync_reminder_action">بیخە کار</string>
+  <string name="reading_list_login_reminder_title">خەزێنەکردنی پێڕستی خوێندنەوە</string>
   <string name="user_option_sync_label">ھەڵبژاردەکان</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>
@@ -379,4 +395,12 @@
   <string name="description_edit_revert_reason1">بەشدارییەکەت یەکێک لە &lt;a href=\"%1$s\"&gt;سیاسەتەکان&lt;/a&gt;ی پێشێل کردووە.</string>
   <string name="description_edit_revert_reason2">بەشدارییەکەت لە تاقیکردنەوە یان خراپکاری چووە.</string>
   <string name="description_edit_revert_history">ئەگەر ئارەزوو دەکەیت، سەیری &lt;a href=\"%1$s\"&gt;مێژووی پەڕەکە&lt;/a&gt; بکە.</string>
+  <string name="onboarding_skip">پەڕاندن</string>
+  <string name="onboarding_continue">بەردەوامبوون</string>
+  <string name="onboarding_get_started">دەست پێ بکە</string>
+  <string name="onboarding_explore_title">شێوازی نوێ بۆ دۆزینەوە</string>
+  <string name="onboarding_analytics_title">داتای نەناسراوە بنێرە</string>
+  <string name="onboarding_analytics_text">یارمەتی بدە لە باشترکردنی ئاپەکە بە ئاگادارکردنەوەمان لە چۆنێتی بەکارھێنانیت. داتاکان بە نەناسراوی کۆدەکرێنەوە.&lt;a href=\"#privacy\"&gt;زیاتر فێرببە&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">داتای بەکارھێنان بنێرە</string>
+  <string name="onboarding_create_account_preferences">ھەڵبژاردنەکانت پاشەکەوت بکە</string>
 </resources>

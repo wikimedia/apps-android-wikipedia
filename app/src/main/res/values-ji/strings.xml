@@ -71,6 +71,7 @@
   <string name="history_empty_title">קיין לעצטיקע געוויזענע בלעטער נישט דא.</string>
   <string name="wp_stylized">&lt;big&gt;וו&lt;/big&gt;יקיפעדי&lt;big&gt;ע&lt;/big&gt;</string>
   <string name="create_account_username_hint">באַניצער נאָמען</string>
+  <string name="login_dont_have_account">איר האט נישט קיין קאנטע?</string>
   <string name="create_account_login_link">איר האט שוין א קאנטע? לאגירט אריין</string>
   <string name="login_create_account_link">איר האט נישט קיין קאנטע?טרעט ארײַן מיט וויקיפעדיע</string>
   <string name="create_account_activity_title">שאַפֿן אַ קאנטע</string>
@@ -187,7 +188,7 @@
   <string name="nav_item_reading_lists">מיינע ליסטעס</string>
   <string name="reading_list_sort">סארטירן</string>
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
-  <string name="reading_lists_onboarding_example3">ליידיג פלאץ!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">ליידיג פלאץ!</string>
   <string name="reading_lists_onboarding_got_it">פארשטאנען</string>
   <string name="user_option_sync_label">פרעפֿערענצן</string>
   <string name="view_featured_image_card_download">אַראָפלאָדן</string>

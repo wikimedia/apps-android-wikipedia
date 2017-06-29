@@ -292,7 +292,7 @@
   <string name="reading_lists_onboarding_for_example">Ví dụ</string>
   <string name="reading_lists_onboarding_example1">Các địa điểm để tham quan</string>
   <string name="reading_lists_onboarding_example2">Loài vật ưa thích</string>
-  <string name="reading_lists_onboarding_example3">Vũ trụ!</string>
+  <string name="reading_lists_onboarding_example3" fuzzy="true">Vũ trụ!</string>
   <string name="reading_lists_onboarding_got_it">Được rồi</string>
   <string name="reading_list_no_description">Không có miêu tả</string>
   <string name="reading_list_empty">Bạn chưa có bài viết nào được thêm vào danh sách này.</string>
