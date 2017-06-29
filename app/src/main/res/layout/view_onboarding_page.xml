@@ -4,138 +4,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:parentTag="LinearLayout"
     tools:orientation="vertical"
+    tools:background="@drawable/onboarding_gradient_background"
     tools:layout_width="match_parent"
     tools:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/view_onboarding_page_image_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/onboarding_gradient_background">
-        <ImageView
-            android:id="@+id/view_onboarding_page_image_protrude"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="72dp"
-            android:contentDescription="@null" />
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/view_onboarding_page_image_centered"
-            android:layout_width="140dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:scaleType="fitCenter"
-            android:contentDescription="@null" />
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            tools:src="@drawable/illustration_onboarding_explore"/>
 
-        <TextView
-            android:id="@+id/view_onboarding_page_skip_button"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_margin="0dp"
-            android:text="@string/onboarding_skip"
-            android:textColor="@android:color/white" />
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="280dp"
         android:orientation="vertical"
-        android:background="@color/light_blue"
-        android:gravity="center_horizontal">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingTop="24dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-            <org.wikipedia.views.AppTextView
-                android:id="@+id/view_onboarding_page_primary_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
-                android:fontFamily="sans-serif-medium"
-                tools:text="Lorem ipsum" />
-
-            <org.wikipedia.views.AppTextView
-                android:id="@+id/view_onboarding_page_secondary_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textColor="@color/base30"
-                android:textColorLink="@color/base30"
-                android:lineSpacingMultiplier="1.22"
-                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
-
-            <LinearLayout
-                android:id="@+id/view_onboarding_page_switch_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="vertical">
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="0.5dp"
-                    android:background="@color/base70"/>
-
-                <android.support.v7.widget.SwitchCompat
-                    android:id="@+id/view_onboarding_page_switch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    tools:text="Lorem ipsum"/>
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="0.5dp"
-                    android:background="@color/base70"/>
-            </LinearLayout>
-
-        </LinearLayout>
+        android:gravity="center_horizontal"
+        android:minHeight="240dp"
+        android:paddingTop="24dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <org.wikipedia.views.AppTextView
-            android:id="@+id/view_onboarding_page_button"
-            tools:text="Lorem ipsum"
-            style="@style/App.Button.Blue" />
+            android:id="@+id/view_onboarding_page_primary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-medium"
+            tools:text="Lorem ipsum" />
+
+        <org.wikipedia.views.AppTextView
+            android:id="@+id/view_onboarding_page_secondary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textColorLink="@android:color/white"
+            android:lineSpacingMultiplier="1.22"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+
+        <LinearLayout
+            android:id="@+id/view_onboarding_page_switch_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:background="@color/white_translucent_40"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/view_onboarding_page_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:theme="@style/OnboardingSwitch"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@android:color/white"
+                tools:text="Lorem ipsum"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:background="@color/white_translucent_40"/>
+        </LinearLayout>
 
         <org.wikipedia.views.GoneIfEmptyTextView
             android:id="@+id/view_onboarding_page_tertiary_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_gravity="center|bottom"
             android:text="@string/description_edit_tutorial_promise"
-            android:gravity="center"
             android:textAlignment="center"
             android:textSize="12sp"
-            android:textColor="#54595d" />
-
-        <com.rd.PageIndicatorView
-            android:id="@+id/view_onboarding_page_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_margin="24dp"
-            app:piv_radius="4dp"
-            app:piv_selectedColor="@color/view_pager_indicator_selected"
-            app:piv_unselectedColor="@color/view_pager_indicator_unselected"
-            app:piv_viewPager="@id/fragment_pager" />
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
+
 </merge>

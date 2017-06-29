@@ -7,10 +7,11 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
+import org.wikipedia.onboarding.OnboardingFragment;
 
 public class DescriptionEditTutorialActivity
         extends SingleFragmentActivity<DescriptionEditTutorialFragment>
-        implements DescriptionEditTutorialFragment.Callback {
+        implements OnboardingFragment.Callback {
 
     @NonNull public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, DescriptionEditTutorialActivity.class);
@@ -21,7 +22,7 @@ public class DescriptionEditTutorialActivity
         setStatusBarColor(R.color.dark_blue);
     }
 
-    @Override public void onStartEditingClick() {
+    @Override public void onComplete() {
         setResult(RESULT_OK);
         finish();
     }

@@ -24,10 +24,6 @@ enum DescriptionEditTutorialPage implements EnumCode {
         return MAP.get(code);
     }
 
-    public boolean isLast() {
-        return ordinal() == size() - 1;
-    }
-
     public static int size() {
         return MAP.size();
     }
