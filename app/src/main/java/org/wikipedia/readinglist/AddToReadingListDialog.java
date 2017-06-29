@@ -23,7 +23,6 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
-import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
@@ -279,7 +278,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @NonNull private ReadingListPage findOrCreatePage(ReadingList readingList, PageTitle title) {
-        ReadingListPage page = ReadingListPageDao.instance().findPage(ReadingListDaoProxy.key(title));
+        ReadingListPage page = ReadingListData.instance().findPageInAnyList(ReadingListDaoProxy.key(title));
         if (page == null) {
             page = ReadingListDaoProxy.page(readingList, title);
         }

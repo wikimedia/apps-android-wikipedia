@@ -207,7 +207,7 @@ public final class ReadingListData {
 
 
     @Nullable
-    private synchronized ReadingListPage findPageInAnyList(String key) {
+    public synchronized ReadingListPage findPageInAnyList(String key) {
         Cursor cursor = ReadingListPageDao.instance().page(key);
         try {
             if (cursor.getCount() != 0) {
