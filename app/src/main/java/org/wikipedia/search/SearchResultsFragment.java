@@ -229,6 +229,7 @@ public class SearchResultsFragment extends Fragment {
                 }
                 if (isAdded()) {
                     updateProgressBar(false);
+                    searchEmptyView.setVisibility(View.GONE);
                     searchErrorView.setVisibility(View.VISIBLE);
                     searchErrorView.setError(caught);
                     searchResultsContainer.setVisibility(View.GONE);
