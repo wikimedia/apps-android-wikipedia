@@ -272,6 +272,7 @@
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
   <string name="preference_title_color_theme">Tema escuro</string>
+  <string name="preference_summary_color_theme">Cambiar ó tema obscuro da aplicación</string>
   <string name="nav_item_reading_lists">As miñas listas</string>
   <string name="reading_list_untitled">Sen título</string>
   <string name="reading_list_save_to">Gardar en lista de lectura</string>
@@ -328,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Sincronizar as listas de lectura</string>
   <string name="reading_list_login_reminder_text">As súas listas de lectura agora poden ser gardadas na súa conta de Wikipedia. Simplemente conéctese á súa conta, e as súas listas de lectura serán sincronizadas automaticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Isto eliminará calquera lista de lectura previamente sincronizada do almacenamento remoto. Proceder?</string>
+  <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Conversar co usuario</string>
   <string name="notification_talk_title">Mensaxe nova na Wikipedia</string>
@@ -404,7 +406,14 @@
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>
+  <string name="onboarding_explore_title">Novas formas de explorar</string>
+  <string name="onboarding_explore_text">Descubrir artigos de calidade, relevantes e suxestións na lista de Explorar.</string>
+  <string name="onboarding_reading_list_sync_title">Listas de lectura sincronizadas</string>
+  <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artigos que queres ler máis tarde, incluso cando esteas sen conexión. &lt;a href=\"#login\"&gt;Inicia sesión ou crea&lt;/a&gt; a túa conta de Wikipedia para mantener as túas listas de lectura sincronizadas.</string>
+  <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>
+  <string name="onboarding_analytics_text">Axuda a mellorar a aplicación achegando información de como a usas. Os datos obtidos son anónimos. &lt;a href=\"#privacy\"&gt;Ler máis&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>
   <string name="onboarding_create_account_sync">Sincronizar as listas de lectura</string>
+  <string name="onboarding_create_account_contributions">Vixiar as túas contribucións</string>
   <string name="onboarding_create_account_preferences">Gardar as preferencias</string>
 </resources>

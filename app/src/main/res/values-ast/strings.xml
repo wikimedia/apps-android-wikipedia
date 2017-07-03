@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Sincronizar llistes de llectura</string>
   <string name="reading_list_login_reminder_text">Agora les tos llistes de llectura pueden guardase na cuenta de Wikipedia. Sólo anicia sesión cola to cuenta, y les llistes de llectura van sincronizase automáticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Esto desaniciará del almacenamientu remotu cualquier llista de llectura sincronizada con anterioidá. ¿Siguir?</string>
+  <string name="reading_list_article_save_in_progress" fuzzy="true">La descarga del artículu ta en cursu, y tará disponible sin conexón cuando se complete.</string>
   <string name="user_option_sync_label">Preferencies</string>
   <string name="notification_button_view_user">Falar col usuariu</string>
   <string name="notification_talk_title">Mensaxe nuevu en Wikipedia</string>

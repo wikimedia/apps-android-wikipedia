@@ -217,4 +217,6 @@
   <string name="description_edit_help_about_title">Par</string>
   <string name="description_edit_help_tips_examples">Piemēram:</string>
   <string name="description_edit_help_more_info">Vairāk informācijas</string>
+  <string name="onboarding_skip">Izlaist</string>
+  <string name="onboarding_continue">Turpināt</string>
 </resources>

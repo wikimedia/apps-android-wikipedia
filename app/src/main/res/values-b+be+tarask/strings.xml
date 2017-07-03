@@ -98,7 +98,7 @@
   <string name="zero_interstitial_leave_app">Можа брацца аплата за трафік. Працягваць пераход на вонкавы сайт?</string>
   <string name="zero_interstitial_continue">Пакінуць</string>
   <string name="zero_interstitial_cancel">Застацца</string>
-  <string name="zero_learn_more" fuzzy="true">Аплата за трафік не бярэцца пад час карыстаньня даставсаваньня Вікіпэдыя.</string>
+  <string name="zero_learn_more">Ваш апэратар бяздротавай сувязі зрабіў бясплатным доступ да зьместу Вікіпэдыі!</string>
   <string name="zero_learn_more_learn_more" fuzzy="true">Даведацца болей</string>
   <string name="zero_learn_more_dismiss">Адхіліць</string>
   <string name="edit_preview_fetching_dialog_message">Атрыманьне папярэдняга прагляду...</string>

@@ -87,6 +87,10 @@
   <string name="delete_selected_items">ရွေးချယ်ထားသော အကြောင်းအရာများကို ဖျက်ပါ</string>
   <string name="wp_stylized">&lt;big&gt;ဝီ&lt;/big&gt;ကီပီးဒီး&lt;big&gt;ယား&lt;/big&gt;</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
+  <string name="login_dont_have_account">အကောင့် မရှိဘူးလား?</string>
+  <string name="login_join_wikipedia">ဝီကီပီးဒီးယားကို ဝင်ရောက်ပါ</string>
+  <string name="login_forgot_password">စကားဝှက် မေ့နေသလား?</string>
+  <string name="create_account_already_have">အကောင့်တစ်ခု ရှိနေပြီးသားလား?</string>
   <string name="create_account_login_link">အကောင့် ရှိပြီးသားလား? မှတ်တမ်းဖြင့် ဝင်ပါ</string>
   <string name="login_create_account_link">အကောင့် မရှိဘူးလား? ဝီကီပီးဒီးယားနဲ့ ချိတ်ဆက်လိုက်ပါ</string>
   <string name="create_account_activity_title">အကောင့် ဖန်တီးရန်</string>
@@ -348,4 +352,7 @@
   <string name="description_edit_help_tips_example2">ကမ္ဘာ့အမြင့်ဆုံးတောင်</string>
   <string name="description_edit_help_more_info">သတင်းအချက်အလက် ပို၍</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
+  <string name="onboarding_skip">ကျော်ရန်</string>
+  <string name="onboarding_continue">ဆက်လက်</string>
+  <string name="onboarding_get_started">စတင်ပါ</string>
 </resources>

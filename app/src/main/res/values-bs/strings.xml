@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Naprimjer</string>
   <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Svemir!</string>
+  <string name="reading_lists_onboarding_example3">Istraživanje svemira</string>
   <string name="reading_lists_onboarding_got_it">Razumijem</string>
   <string name="reading_list_no_description">Nema opisa...</string>
   <string name="reading_list_empty">Niste dodali nijedan članak na ovaj spisak.</string>
@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Sinhroniziraj spiskove za čitanje</string>
   <string name="reading_list_login_reminder_text">Spiskove za čitanje od sada možete sačuvati na svoj račun na Wikipediji. Jednostavno se prijavite na svoj račun i spiskovi za čitanje automatski će se sinhronizirati.</string>
   <string name="reading_lists_confirm_remote_delete">Ovim ćete obrisati prethodno sinhonizirane spiskove s daljinskog skladištenja? Da nastavim?</string>
+  <string name="reading_list_article_save_in_progress">Preuzimanje članka je u toku i bit će dostupan van mreže kada se završi.</string>
   <string name="user_option_sync_label">Postavke</string>
   <string name="notification_button_view_user">Razgovaraj s korisnikom</string>
   <string name="notification_talk_title">Nova poruka na Wikipediji</string>

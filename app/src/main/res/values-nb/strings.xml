@@ -381,4 +381,5 @@
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">bidraget så ut som testing eller vandalisme.</string>
   <string name="description_edit_revert_history">Du kan finne mer informasjon i &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
+  <string name="onboarding_continue">Fortsett</string>
 </resources>

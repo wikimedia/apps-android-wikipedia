@@ -90,6 +90,10 @@
   <string name="delete_selected_items">Elimina els elements seleccionats</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
+  <string name="login_dont_have_account">No teniu un compte?</string>
+  <string name="login_join_wikipedia">Uniu-vos a la Viquipèdia</string>
+  <string name="login_forgot_password">Heu oblidat la contrasenya?</string>
+  <string name="create_account_already_have">Ja teniu un compte?</string>
   <string name="create_account_login_link">Ja teniu un compte? Inicia una sessió</string>
   <string name="login_create_account_link">No teniu un compte? Uniu-vos a la Viquipèdia</string>
   <string name="create_account_activity_title">Crea un compte</string>
@@ -99,6 +103,7 @@
   <string name="create_account_passwords_mismatch_error">Les contrasenyes no coincideixen</string>
   <string name="create_account_email_error">Correu electrònic no vàlid</string>
   <string name="create_account_username_error">Caràcters no vàlids en el nom d\'usuari</string>
+  <string name="create_account_password_error">La contrasenya no és vàlida</string>
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
   <string name="create_account_next">Següent</string>
   <string name="create_account_button">Crea un compte</string>
@@ -119,6 +124,8 @@
   <string name="edit_preview_fetching_dialog_message">Obtenint la previsualització…</string>
   <string name="send_feedback">Envieu els vostres comentaris sobre l\'aplicació</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
+  <string name="preferences_heading_storage_and_syncing">Emmagatzemament i sincronització</string>
+  <string name="preference_title_sync_reading_lists">Sincronitza les llistes de lectura</string>
   <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
@@ -262,6 +269,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Fosc</string>
+  <string name="preference_title_color_theme">Tema fosc</string>
   <string name="nav_item_reading_lists">Les meves llistes</string>
   <string name="reading_list_untitled">Sense títol</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
@@ -297,7 +305,7 @@
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Llocs per visitar</string>
   <string name="reading_lists_onboarding_example2">Animals preferits</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Espai!</string>
+  <string name="reading_lists_onboarding_example3">Exploració espacial</string>
   <string name="reading_lists_onboarding_got_it">Entesos</string>
   <string name="reading_list_no_description">Sense descripció…</string>
   <string name="reading_list_empty">No teniu articles afegits a la llista.</string>
@@ -312,6 +320,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Suprimeix del mode fora de línia</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
+  <string name="reading_list_sync_reminder_action">Activa</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_button_view_user">Parla amb l\'usuari</string>
   <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>
@@ -379,4 +388,11 @@
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Omet</string>
+  <string name="onboarding_continue">Continua</string>
+  <string name="onboarding_get_started">Primers passos</string>
+  <string name="onboarding_explore_title">Noves formes d\'explorar</string>
+  <string name="onboarding_analytics_title">Envia dades anònimes</string>
+  <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
+  <string name="onboarding_create_account_preferences">Desa les preferències</string>
 </resources>

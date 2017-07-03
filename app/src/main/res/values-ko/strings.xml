@@ -327,7 +327,7 @@
   <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
   <string name="reading_list_login_reminder_text">읽기 목록이 이제 위키백과 계정에 저장됩니다. 계정에 로그인만 하면 읽기 목록이 자동으로 동기화됩니다.</string>
   <string name="reading_lists_confirm_remote_delete">과거에 동기화된 읽기 목록을 원격 기억 장치에서 삭제합니다. 진행하시겠습니까?</string>
-  <string name="reading_list_article_save_in_progress">문서의 다운로드가 진행 중이며 완료되면 오프라인 상태에서 읽을 수 있습니다.</string>
+  <string name="reading_list_article_save_in_progress">이 문서는 다운로드 중이며, 완료되면 오프라인 상태에서 읽을 수 있습니다.</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_button_view_user">사용자와 대화하기</string>
   <string name="notification_talk_title">위키백과에서의 새 메시지</string>

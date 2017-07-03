@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
   <string name="reading_lists_onboarding_example1">Platser att besöka</string>
   <string name="reading_lists_onboarding_example2">Favoritdjur</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Rymden!</string>
+  <string name="reading_lists_onboarding_example3">Rymdutforskning</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="reading_list_no_description">Ingen beskrivning...</string>
   <string name="reading_list_empty">Du har inte lagt till några artiklar i denna lista.</string>
@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Synkronisera läslistor</string>
   <string name="reading_list_login_reminder_text">Dina läslistor kan nu sparas till ditt Wikimedia-konto. Logga in på ditt konto och dina läslistor kommer att synkroniseras automatiskt.</string>
   <string name="reading_lists_confirm_remote_delete">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen. Vill du fortsätta?</string>
+  <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_button_view_user">Diskutera med användare</string>
   <string name="notification_talk_title">Nytt meddelande på Wikipedia</string>

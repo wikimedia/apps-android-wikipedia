@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Sinkronkan daftar bacaan</string>
   <string name="reading_list_login_reminder_text">Daftar bacaan Anda sekarang dapat disimpan ke akun Wikipedia Anda. Cukup masuk log ke akun Anda, dan daftar bacaan Anda akan disinkronkan secara otomatis.</string>
   <string name="reading_lists_confirm_remote_delete">Ini akan menghapus daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Lanjutkan?</string>
+  <string name="reading_list_article_save_in_progress">Artikel sedang diunduh, dan akan tersedia secara luring saat selesai.</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_button_view_user">Bicara ke pengguna</string>
   <string name="notification_talk_title">Pesan baru di Wikipedia</string>

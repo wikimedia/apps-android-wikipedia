@@ -90,6 +90,10 @@
   <string name="delete_selected_items">Excluir itens selecionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de usuário</string>
+  <string name="login_dont_have_account">Não possui uma conta?</string>
+  <string name="login_join_wikipedia">Junte-se à Wikipedia</string>
+  <string name="login_forgot_password">Esqueceu sua senha?</string>
+  <string name="create_account_already_have">já tem uma conta?</string>
   <string name="create_account_login_link">Já possui uma conta? Inicie sessão</string>
   <string name="login_create_account_link">Ainda não possui uma conta? Junte-se à Wikipédia</string>
   <string name="create_account_activity_title">Criar uma conta</string>
@@ -304,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares para visitar</string>
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Espaço!</string>
+  <string name="reading_lists_onboarding_example3">Exploração espacial</string>
   <string name="reading_lists_onboarding_got_it">Entendi</string>
   <string name="reading_list_no_description">Sem descrição...</string>
   <string name="reading_list_empty">Você não tem artigos adicionados a esta lista.</string>
@@ -325,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
   <string name="reading_list_login_reminder_text">Suas listas de leitura podem agora ser salvas na sua conta Wikipedia. Basta acessar sua conta e suas listas de leitura serão sincronizadas automaticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Isso eliminará todas as listas de leitura previamente sincronizadas do armazenamento remoto. Prosseguir?</string>
+  <string name="reading_list_article_save_in_progress">O artigo está sendo baixado, e estará disponível offline quando completo.</string>
   <string name="user_option_sync_label">Preferências</string>
   <string name="notification_button_view_user">Falar com usuário</string>
   <string name="notification_talk_title">Nova mensagem na Wikipédia</string>
@@ -398,4 +403,17 @@
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Sua contribuição parecia uma experiência ou vandalismo.</string>
   <string name="description_edit_revert_history">Se estiver interessado, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
+  <string name="onboarding_skip">Pular</string>
+  <string name="onboarding_continue">Continuar</string>
+  <string name="onboarding_get_started">Começar</string>
+  <string name="onboarding_explore_title">Novas maneiras de explorar</string>
+  <string name="onboarding_explore_text">Descubra artigos em destaque, tópicos de tendências e sugestões de leitura no feed do Explore.</string>
+  <string name="onboarding_reading_list_sync_title">Listas de leitura sincronizadas</string>
+  <string name="onboarding_reading_list_sync_text">Crie listas de leitura de artigos que você deseja ler mais tarde, mesmo quando você está desconectado. &lt;a href=\"#login\"&gt;Faça login ou crie&lt;/a&gt; sua conta de Wikipedia para manter suas listas de leitura protegidas.</string>
+  <string name="onboarding_analytics_title">Enviar dados anônimos</string>
+  <string name="onboarding_analytics_text">Ajude a melhorar o aplicativo, informando-nos como você o usa. Os dados coletados são anônimos. &lt;a href=\"#privacy\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Enviar dados de uso</string>
+  <string name="onboarding_create_account_sync">Sincronize suas listas de leitura</string>
+  <string name="onboarding_create_account_contributions">Acompanhe suas contribuições</string>
+  <string name="onboarding_create_account_preferences">Salve suas preferências</string>
 </resources>

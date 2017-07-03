@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Menyegerakkan senarai bacaan</string>
   <string name="reading_list_login_reminder_text">Senarai bacaan anda kini boleh disimpan ke akaun Wikipedia anda. Hanya log masuk ke akaun anda, dan senarai bacaan anda akan disegerakkan secara automatik.</string>
   <string name="reading_lists_confirm_remote_delete">Ini akan memadam sebarang senarai bacaan diselaraskan sebelumnya dari storan jauh. Teruskan?</string>
+  <string name="reading_list_article_save_in_progress">Rencana sedang dimuat turun, dan ia akan tersedia di luar talian apabila selesai.</string>
   <string name="user_option_sync_label">Keutamaan</string>
   <string name="notification_button_view_user">Bincang ke pengguna</string>
   <string name="notification_talk_title">Mesej baru pada Wikipedia</string>

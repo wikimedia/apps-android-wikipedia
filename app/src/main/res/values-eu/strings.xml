@@ -81,6 +81,8 @@
   <string name="history_empty_message">Egin hemen irakurri duzunaren jarraipena.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>
+  <string name="login_dont_have_account">Ez al duzu konturik?</string>
+  <string name="login_forgot_password">Zure pasahitza ahaztu duzu?</string>
   <string name="create_account_login_link">Kontua baduzu? Saioa hasi</string>
   <string name="login_create_account_link">Konturik ez duzu? Etorri Wikipediara</string>
   <string name="create_account_activity_title">Kontua sortu</string>
@@ -245,7 +247,7 @@
   <string name="reading_lists_onboarding_for_example">Adibidez</string>
   <string name="reading_lists_onboarding_example1">Bisitatu beharreko lekuak</string>
   <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Espazioa!</string>
+  <string name="reading_lists_onboarding_example3">Espazioaren esplorazioa</string>
   <string name="reading_lists_onboarding_got_it">Ulertu dut</string>
   <string name="reading_list_no_description">Deskribapenik ez...</string>
   <string name="reading_list_article_offline">Erabilgarri lineaz kanpo</string>
@@ -296,5 +298,10 @@
   <string name="description_edit_help_tips_example2_hint">Everest Mendiari buruzko artikuluarentzako izenburu-deskribapena</string>
   <string name="description_edit_help_more_info">Informazio gehiago</string>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
+  <string name="onboarding_skip">Utzi</string>
   <string name="onboarding_continue">Jarraitu</string>
+  <string name="onboarding_get_started">Has zaitez!</string>
+  <string name="onboarding_explore_title">Exploratzeko era berriak</string>
+  <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
+  <string name="onboarding_create_account_preferences">Zure lehentasunak gorde</string>
 </resources>

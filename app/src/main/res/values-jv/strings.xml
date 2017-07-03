@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Sinkronisasi dhaptar maca</string>
   <string name="reading_list_login_reminder_text">Dhaptar maca sampeyan bisa saiki disimpen kanggo akun Wikipedia Panjenengan. Cukup mlebu log kanggo akun, lan dhaptar maca bakal disinkronake kanthi otomatis.</string>
   <string name="reading_lists_confirm_remote_delete">Iki bakal mbusak dhaptar maca sadurunge nyelarasake saka panyimpenan remot. Nerusake?</string>
+  <string name="reading_list_article_save_in_progress">Artikel sing diunduh, lan bakal kasedhiya luring nalika wis rampung.</string>
   <string name="user_option_sync_label">Pilalan</string>
   <string name="notification_button_view_user">Rembugan karo panganggo</string>
   <string name="notification_talk_title">Layang anyar ing Wikipédia</string>

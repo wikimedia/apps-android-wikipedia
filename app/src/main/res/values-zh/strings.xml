@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">同步阅读列表</string>
   <string name="reading_list_login_reminder_text">您的阅读列表现已保存到您的维基百科账户。只要登录您的账户，您的阅读列表就会自动同步。</string>
   <string name="reading_lists_confirm_remote_delete">这将从外部存储中删除任何之前同步的阅读列表。继续么？</string>
+  <string name="reading_list_article_save_in_progress">条目已开始下载，并将在完成时离线可用。</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_button_view_user">与用户讨论</string>
   <string name="notification_talk_title">维基百科上的新消息</string>
