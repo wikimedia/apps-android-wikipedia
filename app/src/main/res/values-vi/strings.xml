@@ -15,8 +15,8 @@
   <string name="page_error_retry">Thử lại</string>
   <string name="page_error_back_to_main">Quay lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
-  <string name="history_item_deleted">%s đã được xoá khỏi lược sử</string>
-  <string name="history_items_deleted" fuzzy="true">%d bài viết đã được xoá khỏi lược sử</string>
+  <string name="history_item_deleted">%s đã được xóa khỏi lịch sử</string>
+  <string name="history_items_deleted">%d bài viết đã được xóa khỏi lịch sử</string>
   <string name="history_item_delete_undo">Hoàn tác</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
   <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
@@ -67,7 +67,7 @@
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
   <string name="search_reading_list_no_results">Không tìm thấy kết quả trong \"%s\"</string>
   <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách xem</string>
-  <string name="search_history_no_results">Không tìm thấy kết quả trong lược sử</string>
+  <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
   <string name="edit_section_captcha_hint">Lặp lại các từ bên trên</string>
   <string name="title_captcha">Nhập CAPTCHA</string>
@@ -86,7 +86,7 @@
   <string name="toast_logout_complete">Đã đăng xuất</string>
   <string name="history_empty_title">Không có bài viết nào được xem gần đây</string>
   <string name="history_empty_message">Theo dõi nhưng gì bạn đã xem qua tại đây.</string>
-  <string name="delete_selected_items">Xoá mục đã chọn</string>
+  <string name="delete_selected_items">Xóa mục đã chọn</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Tên người dùng</string>
   <string name="create_account_login_link">Đã có tài khoản? Đăng nhập</string>
@@ -283,7 +283,7 @@
   <string name="reading_list_name_hint">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
   <string name="reading_list_item_deleted">Đã xóa %s khỏi danh sách</string>
-  <string name="reading_list_items_deleted">%d bài viết đã được xoá khỏi danh sách</string>
+  <string name="reading_list_items_deleted">%d bài viết đã được xóa khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
   <string name="reading_lists_empty">Chưa có danh sách đọc</string>

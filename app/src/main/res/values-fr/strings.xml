@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Par exemple</string>
   <string name="reading_lists_onboarding_example1">Endroits à visiter</string>
   <string name="reading_lists_onboarding_example2">Animaux favoris</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Espace !</string>
+  <string name="reading_lists_onboarding_example3">Exploration spatiale </string>
   <string name="reading_lists_onboarding_got_it">L’obtenir</string>
   <string name="reading_list_no_description">Aucune description…</string>
   <string name="reading_list_empty">Vous n’avez aucun article ajouté à cette liste.</string>
@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Synchroniser les listes de lecture</string>
   <string name="reading_list_login_reminder_text">Vos listes de lecture peuvent maintenant être enregistrées dans votre compte Wikipédia. Connectez-vous simplement à votre compte, et vos listes de lecture seront synchronisées automatiquement.</string>
   <string name="reading_lists_confirm_remote_delete">Cela supprimera du stockage distant toutes les listes de lecture synchronisées précédemment. Continuer ?</string>
+  <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_button_view_user">Parler à l’utilisateur</string>
   <string name="notification_talk_title">Nouveau message sur Wikipédia</string>

@@ -268,6 +268,7 @@
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Világos</string>
   <string name="color_theme_dark">Sötét</string>
+  <string name="preference_title_color_theme">Sötét téma</string>
   <string name="nav_item_reading_lists">Listáim</string>
   <string name="reading_list_untitled">Névtelen</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>
@@ -278,6 +279,7 @@
   <string name="reading_list_added_to_unnamed">Hozzáadva az olvasólistához.</string>
   <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
+  <string name="format_reading_list_statistical_summary_singular">1 cikk, %1$.2f megabyte</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d szócikk, %2$.2f MiB</string>
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
@@ -319,6 +321,7 @@
   <string name="reading_list_sync_reminder_text">Olvasási listáidat szinkronizálhatod, ha bejelentkezel a Wikipédiába</string>
   <string name="reading_list_sync_reminder_action">Bekapcsol</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
+  <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_button_view_user">Üzenethagyás a szerkesztőnek</string>
   <string name="notification_talk_title">Új üzenet a Wikipédián</string>
@@ -395,6 +398,7 @@
   <string name="onboarding_skip">Kihagy</string>
   <string name="onboarding_continue">Tovább</string>
   <string name="onboarding_get_started">Kezdés</string>
+  <string name="onboarding_explore_title">Új módok a felfedezésre</string>
   <string name="onboarding_reading_list_sync_title">Olvasási listák szinkronizálással</string>
   <string name="onboarding_reading_list_sync_text">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
