@@ -279,8 +279,8 @@
   <string name="reading_list_added_to_unnamed">زیادکرا بۆ پێڕستی خوێندنەوە.</string>
   <string name="reading_list_already_exists">ئەم وتارە ھەر لەنێو ئەو پێڕستە بووە.</string>
   <string name="reading_list_added_view_button">پێڕستی بینین</string>
-  <string name="format_reading_list_statistical_summary_singular">1 وتار، %1$.٢f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d وتار، %2$.٢f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 وتار، %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d وتار، %2$.2f MiB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی بەبێ ئینتەرنێت.</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d لە %2$d وتار بەردەستە بەبێ ئینتەرنێت، %3$.٢f MiB</string>
   <string name="reading_list_sort">ڕیزکردن</string>
