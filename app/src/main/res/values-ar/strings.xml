@@ -16,6 +16,7 @@
   <string name="page_error_back_to_main">ارجع إلى الخلف</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
   <string name="history_item_deleted">أزيلت %s من القائمة</string>
+  <string name="history_items_deleted">أُزيلت {{PLURAL:|مقالة|مقالتان| مقالات|%d مقالة}} من التاريخ</string>
   <string name="history_item_delete_undo">رجوع</string>
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
@@ -280,6 +281,7 @@
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجابايت</string>
+  <string name="format_reading_list_statistical_summary_plural">{{PLURAL:%1$d|مقالة|مقالتان|%1$d مقالات|%1$d مقالة}}، %2$.2f ميغابايت</string>
   <string name="reading_list_sort">رتب</string>
   <string name="reading_list_sort_by_name">فرز حسب الاسم</string>
   <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>
