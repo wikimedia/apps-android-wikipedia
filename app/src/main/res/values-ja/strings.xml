@@ -89,6 +89,7 @@
   <string name="delete_selected_items">選択した項目を削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
   <string name="create_account_username_hint">利用者名</string>
+  <string name="login_forgot_password">パスワードを忘れた場合はこちら</string>
   <string name="create_account_login_link">アカウントを既にお持ちの場合は、こちらからログインしてください</string>
   <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加しましょう</string>
   <string name="create_account_activity_title">アカウント作成</string>

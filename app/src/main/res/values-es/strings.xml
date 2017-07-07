@@ -308,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Por ejemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
   <string name="reading_lists_onboarding_example2">Animales favoritos</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">¡El espacio!</string>
+  <string name="reading_lists_onboarding_example3">Exploración espacial</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_no_description">Sin descripción…</string>
   <string name="reading_list_empty">No tienes artículos añadidos a esta lista.</string>
@@ -329,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
   <string name="reading_list_login_reminder_text">Ahora tus listas de lectura pueden guardarse en tu cuenta de Wikipedia. Simplemente accede a tu cuenta y tus listas de lectura se sincronizarán automáticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Esto eliminará cualquier lista de lectura previamente sincronizada del almacenamiento remoto. ¿Procedemos?</string>
+  <string name="reading_list_article_save_in_progress">El artículo se está descargado y estará disponible sin conexión cuándo haya completado.</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Discute con el usuario</string>
   <string name="notification_talk_title">Mensaje nuevo en Wikipedia</string>
@@ -410,7 +411,7 @@
   <string name="onboarding_reading_list_sync_title">Listas de lectura sincronizadas</string>
   <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artículos que quieres leer más tarde, incluso cuando estés sin conexión. &lt;a href=\"#login\"&gt;Inicia sesión o crea&lt;/a&gt; tu cuenta de Wikipedia para mantener tus listas de lectura sincronizadas.</string>
   <string name="onboarding_analytics_title">Enviar datos anónimos</string>
-  <string name="onboarding_analytics_text">Ayuda a mejorar la aplicación aportando información de como la usa. Los datos obtenidos son anónimos. &lt;a href=\"#privacy\"&gt;Leer más&lt;/a&gt;</string>
+  <string name="onboarding_analytics_text">Ayuda a mejorar la aplicación aportando información de cómo la usas. Los datos obtenidos son anónimos. &lt;a href=\"#privacy\"&gt;Leer más&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
   <string name="onboarding_create_account_sync">Sincronizar tus listas de lectura</string>
   <string name="onboarding_create_account_contributions">Mantente al tanto de tus aportes</string>

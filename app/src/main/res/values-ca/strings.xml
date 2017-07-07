@@ -131,7 +131,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>
   <string name="preference_summary_auto_upload_crash_reports">Permet que l\'aplicació enviï informes d\'error de forma automàtica a HockeyApp / un proveïdor de serveis, de manera que podem revisar-ho i corregir-ho de la manera més fàcil i ràpida.</string>
-  <string name="editing_error_spamblacklist">Enllaços a dominis bloquejats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
+  <string name="editing_error_spamblacklist">Enllaços a dominis blocats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
   <string name="history_search_list_hint">Cerca a l\'historial</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>
   <string name="page_protected_autoconfirmed">La pàgina està semiprotegida.</string>
@@ -158,9 +158,9 @@
   <string name="about_wmf">Un producte de la &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
-  <string name="user_blocked_from_editing_title">Bloquejat</string>
-  <string name="user_logged_in_blocked_from_editing">S\'ha bloquejat l\'edició des del vostre compte en aquest wiki.</string>
-  <string name="user_anon_blocked_from_editing">S\'ha bloquejat l\'edició des de la vostra IP.</string>
+  <string name="user_blocked_from_editing_title">Blocat</string>
+  <string name="user_logged_in_blocked_from_editing">S\'ha blocat l\'edició des del vostre compte en aquest wiki.</string>
+  <string name="user_anon_blocked_from_editing">S\'ha blocat l\'edició des de la vostra IP.</string>
   <string name="edit_how_page_improved">Com heu millorat la pàgina?</string>
   <string name="edit_next">Següent</string>
   <string name="edit_done">Publica</string>
