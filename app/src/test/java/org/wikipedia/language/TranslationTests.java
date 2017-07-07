@@ -15,8 +15,10 @@ import org.wikipedia.util.log.L;
 import java.io.File;
 import java.io.FileFilter;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -77,9 +79,7 @@ public class TranslationTests {
             Map<String, String> hasFloatFirstParams = new StringCollector(POSSIBLE_PARAM_FLOAT_FIRST).collect(dir.getName(), doc);
             Map<String, String> hasFloatThirdParams = new StringCollector(POSSIBLE_PARAM_FLOAT_THIRD).collect(dir.getName(), doc);
             Map<String, String> hasTextUtilTemplateParams = new StringCollector("^1").collect(dir.getName(), doc);
-
-            // TODO: handle in follow-up patch
-            // List<String> hasPluralRes = collectPluralResources();
+            List<Element> hasPlurals = collectPluralResources(doc);
 
             if (!lang.equals("qq")) {
                 for (Map.Entry<String, String> entry : hasTags.entrySet()) {
@@ -88,7 +88,6 @@ public class TranslationTests {
                             || entry.getKey().equals("notification_talk")
                             || entry.getKey().equals("notification_reverted")
                             || entry.getKey().equals("notification_thanks")) {
-                        // exceptions of the rule
                         continue;
                     }
                     expectContains(lang, entry, "<", "&lt;");
@@ -124,9 +123,9 @@ public class TranslationTests {
                 for (Map.Entry<String, String> entry : hasTextUtilTemplateParams.entrySet()) {
                     checkTranslationHasParameter(lang, entry, "^1", "[templateParam]", null);
                 }
-                /*for (Res res : pluralRes) {
-                    checkPluralHasOther(res);
-                }*/
+                for (Element elem : hasPlurals) {
+                    checkPluralHasOther(lang, elem);
+                }
             }
         }
         assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
@@ -210,20 +209,13 @@ public class TranslationTests {
         }
     }
 
-    /*private void checkPluralHasOther(Res res) {
-        L.i(myLocale + ":" + res.name);
-        try {
-            final int paramOther = 42;
-            getQuantityString(res.id, 0);
-            getQuantityString(res.id, 1);
-            getQuantityString(res.id, 2);
-            getQuantityString(res.id, paramOther);
-        } catch (Exception e) {
-            final String msg = myLocale + ":" + res.name + " plural is missing 'other'";
+    private void checkPluralHasOther(String lang, Element elem) {
+        if (elem.getElementsByAttributeValue("quantity", "other").size() <= 0) {
+            final String msg = lang + ":" + elem.attr("name") + " plural is missing 'other'";
             L.e(msg);
             mismatches.append(msg).append("\n");
         }
-    }*/
+    }
 
     private boolean hasBadName(File pathname) {
         for (String name : BAD_NAMES) {
@@ -267,7 +259,6 @@ public class TranslationTests {
                 // don't care about appcompat string; and preference string resources don't get translated
                 assertParameterFormats(lang, name, value);
 
-                // Find parameter
                 boolean found = findParameter(value);
                 if ((!negate && found) || (negate && !found)) {
                     result.put(name, value);
@@ -319,20 +310,9 @@ public class TranslationTests {
         }
     }
 
-    /*private List<Res> collectPluralResources() {
-        final List<Res> resources = new ArrayList<>();
-        final R.plurals pluralResources = new R.plurals();
-        final Class<R.plurals> c = R.plurals.class;
-        final Field[] fields = c.getDeclaredFields();
-
-        for (int i = 0, max = fields.length; i < max; i++) {
-            final String name;
-            final int resourceId;
-            name = fields[i].getName();
-            resourceId = fields[i].getInt(pluralResources);
-            resources.add(new Res(resourceId, name));
-        }
-
-        return resources;
-    }*/
+    private List<Element> collectPluralResources(Document doc) {
+        List<Element> result = new ArrayList<>();
+        result.addAll(doc.select("plurals"));
+        return result;
+    }
 }
