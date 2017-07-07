@@ -3,6 +3,7 @@ package org.wikipedia.readinglist.sync;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
@@ -26,6 +27,7 @@ import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -91,7 +93,13 @@ public class ReadingListSynchronizer {
             }
         }
 
-        if ((remoteReadingLists == null) || (remoteReadingLists.rev() < localRev)) {
+        if (Prefs.hasReadingListsCurrentUser()
+                && !Prefs.isReadingListsCurrentUser(AccountUtil.getUserName())) {
+            reconcileAsRightJoin(remoteReadingLists);
+            if (remoteReadingLists != null) {
+                Prefs.setReadingListSyncRev(remoteReadingLists.rev());
+            }
+        } else if ((remoteReadingLists == null) || (remoteReadingLists.rev() < localRev)) {
             if (localRev == 0) {
                 // If this is the first time we're syncing, bump the rev explicitly.
                 bumpRev();
@@ -110,6 +118,7 @@ public class ReadingListSynchronizer {
                 deleteRemoteReadingLists();
             }
         }
+        Prefs.setReadingListsCurrentUser(AccountUtil.getUserName());
     }
 
     private void deleteRemoteReadingLists() {
@@ -140,9 +149,10 @@ public class ReadingListSynchronizer {
         Prefs.setReadingListSyncRev(Prefs.getReadingListSyncRev() + 1);
     }
 
-    private void reconcileAsRightJoin(@NonNull RemoteReadingLists remoteReadingLists) {
+    private void reconcileAsRightJoin(@Nullable RemoteReadingLists remoteReadingLists) {
         List<ReadingList> localLists = ReadingListData.instance().queryMruLists(null);
-        List<RemoteReadingList> remoteLists = remoteReadingLists.lists();
+        List<RemoteReadingList> remoteLists = remoteReadingLists == null
+                ? Collections.<RemoteReadingList>emptyList() : remoteReadingLists.lists();
 
         // Remove any pages that already exist in local lists from remote lists.
         // At the end of this loop, whatever is left in remoteLists will be added.
