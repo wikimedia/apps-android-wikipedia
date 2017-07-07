@@ -31,13 +31,19 @@ public class FullTextSearchClient {
         return request(cachedService.service(wiki), wiki, searchTerm, cont, gsrOffset, limit, cb);
     }
 
+    public Call<MwQueryResponse> requestMoreLike(@NonNull WikiSite wiki, @NonNull String searchTerm,
+                                                 @Nullable String cont, @Nullable String gsrOffset,
+                                                 int limit, @NonNull Callback cb) {
+        return request(cachedService.service(wiki), wiki, moreLike(searchTerm), cont, gsrOffset, limit, cb);
+    }
+
     @VisibleForTesting Call<MwQueryResponse> request(@NonNull Service service,
                                                      @NonNull final WikiSite wiki,
                                                      @NonNull String searchTerm,
                                                      @Nullable String cont,
                                                      @Nullable String gsrOffset,
                                                      int limit, @NonNull final Callback cb) {
-        call = service.request(moreLike(searchTerm), limit, cont, gsrOffset);
+        call = service.request(searchTerm, limit, cont, gsrOffset);
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
             @Override
             public void onResponse(@NonNull Call<MwQueryResponse> call,

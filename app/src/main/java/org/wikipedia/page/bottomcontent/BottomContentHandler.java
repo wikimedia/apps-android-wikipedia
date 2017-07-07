@@ -326,7 +326,7 @@ public class BottomContentHandler implements BottomContentInterface,
             return;
         }
         final long timeMillis = System.currentTimeMillis();
-        new FullTextSearchClient().request(entry.getTitle().getWikiSite(),
+        new FullTextSearchClient().requestMoreLike(entry.getTitle().getWikiSite(),
                 entry.getTitle().getPrefixedText(), null, null,
                 Constants.MAX_SUGGESTION_RESULTS * 2, new FullTextSearchClient.Callback() {
                     @Override
