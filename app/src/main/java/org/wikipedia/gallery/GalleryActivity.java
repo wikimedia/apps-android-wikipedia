@@ -5,6 +5,7 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
@@ -55,6 +56,7 @@ import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,7 +66,8 @@ import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
-public class GalleryActivity extends ThemedActionBarActivity implements LinkPreviewDialog.Callback {
+public class GalleryActivity extends ThemedActionBarActivity implements LinkPreviewDialog.Callback,
+        GalleryItemFragment.Callback {
     public static final int ACTIVITY_RESULT_PAGE_SELECTED = 1;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
@@ -92,9 +95,6 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
     @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
 
     @Nullable private GalleryFunnel funnel;
-    @Nullable protected GalleryFunnel getFunnel() {
-        return funnel;
-    }
 
     /**
      * If we have an intent that tells us a specific image to jump to within the gallery,
@@ -109,7 +109,8 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
 
     private ViewPager galleryPager;
     private GalleryItemAdapter galleryAdapter;
-    private MediaDownloadReceiver downloadReceiver;
+    private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
+    private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
 
     /**
      * Cache that stores GalleryItem information for each corresponding media item in
@@ -171,7 +172,6 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         super.onCreate(savedInstanceState);
         // force the theme to dark...
         setTheme(Theme.DARK.getResourceId());
-        downloadReceiver = new MediaDownloadReceiver(this);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_gallery);
@@ -276,12 +276,32 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
     public void onResume() {
         super.onResume();
         registerReceiver(downloadReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        downloadReceiver.setCallback(downloadReceiverCallback);
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        downloadReceiver.setCallback(null);
         unregisterReceiver(downloadReceiver);
+    }
+
+    @Override
+    public void onDownload(@NonNull GalleryItem item) {
+        funnel.logGallerySave(pageTitle, item.getName());
+        downloadReceiver.download(this, item);
+        FeedbackUtil.showMessage(this, R.string.gallery_save_progress);
+    }
+
+    @Override
+    public void onShare(@NonNull GalleryItem item, @Nullable Bitmap bitmap, @NonNull String subject, @NonNull PageTitle title) {
+        funnel.logGalleryShare(pageTitle, item.getName());
+        if (bitmap != null) {
+            ShareUtil.shareImage(this, bitmap, new File(item.getUrl()).getName(), subject,
+                    title.getCanonicalUri());
+        } else {
+            ShareUtil.shareText(this, title);
+        }
     }
 
     private class GalleryPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
@@ -331,10 +351,6 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
             funnel.logGalleryClose(pageTitle, getCurrentItem().getName());
         }
         super.onBackPressed();
-    }
-
-    public MediaDownloadReceiver getDownloadReceiver() {
-        return downloadReceiver;
     }
 
     /**
@@ -685,6 +701,13 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
                         .newInstance(pageTitle, wiki, galleryCollection.getItemList().get(position)));
             }
             return fragmentArray.get(position);
+        }
+    }
+
+    private class MediaDownloadReceiverCallback implements MediaDownloadReceiver.Callback {
+        @Override
+        public void onSuccess() {
+            FeedbackUtil.showMessage(GalleryActivity.this, R.string.gallery_save_success);
         }
     }
 
