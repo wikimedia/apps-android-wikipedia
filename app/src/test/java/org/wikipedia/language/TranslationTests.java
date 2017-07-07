@@ -161,15 +161,6 @@ public class TranslationTests {
         }
     }
 
-    private void checkTranslationHasNoParameter(String lang, Map.Entry<String, String> entry) {
-        String val1 = "[val1]";
-        if (entry.getValue().contains(val1)) {
-            final String msg = lang + ":" + entry.getKey() + " = " + entry.getValue() + "' contains " + val1;
-            L.e(msg);
-            mismatches.append(msg).append("\n");
-        }
-    }
-
     private void checkTranslationHasParameter(String lang, Map.Entry<String, String> entry, String paramName, Object val1, String alternateFormat) {
         String subject = String.format(new Locale(lang), entry.getValue(), val1);
         if (!subject.contains(String.format(paramName, val1))
