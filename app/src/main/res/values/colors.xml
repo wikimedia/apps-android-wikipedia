@@ -129,8 +129,7 @@
 
     <color name="translucent_background_dark">#E2000000</color>
 
-    <color name="view_pager_indicator_unselected">#16000000</color>
-    <color name="view_pager_indicator_selected">#48000000</color>
+    <color name="white_translucent_40">#6fff</color>
 
     <color name="view_wiki_error_icon_tint">@color/base30</color>
     <color name="view_wiki_error_text_color">@color/base30</color>

@@ -14,6 +14,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,23 +26,14 @@ import org.wikipedia.util.StringUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
-import butterknife.OnClick;
 
 public class OnboardingPageView extends LinearLayout {
     public interface Callback {
-        void onButtonClick(@NonNull OnboardingPageView view);
-        void onSkipClick(@NonNull OnboardingPageView view);
         void onSwitchChange(@NonNull OnboardingPageView view, boolean checked);
         void onLinkClick(@NonNull OnboardingPageView view, @NonNull String url);
     }
 
     public static class DefaultCallback implements Callback {
-        @Override
-        public void onButtonClick(@NonNull OnboardingPageView view) { }
-
-        @Override
-        public void onSkipClick(@NonNull OnboardingPageView view) { }
-
         @Override
         public void onSwitchChange(@NonNull OnboardingPageView view, boolean checked) { }
 
@@ -49,14 +41,12 @@ public class OnboardingPageView extends LinearLayout {
         public void onLinkClick(@NonNull OnboardingPageView view, @NonNull String url) { }
     }
 
-    @BindView(R.id.view_onboarding_page_image_protrude) ImageView imageViewProtrude;
     @BindView(R.id.view_onboarding_page_image_centered) ImageView imageViewCentered;
     @BindView(R.id.view_onboarding_page_primary_text) TextView primaryTextView;
     @BindView(R.id.view_onboarding_page_secondary_text) TextView secondaryTextView;
     @BindView(R.id.view_onboarding_page_tertiary_text) TextView tertiaryTextView;
     @BindView(R.id.view_onboarding_page_switch_container) View switchContainer;
     @BindView(R.id.view_onboarding_page_switch) SwitchCompat switchView;
-    @BindView(R.id.view_onboarding_page_button) TextView button;
 
     @Nullable private Callback callback;
 
@@ -89,18 +79,6 @@ public class OnboardingPageView extends LinearLayout {
         switchView.setChecked(checked);
     }
 
-    @OnClick(R.id.view_onboarding_page_button) public void onButtonClick() {
-        if (callback != null) {
-            callback.onButtonClick(this);
-        }
-    }
-
-    @OnClick(R.id.view_onboarding_page_skip_button) void onSkipClick() {
-        if (callback != null) {
-            callback.onSkipClick(this);
-        }
-    }
-
     @OnCheckedChanged(R.id.view_onboarding_page_switch) void onSwitchChange(boolean checked) {
         if (callback != null) {
             callback.onSwitchChange(this, checked);
@@ -115,20 +93,21 @@ public class OnboardingPageView extends LinearLayout {
         if (attrs != null) {
             TypedArray array = getContext().obtainStyledAttributes(attrs,
                     R.styleable.OnboardingPageView, defStyleAttr, defStyleRes);
-            Drawable protrudeImage = array.getDrawable(R.styleable.OnboardingPageView_protrudeImage);
             Drawable centeredImage = array.getDrawable(R.styleable.OnboardingPageView_centeredImage);
             String primaryText = array.getString(R.styleable.OnboardingPageView_primaryText);
             String secondaryText = array.getString(R.styleable.OnboardingPageView_secondaryText);
             String tertiaryText = array.getString(R.styleable.OnboardingPageView_tertiaryText);
-            String buttonText = array.getString(R.styleable.OnboardingPageView_buttonText);
             String switchText = array.getString(R.styleable.OnboardingPageView_switchText);
+            int imageSize = array.getDimensionPixelSize(R.styleable.OnboardingPageView_imageSize, 0);
 
-            imageViewProtrude.setImageDrawable(protrudeImage);
+            FrameLayout.LayoutParams imageParams = (FrameLayout.LayoutParams) imageViewCentered.getLayoutParams();
+            imageParams.width = imageSize;
+            imageParams.height = imageSize;
+            imageViewCentered.setLayoutParams(imageParams);
             imageViewCentered.setImageDrawable(centeredImage);
             primaryTextView.setText(primaryText);
             secondaryTextView.setText(StringUtil.fromHtml(secondaryText));
             tertiaryTextView.setText(tertiaryText);
-            button.setText(buttonText);
 
             switchContainer.setVisibility(TextUtils.isEmpty(switchText) ? GONE : VISIBLE);
             switchView.setText(switchText);

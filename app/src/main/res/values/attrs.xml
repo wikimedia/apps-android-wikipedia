@@ -63,12 +63,11 @@
     </declare-styleable>
 
     <declare-styleable name="OnboardingPageView">
-        <attr name="protrudeImage" format="reference" />
         <attr name="centeredImage" format="reference" />
         <attr name="primaryText" format="string" />
         <attr name="secondaryText" format="string" />
         <attr name="tertiaryText" format="string" />
         <attr name="switchText" format="string" />
-        <attr name="buttonText" format="string" />
+        <attr name="imageSize" format="dimension" />
     </declare-styleable>
 </resources>

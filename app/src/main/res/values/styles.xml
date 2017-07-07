@@ -123,6 +123,12 @@
         <item name="android:textColor">@color/base30</item>
     </style>
 
+    <style name="OnboardingSwitch">
+        <item name="colorControlActivated">@color/green50</item>
+        <item name="colorSwitchThumbNormal">@color/base50</item>
+        <item name="android:colorForeground">@color/base30</item>
+    </style>
+
     <style name="TextHeadingGray" parent="@android:style/TextAppearance.Medium">
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>

@@ -2,20 +2,15 @@ package org.wikipedia.onboarding;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.model.EnumCode;
@@ -23,41 +18,21 @@ import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
-public class InitialOnboardingFragment extends Fragment implements BackPressedHandler {
-    @BindView(R.id.fragment_pager) ViewPager viewPager;
-    private Unbinder unbinder;
-    private PagerAdapter adapter;
+public class InitialOnboardingFragment extends OnboardingFragment {
     private PageViewCallback pageViewCallback = new PageViewCallback();
-
-    public interface Callback {
-        void onComplete();
-    }
 
     @NonNull public static InitialOnboardingFragment newInstance() {
         return new InitialOnboardingFragment();
     }
 
-    @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_single_pager, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        adapter = new OnboardingPagerAdapter();
-        viewPager.setAdapter(adapter);
-        return view;
+    @Override protected PagerAdapter getAdapter() {
+        return new OnboardingPagerAdapter();
     }
 
-    @Override public void onDestroyView() {
-        viewPager.setAdapter(null);
-        adapter = null;
-        unbinder.unbind();
-        unbinder = null;
-        super.onDestroyView();
+    @Override protected int getDoneButtonText() {
+        return R.string.onboarding_get_started;
     }
 
     @Override public void onActivityResult(int requestCode, int resultCode, final Intent data) {
@@ -70,47 +45,9 @@ public class InitialOnboardingFragment extends Fragment implements BackPressedHa
         }
     }
 
-    @Override public boolean onBackPressed() {
-        if (viewPager.getCurrentItem() > 0) {
-            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1, true);
-            return true;
-        }
-        return false;
-    }
-
-    private void advancePage() {
-        if (!isAdded()) {
-            return;
-        }
-        int nextPageIndex = viewPager.getCurrentItem() + 1;
-        int lastPageIndex = viewPager.getAdapter().getCount() - 1;
-        viewPager.setCurrentItem(Math.min(nextPageIndex, lastPageIndex), true);
-    }
-
-    private Callback callback() {
-        return FragmentUtil.getCallback(this, Callback.class);
-    }
-
     private class PageViewCallback implements OnboardingPageView.Callback {
-        @Override public void onButtonClick(@NonNull OnboardingPageView view) {
-            if (OnboardingPage.of((int) view.getTag()).isLast()) {
-                if (callback() != null) {
-                    callback().onComplete();
-                }
-            } else {
-                advancePage();
-            }
-        }
-
-        @Override public void onSkipClick(@NonNull OnboardingPageView view) {
-            if (callback() != null) {
-                callback().onComplete();
-            }
-        }
-
         @Override public void onSwitchChange(@NonNull OnboardingPageView view, boolean checked) {
-            if (OnboardingPage.of((int) view.getTag())
-                    .equals(OnboardingPage.PAGE_USAGE_DATA)) {
+            if (OnboardingPage.of((int) view.getTag()).equals(OnboardingPage.PAGE_USAGE_DATA)) {
                 Prefs.setEventLoggingEnabled(checked);
             }
         }
@@ -180,10 +117,6 @@ public class InitialOnboardingFragment extends Fragment implements BackPressedHa
 
         @NonNull public static OnboardingPage of(int code) {
             return MAP.get(code);
-        }
-
-        public boolean isLast() {
-            return ordinal() == size() - 1;
         }
 
         public static int size() {

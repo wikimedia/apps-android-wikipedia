@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:centeredImage="@drawable/illustration_onboarding_explore"
+    app:imageSize="160dp"
     app:primaryText="@string/onboarding_explore_title"
-    app:secondaryText="@string/onboarding_explore_text"
-    app:buttonText="@string/onboarding_continue" />
+    app:secondaryText="@string/onboarding_explore_text" />
