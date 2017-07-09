@@ -57,6 +57,7 @@ public class ShareHandler {
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
     private static final String PAYLOAD_PURPOSE_EDIT_HERE = "edit_here";
+    private static final String PAYLOAD_PURPOSE_HIGHLIGHT = "highlight";
     private static final String PAYLOAD_TEXT_KEY = "text";
 
     @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.foundation_blue;
@@ -93,11 +94,21 @@ public class ShareHandler {
                     case PAYLOAD_PURPOSE_EDIT_HERE:
                         onEditHerePayload(messagePayload.optInt("sectionID", 0), text);
                         break;
+                    case PAYLOAD_PURPOSE_HIGHLIGHT:
+                        onHighlightText(text);
+                        break;
                     default:
                         L.d("Unknown purpose=" + purpose);
                 }
             }
         });
+    }
+
+    private void onHighlightText(String text) {
+        if (funnel == null) {
+            createFunnel();
+        }
+        funnel.logHighlight(text);
     }
 
     public void showWiktionaryDefinition(String text) {
@@ -192,8 +203,7 @@ public class ShareHandler {
             editItem.setVisible(false);
         }
 
-        createFunnel();
-        funnel.logHighlight();
+        requestTextSelection(PAYLOAD_PURPOSE_HIGHLIGHT);
     }
 
     private boolean shouldEnableWiktionaryDialog() {
@@ -260,6 +270,7 @@ public class ShareHandler {
 
     private class RequestTextSelectOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
         @NonNull private final String purpose;
+
         RequestTextSelectOnMenuItemClickListener(@NonNull String purpose) {
             this.purpose = purpose;
         }
@@ -270,17 +281,17 @@ public class ShareHandler {
             leaveActionMode();
             return true;
         }
+    }
 
-        private void requestTextSelection(String purpose) {
-            // send an event to the WebView that will make it return the
-            // selected text (or first paragraph) back to us...
-            try {
-                JSONObject payload = new JSONObject();
-                payload.put(PAYLOAD_PURPOSE_KEY, purpose);
-                bridge.sendMessage("getTextSelection", payload);
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
+    private void requestTextSelection(String purpose) {
+        // send an event to the WebView that will make it return the
+        // selected text (or first paragraph) back to us...
+        try {
+            JSONObject payload = new JSONObject();
+            payload.put(PAYLOAD_PURPOSE_KEY, purpose);
+            bridge.sendMessage("getTextSelection", payload);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
     }
 }
