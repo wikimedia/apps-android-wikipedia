@@ -77,6 +77,7 @@
   <string name="login_username_hint">ناوی بەکارھێنەر</string>
   <string name="login_password_hint">تێپەڕوشە</string>
   <string name="login_2fa_hint">کۆدی دڵنیاکردنەوەی دوو-فاکتەر</string>
+  <string name="login_2fa_other_workflow_error_msg">جەختکەرەوەی دووجار پێویستە! تکایە بگەڕێوە بۆ چالاکی سەرەکی و بە کۆدی ٢-ئێف-ئەیەکەت بچۆژوورەوە و دووبارە ھەوڵ بدەرەوە.</string>
   <string name="menu_login">چوونە ناوەوە</string>
   <string name="login_activity_title">چوونە ناوەوە بۆ ویکیپیدیا</string>
   <string name="login_in_progress_dialog_message">چوونە ژوورەوە...</string>

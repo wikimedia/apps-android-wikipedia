@@ -99,7 +99,7 @@
   <string name="zero_interstitial_continue">Пакінуць</string>
   <string name="zero_interstitial_cancel">Застацца</string>
   <string name="zero_learn_more">Ваш апэратар бяздротавай сувязі зрабіў бясплатным доступ да зьместу Вікіпэдыі!</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Даведацца болей</string>
+  <string name="zero_learn_more_learn_more">Даведацца болей</string>
   <string name="zero_learn_more_dismiss">Адхіліць</string>
   <string name="edit_preview_fetching_dialog_message">Атрыманьне папярэдняга прагляду...</string>
   <string name="send_feedback">Дастаць водгук пра дастасаваньне</string>
@@ -115,7 +115,7 @@
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>
   <string name="page_protected_other">Гэтая старонка была абароненая на наступных узроўнях: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Вы ня маеце правоў рэдагаваць гэтую старонку</string>
+  <string name="page_protected_can_not_edit">Выбачайце, ваш рахунак мае недастаткова правоў, каб рэдагаваць цяпер гэтую старонку.</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка абароненая</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>
@@ -126,7 +126,7 @@
   <string name="about_contributors_heading">Аўтары</string>
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf" fuzzy="true">Прадукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фундацыі Вікімэдыя&lt;/a&gt;</string>
+  <string name="about_wmf">Прадукт &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;фундацыі «Вікімэдыя»&lt;/a&gt;</string>
   <string name="about_activity_title">Пра</string>
   <string name="edit_abandon_confirm">Старонка была зьмененая. Вы ўпэўнены, што жадаеце выйсьці без захаваньня Вашых зьменаў?</string>
   <string name="user_blocked_from_editing_title">Заблякаваны</string>
