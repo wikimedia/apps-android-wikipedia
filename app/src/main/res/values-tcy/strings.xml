@@ -45,6 +45,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributors</string>
   <string name="last_updated_text">ಕಡೇತಾ ಪರಿಷ್ಕರಣೆ ಮಾಂತುನಾ %s</string>
   <string name="talk_page_link_text">ಪಾತೆರ್ಲೆ</string>
+  <string name="content_license_html">ಪ್ರತ್ಯೇಕವಾದ್ ಉಲ್ಲೇಕ ಮಲ್ಪಂದೆ ಇತ್ತ್ಂಡ, ವಿಷಯ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ದಡಿಟ್ ಲಭ್ಯ ಉಂಡು.</string>
+  <string name="edit_save_action_license_logged_in">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್.</string>
+  <string name="edit_save_action_license_anon">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್. ಬದಲಾವಣೆದ ಶ್ರೇಯೊ (ಕ್ರೆಡಿಟ್ಸ್), ಇರೆನ ಸಾಧನೊದ ಐ.ಪಿ. ವಿಲಾಸೊಗು ತಿಕ್ಕುಂಡು. ಈರ್ &lt;a href=\"https://#login\"&gt;ಲಾಗ್ ಇನ್&lt;/a&gt; ಆಂಡ, ಇರೆಗ್ ದಿಂಜ ಗೌಪ್ಯತೆ ಉಪ್ಪುಂಡು.</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆ</string>
   <string name="preference_languages_filter_hint">ನಾಡ್‍ಲೆ</string>
   <string name="langlinks_filter_hint">ನಾಡ್‍ಲೆ</string>
@@ -63,34 +66,42 @@
   <string name="menu_show_toc">ಪರಿವಿಡಿ</string>
   <string name="search_no_results_found">ಒವ್ವೆ ವಿಚಾರೊಲ್ ತಿಕೀಜಿ</string>
   <string name="search_reading_list_no_results">\"%s\" ಪನ್ಪಿ ವಿಸಯೊಗ್ ದಾಲ ತಿಕ್ಕಿಜಿ</string>
+  <string name="search_reading_lists_no_results">ಓದುನ ಪಟ್ಟಿಲೆಡ್ ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
+  <string name="search_history_no_results">ಇತಿಹಾಸೊಡು ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
+  <string name="edit_section_captcha_message">ಅಟೊಮೇಟೆಡ್ ಸ್ಪ್ಯಾಮ್ ಉಂಡಾಪಿನೆನ್ ಉಂತಾಯೆರೆ ಬೋಡಾದ್, ದಯಮಲ್ತ್‌ದ್ ತಿರ್ತ್ ತೋಜುನ ಪಠ್ಯೊನು ಬರೆಲೆ.</string>
   <string name="edit_section_captcha_hint">ಮಿತ್ತ ಪದೊನ್ ಮುಲ್ಪ ಬರೆಲೆ</string>
   <string name="title_captcha">CAPTCHAನ್ ಬರೆಲೆ</string>
-  <string name="edit_section_captcha_reload">CAPTCHA ಬರಿಯಾರ ಮುಲ್ಪ ಒತ್ತುಲೆ</string>
-  <string name="nav_item_login">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಅಲೇ</string>
+  <string name="edit_section_captcha_reload">ಕುಡ ಲೋಡ್ ಮಲ್ಪೆರೆ CAPTCHA ನ್ ಒತ್ತುಲೆ</string>
+  <string name="edit_saved_page_refresh">ಈ ಒರಿಪಾಯಿನ ಪುಟೊ ಮಸ್ತ್ ಪರತ್ತ್ ಆದುಪ್ಪು, ಸಂಪಾದನೆನ್ ಸುರು ಮಲ್ಪೆರೆ ರೀಫ್ರೆಶ್ ಮಲ್ಪೊಡಾಪುಂಡು. ಈರ್ ಈ ಪುಟೊನು ರೀಫ್ರೆಶ್ ಮಲ್ಪುವರೆ?</string>
+  <string name="nav_item_login">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
   <string name="login_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
   <string name="login_password_hint">ಪ್ರವೇಶ ಪದೊ</string>
   <string name="menu_login">ಲಾಗಿನ್ ಆಲೆ</string>
-  <string name="login_activity_title">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಅಲೇ</string>
-  <string name="login_in_progress_dialog_message">ಇರ್ ಲಾಗ್-ಇನ್ ಅವೊಂತುಲ್ಲಾರ್…</string>
-  <string name="login_success_toast">ಲಾಗ್-ಇನ್ ಅಯಾರ್!</string>
+  <string name="login_activity_title">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
+  <string name="login_in_progress_dialog_message">ಈರ್ ಲಾಗ್-ಇನ್ ಅವೊಂತುಲ್ಲಾರ್…</string>
+  <string name="login_success_toast">ಲಾಗ್-ಇನ್ ಆಯಾರ್!</string>
   <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
-  <string name="toast_logout_complete">ಲಾಗ್ ಔಟ್ ಅಯಾರ್</string>
+  <string name="toast_logout_complete">ಲಾಗ್ ಔಟ್ ಆಯಾರ್</string>
   <string name="history_empty_title">ಮುಲ್ಪ ಇಂಚಿಪೋ ತೂಯಿನಾ ಪುಟೋ ಇಜ್ಜಿ</string>
+  <string name="history_empty_message">ಈರ್ ಮೂಲು ಓದೊಂದುಪ್ಪುನೇನ್ ಟ್ರ್ಯಾಕ್ ಮಲ್ಪುಲೆ</string>
+  <string name="search_empty_message">ಉಚಿತ ಎನ್ಸೈಕ್ಲೋಪೀಡಿಯಾನ್ ಇರೆನ ಬಾಸೆಡ್ ನಾಡ್‌ದ್ ಓದುಲೆ.</string>
   <string name="delete_selected_items">ಆಯ್ಕೆ ಮಲ್ತಿನೆನ್ ಮಾಜಾಲೆ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
   <string name="login_dont_have_account">ಈರೆನ ಖಾತೆ ಇಜ್ಜೇ?</string>
-  <string name="login_join_wikipedia">ವಿಕಿಪೀಡಿಯಗ್ ಸೆರ್ಲೆ</string>
+  <string name="login_join_wikipedia">ವಿಕಿಪೀಡಿಯಗ್ ಸೇರ್ಲೆ</string>
   <string name="login_forgot_password">ಈರೆನೆ ಪ್ರವೇಸೊ ಪದೊ ಮರತ್ತ್‌ಂಡಾ?</string>
   <string name="create_account_already_have">ಈರೆನ ಖಾತೆ ಉಂಡೇ?</string>
-  <string name="create_account_login_link">ಈರೆನ ಖಾತೆ ಉಂಡೇ? ಲಾಗ್ ಇನ್ ಅಲೇ</string>
+  <string name="create_account_login_link">ಈರೆನ ಖಾತೆ ಉಂಡೇ? ಲಾಗ್ ಇನ್ ಆಲೆ</string>
   <string name="login_create_account_link">ಖಾತೆ ಇಜ್ಜಾ? ವಿಕಿಪೀಡಿಯಾಗ್ ಸೇರ್ಲೆ</string>
   <string name="create_account_activity_title">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
-  <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲನೆ ಮಾಲ್ಟನ್ತುಂಡು</string>
+  <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲನೆ ಮಲ್ತೊಂದುಂಡು</string>
   <string name="create_account_email_hint">ಇಮೈಲ್ (ಇಚ್ಛೆ ಇತುಂಡ ಮಾತ್ರೋ)</string>
   <string name="create_account_password_repeat_hint">ಪ್ರವೇಸೊ ಪದೊನ್ ಪಿರ ಓರ ಬರೆಲೆ</string>
   <string name="create_account_passwords_mismatch_error">ಪ್ರವೇಶೋ ಪದ ಜೋಡಿ ಆಪುಜಿ</string>
   <string name="create_account_email_error">ಇಮೇಲ್ ಸರಿ ಇಜ್ಜಿ</string>
+  <string name="create_account_username_error">ಸದಸ್ಯೆರೆ ಪುದರ್‌ಡ್ ಅಮಾನ್ಯ ಅಕ್ಷರ ಉಂಡು.</string>
+  <string name="create_account_password_error">ಪ್ರವೇಶಪದ ಸರಿ ಇಜ್ಜಿ</string>
   <string name="create_account_generic_error">ಕಾತೆ ನಿರ್ಮಾಣೊ ಮಲ್ಪೆರೆ ಆವೊಂದಿದ್ದಿ</string>
   <string name="create_account_next">ನನತಾ</string>
   <string name="create_account_button">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>

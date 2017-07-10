@@ -91,7 +91,7 @@
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Jeneng panganggo</string>
   <string name="login_dont_have_account">Durung duwé akun?</string>
-  <string name="login_join_wikipedia">Mèlua Wikipedia</string>
+  <string name="login_join_wikipedia">Ayo gabung Wikipédia</string>
   <string name="login_forgot_password">Lali tembung wadiné panjenengan?</string>
   <string name="create_account_already_have">Wis duwé akun?</string>
   <string name="create_account_login_link">Wis duwé akun? Mlebua log</string>
@@ -103,7 +103,7 @@
   <string name="create_account_passwords_mismatch_error">Tembung wadi ora mathuk</string>
   <string name="create_account_email_error">Alamat layang-èl ora trep</string>
   <string name="create_account_username_error">Karakter ing jeneng panganggo ora trep</string>
-  <string name="create_account_password_error">Tembung wadi ora sah</string>
+  <string name="create_account_password_error">Tembung wadi ora trep</string>
   <string name="create_account_generic_error">Ora bisa gawé akun</string>
   <string name="create_account_next">Sabanjuré</string>
   <string name="create_account_button">Gawé akun</string>
@@ -125,8 +125,8 @@
   <string name="send_feedback">Kirim saran aplikasi</string>
   <string name="create_account_account_created_toast">Akun wis kagawé!</string>
   <string name="preferences_heading_storage_and_syncing">Panyimpenan lan sinkronisasi</string>
-  <string name="preference_title_sync_reading_lists">Sinkronisasi dhaptar maca</string>
-  <string name="preference_summary_sync_reading_lists">Ngidini Wikimedia kanggo nyelarasake dhaptar maca nalika sampeyan mlebu</string>
+  <string name="preference_title_sync_reading_lists">Sinkronisasi pratélan wacan</string>
+  <string name="preference_summary_sync_reading_lists">Idini Wikimédia saperlu nyinkronisasi pratélan wacan nalika panjenengan mlebu log</string>
   <string name="preferences_privacy_settings_heading">Priangga</string>
   <string name="preference_title_eventlogging_opt_in">Kirim lapuran pangguna</string>
   <string name="preference_summary_eventlogging_opt_in">Idinaké Wikimédia nglumpukaké informasi ngenani anggonmu nganggo aplikasi murih aplikasiné dadi luwih apik</string>
@@ -271,8 +271,8 @@
   <string name="color_theme_select">Irah-irahan</string>
   <string name="color_theme_light">Padhang</string>
   <string name="color_theme_dark">Peteng</string>
-  <string name="preference_title_color_theme">Tema gelap</string>
-  <string name="preference_summary_color_theme">Ngalih nggunakake tema werna peteng karo aplikasi</string>
+  <string name="preference_title_color_theme">Ules peteng</string>
+  <string name="preference_summary_color_theme">Salin ules werna peteng tumrapé aplikasi</string>
   <string name="nav_item_reading_lists">Pratélanku</string>
   <string name="reading_list_untitled">Tanpa sesirah</string>
   <string name="reading_list_save_to">Simpen nyang pratélan wacan</string>
@@ -285,8 +285,8 @@
   <string name="reading_list_added_view_button">Deleng pratélan</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 artikel kasedhiya offline, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d artikel kasedhiya offline, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d saka 1 artikel cumepak ing njaban jaringan, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d saka %2$d artikel cumepak ing njaban jaringan, %3$.2f MiB</string>
   <string name="reading_list_sort">Urutaké</string>
   <string name="reading_list_sort_by_name">Urutaké miturut jeneng</string>
   <string name="reading_list_sort_by_name_desc">Urutaké miturut jeneng (kuwalikan)</string>
@@ -303,14 +303,14 @@
   <string name="reading_list_item_delete_undo">Balèkaké</string>
   <string name="reading_list_deleted">%s dibusak</string>
   <string name="reading_lists_empty">Durung ana pratélan wacan</string>
-  <string name="reading_lists_empty_message">Simpen artikel nyang pratélan wacan kanggo diwaca mengko, kepara nalika ing njaban jaringan.</string>
+  <string name="reading_lists_empty_message">Simpen artikel nyang pratélan wacan kanggo diwaca ing tembé, sanajan ing njaban jaringan.</string>
   <string name="reading_lists_onboarding_intro">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan!</string>
   <string name="reading_lists_onboarding_for_example">Tuladhané</string>
   <string name="reading_lists_onboarding_example1">Papan-papan supaya ditekani</string>
   <string name="reading_lists_onboarding_example2">Kéwan kalangenan</string>
-  <string name="reading_lists_onboarding_example3">Eksplorasi antariksa</string>
+  <string name="reading_lists_onboarding_example3">Dlajahan antariksa</string>
   <string name="reading_lists_onboarding_got_it">Mudheng</string>
-  <string name="reading_list_no_description">Tanpa katerangan...</string>
+  <string name="reading_list_no_description">Tanpa wedharan...</string>
   <string name="reading_list_empty">Panjenengan ora duwé artikel ing pratélan iki.</string>
   <string name="reading_list_article_offline">Cumepak ing njaban jaringan</string>
   <string name="reading_list_article_make_offline">Gawé artikel iki supaya ana nalika ing njaban jaringan</string>
@@ -320,16 +320,16 @@
   <string name="reading_list_add_to_other_list">Tambah ing pratélan wewacaan liyané</string>
   <string name="reading_list_remove_from_list">Busak saka %s</string>
   <string name="reading_list_remove_from_lists">Busak saka pratélan wacan</string>
-  <string name="reading_list_confirm_remove_article_from_offline">Busak saka jaban jaringan</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Busak saka njaban jaringan</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel katon ing manéka pratélan</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s bakal ora ana manèh ing njaban jaringan tumrap kabèh pratélan wacan:</string>
-  <string name="reading_list_sync_reminder_title">Sinkronisasi dhaftar maca dipateni</string>
-  <string name="reading_list_sync_reminder_text">Dhaptar maca sampeyan bisa diselarasake karo akun Wikipedia yen ngidini sinkronisasi ing setelan aplikasi.</string>
+  <string name="reading_list_sync_reminder_title">Sinkronisasi pratélan wacan dipatèni</string>
+  <string name="reading_list_sync_reminder_text">Pratélan wacané panjenengan bisa disinkronisasi nyang akun Wikipédiané panjenengan yèn panjenengan ngurubaké sinkronisasi ing setèlan aplikasi.</string>
   <string name="reading_list_sync_reminder_action">Urubaké</string>
-  <string name="reading_list_login_reminder_title">Sinkronisasi dhaptar maca</string>
-  <string name="reading_list_login_reminder_text">Dhaptar maca sampeyan bisa saiki disimpen kanggo akun Wikipedia Panjenengan. Cukup mlebu log kanggo akun, lan dhaptar maca bakal disinkronake kanthi otomatis.</string>
-  <string name="reading_lists_confirm_remote_delete">Iki bakal mbusak dhaptar maca sadurunge nyelarasake saka panyimpenan remot. Nerusake?</string>
-  <string name="reading_list_article_save_in_progress">Artikel sing diunduh, lan bakal kasedhiya luring nalika wis rampung.</string>
+  <string name="reading_list_login_reminder_title">Sinkronisasi pratélan wacan</string>
+  <string name="reading_list_login_reminder_text">Pratélan wacané panjenengan bokmanawa bisa disimpen ing akun Wikipédiané panjenengan saiki. Cukup mlebu log nyang akuné panjenengan, lan pratélan wacané panjenengan bakal otomatis kasinkronisasi.</string>
+  <string name="reading_lists_confirm_remote_delete">Tumindak iki bakal mbusak pratélan wacan sing disinkronisasi sadurungé saka panyimpenan adoh. Bacutaké?</string>
+  <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
   <string name="user_option_sync_label">Pilalan</string>
   <string name="notification_button_view_user">Rembugan karo panganggo</string>
   <string name="notification_talk_title">Layang anyar ing Wikipédia</string>
@@ -362,7 +362,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Dina iki</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
-  <string name="view_offline_card_text">Isi ora bisa dimot nalika ing njaban jaringan.</string>
+  <string name="view_offline_card_text">Isèn-isèné ora bisa dimot nalika ing njaban jaringan.</string>
   <string name="description_edit_text_hint">Wedharané sesirah</string>
   <string name="description_edit_save">Babar</string>
   <string name="description_edit_add_description">Tambah wedharané sesirah</string>
@@ -406,14 +406,14 @@
   <string name="onboarding_skip">Langkahi</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>
-  <string name="onboarding_explore_title">Cara anyar kanggo njelajah</string>
-  <string name="onboarding_explore_text">Nggoleki artikel pinilih, topik tren, lan saran bacaan ing umpan Jelajahi.</string>
-  <string name="onboarding_reading_list_sync_title">Dhaptar maca kanthi sinkron</string>
-  <string name="onboarding_reading_list_sync_text">Nggawe dhaptar maca saka artikel sing pengin dibaca mengko, sanajan panjenengan lagi luring. &lt;a href=\"#login\"&gt;Mlebu utawa gawé&lt;/a&gt; akun Wikipedia panjenengan supaya daftar dhaptar maca disimpen.</string>
-  <string name="onboarding_analytics_title">Kirimi dhata anonim</string>
-  <string name="onboarding_analytics_text">Mantu nggawe aplikasi luwih apik kanthi menehi katrangan babagan carane nggunakake. Data sing dikumpulake anonim. &lt;a href=\"#privacy\"&gt;Sinau luwih lengkap&lt;/a&gt;</string>
-  <string name="onboarding_analytics_switch_title">Kirimi dhata panggunaan</string>
-  <string name="onboarding_create_account_sync">Sinkronake dhaptar maca panjenengan</string>
-  <string name="onboarding_create_account_contributions">Nglacak sumbangan panjenengan</string>
-  <string name="onboarding_create_account_preferences">Simpen préperensi panjenengan</string>
+  <string name="onboarding_explore_title">Cara anyar ndlajah</string>
+  <string name="onboarding_explore_text">Golèk artikel pilihan, rembug mumbul, lan saran wacan ing lebon Djalah.</string>
+  <string name="onboarding_reading_list_sync_title">Pratélan wacan mawa sinkronisasi</string>
+  <string name="onboarding_reading_list_sync_text">Gawé pratélan wacan saka artikel sing arep panjenengan waca ing tembé, masiya ing njaban jaringan. &lt;a href=\"#login\"&gt;Mlebua log utawa gawéa&lt;/a&gt; akun Wikipédiané panjenengan supaya pratélan wacané panjenengan bisa disèrepaké.</string>
+  <string name="onboarding_analytics_title">Kirim dhata anonim</string>
+  <string name="onboarding_analytics_text">Éwangi murih beciké aplikasi iki kanthi ngandhani awak dhéwé olèhé panjenengan nganggo aplikasi iki. Pangumpulé dhata kanthi anonim. &lt;a href=\"#privacy\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Kirim dhata pangguna</string>
+  <string name="onboarding_create_account_sync">Sinkronaké pratélan wacané panjenengan</string>
+  <string name="onboarding_create_account_contributions">Lacak sumbangané panjenengan</string>
+  <string name="onboarding_create_account_preferences">Simpen pilalané panjenengan</string>
 </resources>

@@ -90,6 +90,10 @@
   <string name="delete_selected_items">Seçili ögeleri sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
+  <string name="login_dont_have_account">Bir hesabınız yok mu?</string>
+  <string name="login_join_wikipedia">Vikipedi\'ye katıl</string>
+  <string name="login_forgot_password">Parolanızı mı unuttunuz?</string>
+  <string name="create_account_already_have">Zaten bir hesabınız var mı?</string>
   <string name="create_account_login_link">Zaten bir hesabınız var mı? Oturum açın</string>
   <string name="login_create_account_link">Hesabınız yok mu? Vikipedi\'ye katılın</string>
   <string name="create_account_activity_title">Bir hesap oluştur</string>
@@ -304,7 +308,7 @@
   <string name="reading_lists_onboarding_for_example">Örneğin</string>
   <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>
   <string name="reading_lists_onboarding_example2">En sevilen hayvanlar</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Uzay!</string>
+  <string name="reading_lists_onboarding_example3">Uzayın keşfi</string>
   <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="reading_list_no_description">Tanımlama yok...</string>
   <string name="reading_list_empty">Bu listeye eklediğiniz hiç madde yok.</string>
@@ -325,6 +329,7 @@
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
   <string name="reading_list_login_reminder_text">Artık okuma listeleriniz Vikipedi hesabınıza kaydedilebilir. Basitçe hesabınıza giriş yapın; okuma listeleriniz otomatik olarak senkronize edilecek.</string>
   <string name="reading_lists_confirm_remote_delete">Bu, daha önce dış depoplamadan senkronize edilmiş tüm okumla listelerini silecek. Devam edilsin mi?</string>
+  <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrim dışı olarak erişilebilir olacak.</string>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>
   <string name="notification_talk_title">Vikipedi\'de yeni mesaj</string>
@@ -398,4 +403,17 @@
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
   <string name="description_edit_revert_reason2">katkınız bir deneme ya da vandalizm gibi görünüyordu.</string>
   <string name="description_edit_revert_history">Eğer ilgeliniyorsanız, &lt;a href=\"%1$s\"&gt;değişiklik geçmişine&lt;/a&gt; bakabilirsiniz.</string>
+  <string name="onboarding_skip">Atla</string>
+  <string name="onboarding_continue">Devam et</string>
+  <string name="onboarding_get_started">Kullanmaya başla</string>
+  <string name="onboarding_explore_title">Keşfetmenin yeni yolları</string>
+  <string name="onboarding_explore_text">Keşfet bölümünde seçkin maddeleri, en popüler başlıkları ve okuma önerilerini inceleyin.</string>
+  <string name="onboarding_reading_list_sync_title">Okuma listelerinin senkronizasyonu</string>
+  <string name="onboarding_reading_list_sync_text">Daha sonra, çevrim dışı olsanız bile, okumak istediğiniz maddelerden okuma listeleri okuşturun. Okuma listelerinizi yedekleyip saklamak için Vikipedi hesabınızda &lt;a href=\"#login\"&gt;oturum açın veya yeni hesap oluşturun&lt;/a&gt;.</string>
+  <string name="onboarding_analytics_title">Anonim veri gönder</string>
+  <string name="onboarding_analytics_text">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>
+  <string name="onboarding_create_account_sync">Okuma listelerinizi senkronize edin</string>
+  <string name="onboarding_create_account_contributions">Katkılarınızı takip edebilin</string>
+  <string name="onboarding_create_account_preferences">Tercihlerinizi kaydedin</string>
 </resources>
