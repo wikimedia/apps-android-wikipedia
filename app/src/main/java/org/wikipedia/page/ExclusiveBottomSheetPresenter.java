@@ -9,21 +9,19 @@ import android.support.v4.app.FragmentManager;
 
 import org.wikipedia.readinglist.AddToReadingListDialog;
 
-import java.util.Collections;
-
 public class ExclusiveBottomSheetPresenter {
     private static final String BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment";
     private Dialog currentDialog;
 
     public void showAddToListDialog(@NonNull FragmentManager fm, @NonNull PageTitle title,
                                     @NonNull AddToReadingListDialog.InvokeSource source) {
-        show(fm, AddToReadingListDialog.newInstance(Collections.singletonList(title), source, null));
+        show(fm, AddToReadingListDialog.newInstance(title, source));
     }
 
     public void showAddToListDialog(@NonNull FragmentManager fm, @NonNull PageTitle title,
                                     @NonNull AddToReadingListDialog.InvokeSource source,
                                     @Nullable DialogInterface.OnDismissListener listener) {
-        show(fm, AddToReadingListDialog.newInstance(Collections.singletonList(title), source, listener));
+        show(fm, AddToReadingListDialog.newInstance(title, source, listener));
     }
 
     public void show(@NonNull FragmentManager manager, @NonNull DialogFragment dialog) {

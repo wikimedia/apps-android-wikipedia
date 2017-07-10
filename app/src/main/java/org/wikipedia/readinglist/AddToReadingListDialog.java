@@ -74,7 +74,12 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
     public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source) {
-        return newInstance(Collections.singletonList(title), source, null);
+        return newInstance(title, source, null);
+    }
+
+    public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source,
+                                                     @Nullable DialogInterface.OnDismissListener listener) {
+        return newInstance(Collections.singletonList(title), source, listener);
     }
 
     public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles, InvokeSource source) {

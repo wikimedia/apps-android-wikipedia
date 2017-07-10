@@ -321,7 +321,6 @@
     <string name="reading_list_menu_delete">Delete list</string>
     <string name="reading_list_menu_rename">Rename</string>
     <string name="reading_list_menu_edit_description">Edit description</string>
-    <string name="reading_list_action_menu_overflow_label">More options</string>
     <string name="reading_list_action_menu_remove_from_offline">Remove from offline</string>
     <string name="reading_list_action_menu_save_for_offline">Save for offline</string>
     <string name="reading_list_action_menu_add_to_another_list">Add to another list</string>

@@ -36,10 +36,6 @@ public abstract class MultiSelectActionModeCallback implements ActionMode.Callba
 
     protected abstract void onDeleteSelected();
 
-    protected String getTag() {
-        return ACTION_MODE_TAG;
-    }
-
     @Override
     public void onDestroyActionMode(ActionMode mode) {
     }
