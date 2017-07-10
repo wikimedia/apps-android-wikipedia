@@ -35,6 +35,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ExploreOverflowView;
 
@@ -385,7 +386,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onGetRandomError(@NonNull Throwable t, @NonNull final RandomCardView view) {
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), t.getMessage(), FeedbackUtil.LENGTH_DEFAULT);
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), ThrowableUtil.isOffline(t)
+                    ? getString(R.string.view_wiki_error_message_offline) : t.getMessage(),
+                    FeedbackUtil.LENGTH_DEFAULT);
             snackbar.setAction(R.string.page_error_retry, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
