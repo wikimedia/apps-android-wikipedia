@@ -60,7 +60,7 @@ public class BecauseYouReadClient extends FullTextSearchClient implements FeedCl
 
     private void getCardForHistoryEntry(@NonNull WikiSite wiki, @NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
-        request(wiki, entry.getTitle().getDisplayText(), null, null, SUGGESTION_REQUEST_ITEMS,
+        requestMoreLike(wiki, entry.getTitle().getDisplayText(), null, null, SUGGESTION_REQUEST_ITEMS,
                 new FullTextSearchClient.Callback() {
             @Override public void success(@NonNull Call<MwQueryResponse> call,
                                           @NonNull SearchResults results) {
