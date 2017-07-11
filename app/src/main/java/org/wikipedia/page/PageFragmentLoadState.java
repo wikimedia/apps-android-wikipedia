@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.mediawiki.api.json.ApiException;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -23,7 +22,9 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
@@ -46,6 +47,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -548,12 +550,9 @@ public class PageFragmentLoadState {
         if (pageLead.hasError()) {
             ServiceError error = pageLead.getError();
             if (error != null) {
-                ApiException apiException = new ApiException(error.getTitle(), error.getDetails());
-                commonSectionFetchOnCatch(apiException, startSequenceNum);
+                commonSectionFetchOnCatch(new MwException((MwServiceError) error), startSequenceNum);
             } else {
-                ApiException apiException
-                        = new ApiException("unknown", "unexpected pageLead response");
-                commonSectionFetchOnCatch(apiException, startSequenceNum);
+                commonSectionFetchOnCatch(new IOException("An unknown error occurred."), startSequenceNum);
             }
             return;
         }

@@ -19,7 +19,6 @@ import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.squareup.otto.Bus;
 
-import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
@@ -86,7 +85,6 @@ public class WikipediaApp extends Application {
 
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
-    private final Map<String, Api> apis = new HashMap<>();
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
@@ -160,8 +158,6 @@ public class WikipediaApp extends Application {
 
         enableWebViewDebugging();
 
-        Api.setConnectionFactory(new OkHttpConnectionFactory());
-
         ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
                 .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
                 .build();
@@ -209,23 +205,6 @@ public class WikipediaApp extends Application {
                 : defaultString(wiki.languageCode());
         return AcceptLanguageUtil.getAcceptLanguage(wikiLang, defaultString(getAppLanguageCode()),
                 appLanguageState.getSystemLanguageCode());
-    }
-
-    public Api getAPIForSite(WikiSite wiki) {
-        String host = wiki.host();
-        String acceptLanguage = getAcceptLanguage(wiki);
-        Map<String, String> customHeaders = buildCustomHeadersMap(acceptLanguage);
-        Api api;
-
-        String cachedApiKey = host + "-" + acceptLanguage;
-        if (apis.containsKey(cachedApiKey)) {
-            api = apis.get(cachedApiKey);
-        } else {
-            api = new Api(host, wiki.port(), wiki.secureScheme(),
-                    wiki.path("api.php"), customHeaders);
-            apis.put(cachedApiKey, api);
-        }
-        return api;
     }
 
     /**
@@ -501,25 +480,6 @@ public class WikipediaApp extends Application {
 
     public void listenForNotifications() {
         notificationReceiver.startPollTask(this);
-    }
-
-    // For java-mwapi API requests.
-    // If adding a new header here (before this method is removed), make sure to duplicate it
-    // in the Retrofit header list (OkHttpConnectionFactory#CommonHeaderInterceptor).
-    @Deprecated
-    private Map<String, String> buildCustomHeadersMap(String acceptLanguage) {
-        Map<String, String> headers = new HashMap<>();
-        headers.put("User-Agent", getUserAgent());
-
-        if (isEventLoggingEnabled()) {
-            headers.put("X-WMF-UUID", getAppInstallID());
-        } else {
-            // Send do-not-track header if the user has opted out of event logging
-            headers.put("DNT", "1");
-        }
-
-        headers.put("Accept-Language", acceptLanguage);
-        return headers;
     }
 
     private void initAppLang() {

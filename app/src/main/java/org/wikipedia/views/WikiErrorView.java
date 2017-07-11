@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
 
-import org.mediawiki.api.json.ApiException;
 import org.wikipedia.R;
 
 import butterknife.BindView;
@@ -76,13 +75,6 @@ public class WikiErrorView extends LinearLayout {
     }
 
     ErrorType getErrorType(@Nullable Throwable caught) {
-        // apps-android-java-mwapi wraps all exceptions in an ApiException.  Strip it so we get
-        // useful information about the underlying cause.
-        // TODO: update when the apps-android-java-mwapi dependency is dropped (T141127)
-        if (caught instanceof ApiException) {
-            caught = caught.getCause();
-        }
-
         if (caught != null && is404(caught)) {
             return ErrorType.PAGE_MISSING;
         }

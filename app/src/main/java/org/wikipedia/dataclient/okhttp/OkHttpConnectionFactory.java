@@ -3,29 +3,22 @@ package org.wikipedia.dataclient.okhttp;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
-import com.github.kevinsawicki.http.HttpRequest;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RbSwitch;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.Proxy;
-import java.net.URL;
 
 import okhttp3.Cache;
 import okhttp3.CacheDelegate;
 import okhttp3.CookieJar;
 import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
-import okhttp3.OkUrlFactory;
 import okhttp3.internal.cache.CacheDelegateInterceptor;
 import okhttp3.logging.HttpLoggingInterceptor;
 
-public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
+public final class OkHttpConnectionFactory {
     private static final String CACHE_DIR_NAME = "okhttp-cache";
     private static final long NET_CACHE_SIZE = 64 * 1024 * 1024;
     @VisibleForTesting @NonNull public static final Cache NET_CACHE = new Cache(new File(WikipediaApp.getInstance().getCacheDir(),
@@ -38,17 +31,6 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
 
     @NonNull public static OkHttpClient getClient() {
         return CLIENT;
-    }
-
-    @Override
-    public HttpURLConnection create(URL url) throws IOException {
-        return new OkUrlFactory(getClient()).open(url); // TODO: update to newer API
-    }
-
-    @Override
-    public HttpURLConnection create(URL url, Proxy proxy) throws IOException {
-        throw new UnsupportedOperationException(
-                "Per-connection proxy is not supported. Use OkHttpClient's setProxy instead.");
     }
 
     @NonNull
@@ -70,5 +52,8 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .addInterceptor(new CacheDelegateInterceptor(CacheDelegate.internalCache(SAVE_CACHE), CacheDelegate.internalCache(NET_CACHE)))
                 .addInterceptor(new WikipediaZeroResponseInterceptor(WikipediaApp.getInstance().getWikipediaZeroHandler()))
                 .build();
+    }
+
+    private OkHttpConnectionFactory() {
     }
 }
