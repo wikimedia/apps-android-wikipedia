@@ -41,8 +41,6 @@
 
 -keep class com.mobsandgeeks.saripaar.** {*;}
 
--keep class com.github.kevinsawicki.http.** {*;}
-
 # --- Retrofit2 ---
 -dontwarn retrofit2.**
 -keep class retrofit2.** { *; }
@@ -75,6 +73,4 @@
 # --- Wikipedia ---
 -keep class org.wikipedia.** { <init>(...); *; }
 -keep enum org.wikipedia.** { <init>(...); *; }
--keep class org.mediawiki.api.json.** {*;}
--keep enum org.wikipedia.api.json.** { <init>(...); *; }
 # --- /Wikipedia ---
