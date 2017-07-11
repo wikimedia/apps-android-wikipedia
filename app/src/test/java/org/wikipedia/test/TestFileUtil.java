@@ -1,5 +1,7 @@
 package org.wikipedia.test;
 
+import android.support.annotation.NonNull;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -9,15 +11,15 @@ public final class TestFileUtil {
     private static final String MULTILINE_START_ANCHOR_REGEX = "\\A";
     private static final String RAW_DIR = "src/test/res/raw/";
 
+    public static File getRawFile(@NonNull String rawFileName) {
+        return new File(RAW_DIR + rawFileName);
+    }
+
     public static String readRawFile(String basename) throws FileNotFoundException {
-        return readFile(RAW_DIR + basename);
+        return readFile(getRawFile(basename));
     }
 
-    public static String readFile(String filename) throws FileNotFoundException {
-        return readFile(new File(filename));
-    }
-
-    public static String readFile(File file) throws FileNotFoundException {
+    private static String readFile(File file) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         String ret = scanner.useDelimiter(MULTILINE_START_ANCHOR_REGEX).next();
         scanner.close();
