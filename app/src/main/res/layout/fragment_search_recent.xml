@@ -15,7 +15,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
-        android:background="@color/base80">
+        android:background="?attr/feed_window_background_color">
 
         <ImageView
             android:id="@+id/search_empty_image"
