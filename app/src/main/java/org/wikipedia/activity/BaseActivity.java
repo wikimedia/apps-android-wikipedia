@@ -51,6 +51,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    public void updateOfflineCompilations() {
+        searchOfflineCompilationsWithPermission(true);
+    }
+
     protected void requestFullUserOrientation() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_USER);
@@ -104,7 +108,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void onGoOffline() {
-        searchOfflineCompilationsWithPermission(false);
     }
 
     protected void onGoOnline() {

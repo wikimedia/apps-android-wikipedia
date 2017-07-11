@@ -116,6 +116,12 @@ public abstract class FeedCoordinatorBase {
         pendingClients.add(client);
     }
 
+    void conditionallyAddPendingClient(FeedClient client, boolean condition) {
+        if (condition) {
+            pendingClients.add(client);
+        }
+    }
+
     // Call to kick off the request chain or to retry a failed request.  To move to the next pending
     // client, call requestNextCard.
     private void requestCard(@NonNull WikiSite wiki) {
