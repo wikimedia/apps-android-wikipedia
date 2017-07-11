@@ -552,7 +552,7 @@ public class PageFragmentLoadState {
             if (error != null) {
                 commonSectionFetchOnCatch(new MwException((MwServiceError) error), startSequenceNum);
             } else {
-                commonSectionFetchOnCatch(new IOException("An unknown error occurred."), startSequenceNum);
+                commonSectionFetchOnCatch(new IOException(getResources().getString(R.string.error_unknown)), startSequenceNum);
             }
             return;
         }

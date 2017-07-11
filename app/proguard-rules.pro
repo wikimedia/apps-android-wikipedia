@@ -39,8 +39,6 @@
 -dontnote butterknife.internal.**
 # --- /Butter Knife ---
 
--keep class com.mobsandgeeks.saripaar.** {*;}
-
 # --- Retrofit2 ---
 -dontwarn retrofit2.**
 -keep class retrofit2.** { *; }
