@@ -412,6 +412,7 @@
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag in its exact form)</string>
   <string name="description_edit_revert_reason2">Reason for an edit being reverted, because it looks like vandalism.</string>
   <string name="description_edit_revert_history">Message that allows the user to go to the edit history associated with the article. (Please preserve the anchor tag in its exact form)</string>
+  <string name="offline_read_permission_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>
