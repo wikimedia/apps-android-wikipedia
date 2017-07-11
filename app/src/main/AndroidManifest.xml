@@ -207,6 +207,11 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <provider
+            android:name=".offline.OfflineContentProvider"
+            android:authorities="${applicationId}.offline"
+            android:exported="false" />
+
         <receiver
             android:icon="@mipmap/launcher"
             android:label="@string/widget_name_search"

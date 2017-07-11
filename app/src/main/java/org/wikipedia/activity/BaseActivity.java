@@ -31,6 +31,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
@@ -113,6 +114,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void searchOfflineCompilationsWithPermission(boolean force) {
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            // TODO: enable when ready for production.
+            return;
+        }
         if (!(PermissionUtil.hasReadExternalStoragePermission(this))) {
             PermissionUtil.requestReadStorageRuntimePermissions(this,
                     Constants.ACTIVITY_REQUEST_READ_EXTERNAL_STORAGE_PERMISSION_OFFLINE);

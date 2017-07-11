@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.UriUtil;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
@@ -52,9 +53,10 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
         Log.d("Wikipedia", "Link clicked was " + href);
         if (href.startsWith("/wiki/")) {
-            PageTitle title = TextUtils.isEmpty(titleString)
-                    ? getWikiSite().titleForInternalLink(href)
-                    : PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
+            PageTitle title = getWikiSite().titleForInternalLink(href);
+            onInternalLinkClicked(title);
+        } else if (!DeviceUtil.isOnline() && !TextUtils.isEmpty(titleString)) {
+            PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
             onInternalLinkClicked(title);
         } else if (href.startsWith("#")) {
             onPageLinkClicked(href.substring(1));

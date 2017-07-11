@@ -411,28 +411,9 @@ bridge.registerListener( "getTextSelection", function( payload ) {
     bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text, "sectionID" : getCurrentSection() } );
 });
 
-bridge.registerListener( "displayLeadSection", function( payload ) {
-    // This might be a refresh! Clear out all contents!
-    clearContents();
-
-    // create an empty div to act as the title anchor
-    var titleDiv = document.createElement( "div" );
-    titleDiv.id = "heading_" + payload.section.id;
-    titleDiv.setAttribute( "data-id", 0 );
-    titleDiv.className = "section_heading";
-    document.getElementById( "content" ).appendChild( titleDiv );
-
-    var issuesContainer = document.createElement( "div" );
-    issuesContainer.setAttribute( "dir", window.directionality );
-    issuesContainer.id = "issues_container";
-    document.getElementById( "content" ).appendChild( issuesContainer );
-
-    var content = document.createElement( "div" );
-    content.setAttribute( "dir", window.directionality );
-    content.innerHTML = payload.section.text;
-    content.id = "content_block_0";
-
+function setWindowAttributes( payload ) {
     document.head.getElementsByTagName("base")[0].setAttribute("href", payload.siteBaseUrl);
+
     window.apiLevel = payload.apiLevel;
     window.string_table_infobox = payload.string_table_infobox;
     window.string_table_other = payload.string_table_other;
@@ -444,35 +425,46 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.isBeta = payload.isBeta;
     window.siteLanguage = payload.siteLanguage;
     window.isNetworkMetered = payload.isNetworkMetered;
+}
+
+function setTitleElement( parentNode ) {
+    // create an empty div to act as the title anchor
+    var titleDiv = document.createElement( "div" );
+    titleDiv.id = "heading_0";
+    titleDiv.setAttribute( "data-id", 0 );
+    titleDiv.className = "section_heading";
+    parentNode.appendChild( titleDiv );
+}
+
+function setIssuesElement( parentNode ) {
+    var issuesContainer = document.createElement( "div" );
+    issuesContainer.setAttribute( "dir", window.directionality );
+    issuesContainer.id = "issues_container";
+    parentNode.appendChild( issuesContainer );
+    return issuesContainer;
+}
+
+bridge.registerListener( "displayLeadSection", function( payload ) {
+    // This might be a refresh! Clear out all contents!
+    clearContents();
+    setWindowAttributes(payload);
+    window.offline = false;
+
+    var contentElem = document.getElementById( "content" );
+    setTitleElement(contentElem);
+
+    var issuesContainer = setIssuesElement(contentElem);
+
+    var content = document.createElement( "div" );
+    content.setAttribute( "dir", window.directionality );
+    content.innerHTML = payload.section.text;
+    content.id = "content_block_0";
 
     // append the content to the DOM now, so that we can obtain
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
 
-    // Content service transformations
-    if (!window.fromRestBase) {
-        transformer.transform( "moveFirstGoodParagraphUp" );
-
-        transformer.transform( "hideRedLinks", content );
-        transformer.transform( "anchorPopUpMediaTransforms", content );
-        transformer.transform( "hideIPA", content );
-    } else {
-        clickHandlerSetup.addIPAonClick( content );
-    }
-
-    // client only transformations:
-    transformer.transform( "addDarkModeStyles", content ); // client setting
-
-    if (!window.isMainPage) {
-        transformer.transform( "hideTables", content ); // clickHandler
-
-        if (!window.isNetworkMetered) {
-            transformer.transform( "widenImages", content ); // offsetWidth
-        }
-    }
-
-    transformer.transform("displayDisambigLink", content);
-    transformer.transform("displayIssuesLink", content);
+    applySectionTransforms(content, true);
 
     document.getElementById( "loading_sections").className = "loading";
 
@@ -519,8 +511,16 @@ function elementsForSection( section ) {
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
 
-    // Content service transformations
+    applySectionTransforms(content, false);
+    return [ heading, content ];
+}
+
+function applySectionTransforms( content, isLeadSection ) {
     if (!window.fromRestBase) {
+        // Content service transformations
+        if (isLeadSection) {
+            transformer.transform( "moveFirstGoodParagraphUp" );
+        }
         transformer.transform( "hideRedLinks", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
@@ -528,19 +528,22 @@ function elementsForSection( section ) {
         clickHandlerSetup.addIPAonClick( content );
     }
 
-    transformer.transform( "addDarkModeStyles", content ); // client setting
+    transformer.transform( "addDarkModeStyles", content );
 
-    transformer.transform( "hideRefs", content ); // clickHandler
-
+    if (!isLeadSection) {
+        transformer.transform( "hideRefs", content );
+    }
     if (!window.isMainPage) {
-        transformer.transform( "hideTables", content ); // clickHandler
+        transformer.transform( "hideTables", content );
 
         if (!window.isNetworkMetered) {
-            transformer.transform( "widenImages", content ); // offsetWidth
+            transformer.transform( "widenImages", content );
         }
     }
-
-    return [ heading, content ];
+    if (isLeadSection) {
+        transformer.transform("displayDisambigLink", content);
+        transformer.transform("displayIssuesLink", content);
+    }
 }
 
 var scrolledOnLoad = false;
@@ -573,6 +576,106 @@ bridge.registerListener( "displaySection", function ( payload ) {
         bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "index": payload.section.id + 1 });
     }
 });
+
+// -- Begin custom processing of ZIM html data --
+
+bridge.registerListener( "displayFromZim", function( payload ) {
+    // This might be a refresh! Clear out all contents!
+    clearContents();
+    setWindowAttributes(payload);
+    window.isOffline = true;
+    window.offlineContentProvider = payload.offlineContentProvider;
+
+    var contentElem = document.getElementById( "content" );
+    setTitleElement(contentElem);
+
+    var issuesContainer = setIssuesElement(contentElem);
+
+    var parser = new DOMParser();
+    var zimDoc = parser.parseFromString(payload.zimhtml, "text/html");
+    var zimTextNode = zimDoc.getElementById( "mw-content-text" );
+    zimTextNode.parentNode.removeChild( zimTextNode );
+
+    var zimNodes = zimTextNode.childNodes;
+    var sectionIndex = 0;
+    var sectionsJson = [];
+    var sectionJson;
+    var i;
+
+    var currentSectionNode = document.createElement( "div" );
+    currentSectionNode.setAttribute( "dir", window.directionality );
+    currentSectionNode.id = "content_block_" + sectionIndex;
+    contentElem.appendChild( currentSectionNode );
+
+    for ( i = 0; i < zimNodes.length; i++ ) {
+        if (zimNodes[i].tagName === undefined) {
+            continue;
+        }
+
+        if ( zimNodes[i].tagName.length === 2 && zimNodes[i].tagName.substring(0, 1) === 'H' ) {
+
+            // perform transforms on the previous section
+            performZimSectionTransforms( sectionIndex, currentSectionNode );
+
+            sectionIndex++;
+
+            sectionJson = {};
+            sectionJson.id = sectionIndex;
+            sectionJson.toclevel = zimNodes[i].tagName.substring(1, 2);
+            sectionJson.line = zimNodes[i].innerHTML;
+            sectionJson.anchor = "heading_" + sectionIndex;
+            sectionsJson.push(sectionJson);
+
+            currentSectionNode = document.createElement( "div" );
+            currentSectionNode.setAttribute( "dir", window.directionality );
+            currentSectionNode.id = "content_block_" + sectionIndex;
+            contentElem.appendChild( currentSectionNode );
+
+            // dress up the header node a bit
+            zimNodes[i].setAttribute( "dir", window.directionality );
+            zimNodes[i].id = sectionJson.anchor;
+            zimNodes[i].className = "section_heading";
+            zimNodes[i].setAttribute( 'data-id', sectionIndex );
+        }
+        currentSectionNode.appendChild(zimNodes[i]);
+    }
+
+    // perform transforms on the last section
+    performZimSectionTransforms( sectionIndex, currentSectionNode );
+
+    bridge.sendMessage( "pageInfo", {
+      "issues" : collectIssues(),
+      "disambiguations" : collectDisambig()
+    });
+    //if there were no page issues, then hide the container
+    if (!issuesContainer.hasChildNodes()) {
+        contentElem.removeChild(issuesContainer);
+    }
+
+    if (payload.scrollY > 0) {
+        window.scrollTo( 0, payload.scrollY );
+    }
+    document.getElementById( "loading_sections").className = "";
+    bridge.sendMessage( "pageLoadComplete", {
+      "sequence": payload.sequence,
+      "savedPage": payload.savedPage,
+      "sections": sectionsJson });
+});
+
+function performZimSectionTransforms( sectionIndex, currentSectionNode ) {
+    applySectionTransforms(currentSectionNode, sectionIndex === 0);
+
+    var i;
+    var imgTags = currentSectionNode.querySelectorAll( 'img' );
+    for ( i = 0; i < imgTags.length; i++ ) {
+        var imgSrc = imgTags[i].getAttribute( 'src' );
+        if (imgSrc !== null) {
+            imgTags[i].setAttribute( 'src', imgSrc.replace("../I/", window.offlineContentProvider + "I/") );
+        }
+    }
+}
+
+// -- End custom processing of ZIM html data --
 
 bridge.registerListener( "scrollToSection", function ( payload ) {
     scrollToSection( payload.anchor );

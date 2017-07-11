@@ -87,6 +87,29 @@ public class PageProperties implements Parcelable {
     }
 
     /**
+     * Constructor to be used when building a Page from a compilation. Initializes the title and
+     * namespace fields, and explicitly disables editing. All other fields initialized to defaults.
+     * @param title Title to which these properties apply.
+     */
+    public PageProperties(@NonNull PageTitle title) {
+        pageId = 0;
+        namespace = title.namespace();
+        revisionId = 0;
+        displayTitleText = title.getDisplayText();
+        titlePronunciationUrl = null;
+        geo = null;
+        editProtectionStatus = "";
+        languageCount = 1;
+        leadImageUrl = null;
+        leadImageName = "";
+        lastModified = new Date();
+        canEdit = false;
+        isMainPage = false;
+        isDisambiguationPage = false;
+        wikiBaseItem = null;
+    }
+
+    /**
      * Create a new PageProperties object.
      * @param json JSON object from which this item will be built.
      */
