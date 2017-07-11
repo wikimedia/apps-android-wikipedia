@@ -701,7 +701,7 @@ function toggleCollapseClickCallback() {
 }
 
 transformer.register( "hideTables", function(content) {
-    pagelib.CollapseTable.collapseTables(document, content, window.pageTitle,
+    pagelib.CollapseTable.collapseTables(window, content, window.pageTitle,
         window.isMainPage, window.string_table_infobox,
         window.string_table_other, window.string_table_close,
         scrollWithDecorOffset);
@@ -1109,7 +1109,11 @@ module.exports = {
 };
 
 },{}],25:[function(require,module,exports){
-'use strict';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.pagelib = factory());
+}(this, (function () { 'use strict';
 
 // This file exists for CSS packaging only. It imports the CSS which is to be
 // packaged in the override CSS build product.
@@ -1122,7 +1126,7 @@ module.exports = {
  * @param {!string} selector Selector to look for
  * @return {!boolean} Whether the element matches the selector
  */
-var matchesSelectorCompat = function matchesSelectorCompat(el, selector) {
+var matchesSelector = function matchesSelector(el, selector) {
   if (el.matches) {
     return el.matches(selector);
   }
@@ -1135,6 +1139,20 @@ var matchesSelectorCompat = function matchesSelectorCompat(el, selector) {
   return false;
 };
 
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#Polyfill
+// Required by Android API 16 AOSP Nexus S emulator.
+// eslint-disable-next-line no-undef
+var CustomEvent = typeof window !== 'undefined' && window.CustomEvent || function (type) {
+  var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { bubbles: false, cancelable: false, detail: undefined };
+
+  // eslint-disable-next-line no-undef
+  var event = document.createEvent('CustomEvent');
+  event.initCustomEvent(type, parameters.bubbles, parameters.cancelable, parameters.detail);
+  return event;
+};
+
+var Polyfill = { matchesSelector: matchesSelector, CustomEvent: CustomEvent };
+
 /**
  * Returns closest ancestor of element which matches selector.
  * Similar to 'closest' methods as seen here:
@@ -1146,7 +1164,7 @@ var matchesSelectorCompat = function matchesSelectorCompat(el, selector) {
  */
 var findClosestAncestor = function findClosestAncestor(el, selector) {
   var parentElement = void 0;
-  for (parentElement = el.parentElement; parentElement && !matchesSelectorCompat(parentElement, selector); parentElement = parentElement.parentElement) {
+  for (parentElement = el.parentElement; parentElement && !Polyfill.matchesSelector(parentElement, selector); parentElement = parentElement.parentElement) {
     // Intentionally empty.
   }
   return parentElement;
@@ -1162,10 +1180,11 @@ var isNestedInTable = function isNestedInTable(el) {
 };
 
 var elementUtilities = {
-  matchesSelectorCompat: matchesSelectorCompat,
   findClosestAncestor: findClosestAncestor,
   isNestedInTable: isNestedInTable
 };
+
+var SECTION_TOGGLED_EVENT_TYPE = 'section-toggled';
 
 /**
  * Find an array of table header (TH) contents. If there are no TH elements in
@@ -1219,19 +1238,28 @@ var getTableHeader = function getTableHeader(element, pageTitle) {
   return thArray;
 };
 
-/** Ex: toggleCollapseClickCallback.bind(el, (container) => {
-          window.scrollTo(0, container.offsetTop - transformer.getDecorOffset())
-        })
-    @this HTMLElement
-    @param footerDivClickCallback {?(!HTMLElement) => void}
-    @return {void} */
+/**
+ * @typedef {function} FooterDivClickCallback
+ * @param {!HTMLElement}
+ * @return {void}
+ */
+
+/**
+ * Ex: toggleCollapseClickCallback.bind(el, (container) => {
+ *       window.scrollTo(0, container.offsetTop - transformer.getDecorOffset())
+ *     })
+ * @this HTMLElement
+ * @param {?FooterDivClickCallback} footerDivClickCallback
+ * @return {boolean} true if collapsed, false if expanded.
+ */
 var toggleCollapseClickCallback = function toggleCollapseClickCallback(footerDivClickCallback) {
   var container = this.parentNode;
   var header = container.children[0];
   var table = container.children[1];
   var footer = container.children[2];
   var caption = header.querySelector('.app_table_collapsed_caption');
-  if (table.style.display !== 'none') {
+  var collapsed = table.style.display !== 'none';
+  if (collapsed) {
     table.style.display = 'none';
     header.classList.remove('app_table_collapse_close'); // todo: use app_table_collapsed_collapsed
     header.classList.remove('app_table_collapse_icon'); // todo: use app_table_collapsed_icon
@@ -1254,6 +1282,7 @@ var toggleCollapseClickCallback = function toggleCollapseClickCallback(footerDiv
     }
     footer.style.display = 'block';
   }
+  return collapsed;
 };
 
 /**
@@ -1326,38 +1355,40 @@ var newCaption = function newCaption(title, headerText) {
 };
 
 /**
- * @param {!Document} document
+ * @param {!Window} window
  * @param {!Element} content
  * @param {?string} pageTitle
  * @param {?boolean} isMainPage
  * @param {?string} infoboxTitle
  * @param {?string} otherTitle
  * @param {?string} footerTitle
+ * @param {?FooterDivClickCallback} footerDivClickCallback
  * @return {void}
  */
-var collapseTables = function collapseTables(document, content, pageTitle, isMainPage, infoboxTitle, otherTitle, footerTitle, footerDivClickCallback) {
+var collapseTables = function collapseTables(window, content, pageTitle, isMainPage, infoboxTitle, otherTitle, footerTitle, footerDivClickCallback) {
   if (isMainPage) {
     return;
   }
 
   var tables = content.querySelectorAll('table');
-  for (var i = 0; i < tables.length; ++i) {
+
+  var _loop = function _loop(i) {
     var table = tables[i];
 
     if (elementUtilities.findClosestAncestor(table, '.app_table_container') || !shouldTableBeCollapsed(table)) {
-      continue;
+      return 'continue';
     }
 
     // todo: this is actually an array
     var headerText = getTableHeader(table, pageTitle);
     if (!headerText.length && !isInfobox(table)) {
-      continue;
+      return 'continue';
     }
     var caption = newCaption(isInfobox(table) ? infoboxTitle : otherTitle, headerText);
 
     // create the container div that will contain both the original table
     // and the collapsed version.
-    var containerDiv = document.createElement('div');
+    var containerDiv = window.document.createElement('div');
     containerDiv.className = 'app_table_container';
     table.parentNode.insertBefore(containerDiv, table);
     table.parentNode.removeChild(table);
@@ -1367,10 +1398,10 @@ var collapseTables = function collapseTables(document, content, pageTitle, isMai
     table.style.marginTop = '0px';
     table.style.marginBottom = '0px';
 
-    var collapsedHeaderDiv = newCollapsedHeaderDiv(document, caption);
+    var collapsedHeaderDiv = newCollapsedHeaderDiv(window.document, caption);
     collapsedHeaderDiv.style.display = 'block';
 
-    var collapsedFooterDiv = newCollapsedFooterDiv(document, footerTitle);
+    var collapsedFooterDiv = newCollapsedFooterDiv(window.document, footerTitle);
     collapsedFooterDiv.style.display = 'none';
 
     // add our stuff to the container
@@ -1381,9 +1412,29 @@ var collapseTables = function collapseTables(document, content, pageTitle, isMai
     // set initial visibility
     table.style.display = 'none';
 
+    // eslint-disable-next-line require-jsdoc, no-loop-func
+    var dispatchSectionToggledEvent = function dispatchSectionToggledEvent(collapsed) {
+      return (
+        // eslint-disable-next-line no-undef
+        window.dispatchEvent(new Polyfill.CustomEvent(SECTION_TOGGLED_EVENT_TYPE, { collapsed: collapsed }))
+      );
+    };
+
     // assign click handler to the collapsed divs
-    collapsedHeaderDiv.onclick = toggleCollapseClickCallback.bind(collapsedHeaderDiv);
-    collapsedFooterDiv.onclick = toggleCollapseClickCallback.bind(collapsedFooterDiv, footerDivClickCallback);
+    collapsedHeaderDiv.onclick = function () {
+      var collapsed = toggleCollapseClickCallback.bind(collapsedHeaderDiv)();
+      dispatchSectionToggledEvent(collapsed);
+    };
+    collapsedFooterDiv.onclick = function () {
+      var collapsed = toggleCollapseClickCallback.bind(collapsedFooterDiv, footerDivClickCallback)();
+      dispatchSectionToggledEvent(collapsed);
+    };
+  };
+
+  for (var i = 0; i < tables.length; ++i) {
+    var _ret = _loop(i);
+
+    if (_ret === 'continue') continue;
   }
 };
 
@@ -1412,6 +1463,7 @@ var expandCollapsedTableIfItContainsElement = function expandCollapsedTableIfItC
 };
 
 var CollapseTable = {
+  SECTION_TOGGLED_EVENT_TYPE: SECTION_TOGGLED_EVENT_TYPE,
   toggleCollapseClickCallback: toggleCollapseClickCallback,
   collapseTables: collapseTables,
   expandCollapsedTableIfItContainsElement: expandCollapsedTableIfItContainsElement,
@@ -1426,11 +1478,81 @@ var CollapseTable = {
 };
 
 /**
+ * Configures span to be suitable replacement for red link anchor.
+ * @param {!HTMLSpanElement} span The span element to configure as anchor replacement.
+ * @param {!HTMLAnchorElement} anchor The anchor element being replaced.
+ * @return {void}
+ */
+var configureRedLinkTemplate = function configureRedLinkTemplate(span, anchor) {
+  span.innerHTML = anchor.innerHTML;
+  span.setAttribute('class', anchor.getAttribute('class'));
+};
+
+/**
+ * Finds red links in a document or document fragment.
+ * @param {!(Document|DocumentFragment)} content Document or fragment in which to seek red links.
+ * @return {!HTMLAnchorElement[]} Array of zero or more red link anchors.
+ */
+var redLinkAnchorsInContent = function redLinkAnchorsInContent(content) {
+  return Array.prototype.slice.call(content.querySelectorAll('a.new'));
+};
+
+/**
+ * Makes span to be used as cloning template for red link anchor replacements.
+ * @param  {!Document} document Document to use to create span element. Reminder: this can't be a
+ * document fragment because fragments don't implement 'createElement'.
+ * @return {!HTMLSpanElement} Span element suitable for use as template for red link anchor
+ * replacements.
+ */
+var newRedLinkTemplate = function newRedLinkTemplate(document) {
+  return document.createElement('span');
+};
+
+/**
+ * Replaces anchor with span.
+ * @param  {!HTMLAnchorElement} anchor Anchor element.
+ * @param  {!HTMLSpanElement} span Span element.
+ * @return {void}
+ */
+var replaceAnchorWithSpan = function replaceAnchorWithSpan(anchor, span) {
+  return anchor.parentNode.replaceChild(span, anchor);
+};
+
+/**
+ * Hides red link anchors in either a document or a document fragment so they are unclickable and
+ * unfocusable.
+ * @param {!Document} document Document in which to hide red links.
+ * @param {?DocumentFragment} fragment If specified, red links are hidden in the fragment and the
+ * document is used only for span cloning.
+ * @return {void}
+ */
+var hideRedLinks = function hideRedLinks(document, fragment) {
+  var spanTemplate = newRedLinkTemplate(document);
+  var content = fragment !== undefined ? fragment : document;
+  redLinkAnchorsInContent(content).forEach(function (redLink) {
+    var span = spanTemplate.cloneNode(false);
+    configureRedLinkTemplate(span, redLink);
+    replaceAnchorWithSpan(redLink, span);
+  });
+};
+
+var RedLinks = {
+  hideRedLinks: hideRedLinks,
+  test: {
+    configureRedLinkTemplate: configureRedLinkTemplate,
+    redLinkAnchorsInContent: redLinkAnchorsInContent,
+    newRedLinkTemplate: newRedLinkTemplate,
+    replaceAnchorWithSpan: replaceAnchorWithSpan
+  }
+};
+
+/**
  * To widen an image element a css class called 'wideImageOverride' is applied to the image element,
  * however, ancestors of the image element can prevent the widening from taking effect. This method
  * makes minimal adjustments to ancestors of the image element being widened so the image widening
  * can take effect.
  * @param  {!HTMLElement} el Element whose ancestors will be widened
+ * @return {void}
  */
 var widenAncestors = function widenAncestors(el) {
   for (var parentElement = el.parentElement; parentElement && !parentElement.classList.contains('content_block'); parentElement = parentElement.parentElement) {
@@ -1447,7 +1569,7 @@ var widenAncestors = function widenAncestors(el) {
 };
 
 /**
- * Some images should not be widended. This method makes that determination.
+ * Some images should not be widened. This method makes that determination.
  * @param  {!HTMLElement} image   The image in question
  * @return {boolean}              Whether 'image' should be widened
  */
@@ -1487,6 +1609,7 @@ var shouldWidenImage = function shouldWidenImage(image) {
 /**
  * Removes barriers to images widening taking effect.
  * @param  {!HTMLElement} image   The image in question
+ * @return {void}
  */
 var makeRoomForImageWidening = function makeRoomForImageWidening(image) {
   widenAncestors(image);
@@ -1499,6 +1622,7 @@ var makeRoomForImageWidening = function makeRoomForImageWidening(image) {
 /**
  * Widens the image.
  * @param  {!HTMLElement} image   The image in question
+ * @return {void}
  */
 var widenImage = function widenImage(image) {
   makeRoomForImageWidening(image);
@@ -1528,9 +1652,10 @@ var WidenImage = {
 
 var pagelib$1 = {
   CollapseTable: CollapseTable,
+  RedLinks: RedLinks,
   WidenImage: WidenImage,
   test: {
-    ElementUtilities: elementUtilities
+    ElementUtilities: elementUtilities, Polyfill: Polyfill
   }
 };
 
@@ -1538,7 +1663,9 @@ var pagelib$1 = {
 // JavaScript index file, which also exists only for packaging, as well as the
 // real JavaScript, transform/index, it simply re-exports.
 
-module.exports = pagelib$1;
+return pagelib$1;
+
+})));
 
 
 },{}]},{},[2,9,24,14,15,16,17,22,23,18,19,20,21,1,5,6,7,8,4,11,12,13]);
