@@ -34,6 +34,7 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Projection;
 import com.mapbox.services.android.telemetry.MapboxTelemetry;
+import com.mapbox.services.android.telemetry.location.LocationEngine;
 import com.mapbox.services.android.telemetry.location.LocationEngineListener;
 
 import org.wikipedia.R;
@@ -84,6 +85,7 @@ public class NearbyFragment extends Fragment {
 
     @Nullable private MapboxMap mapboxMap;
     private Icon markerIconPassive;
+    private LocationEngine locationEngine;
 
     private NearbyClient client;
     private NearbyResult lastResult;
@@ -131,7 +133,8 @@ public class NearbyFragment extends Fragment {
             }
         }
 
-        LocationSource.getLocationEngine(getContext()).addLocationEngineListener(locationChangeListener);
+        locationEngine = new LocationSource(getContext());
+        locationEngine.addLocationEngineListener(locationChangeListener);
 
         onLoading();
         initializeMap();
@@ -167,7 +170,7 @@ public class NearbyFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        LocationSource.getLocationEngine(getContext()).removeLocationEngineListener(locationChangeListener);
+        locationEngine.removeLocationEngineListener(locationChangeListener);
         mapView.onDestroy();
         mapboxMap = null;
         unbinder.unbind();
