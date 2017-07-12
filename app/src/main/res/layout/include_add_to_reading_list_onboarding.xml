@@ -146,7 +146,5 @@
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:layout_gravity="end"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="14sp"
         android:text="@string/reading_lists_onboarding_got_it"/>
 </LinearLayout>
