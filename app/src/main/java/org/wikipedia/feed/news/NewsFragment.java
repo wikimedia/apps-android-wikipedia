@@ -86,7 +86,7 @@ public class NewsFragment extends Fragment {
         Uri imageUri = item.featureImage();
         int height = imageUri == null ? DimenUtil.getContentTopOffsetPx(getContext()) : newsFeatureImageHeightForDevice();
         if (imageUri == null) {
-            toolbar.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.actionbar_background));
+            toolbar.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.main_toolbar_background));
         }
         DimenUtil.setViewHeight(image, height);
         image.loadImage(imageUri);

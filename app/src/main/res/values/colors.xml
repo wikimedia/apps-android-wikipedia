@@ -9,12 +9,15 @@
     <color name="base50">#a2a9b1</color> <!-- B AAA: Highlighted border -->
     <color name="base30">#72777d</color> <!-- B&W AA: Disabled elements text, Placeholder text, Active border -->
     <color name="base20">#54595d</color> <!-- W AAA: Emphasized secondary text at level AAA need -->
-    <color name="base15">#2e3136</color>
+    <color name="base18">#43464a</color> <!-- AAA: "Mesosphere gray" -->
+    <color name="base14">#2e3136</color> <!-- AAA: "Thermosphere gray" -->
+    <color name="base12">#27292d</color> <!-- AAA: "Exosphere gray" -->
     <color name="base10">#222</color> <!-- W AAA: Copy color, Buttons / widgets text -->
     <color name="base0">#000</color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
 
     <!-- Accent -->
     <color name="accent90">#eaf3ff</color> <!-- B AAA: Hovered buttons, Active menu, Items background -->
+    <color name="accent75">#69f</color> <!-- AAA "Stratosphere blue" -->
     <color name="accent50">#36c</color> <!-- W AA Progressive: Primary buttons, Links, Page accents, Focus outlines -->
     <color name="accent30">#2a4b8d</color> <!-- W AAA: Active buttons, Active links -->
     <color name="red90">#fee7e6</color> <!-- B AAA -->
@@ -60,12 +63,11 @@
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#808080</color>
     <color name="page_info_heading">#555</color>
-    <color name="actionbar_background">@color/darkest_gray</color>
     <color name="actionbar_highlight">#808080</color>
     <color name="search_text_hint">#32ffffff</color>
     <color name="lead_gradient_start">#b8000000</color>
     <color name="new_lead_gradient_start">#50000000</color>
-    <color name="main_toolbar_background">@color/actionbar_background</color>
+    <color name="main_toolbar_background">@color/base18</color>
 
     <color name="window_background_light">#fff</color>
     <color name="page_background_light">#fff</color>

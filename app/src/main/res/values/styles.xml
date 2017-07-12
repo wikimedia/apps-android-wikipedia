@@ -26,7 +26,7 @@
     </style>
 
     <style name="AppTheme.ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">@color/actionbar_background</item>
+        <item name="background">@color/main_toolbar_background</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">4dp</item>
         <item name="titleTextStyle">@style/AppTheme.ToolBarTitleText</item>

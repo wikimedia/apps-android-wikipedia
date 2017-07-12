@@ -65,9 +65,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     app:tabGravity="fill"
-                    android:background="@color/darkest_gray"
-                    app:tabSelectedTextColor="@color/darkest_gray"
-                    app:tabIndicatorColor="@color/darkest_gray" />
+                    android:background="@color/base18"
+                    app:tabSelectedTextColor="@color/base18"
+                    app:tabIndicatorColor="@color/base18" />
 
             </android.support.design.widget.CoordinatorLayout>
 
