@@ -11,10 +11,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public final class OfflineManager {
     private static OfflineManager INSTANCE = new OfflineManager();
     @Nullable private CompilationSearchTask searchTask;
+    private long lastSearchTime;
     @NonNull private List<Compilation> compilations = new ArrayList<>();
 
     public interface Callback {
@@ -30,6 +32,10 @@ public final class OfflineManager {
         return instance().compilations().size() > 0;
     }
 
+    public boolean shouldSearchAgain() {
+        return System.currentTimeMillis() - lastSearchTime > TimeUnit.HOURS.toMillis(1);
+    }
+
     @NonNull
     public List<Compilation> compilations() {
         return compilations;
@@ -39,6 +45,7 @@ public final class OfflineManager {
         if (searchTask != null) {
             searchTask.cancel();
         }
+        lastSearchTime = System.currentTimeMillis();
         searchTask = new CompilationSearchTask() {
             @Override public void onFinish(List<Compilation> result) {
                 if (isCancelled()) {

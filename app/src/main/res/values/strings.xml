@@ -465,6 +465,10 @@
     <string name="description_edit_revert_history"><![CDATA[If you are interested, see the <a href="%1$s">edit history</a>.]]></string>
     <!-- /Description editing revert help -->
 
+    <!-- Offline -->
+    <string name="offline_read_permission_rationale">Permission to access storage on your device is required for offline browsing. Please try again, and grant the requested permission.</string>
+    <!-- /Offline -->
+
     <!-- Onboarding -->
     <string name="onboarding_skip">Skip</string>
     <string name="onboarding_continue">Continue</string>

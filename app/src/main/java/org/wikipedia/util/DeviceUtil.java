@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
@@ -15,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
@@ -93,7 +95,13 @@ public final class DeviceUtil {
         return !TextUtils.isEmpty(locationProviders);
     }
 
-    private DeviceUtil() {
+    public static boolean isOnline() {
+        ConnectivityManager connManager = (ConnectivityManager) WikipediaApp.getInstance()
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = connManager.getActiveNetworkInfo();
+        return info != null && info.isConnected();
+    }
 
+    private DeviceUtil() {
     }
 }
