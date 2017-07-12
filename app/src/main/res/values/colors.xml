@@ -9,6 +9,7 @@
     <color name="base50">#a2a9b1</color> <!-- B AAA: Highlighted border -->
     <color name="base30">#72777d</color> <!-- B&W AA: Disabled elements text, Placeholder text, Active border -->
     <color name="base20">#54595d</color> <!-- W AAA: Emphasized secondary text at level AAA need -->
+    <color name="base15">#2e3136</color>
     <color name="base10">#222</color> <!-- W AAA: Copy color, Buttons / widgets text -->
     <color name="base0">#000</color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
 
