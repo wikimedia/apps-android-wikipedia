@@ -35,7 +35,10 @@
     <attr name="feed_text_primary_color" format="reference" />
     <attr name="feed_text_secondary_color" format="reference" />
     <attr name="feed_text_tertiary_color" format="reference" />
+
     <attr name="nav_tab_background_color" format="reference" />
+    <attr name="nav_tab_item_color_state" format="reference" />
+
     <attr name="overflow_button" format="reference" />
     <attr name="multi_select_background_color" format="reference" />
 

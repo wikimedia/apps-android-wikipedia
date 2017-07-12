@@ -33,6 +33,8 @@
             android:elevation="6dp"
             android:background="?attr/nav_tab_background_color"
             app:tabGravity="fill"
+            app:itemIconTint="?attr/nav_tab_item_color_state"
+            app:itemTextColor="?attr/nav_tab_item_color_state"
             app:tabIndicatorColor="@android:color/transparent" />
 
     </LinearLayout>
