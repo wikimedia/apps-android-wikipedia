@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     android:background="?attr/window_background_color">
 
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/view_login_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@color/base80"
-        android:orientation="vertical"
-        android:visibility="gone"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,7 +18,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/base80"
+                android:background="?attr/inline_onboarding_background_color"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:paddingTop="8dp">
@@ -35,7 +26,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/base10"
+                    android:textColor="?attr/feed_text_primary_color"
                     android:text="@string/login_dont_have_account" />
 
                 <TextView
@@ -145,4 +136,13 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/view_login_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="?attr/window_background_color"
+        android:orientation="vertical"
+        android:visibility="gone"/>
 </FrameLayout>

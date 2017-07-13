@@ -5,6 +5,7 @@
     <attr name="page_background_color" format="reference"/>
     <attr name="main_toolbar_color" format="reference"/>
     <attr name="main_status_bar_color" format="reference"/>
+    <attr name="inline_onboarding_background_color" format="reference"/>
     <attr name="toc_background_color" format="reference"/>
     <attr name="toc_section_text_color" format="reference"/>
     <attr name="toc_subsection_text_color" format="reference"/>
@@ -16,14 +17,11 @@
     <attr name="list_separator_color" format="reference"/>
     <attr name="list_separator_drawable" format="reference"/>
     <attr name="syntax_highlight_template_color" format="reference"/>
-    <attr name="subtle_gray_color" format="reference"/>
     <attr name="nearby_marker_drawable" format="reference"/>
     <attr name="tab_item_selector" format="reference"/>
     <attr name="tab_shadow_drawable" format="reference"/>
     <attr name="tab_shadow_color" format="reference"/>
-    <attr name="toc_button_color" format="reference"/>
     <attr name="tool_tip_default_color" format="reference"/>
-    <attr name="link_preview_toolbar_color" format="reference"/>
     <attr name="bottom_sheet_background_color" format="reference"/>
     <attr name="link_preview_text_color" format="reference"/>
     <attr name="link_preview_offline_text_color" format="reference"/>

@@ -33,6 +33,7 @@
         <item name="page_background_color">@color/page_background_dark</item>
         <item name="main_toolbar_color">@color/accent30</item>
         <item name="main_status_bar_color">@color/accent20</item>
+        <item name="inline_onboarding_background_color">@color/base14</item>
         <item name="toc_background_color">@color/toc_background_dark</item>
         <item name="toc_section_text_color">@color/toc_section_text_dark</item>
         <item name="toc_subsection_text_color">@color/toc_subsection_text_dark</item>
@@ -43,12 +44,10 @@
         <item name="list_separator_color">@color/list_separator_dark</item>
         <item name="list_separator_drawable">@drawable/divider_dark</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_dark</item>
-        <item name="subtle_gray_color">@color/subtle_gray_dark</item>
         <item name="tab_item_selector">@drawable/tab_item_selector_dark</item>
         <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="tab_shadow_color">@color/tab_shadow_dark</item>
         <item name="tool_tip_default_color">@color/tool_tip_default_dark</item>
-        <item name="link_preview_toolbar_color">@color/link_preview_toolbar_dark</item>
         <item name="bottom_sheet_background_color">@color/base14</item>
         <item name="link_preview_text_color">@color/link_preview_text_dark</item>
         <item name="link_preview_offline_text_color">@color/link_preview_offline_text_dark</item>

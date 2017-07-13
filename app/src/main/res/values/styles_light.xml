@@ -33,6 +33,7 @@
         <item name="page_background_color">@color/page_background_light</item>
         <item name="main_toolbar_color">@color/accent50</item>
         <item name="main_status_bar_color">@color/accent30</item>
+        <item name="inline_onboarding_background_color">@color/base80</item>
         <item name="toc_background_color">@color/toc_background_light</item>
         <item name="toc_section_text_color">@color/toc_section_text_light</item>
         <item name="toc_subsection_text_color">@color/toc_subsection_text_light</item>
@@ -44,12 +45,10 @@
         <item name="list_separator_color">@color/list_separator_light</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
-        <item name="subtle_gray_color">@color/subtle_gray_light</item>
         <item name="tab_item_selector">@drawable/tab_item_selector_light</item>
         <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="tab_shadow_color">@color/tab_shadow_light</item>
         <item name="tool_tip_default_color">@color/tool_tip_default_light</item>
-        <item name="link_preview_toolbar_color">@color/link_preview_toolbar_light</item>
         <item name="bottom_sheet_background_color">@color/base90</item>
         <item name="link_preview_text_color">@color/link_preview_text_light</item>
         <item name="link_preview_offline_text_color">@color/link_preview_offline_text_light</item>
