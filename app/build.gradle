@@ -197,8 +197,7 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
-    // When upgrading the Mapbox version, remove the superfluous ProGuard rule and delete this comment
-    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0@aar') {
+    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.1.0@aar') {
         transitive = true
     }
     compile 'net.hockeyapp.android:HockeySDK:4.1.3'
