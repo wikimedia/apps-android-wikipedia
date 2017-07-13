@@ -50,7 +50,7 @@
             android:textColorLink="@color/dark_gray"
             android:textColorHighlight="?attr/window_background_color"
             android:drawablePadding="8dp"
-            android:drawableTint="@color/foundation_blue"
+            android:drawableTint="?attr/colorAccent"
             tools:text="Subtitle" />
 
         <View

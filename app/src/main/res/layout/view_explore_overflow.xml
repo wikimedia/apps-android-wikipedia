@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:minWidth="192dp"
     android:orientation="vertical"
-    android:background="@color/darkest_gray">
+    android:background="@color/base20">
 
     <LinearLayout
         android:id="@+id/explore_overflow_account_container"
@@ -43,7 +43,7 @@
         android:orientation="vertical"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:background="?attr/nav_background_color">
+        android:background="?attr/window_background_color">
 
         <TextView
             android:id="@+id/explore_overflow_settings"

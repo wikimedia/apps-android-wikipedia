@@ -87,7 +87,7 @@
                         android:layout_gravity="bottom|center_horizontal"
                         android:padding="8dp"
                         android:text="@string/privacy_policy_description"
-                        android:textColor="?attr/link_color"
+                        android:textColor="?attr/colorAccent"
                         android:clickable="true" />
 
                 </LinearLayout>

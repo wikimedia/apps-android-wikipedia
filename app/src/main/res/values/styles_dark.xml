@@ -14,7 +14,7 @@
     </style>
 
     <style name="Theme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/foundation_blue</item>
+        <item name="colorPrimary">@color/accent75</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
         <item name="actionMenuTextColor">@android:color/white</item>
@@ -26,17 +26,17 @@
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="popupMenuStyle">@style/Theme.Dark.PopupMenuStyle</item>
         <item name="alertDialogTheme">@style/Theme.Dark.Dialog.Alert</item>
-        <item name="colorAccent">@color/foundation_blue</item>
-        <item name="android:windowBackground">@color/window_background_dark</item>
-        <item name="window_background_color">@color/window_background_dark</item>
-        <item name="window_inverse_color">@android:color/white</item>
+        <item name="colorAccent">@color/accent75</item>
+        <item name="android:windowBackground">@color/base10</item>
+        <item name="window_background_color">@color/base10</item>
+        <item name="window_inverse_color">@color/base90</item>
         <item name="page_background_color">@color/page_background_dark</item>
-        <item name="search_background_color">@color/search_background_dark</item>
+        <item name="main_toolbar_color">@color/accent30</item>
+        <item name="main_status_bar_color">@color/accent20</item>
         <item name="toc_background_color">@color/toc_background_dark</item>
         <item name="toc_section_text_color">@color/toc_section_text_dark</item>
         <item name="toc_subsection_text_color">@color/toc_subsection_text_dark</item>
         <item name="edit_text_color">@color/edit_text_dark</item>
-        <item name="link_color">@color/dark_blue</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="lead_text_color">@color/lead_text_dark</item>
@@ -52,8 +52,6 @@
         <item name="bottom_sheet_background_color">@color/base14</item>
         <item name="link_preview_text_color">@color/link_preview_text_dark</item>
         <item name="link_preview_offline_text_color">@color/link_preview_offline_text_dark</item>
-        <item name="nav_background_color">@android:color/black</item>
-        <item name="nav_item_color">@android:color/white</item>
         <item name="list_item_text_primary_color">@color/list_item_text_primary_dark</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_dark</item>
 
@@ -73,12 +71,13 @@
     </style>
 
     <style name="Theme.Dark.Dialog.Alert" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="colorAccent">@color/foundation_blue</item>
+        <item name="colorAccent">@color/accent75</item>
     </style>
 
     <style name="Theme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/accent75</item>
     </style>
 
     <style name="Theme.Dark.PopupMenuStyle" parent="Widget.AppCompat.PopupMenu">

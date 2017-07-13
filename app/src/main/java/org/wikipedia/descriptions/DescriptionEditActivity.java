@@ -10,6 +10,7 @@ import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ResourceUtil;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -26,7 +27,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStatusBarColor(R.color.dark_blue);
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.main_status_bar_color));
     }
 
     @Override

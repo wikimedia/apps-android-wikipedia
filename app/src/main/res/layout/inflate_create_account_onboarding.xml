@@ -105,6 +105,6 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:text="@string/menu_login"
-        android:textColor="@color/accent50" />
+        android:textColor="?attr/colorAccent" />
 
 </LinearLayout>

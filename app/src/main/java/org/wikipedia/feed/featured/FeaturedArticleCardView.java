@@ -19,6 +19,7 @@ import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -128,8 +129,8 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                                 .onShareListener(new CardShareListener());
 
                         if (listContainsTitle) {
-                            footer.actionIconColor(R.color.foundation_blue);
-                            footer.actionTextColor(R.color.foundation_blue);
+                            footer.actionIconColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent));
+                            footer.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent));
                         }
 
                         footer(footer);

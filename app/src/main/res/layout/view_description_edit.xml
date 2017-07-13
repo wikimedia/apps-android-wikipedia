@@ -12,7 +12,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/foundation_blue"
+        android:background="?attr/main_toolbar_color"
         android:elevation="6dp">
 
         <LinearLayout
@@ -174,7 +174,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="@color/dark_gray"
-                android:textColorLink="?attr/link_color"/>
+                android:textColorLink="?attr/colorAccent"/>
 
         </LinearLayout>
 

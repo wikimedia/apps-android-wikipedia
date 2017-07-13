@@ -14,6 +14,7 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.ResourceUtil;
 
 public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         implements MainFragment.Callback {
@@ -57,7 +58,7 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     @Override
     public void onSearchClose(boolean shouldFinishActivity) {
         getToolbar().setVisibility(View.VISIBLE);
-        setStatusBarColor(R.color.dark_blue);
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.main_status_bar_color));
         if (shouldFinishActivity) {
             finish();
         }

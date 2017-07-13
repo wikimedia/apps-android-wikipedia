@@ -21,14 +21,14 @@ public enum SyntaxRuleStyle {
     INTERNAL_LINK {
         @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
                                                          SyntaxRule syntaxItem) {
-            int color = getColor(ctx, getThemedAttributeId(ctx, R.attr.link_color));
+            int color = getColor(ctx, getThemedAttributeId(ctx, R.attr.colorAccent));
             return new ColorSpanEx(color, Color.TRANSPARENT, spanStart, syntaxItem);
         }
     },
     EXTERNAL_LINK {
         @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
                                                          SyntaxRule syntaxItem) {
-            int color = getColor(ctx, getThemedAttributeId(ctx, R.attr.link_color));
+            int color = getColor(ctx, getThemedAttributeId(ctx, R.attr.colorAccent));
             return new ColorSpanEx(color, Color.TRANSPARENT, spanStart, syntaxItem);
         }
     },

@@ -101,7 +101,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
 
-        swipeRefreshLayout.setColorSchemeResources(R.color.foundation_blue);
+        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

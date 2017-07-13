@@ -26,7 +26,7 @@
         android:layout_weight="1"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        android:textColor="?attr/link_color"
+        android:textColor="?attr/colorAccent"
         android:background="?attr/selectableItemBackground"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:fontFamily="sans-serif-medium"

@@ -20,6 +20,7 @@
     <color name="accent75">#69f</color> <!-- AAA "Stratosphere blue" -->
     <color name="accent50">#36c</color> <!-- W AA Progressive: Primary buttons, Links, Page accents, Focus outlines -->
     <color name="accent30">#2a4b8d</color> <!-- W AAA: Active buttons, Active links -->
+    <color name="accent20">#223966</color>
     <color name="red90">#fee7e6</color> <!-- B AAA -->
     <color name="red50">#d33</color> <!-- B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
     <color name="red30">#b32424</color> <!-- W AAA: Destructive active buttons and links -->
@@ -52,7 +53,6 @@
 
     <!-- TODO: consolidate and map all of the below colors to all of the above colors. -->
 
-    <color name="main_toolbar">@color/foundation_blue</color>
     <color name="nav_border">#505050</color>
     <color name="light_gray_overflow_button">#42000000</color>
     <color name="dark_gray_overflow_button">#42ffffff</color>
@@ -71,7 +71,6 @@
 
     <color name="window_background_light">#fff</color>
     <color name="page_background_light">#fff</color>
-    <color name="search_background_light">#fff</color>
     <color name="toc_background_light">#fff</color>
     <color name="toc_section_text_light">#333</color>
     <color name="toc_subsection_text_light">#898989</color>

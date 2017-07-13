@@ -11,6 +11,7 @@ import android.widget.LinearLayout.LayoutParams;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 
 public class EditSummaryTag extends AppCompatTextView {
     public static final int MARGIN = 4;
@@ -77,7 +78,8 @@ public class EditSummaryTag extends AppCompatTextView {
 
     private void updateState() {
         setBackgroundResource(selected ? R.drawable.editpage_improve_tag_selected : R.drawable.editpage_improve_tag_unselected);
-        @ColorInt int textColor = ResourcesCompat.getColor(resources, selected ? android.R.color.white : R.color.foundation_blue, null);
+        @ColorInt int textColor = ResourcesCompat.getColor(resources, selected
+                ? android.R.color.white : ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent), null);
         setTextColor(textColor);
     }
 }

@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ResourceUtil;
 
 public class InitialOnboardingActivity
         extends SingleFragmentActivity<InitialOnboardingFragment>
@@ -19,7 +20,7 @@ public class InitialOnboardingActivity
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStatusBarColor(R.color.dark_blue);
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.main_status_bar_color));
     }
 
     @Override public void onComplete() {

@@ -3,12 +3,12 @@
     <attr name="window_background_color" format="reference"/>
     <attr name="window_inverse_color" format="reference"/>
     <attr name="page_background_color" format="reference"/>
-    <attr name="search_background_color" format="reference"/>
+    <attr name="main_toolbar_color" format="reference"/>
+    <attr name="main_status_bar_color" format="reference"/>
     <attr name="toc_background_color" format="reference"/>
     <attr name="toc_section_text_color" format="reference"/>
     <attr name="toc_subsection_text_color" format="reference"/>
     <attr name="edit_text_color" format="reference"/>
-    <attr name="link_color" format="reference"/>
     <attr name="abusefilter_background_color" format="reference"/>
     <attr name="lead_image_drawable" format="reference"/>
     <!-- TODO: rename? -->
@@ -27,8 +27,6 @@
     <attr name="bottom_sheet_background_color" format="reference"/>
     <attr name="link_preview_text_color" format="reference"/>
     <attr name="link_preview_offline_text_color" format="reference"/>
-    <attr name="nav_background_color" format="reference"/>
-    <attr name="nav_item_color" format="reference"/>
     <attr name="list_item_text_primary_color" format="reference"/>
     <attr name="list_item_text_secondary_color" format="reference"/>
     <attr name="feed_window_background_color" format="reference" />

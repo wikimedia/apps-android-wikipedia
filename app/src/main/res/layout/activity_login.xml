@@ -48,7 +48,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:text="@string/login_join_wikipedia"
-                    android:textColor="@color/accent50" />
+                    android:textColor="?attr/colorAccent" />
 
             </LinearLayout>
 
@@ -119,7 +119,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:text="@string/login_forgot_password"
-                        android:textColor="?attr/link_color" />
+                        android:textColor="?attr/colorAccent" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:text="@string/privacy_policy_description"
-                        android:textColor="?attr/link_color" />
+                        android:textColor="?attr/colorAccent" />
 
                 </LinearLayout>
 

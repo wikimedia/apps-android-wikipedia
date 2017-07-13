@@ -69,7 +69,7 @@
                     tools:text="Sample section license text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/dark_gray"
-                    android:textColorLink="?attr/link_color"/>
+                    android:textColorLink="?attr/colorAccent"/>
 
         </LinearLayout>
 

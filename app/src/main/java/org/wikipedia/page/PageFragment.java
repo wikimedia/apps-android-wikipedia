@@ -313,7 +313,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 .findViewById(R.id.page_refresh_container);
         int swipeOffset = getContentTopOffsetPx(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
         refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
-        refreshView.setColorSchemeResources(R.color.foundation_blue);
+        refreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent));
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
 

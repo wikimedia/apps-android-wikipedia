@@ -22,7 +22,7 @@
         android:textIsSelectable="true"
         tools:text="Reference text"
         android:textColor="@color/foundation_gray"
-        android:textColorLink="@color/foundation_blue"
+        android:textColorLink="?attr/colorAccent"
         android:textSize="18sp"
         android:lineSpacingMultiplier="1.4" />
 

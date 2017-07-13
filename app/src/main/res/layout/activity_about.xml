@@ -85,7 +85,7 @@
                 android:textIsSelectable="true"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="#555"
-                android:textColorLink="?attr/link_color"
+                android:textColorLink="?attr/colorAccent"
                 android:layout_marginBottom="8dp"
                 />
 
@@ -106,7 +106,7 @@
                 android:textIsSelectable="true"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="#555"
-                android:textColorLink="?attr/link_color"
+                android:textColorLink="?attr/colorAccent"
                 android:layout_marginBottom="8dp"
                 />
 
@@ -127,7 +127,7 @@
                 android:textIsSelectable="true"
                 android:lineSpacingMultiplier="1.2"
                 android:textColor="#555"
-                android:textColorLink="?attr/link_color"
+                android:textColorLink="?attr/colorAccent"
                 android:layout_marginBottom="8dp"
                 />
 
@@ -138,7 +138,7 @@
                 tools:text="@string/send_feedback"
                 style="?android:textAppearanceMedium"
                 android:textColor="#555"
-                android:textColorLink="?attr/link_color"
+                android:textColorLink="?attr/colorAccent"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="8dp"
                 />
@@ -168,7 +168,7 @@
             android:textIsSelectable="true"
             android:layout_weight="1"
             android:textColor="#555"
-            android:textColorLink="?attr/link_color" />
+            android:textColorLink="?attr/colorAccent" />
 
     </LinearLayout>
 </ScrollView>
