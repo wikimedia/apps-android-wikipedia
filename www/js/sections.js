@@ -1,6 +1,9 @@
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 var clickHandlerSetup = require("./onclick");
+var pagelib = require("wikimedia-page-library");
+
+pagelib.CompatibilityTransform.enableSupport( document );
 
 bridge.registerListener( "clearContents", function() {
     clearContents();
@@ -176,7 +179,7 @@ function applySectionTransforms( content, isLeadSection ) {
         clickHandlerSetup.addIPAonClick( content );
     }
 
-    transformer.transform( "addDarkModeStyles", content );
+    pagelib.ThemeTransform.classifyElements( content ); // client setting
 
     if (!isLeadSection) {
         transformer.transform( "hideRefs", content );

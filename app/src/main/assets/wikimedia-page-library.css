@@ -89,6 +89,12 @@ table.infobox caption {
   clear: both;
 }
 
+.pagelib-theme-dark .app_table_container {
+  box-shadow: none;
+  border: 1px solid #43464a;
+  background-color: #202020;
+}
+
 /* The outermost table container's header. todo: rename. */
 .app_table_collapsed_container {
   width: 100%;
@@ -98,6 +104,10 @@ table.infobox caption {
   background-repeat: no-repeat;
   background-position: 95% 50%;
   background-size: 16px 16px;
+}
+
+.pagelib-theme-dark .app_table_collapsed_container {
+  background-color: #27292d;
 }
 
 /* The outermost table container header's subcaption text. todo: rename. */
@@ -117,6 +127,11 @@ table.infobox caption {
   background-position: 95% 50%;
   background-size: 16px 16px;
 }
+
+.pagelib-theme-dark .app_table_collapsed_bottom {
+  background-color: #27292d;
+}
+
 .app_table_collapse_icon {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4zjOaXUAAAAoBJREFUaEPtmE1uE0EQhW3Mzyk4iiU4AFn6BJbtvbfeIIQEAUEUCEnE/58ImCQCIRCSxVk4AGyyYwN5L+qOxuXXM90zthCiS/ricXV11avunhkrrWzZsmXLlu2fttlstjJGo9GN4XB4VY0tC+lcBhC+Dv6QwWBwTcUsA+lsCgTf9uI92I3rKrYp0tkECL1jxXt4pNScJkhnXSByw4oWrKu5dZHOOuDYbAqxEh4xlaMO0pkKjsZ9JbQMHjWVKxXpTKANMQ+suAQ2RM4kpDOSNlZxW4hK5Z7IHY10RsCV3zVCaoN7Yos5TY0opLOCNgo+VEIEn8EX45NwN5nb1KpEOkN0u90zKPRYCRB8Go/HFwivzViIXdRJakI6FRSPlX8iiio+gPN+Lq/BRzdWCncXc6KbkE6LW/lnqqDgoNfrnbM56MPYoYmVcJdZ0+ZQSGcRJkLSF7ZIgOlkMjmr8hDXxL6ZE+JpTBPS6UGSDrb0lUkcYq9MvIcxiH1n5kpQ+3lVE9JJkKADXhcTlsC4jsqjcE3sFeYHwXF6ic9gbunkBHT/ppioBB6vaPEezgGNF2jBwdVB129NghBR5zQE5nfcCqvcc7gFXWhi7kvK+QSPmoj3MEfsE44La++z0wsn/r2dFCD5hVOGayL2BTn3pDv54x5vByZQgq2s/bulgpSfKPv+XZP0gkGBTVN02bCJHVVbcEjtvJGmZkCCxHdFwVXAJraUBsGUDayBXwXnAjift0ShlcLdVloKUPOaD76CL0eFQc9vjK3sfzpVoPZNajCayBE1M+Y0uN/vX3TP5O/gJ/iGoMt+/G8BTZeg5Sv4QW3USK1+PFu2bNmyZcuW7f+1VusYzYvU+uNoBCAAAAAASUVORK5CYII=);
 }
@@ -137,6 +152,118 @@ table.infobox caption {
 .app_table_container, .app_table_collapsed_container, .app_table_collapse_close,
 .app_table_collapse_icon {
   box-sizing: border-box;
+}
+/* Transform lifecycle:
+  - Original:
+    <img style='width: 1px; height: 2px' src=/>
+
+  - Converted to a lazily loaded placeholder image (add class, preserve attributes, replace source
+    with a transparent pixel, and override width and height):
+    <img class=pagelib-lazy-load-image-pending
+      style='width: 1px !important; height: 2px !important' src=data: data-src=/
+      data-width-value=1px data-width-priority= data-height-value=2px data-height-priority=>
+
+  - Downloading immediately after a call to LazyLoadTransform.loadImage() (unchanged).
+
+  - Loaded after original image has downloaded (replace content with original and loading class with
+    loaded):
+    <img class=pagelib-lazy-load-image-loaded style='width: 1px; height: 2px' src=/>
+*/
+
+/* LazyLoadTransform.PENDING_CLASS. Note: width and height are set as inline styles and derived
+   first from any preexisting width and height inline style and then from width and height
+   attributes, if specified. See transform lifecycle above. */
+.pagelib-lazy-load-image-pending {
+  background-color: #eaecf0;
+}
+
+.pagelib-theme-dark .pagelib-lazy-load-image-pending {
+  background-color: #72777d !important;
+}
+
+/* LazyLoadTransform.LOADED_CLASS. */
+.pagelib-lazy-load-image-loaded {
+  -webkit-animation: pagelib-lazy-load-image-fade-in .3s ease-in;
+  animation: pagelib-lazy-load-image-fade-in .3s ease-in;
+}
+
+@-webkit-keyframes pagelib-lazy-load-image-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pagelib-lazy-load-image-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.pagelib-theme-dark.pagelib-compatibility-filter .mwe-math-fallback-image-inline {
+  background: #ccc;
+  padding: 2px;
+}
+
+.pagelib-theme-dark .mwe-math-fallback-image-inline {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.pagelib-theme-dark .pagelib-theme-image-no-background.pagelib-theme-image-nontabular:not(.mwe-math-fallback-image-inline),
+.pagelib-theme-dark .infobox .image .pagelib-theme-image-no-background:not(.mwe-math-fallback-image-inline) {
+  background: #fff;
+}
+
+.pagelib-theme-dark body {
+  color: #f8f9fa;
+  background: #2e3136;
+}
+
+.pagelib-theme-sepia body {
+  color: #222;
+  background: #f8f1e3;
+}
+
+.pagelib-theme-dark a {
+  color: #69f;
+}
+
+.pagelib-theme-sepia a {
+  color: #36c;
+}
+
+.pagelib-theme-dark a.external, .pagelib-theme-sepia a.external {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAGJJREFUKFN1jdENgCAMBYmJn47Bak7DZrhTpc/XIm34OAjXA4qIgHI/dSBbLGTcOKjBryFlinGmjDQGiOF0MQkxI3v5wq6L38qR7SnsAx8ul37igPjAd+o5Oz2MRA+xY4ZSXuaW6wYouOLpAAAAAElFTkSuQmCC);
+}
+
+.pagelib-theme-dark .content table.infobox,
+.pagelib-theme-dark .content table.infobox th {
+  /* The infobox background. Some backgrounds need important to override inline styles like
+     https://en.m.wikipedia.org/wiki/Wolverine_(character)?oldid=789987909.
+     https://phabricator.wikimedia.org/diffusion/SMIN/browse/master/resources/skins.minerva.content.styles/hacks.less;2cc9516cde6027234de9881d503ed7161e0e2ace$44 */
+  background: #43464a !important;
+}
+
+/* Same specificity as in MobileFrontend/less/content/hacks.less */
+.pagelib-theme-dark .content table.infobox tr {
+  /* The infobox row background. Some backgrounds need important to override inline styles like
+     https://en.m.wikipedia.org/wiki/Wolverine_(character)?oldid=789987909. */
+  background: #27292d !important;
+}
+
+.pagelib-theme-dark li.gallerybox div.thumb {
+  border-color: #43464a;
+  background: #27292d;
+}
+
+.pagelib-theme-dark .content table td,
+.pagelib-theme-dark .content table th,
+.pagelib-theme-dark .content table.infobox th,
+.pagelib-theme-dark .content table.infobox td {
+  /* The border around infobox columns.
+     https://phabricator.wikimedia.org/diffusion/SMIN/browse/master/resources/skins.minerva.content.styles/hacks.less;2cc9516cde6027234de9881d503ed7161e0e2ace$49 */
+  border-color: #43464a;
+}
+
+.content figcaption, .content .thumbcaption {
+  color: #a2a9b1;
 }
 .wideImageOverride {
   /* Center images. */

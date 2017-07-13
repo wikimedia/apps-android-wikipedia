@@ -37,19 +37,6 @@ window.onload = function() {
     module.exports.sendMessage( "DOMLoaded", {} );
 };
 },{}],2:[function(require,module,exports){
-function addStyleLink( href ) {
-    var link = document.createElement( "link" );
-    link.setAttribute( "rel", "stylesheet" );
-    link.setAttribute( "type", "text/css" );
-    link.setAttribute( "charset", "UTF-8" );
-    link.setAttribute( "href", href );
-    document.getElementsByTagName( "head" )[0].appendChild( link );
-}
-
-module.exports = {
-    addStyleLink: addStyleLink
-};
-},{}],3:[function(require,module,exports){
 var bridge = require( "./bridge" );
 var transformer = require("./transformer");
 
@@ -73,7 +60,7 @@ bridge.registerListener( "setDecorOffset", function( payload ) {
     transformer.setDecorOffset(payload.offset);
 } );
 
-},{"./bridge":1,"./transformer":4}],4:[function(require,module,exports){
+},{"./bridge":1,"./transformer":3}],3:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -104,16 +91,16 @@ Transformer.prototype.setDecorOffset = function(offset) {
 };
 
 module.exports = new Transformer();
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var bridge = require("../js/bridge");
 bridge.registerListener( "injectScript", function( payload ) {
     require(payload.src);
 });
-},{"../js/bridge":1}],6:[function(require,module,exports){
+},{"../js/bridge":1}],5:[function(require,module,exports){
 var bridge = require("../js/bridge");
 console.log("Something!");
 bridge.registerListener( "ping", function( payload ) {
     bridge.sendMessage( "pong", payload );
 });
 
-},{"../js/bridge":1}]},{},[2,3,1,5,6]);
+},{"../js/bridge":1}]},{},[2,1,4,5]);

@@ -11,7 +11,6 @@ module.exports = function ( grunt ) {
         "js/disambig.js",
         "js/editaction.js",
         "js/issues.js",
-        "js/loader.js",
         "js/dark.js",
         "js/preview.js",
         "js/rtlsupport.js",
@@ -57,20 +56,17 @@ module.exports = function ( grunt ) {
                         "js/disambig.js",
                         "js/editaction.js",
                         "js/issues.js",
-                        "js/loader.js",
                         "js/dark.js",
                         "js/preview.js",
                         "js/rtlsupport.js",
                         "js/sections.js"
                     ],
                     "bundle-test.js": [
-                        "js/loader.js",
                         "js/main.js",
                         "js/bridge.js",
                         "tests/*.js"
                     ],
                     "preview.js": [
-                        "js/loader.js",
                         "js/bridge.js",
                         "js/dark.js",
                         "js/actions.js",
