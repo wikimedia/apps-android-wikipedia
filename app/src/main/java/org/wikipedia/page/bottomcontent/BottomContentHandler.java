@@ -283,18 +283,33 @@ public class BottomContentHandler implements BottomContentInterface,
             pageLastUpdatedText.setVisibility(View.GONE);
         } else {
             PageTitle title = page.getTitle();
-            String lastUpdatedHtml = "<a href=\"" + title.getUriForAction("history")
-                    + "\">" + parentFragment.getContext().getString(R.string.last_updated_text,
-                    formatDateRelative(page.getPageProperties().getLastModified())
-                            + "</a>");
+            String dateMessage = getDateMessage(page);
             // TODO: Hide the Talk link if already on a talk page
             PageTitle talkPageTitle = new PageTitle("Talk", title.getPrefixedText(), title.getWikiSite());
             String discussionHtml = "<a href=\"" + talkPageTitle.getCanonicalUri() + "\">"
                     + parentFragment.getContext().getString(R.string.talk_page_link_text) + "</a>";
-            pageLastUpdatedText.setText(StringUtil.fromHtml(lastUpdatedHtml + " &mdash; " + discussionHtml));
+            pageLastUpdatedText.setText(StringUtil.fromHtml(dateMessage + " &mdash; " + discussionHtml));
             pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
             pageLastUpdatedText.setVisibility(View.VISIBLE);
         }
+    }
+
+    // Returns an HTML string consisting of the onwiki last modified date for network or cached
+    // content, or, for a ZIM compilation, a plain string (nothing to link) with the ZIM file's
+    // local last modified date (most likely, the download date).
+    private String getDateMessage(Page page) {
+        return page.isFromOfflineCompilation() ? compilationLastModifiedString(page) : lastUpdatedHtml(page);
+    }
+
+    private String compilationLastModifiedString(Page page) {
+        return parentFragment.getContext().getString(R.string.bottom_content_date_downloaded,
+                formatDateRelative(page.getCompilationDownloadDate()));
+    }
+
+    private String lastUpdatedHtml(Page page) {
+        return "<a href=\"" + page.getTitle().getUriForAction("history") + "\">"
+                + parentFragment.getContext().getString(R.string.last_updated_text,
+                    formatDateRelative(page.getPageProperties().getLastModified()) + "</a>");
     }
 
     private void preRequestReadMoreItems(final LayoutInflater layoutInflater) {

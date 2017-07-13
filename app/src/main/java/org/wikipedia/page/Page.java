@@ -6,6 +6,7 @@ import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.settings.RbSwitch;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,6 +19,8 @@ public class Page {
     @NonNull private final PageTitle title;
     @NonNull private final List<Section> sections;
     @NonNull private final PageProperties pageProperties;
+
+    @Nullable private Date compilationDownloadDate;
 
     /**
      * An indicator what payload version the page content was originally retrieved from.
@@ -88,6 +91,18 @@ public class Page {
 
     public boolean isArticle() {
         return !isMainPage() && getTitle().namespace() == Namespace.MAIN;
+    }
+
+    public boolean isFromOfflineCompilation() {
+        return compilationDownloadDate != null;
+    }
+
+    @Nullable public Date getCompilationDownloadDate() {
+        return compilationDownloadDate;
+    }
+
+    public void setCompilationDownloadDate(@NonNull Date date) {
+        this.compilationDownloadDate = date;
     }
 
     /** For old PHP API */

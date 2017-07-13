@@ -47,9 +47,10 @@ public class OfflineManagerTest {
 
     @Test
     public void testOfflineManagerGetDataForTitle() throws Exception {
-        String html = OfflineManager.instance().getHtmlForTitle("Ray Charles");
-        assertThat(html.startsWith("<html>"), is(true));
-        assertThat(html.endsWith("</html>"), is(true));
+        OfflineManager.HtmlResult result = OfflineManager.instance().getHtmlForTitle("Ray Charles");
+        assertThat(result.html().startsWith("<html>"), is(true));
+        assertThat(result.html().endsWith("</html>"), is(true));
+        assertThat(result.compilation().timestamp() > 0, is(true));
     }
 
     @Before

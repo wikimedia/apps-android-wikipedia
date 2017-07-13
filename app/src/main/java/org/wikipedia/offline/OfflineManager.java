@@ -98,11 +98,11 @@ public final class OfflineManager {
         return null;
     }
 
-    @NonNull public String getHtmlForTitle(@NonNull String title) throws IOException {
+    @NonNull public HtmlResult getHtmlForTitle(@NonNull String title) throws IOException {
         for (Compilation c : compilations) {
             ByteArrayOutputStream stream = c.getDataForTitle(title);
             if (stream != null) {
-                return stream.toString("utf-8");
+                return new HtmlResult(c, stream.toString("utf-8"));
             }
         }
         throw new IOException("Content not found in any compilation for " + title);
@@ -133,6 +133,24 @@ public final class OfflineManager {
 
     @VisibleForTesting void setCompilations(@NonNull List<Compilation> compilations) {
         this.compilations = compilations;
+    }
+
+    public static class HtmlResult {
+        @NonNull private String html;
+        @NonNull private Compilation comp;
+
+        public HtmlResult(@NonNull Compilation comp, @NonNull String html) {
+            this.html = html;
+            this.comp = comp;
+        }
+
+        public Compilation compilation() {
+            return comp;
+        }
+
+        public String html() {
+            return html;
+        }
     }
 
     private OfflineManager() {

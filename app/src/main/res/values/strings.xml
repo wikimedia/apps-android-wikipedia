@@ -58,6 +58,7 @@
     <string name="nearby_osm_license"><![CDATA[&copy; &nbsp;<a href=\"https://www.openstreetmap.org/copyright/\">OpenStreetMap</a> contributors]]></string>
 
     <string name="last_updated_text">Last updated %s</string>
+    <string name="bottom_content_date_downloaded">Downloaded %s</string>
     <string name="talk_page_link_text">Talk</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"%1$s\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
     <string name="edit_save_action_license_logged_in"><![CDATA[By saving, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 3.0</a> license.]]></string>
@@ -253,6 +254,7 @@
     <string name="page_offline_notice_cannot_load_while_offline">Article cannot be loaded while offline.</string>
     <string name="page_offline_notice_add_to_reading_list">Add the article to a reading list and it will be downloaded once you\'re back online.</string>
     <string name="page_offline_notice_last_date">You are reading an offline version of this article saved on %s.</string>
+    <string name="page_offline_notice_compilation_download_date">You are reading an offline version of this article from a compilation downloaded on %s.</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
     <string name="preference_title_show_link_previews">Show link previews</string>

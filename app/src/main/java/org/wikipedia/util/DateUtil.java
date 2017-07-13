@@ -33,6 +33,10 @@ public final class DateUtil {
         return getShortDateString(date);
     }
 
+    public static String getShortDateString(long timestamp) {
+        return getShortDateString(new Date(timestamp));
+    }
+
     public static String getShortDateString(@NonNull Date date) {
         // todo: consider allowing TWN date formats. It would be useful to have but might be
         //       difficult for translators to write correct format specifiers without being able to

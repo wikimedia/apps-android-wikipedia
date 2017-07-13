@@ -57,6 +57,10 @@ public class Compilation {
         return "";
     }
 
+    public long timestamp() {
+        return file.lastModified();
+    }
+
     @NonNull public String description() {
         try {
             return reader.getZimDescription();

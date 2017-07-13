@@ -54,6 +54,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -435,9 +436,13 @@ public class PageFragmentLoadState {
         try {
             Page page = model.getPage();
             sendMarginPayload();
+            OfflineManager.HtmlResult result = OfflineManager.instance()
+                    .getHtmlForTitle(model.getTitle().getDisplayText());
+            Date downloadDate = new Date(result.compilation().timestamp());
+            page.setCompilationDownloadDate(downloadDate);
             JSONObject zimPayload = setLeadSectionMetadata(new JSONObject(), page)
-                    .put("zimhtml", OfflineManager.instance().getHtmlForTitle(model.getTitle().getDisplayText()))
-                    .put("fromRestBase", false) // TODO: set to true when ZIM content comes from MCS
+                    .put("zimhtml", result.html())
+                    .put("fromRestBase", false)
                     .put("offlineContentProvider", OfflineContentProvider.getBaseUrl());
 
             if (sectionTargetFromTitle != null) {
@@ -451,9 +456,8 @@ public class PageFragmentLoadState {
 
             //give it our expected scroll position, in case we need the page to be pre-scrolled upon loading.
             zimPayload.put("scrollY", (int) (stagedScrollY / DimenUtil.getDensityScalar()));
-
             bridge.sendMessage("displayFromZim", zimPayload);
-
+            showOfflineCompilationMessage(downloadDate);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -594,6 +598,15 @@ public class PageFragmentLoadState {
                     Toast.LENGTH_LONG).show();
         } catch (ParseException e) {
             // ignore
+        }
+    }
+
+    private void showOfflineCompilationMessage(@NonNull Date lastModified) {
+        if (fragment.isAdded()) {
+            String dateStr = DateUtil.getShortDateString(lastModified);
+            Toast.makeText(fragment.getContext().getApplicationContext(),
+                    fragment.getString(R.string.page_offline_notice_compilation_download_date, dateStr),
+                    Toast.LENGTH_LONG).show();
         }
     }
 
