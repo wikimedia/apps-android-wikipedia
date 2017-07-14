@@ -185,6 +185,11 @@
             android:name=".onboarding.InitialOnboardingActivity"
             android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name=".offline.LocalCompilationsActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize"/>
+
         <provider
                 android:authorities="${applicationId}"
                 android:name=".database.AppContentProvider"
