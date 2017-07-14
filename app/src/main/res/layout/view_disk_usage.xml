@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="LinearLayout"
+    tools:orientation="vertical"
+    tools:background="@color/window_background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/view_disk_usage_size_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:textColor="?attr/feed_text_secondary_color"
+            tools:text="12.3"/>
+
+        <TextView
+            android:id="@+id/view_disk_usage_units_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="24sp"
+            android:textColor="?attr/feed_text_secondary_color"
+            android:text="@string/storage_size_gb"/>
+
+        <TextView
+            android:id="@+id/view_disk_usage_by_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:textColor="?attr/feed_text_tertiary_color"
+            android:text="@string/storage_used_by_compilations"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:padding="0.5dp"
+        android:background="@drawable/shape_disk_usage">
+
+        <View
+            android:id="@+id/view_disk_usage_bar_other"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/window_inverse_color"/>
+
+        <View
+            android:id="@+id/view_disk_usage_bar_used"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="?attr/colorAccent"/>
+
+        <View
+            android:id="@+id/view_disk_usage_bar_free"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="?attr/window_background_color"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/view_disk_usage_dot_other"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/shape_circle"
+            android:src="@drawable/shape_circle_outline"
+            android:contentDescription="@null"
+            tools:backgroundTint="?attr/window_inverse_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="?attr/window_inverse_color"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/storage_other_apps"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/view_disk_usage_dot_used"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/shape_circle"
+            android:src="@drawable/shape_circle_outline"
+            android:contentDescription="@null"
+            tools:backgroundTint="?attr/colorAccent" />
+
+        <TextView
+            android:id="@+id/view_disk_usage_text_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="?attr/colorAccent"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            tools:text="Wikipedia"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/view_disk_usage_dot_free"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/shape_circle"
+            android:src="@drawable/shape_circle_outline"
+            android:contentDescription="@null"
+            tools:backgroundTint="?attr/window_background_color" />
+
+        <TextView
+            android:id="@+id/view_disk_usage_text_free"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="?attr/feed_text_tertiary_color"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            tools:text="123.4 GB free"/>
+
+    </LinearLayout>
+
+</merge>
