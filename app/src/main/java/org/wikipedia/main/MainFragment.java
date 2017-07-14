@@ -424,6 +424,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         tabLayout.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
+    public void onOfflineCompilationsFound() {
+        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        if (fragment instanceof FeedFragment) {
+            ((FeedFragment) fragment).onOfflineCompilationsFound();
+        }
+    }
+
     @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
         Callback callback = callback();
         if (callback != null) {

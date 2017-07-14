@@ -20,6 +20,7 @@ import org.wikipedia.BackPressedHandler;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
@@ -33,6 +34,7 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -105,10 +107,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                funnel.refresh(coordinator.getAge());
-                coordinator.reset();
-                feedAdapter.notifyDataSetChanged();
-                coordinator.more(app.getWikiSite());
+                if (!DeviceUtil.isOnline()) {
+                    ((BaseActivity) getActivity()).updateOfflineCompilations();
+                }
+                refresh();
             }
         });
 
@@ -249,6 +251,17 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public boolean onBackPressed() {
         return false;
+    }
+
+    public void onOfflineCompilationsFound() {
+        refresh();
+    }
+
+    private void refresh() {
+        funnel.refresh(coordinator.getAge());
+        coordinator.reset();
+        feedAdapter.notifyDataSetChanged();
+        coordinator.more(app.getWikiSite());
     }
 
     @Nullable private Callback getCallback() {
@@ -396,6 +409,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 }
             });
             snackbar.show();
+        }
+
+        public void onViewCompilations() {
+            // TODO
         }
     }
 
