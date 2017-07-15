@@ -313,8 +313,6 @@
   <string name="reading_list_article_offline">ऑफलाइन उपलब्ध</string>
   <string name="reading_list_article_make_offline">इस लेख को ऑफलाइन उपलब्ध कराएं</string>
   <string name="reading_list_article_remove_offline">इस लेख की ऑफलाइन उपलब्ध न कराएं</string>
-  <string name="reading_list_article_offline_message">यह लेख अब ऑफलाइन उपलब्ध होगा।</string>
-  <string name="reading_list_article_not_offline_message">यह लेख अब आगे ऑफलाइन उपलब्ध नहीं होगा।</string>
   <string name="reading_list_add_to_other_list">अन्य रीडिंग लिस्ट में जोड़ें</string>
   <string name="reading_list_remove_from_list">%s से हटाएँ</string>
   <string name="reading_list_remove_from_lists">रीडिंग लिस्ट्स से हटाएँ</string>
@@ -327,6 +325,8 @@
   <string name="reading_list_login_reminder_title">\nअपनी पठन सूचियों को सिंक करें</string>
   <string name="reading_list_login_reminder_text">अब आपकी पठन सूचियॉँ आपके विकिपीडिया अकाउंट पर सहेजी जा सकती हैं। बस अपने अकाउंट पर लोग-इन करिये और आपकी पठन सूचियां स्वतः ही सिंक हो जाएँगी।</string>
   <string name="reading_lists_confirm_remote_delete">इससे आपकी, दूरस्थ स्टोरेज पर, पुरानी सिंक की हुयी सूचियाँ नष्ट हो जाएँगी। आगे बढ़ें?</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">यह लेख अब ऑफलाइन उपलब्ध होगा।</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">यह लेख अब आगे ऑफलाइन उपलब्ध नहीं होगा।</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_button_view_user">सदस्य से बात करें</string>
   <string name="notification_talk_title">विकिपीडिया पर नया सन्देश</string>

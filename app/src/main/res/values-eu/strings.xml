@@ -236,6 +236,9 @@
   <string name="reading_list_menu_delete">Ezabatu zerrenda</string>
   <string name="reading_list_menu_rename">Izena aldatu</string>
   <string name="reading_list_menu_edit_description">Aldatu deskribapena</string>
+  <string name="reading_list_action_menu_remove_from_offline">Kendu lineaz kanpotik</string>
+  <string name="reading_list_action_menu_save_for_offline">Lineaz kanporako gorde</string>
+  <string name="reading_list_action_menu_add_to_another_list">Beste zerrenda batera gehitu</string>
   <string name="reading_list_name_sample">Nire irakurketa zerrenda</string>
   <string name="reading_list_name_hint">Zerrenda honen izena</string>
   <string name="reading_list_description_hint">Deskribapena (aukerakoa)</string>

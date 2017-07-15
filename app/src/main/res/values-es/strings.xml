@@ -295,6 +295,9 @@
   <string name="reading_list_menu_delete">Eliminar la lista</string>
   <string name="reading_list_menu_rename">Renombrar</string>
   <string name="reading_list_menu_edit_description">Editar descripción</string>
+  <string name="reading_list_action_menu_remove_from_offline">Quitar de sin conexión</string>
+  <string name="reading_list_action_menu_save_for_offline">Guardar para sin conexión</string>
+  <string name="reading_list_action_menu_add_to_another_list">Añadir a otra lista</string>
   <string name="reading_list_name_sample">Mi lista de lectura</string>
   <string name="reading_list_name_hint">Nombre de esta lista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>
@@ -315,8 +318,6 @@
   <string name="reading_list_article_offline">Disponible sin conexión</string>
   <string name="reading_list_article_make_offline">Permitir que este artículo esté disponible sin conexión.</string>
   <string name="reading_list_article_remove_offline">No permitir que este artículo esté disponible sin conexión.</string>
-  <string name="reading_list_article_offline_message">Este artículo ahora estará disponible sin conexión.</string>
-  <string name="reading_list_article_not_offline_message">Este artículo ya no estará disponible sin conexión.</string>
   <string name="reading_list_add_to_other_list">Añadir a otra lista de lectura</string>
   <string name="reading_list_remove_from_list">Quitar de %s</string>
   <string name="reading_list_remove_from_lists">Quitar de las listas de lectura</string>
@@ -330,6 +331,14 @@
   <string name="reading_list_login_reminder_text">Ahora tus listas de lectura pueden guardarse en tu cuenta de Wikipedia. Simplemente accede a tu cuenta y tus listas de lectura se sincronizarán automáticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Esto eliminará cualquier lista de lectura previamente sincronizada del almacenamiento remoto. ¿Procedemos?</string>
   <string name="reading_list_article_save_in_progress">El artículo se está descargado y estará disponible sin conexión cuándo haya completado.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Este artículo ahora estará disponible sin conexión.</item>
+    <item quantity="other">Estos artículos ahora estarán disponibles sin conexión.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Este artículo ya no estará disponible sin conexión.</item>
+    <item quantity="other">Estos artículos ya no estarán disponibles sin conexión.</item>
+  </plurals>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Discute con el usuario</string>
   <string name="notification_talk_title">Mensaje nuevo en Wikipedia</string>

@@ -298,8 +298,6 @@
   <string name="reading_list_article_offline">Доступно офлајн</string>
   <string name="reading_list_article_make_offline">Учини овај чланак доступним офлајн</string>
   <string name="reading_list_article_remove_offline">Немој учинити овај чланак доступним офлајн</string>
-  <string name="reading_list_article_offline_message">Овај чланак ће сада да буде доступан офлајн.</string>
-  <string name="reading_list_article_not_offline_message">Овај чланак више неће да буде доступан офлајн.</string>
   <string name="reading_list_add_to_other_list">Додај на други списак за читање</string>
   <string name="reading_list_remove_from_list">Уклони из списка %s</string>
   <string name="reading_list_remove_from_lists">Уклони из спискова за читање</string>
@@ -307,6 +305,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Чланак се појављује на више спискова</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s више неће да буде доступна офлајн за све спискове за читање:</string>
   <string name="reading_list_sync_reminder_action">Укључи</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Овај чланак ће сада да буде доступан офлајн.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Овај чланак више неће да буде доступан офлајн.</string>
   <string name="user_option_sync_label">Подешавања</string>
   <string name="notification_button_view_user">Разговарај са корисником</string>
   <string name="notification_talk_title">Нова порука на Википедији</string>

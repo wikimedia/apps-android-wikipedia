@@ -292,6 +292,8 @@
   <string name="reading_list_menu_delete">Elimina la llista</string>
   <string name="reading_list_menu_rename">Reanomena</string>
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
+  <string name="reading_list_action_menu_save_for_offline">Desa per a fora de línia</string>
+  <string name="reading_list_action_menu_add_to_another_list">Afegeix a una altra llista</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
   <string name="reading_list_name_hint">Nom de la llista</string>
   <string name="reading_list_description_hint">Descripció (opcional)</string>
@@ -312,8 +314,6 @@
   <string name="reading_list_article_offline">Disponible fora de línia</string>
   <string name="reading_list_article_make_offline">Fes aquest article disponible fora de línia</string>
   <string name="reading_list_article_remove_offline">No facis que l\'article estigui disponible for a de línia</string>
-  <string name="reading_list_article_offline_message">Aquest article estarà disponible fora de línia a partir d\'ara.</string>
-  <string name="reading_list_article_not_offline_message">Aquest article no continuarà estant disponible fora de línia.</string>
   <string name="reading_list_add_to_other_list">Afegeix a una altra llista de lectura</string>
   <string name="reading_list_remove_from_list">Suprimeix de %s</string>
   <string name="reading_list_remove_from_lists">Suprimeix de les llistes de seguiment</string>
@@ -321,6 +321,9 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
   <string name="reading_list_sync_reminder_action">Activa</string>
+  <string name="reading_list_login_reminder_title">Sincronitza les llistes de lectura</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Aquest article estarà disponible fora de línia a partir d\'ara.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Aquest article no continuarà estant disponible fora de línia.</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_button_view_user">Parla amb l\'usuari</string>
   <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>
@@ -392,7 +395,9 @@
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
   <string name="onboarding_explore_title">Noves formes d\'explorar</string>
+  <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
+  <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>
   <string name="onboarding_create_account_preferences">Desa les preferències</string>
 </resources>

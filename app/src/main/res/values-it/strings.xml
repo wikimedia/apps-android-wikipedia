@@ -286,6 +286,7 @@
   <string name="reading_list_menu_delete">Cancella elenco</string>
   <string name="reading_list_menu_rename">Rinomina</string>
   <string name="reading_list_menu_edit_description">Modifica descrizione</string>
+  <string name="reading_list_action_menu_add_to_another_list">Aggiungi ad un\'altra lista</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
@@ -306,8 +307,6 @@
   <string name="reading_list_article_offline">Disponibile in assenza di connessione</string>
   <string name="reading_list_article_make_offline">Rendi questa voce disponibile non in linea</string>
   <string name="reading_list_article_remove_offline">Non rendere questa voce disponibile non in linea</string>
-  <string name="reading_list_article_offline_message">Questa voce ora è disponibile non in linea.</string>
-  <string name="reading_list_article_not_offline_message">Questa voce non sarà più disponibile non in linea.</string>
   <string name="reading_list_add_to_other_list">Aggiungi ad un altro elenco di lettura</string>
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dall\'elenco di lettura</string>
@@ -315,6 +314,14 @@
   <string name="reading_list_sync_reminder_title">La sincronizzazione degli elenchi di lettura è disattivata</string>
   <string name="reading_list_sync_reminder_action">Attiva</string>
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Questa voce ora è disponibile non in linea.</item>
+    <item quantity="other">Queste voci ora sono disponibili non in linea.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Questa voce non sarà più disponibile non in linea.</item>
+    <item quantity="other">Queste voci non saranno più disponibili non in linea.</item>
+  </plurals>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="notification_talk_title">Nuovo messaggio su Wikipedia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ti ha lasciato un messaggio sulla tua pagina di discussione &lt;strong&gt;%2$s&lt;/strong&gt;</string>

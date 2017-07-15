@@ -295,6 +295,9 @@
   <string name="reading_list_menu_delete">Eliminar a lista</string>
   <string name="reading_list_menu_rename">Renomear</string>
   <string name="reading_list_menu_edit_description">Editar a descrición</string>
+  <string name="reading_list_action_menu_remove_from_offline">Quitar de sen conexión</string>
+  <string name="reading_list_action_menu_save_for_offline">Gardar para sen conexión</string>
+  <string name="reading_list_action_menu_add_to_another_list">Engadir a outra lista</string>
   <string name="reading_list_name_sample">A miña lista de lectura</string>
   <string name="reading_list_name_hint">Nome desta lista</string>
   <string name="reading_list_description_hint">Descrición (opcional)</string>
@@ -315,8 +318,6 @@
   <string name="reading_list_article_offline">Dispoñible sen conexión</string>
   <string name="reading_list_article_make_offline">Facer que este artigo estea dispoñible sen conexión</string>
   <string name="reading_list_article_remove_offline">Non facer este artigo dispoñible sen conexión</string>
-  <string name="reading_list_article_offline_message">Agora este artigo estará dispoñible sen conexión.</string>
-  <string name="reading_list_article_not_offline_message">Este artigo xa non estará dispoñible sen conexión.</string>
   <string name="reading_list_add_to_other_list">Engadir a outra lista de lectura</string>
   <string name="reading_list_remove_from_list">Eliminar de %s</string>
   <string name="reading_list_remove_from_lists">Eliminar das listas de lectura</string>
@@ -330,6 +331,14 @@
   <string name="reading_list_login_reminder_text">As súas listas de lectura agora poden ser gardadas na súa conta de Wikipedia. Simplemente conéctese á súa conta, e as súas listas de lectura serán sincronizadas automaticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Isto eliminará calquera lista de lectura previamente sincronizada do almacenamento remoto. Proceder?</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
+    <item quantity="other">Agora estes artigos estarán dispoñibles sen conexión.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Este artigo xa non estará dispoñible sen conexión.</item>
+    <item quantity="other">Estes artigos xa non estarán dispoñibles sen conexión.</item>
+  </plurals>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="notification_button_view_user">Conversar co usuario</string>
   <string name="notification_talk_title">Mensaxe nova na Wikipedia</string>
@@ -403,6 +412,7 @@
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">a súa contribución semella unha proba ou vandalismo.</string>
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña. Por favor, inténteo de novo e conceda o permiso solicitado.</string>
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>

@@ -295,6 +295,9 @@
   <string name="reading_list_menu_delete">Busak pratélan</string>
   <string name="reading_list_menu_rename">Ganti jeneng</string>
   <string name="reading_list_menu_edit_description">Besut katerangan</string>
+  <string name="reading_list_action_menu_remove_from_offline">Busak saka njaban jaringan</string>
+  <string name="reading_list_action_menu_save_for_offline">Simpen kanggo njaban jaringan</string>
+  <string name="reading_list_action_menu_add_to_another_list">Tambah menyang dhaptar liyane</string>
   <string name="reading_list_name_sample">Pratélan wacanku</string>
   <string name="reading_list_name_hint">Jenengé pratélan iki</string>
   <string name="reading_list_description_hint">Katerangan (manasuka)</string>
@@ -315,8 +318,6 @@
   <string name="reading_list_article_offline">Cumepak ing njaban jaringan</string>
   <string name="reading_list_article_make_offline">Gawé artikel iki supaya ana nalika ing njaban jaringan</string>
   <string name="reading_list_article_remove_offline">Aja nggawé artikel iki ana nalika ing njaban jaringan</string>
-  <string name="reading_list_article_offline_message">Artikel iki saiki bakal ana nalika ing njaban jaringan.</string>
-  <string name="reading_list_article_not_offline_message">Artikel iki ora bakal ana manèh nalika ing njaban jaringan.</string>
   <string name="reading_list_add_to_other_list">Tambah ing pratélan wewacaan liyané</string>
   <string name="reading_list_remove_from_list">Busak saka %s</string>
   <string name="reading_list_remove_from_lists">Busak saka pratélan wacan</string>
@@ -330,6 +331,14 @@
   <string name="reading_list_login_reminder_text">Pratélan wacané panjenengan bokmanawa bisa disimpen ing akun Wikipédiané panjenengan saiki. Cukup mlebu log nyang akuné panjenengan, lan pratélan wacané panjenengan bakal otomatis kasinkronisasi.</string>
   <string name="reading_lists_confirm_remote_delete">Tumindak iki bakal mbusak pratélan wacan sing disinkronisasi sadurungé saka panyimpenan adoh. Bacutaké?</string>
   <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Artikel iki saiki bakal ana nalika ing njaban jaringan.</item>
+    <item quantity="other">Artikel-artikel iki saiki bakal ana nalika ing njaban jaringan.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Artikel iki ora bakal ana manèh nalika ing njaban jaringan.</item>
+    <item quantity="other">Artikel-artikel iki ora bakal ana manèh nalika ing njaban jaringan.</item>
+  </plurals>
   <string name="user_option_sync_label">Pilalan</string>
   <string name="notification_button_view_user">Rembugan karo panganggo</string>
   <string name="notification_talk_title">Layang anyar ing Wikipédia</string>
@@ -403,6 +412,7 @@
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi panjenengan kapandeng kaya pacoban utawa vandalisme.</string>
   <string name="description_edit_revert_history">Yen kasengsem, ndeleng &lt;a href=\"%1$s\"&gt;sujarah besutan&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Idin kanggo ngakses panyimpenan ing piranti panjenengan dibutuhake kanggo njelajah njaban jaringan. Mangga dicoba manèh, lan diwenehi ijin sing dijaluk.</string>
   <string name="onboarding_skip">Langkahi</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>

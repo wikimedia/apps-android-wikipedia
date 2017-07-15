@@ -294,11 +294,11 @@
   <string name="reading_list_empty">У Вас немає статей, доданих до цього списку</string>
   <string name="reading_list_article_make_offline">Зробити цю статтю доступною офлайн</string>
   <string name="reading_list_article_remove_offline">Не робити цю статтю доступною офлайн</string>
-  <string name="reading_list_article_offline_message">Ця стаття тепер буде доступна офлайн.</string>
-  <string name="reading_list_article_not_offline_message">Ця стаття більше не буде доступна офлайн.</string>
   <string name="reading_list_add_to_other_list">Додати до іншого списку для читання</string>
   <string name="reading_list_remove_from_list">Вилучити з %s</string>
   <string name="reading_list_remove_from_lists">Вилучити зі списків для читання</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Ця стаття тепер буде доступна офлайн.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Ця стаття більше не буде доступна офлайн.</string>
   <string name="user_option_sync_label">Налаштування</string>
   <string name="notification_button_view_user">Поговорити з користувачем</string>
   <string name="notification_talk_title">Нове повідомлення у Вікіпедії</string>

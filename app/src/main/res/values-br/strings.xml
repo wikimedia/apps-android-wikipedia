@@ -89,6 +89,9 @@
   <string name="delete_selected_items">Diverkañ an elfennoù diuzet</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Anv implijer</string>
+  <string name="login_dont_have_account">N\'hoc\'h eus kont ebet ?</string>
+  <string name="login_forgot_password">Ankouaet ho ker-tremen ganeoc\'h ?</string>
+  <string name="create_account_already_have">Ur gont hoc\'h eus c\'hoazh ?</string>
   <string name="create_account_login_link">Bet krouet ur gont c\'hoazh ? Kevreit</string>
   <string name="login_create_account_link">N\'ho peus kont ebet ? Deuit da-gaout Wikipedia</string>
   <string name="create_account_activity_title">Krouiñ ur gont</string>
@@ -98,6 +101,7 @@
   <string name="create_account_passwords_mismatch_error">Ar gerioù-tremen ne glotont ket an eil gant egile</string>
   <string name="create_account_email_error">Chomlec\'h postel direizh.</string>
   <string name="create_account_username_error">Arouezennoù n\'int ket mat en anv an implijer</string>
+  <string name="create_account_password_error">Direizh eo ar ger-tremen</string>
   <string name="create_account_generic_error">N\'haller ket krouiñ ar gont</string>
   <string name="create_account_next">War-lerc\'h</string>
   <string name="create_account_button">Krouiñ ur gont</string>
@@ -118,6 +122,9 @@
   <string name="edit_preview_fetching_dialog_message">O klask un alberz…</string>
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
   <string name="create_account_account_created_toast">Kont krouet !</string>
+  <string name="preferences_heading_storage_and_syncing">Stokañ ha sinkronelaat</string>
+  <string name="preference_title_sync_reading_lists">Sinkronelaat ar rolloù lenn</string>
+  <string name="preference_summary_sync_reading_lists">Reiñ tro da Wikipedia da sinkronelaat ho rolloù lenn pa gevreit</string>
   <string name="preferences_privacy_settings_heading">Prevezded</string>
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
@@ -228,6 +235,7 @@
   <string name="button_add_to_reading_list">Ouzhpennañ d\'ar roll lenn</string>
   <string name="page_offline_notice_cannot_load_while_offline">N\'haller ket kargañ ar pennad pa vezet ezlinenn.</string>
   <string name="page_offline_notice_add_to_reading_list">Ouzhpennit ar pennad d\'ur roll lenn hag e vo pellgarget kentañ tro ma viot enlinenn.</string>
+  <string name="page_offline_notice_last_date">Emaoc\'h o lenn un doare ezlinenn savetaet d\'an %s</string>
   <string name="button_get_directions">Kaout an tuioù</string>
   <string name="error_no_maps_app">Ne c\'haller kavout arload ebet hag a ro tuioù.</string>
   <string name="preference_title_show_link_previews">Diskwel alberzoù al liammoù</string>
@@ -261,6 +269,8 @@
   <string name="color_theme_select">Tem</string>
   <string name="color_theme_light">Sklaer</string>
   <string name="color_theme_dark">Teñval</string>
+  <string name="preference_title_color_theme">Tem teñval</string>
+  <string name="preference_summary_color_theme">Lezel a-gostez evit implijout tem teñval kenañ an arload</string>
   <string name="nav_item_reading_lists">Ma rolloù</string>
   <string name="reading_list_untitled">Hep titl</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
@@ -279,6 +289,8 @@
   <string name="reading_list_menu_delete">Dilemel ar roll</string>
   <string name="reading_list_menu_rename">Adenvel</string>
   <string name="reading_list_menu_edit_description">Kemmañ an deskrivadur</string>
+  <string name="reading_list_action_menu_save_for_offline">Enorollañ \nevit ezlinenn</string>
+  <string name="reading_list_action_menu_add_to_another_list">Ouzhpennañ d\'ur roll all</string>
   <string name="reading_list_name_sample">Ma roll lenn</string>
   <string name="reading_list_name_hint">Anv ar roll-mañ</string>
   <string name="reading_list_description_hint">Deskrivadur (diret)</string>
@@ -299,11 +311,13 @@
   <string name="reading_list_article_offline">A c\'haller tizhout ezlinenn</string>
   <string name="reading_list_article_make_offline">Aotren gwelet ar pennad-mañ ezlinenn</string>
   <string name="reading_list_article_remove_offline">Na aotren gwelet ar pennad-mañ ezlinenn</string>
-  <string name="reading_list_article_offline_message">Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken.</string>
-  <string name="reading_list_article_not_offline_message">Ne c\'hallor ket gwelet ar pennad-mañ ezlinenn pelloc\'h.</string>
   <string name="reading_list_add_to_other_list">Ouzhpennañ d\'ur roll lenn all</string>
   <string name="reading_list_remove_from_list">Dilemel diwar %s</string>
   <string name="reading_list_remove_from_lists">Dilemel diwar ar rolloù lenn</string>
+  <string name="reading_list_sync_reminder_action">Enaouiñ</string>
+  <string name="reading_list_login_reminder_title">Sinkronelaat ar rolloù lenn</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Ne c\'hallor ket gwelet ar pennad-mañ ezlinenn pelloc\'h.</string>
   <string name="user_option_sync_label">Penndibaboù</string>
   <string name="notification_button_view_user">Komz gant an implijer</string>
   <string name="notification_talk_title">Kemennadenn nevez war Wikipedia</string>
@@ -377,4 +391,13 @@
   <string name="description_edit_revert_reason1">Ne zoujfe ket ho tegasadenn da unan eus &lt;a href=\"%1$s\"&gt;sturiadoù&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Ho tegasadenn a oa heñvel ouzh un taol-arnod pe ouzh vandalerezh.</string>
   <string name="description_edit_revert_history">M\'oc\'h dedennet, gwelit &lt;a href=\"%1$s\"&gt;istor ar c\'hemmoù&lt;/a&gt;</string>
+  <string name="onboarding_skip">Lezel a-gostez</string>
+  <string name="onboarding_continue">Kenderc\'hel</string>
+  <string name="onboarding_explore_title">Doareoù ergerzhet nevez</string>
+  <string name="onboarding_reading_list_sync_title">Rolloù lenn gant sinkronelaat</string>
+  <string name="onboarding_analytics_title">Kas roadennoù dizanv</string>
+  <string name="onboarding_analytics_switch_title">Kas ar roadennoù implijout</string>
+  <string name="onboarding_create_account_sync">Sinkronelaat ho rolloù lenn</string>
+  <string name="onboarding_create_account_contributions">Mirout roudoù eus ho tegasadennoù</string>
+  <string name="onboarding_create_account_preferences">Enrollañ ho penndibaboù</string>
 </resources>

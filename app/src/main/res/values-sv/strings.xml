@@ -295,6 +295,9 @@
   <string name="reading_list_menu_delete">Radera lista</string>
   <string name="reading_list_menu_rename">Byt namn</string>
   <string name="reading_list_menu_edit_description">Redigera beskrivning</string>
+  <string name="reading_list_action_menu_remove_from_offline">Ta bort från offline</string>
+  <string name="reading_list_action_menu_save_for_offline">Spara för offline</string>
+  <string name="reading_list_action_menu_add_to_another_list">Lägg till i en annan lista</string>
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
@@ -315,8 +318,6 @@
   <string name="reading_list_article_offline">Tillgänglig offline</string>
   <string name="reading_list_article_make_offline">Gör denna artikel tillgänglig offline</string>
   <string name="reading_list_article_remove_offline">Gör inte denna artikel tillgänglig offline</string>
-  <string name="reading_list_article_offline_message">Denna artikel kommer nu vara tillgänglig offline.</string>
-  <string name="reading_list_article_not_offline_message">Denna artikel kommer inte längre vara tillgänglig offline.</string>
   <string name="reading_list_add_to_other_list">Lägg till en annan läslista</string>
   <string name="reading_list_remove_from_list">Ta bort from %s</string>
   <string name="reading_list_remove_from_lists">Ta bort från läslistor</string>
@@ -330,6 +331,14 @@
   <string name="reading_list_login_reminder_text">Dina läslistor kan nu sparas till ditt Wikimedia-konto. Logga in på ditt konto och dina läslistor kommer att synkroniseras automatiskt.</string>
   <string name="reading_lists_confirm_remote_delete">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen. Vill du fortsätta?</string>
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Denna artikel kommer nu vara tillgänglig offline.</item>
+    <item quantity="other">Dessa artiklar kommer nu vara tillgängliga offline.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Denna artikel kommer inte längre vara tillgänglig offline.</item>
+    <item quantity="other">Dessa artiklar kommer inte längre vara tillgängliga offline.</item>
+  </plurals>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="notification_button_view_user">Diskutera med användare</string>
   <string name="notification_talk_title">Nytt meddelande på Wikipedia</string>
@@ -403,6 +412,7 @@
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline. Försök igen och bevilja behörigheten.</string>
   <string name="onboarding_skip">Hoppa över</string>
   <string name="onboarding_continue">Fortsätt</string>
   <string name="onboarding_get_started">Kom igång</string>

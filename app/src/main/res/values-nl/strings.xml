@@ -38,6 +38,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Inzoomen op een locatie op de kaart</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
+  <string name="bottom_content_date_downloaded">Gedownload %s</string>
   <string name="talk_page_link_text">Overleg</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
@@ -212,6 +213,7 @@
   <string name="address_copied">Het adres is gekopieerd naar het klembord.</string>
   <string name="text_copied">De tekst is gekopieerd naar het klembord.</string>
   <string name="button_continue_to_article">Pagina lezen</string>
+  <string name="page_offline_notice_compilation_download_date">U bent een offline versie aan het lezen van dit artikel vanuit een gedowloade samenstelling op %s.</string>
   <string name="button_get_directions">Routebeschrijving</string>
   <string name="error_no_maps_app">Er zijn geen apps gevonden die routebeschrijvingen bieden.</string>
   <string name="preference_title_show_link_previews">Voorvertoningen van koppelingen weergeven</string>
@@ -328,4 +330,6 @@
   <string name="description_edit_help_tips_example2_hint">titelbeschrijving voor een artikel over de Mount Everest</string>
   <string name="description_edit_help_more_info">Meer informatie</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
+  <string name="offline_card_text">U bent momenteel Wikipedia offline aan het bekijken. Hou er rekening mee dat de offline artikels niet helemaal up to date zijn met de online versie.</string>
+  <string name="offline_my_compilations">Mijn aanpassingen</string>
 </resources>

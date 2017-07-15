@@ -169,6 +169,7 @@
   <string name="snippet_share_preview_image_desc">ಪಟತಾ ಮುನ್ನೋಟ</string>
   <string name="captcha_image">Captcha ಪಟೊ</string>
   <string name="menu_new_tab">ಪೊಸ ಟ್ಯಾಬ್</string>
+  <string name="menu_close_all_tabs">ಮಾಂತ ಕಂಡಿಲೆನ್ ಮುಚ್ಚಿಲೆ</string>
   <string name="button_close_tab">ಟ್ಯಾಬ್ ನ್ ಮುಚ್ಚಿಲೇ</string>
   <string name="page_view_in_browser">ಪುಟೋ  ಬ್ರೌಸರ್ಟ್ ತೂಲೆ</string>
   <string name="format_error_server_message">ಸಂದೇಸೊ: \"%s\"</string>
@@ -176,8 +177,13 @@
   <string name="button_continue_to_article">ಲೇಕನೋ ಓದುಲೆ</string>
   <string name="nav_item_donate">ವಿಕಿಪೀಡಿಯತಾ ಬೆಂಬಲಾ</string>
   <string name="enable_location_service">ಸಕ್ರಿಯ ಮಲ್ಪು</string>
+  <string name="multi_select_items_selected">%d ದೆತೊನ್ತುಂಡು</string>
   <string name="error_message_generic">ಒಂಜಿ ದೋಷ ತೋಜುಂಡು</string>
+  <string name="view_link_preview_error_button_dismiss">ದೆತ್ತ್ ಪಾಡ್ಲೆ</string>
+  <string name="error_page_does_not_exist">ಈ ಪುಟೊ ನನಲ ಅಸ್ತಿತ್ವೊಡ್ ಇಜ್ಜಿ</string>
+  <string name="view_wiki_error_message_offline">ನೆಟ್ವರ್ಕ್ ಸರಿಕಟ್ಟ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
   <string name="crash_report_dialog_dont_send_button">ಬುಡ್ಲೆ</string>
+  <string name="crash_report_dialog_always_send_button">ಯೆಪಲಾ ಕಡಪುಡ್ಲೆ</string>
   <string name="crash_report_dialog_send_button">ಕಡಪುಡ್ಲೆ</string>
   <string name="crash_report_quit">ಬುಡ್ಲೆ</string>
   <string name="article_header_edit_hint">ಸೇರ್ಸಲೇ...</string>
@@ -198,6 +204,7 @@
   <string name="reading_list_sort_by_name_desc">ಪುದರ್ತ ತರೋ(ತಿರ್ಗಾತ್)</string>
   <string name="reading_list_sort_by_recent">ಇಂಚಿಪೊ ವಿಭಾಗಿಸಾಯಿನಾ</string>
   <string name="reading_list_menu_delete" fuzzy="true">ಓದಿನಾ ಲಿಸ್ಟ್ ದೆತ್ತುಂಡು</string>
+  <string name="reading_list_menu_rename">ಪೊಸ ಪುದರ್</string>
   <string name="reading_list_name_sample">ಎನ್ನ ಓದುನಾ ಲಿಸ್ಟ್</string>
   <string name="reading_list_name_hint">ಈ ಲಿಸ್ಟ್ ದ ಪುದರ್</string>
   <string name="reading_list_item_deleted">%s ಪಟ್ಟಿದ್ ದೆತುಂಡು</string>

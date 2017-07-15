@@ -315,8 +315,6 @@
   <string name="reading_list_article_offline">در حالت آفلاین در دسترس است</string>
   <string name="reading_list_article_make_offline">در حالت آفلاین مقاله را در دسترس قرار بده</string>
   <string name="reading_list_article_remove_offline">در حالت آفلاین مقاله را در دسترس قرار نده</string>
-  <string name="reading_list_article_offline_message">اکنون در حالت آفلاین مقاله در دسترس است.</string>
-  <string name="reading_list_article_not_offline_message">دیگر در حالت آفلاین مقاله در دسترس نیست.</string>
   <string name="reading_list_add_to_other_list">افزودن به فهرست مطالعهٔ دیگر</string>
   <string name="reading_list_remove_from_list">حذف از %s</string>
   <string name="reading_list_remove_from_lists">حذف از فهرست‌های خواندن</string>
@@ -330,6 +328,8 @@
   <string name="reading_list_login_reminder_text">فهرست مطالعهٔ شما ممکن است در حساب کاربری شما در ویکی‌پدیا ذخیره شده باشد. با وارد شدن به حساب کاربریتان به راحتی می‌توانید آن را به صورت خودکار همساز کنید.</string>
   <string name="reading_lists_confirm_remote_delete">اینکار فهرست‌های مطالعه‌ای که همساز کردید را حذف می‌کند. انجام شود؟</string>
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">اکنون در حالت آفلاین مقاله در دسترس است.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">دیگر در حالت آفلاین مقاله در دسترس نیست.</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_button_view_user">بحث با کاربر</string>
   <string name="notification_talk_title">پیام جدید در ویکی‌پدیا</string>

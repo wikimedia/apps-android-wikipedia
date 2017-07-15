@@ -172,6 +172,7 @@
   <string name="reading_list_menu_delete">Dzēst sarakstu</string>
   <string name="reading_list_menu_rename">Pārsaukt</string>
   <string name="reading_list_menu_edit_description">Labot aprakstu</string>
+  <string name="reading_list_action_menu_add_to_another_list">Pievienot citam sarakstam</string>
   <string name="reading_list_description_hint">Apraksts (nav obligāts)</string>
   <string name="reading_list_item_deleted">%s izņemts no saraksta</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>

@@ -16,7 +16,7 @@
   <string name="page_error_back_to_main">ارجع إلى الخلف</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
   <string name="history_item_deleted">أزيلت %s من القائمة</string>
-  <string name="history_items_deleted">أُزيلت {{PLURAL:|مقالة|مقالتان| مقالات|%d مقالة}} من التاريخ</string>
+  <string name="history_items_deleted">أُزيلت %d مقالة من التاريخ</string>
   <string name="history_item_delete_undo">رجوع</string>
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
@@ -281,7 +281,9 @@
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجابايت</string>
-  <string name="format_reading_list_statistical_summary_plural">{{PLURAL:%1$d|مقالة|مقالتان|%1$d مقالات|%1$d مقالة}}، %2$.2f ميغابايت</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d مقالة، %2$.2f ميغابايت</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d من أصل مقالة متاحة بدون اتصال، %2$.2f ميغابايت</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d من أصل %2$d مقالات متاحة بدون اتصال، %3$.2f ميغابايت</string>
   <string name="reading_list_sort">رتب</string>
   <string name="reading_list_sort_by_name">فرز حسب الاسم</string>
   <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>
@@ -303,30 +305,34 @@
   <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
   <string name="reading_lists_onboarding_example1">أماكن للزيارة</string>
   <string name="reading_lists_onboarding_example2">الحيوانات المفضلة</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">الفضاء</string>
+  <string name="reading_lists_onboarding_example3">استكشاف الفضاء</string>
   <string name="reading_lists_onboarding_got_it">حسنًا</string>
   <string name="reading_list_no_description">لا وصف...</string>
   <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
   <string name="reading_list_article_offline">متاح في وضع عدم الاتصال</string>
   <string name="reading_list_article_make_offline">إتاحة هذه المقالة دون اتصال</string>
   <string name="reading_list_article_remove_offline">عدم إتاحة هذه المقالة دون اتصال</string>
-  <string name="reading_list_article_offline_message">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</string>
-  <string name="reading_list_article_not_offline_message">ستصبح هذه المقالة غير متاحة في حالة عدم الاتصال.</string>
   <string name="reading_list_add_to_other_list">أضف لقائمة قراءة أخرى</string>
   <string name="reading_list_remove_from_list">إزالة من %s</string>
   <string name="reading_list_remove_from_lists">أزل من قوائم القراءة</string>
+  <string name="reading_list_confirm_remove_article_from_offline">أزل من وضع عدم الاتصال</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">المقالة تظهر في عدة قوائم</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s لن تكون متاحة بدون اتصال في جميع قوائم القراءة:</string>
   <string name="reading_list_sync_reminder_title">تم إيقاف مزامنة قائمة القراءة</string>
   <string name="reading_list_sync_reminder_text">يُمكن مزامنة قوائم قراءتك مع حسابك في ويكيبيديا إذا سمحت بالمزامنة في إعدادات التطبيق.</string>
   <string name="reading_list_sync_reminder_action">تشغيل</string>
+  <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
   <string name="reading_list_login_reminder_text">يُمكن الآن حفظ قوائم قراءتك في حسابك في ويكيبيديا. ببساطة سجّل دخولك لحسابك، وستتم مزامنة قوائم قراءتك آليًّا.</string>
   <string name="reading_lists_confirm_remote_delete">هذا سيؤدي لحذف أي قوائم قراءة مزامنة سابقًا من وحدة التخزين عن بعد. أترغب في المتابعة؟</string>
-  <string name="reading_list_article_save_in_progress" fuzzy="true">جارٍ تنزيل المقالة، وستكون متاحةً في وضع عدم الاتصال عن الاكتمال.</string>
+  <string name="reading_list_article_save_in_progress">جارٍ تنزيل المقالة، وستكون متاحةً في وضع عدم الاتصال عن الاكتمال.</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">ستصبح هذه المقالة غير متاحة في حالة عدم الاتصال.</string>
   <string name="user_option_sync_label">تفضيلات</string>
   <string name="notification_button_view_user">التحدث مع المستخدم</string>
   <string name="notification_talk_title">رسالة جديدة على ويكيبيديا</string>
   <string name="notification_talk">ترك &lt;em&gt;%1$s&lt;/em&gt; رسالةً لك في صفحة نقاشك &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">تعديل ملغى</string>
+  <string name="notification_reverted">تعديلك في مقالة &lt;strong&gt;%2$s&lt;/strong&gt; قد تراجع عنه &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">لقد تمّ شُكرك!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; شكرك على تعديلك على صفحة &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">واصل القراءة</string>
@@ -364,6 +370,7 @@
   <string name="description_edit_help_wikidata_guide">دليل ويكي بيانات لكتابة الوصوف</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">شكرًا لاهتمامك المستمر بتعديل الوصوف! لإضافة المزيد من التعديلات، فضلًا سجل الدخول لحسابك في ويكيبيديا.</string>
   <string name="description_edit_license_notice">بتغييري لوصف العنوان، أنا أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وعلى نشر مساهماتي بصورة لا رجعة فيها تحت ترخيص &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">نُشر الوصف!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
@@ -388,6 +395,7 @@
   <string name="description_edit_help_tips_example2_hint">وصف عنوان لمقال حول جبل ايفرست</string>
   <string name="description_edit_help_more_info">مزيد من المعلومات</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
+  <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">مساهمتك ظهرت كتجربة أو تخريب.</string>
   <string name="description_edit_revert_history">إن كنت مهتما، طالع &lt;a href=\"%1$s\"&gt;تاريخ التعديل&lt;/a&gt;.</string>
   <string name="onboarding_skip">تجاوز</string>

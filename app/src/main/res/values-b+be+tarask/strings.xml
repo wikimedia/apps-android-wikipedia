@@ -16,6 +16,8 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Ачысьціць гісторыю</string>
   <string name="history_item_deleted">Артыкул %s выдалены з гісторыі</string>
+  <string name="history_items_deleted">%d артыкулаў выдалена з гісторыі</string>
+  <string name="history_item_delete_undo">Аднавіць</string>
   <string name="page_does_not_exist_error">Гэта старонка не існуе.</string>
   <string name="dialog_title_clear_history">Ачысьціць гісторыю прагляду</string>
   <string name="dialog_message_clear_history">Гэтае дзеяньне выдаліць усю гісторыю прагляду і зачыніць усе адкрытыя ўстаўкі. Вы ўпэўнены?</string>
@@ -134,7 +136,7 @@
   <string name="user_anon_blocked_from_editing">Рэдагаваньне з Вашага IP-адраса было заблякаванае.</string>
   <string name="edit_how_page_improved">Як Вы палепшылі старонку?</string>
   <string name="edit_next">Далей</string>
-  <string name="edit_done" fuzzy="true">Захаваць</string>
+  <string name="edit_done">Апублікаваць</string>
   <string name="edit_preview">Папярэдні прагляд</string>
   <string name="edit_summary_tag_typo">Выпраўленая абдрукоўка</string>
   <string name="edit_summary_tag_grammar">Выпраўленая артаграфія</string>
@@ -143,8 +145,8 @@
   <string name="edit_summary_tag_other_hint">Іншыя шляхі якімі Вы палепшылі старонку</string>
   <string name="find_next">Працягваць пошук</string>
   <string name="find_previous">Знайсьці папярэдняе</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Гэтае рэдагаваньне можа быць неканструктыўным. Вы ўпэўнены, што жадаеце яе захаваць?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Вы ня можаце захаваць рэтае рэдагаваньне. Калі ласка, вярніцеся і зьмяніце яе.</string>
+  <string name="abusefilter_title_warn">Гэтае рэдагаваньне можа быць неканструктыўным. Вы ўпэўненыя, што жадаеце яго апублікаваць?</string>
+  <string name="abusefilter_title_disallow">Вы ня можаце апублікаваць гэтае рэдагаваньне. Калі ласка, вярніцеся і зьмяніце яго.</string>
   <string name="abusefilter_text_warn">Аўтаматызаваны фільтар вызначыў гэтае рэдагаваньне як патэнцыйна неканструктыўнае. Яно можа ўтрымліваць адно з:&lt;br /&gt;&lt;br /&gt;· Набранае вялікімі літарамі&lt;br /&gt;· Выдаленьне артыкула ці спам&lt;br /&gt;· Неадпаверныя вонкавыя спасылкі ці выявы&lt;br /&gt;· Паўтараючыяся сымбалі</string>
   <string name="abusefilter_text_disallow">Аўтаматызаваны фільтар вызначыў гэтае рэдагаваньне як патэнцыйна неканструктыўнае ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпэдыя гэта энцыкляпэдыя і тут могуць існаваць толькі нэўтральныя і зьмястоўныя артыкулы.</string>
   <string name="dialog_page_issues">Хібы старонкі</string>
@@ -171,7 +173,7 @@
   <string name="read_more_section">Даведацца болей</string>
   <string name="menu_gallery_visit_page">Перайсьці на старонку файла</string>
   <string name="gallery_error_draw_failed">Не атрымалася вывесьці выяву.</string>
-  <string name="license_title" fuzzy="true">Тэкст ліцэнзіі бібліятэкі %s</string>
+  <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
   <string name="gallery_save_progress">Загрузка файлу…</string>

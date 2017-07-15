@@ -307,8 +307,6 @@
   <string name="reading_list_article_offline">Ситимэ суох ааҕыахха сөп</string>
   <string name="reading_list_article_make_offline">Бу ыстатыйаны ситимэ суох ааҕыллар гын</string>
   <string name="reading_list_article_remove_offline">Ыстатыйаны ситимэ суох ааҕар сатаныа суоҕа</string>
-  <string name="reading_list_article_offline_message">Ыстатыйаны ситимэ суох ааҕыахха сөп буолла.</string>
-  <string name="reading_list_article_not_offline_message">Бу ыстатыйа ситимэ суох ааҕыллыбат буолла.</string>
   <string name="reading_list_add_to_other_list">Атын исипииһэккэ угуу</string>
   <string name="reading_list_remove_from_list">Мантан сот %s</string>
   <string name="reading_list_remove_from_lists">Ааҕар испииһэктэртэн сот</string>
@@ -321,6 +319,8 @@
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
   <string name="reading_list_login_reminder_text">Эhиги аа5ар испиhиэккит Бикипиэдьийэ5э учуоттууп суруккутугар хаалар. Учуоттуур суруккар киир уонна эьиги аа5ар испиьиэккит мэнэйдэьиниэ</string>
   <string name="reading_lists_confirm_remote_delete">Бу эрдэ мэнэйдэһиллибит ааҕар испиһиэккин сотторон кэбиһиэ. Салгыыгын дуо?</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Ыстатыйаны ситимэ суох ааҕыахха сөп буолла.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Бу ыстатыйа ситимэ суох ааҕыллыбат буолла.</string>
   <string name="user_option_sync_label">Туруоруулар</string>
   <string name="notification_button_view_user">Кыттааччыга сурук</string>
   <string name="notification_talk_title">Бикипиэдьийэҕэ саҥа сурук</string>

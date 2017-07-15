@@ -89,6 +89,7 @@
   <string name="delete_selected_items">নির্বাচিত আইটেম অপসারণ করুন</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
+  <string name="login_dont_have_account">কোন অ্যাকাউন্ট নেই?</string>
   <string name="login_join_wikipedia">উইকিপিডিয়ায় যোগ দিন</string>
   <string name="login_forgot_password">আপনার পাসওয়ার্ড ভুলে গেছেন?</string>
   <string name="create_account_already_have">ইতিমধ্যে একটি অ্যাকাউন্ট আছে?</string>
@@ -101,6 +102,7 @@
   <string name="create_account_passwords_mismatch_error">পাসওয়ার্ড মিলেনি</string>
   <string name="create_account_email_error">ভুল ইমেইল ঠিকানা</string>
   <string name="create_account_username_error">ব্যবহারকারী নামে অবৈধ অক্ষর রয়েছে</string>
+  <string name="create_account_password_error">পাসওয়ার্ড ভুল</string>
   <string name="create_account_generic_error">অ্যাকাউন্ট তৈরী করা যাচ্ছে না</string>
   <string name="create_account_next">পরবর্তী</string>
   <string name="create_account_button">অ্যাকাউন্ট তৈরি করুন</string>
@@ -121,6 +123,7 @@
   <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে…</string>
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
+  <string name="preferences_heading_storage_and_syncing">স্টোরেজ ও সিঙ্ক</string>
   <string name="preference_title_sync_reading_lists">পড়ার তালিকাগুলি সিঙ্ক করুন</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
@@ -288,6 +291,7 @@
   <string name="reading_list_menu_delete">তালিকা মুছুন</string>
   <string name="reading_list_menu_rename">নামান্তর</string>
   <string name="reading_list_menu_edit_description">বিবরণ সম্পাদনা করুন</string>
+  <string name="reading_list_action_menu_save_for_offline">অফলাইনের জন্য সংরক্ষণ করুন</string>
   <string name="reading_list_name_sample">আমার পড়ার তালিকা</string>
   <string name="reading_list_name_hint">এই তালিকার নাম</string>
   <string name="reading_list_description_hint">বিবরণ (ঐচ্ছিক)</string>
@@ -301,20 +305,20 @@
   <string name="reading_lists_onboarding_for_example">উদাহরণস্বরূপ</string>
   <string name="reading_lists_onboarding_example1">ভ্রমণের জন্য স্থান</string>
   <string name="reading_lists_onboarding_example2">পছন্দের পশুপাখি</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">মহাকাশ!</string>
+  <string name="reading_lists_onboarding_example3">মহাকাশ গবেষণা</string>
   <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
   <string name="reading_list_no_description">কোন বিবরণ নেই...</string>
   <string name="reading_list_empty">এই তালিকায় আপনি কোন নিবন্ধ যোগ করেন নি।</string>
   <string name="reading_list_article_offline">অফলাইনে উপলব্ধ</string>
   <string name="reading_list_article_make_offline">এই নিবন্ধটি অফলাইনে উপলব্ধ করুন</string>
   <string name="reading_list_article_remove_offline">এই নিবন্ধটি অফলাইনে উপলব্ধ করবেন না</string>
-  <string name="reading_list_article_offline_message">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</string>
-  <string name="reading_list_article_not_offline_message">এই নিবন্ধটি আর অফলাইনে উপলব্ধ হবে না।</string>
   <string name="reading_list_add_to_other_list">আরেকটি পড়ার তালিকা থেকে সরান</string>
   <string name="reading_list_remove_from_list">%s থেকে সরান</string>
   <string name="reading_list_remove_from_lists">পড়ার তালিকা থেকে সরান</string>
   <string name="reading_list_confirm_remove_article_from_offline">অফলাইন থেকে সরান</string>
   <string name="reading_list_sync_reminder_action">চালু করুন</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">এই নিবন্ধটি আর অফলাইনে উপলব্ধ হবে না।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_button_view_user">ব‍্যবহারকারীর সঙ্গে আলাপ করুন</string>
   <string name="notification_talk_title">উইকিপিডিয়ায় নতুন বার্তা</string>

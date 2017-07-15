@@ -295,6 +295,9 @@
   <string name="reading_list_menu_delete">Hapus daftar</string>
   <string name="reading_list_menu_rename">Ubah nama</string>
   <string name="reading_list_menu_edit_description">Sunting deskripsi</string>
+  <string name="reading_list_action_menu_remove_from_offline">Hapus dari luring</string>
+  <string name="reading_list_action_menu_save_for_offline">Simpan untuk luring</string>
+  <string name="reading_list_action_menu_add_to_another_list">Tambah ke daftar lainnya</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
   <string name="reading_list_name_hint">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
@@ -315,8 +318,6 @@
   <string name="reading_list_article_offline">Tersedia secara luring</string>
   <string name="reading_list_article_make_offline">Jadikan artikel ini tersedia secara luring</string>
   <string name="reading_list_article_remove_offline">Jangan membuat artikel ini tersedia secara luring</string>
-  <string name="reading_list_article_offline_message">Artikel ini sekarang akan tersedia secara luring.</string>
-  <string name="reading_list_article_not_offline_message">Artikel ini tidak lagi tersedia secara luring.</string>
   <string name="reading_list_add_to_other_list">Tambahkan ke daftar bacaan yang lain</string>
   <string name="reading_list_remove_from_list">Hapus dari %s</string>
   <string name="reading_list_remove_from_lists">Hapus dari daftar bacaan</string>
@@ -330,6 +331,14 @@
   <string name="reading_list_login_reminder_text">Daftar bacaan Anda sekarang dapat disimpan ke akun Wikipedia Anda. Cukup masuk log ke akun Anda, dan daftar bacaan Anda akan disinkronkan secara otomatis.</string>
   <string name="reading_lists_confirm_remote_delete">Ini akan menghapus daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Lanjutkan?</string>
   <string name="reading_list_article_save_in_progress">Artikel sedang diunduh, dan akan tersedia secara luring saat selesai.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>
+    <item quantity="other">Artikel-artikel ini sekarang akan tersedia secara luring.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Artikel ini tidak lagi tersedia secara luring.</item>
+    <item quantity="other">Artikel-artikel ini tidak lagi tersedia secara luring.</item>
+  </plurals>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="notification_button_view_user">Bicara ke pengguna</string>
   <string name="notification_talk_title">Pesan baru di Wikipedia</string>
@@ -403,6 +412,7 @@
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi Anda tampak seperti uji coba atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Izin untuk mengakses penyimpanan pada perangkat Anda diperlukan untuk penjelajahan luring. Silakan coba lagi, dan berikan izin yang diminta.</string>
   <string name="onboarding_skip">Lewati</string>
   <string name="onboarding_continue">Lanjutkan</string>
   <string name="onboarding_get_started">Memulai</string>

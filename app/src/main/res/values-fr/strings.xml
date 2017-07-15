@@ -295,6 +295,9 @@
   <string name="reading_list_menu_delete">Supprimer la liste</string>
   <string name="reading_list_menu_rename">Renommer</string>
   <string name="reading_list_menu_edit_description">Modifier la description</string>
+  <string name="reading_list_action_menu_remove_from_offline">Supprimer de hors connexion</string>
+  <string name="reading_list_action_menu_save_for_offline">Enregistrer pour hors connexion</string>
+  <string name="reading_list_action_menu_add_to_another_list">Ajouter à une autre liste</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultatif)</string>
@@ -315,8 +318,6 @@
   <string name="reading_list_article_offline">Disponible hors connexion</string>
   <string name="reading_list_article_make_offline">Marquer cet article comme disponible hors connexion</string>
   <string name="reading_list_article_remove_offline">Ne pas marquer cet article comme disponible hors connexion</string>
-  <string name="reading_list_article_offline_message">Cet article est désormais disponible hors connexion.</string>
-  <string name="reading_list_article_not_offline_message">Cet article n’est plus disponible hors connexion.</string>
   <string name="reading_list_add_to_other_list">Ajouter à une autre liste de lecture</string>
   <string name="reading_list_remove_from_list">Supprimer de %s</string>
   <string name="reading_list_remove_from_lists">Supprimer des listes de lecture</string>
@@ -330,6 +331,14 @@
   <string name="reading_list_login_reminder_text">Vos listes de lecture peuvent maintenant être enregistrées dans votre compte Wikipédia. Connectez-vous simplement à votre compte, et vos listes de lecture seront synchronisées automatiquement.</string>
   <string name="reading_lists_confirm_remote_delete">Cela supprimera du stockage distant toutes les listes de lecture synchronisées précédemment. Continuer ?</string>
   <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Cet article est désormais disponible hors connexion.</item>
+    <item quantity="other">Ces articles sont désormais disponibles hors connexion.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Cet article n’est plus disponible hors connexion.</item>
+    <item quantity="other">Ces articles ne sont plus disponibles hors connexion.</item>
+  </plurals>
   <string name="user_option_sync_label">Préférences</string>
   <string name="notification_button_view_user">Parler à l’utilisateur</string>
   <string name="notification_talk_title">Nouveau message sur Wikipédia</string>
@@ -403,6 +412,7 @@
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">votre contribution ressemblait à une expérience ou à du vandalisme.</string>
   <string name="description_edit_revert_history">Si vous êtes intéressé, voyez l’&lt;a href=\"%1$s\"&gt;historique des modifications&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion. Veuillez réessayer, et accorder le droit demandé.</string>
   <string name="onboarding_skip">Sauter</string>
   <string name="onboarding_continue">Continuer</string>
   <string name="onboarding_get_started">C’est parti</string>

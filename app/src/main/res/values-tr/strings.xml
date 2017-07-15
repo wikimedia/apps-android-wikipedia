@@ -315,8 +315,6 @@
   <string name="reading_list_article_offline">Çevrim dışı olarak erişilebilir</string>
   <string name="reading_list_article_make_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yap</string>
   <string name="reading_list_article_remove_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yapma</string>
-  <string name="reading_list_article_offline_message">Bu maddeye artık çevrimdışı olarak erişilebilir.</string>
-  <string name="reading_list_article_not_offline_message">Bu maddeye artık çevrimdışı olarak erişilemez.</string>
   <string name="reading_list_add_to_other_list">Başka bir okuma listesine ekle</string>
   <string name="reading_list_remove_from_list">%s listesinden sil</string>
   <string name="reading_list_remove_from_lists">Okuma listelerinden sil</string>
@@ -330,6 +328,8 @@
   <string name="reading_list_login_reminder_text">Artık okuma listeleriniz Vikipedi hesabınıza kaydedilebilir. Basitçe hesabınıza giriş yapın; okuma listeleriniz otomatik olarak senkronize edilecek.</string>
   <string name="reading_lists_confirm_remote_delete">Bu, daha önce dış depoplamadan senkronize edilmiş tüm okumla listelerini silecek. Devam edilsin mi?</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrim dışı olarak erişilebilir olacak.</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Bu maddeye artık çevrimdışı olarak erişilebilir.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Bu maddeye artık çevrimdışı olarak erişilemez.</string>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>
   <string name="notification_talk_title">Vikipedi\'de yeni mesaj</string>

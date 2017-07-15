@@ -44,6 +44,7 @@
   <string name="nearby_zoom_to_location">Приближи на некое место на картата</string>
   <string name="nearby_osm_license">&amp;copy; учесници на&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последна измена: %s</string>
+  <string name="bottom_content_date_downloaded">Преземено %s</string>
   <string name="talk_page_link_text">Разговор</string>
   <string name="content_license_html">Содржината е достапна под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
@@ -238,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
   <string name="page_offline_notice_add_to_reading_list">Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
   <string name="page_offline_notice_last_date">Читате вонмрежна верзија на статијава, зачувана на %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Читате вонмрежна верзија на статијава од збирка преземена на %s.</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
@@ -295,6 +297,9 @@
   <string name="reading_list_menu_delete">Избриши список</string>
   <string name="reading_list_menu_rename">Преименувај</string>
   <string name="reading_list_menu_edit_description">Измени опис</string>
+  <string name="reading_list_action_menu_remove_from_offline">Отстрани од вонмрежни</string>
+  <string name="reading_list_action_menu_save_for_offline">Зачувај за вонмрежно</string>
+  <string name="reading_list_action_menu_add_to_another_list">Додај во друг список</string>
   <string name="reading_list_name_sample">Мој список за читање</string>
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
@@ -315,8 +320,6 @@
   <string name="reading_list_article_offline">Достапно вонмрежно</string>
   <string name="reading_list_article_make_offline">Направи ја статијава достапна вонмрежно</string>
   <string name="reading_list_article_remove_offline">Не ја прави статијава достапна вонмрежно</string>
-  <string name="reading_list_article_offline_message">Статијава сега ќе биде достапна вонмрежно.</string>
-  <string name="reading_list_article_not_offline_message">Статијава повеќе нема да биде достапна вонмрежно.</string>
   <string name="reading_list_add_to_other_list">Стави во список за читање</string>
   <string name="reading_list_remove_from_list">Отстрани од %s</string>
   <string name="reading_list_remove_from_lists">Отстрани од списоци за читање</string>
@@ -330,6 +333,14 @@
   <string name="reading_list_login_reminder_text">Вашите списоци за читање може сега може да се зачуваат во вашата сметка на Википедија. Просто најавете се со сметката и списоците сами ќе се усогласат.</string>
   <string name="reading_lists_confirm_remote_delete">Со ова ќе ги избришете претходно усогласените списоци за читање од далечинскиот склад. Да продолжам?</string>
   <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
+    <item quantity="other">Статииве сега ќе бидат достапни вонмрежно.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Статијава повеќе нема да биде достапна вонмрежно.</item>
+    <item quantity="other">Статииве повеќе нема да бидат достапни вонмрежно.</item>
+  </plurals>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>
@@ -403,6 +414,7 @@
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно. Обидете се повторно и дајте ја побараната дозвола.</string>
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>

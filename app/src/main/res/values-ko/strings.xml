@@ -293,6 +293,9 @@
   <string name="reading_list_menu_delete">목록 삭제</string>
   <string name="reading_list_menu_rename">이름 바꾸기</string>
   <string name="reading_list_menu_edit_description">설명 편집</string>
+  <string name="reading_list_action_menu_remove_from_offline">오프라인에서 제거</string>
+  <string name="reading_list_action_menu_save_for_offline">오프라인을 위해 저장</string>
+  <string name="reading_list_action_menu_add_to_another_list">다른 목록에 추가</string>
   <string name="reading_list_name_sample">내 읽기 목록</string>
   <string name="reading_list_name_hint">이 목록의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
@@ -313,8 +316,6 @@
   <string name="reading_list_article_offline">오프라인에서 읽을 수 있음</string>
   <string name="reading_list_article_make_offline">이 글을 오프라인에서 읽을 수 있게 하기</string>
   <string name="reading_list_article_remove_offline">이 글을 오프라인에서 읽지 못하게 하기</string>
-  <string name="reading_list_article_offline_message">이 글은 이제 오프라인에서 읽을 수 있습니다.</string>
-  <string name="reading_list_article_not_offline_message">이 글은 더 이상 오프라인에서 읽을 수 없습니다.</string>
   <string name="reading_list_add_to_other_list">다른 읽기 목록에 추가하기</string>
   <string name="reading_list_remove_from_list">%s에서 제거하기</string>
   <string name="reading_list_remove_from_lists">읽기 목록에서 제거하기</string>
@@ -328,6 +329,8 @@
   <string name="reading_list_login_reminder_text">읽기 목록이 이제 위키백과 계정에 저장됩니다. 계정에 로그인만 하면 읽기 목록이 자동으로 동기화됩니다.</string>
   <string name="reading_lists_confirm_remote_delete">과거에 동기화된 읽기 목록을 원격 기억 장치에서 삭제합니다. 진행하시겠습니까?</string>
   <string name="reading_list_article_save_in_progress">이 문서는 다운로드 중이며, 완료되면 오프라인 상태에서 읽을 수 있습니다.</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">이 글은 이제 오프라인에서 읽을 수 있습니다.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">이 글은 더 이상 오프라인에서 읽을 수 없습니다.</string>
   <string name="user_option_sync_label">환경 설정</string>
   <string name="notification_button_view_user">사용자와 대화하기</string>
   <string name="notification_talk_title">위키백과에서의 새 메시지</string>
@@ -407,5 +410,6 @@
   <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
   <string name="onboarding_create_account_sync">읽기 목록 동기화</string>
+  <string name="onboarding_create_account_contributions">내 기여를 추적합니다</string>
   <string name="onboarding_create_account_preferences">환경 설정 저장하기</string>
 </resources>

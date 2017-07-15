@@ -291,11 +291,11 @@
   <string name="reading_list_article_offline">অফলাইন উপলব্ধ</string>
   <string name="reading_list_article_make_offline">এই প্ৰবন্ধটো অফলাইন উপলব্ধ কৰাওক</string>
   <string name="reading_list_article_remove_offline">এই প্ৰবন্ধটো অফলাইন উপলব্ধ নকৰাব</string>
-  <string name="reading_list_article_offline_message">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ হ\'ব।</string>
-  <string name="reading_list_article_not_offline_message">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ নহ\'ব।</string>
   <string name="reading_list_add_to_other_list">আন এখন পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="reading_list_remove_from_list" fuzzy="true">%s পৰা আঁতৰাওক</string>
   <string name="reading_list_remove_from_lists">পঢ়া তালিকাৰ পৰা আঁতৰাওক</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ হ\'ব।</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ নহ\'ব।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_button_view_user">সদস্যৰ লগত কথা পাতক</string>
   <string name="notification_talk_title">ৱিকিপিডিয়াত নতুন বাৰ্তা</string>

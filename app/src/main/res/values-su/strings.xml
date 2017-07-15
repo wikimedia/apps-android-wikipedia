@@ -86,9 +86,14 @@
   <string name="toast_logout_complete">Kaluar log</string>
   <string name="history_empty_title">Taya artikel nu anyar ditempo</string>
   <string name="history_empty_message">Lacak naon nu geus ku anjeun baca di dieu.</string>
+  <string name="search_empty_message">Paluruh sarta baca énsiklopédi bébas dina basa anjeun</string>
   <string name="delete_selected_items">Pupus leunjeuran nu dipilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Sandiasma</string>
+  <string name="login_dont_have_account">Teu boga akun?</string>
+  <string name="login_join_wikipedia">Gabung Wikipédia</string>
+  <string name="login_forgot_password">Poho kecap sandi?</string>
+  <string name="create_account_already_have">Geus boga akun?</string>
   <string name="create_account_login_link">Geus boga akun? Asup log</string>
   <string name="login_create_account_link">Can gaduh akun? Gabung ka Wikipédia</string>
   <string name="create_account_activity_title">Jieun akun</string>
@@ -98,6 +103,7 @@
   <string name="create_account_passwords_mismatch_error">Kecap sandi teu akur</string>
   <string name="create_account_email_error">Alamat surélék teu sah</string>
   <string name="create_account_username_error">Karakter dina sandiasma teu sah</string>
+  <string name="create_account_password_error">Kecap sandi teu sah</string>
   <string name="create_account_generic_error">Teu bisa nyieun akun</string>
   <string name="create_account_next">Saterusna</string>
   <string name="create_account_button">Jieun akun</string>
@@ -117,10 +123,14 @@
   <string name="edit_preview_fetching_dialog_message">Nyokot pramidang...</string>
   <string name="send_feedback">Kirim eupan balik aplikasi</string>
   <string name="create_account_account_created_toast">Akun geus dijieun!</string>
+  <string name="preferences_heading_storage_and_syncing">Paneundeunan jeung singkronisasi</string>
+  <string name="preference_title_sync_reading_lists">Singkronkeun daptar bacaan</string>
+  <string name="preference_summary_sync_reading_lists">Widian Wikimédia nyingkronkeun daptar bacaan anjeun nalika anjeun asup log</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pamakéan</string>
   <string name="preference_summary_eventlogging_opt_in">Heugbaékeun Wikimédia pikeun ngumpulkeun info ngeunaan cara anjeun migunakeun aplikasi sangkan aplikasi jadi leuwih hadé</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karuksakan</string>
+  <string name="editing_error_spamblacklist">Tutumbu ka domain nu dipeunpeuk (%s) kadéték. Pék hapus sarta cobaan deui.</string>
   <string name="history_search_list_hint">Jujutan pamaluruhan</string>
   <string name="error_can_not_process_link">Teu bisa midangkeun ieu tutumbu</string>
   <string name="page_protected_autoconfirmed">Ieu kaca geus dilindungan sawaréh</string>
@@ -192,6 +202,7 @@
   <string name="gallery_save_progress">Keur ngundeur berkas</string>
   <string name="gallery_save_success">Nyimpen berkas ngahasil</string>
   <string name="gallery_error_video_failed">Teu bisa maénkeun vidio.</string>
+  <string name="gallery_save_image_write_permission_rationale">Widi pikeun nulis ka panyimpenan di pakakas anjeun diperlukeun pikeun neundeun gambar. Mangga cobaan deui, sarta heugbaékeun widi nu dipénta.</string>
   <string name="err_cannot_save_file">Teu bisa nyimpen berkas</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Toél pikeun ngalegakeun</string>
@@ -250,6 +261,8 @@
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Caang</string>
   <string name="color_theme_dark">Poék</string>
+  <string name="preference_title_color_theme">Téma poék</string>
+  <string name="preference_summary_color_theme">Alihkeun maké téma aplikasi nu warna poék</string>
   <string name="nav_item_reading_lists">Daptar kuring</string>
   <string name="reading_list_untitled">Taya judulan</string>
   <string name="reading_list_save_to">Simpen kana daptar bacaan</string>
@@ -260,6 +273,10 @@
   <string name="reading_list_added_to_unnamed">Geus ditambahkeun kana daptar bacaan.</string>
   <string name="reading_list_already_exists">Ieu artikel geus aya na daptar tadi.</string>
   <string name="reading_list_added_view_button">Tempo daptar</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d ti 1 artikel sayaga luring, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d ti %2$d artikel sayaga luring, %3$.2f MiB</string>
   <string name="reading_list_sort">Runtuykeun</string>
   <string name="reading_list_sort_by_name">Runtuykeun dumasar ngaran</string>
   <string name="reading_list_sort_by_name_desc">Runtuykeun dumasar ngaran (tibalik)</string>
@@ -268,6 +285,9 @@
   <string name="reading_list_menu_delete">Pupus daptar</string>
   <string name="reading_list_menu_rename">Robah ngaran</string>
   <string name="reading_list_menu_edit_description">Édit pedaran</string>
+  <string name="reading_list_action_menu_remove_from_offline">Pupus tina luring</string>
+  <string name="reading_list_action_menu_save_for_offline">Simpen pikeun luring</string>
+  <string name="reading_list_action_menu_add_to_another_list">Tambahkeun ka dapftar lianna</string>
   <string name="reading_list_name_sample">Daptat bacaan kuring</string>
   <string name="reading_list_name_hint">Ngaran ieu daptar</string>
   <string name="reading_list_description_hint">Pedaran (teu wajib)</string>
@@ -280,20 +300,21 @@
   <string name="reading_lists_onboarding_for_example">Pikeun conto</string>
   <string name="reading_lists_onboarding_example1">Tempat sorangkeuneun</string>
   <string name="reading_lists_onboarding_example2">Sato karesep</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Jomantara!</string>
+  <string name="reading_lists_onboarding_example3">Langlangan jomantara</string>
   <string name="reading_lists_onboarding_got_it">Ngarti</string>
   <string name="reading_list_no_description">Tanpa pedaran...</string>
   <string name="reading_list_empty">Anjeun teu mibanda artikel nu ditambahkeun ka ieu daptar.</string>
   <string name="reading_list_article_offline">Nyangkaruk kalawan luring</string>
   <string name="reading_list_article_make_offline">Jieun ieu artikel sangkan sayaga na luring</string>
   <string name="reading_list_article_remove_offline">Teu kudu nyieun ieu artikel sayaga na luring</string>
-  <string name="reading_list_article_offline_message">Ieu artikel bakal sayaga na luring ayeuna</string>
-  <string name="reading_list_article_not_offline_message">Ieu artikel bakal teu sayaga deui na luring</string>
   <string name="reading_list_add_to_other_list">Tambahkeun kana daptar bacaan lianna</string>
   <string name="reading_list_remove_from_list">Hapus tina %s</string>
   <string name="reading_list_remove_from_lists">Piceun tina daptar bacaan</string>
   <string name="reading_list_confirm_remove_article_from_offline">Hapus tina luring</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel bijil dina sawatara daptar</string>
+  <string name="reading_list_login_reminder_title">Singkronkeun daptar bacaan</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Ieu artikel bakal sayaga na luring ayeuna</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Ieu artikel bakal teu sayaga deui na luring</string>
   <string name="user_option_sync_label">Préferénsi</string>
   <string name="notification_button_view_user">Ngobrol jeung pamaké</string>
   <string name="notification_talk_title">Talatah anyar na Wikipédia</string>

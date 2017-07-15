@@ -312,8 +312,6 @@
   <string name="reading_list_article_offline">بەبێ ئینتەرنێت بەردەستە</string>
   <string name="reading_list_article_make_offline">ئەم وتارە بەبێ ئینتەرنێت بەردەست بکە</string>
   <string name="reading_list_article_remove_offline">ئەم وتارە بەبێ ئینتەرنێت بەردەست مەکە</string>
-  <string name="reading_list_article_offline_message">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
-  <string name="reading_list_article_not_offline_message">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
   <string name="reading_list_add_to_other_list">زیادی بکە بۆ پێڕستێکی خوێندنەوەی تر</string>
   <string name="reading_list_remove_from_list">لە %s لای ببە</string>
   <string name="reading_list_remove_from_lists">لە پێڕستی خوێندنەوە لای ببە</string>
@@ -324,6 +322,8 @@
   <string name="reading_list_sync_reminder_text">پێڕستی خوێندنەوەت دەخرێنە ناو ھەژماری ویکیپیدیاکەتەوە گەر ڕێگە بە خەزێنەکرن بدەیت لە ڕێکخستنەکانی ئاپەکەوە.</string>
   <string name="reading_list_sync_reminder_action">بیخە کار</string>
   <string name="reading_list_login_reminder_title">خەزێنەکردنی پێڕستی خوێندنەوە</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
   <string name="user_option_sync_label">ھەڵبژاردەکان</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>

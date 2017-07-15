@@ -292,4 +292,5 @@
   <string name="description_edit_tutorial_keep_it_short">ते थोडक्यात ठेवा</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन चालू करा</string>
   <string name="description_edit_tutorial_promise">सुरुवात करण्याने, मी शपथ घेतो कि या फिचरचा गैरवापर करणार नाही.</string>
+  <string name="onboarding_skip">टाळा</string>
 </resources>
