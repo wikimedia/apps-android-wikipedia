@@ -2,6 +2,8 @@ var bridge = require("./bridge");
 var transformer = require("./transformer");
 var clickHandlerSetup = require("./onclick");
 var pagelib = require("wikimedia-page-library");
+var lazyLoadViewportDistanceMultiplier = 2; // Load images on the current screen up to one ahead.
+var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewportDistanceMultiplier);
 
 pagelib.CompatibilityTransform.enableSupport( document );
 
@@ -72,6 +74,7 @@ function setWindowAttributes( payload ) {
     window.string_expand_refs = payload.string_expand_refs;
     window.pageTitle = payload.title;
     window.isMainPage = payload.isMainPage;
+    window.isFilePage = payload.isFilePage;
     window.fromRestBase = payload.fromRestBase;
     window.isBeta = payload.isBeta;
     window.siteLanguage = payload.siteLanguage;
@@ -96,6 +99,8 @@ function setIssuesElement( parentNode ) {
 }
 
 bridge.registerListener( "displayLeadSection", function( payload ) {
+    var lazyDocument;
+
     // This might be a refresh! Clear out all contents!
     clearContents();
     setWindowAttributes(payload);
@@ -106,17 +111,17 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 
     var issuesContainer = setIssuesElement(contentElem);
 
-    var content = document.createElement( "div" );
+    lazyDocument = document.implementation.createHTMLDocument( );
+    var content = lazyDocument.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = payload.section.text;
     content.id = "content_block_0";
 
+    applySectionTransforms(content, true);
+
     // append the content to the DOM now, so that we can obtain
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
-
-    applySectionTransforms(content, true);
-
     document.getElementById( "loading_sections").className = "loading";
 
     bridge.sendMessage( "pageInfo", {
@@ -132,6 +137,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
 });
 
 function clearContents() {
+    lazyLoadTransformer.deregister();
     document.getElementById( "content" ).innerHTML = "";
     window.scrollTo( 0, 0 );
 }
@@ -148,6 +154,7 @@ function buildEditSectionButton(id) {
 }
 
 function elementsForSection( section ) {
+    var content, lazyDocument;
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
     heading.setAttribute( "dir", window.directionality );
     heading.innerHTML = typeof section.line !== "undefined" ? section.line : "";
@@ -157,7 +164,8 @@ function elementsForSection( section ) {
 
     heading.appendChild( buildEditSectionButton( section.id ) );
 
-    var content = document.createElement( "div" );
+    lazyDocument = document.implementation.createHTMLDocument( );
+    content = lazyDocument.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
@@ -190,6 +198,10 @@ function applySectionTransforms( content, isLeadSection ) {
         if (!window.isNetworkMetered) {
             transformer.transform( "widenImages", content );
         }
+
+        if (!window.isFilePage) {
+            lazyLoadTransformer.convertImagesToPlaceholders( content );
+        }
     }
     if (isLeadSection) {
         transformer.transform("displayDisambigLink", content);
@@ -208,6 +220,7 @@ bridge.registerListener( "displaySection", function ( payload ) {
             scrolledOnLoad = true;
         }
         document.getElementById( "loading_sections").className = "";
+        lazyLoadTransformer.loadPlaceholders();
         bridge.sendMessage( "pageLoadComplete", {
           "sequence": payload.sequence });
     } else {

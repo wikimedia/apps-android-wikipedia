@@ -154,60 +154,137 @@ table.infobox caption {
   box-sizing: border-box;
 }
 /* Transform lifecycle:
-  - Original:
-    <img style='width: 1px; height: 2px' src=/>
 
-  - Converted to a lazily loaded placeholder image (add class, preserve attributes, replace source
-    with a transparent pixel, and override width and height):
-    <img class=pagelib-lazy-load-image-pending
-      style='width: 1px !important; height: 2px !important' src=data: data-src=/
-      data-width-value=1px data-width-priority= data-height-value=2px data-height-priority=>
+- Original:
+    <img class=foo style='width: 100px; height: 200px' width=3 height=4 src=/ srcset=/ alt=bar>
 
-  - Downloading immediately after a call to LazyLoadTransform.loadImage() (unchanged).
+- Pending:
+    <span class='foo pagelib-lazy-load-placeholder pagelib-lazy-load-placeholder-pending'
+      style='width: 100px' data-class=foo data-style='width: 100px; height: 200px' data-width=3
+      data-height=4 data-src=/ data-srcset=/ data-alt=bar>
+      <span style='padding-top: 200%'></span>
+    </span>
 
-  - Loaded after original image has downloaded (replace content with original and loading class with
-    loaded):
-    <img class=pagelib-lazy-load-image-loaded style='width: 1px; height: 2px' src=/>
-*/
+- Loading:
+    <span class='foo pagelib-lazy-load-placeholder pagelib-lazy-load-placeholder-loading'
+      style='width: 100px' data-class=foo data-style='width: 100px; height: 200px' data-width=3
+      data-height=4 data-src=/ data-srcset=/ data-alt=bar>
+      <span style='padding-top: 200%'></span>
+    </span>
 
-/* LazyLoadTransform.PENDING_CLASS. Note: width and height are set as inline styles and derived
-   first from any preexisting width and height inline style and then from width and height
-   attributes, if specified. See transform lifecycle above. */
-.pagelib-lazy-load-image-pending {
+    <!-- Detached. -->
+    <img class='foo pagelib-lazy-load-image-loading' style='width: 100px; height: 200px' width=3
+      height=4 src=/ srcset=/ alt=bar>
+
+- Error:
+    <span class='foo pagelib-lazy-load-placeholder pagelib-lazy-load-placeholder-error'
+      style='width: 100px' data-class=foo data-style='width: 100px; height: 200px' data-width=3
+      data-height=4 data-src=/ data-srcset=/ data-alt=bar>
+      <span style='padding-top: 200%'></span>
+    </span>
+
+- Loaded:
+    <img class='foo pagelib-lazy-load-image-loaded' style='width: 100px; height: 200px' width=3
+      height=4 src=/ srcset=/ alt=bar> */
+
+/* LazyLoadTransform.PLACEHOLDER_CLASS. Present in all placeholder states. Image is not shown. */
+.pagelib-lazy-load-placeholder {
+  display: inline-block;
+  max-width: 100%;
+  /* width is an inline style. */
+}
+
+.pagelib-lazy-load-placeholder span {
+  display: block;
+  width: 100%;
+  /* padding-top is an inline style. */
+}
+
+/* LazyLoadTransform.PLACEHOLDER_PENDING_CLASS. Download pending, image is not shown. */
+.pagelib-lazy-load-placeholder-pending {
   background-color: #eaecf0;
 }
-
-.pagelib-theme-dark .pagelib-lazy-load-image-pending {
-  background-color: #72777d !important;
+.pagelib-theme-dark .pagelib-lazy-load-placeholder-pending {
+  background-color: #72777d;
 }
 
-/* LazyLoadTransform.LOADED_CLASS. */
+/* LazyLoadTransform.PLACEHOLDER_LOADING_CLASS. Download started, image is not shown. */
+.pagelib-lazy-load-placeholder-loading {
+  -webkit-animation: pagelib-lazy-load-placeholder-pulse 1s infinite;
+  animation: pagelib-lazy-load-placeholder-pulse 1s infinite;
+}
+.pagelib-theme-dark .pagelib-lazy-load-placeholder-loading {
+  -webkit-animation: pagelib-lazy-load-placeholder-pulse-dark 1s infinite;
+  animation: pagelib-lazy-load-placeholder-pulse-dark 1s infinite;
+}
+
+/* LazyLoadTransform.PLACEHOLDER_ERROR_CLASS. Download failure, image is not shown. */
+.pagelib-lazy-load-placeholder-error {
+  background-color: #c8ccd1;
+}
+.pagelib-theme-dark .pagelib-lazy-load-placeholder-error {
+  background-color: #54595d;
+}
+
+/* LazyLoadTransform.IMAGE_LOADING_CLASS. Download started, image is not shown. */
+.pagelib-lazy-load-image-loading {
+  opacity: 0;
+}
+
+/* LazyLoadTransform.IMAGE_LOADED_CLASS. Download completed, placeholder is removed. */
 .pagelib-lazy-load-image-loaded {
   -webkit-animation: pagelib-lazy-load-image-fade-in .3s ease-in;
   animation: pagelib-lazy-load-image-fade-in .3s ease-in;
 }
 
+/* Many images, such as the Barack Obama infobox image, expect middle alignment.
+   https://en.m.wikipedia.org/wiki/Barack_Obama?oldid=789232530 */
+.content .pagelib-lazy-load-placeholder {
+  vertical-align: middle;
+}
+
+/* https://phabricator.wikimedia.org/diffusion/EMOB/browse/master/styles/android/parsoid.less;4964fcc32aa9d68238dbc8ef59ebadb03d276e62$10 */
+.content figure .pagelib-lazy-load-placeholder {
+  margin: .6em auto;
+  display: block;
+  clear: both;
+}
+
+@-webkit-keyframes pagelib-lazy-load-placeholder-pulse {
+  0%, 100% { background-color: #eaecf0; } 50% { background-color: #c8ccd1; }
+}
+
+@keyframes pagelib-lazy-load-placeholder-pulse {
+  0%, 100% { background-color: #eaecf0; } 50% { background-color: #c8ccd1; }
+}
+
+@-webkit-keyframes pagelib-lazy-load-placeholder-pulse-dark {
+  0%, 100% { background-color: #72777d; } 50% { background-color: #a2a9b1; }
+}
+
+@keyframes pagelib-lazy-load-placeholder-pulse-dark {
+  0%, 100% { background-color: #72777d; } 50% { background-color: #a2a9b1; }
+}
+
 @-webkit-keyframes pagelib-lazy-load-image-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; } to { opacity: 1; }
 }
 
 @keyframes pagelib-lazy-load-image-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; } to { opacity: 1; }
 }
-.pagelib-theme-dark.pagelib-compatibility-filter .mwe-math-fallback-image-inline {
+.pagelib-theme-dark.pagelib-compatibility-filter img.mwe-math-fallback-image-inline {
   background: #ccc;
   padding: 2px;
 }
 
-.pagelib-theme-dark .mwe-math-fallback-image-inline {
+.pagelib-theme-dark img.mwe-math-fallback-image-inline {
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }
 
-.pagelib-theme-dark .pagelib-theme-image-no-background.pagelib-theme-image-nontabular:not(.mwe-math-fallback-image-inline),
-.pagelib-theme-dark .infobox .image .pagelib-theme-image-no-background:not(.mwe-math-fallback-image-inline) {
+.pagelib-theme-dark img.pagelib-theme-image-no-background.pagelib-theme-image-nontabular:not(.mwe-math-fallback-image-inline),
+.pagelib-theme-dark .infobox .image img.pagelib-theme-image-no-background:not(.mwe-math-fallback-image-inline) {
   background: #fff;
 }
 
@@ -275,27 +352,37 @@ table.infobox caption {
 }
 
 @media (orientation: portrait) {
-  .wideImageOverride {
+  img.wideImageOverride {
     width: 100% !important;
     max-width: 100% !important;
-    height: auto !important;
+  }
+  .wideImageOverride.pagelib-lazy-load-placeholder {
+    /* This is necessary to avoid collapsed flexbox behavior on .thumbinner on Android KitKat 4.4.2
+       (API 19), e.g. Verizon Samsung Galaxy Note II (SCH-I605).
+       https://stackoverflow.com/a/23754080/970346
+       https://stackoverflow.com/a/33503864/970346 */
+      min-width: 100%;
   }
 
   /* Tablet override */
   @media (min-device-width: 768px) {
-    .wideImageOverride {
+    img.wideImageOverride {
       width: 60% !important;
       max-width: 60% !important;
-      height: auto !important;
+    }
+    .wideImageOverride.pagelib-lazy-load-placeholder {
+      min-width: 60%;
     }
   }
 }
 
 @media (orientation: landscape) {
-  .wideImageOverride {
+  img.wideImageOverride {
     width: 50% !important;
     max-width: 50% !important;
-    height: auto !important;
+  }
+  .wideImageOverride.pagelib-lazy-load-placeholder {
+    min-width: 50%;
   }
 }
 

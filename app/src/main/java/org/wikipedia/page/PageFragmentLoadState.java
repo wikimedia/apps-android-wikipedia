@@ -540,6 +540,7 @@ public class PageFragmentLoadState {
                 .put("siteLanguage", model.getTitle().getWikiSite().languageCode())
                 .put("siteBaseUrl", model.getTitle().getWikiSite().url())
                 .put("isMainPage", page.isMainPage())
+                .put("isFilePage", page.isFilePage())
                 .put("fromRestBase", page.isFromRestBase())
                 .put("isNetworkMetered", DeviceUtil.isNetworkMetered(app))
                 .put("apiLevel", Build.VERSION.SDK_INT);
