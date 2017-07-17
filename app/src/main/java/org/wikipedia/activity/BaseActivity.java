@@ -17,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.view.DraweeTransition;
 import com.squareup.otto.Subscribe;
 
 import org.wikipedia.Constants;
@@ -105,6 +107,18 @@ public abstract class BaseActivity extends AppCompatActivity {
             return super.isDestroyed();
         }
         return destroyed;
+    }
+
+    protected void setSharedElementTransitions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // For using shared element transitions with Fresco, we need to explicitly define
+            // a DraweeTransition that will be automatically used by Drawees that are used in
+            // transitions between activities.
+            getWindow().setSharedElementEnterTransition(DraweeTransition
+                    .createTransitionSet(ScalingUtils.ScaleType.CENTER_CROP, ScalingUtils.ScaleType.CENTER_CROP));
+            getWindow().setSharedElementReturnTransition(DraweeTransition
+                    .createTransitionSet(ScalingUtils.ScaleType.CENTER_CROP, ScalingUtils.ScaleType.CENTER_CROP));
+        }
     }
 
     protected void onGoOffline() {
