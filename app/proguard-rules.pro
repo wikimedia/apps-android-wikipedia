@@ -16,15 +16,12 @@
     native <methods>;
 }
 
-#-dontwarn okio.**
+-dontwarn okio.**
+-dontwarn com.squareup.okhttp.**
+-dontwarn okhttp3.**
 -dontwarn javax.annotation.**
 -dontwarn com.android.volley.toolbox.**
-
-#-dontwarn for the ReturnsOwnership or Functional classes (used only by Infer)
-# https://github.com/facebook/fresco/issues/1716
--dontwarn com.facebook.infer.annotation.ReturnsOwnership
--dontwarn com.facebook.infer.annotation.Functional
-
+-dontwarn com.facebook.infer.**
 # --- /Fresco ---
 
 # --- Butter Knife ---
