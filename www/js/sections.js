@@ -256,7 +256,7 @@ bridge.registerListener( "displayFromZim", function( payload ) {
     contentElem.appendChild( currentSectionNode );
 
     for ( i = 0; i < zimNodes.length; i++ ) {
-        if (zimNodes[i].tagName === undefined) {
+        if (zimNodes[i].tagName === undefined || zimNodes[i].tagName === 'H1') {
             continue;
         }
 
