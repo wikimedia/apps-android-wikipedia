@@ -116,6 +116,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onOfflineCompilationsFound() {
     }
 
+    protected void onOfflineCompilationsError(Throwable t) {
+    }
+
     protected void searchOfflineCompilationsWithPermission(boolean force) {
         if (!ReleaseUtil.isPreBetaRelease()) {
             // TODO: enable when ready for production.
@@ -143,6 +146,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 @Override
                 public void onError(@NonNull Throwable t) {
                     L.e(t);
+                    onOfflineCompilationsError(t);
                 }
             });
         }

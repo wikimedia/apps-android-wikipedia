@@ -32,6 +32,7 @@ import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.offline.LocalCompilationsActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.DeviceUtil;
@@ -412,7 +413,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         public void onViewCompilations() {
-            // TODO
+            startActivity(LocalCompilationsActivity.newIntent(getContext()));
         }
     }
 
