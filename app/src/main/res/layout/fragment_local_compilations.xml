@@ -9,6 +9,15 @@
     android:layout_marginTop="?attr/actionBarSize"
     android:background="?attr/window_background_color">
 
+    <org.wikipedia.offline.DiskUsageView
+        android:id="@+id/disk_usage_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"/>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

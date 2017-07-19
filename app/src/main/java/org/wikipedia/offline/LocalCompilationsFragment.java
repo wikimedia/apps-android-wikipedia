@@ -40,6 +40,7 @@ public class LocalCompilationsFragment extends Fragment {
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.compilation_search_progress_bar) ProgressBar progressBar;
     @BindView(R.id.compilations_count_text) TextView countText;
+    @BindView(R.id.disk_usage_view) DiskUsageView diskUsageView;
     private Unbinder unbinder;
 
     private boolean updating;
@@ -131,6 +132,11 @@ public class LocalCompilationsFragment extends Fragment {
 
     private void update() {
         setSearchQuery(currentSearchQuery);
+        long totalBytes = 0;
+        for (Compilation c : OfflineManager.instance().compilations()) {
+            totalBytes += c.size();
+        }
+        diskUsageView.update(totalBytes);
     }
 
     private void setSearchQuery(@Nullable String query) {

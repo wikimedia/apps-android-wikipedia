@@ -421,6 +421,11 @@
   <string name="offline_compilations_search_by_name">Menu item for searching compilations by name.</string>
   <string name="offline_compilations_found_count">Label that states how many compilations the user has available. The %d symbol is replaced with the number of compilations detected.</string>
   <string name="offline_compilations_add">Button text for adding an offline compilation.</string>
+  <string name="storage_size_gb">Abbreviated form for the unit of a gigabyte.</string>
+  <string name="storage_size_format">Format specifier where %.2f represents a decimal number with two significant figures to the right of the decimal point.</string>
+  <string name="storage_size_free">Label that says how much free space is available on the device. The %.2f symbol is replaced with the number in gigabytes.</string>
+  <string name="storage_used_by_compilations">Label that appears next to the number of gigabytes used by the Wikipedia app.</string>
+  <string name="storage_other_apps">Legend label for the amount of space used by other applications on the device.</string>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>

@@ -475,6 +475,11 @@
     <string name="offline_compilations_search_by_name">Search compilations by name</string>
     <string name="offline_compilations_found_count">My compilations (%d)</string>
     <string name="offline_compilations_add">Add offline compilation</string>
+    <string name="storage_size_format">%.2f</string>
+    <string name="storage_size_gb">GB</string>
+    <string name="storage_size_free">%.2f GB free</string>
+    <string name="storage_used_by_compilations">used by Wikipedia</string>
+    <string name="storage_other_apps">Other applications</string>
     <!-- /Offline -->
 
     <!-- Onboarding -->
