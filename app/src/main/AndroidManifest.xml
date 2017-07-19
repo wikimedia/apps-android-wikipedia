@@ -190,6 +190,10 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity
+            android:name=".offline.CompilationDetailActivity"
+            android:theme="@style/AppTheme"/>
+
         <provider
                 android:authorities="${applicationId}"
                 android:name=".database.AppContentProvider"
