@@ -19,7 +19,7 @@ import java.util.List;
 public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
     public interface Callback {
-        void onNewsItemSelected(@NonNull NewsItemCard card);
+        void onNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view);
     }
 
     public NewsListCardView(@NonNull Context context) {
@@ -61,7 +61,7 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
                 @Override
                 public void onClick(View view) {
                     if (getCallback() != null) {
-                        getCallback().onNewsItemSelected(card);
+                        getCallback().onNewsItemSelected(card, (HorizontalScrollingListCardItemView) view);
                     }
                 }
             });

@@ -31,6 +31,7 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
+import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.LocalCompilationsActivity;
 import org.wikipedia.settings.Prefs;
@@ -69,7 +70,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedAddFeaturedPageToList(FeedFragment fragment, FeaturedArticleCard card, HistoryEntry entry);
         void onFeedRemovePageFromList(FeedFragment fragment, Card card, HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
-        void onFeedNewsItemSelected(NewsItemCard card);
+        void onFeedNewsItemSelected(NewsItemCard card, HorizontalScrollingListCardItemView view);
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
@@ -358,10 +359,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onNewsItemSelected(@NonNull NewsItemCard card) {
+        public void onNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
             if (getCallback() != null) {
                 funnel.cardClicked(card.type());
-                getCallback().onFeedNewsItemSelected(card);
+                getCallback().onFeedNewsItemSelected(card, view);
             }
         }
 

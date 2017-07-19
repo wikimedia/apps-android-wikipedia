@@ -26,6 +26,7 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setSharedElementTransitions();
 
         //TODO: remove pre-beta feature flag when ready.
         if (ReleaseUtil.isPreBetaRelease()

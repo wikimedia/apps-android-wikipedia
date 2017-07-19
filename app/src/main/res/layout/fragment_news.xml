@@ -16,8 +16,10 @@
             style="@style/SimpleDraweeViewPlaceholder"
             android:id="@+id/view_news_fullscreen_header_image"
             app:actualImageScaleType="focusCrop"
+            app:fadeDuration="0"
             android:layout_width="match_parent"
-            android:layout_height="0dp" />
+            android:layout_height="0dp"
+            android:transitionName="@string/transition_news_item"/>
 
         <TextView
             android:id="@+id/view_news_fullscreen_story_text"

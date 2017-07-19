@@ -15,6 +15,7 @@ import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsItemCard;
+import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.gallery.MediaDownloadReceiver;
@@ -269,8 +271,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         ShareUtil.shareText(getContext(), entry.getTitle());
     }
 
-    @Override public void onFeedNewsItemSelected(NewsItemCard card) {
-        startActivity(NewsActivity.newIntent(getContext(), card.item(), card.wikiSite()));
+    @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(getActivity(), view.getImageView(), getString(R.string.transition_news_item));
+        startActivity(NewsActivity.newIntent(getActivity(), card.item(), card.wikiSite()), options.toBundle());
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
