@@ -1,5 +1,6 @@
 package org.wikipedia.activity;
 
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -146,6 +147,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    @TargetApi(17)
     private void searchOfflineCompilations(boolean force) {
         if ((!DeviceUtil.isOnline() && OfflineManager.instance().shouldSearchAgain()) || force) {
             OfflineManager.instance().searchForCompilations(new OfflineManager.Callback() {
