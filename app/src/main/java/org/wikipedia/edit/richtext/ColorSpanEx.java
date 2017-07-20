@@ -2,6 +2,7 @@ package org.wikipedia.edit.richtext;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.style.ForegroundColorSpan;
@@ -26,9 +27,9 @@ public class ColorSpanEx extends ForegroundColorSpan implements SpanExtents {
     private int spanStart;
     private int spanEnd;
     private SyntaxRule syntaxRule;
-    private int backColor;
+    @ColorInt private int backColor;
 
-    public ColorSpanEx(int foreColor, int backColor, int spanStart, SyntaxRule syntaxRule) {
+    public ColorSpanEx(@ColorInt int foreColor, @ColorInt int backColor, int spanStart, SyntaxRule syntaxRule) {
         super(foreColor);
         this.spanStart = spanStart;
         this.syntaxRule = syntaxRule;
