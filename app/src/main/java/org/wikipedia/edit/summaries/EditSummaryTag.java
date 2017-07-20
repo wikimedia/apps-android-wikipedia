@@ -2,6 +2,7 @@ package org.wikipedia.edit.summaries;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.AttrRes;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.AppCompatTextView;
@@ -77,7 +78,10 @@ public class EditSummaryTag extends AppCompatTextView {
     }
 
     private void updateState() {
-        setBackgroundResource(selected ? R.drawable.editpage_improve_tag_selected : R.drawable.editpage_improve_tag_unselected);
+        @AttrRes int backgroundAttributeResource = selected
+                ? R.attr.edit_improve_tag_selected_drawable : R.attr.edit_improve_tag_unselected_drawable;
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(getContext(), backgroundAttributeResource));
+
         @ColorInt int textColor = ResourcesCompat.getColor(resources, selected
                 ? android.R.color.white : ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent), null);
         setTextColor(textColor);

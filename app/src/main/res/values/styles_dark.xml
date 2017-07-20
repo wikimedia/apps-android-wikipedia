@@ -26,7 +26,7 @@
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="popupMenuStyle">@style/Theme.Dark.PopupMenuStyle</item>
         <item name="alertDialogTheme">@style/Theme.Dark.Dialog.Alert</item>
-        <item name="colorAccent">@color/accent75</item>
+        <item name="colorAccent">@color/accent_dark</item>
         <item name="android:windowBackground">@color/base10</item>
         <item name="window_background_color">@color/base10</item>
         <item name="window_inverse_color">@color/base90</item>
@@ -38,6 +38,8 @@
         <item name="toc_section_text_color">@color/toc_section_text_dark</item>
         <item name="toc_subsection_text_color">@color/toc_subsection_text_dark</item>
         <item name="edit_text_color">@color/edit_text_dark</item>
+        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
+        <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_dark</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="lead_text_color">@color/lead_text_dark</item>

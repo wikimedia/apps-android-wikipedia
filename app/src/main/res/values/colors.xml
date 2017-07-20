@@ -34,6 +34,9 @@
     <color name="yellow30">#ac6600</color> <!-- B AAA: -->
     <color name="material_icon_default_gray">#9e9e9e</color>
 
+    <color name="accent_light">@color/accent50</color>
+    <color name="accent_dark">@color/accent75</color>
+
     <!-- Legacy -->
     <color name="darkest_gray">@color/base10</color>
     <color name="dark_gray">@color/base30</color>
