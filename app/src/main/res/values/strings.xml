@@ -475,6 +475,8 @@
     <string name="offline_compilations_search_by_name">Search compilations by name</string>
     <string name="offline_compilations_found_count">My compilations (%d)</string>
     <string name="offline_compilations_add">Add offline compilation</string>
+    <string name="remote_compilations_title">All compilations</string>
+    <string name="remote_compilations_description">Offline Compilations are large bundles of articles that can be downloaded as one file to your device, so you can continue browsing while offline.</string>
     <string name="storage_size_format">%.2f</string>
     <string name="storage_size_gb">GB</string>
     <string name="storage_size_free">%.2f GB free</string>

@@ -421,6 +421,8 @@
   <string name="offline_compilations_search_by_name">Menu item for searching compilations by name.</string>
   <string name="offline_compilations_found_count">Label that states how many compilations the user has available. The %d symbol is replaced with the number of compilations detected.</string>
   <string name="offline_compilations_add">Button text for adding an offline compilation.</string>
+  <string name="remote_compilations_title">Title shown on the toolbar of the activity that shows all downloadable compilations.</string>
+  <string name="remote_compilations_description">Short description about compilations and their benefits.</string>
   <string name="storage_size_gb">Abbreviated form for the unit of a gigabyte.</string>
   <string name="storage_size_format">Format specifier where %.2f represents a decimal number with two significant figures to the right of the decimal point.</string>
   <string name="storage_size_free">Label that says how much free space is available on the device. The %.2f symbol is replaced with the number in gigabytes.</string>

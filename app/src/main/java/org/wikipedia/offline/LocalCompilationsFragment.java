@@ -32,6 +32,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class LocalCompilationsFragment extends Fragment {
@@ -110,6 +111,10 @@ public class LocalCompilationsFragment extends Fragment {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @OnClick(R.id.compilations_add_button) void onAddCompilationClick() {
+        startActivity(RemoteCompilationsActivity.newIntent(getContext()));
     }
 
     public void onCompilationsRefreshed() {
