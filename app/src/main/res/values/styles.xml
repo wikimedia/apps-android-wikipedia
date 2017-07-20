@@ -9,6 +9,8 @@
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:buttonStyle">@style/App.Button</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
+        <item name="android:windowActivityTransitions" tools:targetApi="21" >true</item>
+        <item name="android:windowContentTransitions" tools:targetApi="21" >true</item>
     </style>
 
     <style name="PageTheme" parent="AppTheme">
