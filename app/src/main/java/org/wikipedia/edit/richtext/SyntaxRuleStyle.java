@@ -3,32 +3,33 @@ package org.wikipedia.edit.richtext;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 
 import static android.support.v4.content.ContextCompat.getColor;
-import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public enum SyntaxRuleStyle {
     TEMPLATE {
         @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
                                                          SyntaxRule syntaxItem) {
-            int color = getColor(ctx, getThemedAttributeId(ctx, R.attr.syntax_highlight_template_color));
+            @ColorInt int color = getThemedColor(ctx, R.attr.syntax_highlight_template_color);
             return new ColorSpanEx(color, Color.TRANSPARENT, spanStart, syntaxItem);
         }
     },
     INTERNAL_LINK {
         @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
                                                          SyntaxRule syntaxItem) {
-            int color = getColor(ctx, getThemedAttributeId(ctx, R.attr.colorAccent));
+            @ColorInt int color = getThemedColor(ctx, R.attr.colorAccent);
             return new ColorSpanEx(color, Color.TRANSPARENT, spanStart, syntaxItem);
         }
     },
     EXTERNAL_LINK {
         @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
                                                          SyntaxRule syntaxItem) {
-            int color = getColor(ctx, getThemedAttributeId(ctx, R.attr.colorAccent));
+            @ColorInt int color = getThemedColor(ctx, R.attr.colorAccent);
             return new ColorSpanEx(color, Color.TRANSPARENT, spanStart, syntaxItem);
         }
     },

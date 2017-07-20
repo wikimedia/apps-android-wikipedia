@@ -13,9 +13,12 @@ import android.os.Build;
 import android.os.LocaleList;
 import android.support.annotation.AnyRes;
 import android.support.annotation.ArrayRes;
+import android.support.annotation.AttrRes;
+import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.util.TypedValue;
 
@@ -25,6 +28,7 @@ import org.wikipedia.WikipediaApp;
 import java.util.Locale;
 
 public final class ResourceUtil {
+    // See Resources.getIdentifier().
     private static final int NO_ID = 0;
 
     public static int[] getIdArray(Context context, @ArrayRes int id) {
@@ -71,6 +75,14 @@ public final class ResourceUtil {
         return bm;
     }
 
+    @Nullable public static TypedValue getThemedAttribute(@NonNull Context context, @AttrRes int id) {
+        TypedValue typedValue = new TypedValue();
+        if (context.getTheme().resolveAttribute(id, typedValue, true)) {
+            return typedValue;
+        }
+        return null;
+    }
+
     /**
      * Resolves the resource ID of a theme-dependent attribute (for example, a color value
      * that changes based on the selected theme)
@@ -78,10 +90,20 @@ public final class ResourceUtil {
      * @param id Theme-dependent attribute ID to be resolved.
      * @return The actual resource ID of the requested theme-dependent attribute.
      */
-    @AnyRes public static int getThemedAttributeId(Context context, int id) {
-        TypedValue tv = new TypedValue();
-        context.getTheme().resolveAttribute(id, tv, true);
-        return tv.resourceId;
+    @AnyRes public static int getThemedAttributeId(@NonNull Context context, @AttrRes int id) {
+        TypedValue typedValue = getThemedAttribute(context, id);
+        if (typedValue == null) {
+            throw new IllegalArgumentException("Attribute not found; ID=" + id);
+        }
+        return typedValue.resourceId;
+    }
+
+    @ColorInt public static int getThemedColor(@NonNull Context context, @AttrRes int id) {
+        TypedValue typedValue = getThemedAttribute(context, id);
+        if (typedValue == null) {
+            throw new IllegalArgumentException("Attribute not found; ID=" + id);
+        }
+        return typedValue.data;
     }
 
     public static Uri uri(@NonNull Context context, @AnyRes int id) throws Resources.NotFoundException {

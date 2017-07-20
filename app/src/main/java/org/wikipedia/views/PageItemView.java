@@ -5,7 +5,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -22,7 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
-import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 /*
  * TODO: Use this for future RecyclerView updates where we show a list of pages
@@ -152,8 +151,7 @@ public class PageItemView<T> extends FrameLayout {
         imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
         // TODO: animate?
         if (selected) {
-            setBackgroundColor(ContextCompat.getColor(getContext(),
-                    getThemedAttributeId(getContext(), R.attr.multi_select_background_color)));
+            setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
         } else {
             setBackground(null);
         }

@@ -56,7 +56,7 @@ import butterknife.OnClick;
 import static org.apache.commons.lang3.StringUtils.defaultIfEmpty;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.L10nUtil.isLangRTL;
-import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class PageHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_page_header_image) PageHeaderImageView image;
@@ -114,8 +114,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
         updateText();
 
-        setTextColor(getColor(getThemedAttributeId(getContext(),
-                R.attr.lead_text_color)));
+        setTextColor(getThemedColor(getContext(), R.attr.lead_text_color));
     }
 
     public void showTextImage() {
@@ -124,8 +123,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
         updateText();
 
-        setTextColor(getColor(getThemedAttributeId(getContext(),
-                R.attr.lead_text_color)));
+        setTextColor(getThemedColor(getContext(), R.attr.lead_text_color));
         setImageHeight(leadImageHeightForDevice());
     }
 
@@ -296,8 +294,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     private Spanned pronunciationSpanned() {
         AudioUrlSpan pronunciationSpan = new AudioUrlSpan(titleText, avPlayer, pronunciationUrl,
                 AudioUrlSpan.ALIGN_BASELINE);
-        pronunciationSpan.setTint(getColor(getThemedAttributeId(getContext(),
-                R.attr.window_inverse_color)));
+        pronunciationSpan.setTint(getThemedColor(getContext(), R.attr.window_inverse_color));
         return RichTextUtil.setSpans(new SpannableString("  "),
                 0,
                 1,

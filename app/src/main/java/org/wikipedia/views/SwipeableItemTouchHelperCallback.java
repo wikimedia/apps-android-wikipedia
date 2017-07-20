@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
@@ -29,8 +28,7 @@ public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
         deleteBackgroundPaint.setStyle(Paint.Style.FILL);
         deleteBackgroundPaint.setColor(Color.RED);
         itemBackgroundPaint.setStyle(Paint.Style.FILL);
-        itemBackgroundPaint.setColor(ContextCompat.getColor(context,
-                ResourceUtil.getThemedAttributeId(context, R.attr.window_background_color)));
+        itemBackgroundPaint.setColor(ResourceUtil.getThemedColor(context, R.attr.window_background_color));
         deleteIcon = ResourceUtil.bitmapFromVectorDrawable(context, R.drawable.ic_delete_white_24dp);
     }
 

@@ -5,7 +5,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -15,7 +14,7 @@ import com.appenguin.onboarding.ToolTipView;
 import org.wikipedia.R;
 import org.wikipedia.activity.ActivityUtil;
 
-import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public final class ToolTipUtil {
     private static final int TOOL_TIP_VIEW_ID = R.id.view_tool_tip_container;
@@ -43,7 +42,7 @@ public final class ToolTipUtil {
                                    View targetView,
                                    @LayoutRes int contentLayout,
                                    ToolTip.Position position) {
-        int color = ContextCompat.getColor(activity, getThemedAttributeId(activity, R.attr.tool_tip_default_color));
+        @ColorInt int color = getThemedColor(activity, R.attr.tool_tip_default_color);
         showToolTip(activity, targetView, contentLayout, color, position);
     }
 

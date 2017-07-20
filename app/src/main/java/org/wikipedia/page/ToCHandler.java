@@ -40,7 +40,7 @@ import java.util.ArrayList;
 
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
-import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class ToCHandler {
     private static final int MAX_LEVELS = 3;
@@ -271,10 +271,10 @@ public class ToCHandler {
 
             if (section.getLevel() > 1) {
                 sectionHeading.setTextColor(
-                        getColor(getThemedAttributeId(fragment.getContext(), R.attr.toc_subsection_text_color)));
+                        getThemedColor(fragment.getContext(), R.attr.toc_subsection_text_color));
             } else {
                 sectionHeading.setTextColor(
-                        getColor(getThemedAttributeId(fragment.getContext(), R.attr.toc_section_text_color)));
+                        getThemedColor(fragment.getContext(), R.attr.toc_section_text_color));
             }
             return convertView;
         }

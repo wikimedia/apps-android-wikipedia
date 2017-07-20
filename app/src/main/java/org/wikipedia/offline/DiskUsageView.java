@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
@@ -92,8 +91,7 @@ public class DiskUsageView extends LinearLayout {
 
     private void setDotTint(@NonNull View dotView, @AttrRes int id) {
         ViewCompat.setBackgroundTintList(dotView, new ColorStateList(new int[][]{new int[]{}},
-                new int[]{ContextCompat.getColor(getContext(),
-                        ResourceUtil.getThemedAttributeId(getContext(), id))}));
+                new int[]{ResourceUtil.getThemedColor(getContext(), id)}));
     }
 
     private float bytesToGB(long bytes) {
