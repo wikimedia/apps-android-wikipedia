@@ -14,6 +14,7 @@
     <attr name="edit_improve_tag_unselected_drawable" format="reference" />
     <attr name="abusefilter_background_color" format="reference"/>
     <attr name="lead_image_drawable" format="reference"/>
+    <attr name="compilation_detail_background_color" format="reference"/>
     <!-- TODO: rename? -->
     <attr name="lead_text_color" format="reference"/>
     <attr name="list_separator_color" format="reference"/>

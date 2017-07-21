@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/compilation_detail_background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Height set dynamically based on device properties -->
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            style="@style/SimpleDraweeViewPlaceholder"
+            android:id="@+id/compilation_detail_header_image"
+            app:actualImageScaleType="fitCenter"
+            app:fadeDuration="0"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <include layout="@layout/include_compilation_info"/>
+
+        <!-- Bottom button for available, not-yet-downloaded compilation -->
+        <TextView
+            android:id="@+id/button_compilation_detail_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            style="@style/App.Button.TransparentBlue"
+            android:text="@string/offline_compilation_detail_button_download"/>
+
+        <!-- Placeholder Bottom button for compilation downloading state; will be replaced with a download control gadget -->
+        <!-- TODO: replace me -->
+        <TextView
+            android:id="@+id/button_compilation_detail_downloading_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            style="@style/App.Button.TransparentBlue"
+            android:text="Downloading..."
+            android:visibility="gone"/>
+
+        <!-- Bottom buttons for downloaded compilation -->
+        <LinearLayout
+            android:id="@+id/compilation_detail_downloaded_buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/button_compilation_detail_remove"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/App.Button.TransparentBlue"
+                android:text="@string/offline_compilation_detail_button_remove"/>
+
+            <TextView
+                android:id="@+id/button_compilation_detail_view_compilations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/App.Button.Blue"
+                android:text="@string/offline_compilation_detail_button_view_compilations"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/compilation_detail_toolbar"
+        android:theme="@style/AppTheme.ToolbarTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</FrameLayout>

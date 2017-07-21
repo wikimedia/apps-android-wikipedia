@@ -41,6 +41,7 @@
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_dark</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
+        <item name="compilation_detail_background_color">@color/compilation_detail_background_dark</item>
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="lead_text_color">@color/lead_text_dark</item>
         <item name="list_separator_color">@color/list_separator_dark</item>
