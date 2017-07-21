@@ -168,7 +168,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
             // Note: when system language is enabled, and the system language is changed outside of
             // the app, MRU languages are not updated. There's no harm in doing that here but since
-            // the user didin't choose that language in app, it may be unexpected.
+            // the user didn't choose that language in app, it may be unexpected.
         }
 
         if (languageChanged) {
@@ -180,9 +180,9 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
-        }
 
-        UserOptionContentResolver.requestManualSync();
+            UserOptionContentResolver.requestManualSync();
+        }
     }
 
     private void finishActionMode() {
