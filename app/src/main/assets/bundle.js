@@ -91,7 +91,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":20}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":19}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -141,7 +141,7 @@ bridge.registerListener( 'toggleDarkMode', function() {
    theme = window.isDarkMode ? pagelib.ThemeTransform.THEME.DARK : pagelib.ThemeTransform.THEME.DEFAULT;
    pagelib.ThemeTransform.setTheme( document, theme );
 } );
-},{"./bridge":2,"wikimedia-page-library":21}],4:[function(require,module,exports){
+},{"./bridge":2,"wikimedia-page-library":20}],4:[function(require,module,exports){
 var transformer = require('./transformer');
 
 transformer.register( 'displayDisambigLink', function( content ) {
@@ -443,7 +443,7 @@ function applySectionTransforms( content, isLeadSection ) {
         if (isLeadSection) {
             transformer.transform( "moveFirstGoodParagraphUp" );
         }
-        transformer.transform( "hideRedLinks", content );
+        pagelib.RedLinks.hideRedLinks( document, content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
     } else {
@@ -687,7 +687,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./onclick":8,"./transformer":12,"wikimedia-page-library":21}],12:[function(require,module,exports){
+},{"./bridge":2,"./onclick":8,"./transformer":12,"wikimedia-page-library":20}],12:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -741,7 +741,7 @@ module.exports = {
     handleTableCollapseOrExpandClick: toggleCollapseClickCallback
 };
 
-},{"../transformer":12,"wikimedia-page-library":21}],14:[function(require,module,exports){
+},{"../transformer":12,"wikimedia-page-library":20}],14:[function(require,module,exports){
 var transformer = require("../transformer");
 var collapseTables = require("./collapseTables");
 
@@ -872,19 +872,6 @@ transformer.register( "hideIPA", function( content ) {
 },{"../../bridge":2,"../../transformer":12}],17:[function(require,module,exports){
 var transformer = require("../../transformer");
 
-transformer.register( "hideRedLinks", function( content ) {
-    var redLinks = content.querySelectorAll( 'a.new' );
-    for ( var i = 0; i < redLinks.length; i++ ) {
-        var redLink = redLinks[i];
-        var replacementSpan = document.createElement( 'span' );
-        replacementSpan.innerHTML = redLink.innerHTML;
-        replacementSpan.setAttribute( 'class', redLink.getAttribute( 'class' ) );
-        redLink.parentNode.replaceChild( replacementSpan, redLink );
-    }
-} );
-},{"../../transformer":12}],18:[function(require,module,exports){
-var transformer = require("../../transformer");
-
 // Move the first non-empty paragraph (and related elements) to the top of the section.
 // This will have the effect of shifting the infobox and/or any images at the top of the page
 // below the first paragraph, allowing the user to start reading the page right away.
@@ -966,7 +953,7 @@ function addTrailingNodes( span, nodes, startIndex ) {
     }
 }
 
-},{"../../transformer":12}],19:[function(require,module,exports){
+},{"../../transformer":12}],18:[function(require,module,exports){
 var maybeWidenImage = require('wikimedia-page-library').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 
@@ -988,7 +975,7 @@ transformer.register( "widenImages", function( content ) {
     }
 } );
 
-},{"../transformer":12,"wikimedia-page-library":21}],20:[function(require,module,exports){
+},{"../transformer":12,"wikimedia-page-library":20}],19:[function(require,module,exports){
 function ancestorContainsClass( element, className ) {
     var contains = false;
     var curNode = element;
@@ -1037,7 +1024,7 @@ module.exports = {
     firstDivAncestor: firstDivAncestor
 };
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -2412,4 +2399,4 @@ return pagelib$1;
 })));
 
 
-},{}]},{},[2,7,20,12,13,14,19,15,16,17,18,1,4,5,6,3,9,10,11]);
+},{}]},{},[2,7,19,12,13,14,18,15,16,17,1,4,5,6,3,9,10,11]);

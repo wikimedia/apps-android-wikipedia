@@ -180,7 +180,7 @@ function applySectionTransforms( content, isLeadSection ) {
         if (isLeadSection) {
             transformer.transform( "moveFirstGoodParagraphUp" );
         }
-        transformer.transform( "hideRedLinks", content );
+        pagelib.RedLinks.hideRedLinks( document, content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
     } else {
