@@ -191,6 +191,10 @@
             android:windowSoftInputMode="adjustResize"/>
 
         <activity
+            android:name=".offline.RemoteCompilationsActivity"
+            android:theme="@style/AppTheme"/>
+
+        <activity
             android:name=".offline.CompilationDetailActivity"
             android:theme="@style/AppTheme"/>
 
