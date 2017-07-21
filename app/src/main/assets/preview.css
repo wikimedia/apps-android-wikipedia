@@ -945,12 +945,7 @@ ul.mw-gallery-slideshow li.gallerycarousel {
   padding: 0 !important;
   color: #555;
   width: auto !important;
-}/* Hide the stupid editlink */
-.edit-page {
-  display: none;
-}
-
-/* FIXME: Copied over from http://en.wikipedia.org/w/index.php?title=MediaWiki:Mobile.css&oldid=609508028
+}/* FIXME: Copied over from http://en.wikipedia.org/w/index.php?title=MediaWiki:Mobile.css&oldid=609508028
    This fixes some styling issues in the app, primarily hlists.
    Eventually fix this by supporting loading Mobile.css in the app
 */
