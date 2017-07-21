@@ -11,7 +11,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.UriUtil;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
@@ -21,22 +20,24 @@ import static org.wikipedia.util.UriUtil.handleExternalLink;
  * Handles any html links coming from a {@link org.wikipedia.page.PageFragment}
  */
 public abstract class LinkHandler implements CommunicationBridge.JSEventListener, LinkMovementMethodExt.UrlHandler {
-    private final Context context;
+    @NonNull private final Context context;
 
-    public LinkHandler(Context context) {
+    public LinkHandler(@NonNull Context context) {
         this.context = context;
     }
 
-    public abstract void onPageLinkClicked(String anchor);
+    public abstract void onPageLinkClicked(@NonNull String anchor);
 
-    public abstract void onInternalLinkClicked(PageTitle title);
+    public abstract void onInternalLinkClicked(@NonNull PageTitle title);
+
+    public abstract WikiSite getWikiSite();
 
     // message from JS bridge:
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
             String href = decodeURL(messagePayload.getString("href"));
-            onUrlClick(href, messagePayload.getString("title"));
+            onUrlClick(href, messagePayload.optString("title"));
         } catch (IllegalArgumentException e) {
             // The URL is malformed and URL decoder can't understand it. Just do nothing.
             Log.d("Wikipedia", "A malformed URL was tapped.");
@@ -47,36 +48,35 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     @Override
     public void onUrlClick(@NonNull String href, @Nullable String titleString) {
-        if (href.startsWith("//")) {
-            // That's a protocol specific link! Make it https!
-            href = "https:" + href;
+        Uri uri = Uri.parse(href);
+        if (!href.startsWith("http:") && !href.startsWith("https:")) {
+            uri = uri.buildUpon().scheme(getWikiSite().scheme())
+                    .authority(getWikiSite().authority())
+                    .path(href).build();
         }
-        Log.d("Wikipedia", "Link clicked was " + href);
-        if (href.startsWith("/wiki/")) {
-            PageTitle title = getWikiSite().titleForInternalLink(href);
+
+        Log.d("Wikipedia", "Link clicked was " + uri.toString());
+        if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
+                && uri.getPath().startsWith("/wiki/")) {
+            WikiSite site = new WikiSite(uri.getAuthority());
+            PageTitle title = site.titleForInternalLink(uri.getPath());
             onInternalLinkClicked(title);
-        } else if (!DeviceUtil.isOnline() && !TextUtils.isEmpty(titleString)) {
-            PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
+        } else if (!TextUtils.isEmpty(titleString) && UriUtil.isValidOfflinePageLink(uri)) {
+            WikiSite site = new WikiSite(uri.getAuthority());
+            PageTitle title = PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
             onInternalLinkClicked(title);
-        } else if (href.startsWith("#")) {
-            onPageLinkClicked(href.substring(1));
+        } else if (!TextUtils.isEmpty(uri.getFragment())) {
+            onPageLinkClicked(uri.getFragment());
         } else {
-            Uri uri = Uri.parse(href);
-            String authority = uri.getAuthority();
-            // FIXME: Make this more complete, only to not handle URIs that contain unsupported actions
-            if (authority != null && WikiSite.supportedAuthority(authority) && uri.getPath().startsWith("/wiki/")) {
-                WikiSite wiki = new WikiSite(authority, getWikiSite().languageCode());
-                PageTitle title = wiki.titleForUri(uri);
-                onInternalLinkClicked(title);
-            } else {
-                // if it's a /w/ URI, turn it into a full URI and go external
-                if (href.startsWith("/w/")) {
-                    href = String.format("%1$s://%2$s", getWikiSite().scheme(), getWikiSite().authority()) + href;
-                }
-                handleExternalLink(context, Uri.parse(href));
-            }
+            onExternalLinkClicked(uri);
         }
     }
 
-    public abstract WikiSite getWikiSite();
+    public void onExternalLinkClicked(@NonNull Uri uri) {
+        handleExternalLink(context, uri);
+    }
+
+    @NonNull protected Context getContext() {
+        return context;
+    }
 }

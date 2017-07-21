@@ -1080,7 +1080,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private void setupMessageHandlers() {
         linkHandler = new LinkHandler(getActivity()) {
-            @Override public void onPageLinkClicked(String anchor) {
+            @Override public void onPageLinkClicked(@NonNull String anchor) {
                 dismissBottomSheet();
                 JSONObject payload = new JSONObject();
                 try {
@@ -1091,7 +1091,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 bridge.sendMessage("handleReference", payload);
             }
 
-            @Override public void onInternalLinkClicked(PageTitle title) {
+            @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
                 handleInternalLink(title);
             }
 
