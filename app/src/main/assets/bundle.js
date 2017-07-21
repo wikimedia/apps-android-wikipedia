@@ -529,7 +529,8 @@ bridge.registerListener( "displayFromZim", function( payload ) {
     var sectionJson;
     var i;
 
-    var currentSectionNode = document.createElement( "div" );
+    var lazyDocument = document.implementation.createHTMLDocument( );
+    var currentSectionNode = lazyDocument.createElement( "div" );
     currentSectionNode.setAttribute( "dir", window.directionality );
     currentSectionNode.id = "content_block_" + sectionIndex;
     contentElem.appendChild( currentSectionNode );
@@ -553,7 +554,8 @@ bridge.registerListener( "displayFromZim", function( payload ) {
             sectionJson.anchor = "heading_" + sectionIndex;
             sectionsJson.push(sectionJson);
 
-            currentSectionNode = document.createElement( "div" );
+            lazyDocument = document.implementation.createHTMLDocument( );
+            currentSectionNode = lazyDocument.createElement( "div" );
             currentSectionNode.setAttribute( "dir", window.directionality );
             currentSectionNode.id = "content_block_" + sectionIndex;
             contentElem.appendChild( currentSectionNode );
@@ -583,6 +585,7 @@ bridge.registerListener( "displayFromZim", function( payload ) {
         window.scrollTo( 0, payload.scrollY );
     }
     document.getElementById( "loading_sections").className = "";
+    lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", {
       "sequence": payload.sequence,
       "savedPage": payload.savedPage,
@@ -598,6 +601,14 @@ function performZimSectionTransforms( sectionIndex, currentSectionNode ) {
         var imgSrc = imgTags[i].getAttribute( 'src' );
         if (imgSrc !== null) {
             imgTags[i].setAttribute( 'src', imgSrc.replace("../I/", window.offlineContentProvider + "I/") );
+        }
+    }
+
+    var placeholderTags = currentSectionNode.querySelectorAll( 'span.pagelib-lazy-load-placeholder' );
+    for ( i = 0; i < placeholderTags.length; i++ ) {
+        var dataSrc = placeholderTags[i].getAttribute( 'data-src' );
+        if (dataSrc !== null) {
+            placeholderTags[i].setAttribute( 'data-src', dataSrc.replace("../I/", window.offlineContentProvider + "I/") );
         }
     }
 }
