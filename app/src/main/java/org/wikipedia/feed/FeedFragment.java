@@ -480,5 +480,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             WikipediaApp.getInstance().logOut();
             FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
         }
+
+        @Override
+        public void compilationsClick() {
+            startActivity(LocalCompilationsActivity.newIntent(getContext()));
+        }
     }
 }
