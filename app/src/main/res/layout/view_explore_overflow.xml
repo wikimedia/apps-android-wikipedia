@@ -46,6 +46,11 @@
         android:background="?attr/window_background_color">
 
         <TextView
+            android:id="@+id/explore_overflow_compilations"
+            style="@style/OverflowMenuItem"
+            android:text="@string/offline_compilations_title"/>
+
+        <TextView
             android:id="@+id/explore_overflow_settings"
             style="@style/OverflowMenuItem"
             android:text="@string/settings_item_preferences"/>
