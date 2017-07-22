@@ -126,6 +126,7 @@
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
   <string name="preferences_heading_storage_and_syncing">Emmagatzemament i sincronització</string>
   <string name="preference_title_sync_reading_lists">Sincronitza les llistes de lectura</string>
+  <string name="preference_summary_sync_reading_lists">Permet que Wikimedia sincronitzi les llistes de lectura en iniciar la sessió</string>
   <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
@@ -270,6 +271,7 @@
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Fosc</string>
   <string name="preference_title_color_theme">Tema fosc</string>
+  <string name="preference_summary_color_theme">Canvia al tema de color fosc de l\'aplicació</string>
   <string name="nav_item_reading_lists">Les meves llistes</string>
   <string name="reading_list_untitled">Sense títol</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
@@ -320,10 +322,17 @@
   <string name="reading_list_confirm_remove_article_from_offline">Suprimeix del mode fora de línia</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
+  <string name="reading_list_sync_reminder_title">La sincronització de llistes de lectura està desactivada</string>
   <string name="reading_list_sync_reminder_action">Activa</string>
   <string name="reading_list_login_reminder_title">Sincronitza les llistes de lectura</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">Aquest article estarà disponible fora de línia a partir d\'ara.</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">Aquest article no continuarà estant disponible fora de línia.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
+    <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Aquest article no continuarà estant disponible fora de línia.</item>
+    <item quantity="other">Aquests articles no continuaran estant disponibles fora de línia.</item>
+  </plurals>
   <string name="user_option_sync_label">Preferències</string>
   <string name="notification_button_view_user">Parla amb l\'usuari</string>
   <string name="notification_talk_title">Missatge nou a la Viquipèdia</string>
@@ -391,6 +400,7 @@
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
+  <string name="offline_my_compilations">Les meves recopilacions</string>
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>

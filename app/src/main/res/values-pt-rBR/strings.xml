@@ -415,6 +415,17 @@
   <string name="description_edit_revert_reason2">Sua contribuição parecia uma experiência ou vandalismo.</string>
   <string name="description_edit_revert_history">Se estiver interessado, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">A permissão para acessar o armazenamento em seu dispositivo é necessária para a navegação off-line. Tente novamente e conceda a permissão solicitada.</string>
+  <string name="offline_card_text">Agora você está navegando na Wikipédia no modo off-line. Tenha em atenção que os artigos offline podem não estar totalmente atualizados com a versão online.</string>
+  <string name="offline_my_compilations">Minhas compilações</string>
+  <string name="offline_compilations_title">Compilações off-line</string>
+  <string name="offline_compilations_search_by_name">Pesquisar compilações pelo nome</string>
+  <string name="offline_compilations_found_count">Minhas compilações (%d)</string>
+  <string name="offline_compilations_add">Adicionar compilação off-line</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB grátis</string>
+  <string name="storage_used_by_compilations">Usado pela Wikipedia</string>
+  <string name="storage_other_apps">Outros aplicativos</string>
   <string name="onboarding_skip">Pular</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>

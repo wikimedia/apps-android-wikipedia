@@ -281,7 +281,7 @@
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجابايت</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مقالة، %2$.2f ميغابايت</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d مقالة/مقالات، %2$.2f ميغابايت</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d من أصل مقالة متاحة بدون اتصال، %2$.2f ميغابايت</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d من أصل %2$d مقالات متاحة بدون اتصال، %3$.2f ميغابايت</string>
   <string name="reading_list_sort">رتب</string>

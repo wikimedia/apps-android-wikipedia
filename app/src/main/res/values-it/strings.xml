@@ -377,6 +377,11 @@
   <string name="description_edit_help_more_info">Ulteriori informazioni</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB liberi</string>
+  <string name="storage_used_by_compilations">usati da Wikipedia</string>
+  <string name="storage_other_apps">Altre applicazioni</string>
   <string name="onboarding_skip">Salta</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Inizia</string>

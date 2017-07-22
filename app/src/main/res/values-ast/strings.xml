@@ -415,6 +415,19 @@
   <string name="description_edit_revert_reason2">la to contribución paecía un esperimentu o vandalismu.</string>
   <string name="description_edit_revert_history">Si tas interesáu, consulta &lt;a href=\"%1$s\"&gt;l\'historial d\'ediciones&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa restolar sin conexón. Vuelve a intentalo y concede\'l permisu riquíu.</string>
+  <string name="offline_card_text">Agora tas restolando Wikipedia en mou ensin conexón. Recuerda que los artículos ensin conexón pueden tar desfasaos respeuto a la versión en llinia.</string>
+  <string name="offline_my_compilations">Les mios compilaciones</string>
+  <string name="offline_compilations_title">Compilaciones sin conexón</string>
+  <string name="offline_compilations_search_by_name">Buscar compilaciones peol nome</string>
+  <string name="offline_compilations_found_count">Les mios compilaciones (%d)</string>
+  <string name="offline_compilations_add">Añadir compilaciones ensin conexón</string>
+  <string name="remote_compilations_title">Toles compilaciones</string>
+  <string name="remote_compilations_description">Les compilaciones ensin conexón son paquetes grandes d\'artículos que pueden descargase al preséu como un ficheru, pa poder siguir navegando cuando tas ensin conexón.</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB llibres</string>
+  <string name="storage_used_by_compilations">usaos por Wikipedia</string>
+  <string name="storage_other_apps">Otres aplicaciones</string>
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Siguir</string>
   <string name="onboarding_get_started">Primeros pasos</string>

@@ -44,6 +44,7 @@
   <string name="nearby_zoom_to_location">Zoom til et sted på kartet</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;-bidragsytere</string>
   <string name="last_updated_text">Sist oppdatert %s</string>
+  <string name="bottom_content_date_downloaded">Lastet ned for %s</string>
   <string name="talk_page_link_text">Diskusjon</string>
   <string name="content_license_html">Innholdet er tilgjengelig under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
   <string name="edit_save_action_license_logged_in">Ved å lagre samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
@@ -88,6 +89,10 @@
   <string name="delete_selected_items">Fjern valgte sider</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brukernavn</string>
+  <string name="login_dont_have_account">Har du ikke en konto?</string>
+  <string name="login_join_wikipedia">Registrer deg på Wikipedia</string>
+  <string name="login_forgot_password">Glemt passord?</string>
+  <string name="create_account_already_have">Har du allerede en konto?</string>
   <string name="create_account_login_link">Har du en konto allerede? Logg inn</string>
   <string name="login_create_account_link">Har du ingen konto? Opprett en</string>
   <string name="create_account_activity_title">Opprett en konto</string>
@@ -97,6 +102,7 @@
   <string name="create_account_passwords_mismatch_error">Passordene stemmer ikke overens</string>
   <string name="create_account_email_error">Ugyldig epostadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brukernavnet</string>
+  <string name="create_account_password_error">Passordet er ugyldig</string>
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
   <string name="create_account_next">Neste</string>
   <string name="create_account_button">Opprett konto</string>
@@ -117,6 +123,9 @@
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
   <string name="send_feedback">Gi oss tilbakemelding</string>
   <string name="create_account_account_created_toast">Konto opprettet!</string>
+  <string name="preferences_heading_storage_and_syncing">Lagring og synkronisering</string>
+  <string name="preference_title_sync_reading_lists">Synkroniser leselister</string>
+  <string name="preference_summary_sync_reading_lists">Tillater at Wikimedia synkroniserer leselistene dine når du logger inn</string>
   <string name="preferences_privacy_settings_heading">Personvern</string>
   <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>
@@ -228,6 +237,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelen kan ikke lastes uten nett</string>
   <string name="page_offline_notice_add_to_reading_list">Legger du til artikkelen i leselisten vil den bli hentet ned så fort du har nett igjen.</string>
   <string name="page_offline_notice_last_date">Du leser en offlineutgave av denne artikkelen som ble lagret %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Du leser en offlineversion av denne artikkelen fra en sammenstilling lastet ned %s.</string>
   <string name="button_get_directions">Veibeskrivelse</string>
   <string name="error_no_maps_app">Fant ikke noen apper som kunne gi veibeskrivelse.</string>
   <string name="preference_title_show_link_previews">Forhåndsvis lenker</string>
@@ -261,6 +271,8 @@
   <string name="color_theme_select">Drakt</string>
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
+  <string name="preference_title_color_theme">Mørkt tema</string>
+  <string name="preference_summary_color_theme">Bytt til appens mørke fargetema</string>
   <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_untitled">Uten navn</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>
@@ -283,6 +295,9 @@
   <string name="reading_list_menu_delete">Slett listen</string>
   <string name="reading_list_menu_rename">Endre navn</string>
   <string name="reading_list_menu_edit_description">Endre beskrivelse</string>
+  <string name="reading_list_action_menu_remove_from_offline">Fra fra offline</string>
+  <string name="reading_list_action_menu_save_for_offline">Lagre offline</string>
+  <string name="reading_list_action_menu_add_to_another_list">Legg til i en annen liste</string>
   <string name="reading_list_name_sample">Min leseliste</string>
   <string name="reading_list_name_hint">Navn på listen</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfritt)</string>
@@ -296,7 +311,7 @@
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder å besøke</string>
   <string name="reading_lists_onboarding_example2">Favorittdyr</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Verdensrommet!</string>
+  <string name="reading_lists_onboarding_example3">Utforskning av verdensrommet</string>
   <string name="reading_lists_onboarding_got_it">Forstått</string>
   <string name="reading_list_no_description">Ingen beskrivelse…</string>
   <string name="reading_list_empty">Du har ikke noen artikler i denne lista enda.</string>
@@ -306,8 +321,24 @@
   <string name="reading_list_add_to_other_list">Legg til i en annen leseliste</string>
   <string name="reading_list_remove_from_list">Fjern fra %s</string>
   <string name="reading_list_remove_from_lists">Fjern fra leselister</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">Denne artikkelen vil nå være tilgjengelig offline.</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">Denne artikkelen vil ikke lenger være tilgjengelig offline.</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Fjern fra offline</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artikkelen finnes i flere lister</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s vil ikke lenger være tilgjengelig offline via noen av leselistene:</string>
+  <string name="reading_list_sync_reminder_title">Synkronisering av leselister er ikke skrudd på</string>
+  <string name="reading_list_sync_reminder_text">Leselistene dine kan synkroniseres med Wikipedia-kontoen din hvis du tillater synkronisering i app-innstillingene.</string>
+  <string name="reading_list_sync_reminder_action">Skru på</string>
+  <string name="reading_list_login_reminder_title">Synkroniser leselister</string>
+  <string name="reading_list_login_reminder_text">Leselistene dine kan nå lagres til Wikipedia-kontoen din. Logg inn med kontoen din, så blir leselistene synkronisert  automatisk.</string>
+  <string name="reading_lists_confirm_remote_delete">Dette vil slette alle tidligere synkroniserte leselister fra fjernlageret. Vil du fortsette?</string>
+  <string name="reading_list_article_save_in_progress">Artikkelen lastes ned og vil bli tilgjengelig offline når den er ferdig.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Denne artikkelen vil nå være tilgjengelig offline.</item>
+    <item quantity="other">Disse artiklene vil nå være tilgjengelig offline.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Denne artikkelen vil ikke lenger være tilgjengelig offline.</item>
+    <item quantity="other">Disse artiklene vil ikke lenger være tilgjengelig offline.</item>
+  </plurals>
   <string name="user_option_sync_label">Innstillinger</string>
   <string name="notification_button_view_user">Snakk med brukeren</string>
   <string name="notification_talk_title">Ny melding på Wikipedia</string>
@@ -381,5 +412,20 @@
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">bidraget så ut som testing eller vandalisme.</string>
   <string name="description_edit_revert_history">Du kan finne mer informasjon i &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Hvis du vil lagre artikler for lesing offline må du gi appen tilgang til enhetens bilder, media og filer.</string>
+  <string name="offline_card_text">Du leser nå Wikipedia i offline-modus. Vær oppmerksom på at offline-artikler ikke nødvendigvis er like oppdaterte some online-utgavene.</string>
+  <string name="offline_my_compilations">Mine samlinger</string>
+  <string name="onboarding_skip">Hopp over</string>
   <string name="onboarding_continue">Fortsett</string>
+  <string name="onboarding_get_started">Kom i gang</string>
+  <string name="onboarding_explore_title">Nye måter å utforske</string>
+  <string name="onboarding_explore_text">Utforsk gode og utmerkede artikler, aktuelle temaer, og leseforslag i Utforsker.</string>
+  <string name="onboarding_reading_list_sync_title">Leselister med synkronisering</string>
+  <string name="onboarding_reading_list_sync_text">Lag leselister over artikler du vil lese senere, selv når du er offline. &lt;a href=\"#login\"&gt;Logg inn eller opprett&lt;/a&gt; en Wikipedia-konto for å sikkerhetskopiere listene.</string>
+  <string name="onboarding_analytics_title">Send anonyme data</string>
+  <string name="onboarding_analytics_text">Hjelp til med å gjøre appen bedre gjennom å la oss vite hvordan du bruker den. Data samles inn anonymt. &lt;a href=\"#privacy\"&gt;Lær mer&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Send bruksdata</string>
+  <string name="onboarding_create_account_sync">Synkroniser leselistene dine</string>
+  <string name="onboarding_create_account_contributions">Hold oversikt over bidragene dine</string>
+  <string name="onboarding_create_account_preferences">Lagre innstillinger</string>
 </resources>

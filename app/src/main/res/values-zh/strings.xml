@@ -48,7 +48,7 @@
   <string name="talk_page_link_text">讨论</string>
   <string name="content_license_html">除非另有声明，内容采用&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议发表。</string>
   <string name="edit_save_action_license_logged_in">一旦保存，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
-  <string name="edit_save_action_license_anon">一旦保存，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您的设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
+  <string name="edit_save_action_license_anon">一旦保存，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您的设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="preference_languages_filter_hint">搜索</string>
   <string name="langlinks_filter_hint">搜索</string>
@@ -417,6 +417,17 @@
   <string name="offline_read_permission_rationale">需要访问您设备存储的权限才能离线浏览。请重试，并授予请求的权限。</string>
   <string name="offline_card_text">您正在使用离线模式浏览维基百科。请注意离线条目可能不完全像在线版本那样是最新的。</string>
   <string name="offline_my_compilations">我的汇编</string>
+  <string name="offline_compilations_title">离线汇编</string>
+  <string name="offline_compilations_search_by_name">按名称搜索汇编</string>
+  <string name="offline_compilations_found_count">我的汇编（%d）</string>
+  <string name="offline_compilations_add">添加离线汇编</string>
+  <string name="remote_compilations_title">所有汇编</string>
+  <string name="remote_compilations_description">离线汇编是可以将大批量条目下载为一个文件至您设备的机制，这样您可以在离线时继续阅读它们。</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB免费</string>
+  <string name="storage_used_by_compilations">用于维基百科</string>
+  <string name="storage_other_apps">其他应用</string>
   <string name="onboarding_skip">跳过</string>
   <string name="onboarding_continue">继续</string>
   <string name="onboarding_get_started">入门</string>

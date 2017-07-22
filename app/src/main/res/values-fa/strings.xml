@@ -44,6 +44,7 @@
   <string name="nearby_zoom_to_location">بزرگنمایی مکان در نقشه</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;ویرایشگران&amp;nbsp&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;اپن‌استریت‌مپ&lt;/a&gt;</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
+  <string name="bottom_content_date_downloaded">%s بارگیری شد</string>
   <string name="talk_page_link_text">بحث</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="edit_save_action_license_logged_in">با ذخیره کردن، &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
@@ -238,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">امکان بارگیری مقاله در حالت آفلاین وجود ندارد.</string>
   <string name="page_offline_notice_add_to_reading_list">افزودن مقاله به فهرست خواندن و زمانی که برخط شدید، دانلود خواهد شد.</string>
   <string name="page_offline_notice_last_date">شما در حال خواندن نسخهٔ آفلاین مقاله هستید که بر روی %s ذخیره شده‌است.</string>
+  <string name="page_offline_notice_compilation_download_date">در حال مطالعهٔ نسخهٔ آفلاین این مقاله از گردآوری بارگیری شده %s هستید.</string>
   <string name="button_get_directions">دریافت مسیر</string>
   <string name="error_no_maps_app">نمی تواند اپلیکیشنی برای یافتن جهت پیدا کند.</string>
   <string name="preference_title_show_link_previews">نمایش پیوند پیش‌نمایش‌ها</string>
@@ -295,6 +297,9 @@
   <string name="reading_list_menu_delete">حذف فهرست</string>
   <string name="reading_list_menu_rename">تغییر نام</string>
   <string name="reading_list_menu_edit_description">ویرایش توضیحات</string>
+  <string name="reading_list_action_menu_remove_from_offline">حذف از آفلاین</string>
+  <string name="reading_list_action_menu_save_for_offline">ذخیره برای آفلاین</string>
+  <string name="reading_list_action_menu_add_to_another_list">افزودن به فهرست دیگر</string>
   <string name="reading_list_name_sample">فهرست مطالعهٔ من</string>
   <string name="reading_list_name_hint">نام این فهرست</string>
   <string name="reading_list_description_hint">توضیحات (اختیاری)</string>
@@ -328,8 +333,14 @@
   <string name="reading_list_login_reminder_text">فهرست مطالعهٔ شما ممکن است در حساب کاربری شما در ویکی‌پدیا ذخیره شده باشد. با وارد شدن به حساب کاربریتان به راحتی می‌توانید آن را به صورت خودکار همساز کنید.</string>
   <string name="reading_lists_confirm_remote_delete">اینکار فهرست‌های مطالعه‌ای که همساز کردید را حذف می‌کند. انجام شود؟</string>
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">اکنون در حالت آفلاین مقاله در دسترس است.</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">دیگر در حالت آفلاین مقاله در دسترس نیست.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">اکنون در حالت آفلاین مقاله در دسترس است.</item>
+    <item quantity="other">اکنون در حالت آفلاین این مقالات در دسترس هستند.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">دیگر در حالت آفلاین مقاله در دسترس نیست.</item>
+    <item quantity="other">دیگر در حالت آفلاین این مقالات در دسترس نیستند.</item>
+  </plurals>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_button_view_user">بحث با کاربر</string>
   <string name="notification_talk_title">پیام جدید در ویکی‌پدیا</string>
@@ -403,6 +414,9 @@
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>
   <string name="description_edit_revert_reason2">مشارکت شما شبیه یک تمرین یا خرابکاریست.</string>
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
+  <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
+  <string name="offline_card_text">شما در حال کاوش در ویکی‌پدیا به صورت آفلاین هستید. توجه داشته باشید که نسخهٔ آفلاین لزوما آخرین نسخهٔ به روز مقالهٔ آنلاین نمی‌باشد.</string>
+  <string name="offline_my_compilations">گردآوری‌های من</string>
   <string name="onboarding_skip">رها کردن</string>
   <string name="onboarding_continue">ادامه</string>
   <string name="onboarding_get_started">شروع شد</string>

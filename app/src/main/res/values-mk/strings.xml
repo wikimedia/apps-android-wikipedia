@@ -415,6 +415,19 @@
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно. Обидете се повторно и дајте ја побараната дозвола.</string>
+  <string name="offline_card_text">Сега ја прелистувате Википедија во вонмрежен режим. Имајте на ум дека вонмрежните статии може да не се најтековни.</string>
+  <string name="offline_my_compilations">Мои збирки</string>
+  <string name="offline_compilations_title">Вонмрежни збирки</string>
+  <string name="offline_compilations_search_by_name">Пребарај збирки по име</string>
+  <string name="offline_compilations_found_count">Мои збирки (%d)</string>
+  <string name="offline_compilations_add">Додај вонмрежна збирка</string>
+  <string name="remote_compilations_title">Сите збирки</string>
+  <string name="remote_compilations_description">Вонмрежните збирки се големи купови од статии што можат да се преземат како една податотека на вашиот уред, за да можете да продолжите со прелистување и кога немате линија.</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">ГБ</string>
+  <string name="storage_size_free">слободни %.2f ГБ</string>
+  <string name="storage_used_by_compilations">се користат од Википедија</string>
+  <string name="storage_other_apps">Други прилози</string>
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>

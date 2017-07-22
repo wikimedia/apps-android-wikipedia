@@ -44,6 +44,7 @@
   <string name="nearby_zoom_to_location">Zum kepada lokasi pada peta</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;penyumbang &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
+  <string name="bottom_content_date_downloaded">Dimuat turun %s</string>
   <string name="talk_page_link_text">Bincang</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -238,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Rencana tidak boleh dimuatkan semasa di luar talian.</string>
   <string name="page_offline_notice_add_to_reading_list">Menambah rencana ke senarai bacaan dan ia akan dimuat turun apabila anda kembali dalam talian.</string>
   <string name="page_offline_notice_last_date">Anda membaca versi luar talian artikel ini disimpan pada %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Anda sedang membaca versi luar talian rencana ini dari kompilasi yang dimuat turun pada %s.</string>
   <string name="button_get_directions">Tunjuk jalan</string>
   <string name="error_no_maps_app">Tidak dapat menemui sebarang aplikasi yang boleh menunjukkan jalan.</string>
   <string name="preference_title_show_link_previews">Paparkan pratonton pautan</string>
@@ -413,6 +415,17 @@
   <string name="description_edit_revert_reason2">sumbangan anda kelihatan seperti eksperimen atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika anda berminat, lihat &lt;a href=\"%1$s\"&gt;sejarah suntingan&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk melayari luar talian. Sila cuba lagi, dan berikan kebenaran yang diminta.</string>
+  <string name="offline_card_text">Anda kini melayari Wikipedia dalam mod luar talian. Sila ambil perhatian bahawa rencana luar talian mungkin tidak sepenuhnya terkini dengan versi dalam talian.</string>
+  <string name="offline_my_compilations">Kompilasi saya</string>
+  <string name="offline_compilations_title">Kompilasi luar talian</string>
+  <string name="offline_compilations_search_by_name">Cari kompilasi mengikut nama</string>
+  <string name="offline_compilations_found_count">Kompilasi saya (%d)</string>
+  <string name="offline_compilations_add">Tambah kompilasi luar talian</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB bebas</string>
+  <string name="storage_used_by_compilations">digunakan oleh Wikipedia</string>
+  <string name="storage_other_apps">Aplikasi lain</string>
   <string name="onboarding_skip">Langkau</string>
   <string name="onboarding_continue">Teruskan</string>
   <string name="onboarding_get_started">Memulakan</string>

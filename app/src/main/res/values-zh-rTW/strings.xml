@@ -48,7 +48,7 @@
   <string name="talk_page_link_text">討論</string>
   <string name="content_license_html">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/A&gt; 條款授權</string>
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
-  <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href= \"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="preference_languages_filter_hint">搜尋</string>
   <string name="langlinks_filter_hint">搜尋</string>
@@ -239,7 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">條目不能在離線時載入。</string>
   <string name="page_offline_notice_add_to_reading_list">將條目新增至閱讀清單，令您可在返回線上時下載。</string>
   <string name="page_offline_notice_last_date">您正閱讀此條目儲存於 %s 的離線版本。</string>
-  <string name="page_offline_notice_compilation_download_date">您正閱讀此條目來自下載於%s的編譯離線版本。</string>
+  <string name="page_offline_notice_compilation_download_date">您正閱讀此條目來自下載於%s的匯編離線版本。</string>
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
@@ -272,7 +272,7 @@
   <string name="article_header_edit_lead_section">編輯介紹</string>
   <string name="color_theme_select">主題</string>
   <string name="color_theme_light">日間模式</string>
-  <string name="color_theme_dark">夜間模式</string>
+  <string name="color_theme_dark">暗黑</string>
   <string name="preference_title_color_theme">暗黑主題</string>
   <string name="preference_summary_color_theme">切換到使用應用程式的暗黑色彩主題</string>
   <string name="nav_item_reading_lists">我的清單</string>
@@ -416,7 +416,18 @@
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
   <string name="offline_read_permission_rationale">需要可在您裝置上存取的權限才能離線瀏覽。請重試，並授與要求的權限。</string>
   <string name="offline_card_text">您正以離線模式瀏覽維基百科。請注意離線條目可能不是目前線上版本的最新內容。</string>
-  <string name="offline_my_compilations">我的編譯</string>
+  <string name="offline_my_compilations">我的匯編</string>
+  <string name="offline_compilations_title">離線匯編</string>
+  <string name="offline_compilations_search_by_name">依名稱來搜尋匯編</string>
+  <string name="offline_compilations_found_count">我的匯編（%d）</string>
+  <string name="offline_compilations_add">添加離線匯編</string>
+  <string name="remote_compilations_title">所有匯編</string>
+  <string name="remote_compilations_description">離線匯編是將大筆條目弄成如同可下載的檔案；至您的裝置裡，這可讓您在離線時能繼續瀏覽。</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB 可用</string>
+  <string name="storage_used_by_compilations">由維基百科使用</string>
+  <string name="storage_other_apps">其它應用程式</string>
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>

@@ -138,6 +138,7 @@
   <string name="menu_new_tab">Jauna cilne</string>
   <string name="menu_close_all_tabs">Aizvērt visas cilnes</string>
   <string name="button_close_tab">Aizvērt cilni</string>
+  <string name="error_unknown">Nezināma kļūda.</string>
   <string name="format_error_server_message">Ziņojums: \"%s\"</string>
   <string name="format_error_server_code">Kods: \"%s\"</string>
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
@@ -178,7 +179,7 @@
   <string name="reading_list_item_delete_undo">Atsaukt</string>
   <string name="reading_list_deleted">%s izdzēsts</string>
   <string name="reading_lists_onboarding_example2">Mīļākie dzīvnieki</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Kosmiskā telpa!</string>
+  <string name="reading_lists_onboarding_example3">Kosmosa izpēte</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="reading_list_remove_from_list">Noņemt no %s</string>
   <string name="reading_list_sync_reminder_action">Ieslēgt</string>

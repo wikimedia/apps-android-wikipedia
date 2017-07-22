@@ -44,6 +44,7 @@
   <string name="nearby_zoom_to_location">Zum nyang pernah ing petha</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;panyumbang &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Pungkasan dianyari %s</string>
+  <string name="bottom_content_date_downloaded">Diundhuh %s</string>
   <string name="talk_page_link_text">Rembug</string>
   <string name="content_license_html">Isi cumepak kanthi pangayoman &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, kajaba ana katerangan liyané.</string>
   <string name="edit_save_action_license_logged_in">Kanthi nyimpen, panjenengan minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Guna&lt;/a&gt;, lan nguculaké sumbangané panjenengan mawa lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -238,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikel ora bisa dimot nalika ing njaban jaringan.</string>
   <string name="page_offline_notice_add_to_reading_list">Tambah artikel nyang pratélan wacan lan iku bakal kaundhuh nalika panjenengan bali nyang njeron jaringan.</string>
   <string name="page_offline_notice_last_date">Panjenengan lagi maca vèrsi njaban jaringan artikel iki sing disimpen nalika %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Panjenengan maca versi luring artikel iki saka kompilasi sing diunduh tanggal %s.</string>
   <string name="button_get_directions">Golèk lor-kidul</string>
   <string name="error_no_maps_app">Ora bisa nemokaké apa aplikasi sing nyedhiyani pituduh.</string>
   <string name="preference_title_show_link_previews">Tampilake cuplikan pranala</string>
@@ -413,6 +415,17 @@
   <string name="description_edit_revert_reason2">kontribusi panjenengan kapandeng kaya pacoban utawa vandalisme.</string>
   <string name="description_edit_revert_history">Yen kasengsem, ndeleng &lt;a href=\"%1$s\"&gt;sujarah besutan&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin kanggo ngakses panyimpenan ing piranti panjenengan dibutuhake kanggo njelajah njaban jaringan. Mangga dicoba manèh, lan diwenehi ijin sing dijaluk.</string>
+  <string name="offline_card_text">Panjenengan saiki nelusuri Wikipedia ing mode luring. Elinga yen artikel luring bisa uga ora dianyari kanthi cepet ing versi daring.</string>
+  <string name="offline_my_compilations">Kompilasi kula</string>
+  <string name="offline_compilations_title">Kompilasi luring</string>
+  <string name="offline_compilations_search_by_name">Nggolek kompilasi kanthi jeneng</string>
+  <string name="offline_compilations_found_count">Kompilasi kula (%d)</string>
+  <string name="offline_compilations_add">Tambah kompilasi luring</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB bebas</string>
+  <string name="storage_used_by_compilations">digunakake dening Wikipedia</string>
+  <string name="storage_other_apps">Aplikasi liyane</string>
   <string name="onboarding_skip">Langkahi</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>

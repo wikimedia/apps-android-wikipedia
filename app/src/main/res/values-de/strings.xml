@@ -417,6 +417,17 @@
   <string name="offline_read_permission_rationale">Zum Offline-Browsen ist eine Berechtigung für den Zugriff auf den Speicher deines Gerätes erforderlich. Bitte versuche es erneut und gewähre die erforderliche Berechtigung.</string>
   <string name="offline_card_text">Du benutzt jetzt Wikipedia im Offline-Modus. Bitte beachte, dass Offline-Artikel nicht in dem Umfang aktuell sind wie die Online-Version.</string>
   <string name="offline_my_compilations">Meine Zusammenstellungen</string>
+  <string name="offline_compilations_title">Offline-Zusammenstellungen</string>
+  <string name="offline_compilations_search_by_name">Zusammenstellungen nach Namen suchen</string>
+  <string name="offline_compilations_found_count">Meine Zusammenstellungen (%d)</string>
+  <string name="offline_compilations_add">Offline-Zusammenstellung hinzufügen</string>
+  <string name="remote_compilations_title">Alle Zusammenstellungen</string>
+  <string name="remote_compilations_description">Offline-Zusammenstellungen sind große Bündel von Artikeln, die als eine Datei auf dein Gerät heruntergeladen werden können, so dass du mit dem Browsen weitermachen kannst, während du offline bist.</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB frei</string>
+  <string name="storage_used_by_compilations">von Wikipedia verwendet</string>
+  <string name="storage_other_apps">Andere Anwendungen</string>
   <string name="onboarding_skip">Überspringen</string>
   <string name="onboarding_continue">Fortfahren</string>
   <string name="onboarding_get_started">Anfangen</string>

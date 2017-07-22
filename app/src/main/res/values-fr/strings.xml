@@ -44,6 +44,7 @@
   <string name="nearby_zoom_to_location">Zoomer sur un endroit de la carte</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributeurs</string>
   <string name="last_updated_text">Dernière modification le %s</string>
+  <string name="bottom_content_date_downloaded">%s téléchargé</string>
   <string name="talk_page_link_text">Discussion</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"%1$s\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -238,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">L’article ne peut pas être chargé hors connexion.</string>
   <string name="page_offline_notice_add_to_reading_list">Ajoutez l’article à une liste de lecture et il sera téléchargé quand vous serez de nouveau connecté.</string>
   <string name="page_offline_notice_last_date">Vous lisez une version hors ligne sauvegardée le %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Vous lisez une version hors connexion de cet article, depuis une compilation téléchargée le %s.</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application qui fournit des directions.</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
@@ -413,6 +415,18 @@
   <string name="description_edit_revert_reason2">votre contribution ressemblait à une expérience ou à du vandalisme.</string>
   <string name="description_edit_revert_history">Si vous êtes intéressé, voyez l’&lt;a href=\"%1$s\"&gt;historique des modifications&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion. Veuillez réessayer, et accorder le droit demandé.</string>
+  <string name="offline_card_text">Vous naviguez sur Wikipédia en mode hors connexion. Veuillez noter que les articles hors connexion peuvent ne pas être complètement à jour par rapport à la version en ligne.</string>
+  <string name="offline_my_compilations">Mes compilations</string>
+  <string name="offline_compilations_title">Compilations hors connexion</string>
+  <string name="offline_compilations_search_by_name">Rechercher les compilations par nom</string>
+  <string name="offline_compilations_found_count">Mes compilations (%d)</string>
+  <string name="offline_compilations_add">Ajouter une compilation hors connexion</string>
+  <string name="remote_compilations_title">Toutes les compilations</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">Go</string>
+  <string name="storage_size_free">%.2f Go libres</string>
+  <string name="storage_used_by_compilations">utilisé par Wikipédia</string>
+  <string name="storage_other_apps">Autres applications</string>
   <string name="onboarding_skip">Sauter</string>
   <string name="onboarding_continue">Continuer</string>
   <string name="onboarding_get_started">C’est parti</string>
