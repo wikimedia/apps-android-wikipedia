@@ -5,12 +5,11 @@ import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +32,6 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
@@ -45,6 +43,7 @@ import java.util.Locale;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 public class EditPreviewFragment extends Fragment {
     private ObservableWebView webview;
@@ -191,36 +190,26 @@ public class EditPreviewFragment extends Fragment {
 
             bridge.addListener("linkClicked", new LinkHandler(getActivity()) {
                 @Override
-                public void onPageLinkClicked(String href) {
+                public void onPageLinkClicked(@NonNull String href) {
                     // TODO: also need to handle references, issues, disambig, ... in preview eventually
                 }
 
                 @Override
-                public void onUrlClick(@NonNull final String href, @Nullable final String titleString) {
-                    // Check if this is an internal link, and if it is then open it internally
-                    if (href.startsWith("/wiki/")) {
-                        PageTitle title = TextUtils.isEmpty(titleString)
-                                ? getWikiSite().titleForInternalLink(href)
-                                : PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
-                        onInternalLinkClicked(title);
-                    } else {
-                        //Show dialogue asking user to confirm they want to leave
-                        showLeavingEditDialogue(new Runnable() {
-                            @Override
-                            public void run() {
-                                openExternalLink(href, titleString);
-                            }
-                        });
-                    }
-                }
-
-                @Override
-                public void onInternalLinkClicked(final PageTitle title) {
-                    //Show dialogue asking user to confirm they want to leave
+                public void onInternalLinkClicked(@NonNull final PageTitle title) {
                     showLeavingEditDialogue(new Runnable() {
                         @Override
                         public void run() {
                             startActivity(PageActivity.newIntent(getContext(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
+                        }
+                    });
+                }
+
+                @Override
+                public void onExternalLinkClicked(@NonNull final Uri uri) {
+                    showLeavingEditDialogue(new Runnable() {
+                        @Override
+                        public void run() {
+                            handleExternalLink(getContext(), uri);
                         }
                     });
                 }
@@ -245,17 +234,6 @@ public class EditPreviewFragment extends Fragment {
                             .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
                             .create();
                     leavingEditDialog.show();
-                }
-
-                /**
-                 * Open an external link. The method uses the onUrlClick method in the superclass of
-                 * of LinkHandler to do the heavy lifting. You can't call this method from inside a
-                 * Runnable or an AlertDialog, so we put it in here instead.
-                 * @param href The href of the external link to be opened.
-                 * @param titleString the title of the page to be openend as a string
-                 */
-                private void openExternalLink(String href, String titleString) {
-                    super.onUrlClick(href, titleString);
                 }
 
                 @Override
