@@ -7,20 +7,20 @@
   <string name="yes">Iya</string>
   <string name="no">Ora</string>
   <string name="search_hint">Golèk ing Wikipédia</string>
-  <string name="search_hint_search_history">Sujarah golèkan</string>
+  <string name="search_hint_search_history">Sajarah golèkan</string>
   <string name="search_hint_search_my_lists">Golèk pratélanku</string>
   <string name="search_hint_search_reading_list">Golèk pratélan wacan</string>
-  <string name="nav_item_history">Sujarah</string>
+  <string name="nav_item_history">Sajarah</string>
   <string name="error_network_error">Ora nggayut Internèt.</string>
   <string name="page_error_retry">Jajal manèh</string>
   <string name="page_error_back_to_main">Balik</string>
-  <string name="menu_clear_all_history">Busak sujarah</string>
-  <string name="history_item_deleted">%s dibusak saka sujarah</string>
-  <string name="history_items_deleted">%d artikel dibusak saka sujarah</string>
+  <string name="menu_clear_all_history">Busak sajarah</string>
+  <string name="history_item_deleted">%s dibusak saka sajarah</string>
+  <string name="history_items_deleted">%d artikel dibusak saka sajarah</string>
   <string name="history_item_delete_undo">Balèkaké</string>
   <string name="page_does_not_exist_error">Kaca iki ora ana.</string>
-  <string name="dialog_title_clear_history">Busak sujarah golèkan</string>
-  <string name="dialog_message_clear_history">Tumindak iki bakal mbusak kabèh sujarah golèkané panjenengan lan nutup kabèh tab sing isih kabukak. Panjenengan yakin?</string>
+  <string name="dialog_title_clear_history">Busak sajarah golèkan</string>
+  <string name="dialog_message_clear_history">Tumindak iki bakal mbusak kabèh sajarah golèkané panjenengan lan nutup kabèh tab sing isih kabukak. Panjenengan yakin?</string>
   <string name="nav_item_saved_pages">Kaca sinimpen</string>
   <string name="share_via">Dum lumantar</string>
   <string name="search_redirect_from">Dilih saka %s</string>
@@ -68,7 +68,7 @@
   <string name="search_no_results_found">Ora éntuk kasil</string>
   <string name="search_reading_list_no_results">Ora ana kasil ing \"%s\"</string>
   <string name="search_reading_lists_no_results">Ora ana kasil ing pratélan wacan</string>
-  <string name="search_history_no_results">Ora ana kasil ing sujarah</string>
+  <string name="search_history_no_results">Ora ana kasil ing sajarah</string>
   <string name="edit_section_captcha_message">Kanggo ngreksa saka spam otomatis, mangga isinen tembung-tembung sing katon ngisor iki</string>
   <string name="edit_section_captcha_hint">Balènana tembung-tembung ing ndhuwur</string>
   <string name="title_captcha">Isinen CAPTCHA</string>
@@ -134,7 +134,7 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim lapuran rusak</string>
   <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
   <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
-  <string name="history_search_list_hint">Sujarah golèkan</string>
+  <string name="history_search_list_hint">Sajarah golèkan</string>
   <string name="error_can_not_process_link">Ora bisa nuduhaké pranala iki</string>
   <string name="page_protected_autoconfirmed">Kaca iki wis semu-kareksa.</string>
   <string name="page_protected_sysop">Kaca iki wis kareksa wutuh.</string>
@@ -185,7 +185,7 @@
   <string name="search_did_you_mean">Kersané panjenengan \"%s\"?</string>
   <string name="search_recent_header">Golèkan mentas waé:</string>
   <string name="button_clear_all_recent_searches">Busak golèkan mentas waé</string>
-  <string name="clear_recent_searches_confirm">Panjenengan yakin arep mbusak sujarah golèkané panjenengan?</string>
+  <string name="clear_recent_searches_confirm">Panjenengan yakin arep mbusak sajarah golèkané panjenengan?</string>
   <string name="error_browser_not_found">Ora bisa mbukak kaca jaringan (ora ana aplikasi pangluruné).</string>
   <string name="table_infobox">Kasunyatan rikat</string>
   <string name="table_other">Katerangan liyané</string>
@@ -413,7 +413,7 @@
   <string name="description_edit_revert_intro">Awak dhéwé sumurup panjenengan wis njajal sakatogé, nanging salah siji pamriksa sedhih. Alesané bokmanawa besutané panjenengan dibalèkaké ya iku:</string>
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi panjenengan kapandeng kaya pacoban utawa vandalisme.</string>
-  <string name="description_edit_revert_history">Yen kasengsem, ndeleng &lt;a href=\"%1$s\"&gt;sujarah besutan&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Yèn panjenengan ngrenani, delengen &lt;a href=\"%1$s\"&gt;sajarahé besutan&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin kanggo ngakses panyimpenan ing piranti panjenengan dibutuhake kanggo njelajah njaban jaringan. Mangga dicoba manèh, lan diwenehi ijin sing dijaluk.</string>
   <string name="offline_card_text">Panjenengan saiki nelusuri Wikipedia ing mode luring. Elinga yen artikel luring bisa uga ora dianyari kanthi cepet ing versi daring.</string>
   <string name="offline_my_compilations">Kompilasi kula</string>

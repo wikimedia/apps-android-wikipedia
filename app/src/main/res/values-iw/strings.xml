@@ -413,6 +413,7 @@
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">העריכה שלך נראתה כמו ניסוי או השחתה.</string>
   <string name="description_edit_revert_history">אם זה מעניין אותך, ר\' את &lt;a href=\"%1$s\"&gt;היסטוריית העריכות&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת. נא לנסות שוב ולתת את ההרשאה המבוקשת.</string>
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>

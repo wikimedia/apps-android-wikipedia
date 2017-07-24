@@ -288,7 +288,7 @@
   <string name="reading_lists_onboarding_for_example">Наприклад</string>
   <string name="reading_lists_onboarding_example1">Місця для відвідування</string>
   <string name="reading_lists_onboarding_example2">Улюблені тварини</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Космос!</string>
+  <string name="reading_lists_onboarding_example3">Дослідження космосу</string>
   <string name="reading_lists_onboarding_got_it">Зрозуміло</string>
   <string name="reading_list_no_description">Немає опису...</string>
   <string name="reading_list_empty">У Вас немає статей, доданих до цього списку</string>
@@ -372,4 +372,5 @@
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Ваше редагування виглядало як тест чи вандалізм.</string>
   <string name="description_edit_revert_history">Якщо Ви зацікавлені, перегляньте &lt;a href=\"%1$s\"&gt;історію редагувань&lt;/a&gt;.</string>
+  <string name="storage_other_apps">Інші додатки</string>
 </resources>

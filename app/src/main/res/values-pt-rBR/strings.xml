@@ -421,6 +421,7 @@
   <string name="offline_compilations_search_by_name">Pesquisar compilações pelo nome</string>
   <string name="offline_compilations_found_count">Minhas compilações (%d)</string>
   <string name="offline_compilations_add">Adicionar compilação off-line</string>
+  <string name="remote_compilations_title">Todas as compilações</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB grátis</string>

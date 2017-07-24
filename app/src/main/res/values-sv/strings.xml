@@ -421,6 +421,8 @@
   <string name="offline_compilations_search_by_name">Sök samlingar efter namn</string>
   <string name="offline_compilations_found_count">Mina samlingar (%d)</string>
   <string name="offline_compilations_add">Lägg till offlinesamling</string>
+  <string name="remote_compilations_title">Alla samlingar</string>
+  <string name="remote_compilations_description">Offlinesamlingar är stora mängder artiklar som kan laddas ned som en fil på din enhet, så du kan fortsätta läsa offline.</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB ledigt</string>
