@@ -26,6 +26,7 @@ import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
+import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +43,11 @@ public class LocalCompilationsFragment extends Fragment {
     @BindView(R.id.compilation_search_progress_bar) ProgressBar progressBar;
     @BindView(R.id.compilations_count_text) TextView countText;
     @BindView(R.id.disk_usage_view) DiskUsageView diskUsageView;
+    @BindView(R.id.compilation_search_error) WikiErrorView errorView;
     private Unbinder unbinder;
 
     private boolean updating;
+    private Throwable lastError;
     private CompilationItemAdapter adapter = new CompilationItemAdapter();
     private ItemCallback itemCallback = new ItemCallback();
 
@@ -73,6 +76,13 @@ public class LocalCompilationsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+
+        errorView.setBackClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
 
         beginUpdate();
         return view;
@@ -119,16 +129,19 @@ public class LocalCompilationsFragment extends Fragment {
 
     public void onCompilationsRefreshed() {
         updating = false;
+        lastError = null;
         update();
     }
 
     public void onCompilationsError(Throwable t) {
         updating = false;
-        // TODO: show error
+        lastError = t;
+        update();
     }
 
     private void beginUpdate() {
         updating = true;
+        lastError = null;
         if (callback() != null) {
             callback().onRequestUpdateCompilations();
         }
@@ -163,6 +176,15 @@ public class LocalCompilationsFragment extends Fragment {
     }
 
     private void updateEmptyState(@Nullable String searchQuery) {
+        if (lastError != null) {
+            errorView.setError(lastError);
+            errorView.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.GONE);
+            searchEmptyView.setVisibility(View.GONE);
+            listContainer.setVisibility(View.GONE);
+            return;
+        }
+        errorView.setVisibility(View.GONE);
         if (updating) {
             progressBar.setVisibility(View.VISIBLE);
             searchEmptyView.setVisibility(View.GONE);

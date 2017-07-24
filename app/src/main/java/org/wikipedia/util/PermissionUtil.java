@@ -1,13 +1,17 @@
 package org.wikipedia.util;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+
+import org.wikipedia.settings.Prefs;
 
 /**
  * Common methods for dealing with runtime permissions.
@@ -26,8 +30,15 @@ public final class PermissionUtil {
     }
 
     public static void requestReadStorageRuntimePermissions(AppCompatActivity activity, int requestCode) {
+        Prefs.setAskedForPermissionOnce(Manifest.permission.READ_EXTERNAL_STORAGE);
         ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, requestCode);
         // once permission is granted/denied it will continue with onRequestPermissionsResult
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    public static boolean shouldShowReadPermissionRationale(@NonNull AppCompatActivity activity) {
+        return !Prefs.askedForPermissionOnce(Manifest.permission.READ_EXTERNAL_STORAGE)
+                || activity.shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE);
     }
 
     public static boolean hasWriteExternalStoragePermission(@NonNull Context context) {

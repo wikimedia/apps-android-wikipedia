@@ -75,6 +75,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
 
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/compilation_search_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"/>
+
     </FrameLayout>
 
 </LinearLayout>

@@ -469,6 +469,7 @@
 
     <!-- Offline -->
     <string name="offline_read_permission_rationale">Permission to access storage on your device is required for offline browsing. Please try again, and grant the requested permission.</string>
+    <string name="offline_read_permission_error">Permission not granted to read from device storage.</string>
     <string name="offline_card_text">You are now browsing Wikipedia in offline mode. Please note that offline articles may not be fully up to date with the online version.</string>
     <string name="offline_my_compilations">My compilations</string>
     <string name="offline_compilations_title">Offline compilations</string>

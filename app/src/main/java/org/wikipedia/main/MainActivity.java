@@ -85,11 +85,6 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     }
 
     @Override
-    protected void onOfflineCompilationsFound() {
-        getFragment().onOfflineCompilationsFound();
-    }
-
-    @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
@@ -98,7 +93,7 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
 
     @Override
     protected void onGoOffline() {
-        searchOfflineCompilationsWithPermission(false);
+        getFragment().onGoOffline();
     }
 
     @Override

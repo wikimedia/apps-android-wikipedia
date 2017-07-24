@@ -513,6 +513,14 @@ public final class Prefs {
         setBoolean(R.string.preference_key_initial_onboarding_enabled, enabled);
     }
 
+    public static boolean askedForPermissionOnce(@NonNull String permission) {
+        return getBoolean(R.string.preference_key_permission_asked + permission, false);
+    }
+
+    public static void setAskedForPermissionOnce(@NonNull String permission) {
+        setBoolean(R.string.preference_key_permission_asked + permission, true);
+    }
+
     public static void setReadingListsCurrentUser(@Nullable String userName) {
         setString(R.string.preference_key_reading_lists_current_user_hash,
                 TextUtils.isEmpty(userName) ? "" : StringUtil.md5string(userName));
