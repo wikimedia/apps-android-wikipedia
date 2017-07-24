@@ -47,16 +47,21 @@ public final class OfflineManager {
         }
         lastSearchTime = System.currentTimeMillis();
         searchTask = new CompilationSearchTask() {
-            @Override public void onFinish(List<Compilation> result) {
+            @Override public void onFinish(List<Compilation> results) {
                 if (isCancelled()) {
                     return;
                 }
                 for (Compilation c : compilations) {
+                    for (Compilation result : results) {
+                        if (result.path().equals(c.path())) {
+                            result.copyMetadataFrom(c);
+                        }
+                    }
                     c.close();
                 }
                 compilations.clear();
-                compilations.addAll(result);
-                callback.onCompilationsFound(result);
+                compilations.addAll(results);
+                callback.onCompilationsFound(results);
             }
 
             @Override public void onCatch(Throwable caught) {

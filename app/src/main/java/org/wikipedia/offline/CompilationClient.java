@@ -10,7 +10,6 @@ import org.wikipedia.json.annotations.Required;
 import org.wikipedia.settings.Prefs;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -21,9 +20,9 @@ import retrofit2.http.Headers;
 
 import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
 
-class CompilationInfoClient {
+class CompilationClient {
     interface Callback {
-        void success(@NonNull List<CompilationInfo> compilations);
+        void success(@NonNull List<Compilation> compilations);
         void error(@NonNull Throwable caught);
     }
 
@@ -34,7 +33,7 @@ class CompilationInfoClient {
     // WikiSite-independent, and create once.
     // https://stackoverflow.com/a/20627010/5520737
     public void request(@NonNull WikiSite wiki, @NonNull Callback cb) {
-        cb.success(Collections.singletonList(CompilationInfo.getMockInfoForTesting())); // returning mock info for dev/testing
+        cb.success(Compilation.getMockInfoForTesting()); // returning mock info for dev/testing
 
         /*cancel();
         Retrofit retrofit = RetrofitFactory.newInstance(getEndpoint(wiki), wiki);
@@ -83,10 +82,10 @@ class CompilationInfoClient {
 
         static class CompilationResponse {
             @SuppressWarnings("unused,NullableProblems") @NonNull @Required
-            private List<CompilationInfo> compilations;
+            private List<Compilation> compilations;
 
             @Nullable
-            List<CompilationInfo> compilations() {
+            List<Compilation> compilations() {
                 return compilations;
             }
         }
