@@ -28,26 +28,26 @@ public class OfflineManagerTest {
 
     @Test
     public void testOfflineManagerRandom() throws Exception {
-        String randomTitle = OfflineManager.instance().getRandomTitle();
+        String randomTitle = OfflineManager.instanceNoCache().getRandomTitle();
         assertThat(randomTitle.length(), greaterThan(0));
     }
 
     @Test
     public void testOfflineManagerSearch() throws Exception {
-        List<String> results = OfflineManager.instance().searchByPrefix("R", 2);
+        List<String> results = OfflineManager.instanceNoCache().searchByPrefix("R", 2);
         assertThat(results.size(), is(2));
         assertThat(results.get(0), is("Raelette"));
     }
 
     @Test
     public void testOfflineManagerNormalizedTitle() throws Exception {
-        String normalizedTitle = OfflineManager.instance().getNormalizedTitle("You got the right one baby");
+        String normalizedTitle = OfflineManager.instanceNoCache().getNormalizedTitle("You got the right one baby");
         assertThat(normalizedTitle, is("You Got the Right One, Baby"));
     }
 
     @Test
     public void testOfflineManagerGetDataForTitle() throws Exception {
-        OfflineManager.HtmlResult result = OfflineManager.instance().getHtmlForTitle("Ray Charles");
+        OfflineManager.HtmlResult result = OfflineManager.instanceNoCache().getHtmlForTitle("Ray Charles");
         assertThat(result.html().startsWith("<html>"), is(true));
         assertThat(result.html().endsWith("</html>"), is(true));
         assertThat(result.compilation().timestamp() > 0, is(true));
@@ -60,6 +60,6 @@ public class OfflineManagerTest {
 
         Compilation compilation = new Compilation(TestFileUtil.getRawFile(TEST_ZIM_FILE),
                 mockCache, mockCache);
-        OfflineManager.instance().setCompilations(Collections.singletonList(compilation));
+        OfflineManager.instanceNoCache().setCompilations(Collections.singletonList(compilation));
     }
 }

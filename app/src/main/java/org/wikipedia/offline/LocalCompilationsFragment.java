@@ -145,7 +145,7 @@ public class LocalCompilationsFragment extends Fragment {
         if (callback() != null) {
             callback().onRequestUpdateCompilations();
         }
-        updateEmptyState(currentSearchQuery);
+        update();
     }
 
     private void update() {
@@ -185,19 +185,13 @@ public class LocalCompilationsFragment extends Fragment {
             return;
         }
         errorView.setVisibility(View.GONE);
-        if (updating) {
-            progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(updating ? View.VISIBLE : View.GONE);
+        if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
-            listContainer.setVisibility(View.GONE);
+            listContainer.setVisibility(View.VISIBLE);
         } else {
-            progressBar.setVisibility(View.GONE);
-            if (TextUtils.isEmpty(searchQuery)) {
-                searchEmptyView.setVisibility(View.GONE);
-                listContainer.setVisibility(View.VISIBLE);
-            } else {
-                listContainer.setVisibility(displayedItems.isEmpty() ? View.GONE : View.VISIBLE);
-                searchEmptyView.setVisibility(displayedItems.isEmpty() ? View.VISIBLE : View.GONE);
-            }
+            listContainer.setVisibility(displayedItems.isEmpty() ? View.GONE : View.VISIBLE);
+            searchEmptyView.setVisibility(displayedItems.isEmpty() ? View.VISIBLE : View.GONE);
         }
     }
 

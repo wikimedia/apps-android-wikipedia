@@ -17,11 +17,13 @@ import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.json.SessionUnmarshaller;
 import org.wikipedia.json.TabUnmarshaller;
+import org.wikipedia.offline.Compilation;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -534,6 +536,17 @@ public final class Prefs {
         return !TextUtils.isEmpty(userName)
                 && getString(R.string.preference_key_reading_lists_current_user_hash, "")
                 .equals(StringUtil.md5string(userName));
+    }
+
+    public static List<Compilation> getCompilationCache() {
+        List<Compilation> compilations = new ArrayList<>();
+        return contains(R.string.preference_key_compilation_cache)
+                ? GsonUnmarshaller.unmarshal(new TypeToken<List<Compilation>>() { },
+                getString(R.string.preference_key_compilation_cache, null)) : compilations;
+    }
+
+    public static void setCompilationCache(@NonNull List<Compilation> compilations) {
+        setString(R.string.preference_key_compilation_cache, GsonMarshaller.marshal(compilations));
     }
 
     private Prefs() { }
