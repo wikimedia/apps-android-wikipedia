@@ -17,7 +17,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
- * Retrofit DataClient to retrieve implicit user info and group membership information for a specific user.
+ * Retrofit DataClient to retrieve user info and group membership information for a specific user.
  */
 class UserExtendedInfoClient {
     @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
@@ -81,8 +81,8 @@ class UserExtendedInfoClient {
     }
 
     @VisibleForTesting interface Service {
-        /** Request the implicit groups a user belongs to. */
-        @POST("w/api.php?action=query&format=json&formatversion=2&meta=userinfo&list=users&usprop=implicitgroups")
+        /** Request the groups a user belongs to. */
+        @POST("w/api.php?action=query&format=json&formatversion=2&meta=userinfo&list=users&usprop=groups")
         Call<MwQueryResponse> request(@Query("ususers") @NonNull String userName);
     }
 }

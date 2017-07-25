@@ -16,7 +16,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.useroption.dataclient.UserInfo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -169,17 +168,15 @@ public class MwQueryResult extends BaseModel {
 
     private static class ListUsersResponse {
         @SuppressWarnings("unused") @SerializedName("name") @Nullable private String name;
-        @SuppressWarnings("unused") @SerializedName("implicitgroups")
-        @Nullable private String[] implicitGroups;
+        @SuppressWarnings("unused") @Nullable private List<String> groups;
 
         @Nullable Set<String> getGroupsFor(@NonNull String userName) {
-            if (userName.equals(name) && implicitGroups != null) {
-                Set<String> groups = new ArraySet<>();
-                groups.addAll(Arrays.asList(implicitGroups));
-                return Collections.unmodifiableSet(groups);
-            } else {
-                return null;
+            if (userName.equals(name) && groups != null) {
+                Set<String> groupNames = new ArraySet<>();
+                groupNames.addAll(groups);
+                return Collections.unmodifiableSet(groupNames);
             }
+            return null;
         }
     }
 
