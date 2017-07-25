@@ -95,6 +95,12 @@ public class LocalCompilationsFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        adapter.notifyDataSetChanged();
+        super.onResume();
+    }
+
+    @Override
     public void onDestroyView() {
         recyclerView.setAdapter(null);
         unbinder.unbind();
@@ -207,7 +213,7 @@ public class LocalCompilationsFragment extends Fragment {
             getView().setItem(compilation);
             getView().setTitle(compilation.name());
             getView().setDescription(compilation.description());
-            //TODO: getView().setImageUrl( ... );
+            getView().setImageUrl(compilation.thumbUri() == null ? null : compilation.thumbUri().toString());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
         }

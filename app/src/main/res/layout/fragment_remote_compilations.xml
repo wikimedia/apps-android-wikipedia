@@ -85,16 +85,19 @@
                 android:layout_height="match_parent"
                 android:background="?attr/window_background_color"/>
 
-            <TextView
-                android:id="@+id/compilation_list_empty_text"
+            <ProgressBar
+                android:id="@+id/compilation_list_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="48dp"/>
+
+            <org.wikipedia.views.WikiErrorView
+                android:id="@+id/compilation_list_error"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="16dp"
-                android:textSize="16sp"
-                android:text="@string/reading_list_empty"
-                android:visibility="gone"
-                tools:visibility="gone"/>
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"/>
 
             <org.wikipedia.views.SearchEmptyView
                 android:id="@+id/search_empty_view"

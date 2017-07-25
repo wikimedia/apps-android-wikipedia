@@ -79,6 +79,18 @@ public final class OfflineManager {
         searchTask.execute();
     }
 
+    void updateFromRemoteMetadata(@NonNull List<Compilation> remoteCompilations) {
+        for (Compilation remoteCompilation : remoteCompilations) {
+            for (Compilation localCompilation : compilations) {
+                if (remoteCompilation.uri() != null
+                        && new File(localCompilation.path()).getName().equals(remoteCompilation.uri().getLastPathSegment())) {
+                    localCompilation.copyMetadataFrom(remoteCompilation);
+                }
+            }
+        }
+        Prefs.setCompilationCache(compilations);
+    }
+
     public boolean titleExists(@NonNull String title) {
         for (Compilation c : compilations) {
             if (c.titleExists(title)) {
