@@ -30,19 +30,16 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             style="@style/App.Button.TransparentBlue"
-            android:text="@string/offline_compilation_detail_button_download"/>
+            android:text="@string/offline_compilation_detail_button_download"
+            android:visibility="gone"/>
 
-        <!-- Placeholder Bottom button for compilation downloading state; will be replaced with a download control gadget -->
-        <!-- TODO: replace me -->
-        <TextView
-            android:id="@+id/button_compilation_detail_downloading_placeholder"
+        <!-- Compilation download controls for when download is in progress -->
+        <org.wikipedia.offline.CompilationDownloadControlView
+            android:id="@+id/view_compilation_detail_download_control"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            style="@style/App.Button.TransparentBlue"
-            android:text="Downloading..."
-            android:visibility="gone"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
 
         <!-- Bottom buttons for downloaded compilation -->
         <LinearLayout

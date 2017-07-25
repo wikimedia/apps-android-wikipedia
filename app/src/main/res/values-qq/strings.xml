@@ -426,6 +426,13 @@
   <string name="remote_compilations_description">Short description about compilations and their benefits.</string>
   <string name="offline_compilation_detail_date_size">Information about the date and size of a compilation. The %1$s and %2$.2f symbols will be replaced with the date and size. Only the \"GB\" unit needs to be translated (see storage_size_gb).</string>
   <string name="offline_compilation_detail_button_download">Label for a button for downloading an offline compilation. The %.2f symbol is replaced with the compilation size, in gigabytes (GB). </string>
+  <string name="offline_compilation_download_progress_text">Information about an offline compilation file download in progress. The %1$.2f symbol represents the number of GB downloaded and the %2$.2f symbol represents the total size of the file.</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">Message shown when an offline compilation file has an estimated one minute remaining before the download is finished.</item>
+    <item quantity="other">Message shown when an offline compilation file has an estimated two or more minutes remaining before the download is finished.</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">Accessibility hint text for a button to pause or resume an offline compilation file download</string>
+  <string name="compilation_download_widget_button_cancel_hint">Accessibility hint text for a button to cancel an offline compilation file download</string>
   <string name="offline_compilation_detail_button_remove">Label for a button for removing an offline compilation from storage on the user\'s device.</string>
   <string name="offline_compilation_detail_button_view_compilations">Label for a button that takes the user to a screen to view the user\'s downloaded compilations.</string>
   <string name="storage_size_format">Format specifier where %.2f represents a decimal number with two significant figures to the right of the decimal point.</string>

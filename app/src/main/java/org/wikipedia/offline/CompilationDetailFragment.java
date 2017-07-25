@@ -39,6 +39,7 @@ public class CompilationDetailFragment extends Fragment {
     @BindView(R.id.view_compilation_info_summary) TextView summaryView;
     @BindView(R.id.view_compilation_info_description) TextView descriptionView;
     @BindView(R.id.button_compilation_detail_download) TextView downloadButton;
+    @BindView(R.id.view_compilation_detail_download_control) CompilationDownloadControlView controls;
 
     private Unbinder unbinder;
 
@@ -82,6 +83,7 @@ public class CompilationDetailFragment extends Fragment {
         descriptionView.setText(comp.description());
         downloadButton.setText(String.format(getString(R.string.offline_compilation_detail_button_download),
                 bytesToGB(comp.size())));
+        controls.setCompilation(comp);
 
         return view;
     }
