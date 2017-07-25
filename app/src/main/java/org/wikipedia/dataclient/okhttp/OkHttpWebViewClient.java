@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.VisibleForTesting;
+import android.view.KeyEvent;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -74,6 +75,12 @@ public class OkHttpWebViewClient extends WebViewClient {
             L.e(e);
         }
         return null;
+    }
+
+    @Override
+    public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event) {
+        return ((event.isCtrlPressed() && event.getKeyCode() == KeyEvent.KEYCODE_F)
+                || (!event.isCtrlPressed() && event.getKeyCode() == KeyEvent.KEYCODE_F3));
     }
 
     @NonNull private Response request(String url) throws IOException {
