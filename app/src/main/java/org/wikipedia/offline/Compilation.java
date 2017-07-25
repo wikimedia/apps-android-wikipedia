@@ -29,8 +29,8 @@ public class Compilation {
     @Nullable private String summary;
     @Nullable private String description;
     @Nullable private MediaContent media;
-    @SerializedName("thumb_url") @Nullable private String thumbUrl;
-    @SerializedName("image_url") @Nullable private String imageUrl;
+    @SerializedName("thumb_url") @Nullable private Uri thumbUri;
+    @SerializedName("image_url") @Nullable private Uri imageUri;
     private int count;
     private long size; // bytes
     private long timestamp;
@@ -60,15 +60,15 @@ public class Compilation {
     @SuppressWarnings("checkstyle:parameternumber")
     Compilation(@NonNull String name, @NonNull Uri uri, @Nullable List<String> langCodes,
                 @Nullable String summary, @Nullable String description, @Nullable MediaContent media,
-                @Nullable String thumbUrl, @Nullable String imageUrl, int count, long size, long timestamp) {
+                @Nullable Uri thumbUrl, @Nullable Uri imageUrl, int count, long size, long timestamp) {
         this.name = name;
         this.uri = uri;
         this.langCodes = langCodes;
         this.summary = summary;
         this.description = description;
         this.media = media;
-        this.thumbUrl = thumbUrl;
-        this.imageUrl = imageUrl;
+        this.thumbUri = thumbUri;
+        this.imageUri = imageUri;
         this.count = count;
         this.size = size;
         this.timestamp = timestamp;
@@ -81,8 +81,8 @@ public class Compilation {
         summary = other.summary();
         description = other.description();
         media = other.mediaContent();
-        thumbUrl = other.thumbUrl();
-        imageUrl = other.imageUrl();
+        thumbUri = other.thumbUri();
+        imageUri = other.imageUri();
         count = other.count();
         size = other.size();
         timestamp = other.timestamp();
@@ -151,13 +151,13 @@ public class Compilation {
     }
 
     @Nullable
-    public String thumbUrl() {
-        return thumbUrl;
+    public Uri thumbUri() {
+        return thumbUri;
     }
 
     @Nullable
-    public String imageUrl() {
-        return imageUrl;
+    public Uri imageUri() {
+        return imageUri;
     }
 
     public int count() {
@@ -223,8 +223,8 @@ public class Compilation {
                         "Compilation of the top 45000 articles, by popularity, from English Wikipedia.",
                         "Compilation of the top 45000 articles, by popularity, from English Wikipedia.",
                         Compilation.MediaContent.ALL,
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png",
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/500px-Wikipedia-logo-v2-en.svg.png",
+                        Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png"),
+                        Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/500px-Wikipedia-logo-v2-en.svg.png"),
                         10000, 5453656823L, 1487065620),
                 new Compilation("WikiProject Medicine (English), Jun 2017",
                         Uri.parse("https://download.kiwix.org/zim/wikipedia/wikipedia_en_medicine_novid_2017-06.zim"),
@@ -232,8 +232,8 @@ public class Compilation {
                         "Compilation of all articles from WikiProject Medicine, from English Wikipedia.",
                         "Compilation of all articles from WikiProject Medicine, from English Wikipedia.",
                         Compilation.MediaContent.ALL,
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png",
-                        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/500px-Wikipedia-logo-v2-en.svg.png",
+                        Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png"),
+                        Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/500px-Wikipedia-logo-v2-en.svg.png"),
                         10000, 1175000000L, 1487065620)
         );
     }
