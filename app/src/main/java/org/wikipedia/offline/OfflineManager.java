@@ -4,9 +4,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public final class OfflineManager {
-    private static OfflineManager INSTANCE = new OfflineManager();
+    private static OfflineManager INSTANCE;
     @Nullable private CompilationSearchTask searchTask;
     private long lastSearchTime;
     @NonNull private List<Compilation> compilations = new ArrayList<>();
@@ -25,6 +27,10 @@ public final class OfflineManager {
     }
 
     public static OfflineManager instance() {
+        if (INSTANCE == null) {
+            INSTANCE = new OfflineManager();
+            INSTANCE.restoreFromCache();
+        }
         return INSTANCE;
     }
 
@@ -61,6 +67,7 @@ public final class OfflineManager {
                 }
                 compilations.clear();
                 compilations.addAll(results);
+                Prefs.setCompilationCache(compilations);
                 callback.onCompilationsFound(results);
             }
 
@@ -156,6 +163,27 @@ public final class OfflineManager {
         public String html() {
             return html;
         }
+    }
+
+    private void restoreFromCache() {
+        for (Compilation cached : Prefs.getCompilationCache()) {
+            try {
+                Compilation c = new Compilation(new File(cached.path()));
+                c.copyMetadataFrom(cached);
+                L.d("Restoring compilation from cache: " + c.path());
+                compilations.add(c);
+            } catch (IOException e) {
+                L.w("Cached compilation no longer available: " + cached.path(), e);
+            }
+        }
+    }
+
+    @VisibleForTesting
+    static OfflineManager instanceNoCache() {
+        if (INSTANCE == null) {
+            INSTANCE = new OfflineManager();
+        }
+        return INSTANCE;
     }
 
     private OfflineManager() {
