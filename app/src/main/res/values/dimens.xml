@@ -3,6 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="toolbar_default_elevation">4dp</dimen>
+
     <dimen name="edit_pencil_size">24dp</dimen>
     <dimen name="edit_pencil_horizontal_margin">24dp</dimen>
 

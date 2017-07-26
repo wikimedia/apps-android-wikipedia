@@ -93,6 +93,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         void onSearchOpen();
         void onSearchClose(boolean shouldFinishActivity);
         @Nullable View getOverflowMenuAnchor();
+        void updateToolbarElevation(boolean elevate);
     }
 
     public static MainFragment newInstance() {
@@ -322,6 +323,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public View getOverflowMenuAnchor() {
         Callback callback = callback();
         return callback == null ? viewPager : callback.getOverflowMenuAnchor();
+    }
+
+    @Override
+    public void updateToolbarElevation(boolean elevate) {
+        if (callback() != null) {
+            callback().updateToolbarElevation(elevate);
+        }
+    }
+
+    public void requestUpdateToolbarElevation() {
+        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        updateToolbarElevation(fragment instanceof FeedFragment
+                ? ((FeedFragment) fragment).shouldElevateToolbar() : true);
     }
 
     @Override public void onLoading() {

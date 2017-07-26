@@ -1,5 +1,6 @@
 package org.wikipedia.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 
 /**
@@ -41,5 +43,18 @@ public abstract class SingleFragmentToolbarActivity<T extends Fragment> extends 
 
     protected View getToolbarWordmark() {
         return findViewById(R.id.single_fragment_toolbar_wordmark);
+    }
+
+    protected void setToolbarElevationDefault() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getToolbar().setElevation(DimenUtil
+                    .dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
+        }
+    }
+
+    protected void clearToolbarElevation() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getToolbar().setElevation(0f);
+        }
     }
 }

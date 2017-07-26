@@ -48,6 +48,7 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
             getToolbarWordmark().setVisibility(View.GONE);
             getSupportActionBar().setTitle(tab.text());
         }
+        getFragment().requestUpdateToolbarElevation();
     }
 
     @Override
@@ -82,6 +83,15 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     public View getOverflowMenuAnchor() {
         View view = getToolbar().findViewById(R.id.menu_overflow_button);
         return view == null ? getToolbar() : view;
+    }
+
+    @Override
+    public void updateToolbarElevation(boolean elevate) {
+        if (elevate) {
+            setToolbarElevationDefault();
+        } else {
+            clearToolbarElevation();
+        }
     }
 
     @Override
