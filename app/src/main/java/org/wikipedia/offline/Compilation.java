@@ -60,7 +60,7 @@ public class Compilation {
     @SuppressWarnings("checkstyle:parameternumber")
     Compilation(@NonNull String name, @NonNull Uri uri, @Nullable List<String> langCodes,
                 @Nullable String summary, @Nullable String description, @Nullable MediaContent media,
-                @Nullable Uri thumbUrl, @Nullable Uri imageUrl, int count, long size, long timestamp) {
+                @Nullable Uri thumbUri, @Nullable Uri imageUri, int count, long size, long timestamp) {
         this.name = name;
         this.uri = uri;
         this.langCodes = langCodes;
