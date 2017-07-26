@@ -77,8 +77,9 @@
                         android:layout_width="match_parent"
                         android:text="@string/create_account_next"
                         style="@style/App.Button.Blue"
-                        android:layout_gravity="center_horizontal"
-                        android:enabled="false" />
+                        android:enabled="false"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"/>
 
                     <TextView
                         android:id="@+id/privacy_policy_link"

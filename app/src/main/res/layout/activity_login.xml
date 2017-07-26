@@ -94,9 +94,10 @@
                     android:id="@+id/login_button"
                     style="@style/App.Button.Blue"
                     android:layout_width="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:enabled="false"
-                    android:text="@string/menu_login" />
+                    android:text="@string/menu_login"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
