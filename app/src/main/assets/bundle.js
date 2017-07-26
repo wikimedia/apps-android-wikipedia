@@ -224,15 +224,20 @@ module.exports = {
 };
 },{"./bridge":2}],9:[function(require,module,exports){
 var bridge = require("./bridge");
+var pagelib = require("wikimedia-page-library");
 
 bridge.registerListener( "displayPreviewHTML", function( payload ) {
     var content = document.getElementById( "content" );
     document.head.getElementsByTagName("base")[0].setAttribute("href", payload.siteBaseUrl);
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = payload.html;
-} );
 
-},{"./bridge":2}],10:[function(require,module,exports){
+    // todo: remove this when editing page preview uses the same bundle as reading.
+    if ( content ) {
+        pagelib.ThemeTransform.classifyElements( content );
+    }
+} );
+},{"./bridge":2,"wikimedia-page-library":20}],10:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -256,6 +261,7 @@ var pagelib = require("wikimedia-page-library");
 var lazyLoadViewportDistanceMultiplier = 2; // Load images on the current screen up to one ahead.
 var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewportDistanceMultiplier);
 
+pagelib.PlatformTransform.classify( window );
 pagelib.CompatibilityTransform.enableSupport( document );
 
 bridge.registerListener( "clearContents", function() {
@@ -393,17 +399,6 @@ function clearContents() {
     window.scrollTo( 0, 0 );
 }
 
-function buildEditSectionButton(id) {
-    var editButtonWrapper = document.createElement( "span" );
-    editButtonWrapper.className = "edit_section_button_wrapper android";
-    var editButton = document.createElement( "a" );
-    editButton.setAttribute( 'data-id', id );
-    editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button android";
-    editButtonWrapper.appendChild( editButton );
-    return editButtonWrapper;
-}
-
 function elementsForSection( section ) {
     var content, lazyDocument;
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
@@ -413,7 +408,7 @@ function elementsForSection( section ) {
     heading.className = "section_heading";
     heading.setAttribute( 'data-id', section.id );
 
-    heading.appendChild( buildEditSectionButton( section.id ) );
+    heading.appendChild( pagelib.EditTransform.newEditSectionButton( document, section.id ) );
 
     lazyDocument = document.implementation.createHTMLDocument( );
     content = lazyDocument.createElement( "div" );
@@ -438,7 +433,7 @@ function applySectionTransforms( content, isLeadSection ) {
         clickHandlerSetup.addIPAonClick( content );
     }
 
-    pagelib.ThemeTransform.classifyElements( content ); // client setting
+    pagelib.ThemeTransform.classifyElements( content );
 
     if (!isLeadSection) {
         transformer.transform( "hideRefs", content );
@@ -1495,6 +1490,73 @@ var CompatibilityTransform = {
   enableSupport: enableSupport
 };
 
+var CLASS = 'pagelib_dim_images';
+
+/**
+ * @param {!Window} window
+ * @param {!boolean} enable
+ * @return {void}
+ */
+var dim = function dim(window, enable) {
+  window.document.querySelector('html').classList[enable ? 'add' : 'remove'](CLASS);
+};
+
+/**
+ * @param {!Window} window
+ * @return {boolean}
+ */
+var isDim = function isDim(window) {
+  return window.document.querySelector('html').classList.contains(CLASS);
+};
+
+var DimImagesTransform = {
+  CLASS: CLASS,
+  isDim: isDim,
+  dim: dim
+};
+
+var CLASS$1 = {
+  CONTAINER: 'pagelib_edit_section_link_container',
+  LINK: 'pagelib_edit_section_link',
+  PROTECTION: { UNPROTECTED: '', PROTECTED: 'page-protected', FORBIDDEN: 'no-editing' }
+};
+
+var DATA_ATTRIBUTE = { SECTION_INDEX: 'data-id', ACTION: 'data-action' };
+var ACTION_EDIT_SECTION = 'edit_section';
+
+/**
+ * @param {!Document} document
+ * @param {!number} index The zero-based index of the section.
+ * @return {!HTMLAnchorElement}
+ */
+var newEditSectionLink = function newEditSectionLink(document, index) {
+  var link = document.createElement('a');
+  link.setAttribute(DATA_ATTRIBUTE.SECTION_INDEX, index);
+  link.setAttribute(DATA_ATTRIBUTE.ACTION, ACTION_EDIT_SECTION);
+  link.classList.add(CLASS$1.LINK);
+  return link;
+};
+
+/**
+ * @param {!Document} document
+ * @param {!number} index The zero-based index of the section.
+ * @return {!HTMLSpanElement}
+ */
+var newEditSectionButton = function newEditSectionButton(document, index) {
+  var container = document.createElement('span');
+  container.classList.add(CLASS$1.CONTAINER);
+
+  var link = newEditSectionLink(document, index);
+  container.appendChild(link);
+
+  return container;
+};
+
+var EditTransform = {
+  CLASS: CLASS$1,
+  newEditSectionButton: newEditSectionButton
+};
+
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -1674,6 +1736,636 @@ var ElementGeometry = function () {
   }]);
   return ElementGeometry;
 }();
+
+/**
+ * Ensures the 'Read more' section header can always be scrolled to the top of the screen.
+ * @param {!Window} window
+ * @return {void}
+ */
+var updateBottomPaddingToAllowReadMoreToScrollToTop = function updateBottomPaddingToAllowReadMoreToScrollToTop(window) {
+  var div = window.document.getElementById('pagelib_footer_container_ensure_can_scroll_to_top');
+  var currentPadding = parseInt(div.style.paddingBottom, 10) || 0;
+  var height = div.clientHeight - currentPadding;
+  var newPadding = Math.max(0, window.innerHeight - height);
+  div.style.paddingBottom = newPadding + 'px';
+};
+
+/**
+ * Allows native code to adjust footer container margins without having to worry about
+ * implementation details.
+ * @param {!number} margin
+ * @param {!Document} document
+ * @return {void}
+ */
+var updateLeftAndRightMargin = function updateLeftAndRightMargin(margin, document) {
+  var elements = Polyfill.querySelectorAll(document, '\n    #pagelib_footer_container_menu_heading,\n    #pagelib_footer_container_readmore,\n    #pagelib_footer_container_legal\n  ');
+  elements.forEach(function (element) {
+    element.style.marginLeft = margin + 'px';
+    element.style.marginRight = margin + 'px';
+  });
+  var rightOrLeft = document.querySelector('html').dir === 'rtl' ? 'right' : 'left';
+  Polyfill.querySelectorAll(document, '.pagelib_footer_menu_item').forEach(function (element) {
+    element.style.backgroundPosition = rightOrLeft + ' ' + margin + 'px center';
+    element.style.paddingLeft = margin + 'px';
+    element.style.paddingRight = margin + 'px';
+  });
+};
+
+/**
+ * Returns a fragment containing structural footer html which may be inserted where needed.
+ * @param {!Document} document
+ * @return {!DocumentFragment}
+ */
+var containerFragment = function containerFragment(document) {
+  var containerDiv = document.createElement('div');
+  var containerFragment = document.createDocumentFragment();
+  containerFragment.appendChild(containerDiv);
+  containerDiv.innerHTML = '<div id=\'pagelib_footer_container\' class=\'pagelib_footer_container\'>\n    <div id=\'pagelib_footer_container_section_0\'>\n      <div id=\'pagelib_footer_container_menu\'>\n        <div id=\'pagelib_footer_container_menu_heading\' class=\'pagelib_footer_container_heading\'>\n        </div>\n        <div id=\'pagelib_footer_container_menu_items\'>\n        </div>\n      </div>\n    </div>\n    <div id=\'pagelib_footer_container_ensure_can_scroll_to_top\'>\n      <div id=\'pagelib_footer_container_section_1\'>\n        <div id=\'pagelib_footer_container_readmore\'>\n          <div\n            id=\'pagelib_footer_container_readmore_heading\' class=\'pagelib_footer_container_heading\'>\n          </div>\n          <div id=\'pagelib_footer_container_readmore_pages\'>\n          </div>\n        </div>\n      </div>\n      <div id=\'pagelib_footer_container_legal\'></div>\n    </div>\n  </div>';
+  return containerFragment;
+};
+
+/**
+ * Indicates whether container is has already been added.
+ * @param {!Document} document
+ * @return {boolean}
+ */
+var isContainerAttached = function isContainerAttached(document) {
+  return Boolean(document.querySelector('#pagelib_footer_container'));
+};
+
+var FooterContainer = {
+  containerFragment: containerFragment,
+  isContainerAttached: isContainerAttached,
+  updateBottomPaddingToAllowReadMoreToScrollToTop: updateBottomPaddingToAllowReadMoreToScrollToTop,
+  updateLeftAndRightMargin: updateLeftAndRightMargin
+};
+
+/**
+ * @typedef {function} FooterLegalClickCallback
+ * @return {void}
+ */
+
+/**
+ * Adds legal footer html to 'containerID' element.
+ * @param {!Element} content
+ * @param {?string} licenseString
+ * @param {?string} licenseSubstitutionString
+ * @param {!string} containerID
+ * @param {?FooterLegalClickCallback} licenseLinkClickHandler
+ * @return {void}
+ */
+var add = function add(content, licenseString, licenseSubstitutionString, containerID, licenseLinkClickHandler) {
+  var container = content.querySelector('#' + containerID);
+  var licenseStringHalves = licenseString.split('$1');
+
+  container.innerHTML = '<div class=\'pagelib_footer_legal_contents\'>\n    <hr class=\'pagelib_footer_legal_divider\'>\n    <span class=\'pagelib_footer_legal_license\'>\n      ' + licenseStringHalves[0] + '\n      <a class=\'pagelib_footer_legal_license_link\'>\n        ' + licenseSubstitutionString + '\n      </a>\n      ' + licenseStringHalves[1] + '\n    </span>\n  </div>';
+
+  container.querySelector('.pagelib_footer_legal_license_link').addEventListener('click', function () {
+    licenseLinkClickHandler();
+  });
+};
+
+var FooterLegal = {
+  add: add
+};
+
+/**
+ * @typedef {function} FooterMenuItemPayloadExtractor
+ * @param {!Document} document
+ * @return {!Array.<string>} Important - should return empty array if no payload strings.
+ */
+
+/**
+ * @typedef {function} FooterMenuItemClickCallback
+ * @param {!Array.<string>} payload Important - should return empty array if no payload strings.
+ * @return {void}
+ */
+
+/**
+ * @typedef {number} MenuItemType
+ */
+
+// eslint-disable-next-line valid-jsdoc
+/**
+ * Extracts array of no-html page issues strings from document.
+ * @type {FooterMenuItemPayloadExtractor}
+ */
+var pageIssuesStringsArray = function pageIssuesStringsArray(document) {
+  var tables = Polyfill.querySelectorAll(document, 'div#content_block_0 table.ambox:not(.ambox-multiple_issues):not(.ambox-notice)');
+  // Get the tables into a fragment so we can remove some elements without triggering a layout
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < tables.length; i++) {
+    fragment.appendChild(tables[i].cloneNode(true));
+  }
+  // Remove some element so their text doesn't appear when we use "innerText"
+  Polyfill.querySelectorAll(fragment, '.hide-when-compact, .collapsed').forEach(function (el) {
+    return el.remove();
+  });
+  // Get the innerText
+  return Polyfill.querySelectorAll(fragment, 'td[class$=mbox-text]').map(function (el) {
+    return el.innerText;
+  });
+};
+
+// eslint-disable-next-line valid-jsdoc
+/**
+ * Extracts array of disambiguation page urls from document.
+ * @type {FooterMenuItemPayloadExtractor}
+ */
+var disambiguationTitlesArray = function disambiguationTitlesArray(document) {
+  return Polyfill.querySelectorAll(document, 'div#content_block_0 div.hatnote a[href]:not([href=""]):not([redlink="1"])').map(function (el) {
+    return el.href;
+  });
+};
+
+/**
+ * Type representing kinds of menu items.
+ * @enum {MenuItemType}
+ */
+var MenuItemType = {
+  languages: 1,
+  lastEdited: 2,
+  pageIssues: 3,
+  disambiguation: 4,
+  coordinate: 5
+
+  /**
+   * Menu item model.
+   */
+};
+var MenuItem = function () {
+  /**
+   * MenuItem constructor.
+   * @param {!string} title
+   * @param {?string} subtitle
+   * @param {!MenuItemType} itemType
+   * @param {FooterMenuItemClickCallback} clickHandler
+   * @return {void}
+   */
+  function MenuItem(title, subtitle, itemType, clickHandler) {
+    classCallCheck(this, MenuItem);
+
+    this.title = title;
+    this.subtitle = subtitle;
+    this.itemType = itemType;
+    this.clickHandler = clickHandler;
+    this.payload = [];
+  }
+
+  /**
+   * Returns icon CSS class for this menu item based on its type.
+   * @return {!string}
+   */
+
+
+  createClass(MenuItem, [{
+    key: 'iconClass',
+    value: function iconClass() {
+      switch (this.itemType) {
+        case MenuItemType.languages:
+          return 'pagelib_footer_menu_icon_languages';
+        case MenuItemType.lastEdited:
+          return 'pagelib_footer_menu_icon_last_edited';
+        case MenuItemType.pageIssues:
+          return 'pagelib_footer_menu_icon_page_issues';
+        case MenuItemType.disambiguation:
+          return 'pagelib_footer_menu_icon_disambiguation';
+        case MenuItemType.coordinate:
+          return 'pagelib_footer_menu_icon_coordinate';
+        default:
+          return '';
+      }
+    }
+
+    /**
+     * Returns reference to function for extracting payload when this menu item is tapped.
+     * @return {?FooterMenuItemPayloadExtractor}
+     */
+
+  }, {
+    key: 'payloadExtractor',
+    value: function payloadExtractor() {
+      switch (this.itemType) {
+        case MenuItemType.pageIssues:
+          return pageIssuesStringsArray;
+        case MenuItemType.disambiguation:
+          return disambiguationTitlesArray;
+        default:
+          return undefined;
+      }
+    }
+  }]);
+  return MenuItem;
+}();
+
+/**
+ * Makes document fragment for a menu item.
+ * @param {!MenuItem} menuItem
+ * @param {!Document} document
+ * @return {!DocumentFragment}
+ */
+
+
+var documentFragmentForMenuItem = function documentFragmentForMenuItem(menuItem, document) {
+  var item = document.createElement('div');
+  item.className = 'pagelib_footer_menu_item';
+
+  var containerAnchor = document.createElement('a');
+  containerAnchor.addEventListener('click', function () {
+    menuItem.clickHandler(menuItem.payload);
+  });
+
+  item.appendChild(containerAnchor);
+
+  if (menuItem.title) {
+    var title = document.createElement('div');
+    title.className = 'pagelib_footer_menu_item_title';
+    title.innerText = menuItem.title;
+    containerAnchor.title = menuItem.title;
+    containerAnchor.appendChild(title);
+  }
+
+  if (menuItem.subtitle) {
+    var subtitle = document.createElement('div');
+    subtitle.className = 'pagelib_footer_menu_item_subtitle';
+    subtitle.innerText = menuItem.subtitle;
+    containerAnchor.appendChild(subtitle);
+  }
+
+  var iconClass = menuItem.iconClass();
+  if (iconClass) {
+    item.classList.add(iconClass);
+  }
+
+  return document.createDocumentFragment().appendChild(item);
+};
+
+/**
+ * Adds a MenuItem to a container.
+ * @param {!MenuItem} menuItem
+ * @param {!string} containerID
+ * @param {!Document} document
+ * @return {void}
+ */
+var addItem = function addItem(menuItem, containerID, document) {
+  document.getElementById(containerID).appendChild(documentFragmentForMenuItem(menuItem, document));
+};
+
+/**
+ * Conditionally adds a MenuItem to a container.
+ * @param {!string} title
+ * @param {!string} subtitle
+ * @param {!MenuItemType} itemType
+ * @param {!string} containerID
+ * @param {FooterMenuItemClickCallback} clickHandler
+ * @param {!Document} document
+ * @return {void}
+ */
+var maybeAddItem = function maybeAddItem(title, subtitle, itemType, containerID, clickHandler, document) {
+  var item = new MenuItem(title, subtitle, itemType, clickHandler);
+
+  // Items are not added if they have a payload extractor which fails to extract anything.
+  var extractor = item.payloadExtractor();
+  if (extractor) {
+    item.payload = extractor(document);
+    if (item.payload.length === 0) {
+      return;
+    }
+  }
+
+  addItem(item, containerID, document);
+};
+
+/**
+ * Sets heading element string.
+ * @param {!string} headingString
+ * @param {!string} headingID
+ * @param {!Document} document
+ * @return {void}
+ */
+var setHeading = function setHeading(headingString, headingID, document) {
+  var headingElement = document.getElementById(headingID);
+  headingElement.innerText = headingString;
+  headingElement.title = headingString;
+};
+
+var FooterMenu = {
+  MenuItemType: MenuItemType,
+  setHeading: setHeading,
+  maybeAddItem: maybeAddItem
+};
+
+/**
+ * @typedef {function} SaveButtonClickHandler
+ * @param {!string} title
+ * @return {void}
+ */
+
+/**
+ * @typedef {function} TitlesShownHandler
+ * @param {!Array.<string>} titles
+ * @return {void}
+ */
+
+/**
+ * Display fetched read more pages.
+ * @typedef {function} ShownReadMorePagesHandler
+ * @param {!Array.<object>} pages
+ * @param {!string} containerID
+ * @param {SaveButtonClickHandler} saveButtonClickHandler
+ * @param {TitlesShownHandler} titlesShownHandler
+ * @param {!Document} document
+ * @return {void}
+ */
+
+var SAVE_BUTTON_ID_PREFIX = 'readmore:save:';
+
+/**
+ * Removes parenthetical enclosures from string.
+ * @param {!string} string
+ * @param {!string} opener
+ * @param {!string} closer
+ * @return {!string}
+ */
+var safelyRemoveEnclosures = function safelyRemoveEnclosures(string, opener, closer) {
+  var enclosureRegex = new RegExp('\\s?[' + opener + '][^' + opener + closer + ']+[' + closer + ']', 'g');
+  var counter = 0;
+  var safeMaxTries = 30;
+  var stringToClean = string;
+  var previousString = '';
+  do {
+    previousString = stringToClean;
+    stringToClean = stringToClean.replace(enclosureRegex, '');
+    counter++;
+  } while (previousString !== stringToClean && counter < safeMaxTries);
+  return stringToClean;
+};
+
+/**
+ * Removes '(...)' and '/.../' parenthetical enclosures from string.
+ * @param {!string} string
+ * @return {!string}
+ */
+var cleanExtract = function cleanExtract(string) {
+  var stringToClean = string;
+  stringToClean = safelyRemoveEnclosures(stringToClean, '(', ')');
+  stringToClean = safelyRemoveEnclosures(stringToClean, '/', '/');
+  return stringToClean;
+};
+
+/**
+ * Read more page model.
+ */
+
+var ReadMorePage =
+/**
+ * ReadMorePage constructor.
+ * @param {!string} title
+ * @param {?string} thumbnail
+ * @param {?object} terms
+ * @param {?string} extract
+ * @return {void}
+ */
+function ReadMorePage(title, thumbnail, terms, extract) {
+  classCallCheck(this, ReadMorePage);
+
+  this.title = title;
+  this.thumbnail = thumbnail;
+  this.terms = terms;
+  this.extract = extract;
+};
+
+/**
+ * Makes document fragment for a read more page.
+ * @param {!ReadMorePage} readMorePage
+ * @param {!number} index
+ * @param {SaveButtonClickHandler} saveButtonClickHandler
+ * @param {!Document} document
+ * @return {!DocumentFragment}
+ */
+
+
+var documentFragmentForReadMorePage = function documentFragmentForReadMorePage(readMorePage, index, saveButtonClickHandler, document) {
+  var outerAnchorContainer = document.createElement('a');
+  outerAnchorContainer.id = index;
+  outerAnchorContainer.className = 'pagelib_footer_readmore_page';
+
+  var hasImage = readMorePage.thumbnail && readMorePage.thumbnail.source;
+  if (hasImage) {
+    var image = document.createElement('div');
+    image.style.backgroundImage = 'url(' + readMorePage.thumbnail.source + ')';
+    image.classList.add('pagelib_footer_readmore_page_image');
+    outerAnchorContainer.appendChild(image);
+  }
+
+  var innerDivContainer = document.createElement('div');
+  innerDivContainer.classList.add('pagelib_footer_readmore_page_container');
+  outerAnchorContainer.appendChild(innerDivContainer);
+  outerAnchorContainer.href = '/wiki/' + encodeURI(readMorePage.title);
+
+  if (readMorePage.title) {
+    var title = document.createElement('div');
+    title.id = index;
+    title.className = 'pagelib_footer_readmore_page_title';
+    var displayTitle = readMorePage.title.replace(/_/g, ' ');
+    title.innerHTML = displayTitle;
+    outerAnchorContainer.title = displayTitle;
+    innerDivContainer.appendChild(title);
+  }
+
+  var description = void 0;
+  if (readMorePage.terms) {
+    description = readMorePage.terms.description[0];
+  }
+  if ((!description || description.length < 10) && readMorePage.extract) {
+    description = cleanExtract(readMorePage.extract);
+  }
+  if (description) {
+    var descriptionEl = document.createElement('div');
+    descriptionEl.id = index;
+    descriptionEl.className = 'pagelib_footer_readmore_page_description';
+    descriptionEl.innerHTML = description;
+    innerDivContainer.appendChild(descriptionEl);
+  }
+
+  var saveButton = document.createElement('div');
+  saveButton.id = '' + SAVE_BUTTON_ID_PREFIX + encodeURI(readMorePage.title);
+  saveButton.className = 'pagelib_footer_readmore_page_save';
+  saveButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+    saveButtonClickHandler(readMorePage.title);
+  });
+  innerDivContainer.appendChild(saveButton);
+
+  return document.createDocumentFragment().appendChild(outerAnchorContainer);
+};
+
+// eslint-disable-next-line valid-jsdoc
+/**
+ * @type {ShownReadMorePagesHandler}
+ */
+var showReadMorePages = function showReadMorePages(pages, containerID, saveButtonClickHandler, titlesShownHandler, document) {
+  var shownTitles = [];
+  var container = document.getElementById(containerID);
+  pages.forEach(function (page, index) {
+    var title = page.title.replace(/ /g, '_');
+    shownTitles.push(title);
+    var pageModel = new ReadMorePage(title, page.thumbnail, page.terms, page.extract);
+    var pageFragment = documentFragmentForReadMorePage(pageModel, index, saveButtonClickHandler, document);
+    container.appendChild(pageFragment);
+  });
+  titlesShownHandler(shownTitles);
+};
+
+/**
+ * Makes 'Read more' query parameters object for a title.
+ * @param {!string} title
+ * @param {!number} count
+ * @return {!object}
+ */
+var queryParameters = function queryParameters(title, count) {
+  return {
+    action: 'query',
+    continue: '',
+    exchars: 256,
+    exintro: 1,
+    exlimit: count,
+    explaintext: '',
+    format: 'json',
+    generator: 'search',
+    gsrinfo: '',
+    gsrlimit: count,
+    gsrnamespace: 0,
+    gsroffset: 0,
+    gsrprop: 'redirecttitle',
+    gsrsearch: 'morelike:' + title,
+    gsrwhat: 'text',
+    ns: 'ppprop',
+    pilimit: count,
+    piprop: 'thumbnail',
+    pithumbsize: 120,
+    prop: 'pageterms|pageimages|pageprops|revisions|extracts',
+    rrvlimit: 1,
+    rvprop: 'ids',
+    wbptterms: 'description',
+    formatversion: 2
+  };
+};
+
+/**
+ * Converts query parameter object to string.
+ * @param {!object} parameters
+ * @return {!string}
+ */
+var stringFromQueryParameters = function stringFromQueryParameters(parameters) {
+  return Object.keys(parameters).map(function (key) {
+    return encodeURIComponent(key) + '=' + encodeURIComponent(parameters[key]);
+  }).join('&');
+};
+
+/**
+ * URL for retrieving 'Read more' pages for a given title.
+ * Leave 'baseURL' null if you don't need to deal with proxying.
+ * @param {!string} title
+ * @param {!number} count Number of `Read more` items to fetch for this title
+ * @param {?string} baseURL
+ * @return {!sring}
+ */
+var readMoreQueryURL = function readMoreQueryURL(title, count, baseURL) {
+  return (baseURL || '') + '/w/api.php?' + stringFromQueryParameters(queryParameters(title, count));
+};
+
+/**
+ * Fetch error handler.
+ * @param {!string} statusText
+ * @return {void}
+ */
+var fetchErrorHandler = function fetchErrorHandler(statusText) {};var fetchReadMore = function fetchReadMore(title, count, containerID, baseURL, showReadMorePagesHandler, saveButtonClickHandler, titlesShownHandler, document) {
+  var xhr = new XMLHttpRequest(); // eslint-disable-line no-undef
+  xhr.open('GET', readMoreQueryURL(title, count, baseURL), true);
+  xhr.onload = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      // eslint-disable-line no-undef
+      if (xhr.status === 200) {
+        showReadMorePagesHandler(JSON.parse(xhr.responseText).query.pages, containerID, saveButtonClickHandler, titlesShownHandler, document);
+      } else {
+        fetchErrorHandler(xhr.statusText);
+      }
+    }
+  };
+  xhr.onerror = function () {
+    return fetchErrorHandler(xhr.statusText);
+  };
+  xhr.send();
+};
+
+/**
+ * Updates save button bookmark icon for saved state.
+ * @param {!HTMLDivElement} button
+ * @param {!boolean} isSaved
+ * @return {void}
+ */
+var updateSaveButtonBookmarkIcon = function updateSaveButtonBookmarkIcon(button, isSaved) {
+  var unfilledClass = 'pagelib_footer_readmore_bookmark_unfilled';
+  var filledClass = 'pagelib_footer_readmore_bookmark_filled';
+  button.classList.remove(filledClass, unfilledClass);
+  button.classList.add(isSaved ? filledClass : unfilledClass);
+};
+
+/**
+ * Updates save button text and bookmark icon for saved state.
+ * @param {!string} title
+ * @param {!string} text
+ * @param {!boolean} isSaved
+ * @param {!Document} document
+ * @return {void}
+*/
+var updateSaveButtonForTitle = function updateSaveButtonForTitle(title, text, isSaved, document) {
+  var saveButton = document.getElementById('' + SAVE_BUTTON_ID_PREFIX + title);
+  saveButton.innerText = text;
+  saveButton.title = text;
+  updateSaveButtonBookmarkIcon(saveButton, isSaved);
+};
+
+/**
+ * Adds 'Read more' for 'title' to 'containerID' element.
+ * Leave 'baseURL' null if you don't need to deal with proxying.
+ * @param {!string} title
+ * @param {!number} count
+ * @param {!string} containerID
+ * @param {?string} baseURL
+ * @param {SaveButtonClickHandler} saveButtonClickHandler
+ * @param {TitlesShownHandler} titlesShownHandler
+ * @param {!Document} document
+ * @return {void}
+ */
+var add$1 = function add(title, count, containerID, baseURL, saveButtonClickHandler, titlesShownHandler, document) {
+  fetchReadMore(title, count, containerID, baseURL, showReadMorePages, saveButtonClickHandler, titlesShownHandler, document);
+};
+
+/**
+ * Sets heading element string.
+ * @param {!string} headingString
+ * @param {!string} headingID
+ * @param {!Document} document
+ * @return {void}
+ */
+var setHeading$1 = function setHeading(headingString, headingID, document) {
+  var headingElement = document.getElementById(headingID);
+  headingElement.innerText = headingString;
+  headingElement.title = headingString;
+};
+
+var FooterReadMore = {
+  add: add$1,
+  setHeading: setHeading$1,
+  updateSaveButtonForTitle: updateSaveButtonForTitle,
+  test: {
+    cleanExtract: cleanExtract,
+    safelyRemoveEnclosures: safelyRemoveEnclosures
+  }
+};
 
 // CSS classes used to identify and present lazily loaded images. Placeholders are members of
 // PLACEHOLDER_CLASS and one state class: pending, loading, or error. Images are members of either
@@ -2151,6 +2843,46 @@ var _class = function () {
   return _class;
 }();
 
+var CLASS$2 = { ANDROID: 'pagelib-platform-android', IOS: 'pagelib-platform-ios'
+
+  // Regular expressions from https://phabricator.wikimedia.org/diffusion/EMFR/browse/master/resources/mobile.startup/browser.js;c89f371ea9e789d7e1a827ddfec7c8028a549c12.
+  /**
+   * @param {!Window} window
+   * @return {!boolean} true if the user agent is Android, false otherwise.
+   */
+};var isAndroid = function isAndroid(window) {
+  return (/android/i.test(window.navigator.userAgent)
+  );
+};
+
+/**
+ * @param {!Window} window
+ * @return {!boolean} true if the user agent is iOS, false otherwise.
+ */
+var isIOs = function isIOs(window) {
+  return (/ipad|iphone|ipod/i.test(window.navigator.userAgent)
+  );
+};
+
+/**
+ * @param {!Window} window
+ * @return {void}
+ */
+var classify = function classify(window) {
+  var html = window.document.querySelector('html');
+  if (isAndroid(window)) {
+    html.classList.add(CLASS$2.ANDROID);
+  }
+  if (isIOs(window)) {
+    html.classList.add(CLASS$2.IOS);
+  }
+};
+
+var PlatformTransform = {
+  CLASS: CLASS$2,
+  classify: classify
+};
+
 /**
  * Configures span to be suitable replacement for red link anchor.
  * @param {!HTMLSpanElement} span The span element to configure as anchor replacement.
@@ -2366,15 +3098,30 @@ var WidenImage = {
 };
 
 var pagelib$1 = {
+  // todo: rename CollapseTableTransform.
   CollapseTable: CollapseTable,
   CompatibilityTransform: CompatibilityTransform,
+  DimImagesTransform: DimImagesTransform,
+  EditTransform: EditTransform,
+  // todo: rename Footer.ContainerTransform, Footer.LegalTransform, Footer.MenuTransform,
+  //       Footer.ReadMoreTransform.
+  FooterContainer: FooterContainer,
+  FooterLegal: FooterLegal,
+  FooterMenu: FooterMenu,
+  FooterReadMore: FooterReadMore,
   LazyLoadTransform: LazyLoadTransform,
   LazyLoadTransformer: _class,
+  PlatformTransform: PlatformTransform,
+  // todo: rename RedLinkTransform.
   RedLinks: RedLinks,
   ThemeTransform: ThemeTransform,
+  // todo: rename WidenImageTransform.
   WidenImage: WidenImage,
   test: {
-    ElementGeometry: ElementGeometry, ElementUtilities: elementUtilities, Polyfill: Polyfill, Throttle: Throttle
+    ElementGeometry: ElementGeometry,
+    ElementUtilities: elementUtilities,
+    Polyfill: Polyfill,
+    Throttle: Throttle
   }
 };
 

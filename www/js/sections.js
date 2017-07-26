@@ -5,6 +5,7 @@ var pagelib = require("wikimedia-page-library");
 var lazyLoadViewportDistanceMultiplier = 2; // Load images on the current screen up to one ahead.
 var lazyLoadTransformer = new pagelib.LazyLoadTransformer(window, lazyLoadViewportDistanceMultiplier);
 
+pagelib.PlatformTransform.classify( window );
 pagelib.CompatibilityTransform.enableSupport( document );
 
 bridge.registerListener( "clearContents", function() {
@@ -142,17 +143,6 @@ function clearContents() {
     window.scrollTo( 0, 0 );
 }
 
-function buildEditSectionButton(id) {
-    var editButtonWrapper = document.createElement( "span" );
-    editButtonWrapper.className = "edit_section_button_wrapper android";
-    var editButton = document.createElement( "a" );
-    editButton.setAttribute( 'data-id', id );
-    editButton.setAttribute( 'data-action', "edit_section" );
-    editButton.className = "edit_section_button android";
-    editButtonWrapper.appendChild( editButton );
-    return editButtonWrapper;
-}
-
 function elementsForSection( section ) {
     var content, lazyDocument;
     var heading = document.createElement( "h" + ( section.toclevel + 1 ) );
@@ -162,7 +152,7 @@ function elementsForSection( section ) {
     heading.className = "section_heading";
     heading.setAttribute( 'data-id', section.id );
 
-    heading.appendChild( buildEditSectionButton( section.id ) );
+    heading.appendChild( pagelib.EditTransform.newEditSectionButton( document, section.id ) );
 
     lazyDocument = document.implementation.createHTMLDocument( );
     content = lazyDocument.createElement( "div" );
@@ -187,7 +177,7 @@ function applySectionTransforms( content, isLeadSection ) {
         clickHandlerSetup.addIPAonClick( content );
     }
 
-    pagelib.ThemeTransform.classifyElements( content ); // client setting
+    pagelib.ThemeTransform.classifyElements( content );
 
     if (!isLeadSection) {
         transformer.transform( "hideRefs", content );
