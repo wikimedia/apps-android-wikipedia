@@ -72,6 +72,8 @@
             android:text="@string/create_account_button"
             style="@style/App.Button.Blue"
             android:enabled="false"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
             android:visibility="gone"
             tools:visibility="visible"
             />
