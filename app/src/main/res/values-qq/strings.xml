@@ -418,6 +418,7 @@
   <string name="offline_compilation_detail_date_size">Information about the date and size of a compilation. The %1$s and %2$.2f symbols will be replaced with the date and size. Only the \"GB\" unit needs to be translated (see storage_size_gb).</string>
   <string name="offline_compilation_detail_button_download">Label for a button for downloading an offline compilation. The %.2f symbol is replaced with the compilation size, in gigabytes (GB).</string>
   <string name="offline_compilation_detail_button_remove">Label for a button for removing an offline compilation from storage on the user\'s device.</string>
+  <string name="remote_compilation_download">Menu label for downloading a selected compilation.</string>
   <string name="storage_size_format">Format specifier where %.2f represents a decimal number with two significant figures to the right of the decimal point.</string>
   <string name="storage_size_gb">Abbreviated form for the unit of a gigabyte.</string>
   <string name="storage_size_free">Label that says how much free space is available on the device. The %.2f symbol is replaced with the number in gigabytes.</string>
@@ -430,6 +431,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Accessibility hint text for a button to pause or resume an offline compilation file download</string>
   <string name="compilation_download_widget_button_cancel_hint">Accessibility hint text for a button to cancel an offline compilation file download</string>
+  <string name="compilation_download_cancel_confirm">Confirmation message asking if the user really wants to cancel the download.</string>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>

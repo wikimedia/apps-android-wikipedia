@@ -6,11 +6,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -23,7 +24,9 @@ import android.widget.ProgressBar;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.gallery.MediaDownloadReceiver;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -38,7 +41,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class RemoteCompilationsFragment extends Fragment {
+public class RemoteCompilationsFragment extends DownloadObserverFragment {
     @BindView(R.id.compilation_list_toolbar_container) CollapsingToolbarLayout toolbarLayout;
     @BindView(R.id.compilation_list_app_bar) AppBarLayout appBarLayout;
     @BindView(R.id.compilation_list_toolbar) Toolbar toolbar;
@@ -83,6 +86,7 @@ public class RemoteCompilationsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
 
         errorView.setRetryClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +103,6 @@ public class RemoteCompilationsFragment extends Fragment {
         });
 
         beginUpdate();
-
         return view;
     }
 
@@ -179,14 +182,49 @@ public class RemoteCompilationsFragment extends Fragment {
         }
     }
 
+    @Override
+    protected void onPollDownloads() {
+        adapter.notifyItemRangeChanged(0, adapter.getItemCount());
+    }
+
     private class CompilationItemHolder extends DefaultViewHolder<PageItemView<Compilation>> {
         private Compilation compilation;
+        private CompilationDownloadControlView controlView;
 
         CompilationItemHolder(PageItemView<Compilation> itemView) {
             super(itemView);
+            controlView = new CompilationDownloadControlView(itemView.getContext());
+            itemView.addFooter(controlView);
+            controlView.setPadding(DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.activity_horizontal_margin)),
+                    DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.list_item_footer_padding)),
+                    DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.activity_horizontal_margin)),
+                    DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.list_item_footer_padding)));
+            controlView.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.inline_onboarding_background_color));
+            controlView.setCallback(new CompilationDownloadControlView.Callback() {
+                @Override
+                public void onCancel() {
+                    getDownloadObserver().remove(compilation);
+                }
+            });
         }
 
         void bindItem(Compilation compilation) {
+            DownloadManagerItem myItem = null;
+            for (DownloadManagerItem item : getCurrentDownloads()) {
+                if (item.is(compilation)) {
+                    myItem = item;
+                    break;
+                }
+            }
+            if (CompilationDownloadControlView.shouldShowControls(myItem)) {
+                controlView.setVisibility(View.VISIBLE);
+                controlView.update(myItem);
+            } else {
+                controlView.setVisibility(View.GONE);
+            }
+            if (compilation == this.compilation) {
+                return;
+            }
             this.compilation = compilation;
             getView().setItem(compilation);
             getView().setTitle(compilation.name());
@@ -243,11 +281,14 @@ public class RemoteCompilationsFragment extends Fragment {
         }
 
         @Override
-        public void onActionClick(@Nullable Compilation item, @NonNull PageItemView view) {
+        public void onActionClick(@Nullable Compilation item, @NonNull View view) {
+            if (item != null) {
+                showCompilationOverflowMenu(item, view);
+            }
         }
 
         @Override
-        public void onSecondaryActionClick(@Nullable Compilation item, @NonNull PageItemView view) {
+        public void onSecondaryActionClick(@Nullable Compilation item, @NonNull View view) {
         }
     }
 
@@ -278,9 +319,23 @@ public class RemoteCompilationsFragment extends Fragment {
     private class CompilationCallback implements CompilationClient.Callback {
         @Override
         public void success(@NonNull List<Compilation> compilations) {
-            allItems = compilations;
-            updating = false;
             OfflineManager.instance().updateFromRemoteMetadata(compilations);
+
+            allItems.clear();
+            for (Compilation remote : compilations) {
+                boolean haveLocal = false;
+                for (Compilation local : OfflineManager.instance().compilations()) {
+                    if (local.pathNameMatchesUri(remote.uri())) {
+                        haveLocal = true;
+                        allItems.add(local);
+                    }
+                }
+                if (!haveLocal) {
+                    allItems.add(remote);
+                }
+            }
+
+            updating = false;
             setSearchQuery(currentSearchQuery);
         }
 
@@ -290,6 +345,24 @@ public class RemoteCompilationsFragment extends Fragment {
             lastError = caught;
             updateEmptyState();
         }
+    }
+
+    private void showCompilationOverflowMenu(@NonNull final Compilation compilation, @NonNull View anchorView) {
+        PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView);
+        menu.getMenuInflater().inflate(R.menu.menu_remote_compilation_item, menu.getMenu());
+        menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.menu_compilation_download:
+                        MediaDownloadReceiver.download(getContext(), compilation);
+                        return false;
+                    default:
+                        return false;
+                }
+            }
+        });
+        menu.show();
     }
 
     private AppCompatActivity getAppCompatActivity() {

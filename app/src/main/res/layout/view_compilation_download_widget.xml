@@ -47,22 +47,13 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/compilation_download_widget_button_pause_resume"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:padding="2dp"
-        android:tint="?attr/feed_text_secondary_color"
-        app:srcCompat="@drawable/ic_pause_white_24px"
-        android:contentDescription="@string/compilation_download_widget_button_pause_resume_hint"/>
-
-    <ImageView
         android:id="@+id/compilation_download_widget_button_cancel"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="2dp"
         android:tint="?attr/feed_text_secondary_color"
         app:srcCompat="@drawable/ic_clear_white_24px"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/compilation_download_widget_button_cancel_hint"/>
 </merge>

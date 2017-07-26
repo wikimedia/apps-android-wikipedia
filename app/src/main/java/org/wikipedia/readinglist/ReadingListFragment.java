@@ -708,7 +708,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
 
         @Override
-        public void onActionClick(@Nullable ReadingListPage page, @NonNull PageItemView view) {
+        public void onActionClick(@Nullable ReadingListPage page, @NonNull View view) {
             if (page == null || readingList == null) {
                 return;
             }
@@ -717,7 +717,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
 
         @Override
-        public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull PageItemView view) {
+        public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull View view) {
             if (page != null) {
                 if (page.isSaving()) {
                     Toast.makeText(getContext(), R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show();

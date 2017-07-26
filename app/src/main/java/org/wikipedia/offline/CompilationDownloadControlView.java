@@ -1,19 +1,23 @@
 package org.wikipedia.offline;
 
 import android.annotation.TargetApi;
+import android.app.DownloadManager;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.content.DialogInterface;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
+import org.wikipedia.util.FeedbackUtil;
+
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,10 +29,19 @@ public class CompilationDownloadControlView extends LinearLayout {
     @BindView(R.id.compilation_download_widget_progress_text) TextView progressText;
     @BindView(R.id.compilation_download_widget_progress_time_remaining) TextView timeRemainingText;
     @BindView(R.id.compilation_download_progress) ProgressBar progressBar;
-    @BindView(R.id.compilation_download_widget_button_pause_resume) ImageView pauseResumeButton;
+    @BindView(R.id.compilation_download_widget_button_cancel) ImageView cancelButton;
 
-    private Compilation comp;
-    private boolean downloading;
+    @Nullable private Callback callback;
+
+    public interface Callback {
+        void onCancel();
+    }
+
+    public static boolean shouldShowControls(@Nullable DownloadManagerItem item) {
+        return item != null && (item.status() == DownloadManager.STATUS_PENDING
+                || item.status() == DownloadManager.STATUS_RUNNING
+                || item.status() == DownloadManager.STATUS_PAUSED);
+    }
 
     public CompilationDownloadControlView(Context context) {
         super(context);
@@ -51,54 +64,54 @@ public class CompilationDownloadControlView extends LinearLayout {
         init();
     }
 
-    void setCompilation(@NonNull Compilation comp) {
-        this.comp = comp;
-        updateViews(0f, 0);
+    public void setCallback(@Nullable Callback callback) {
+        this.callback = callback;
     }
 
-    private void updateViews(float amtDownloaded, int minsRemaining) {
+    public void update(@Nullable DownloadManagerItem item) {
+        if (item == null) {
+            return;
+        }
+        if (item.status() == DownloadManager.STATUS_RUNNING) {
+            progressBar.setIndeterminate(false);
+            progressBar.setProgress((int) (item.bytesDownloaded()
+                    * Constants.PROGRESS_BAR_MAX_VALUE / item.bytesTotal()));
+            timeRemainingText.setVisibility(VISIBLE);
+        } else {
+            progressBar.setIndeterminate(true);
+            timeRemainingText.setVisibility(GONE);
+        }
         progressText.setText(getString(R.string.offline_compilation_download_progress_text,
-                amtDownloaded, bytesToGB(comp.size())));
-        timeRemainingText.setText(getQuantityString(R.plurals.offline_compilation_download_time_remaining,
-                minsRemaining, minsRemaining));
-    }
-
-    @OnClick(R.id.compilation_download_widget_button_pause_resume)
-    void onPlayPauseToggleClicked() {
-        togglePlayPause();
+                bytesToGB(item.bytesDownloaded()), bytesToGB(item.bytesTotal())));
+        long bytesPerMin = item.bytesPerSec() * TimeUnit.MINUTES.toSeconds(1);
+        if (bytesPerMin >= 0) {
+            long minsRemaining = (item.bytesTotal() - item.bytesDownloaded()) / bytesPerMin;
+            timeRemainingText.setText(getQuantityString(R.plurals.offline_compilation_download_time_remaining,
+                    (int) minsRemaining, minsRemaining));
+        }
     }
 
     @OnClick(R.id.compilation_download_widget_button_cancel)
     void onCancelClicked() {
-        // cancelDownload();
-    }
-
-    private void togglePlayPause() {
-        if (downloading) {
-            // pauseDownload();
-        } else {
-            // resumeDownload();
-        }
-        downloading = !downloading;
-        pauseResumeButton.setImageDrawable(downloading ? getPauseIcon() : getResumeIcon());
-        updateProgressBar();
+        new AlertDialog.Builder(getContext())
+                .setMessage(R.string.compilation_download_cancel_confirm)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (callback != null) {
+                            callback.onCancel();
+                        }
+                    }
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
     }
 
     private void init() {
         inflate(getContext(), R.layout.view_compilation_download_widget, this);
         ButterKnife.bind(this);
-    }
-
-    private void updateProgressBar() {
-        progressBar.setIndeterminate(downloading);
-    }
-
-    private Drawable getPauseIcon() {
-        return ContextCompat.getDrawable(getContext(), R.drawable.ic_pause_white_24px);
-    }
-
-    private Drawable getResumeIcon() {
-        return ContextCompat.getDrawable(getContext(), R.drawable.ic_play_arrow_white_24px);
+        progressBar.setMax(Constants.PROGRESS_BAR_MAX_VALUE);
+        FeedbackUtil.setToolbarButtonLongPressToast(cancelButton);
     }
 
     private String getQuantityString(int id, int amt, Object... formatArgs) {

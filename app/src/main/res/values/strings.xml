@@ -472,6 +472,7 @@
     <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
     <string name="offline_compilation_detail_button_download">Download · %.2f GB</string>
     <string name="offline_compilation_detail_button_remove">Remove</string>
+    <string name="remote_compilation_download">Download</string>
     <string name="storage_size_format">%.2f</string>
     <string name="storage_size_gb">GB</string>
     <string name="storage_size_free">%.2f GB free</string>
@@ -484,6 +485,7 @@
     </plurals>
     <string name="compilation_download_widget_button_pause_resume_hint">Pause or resume download</string>
     <string name="compilation_download_widget_button_cancel_hint">Cancel download</string>
+    <string name="compilation_download_cancel_confirm">Are you sure you want to cancel downloading this compilation?</string>
     <!-- /Offline -->
 
     <!-- Onboarding -->

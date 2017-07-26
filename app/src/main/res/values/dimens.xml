@@ -18,6 +18,7 @@
 
     <dimen name="list_item_vertical_padding">16dp</dimen>
     <dimen name="list_item_horizontal_padding">16dp</dimen>
+    <dimen name="list_item_footer_padding">8dp</dimen>
 
     <!-- Default font size for WebView text based on system settings -->
     <dimen name="textSize">16sp</dimen>

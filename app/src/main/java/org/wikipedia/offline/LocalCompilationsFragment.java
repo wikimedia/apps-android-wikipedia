@@ -3,11 +3,11 @@ package org.wikipedia.offline;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,6 +21,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -36,7 +37,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-public class LocalCompilationsFragment extends Fragment {
+public class LocalCompilationsFragment extends DownloadObserverFragment {
     @BindView(R.id.compilation_list_container) View listContainer;
     @BindView(R.id.compilation_list) RecyclerView recyclerView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
@@ -76,6 +77,7 @@ public class LocalCompilationsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
 
         errorView.setBackClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +86,6 @@ public class LocalCompilationsFragment extends Fragment {
             }
         });
 
-        beginUpdate();
         return view;
     }
 
@@ -96,6 +97,7 @@ public class LocalCompilationsFragment extends Fragment {
 
     @Override
     public void onResume() {
+        beginUpdate();
         adapter.notifyDataSetChanged();
         super.onResume();
     }
@@ -133,6 +135,11 @@ public class LocalCompilationsFragment extends Fragment {
         startActivity(RemoteCompilationsActivity.newIntent(getContext()));
     }
 
+    @Override
+    protected void onPollDownloads() {
+        adapter.notifyItemRangeChanged(0, adapter.getItemCount());
+    }
+
     public void onCompilationsRefreshed() {
         updating = false;
         lastError = null;
@@ -143,6 +150,15 @@ public class LocalCompilationsFragment extends Fragment {
         updating = false;
         lastError = t;
         update();
+    }
+
+    private void postBeginUpdate() {
+        listContainer.post(new Runnable() {
+            @Override
+            public void run() {
+                beginUpdate();
+            }
+        });
     }
 
     private void beginUpdate() {
@@ -203,12 +219,50 @@ public class LocalCompilationsFragment extends Fragment {
 
     private class CompilationItemHolder extends DefaultViewHolder<PageItemView<Compilation>> {
         private Compilation compilation;
+        private CompilationDownloadControlView controlView;
+        private boolean wasDownloading;
 
         CompilationItemHolder(PageItemView<Compilation> itemView) {
             super(itemView);
+            controlView = new CompilationDownloadControlView(itemView.getContext());
+            itemView.addFooter(controlView);
+            controlView.setPadding(DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.activity_horizontal_margin)),
+                    DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.list_item_footer_padding)),
+                    DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.activity_horizontal_margin)),
+                    DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.list_item_footer_padding)));
+            controlView.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.inline_onboarding_background_color));
+            controlView.setCallback(new CompilationDownloadControlView.Callback() {
+                @Override
+                public void onCancel() {
+                    getDownloadObserver().remove(compilation);
+                }
+            });
         }
 
         void bindItem(Compilation compilation) {
+            DownloadManagerItem myItem = null;
+            for (DownloadManagerItem item : getCurrentDownloads()) {
+                if (item.is(compilation)) {
+                    myItem = item;
+                    break;
+                }
+            }
+            if (CompilationDownloadControlView.shouldShowControls(myItem)) {
+                controlView.setVisibility(View.VISIBLE);
+                controlView.update(myItem);
+            } else {
+                controlView.setVisibility(View.GONE);
+            }
+            if (myItem == null && wasDownloading) {
+                postBeginUpdate();
+                wasDownloading = false;
+            } else if (myItem != null) {
+                wasDownloading = true;
+            }
+            if (compilation == this.compilation) {
+                return;
+            }
+            wasDownloading = false;
             this.compilation = compilation;
             getView().setItem(compilation);
             getView().setTitle(compilation.name());
@@ -265,11 +319,11 @@ public class LocalCompilationsFragment extends Fragment {
         }
 
         @Override
-        public void onActionClick(@Nullable Compilation item, @NonNull PageItemView view) {
+        public void onActionClick(@Nullable Compilation item, @NonNull View view) {
         }
 
         @Override
-        public void onSecondaryActionClick(@Nullable Compilation item, @NonNull PageItemView view) {
+        public void onSecondaryActionClick(@Nullable Compilation item, @NonNull View view) {
         }
     }
 

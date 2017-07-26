@@ -15,6 +15,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.image.FeaturedImage;
+import org.wikipedia.offline.Compilation;
 import org.wikipedia.util.FileUtil;
 
 import java.io.File;
@@ -32,13 +33,19 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         this.callback = callback;
     }
 
-    public void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
+    public static void download(@NonNull Context context, @NonNull Compilation compilation) {
+        String filename = FileUtil.sanitizeFileName(compilation.uri().getLastPathSegment());
+        String targetDirectory = Environment.DIRECTORY_DOWNLOADS;
+        performDownloadRequest(context, compilation.uri(), targetDirectory, filename, Compilation.MIME_TYPE);
+    }
+
+    public static void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
         String filename = FileUtil.sanitizeFileName(featuredImage.title());
         String targetDirectory = Environment.DIRECTORY_PICTURES;
         performDownloadRequest(context, featuredImage.image().source(), targetDirectory, filename, null);
     }
 
-    public void download(@NonNull Context context, @NonNull GalleryItem galleryItem) {
+    public static void download(@NonNull Context context, @NonNull GalleryItem galleryItem) {
         String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(galleryItem.getName()));
         String targetDirectoryType;
         if (FileUtil.isVideo(galleryItem.getMimeType())) {
@@ -54,7 +61,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
                 saveFilename, galleryItem.getMimeType());
     }
 
-    private void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
+    private static void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
                                         @NonNull String targetDirectoryType,
                                         @NonNull String targetFileName, @Nullable String mimeType) {
         final String targetSubfolderName = WikipediaApp.getInstance().getString(R.string.app_name);
@@ -104,7 +111,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         }
     }
 
-    @NonNull private String trimFileNamespace(@NonNull String filename) {
+    @NonNull private static String trimFileNamespace(@NonNull String filename) {
         return filename.startsWith(FILE_NAMESPACE) ? filename.substring(FILE_NAMESPACE.length()) : filename;
     }
 

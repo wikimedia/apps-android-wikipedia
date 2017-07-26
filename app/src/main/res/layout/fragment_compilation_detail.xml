@@ -44,8 +44,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             style="@style/App.Button.TransparentBlue"
-            android:text="@string/offline_compilation_detail_button_download"
-            android:visibility="gone"/>
+            android:text="@string/offline_compilation_detail_button_download"/>
 
         <!-- Compilation download controls for when download is in progress -->
         <org.wikipedia.offline.CompilationDownloadControlView

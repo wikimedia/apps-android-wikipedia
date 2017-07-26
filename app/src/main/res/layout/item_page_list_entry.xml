@@ -9,7 +9,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/list_item_vertical_padding"
-    android:paddingBottom="@dimen/list_item_vertical_padding"
     android:background="?attr/selectableItemBackground"
     android:gravity="top">
 
@@ -33,7 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/list_item_horizontal_padding"
-        android:layout_marginLeft="@dimen/list_item_horizontal_padding">
+        android:layout_marginLeft="@dimen/list_item_horizontal_padding"
+        android:layout_marginBottom="@dimen/list_item_vertical_padding">
 
         <FrameLayout
             android:id="@+id/page_list_item_image_container"

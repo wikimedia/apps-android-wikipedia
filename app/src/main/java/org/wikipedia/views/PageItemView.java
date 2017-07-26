@@ -32,10 +32,11 @@ public class PageItemView<T> extends FrameLayout {
         void onClick(@Nullable T item);
         boolean onLongClick(@Nullable T item);
         void onThumbClick(@Nullable T item);
-        void onActionClick(@Nullable T item, @NonNull PageItemView view);
-        void onSecondaryActionClick(@Nullable T item, @NonNull PageItemView view);
+        void onActionClick(@Nullable T item, @NonNull View view);
+        void onSecondaryActionClick(@Nullable T item, @NonNull View view);
     }
 
+    @BindView(R.id.page_list_item_container) ViewGroup containerView;
     @BindView(R.id.page_list_item_title) TextView titleView;
     @BindView(R.id.page_list_item_description) TextView descriptionView;
     @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
@@ -104,6 +105,10 @@ public class PageItemView<T> extends FrameLayout {
         }
     }
 
+    public void addFooter(@NonNull View view) {
+        containerView.addView(view);
+    }
+
     @OnClick(R.id.page_list_item_container) void onClick() {
         if (callback != null) {
             callback.onClick(item);
@@ -123,9 +128,9 @@ public class PageItemView<T> extends FrameLayout {
         }
     }
 
-    @OnClick(R.id.page_list_item_action_primary) void onActionClick() {
+    @OnClick(R.id.page_list_item_action_primary) void onActionClick(View v) {
         if (callback != null) {
-            callback.onActionClick(item, this);
+            callback.onActionClick(item, v);
         }
     }
 

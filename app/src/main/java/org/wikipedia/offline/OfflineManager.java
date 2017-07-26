@@ -11,6 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +21,7 @@ public final class OfflineManager {
     @Nullable private CompilationSearchTask searchTask;
     private long lastSearchTime;
     @NonNull private List<Compilation> compilations = new ArrayList<>();
+    @NonNull private List<Compilation> remoteCompilationCache = Collections.emptyList();
 
     public interface Callback {
         void onCompilationsFound(@NonNull List<Compilation> compilations);
@@ -65,6 +67,13 @@ public final class OfflineManager {
                     }
                     c.close();
                 }
+                for (Compilation result : results) {
+                    for (Compilation remote : remoteCompilationCache) {
+                        if (result.pathNameMatchesUri(remote.uri())) {
+                            result.copyMetadataFrom(remote);
+                        }
+                    }
+                }
                 compilations.clear();
                 compilations.addAll(results);
                 Prefs.setCompilationCache(compilations);
@@ -80,10 +89,10 @@ public final class OfflineManager {
     }
 
     void updateFromRemoteMetadata(@NonNull List<Compilation> remoteCompilations) {
-        for (Compilation remoteCompilation : remoteCompilations) {
+        remoteCompilationCache = remoteCompilations;
+        for (Compilation remoteCompilation : remoteCompilationCache) {
             for (Compilation localCompilation : compilations) {
-                if (remoteCompilation.uri() != null
-                        && new File(localCompilation.path()).getName().equals(remoteCompilation.uri().getLastPathSegment())) {
+                if (localCompilation.pathNameMatchesUri(remoteCompilation.uri())) {
                     localCompilation.copyMetadataFrom(remoteCompilation);
                 }
             }

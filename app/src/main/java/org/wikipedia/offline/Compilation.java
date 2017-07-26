@@ -23,6 +23,7 @@ import java.util.List;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 public class Compilation {
+    public static final String MIME_TYPE = "application/zim";
     private static final int COMPRESSION_DICT_SIZE = 2 * 1024 * 1024;
 
     @Nullable private String name;
@@ -91,6 +92,20 @@ public class Compilation {
         timestamp = other.timestamp();
     }
 
+    public boolean pathNameMatchesUri(@Nullable Uri otherUri) {
+        if (file == null || otherUri == null) {
+            return false;
+        }
+        return file.getName().equals(otherUri.getLastPathSegment());
+    }
+
+    public boolean uriNameMatchesUri(@Nullable Uri otherUri) {
+        if (uri == null || otherUri == null) {
+            return false;
+        }
+        return uri.getLastPathSegment().equals(otherUri.getLastPathSegment());
+    }
+
     public void close() {
         try {
             if (reader != null) {
@@ -114,6 +129,10 @@ public class Compilation {
     @NonNull
     public String path() {
         return file != null ? file.getAbsolutePath() : defaultString(path);
+    }
+
+    public boolean existsOnDisk() {
+        return !TextUtils.isEmpty(path());
     }
 
     public long size() {
