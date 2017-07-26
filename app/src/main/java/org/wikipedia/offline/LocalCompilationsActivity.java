@@ -44,6 +44,6 @@ public class LocalCompilationsActivity
 
     @Override
     public void onRequestUpdateCompilations() {
-        updateOfflineCompilations();
+        searchOfflineCompilationsWithPermission(true);
     }
 }

@@ -20,7 +20,6 @@ import org.wikipedia.BackPressedHandler;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
@@ -36,7 +35,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.LocalCompilationsActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -109,9 +107,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                if (!DeviceUtil.isOnline()) {
-                    ((BaseActivity) getActivity()).updateOfflineCompilations();
-                }
                 refresh();
             }
         });
@@ -255,7 +250,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         return false;
     }
 
-    public void onOfflineCompilationsFound() {
+    public void onGoOffline() {
         refresh();
     }
 

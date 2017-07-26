@@ -268,11 +268,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         handleIntent(intent);
     }
 
-    @Override
-    protected void onGoOffline() {
-        searchOfflineCompilationsWithPermission(false);
-    }
-
     private void handleIntent(@NonNull Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
             WikiSite wiki = new WikiSite(intent.getData().getAuthority());
