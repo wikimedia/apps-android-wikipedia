@@ -1,5 +1,6 @@
 package org.wikipedia.offline;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -33,7 +34,9 @@ import static org.wikipedia.util.FileUtil.bytesToGB;
 
 public class CompilationDetailFragment extends Fragment {
     @BindView(R.id.compilation_detail_toolbar) Toolbar toolbar;
+    @BindView(R.id.compilation_detail_header_container) View containerView;
     @BindView(R.id.compilation_detail_header_image) FaceAndColorDetectImageView imageView;
+    @BindView(R.id.compilation_detail_header_gradient) View gradientView;
     @BindView(R.id.view_compilation_info_title) TextView nameView;
     @BindView(R.id.view_compilation_info_date_size) TextView dateSizeView;
     @BindView(R.id.view_compilation_info_summary) TextView summaryView;
@@ -58,8 +61,6 @@ public class CompilationDetailFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
 
         ViewUtil.setTopPaddingDp(toolbar, (int) DimenUtil.getTranslucentStatusBarHeight(getContext()));
-        ViewUtil.setBackgroundDrawable(toolbar, GradientUtil.getCubicGradient(
-                ContextCompat.getColor(getContext(), R.color.lead_gradient_start), Gravity.TOP));
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
@@ -67,12 +68,13 @@ public class CompilationDetailFragment extends Fragment {
         Compilation comp = GsonUnmarshaller.unmarshal(Compilation.class,
                 getActivity().getIntent().getStringExtra(EXTRA_COMPILATION));
 
-        Uri imageUri = comp.thumbUri();
+        Uri imageUri = comp.imageUri();
         int height = imageUri == null ? DimenUtil.getContentTopOffsetPx(getContext()) : leadImageHeightForDevice();
         if (imageUri == null) {
             toolbar.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.main_toolbar_background));
         }
-        DimenUtil.setViewHeight(imageView, height);
+        DimenUtil.setViewHeight(containerView, height);
+        ViewUtil.setBackgroundDrawable(gradientView, GradientUtil.getCubicGradient(Color.BLACK, Gravity.TOP));
 
         imageView.loadImage(imageUri);
         nameView.setText(comp.name());
