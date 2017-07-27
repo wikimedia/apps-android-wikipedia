@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.util.ReleaseUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +32,7 @@ public class ExploreOverflowView extends FrameLayout {
         void donateClick();
     }
 
+    @BindView(R.id.explore_overflow_compilations) View compilationsView;
     @BindView(R.id.explore_overflow_account_name) TextView accountName;
     @BindView(R.id.explore_overflow_log_out) View logout;
     @Nullable private Callback callback;
@@ -90,6 +92,11 @@ public class ExploreOverflowView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_explore_overflow, this);
         ButterKnife.bind(this);
+
+        // TODO: remove when ready
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            compilationsView.setVisibility(GONE);
+        }
 
         if (AccountUtil.isLoggedIn()) {
             accountName.setText(AccountUtil.getUserName());
