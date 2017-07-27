@@ -56,7 +56,7 @@
         <item name="list_item_text_primary_color">@color/list_item_text_primary_dark</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_dark</item>
 
-        <item name="nav_tab_background_color">@color/accent30</item>
+        <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
 
         <item name="overflow_button">@color/dark_gray_overflow_button</item>
