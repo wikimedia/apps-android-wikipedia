@@ -1,7 +1,12 @@
 package org.wikipedia.descriptions;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.onboarding.OnboardingFragment;
@@ -10,6 +15,13 @@ public class DescriptionEditTutorialFragment extends OnboardingFragment {
 
     @NonNull public static DescriptionEditTutorialFragment newInstance() {
         return new DescriptionEditTutorialFragment();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        view.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.onboarding_gradient_background_90));
+        return view;
     }
 
     @Override
