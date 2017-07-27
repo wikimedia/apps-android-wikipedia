@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">Leia o artigo</string>
   <string name="button_add_to_reading_list">Adicionar à lista de leitura</string>
   <string name="page_offline_notice_cannot_load_while_offline">O artigo não pode ser carregado enquanto estiver offline.</string>
-  <string name="page_offline_notice_add_to_reading_list">Adicione o artigo a uma lista de leitura e ele será baixado assim que estiver online novamente.</string>
+  <string name="page_offline_notice_add_to_reading_list">Dica: Adicione o artigo a uma lista de leitura e ele será baixado assim que estiver online novamente.</string>
   <string name="page_offline_notice_last_date">Você está lendo uma versão offline deste artigo salvo em %s.</string>
   <string name="page_offline_notice_compilation_download_date">Você está lendo uma versão offline deste artigo de uma compilação baixada em %s.</string>
   <string name="button_get_directions">Obter itinerário</string>
@@ -422,6 +422,7 @@
   <string name="offline_compilations_found_count">Minhas compilações (%d)</string>
   <string name="offline_compilations_add">Adicionar compilação off-line</string>
   <string name="remote_compilations_title">Todas as compilações</string>
+  <string name="remote_compilations_description">Compilações off-line são grandes pacotes de artigos que podem ser baixados como um arquivo para o seu dispositivo, para que você continue a navegar enquanto estiver offline.</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB grátis</string>

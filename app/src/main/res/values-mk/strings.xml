@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">Прочитајте ја статијата</string>
   <string name="button_add_to_reading_list">Додај во список за читање</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
-  <string name="page_offline_notice_add_to_reading_list">Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
+  <string name="page_offline_notice_add_to_reading_list">Совет: Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
   <string name="page_offline_notice_last_date">Читате вонмрежна верзија на статијава, зачувана на %s.</string>
   <string name="page_offline_notice_compilation_download_date">Читате вонмрежна верзија на статијава од збирка преземена на %s.</string>
   <string name="button_get_directions">Дај насоки</string>
@@ -415,6 +415,7 @@
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно. Обидете се повторно и дајте ја побараната дозвола.</string>
+  <string name="offline_read_permission_error">Прилогот не доби дозвола за читање од складот на уредот.</string>
   <string name="offline_card_text">Сега ја прелистувате Википедија во вонмрежен режим. Имајте на ум дека вонмрежните статии може да не се најтековни.</string>
   <string name="offline_my_compilations">Мои збирки</string>
   <string name="offline_compilations_title">Вонмрежни збирки</string>
@@ -432,7 +433,7 @@
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>
   <string name="onboarding_explore_title">Нови начини на истражување</string>
-  <string name="onboarding_explore_text">Откријте ги избраните статии, актуелните теми и предлозите за читање во каналот „Истражи“.</string>
+  <string name="onboarding_explore_text">Откријте ги избраните статии, тековните изгледи и предлозите за читање во каналот „Истражи“.</string>
   <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
   <string name="onboarding_reading_list_sync_text">Создавајте списоци за читање од статиите што сакате да ги прочитате подоцна, дури и кога немате линија. &lt;a href=\"#login\"&gt;Најавете се или направете&lt;/a&gt; ваша сметка на Википедија за да ги запазите списоците.</string>
   <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>

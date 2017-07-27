@@ -227,7 +227,7 @@
   <string name="button_continue_to_article">Đọc bài</string>
   <string name="button_add_to_reading_list">Thêm vào danh sách đọc</string>
   <string name="page_offline_notice_cannot_load_while_offline">Không thể tải bài viết khi ngoại tuyến</string>
-  <string name="page_offline_notice_add_to_reading_list">Thêm bài viết vào danh sách độc và nó sẽ được tải xuống khi bạn trưc tuyến.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Thêm bài viết vào danh sách độc và nó sẽ được tải xuống khi bạn trưc tuyến.</string>
   <string name="button_get_directions">Chỉ đường</string>
   <string name="error_no_maps_app">Không tìm thấy ứng dụng nào có khả năng chỉ đường.</string>
   <string name="preference_title_show_link_previews">Hiện bản xem trước</string>

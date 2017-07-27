@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">阅读条目</string>
   <string name="button_add_to_reading_list">添加至阅读列表</string>
   <string name="page_offline_notice_cannot_load_while_offline">条目不能在离线时加载。</string>
-  <string name="page_offline_notice_add_to_reading_list">添加条目至阅读列表，这样当您恢复在线时它将自动被下载。</string>
+  <string name="page_offline_notice_add_to_reading_list">提示：添加条目至阅读列表，这样当您恢复在线时它将自动被下载。</string>
   <string name="page_offline_notice_last_date">您正在阅读该条目的离线版本，其保存于%s。</string>
   <string name="page_offline_notice_compilation_download_date">您正在阅读此条目的离线版本，其从%s下载并汇编而来。</string>
   <string name="button_get_directions">路线导航</string>
@@ -415,6 +415,7 @@
   <string name="description_edit_revert_reason2">您的贡献看起来像是试验或破坏。</string>
   <string name="description_edit_revert_history">如果您感兴趣，可查看&lt;a href=\"%1$s\"&gt;编辑历史&lt;/a&gt;。</string>
   <string name="offline_read_permission_rationale">需要访问您设备存储的权限才能离线浏览。请重试，并授予请求的权限。</string>
+  <string name="offline_read_permission_error">未授予读取来自设备存储内容的权限。</string>
   <string name="offline_card_text">您正在使用离线模式浏览维基百科。请注意离线条目可能不完全像在线版本那样是最新的。</string>
   <string name="offline_my_compilations">我的汇编</string>
   <string name="offline_compilations_title">离线汇编</string>

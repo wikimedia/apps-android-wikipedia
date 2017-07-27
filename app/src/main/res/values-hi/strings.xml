@@ -234,7 +234,7 @@
   <string name="button_continue_to_article">लेख पढ़ें</string>
   <string name="button_add_to_reading_list">पठन सूची में जोड़ें</string>
   <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
-  <string name="page_offline_notice_add_to_reading_list">लेख को अपनी रीडिंग लिस्ट में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">लेख को अपनी रीडिंग लिस्ट में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
   <string name="page_offline_notice_last_date">आप %s पर सहेजे गए लेख का ऑफ़लाइन वर्ज़न पढ़ रहे हैं।</string>
   <string name="button_get_directions">दिशानिर्देश पाएं</string>
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>

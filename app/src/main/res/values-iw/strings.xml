@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">לקרוא את הערך</string>
   <string name="button_add_to_reading_list">הוספה לרשימת קריאה</string>
   <string name="page_offline_notice_cannot_load_while_offline">אי־אפשר לטעון ערך ללא חיבור לרשת.</string>
-  <string name="page_offline_notice_add_to_reading_list">הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
+  <string name="page_offline_notice_add_to_reading_list">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
   <string name="page_offline_notice_compilation_download_date">זוהי גרסה שמיועדת לקריאה ללא חיבור לרשת מתוך מהדורה שהוּרדה ב־%s.</string>
   <string name="button_get_directions">לקבל כיוונים</string>
@@ -414,6 +414,20 @@
   <string name="description_edit_revert_reason2">העריכה שלך נראתה כמו ניסוי או השחתה.</string>
   <string name="description_edit_revert_history">אם זה מעניין אותך, ר\' את &lt;a href=\"%1$s\"&gt;היסטוריית העריכות&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת. נא לנסות שוב ולתת את ההרשאה המבוקשת.</string>
+  <string name="offline_read_permission_error">לא ניתנה הרשאה לקרוא מאחסון המכשיר.</string>
+  <string name="offline_card_text">עכשיו אתם מדפדפים בוויקיפדיה ללא חיבור לרשת. נא לשים לב לכך שייתכן שערכים שנשמרו לקריאה ללא חיבור לרשת אינם מעודכנים כמו הגרסה שלהם ברשת.</string>
+  <string name="offline_my_compilations">האוסָפים שלי</string>
+  <string name="offline_compilations_title">אוסָפים לקריאה ללא חיבור לרשת</string>
+  <string name="offline_compilations_search_by_name">חיפוש אוסָפים לפי שם</string>
+  <string name="offline_compilations_found_count">האוסָפים שלי (%d)</string>
+  <string name="offline_compilations_add">הוספת אוסף לקריאה ללא חיבור לרשת</string>
+  <string name="remote_compilations_title">כל האוסָפים</string>
+  <string name="remote_compilations_description">אוסָפים לקריאה ללא חיבור לרשת הם חבילות גדולות של ערכים שאפשר להוריד כקובץ אחד למכשיר שלך כדי שיהיה אפשר לקרוא אותם ללא חיבור לרשת.</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">ג\"ב</string>
+  <string name="storage_size_free">%.2f ג\"ב פנויים</string>
+  <string name="storage_used_by_compilations">בשימוש ויקיפדיה</string>
+  <string name="storage_other_apps">אפליקציות אחרות</string>
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>

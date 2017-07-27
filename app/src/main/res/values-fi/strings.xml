@@ -236,7 +236,7 @@
   <string name="button_continue_to_article">Lue artikkeli</string>
   <string name="button_add_to_reading_list">Lisää lukuluetteloon</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelia ei voida ladata offline-tilassa.</string>
-  <string name="page_offline_notice_add_to_reading_list">Lisää artikkeli lukuluetteloon ja se ladataan laitteeseesi, kun muodostat seuraavan kerran yhteyden verkkoon.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Lisää artikkeli lukuluetteloon ja se ladataan laitteeseesi, kun muodostat seuraavan kerran yhteyden verkkoon.</string>
   <string name="page_offline_notice_last_date">Luet tämän artikkelin yhteydettömän tilan versiota, joka tallennettiin %s.</string>
   <string name="button_get_directions">Hae reittiohjeet</string>
   <string name="error_no_maps_app">Yhtäkään reittiohjeita tarjoavaa sovellusta ei löytynyt</string>

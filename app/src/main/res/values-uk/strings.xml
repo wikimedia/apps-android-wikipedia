@@ -223,7 +223,7 @@
   <string name="button_continue_to_article">Читати статтю</string>
   <string name="button_add_to_reading_list">Додати до списку для читання</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статтю неможливо завантажити, перебуваючи поза мережею.</string>
-  <string name="page_offline_notice_add_to_reading_list">Додайте статтю до списку для читання, і її буде завантажено, як тільки Ви отримаєте доступ до мережі.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Додайте статтю до списку для читання, і її буде завантажено, як тільки Ви отримаєте доступ до мережі.</string>
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>

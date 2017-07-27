@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">Läs artikeln</string>
   <string name="button_add_to_reading_list">Lägg till i läslista</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikeln kan inte läsas in i offlineläge.</string>
-  <string name="page_offline_notice_add_to_reading_list">Lägg till artikeln i en läslista och den kommer att laddas ned så fort du blir online igen.</string>
+  <string name="page_offline_notice_add_to_reading_list">Tips: Lägg till artikeln i en läslista och den kommer att laddas ned så fort du blir online igen.</string>
   <string name="page_offline_notice_last_date">Du läser en offlineversion av denna artikel som sparades den %s.</string>
   <string name="page_offline_notice_compilation_download_date">Du läser en offlineversion av denna artikel från en sammanställning som laddades ned den %s.</string>
   <string name="button_get_directions">Få vägbeskrivningar</string>
@@ -415,6 +415,7 @@
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline. Försök igen och bevilja behörigheten.</string>
+  <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
   <string name="offline_card_text">Du läser nu Wikipedia i offlineläge. Observera att offlineartiklar kanske inte är uppdaterade med onlineversionen.</string>
   <string name="offline_my_compilations">Mina samlingar</string>
   <string name="offline_compilations_title">Offlinesamlingar</string>

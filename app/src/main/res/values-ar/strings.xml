@@ -233,7 +233,7 @@
   <string name="button_continue_to_article">اقرأ المقالة</string>
   <string name="button_add_to_reading_list">أضف إلى قائمة القراءة</string>
   <string name="page_offline_notice_cannot_load_while_offline">لا يمكن تحميل المقالة في حالة عدم الاتصال.</string>
-  <string name="page_offline_notice_add_to_reading_list">أضف المقالة إلى قائمة قراءة وسيتم تنزيلها حينما تعاود الاتصال بالشبكة.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">أضف المقالة إلى قائمة قراءة وسيتم تنزيلها حينما تعاود الاتصال بالشبكة.</string>
   <string name="page_offline_notice_last_date">أنت تقرأ نسخةً من هذه المقالة بوضع عدم الاتصال تم حفظها في %s.</string>
   <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>

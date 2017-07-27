@@ -199,7 +199,7 @@
   <string name="button_continue_to_article">Skaityti straipsnį</string>
   <string name="button_add_to_reading_list">Įtraukti į skaitymo sąrašą</string>
   <string name="page_offline_notice_cannot_load_while_offline">Neprisijungus, įrašas negali būti įkeltas.</string>
-  <string name="page_offline_notice_add_to_reading_list">Pridėkite straipsnį prie skaitomų sąrašo ir jis bus pakrautas kai vėl prisijungsite.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Pridėkite straipsnį prie skaitomų sąrašo ir jis bus pakrautas kai vėl prisijungsite.</string>
   <string name="button_get_directions">Gauti kryptis</string>
   <string name="error_no_maps_app">Nepavyko rasti jokių programėlių, kurios suteikia kryptis.</string>
   <string name="preference_title_show_link_previews">Rodyti nuorodos peržiūras</string>

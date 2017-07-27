@@ -236,7 +236,7 @@
   <string name="button_continue_to_article">Maddeyi oku</string>
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
   <string name="page_offline_notice_cannot_load_while_offline">Madde çevrimdışıyken yüklenemez.</string>
-  <string name="page_offline_notice_add_to_reading_list">Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
   <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrim dışı sürümünü okuyorsunuz.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
@@ -295,6 +295,7 @@
   <string name="reading_list_menu_delete">Listeyi sil</string>
   <string name="reading_list_menu_rename">Yeniden adlandır</string>
   <string name="reading_list_menu_edit_description">Tanımı düzenle</string>
+  <string name="reading_list_action_menu_add_to_another_list">Başka bir listeye ekle</string>
   <string name="reading_list_name_sample">Okuma listem</string>
   <string name="reading_list_name_hint">Bu listenin adı</string>
   <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>

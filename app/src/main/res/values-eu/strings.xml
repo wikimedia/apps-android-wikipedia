@@ -200,6 +200,7 @@
   <string name="address_copied">Helbidea klip-erretilura kopiatua.</string>
   <string name="text_copied">Testua klip-erretilura kopiatua.</string>
   <string name="button_continue_to_article">Artikulua irakurri</string>
+  <string name="page_offline_notice_add_to_reading_list">Pista: artikulua irakurteka zerrendara gehitu eta konexioa duzunean jaitsiko da.</string>
   <string name="page_offline_notice_compilation_download_date">%s-eko jaitsitako bildumaren konexio gabeko artikulu bat irakurtzen ari zara.</string>
   <string name="button_get_directions">Helbidea lortu</string>
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
@@ -311,6 +312,7 @@
   <string name="description_edit_help_more_info">Informazio gehiago</string>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
   <string name="offline_read_permission_rationale">Zeure gailuko memorian konexiorik gabe sartzeko baimena. Saiatu berriro eta eman eskatutako baimena, mesedez.</string>
+  <string name="offline_read_permission_error">Ez daukazu baimenik gailuaren memoriatik irakurtzeko.</string>
   <string name="offline_card_text">Orain, Wikipedia konexiorik gabe ikusten ari zara. Jakin ezazu konexiorik gabeko artikuluak eguneratu gabe egon daitezkela.</string>
   <string name="offline_my_compilations">Nire bildumak</string>
   <string name="offline_compilations_title">Konexiorik gabeko bilduma</string>

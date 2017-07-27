@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">Lleer el artículu</string>
   <string name="button_add_to_reading_list">Añadir a llista de llectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">Nun pué cargase l\'artículu en tando sin conexón.</string>
-  <string name="page_offline_notice_add_to_reading_list">Añade l\'artículu a una llista de llectura y se descargará en coneutando.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Añade l\'artículu a una llista de llectura y se descargará en coneutando.</string>
   <string name="page_offline_notice_last_date">Tas lleyendo una versión sin conexón d\'esti artículu guardada el %s.</string>
   <string name="page_offline_notice_compilation_download_date">Tas lleyendo una versión sin conexón d\'esti artículu d\'una compilación descargada el %s.</string>
   <string name="button_get_directions">Recibir indicaciones</string>

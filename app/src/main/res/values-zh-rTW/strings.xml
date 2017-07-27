@@ -125,7 +125,7 @@
   <string name="edit_preview_fetching_dialog_message">取得預覽中…</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
-  <string name="preferences_heading_storage_and_syncing">儲存和同步</string>
+  <string name="preferences_heading_storage_and_syncing">儲存庫和同步</string>
   <string name="preference_title_sync_reading_lists">同步閱讀清單</string>
   <string name="preference_summary_sync_reading_lists">允許當您登入時讓維基媒體同步您的閱讀清單</string>
   <string name="preferences_privacy_settings_heading">隱私</string>
@@ -208,7 +208,7 @@
   <string name="gallery_save_progress">正在下載檔案…</string>
   <string name="gallery_save_success">已成功儲存檔案。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>
-  <string name="gallery_save_image_write_permission_rationale">需要寫入您的裝置儲存的權限方能儲存圖片。請重試並授予要求的權限。</string>
+  <string name="gallery_save_image_write_permission_rationale">需要寫入您的裝置儲存庫的權限方能儲存圖片。請重試並授予要求的權限。</string>
   <string name="err_cannot_save_file">無法儲存檔案</string>
   <string name="snippet_share_intro">\"%1$s\" 於 @Wikipedia：%2$s</string>
   <string name="expand_refs">輕觸展開</string>
@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">閱讀條目</string>
   <string name="button_add_to_reading_list">新增至閱讀清單</string>
   <string name="page_offline_notice_cannot_load_while_offline">條目不能在離線時載入。</string>
-  <string name="page_offline_notice_add_to_reading_list">將條目新增至閱讀清單，令您可在返回線上時下載。</string>
+  <string name="page_offline_notice_add_to_reading_list">提示：將條目新增至閱讀清單，令您可在返回線上時下載。</string>
   <string name="page_offline_notice_last_date">您正閱讀此條目儲存於 %s 的離線版本。</string>
   <string name="page_offline_notice_compilation_download_date">您正閱讀此條目來自下載於%s的匯編離線版本。</string>
   <string name="button_get_directions">取得路線</string>
@@ -331,7 +331,7 @@
   <string name="reading_list_sync_reminder_action">啟動</string>
   <string name="reading_list_login_reminder_title">同步閱讀清單</string>
   <string name="reading_list_login_reminder_text">您的閱讀清單現在可被儲存至您的維基百科帳號。只要您有登入帳號，您的閱讀清單就可自動同步。</string>
-  <string name="reading_lists_confirm_remote_delete">這將會刪除之前來自於遠端儲存設備的任何已同步閱讀清單。確定要處理嗎？</string>
+  <string name="reading_lists_confirm_remote_delete">這將會刪除之前來自於遠端儲存庫設備的任何已同步閱讀清單。確定要處理嗎？</string>
   <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">此條目現可離線閱讀。</item>
@@ -414,7 +414,8 @@
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質的，或是有心破壞。</string>
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
-  <string name="offline_read_permission_rationale">需要可在您裝置上存取的權限才能離線瀏覽。請重試，並授與要求的權限。</string>
+  <string name="offline_read_permission_rationale">需要可在您裝置上儲存庫的權限才能離線瀏覽。請重試，並授與要求的權限。</string>
+  <string name="offline_read_permission_error">未授予從裝置儲存庫讀取的權限。</string>
   <string name="offline_card_text">您正以離線模式瀏覽維基百科。請注意離線條目可能不是目前線上版本的最新內容。</string>
   <string name="offline_my_compilations">我的匯編</string>
   <string name="offline_compilations_title">離線匯編</string>
@@ -422,7 +423,7 @@
   <string name="offline_compilations_found_count">我的匯編（%d）</string>
   <string name="offline_compilations_add">添加離線匯編</string>
   <string name="remote_compilations_title">所有匯編</string>
-  <string name="remote_compilations_description">離線匯編是將大筆條目弄成如同可下載的檔案；至您的裝置裡，這可讓您在離線時能繼續瀏覽。</string>
+  <string name="remote_compilations_description">離線匯編是將大筆條目弄成如同可下載的檔案存至您的裝置裡，這可讓您在離線時能繼續瀏覽。</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB 可用</string>
@@ -434,7 +435,7 @@
   <string name="onboarding_explore_title">探索的新方法</string>
   <string name="onboarding_explore_text">在探索訊息來源裡發掘特色條目、熱門主題，和閱讀建議。</string>
   <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
-  <string name="onboarding_reading_list_sync_text">從條目創建閱讀清單可讓您於事後閱讀；即使您是在離線的狀態之下。&lt;a href=\"#login\"&gt;登入或創建&lt;/a&gt;您的維基百科帳號以維持您的閱讀清單備份。</string>
+  <string name="onboarding_reading_list_sync_text">從條目建立閱讀清單可讓您於事後閱讀；即使您是在離線的狀態之下。&lt;a href=\"#login\"&gt;登入或建立&lt;/a&gt;您的維基百科帳號以維持您的閱讀清單備份。</string>
   <string name="onboarding_analytics_title">寄送匿名資料</string>
   <string name="onboarding_analytics_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>

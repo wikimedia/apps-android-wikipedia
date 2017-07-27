@@ -226,7 +226,7 @@
   <string name="button_continue_to_article">လူပွင်ႈလိၵ်ႈ</string>
   <string name="button_add_to_reading_list">ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆလူ</string>
   <string name="page_offline_notice_cannot_load_while_offline">ၽွင်းဢမ်ႇမီးၼႅင်ႈ ပွင်ႈလိၵ်ႈၼႆႉ ဢမ်ႇၸၢင်ႈပိုတ်ႇၼႄ</string>
-  <string name="page_offline_notice_add_to_reading_list">ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆလူ​သေ ပေႃးၵပ်းၺႃးသၢႆၼႅင်ႈ မၼ်းတေလူတ်ႇလူင်းပၼ်ၵႂႃႇယူႇ။</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆလူ​သေ ပေႃးၵပ်းၺႃးသၢႆၼႅင်ႈ မၼ်းတေလူတ်ႇလူင်းပၼ်ၵႂႃႇယူႇ။</string>
   <string name="button_get_directions">ဢဝ် တၢင်းၵႂႃႇ</string>
   <string name="error_no_maps_app">ဢမ်ႇႁၼ်မႅၼ်ႈၺႃး ဢႅပ်ႉ ဢၼ်တေၵမ်ႉထႅမ်ပၼ် တၢင်းၵႂႃႇ။</string>
   <string name="preference_title_show_link_previews">ၼႄပၼ် ႁဵင်းၵွင်ႉတူၺ်းထႃႈ</string>

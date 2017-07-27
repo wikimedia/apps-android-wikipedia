@@ -240,6 +240,8 @@
   <string name="description_edit_tutorial_button_label_continue">ಮುಂದುವರೆಸಾಲೆ</string>
   <string name="description_edit_help_about_title">ಎಂಕ್ಲೆನ ಬಗ್ಗೆ</string>
   <string name="description_edit_help_tips_examples">ಉದಾಹರಣೆಗ್</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">GB</string>
   <string name="onboarding_skip">ಬುಡ್ಲೆ</string>
   <string name="onboarding_continue">ಮುಂದುವರೆಸಾಲೆ</string>
 </resources>

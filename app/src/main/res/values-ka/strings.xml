@@ -311,4 +311,5 @@
   <string name="description_edit_help_tips_example1">ლეონარდო და ვინჩის ნახატი</string>
   <string name="description_edit_help_tips_example2">დედამიწის უმაღლესი მწვერვალი</string>
   <string name="description_edit_help_more_info">მეტი ინფორმაცია</string>
+  <string name="remote_compilations_title">ყველა კომპილაცია</string>
 </resources>

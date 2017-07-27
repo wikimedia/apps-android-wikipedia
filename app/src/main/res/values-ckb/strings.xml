@@ -233,7 +233,7 @@
   <string name="button_continue_to_article">خوێندنەوەی وتار</string>
   <string name="button_add_to_reading_list">زیادکردن بۆ پێڕستی خوێندنەوە</string>
   <string name="page_offline_notice_cannot_load_while_offline">وتارەکە ناتواندرێت بھێندرێت بەبێ ئینتەرنێت</string>
-  <string name="page_offline_notice_add_to_reading_list">وتارەکە زیاد بکە پێڕستی خوێندنەوەت، دواتر دادەگیرێت کە بە ئینتەرنێتەوە ئاپەکەت بەکارھێنا.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">وتارەکە زیاد بکە پێڕستی خوێندنەوەت، دواتر دادەگیرێت کە بە ئینتەرنێتەوە ئاپەکەت بەکارھێنا.</string>
   <string name="page_offline_notice_last_date">تۆ وەشانێکی بێ ئینتەرنێتی ئەم وتارە دەخوێنیتەوە کە پاشەکەوتکراوە لە %s.</string>
   <string name="button_get_directions">وەرگرتنی ئاڕاستەکان</string>
   <string name="error_no_maps_app">ھیچ ئاپێک نەدۆزرایەوە کە ئاڕاستەکان دابین بکات.</string>

@@ -235,7 +235,7 @@
   <string name="button_continue_to_article">নিবন্ধ পড়ুন</string>
   <string name="button_add_to_reading_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="page_offline_notice_cannot_load_while_offline">নিবন্ধ অফলাইনে থাকাকালীন সময়ে লোড করা যাবে না।</string>
-  <string name="page_offline_notice_add_to_reading_list">নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
   <string name="button_get_directions">দিক নির্দেশনা পান</string>
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
@@ -395,5 +395,8 @@
   <string name="offline_compilations_search_by_name">নাম অনুযায়ী সংকলিত বিষয় সন্ধান করুন</string>
   <string name="offline_compilations_found_count">আমার সংকলিত বিষয় (%d)</string>
   <string name="offline_compilations_add">অফলাইনের সংকলিত বিষয় যোগ করুন</string>
+  <string name="storage_size_format">%.2f</string>
+  <string name="storage_size_gb">জিবি</string>
+  <string name="storage_used_by_compilations">উইকিপিডিয়া দ্বারা ব্যবহৃত</string>
   <string name="onboarding_skip">এড়ান</string>
 </resources>

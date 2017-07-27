@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">Artigo lido</string>
   <string name="button_add_to_reading_list">Engadir á lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">O artigo non se pode cargar mentres non haxa conexión.</string>
-  <string name="page_offline_notice_add_to_reading_list">Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
+  <string name="page_offline_notice_add_to_reading_list">Pistaː Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
   <string name="page_offline_notice_last_date">Está lendo unha versión sen conexión deste artigo gardado o %s.</string>
   <string name="page_offline_notice_compilation_download_date">Está lendo unha versión sen conexión deste artigo, dunha recompilación descargada o %s.</string>
   <string name="button_get_directions">Obter as direccións</string>
@@ -421,6 +421,8 @@
   <string name="offline_compilations_search_by_name">Procurar compilacións por nome</string>
   <string name="offline_compilations_found_count">As miñas recompilacións(%d)</string>
   <string name="offline_compilations_add">Engadir recompilacións sen conexión</string>
+  <string name="remote_compilations_title">Tódalas recompilacións</string>
+  <string name="remote_compilations_description">As recompilacións sen conexión son grandes grupos de artigos que poden descargarse como un ficheiro ó seu dispositivo, para que poida continuar navegando cando non teña conexión.</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB libres</string>

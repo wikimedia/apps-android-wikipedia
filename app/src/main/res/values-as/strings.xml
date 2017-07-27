@@ -43,6 +43,7 @@
   <string name="nearby_distance_in_kilometers">%.2f কি:মি:</string>
   <string name="nearby_zoom_to_location">মানচিত্ৰত এটা অৱস্থান ডাঙৰকৈ চাওক</string>
   <string name="last_updated_text">%s তাৰিখে সৰ্বশেষ আপডে\'ট</string>
+  <string name="bottom_content_date_downloaded">%s ডাউনল\'ড হৈছে</string>
   <string name="talk_page_link_text">আলোচনা</string>
   <string name="content_license_html">আন একো উল্লেখ নকৰিলে এই সমল &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ৰ আওতাত উপলব্ধ</string>
   <string name="edit_save_action_license_logged_in">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
@@ -85,9 +86,14 @@
   <string name="toast_logout_complete">প্ৰস্থান হ\'ল</string>
   <string name="history_empty_title">কোনো শেহতীয়াকৈ পঢ়া পৃষ্ঠা নাই</string>
   <string name="history_empty_message">আপুনি ইয়াত কি পঢ়িছে সেয়া অনুসৰণ কৰক।</string>
+  <string name="search_empty_message">আপোনাৰ ভাষাত মুক্ত বিশ্বকোষ সন্ধান কৰক আৰু পঢ়ক</string>
   <string name="delete_selected_items">নিৰ্বাচিত আইটেম বিলোপ কৰক</string>
   <string name="wp_stylized">&lt;big&gt;ৱি&lt;/big&gt;কিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">সদস্যনাম</string>
+  <string name="login_dont_have_account">কোনো একাউণ্ট নাই?</string>
+  <string name="login_join_wikipedia">ৱিকিপিডিয়াত যোগ দিয়ক</string>
+  <string name="login_forgot_password">আপোনাৰ গুপ্তশব্দ পাহৰিছে?</string>
+  <string name="create_account_already_have">ইতিমধ্যে এটা একাউণ্ট আছে?</string>
   <string name="create_account_login_link">ইতিমধ্যে এটা একাউণ্ট আছে? প্ৰৱেশ কৰক</string>
   <string name="login_create_account_link">কোনো একাউণ্ট নাই? ৱিকিপিডিয়াত যোগ দিয়ক</string>
   <string name="create_account_activity_title">এটা একাউণ্ট সৃষ্টি কৰক</string>
@@ -97,6 +103,7 @@
   <string name="create_account_passwords_mismatch_error">গুপ্তশব্দ মিলা নাই</string>
   <string name="create_account_email_error">অগ্ৰহণযোগ্য ইমেইল ঠিকনা</string>
   <string name="create_account_username_error">সদস্যনামত অবৈধ চিহ্ন আছে</string>
+  <string name="create_account_password_error">গুপ্তশব্দটো ভুল</string>
   <string name="create_account_generic_error">একাউণ্ট সৃষ্টি কৰিব পৰা নগ\'ল</string>
   <string name="create_account_next">পৰৱৰ্তী</string>
   <string name="create_account_button">একাউণ্ট সৃষ্টি কৰক</string>
@@ -223,7 +230,7 @@
   <string name="button_continue_to_article">প্ৰবন্ধটো পঢ়ক</string>
   <string name="button_add_to_reading_list">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="page_offline_notice_cannot_load_while_offline">অফলাইন থাকিল প্ৰবন্ধ ল\'ড কৰিব নোৱাৰি।</string>
-  <string name="page_offline_notice_add_to_reading_list">প্ৰবন্ধটো পঢ়া তালিকাত যোগ দিয়ক আৰু আপুনি অনলাইন হ\'লেই এইটো ডাউনল\'ড হ\'ব।</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">প্ৰবন্ধটো পঢ়া তালিকাত যোগ দিয়ক আৰু আপুনি অনলাইন হ\'লেই এইটো ডাউনল\'ড হ\'ব।</string>
   <string name="button_get_directions">দিক্‌নিৰ্দেশনা পাওক</string>
   <string name="error_no_maps_app">দিক্‌নিৰ্দেশনা দিয়া কোনো এপ্‌ পোৱা নগ\'ল।</string>
   <string name="preference_title_show_link_previews">সংযোগ প্ৰাক্‌দৰ্শন দেখুৱাওক</string>
@@ -272,6 +279,9 @@
   <string name="reading_list_menu_delete">তালিকা বিলোপ কৰক</string>
   <string name="reading_list_menu_rename">পুনৰ নামাকৰণ</string>
   <string name="reading_list_menu_edit_description">বৰ্ণনা সম্পাদনা কৰক</string>
+  <string name="reading_list_action_menu_remove_from_offline">অফলাইনৰ পৰা আঁতৰাওক</string>
+  <string name="reading_list_action_menu_save_for_offline">অফলাইনৰ বাবে সাঁচি থওক</string>
+  <string name="reading_list_action_menu_add_to_another_list">আন এখন তালিকাত যোগ দিয়ক</string>
   <string name="reading_list_name_sample">মোৰ পঢ়া তালিকা</string>
   <string name="reading_list_name_hint">এই তালিকাৰ নাম</string>
   <string name="reading_list_description_hint">বিৱৰণ (বৈকল্পিক)</string>
@@ -343,4 +353,17 @@
   <string name="description_edit_help_tips_example1">লিঅ\'নাৰ্ড\' ডা ভিঞ্চিয়ে অঁকা চিত্ৰ</string>
   <string name="description_edit_help_more_info">অধিক তথ্য</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
+  <string name="offline_my_compilations">মোৰ সংকলন</string>
+  <string name="offline_compilations_title">অফলাইন সংকলন</string>
+  <string name="offline_compilations_search_by_name">নাম অনুযায়ী সংকলন সন্ধান কৰক</string>
+  <string name="offline_compilations_found_count">মোৰ সংকলন (%d)</string>
+  <string name="offline_compilations_add">অফলাইন সংকলন যোগ কৰক</string>
+  <string name="remote_compilations_title">সকলো সংকলন</string>
+  <string name="storage_used_by_compilations">ৱিকিপিডিয়াৰ দ্বাৰা ব্যৱহৃত</string>
+  <string name="storage_other_apps">আন এপ্লিকেছনসমূহ</string>
+  <string name="onboarding_skip">এৰি যাওক</string>
+  <string name="onboarding_continue">অব্যাহত ৰাখক</string>
+  <string name="onboarding_get_started">আৰম্ভ কৰক</string>
+  <string name="onboarding_create_account_contributions">আপোনাৰ বৰঙণিৰ হিচাপ ৰাখক</string>
+  <string name="onboarding_create_account_preferences">আপোনাৰ পছন্দসমূহ সাঁচি থওক</string>
 </resources>

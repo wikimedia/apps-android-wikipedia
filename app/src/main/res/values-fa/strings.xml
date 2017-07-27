@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">مطالعهٔ مقاله</string>
   <string name="button_add_to_reading_list">افزودن به فهرست مطالعه</string>
   <string name="page_offline_notice_cannot_load_while_offline">امکان بارگیری مقاله در حالت آفلاین وجود ندارد.</string>
-  <string name="page_offline_notice_add_to_reading_list">افزودن مقاله به فهرست خواندن و زمانی که برخط شدید، دانلود خواهد شد.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">افزودن مقاله به فهرست خواندن و زمانی که برخط شدید، دانلود خواهد شد.</string>
   <string name="page_offline_notice_last_date">شما در حال خواندن نسخهٔ آفلاین مقاله هستید که بر روی %s ذخیره شده‌است.</string>
   <string name="page_offline_notice_compilation_download_date">در حال مطالعهٔ نسخهٔ آفلاین این مقاله از گردآوری بارگیری شده %s هستید.</string>
   <string name="button_get_directions">دریافت مسیر</string>

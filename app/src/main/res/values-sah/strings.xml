@@ -230,7 +230,7 @@
   <string name="button_continue_to_article">Ыстатыйаны ааҕыы</string>
   <string name="button_add_to_reading_list">Ааҕыы испииһэгэр эп</string>
   <string name="page_offline_notice_cannot_load_while_offline">Интэриниэтэ суох кыайан хачайдаммат ыстатыйа эбит.</string>
-  <string name="page_offline_notice_add_to_reading_list">Ыстатыйаны ааҕар испииһэккэр киллэрдэххинэ, ситим баар буолла да хачайданыа.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Ыстатыйаны ааҕар испииһэккэр киллэрдэххинэ, ситим баар буолла да хачайданыа.</string>
   <string name="page_offline_notice_last_date" fuzzy="true">Эн биллибэт автор статьятын ааҕаҕыт %s</string>
   <string name="button_get_directions">Суолу салҕаа</string>
   <string name="error_no_maps_app">Суолу хайар биир да баайыл көстүбэтэ.</string>

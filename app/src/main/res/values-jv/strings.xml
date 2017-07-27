@@ -237,9 +237,9 @@
   <string name="button_continue_to_article">Waca artikel</string>
   <string name="button_add_to_reading_list">Tambah nyang pratélan wacan</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikel ora bisa dimot nalika ing njaban jaringan.</string>
-  <string name="page_offline_notice_add_to_reading_list">Tambah artikel nyang pratélan wacan lan iku bakal kaundhuh nalika panjenengan bali nyang njeron jaringan.</string>
+  <string name="page_offline_notice_add_to_reading_list">Pasemon: Tambah artikel nyang pratélan wacan lan artikelé bakal kaundhuh nalika panjenengan bali nyang njeron jaringan.</string>
   <string name="page_offline_notice_last_date">Panjenengan lagi maca vèrsi njaban jaringan artikel iki sing disimpen nalika %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Panjenengan maca versi luring artikel iki saka kompilasi sing diunduh tanggal %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Panjenengan pinuju maca vèrsi njaban jaringané artikel iki saka kompilasi sing diundhuh nalika %s.</string>
   <string name="button_get_directions">Golèk lor-kidul</string>
   <string name="error_no_maps_app">Ora bisa nemokaké apa aplikasi sing nyedhiyani pituduh.</string>
   <string name="preference_title_show_link_previews">Tampilake cuplikan pranala</string>
@@ -298,8 +298,8 @@
   <string name="reading_list_menu_rename">Ganti jeneng</string>
   <string name="reading_list_menu_edit_description">Besut katerangan</string>
   <string name="reading_list_action_menu_remove_from_offline">Busak saka njaban jaringan</string>
-  <string name="reading_list_action_menu_save_for_offline">Simpen kanggo njaban jaringan</string>
-  <string name="reading_list_action_menu_add_to_another_list">Tambah menyang dhaptar liyane</string>
+  <string name="reading_list_action_menu_save_for_offline">Simpen kanggo ing njaban jaringan</string>
+  <string name="reading_list_action_menu_add_to_another_list">Tambah menyang pratélan liyané</string>
   <string name="reading_list_name_sample">Pratélan wacanku</string>
   <string name="reading_list_name_hint">Jenengé pratélan iki</string>
   <string name="reading_list_description_hint">Katerangan (manasuka)</string>
@@ -414,18 +414,20 @@
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi panjenengan kapandeng kaya pacoban utawa vandalisme.</string>
   <string name="description_edit_revert_history">Yèn panjenengan ngrenani, delengen &lt;a href=\"%1$s\"&gt;sajarahé besutan&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Idin kanggo ngakses panyimpenan ing piranti panjenengan dibutuhake kanggo njelajah njaban jaringan. Mangga dicoba manèh, lan diwenehi ijin sing dijaluk.</string>
-  <string name="offline_card_text">Panjenengan saiki nelusuri Wikipedia ing mode luring. Elinga yen artikel luring bisa uga ora dianyari kanthi cepet ing versi daring.</string>
-  <string name="offline_my_compilations">Kompilasi kula</string>
-  <string name="offline_compilations_title">Kompilasi luring</string>
-  <string name="offline_compilations_search_by_name">Nggolek kompilasi kanthi jeneng</string>
-  <string name="offline_compilations_found_count">Kompilasi kula (%d)</string>
-  <string name="offline_compilations_add">Tambah kompilasi luring</string>
+  <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan. Jajalen manèh, lan wènèhana idin sing dijaluk.</string>
+  <string name="offline_card_text">Panjenengan pinuju ngluru Wikipédia ing njaban jaringan. Éling-élingen yèn artikel njaban jaringan bokmanawa ora saanyar sing ana ing njeron jaringan.</string>
+  <string name="offline_my_compilations">Kompilasiné kula</string>
+  <string name="offline_compilations_title">Kompilasi njaban jaringan</string>
+  <string name="offline_compilations_search_by_name">Golèk kompilasi miturut jenengé</string>
+  <string name="offline_compilations_found_count">Kompilasiné kula (%d)</string>
+  <string name="offline_compilations_add">Tambah kompilasi njaban jaringan</string>
+  <string name="remote_compilations_title">Kabèh kompilasi</string>
+  <string name="remote_compilations_description">Kompilasi Jaban Jaringan iku bundhelan artikel gedhé sing bisa diundhuh dadi sabarkas menyang pirantiné panjenengan, supaya panjenengan bisa panggah ngluru nalika ing njaban jaringan.</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
-  <string name="storage_size_free">%.2f GB bebas</string>
-  <string name="storage_used_by_compilations">digunakake dening Wikipedia</string>
-  <string name="storage_other_apps">Aplikasi liyane</string>
+  <string name="storage_size_free">%.2f GB kosong</string>
+  <string name="storage_used_by_compilations">dienggo déning Wikipédia</string>
+  <string name="storage_other_apps">Aplikasi liyané</string>
   <string name="onboarding_skip">Langkahi</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>

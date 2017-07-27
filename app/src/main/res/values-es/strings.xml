@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">Leer artículo</string>
   <string name="button_add_to_reading_list">Añadir a lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">El artículo no se puede cargar mientras no haya conexión.</string>
-  <string name="page_offline_notice_add_to_reading_list">Añade el artículo a una lista de lactura y se descargará cuando te vuelvas a conectar.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Añade el artículo a una lista de lactura y se descargará cuando te vuelvas a conectar.</string>
   <string name="page_offline_notice_last_date">Estás leyendo una versión sin conexión de este artículo guardada el %s.</string>
   <string name="page_offline_notice_compilation_download_date">Estás leyendo una versión sin conexión de este artículo de una recopilación descargada el %s.</string>
   <string name="button_get_directions">Obtener indicaciones</string>

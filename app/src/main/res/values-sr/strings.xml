@@ -226,7 +226,7 @@
   <string name="button_continue_to_article">Прочитај чланак</string>
   <string name="button_add_to_reading_list">Додај на списак за читање</string>
   <string name="page_offline_notice_cannot_load_while_offline">Чланак не може да се учита офлајн.</string>
-  <string name="page_offline_notice_add_to_reading_list">Додај чланак на списак читања; биће преузет када будете поново онлајн.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Додај чланак на списак читања; биће преузет када будете поново онлајн.</string>
   <string name="button_get_directions">Преузми путању</string>
   <string name="error_no_maps_app">Не могу да пронађем апликације које преузимају путању.</string>
   <string name="preference_title_show_link_previews">Прегледи веза</string>

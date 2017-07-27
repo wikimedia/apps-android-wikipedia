@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">Baca rencana</string>
   <string name="button_add_to_reading_list">Tambahkan ke senarai bacaan</string>
   <string name="page_offline_notice_cannot_load_while_offline">Rencana tidak boleh dimuatkan semasa di luar talian.</string>
-  <string name="page_offline_notice_add_to_reading_list">Menambah rencana ke senarai bacaan dan ia akan dimuat turun apabila anda kembali dalam talian.</string>
+  <string name="page_offline_notice_add_to_reading_list">Petunjuk: Menambah rencana ke senarai bacaan dan ia akan dimuat turun apabila anda kembali dalam talian.</string>
   <string name="page_offline_notice_last_date">Anda membaca versi luar talian artikel ini disimpan pada %s.</string>
   <string name="page_offline_notice_compilation_download_date">Anda sedang membaca versi luar talian rencana ini dari kompilasi yang dimuat turun pada %s.</string>
   <string name="button_get_directions">Tunjuk jalan</string>
@@ -401,7 +401,7 @@
   <string name="description_edit_help_about_title">Perihal</string>
   <string name="description_edit_help_description">Huraian tajuk meringkaskan rencana untuk membantu pembaca memahami subjek dengan pantas.</string>
   <string name="description_edit_help_tips">Petua untuk menciptakan huraian</string>
-  <string name="description_edit_help_tips_description">Huraian ideal harus muat pada satu baris, dan di antara dua hingga dua belas perkataan panjang. Huraian tidak dipermodalkan kecuali perkataan pertama adalah kata nama khas.</string>
+  <string name="description_edit_help_tips_description">Huraian ideal harus muat pada satu baris, dan antara dua hingga dua belas perkataan panjang. Huraian tidak ditulis dalam huruf besar kecuali perkataan pertamanya ialah kata nama khas.</string>
   <string name="description_edit_help_tips_examples">Sebagai contoh:</string>
   <string name="description_edit_help_tips_example1">lukisan oleh Leonardo da Vinci</string>
   <string name="description_edit_help_tips_example1_hint">huraian tajuk untuk rencana mengenai Mona Lisa</string>
@@ -421,6 +421,8 @@
   <string name="offline_compilations_search_by_name">Cari kompilasi mengikut nama</string>
   <string name="offline_compilations_found_count">Kompilasi saya (%d)</string>
   <string name="offline_compilations_add">Tambah kompilasi luar talian</string>
+  <string name="remote_compilations_title">Semua kompilasi</string>
+  <string name="remote_compilations_description">Kompilasi Luar Talian adalah kumpulan besar rencana yang boleh dimuat turun sebagai satu fail ke peranti anda, jadi anda boleh terus menyemak imbas semasa di luar talian.</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB bebas</string>

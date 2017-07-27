@@ -236,7 +236,7 @@
   <string name="button_continue_to_article">Pročitaj članak</string>
   <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
-  <string name="page_offline_notice_add_to_reading_list">Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
   <string name="page_offline_notice_last_date">Čitate vanmrežnu verziju članka, sačuvanu na %s.</string>
   <string name="button_get_directions">Dobij uputstva</string>
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>

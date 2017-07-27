@@ -234,7 +234,7 @@
   <string name="button_continue_to_article">Lenn ar pennad</string>
   <string name="button_add_to_reading_list">Ouzhpennañ d\'ar roll lenn</string>
   <string name="page_offline_notice_cannot_load_while_offline">N\'haller ket kargañ ar pennad pa vezet ezlinenn.</string>
-  <string name="page_offline_notice_add_to_reading_list">Ouzhpennit ar pennad d\'ur roll lenn hag e vo pellgarget kentañ tro ma viot enlinenn.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Ouzhpennit ar pennad d\'ur roll lenn hag e vo pellgarget kentañ tro ma viot enlinenn.</string>
   <string name="page_offline_notice_last_date">Emaoc\'h o lenn un doare ezlinenn savetaet d\'an %s</string>
   <string name="button_get_directions">Kaout an tuioù</string>
   <string name="error_no_maps_app">Ne c\'haller kavout arload ebet hag a ro tuioù.</string>

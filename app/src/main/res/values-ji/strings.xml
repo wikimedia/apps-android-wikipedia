@@ -7,11 +7,14 @@
   <string name="yes">יא</string>
   <string name="no">ניין</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
+  <string name="search_hint_search_history">זוך־היסטאריע</string>
+  <string name="search_hint_search_my_lists">זוכן מיינע ליסטעס</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="page_error_back_to_main">צוריקגיין</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
+  <string name="history_item_deleted">%s אראפגענומען פון היסטאריע</string>
   <string name="history_item_delete_undo">צוריקשטעלן</string>
   <string name="page_does_not_exist_error">דער בלאט עקזיסטירט נישט.</string>
   <string name="dialog_title_clear_history">אפראמען בלעטערן היסטאריע</string>
@@ -38,6 +41,7 @@
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_zoom_to_location">פֿארגרעסערן צו א לאקאציע אויף דער מאפע</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
+  <string name="bottom_content_date_downloaded">אַראָפגעלאָדן %s</string>
   <string name="talk_page_link_text">רעדן</string>
   <string name="content_license_html">אינהאלט איז פֿאראן אונטער &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; אחוץ ווען געוויזן אנדערשט</string>
   <string name="preference_title_language">וויקיפעדיע־שפראך</string>
@@ -72,6 +76,8 @@
   <string name="wp_stylized">&lt;big&gt;וו&lt;/big&gt;יקיפעדי&lt;big&gt;ע&lt;/big&gt;</string>
   <string name="create_account_username_hint">באַניצער נאָמען</string>
   <string name="login_dont_have_account">איר האט נישט קיין קאנטע?</string>
+  <string name="login_forgot_password">פֿאַרגעסן אײַער פאַסווארט?</string>
+  <string name="create_account_already_have">האסטו שוין א קאנטע?</string>
   <string name="create_account_login_link">איר האט שוין א קאנטע? לאגירט אריין</string>
   <string name="login_create_account_link">איר האט נישט קיין קאנטע?טרעט ארײַן מיט וויקיפעדיע</string>
   <string name="create_account_activity_title">שאַפֿן אַ קאנטע</string>
@@ -80,6 +86,7 @@
   <string name="create_account_password_repeat_hint">איבערחזרען פאסווארט</string>
   <string name="create_account_passwords_mismatch_error">פאסווערטער שטימען נישט</string>
   <string name="create_account_email_error">אומגילטיקער ע־פאסט אדרעס</string>
+  <string name="create_account_password_error">דאס פאסווארט איז אומגילטיק</string>
   <string name="create_account_generic_error">מען קען נישט באשאפֿן קאנטע</string>
   <string name="create_account_next">נעקסט</string>
   <string name="create_account_button">שאַפֿן אַ קאנטע</string>
@@ -188,7 +195,7 @@
   <string name="nav_item_reading_lists">מיינע ליסטעס</string>
   <string name="reading_list_sort">סארטירן</string>
   <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">ליידיג פלאץ!</string>
+  <string name="reading_lists_onboarding_example3">קאסמאס אויספֿארשונג</string>
   <string name="reading_lists_onboarding_got_it">פארשטאנען</string>
   <string name="user_option_sync_label">פרעפֿערענצן</string>
   <string name="view_featured_image_card_download">אַראָפלאָדן</string>

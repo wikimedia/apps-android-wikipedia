@@ -230,7 +230,7 @@
   <string name="button_continue_to_article">Baca artikel</string>
   <string name="button_add_to_reading_list">Tambahkeun kana daptar bacaan</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikel teu bisa dimuat mun keur luring.</string>
-  <string name="page_offline_notice_add_to_reading_list">Tambahkeun ieu artikel kana daptar bacaan sangkan bisa diundeur saupamana balik deui onlén.</string>
+  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Tambahkeun ieu artikel kana daptar bacaan sangkan bisa diundeur saupamana balik deui onlén.</string>
   <string name="button_get_directions">Beunangkeun pituduh arah</string>
   <string name="error_no_maps_app">Teu bisa manggihan aplikasi nu méré pituduh arah.</string>
   <string name="preference_title_show_link_previews">Témbongkeun pramidang tutumbu</string>
