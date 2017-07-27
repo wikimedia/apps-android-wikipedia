@@ -18,7 +18,7 @@ bridge.registerListener( "handleReference", function( payload ) {
     handleReference( payload.anchor, false );
 });
 
-function handleReference( targetId, backlink ) {
+function handleReference( targetId, backlink, linkText ) {
     var targetElem = document.getElementById( targetId );
     if ( targetElem === null ) {
         console.log( "reference target not found: " + targetId );
@@ -28,7 +28,7 @@ function handleReference( targetId, backlink ) {
             if ( refTexts.length > 0 ) {
                 targetElem = refTexts[0];
             }
-            bridge.sendMessage( 'referenceClicked', { "ref": targetElem.innerHTML } );
+            bridge.sendMessage( 'referenceClicked', { "ref": targetElem.innerHTML, "linkText": linkText } );
         } catch (e) {
             targetElem.scrollIntoView();
         }
@@ -62,7 +62,7 @@ document.onclick = function() {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
-                handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
+                handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ), sourceNode.textContent );
             } else if (sourceNode.classList.contains( 'app_media' )) {
                 bridge.sendMessage( 'mediaClicked', { "href": href } );
             } else if (sourceNode.classList.contains( 'image' )) {
