@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+JENKINS_TOOLS_DIR="/srv/jenkins-workspace/tools"
+
+ANDROID_HOME="${1:-$JENKINS_TOOLS_DIR/android-sdk}"
+
+if [ ! -d "${ANDROID_HOME}" ]; then
+  if [ ! -d "${JENKINS_TOOLS_DIR}" ]; then
+    printf "\n$0: Neither ANDROID_HOME nor Jenkins workspace tools directory found; aborting." >&2
+    exit 1
+  fi
+  printf "\nCreating ANDROID_HOME at ${ANDROID_HOME}.\n" >&2
+  mkdir "${ANDROID_HOME}"
+fi
+
+LICENSE_DIR="${ANDROID_HOME}/licenses"
+
+if [ ! -d "${LICENSE_DIR}" ]; then
+  printf "\nCreating license directory at ${LICENSE_DIR}.\n" >&2
+  mkdir "${LICENSE_DIR}"
+fi
+
+cp -v .sdk/licenses/* "${LICENSE_DIR}"
