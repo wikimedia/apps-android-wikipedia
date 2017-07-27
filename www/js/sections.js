@@ -247,6 +247,11 @@ bridge.registerListener( "displayFromZim", function( payload ) {
 
     var parser = new DOMParser();
     var zimDoc = parser.parseFromString(payload.zimhtml, "text/html");
+    if (!zimDoc) {
+        zimDoc = document.implementation.createHTMLDocument("");
+        zimDoc.documentElement.innerHTML = payload.zimhtml;
+    }
+
     var zimTextNode = zimDoc.getElementById( "mw-content-text" );
     zimTextNode.parentNode.removeChild( zimTextNode );
 

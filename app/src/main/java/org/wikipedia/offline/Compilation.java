@@ -23,6 +23,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Compilation {
+    private static final int COMPRESSION_DICT_SIZE = 2 * 1024 * 1024;
+
     @Nullable private String name;
     @Nullable private Uri uri;
     @Nullable private List<String> langCodes;
@@ -47,6 +49,7 @@ public class Compilation {
         path = file.getAbsolutePath();
         this.file = new ZimFile(path);
         reader = new ZimReader(this.file);
+        reader.setLzmaDictSize(COMPRESSION_DICT_SIZE);
     }
 
     @VisibleForTesting
