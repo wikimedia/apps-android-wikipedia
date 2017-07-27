@@ -30,19 +30,25 @@ import static org.junit.Assert.fail;
  * Tests to make sure that the string resources don't cause any issues. Mainly the goal is to test
  * all translations, but even the default strings are tested.
  *
+ * TODO: We could make this cleaner by leveraging regular expressions.  However, this could be
+ * challenging because how to detect the boundaries of the substring to test against our patterns
+ * may vary by language.  We can't split the string by spaces, for example, because some languages
+ * don't use them.
+ *
  * TODO: check content_license_html is valid HTML
  */
 @RunWith(TestRunner.class) @SuppressWarnings("checkstyle:magicnumber")
 public class TranslationTests {
     private static File RES_BASE = new File("src/main/res/");
 
-    // todo: consider regular expressions.
     private static final String POSSIBLE_PARAM_FLOAT_FIRST = "%1$.2f";
+    private static final String POSSIBLE_PARAM_FLOAT_SECOND = "%2$.2f";
     private static final String POSSIBLE_PARAM_FLOAT_THIRD = "%3$.2f";
 
     /** Add more if needed, but then also add some tests. */
     private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d",
-            "%1$d", "%2$d", "%.2f", POSSIBLE_PARAM_FLOAT_FIRST, POSSIBLE_PARAM_FLOAT_THIRD, "^1"};
+            "%1$d", "%2$d", "%.2f", POSSIBLE_PARAM_FLOAT_FIRST, POSSIBLE_PARAM_FLOAT_SECOND,
+            POSSIBLE_PARAM_FLOAT_THIRD, "^1"};
 
     private static final String[] BAD_NAMES = new String[] {"ldrtl", "sw600dp", "sw720dp", "v19", "v21", "v23"};
 
@@ -113,7 +119,11 @@ public class TranslationTests {
                 for (Map.Entry<String, String> entry : hasFloatFirstParams.entrySet()) {
                     float input = 1.23f;
                     String expected = NumberFormat.getInstance(locale).format(input);
-                    testTranslation(lang, entry, expected, input);
+                    if (entry.getValue().contains(POSSIBLE_PARAM_FLOAT_SECOND)) {
+                        testTranslation(lang, entry, expected, input, input);
+                    } else {
+                        testTranslation(lang, entry, expected, input);
+                    }
                 }
                 for (Map.Entry<String, String> entry : hasFloatThirdParams.entrySet()) {
                     float input = 1.23f;
