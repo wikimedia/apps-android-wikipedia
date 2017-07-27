@@ -43,6 +43,7 @@ import org.wikipedia.richtext.ParagraphSpan;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.AppTextView;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
@@ -370,7 +371,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
         public void updateDrawState(TextPaint ds) {
             super.updateDrawState(ds);
             ds.setColor(getColor(TextUtils.isEmpty(subtitle)
-                    ? R.color.foundation_blue : R.color.dark_gray));
+                    ? ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent) : R.color.dark_gray));
             ds.setUnderlineText(false);
         }
     }

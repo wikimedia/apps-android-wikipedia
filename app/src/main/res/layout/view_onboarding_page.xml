@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:parentTag="LinearLayout"
     tools:orientation="vertical"
-    tools:background="@drawable/onboarding_gradient_background"
+    tools:background="@drawable/onboarding_gradient_background_135"
     tools:layout_width="match_parent"
     tools:layout_height="match_parent">
 
@@ -29,8 +29,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:minHeight="240dp"
-        android:paddingTop="24dp"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">
 
@@ -87,11 +85,12 @@
                 android:background="@color/white_translucent_40"/>
         </LinearLayout>
 
-        <org.wikipedia.views.GoneIfEmptyTextView
+        <TextView
             android:id="@+id/view_onboarding_page_tertiary_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="16dp"
             android:layout_gravity="center|bottom"
             android:text="@string/description_edit_tutorial_promise"
             android:textAlignment="center"

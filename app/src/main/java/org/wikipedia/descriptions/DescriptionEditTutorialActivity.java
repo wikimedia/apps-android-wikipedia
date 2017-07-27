@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.onboarding.OnboardingFragment;
-import org.wikipedia.util.ResourceUtil;
 
 public class DescriptionEditTutorialActivity
         extends SingleFragmentActivity<DescriptionEditTutorialFragment>
@@ -20,7 +19,7 @@ public class DescriptionEditTutorialActivity
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.main_status_bar_color));
+        setStatusBarColor(R.color.green30);
     }
 
     @Override public void onComplete() {
