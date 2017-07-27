@@ -4,26 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/darkest_gray"
-    android:orientation="vertical">
+    android:background="?attr/bottom_sheet_background_color"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_border" />
+    <org.wikipedia.views.AppTextView
+        android:id="@+id/reference_title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/RtlAwareTextView"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="?attr/feed_text_primary_color"
+        tools:text="Reference [1]"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/list_separator_light" />
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/reference_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         style="@style/RtlAwareTextView"
         android:layout_gravity="start|center_vertical"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:textIsSelectable="true"
-        tools:text="Reference text"
-        android:textColor="@color/foundation_gray"
+        android:textColor="?attr/feed_text_primary_color"
         android:textColorLink="?attr/colorAccent"
-        android:textSize="18sp"
-        android:lineSpacingMultiplier="1.4" />
+        android:textSize="16sp"
+        android:lineSpacingMultiplier="1.4"
+        tools:text="Reference text"/>
 
 </LinearLayout>

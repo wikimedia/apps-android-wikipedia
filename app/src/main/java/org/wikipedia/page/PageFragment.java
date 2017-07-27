@@ -32,6 +32,7 @@ import android.widget.TextView;
 
 import com.appenguin.onboarding.ToolTip;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
@@ -1102,12 +1103,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge.addListener("linkClicked", linkHandler);
 
         bridge.addListener("referenceClicked", new ReferenceHandler() {
-            @Override protected void onReferenceClicked(String refHtml) {
+            @Override
+            protected void onReferenceClicked(@NonNull String refHtml, @Nullable String refLinkText) {
                 if (!isAdded()) {
                     Log.d("PageFragment", "Detached from activity, so stopping reference click.");
                     return;
                 }
-                showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml));
+                showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml,
+                        StringUtils.defaultString(refLinkText)));
             }
         });
         bridge.addListener("ipaSpan", new CommunicationBridge.JSEventListener() {
