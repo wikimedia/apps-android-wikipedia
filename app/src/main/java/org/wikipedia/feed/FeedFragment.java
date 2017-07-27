@@ -74,6 +74,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeaturedImageSelected(FeaturedImageCard card);
         void onLoginRequested();
         @NonNull View getOverflowMenuAnchor();
+        void updateToolbarElevation(boolean elevate);
     }
 
     @NonNull public static FeedFragment newInstance() {
@@ -140,6 +141,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
         });
 
+        feedHeader.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_color));
+        if (getCallback() != null) {
+            getCallback().updateToolbarElevation(shouldElevateToolbar());
+        }
+
         return view;
     }
 
@@ -147,6 +153,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         if (feedAdapter != null && feedAdapter.getItemPosition(card) > -1) {
             feedAdapter.notifyItemChanged(feedAdapter.getItemPosition(card));
         }
+    }
+
+    public boolean shouldElevateToolbar() {
+        return searchIconVisible;
     }
 
     @Override
@@ -426,6 +436,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             if (shouldShowSearchIcon != searchIconVisible) {
                 searchIconVisible = shouldShowSearchIcon;
                 getActivity().supportInvalidateOptionsMenu();
+                if (getCallback() != null) {
+                    getCallback().updateToolbarElevation(shouldElevateToolbar());
+                }
             }
         }
     }
