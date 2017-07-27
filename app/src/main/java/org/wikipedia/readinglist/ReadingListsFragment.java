@@ -116,6 +116,7 @@ public class ReadingListsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        maybeShowOnboarding();
         updateLists();
     }
 
@@ -411,7 +412,6 @@ public class ReadingListsFragment extends Fragment {
     private class SyncReminderOnboardingCallback implements OnboardingView.Callback {
         @Override
         public void onPositiveAction() {
-            Prefs.setReadingListSyncReminderEnabled(false);
             startActivity(SettingsActivity.newIntent(getContext()));
         }
 
@@ -425,7 +425,6 @@ public class ReadingListsFragment extends Fragment {
     private class LoginReminderOnboardingCallback implements OnboardingView.Callback {
         @Override
         public void onPositiveAction() {
-            Prefs.setReadingListLoginReminderEnabled(false);
             if (getParentFragment() instanceof FeedFragment.Callback) {
                 ((FeedFragment.Callback) getParentFragment()).onLoginRequested();
             }
