@@ -3,6 +3,7 @@ package org.wikipedia.feed.view;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -66,6 +67,11 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
 
     @Override public void onViewAttachedToWindow(DefaultViewHolder<T> holder) {
         super.onViewAttachedToWindow(holder);
+        if (holder.getView() instanceof SearchCardView) {
+            StaggeredGridLayoutManager.LayoutParams layoutParams
+                    = (StaggeredGridLayoutManager.LayoutParams) holder.getView().getLayoutParams();
+            layoutParams.setFullSpan(true);
+        }
         holder.getView().setCallback(callback);
         if (callback != null) {
             callback.onShowCard(holder.getView().getCard());
