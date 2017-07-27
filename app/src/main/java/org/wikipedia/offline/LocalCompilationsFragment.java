@@ -248,8 +248,10 @@ public class LocalCompilationsFragment extends Fragment {
 
     private class ItemCallback implements PageItemView.Callback<Compilation> {
         @Override
-        public void onClick(@Nullable Compilation item) {
-            startActivity(CompilationDetailActivity.newIntent(getContext()));
+        public void onClick(@Nullable Compilation comp) {
+            if (comp != null) {
+                startActivity(CompilationDetailActivity.newIntent(getContext(), comp));
+            }
         }
 
         @Override

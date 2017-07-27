@@ -227,7 +227,9 @@ public class RemoteCompilationsFragment extends Fragment {
     private class ItemCallback implements PageItemView.Callback<Compilation> {
         @Override
         public void onClick(@Nullable Compilation item) {
-            startActivity(CompilationDetailActivity.newIntent(getContext()));
+            if (item != null) {
+                startActivity(CompilationDetailActivity.newIntent(getContext(), item));
+            }
         }
 
         @Override

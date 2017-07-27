@@ -21,9 +21,9 @@ import java.io.File;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DiskUsageView extends LinearLayout {
-    private static final int KILOBYTE = 1000;
+import static org.wikipedia.util.FileUtil.bytesToGB;
 
+public class DiskUsageView extends LinearLayout {
     @BindView(R.id.view_disk_usage_size_text) TextView sizeText;
     @BindView(R.id.view_disk_usage_text_app) TextView usageAppText;
     @BindView(R.id.view_disk_usage_text_free) TextView usageFreeText;
@@ -92,9 +92,5 @@ public class DiskUsageView extends LinearLayout {
     private void setDotTint(@NonNull View dotView, @AttrRes int id) {
         ViewCompat.setBackgroundTintList(dotView, new ColorStateList(new int[][]{new int[]{}},
                 new int[]{ResourceUtil.getThemedColor(getContext(), id)}));
-    }
-
-    private float bytesToGB(long bytes) {
-        return (float) bytes / KILOBYTE / KILOBYTE / KILOBYTE;
     }
 }

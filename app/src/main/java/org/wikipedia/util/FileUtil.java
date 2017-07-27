@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 
 public final class FileUtil {
     public static final int JPEG_QUALITY = 85;
+    private static final int KILOBYTE = 1000;
 
     public static long physicalToLogicalSize(long physical, long blockSize) {
         if (physical == 0) {
@@ -95,6 +96,11 @@ public final class FileUtil {
 
     public static boolean isImage(String mimeType) {
         return mimeType.contains("image");
+    }
+
+
+    public static float bytesToGB(long bytes) {
+        return (float) bytes / KILOBYTE / KILOBYTE / KILOBYTE;
     }
 
     private FileUtil() { }
