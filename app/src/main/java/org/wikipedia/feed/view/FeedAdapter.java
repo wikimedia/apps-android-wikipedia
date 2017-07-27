@@ -7,6 +7,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.R;
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
@@ -18,6 +19,7 @@ import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.offline.OfflineCompilationCardView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -68,9 +70,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     @Override public void onViewAttachedToWindow(DefaultViewHolder<T> holder) {
         super.onViewAttachedToWindow(holder);
         if (holder.getView() instanceof SearchCardView) {
-            StaggeredGridLayoutManager.LayoutParams layoutParams
-                    = (StaggeredGridLayoutManager.LayoutParams) holder.getView().getLayoutParams();
-            layoutParams.setFullSpan(true);
+            adjustSearchView((SearchCardView) holder.getView());
         }
         holder.getView().setCallback(callback);
         if (callback != null) {
@@ -81,6 +81,19 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     @Override public void onViewDetachedFromWindow(DefaultViewHolder<T> holder) {
         holder.getView().setCallback(null);
         super.onViewDetachedFromWindow(holder);
+    }
+
+    private void adjustSearchView(@NonNull SearchCardView view) {
+        StaggeredGridLayoutManager.LayoutParams layoutParams
+                = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
+        layoutParams.setFullSpan(true);
+        int extraWidth = ((View) view.getParent()).getWidth()
+                - DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.search_box_max_width));
+        if (extraWidth > 0) {
+            layoutParams.leftMargin = extraWidth / 2;
+            layoutParams.rightMargin = layoutParams.leftMargin;
+            view.setLayoutParams(layoutParams);
+        }
     }
 
     @Override public int getItemViewType(int position) {
