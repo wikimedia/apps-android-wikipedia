@@ -2,9 +2,10 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/compilation_detail_background_color">
+    android:background="?attr/inline_onboarding_background_color">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,13 +13,26 @@
         android:orientation="vertical">
 
         <!-- Height set dynamically based on device properties -->
-        <org.wikipedia.views.FaceAndColorDetectImageView
-            style="@style/SimpleDraweeViewPlaceholder"
-            android:id="@+id/compilation_detail_header_image"
-            app:actualImageScaleType="fitCenter"
-            app:fadeDuration="0"
+        <FrameLayout
+            android:id="@+id/compilation_detail_header_container"
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_height="240dp"
+            android:background="?attr/window_background_color">
+
+            <org.wikipedia.views.FaceAndColorDetectImageView
+                style="@style/SimpleDraweeViewPlaceholder"
+                android:id="@+id/compilation_detail_header_image"
+                app:actualImageScaleType="fitCenter"
+                app:fadeDuration="0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <View
+                android:id="@+id/compilation_detail_header_gradient"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </FrameLayout>
 
         <include layout="@layout/include_compilation_info"/>
 
@@ -51,7 +65,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <TextView
                 android:id="@+id/button_compilation_detail_remove"
@@ -67,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 style="@style/App.Button.Blue"
-                android:text="@string/offline_compilation_detail_button_view_compilations"/>
+                android:text="@string/offline_my_compilations"/>
         </LinearLayout>
 
     </LinearLayout>

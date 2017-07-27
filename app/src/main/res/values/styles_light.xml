@@ -41,7 +41,6 @@
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
-        <item name="compilation_detail_background_color">@color/compilation_detail_background_light</item>
         <!-- TODO: rename? -->
         <item name="lead_image_drawable">@drawable/lead_default</item>
         <item name="lead_text_color">@color/lead_text_light</item>
