@@ -71,7 +71,6 @@ import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
-import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ActiveTimer;
@@ -153,7 +152,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
     @Nullable private PageInfo pageInfo;
-    private boolean pageSavedToList;
 
     /**
      * List of tabs, each of which contains a backstack of page titles.
@@ -218,7 +216,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageActionTab.Callback pageActionTabsCallback = new PageActionTab.Callback() {
         @Override
         public void onAddToReadingListTabSelected() {
-            if (pageSavedToList) {
+            if (model.isInReadingList()) {
                 new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
                     @Override
                     public void onAddRequest(@Nullable ReadingListPage page) {
@@ -665,6 +663,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         model.setTitle(title);
         model.setTitleOriginal(title);
         model.setCurEntry(entry);
+        model.setReadingListPage(null);
 
         updateProgressBar(true, true, 0);
 
@@ -688,24 +687,20 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void updateBookmark() {
+        if (!isAdded()) {
+            return;
+        }
+        pageActionTabsCallback.updateBookmark(model.isInReadingList());
+    }
+
+    public void updateBookmarkFromDao() {
         ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
                 new CallbackTask.DefaultCallback<ReadingListPage>() {
                     @Override public void success(@Nullable ReadingListPage page) {
                         if (!isAdded()) {
                             return;
                         }
-                        if (page != null) {
-                            pageActionTabsCallback.updateBookmark(true);
-                            page.touch();
-                            ReadingListPageDao.instance().upsert(page);
-                            if (page.isOffline()) {
-                                // TODO: mark the page outdated only if the revision ID from the server
-                                // is newer than the one on disk.
-                                ReadingListPageDao.instance().markOutdated(page);
-                            }
-                        } else {
-                            pageActionTabsCallback.updateBookmark(false);
-                        }
+                        pageActionTabsCallback.updateBookmark(page != null);
                     }
                 });
     }
@@ -1007,7 +1002,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
-        pageSavedToList = pageSaved;
         TabLayout.Tab bookmarkTab = tabLayout.getTabAt(PageActionTab.ADD_TO_READING_LIST.code());
         if (bookmarkTab != null) {
             bookmarkTab.setIcon(pageSaved ? R.drawable.ic_bookmark_white_24dp

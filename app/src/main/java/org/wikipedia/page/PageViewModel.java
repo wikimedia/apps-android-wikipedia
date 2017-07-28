@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.readinglist.page.ReadingListPage;
 
 /**
  * Shared data between PageFragment and PageFragmentLoadState
@@ -12,6 +13,7 @@ class PageViewModel {
     @Nullable private PageTitle title;
     @Nullable private PageTitle titleOriginal;
     @Nullable private HistoryEntry curEntry;
+    @Nullable private ReadingListPage readingListPage;
 
     @Nullable public Page getPage() {
         return page;
@@ -43,5 +45,17 @@ class PageViewModel {
 
     public void setCurEntry(@Nullable HistoryEntry curEntry) {
         this.curEntry = curEntry;
+    }
+
+    public boolean isInReadingList() {
+        return readingListPage != null;
+    }
+
+    public boolean shouldSaveOffline() {
+        return readingListPage != null && readingListPage.isOffline();
+    }
+
+    public void setReadingListPage(@Nullable ReadingListPage page) {
+        readingListPage = page;
     }
 }
