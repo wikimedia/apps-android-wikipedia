@@ -9,9 +9,7 @@ import android.util.LruCache;
 
 import com.dmitrybrant.zimdroid.ZimFile;
 import com.dmitrybrant.zimdroid.ZimReader;
-import com.google.gson.annotations.SerializedName;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.util.log.L;
 
 import java.io.ByteArrayOutputStream;
@@ -22,6 +20,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
+
 public class Compilation {
     private static final int COMPRESSION_DICT_SIZE = 2 * 1024 * 1024;
 
@@ -31,8 +31,8 @@ public class Compilation {
     @Nullable private String summary;
     @Nullable private String description;
     @Nullable private MediaContent media;
-    @SerializedName("thumb_url") @Nullable private Uri thumbUri;
-    @SerializedName("image_url") @Nullable private Uri imageUri;
+    @Nullable private Image thumb;
+    @Nullable private Image featureImage;
     private int count;
     private long size; // bytes
     private long timestamp;
@@ -63,15 +63,15 @@ public class Compilation {
     @SuppressWarnings("checkstyle:parameternumber")
     Compilation(@NonNull String name, @NonNull Uri uri, @Nullable List<String> langCodes,
                 @Nullable String summary, @Nullable String description, @Nullable MediaContent media,
-                @Nullable Uri thumbUri, @Nullable Uri imageUri, int count, long size, long timestamp) {
+                @Nullable Image thumb, @Nullable Image featureImage, int count, long size, long timestamp) {
         this.name = name;
         this.uri = uri;
         this.langCodes = langCodes;
         this.summary = summary;
         this.description = description;
         this.media = media;
-        this.thumbUri = thumbUri;
-        this.imageUri = imageUri;
+        this.thumb = thumb;
+        this.featureImage = featureImage;
         this.count = count;
         this.size = size;
         this.timestamp = timestamp;
@@ -84,8 +84,8 @@ public class Compilation {
         summary = other.summary();
         description = other.description();
         media = other.mediaContent();
-        thumbUri = other.thumbUri();
-        imageUri = other.imageUri();
+        thumb = other.thumb();
+        featureImage = other.featureImage();
         count = other.count();
         size = other.size();
         timestamp = other.timestamp();
@@ -113,7 +113,7 @@ public class Compilation {
 
     @NonNull
     public String path() {
-        return file != null ? file.getAbsolutePath() : StringUtils.defaultString(path);
+        return file != null ? file.getAbsolutePath() : defaultString(path);
     }
 
     public long size() {
@@ -133,7 +133,7 @@ public class Compilation {
         } catch (IOException e) {
             L.e(e);
         }
-        return StringUtils.defaultString(name, "");
+        return defaultString(name, "");
     }
 
     @NonNull
@@ -145,7 +145,7 @@ public class Compilation {
         } catch (IOException e) {
             L.e(e);
         }
-        return StringUtils.defaultString(description, "");
+        return defaultString(description, "");
     }
 
     @Nullable
@@ -154,13 +154,23 @@ public class Compilation {
     }
 
     @Nullable
-    public Uri thumbUri() {
-        return thumbUri;
+    public Image thumb() {
+        return thumb;
     }
 
     @Nullable
-    public Uri imageUri() {
-        return imageUri;
+    public Uri thumbUri() {
+        return thumb != null ? thumb.uri() : null;
+    }
+
+    @Nullable
+    public Image featureImage() {
+        return featureImage;
+    }
+
+    @Nullable
+    public Uri featureImageUri() {
+        return featureImage != null ? featureImage.uri() : null;
     }
 
     public int count() {
@@ -216,6 +226,34 @@ public class Compilation {
         return reader.getMainPageTitle();
     }
 
+    public static class Image {
+        @NonNull private Uri uri;
+        private int width;
+        private int height;
+
+        Image(@Nullable String uri, int width, int height) {
+            this(Uri.parse(defaultString(uri)), width, height);
+        }
+
+        Image(@NonNull Uri uri, int width, int height) {
+            this.uri = uri;
+            this.width = width;
+            this.height = height;
+        }
+
+        public Uri uri() {
+            return uri;
+        }
+
+        public int width() {
+            return width;
+        }
+
+        public int height() {
+            return height;
+        }
+    }
+
     // TODO: Below functions are for dev only, remove when finished!
     @SuppressWarnings("checkstyle:magicnumber")
     static List<Compilation> getMockInfoForTesting() {
@@ -226,8 +264,8 @@ public class Compilation {
                         "Compilation of the top 45000 articles, by popularity, from English Wikipedia.",
                         "Compilation of the top 45000 articles, by popularity, from English Wikipedia.",
                         Compilation.MediaContent.ALL,
-                        Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png"),
-                        Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/500px-Wikipedia-logo-v2-en.svg.png"),
+                        getThumbImage(),
+                        getFeatureImage(),
                         10000, 5453656823L, 1487065620),
                 new Compilation("WikiProject Medicine (English), Jun 2017",
                         Uri.parse("https://download.kiwix.org/zim/wikipedia/wikipedia_en_medicine_novid_2017-06.zim"),
@@ -235,9 +273,19 @@ public class Compilation {
                         "Compilation of all articles from WikiProject Medicine, from English Wikipedia.",
                         "Compilation of all articles from WikiProject Medicine, from English Wikipedia.",
                         Compilation.MediaContent.ALL,
-                        Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png"),
-                        Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/500px-Wikipedia-logo-v2-en.svg.png"),
+                        getThumbImage(),
+                        getFeatureImage(),
                         10000, 1175000000L, 1487065620)
         );
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private static Compilation.Image getFeatureImage() {
+        return new Compilation.Image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png", 640, 480);
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private static Compilation.Image getThumbImage() {
+        return new Compilation.Image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png", 320, 240);
     }
 }

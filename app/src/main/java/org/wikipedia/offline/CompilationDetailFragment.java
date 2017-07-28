@@ -69,15 +69,15 @@ public class CompilationDetailFragment extends Fragment {
         Compilation comp = GsonUnmarshaller.unmarshal(Compilation.class,
                 getActivity().getIntent().getStringExtra(EXTRA_COMPILATION));
 
-        Uri imageUri = comp.imageUri();
-        int height = imageUri == null ? DimenUtil.getContentTopOffsetPx(getContext()) : leadImageHeightForDevice();
-        if (imageUri == null) {
+        Uri featureImageUri = comp.featureImageUri();
+        int height = featureImageUri == null ? DimenUtil.getContentTopOffsetPx(getContext()) : leadImageHeightForDevice();
+        if (featureImageUri == null) {
             toolbar.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.main_toolbar_background));
         }
         DimenUtil.setViewHeight(containerView, height);
         ViewUtil.setBackgroundDrawable(gradientView, GradientUtil.getCubicGradient(Color.BLACK, Gravity.TOP));
 
-        imageView.loadImage(imageUri);
+        imageView.loadImage(featureImageUri);
         nameView.setText(comp.name());
         dateSizeView.setText(String.format(getString(R.string.offline_compilation_detail_date_size),
                 getShortDateString(comp.timestamp()), bytesToGB(comp.size())));
