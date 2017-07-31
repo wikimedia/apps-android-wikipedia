@@ -10,7 +10,6 @@
   <string name="error_network_error" fuzzy="true">M\'hemm l-ebda konnessjoni man-netwerk :(</string>
   <string name="page_error_retry">Erġa\' pprova</string>
   <string name="menu_clear_all_history">Ħassar il-kronoloġija</string>
-  <string name="page_does_not_exist_error">Din il-paġna ma teżistix.</string>
   <string name="dialog_title_clear_history" fuzzy="true">Trid tħassar il-kronoloġija tan-navigazzjoni?</string>
   <string name="nav_item_saved_pages">Paġni ssejvjati</string>
   <string name="share_via">Aqsam permezz…</string>
@@ -18,8 +17,6 @@
   <string name="menu_page_find_in_page">Sib fil-paġna</string>
   <string name="menu_page_share" fuzzy="true">Aqsam</string>
   <string name="nav_item_nearby">Fil-qrib</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">L-aħħar aġġornament %s</string>
   <string name="content_license_html">Il-kontenut huwa disponibbli abbażi tas-&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; sakemm mhuwiex speċifikat mod ieħor.</string>
   <string name="edit_save_action_license_logged_in">Billi tissejvja, qiegħed taqbel mat-&lt;a href=\"%1$s\"&gt;Termini t\'Użu&lt;/a&gt;, u li irrevokabbilment tirrilaxxa l-kontribuzzjonijiet taħt il-liċenzja &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -50,7 +47,6 @@
   <string name="preference_title_logout">Oħroġ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Isem l-utent</string>
-  <string name="login_create_account_link">M\'għandekx kont? Ingħaqad mal-Wikipedija</string>
   <string name="create_account_activity_title">Irreġistra</string>
   <string name="dialog_create_account_checking_progress">Għaddejja l-verifika</string>
   <string name="create_account_email_hint">Indirizz elettroniku (fakultattiv)</string>

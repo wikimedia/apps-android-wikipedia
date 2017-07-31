@@ -9,7 +9,6 @@
   <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>
   <string name="page_error_retry">Такрар гьабизе.</string>
   <string name="menu_clear_all_history">Тарих бацӀцӀине</string>
-  <string name="page_does_not_exist_error">Гединаб гьумер гьечӀо.</string>
   <string name="dialog_title_clear_history">Тарих бацӀцӀилищ?</string>
   <string name="nav_item_saved_pages">ЦIунарал гьумерал</string>
   <string name="share_via">Сундалъун рехселе?</string>
@@ -42,7 +41,6 @@
   <string name="preference_title_logout">Къватlиве вачIизе</string>
   <string name="toast_logout_complete">Сеанс лъугьана</string>
   <string name="create_account_username_hint">ХӀалтӀизабулчиясул цӀар</string>
-  <string name="create_account_login_link">Аккаунт батани жаниве лъугье</string>
   <string name="create_account_activity_title">Аккаунт гьабизе</string>
   <string name="dialog_create_account_checking_progress">Хал-кӀач гьаби</string>
   <string name="create_account_email_hint">Эллектронияб почалъул адрес (дуе бокьани хъвай)</string>

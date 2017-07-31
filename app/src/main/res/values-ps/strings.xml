@@ -12,7 +12,6 @@
   <string name="page_error_retry">بياآزمويل</string>
   <string name="page_error_back_to_main">پر شا تلل</string>
   <string name="menu_clear_all_history">پېښليک پاکول</string>
-  <string name="page_does_not_exist_error">پدې نوم مخ نشته.</string>
   <string name="dialog_title_clear_history">سپړل شوی پېښليک سپينول</string>
   <string name="nav_item_saved_pages">خوندي مخونه</string>
   <string name="share_via">د شريکولو لار</string>
@@ -29,8 +28,6 @@
   <string name="menu_text_select_share">شريکول</string>
   <string name="menu_text_select_edit_here">دلته سمول</string>
   <string name="nav_item_nearby">نژدې</string>
-  <string name="nearby_distance_in_meters">%d متر</string>
-  <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
   <string name="last_updated_text">وروستئ هممهالېدنه %s</string>
   <string name="talk_page_link_text">خبرې اترې</string>
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
@@ -62,8 +59,6 @@
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">کارن-نوم</string>
-  <string name="create_account_login_link">آيا له پخوا نه يو گڼون لرې؟ ورننوځه</string>
-  <string name="login_create_account_link">گڼون نه لرې؟ ويکيپېډيا سره يوځای شه</string>
   <string name="create_account_activity_title">يو گڼون جوړول</string>
   <string name="dialog_create_account_checking_progress">تاييدېدنه</string>
   <string name="create_account_email_hint">برېښليک (اختياري)</string>
@@ -146,7 +141,6 @@
   <string name="gallery_uploader_unknown">ناڅرگند پورته کوونکی</string>
   <string name="page_view_in_browser">مخ په کتنمل کې کتل</string>
   <string name="format_error_server_message">پيغام: \"%s\"</string>
-  <string name="format_error_server_code">کوډ: \"%s\"</string>
   <string name="button_continue_to_article">ليکنه لوستل</string>
   <string name="button_get_directions">لارښوونې ترلاسه کول</string>
   <string name="nav_item_donate">د ويکيپېډيا ملاتړ وکړئ</string>

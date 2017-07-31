@@ -12,7 +12,6 @@
   <string name="page_error_back_to_main">Atpakaļ</string>
   <string name="menu_clear_all_history">Notīrīt vēsturi</string>
   <string name="history_item_delete_undo">Atsaukt</string>
-  <string name="page_does_not_exist_error">Šī lapa neeksistē.</string>
   <string name="dialog_title_clear_history">Dzēst pārlūkošanas vēsturi</string>
   <string name="dialog_message_clear_history" fuzzy="true">Vai tiešām vēlaties notīrīt visu vēsturi?</string>
   <string name="nav_item_saved_pages">Saglabātās lapas</string>
@@ -32,8 +31,6 @@
   <string name="menu_text_select_share">Dalīties</string>
   <string name="menu_text_select_edit_here">Labot šeit</string>
   <string name="nav_item_nearby">Tuvumā</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Pēdējo reizi atjaunināts %s</string>
   <string name="talk_page_link_text">Diskusijas</string>
   <string name="preference_title_language">Vikipēdijas valoda</string>
@@ -64,7 +61,6 @@
   <string name="delete_selected_items">Dzēst izvēlētos vienumus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPĒDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Lietotājvārds</string>
-  <string name="login_create_account_link">Jums vēl nav sava konta? Pievienojies Vikipēdijai</string>
   <string name="create_account_activity_title">Izveidot kontu</string>
   <string name="dialog_create_account_checking_progress">Pārbauda</string>
   <string name="create_account_email_hint">E-pasts (nav obligāti)</string>
@@ -140,7 +136,6 @@
   <string name="button_close_tab">Aizvērt cilni</string>
   <string name="error_unknown">Nezināma kļūda.</string>
   <string name="format_error_server_message">Ziņojums: \"%s\"</string>
-  <string name="format_error_server_code">Kods: \"%s\"</string>
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
   <string name="button_continue_to_article">Lasīt rakstu</string>
   <string name="button_get_directions">Saņemt norādes</string>
@@ -214,7 +209,6 @@
   <string name="description_edit_success_encouragement">Tu tikko padarīji Vikipēdiju labāku visiem</string>
   <string name="description_edit_success_done">Gatavs</string>
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
-  <string name="description_edit_tutorial_button_label_continue">Turpināt</string>
   <string name="description_edit_tutorial_button_label_start_editing">Sākt labošanu</string>
   <string name="description_edit_help_about_title">Par</string>
   <string name="description_edit_help_tips_examples">Piemēram:</string>

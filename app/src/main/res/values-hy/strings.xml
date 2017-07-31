@@ -12,7 +12,6 @@
   <string name="page_error_retry">Կրկնել</string>
   <string name="page_error_back_to_main">Հետ գնալ</string>
   <string name="menu_clear_all_history">Մաքրել պատմությունը</string>
-  <string name="page_does_not_exist_error">Այս էջը գոյություն չունի</string>
   <string name="dialog_title_clear_history">Մաքրել հիշապահեստը</string>
   <string name="nav_item_saved_pages">Պահպանված էջեր</string>
   <string name="share_via">Կիսվել…</string>
@@ -30,8 +29,6 @@
   <string name="menu_text_select_share">Կիսվել</string>
   <string name="menu_text_select_edit_here">Խմբագրել այստեղ</string>
   <string name="nav_item_nearby">Մոտակայքում</string>
-  <string name="nearby_distance_in_meters">%d մ</string>
-  <string name="nearby_distance_in_kilometers">%.2f կմ</string>
   <string name="nearby_zoom_to_location">Վայրը մեծացնել քարտեզի վրա</string>
   <string name="last_updated_text">Վերջին անգամ թարմացվել է %s</string>
   <string name="content_license_html">Բովանդակությունը հասանելի է &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո, եթե այլ բան նշված չէ</string>
@@ -64,8 +61,6 @@
   <string name="history_empty_title">Վերջնադիտված էջեր չկան</string>
   <string name="wp_stylized">&lt;big&gt;Վ&lt;/big&gt;ԻՔԻՊԵԴԻ&lt;big&gt;Ա&lt;/big&gt;</string>
   <string name="create_account_username_hint">Մասնակցային անուն</string>
-  <string name="login_create_account_link">Հաշիվ չունե՞ք։ Միացե՛ք Վիքիպեդիային:</string>
-  <string name="create_account_login_link">Գրանցվա՞ծ եք: Մո՛ւտք գործեք</string>
   <string name="create_account_activity_title">Ստեղծել մասնակցային հաշիվ</string>
   <string name="dialog_create_account_checking_progress">Ստուգում</string>
   <string name="create_account_email_hint">Էլփոստ (ոչ պարտադիր)</string>

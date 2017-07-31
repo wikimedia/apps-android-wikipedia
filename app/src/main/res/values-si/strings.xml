@@ -10,7 +10,6 @@
   <string name="error_network_error">අන්තර්ජාලය වෙත සම්බන්ධ විය නොහැක.</string>
   <string name="page_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="menu_clear_all_history">ඉතිහාසය ඉවත් කරන්න</string>
-  <string name="page_does_not_exist_error">මෙම පිටුව නොපවතියි.</string>
   <string name="dialog_title_clear_history" fuzzy="true">පිරික්සුම් ඉතිහාසය මකන්න?</string>
   <string name="nav_item_saved_pages">සුරක්ෂිත පිටු</string>
   <string name="share_via">මගින් හුවමාරු කරන්න</string>
@@ -25,8 +24,6 @@
   <string name="menu_text_select_copy">පිටපත් කරන්න</string>
   <string name="menu_text_select_share">හුවමාරු කරන්න</string>
   <string name="nav_item_nearby">අවට</string>
-  <string name="nearby_distance_in_meters">%d මී.</string>
-  <string name="nearby_distance_in_kilometers">%.2f කි.මී.</string>
   <string name="last_updated_text">අවසන් යාවත්කාලීන කිරීම %s</string>
   <string name="preference_title_language">විකිපීඩියා භාෂාව</string>
   <string name="preference_languages_filter_hint">සොයන්න</string>
@@ -59,8 +56,6 @@
   <string name="history_empty_title">මෑත පිටු මෙහි නොමැත!</string>
   <string name="wp_stylized">&lt;big&gt;වි&lt;/big&gt;කිපීඩි&lt;big&gt;යා&lt;/big&gt;</string>
   <string name="create_account_username_hint">පරිශීලක නාමය</string>
-  <string name="login_create_account_link">ගිණුමක් නොමැතිද? විකිපීඩියා වෙත එක්වන්න</string>
-  <string name="create_account_login_link">දැනටමත් ගිණුමක් තිබේද? පිවිසෙන්න</string>
   <string name="create_account_activity_title">ගිණුමක් තනන්න</string>
   <string name="dialog_create_account_checking_progress">තහවුරු කරමින්</string>
   <string name="create_account_email_hint">විද්යුත් තැපෑල</string>

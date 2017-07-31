@@ -11,7 +11,6 @@
   <string name="page_error_retry">Riprovo</string>
   <string name="page_error_back_to_main">Kthehu</string>
   <string name="menu_clear_all_history">Fshij historikun?</string>
-  <string name="page_does_not_exist_error">Faqja e dhënë nuk ekziston.</string>
   <string name="dialog_title_clear_history">Pastro historikun e shfletimit</string>
   <string name="dialog_message_clear_history">Ky veprim do të fshijë gjithë historikun e kërkimit dhe do të mbyllë çdo skedë të hapur. Jeni të sigurt?</string>
   <string name="nav_item_saved_pages">Faqet e ruajtura</string>
@@ -32,8 +31,6 @@
   <string name="menu_text_select_share">Shpërndaje</string>
   <string name="menu_text_select_edit_here">Redakto këtu</string>
   <string name="nav_item_nearby">Pranë</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Afro te një vendndodhje në hartë</string>
   <string name="last_updated_text">Përditësim i fundit %s</string>
   <string name="content_license_html">Përmbajtja është nën disponim, &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; përveç rasteve kur tregohet ndryshe</string>
@@ -72,8 +69,6 @@
   <string name="history_empty_message">Ndoshta i keni fshirë të gjitha. Herën tjetër që shkoni në një faqe, ju mund të riktheheni te ajo nga këtu.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Emri i përdoruesit</string>
-  <string name="login_create_account_link">Nuk keni llogari? Bashkojuni Wikipedias</string>
-  <string name="create_account_login_link">Keni një llogari? Identifikohuni</string>
   <string name="create_account_activity_title">Krijo një llogari</string>
   <string name="dialog_create_account_checking_progress">Due verifikuar</string>
   <string name="create_account_email_hint">Email (Fakultativ)</string>
@@ -103,7 +98,6 @@
   <string name="dialog_close_description">Mbyll</string>
   <string name="preference_title_show_images">Shfaq imazhet</string>
   <string name="format_error_server_message">Mesazh: \"%s\"</string>
-  <string name="format_error_server_code">Kodi: \"%s\"</string>
   <string name="address_copied">Adresa që keni kopjuar në clipboard.</string>
   <string name="text_copied">Teksti që keni kopjuar në clipboard.</string>
   <string name="button_continue_to_article">Lexoni artikullin</string>

@@ -12,7 +12,6 @@
   <string name="page_error_retry">Norr_ens versöhke</string>
   <string name="page_error_back_to_main">Jangk retuhr</string>
   <string name="menu_clear_all_history">Leß met de belohrte Sigge läddesch maache</string>
-  <string name="page_does_not_exist_error">Di Sigg jidd_et nit.</string>
   <string name="dialog_title_clear_history">De Verjangeheid vum Bläddere fott schmiiße</string>
   <string name="dialog_message_clear_history">Dat schmiiß all de faßjehalldde Verjangeheid vum Brause fott un mäht alle Rigger un Ongerfinster zoh. Wells De dat verhaftesch han?</string>
   <string name="nav_item_saved_pages">Jesescherte Sigge</string>
@@ -31,8 +30,6 @@
   <string name="menu_text_select_share">Wigger jävve</string>
   <string name="menu_text_select_edit_here">Dat Änndere</string>
   <string name="nav_item_nearby">En de Nöhde</string>
-  <string name="nearby_distance_in_meters">%d Mehter</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Donn obb ene Plaz en dä Kaat zoome.</string>
   <string name="last_updated_text">Läzte Änderong %s</string>
   <string name="talk_page_link_text">Klaaf</string>
@@ -73,8 +70,6 @@
   <string name="history_empty_message" fuzzy="true">Do hä se velleisch alle fott jeschmeße. Et nähkste Mohl woh de obb en Sigg jeihß, kanns De op se zeröck jonn.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKKIPEHDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Metmaacher_Nahme</string>
-  <string name="create_account_login_link">Do häß ald ene Zojang? Donn enlogge</string>
-  <string name="login_create_account_link">Noch keine Zohjang. Beij de Wikkipehdija aanmällde!</string>
   <string name="create_account_activity_title">Ene neue Zohjang aanmälde</string>
   <string name="dialog_create_account_checking_progress">Pröhve</string>
   <string name="create_account_email_hint">De e-mail-Adräß, kann och fott bliehve</string>
@@ -175,11 +170,9 @@
   <string name="button_close_tab">Rigger zohmaache</string>
   <string name="page_view_in_browser">Donn di Sigg em Brauser belohre</string>
   <string name="tool_tip_toc_button">Mer kridd et Verzeijschnes vum Enhalts ze sinn, wam_mer op dä Knopp klegg un wam_mer vum rääschte Belldscherremrand us övver dä Beldscherrem rötsch.</string>
-  <string name="error_server_response">Dä ẞööver di Aanfrohch nit fähdesch beärbeijde.</string>
   <string name="error_response_malformed">De Antwoot vum ẞööver woh nit en enem Fommaht, wat mer äwahde donn.</string>
   <string name="error_unknown">Ene Fähler es opjetrodde, dä mer nit kenne.</string>
   <string name="format_error_server_message">Nohreesch: „%s“</string>
-  <string name="format_error_server_code">Der API-Fähler-Kohd es „%s“</string>
   <string name="button_continue_to_article">Donn di jannze Sigg aanzeije</string>
   <string name="preference_summary_show_link_previews">Donn ene koote Vöraff_Aanseesch vuun Sigge zeje, wam_mer op Lengks tipp.</string>
   <string name="nav_item_donate">Ongerschtöz de Wikkipehdija!</string>

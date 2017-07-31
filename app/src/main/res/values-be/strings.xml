@@ -12,7 +12,6 @@
   <string name="page_error_retry">Паўтарыць</string>
   <string name="page_error_back_to_main">Вярнуцца</string>
   <string name="menu_clear_all_history">Ачысціць гісторыю</string>
-  <string name="page_does_not_exist_error">Гэтая старонка не існуе.</string>
   <string name="dialog_title_clear_history">Ачысціць гісторыю праглядаў</string>
   <string name="dialog_message_clear_history">Вы ўпэўненыя, што жадаеце ачысціць усю гісторыю?</string>
   <string name="nav_item_saved_pages">Захаваныя старонкі</string>
@@ -24,8 +23,6 @@
   <string name="menu_long_press_copy_page">Скапіяваць адрас спасылкі</string>
   <string name="menu_text_select_define">Вызначыць</string>
   <string name="menu_text_select_share">Падзяліцца</string>
-  <string name="nearby_distance_in_meters">%d м</string>
-  <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="last_updated_text">Апошняе абнаўленне %1$s</string>
   <string name="talk_page_link_text">Размовы</string>
   <string name="content_license_html">Змесціва даступна ў адпаведнасці з &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;, калі не пазначана іншае</string>
@@ -55,8 +52,6 @@
   <string name="toast_logout_complete">Вы выйшлі</string>
   <string name="history_empty_message" fuzzy="true">Ваша гісторыя пустая.</string>
   <string name="create_account_username_hint">Імя карыстальніка</string>
-  <string name="login_create_account_link">Няма ўліковага запісу? Далучайцеся да Вікіпедыі</string>
-  <string name="create_account_login_link">Ужо маеце ўліковы запіс? Увайсці</string>
   <string name="create_account_activity_title">Стварыць рахунак</string>
   <string name="dialog_create_account_checking_progress">Праверка</string>
   <string name="create_account_email_hint">Адрас электроннай пошты (не абавязкова)</string>

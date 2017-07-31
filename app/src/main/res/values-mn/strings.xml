@@ -10,7 +10,6 @@
   <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>
   <string name="page_error_retry">Дахин оролд</string>
   <string name="menu_clear_all_history">Түүх арилгах</string>
-  <string name="page_does_not_exist_error">Ийм хуудас байхгүй</string>
   <string name="dialog_title_clear_history">Хөтчид хадгалагдсан түүхийг устгах</string>
   <string name="nav_item_saved_pages">Хадгалсан хуудсууд</string>
   <string name="menu_page_share">Хуваалцах</string>
@@ -40,8 +39,6 @@
   <string name="preference_title_logout">Гарах</string>
   <string name="toast_logout_complete">Гарлаа</string>
   <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
-  <string name="login_create_account_link">Бүртгүүлж амжаагүй юу? Википедиад нэгдээрэй</string>
-  <string name="create_account_login_link">Бүртгэлтэй бол нэвтрээрэй.</string>
   <string name="create_account_activity_title">Бүртгүүлэх</string>
   <string name="create_account_email_hint">Емайл (Албагүй)</string>
   <string name="create_account_password_repeat_hint">Нууц үгээ давтана уу</string>

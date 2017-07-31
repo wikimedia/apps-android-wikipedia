@@ -12,7 +12,6 @@
   <string name="page_error_retry">Opi uvvessah</string>
   <string name="page_error_back_to_main">Mene järilleh</string>
   <string name="menu_clear_all_history">Pyhki histourii</string>
-  <string name="page_does_not_exist_error">Tädä sivuu ei ole olemas.</string>
   <string name="dialog_title_clear_history">Pyhkie histourii?</string>
   <string name="dialog_message_clear_history">Tämä hävittäy kai livuanduhistourien da salbuau avvoi olijat välilehtet. Oletgo varmu?</string>
   <string name="nav_item_saved_pages">Tallendetut sivut</string>
@@ -32,8 +31,6 @@
   <string name="menu_text_select_share">Jua</string>
   <string name="menu_text_select_edit_here">Kohendele täs</string>
   <string name="nav_item_nearby">Vieres</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Suurenda da ozuta tarkembi sijaičendu</string>
   <string name="last_updated_text">Jälgimäine päivitys %s</string>
   <string name="talk_page_link_text">Pagin</string>
@@ -73,8 +70,6 @@
   <string name="history_empty_title" fuzzy="true">Ei jälgimäzii sivuloi!</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;I&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäinimi</string>
-  <string name="create_account_login_link">Sinul on jo tunnus? Kirjuttai</string>
-  <string name="login_create_account_link">Ei vie tunnustu? Yhty Wikipedieh</string>
   <string name="create_account_activity_title">Luaji tili</string>
   <string name="dialog_create_account_checking_progress">Tarkistus</string>
   <string name="create_account_email_hint">Sähköpoštu (omatahtoine)</string>

@@ -15,7 +15,6 @@
   <string name="page_error_retry">Ensajar tornarmai</string>
   <string name="page_error_back_to_main">Tornar en arrièr</string>
   <string name="menu_clear_all_history">Voidar l\'istoric</string>
-  <string name="page_does_not_exist_error">Aquesta pagina existís pas.</string>
   <string name="dialog_title_clear_history">Escafar l’istoric de navigacion</string>
   <string name="dialog_message_clear_history">Aquò suprimirà tot l’istoric de navigacion, e tamparà totes los onglets dobèrts actualament. Sètz segur ?</string>
   <string name="nav_item_saved_pages">Paginas enregistradas</string>
@@ -36,8 +35,6 @@
   <string name="menu_text_select_share">Partejar</string>
   <string name="menu_text_select_edit_here">Editar aiçí</string>
   <string name="nav_item_nearby">A proximitat</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoomar sus un endreit de la mapa</string>
   <string name="last_updated_text">Darrièra modificacion lo %1$s</string>
   <string name="talk_page_link_text">Discussion</string>
@@ -78,8 +75,6 @@
   <string name="history_empty_message" fuzzy="true">Los avètz probablament destrusidas totas. Lo còp que ven qu\'aniretz sus una pagina, i poiretz tornar en començant d’aicí.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'utilizaire</string>
-  <string name="create_account_login_link">Avètz ja un compte ? Connectatz-vos</string>
-  <string name="login_create_account_link">Avètz pas de compte ? Rejonhètz Wikipèdia</string>
   <string name="create_account_activity_title">Crear un compte</string>
   <string name="dialog_create_account_checking_progress">Verificacion en cors</string>
   <string name="create_account_email_hint">Adreça de corrièr electronic (facultatiu)</string>
@@ -185,7 +180,6 @@
   <string name="page_view_in_browser">Afichar la pagina dins lo navigador</string>
   <string name="error_unknown">Una error desconeguda s\'es produita.</string>
   <string name="format_error_server_message">Messatge : \"%s\"</string>
-  <string name="format_error_server_code">Còdi : \"%s\"</string>
   <string name="address_copied">Adreça copiada dins lo quichapapièrs.</string>
   <string name="text_copied">Tèxte copiat dins lo quichapapièrs.</string>
   <string name="button_continue_to_article">Legir l’article</string>
@@ -281,7 +275,6 @@
   <string name="description_edit_success_done">Fait</string>
   <string name="description_edit_success_did_you_know">O sabiatz ?</string>
   <string name="description_edit_tutorial_title_descriptions">Descripcions del títol</string>
-  <string name="description_edit_tutorial_button_label_continue">Contunhar</string>
   <string name="description_edit_tutorial_keep_it_short">Siatz brèu</string>
   <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
   <string name="description_edit_help_about_title">A prepaus</string>

@@ -12,7 +12,6 @@
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="page_error_back_to_main">പിന്നിലേയ്ക്ക് മടങ്ങുക</string>
   <string name="menu_clear_all_history">നാൾവഴി ശൂന്യമാക്കുക</string>
-  <string name="page_does_not_exist_error">ഈ താൾ നിലവിലില്ല.</string>
   <string name="dialog_title_clear_history">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
   <string name="dialog_message_clear_history">ഇത് താങ്കളുടെ എല്ലാ ബ്രൗസിങ്ങ് ചരിത്രവും ശൂന്യമാക്കും, അതിനുശേഷം നിലവിൽ തുറന്നിരിക്കുന്ന എല്ലാ ടാബുകളും അടയ്ക്കും. താങ്കൾക്ക് ഉറപ്പാണോ?</string>
   <string name="nav_item_saved_pages">സേവ് ചെയ്ത താളുകൾ</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">പങ്കുവയ്ക്കുക</string>
   <string name="menu_text_select_edit_here">ഇവിടെ തിരുത്തുക</string>
   <string name="nav_item_nearby">സമീപസ്ഥം</string>
-  <string name="nearby_distance_in_meters">%d മീ</string>
-  <string name="nearby_distance_in_kilometers">%.2f കി.മീ.</string>
   <string name="nearby_zoom_to_location">ഭൂപടത്തിൽ കാണുന്ന സ്ഥലത്തേക്ക് വലുതാക്കുക.</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
   <string name="talk_page_link_text">സംവാദം</string>
@@ -73,8 +70,6 @@
   <string name="history_empty_title" fuzzy="true">അടുത്തകാലത്തുള്ള ഒരു താളും ഇല്ല!</string>
   <string name="history_empty_message" fuzzy="true">താങ്കൾ എല്ലാം ശൂന്യമാക്കിയിട്ടുണ്ടാകും. അടുത്തതവണ താങ്കൾ ഒരു താൾ എടുത്താൽ പിന്നീടതിലേയ്ക്ക് ഇവിടെ നിന്നെത്താനാകും.</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
-  <string name="create_account_login_link">അംഗ്വത്വമുണ്ടോ? പ്രവേശിക്കുക</string>
-  <string name="login_create_account_link">അംഗത്വമില്ലേ? വിക്കിപീഡിയയിൽ ചേരുക</string>
   <string name="create_account_activity_title">ഒരംഗത്വമെടുക്കുക</string>
   <string name="dialog_create_account_checking_progress">ഉറപ്പാക്കുന്നു</string>
   <string name="create_account_email_hint">ഇമെയിൽ (നിർബന്ധമില്ല)</string>
@@ -186,6 +181,5 @@
   <string name="description_edit_cancel_hint">റദ്ദാക്കുക</string>
   <string name="description_edit_success_done">ചെയ്തു</string>
   <string name="description_edit_success_did_you_know">താങ്കൾക്കറിയാമോ?</string>
-  <string name="description_edit_tutorial_button_label_continue">തുടരുക</string>
   <string name="description_edit_tutorial_button_label_start_editing">തിരുത്തി തുടങ്ങുക</string>
 </resources>

@@ -18,7 +18,6 @@
   <string name="history_item_deleted">Message shown when an article is removed from the browsing history. The \"%s\" symbol is replaced with the name of the article.</string>
   <string name="history_items_deleted">Message shown when multiple articles are removed from the browsing history. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.\n{{Identical|Undo}}</string>
-  <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.\n{{Identical|Saved page}}</string>
@@ -39,8 +38,6 @@
   <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.\n{{Identical|Share}}</string>
   <string name="menu_text_select_edit_here">Menu item caption for editing the current section at the currently highlighted word.</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature\n{{Identical|Nearby}}</string>
-  <string name="nearby_distance_in_meters">Distance to the place mentioned in the nearby page in meters. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
-  <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a number with 2 digits after the decimal point.</string>
   <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
   <string name="nearby_osm_license">Copyright message with a link to the OpenStreetMap Copyright and License. (Please preserve the anchor tag in its exact form.)</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
@@ -95,8 +92,6 @@
   <string name="login_join_wikipedia">Button label that lets the user create a new account on Wikipedia.</string>
   <string name="login_forgot_password">Label asking the user if they have forgotten their password, and will allow them to reset it.</string>
   <string name="create_account_already_have">Label asking the user if they already have an account.</string>
-  <string name="create_account_login_link">Link text on Create Account screen to go to Login screen.\n\nSee also:\n* {{msg-wm|Wikipedia-android-strings-login create account link}}</string>
-  <string name="login_create_account_link">Link text on Login screen to go to Create Account screen.\n\nSee also:\n* {{msg-wm|Wikipedia-android-strings-create account login link}}</string>
   <string name="create_account_activity_title">{{Identical|Create account}}</string>
   <string name="dialog_create_account_checking_progress">Message shown to the user while a request is sent to the server to create an account and the app is awaiting the server response</string>
   <string name="create_account_email_hint">Label shown inside the email text box in the account creation form, to inform the user what they have to enter into that box.</string>
@@ -227,11 +222,9 @@
   <string name="tool_tip_share">Very short advice on sharing highlighted text on social networks.</string>
   <string name="page_view_in_browser">Text for a link that will open the current page in an external browser app on the device.</string>
   <string name="tool_tip_toc_button">Advice on accessing the table of contents for a page.\n\n\'\'\'In right-to-left languages\'\'\' (Hebrew, Arabic, etc.) write \'\'\'left\'\'\' edge and not \"right\".</string>
-  <string name="error_server_response">Generic error message that tells the user that the server failed to complete the last request.</string>
   <string name="error_response_malformed">Generic error message that tells the user that the response from the server was not formatted correctly.</string>
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API response from the server.\n{{Identical|Message}}</string>
-  <string name="format_error_server_code">Message displayed to the user that shows the actual error code received from the server. The \"%s\" symbol is replaced with the API error code.\n{{Identical|Code}}</string>
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
@@ -320,7 +313,6 @@
   <string name="reading_list_empty">Message shown when a reading list does not contain any articles.</string>
   <string name="reading_list_article_offline">Label for a toggle switch to make a reading list article available offline or online.</string>
   <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>
-  <string name="reading_list_article_remove_offline">Hint for button that removes a reading list article from offline availability.</string>
   <string name="reading_list_add_to_other_list">Menu item to add an article to another reading list (when the article already exists in one or more lists).</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific reading list. The %s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple reading lists to which it might belong.</string>
@@ -354,7 +346,6 @@
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
-  <string name="view_random_card_error">Error message shown when a random page could not be retrieved either from the network or from the reading lists saved by the user.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
@@ -394,7 +385,6 @@
   <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
   <string name="description_edit_tutorial_title_descriptions">Heading for a tutorial about editing page title descriptions.</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Summary of what page title descriptions are for.</string>
-  <string name="description_edit_tutorial_button_label_continue">Label for a button the user can push to continue to the next page of the tutorial.\n\n{{Identical|Continue}}</string>
   <string name="description_edit_tutorial_keep_it_short">An instruction for the user to keep descriptions short.</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>

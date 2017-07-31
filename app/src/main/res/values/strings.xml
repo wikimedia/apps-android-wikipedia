@@ -21,7 +21,6 @@
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
     <string name="history_item_delete_undo">Undo</string>
-    <string name="page_does_not_exist_error">This page does not exist.</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
@@ -52,8 +51,6 @@
 
     <!-- Nearby -->
     <string name="nav_item_nearby">Nearby</string>
-    <string name="nearby_distance_in_meters">%d m</string>
-    <string name="nearby_distance_in_kilometers">%.2f km</string>
     <string name="nearby_zoom_to_location">Zoom to a location on the map</string>
     <string name="nearby_osm_license"><![CDATA[&copy; &nbsp;<a href=\"https://www.openstreetmap.org/copyright/\">OpenStreetMap</a> contributors]]></string>
 
@@ -109,8 +106,6 @@
     <string name="login_join_wikipedia">Join Wikipedia</string>
     <string name="login_forgot_password">Forgot your password?</string>
     <string name="create_account_already_have">Already have an account?</string>
-    <string name="create_account_login_link">Already have an account? Log in</string>
-    <string name="login_create_account_link">Don\'t have an account? Join Wikipedia</string>
     <string name="create_account_activity_title">Create an account</string>
     <string name="dialog_create_account_checking_progress">Verifying</string>
     <string name="create_account_email_hint">Email (Optional)</string>
@@ -242,11 +237,9 @@
     <string name="tool_tip_share">After highlighting an interesting fact, try sharing it on your favorite networks!</string>
     <string name="page_view_in_browser">View page in browser</string>
     <string name="tool_tip_toc_button">See the table of contents anytime by tapping this button, or sliding from the right edge of the screen.</string>
-    <string name="error_server_response">The server could not complete the request.</string>
     <string name="error_response_malformed">Response from the server was not formatted correctly.</string>
     <string name="error_unknown">An unknown error occurred.</string>
     <string name="format_error_server_message">Message: \"%s\"</string>
-    <string name="format_error_server_code">Code: \"%s\"</string>
     <string name="address_copied">Address copied to clipboard.</string>
     <string name="text_copied">Text copied to clipboard.</string>
     <string name="button_continue_to_article">Read article</string>
@@ -346,7 +339,6 @@
     <string name="reading_list_empty">You have no articles added to this list.</string>
     <string name="reading_list_article_offline">Available offline</string>
     <string name="reading_list_article_make_offline">Make this article available offline</string>
-    <string name="reading_list_article_remove_offline">Don\'t make this article available offline</string>
     <string name="reading_list_add_to_other_list">Add to another reading list</string>
     <string name="reading_list_remove_from_list">Remove from %s</string>
     <string name="reading_list_remove_from_lists">Remove from reading lists</string>
@@ -389,7 +381,6 @@
     <string name="view_because_you_read_card_title">Because you read</string>
     <string name="view_random_card_title">Randomizer</string>
     <string name="view_random_card_subtitle">Read a random article from Wikipedia</string>
-    <string name="view_random_card_error">Could not load a random page from the network or your reading lists.</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
     <string name="view_main_page_card_subtitle">Main page on %s</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
@@ -439,7 +430,6 @@
     <!-- Description editing tutorial -->
     <string name="description_edit_tutorial_title_descriptions">Title descriptions</string>
     <string name="description_edit_tutorial_title_descriptions_summary">Summarizes an article to help readers understand the subject at a glance</string>
-    <string name="description_edit_tutorial_button_label_continue">Continue</string>
     <string name="description_edit_tutorial_keep_it_short">Keep it short</string>
     <string name="description_edit_tutorial_keep_it_short_instructions">Ideally one line, between two to twelve words</string>
     <string name="description_edit_tutorial_button_label_start_editing">Start editing</string>

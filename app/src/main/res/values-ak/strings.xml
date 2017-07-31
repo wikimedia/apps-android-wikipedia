@@ -8,7 +8,6 @@
   <string name="error_network_error" fuzzy="true">Hwɛ sɛ wo network no yɛ adwuma a :(</string>
   <string name="page_error_retry">Yɛ bio</string>
   <string name="menu_clear_all_history">Pepa nea woayɛ atwam</string>
-  <string name="page_does_not_exist_error">Krataafa biara nni ha saa</string>
   <string name="dialog_title_clear_history" fuzzy="true">Popa browsing a atwam</string>
   <string name="nav_item_saved_pages">Nkrataa a wode asie</string>
   <string name="share_via">Kyekyɛ denam</string>
@@ -46,8 +45,6 @@
   <string name="toast_logout_complete">W\'apue</string>
   <string name="history_empty_message" fuzzy="true">Wonni hwɛɛ wɔ wo nneɛma a atwam</string>
   <string name="create_account_username_hint">Username</string>
-  <string name="login_create_account_link">Wonni account? Bɛka Wikipedia ho</string>
-  <string name="create_account_login_link">Wowɔ account deda? Kɔ mu</string>
   <string name="create_account_activity_title">Bue account</string>
   <string name="dialog_create_account_checking_progress">Rekɔ mu bio</string>
   <string name="create_account_email_hint">Email(Optional)</string>

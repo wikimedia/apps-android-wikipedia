@@ -19,8 +19,6 @@
   <string name="menu_text_select_copy">Копиян</string>
   <string name="menu_text_select_define">Къастам</string>
   <string name="nav_item_nearby">Уллехь</string>
-  <string name="nearby_distance_in_meters">%d м</string>
-  <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="last_updated_text">ТӀаьххьарлера карлаяккхар: %1$s</string>
   <string name="content_license_html">Чулацам тӀекхочуш бу &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (кхиниг билгалйина яцахь)</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
@@ -47,7 +45,6 @@
   <string name="history_empty_message" fuzzy="true">Хьа истори еса ю.</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
-  <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>
   <string name="create_account_activity_title">Кхолла декъашхочун дӀаяздар</string>
   <string name="dialog_create_account_checking_progress">Таллар</string>
   <string name="create_account_email_hint">Электронан поштан адрес (ца хилча бе яц)</string>

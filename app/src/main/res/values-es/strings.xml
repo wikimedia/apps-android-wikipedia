@@ -18,7 +18,6 @@
   <string name="history_item_deleted">%s eliminado del historial</string>
   <string name="history_items_deleted">%d artículos eliminados del historial</string>
   <string name="history_item_delete_undo">Deshacer</string>
-  <string name="page_does_not_exist_error">Esta página no existe.</string>
   <string name="dialog_title_clear_history">Limpiar el historial de navegación</string>
   <string name="dialog_message_clear_history">Esto eliminará todo el historial de tu navegador, y cerrará cualquier pestaña abierta. ¿Estás seguro?</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>
@@ -39,8 +38,6 @@
   <string name="menu_text_select_share">Compartir</string>
   <string name="menu_text_select_edit_here">Editar aquí</string>
   <string name="nav_item_nearby">Cercanos</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Ampliar una ubicación en el mapa</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp; Colaboradores de &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Última actualización: %s</string>
@@ -95,8 +92,6 @@
   <string name="login_join_wikipedia">Únete a Wikipedia</string>
   <string name="login_forgot_password">¿Olvidaste la contraseña?</string>
   <string name="create_account_already_have">¿Ya tienes una cuenta?</string>
-  <string name="create_account_login_link">¿Ya tienes una cuenta? Accede</string>
-  <string name="login_create_account_link">¿No tienes una cuenta? Únete a Wikipedia</string>
   <string name="create_account_activity_title">Crear una cuenta</string>
   <string name="dialog_create_account_checking_progress">Verificando</string>
   <string name="create_account_email_hint">Correo electrónico (opcional)</string>
@@ -227,11 +222,9 @@
   <string name="tool_tip_share">Después de resaltar un hecho interesante, prueba compartirlo en tus redes favoritas.</string>
   <string name="page_view_in_browser">Ver página en el navegador</string>
   <string name="tool_tip_toc_button">Despliega la tabla de contenidos en cualquier momento pulsando este botón, o deslizando desde el borde derecho de la pantalla.</string>
-  <string name="error_server_response">El servidor no pudo completar la solicitud.</string>
   <string name="error_response_malformed">La respuesta del servidor no se ha formateado correctamente.</string>
   <string name="error_unknown">Ocurrió un error desconocido.</string>
   <string name="format_error_server_message">Mensaje: \"%s\"</string>
-  <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">Dirección copiada en el portapapeles.</string>
   <string name="text_copied">Texto copiado en el portapapeles.</string>
   <string name="button_continue_to_article">Leer artículo</string>
@@ -320,7 +313,6 @@
   <string name="reading_list_empty">No tienes artículos añadidos a esta lista.</string>
   <string name="reading_list_article_offline">Disponible sin conexión</string>
   <string name="reading_list_article_make_offline">Permitir que este artículo esté disponible sin conexión.</string>
-  <string name="reading_list_article_remove_offline">No permitir que este artículo esté disponible sin conexión.</string>
   <string name="reading_list_add_to_other_list">Añadir a otra lista de lectura</string>
   <string name="reading_list_remove_from_list">Quitar de %s</string>
   <string name="reading_list_remove_from_lists">Quitar de las listas de lectura</string>
@@ -354,7 +346,6 @@
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_card_subtitle">Leer un artículo al azar de Wikipedia</string>
-  <string name="view_random_card_error">No se pudo cargar una página aleatoria de la red o de tus listas de lectura.</string>
   <string name="view_main_page_card_title">Hoy en Wikipedia</string>
   <string name="view_main_page_card_subtitle">Página principal al %s</string>
   <string name="view_featured_image_card_title">Imagen del día</string>
@@ -394,7 +385,6 @@
   <string name="description_edit_success_article_edit_hint">También pueded editar artículos dentro de esta aplicación. Intenta corregir errores y pequeñas frases haciendo clic en el icono ^1 la próxima vez</string>
   <string name="description_edit_tutorial_title_descriptions">Descripciones de títulos</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículo para ayudar a los lectores a comprender el tema en un vistazo</string>
-  <string name="description_edit_tutorial_button_label_continue">Continuar</string>
   <string name="description_edit_tutorial_keep_it_short">Que sea breve</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>

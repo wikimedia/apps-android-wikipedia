@@ -12,7 +12,6 @@
   <string name="page_error_retry">Reprobar</string>
   <string name="page_error_back_to_main">Retornar</string>
   <string name="menu_clear_all_history">Rader historia</string>
-  <string name="page_does_not_exist_error">Iste pagina non existe.</string>
   <string name="dialog_title_clear_history">Rader historia de navigation</string>
   <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
   <string name="nav_item_saved_pages">Paginas salveguardate</string>
@@ -32,8 +31,6 @@
   <string name="menu_text_select_share">Divider</string>
   <string name="menu_text_select_edit_here">Modificar hic</string>
   <string name="nav_item_nearby">A proximitate</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Facer zoom a un loco sur le carta</string>
   <string name="last_updated_text">Ultime actualisation %s</string>
   <string name="content_license_html">Content is available under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; unless otherwise noted</string>
@@ -73,8 +70,6 @@
   <string name="history_empty_title" fuzzy="true">Il non ha paginas recente.</string>
   <string name="history_empty_message" fuzzy="true">Tu ha probabilemente delite totes. Le sequente vice que tu accede a un pagina, tu potera retrovar lo hic.</string>
   <string name="create_account_username_hint">Nomine de usator</string>
-  <string name="login_create_account_link">Non ha un conto? Inscribe te a Wikipedia</string>
-  <string name="create_account_login_link">Jam ha un conto? Aperi session</string>
   <string name="create_account_activity_title">Crear un conto</string>
   <string name="dialog_create_account_checking_progress">Verification in curso</string>
   <string name="create_account_email_hint">E-mail (optional)</string>

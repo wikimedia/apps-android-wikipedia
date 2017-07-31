@@ -12,7 +12,6 @@
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="page_error_back_to_main">Vrátit se</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
-  <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené karty. Jste si jisti?</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">Sdílet</string>
   <string name="menu_text_select_edit_here">Upravit zde</string>
   <string name="nav_item_nearby">Poblíž</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Přibližte se na místo v mapě</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="talk_page_link_text">Diskuse</string>
@@ -77,8 +74,6 @@
   <string name="delete_selected_items">Smazat vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
-  <string name="create_account_login_link">Účet už máte? Přihlaste se</string>
-  <string name="login_create_account_link">Nemáte účet? Přidejte se k Wikipedii</string>
   <string name="create_account_activity_title">Vytvoření účtu</string>
   <string name="dialog_create_account_checking_progress">Ověřování</string>
   <string name="create_account_email_hint">E-mail (nepovinný)</string>
@@ -202,11 +197,9 @@
   <string name="tool_tip_share">Po zvýraznění zajímavého faktu jej zkuste sdílet na své oblíbené síti!</string>
   <string name="page_view_in_browser">Zobrazit v prohlížeči</string>
   <string name="tool_tip_toc_button">Obsah zobrazte kdykoliv klepnutím na toto tlačítko nebo přejetím přes právý okraj obrazovky.</string>
-  <string name="error_server_response">Server nemohl dokončit žádost.</string>
   <string name="error_response_malformed">Odpověď serveru nebyl správně zformátována.</string>
   <string name="error_unknown">Došlo k neznámé chybě.</string>
   <string name="format_error_server_message">Zpráva: „%s“</string>
-  <string name="format_error_server_code">Kód: „%s“</string>
   <string name="address_copied">Adresu zkopírována do schránky.</string>
   <string name="text_copied">Text zkopírován do schránky.</string>
   <string name="button_continue_to_article">Číst článek</string>
@@ -313,7 +306,6 @@
   <string name="description_edit_success_article_edit_hint">Články můžete v této aplikaci také editovat. Překlepy můžete příště opravit kliknutím na ikonu ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Popis tématu</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Shrnuje článek tak, aby čtenář ihned věděl, o čem pojednává</string>
-  <string name="description_edit_tutorial_button_label_continue">Pokračovat</string>
   <string name="description_edit_tutorial_keep_it_short">Budťe struční</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít s úpravami</string>

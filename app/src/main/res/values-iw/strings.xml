@@ -18,7 +18,6 @@
   <string name="history_item_deleted">הערך %s הוסר מההיסטוריה</string>
   <string name="history_items_deleted">%d ערכים הוסרו מההיסטוריה</string>
   <string name="history_item_delete_undo">ביטול</string>
-  <string name="page_does_not_exist_error">הדף הזה אינו קיים.</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="nav_item_saved_pages">דפים שמורים</string>
@@ -39,8 +38,6 @@
   <string name="menu_text_select_share">שיתוף</string>
   <string name="menu_text_select_edit_here">לערוך כאן</string>
   <string name="nav_item_nearby">בסביבה</string>
-  <string name="nearby_distance_in_meters">%d מ\'</string>
-  <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_zoom_to_location">להתקרב למקום במפה</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;תורמי &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
@@ -95,8 +92,6 @@
   <string name="login_join_wikipedia">להצטרף לוויקיפדיה</string>
   <string name="login_forgot_password">שכחת את סיסמתך?</string>
   <string name="create_account_already_have">כבר יש לך חשבון?</string>
-  <string name="create_account_login_link">כבר יש לך חשבון? כניסה</string>
-  <string name="login_create_account_link">אין לך חשבון? אנו מזמינים אותך להצטרף לוויקיפדיה</string>
   <string name="create_account_activity_title">יצירת חשבון</string>
   <string name="dialog_create_account_checking_progress">אימות</string>
   <string name="create_account_email_hint">דואר אלקטרוני (לא חובה)</string>
@@ -227,11 +222,9 @@
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
   <string name="page_view_in_browser">להציג את הדף בדפדפן</string>
   <string name="tool_tip_toc_button">ר\' את תוכן העניינים בכל זמן באמצעות לחיצה על הכפתור הזה או החלקה מהקצה השמאלי של המסך.</string>
-  <string name="error_server_response">השרת לא יכול להשלים את הבקשה.</string>
   <string name="error_response_malformed">התשובה מהשרת לא מעוצבת נכון.</string>
   <string name="error_unknown">אירעה שגיאה בלתי־ידועה.</string>
   <string name="format_error_server_message">הודעה: \"%s\"</string>
-  <string name="format_error_server_code">קוד: \"%s\"</string>
   <string name="address_copied">הכתובת הועתקה ללוח.</string>
   <string name="text_copied">הטקסט הועתק ללוח.</string>
   <string name="button_continue_to_article">לקרוא את הערך</string>
@@ -319,7 +312,6 @@
   <string name="reading_list_empty">אין לך ערכים להוסיף לרשימה הזאת.</string>
   <string name="reading_list_article_offline">זמין ללא חיבור לרשת</string>
   <string name="reading_list_article_make_offline">לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
-  <string name="reading_list_article_remove_offline">לא לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
   <string name="reading_list_add_to_other_list">הוספה לרשימת קריאה אחרת</string>
   <string name="reading_list_remove_from_list">הסרה מהרשימה %s</string>
   <string name="reading_list_remove_from_lists">הסרה מרשימות קריאה</string>
@@ -353,7 +345,6 @@
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_card_subtitle">קריאת ערך אקראי בוויקיפדיה</string>
-  <string name="view_random_card_error">לא ניתן להציג דף אקראי מהרשת או מרשימות הקריאה שלך.</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
   <string name="view_main_page_card_subtitle">הדף הראשי ב־%s</string>
   <string name="view_featured_image_card_title">תמונת היום</string>
@@ -393,7 +384,6 @@
   <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך האפליקציה הזאת. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמל ^1 בפעם הבאה</string>
   <string name="description_edit_tutorial_title_descriptions">תיאורי כותרת</string>
   <string name="description_edit_tutorial_title_descriptions_summary">סיכום הערך שעוזר לקוראים להבין את הנושא במבט אחד</string>
-  <string name="description_edit_tutorial_button_label_continue">המשך</string>
   <string name="description_edit_tutorial_keep_it_short">זה אמור להיות קצר</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>

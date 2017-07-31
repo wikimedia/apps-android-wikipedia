@@ -12,7 +12,6 @@
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="page_error_back_to_main">परत जा</string>
   <string name="menu_clear_all_history">इतिहास साफ करा</string>
-  <string name="page_does_not_exist_error">हे पान अस्तित्वात नाही.</string>
   <string name="dialog_title_clear_history">न्याहाळकाचा इतिहास मिटवा</string>
   <string name="dialog_message_clear_history">याने आपला न्याहाळकाचा इतिहास वगळल्या जाईल व चालू असलेल्या सर्व कळी बंद होतील. आपण ते नक्की करता काय?</string>
   <string name="nav_item_saved_pages">साठवलेली पाने</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">सहभाग करा</string>
   <string name="menu_text_select_edit_here">येथे संपादन करा</string>
   <string name="nav_item_nearby">जवळपास</string>
-  <string name="nearby_distance_in_meters">%d मीटर</string>
-  <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_zoom_to_location">नकाशावर एका ठिकाणी झूम करा</string>
   <string name="last_updated_text">शेवटले अद्यतन %s</string>
   <string name="talk_page_link_text">चर्चा</string>
@@ -76,8 +73,6 @@
   <string name="history_empty_message" fuzzy="true">त्यातील आपण बहुतेक सर्वच वगळले आहेत. पुढील वेळेस आपल्यास कोणतेही पान हवे असेल तर तेथे, आपण येथून जाउ शकता.</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
-  <string name="create_account_login_link">आपले खाते आहे? प्रवेश करा</string>
-  <string name="login_create_account_link">आपले खाते नाही? विकिपीडियावर खाते तयार करा</string>
   <string name="create_account_activity_title">नवीन खाते तयार करा</string>
   <string name="dialog_create_account_checking_progress">सत्यापित होत आहे</string>
   <string name="create_account_email_hint">अंकपत्ता (‌वैकल्पिक)</string>
@@ -197,11 +192,9 @@
   <string name="tool_tip_share">एखादे आवडते तथ्य प्रकाशझोतात आणल्यावर, त्यास आपल्या आवडत्या नेटवर्कवर सहभाग करण्याच्या प्रयत्न करा.</string>
   <string name="page_view_in_browser">न्याहाळकात पान बघा</string>
   <string name="tool_tip_toc_button">कधीही आशय सारणी बघण्यास या कळीस थपकवा, किंवा पटलाच्या उजव्या बाजूकडून सरकवा.</string>
-  <string name="error_server_response">विदा आपली विनंती पूर्ण करु शकत नाही.</string>
   <string name="error_response_malformed">विदागारापासून प्राप्त झालेला प्रतिसाद योग्य तर्हेने प्रारुपित झाला नाही.</string>
   <string name="error_unknown">एक अज्ञात चूक उद्भवली.</string>
   <string name="format_error_server_message">संदेश: \"%s\"</string>
-  <string name="format_error_server_code">संकेत: \"%s\"</string>
   <string name="address_copied">पत्ता टांचणफळ्यात(क्लिपबोर्ड) नकलविला.</string>
   <string name="text_copied">मजकूर टांचणफळ्यात(क्लिपबोर्ड) नकलविला.</string>
   <string name="button_continue_to_article">लेख वाचा</string>
@@ -288,7 +281,6 @@
   <string name="description_edit_success_done">झाले</string>
   <string name="description_edit_success_did_you_know">आपणास माहित आहे का ?</string>
   <string name="description_edit_tutorial_title_descriptions">शीर्षक वर्णन</string>
-  <string name="description_edit_tutorial_button_label_continue">चालू ठेवा</string>
   <string name="description_edit_tutorial_keep_it_short">ते थोडक्यात ठेवा</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन चालू करा</string>
   <string name="description_edit_tutorial_promise">सुरुवात करण्याने, मी शपथ घेतो कि या फिचरचा गैरवापर करणार नाही.</string>

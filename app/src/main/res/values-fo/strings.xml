@@ -9,7 +9,6 @@
   <string name="error_network_error" fuzzy="true">Tað er onki internet samband :(</string>
   <string name="page_error_retry">Royn aftur</string>
   <string name="menu_clear_all_history">Rudda søguyvirlitið</string>
-  <string name="page_does_not_exist_error">Henda síðan er ikki til.</string>
   <string name="dialog_title_clear_history" fuzzy="true">Rudda brovsarasøguna?</string>
   <string name="dialog_message_clear_history" fuzzy="true">Ert tú vís/ur í at tú ynskir at tøma alt søguyvirlitið.</string>
   <string name="nav_item_saved_pages">Goymdar síður</string>
@@ -17,8 +16,6 @@
   <string name="menu_page_other_languages" fuzzy="true">Les á øðrum málum</string>
   <string name="menu_page_share" fuzzy="true">Deil</string>
   <string name="nav_item_nearby">Nærindis</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Seinast dagført %1$s</string>
   <string name="content_license_html">Innihaldið er tøkt undir &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; um ikki annað er viðmerkt</string>
   <string name="preference_title_language">Wikipediamál</string>
@@ -51,8 +48,6 @@
   <string name="history_empty_message" fuzzy="true">Títt søguyvirlit er tómt.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brúkaranavn</string>
-  <string name="login_create_account_link">Hevur tú onga konto? Blív ein partur av Wikipeida</string>
-  <string name="create_account_login_link">Hevur tú longu eina konto? Rita inn</string>
   <string name="create_account_activity_title">Stovna eina kontu</string>
   <string name="dialog_create_account_checking_progress">Váttar</string>
   <string name="create_account_email_hint">T-postur (valfrítt)</string>

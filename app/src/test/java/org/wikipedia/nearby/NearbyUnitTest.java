@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RuntimeEnvironment;
-import org.wikipedia.R;
 import org.wikipedia.test.TestRunner;
 
 import java.util.Collections;
@@ -79,31 +78,6 @@ public class NearbyUnitTest {
         assertThat(0, is(comp.compare(nullLocPage, nullLocPage)));
     }
 
-    @Test public void testGetDistanceLabelSameLocation() throws Throwable {
-        Location locationA = new Location("current");
-        locationA.setLatitude(0.0d);
-        locationA.setLongitude(0.0d);
-        assertThat("0 m", is(getDistanceLabel(locationA)));
-    }
-
-    @Test public void testGetDistanceLabelMeters() throws Throwable {
-        Location locationB = new Location("b");
-        locationB.setLatitude(0.0d);
-        locationB.setLongitude(0.001d);
-        assertThat("111 m", is(getDistanceLabel(locationB)));
-    }
-
-    @Test public void testGetDistanceLabelKilometers() throws Throwable {
-        Location locationB = new Location("b");
-        locationB.setLatitude(0.0d);
-        locationB.setLongitude(0.01d);
-        assertThat("1.11 km", is(getDistanceLabel(locationB)));
-    }
-
-    @Test public void testGetDistanceLabelNull() throws Throwable {
-        assertThat(" ", is(getDistanceLabel(null)));
-    }
-
     private class NearbyDistanceComparator implements Comparator<NearbyPage> {
         @Override
         public int compare(NearbyPage a, NearbyPage b) {
@@ -135,19 +109,6 @@ public class NearbyUnitTest {
 
     private static final int ONE_KM = 1000;
     private static final double ONE_KM_D = 1000.0d;
-
-    private String getDistanceLabel(Location otherLocation) {
-        if (otherLocation == null) {
-            return " ";
-        }
-
-        final int distance = getDistance(otherLocation);
-        if (distance < ONE_KM) {
-            return getString(R.string.nearby_distance_in_meters, distance);
-        } else {
-            return getString(R.string.nearby_distance_in_kilometers, distance / ONE_KM_D);
-        }
-    }
 
     private String getString(@StringRes int id, Object... formatArgs) {
         return RuntimeEnvironment.application.getString(id, formatArgs);
