@@ -208,7 +208,7 @@
         <item name="failureImageScaleType">centerCrop</item>
 
         <!-- Draw translucent images on a white background. -->
-        <item name="android:background">@android:color/white</item>
+        <item name="backgroundImage">@android:color/white</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.Article">
