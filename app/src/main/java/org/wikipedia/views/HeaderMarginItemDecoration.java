@@ -9,8 +9,9 @@ import android.view.View;
 
 public class HeaderMarginItemDecoration extends MarginItemDecoration {
 
-    public HeaderMarginItemDecoration(@NonNull Context context, @DimenRes int topId) {
-        super(0, pixelSize(context, topId), 0, 0);
+    public HeaderMarginItemDecoration(@NonNull Context context, @DimenRes int topId,
+                                      @DimenRes int bottomId) {
+        super(0, pixelSize(context, topId), 0, pixelSize(context, bottomId));
     }
 
     @Override public void getItemOffsets(Rect outRect, View view, RecyclerView parent,

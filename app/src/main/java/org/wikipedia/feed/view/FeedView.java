@@ -16,6 +16,9 @@ import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
 
+import static org.wikipedia.util.DimenUtil.getDimension;
+import static org.wikipedia.util.DimenUtil.roundedDpToPx;
+
 public class FeedView extends AutoFitRecyclerView {
     private StaggeredGridLayoutManager recyclerLayoutManager;
     @Nullable private ItemTouchHelper itemTouchHelper;
@@ -63,7 +66,7 @@ public class FeedView extends AutoFitRecyclerView {
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical));
         addItemDecoration(new HeaderMarginItemDecoration(getContext(),
-                R.dimen.view_feed_padding_top));
+                R.dimen.view_feed_padding_top, R.dimen.view_feed_search_padding_bottom));
         setCallback(new RecyclerViewColumnCallback());
     }
 
@@ -102,6 +105,8 @@ public class FeedView extends AutoFitRecyclerView {
             //       we would need to also notify the layout manager when the data set changes
             //       though.
             recyclerLayoutManager.setSpanCount(columns);
+            int padding = roundedDpToPx(getDimension(R.dimen.view_list_card_margin_horizontal));
+            setPadding(padding, 0, padding, 0);
         }
     }
 }

@@ -94,10 +94,11 @@
     <integer name="zero_notification_light_off_ms">3000</integer>
 
     <!-- The Feed -->
-    <dimen name="view_feed_padding_top">10dp</dimen>
+    <dimen name="view_feed_padding_top">4dp</dimen>
+    <dimen name="view_feed_search_padding_bottom">8dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>
-    <dimen name="view_list_card_margin_vertical">5dp</dimen>
-    <dimen name="view_list_card_margin_horizontal">7dp</dimen>
+    <dimen name="view_list_card_margin_vertical">4dp</dimen>
+    <dimen name="view_list_card_margin_horizontal">8dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
