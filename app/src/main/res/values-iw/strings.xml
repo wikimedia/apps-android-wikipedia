@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
+  <string name="reference_title">הערת שוליים %s</string>
   <string name="crash_report_dialog_title">סליחה, האפליקציה קרסה בפעם הקודמת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>
@@ -423,11 +424,21 @@
   <string name="offline_compilations_add">הוספת אוסף לקריאה ללא חיבור לרשת</string>
   <string name="remote_compilations_title">כל האוסָפים</string>
   <string name="remote_compilations_description">אוסָפים לקריאה ללא חיבור לרשת הם חבילות גדולות של ערכים שאפשר להוריד כקובץ אחד למכשיר שלך כדי שיהיה אפשר לקרוא אותם ללא חיבור לרשת.</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f ג\"ב</string>
+  <string name="offline_compilation_detail_button_download">הורדה · %.2f ג\"ב</string>
+  <string name="offline_compilation_detail_button_remove">הסרה</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">ג\"ב</string>
   <string name="storage_size_free">%.2f ג\"ב פנויים</string>
   <string name="storage_used_by_compilations">בשימוש ויקיפדיה</string>
   <string name="storage_other_apps">אפליקציות אחרות</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f ג\"ב / %2$.2f ג\"ב</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">נשארה דקה</item>
+    <item quantity="other">נשארו %d דקות</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">עצירה או חידוש הורדה</string>
+  <string name="compilation_download_widget_button_cancel_hint">ביטול הורדה</string>
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>

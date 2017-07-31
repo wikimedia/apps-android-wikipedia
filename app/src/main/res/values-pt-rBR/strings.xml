@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">Ignorar</string>
   <string name="error_page_does_not_exist">Esta página não existe</string>
   <string name="view_wiki_error_message_offline">Não foi possível conectar-se à Internet</string>
+  <string name="reference_title">Referência %s</string>
   <string name="crash_report_dialog_title">Desculpe, o aplicativo encerrou inesperadamente da última vez</string>
   <string name="crash_report_dialog_text">Gostaria de enviar um relatório de falha ao HockeyApp / um provedor de serviço de terceiros para que a Wikimedia possa analisar a falha e corrigi-la?</string>
   <string name="crash_report_dialog_dont_send_button">Pular</string>
@@ -415,6 +416,7 @@
   <string name="description_edit_revert_reason2">Sua contribuição parecia uma experiência ou vandalismo.</string>
   <string name="description_edit_revert_history">Se estiver interessado, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">A permissão para acessar o armazenamento em seu dispositivo é necessária para a navegação off-line. Tente novamente e conceda a permissão solicitada.</string>
+  <string name="offline_read_permission_error">Permissão não concedida para ler do armazenamento do dispositivo.</string>
   <string name="offline_card_text">Agora você está navegando na Wikipédia no modo off-line. Tenha em atenção que os artigos offline podem não estar totalmente atualizados com a versão online.</string>
   <string name="offline_my_compilations">Minhas compilações</string>
   <string name="offline_compilations_title">Compilações off-line</string>
@@ -423,11 +425,17 @@
   <string name="offline_compilations_add">Adicionar compilação off-line</string>
   <string name="remote_compilations_title">Todas as compilações</string>
   <string name="remote_compilations_description">Compilações off-line são grandes pacotes de artigos que podem ser baixados como um arquivo para o seu dispositivo, para que você continue a navegar enquanto estiver offline.</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Download · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">Remover</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB grátis</string>
   <string name="storage_used_by_compilations">Usado pela Wikipedia</string>
   <string name="storage_other_apps">Outros aplicativos</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <string name="compilation_download_widget_button_pause_resume_hint">Pausar ou continuar o download</string>
+  <string name="compilation_download_widget_button_cancel_hint">Cancelar o download</string>
   <string name="onboarding_skip">Pular</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>

@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">Singkir</string>
   <string name="error_page_does_not_exist">Laman ini tidak wujud</string>
   <string name="view_wiki_error_message_offline">Tidak dapat menyambung ke internet</string>
+  <string name="reference_title">Rujukan %s</string>
   <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
   <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Langkau</string>
@@ -415,6 +416,7 @@
   <string name="description_edit_revert_reason2">sumbangan anda kelihatan seperti eksperimen atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika anda berminat, lihat &lt;a href=\"%1$s\"&gt;sejarah suntingan&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk melayari luar talian. Sila cuba lagi, dan berikan kebenaran yang diminta.</string>
+  <string name="offline_read_permission_error">Kebenaran tidak diberikan untuk baca dari storan peranti.</string>
   <string name="offline_card_text">Anda kini melayari Wikipedia dalam mod luar talian. Sila ambil perhatian bahawa rencana luar talian mungkin tidak sepenuhnya terkini dengan versi dalam talian.</string>
   <string name="offline_my_compilations">Kompilasi saya</string>
   <string name="offline_compilations_title">Kompilasi luar talian</string>
@@ -423,11 +425,21 @@
   <string name="offline_compilations_add">Tambah kompilasi luar talian</string>
   <string name="remote_compilations_title">Semua kompilasi</string>
   <string name="remote_compilations_description">Kompilasi Luar Talian adalah kumpulan besar rencana yang boleh dimuat turun sebagai satu fail ke peranti anda, jadi anda boleh terus menyemak imbas semasa di luar talian.</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Muat turun · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">Buang</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB bebas</string>
   <string name="storage_used_by_compilations">digunakan oleh Wikipedia</string>
   <string name="storage_other_apps">Aplikasi lain</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">1 minit lagi</item>
+    <item quantity="other">%d minit lagi</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">Jeda atau lanjutkan muat turun</string>
+  <string name="compilation_download_widget_button_cancel_hint">Batalkan muat turun</string>
   <string name="onboarding_skip">Langkau</string>
   <string name="onboarding_continue">Teruskan</string>
   <string name="onboarding_get_started">Memulakan</string>

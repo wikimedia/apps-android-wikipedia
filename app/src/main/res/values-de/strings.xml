@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">Ausblenden</string>
   <string name="error_page_does_not_exist">Diese Seite ist nicht vorhanden</string>
   <string name="view_wiki_error_message_offline">Es konnte keine Verbindung mit dem Internet hergestellt werden</string>
+  <string name="reference_title">Einzelnachweis %s</string>
   <string name="crash_report_dialog_title">Leider ist die App beim letzten Mal abgestürzt</string>
   <string name="crash_report_dialog_text">Möchtest du einen Absturzbericht an HockeyApp/einen Drittpartei-Diensteanbieter senden, so dass Wikimedia deinen Absturz überprüfen und den verursachenden Fehler beheben kann?</string>
   <string name="crash_report_dialog_dont_send_button">Überspringen</string>
@@ -424,11 +425,21 @@
   <string name="offline_compilations_add">Offline-Zusammenstellung hinzufügen</string>
   <string name="remote_compilations_title">Alle Zusammenstellungen</string>
   <string name="remote_compilations_description">Offline-Zusammenstellungen sind große Bündel von Artikeln, die als eine Datei auf dein Gerät heruntergeladen werden können, so dass du mit dem Browsen weitermachen kannst, während du offline bist.</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Herunterladen · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">Entfernen</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB frei</string>
   <string name="storage_used_by_compilations">von Wikipedia verwendet</string>
   <string name="storage_other_apps">Andere Anwendungen</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB von %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">Noch eine Minute</item>
+    <item quantity="other">Noch %d Minuten</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">Herunterladen pausieren oder fortfahren</string>
+  <string name="compilation_download_widget_button_cancel_hint">Herunterladen abbrechen</string>
   <string name="onboarding_skip">Überspringen</string>
   <string name="onboarding_continue">Fortfahren</string>
   <string name="onboarding_get_started">Anfangen</string>

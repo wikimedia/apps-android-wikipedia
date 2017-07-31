@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">Stäng</string>
   <string name="error_page_does_not_exist">Denna sida finns inte</string>
   <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
+  <string name="reference_title">Referens %s</string>
   <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
   <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
   <string name="crash_report_dialog_dont_send_button">Hoppa över</string>
@@ -424,11 +425,21 @@
   <string name="offline_compilations_add">Lägg till offlinesamling</string>
   <string name="remote_compilations_title">Alla samlingar</string>
   <string name="remote_compilations_description">Offlinesamlingar är stora mängder artiklar som kan laddas ned som en fil på din enhet, så du kan fortsätta läsa offline.</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Ladda ned · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">Ta bort</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB ledigt</string>
   <string name="storage_used_by_compilations">används av Wikipedia</string>
   <string name="storage_other_apps">Andra applikationer</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">1 min kvar</item>
+    <item quantity="other">%d min kvar</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">Pausa eller återuppta nedladdning</string>
+  <string name="compilation_download_widget_button_cancel_hint">Avbryt nedladdning</string>
   <string name="onboarding_skip">Hoppa över</string>
   <string name="onboarding_continue">Fortsätt</string>
   <string name="onboarding_get_started">Kom igång</string>

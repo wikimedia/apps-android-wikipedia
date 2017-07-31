@@ -237,7 +237,7 @@
   <string name="button_continue_to_article">Llegeix l\'article</string>
   <string name="button_add_to_reading_list">Afegeix a la llista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">No es pot carregar l\'article mentre estigueu fora de línia.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Afegeix l\'article a una llista de lectura i es baixarà una vegada torneu a estar en línia.</string>
+  <string name="page_offline_notice_add_to_reading_list">Pista: En afegir l\'article a una llista de lectura es baixarà una vegada torneu a estar en línia.</string>
   <string name="page_offline_notice_last_date">Esteu llegint una versió fora de línia de l\'article desada el %s.</string>
   <string name="page_offline_notice_compilation_download_date">Esteu llegint una versió fora de línia de l\'article d\'una compilació baixada el %s.</string>
   <string name="button_get_directions">Obtén indicacions</string>
@@ -255,6 +255,7 @@
   <string name="view_link_preview_error_button_dismiss">Descarta</string>
   <string name="error_page_does_not_exist">La pàgina no existeix</string>
   <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
+  <string name="reference_title">Referència %s</string>
   <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
   <string name="crash_report_dialog_text">Voleu enviar d\'un informe d\'errors a HockeyApp / un proveïdor de serveis extern de manera que Wikimedia pugui revisar l\'error i corregir-ne la causa?</string>
   <string name="crash_report_dialog_dont_send_button">Omet</string>
@@ -404,15 +405,20 @@
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
   <string name="offline_my_compilations">Les meves recopilacions</string>
+  <string name="offline_compilations_title">Compilacions fora de línia</string>
   <string name="offline_compilations_search_by_name">Cerca les compilacions per nom</string>
   <string name="offline_compilations_found_count">Les meves compilacions (%d)</string>
   <string name="offline_compilations_add">Afegeix una compilació fora de línia</string>
   <string name="remote_compilations_title">Totes les compilacions</string>
+  <string name="offline_compilation_detail_button_remove">Suprimeix</string>
   <string name="storage_other_apps">Altres aplicacions</string>
+  <string name="compilation_download_widget_button_pause_resume_hint">Pausa o reprèn la baixada</string>
+  <string name="compilation_download_widget_button_cancel_hint">Cancel·la la baixada</string>
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
   <string name="onboarding_explore_title">Noves formes d\'explorar</string>
+  <string name="onboarding_explore_text">Descobriu els articles destacats, els temes rellevants i els suggeriments de lectura al canal Explora.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>

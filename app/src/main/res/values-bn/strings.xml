@@ -235,7 +235,7 @@
   <string name="button_continue_to_article">নিবন্ধ পড়ুন</string>
   <string name="button_add_to_reading_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="page_offline_notice_cannot_load_while_offline">নিবন্ধ অফলাইনে থাকাকালীন সময়ে লোড করা যাবে না।</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
+  <string name="page_offline_notice_add_to_reading_list">ইঙ্গিত: নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
   <string name="button_get_directions">দিক নির্দেশনা পান</string>
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
@@ -252,6 +252,7 @@
   <string name="view_link_preview_error_button_dismiss">খারিজ</string>
   <string name="error_page_does_not_exist">এই পাতার অস্তিত্ব নেই</string>
   <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
+  <string name="reference_title">তথ্যসূত্র %s</string>
   <string name="crash_report_dialog_title">দুঃখিত, অ্যাপ্লিকেশন শেষ বার বিধ্বস্ত হয়েছিল</string>
   <string name="crash_report_dialog_text">আপনি কি স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে চান যাতে উইকিমিডিয়া আপনার ত্রুটি পর্যালোচনা করতে পারে এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারে?</string>
   <string name="crash_report_dialog_dont_send_button">উপেক্ষা করো</string>
@@ -395,8 +396,16 @@
   <string name="offline_compilations_search_by_name">নাম অনুযায়ী সংকলিত বিষয় সন্ধান করুন</string>
   <string name="offline_compilations_found_count">আমার সংকলিত বিষয় (%d)</string>
   <string name="offline_compilations_add">অফলাইনের সংকলিত বিষয় যোগ করুন</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f গিগাবাইট</string>
+  <string name="offline_compilation_detail_button_download">ডাউনলোড করুন · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">সরান</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">জিবি</string>
   <string name="storage_used_by_compilations">উইকিপিডিয়া দ্বারা ব্যবহৃত</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">১ মিনিট বাকি</item>
+    <item quantity="other">%d মিনিট বাকি</item>
+  </plurals>
+  <string name="compilation_download_widget_button_cancel_hint">ডাউনলোড বাতিল করুন</string>
   <string name="onboarding_skip">এড়ান</string>
 </resources>

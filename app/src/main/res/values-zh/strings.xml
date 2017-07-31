@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">关闭</string>
   <string name="error_page_does_not_exist">该页面不存在</string>
   <string name="view_wiki_error_message_offline">无法连接至互联网</string>
+  <string name="reference_title">参考文献%s</string>
   <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
   <string name="crash_report_dialog_text">您是否希望发送崩溃报告至HockeyApp/第三方服务提供方，这样维基媒体可以浏览您的崩溃报告，并修复导致它的漏洞？</string>
   <string name="crash_report_dialog_dont_send_button">跳过</string>
@@ -424,11 +425,21 @@
   <string name="offline_compilations_add">添加离线汇编</string>
   <string name="remote_compilations_title">所有汇编</string>
   <string name="remote_compilations_description">离线汇编是可以将大批量条目下载为一个文件至您设备的机制，这样您可以在离线时继续阅读它们。</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">下载 · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">移除</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB免费</string>
   <string name="storage_used_by_compilations">用于维基百科</string>
   <string name="storage_other_apps">其他应用</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">还剩1分钟</item>
+    <item quantity="other">还剩%d分钟</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">暂停或恢复下载</string>
+  <string name="compilation_download_widget_button_cancel_hint">取消下载</string>
   <string name="onboarding_skip">跳过</string>
   <string name="onboarding_continue">继续</string>
   <string name="onboarding_get_started">入门</string>

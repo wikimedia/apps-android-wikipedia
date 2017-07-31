@@ -254,6 +254,7 @@
   <string name="view_link_preview_error_button_dismiss">숨기기</string>
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
+  <string name="reference_title">각주 %s</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>
@@ -413,6 +414,7 @@
   <string name="description_edit_revert_reason2">당신의 기여는 실험적이거나 문서 훼손처럼 보입니다.</string>
   <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
   <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다. 다시 시도한 다음 요청 권한을 부여해 주십시오.</string>
+  <string name="offline_read_permission_error">기억 장치로부터 읽을 권한이 부여되지 않았습니다.</string>
   <string name="offline_card_text">위키백과를 오프라인 모드에서 탐색하고 있습니다. 오프라인 문서는 온라인 판과 완전히 최신화되어 있지 않을 수 있습니다.</string>
   <string name="offline_my_compilations">나의 모음</string>
   <string name="offline_compilations_title">오프라인 모음</string>
@@ -420,11 +422,21 @@
   <string name="offline_compilations_found_count">나의 모음 (%d)</string>
   <string name="offline_compilations_add">오프라인 모음 추가</string>
   <string name="remote_compilations_title">모든 모음</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">다운로드 · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">제거</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB 남음</string>
   <string name="storage_used_by_compilations">(위키백과가 사용 중)</string>
   <string name="storage_other_apps">다른 애플리케이션</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">1분 남음</item>
+    <item quantity="other">%d분 남음</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">다운로드 일시 중지 / 재개</string>
+  <string name="compilation_download_widget_button_cancel_hint">다운로드 취소</string>
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>

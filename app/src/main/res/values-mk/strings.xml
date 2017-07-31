@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">Тргни</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
+  <string name="reference_title">Навод %s</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>
@@ -424,11 +425,21 @@
   <string name="offline_compilations_add">Додај вонмрежна збирка</string>
   <string name="remote_compilations_title">Сите збирки</string>
   <string name="remote_compilations_description">Вонмрежните збирки се големи купови од статии што можат да се преземат како една податотека на вашиот уред, за да можете да продолжите со прелистување и кога немате линија.</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f ГБ</string>
+  <string name="offline_compilation_detail_button_download">Преземи · %.2f ГБ</string>
+  <string name="offline_compilation_detail_button_remove">Отстрани</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">ГБ</string>
   <string name="storage_size_free">слободни %.2f ГБ</string>
   <string name="storage_used_by_compilations">се користат од Википедија</string>
   <string name="storage_other_apps">Други прилози</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">Преостанува една минута</item>
+    <item quantity="other">Преостануваат %d минути</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">Паузирај или продолжи преземање</string>
+  <string name="compilation_download_widget_button_cancel_hint">Откажи преземање</string>
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>

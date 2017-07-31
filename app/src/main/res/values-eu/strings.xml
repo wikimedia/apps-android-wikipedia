@@ -210,6 +210,7 @@
   <string name="location_permissions_enable_prompt">Gaitu kokapen baimenak zure gertukoak ikusteko.</string>
   <string name="view_link_preview_error_button_dismiss">Utzi</string>
   <string name="view_wiki_error_message_offline">Ezin izan da Internetera konektatu</string>
+  <string name="reference_title">Erreferentzia %s</string>
   <string name="crash_report_dialog_dont_send_button">Utzi</string>
   <string name="crash_report_dialog_always_send_button">Beti bidali</string>
   <string name="crash_report_dialog_send_button">Bidali</string>
@@ -320,11 +321,21 @@
   <string name="offline_compilations_found_count">Nire bildumak (%d)</string>
   <string name="offline_compilations_add">Konexiorik gabeko bilduma gehitu</string>
   <string name="remote_compilations_title">Bilduma guztiak</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">· %.2f GB jaitsi</string>
+  <string name="offline_compilation_detail_button_remove">Kendu</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB libre</string>
   <string name="storage_used_by_compilations">Wikipediak erabilia</string>
   <string name="storage_other_apps">Beste aplikazioak</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">1 min left</item>
+    <item quantity="other">%d mins left</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">Gelditu edo berrabiarazi deskarga</string>
+  <string name="compilation_download_widget_button_cancel_hint">Deskarga deuseztatu</string>
   <string name="onboarding_skip">Utzi</string>
   <string name="onboarding_continue">Jarraitu</string>
   <string name="onboarding_get_started">Has zaitez!</string>

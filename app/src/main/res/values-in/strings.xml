@@ -7,7 +7,7 @@
   <string name="yes">Ya</string>
   <string name="no">Tidak</string>
   <string name="search_hint">Telusuri Wikipedia</string>
-  <string name="search_hint_search_history">Riwayat penelusuran</string>
+  <string name="search_hint_search_history">Cari riwayat</string>
   <string name="search_hint_search_my_lists">Cari daftar saya</string>
   <string name="search_hint_search_reading_list">Cari daftar bacaan</string>
   <string name="nav_item_history">Riwayat</string>
@@ -134,7 +134,7 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
-  <string name="history_search_list_hint">Riwayat penelusuran</string>
+  <string name="history_search_list_hint">Cari riwayat</string>
   <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi sebagian.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">Tutup</string>
   <string name="error_page_does_not_exist">Halaman ini tidak ada</string>
   <string name="view_wiki_error_message_offline">Tidak dapat terhubung ke internet</string>
+  <string name="reference_title">Referensi %s</string>
   <string name="crash_report_dialog_title">Maaf, aplikasi berhenti dengan sendirinya</string>
   <string name="crash_report_dialog_text">Apakah Anda ingin mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga sehingga Wikimedia dapat meninjau kerusakan Anda dan memperbaiki kesalahan yang disebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Lewati</string>
@@ -415,6 +416,7 @@
   <string name="description_edit_revert_reason2">kontribusi Anda tampak seperti uji coba atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Izin untuk mengakses penyimpanan pada perangkat Anda diperlukan untuk penjelajahan luring. Silakan coba lagi, dan berikan izin yang diminta.</string>
+  <string name="offline_read_permission_error">Izin tidak diberikan untuk baca dari penyimpanan perangkat.</string>
   <string name="offline_card_text">Anda sekarang menjelajahi Wikipedia dalam mode luring. Harap dicatat bahwa artikel luring mungkin tidak sepenuhnya diperbarui dengan versi daring.</string>
   <string name="offline_my_compilations">Kompilasi saya</string>
   <string name="offline_compilations_title">Kompilasi luring</string>
@@ -423,11 +425,21 @@
   <string name="offline_compilations_add">Tambah kompilasi luring</string>
   <string name="remote_compilations_title">Semua kompilasi</string>
   <string name="remote_compilations_description">Kompilasi Luring adalah kumpulan artikel besar yang dapat diunduh sebagai satu berkas ke perangkat Anda, sehingga Anda dapat terus menjelajah saat luring.</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Unduh · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">Hapus</string>
   <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB bebas</string>
   <string name="storage_used_by_compilations">digunakan oleh Wikipedia</string>
   <string name="storage_other_apps">Aplikasi lainnya</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">1 menit lagi</item>
+    <item quantity="other">%d menit lagi</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">Jeda atau lanjutkan unduhan</string>
+  <string name="compilation_download_widget_button_cancel_hint">Batalkan unduhan</string>
   <string name="onboarding_skip">Lewati</string>
   <string name="onboarding_continue">Lanjutkan</string>
   <string name="onboarding_get_started">Memulai</string>
