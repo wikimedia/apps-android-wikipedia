@@ -5,8 +5,7 @@
              xmlns:app="http://schemas.android.com/apk/res-auto"
              android:id="@+id/gallery_item_container"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@android:color/black">
+             android:layout_height="match_parent">
     <FrameLayout
         android:id="@+id/gallery_video_container"
         android:layout_width="match_parent"
@@ -36,7 +35,7 @@
             android:contentDescription="@null"
             />
     </FrameLayout>
-    <com.facebook.samples.zoomable.ZoomableDraweeView
+    <org.wikipedia.views.ZoomableDraweeViewWithBackground
         android:id="@+id/gallery_image"
         android:visibility="gone"
         android:layout_width="match_parent"

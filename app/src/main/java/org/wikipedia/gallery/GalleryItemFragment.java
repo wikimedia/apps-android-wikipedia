@@ -1,7 +1,6 @@
 package org.wikipedia.gallery;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -29,7 +28,6 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.samples.zoomable.DoubleTapGestureListener;
-import com.facebook.samples.zoomable.ZoomableDraweeView;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -43,6 +41,7 @@ import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ZoomableDraweeViewWithBackground;
 
 import retrofit2.Call;
 
@@ -62,7 +61,7 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private ProgressBar progressBar;
-    private ZoomableDraweeView imageView;
+    private ZoomableDraweeViewWithBackground imageView;
     private View videoContainer;
     private VideoView videoView;
     private SimpleDraweeView videoThumbnail;
@@ -119,7 +118,7 @@ public class GalleryItemFragment extends Fragment {
         videoView = (VideoView) rootView.findViewById(R.id.gallery_video);
         videoThumbnail = (SimpleDraweeView) rootView.findViewById(R.id.gallery_video_thumbnail);
         videoPlayButton = rootView.findViewById(R.id.gallery_video_play_button);
-        imageView = (ZoomableDraweeView) rootView.findViewById(R.id.gallery_image);
+        imageView = (ZoomableDraweeViewWithBackground) rootView.findViewById(R.id.gallery_image);
         imageView.setTapListener(new DoubleTapGestureListener(imageView) {
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
@@ -380,6 +379,7 @@ public class GalleryItemFragment extends Fragment {
         imageView.setVisibility(View.VISIBLE);
         L.v("Loading image from url: " + url);
 
+        imageView.setDrawBackground(false);
         imageView.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(url)
                 .setAutoPlayAnimations(true)
@@ -389,10 +389,8 @@ public class GalleryItemFragment extends Fragment {
                         if (!isAdded()) {
                             return;
                         }
+                        imageView.setDrawBackground(true);
                         updateProgressBar(false, true, 0);
-                        if (shouldHaveWhiteBackground(galleryItem.getMimeType())) {
-                            imageView.setBackgroundColor(Color.WHITE);
-                        }
                         parentActivity.supportInvalidateOptionsMenu();
                     }
 
@@ -456,10 +454,6 @@ public class GalleryItemFragment extends Fragment {
         if (galleryItem != null && callback() != null) {
             callback().onDownload(galleryItem);
         }
-    }
-
-    private boolean shouldHaveWhiteBackground(String mimeType) {
-        return mimeType.contains("svg") || mimeType.contains("png") || mimeType.contains("gif");
     }
 
     @Nullable private Callback callback() {
