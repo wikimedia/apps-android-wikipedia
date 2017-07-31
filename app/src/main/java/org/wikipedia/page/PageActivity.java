@@ -110,7 +110,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     private DialogInterface.OnDismissListener listDialogDismissListener = new DialogInterface.OnDismissListener() {
         @Override
         public void onDismiss(DialogInterface dialogInterface) {
-            pageFragment.updateBookmark();
+            pageFragment.updateBookmarkFromDao();
         }
     };
 
@@ -543,7 +543,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         }
         FeedbackUtil.showMessage(getActivity(),
                 getString(R.string.reading_list_item_deleted, title.getDisplayText()));
-        pageFragment.updateBookmark();
+        pageFragment.updateBookmarkFromDao();
     }
 
     @Nullable

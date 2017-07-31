@@ -21,6 +21,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.mwapi.MwException;
@@ -40,6 +41,9 @@ import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesClient;
+import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -163,15 +167,9 @@ public class PageFragmentLoadState {
         leadImagesHandler.hide();
         bottomContentHandler.hide();
         fragment.getSearchBarHideHandler().setFadeEnabled(false);
-        try {
-            JSONObject wrapper = new JSONObject();
-            // whatever we pass to this event will be passed back to us by the WebView!
-            wrapper.put("sequence", sequenceNumber.get());
-            wrapper.put("stagedScrollY", stagedScrollY);
-            bridge.sendMessage("beginNewPage", wrapper);
-        } catch (JSONException e) {
-            L.logRemoteErrorIfProd(e);
-        }
+
+        this.stagedScrollY = stagedScrollY;
+        pageLoadCheckReadingLists(sequenceNumber.get());
     }
 
     public boolean isLoading() {
@@ -256,34 +254,6 @@ public class PageFragmentLoadState {
     }
 
     @VisibleForTesting
-    protected void loadLeadSection(final int startSequenceNum) {
-        app.getSessionFunnel().leadSectionFetchStart();
-        PageClientFactory
-                .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(null, PageClient.CacheOption.CACHE, model.getTitle().getPrefixedText(),
-                        calculateLeadImageWidth(), !app.isImageDownloadEnabled())
-                .enqueue(new retrofit2.Callback<PageLead>() {
-                    @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {
-                        app.getSessionFunnel().leadSectionFetchEnd();
-                        PageLead lead = rsp.body();
-                        onLeadSectionLoaded(lead, startSequenceNum);
-                        if (rsp.raw().cacheResponse() != null) {
-                            showPageOfflineMessage(rsp.raw().header("date", ""));
-                        }
-                    }
-
-                    @Override public void onFailure(Call<PageLead> call, Throwable t) {
-                        if (OfflineManager.instance().titleExists(model.getTitle().getDisplayText())) {
-                            loadFromCompilation();
-                            return;
-                        }
-                        L.e("PageLead error: ", t);
-                        commonSectionFetchOnCatch(t, startSequenceNum);
-                    }
-                });
-    }
-
-    @VisibleForTesting
     protected void commonSectionFetchOnCatch(Throwable caught, int startSequenceNum) {
         ErrorCallback callback = networkErrorCallback;
         networkErrorCallback = null;
@@ -304,8 +274,10 @@ public class PageFragmentLoadState {
             @Override
             public void onMessage(JSONObject payload) {
                 try {
-                    stagedScrollY = payload.getInt("stagedScrollY");
-                    loadOnWebViewReady();
+                    if (!sequenceNumber.inSync(payload.getInt("sequence"))) {
+                        return;
+                    }
+                    pageLoadWebViewReady();
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }
@@ -315,7 +287,10 @@ public class PageFragmentLoadState {
             @Override
             public void onMessage(JSONObject payload) {
                 try {
-                    displayNonLeadSection(payload.getInt("index"));
+                    if (!sequenceNumber.inSync(payload.getInt("sequence"))) {
+                        return;
+                    }
+                    pageLoadDisplayNonLeadSection(payload.getInt("index"));
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }
@@ -324,12 +299,16 @@ public class PageFragmentLoadState {
         bridge.addListener("pageLoadComplete", new SynchronousBridgeListener() {
             @Override
             public void onMessage(JSONObject payload) {
-                // Do any other stuff that should happen upon page load completion...
-                if (fragment.callback() != null) {
-                    fragment.callback().onPageUpdateProgressBar(false, true, 0);
-                }
-
                 try {
+                    if (!sequenceNumber.inSync(payload.getInt("sequence"))) {
+                        return;
+                    }
+
+                    // Do any other stuff that should happen upon page load completion...
+                    if (fragment.callback() != null) {
+                        fragment.callback().onPageUpdateProgressBar(false, true, 0);
+                    }
+
                     if (payload.has("sections")) {
                         // augment our current Page object with updated Sections received from JS
                         List<Section> sectionList = new ArrayList<>();
@@ -373,7 +352,42 @@ public class PageFragmentLoadState {
         });
     }
 
-    private void loadOnWebViewReady() {
+    private void pageLoadCheckReadingLists(final int sequence) {
+        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(model.getTitle()),
+                new CallbackTask.Callback<ReadingListPage>() {
+                    @Override public void success(@Nullable ReadingListPage page) {
+                        if (!sequenceNumber.inSync(sequence)) {
+                            return;
+                        }
+                        model.setReadingListPage(page);
+                        fragment.updateBookmark();
+                        pageLoadPrepareWebView();
+                    }
+
+                    @Override
+                    public void failure(Throwable caught) {
+                        if (!sequenceNumber.inSync(sequence)) {
+                            return;
+                        }
+                        L.w(caught);
+                        fragment.updateBookmark();
+                        pageLoadPrepareWebView();
+                    }
+                });
+    }
+
+    private void pageLoadPrepareWebView() {
+        try {
+            JSONObject wrapper = new JSONObject();
+            // whatever we pass to this event will be passed back to us by the WebView!
+            wrapper.put("sequence", sequenceNumber.get());
+            bridge.sendMessage("beginNewPage", wrapper);
+        } catch (JSONException e) {
+            L.logRemoteErrorIfProd(e);
+        }
+    }
+
+    private void pageLoadWebViewReady() {
         // stage any section-specific link target from the title, since the title may be
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
@@ -381,14 +395,14 @@ public class PageFragmentLoadState {
         L10nUtil.setupDirectionality(model.getTitle().getWikiSite().languageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
-        loadFromNetwork(new ErrorCallback() {
+        pageLoadFromNetwork(new ErrorCallback() {
             @Override public void call(final Throwable networkError) {
                 fragment.onPageLoadError(networkError);
             }
         });
     }
 
-    private void loadFromNetwork(final ErrorCallback errorCallback) {
+    private void pageLoadFromNetwork(final ErrorCallback errorCallback) {
         networkErrorCallback = errorCallback;
         if (!fragment.isAdded()) {
             return;
@@ -398,10 +412,38 @@ public class PageFragmentLoadState {
             fragment.callback().onPageInvalidateOptionsMenu();
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
         }
-        loadLeadSection(sequenceNumber.get());
+        pageLoadLeadSection(sequenceNumber.get());
     }
 
-    private void loadFromCompilation() {
+    @VisibleForTesting
+    protected void pageLoadLeadSection(final int startSequenceNum) {
+        app.getSessionFunnel().leadSectionFetchStart();
+        PageClientFactory
+                .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
+                .lead(null, model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
+                        model.getTitle().getPrefixedText(), calculateLeadImageWidth(), !app.isImageDownloadEnabled())
+                .enqueue(new retrofit2.Callback<PageLead>() {
+                    @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
+                        app.getSessionFunnel().leadSectionFetchEnd();
+                        PageLead lead = rsp.body();
+                        pageLoadLeadSectionComplete(lead, startSequenceNum);
+                        if (rsp.raw().cacheResponse() != null) {
+                            showPageOfflineMessage(rsp.raw().header("date", ""));
+                        }
+                    }
+
+                    @Override public void onFailure(@NonNull Call<PageLead> call, @NonNull Throwable t) {
+                        if (OfflineManager.instance().titleExists(model.getTitle().getDisplayText())) {
+                            pageLoadFromCompilation();
+                            return;
+                        }
+                        L.e("PageLead error: ", t);
+                        commonSectionFetchOnCatch(t, startSequenceNum);
+                    }
+                });
+    }
+
+    private void pageLoadFromCompilation() {
         String normalizedTitle = OfflineManager.instance().getNormalizedTitle(model.getTitle().getDisplayText());
         PageTitle newTitle = TextUtils.isEmpty(normalizedTitle) ? model.getTitle()
                 : new PageTitle(normalizedTitle, model.getTitle().getWikiSite());
@@ -484,7 +526,7 @@ public class PageFragmentLoadState {
         leadImagesHandler.beginLayout(new LeadImageLayoutListener(runnable), sequenceNumber.get());
     }
 
-    private void displayLeadSection() {
+    private void pageLoadDisplayLeadSection() {
         Page page = model.getPage();
 
         sendMarginPayload();
@@ -615,7 +657,7 @@ public class PageFragmentLoadState {
         return app.getRemoteConfig().getConfig();
     }
 
-    private void displayNonLeadSection(int index) {
+    private void pageLoadDisplayNonLeadSection(int index) {
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, false,
                     Constants.PROGRESS_BAR_MAX_VALUE / model.getPage()
@@ -654,7 +696,7 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void onLeadSectionLoaded(PageLead pageLead, int startSequenceNum) {
+    private void pageLoadLeadSectionComplete(PageLead pageLead, int startSequenceNum) {
         if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
@@ -685,7 +727,7 @@ public class PageFragmentLoadState {
                     return;
                 }
                 fragment.callback().onPageInvalidateOptionsMenu();
-                loadRemainingSections(sequenceNumber.get());
+                pageLoadRemainingSections(sequenceNumber.get());
             }
         });
 
@@ -713,27 +755,27 @@ public class PageFragmentLoadState {
                 });
     }
 
-    private void loadRemainingSections(final int startSequenceNum) {
+    private void pageLoadRemainingSections(final int startSequenceNum) {
         app.getSessionFunnel().restSectionsFetchStart();
         PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .sections(null, PageClient.CacheOption.CACHE, model.getTitle().getPrefixedText(),
-                        !app.isImageDownloadEnabled())
+                .sections(null, model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
+                        model.getTitle().getPrefixedText(), !app.isImageDownloadEnabled())
                 .enqueue(new retrofit2.Callback<PageRemaining>() {
-                    @Override public void onResponse(Call<PageRemaining> call, Response<PageRemaining> rsp) {
+                    @Override public void onResponse(@NonNull Call<PageRemaining> call, @NonNull Response<PageRemaining> rsp) {
                         app.getSessionFunnel().restSectionsFetchEnd();
                         PageRemaining sections = rsp.body();
-                        onRemainingSectionsLoaded(sections, startSequenceNum);
+                        pageLoadRemainingSectionsComplete(sections, startSequenceNum);
                     }
 
-                    @Override public void onFailure(Call<PageRemaining> call, Throwable t) {
+                    @Override public void onFailure(@NonNull Call<PageRemaining> call, @NonNull Throwable t) {
                         L.e("PageRemaining error: ", t);
                         commonSectionFetchOnCatch(t, startSequenceNum);
                     }
                 });
     }
 
-    private void onRemainingSectionsLoaded(PageRemaining pageRemaining, int startSequenceNum) {
+    private void pageLoadRemainingSectionsComplete(PageRemaining pageRemaining, int startSequenceNum) {
         networkErrorCallback = null;
         if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
             return;
@@ -741,7 +783,7 @@ public class PageFragmentLoadState {
 
         pageRemaining.mergeInto(model.getPage());
 
-        displayNonLeadSection(1);
+        pageLoadDisplayNonLeadSection(1);
         loading = false;
         fragment.onPageLoadComplete();
     }
@@ -771,7 +813,7 @@ public class PageFragmentLoadState {
             if (runnable != null) {
                 // when the lead image is laid out, load the lead section and the rest
                 // of the sections into the webview.
-                displayLeadSection();
+                pageLoadDisplayLeadSection();
                 runnable.run();
             }
         }

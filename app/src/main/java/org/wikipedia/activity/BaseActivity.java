@@ -192,6 +192,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if (DeviceUtil.isOnline()) {
                 onGoOnline();
+                ReadingListSynchronizer.instance().syncSavedPages();
             } else {
                 onGoOffline();
             }
