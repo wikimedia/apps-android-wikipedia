@@ -9,6 +9,7 @@
     <attr name="toc_background_color" format="reference"/>
     <attr name="toc_section_text_color" format="reference"/>
     <attr name="toc_subsection_text_color" format="reference"/>
+    <attr name="toc_item_background" format="reference"/>
     <attr name="edit_text_color" format="reference"/>
     <attr name="edit_improve_tag_selected_drawable" format="reference" />
     <attr name="edit_improve_tag_unselected_drawable" format="reference" />

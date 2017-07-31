@@ -34,9 +34,10 @@
         <item name="main_toolbar_color">@color/accent30</item>
         <item name="main_status_bar_color">@color/accent20</item>
         <item name="inline_onboarding_background_color">@color/base14</item>
-        <item name="toc_background_color">@color/toc_background_dark</item>
-        <item name="toc_section_text_color">@color/toc_section_text_dark</item>
-        <item name="toc_subsection_text_color">@color/toc_subsection_text_dark</item>
+        <item name="toc_background_color">@color/base18</item>
+        <item name="toc_section_text_color">@color/base90</item>
+        <item name="toc_subsection_text_color">@color/base70</item>
+        <item name="toc_item_background">@drawable/toc_item_background_dark</item>
         <item name="edit_text_color">@color/edit_text_dark</item>
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_dark</item>

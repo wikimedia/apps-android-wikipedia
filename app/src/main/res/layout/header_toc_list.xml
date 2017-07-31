@@ -10,6 +10,6 @@
               android:padding="16dp"
               android:textStyle="bold"
               tools:text="Sample title"
-              android:background="@drawable/selectable_item_background"
+              android:background="?attr/toc_item_background"
         />
 
