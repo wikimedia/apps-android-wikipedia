@@ -16,7 +16,6 @@
   <string name="history_item_deleted">%s historiatik kendu da</string>
   <string name="history_items_deleted">%d artikulu kendu dira historiatik</string>
   <string name="history_item_delete_undo">Desegin</string>
-  <string name="page_does_not_exist_error">Orri hori ez da existitzen.</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
   <string name="nav_item_saved_pages">Gordetako orrialdeak</string>
   <string name="share_via">Partekatu honela</string>
@@ -36,8 +35,6 @@
   <string name="menu_text_select_share">Partekatu</string>
   <string name="menu_text_select_edit_here">Editatu hementxe</string>
   <string name="nav_item_nearby">Gertukoak</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoom egin mapa bateko kokapenean</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;eko lankideak</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
@@ -86,8 +83,6 @@
   <string name="login_join_wikipedia">Wikipediara batu</string>
   <string name="login_forgot_password">Zure pasahitza ahaztu duzu?</string>
   <string name="create_account_already_have">Baduzu erabiltzaile kontua?</string>
-  <string name="create_account_login_link">Kontua baduzu? Saioa hasi</string>
-  <string name="login_create_account_link">Konturik ez duzu? Etorri Wikipediara</string>
   <string name="create_account_activity_title">Kontua sortu</string>
   <string name="dialog_create_account_checking_progress">Egiaztatzen</string>
   <string name="create_account_email_hint">Helbide elektronikoa (Hautazkoa)</string>
@@ -196,7 +191,6 @@
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
-  <string name="format_error_server_code">Kodea:\'\'%s\'\'</string>
   <string name="address_copied">Helbidea klip-erretilura kopiatua.</string>
   <string name="text_copied">Testua klip-erretilura kopiatua.</string>
   <string name="button_continue_to_article">Artikulua irakurri</string>
@@ -266,8 +260,6 @@
   <string name="reading_list_remove_from_list">Kendu %s-tik</string>
   <string name="reading_list_remove_from_lists">Kendu irakurketa-zerrendetatik</string>
   <string name="reading_list_article_save_in_progress">Artikulua jaisten ari da, bukatzean konexiorik gabe erabiltzeko prest egongo da.</string>
-  <string name="reading_list_article_offline_message">{{PLURALA|bat=Artikulu hau konexiorik gabe erabiltzeko eskuragarri dago.|Artikulu hauek ez dira eskuragarriak izango konexiorik gabe.}}</string>
-  <string name="reading_list_article_not_offline_message">{{PLURALA|bat=Artikulu hau ez da eskuragarri izango konexiorik gabe.|Artikulu hauek ez dira eskuragarri izango konexiorik gabe.}}</string>
   <string name="user_option_sync_label">Hobespenak</string>
   <string name="notification_button_view_user">Hitz egin erabiltzeari</string>
   <string name="notification_talk_title">Mezu berria Wikipedian</string>
@@ -301,7 +293,6 @@
   <string name="description_edit_success_done">Egina</string>
   <string name="description_edit_success_did_you_know">Ba al zenekien?</string>
   <string name="description_edit_tutorial_title_descriptions">Izenburuaren deskribapenak</string>
-  <string name="description_edit_tutorial_button_label_continue">Jarraitu</string>
   <string name="description_edit_tutorial_keep_it_short">Labur mantendu</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideala, lerro bakarra, bi eta hamabi hitz artean</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aldatzen hasi</string>

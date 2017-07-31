@@ -10,7 +10,6 @@
   <string name="error_network_error">Ба Интернет пайваст шуда наметавонам.</string>
   <string name="page_error_retry">Дубора саъй кунед</string>
   <string name="menu_clear_all_history">Тозакунии таърих</string>
-  <string name="page_does_not_exist_error">Ин саҳифа вуҷуд надорад.</string>
   <string name="dialog_title_clear_history">Тозакунии таърихи мурур</string>
   <string name="dialog_message_clear_history">Ин амал ҳамаи таърихи мурурро тоза мекунад ва саҳифаҳои дар ҳоли ҳозир бозро мепӯшад. Оё шумо мутмаинед?</string>
   <string name="nav_item_saved_pages">Саҳифаҳои захирашуда</string>
@@ -27,8 +26,6 @@
   <string name="menu_text_select_copy">Нусхабардорӣ</string>
   <string name="menu_text_select_share">Паҳнкунӣ</string>
   <string name="nav_item_nearby">Наздикӣ</string>
-  <string name="nearby_distance_in_meters">%d м</string>
-  <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Наздиккунӣ ба як маконе дар харита</string>
   <string name="last_updated_text">Охирин рӯзи барӯзшавӣ %1$s</string>
   <string name="content_license_html">Мӯҳтаво таҳти &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ва ё ғайр дастрас аст</string>
@@ -66,7 +63,6 @@
   <string name="toast_logout_complete">Хориҷ шудед</string>
   <string name="history_empty_message">Шояд шумо ҳамаи онҳоро тоза карда бошед. Даъфаи дигар вақте ба саҳифае меравед шумо ба он саҳифа бори дигар аз инҷо рафта метавонед.</string>
   <string name="create_account_username_hint">Номи корбар</string>
-  <string name="login_create_account_link">Ҳисобе надоред? Ба Википедиа бипайвандед</string>
   <string name="create_account_activity_title">Эҷоди ҳисоб</string>
   <string name="create_account_email_hint">Email (Ихтиёрӣ)</string>
   <string name="create_account_password_repeat_hint">Такрори гузарвожа</string>

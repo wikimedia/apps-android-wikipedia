@@ -10,7 +10,6 @@
   <string name="error_network_error" fuzzy="true">Hakuna muunganisho kwa mtandao :(</string>
   <string name="page_error_retry">Jaribu tena</string>
   <string name="menu_clear_all_history">Futa historia</string>
-  <string name="page_does_not_exist_error">Ukarasa haupo.</string>
   <string name="dialog_title_clear_history" fuzzy="true">Futa historia ya kuvijari?</string>
   <string name="nav_item_saved_pages">Kurasa zilizohifadhiwa</string>
   <string name="share_via">Shiriki kupitia</string>
@@ -18,8 +17,6 @@
   <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
   <string name="menu_page_share" fuzzy="true">Gawa</string>
   <string name="nav_item_nearby">Karibu</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Ilisasishwa mwisho %s</string>
   <string name="content_license_html">Inapatikana katika &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;  isipokuwa pale imetajwa</string>
   <string name="preference_title_language">Lugha ya Wikipedia</string>
@@ -48,8 +45,6 @@
   <string name="preference_title_logout">Toka</string>
   <string name="wp_stylized">big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Jina la mtumiaji</string>
-  <string name="login_create_account_link">Uko na akaunti? Jiunge na Wikipedia</string>
-  <string name="create_account_login_link">Uko na akaunti tayari? Ingia</string>
   <string name="create_account_activity_title">Unda akaunti</string>
   <string name="dialog_create_account_checking_progress">Inadhibitisha</string>
   <string name="create_account_email_hint">Barua pepe(sio lazima)</string>

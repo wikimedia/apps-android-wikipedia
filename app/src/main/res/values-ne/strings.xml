@@ -18,7 +18,6 @@
   <string name="history_item_deleted">%s लाई इतिहासबाट हटाइयो</string>
   <string name="history_items_deleted">%d वटा लेखहरूलाई इतिहासबाट हटाइयो</string>
   <string name="history_item_delete_undo">अन्डू गर्नुहोस्</string>
-  <string name="page_does_not_exist_error">यो पृष्ठ अवस्थित छैन।</string>
   <string name="dialog_title_clear_history">ब्राउजिङ् इतिहास खाली गर्नुहोस्</string>
   <string name="dialog_message_clear_history">यसले तपाईँको सबै हेरेको इतिहास मेटाउने छ,हाल खुल्ला सबै ट्याबहरू बन्द हुनेछन्। निश्चित हुनुहुन्छ ?</string>
   <string name="nav_item_saved_pages">बचत गरिएका पृष्ठहरू</string>
@@ -39,8 +38,6 @@
   <string name="menu_text_select_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादन गर्नुहोस्</string>
   <string name="nav_item_nearby">नजिकै</string>
-  <string name="nearby_distance_in_meters">%d मिटर</string>
-  <string name="nearby_distance_in_kilometers">%.2f कि.मि.</string>
   <string name="nearby_zoom_to_location">नक्सामा कुनै स्थानमा जुम गर्नुहोस्</string>
   <string name="last_updated_text">अन्तिम पटक %s मा अद्यावधिक गरिएको</string>
   <string name="talk_page_link_text">वार्तालाप गर्नुहोस्</string>
@@ -87,8 +84,6 @@
   <string name="delete_selected_items">चयन गरिएका वस्तुहरू मेट्नुहोस्</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपिडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">प्रयोगकर्ताको नाम</string>
-  <string name="create_account_login_link">पहिले देखिको खाता छ? लग इन गर्नुहोस्।</string>
-  <string name="login_create_account_link">खाता छैन? विकिपिडियामा सामेल हुनुहोस्</string>
   <string name="create_account_activity_title">खाता खोल्नुहोस्</string>
   <string name="dialog_create_account_checking_progress">रुजू गर्दै</string>
   <string name="create_account_email_hint">इमेल (वैकल्पिक)</string>
@@ -202,11 +197,9 @@
   <string name="close_all_tabs_confirm">के तपाईं साँच्चिकै सबै ट्याबहरू बन्द गर्न चाहनुहुन्छ?</string>
   <string name="button_close_tab">ट्याब बन्द गर्नुहोस्</string>
   <string name="page_view_in_browser">पृष्ठलार्इ ब्राउजरमा हेर्नुहोस्</string>
-  <string name="error_server_response">सर्भरले यो अनुरोध पूरा गर्न सकेन।</string>
   <string name="error_response_malformed">सर्भरबाट आएको प्रतिक्रिया सही तरिकाले फर्म्याट गरिएको छैन।</string>
   <string name="error_unknown">एउटा अज्ञात त्रुटि देखा पर्‍यो।</string>
   <string name="format_error_server_message">सन्देश: \"%s\"</string>
-  <string name="format_error_server_code">कोड: \"%s\"</string>
   <string name="address_copied">ठेगानालाई क्लिपबोर्डमा प्रतिलिपि गरियो।</string>
   <string name="text_copied">पाठलाई क्लिपबोर्डमा प्रतिलिपि गरियो।</string>
   <string name="button_continue_to_article">लेख पढ्नुहोस्</string>
@@ -303,7 +296,6 @@
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
   <string name="description_edit_success_saved">विवरण प्रकाशित भयो!</string>
   <string name="description_edit_success_done">भयो</string>
-  <string name="description_edit_tutorial_button_label_continue">जारी राख्नुहोस्</string>
   <string name="description_edit_help_about_title">बारेमा</string>
   <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
   <string name="description_edit_help_more_info">थप जानकारी</string>

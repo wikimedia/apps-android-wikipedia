@@ -9,7 +9,6 @@
   <string name="error_network_error" fuzzy="true">Võrku ühendamine ebaõnnestus.</string>
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
-  <string name="page_does_not_exist_error">Seda lehekülge ei ole olemas!</string>
   <string name="dialog_title_clear_history" fuzzy="true">Kustuta sirvimise ajalugu?</string>
   <string name="nav_item_saved_pages">Salvestatud leheküljed</string>
   <string name="share_via">Vali jagamisviis:</string>
@@ -47,8 +46,6 @@
   <string name="toast_logout_complete">Välja logitud</string>
   <string name="history_empty_message">Kustutasid nähtavasti kõik sissekanded. Järgmine kord, kui mõnd lehekülge külastad, saad siitkaudu leheküljele naasta.</string>
   <string name="create_account_username_hint">Kasutajanimi</string>
-  <string name="login_create_account_link">Kas sul pole veel kontot? Ühine Vikipeediaga</string>
-  <string name="create_account_login_link">Kas sul on juba konto? Logi sisse</string>
   <string name="create_account_activity_title">Loo konto</string>
   <string name="dialog_create_account_checking_progress">Kontrollimine</string>
   <string name="create_account_email_hint">E-posti aadress (vabatahtlik)</string>

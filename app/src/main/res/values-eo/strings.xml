@@ -12,7 +12,6 @@
   <string name="page_error_retry">Reprovi</string>
   <string name="page_error_back_to_main">Reen</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
-  <string name="page_does_not_exist_error">Ĉi tiu paĝo ne ekzistas.</string>
   <string name="dialog_title_clear_history">Malplenigi la retuman historion</string>
   <string name="dialog_message_clear_history">Tio ĉi forigos vian tutan krozan historion kaj fermos ĉiun nuntempe malfermitan langeton. Ĉu vi certas?</string>
   <string name="nav_item_saved_pages">Konservitaj paĝoj</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">Konigi</string>
   <string name="menu_text_select_edit_here">Redakti ĉi tie</string>
   <string name="nav_item_nearby">Ĉirkaŭe</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zomi al la loko en la mapo</string>
   <string name="last_updated_text">Lasta ĝisdatigo %s</string>
   <string name="talk_page_link_text">Diskuto</string>
@@ -76,8 +73,6 @@
   <string name="history_empty_message" fuzzy="true">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDI&lt;big&gt;O&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uzantnomo</string>
-  <string name="create_account_login_link">Ĉu vi jam havas konton? Ensalutu</string>
-  <string name="login_create_account_link">Ĉu vi ne havas konton? Aliĝu al Vikipedio</string>
   <string name="create_account_activity_title">Krei konton</string>
   <string name="dialog_create_account_checking_progress">Kontrolante</string>
   <string name="create_account_email_hint">Retpoŝto (Malnepra)</string>
@@ -184,7 +179,6 @@
   <string name="button_close_tab">Fermi langeton</string>
   <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="format_error_server_message">Mesaĝo: \"%s\"</string>
-  <string name="format_error_server_code">Kodo: \"%s\"</string>
   <string name="button_continue_to_article">Legi artikolon</string>
   <string name="nav_item_donate">Subtenu Vikipedion</string>
   <string name="crash_report_dialog_dont_send_button">Preterpasi</string>

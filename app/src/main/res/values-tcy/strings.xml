@@ -18,7 +18,6 @@
   <string name="history_item_deleted">%s ಪನ್ಪಿ ಲೇಕನೊನು ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
   <string name="history_items_deleted">%d ಲೆಕನೊಲೆನ್ ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
   <string name="history_item_delete_undo">ದುಂಬುದಲೆಕೊ ಮಲ್ಪು</string>
-  <string name="page_does_not_exist_error">ಈ ಪುಟೊ ನನಲ ಅಸ್ತಿತ್ವೊಡ್ ಇಜ್ಜಿ</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸ್ ಮಲ್ತಿ ಇತಿಹಾಸೊನ್ ಮಾಜಾಲೆ</string>
   <string name="dialog_message_clear_history">ಉಂದು ಈರ್ ಬ್ರೌಸ್ ಮಲ್ತಿನ ಮಾಂತಾ ಇತಿಹಾಸೊನ್ ಮಾಜಪುಂಡು, ಇತ್ತೆ ತೂಪುನ ಟ್ಯಾಬ್‌ನ್ಲಾ ಉಂತಾಪುಂಡು. ಈರ್ ಒಪ್ಪುವರಾ?</string>
   <string name="nav_item_saved_pages">ಒರಿಪಾಯಿನ ಪುಟೊಕುಲು</string>
@@ -39,8 +38,6 @@
   <string name="menu_text_select_share">ಪಟ್ಟ್‌ಲೆ</string>
   <string name="menu_text_select_edit_here">ಮುಲ್ಪ ಸಂಪೊಲಿಪುಲೆ</string>
   <string name="nav_item_nearby">ಕೈತಲ್‍ದ</string>
-  <string name="nearby_distance_in_meters">%dd m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">ಮ್ಯಾಪ್ ಡಿತ್ತಿ  ಜಗೆನ್ ಮಲ್ಲೆ ಮಾಂತೂತು ತೋಜಾಲೇ</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributors</string>
   <string name="last_updated_text">ಕಡೇತಾ ಪರಿಷ್ಕರಣೆ ಮಾಂತುನಾ %s</string>
@@ -93,8 +90,6 @@
   <string name="login_join_wikipedia">ವಿಕಿಪೀಡಿಯಗ್ ಸೇರ್ಲೆ</string>
   <string name="login_forgot_password">ಈರೆನೆ ಪ್ರವೇಸೊ ಪದೊ ಮರತ್ತ್‌ಂಡಾ?</string>
   <string name="create_account_already_have">ಈರೆನ ಖಾತೆ ಉಂಡೇ?</string>
-  <string name="create_account_login_link">ಈರೆನ ಖಾತೆ ಉಂಡೇ? ಲಾಗ್ ಇನ್ ಆಲೆ</string>
-  <string name="login_create_account_link">ಖಾತೆ ಇಜ್ಜಾ? ವಿಕಿಪೀಡಿಯಾಗ್ ಸೇರ್ಲೆ</string>
   <string name="create_account_activity_title">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
   <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲನೆ ಮಲ್ತೊಂದುಂಡು</string>
   <string name="create_account_email_hint">ಇಮೈಲ್ (ಇಚ್ಛೆ ಇತುಂಡ ಮಾತ್ರೋ)</string>
@@ -174,7 +169,6 @@
   <string name="button_close_tab">ಟ್ಯಾಬ್ ನ್ ಮುಚ್ಚಿಲೇ</string>
   <string name="page_view_in_browser">ಪುಟೋ  ಬ್ರೌಸರ್ಟ್ ತೂಲೆ</string>
   <string name="format_error_server_message">ಸಂದೇಸೊ: \"%s\"</string>
-  <string name="format_error_server_code">ಕೋಡ್: \"%s\"</string>
   <string name="button_continue_to_article">ಲೇಕನೋ ಓದುಲೆ</string>
   <string name="nav_item_donate">ವಿಕಿಪೀಡಿಯತಾ ಬೆಂಬಲಾ</string>
   <string name="enable_location_service">ಸಕ್ರಿಯ ಮಲ್ಪು</string>
@@ -237,7 +231,6 @@
   <string name="description_edit_help_about_wikidata">ವಿಕಿಡಾಟ ತಾ ಬಗ್ಗೆ</string>
   <string name="description_edit_success_done">ಆಂಡ್</string>
   <string name="description_edit_success_did_you_know">ಈರೆಗ್ ತೆರಿದ್‍ಂಡಾ?</string>
-  <string name="description_edit_tutorial_button_label_continue">ಮುಂದುವರೆಸಾಲೆ</string>
   <string name="description_edit_help_about_title">ಎಂಕ್ಲೆನ ಬಗ್ಗೆ</string>
   <string name="description_edit_help_tips_examples">ಉದಾಹರಣೆಗ್</string>
   <string name="storage_size_format">%.2f</string>

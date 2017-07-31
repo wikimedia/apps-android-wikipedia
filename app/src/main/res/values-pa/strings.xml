@@ -12,7 +12,6 @@
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="page_error_back_to_main">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
-  <string name="page_does_not_exist_error">ਇਹ ਪੰਨਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="dialog_title_clear_history"> ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="dialog_message_clear_history">ਇਹ ਤੁਹਾਡਾ ਸਾਰਾ ਬ੍ਰਾਉਜ਼ਿੰਗ ਇਤਿਹਾਸ ਸਾਫ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਇਸ ਵੇਲੇ ਖੁੱਲੇ ਹੋਏ ਕੋਈ ਵੀ ਤੈਬ ਬੰਦ ਕਰ ਦੇਵੇਗਾ। ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ?</string>
   <string name="nav_item_saved_pages">ਸਾਂਭੇ ਹੋਏ ਪੰਨੇ</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="menu_text_select_edit_here">ਇੱਥੋਂ ਸੋਧੋ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
-  <string name="nearby_distance_in_meters">%d ਮੀਟਰ</string>
-  <string name="nearby_distance_in_kilometers">%.2f ਕਿਃ ਮੀਃ</string>
   <string name="nearby_zoom_to_location">ਨਕਸ਼ੇ \'ਤੇ ਥਾਂ ਉੱਪਰ ਜ਼ੂਮ ਕਰੋ</string>
   <string name="last_updated_text">ਆਖ਼ਰੀ ਉੱਨਤੀਕਰਨ %s</string>
   <string name="talk_page_link_text">ਗੱਲ-ਬਾਤ</string>
@@ -76,8 +73,6 @@
   <string name="history_empty_message" fuzzy="true">ਤੁਸੀਂ ਸ਼ਾਇਦ ਇਹ ਸਾਰੇ ਮਿਟਾ ਦਿੱਤੇ ਹਨ। ਅਗਲੀ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਸਫ਼ੇ \'ਤੇ ਜਾਉਂ ਤਾਂ ਤੁਸੀਂ ਇੱਥੋਂ ਉਹਦੇ ਤੱਕ ਪਰਤ ਸਕਦੇ ਹੋ।</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="create_account_username_hint">ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
-  <string name="create_account_login_link">ਪਹਿਲੋਂ ਹੀ ਖਾਤਾ ਹੈ? ਦਾਖ਼ਲ ਹੋਵੋ</string>
-  <string name="login_create_account_link">ਖਾਤਾ ਨਹੀਂ ਹੈ? ਵਿਕੀਪੀਡੀਆ \'ਚ ਸ਼ਾਮਿਲ ਹੋਵੋ</string>
   <string name="create_account_activity_title">ਖਾਤਾ ਬਣਾਓ</string>
   <string name="dialog_create_account_checking_progress">ਤਸਦੀਕੀ ਜਾਰੀ</string>
   <string name="create_account_email_hint">ਈਮੇਲ (ਚੋਣਵੀਂ)</string>
@@ -189,11 +184,9 @@
   <string name="menu_new_tab">ਨਵਾਂ ਟੈਬ</string>
   <string name="button_close_tab">ਟੈਬ ਬੰਦ ਕਰੋ</string>
   <string name="page_view_in_browser">ਬ੍ਰਾਉਜ਼ਰ \'ਚ ਦੇਖੋ</string>
-  <string name="error_server_response">ਸਰਵਰ ਬੇਨਤੀ ਨੂੰ ਪੂਰਾ ਨਹੀਂ ਕਰ ਸਕਿਆ</string>
   <string name="error_response_malformed">ਸਰਵਰ ਦਾ ਜਵਾਬ ਸਹੀ ਰੂਪ ਵਿੱਚ ਨਹੀਂ ਸੀ।</string>
   <string name="error_unknown">ਇੱਕ ਅਣਪਛਾਤੀ ਗਲਤੀ ਵਾਪਰੀ।</string>
   <string name="format_error_server_message">ਸੁਨੇਹਾ: \"%s\"</string>
-  <string name="format_error_server_code">ਕੋਡ: \"%s\"</string>
   <string name="address_copied">ਪਤਾ ਗੱਤੇ \'ਤੇ ਉਤਾਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="text_copied">ਲਿਖਤ ਗੱਤੇ \'ਤੇ ਉਤਾਰੀ ਗਈ ਹੈ।</string>
   <string name="button_continue_to_article">ਲੇਖ ਪੜ੍ਹੋ</string>

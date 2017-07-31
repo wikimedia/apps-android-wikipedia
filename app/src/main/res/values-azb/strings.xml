@@ -12,7 +12,6 @@
   <string name="page_error_retry">یئنی‌دن چالیش</string>
   <string name="page_error_back_to_main">دالی قاییت</string>
   <string name="menu_clear_all_history">گئچمیشی سیل</string>
-  <string name="page_does_not_exist_error">صفحه یوْخ‌دور</string>
   <string name="dialog_title_clear_history">آختاریش گئچمیشینی سیل</string>
   <string name="dialog_message_clear_history">بۇ براوزرینیزین گئچمیشینی سیلیب، بۆتون آچیق تبلری باغلایاجاق. آرخایین‌می‌سینیز؟</string>
   <string name="nav_item_saved_pages">ذخیره اوْلونموش صفحه‌لر</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">پایلاش</string>
   <string name="menu_text_select_edit_here">بورانی دَییشدیر</string>
   <string name="nav_item_nearby">یاخیندا</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">نقشه اوستونده اولان یئری بؤیوت</string>
   <string name="last_updated_text">سوْن گۆنجلمک %s</string>
   <string name="talk_page_link_text">دانیشیق</string>
@@ -66,8 +63,6 @@
   <string name="preference_title_logout">چیخیش</string>
   <string name="toast_logout_complete">چیخیلدی</string>
   <string name="create_account_username_hint">ایشلدن آدی</string>
-  <string name="create_account_login_link">قاباقجادان حسابینیز وارمی؟ گیرینیز.</string>
-  <string name="login_create_account_link">حسابینیز یوْخ‌مو؟ ویکی‌پدیایا قاتیلین</string>
   <string name="create_account_activity_title">حساب یارات</string>
   <string name="dialog_create_account_checking_progress">تأیید</string>
   <string name="create_account_email_hint">ایمیل (ایستگه باغلی)</string>
@@ -134,7 +129,6 @@
   <string name="menu_new_tab">یئنی تب</string>
   <string name="button_close_tab">تبی باغلا</string>
   <string name="error_unknown">بیلینمه‌ين بیر خطا باش وئردی.</string>
-  <string name="format_error_server_code">کود: \"%s\"</string>
   <string name="button_continue_to_article">مقاله‌نی اوْخو</string>
   <string name="crash_report_dialog_dont_send_button">آتلا</string>
   <string name="crash_report_dialog_always_send_button">همیشه گؤندر</string>

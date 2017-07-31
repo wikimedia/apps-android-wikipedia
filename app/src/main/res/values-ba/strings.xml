@@ -12,7 +12,6 @@
   <string name="page_error_retry">Ҡабатлау</string>
   <string name="page_error_back_to_main">Кире ҡайтырға</string>
   <string name="menu_clear_all_history">Тарихты юйыу</string>
-  <string name="page_does_not_exist_error">Был бит юҡ.</string>
   <string name="dialog_title_clear_history">Тарихты таҙартырға</string>
   <string name="dialog_message_clear_history">Ҡараған биттәр тарихы һәм ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="nav_item_saved_pages">Һаҡланған биттәр</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">Уртаҡлашырға</string>
   <string name="menu_text_select_edit_here">Бында төҙәтергә</string>
   <string name="nav_item_nearby">Эргәлә</string>
-  <string name="nearby_distance_in_meters">%d м</string>
-  <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Картала урынды күрһәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
   <string name="talk_page_link_text">Әңгәмә</string>
@@ -76,8 +73,6 @@
   <string name="history_empty_message">Быға тиклем уҡығанығыҙҙы күҙәтеп барығыҙ.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ҡатнашыусы исеме</string>
-  <string name="create_account_login_link">Һеҙ теркәлдегеҙме? Инегеҙ</string>
-  <string name="login_create_account_link">Һеҙҙең иҫәп яҙыуығыҙ юҡ. Википедияға ҡушылығыҙ</string>
   <string name="create_account_activity_title">Иҫәп яҙмаһын булдырырға</string>
   <string name="dialog_create_account_checking_progress">Тикшереү</string>
   <string name="create_account_email_hint">Электрон почта адресы (мотлаҡ түгел)</string>
@@ -196,11 +191,9 @@
   <string name="tool_tip_share">Ҡыҙыҡлы фактты билдәләгәндән һуң, уның менән яратҡан социаль селтәрҙәрегеҙҙә уртаҡлашығыҙ</string>
   <string name="page_view_in_browser">Браузерҙа битте ҡарау</string>
   <string name="tool_tip_toc_button">Был төймәгә баҫып йәки экрандың уң ситенән бармаҡ менән йөрөтөп йөкмәткене теләгән ваҡытта ҡарарға була</string>
-  <string name="error_server_response">Сервер һорауҙы үтәй алманы</string>
   <string name="error_response_malformed">Серверҙың яуабы корректһыҙ форматланған</string>
   <string name="error_unknown">Билдәһеҙ хата барлыҡҡа килде.</string>
   <string name="format_error_server_message">Хәбәр: «%s» .</string>
-  <string name="format_error_server_code">%s коды</string>
   <string name="address_copied">Адрес буфер алмашыуға күсерелгән</string>
   <string name="text_copied">Текст буфер алмашыуға күсерелгән</string>
   <string name="button_continue_to_article">Мәҡәләне уҡыу</string>

@@ -12,7 +12,6 @@
   <string name="page_error_retry">Reîncercare</string>
   <string name="page_error_back_to_main">Înapoi</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
-  <string name="page_does_not_exist_error">Această pagină nu există.</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="nav_item_saved_pages">Pagini salvate</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">Distribuie</string>
   <string name="menu_text_select_edit_here">Modifică aici</string>
   <string name="nav_item_nearby">În apropiere</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Mărire pe o locație de pe hartă</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="talk_page_link_text">Discuție</string>
@@ -76,8 +73,6 @@
   <string name="history_empty_message" fuzzy="true">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nume de utilizator</string>
-  <string name="create_account_login_link">Aveți deja un cont? Autentificați-vă</string>
-  <string name="login_create_account_link">Nu aveți un cont? Alăturați-vă Wikipediei</string>
   <string name="create_account_activity_title">Creare cont</string>
   <string name="dialog_create_account_checking_progress">Se verifică</string>
   <string name="create_account_email_hint">E-mail (opțional)</string>
@@ -198,11 +193,9 @@
   <string name="tool_tip_share">După selectarea unei informații interesante, încercați s-o distribuiți pe rețelele de socializare preferate!</string>
   <string name="page_view_in_browser">Vezi pagina cu navigatorul</string>
   <string name="tool_tip_toc_button">Afișați cuprinsul oricând apăsând acest buton sau glisând din partea dreaptă a ecranului.</string>
-  <string name="error_server_response">Serverul nu a reușit să finalizeze cererea.</string>
   <string name="error_response_malformed">Răspunsul de la server nu a fost formatat corect.</string>
   <string name="error_unknown">A apărut o eroare necunoscută.</string>
   <string name="format_error_server_message">Mesaj: „%s”</string>
-  <string name="format_error_server_code">Cod: „%s”</string>
   <string name="address_copied">Adresă copiată în clipboard.</string>
   <string name="text_copied">Text copiat în clipboard.</string>
   <string name="button_continue_to_article">Citește articolul</string>

@@ -12,7 +12,6 @@
   <string name="page_error_retry">पुनःप्रयासः</string>
   <string name="page_error_back_to_main">प्रतिगम्यताम्</string>
   <string name="menu_clear_all_history">इतिहासः मार्ज्यताम्</string>
-  <string name="page_does_not_exist_error">एतत् पृष्ठं न विद्यते ।</string>
   <string name="dialog_title_clear_history">अन्वेषणस्य इतिहासः अपाकर्तव्यो वा</string>
   <string name="dialog_message_clear_history">एतत् भवतः/भवत्याः विचरणेतिहासं (search history) अपाकरिष्यति, एतत् सर्वान् टैब् पिदधास्यति । किम् एवम् इच्छति ?</string>
   <string name="nav_item_saved_pages">रक्षितपृष्ठानि</string>
@@ -32,8 +31,6 @@
   <string name="menu_text_select_share">वितरतु</string>
   <string name="menu_text_select_edit_here">अत्र सम्पाद्यताम्</string>
   <string name="nav_item_nearby">निकटे</string>
-  <string name="nearby_distance_in_meters">%d मीटर्</string>
-  <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_zoom_to_location">भूपटे स्थानं दृष्टुं सर्पकं क्रियताम्</string>
   <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
   <string name="talk_page_link_text">सम्भाषणम्</string>
@@ -75,8 +72,6 @@
   <string name="history_empty_message" fuzzy="true">कदाचित् तानि सर्वाणि भवता/भवत्या अपाकृतानि । द्वितीयवारं यदा भवान्/भवती तत् पृष्ठं गच्छति, तदा इतः तत् पुनः प्राप्स्यति ।</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
-  <string name="create_account_login_link">पूर्वमेव लेखा अस्ति किं ? प्रविश्यताम्</string>
-  <string name="login_create_account_link">लेखा नास्ति ? विकिपीडिया-जाले सदस्यता प्राप्यताम्</string>
   <string name="create_account_activity_title">सदस्यता प्राप्यताम्</string>
   <string name="dialog_create_account_checking_progress">सत्यापयति</string>
   <string name="create_account_email_hint">वि-पत्रम् (ऐच्छिकं)</string>
@@ -192,11 +187,9 @@
   <string name="tool_tip_share">उद्वर्णोत्तरं कमपि रोचकतथ्यं स्वेष्टजालकृतिषु वितरयितुं प्रयत्यताम् !</string>
   <string name="page_view_in_browser">गवेषके पृष्ठं दृश्यताम्</string>
   <string name="tool_tip_toc_button">एतत् कुण्डमलं नुदित्वा सारण्याः सामग्रीं यदा कदापि दृश्यताम् उत दक्षिणपटलकोणात् दृश्यताम् ।</string>
-  <string name="error_server_response">वितरकेन विनतिः न पूर्णीकृता ।</string>
   <string name="error_response_malformed">वितरकात् प्राप्तं प्रत्युत्तरं योग्यतया प्रारूपितं नास्ति ।</string>
   <string name="error_unknown">कश्चन अज्ञातः दोषः जातः ।</string>
   <string name="format_error_server_message">सन्देशः : \"%s\"</string>
-  <string name="format_error_server_code">कूटः : \"%s\"</string>
   <string name="address_copied">अंशफलके सङ्केतः प्रतिकृतिकृतः ।</string>
   <string name="text_copied">अंशफलके पाठः प्रतिकृतिकृतः ।</string>
   <string name="button_continue_to_article">लखं पठतु</string>

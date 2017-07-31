@@ -12,7 +12,6 @@
   <string name="page_error_retry">ପୁଣି ଚେଷ୍ଟାକରନ୍ତୁ</string>
   <string name="page_error_back_to_main">ପଛକୁ ଫେରିବେ</string>
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
-  <string name="page_does_not_exist_error">ଏହି ପୃଷ୍ଠାଟି ନାହିଁ ।</string>
   <string name="dialog_title_clear_history">ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="dialog_message_clear_history">ଏହା ଆପଣଙ୍କର ସମସ୍ତ ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାଇଦେବ ଓ ଏବେ ଖୋଲାଥିବା ଟ୍ୟାବସବୁ ବନ୍ଦ କରିଦେବ । ନିଶ୍ଚିତ ତ?</string>
   <string name="nav_item_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">ବିତରଣ କରନ୍ତୁ</string>
   <string name="menu_text_select_edit_here">ଏଠାରେ ସମ୍ପାଦନା କରନ୍ତୁ</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
-  <string name="nearby_distance_in_meters">%d ମି</string>
-  <string name="nearby_distance_in_kilometers">%.2f କିମି</string>
   <string name="nearby_zoom_to_location">ମ୍ୟାପରେ ଏକ ଅବସ୍ଥାନ ପାଇଁ ଜୁମ କରନ୍ତୁ</string>
   <string name="last_updated_text">%1$s ରେ ଶେଷଥର ଅପଡେଟ ହୋଇଥିଲା</string>
   <string name="talk_page_link_text">ଆଲୋଚନା</string>
@@ -74,8 +71,6 @@
   <string name="history_empty_message" fuzzy="true">ଆପଣ ବୋଧେ ସବୁ ଲିଭାଇ ଦେଇଛନ୍ତି । ଆଗକୁ ଆପଣ ଏକ ପୃଷ୍ଠାକୁ ଗଲେ ଏଇଠି ଦେଖିପାରିବେ ।</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ସଭ୍ୟ ନାମ</string>
-  <string name="create_account_login_link">ଆଗରୁ ଆକାଉଣ୍ଟ ଅଛି? ଲଗ ଇନ</string>
-  <string name="login_create_account_link">ଆପଣଙ୍କର ଖାତା ନାହିଁ ? ଉଇକିପିଡିଆରେ ଯୋଗ ଦିଅନ୍ତୁ</string>
   <string name="create_account_activity_title">ଖାତାଟିଏ ଖୋଲନ୍ତୁ</string>
   <string name="dialog_create_account_checking_progress">ପରଖାଯାଉଛି</string>
   <string name="create_account_email_hint">ଇମେଲ (ଇଚ୍ଛାଧୀନ)</string>

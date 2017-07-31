@@ -10,7 +10,6 @@
   <string name="error_network_error" fuzzy="true">Walang koneksyon sa talalambatan (network) :\'(</string>
   <string name="page_error_retry">Subukan muli</string>
   <string name="menu_clear_all_history">Burahin ang kasaysayan</string>
-  <string name="page_does_not_exist_error">Hindi umiiral ang pahinang ito</string>
   <string name="dialog_title_clear_history" fuzzy="true">Burahin ang kasaysayan ng pagbabasa?</string>
   <string name="nav_item_saved_pages">Mga naitalang pahina</string>
   <string name="share_via">Ibahagi sa pamamagitan ng</string>
@@ -22,8 +21,6 @@
   <string name="menu_long_press_open_page" fuzzy="true">Buksan ang kawing (link)</string>
   <string name="menu_long_press_open_in_new_tab">Buksan sa bagong talahanayan (tab)</string>
   <string name="nav_item_nearby">Kalapit</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Huling pagsasa-panahon (update) %s</string>
   <string name="content_license_html" fuzzy="true">Naroon ang nilalaman sa ilalim ng &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; maliban na lang kung itinala</string>
   <string name="edit_save_action_license_logged_in">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya.</string>
@@ -63,8 +60,6 @@
   <string name="history_empty_message" fuzzy="true">Maaaring nabura mo ang lahat ng mga iyon. Sa susunod pumunta ka sa pahinang maaaring makabalik doon mula rito.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Pangalan ng tagagamit</string>
-  <string name="create_account_login_link">Mayroon ka nang akawnt? Lumagda</string>
-  <string name="login_create_account_link">Walang akawnt? Sumali sa Wikipedia</string>
   <string name="create_account_activity_title">Lumikha ng akawnt</string>
   <string name="dialog_create_account_checking_progress">Pinapatotoo (verifying)</string>
   <string name="create_account_email_hint">E-liham (Opsyonal)</string>

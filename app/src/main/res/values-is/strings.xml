@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Til baka</string>
   <string name="menu_clear_all_history">Hreinsa feril</string>
   <string name="history_item_delete_undo">Afturkalla</string>
-  <string name="page_does_not_exist_error">Þessi síða er ekki til.</string>
   <string name="dialog_title_clear_history">Hreinsa vafurferil</string>
   <string name="dialog_message_clear_history">Þetta mun eyða öllum ferli vafurs þíns um vefinn og loka öllum opnum flipum. Ertu alveg viss?</string>
   <string name="nav_item_saved_pages">Vistaðar síður</string>
@@ -34,8 +33,6 @@
   <string name="menu_text_select_share">Deila</string>
   <string name="menu_text_select_edit_here">Breyta hér</string>
   <string name="nav_item_nearby">Í nágrenninu</string>
-  <string name="nearby_distance_in_meters">%d m</string>
-  <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Renna inn að staðsetningu á kortinu</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;þáttakendur&amp;nbsp;í&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Síðast uppfært %s</string>
@@ -80,8 +77,6 @@
   <string name="delete_selected_items">Eyða völdum atriðum</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Notandanafn</string>
-  <string name="create_account_login_link">Ert þú með aðgang? Skráðu þig inn</string>
-  <string name="login_create_account_link">Ert þú ekki með aðgang? Stofna aðgang á Wikipedia</string>
   <string name="create_account_activity_title">Stofnaðu aðgang</string>
   <string name="dialog_create_account_checking_progress">Í yfirferð</string>
   <string name="create_account_email_hint">Netfang (valfrjálst)</string>
@@ -205,11 +200,9 @@
   <string name="tool_tip_select_text">Ýttu og haltu einhversstaðar í textanum til að ljóma hann svo hægt sé að afrita og deila.</string>
   <string name="tool_tip_share">Þegar áhugavert atriði hefur verið ljómað, prófaðu að deila því á uppáhalds-netinu þínu!</string>
   <string name="page_view_in_browser">Opna síðu í vafra</string>
-  <string name="error_server_response">Netþjónninn gat ekki uppfyllt fyrirspurnina.</string>
   <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
   <string name="error_unknown">Óþekkt villa kom upp.</string>
   <string name="format_error_server_message">Skilaboð: \"%s\"</string>
-  <string name="format_error_server_code">Kóði: \"%s\"</string>
   <string name="address_copied">Vistfang afritað á klippispjaldið.</string>
   <string name="text_copied">Texti afritaður á klippispjaldið.</string>
   <string name="button_continue_to_article">Lesa grein</string>

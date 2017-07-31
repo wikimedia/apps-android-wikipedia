@@ -16,7 +16,6 @@
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
   <string name="history_item_deleted">%s אראפגענומען פון היסטאריע</string>
   <string name="history_item_delete_undo">צוריקשטעלן</string>
-  <string name="page_does_not_exist_error">דער בלאט עקזיסטירט נישט.</string>
   <string name="dialog_title_clear_history">אפראמען בלעטערן היסטאריע</string>
   <string name="dialog_message_clear_history">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
   <string name="nav_item_saved_pages">אײַנגעשפייכלערטע בלעטער</string>
@@ -37,8 +36,6 @@
   <string name="menu_text_select_share">טיילן</string>
   <string name="menu_text_select_edit_here">רעדאקטירן דא</string>
   <string name="nav_item_nearby">דערבײַ</string>
-  <string name="nearby_distance_in_meters">%d מ\'</string>
-  <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_zoom_to_location">פֿארגרעסערן צו א לאקאציע אויף דער מאפע</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
   <string name="bottom_content_date_downloaded">אַראָפגעלאָדן %s</string>
@@ -78,8 +75,6 @@
   <string name="login_dont_have_account">איר האט נישט קיין קאנטע?</string>
   <string name="login_forgot_password">פֿאַרגעסן אײַער פאַסווארט?</string>
   <string name="create_account_already_have">האסטו שוין א קאנטע?</string>
-  <string name="create_account_login_link">איר האט שוין א קאנטע? לאגירט אריין</string>
-  <string name="login_create_account_link">איר האט נישט קיין קאנטע?טרעט ארײַן מיט וויקיפעדיע</string>
   <string name="create_account_activity_title">שאַפֿן אַ קאנטע</string>
   <string name="dialog_create_account_checking_progress">וועריפיצירן</string>
   <string name="create_account_email_hint">ע־פאסט (אפציאנאל)</string>
@@ -175,7 +170,6 @@
   <string name="menu_new_tab">נייער טאב</string>
   <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
-  <string name="format_error_server_code">קאד: \"%s\"</string>
   <string name="button_continue_to_article">לייענען דעם ארטיקל</string>
   <string name="button_get_directions">באקומען ריכטונגען</string>
   <string name="nav_item_donate">שטיצן וויקיפעדיע</string>

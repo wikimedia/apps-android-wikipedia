@@ -15,7 +15,6 @@
   <string name="page_error_retry">மறு முயற்சி செய்</string>
   <string name="page_error_back_to_main">பின் செல்</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
-  <string name="page_does_not_exist_error">இந்தப் பக்கம் இல்லை!</string>
   <string name="dialog_title_clear_history">உலவல் வரலாற்றை நீக்கு</string>
   <string name="nav_item_saved_pages">சேமிக்கப்பட்ட பக்கங்கள்</string>
   <string name="share_via">இதன் வழியாக பகிரவும்…</string>
@@ -33,8 +32,6 @@
   <string name="menu_text_select_share">பகிர்</string>
   <string name="menu_text_select_edit_here">இங்கே தொகு</string>
   <string name="nav_item_nearby">அருகில்</string>
-  <string name="nearby_distance_in_meters">%d மீ</string>
-  <string name="nearby_distance_in_kilometers">%.2f கி. மீ.</string>
   <string name="nearby_zoom_to_location">வரைபடத்தை ஒரு இடத்தை பெரிதாக்கவும்</string>
   <string name="last_updated_text">இறுதியாக புதுப்பிக்கப்பட்டது %1$s</string>
   <string name="talk_page_link_text">பேச்சு</string>
@@ -76,8 +73,6 @@
   <string name="wp_stylized">&lt;big&gt;வி&lt;/big&gt;க்கிப்பீடி&lt;big&gt;யா&lt;/big&gt;</string>
   <string name="create_account_username_hint">பயனர் பெயர்</string>
   <string name="login_dont_have_account">பயனர் கணக்கு இல்லையா?</string>
-  <string name="create_account_login_link">ஏற்கனவே பயனர் கணக்கு உள்ளதா? புகுபதிகை செய்க</string>
-  <string name="login_create_account_link">பயனர் கணக்கு இல்லையா? விக்கப்பீடியாவில் இணைக</string>
   <string name="create_account_activity_title">கணக்கு ஒன்றை உருவாக்கவும்</string>
   <string name="dialog_create_account_checking_progress">சரிபார்க்கிறது</string>
   <string name="create_account_email_hint">படிமம் (விருப்பத்துக்குரியது)</string>
@@ -173,7 +168,6 @@
   <string name="page_view_in_browser">உலாவியில் பக்கத்தை காண்பி</string>
   <string name="error_unknown">இனம் தெரியாத ஒரு தவறு நிகழ்ந்துவிட்டது</string>
   <string name="format_error_server_message">\"%s\" செயதி</string>
-  <string name="format_error_server_code">\"%s\" மூலம்</string>
   <string name="button_continue_to_article">கட்டுரையை வாசி</string>
   <string name="button_get_directions">வழிகளைப் பெறு</string>
   <string name="preference_title_show_link_previews">முன்னோட்ட இணைப்புகளை காண்பி</string>
@@ -199,6 +193,5 @@
   <string name="description_edit_success_done">முடிந்தது</string>
   <string name="description_edit_success_did_you_know">உங்களுக்கு தெரியுமா?</string>
   <string name="description_edit_tutorial_title_descriptions">தலைப்பின் விவரங்கள்</string>
-  <string name="description_edit_tutorial_button_label_continue">தொடரவும்</string>
   <string name="description_edit_tutorial_button_label_start_editing">தொகுக்கக் துவங்கவும்</string>
 </resources>

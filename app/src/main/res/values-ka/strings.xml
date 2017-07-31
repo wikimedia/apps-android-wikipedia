@@ -18,7 +18,6 @@
   <string name="history_item_deleted">%s წაიშალა ისტორიიდან</string>
   <string name="history_items_deleted">%d სტატია წაიშალა ისტორიიდან</string>
   <string name="history_item_delete_undo">დაბრუნება</string>
-  <string name="page_does_not_exist_error">ეს გვერდი არ არსებობს.</string>
   <string name="dialog_title_clear_history">დათვალიერების ისტორიის გასუფთავება</string>
   <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ხართ?</string>
   <string name="nav_item_saved_pages">შენახული გვერდები</string>
@@ -39,8 +38,6 @@
   <string name="menu_text_select_share">გაზიარება</string>
   <string name="menu_text_select_edit_here">დაარედაქტირე აქ</string>
   <string name="nav_item_nearby">სიახლოვეს</string>
-  <string name="nearby_distance_in_meters">%d მ</string>
-  <string name="nearby_distance_in_kilometers">%.2f კმ</string>
   <string name="nearby_zoom_to_location">მიახლოება რუკაზე</string>
   <string name="last_updated_text">ბოლოს განახლდა %s</string>
   <string name="talk_page_link_text">განხილვა</string>
@@ -88,8 +85,6 @@
   <string name="delete_selected_items">არჩეული ელემენტების წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მომხმარებლის სახელი</string>
-  <string name="create_account_login_link">უკვე გაქვთ ანგარიში? გაიარეთ ავტორიზაცია</string>
-  <string name="login_create_account_link">არ გაქვს ანგარიში? შეუერთდი ვიკიპედიას</string>
   <string name="create_account_activity_title">ანგარიშის შექმნა</string>
   <string name="dialog_create_account_checking_progress">გადამოწმება</string>
   <string name="create_account_email_hint">ელ-ფოსტა (არასავალდებულო)</string>
@@ -206,11 +201,9 @@
   <string name="tool_tip_share">საიტერესო ფაქტის აღმოჩენის შემდეგ, გააზიარეთ ის ფავორიტთა ქსელში!</string>
   <string name="page_view_in_browser">გვერდის ბრაუზერში ხილვა</string>
   <string name="tool_tip_toc_button">იხილეთ შინაარსის ცხრილი ნებისმიერ დროს ამ ღილაკზე დაწოლით. ან ეკრანის მარჯვენა ბოლოდან გამოსმით.</string>
-  <string name="error_server_response">სერვერმა ვერ შეძლო მოთხოვნის შესრულება.</string>
   <string name="error_response_malformed">სერვერისგან პასუხი არასწორად დაფორმატდა.</string>
   <string name="error_unknown">აღმოჩენილია უცნობი შეცდომა.</string>
   <string name="format_error_server_message">შეტყობინება: „%s“</string>
-  <string name="format_error_server_code">კოდი: „%s“</string>
   <string name="address_copied">მისამათი დაკოპირებულია.</string>
   <string name="text_copied">ტექსტი დაკოპირებულია.</string>
   <string name="button_continue_to_article">სტატიის წაკითხვა</string>
@@ -305,7 +298,6 @@
   <string name="description_edit_success_done">გაკეთდა</string>
   <string name="description_edit_success_did_you_know">იცოდით?</string>
   <string name="description_edit_tutorial_title_descriptions">სათაურის აღწერილობა</string>
-  <string name="description_edit_tutorial_button_label_continue">გაგრძელება</string>
   <string name="description_edit_tutorial_button_label_start_editing">დაიწყე რედაქტირება</string>
   <string name="description_edit_help_tips_examples">მაგალითად:</string>
   <string name="description_edit_help_tips_example1">ლეონარდო და ვინჩის ნახატი</string>
