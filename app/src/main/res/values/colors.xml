@@ -60,7 +60,6 @@
     <color name="light_gray_overflow_button">#42000000</color>
     <color name="dark_gray_overflow_button">#42ffffff</color>
     <color name="preview_header_background">#d0d0d0</color>
-    <color name="white_progressive_dark">#f0f0f0</color>
     <color name="issues_subtext">#555</color>
     <color name="gray_background">#606060</color>
     <color name="gray_disabled">#80606060</color>
@@ -98,10 +97,7 @@
     <color name="list_item_text_secondary_dark">#808080</color>
     <color name="multi_select_background_dark">@color/accent30</color>
 
-    <color name="lead_text_color">#f0f0f0</color>
     <color name="lead_text_shadow">#80000000</color>
-    <color name="lead_text_light">#000</color>
-    <color name="lead_text_dark">#fff</color>
 
     <color name="syntax_highlight_template_light">#a0a0a0</color>
     <color name="syntax_highlight_template_dark">#505050</color>

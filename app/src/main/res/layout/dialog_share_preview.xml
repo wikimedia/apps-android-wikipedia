@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:padding="8dp"
-    android:background="@color/white_progressive_dark">
+    android:background="?attr/bottom_sheet_background_color">
 
     <LinearLayout
         android:layout_width="match_parent"

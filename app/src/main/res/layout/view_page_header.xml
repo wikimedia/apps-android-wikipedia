@@ -31,7 +31,8 @@
             android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar"
             android:maxLines="3"
             android:ellipsize="end"
-            android:textColorHighlight="?attr/window_background_color"
+            android:textColor="?attr/page_title_color"
+            android:textColorHighlight="?attr/page_title_color"
             tools:text="Title" />
 
         <org.wikipedia.views.AppTextView
@@ -46,9 +47,9 @@
             android:paddingRight="40dp"
             android:textSize="@dimen/descriptionTextSize"
             android:lineSpacingMultiplier="@dimen/lead_subtitle_leading_scalar"
-            android:textColor="@color/dark_gray"
-            android:textColorLink="@color/dark_gray"
-            android:textColorHighlight="?attr/window_background_color"
+            android:textColor="?attr/page_description_color"
+            android:textColorLink="?attr/page_description_color"
+            android:textColorHighlight="?attr/page_description_color"
             android:drawablePadding="8dp"
             android:drawableTint="?attr/colorAccent"
             tools:text="Subtitle" />
@@ -72,7 +73,7 @@
         android:layout_gravity="bottom|end"
         app:srcCompat="@drawable/ic_mode_edit_white_24dp"
         android:scaleType="fitCenter"
-        android:tint="@color/dark_gray"
+        android:tint="?attr/page_description_color"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/article_header_edit_hint" />
 

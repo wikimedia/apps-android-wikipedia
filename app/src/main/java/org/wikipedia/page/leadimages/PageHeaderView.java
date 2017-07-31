@@ -115,7 +115,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
         updateText();
 
-        setTextColor(getThemedColor(getContext(), R.attr.lead_text_color));
+        setTextColor(getThemedColor(getContext(), R.attr.page_title_color));
     }
 
     public void showTextImage() {
@@ -124,7 +124,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
         updateText();
 
-        setTextColor(getThemedColor(getContext(), R.attr.lead_text_color));
+        setTextColor(getThemedColor(getContext(), R.attr.page_title_color));
         setImageHeight(leadImageHeightForDevice());
     }
 
@@ -316,7 +316,8 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
                 Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
                 new LeadingSpan(leadingScalar),
                 new ParagraphSpan(paragraphScalar),
-                TextUtils.isEmpty(subtitle) ? descriptionClickSpan : new ForegroundColorSpan(getColor(R.color.dark_gray)),
+                TextUtils.isEmpty(subtitle) ? descriptionClickSpan
+                        : new ForegroundColorSpan(ResourceUtil.getThemedColor(getContext(), R.attr.page_description_color)),
                 TextUtils.isEmpty(subtitle) ? new StyleSpan(Typeface.ITALIC) : null);
     }
 
@@ -370,8 +371,8 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
         @Override
         public void updateDrawState(TextPaint ds) {
             super.updateDrawState(ds);
-            ds.setColor(getColor(TextUtils.isEmpty(subtitle)
-                    ? ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent) : R.color.dark_gray));
+            ds.setColor(ResourceUtil.getThemedColor(getContext(), TextUtils.isEmpty(subtitle)
+                    ? R.attr.colorAccent : R.attr.page_description_color));
             ds.setUnderlineText(false);
         }
     }

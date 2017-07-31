@@ -60,8 +60,8 @@
             android:scrollbars="vertical"
             android:fadeScrollbars="false"
             tools:text="Sample image description text"
-            android:textColor="@color/lead_text_color"
-            android:textColorLink="@color/lead_text_color"/>
+            android:textColor="@color/base90"
+            android:textColorLink="@color/base90"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
