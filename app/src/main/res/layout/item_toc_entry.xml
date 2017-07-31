@@ -8,7 +8,7 @@
               android:paddingRight="@dimen/list_item_horizontal_padding"
               android:paddingBottom="@dimen/list_item_vertical_padding"
               android:paddingLeft="@dimen/list_item_horizontal_padding"
-              android:background="@drawable/selectable_item_background">
+              android:background="?attr/toc_item_background">
 
     <View android:layout_width="0dp"
           android:layout_height="match_parent"
