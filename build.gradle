@@ -5,15 +5,12 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.facebook.testing.screenshot:plugin:0.4.2'
-        classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.7.1'
     }
 }
 
 allprojects {
     repositories {
-        mavenLocal()
         jcenter()
-        maven { url 'https://oss.sonatype.org/content/groups/staging' }
         maven { url 'https://maven.google.com' }
     }
 }
