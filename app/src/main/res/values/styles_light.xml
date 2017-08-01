@@ -42,9 +42,9 @@
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
-        <!-- TODO: rename? -->
         <item name="lead_image_drawable">@drawable/lead_default</item>
-        <item name="lead_text_color">@color/lead_text_light</item>
+        <item name="page_title_color">@color/base0</item>
+        <item name="page_description_color">@color/base30</item>
         <item name="list_separator_color">@color/list_separator_light</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
