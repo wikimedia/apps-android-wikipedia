@@ -102,7 +102,6 @@
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
-    <dimen name="search_box_max_width">480dp</dimen>
     <dimen name="overflow_elevation">16dp</dimen>
     <integer name="article_engagement_threshold_sec">30</integer>
 
