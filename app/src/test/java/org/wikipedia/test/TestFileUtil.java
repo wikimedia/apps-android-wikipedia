@@ -1,36 +1,38 @@
 package org.wikipedia.test;
 
+import android.annotation.TargetApi;
 import android.support.annotation.NonNull;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
-import java.util.Scanner;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 
 public final class TestFileUtil {
-    private static final String MULTILINE_START_ANCHOR_REGEX = "\\A";
     private static final String RAW_DIR = "src/test/res/raw/";
 
     public static File getRawFile(@NonNull String rawFileName) {
         return new File(RAW_DIR + rawFileName);
     }
 
-    public static String readRawFile(String basename) throws FileNotFoundException {
+    public static String readRawFile(String basename) throws IOException {
         return readFile(getRawFile(basename));
     }
 
-    private static String readFile(File file) throws FileNotFoundException {
-        Scanner scanner = new Scanner(file);
-        String ret = scanner.useDelimiter(MULTILINE_START_ANCHOR_REGEX).next();
-        scanner.close();
-        return ret;
+    @TargetApi(19)
+    private static String readFile(File file) throws IOException {
+        return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
     }
 
-    public static String readStream(InputStream stream) throws FileNotFoundException {
-        Scanner scanner = new Scanner(stream);
-        String ret = scanner.useDelimiter(MULTILINE_START_ANCHOR_REGEX).next();
-        scanner.close();
-        return ret;
+    @TargetApi(19)
+    public static String readStream(InputStream stream) throws IOException {
+        StringWriter writer = new StringWriter();
+        IOUtils.copy(stream, writer, StandardCharsets.UTF_8);
+        return writer.toString();
     }
 
     private TestFileUtil() { }
