@@ -3,11 +3,11 @@ package org.wikipedia.feed.view;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.wikipedia.R;
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
@@ -19,7 +19,6 @@ import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.offline.OfflineCompilationCardView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCardView;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -37,6 +36,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     }
 
     @NonNull private FeedCoordinatorBase coordinator;
+    @Nullable private FeedView feedView;
     @Nullable private Callback callback;
 
     public FeedAdapter(@NonNull FeedCoordinatorBase coordinator, @Nullable Callback callback) {
@@ -83,19 +83,6 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         super.onViewDetachedFromWindow(holder);
     }
 
-    private void adjustSearchView(@NonNull SearchCardView view) {
-        StaggeredGridLayoutManager.LayoutParams layoutParams
-                = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
-        layoutParams.setFullSpan(true);
-        int extraWidth = ((View) view.getParent()).getWidth()
-                - DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.search_box_max_width));
-        if (extraWidth > 0) {
-            layoutParams.leftMargin = extraWidth / 2;
-            layoutParams.rightMargin = layoutParams.leftMargin;
-            view.setLayoutParams(layoutParams);
-        }
-    }
-
     @Override public int getItemViewType(int position) {
         return item(position).type().code();
     }
@@ -107,5 +94,30 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
     @NonNull private T newView(@NonNull Context context, int viewType) {
         //noinspection unchecked
         return (T) CardType.of(viewType).newView(context);
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        this.feedView = (FeedView) recyclerView;
+    }
+
+    @Override
+    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView);
+        this.feedView = null;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void adjustSearchView(@NonNull SearchCardView view) {
+        StaggeredGridLayoutManager.LayoutParams layoutParams
+                = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
+        layoutParams.setFullSpan(true);
+
+        if (feedView != null && feedView.getColumns() > 1) {
+            layoutParams.leftMargin = ((View) view.getParent()).getWidth() / 6;
+            layoutParams.rightMargin = layoutParams.leftMargin;
+            view.setLayoutParams(layoutParams);
+        }
     }
 }
