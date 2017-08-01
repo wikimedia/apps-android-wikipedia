@@ -46,7 +46,7 @@
                 android:layout_width="@dimen/view_list_card_item_image"
                 android:layout_height="@dimen/view_list_card_item_image"
                 app:roundedCornerRadius="2dp"
-                android:background="@drawable/view_list_card_item_image_background" />
+                app:backgroundImage="@drawable/view_list_card_item_image_background" />
 
             <android.support.v7.widget.AppCompatImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
