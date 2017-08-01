@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# For use with Jenkins CI, pass the Android SDK location as an argument:
+# $ apps-android-wikipedia-test /srv/jenkins-workspace/tools/android-sdk
+if [ ! $# -eq 0 ]; then
+  echo "org.gradle.jvmargs=-Xmx1536M" >> gradle.properties
+  export ANDROID_HOME="${1}"
+  scripts/jenkins_sdk_setup "${ANDROID_HOME}"
+fi
+
 scripts/missing-qq.py
-
-export ANDROID_HOME="$PWD/.sdk"
-
 ./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease compileAlphaReleaseAndroidTestSources
