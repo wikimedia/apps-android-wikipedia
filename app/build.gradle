@@ -147,14 +147,6 @@ apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/screenshot.gradle'
 
-def compileSubprojectOrModule = { String projectName,
-                                  String moduleName,
-                                  String excludeGroup = null,
-                                  String excludeModule = null ->
-    def dependency = project.findProject(projectName) ?: moduleName
-    project.dependencies.add('compile', dependency, {exclude group: excludeGroup, module: excludeModule })
-}
-
 dependencies {
 
     // To keep the Maven Central dependencies up-to-date
