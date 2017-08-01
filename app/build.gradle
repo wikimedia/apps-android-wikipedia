@@ -221,6 +221,7 @@ dependencies {
     testCompile mockitoCore
     testCompile 'org.robolectric:robolectric:3.3.2'
     testCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+    testCompile "commons-io:commons-io:2.5"
 
     androidTestCompile mockitoCore
     androidTestApk 'com.crittercism.dexmaker:dexmaker:1.4'
