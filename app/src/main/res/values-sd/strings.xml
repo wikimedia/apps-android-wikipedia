@@ -397,7 +397,6 @@
   <string name="offline_compilations_found_count">منھنجا ميڙ (%d)</string>
   <string name="offline_compilations_add">آفلائين ميڙ وجھو</string>
   <string name="remote_compilations_title">سڀ ميڙ</string>
-  <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">جيبي</string>
   <string name="storage_size_free">%.2f جيبي فارغ</string>
   <string name="storage_used_by_compilations">وڪيپيڊيا پاران استعمال ٿيندڙ</string>

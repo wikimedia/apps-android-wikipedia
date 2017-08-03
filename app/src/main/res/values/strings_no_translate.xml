@@ -110,4 +110,6 @@
     <!-- Transition names -->
     <string name="transition_news_item">newsItemTransition</string>
 
+    <string name="storage_size_format">%.2f</string>
+
 </resources>

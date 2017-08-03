@@ -413,7 +413,6 @@
   <string name="offline_compilations_add">Añadir compilaciones ensin conexón</string>
   <string name="remote_compilations_title">Toles compilaciones</string>
   <string name="remote_compilations_description">Les compilaciones ensin conexón son paquetes grandes d\'artículos que pueden descargase al preséu como un ficheru, pa poder siguir navegando cuando tas ensin conexón.</string>
-  <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB llibres</string>
   <string name="storage_used_by_compilations">usaos por Wikipedia</string>

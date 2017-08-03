@@ -418,7 +418,6 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Muat turun · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Buang</string>
-  <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB bebas</string>
   <string name="storage_used_by_compilations">digunakan oleh Wikipedia</string>

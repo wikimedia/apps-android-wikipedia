@@ -415,7 +415,6 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">다운로드 · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">제거</string>
-  <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB 남음</string>
   <string name="storage_used_by_compilations">(위키백과가 사용 중)</string>

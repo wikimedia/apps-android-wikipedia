@@ -360,7 +360,6 @@
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">đóng góp của bạn nhìn giống thử nghiệm hoặc phá hoại.</string>
   <string name="description_edit_revert_history">Bạn có thể xem &lt;a href=\"%1$s\"&gt;lịch sử sửa đổi&lt;/a&gt;.</string>
-  <string name="storage_size_format">%.2f</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2fGB trống</string>
   <string name="storage_used_by_compilations">được sử dụng bởi Wikipedia</string>

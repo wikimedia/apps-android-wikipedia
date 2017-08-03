@@ -419,7 +419,6 @@
   <string name="offline_compilation_detail_button_download">Label for a button for downloading an offline compilation. The %.2f symbol is replaced with the compilation size, in gigabytes (GB).</string>
   <string name="offline_compilation_detail_button_remove">Label for a button for removing an offline compilation from storage on the user\'s device.</string>
   <string name="remote_compilation_download">Menu label for downloading a selected compilation.</string>
-  <string name="storage_size_format">Format specifier where %.2f represents a decimal number with two significant figures to the right of the decimal point.</string>
   <string name="storage_size_gb">Abbreviated form for the unit of a gigabyte.</string>
   <string name="storage_size_free">Label that says how much free space is available on the device. The %.2f symbol is replaced with the number in gigabytes.</string>
   <string name="storage_used_by_compilations">Label that appears next to the number of gigabytes used by the Wikipedia app.</string>
