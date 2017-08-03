@@ -89,8 +89,11 @@ public class LoginClient {
                         String actualUserName = loginResult.getUserName();
                         getExtendedInfo(wiki, actualUserName, loginResult, cb);
                     } else if ("UI".equals(loginResult.getStatus())) {
-                        //TODO: Don't just assume this is a 2FA UI result
-                        cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
+                        if (loginResult instanceof LoginOAuthResult) {
+                            cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
+                        } else {
+                            cb.error(new LoginFailedException(loginResult.getMessage()));
+                        }
                     } else {
                         cb.error(new LoginFailedException(loginResult.getMessage()));
                     }
@@ -187,10 +190,10 @@ public class LoginClient {
         }
 
         private static class ClientLogin {
-            @SerializedName("status") private String status;
-            @Nullable private List<Request> requests;
-            @SerializedName("message") @Nullable private String message;
-            @SerializedName("username") @Nullable private String userName;
+            @SuppressWarnings("unused,NullableProblems") @NonNull private String status;
+            @SuppressWarnings("unused") @Nullable private List<Request> requests;
+            @SuppressWarnings("unused") @Nullable private String message;
+            @SuppressWarnings("unused") @SerializedName("username") @Nullable private String userName;
 
             LoginResult toLoginResult(@NonNull WikiSite site, @NonNull String password) {
                 String userMessage = message;
