@@ -140,7 +140,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance);
 
         readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
-        updateReadingListData();
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
 
@@ -151,6 +150,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateReadingListData();
     }
 
     @Override public void onDestroyView() {
