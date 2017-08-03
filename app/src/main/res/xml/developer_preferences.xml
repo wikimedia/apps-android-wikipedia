@@ -42,8 +42,7 @@
             android:title="@string/preference_key_mediawiki_base_uri"
             android:dialogMessage="Prod (default if blank): https://wikipedia.org
             \nDev: http://host:8080
-            \nBeta cluster (switch app language to Simple English): http://wikipedia.beta.wmflabs.org
-            \nAuth manager (disable language code): http://authmanager.wmflabs.org" />
+            \nBeta cluster: https://wikipedia.beta.wmflabs.org" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_mediawiki_base_uri_supports_lang_code"
