@@ -102,7 +102,7 @@ public final class ReadingList extends ReadingListRow {
     public int pagesOffline() {
         int sum = 0;
         for (ReadingListPage page : pages) {
-            sum += page.isOffline() ? 1 : 0;
+            sum += (page.isOffline() && !page.isSaving()) ? 1 : 0;
         }
         return sum;
     }
