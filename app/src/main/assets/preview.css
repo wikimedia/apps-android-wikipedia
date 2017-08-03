@@ -106,11 +106,6 @@ body {
   color: #222222;
   background: #fff;
 }
-.pre-content,
-.content,
-.post-content {
-  margin: 0 16px;
-}
 .content {
   line-height: 1.65;
   word-wrap: break-word;
@@ -137,19 +132,24 @@ body {
     display: block;
   }
 }
+.content figure,
 .content .thumb {
   margin: 0.6em 0;
 }
+.content figure .thumbinner,
 .content .thumb .thumbinner {
   margin: 0 auto;
   max-width: 100% !important;
 }
+.content figcaption,
 .content .thumbcaption {
   margin: 0.5em 0 0;
   font-size: 0.8em;
   line-height: 1.5;
   padding: 0 !important;
   color: #54595d;
+}
+.content .thumbcaption {
   width: auto !important;
 }
 .content .thumbborder {
@@ -238,10 +238,26 @@ blockquote {
   position: relative;
   overflow: hidden;
 }
+/**
+ * This tweaks the default mediawiki.hlist module to provide performance optimisations
+ * as well as subtle tweaks to the appearance. It's a work in progress.
+ */
+.hlist > ul li,
+.hlist > dl li,
 .hlist > ul li,
 ul.hlist li {
   display: inline-block;
   margin-right: 8px;
+}
+.hlist-separated li:after {
+  content: '•';
+  padding-left: 8px;
+  color: #002bb8;
+  font-size: 16px;
+  line-height: 1;
+}
+.hlist-separated :last-child:after {
+  content: '';
 }
 .content {
   /* stylelint-disable no-descending-specificity */
@@ -293,16 +309,6 @@ dl dd {
  */
 body.mw-hide-empty-elt .mw-empty-elt {
   display: none;
-}
-.hlist-separated li:after {
-  content: '•';
-  padding-left: 8px;
-  color: #002bb8;
-  font-size: 16px;
-  line-height: 1;
-}
-.hlist-separated :last-child:after {
-  content: '';
 }
 a {
   text-decoration: none;
@@ -721,14 +727,13 @@ div.mwe-math-element {
 	}
 	
 	li.gallerybox div.thumb {
-		text-align: center;
+		background-color: #fff;
 		border: 1px solid #ccc;
-		margin: 2px;
 	}
 	
 	div.gallerytext {
 		overflow: hidden;
-		font-size: 94%;
+		font-size: 10pt;
 		padding: 2px 4px;
 		word-wrap: break-word;
 	}}/* Galleries */
@@ -761,8 +766,6 @@ li.gallerycaption {
 
 li.gallerybox div.thumb {
 	text-align: center;
-	border: 1px solid #c8ccd1;
-	background-color: #f8f9fa;
 	margin: 2px;
 }
 
@@ -912,6 +915,14 @@ ul.mw-gallery-slideshow li.gallerycarousel {
 
 .mw-gallery-slideshow-img-container a {
 	display: block;
+}
+
+@media screen {
+	/* Background and border colors are defined separately for print mode */
+	li.gallerybox div.thumb {
+		border: 1px solid #c8ccd1;
+		background-color: #f8f9fa;
+	}
 }.ipa_button {
   display: inline-block;
   margin-bottom: -3px;
@@ -1280,17 +1291,16 @@ h3.section_heading {
 }/**
  * Style Parsoid HTML+RDFa output consistent with wikitext from PHP parser.
  */
-/*csslint regex-selectors:false */
 /*
  * Auto-numbered external links
  * Parsoid renders those as link without content, and lets CSS do the
  * counting. This way the counting style can be customized, and counts update
  * automatically when content is modified.
  */
-.mw-body-content {
+.mw-parser-output {
   counter-reset: mw-numbered-ext-link;
 }
-.mw-body-content a[rel~='mw:ExtLink']:empty:after {
+.mw-parser-output a[rel~='mw:ExtLink']:empty:after {
   content: '[' counter(mw-numbered-ext-link) ']';
   counter-increment: mw-numbered-ext-link;
 }
