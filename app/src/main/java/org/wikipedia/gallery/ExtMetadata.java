@@ -5,12 +5,6 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.apache.commons.lang3.StringUtils;
-
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-
 public class ExtMetadata {
     @SuppressWarnings("unused") @SerializedName("DateTime") @Nullable private Values dateTime;
     @SuppressWarnings("unused") @SerializedName("ObjectName") @Nullable private Values objectName;
@@ -43,6 +37,22 @@ public class ExtMetadata {
         return license;
     }
 
+    @Nullable public Values imageDescription() {
+        return imageDescription;
+    }
+
+    @Nullable public Values objectName() {
+        return objectName;
+    }
+
+    @Nullable public Values usageTerms() {
+        return usageTerms;
+    }
+
+    @Nullable public Values artist() {
+        return artist;
+    }
+
     public class Values {
         @SuppressWarnings("unused,NullableProblems") @NonNull private String value;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String source;
@@ -55,17 +65,5 @@ public class ExtMetadata {
         @NonNull public String source() {
             return source;
         }
-    }
-
-    // TODO: Update consumers to use a ExtMetadata object and remove ASAP
-    @Deprecated @NonNull Map<String, String> toMap() throws IllegalAccessException {
-        HashMap<String, String> result = new HashMap<>();
-        for (Field field : this.getClass().getDeclaredFields()) {
-            Values values = (Values) field.get(this);
-            if (values != null) {
-                result.put(StringUtils.capitalize(field.getName()), values.value());
-            }
-        }
-        return result;
     }
 }
