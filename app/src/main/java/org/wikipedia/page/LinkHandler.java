@@ -48,11 +48,18 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     @Override
     public void onUrlClick(@NonNull String href, @Nullable String titleString) {
+        // other domain links
+        if (href.startsWith("//")) {
+            href = getWikiSite().scheme() + ":" + href;
+        }
+
         Uri uri = Uri.parse(href);
         if (!href.startsWith("http:") && !href.startsWith("https:")) {
-            uri = uri.buildUpon().scheme(getWikiSite().scheme())
-                    .authority(getWikiSite().authority())
-                    .path(href).build();
+            uri = uri.buildUpon()
+                     .scheme(getWikiSite().scheme())
+                     .authority(getWikiSite().authority())
+                     .path(href)
+                     .build();
         }
 
         Log.d("Wikipedia", "Link clicked was " + uri.toString());
