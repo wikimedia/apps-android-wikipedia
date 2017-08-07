@@ -1259,6 +1259,17 @@ th .sortkey {
   overflow: hidden;
 }
 
+@media screen and (max-width: 981px) {
+  .portail-gauche,
+  .portail-droite {
+    float: none;
+    width: auto !important;
+  }
+  .portail-gauche-inner {
+    padding-right: 0;
+  }
+}
+
 h2.section_heading {
   padding: 20px 0 10px;
   margin-bottom: 0;
