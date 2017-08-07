@@ -130,8 +130,8 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
             } else {
                 new AlertDialog.Builder(context)
                         .setMessage(R.string.reading_lists_confirm_remote_delete)
-                        .setPositiveButton(R.string.yes, new DeleteRemoteListsYesListener(preference, synchronizer))
-                        .setNegativeButton(R.string.no, new DeleteRemoteListsNoListener(preference))
+                        .setPositiveButton(R.string.reading_lists_confirm_remote_delete_yes, new DeleteRemoteListsYesListener(preference, synchronizer))
+                        .setNegativeButton(R.string.reading_lists_confirm_remote_delete_no, new DeleteRemoteListsNoListener(preference))
                         .show();
             }
             // clicks are handled and preferences updated accordingly; don't pass the result through

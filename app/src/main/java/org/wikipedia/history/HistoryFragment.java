@@ -176,7 +176,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 new AlertDialog.Builder(getContext())
                         .setTitle(R.string.dialog_title_clear_history)
                         .setMessage(R.string.dialog_message_clear_history)
-                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.dialog_message_clear_history_yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // Clear history!
@@ -184,7 +184,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                                 onClearHistoryClick();
                         }
                         })
-                        .setNegativeButton(R.string.no, null).create().show();
+                        .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
                 return true;
             case R.id.menu_search_history:
                 if (actionMode == null) {

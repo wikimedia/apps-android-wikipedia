@@ -57,14 +57,14 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
                 new AlertDialog.Builder(getContext())
                         .setMessage(getString(R.string.clear_recent_searches_confirm))
                         .setPositiveButton(
-                                getString(R.string.yes),
+                                getString(R.string.clear_recent_searches_confirm_yes),
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int id) {
                                         new DeleteAllRecentSearchesTask(WikipediaApp.getInstance()).execute();
                                     }
                                 })
-                        .setNegativeButton(getString(R.string.no), null)
+                        .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
                         .create().show();
             }
         });

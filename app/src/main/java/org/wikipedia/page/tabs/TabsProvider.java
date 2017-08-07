@@ -178,13 +178,13 @@ public class TabsProvider {
                 case R.id.menu_close_all_tabs:
                     AlertDialog.Builder alert = new AlertDialog.Builder(fragment.getContext());
                     alert.setMessage(R.string.close_all_tabs_confirm);
-                    alert.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
                             providerListener.onCloseAllTabs();
                         }
                     });
-                    alert.setNegativeButton(R.string.no, null);
+                    alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
                     alert.create().show();
                     return true;
                 default:

@@ -72,13 +72,13 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 new AlertDialog.Builder(fragment.getActivity())
                         .setCancelable(false)
                         .setMessage(R.string.edit_saved_page_refresh)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.edit_saved_page_refresh_yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 fragment.refreshPage();
                             }
                         })
-                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.edit_saved_page_refresh_no, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();

@@ -95,7 +95,7 @@ public class CompilationDownloadControlView extends LinearLayout {
     void onCancelClicked() {
         new AlertDialog.Builder(getContext())
                 .setMessage(R.string.compilation_download_cancel_confirm)
-                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.compilation_download_cancel_confirm_yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (callback != null) {
@@ -103,7 +103,7 @@ public class CompilationDownloadControlView extends LinearLayout {
                         }
                     }
                 })
-                .setNegativeButton(R.string.no, null)
+                .setNegativeButton(R.string.compilation_download_cancel_confirm_no, null)
                 .show();
     }
 
