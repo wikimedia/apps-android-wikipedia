@@ -577,10 +577,10 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         galleryAdapter.notifyFragments(galleryPager.getCurrentItem());
 
         CharSequence descriptionStr = "";
-        if (item.getMetadata().containsKey("ImageDescription")) {
-            descriptionStr = StringUtil.fromHtml(item.getMetadata().get("ImageDescription"));
-        } else if (item.getMetadata().containsKey("ObjectName")) {
-            descriptionStr = StringUtil.fromHtml(item.getMetadata().get("ObjectName"));
+        if (item.getMetadata() != null && item.getMetadata().imageDescription() != null) {
+            descriptionStr = StringUtil.fromHtml(item.getMetadata().imageDescription().value());
+        } else if (item.getMetadata() != null && item.getMetadata().objectName() != null) {
+            descriptionStr = StringUtil.fromHtml(item.getMetadata().objectName().value());
         }
         if (descriptionStr.length() > 0) {
             descriptionText.setText(strip(descriptionStr));
@@ -593,7 +593,8 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         licenseIcon.setImageResource(getLicenseIcon(item));
         // Set the icon's content description to the UsageTerms property.
         // (if UsageTerms is not present, then default to Fair Use)
-        String usageTerms = item.getMetadata().get("UsageTerms");
+        String usageTerms = (item.getMetadata() == null || item.getMetadata().usageTerms() == null)
+                ? null : item.getMetadata().usageTerms().value();
         if (TextUtils.isEmpty(usageTerms)) {
             usageTerms = getString(R.string.gallery_fair_use_license);
         }
@@ -602,9 +603,9 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         licenseIcon.setTag(item.getLicenseUrl());
 
         String creditStr = "";
-        if (item.getMetadata().containsKey("Artist")) {
+        if (item.getMetadata() != null && item.getMetadata().artist() != null) {
             // todo: is it intentional to convert to a String?
-            creditStr = StringUtil.fromHtml(item.getMetadata().get("Artist")).toString().trim();
+            creditStr = StringUtil.fromHtml(item.getMetadata().artist().value()).toString().trim();
         }
         // if we couldn't find a attribution string, then default to unknown
         if (TextUtils.isEmpty(creditStr)) {

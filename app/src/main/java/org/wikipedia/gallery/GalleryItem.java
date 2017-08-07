@@ -4,16 +4,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.util.log.L;
 
 import java.util.List;
-import java.util.Map;
 
 public class GalleryItem {
     @NonNull private String name;
     @Nullable private String url;
     @NonNull private String mimeType;
-    @Nullable private Map<String, String> metadata;
+    @Nullable private ExtMetadata metadata;
     @Nullable private String thumbUrl;
     private int width;
     private int height;
@@ -29,17 +27,8 @@ public class GalleryItem {
         this.thumbUrl = imageInfo.getThumbUrl();
         this.width = imageInfo.getWidth();
         this.height = imageInfo.getHeight();
-        this.license = imageInfo.getMetadata() != null
-                ? new ImageLicense(imageInfo.getMetadata())
-                : new ImageLicense();
-
-        try {
-            this.metadata = imageInfo.getMetadata().toMap();
-        } catch (IllegalAccessException e) {
-            L.e(e);
-        } catch (NullPointerException e) {
-            // oh well
-        }
+        this.metadata = imageInfo.getMetadata();
+        this.license = this.metadata != null ? new ImageLicense(this.metadata) : new ImageLicense();
 
         if (video) {
             this.derivatives = ((VideoInfo) imageInfo).getDerivatives();
@@ -91,8 +80,7 @@ public class GalleryItem {
         this.mimeType = mimeType;
     }
 
-    // TODO: Use an ExtMetadata object instead of a Map
-    @Nullable public Map<String, String> getMetadata() {
+    @Nullable public ExtMetadata getMetadata() {
         return metadata;
     }
 
