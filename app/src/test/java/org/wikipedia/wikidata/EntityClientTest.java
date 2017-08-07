@@ -67,17 +67,16 @@ public class EntityClientTest extends MockWebServerTest {
 
     @Test public void testLabel() throws Throwable {
         String json = TestFileUtil.readRawFile("wikidata_entity_label.json");
-        Entity.EntitiesResponse response
-                = GsonUnmarshaller.unmarshal(Entity.EntitiesResponse.class, json);
-        Entity entity = response.entities().get("Q123");
+        Entities response
+                = GsonUnmarshaller.unmarshal(Entities.class, json);
+        Entities.Entity entity = response.entities().get("Q123");
         assertThat(entity.id(), is("Q123"));
         assertThat(entity.labels().get("en").value(), is("September"));
     }
 
     private void request(@NonNull final EntityClient.LabelCallback cb,
                          @NonNull final String qNumber, @NonNull final String langCode) {
-        Call<Entity.EntitiesResponse> call
-                = client.requestLabels(service(EntityClient.Service.class), qNumber, langCode);
+        Call<Entities> call = client.requestLabels(service(EntityClient.Service.class), qNumber, langCode);
         call.enqueue(new EntityClient.LabelCallbackAdapter(cb, qNumber, langCode));
     }
 }
