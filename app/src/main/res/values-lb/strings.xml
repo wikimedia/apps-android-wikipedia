@@ -267,10 +267,10 @@
   <string name="reading_list_added_to_unnamed">Op d\'Lieslëscht derbäigesat.</string>
   <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
-  <string name="format_reading_list_statistical_summary_singular">Een Artikel, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d Artikelen, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d Säite vun engem Artikel offline disponibel, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d vun %2$d Artikelenm offline disponibel, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">Een Artikel, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d Artikelen, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d Säite vun engem Artikel offline disponibel, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d vun %2$d Artikelen offline disponibel, %3$.2f MB</string>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
@@ -388,6 +388,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Eroflueden· %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ewechhuelen</string>
+  <string name="remote_compilation_download">Eroflueden</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB fräi</string>
   <string name="storage_used_by_compilations">vu Wikipedia benotzt</string>

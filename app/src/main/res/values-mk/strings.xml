@@ -279,10 +279,10 @@
   <string name="reading_list_added_to_unnamed">Додадено во списокот за читање.</string>
   <string name="reading_list_already_exists">Статијава веќе стои на тој список.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
-  <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МиБ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МиБ</string>
-  <string name="format_reading_list_statistical_detail_singular">Вонмрежно достапна %1$d од 1 статија, %2$.2f МиБ</string>
-  <string name="format_reading_list_statistical_detail_plural">Вонмрежно достапни %1$d од %2$d статии, %3$.2f МиБ</string>
+  <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МБ</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МБ</string>
+  <string name="format_reading_list_statistical_detail_singular">Вонмрежно достапна %1$d од 1 статија, %2$.2f МБ</string>
+  <string name="format_reading_list_statistical_detail_plural">Вонмрежно достапни %1$d од %2$d статии, %3$.2f МБ</string>
   <string name="reading_list_sort">Подреди</string>
   <string name="reading_list_sort_by_name">Подреди по назив</string>
   <string name="reading_list_sort_by_name_desc">Подреди по назив (обратно)</string>
@@ -418,6 +418,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f ГБ</string>
   <string name="offline_compilation_detail_button_download">Преземи · %.2f ГБ</string>
   <string name="offline_compilation_detail_button_remove">Отстрани</string>
+  <string name="remote_compilation_download">Преземи</string>
   <string name="storage_size_gb">ГБ</string>
   <string name="storage_size_free">слободни %.2f ГБ</string>
   <string name="storage_used_by_compilations">се користат од Википедија</string>
@@ -429,6 +430,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Паузирај или продолжи преземање</string>
   <string name="compilation_download_widget_button_cancel_hint">Откажи преземање</string>
+  <string name="compilation_download_cancel_confirm">Дали сигурно сакате да го откажете преземањето на збиркава?</string>
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>

@@ -279,10 +279,10 @@
   <string name="reading_list_added_to_unnamed">Toegevoegd aan leeslijst.</string>
   <string name="reading_list_already_exists">Deze pagina staat al in die lijst.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikels, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d of 1 artikels offline beschikbaar, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d artikels beschikbaar offline, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 artikel, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d artikels, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d of 1 artikels offline beschikbaar, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d of %2$d artikels beschikbaar offline, %3$.2f MiB</string>
   <string name="reading_list_sort">Sorteren</string>
   <string name="reading_list_sort_by_name">Sorteren op naam</string>
   <string name="reading_list_sort_by_name_desc">Sorteren op naam (achterstevoren)</string>

@@ -267,10 +267,10 @@
   <string name="reading_list_added_to_unnamed">Aggiunto all\'elenco di lettura</string>
   <string name="reading_list_already_exists">Questa voce è già presente in questo elenco.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
-  <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d of 1 voci disponibili offline, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d di %2$d voci disponibili offline, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d di 1 voce disponibile offline, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d di %2$d voci disponibili offline, %3$.2f MB</string>
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
@@ -368,10 +368,13 @@
   <string name="description_edit_help_more_info">Ulteriori informazioni</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
+  <string name="offline_compilation_detail_button_remove">Rimuovi</string>
+  <string name="remote_compilation_download">Scarica</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB liberi</string>
   <string name="storage_used_by_compilations">usati da Wikipedia</string>
   <string name="storage_other_apps">Altre applicazioni</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <string name="onboarding_skip">Salta</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Inizia</string>

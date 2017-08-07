@@ -13,6 +13,7 @@
   <string name="page_error_retry">Ponów próbę</string>
   <string name="page_error_back_to_main">Wróć</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
+  <string name="history_item_deleted">Usunięto %s z historii</string>
   <string name="history_item_delete_undo">Cofnij</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
   <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
@@ -250,7 +251,7 @@
   <string name="reading_list_entry_empty">Wprowadź tytuł.</string>
   <string name="reading_list_already_exists">Ten artykuł znajduje się już na tej liście.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 artykuł, %1$.2f MiB</string>
   <string name="reading_list_sort">Sortuj</string>
   <string name="reading_list_sort_by_name">Sortuj według nazwy</string>
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>
@@ -327,6 +328,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Usuń</string>
   <string name="storage_size_gb">GB</string>
+  <string name="storage_other_apps">Inne aplikacje</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <string name="onboarding_skip">Pomiń</string>
   <string name="onboarding_continue">Kontynuuj</string>

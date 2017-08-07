@@ -278,10 +278,10 @@
   <string name="reading_list_added_to_unnamed">Добавлено в список для чтения.</string>
   <string name="reading_list_already_exists">Эта статья уже находится в данном списке.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
-  <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МиБ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d статей, %2$.2f МиБ</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d из 1 статьи доступно без подключения к Интернету, %2$.2f МиБ</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d из %2$d статей доступно оффлайн, %3$.2f МиБ</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 статья, %1$.2f МиБ</string>
+  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d статей, %2$.2f МиБ</string>
+  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d из 1 статьи доступно без подключения к Интернету, %2$.2f МиБ</string>
+  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d из %2$d статей доступно оффлайн, %3$.2f МиБ</string>
   <string name="reading_list_sort">Сортировать</string>
   <string name="reading_list_sort_by_name">Сортировка по названию</string>
   <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>
@@ -408,6 +408,15 @@
   <string name="offline_read_permission_rationale">Для офлайн-просмотра требуется разрешение на запись в хранилище вашего устройства. Пожалуйста, попробуйте ещё раз и дайте запрашиваемое разрешение.</string>
   <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме. Обратите внимание, что статьи в офлайн-режиме могут быть менее актуальны, чем в онлайн-версии.</string>
   <string name="offline_my_compilations">Мои компиляции</string>
+  <string name="offline_compilation_detail_button_remove">Удалить</string>
+  <string name="storage_size_gb">ГБ</string>
+  <string name="storage_size_free">%.2f ГБ свободно</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">1 мин. осталась</item>
+    <item quantity="other">%d мин. осталось</item>
+  </plurals>
+  <string name="compilation_download_widget_button_cancel_hint">Прервать загрузку</string>
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>

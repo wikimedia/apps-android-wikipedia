@@ -279,10 +279,10 @@
   <string name="reading_list_added_to_unnamed">Zur Leseliste hinzugefügt.</string>
   <string name="reading_list_already_exists">Dieser Artikel ist bereits in dieser Liste.</string>
   <string name="reading_list_added_view_button">Liste ansehen</string>
-  <string name="format_reading_list_statistical_summary_singular">Ein Artikel, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d Artikel, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d Seiten von einem Artikel offline verfügbar, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d Seiten von %2$d Artikeln offline verfügbar, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">Ein Artikel, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d Artikel, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d Seiten von einem Artikel offline verfügbar, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d Seiten von %2$d Artikeln offline verfügbar, %3$.2f MB</string>
   <string name="reading_list_sort">Sortieren</string>
   <string name="reading_list_sort_by_name">Nach Name sortieren</string>
   <string name="reading_list_sort_by_name_desc">Nach Name sortieren (umgekehrt)</string>
@@ -418,6 +418,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Herunterladen · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Entfernen</string>
+  <string name="remote_compilation_download">Herunterladen</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB frei</string>
   <string name="storage_used_by_compilations">von Wikipedia verwendet</string>
@@ -429,6 +430,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Herunterladen pausieren oder fortfahren</string>
   <string name="compilation_download_widget_button_cancel_hint">Herunterladen abbrechen</string>
+  <string name="compilation_download_cancel_confirm">Bist du dir sicher, dass du das Herunterladen dieser Zusammenstellung abbrechen möchtest?</string>
   <string name="onboarding_skip">Überspringen</string>
   <string name="onboarding_continue">Fortfahren</string>
   <string name="onboarding_get_started">Anfangen</string>

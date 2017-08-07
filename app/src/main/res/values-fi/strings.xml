@@ -41,6 +41,7 @@
   <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; muokkaajat</string>
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
+  <string name="bottom_content_date_downloaded">Ladattu %s</string>
   <string name="talk_page_link_text">Keskustelu</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssillä, ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
@@ -229,7 +230,7 @@
   <string name="button_continue_to_article">Lue artikkeli</string>
   <string name="button_add_to_reading_list">Lisää lukuluetteloon</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelia ei voida ladata offline-tilassa.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Lisää artikkeli lukuluetteloon ja se ladataan laitteeseesi, kun muodostat seuraavan kerran yhteyden verkkoon.</string>
+  <string name="page_offline_notice_add_to_reading_list">Vihje: Lisää artikkeli lukuluetteloon ja se ladataan laitteeseesi, kun muodostat seuraavan kerran yhteyden verkkoon.</string>
   <string name="page_offline_notice_last_date">Luet tämän artikkelin yhteydettömän tilan versiota, joka tallennettiin %s.</string>
   <string name="button_get_directions">Hae reittiohjeet</string>
   <string name="error_no_maps_app">Yhtäkään reittiohjeita tarjoavaa sovellusta ei löytynyt</string>
@@ -265,6 +266,7 @@
   <string name="color_theme_light">Vaalea</string>
   <string name="color_theme_dark">Tumma</string>
   <string name="preference_title_color_theme">Tumma teema</string>
+  <string name="preference_summary_color_theme">Vaihda sovelluksen tummaan väriteemaan</string>
   <string name="nav_item_reading_lists">Omat lukuluettelot</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukuluetteloon</string>
@@ -275,10 +277,10 @@
   <string name="reading_list_added_to_unnamed">Lisätty lukulukuluetteloon.</string>
   <string name="reading_list_already_exists">Tämä artikkeli on valitussa lukuluettelossa.</string>
   <string name="reading_list_added_view_button">Näytä lista</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikkeli, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikkelia, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d yhdestä artikkelista on saatavilla offline-tilassa vieden %2$.2f MiB tilaa</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d kaikkiaan %2$d artikkelista on saatavilla offline-tilassa vieden %3$.2f MiB tilaa</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 artikkeli, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d artikkelia, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d yhdestä artikkelista on saatavilla offline-tilassa vieden %2$.2f MiB tilaa</string>
+  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d kaikkiaan %2$d artikkelista on saatavilla offline-tilassa vieden %3$.2f MiB tilaa</string>
   <string name="reading_list_sort">Lajittele</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan käänteisesti</string>
@@ -313,6 +315,15 @@
   <string name="reading_list_sync_reminder_text">Lukuluettelosi voidaan synkronoida Wikipedia-tunnuksellesi, jos sallit synkronoinnin sovelluksen asetuksissa.</string>
   <string name="reading_list_sync_reminder_action">Ota käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
+  <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
+    <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Tämä artikkeli ei ole enää käytettävissä offline-tilassa.</item>
+    <item quantity="other">Nämä artikkelit eivät enää ole käytettävissä offline-tilassa.</item>
+  </plurals>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="notification_button_view_user">Keskustele käyttäjän kanssa</string>
   <string name="notification_talk_title">Uusi viesti Wikipediassa</string>
@@ -383,6 +394,24 @@
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">muokkauksesi vaikutti kokeilulta tai vandalismilta.</string>
   <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
+  <string name="offline_card_text">Selaat nyt Wikipediaa yhteydettömässä tilassa. Huomioithan, että yhteydettömän tilan artikkelit eivät välttämättä ole ajan tasalla verkkoversion kanssa.</string>
+  <string name="offline_my_compilations">Omat kokoelmat</string>
+  <string name="offline_compilations_title">Yhteydettömän tilan kokoelmat</string>
+  <string name="offline_compilations_found_count">Omat kokoelmat (%d)</string>
+  <string name="remote_compilations_title">Kaikki kokoelmat</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f Gt</string>
+  <string name="offline_compilation_detail_button_download">Lataa · %.2f Gt</string>
+  <string name="offline_compilation_detail_button_remove">Poista</string>
+  <string name="storage_size_gb">Gt</string>
+  <string name="storage_size_free">%.2f Gt vapaana</string>
+  <string name="storage_other_apps">Muut sovellukset</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f Gt / %2$.2f Gt</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one"> 1 minuutti jäljellä</item>
+    <item quantity="other"> %d minuuttia jäljellä</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">Pysäytä tai jatka latausta</string>
+  <string name="compilation_download_widget_button_cancel_hint">Peruuta lataus</string>
   <string name="onboarding_skip">Ohita</string>
   <string name="onboarding_continue">Jatka</string>
   <string name="onboarding_get_started">Aloitetaan</string>

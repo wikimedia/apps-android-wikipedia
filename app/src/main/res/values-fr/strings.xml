@@ -281,8 +281,8 @@
   <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f Mio</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f Mio</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 article disponible hors ligne, %2$.2f Mio</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d article(s) sur %2$d articles disponible(s) hors ligne, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 article disponible hors ligne, %2$.2f Mo</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d article(s) sur %2$d articles disponible(s) hors ligne, %3$.2f Mio</string>
   <string name="reading_list_sort">Trier</string>
   <string name="reading_list_sort_by_name">Trier par nom</string>
   <string name="reading_list_sort_by_name_desc">Trier par nom (inverse)</string>
@@ -418,6 +418,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f Go</string>
   <string name="offline_compilation_detail_button_download">Télécharger · %.2f Go</string>
   <string name="offline_compilation_detail_button_remove">Supprimer</string>
+  <string name="remote_compilation_download">Télécharger</string>
   <string name="storage_size_gb">Go</string>
   <string name="storage_size_free">%.2f Go libres</string>
   <string name="storage_used_by_compilations">utilisé par Wikipédia</string>
@@ -429,6 +430,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Arrêter ou reprendre le téléchargement</string>
   <string name="compilation_download_widget_button_cancel_hint">Annuler le téléchargement</string>
+  <string name="compilation_download_cancel_confirm">Êtes-vous sûr de vouloir annuler le téléchargement de cette compilation ?</string>
   <string name="onboarding_skip">Sauter</string>
   <string name="onboarding_continue">Continuer</string>
   <string name="onboarding_get_started">C’est parti</string>

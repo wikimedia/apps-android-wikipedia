@@ -213,6 +213,7 @@
   <string name="reading_lists_onboarding_example3" fuzzy="true">Το διάστημα!</string>
   <string name="reading_lists_onboarding_got_it">Κατάλαβα</string>
   <string name="reading_list_no_description">Χωρίς περιγραφή...</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Αυτό το άρθρο δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="view_card_news_title">Στις ειδήσεις</string>

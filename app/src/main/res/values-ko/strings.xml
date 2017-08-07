@@ -277,10 +277,10 @@
   <string name="reading_list_added_to_unnamed">읽기 목록에 추가되었습니다.</string>
   <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
-  <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">1개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">1개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$d개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %3$.2f MB</string>
   <string name="reading_list_sort">정렬</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
@@ -415,6 +415,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">다운로드 · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">제거</string>
+  <string name="remote_compilation_download">다운로드</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB 남음</string>
   <string name="storage_used_by_compilations">(위키백과가 사용 중)</string>
@@ -426,6 +427,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">다운로드 일시 중지 / 재개</string>
   <string name="compilation_download_widget_button_cancel_hint">다운로드 취소</string>
+  <string name="compilation_download_cancel_confirm">이 모음의 다운로드를 취소하시겠습니까?</string>
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>

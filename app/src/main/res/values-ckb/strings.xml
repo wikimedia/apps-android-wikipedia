@@ -273,10 +273,10 @@
   <string name="reading_list_added_to_unnamed">زیادکرا بۆ پێڕستی خوێندنەوە.</string>
   <string name="reading_list_already_exists">ئەم وتارە ھەر لەنێو ئەو پێڕستە بووە.</string>
   <string name="reading_list_added_view_button">پێڕستی بینین</string>
-  <string name="format_reading_list_statistical_summary_singular">1 وتار، %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d وتار، %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی بەبێ ئینتەرنێت.</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d لە %2$d وتار بەردەستە بەبێ ئینتەرنێت، %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 وتار، %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d وتار، %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d لە ١ وتار بەردەستە بۆ خوێندنەوەی بەبێ ئینتەرنێت.</string>
+  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d لە %2$d وتار بەردەستە بەبێ ئینتەرنێت، %3$.2f MiB</string>
   <string name="reading_list_sort">ڕیزکردن</string>
   <string name="reading_list_sort_by_name">ڕیزکردن بەپێی ناو</string>
   <string name="reading_list_sort_by_name_desc">ڕیزکردن بەپێی ناو (پێچەوانە)</string>
@@ -314,6 +314,8 @@
   <string name="reading_list_sync_reminder_text">پێڕستی خوێندنەوەت دەخرێنە ناو ھەژماری ویکیپیدیاکەتەوە گەر ڕێگە بە خەزێنەکرن بدەیت لە ڕێکخستنەکانی ئاپەکەوە.</string>
   <string name="reading_list_sync_reminder_action">بیخە کار</string>
   <string name="reading_list_login_reminder_title">خەزێنەکردنی پێڕستی خوێندنەوە</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
   <string name="user_option_sync_label">ھەڵبژاردەکان</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>

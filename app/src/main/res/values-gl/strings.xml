@@ -279,10 +279,10 @@
   <string name="reading_list_added_to_unnamed">Engadido á lista de lectura.</string>
   <string name="reading_list_already_exists">Este artigo xa está nesa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d artigo de 1 artigo dispoñible sen conexión, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d artigo(s) de %2$d artigos dispoñible(s) sen conexión, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d artigo de 1 artigo dispoñible sen conexión, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d artigo(s) de %2$d artigos dispoñible(s) sen conexión, %3$.2f MB</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
@@ -418,6 +418,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Descarga · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eliminar</string>
+  <string name="remote_compilation_download">Descargar</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB libres</string>
   <string name="storage_used_by_compilations">utilizado por Wikipedia</string>
@@ -429,6 +430,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Pausar ou reanudar a descarga</string>
   <string name="compilation_download_widget_button_cancel_hint">Cancelar a descarga</string>
+  <string name="compilation_download_cancel_confirm">Está seguro que quere cancelar a descarga desta compilación?</string>
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>

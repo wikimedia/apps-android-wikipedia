@@ -243,6 +243,7 @@
   <string name="enable_location_service">Habilita</string>
   <string name="location_permissions_enable_prompt">Activa els permisos d\'ubicació per a veure els llocs propers.</string>
   <string name="location_permissions_enable_action">Activa</string>
+  <string name="error_webview_updating">El WebView del sistema Android s\'està actualizant. Torneu-ho a provar en un moment.</string>
   <string name="multi_select_items_selected">%d seleccionats</string>
   <string name="error_message_generic">S\'ha produït un error</string>
   <string name="view_link_preview_error_button_dismiss">Descarta</string>
@@ -278,10 +279,10 @@
   <string name="reading_list_added_to_unnamed">Afegit a la llista de lectura.</string>
   <string name="reading_list_already_exists">L\'article ja és a la llista.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
-  <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d d\'1 article disponible fora de línia, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d articles disponibles fora de línia, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d d\'1 article disponible fora de línia, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d de %2$d articles disponibles fora de línia, %3$.2f MB</string>
   <string name="reading_list_sort">Ordena</string>
   <string name="reading_list_sort_by_name">Ordena per nom</string>
   <string name="reading_list_sort_by_name_desc">Ordena per nom (invers)</string>
@@ -319,8 +320,10 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'article apareix en múltiples llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ja no estarà disponible fora de línia a totes les llistes de lectura:</string>
   <string name="reading_list_sync_reminder_title">La sincronització de llistes de lectura està desactivada</string>
+  <string name="reading_list_sync_reminder_text">Les llistes de lectura poden sincronitzar-se amb el vostre compte de la Viquipèdia si ho permeteu en els paràmetres de l\'aplicació.</string>
   <string name="reading_list_sync_reminder_action">Activa</string>
   <string name="reading_list_login_reminder_title">Sincronitza les llistes de lectura</string>
+  <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
     <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>
@@ -388,12 +391,14 @@
   <string name="description_edit_help_tips">Consells per a crear descripcions</string>
   <string name="description_edit_help_tips_examples">Per exemple:</string>
   <string name="description_edit_help_tips_example1">quadre de Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">descripció de títol d\'un article sobre la Mona Lisa</string>
   <string name="description_edit_help_tips_example2">La muntanya més alta de la Terra</string>
   <string name="description_edit_help_tips_example2_hint">descripció d\'un títol d\'un article sobre l\'Everest</string>
   <string name="description_edit_help_more_info">Més informació</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
+  <string name="offline_read_permission_error">No s\'han atorgat permisos per a llegir des del dispositiu d\'emmagatzematge.</string>
   <string name="offline_my_compilations">Les meves recopilacions</string>
   <string name="offline_compilations_title">Compilacions fora de línia</string>
   <string name="offline_compilations_search_by_name">Cerca les compilacions per nom</string>
@@ -401,9 +406,19 @@
   <string name="offline_compilations_add">Afegeix una compilació fora de línia</string>
   <string name="remote_compilations_title">Totes les compilacions</string>
   <string name="offline_compilation_detail_button_remove">Suprimeix</string>
+  <string name="remote_compilation_download">Baixa</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB lliures</string>
+  <string name="storage_used_by_compilations">utilitzat per la Viquipèdia</string>
   <string name="storage_other_apps">Altres aplicacions</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">queda 1 min</item>
+    <item quantity="other">queden %d mins</item>
+  </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Pausa o reprèn la baixada</string>
   <string name="compilation_download_widget_button_cancel_hint">Cancel·la la baixada</string>
+  <string name="compilation_download_cancel_confirm">Esteu segur que voleu cancel·lar la baixada de la compilació?</string>
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
@@ -413,5 +428,6 @@
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>
+  <string name="onboarding_create_account_contributions">Estigueu al dia de les vostres contribucions</string>
   <string name="onboarding_create_account_preferences">Desa les preferències</string>
 </resources>

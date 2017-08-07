@@ -276,10 +276,10 @@
   <string name="reading_list_added_to_unnamed">Okuma listesine eklendi.</string>
   <string name="reading_list_already_exists">Bu madde, seçtiğiniz listede mevcut.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
-  <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çivrim dışı erişilebilir, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d maddenin %1$d tanesine çevrim dışı erişilebilir, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 madde, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d madde, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">1 maddenin %1$d tanesine çivrim dışı erişilebilir, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%2$d maddenin %1$d tanesine çevrim dışı erişilebilir, %3$.2f MiB</string>
   <string name="reading_list_sort">Sırala</string>
   <string name="reading_list_sort_by_name">Ada göre sırala</string>
   <string name="reading_list_sort_by_name_desc">Ada göre sırala (tersten)</string>
@@ -321,6 +321,8 @@
   <string name="reading_list_login_reminder_text">Artık okuma listeleriniz Vikipedi hesabınıza kaydedilebilir. Basitçe hesabınıza giriş yapın; okuma listeleriniz otomatik olarak senkronize edilecek.</string>
   <string name="reading_lists_confirm_remote_delete">Bu, daha önce dış depoplamadan senkronize edilmiş tüm okumla listelerini silecek. Devam edilsin mi?</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrim dışı olarak erişilebilir olacak.</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Bu maddeye artık çevrimdışı olarak erişilebilir.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Bu maddeye artık çevrimdışı olarak erişilemez.</string>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>
   <string name="notification_talk_title">Vikipedi\'de yeni mesaj</string>

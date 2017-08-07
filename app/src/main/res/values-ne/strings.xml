@@ -299,4 +299,5 @@
   <string name="description_edit_help_about_title">बारेमा</string>
   <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
   <string name="description_edit_help_more_info">थप जानकारी</string>
+  <string name="remote_compilation_download">डाउनलोड</string>
 </resources>

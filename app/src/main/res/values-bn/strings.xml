@@ -274,10 +274,10 @@
   <string name="reading_list_added_to_unnamed">পড়ার তালিকায় যোগ করা হয়েছে।</string>
   <string name="reading_list_already_exists">এই নিবন্ধটি ইতিমধ্যে সেই তালিকায় রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
-  <string name="format_reading_list_statistical_summary_singular">১টি নিবন্ধ, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$dটি নিবন্ধ, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">১টি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$dটি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">১টি নিবন্ধ, %1$.2f মেগাবাইট</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$dটি নিবন্ধ, %2$.2f মেগাবাইট</string>
+  <string name="format_reading_list_statistical_detail_singular">১টি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %2$.2f মেগাবাইট</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$dটি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %3$.2f মেগাবাইট</string>
   <string name="reading_list_sort">বাছাই করুন</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>
@@ -311,6 +311,8 @@
   <string name="reading_list_remove_from_lists">পড়ার তালিকা থেকে সরান</string>
   <string name="reading_list_confirm_remove_article_from_offline">অফলাইন থেকে সরান</string>
   <string name="reading_list_sync_reminder_action">চালু করুন</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">এই নিবন্ধটি আর অফলাইনে উপলব্ধ হবে না।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_button_view_user">ব‍্যবহারকারীর সঙ্গে আলাপ করুন</string>
   <string name="notification_talk_title">উইকিপিডিয়ায় নতুন বার্তা</string>
@@ -387,6 +389,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f গিগাবাইট</string>
   <string name="offline_compilation_detail_button_download">ডাউনলোড করুন · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">সরান</string>
+  <string name="remote_compilation_download">ডাউনলোড করুন</string>
   <string name="storage_size_gb">জিবি</string>
   <string name="storage_used_by_compilations">উইকিপিডিয়া দ্বারা ব্যবহৃত</string>
   <plurals name="offline_compilation_download_time_remaining">

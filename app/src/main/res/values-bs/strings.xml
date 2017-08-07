@@ -278,10 +278,10 @@
   <string name="reading_list_added_to_unnamed">Dodano na spisak za čitanje.</string>
   <string name="reading_list_already_exists">Ovaj članak već je na tom spisku.</string>
   <string name="reading_list_added_view_button">Pogledaj spisak</string>
-  <string name="format_reading_list_statistical_summary_singular">1 članaka, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d članka, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">Vanmrežno je dostupno %1$d od 1 članka, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">Vanmrežno je dostupno %1$d od %2$d članka, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 članaka, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d članka, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">Vanmrežno je dostupno %1$d od 1 članka, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">Vanmrežno je dostupno %1$d od %2$d članka, %3$.2f MiB</string>
   <string name="reading_list_sort">Sortiraj</string>
   <string name="reading_list_sort_by_name">Sortiraj po imenu</string>
   <string name="reading_list_sort_by_name_desc">Sortiraj po imenu (obrnuto)</string>
@@ -324,6 +324,8 @@
   <string name="reading_list_login_reminder_text">Spiskove za čitanje od sada možete sačuvati na svoj račun na Wikipediji. Jednostavno se prijavite na svoj račun i spiskovi za čitanje automatski će se sinhronizirati.</string>
   <string name="reading_lists_confirm_remote_delete">Ovim ćete obrisati prethodno sinhonizirane spiskove s daljinskog skladištenja? Da nastavim?</string>
   <string name="reading_list_article_save_in_progress">Preuzimanje članka je u toku i bit će dostupan van mreže kada se završi.</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">Ovaj članak sad će biti dostupan van mreže.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">Ovaj članak više neće biti dostupan van mreže.</string>
   <string name="user_option_sync_label">Postavke</string>
   <string name="notification_button_view_user">Razgovaraj s korisnikom</string>
   <string name="notification_talk_title">Nova poruka na Wikipediji</string>

@@ -279,10 +279,10 @@
   <string name="reading_list_added_to_unnamed">Telah ditambahkan ke daftar bacaan.</string>
   <string name="reading_list_already_exists">Artikel ini sudah ada dalam daftar itu.</string>
   <string name="reading_list_added_view_button">Lihat daftar</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 artikel tersedia luring, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d artikel tersedia luring, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d dari 1 artikel tersedia luring, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d dari %2$d artikel tersedia luring, %3$.2f MB</string>
   <string name="reading_list_sort">Urutkan</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>
@@ -418,6 +418,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Unduh · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Hapus</string>
+  <string name="remote_compilation_download">Unduh</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB bebas</string>
   <string name="storage_used_by_compilations">digunakan oleh Wikipedia</string>
@@ -429,6 +430,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Jeda atau lanjutkan unduhan</string>
   <string name="compilation_download_widget_button_cancel_hint">Batalkan unduhan</string>
+  <string name="compilation_download_cancel_confirm">Apakah Anda yakin ingin membatalkan pengunduhan kompilasi ini?</string>
   <string name="onboarding_skip">Lewati</string>
   <string name="onboarding_continue">Lanjutkan</string>
   <string name="onboarding_get_started">Memulai</string>

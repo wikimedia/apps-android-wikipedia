@@ -230,7 +230,7 @@
   <string name="button_continue_to_article">مطالعهٔ مقاله</string>
   <string name="button_add_to_reading_list">افزودن به فهرست مطالعه</string>
   <string name="page_offline_notice_cannot_load_while_offline">امکان بارگیری مقاله در حالت آفلاین وجود ندارد.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">افزودن مقاله به فهرست خواندن و زمانی که برخط شدید، دانلود خواهد شد.</string>
+  <string name="page_offline_notice_add_to_reading_list">توجه: افزودن مقاله به فهرست خواندن و زمانی که برخط شدید، دانلود خواهد شد.</string>
   <string name="page_offline_notice_last_date">شما در حال خواندن نسخهٔ آفلاین مقاله هستید که بر روی %s ذخیره شده‌است.</string>
   <string name="page_offline_notice_compilation_download_date">در حال مطالعهٔ نسخهٔ آفلاین این مقاله از گردآوری بارگیری شده %s هستید.</string>
   <string name="button_get_directions">دریافت مسیر</string>
@@ -249,6 +249,7 @@
   <string name="view_link_preview_error_button_dismiss">نپذیرفتن</string>
   <string name="error_page_does_not_exist">این صفحه وجود ندارد</string>
   <string name="view_wiki_error_message_offline">امکان اتصال به اینترنت وجود ندارد</string>
+  <string name="reference_title">منابع %s</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
   <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
   <string name="crash_report_dialog_dont_send_button">رها کردن</string>
@@ -278,10 +279,10 @@
   <string name="reading_list_added_to_unnamed">به فهرست مطالعه افزوده شد.</string>
   <string name="reading_list_already_exists">این مقاله در فهرست مطالعه موجود است.</string>
   <string name="reading_list_added_view_button">مشاهدهٔ فهرست</string>
-  <string name="format_reading_list_statistical_summary_singular">۱ مقاله، %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مقاله، %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d از ۱ مقاله آفلاین موجود، %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d از %2$d مقاله آفلاین موجود، %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">۱ مقاله، %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d مقاله، %2$.2f مگابایت</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d از ۱ مقاله آفلاین موجود، %2$.2f مگابایت</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d از %2$d مقاله آفلاین موجود است، %3$.2f مگابایت</string>
   <string name="reading_list_sort">مرتب‌کردن</string>
   <string name="reading_list_sort_by_name">مرتب بر پایهٔ نام</string>
   <string name="reading_list_sort_by_name_desc">مرتب بر پایهٔ نام (معکوس)</string>
@@ -405,8 +406,31 @@
   <string name="description_edit_revert_reason2">مشارکت شما شبیه یک تمرین یا خرابکاریست.</string>
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
   <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
+  <string name="offline_read_permission_error">اجازه برای خواندن از حافظه دستگاه داده‌نشد.</string>
   <string name="offline_card_text">شما در حال کاوش در ویکی‌پدیا به صورت آفلاین هستید. توجه داشته باشید که نسخهٔ آفلاین لزوما آخرین نسخهٔ به روز مقالهٔ آنلاین نمی‌باشد.</string>
   <string name="offline_my_compilations">گردآوری‌های من</string>
+  <string name="offline_compilations_title">گردآوری آفلاین</string>
+  <string name="offline_compilations_search_by_name">جستجوی گردآوری‌ها بر پایهٔ نام</string>
+  <string name="offline_compilations_found_count">گردآوری‌های من (%d)</string>
+  <string name="offline_compilations_add">افزودن گردآوری آفلاین</string>
+  <string name="remote_compilations_title">همهٔ گردآوری‌ها</string>
+  <string name="remote_compilations_description">گردآوری آفلاین بسته بزرگی از مقالات است که شما می‌توانید آنها را یکباره به صورت یک فایل بر روی سیستمتان بارگیری کنید، پس می توانید به صورت آفلاین به جستجو و کاوش ادامه دهید.</string>
+  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">بارگیری · %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">حذف</string>
+  <string name="remote_compilation_download">بارگیری</string>
+  <string name="storage_size_gb">گیگابایت</string>
+  <string name="storage_size_free">%.2f گیگابایت فضای خالی</string>
+  <string name="storage_used_by_compilations">توسط ویکی‌پدیا استفاده شده</string>
+  <string name="storage_other_apps">سایر نرم‌افزارها</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">۱ دقیقه مانده</item>
+    <item quantity="other">%d دقیقه مانده</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">توقف یا ادامهٔ بارگیری</string>
+  <string name="compilation_download_widget_button_cancel_hint">لغو بارگیری</string>
+  <string name="compilation_download_cancel_confirm">آیا از لغو بارگیری اطمینان دارید؟</string>
   <string name="onboarding_skip">رها کردن</string>
   <string name="onboarding_continue">ادامه</string>
   <string name="onboarding_get_started">شروع شد</string>

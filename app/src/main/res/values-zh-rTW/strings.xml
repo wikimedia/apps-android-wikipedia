@@ -279,10 +279,10 @@
   <string name="reading_list_added_to_unnamed">已新增至閱讀清單</string>
   <string name="reading_list_already_exists">這個條目已經在清單之中。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
-  <string name="format_reading_list_statistical_summary_singular">1 個條目，%1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d 個條目，%2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular">1 個條目裡的 %1$d 可供離線閱讀，%2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d 個條目裡的 %1$d 可供離線閱讀，%3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 個條目，%1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d 個條目，%2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">1 個條目裡的 %1$d 可供離線閱讀，%2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$d 個條目裡的 %1$d 可供離線閱讀，%3$.2f MB</string>
   <string name="reading_list_sort">排序</string>
   <string name="reading_list_sort_by_name">依名稱排序</string>
   <string name="reading_list_sort_by_name_desc">按名稱排序 (反向)</string>
@@ -418,6 +418,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">下載 · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">移除</string>
+  <string name="remote_compilation_download">下載</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB 可用</string>
   <string name="storage_used_by_compilations">由維基百科使用</string>
@@ -429,6 +430,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">暫停或恢復下載</string>
   <string name="compilation_download_widget_button_cancel_hint">取消下載</string>
+  <string name="compilation_download_cancel_confirm">您確定您要取消下載此匯編嗎？</string>
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>

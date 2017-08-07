@@ -194,4 +194,6 @@
   <string name="description_edit_success_did_you_know">உங்களுக்கு தெரியுமா?</string>
   <string name="description_edit_tutorial_title_descriptions">தலைப்பின் விவரங்கள்</string>
   <string name="description_edit_tutorial_button_label_start_editing">தொகுக்கக் துவங்கவும்</string>
+  <string name="offline_compilation_detail_button_remove">நீக்குக</string>
+  <string name="remote_compilation_download">பதிவிறக்குக</string>
 </resources>

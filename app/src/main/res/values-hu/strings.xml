@@ -272,8 +272,8 @@
   <string name="reading_list_added_to_unnamed">Hozzáadva az olvasólistához.</string>
   <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
-  <string name="format_reading_list_statistical_summary_singular">1 cikk, %1$.2f megabyte</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d szócikk, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 cikk, %1$.2f megabyte</string>
+  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d szócikk, %2$.2f MiB</string>
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
   <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>
@@ -312,6 +312,8 @@
   <string name="reading_list_sync_reminder_action">Bekapcsol</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">A szócikk mostantól kapcsolat nélkül is elérhető.</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">A szócikk mostantól nem érhető el kapcsolat nélkül.</string>
   <string name="user_option_sync_label">Beállítások</string>
   <string name="notification_button_view_user">Üzenethagyás a szerkesztőnek</string>
   <string name="notification_talk_title">Új üzenet a Wikipédián</string>

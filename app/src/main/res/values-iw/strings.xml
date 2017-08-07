@@ -281,6 +281,7 @@
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d מתוך 1 ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_detail_plural">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
   <string name="reading_list_sort">מיון</string>
   <string name="reading_list_sort_by_name">מיון לפי שם</string>
@@ -417,6 +418,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f ג\"ב</string>
   <string name="offline_compilation_detail_button_download">הורדה · %.2f ג\"ב</string>
   <string name="offline_compilation_detail_button_remove">הסרה</string>
+  <string name="remote_compilation_download">הורדה</string>
   <string name="storage_size_gb">ג\"ב</string>
   <string name="storage_size_free">%.2f ג\"ב פנויים</string>
   <string name="storage_used_by_compilations">בשימוש ויקיפדיה</string>
@@ -428,6 +430,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">עצירה או חידוש הורדה</string>
   <string name="compilation_download_widget_button_cancel_hint">ביטול הורדה</string>
+  <string name="compilation_download_cancel_confirm">האם באמת לבטל את ההורדה של האוסף הזה?</string>
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>
