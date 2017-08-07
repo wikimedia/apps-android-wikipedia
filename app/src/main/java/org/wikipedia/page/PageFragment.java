@@ -1131,7 +1131,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     if (href.startsWith("/wiki/")) {
                         String filename = UriUtil.removeInternalLinkPrefix(href);
                         WikiSite wiki = model.getTitle().getWikiSite();
-                        startActivityForResult(GalleryActivity.newIntent(getContext(),
+                        getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
                                 model.getTitleOriginal(), filename, wiki,
                                 GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                                 Constants.ACTIVITY_REQUEST_GALLERY);
@@ -1149,7 +1149,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     String href = decodeURL(messagePayload.getString("href"));
                     String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
                     WikiSite wiki = model.getTitle().getWikiSite();
-                    startActivityForResult(GalleryActivity.newIntent(getContext(),
+                    getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
                             model.getTitleOriginal(), filename, wiki,
                             GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                             Constants.ACTIVITY_REQUEST_GALLERY);
