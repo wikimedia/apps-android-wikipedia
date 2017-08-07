@@ -83,7 +83,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                                     }
 
                                     @Override
-                                    public void failure(Throwable t) {
+                                    public void failure(@NonNull Throwable t) {
                                         L.e(t);
                                         // Show the notification anyway, but with unresolved ID.
                                         NotificationPresenter.showNotification(context, n);
