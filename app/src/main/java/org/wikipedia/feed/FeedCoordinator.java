@@ -31,8 +31,7 @@ class FeedCoordinator extends FeedCoordinatorBase {
         conditionallyAddPendingClient(new AggregatedFeedContentClient(), online);
         addPendingClient(new ContinueReadingClient());
 
-        // TODO: enable this for offline when ready:
-        conditionallyAddPendingClient(new MainPageClient(), age == 0 && online);
+        conditionallyAddPendingClient(new MainPageClient(), age == 0);
 
         conditionallyAddPendingClient(new BecauseYouReadClient(), online);
         conditionallyAddPendingClient(new RandomClient(), age == 0);
