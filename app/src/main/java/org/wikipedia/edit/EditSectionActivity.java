@@ -718,14 +718,14 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         if (sectionTextModified) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setMessage(getString(R.string.edit_abandon_confirm));
-            alert.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+            alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();
                     finish();
                 }
             });
-            alert.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+            alert.setNegativeButton(getString(R.string.edit_abandon_confirm_no), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();
