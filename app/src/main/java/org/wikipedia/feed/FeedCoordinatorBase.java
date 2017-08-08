@@ -96,12 +96,14 @@ public abstract class FeedCoordinatorBase {
         int position = cards.indexOf(card);
         addHiddenCard(card);
         removeCard(card, position);
+        card.onDismiss();
         return position;
     }
 
     public void undoDismissCard(@NonNull Card card, int position) {
         unHideCard(card);
         insertCard(card, position);
+        card.onRestore();
     }
 
     void retryFromOffline(@NonNull WikiSite wiki) {

@@ -25,6 +25,12 @@ public abstract class Card extends BaseModel {
 
     @NonNull public abstract CardType type();
 
+    public void onDismiss() {
+    }
+
+    public void onRestore() {
+    }
+
     public String getHideKey() {
         return Long.toString(type().code() + dismissHashCode());
     }
