@@ -445,6 +445,10 @@
   <string name="compilation_download_cancel_confirm">Confirmation message asking if the user really wants to cancel the download.</string>
   <string name="compilation_download_cancel_confirm_yes">Affirmative answer to cancel the download.\n{{Identical|Yes}}</string>
   <string name="compilation_download_cancel_confirm_no">Negative answer to cancel the download.\n{{Identical|No}}</string>
+  <string name="offline_library_title">Title shown at the top of the activity for managing the offline library.</string>
+  <string name="offline_library_empty_title">Message shown when the offline library is empty.</string>
+  <string name="offline_library_empty_description">Explanation encouraging the user to download an article pack for offline use later.</string>
+  <string name="offline_library_empty_search">Button label for searching the list of possible article packs to download.</string>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>
