@@ -59,4 +59,5 @@
     <string name="preference_key_reading_lists_current_user_hash">readingListsCurrentUserHash</string>
     <string name="preference_key_permission_asked">permissionAsked</string>
     <string name="preference_key_compilation_cache">compilationCache</string>
+    <string name="preference_key_offline_onboarding_card_enabled">offlineOnboardingCardEnabled</string>
 </resources>

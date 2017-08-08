@@ -500,6 +500,7 @@
     <string name="offline_library_empty_title">Nothing in your Offline Library</string>
     <string name="offline_library_empty_description">Choose a pack of Wikipedia articles to download now, for data-free access later.</string>
     <string name="offline_library_empty_search">Search Offline Library</string>
+    <string name="offline_library_onboarding_action">Learn about your Offline Library</string>
     <!-- /Offline -->
 
     <!-- Onboarding -->
