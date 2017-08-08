@@ -13,6 +13,8 @@ import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.feed.searchbar.SearchClient;
 import org.wikipedia.util.DeviceUtil;
 
+import static org.wikipedia.util.ReleaseUtil.isPreBetaRelease;
+
 class FeedCoordinator extends FeedCoordinatorBase {
 
     FeedCoordinator(@NonNull Context context) {
@@ -24,7 +26,7 @@ class FeedCoordinator extends FeedCoordinatorBase {
         boolean online = DeviceUtil.isOnline();
 
         conditionallyAddPendingClient(new SearchClient(), age == 0);
-        conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online);
+        conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online && isPreBetaRelease());
         conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && online);
         conditionallyAddPendingClient(new AggregatedFeedContentClient(), online);
         addPendingClient(new ContinueReadingClient());
