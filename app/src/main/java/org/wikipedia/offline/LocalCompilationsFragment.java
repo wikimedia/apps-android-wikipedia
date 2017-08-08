@@ -45,6 +45,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     @BindView(R.id.compilations_count_text) TextView countText;
     @BindView(R.id.disk_usage_view) DiskUsageView diskUsageView;
     @BindView(R.id.compilation_search_error) WikiErrorView errorView;
+    @BindView(R.id.compilation_empty_container) View emptyContainer;
     private Unbinder unbinder;
 
     private boolean updating;
@@ -131,7 +132,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
         }
     }
 
-    @OnClick(R.id.compilations_add_button) void onAddCompilationClick() {
+    @OnClick({R.id.compilations_add_button, R.id.compilation_empty_search_button}) void onAddCompilationClick() {
         startActivity(RemoteCompilationsActivity.newIntent(getContext()));
     }
 
@@ -204,16 +205,19 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
             progressBar.setVisibility(View.GONE);
             searchEmptyView.setVisibility(View.GONE);
             listContainer.setVisibility(View.GONE);
+            emptyContainer.setVisibility(View.GONE);
             return;
         }
         errorView.setVisibility(View.GONE);
         progressBar.setVisibility(updating ? View.VISIBLE : View.GONE);
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
-            listContainer.setVisibility(View.VISIBLE);
+            listContainer.setVisibility(displayedItems.isEmpty() ? View.GONE : View.VISIBLE);
+            emptyContainer.setVisibility(displayedItems.isEmpty() ? View.VISIBLE : View.GONE);
         } else {
             listContainer.setVisibility(displayedItems.isEmpty() ? View.GONE : View.VISIBLE);
             searchEmptyView.setVisibility(displayedItems.isEmpty() ? View.VISIBLE : View.GONE);
+            emptyContainer.setVisibility(View.GONE);
         }
     }
 

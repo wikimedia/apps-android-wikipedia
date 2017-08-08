@@ -23,7 +23,7 @@ public class LocalCompilationsActivity
         setWordmarkVisible(false);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(R.string.offline_compilations_title);
+            getSupportActionBar().setTitle(R.string.offline_library_title);
         }
     }
 
