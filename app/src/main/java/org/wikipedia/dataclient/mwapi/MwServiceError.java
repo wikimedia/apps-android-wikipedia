@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.model.BaseModel;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Gson POJO for a MediaWiki API error.
  */
-public class MwServiceError implements ServiceError {
+public class MwServiceError extends BaseModel implements ServiceError {
     @SuppressWarnings("unused") @Nullable private String code;
     @SuppressWarnings("unused") @Nullable private String info;
     @SuppressWarnings("unused") @Nullable private String docref;
@@ -50,14 +51,6 @@ public class MwServiceError implements ServiceError {
             }
         }
         return null;
-    }
-
-    @Override public String toString() {
-        return "MwServiceError{"
-                + "code='" + code + '\''
-                + ", info='" + info + '\''
-                + ", docref='" + docref + '\''
-                + '}';
     }
 
     private static final class Message {

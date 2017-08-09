@@ -4,13 +4,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.util.log.L;
 
 import java.util.Map;
 
 public class RbDefinition {
     @Required @NonNull private Map<String, Usage[]> usagesByLang;
-    @SuppressWarnings("unused") @Nullable private RbServiceError error;
 
     public RbDefinition(@NonNull Map<String, RbDefinition.Usage[]> usages) {
         usagesByLang = usages;
@@ -18,17 +16,6 @@ public class RbDefinition {
 
     @Nullable public Usage[] getUsagesForLang(String langCode) {
         return usagesByLang.get(langCode);
-    }
-
-    public boolean hasError() {
-        return error != null;
-    }
-
-    public void logError(String message) {
-        if (error != null) {
-            message += ": " + error.toString();
-        }
-        L.e(message);
     }
 
     public static class Usage {
