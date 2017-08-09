@@ -27,6 +27,7 @@ import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.news.NewsItemCard;
+import org.wikipedia.feed.onboarding.OnboardingCard;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
@@ -420,6 +421,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         public void onViewCompilations() {
             startActivity(LocalCompilationsActivity.newIntent(getContext()));
+        }
+
+        @Override
+        public void onOnboardingPositiveAction(@NonNull Card card, @NonNull OnboardingCard.OnboardingAction action) {
+
         }
     }
 

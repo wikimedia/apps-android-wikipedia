@@ -9,6 +9,7 @@ import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.continuereading.ContinueReadingClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.offline.OfflineCompilationClient;
+import org.wikipedia.feed.onboarding.OnboardingClient;
 import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.feed.searchbar.SearchClient;
 import org.wikipedia.util.DeviceUtil;
@@ -27,6 +28,7 @@ class FeedCoordinator extends FeedCoordinatorBase {
 
         conditionallyAddPendingClient(new SearchClient(), age == 0);
         conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online && isPreBetaRelease());
+        conditionallyAddPendingClient(new OnboardingClient(), age == 0);
         conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && online);
         conditionallyAddPendingClient(new AggregatedFeedContentClient(), online);
         addPendingClient(new ContinueReadingClient());
