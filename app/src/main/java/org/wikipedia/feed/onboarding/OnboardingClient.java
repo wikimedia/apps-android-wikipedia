@@ -14,7 +14,10 @@ public class OnboardingClient implements FeedClient {
     @Override public void request(@NonNull Context context, @NonNull WikiSite wiki, int age,
                                   @NonNull FeedClient.Callback cb) {
         List<Card> cards = new ArrayList<>();
-        // TODO: add onboarding cards conditionally
+        OnboardingCard card = new OfflineOnboardingCard();
+        if (card.shouldShow()) {
+            cards.add(new OfflineOnboardingCard());
+        }
         cb.success(cards);
     }
 

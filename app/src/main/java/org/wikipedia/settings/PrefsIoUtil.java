@@ -16,7 +16,7 @@ import java.util.Set;
 /** Shared preferences input / output utility providing set* functionality that writes to SP on the
  * client's behalf, IO without client supplied {@link Context}, and wrappers for using string
  * resources as keys, and unifies SP access. */
-/*package*/ final class PrefsIoUtil {
+public final class PrefsIoUtil {
     @Nullable
     public static String getString(@StringRes int id, @Nullable String defaultValue) {
         return getString(getKey(id), defaultValue);

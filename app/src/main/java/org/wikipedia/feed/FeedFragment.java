@@ -425,7 +425,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onOnboardingPositiveAction(@NonNull Card card, @NonNull OnboardingCard.OnboardingAction action) {
-
+            if (action == OnboardingCard.OnboardingAction.OFFLINE_LIBRARY) {
+                onViewCompilations();
+            }
         }
     }
 
