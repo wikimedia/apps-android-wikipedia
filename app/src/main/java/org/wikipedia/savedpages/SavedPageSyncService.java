@@ -15,7 +15,6 @@ import org.wikipedia.dataclient.okhttp.cache.SaveHeader;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
@@ -143,6 +142,11 @@ public class SavedPageSyncService extends IntentService {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
                 e.printStackTrace();
+                if (!ThrowableUtil.isOffline(e)) {
+                    // If it's anything but a transient network error, let's log it aggressively,
+                    // to make sure we've fixed any other errors with saving pages.
+                    L.logRemoteError(e);
+                }
                 dao.failDiskTransaction(row);
                 continue;
             }
@@ -171,7 +175,7 @@ public class SavedPageSyncService extends IntentService {
             row.dat().setThumbnailUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
                     leadRsp.body().getThumbUrl()));
         }
-        row.dat().setDescription(((PageLeadProperties) leadRsp.body()).getDescription());
+        row.dat().setDescription(leadRsp.body().getDescription());
 
         Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
         imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));

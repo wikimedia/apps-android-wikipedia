@@ -96,6 +96,10 @@ public class MwMobileViewPageLead implements PageLead {
         return mobileview == null ? null : mobileview.getThumbUrl();
     }
 
+    @Nullable @Override public String getDescription() {
+        return mobileview == null ? null : mobileview.getDescription();
+    }
+
     @Nullable
     @Override
     public Location getGeo() {
@@ -190,7 +194,6 @@ public class MwMobileViewPageLead implements PageLead {
             return normalizedtitle;
         }
 
-        @Override
         @Nullable
         public String getDescription() {
             return description;

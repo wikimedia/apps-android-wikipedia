@@ -58,6 +58,7 @@ import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
                     public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> response) {
                         assertThat(response.body().getLeadImageUrl(640).contains("640px"), is(true));
                         assertThat(response.body().getThumbUrl().contains(preferredThumbSizeString()), is(true));
+                        assertThat(response.body().getDescription(), is("Mexican boxer"));
                         latch.countDown();
                     }
 

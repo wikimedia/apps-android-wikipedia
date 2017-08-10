@@ -43,7 +43,6 @@ public abstract class BasePageLeadTest extends BasePageClientTest {
         assertThat(props.getLastModified(), is(LAST_MODIFIED_DATE));
         assertThat(props.getDisplayTitle(), is(MAIN_PAGE));
         assertThat(props.getLanguageCount(), is(LANGUAGE_COUNT));
-        assertThat(props.getDescription(), is("main page of a Wikimedia project"));
         assertThat(props.getLeadImageUrl(0), equalTo(null));
         assertThat(props.getLeadImageFileName(), equalTo(null));
         assertThat(props.getSections().size(), is(1));

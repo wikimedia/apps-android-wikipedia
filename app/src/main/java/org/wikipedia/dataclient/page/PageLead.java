@@ -26,6 +26,7 @@ public interface PageLead {
     @Nullable String getTitlePronunciationUrl();
     @Nullable String getLeadImageUrl(int leadImageWidth);
     @Nullable String getThumbUrl();
+    @Nullable String getDescription();
 
     @Nullable Location getGeo();
 }
