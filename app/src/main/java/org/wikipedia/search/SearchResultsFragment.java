@@ -236,6 +236,7 @@ public class SearchResultsFragment extends Fragment {
     private void doTitlePrefixSearch(final String searchTerm) {
         cancelSearchTask();
         final long startTime = System.nanoTime();
+        updateProgressBar(true);
 
         prefixSearchClient.request(app.getWikiSite(), searchTerm, new PrefixSearchClient.Callback() {
             @Override
