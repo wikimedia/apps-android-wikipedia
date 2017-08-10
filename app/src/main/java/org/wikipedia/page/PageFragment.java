@@ -700,6 +700,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         if (!isAdded()) {
                             return;
                         }
+                        model.setReadingListPage(page);
                         pageActionTabsCallback.updateBookmark(page != null);
                     }
                 });
