@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipédia béta</string>
   <string name="app_name_alpha">Wikipédia alfa</string>
   <string name="wikimedia">Wikimédia</string>
-  <string name="yes">Igen</string>
-  <string name="no">Nem</string>
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="search_hint_search_history">Keresés az előzményekben</string>
   <string name="search_hint_search_my_lists">Keresés a listáimban</string>

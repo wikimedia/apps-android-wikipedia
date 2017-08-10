@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Ja</string>
-  <string name="no">Nej</string>
   <string name="search_hint">Sök på Wikipedia</string>
   <string name="search_hint_search_history">Sök i historik</string>
   <string name="search_hint_search_my_lists">Sök i mina listor</string>
@@ -20,6 +18,8 @@
   <string name="history_item_delete_undo">Ångra</string>
   <string name="dialog_title_clear_history">Rensa webbhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
+  <string name="dialog_message_clear_history_yes">Ja</string>
+  <string name="dialog_message_clear_history_no">Nej</string>
   <string name="nav_item_saved_pages">Sparade sidor</string>
   <string name="share_via">Dela via</string>
   <string name="search_redirect_from">Omdirigerad från %s</string>
@@ -71,6 +71,8 @@
   <string name="title_captcha">Ange captcha</string>
   <string name="edit_section_captcha_reload">Tryck på captcha för att uppdatera</string>
   <string name="edit_saved_page_refresh">Denna sparade sida kan vara för gammal, och måste laddas om för att kunna redigeras. Vill du ladda om sidan?</string>
+  <string name="edit_saved_page_refresh_yes">Ja</string>
+  <string name="edit_saved_page_refresh_no">Nej</string>
   <string name="nav_item_login">Logga in på Wikipedia</string>
   <string name="login_username_hint">Användarnamn</string>
   <string name="login_password_hint">Lösenord</string>
@@ -155,6 +157,8 @@
   <string name="about_wmf">En app utvecklad av &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
+  <string name="edit_abandon_confirm_yes">Ja</string>
+  <string name="edit_abandon_confirm_no">Nej</string>
   <string name="user_blocked_from_editing_title">Blockerad</string>
   <string name="user_logged_in_blocked_from_editing">Ditt konto har blockerats från redigering på denna wiki.</string>
   <string name="user_anon_blocked_from_editing">Din IP-adress har blockerats från redigering.</string>
@@ -181,6 +185,8 @@
   <string name="search_recent_header">Senaste sökningar:</string>
   <string name="button_clear_all_recent_searches">Rensa senaste sökningar</string>
   <string name="clear_recent_searches_confirm">Är du säker på att du vill rensa din sökhistorik?</string>
+  <string name="clear_recent_searches_confirm_yes">Ja</string>
+  <string name="clear_recent_searches_confirm_no">Nej</string>
   <string name="error_browser_not_found">Kunde inte öppna webbsidan (ingen webbläsarapp hittades).</string>
   <string name="table_infobox">Snabbfakta</string>
   <string name="table_other">Mer information</string>
@@ -217,6 +223,8 @@
   <string name="menu_new_tab">Ny flik</string>
   <string name="menu_close_all_tabs">Stäng alla flikar</string>
   <string name="close_all_tabs_confirm">Är du säker på att du vill stänga alla flikar?</string>
+  <string name="close_all_tabs_confirm_yes">Ja</string>
+  <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Stäng flik</string>
   <string name="tool_tip_select_text">Tryck och håll ned någonstans i texten för att markera den och sedan kopiera och dela den.</string>
   <string name="tool_tip_share">När du har markerat intressant fakta, prova att dela det på dina favoritnätverk!</string>
@@ -280,9 +288,9 @@
   <string name="reading_list_already_exists">Denna artikel är redan i den listan.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d artiklar, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d av 1 artikel tillgänglig offline, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d av %2$d artiklar tillgängliga offline, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artiklar, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar tillgängliga offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
   <string name="reading_list_sort_by_name_desc">Sortera efter namn (omvänt)</string>
@@ -325,6 +333,8 @@
   <string name="reading_list_login_reminder_title">Synkronisera läslistor</string>
   <string name="reading_list_login_reminder_text">Dina läslistor kan nu sparas till ditt Wikimedia-konto. Logga in på ditt konto och dina läslistor kommer att synkroniseras automatiskt.</string>
   <string name="reading_lists_confirm_remote_delete">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen. Vill du fortsätta?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
+  <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denna artikel kommer nu vara tillgänglig offline.</item>
@@ -430,6 +440,14 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Pausa eller återuppta nedladdning</string>
   <string name="compilation_download_widget_button_cancel_hint">Avbryt nedladdning</string>
+  <string name="compilation_download_cancel_confirm">Är du säker på du vill avbryta nedladdningen av denna samling?</string>
+  <string name="compilation_download_cancel_confirm_yes">Ja</string>
+  <string name="compilation_download_cancel_confirm_no">Nej</string>
+  <string name="offline_library_title">Offlinebibliotek</string>
+  <string name="offline_library_empty_title">Ingenting i ditt offlinebibliotek</string>
+  <string name="offline_library_empty_description">Välj ett paket med Wikipediaartiklar att ladda ned nu för att kunna läsa offline senare.</string>
+  <string name="offline_library_empty_search">Sök i offlinebiblioteket</string>
+  <string name="offline_library_onboarding_action">Läs mer om ditt offlinebibliotek</string>
   <string name="onboarding_skip">Hoppa över</string>
   <string name="onboarding_continue">Fortsätt</string>
   <string name="onboarding_get_started">Kom igång</string>

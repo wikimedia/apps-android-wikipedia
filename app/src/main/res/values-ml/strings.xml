@@ -4,8 +4,6 @@
   <string name="app_name_beta">വിക്കിപീഡിയ ബീറ്റ</string>
   <string name="app_name_alpha">വിക്കിപീഡിയ ആൽഫ</string>
   <string name="wikimedia">വിക്കിമീഡിയ</string>
-  <string name="yes">വേണം</string>
-  <string name="no">വേണ്ട</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>

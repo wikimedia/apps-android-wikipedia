@@ -4,8 +4,6 @@
   <string name="app_name_beta">Vikipedi Beta</string>
   <string name="app_name_alpha">Vikipedi Alfa</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Evet</string>
-  <string name="no">Hayır</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="search_hint_search_history">Arama geçmişi</string>
   <string name="search_hint_search_my_lists">Listelerimde ara</string>
@@ -41,6 +39,7 @@
   <string name="nearby_zoom_to_location">Harita üzerinde bir yere yakınlaştır</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; katılımcıları</string>
   <string name="last_updated_text">Son güncelleme %s</string>
+  <string name="bottom_content_date_downloaded">%s indirildi</string>
   <string name="talk_page_link_text">Tartışma</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
@@ -229,7 +228,7 @@
   <string name="button_continue_to_article">Maddeyi oku</string>
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
   <string name="page_offline_notice_cannot_load_while_offline">Madde çevrimdışıyken yüklenemez.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
+  <string name="page_offline_notice_add_to_reading_list">İpucu: Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
   <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrim dışı sürümünü okuyorsunuz.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
@@ -247,6 +246,7 @@
   <string name="view_link_preview_error_button_dismiss">Kapat</string>
   <string name="error_page_does_not_exist">Bu sayfa mevcut değil</string>
   <string name="view_wiki_error_message_offline">İnternete bağlanılamıyor.</string>
+  <string name="reference_title">Kaynak %s</string>
   <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
   <string name="crash_report_dialog_text">HockeyApp\'a (çökmeyi incelememizi ve sebep olan hatayı düzeltmemizi sağlayan, bir üçüncü parti servis sağlayıcısı) bir hata raporu göndermek ister misiniz?</string>
   <string name="crash_report_dialog_dont_send_button">Atla</string>
@@ -276,10 +276,10 @@
   <string name="reading_list_added_to_unnamed">Okuma listesine eklendi.</string>
   <string name="reading_list_already_exists">Bu madde, seçtiğiniz listede mevcut.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
-  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 madde, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d madde, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">1 maddenin %1$d tanesine çivrim dışı erişilebilir, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%2$d maddenin %1$d tanesine çevrim dışı erişilebilir, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çivrim dışı erişilebilir, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$d maddenin %1$d tanesine çevrim dışı erişilebilir, %3$.2f MB</string>
   <string name="reading_list_sort">Sırala</string>
   <string name="reading_list_sort_by_name">Ada göre sırala</string>
   <string name="reading_list_sort_by_name_desc">Ada göre sırala (tersten)</string>
@@ -288,6 +288,8 @@
   <string name="reading_list_menu_delete">Listeyi sil</string>
   <string name="reading_list_menu_rename">Yeniden adlandır</string>
   <string name="reading_list_menu_edit_description">Tanımı düzenle</string>
+  <string name="reading_list_action_menu_remove_from_offline">Çevrim dışı erişimden sil</string>
+  <string name="reading_list_action_menu_save_for_offline">Çevrim dışı erişim iiçin kaydet</string>
   <string name="reading_list_action_menu_add_to_another_list">Başka bir listeye ekle</string>
   <string name="reading_list_name_sample">Okuma listem</string>
   <string name="reading_list_name_hint">Bu listenin adı</string>
@@ -321,8 +323,14 @@
   <string name="reading_list_login_reminder_text">Artık okuma listeleriniz Vikipedi hesabınıza kaydedilebilir. Basitçe hesabınıza giriş yapın; okuma listeleriniz otomatik olarak senkronize edilecek.</string>
   <string name="reading_lists_confirm_remote_delete">Bu, daha önce dış depoplamadan senkronize edilmiş tüm okumla listelerini silecek. Devam edilsin mi?</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrim dışı olarak erişilebilir olacak.</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">Bu maddeye artık çevrimdışı olarak erişilebilir.</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">Bu maddeye artık çevrimdışı olarak erişilemez.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Bu maddeye artık çevrim dışı olarak erişilebilir.</item>
+    <item quantity="other">Bu maddelere artık çevrim dışı olarak erişilebilir.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Bu maddeye artık çevrim dışı olarak erişilemez.</item>
+    <item quantity="other">Bu maddelere artık çevrim dışı olarak erişilemez.</item>
+  </plurals>
   <string name="user_option_sync_label">Ayarlar</string>
   <string name="notification_button_view_user">Kullanıcıya mesaj at</string>
   <string name="notification_talk_title">Vikipedi\'de yeni mesaj</string>
@@ -394,6 +402,27 @@
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
   <string name="description_edit_revert_reason2">katkınız bir deneme ya da vandalizm gibi görünüyordu.</string>
   <string name="description_edit_revert_history">Eğer ilgeliniyorsanız, &lt;a href=\"%1$s\"&gt;değişiklik geçmişine&lt;/a&gt; bakabilirsiniz.</string>
+  <string name="offline_read_permission_error">Cihaz hafızasına erişim için izin verilmedi.</string>
+  <string name="offline_my_compilations">Derlemelerim</string>
+  <string name="offline_compilations_title">Çevrim dışı derlemeler</string>
+  <string name="offline_compilations_search_by_name">Derlemeleri ada göre ara</string>
+  <string name="offline_compilations_found_count">Derlemelerim (%d)</string>
+  <string name="offline_compilations_add">Çevrim dışı derleme ekle</string>
+  <string name="remote_compilations_title">Tüm derlemeler</string>
+  <string name="remote_compilations_description">Çevrim dışı Derlemeler, cihazınıza tek bir dosya olarak indirilebilen büyük madde gruplarıdır; böylece çevrim dışıyken kullanıma devam edebilirsiniz.</string>
+  <string name="offline_compilation_detail_button_remove">Sil</string>
+  <string name="remote_compilation_download">İndir</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB boş</string>
+  <string name="storage_used_by_compilations">Vikipedi tarafından kullanılıyor</string>
+  <string name="storage_other_apps">Diğer uygulamalar</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">1 dakika kaldı</item>
+    <item quantity="other">%d dakika kaldı</item>
+  </plurals>
+  <string name="compilation_download_widget_button_pause_resume_hint">İndirmeyi duraklat veya devam et</string>
+  <string name="compilation_download_widget_button_cancel_hint">İndirmeyi iptal et</string>
   <string name="onboarding_skip">Atla</string>
   <string name="onboarding_continue">Devam et</string>
   <string name="onboarding_get_started">Kullanmaya başla</string>

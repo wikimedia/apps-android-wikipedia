@@ -4,8 +4,6 @@
   <string name="app_name_beta">Vikipedio Beta</string>
   <string name="app_name_alpha">Vikipedio Alfa</string>
   <string name="wikimedia">Vikimedio</string>
-  <string name="yes">Jes</string>
-  <string name="no">Ne</string>
   <string name="search_hint">Serĉi tra Vikipedio</string>
   <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne eblas konektiĝi al la interreto.</string>

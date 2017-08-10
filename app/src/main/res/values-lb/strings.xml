@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Jo</string>
-  <string name="no">Neen</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_search_history">Am Historique sichen</string>
   <string name="search_hint_search_my_lists">A menge Lëschte sichen</string>

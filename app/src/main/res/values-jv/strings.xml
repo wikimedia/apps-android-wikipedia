@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipédia Béta</string>
   <string name="app_name_alpha">Wikipédia Alfa</string>
   <string name="wikimedia">Wikimédia</string>
-  <string name="yes">Iya</string>
-  <string name="no">Ora</string>
   <string name="search_hint">Golèk ing Wikipédia</string>
   <string name="search_hint_search_history">Sajarah golèkan</string>
   <string name="search_hint_search_my_lists">Golèk pratélanku</string>
@@ -20,6 +18,8 @@
   <string name="history_item_delete_undo">Balèkaké</string>
   <string name="dialog_title_clear_history">Busak sajarah golèkan</string>
   <string name="dialog_message_clear_history">Tumindak iki bakal mbusak kabèh sajarah golèkané panjenengan lan nutup kabèh tab sing isih kabukak. Panjenengan yakin?</string>
+  <string name="dialog_message_clear_history_yes">Iya</string>
+  <string name="dialog_message_clear_history_no">Ora</string>
   <string name="nav_item_saved_pages">Kaca sinimpen</string>
   <string name="share_via">Dum lumantar</string>
   <string name="search_redirect_from">Dilih saka %s</string>
@@ -71,6 +71,8 @@
   <string name="title_captcha">Isinen CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dudul CAPTCHA saperlu ngambali ngamot</string>
   <string name="edit_saved_page_refresh">Kaca sing sinimpen iki wis kadaluwarsa lan kudu dianyari murih bisa dibesut. Piyé yèn kaca iki dianyari?</string>
+  <string name="edit_saved_page_refresh_yes">Iya</string>
+  <string name="edit_saved_page_refresh_no">Ora</string>
   <string name="nav_item_login">Mlebu log Wikipédia</string>
   <string name="login_username_hint">Jeneng panganggo</string>
   <string name="login_password_hint">Tembung wadi</string>
@@ -155,6 +157,8 @@
   <string name="about_wmf">Wetoné &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Yeyasan Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Ngenani</string>
   <string name="edit_abandon_confirm">Kaca iki wis dimodhifikasi. Apa panjenengan yakin arep metu tanpa nyimpen owah-owahané panjenengan?</string>
+  <string name="edit_abandon_confirm_yes">Iya</string>
+  <string name="edit_abandon_confirm_no">Ora</string>
   <string name="user_blocked_from_editing_title">Kablokir</string>
   <string name="user_logged_in_blocked_from_editing">Akun panganggoné panjenengan diblokir, ora bisa mbesut wiki iki.</string>
   <string name="user_anon_blocked_from_editing">Alamat IP-né panjenengan diblokir, ora bisa mbesut.</string>
@@ -181,6 +185,8 @@
   <string name="search_recent_header">Golèkan mentas waé:</string>
   <string name="button_clear_all_recent_searches">Busak golèkan mentas waé</string>
   <string name="clear_recent_searches_confirm">Panjenengan yakin arep mbusak sajarah golèkané panjenengan?</string>
+  <string name="clear_recent_searches_confirm_yes">Iya</string>
+  <string name="clear_recent_searches_confirm_no">Ora</string>
   <string name="error_browser_not_found">Ora bisa mbukak kaca jaringan (ora ana aplikasi pangluruné).</string>
   <string name="table_infobox">Kasunyatan rikat</string>
   <string name="table_other">Katerangan liyané</string>
@@ -217,6 +223,8 @@
   <string name="menu_new_tab">Tab anyar</string>
   <string name="menu_close_all_tabs">Tutup kabèh tab</string>
   <string name="close_all_tabs_confirm">Panjenengan yakin arep nutup kabèh tabé?</string>
+  <string name="close_all_tabs_confirm_yes">Iya</string>
+  <string name="close_all_tabs_confirm_no">Ora</string>
   <string name="button_close_tab">Tutup tab</string>
   <string name="tool_tip_select_text">Penet terus ngendi wae ing teks kanggo nyorot kanggo Nyalin lan enggo bareng.</string>
   <string name="tool_tip_share">Sawisé nyentrongi kasunyatan sing narik kawigatèn, jajalen dum iku nyang jejaring kasenengané panjenengan!</string>
@@ -325,6 +333,8 @@
   <string name="reading_list_login_reminder_title">Sinkronisasi pratélan wacan</string>
   <string name="reading_list_login_reminder_text">Pratélan wacané panjenengan bokmanawa bisa disimpen ing akun Wikipédiané panjenengan saiki. Cukup mlebu log nyang akuné panjenengan, lan pratélan wacané panjenengan bakal otomatis kasinkronisasi.</string>
   <string name="reading_lists_confirm_remote_delete">Tumindak iki bakal mbusak pratélan wacan sing disinkronisasi sadurungé saka panyimpenan adoh. Bacutaké?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Iya</string>
+  <string name="reading_lists_confirm_remote_delete_no">Ora</string>
   <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel iki saiki bakal ana nalika ing njaban jaringan.</item>
@@ -430,6 +440,8 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Endheg utawa bacutaké ngundhuh</string>
   <string name="compilation_download_widget_button_cancel_hint">Wurung ngundhuh</string>
+  <string name="compilation_download_cancel_confirm_yes">Iya</string>
+  <string name="compilation_download_cancel_confirm_no">Ora</string>
   <string name="onboarding_skip">Langkahi</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>
@@ -441,6 +453,6 @@
   <string name="onboarding_analytics_text">Éwangi murih beciké aplikasi iki kanthi ngandhani awak dhéwé olèhé panjenengan nganggo aplikasi iki. Pangumpulé dhata kanthi anonim. &lt;a href=\"#privacy\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim dhata pangguna</string>
   <string name="onboarding_create_account_sync">Sinkronaké pratélan wacané panjenengan</string>
-  <string name="onboarding_create_account_contributions">Lacak sumbangané panjenengan</string>
+  <string name="onboarding_create_account_contributions">Lacak pisumbangé panjenengan</string>
   <string name="onboarding_create_account_preferences">Simpen pilalané panjenengan</string>
 </resources>

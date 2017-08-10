@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Sí</string>
-  <string name="no">No</string>
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="search_hint_search_history">Buscar en el historial</string>
   <string name="search_hint_search_my_lists">Buscar en mis listas</string>

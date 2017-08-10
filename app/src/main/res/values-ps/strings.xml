@@ -4,8 +4,6 @@
   <string name="app_name_beta">بيټا ويکيپېډيا</string>
   <string name="app_name_alpha">الفا ويکيپېډيا</string>
   <string name="wikimedia">ويکيمېډيا</string>
-  <string name="yes">هو</string>
-  <string name="no">نه</string>
   <string name="search_hint">ويکيپېډيا پلټل</string>
   <string name="nav_item_history">پېښليک</string>
   <string name="error_network_error">انټرنټ سره نه شي تړل کېدای.</string>

@@ -4,8 +4,6 @@
   <string name="app_name_beta">ויקיפדיה בטא</string>
   <string name="app_name_alpha">ויקיפדיה אלפא</string>
   <string name="wikimedia">ויקימדיה</string>
-  <string name="yes">כן</string>
-  <string name="no">לא</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="search_hint_search_history">היסטוריית חיפוש</string>
   <string name="search_hint_search_my_lists">חיפוש ברשימות שלי</string>

@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Bêta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Ih</string>
-  <string name="no">Uhu</string>
   <string name="search_hint">Nadi di Wikipedia</string>
   <string name="search_hint_search_history">Nadi amazray</string>
   <string name="search_hint_search_my_lists">Nadi di tebdart-iw</string>
@@ -20,6 +18,8 @@
   <string name="history_item_delete_undo">Err-d</string>
   <string name="dialog_title_clear_history">Sfeḍ amazray n tunigin</string>
   <string name="dialog_message_clear_history">ayagi ad yekkes akk amazray n tunigin, sakin ad yemdel akk iccaren yeldin tura. Tebɣiḍ ad teged aya?</string>
+  <string name="dialog_message_clear_history_yes">Ih</string>
+  <string name="dialog_message_clear_history_no">Uhu</string>
   <string name="nav_item_saved_pages">Isebtar yettwakelsen</string>
   <string name="share_via">Bḍu s</string>
   <string name="search_redirect_from">Awelleh si %s</string>
@@ -71,6 +71,8 @@
   <string name="title_captcha">Sekcem CAPTCHA</string>
   <string name="edit_section_captcha_reload">Sekcem CAPTCHA ad talseḍ asali</string>
   <string name="edit_saved_page_refresh">Asebter-agi yettwaskelsen ahat yezri wakud-is, ihi yessefk ad yettusmiren akken ad tizmired ad tesnifleḍ asebter-agi. Tebɣiḍ ad talseḍ asali n usebter?</string>
+  <string name="edit_saved_page_refresh_yes">Ih</string>
+  <string name="edit_saved_page_refresh_no">Uhu</string>
   <string name="nav_item_login">Kcem ar Wikipedia</string>
   <string name="login_username_hint">Isem n useqdac</string>
   <string name="login_password_hint">Awal uffir</string>
@@ -153,6 +155,8 @@
   <string name="about_wmf">Afaris n &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;tesbeddit Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Ɣef</string>
   <string name="edit_abandon_confirm">Asebter-agi yettusnifel. Tebɣid ad teffɣeḍ war ma teskelseḍ asnifel-ik?</string>
+  <string name="edit_abandon_confirm_yes">Ih</string>
+  <string name="edit_abandon_confirm_no">Uhu</string>
   <string name="user_blocked_from_editing_title">Yewḥel</string>
   <string name="user_logged_in_blocked_from_editing">Amiḍan-ik yewḥel si teẓrigt ɣef uwiki-agi.</string>
   <string name="user_anon_blocked_from_editing">Tansa-ik IP tewḥel i usnifel.</string>
@@ -179,6 +183,8 @@
   <string name="search_recent_header">Inadiyen n melmi kan:</string>
   <string name="button_clear_all_recent_searches">Sfeḍ inadiyen n melmi kan</string>
   <string name="clear_recent_searches_confirm">Tebɣiḍ ad tsefḍeḍ amazray-ik n unadi?</string>
+  <string name="clear_recent_searches_confirm_yes">Ih</string>
+  <string name="clear_recent_searches_confirm_no">Uhu</string>
   <string name="error_browser_not_found">Ur izmir ara ad d-yeldi asebter web (ulac asnas n iminig).</string>
   <string name="table_infobox">Axeddim s tewzel</string>
   <string name="table_other">Ugar n telɣut</string>
@@ -215,6 +221,8 @@
   <string name="menu_new_tab">Iccer amaynut</string>
   <string name="menu_close_all_tabs">Mdel akk iccaṛen</string>
   <string name="close_all_tabs_confirm">Tebɣiḍ ad tmedleḍ akk iccaren?</string>
+  <string name="close_all_tabs_confirm_yes">Ih</string>
+  <string name="close_all_tabs_confirm_no">Uhu</string>
   <string name="button_close_tab">Mdel iccer</string>
   <string name="tool_tip_select_text">Tekki sakin eǧǧ afus-ik anida tebɣiḍ deg uḍris akked ad yebruṛeq sakin ad tneɣleḍ neɣ ad tebḍuḍ.</string>
   <string name="tool_tip_share">Seld asebruṛeq n tɣawsa yelhan, ɛreḍ beṭṭu-is deg iẓeḍwa-ik inurifen!</string>
@@ -323,6 +331,8 @@
   <string name="reading_list_login_reminder_title">Mtawi tibdarin n tɣuri</string>
   <string name="reading_list_login_reminder_text">Tibdarin-ik n tɣuri zemrent ad ttwaskelsent tura deg umiḍan-ik Wikipedia. Qqen ar umiḍan, akked tibdarin-ik n tɣuri ad mtawint s wudem awurman.</string>
   <string name="reading_lists_confirm_remote_delete">Ayagi ad yekkes seg usekles anmeggag akk tibdarin n tɣuri yemtawin yakan. Kemmel?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Ih</string>
+  <string name="reading_lists_confirm_remote_delete_no">Uhu</string>
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>
@@ -415,6 +425,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GAṬ</string>
   <string name="offline_compilation_detail_button_download">Sider · %.2f GAṬ</string>
   <string name="offline_compilation_detail_button_remove">Kkes</string>
+  <string name="remote_compilation_download">Zdem</string>
   <string name="storage_size_gb">GAṬ</string>
   <string name="storage_size_free">%.2f GAṬ n umḍiq ilelli</string>
   <string name="storage_used_by_compilations">iseqdac-it Wikipedia</string>
@@ -426,6 +437,9 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Seḥbes neɣ kemmel asider</string>
   <string name="compilation_download_widget_button_cancel_hint">Sefsex asider</string>
+  <string name="compilation_download_cancel_confirm_yes">Ih</string>
+  <string name="compilation_download_cancel_confirm_no">Uhu</string>
+  <string name="offline_library_onboarding_action">Issin ugar ɣef Temkarḍiḍ war tuqqna</string>
   <string name="onboarding_skip">Zgel</string>
   <string name="onboarding_continue">Kemmel</string>
   <string name="onboarding_get_started">Bdu</string>

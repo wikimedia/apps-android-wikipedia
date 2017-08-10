@@ -4,8 +4,6 @@
   <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
   <string name="app_name_alpha">ویکیپیڈیا الفا</string>
   <string name="wikimedia">ویکیمیڈیا</string>
-  <string name="yes">ہاں</string>
-  <string name="no">نہیں</string>
   <string name="search_hint">ویکیپیڈیا میں تلاش کریں</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>

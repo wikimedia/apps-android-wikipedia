@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Ja</string>
-  <string name="no">Nein</string>
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="search_hint_search_history">Suchverlauf</string>
   <string name="search_hint_search_my_lists">Meine Listen durchsuchen</string>
@@ -20,6 +18,8 @@
   <string name="history_item_delete_undo">Rückgängig</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
+  <string name="dialog_message_clear_history_yes">Ja</string>
+  <string name="dialog_message_clear_history_no">Nein</string>
   <string name="nav_item_saved_pages">Gespeicherte Seiten</string>
   <string name="share_via">Teilen über</string>
   <string name="search_redirect_from">Weiterleitung von %s</string>
@@ -71,6 +71,8 @@
   <string name="title_captcha">Captcha eingeben</string>
   <string name="edit_section_captcha_reload">Tippen zum Aktualisieren des Captchas</string>
   <string name="edit_saved_page_refresh">Diese gespeicherte Seite könnte veraltet sein und muss zur Aktivierung der Bearbeitung aktualisiert werden. Möchtest du die Seite neu laden?</string>
+  <string name="edit_saved_page_refresh_yes">Ja</string>
+  <string name="edit_saved_page_refresh_no">Nein</string>
   <string name="nav_item_login">Bei Wikipedia anmelden</string>
   <string name="login_username_hint">Benutzername</string>
   <string name="login_password_hint">Passwort</string>
@@ -155,6 +157,8 @@
   <string name="about_wmf">Ein Produkt der &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Über</string>
   <string name="edit_abandon_confirm">Die Seite wurde verändert. Bist du sicher, dass du sie ohne Speichern deiner Änderungen verlassen möchtest?</string>
+  <string name="edit_abandon_confirm_yes">Ja</string>
+  <string name="edit_abandon_confirm_no">Nein</string>
   <string name="user_blocked_from_editing_title">Gesperrt</string>
   <string name="user_logged_in_blocked_from_editing">Dein Benutzerkonto wurde für Bearbeitungen auf diesem Wiki gesperrt.</string>
   <string name="user_anon_blocked_from_editing">Deine IP-Adresse wurde für Bearbeitungen gesperrt.</string>
@@ -181,6 +185,8 @@
   <string name="search_recent_header">Letzte Suchanfragen:</string>
   <string name="button_clear_all_recent_searches">Letzte Suchanfragen löschen</string>
   <string name="clear_recent_searches_confirm">Bist du sicher, dass du deinen Suchverlauf löschen möchtest?</string>
+  <string name="clear_recent_searches_confirm_yes">Ja</string>
+  <string name="clear_recent_searches_confirm_no">Nein</string>
   <string name="error_browser_not_found">Webseite konnte nicht geöffnet werden (keine Browser-App gefunden).</string>
   <string name="table_infobox">Schnelle Fakten</string>
   <string name="table_other">Weitere Informationen</string>
@@ -217,6 +223,8 @@
   <string name="menu_new_tab">Neue Registerkarte</string>
   <string name="menu_close_all_tabs">Alle Registerkarten schließen</string>
   <string name="close_all_tabs_confirm">Bist du sicher, dass du alle Registerkarten schließen möchtest?</string>
+  <string name="close_all_tabs_confirm_yes">Ja</string>
+  <string name="close_all_tabs_confirm_no">Nein</string>
   <string name="button_close_tab">Registerkarte schließen</string>
   <string name="tool_tip_select_text">Drücke und halte irgendwo im Text, um ihn hervorzuheben zum Kopieren und Teilen.</string>
   <string name="tool_tip_share">Versuche, eine interessante Tatsache nach dem Hervorheben auf deinen Lieblingsnetzwerken zu teilen!</string>
@@ -325,6 +333,8 @@
   <string name="reading_list_login_reminder_title">Leselisten synchronisieren</string>
   <string name="reading_list_login_reminder_text">Deine Leselisten können jetzt in dein Wikipedia-Benutzerkonto gespeichert werden. Melde dich einfach bei deinem Benutzerkonto an und deine Leselisten werden automatisch synchronisiert.</string>
   <string name="reading_lists_confirm_remote_delete">Dies wird alle bisherigen synchronisierten Leselisten aus dem Fernspeicher löschen. Fortfahren?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
+  <string name="reading_lists_confirm_remote_delete_no">Nein</string>
   <string name="reading_list_article_save_in_progress">Der Artikel wird derzeit heruntergeladen und wird offline verfügbar sein, wenn der Download abgeschlossen ist.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dieser Artikel ist jetzt offline verfügbar.</item>
@@ -431,6 +441,13 @@
   <string name="compilation_download_widget_button_pause_resume_hint">Herunterladen pausieren oder fortfahren</string>
   <string name="compilation_download_widget_button_cancel_hint">Herunterladen abbrechen</string>
   <string name="compilation_download_cancel_confirm">Bist du dir sicher, dass du das Herunterladen dieser Zusammenstellung abbrechen möchtest?</string>
+  <string name="compilation_download_cancel_confirm_yes">Ja</string>
+  <string name="compilation_download_cancel_confirm_no">Nein</string>
+  <string name="offline_library_title">Offline-Bibliothek</string>
+  <string name="offline_library_empty_title">Es befindet sich nichts in deiner Offline-Bibliothek</string>
+  <string name="offline_library_empty_description">Wähle ein Paket mit Wikipedia-Artikeln aus, um es jetzt herunterzuladen und später darauf offline zuzugreifen.</string>
+  <string name="offline_library_empty_search">Offline-Bibliothek durchsuchen</string>
+  <string name="offline_library_onboarding_action">Mehr über deine Offline-Bibliothek erfahren</string>
   <string name="onboarding_skip">Überspringen</string>
   <string name="onboarding_continue">Fortfahren</string>
   <string name="onboarding_get_started">Anfangen</string>

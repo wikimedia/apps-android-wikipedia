@@ -4,8 +4,6 @@
   <string name="app_name_beta">위키백과 베타</string>
   <string name="app_name_alpha">위키백과 알파</string>
   <string name="wikimedia">위키미디어</string>
-  <string name="yes">예</string>
-  <string name="no">아니오</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="search_hint_search_history">역사 검색</string>
   <string name="search_hint_search_my_lists">내 목록 검색</string>
@@ -20,6 +18,8 @@
   <string name="history_item_delete_undo">실행 취소</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
+  <string name="dialog_message_clear_history_yes">예</string>
+  <string name="dialog_message_clear_history_no">아니오</string>
   <string name="nav_item_saved_pages">저장된 문서</string>
   <string name="share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>
@@ -71,6 +71,8 @@
   <string name="title_captcha">캡차를 입력하세요</string>
   <string name="edit_section_captcha_reload">새로 고치려면 캡차를 누르세요</string>
   <string name="edit_saved_page_refresh">이 저장된 문서는 오래되었을 수 있고, 편집을 활성화하려면 새로 고쳐야 합니다. 문서를 새로 고치겠습니까?</string>
+  <string name="edit_saved_page_refresh_yes">예</string>
+  <string name="edit_saved_page_refresh_no">아니오</string>
   <string name="nav_item_login">위키백과에 로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
@@ -153,6 +155,8 @@
   <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
   <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀜을 저장하지 않고 빠져나가겠습니까?</string>
+  <string name="edit_abandon_confirm_yes">예</string>
+  <string name="edit_abandon_confirm_no">아니오</string>
   <string name="user_blocked_from_editing_title">차단됨</string>
   <string name="user_logged_in_blocked_from_editing">당신의 사용자 계정은 이 위키의 편집에서 차단되어 있습니다.</string>
   <string name="user_anon_blocked_from_editing">당신의 IP 주소는 편집에서 차단되어 있습니다.</string>
@@ -179,6 +183,8 @@
   <string name="search_recent_header">최근 검색:</string>
   <string name="button_clear_all_recent_searches">최근 검색 지우기</string>
   <string name="clear_recent_searches_confirm">검색 기록을 지우겠습니까?</string>
+  <string name="clear_recent_searches_confirm_yes">예</string>
+  <string name="clear_recent_searches_confirm_no">아니오</string>
   <string name="error_browser_not_found">웹 페이지를 열 수 없습니다 (찾은 브라우저 앱이 없습니다).</string>
   <string name="table_infobox">빠른 사실</string>
   <string name="table_other">자세한 정보</string>
@@ -215,6 +221,8 @@
   <string name="menu_new_tab">새 탭</string>
   <string name="menu_close_all_tabs">모든 탭 닫기</string>
   <string name="close_all_tabs_confirm">모든 탭을 닫으시겠습니까?</string>
+  <string name="close_all_tabs_confirm_yes">예</string>
+  <string name="close_all_tabs_confirm_no">아니오</string>
   <string name="button_close_tab">탭 닫기</string>
   <string name="tool_tip_select_text">복사하거나 공유하기 위해 텍스트의 아무 곳이나 누르고 표시하세요.</string>
   <string name="tool_tip_share">흥미로운 사실 하나를 강조한 다음, 즐겨쓰는 SNS에 공유해 보세요!</string>
@@ -323,6 +331,8 @@
   <string name="reading_list_login_reminder_title">읽기 목록 동기화</string>
   <string name="reading_list_login_reminder_text">읽기 목록이 이제 위키백과 계정에 저장됩니다. 계정에 로그인만 하면 읽기 목록이 자동으로 동기화됩니다.</string>
   <string name="reading_lists_confirm_remote_delete">과거에 동기화된 읽기 목록을 원격 기억 장치에서 삭제합니다. 진행하시겠습니까?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">예</string>
+  <string name="reading_lists_confirm_remote_delete_no">아니오</string>
   <string name="reading_list_article_save_in_progress">이 문서는 다운로드 중이며, 완료되면 오프라인 상태에서 읽을 수 있습니다.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
@@ -428,6 +438,12 @@
   <string name="compilation_download_widget_button_pause_resume_hint">다운로드 일시 중지 / 재개</string>
   <string name="compilation_download_widget_button_cancel_hint">다운로드 취소</string>
   <string name="compilation_download_cancel_confirm">이 모음의 다운로드를 취소하시겠습니까?</string>
+  <string name="compilation_download_cancel_confirm_yes">예</string>
+  <string name="compilation_download_cancel_confirm_no">아니오</string>
+  <string name="offline_library_title">오프라인 라이브러리</string>
+  <string name="offline_library_empty_title">오프라인 라이브러리에 아무 것도 없습니다</string>
+  <string name="offline_library_empty_search">오프라인 라이브러리 검색</string>
+  <string name="offline_library_onboarding_action">오프라인 라이브러리에 대해 알아보기</string>
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>

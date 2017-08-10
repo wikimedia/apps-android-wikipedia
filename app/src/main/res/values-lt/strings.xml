@@ -4,8 +4,6 @@
   <string name="app_name_beta">Vikipedija Beta</string>
   <string name="app_name_alpha">Vikipedija Alfa</string>
   <string name="wikimedia">Vikimedija</string>
-  <string name="yes">Taip</string>
-  <string name="no">Ne</string>
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="nav_item_history">Istorija</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>

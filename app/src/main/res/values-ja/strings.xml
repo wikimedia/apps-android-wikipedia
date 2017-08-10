@@ -4,8 +4,6 @@
   <string name="app_name_beta">ウィキペディア・ベータ</string>
   <string name="app_name_alpha">ウィキペディア・アルファ</string>
   <string name="wikimedia">ウィキメディア</string>
-  <string name="yes">はい</string>
-  <string name="no">いいえ</string>
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="search_hint_search_history">検索履歴</string>
   <string name="search_hint_search_my_lists">リストを検索</string>

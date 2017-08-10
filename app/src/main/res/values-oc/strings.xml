@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipèdia Bèta</string>
   <string name="app_name_alpha">Wikipèdia alfa</string>
   <string name="wikimedia">Wikimèdia</string>
-  <string name="yes">Òc</string>
-  <string name="no">Non</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="search_hint_search_history">Recercar dins l\'istoric</string>
   <string name="search_hint_search_my_lists">Recercar dins mas listas</string>

@@ -4,8 +4,6 @@
   <string name="app_name_beta">विकिपीडिया बीटा</string>
   <string name="app_name_alpha">विकिपीडिया अल्फा</string>
   <string name="wikimedia">विकिमिडिया</string>
-  <string name="yes">होय</string>
-  <string name="no">नाही</string>
   <string name="search_hint">विकिपीडिया मध्ये शोधा</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">आंतरजालाशी जुळू शकत नाही.</string>

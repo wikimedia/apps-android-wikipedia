@@ -4,8 +4,6 @@
   <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
   <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="wikimedia">উইকিমিডিয়া</string>
-  <string name="yes">হ্যাঁ</string>
-  <string name="no">না</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_search_history">ইতিহাস অনুসন্ধান করুন</string>
   <string name="search_hint_search_my_lists">আমার তালিকায় অনুসন্ধান করুন</string>
@@ -392,6 +390,7 @@
   <string name="remote_compilation_download">ডাউনলোড করুন</string>
   <string name="storage_size_gb">জিবি</string>
   <string name="storage_used_by_compilations">উইকিপিডিয়া দ্বারা ব্যবহৃত</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f জিবি / %2$.2f জিবি</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">১ মিনিট বাকি</item>
     <item quantity="other">%d মিনিট বাকি</item>

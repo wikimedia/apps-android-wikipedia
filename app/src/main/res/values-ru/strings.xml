@@ -4,8 +4,6 @@
   <string name="app_name_beta">Википедия (бета)</string>
   <string name="app_name_alpha">Википедия (альфа)</string>
   <string name="wikimedia">Викимедиа</string>
-  <string name="yes">Да</string>
-  <string name="no">Нет</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="search_hint_search_history">Журнал поиска</string>
   <string name="search_hint_search_my_lists">Поиск в моих списках</string>

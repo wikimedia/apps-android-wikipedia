@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Bai</string>
-  <string name="no">Ez</string>
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_search_history">Bilatu historia</string>
   <string name="nav_item_history">Historia</string>

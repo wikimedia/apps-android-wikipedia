@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Ya</string>
-  <string name="no">Tidak</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="search_hint_search_history">Cari riwayat</string>
   <string name="search_hint_search_my_lists">Cari daftar saya</string>
@@ -20,6 +18,8 @@
   <string name="history_item_delete_undo">Urungkan</string>
   <string name="dialog_title_clear_history">Hapus riwayat penjelajahan</string>
   <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penjelajahan Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
+  <string name="dialog_message_clear_history_yes">Ya</string>
+  <string name="dialog_message_clear_history_no">Tidak</string>
   <string name="nav_item_saved_pages">Halaman tersimpan</string>
   <string name="share_via">Bagikan lewat</string>
   <string name="search_redirect_from">Dialihkan dari %s</string>
@@ -71,6 +71,8 @@
   <string name="title_captcha">Masukkan CAPTCHA</string>
   <string name="edit_section_captcha_reload">Ketuk CAPTCHA untuk memuat ulang</string>
   <string name="edit_saved_page_refresh">Halaman tersimpan ini mungkin kedaluwarsa, dan harus disegarkan untuk penyuntingan harus diaktifkan. Apakah Anda ingin memperbarui halaman?</string>
+  <string name="edit_saved_page_refresh_yes">Ya</string>
+  <string name="edit_saved_page_refresh_no">Tidak</string>
   <string name="nav_item_login">Masuk log ke Wikipedia</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
@@ -155,6 +157,8 @@
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
+  <string name="edit_abandon_confirm_yes">Ya</string>
+  <string name="edit_abandon_confirm_no">Tidak</string>
   <string name="user_blocked_from_editing_title">Telah diblokir</string>
   <string name="user_logged_in_blocked_from_editing">Akun pengguna Anda telah diblokir dari penyuntingan di wiki ini.</string>
   <string name="user_anon_blocked_from_editing">Alamat IP Anda telah diblokir dari penyuntingan.</string>
@@ -181,6 +185,8 @@
   <string name="search_recent_header">Penelusuran terkini:</string>
   <string name="button_clear_all_recent_searches">Hapus penelusuran terkini</string>
   <string name="clear_recent_searches_confirm">Apakah Anda yakin ingin menghapus riwayat penelusuran Anda?</string>
+  <string name="clear_recent_searches_confirm_yes">Ya</string>
+  <string name="clear_recent_searches_confirm_no">Tidak</string>
   <string name="error_browser_not_found">Tidak dapat membuka halaman web (tidak ada aplikasi peramban yang ditemukan)</string>
   <string name="table_infobox">Fakta singkat</string>
   <string name="table_other">Informasi lebih lanjut</string>
@@ -217,6 +223,8 @@
   <string name="menu_new_tab">Tab baru</string>
   <string name="menu_close_all_tabs">Tutup semua tab</string>
   <string name="close_all_tabs_confirm">Apakah Anda yakin ingin menutup semua tab?</string>
+  <string name="close_all_tabs_confirm_yes">Ya</string>
+  <string name="close_all_tabs_confirm_no">Tidak</string>
   <string name="button_close_tab">Tutup tab</string>
   <string name="tool_tip_select_text">Tekan dan tahan di mana saja di teks untuk menyorotnya untuk salin dan berbagi.</string>
   <string name="tool_tip_share">Setelah menyorot sebuah fakta yang menarik, coba membagikannya di jaringan kesukaan Anda!</string>
@@ -325,6 +333,8 @@
   <string name="reading_list_login_reminder_title">Sinkronkan daftar bacaan</string>
   <string name="reading_list_login_reminder_text">Daftar bacaan Anda sekarang dapat disimpan ke akun Wikipedia Anda. Cukup masuk log ke akun Anda, dan daftar bacaan Anda akan disinkronkan secara otomatis.</string>
   <string name="reading_lists_confirm_remote_delete">Ini akan menghapus daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Lanjutkan?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
+  <string name="reading_lists_confirm_remote_delete_no">Tidak</string>
   <string name="reading_list_article_save_in_progress">Artikel sedang diunduh, dan akan tersedia secara luring saat selesai.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>
@@ -431,6 +441,13 @@
   <string name="compilation_download_widget_button_pause_resume_hint">Jeda atau lanjutkan unduhan</string>
   <string name="compilation_download_widget_button_cancel_hint">Batalkan unduhan</string>
   <string name="compilation_download_cancel_confirm">Apakah Anda yakin ingin membatalkan pengunduhan kompilasi ini?</string>
+  <string name="compilation_download_cancel_confirm_yes">Ya</string>
+  <string name="compilation_download_cancel_confirm_no">Tidak</string>
+  <string name="offline_library_title">Perpustakaan Luring</string>
+  <string name="offline_library_empty_title">Tidak ada apa-apa di perpustakaan luring Anda</string>
+  <string name="offline_library_empty_description">Pilih satu kumpulan artikel Wikipedia untuk diunduh sekarang, untuk akses bebas data nanti.</string>
+  <string name="offline_library_empty_search">Cari Perpustakaan Luring</string>
+  <string name="offline_library_onboarding_action">Pelajari tentang Perpustakaan Luring Anda</string>
   <string name="onboarding_skip">Lewati</string>
   <string name="onboarding_continue">Lanjutkan</string>
   <string name="onboarding_get_started">Memulai</string>

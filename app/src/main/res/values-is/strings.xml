@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Já</string>
-  <string name="no">Nei</string>
   <string name="search_hint">Leita á Wikipedia</string>
   <string name="nav_item_history">Breytingaskrá</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
