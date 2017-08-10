@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
@@ -581,11 +580,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             }
         });
 
-        if (editPreviewFragment.isActive()) {
-            ViewCompat.setBackgroundTintList(v, ContextCompat.getColorStateList(this, R.color.color_state_blue));
-        } else {
-            ViewCompat.setBackgroundTintList(v, ContextCompat.getColorStateList(this, R.color.color_state_green));
-        }
+        v.setBackgroundColor(ContextCompat.getColor(this, item.isEnabled()
+                ? (editPreviewFragment.isActive() ? R.color.accent50 : R.color.green50) : R.color.base50));
 
         return true;
     }
