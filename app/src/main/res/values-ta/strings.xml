@@ -4,8 +4,6 @@
   <string name="app_name_beta">விக்கிப்பீடியா பீட்டா</string>
   <string name="app_name_alpha">விக்கிப்பீடியா ஆல்பா</string>
   <string name="wikimedia">விக்கிமீடியா</string>
-  <string name="yes">ஆம்</string>
-  <string name="no">இல்லை</string>
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="search_hint_search_history">வரலாற்றைத் தேடு</string>
   <string name="search_hint_search_my_lists">என் பட்டியல்களைத் தேடு</string>

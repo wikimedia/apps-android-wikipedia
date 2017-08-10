@@ -4,8 +4,6 @@
   <string name="app_name_beta">Βικιπαίδεια Beta</string>
   <string name="app_name_alpha">Βικιπαίδεια Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Ναι</string>
-  <string name="no">Όχι</string>
   <string name="search_hint">Αναζήτηση στη Βικιπαίδεια</string>
   <string name="nav_item_history">Ιστορικό</string>
   <string name="error_network_error">Δεν υπάρχει σύνδεση με το Διαδίκτυο.</string>

@@ -4,8 +4,6 @@
   <string name="app_name_beta">Википедия (бета)</string>
   <string name="app_name_alpha">Википедия (альфа)</string>
   <string name="wikimedia">Викимедиа</string>
-  <string name="yes">Эйе</string>
-  <string name="no">Юҡ</string>
   <string name="search_hint">Википедияла эҙләү</string>
   <string name="nav_item_history">Тарих</string>
   <string name="error_network_error">Интернет бәйләнеше юҡ.</string>

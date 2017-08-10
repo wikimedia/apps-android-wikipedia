@@ -4,8 +4,6 @@
   <string name="app_name_beta">ৱিকিপিডিয়া বিটা</string>
   <string name="app_name_alpha">ৱিকিপিডিয়া আল্‌ফা</string>
   <string name="wikimedia">ৱিকিমিডিয়া</string>
-  <string name="yes">হয়</string>
-  <string name="no">নহয়</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="search_hint_search_history">ইতিহাস সন্ধান কৰক</string>
   <string name="search_hint_search_my_lists">মোৰ তালিকাত সন্ধান কৰক</string>

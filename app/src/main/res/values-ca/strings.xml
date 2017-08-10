@@ -4,8 +4,6 @@
   <string name="app_name_beta">Viquipèdia Beta</string>
   <string name="app_name_alpha">Viquipèdia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Sí</string>
-  <string name="no">No</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="search_hint_search_history">Historial de cerca</string>
   <string name="search_hint_search_my_lists">Cerca a les meves llistes</string>
@@ -399,6 +397,7 @@
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
   <string name="offline_read_permission_error">No s\'han atorgat permisos per a llegir des del dispositiu d\'emmagatzematge.</string>
+  <string name="offline_card_text">Esteu navegant per la Viquipèdia en mode fora de línia. Tingueu en compte que els articles fora de línia podrien no estar al dia respecte a la versió en línia.</string>
   <string name="offline_my_compilations">Les meves recopilacions</string>
   <string name="offline_compilations_title">Compilacions fora de línia</string>
   <string name="offline_compilations_search_by_name">Cerca les compilacions per nom</string>

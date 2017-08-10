@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipédia Béta</string>
   <string name="app_name_alpha">Wikipédia Alfa</string>
   <string name="wikimedia">Wikimédia</string>
-  <string name="yes">Enya</string>
-  <string name="no">Henteu</string>
   <string name="search_hint">Paluruh Wikipédia</string>
   <string name="search_hint_search_history">Jujut pamaluruhan</string>
   <string name="search_hint_search_my_lists">Paluruh daptar kuring</string>
@@ -41,6 +39,7 @@
   <string name="nearby_zoom_to_location">Zum kana lokasi na péta</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;kontributor &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Ayaran panungtung %s</string>
+  <string name="bottom_content_date_downloaded">Diundeur %s</string>
   <string name="talk_page_link_text">Obrolan</string>
   <string name="content_license_html">Eusi ditangtayungan ku &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; iwal mun disebutkeun séjén</string>
   <string name="edit_save_action_license_logged_in">Ku nyimpenna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -238,6 +237,7 @@
   <string name="view_link_preview_error_button_dismiss">Tutup</string>
   <string name="error_page_does_not_exist">Ieu kaca geus euweuh</string>
   <string name="view_wiki_error_message_offline">Teu bisa nyambungkeun kana internét</string>
+  <string name="reference_title">Rujukan %s</string>
   <string name="crash_report_dialog_title">Hampura, aplikasi eureun sorangan bieu téh</string>
   <string name="crash_report_dialog_dont_send_button">Liwatkeun</string>
   <string name="crash_report_dialog_always_send_button">Kirim terus</string>

@@ -4,8 +4,6 @@
   <string name="app_name_beta">Википедија Бета</string>
   <string name="app_name_alpha">Википедија Алфа</string>
   <string name="wikimedia">Викимедија</string>
-  <string name="yes">Да</string>
-  <string name="no">Не</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="search_hint_search_history">Историја на пребарување</string>
   <string name="search_hint_search_my_lists">Пребарување по моите списоци</string>
@@ -20,6 +18,8 @@
   <string name="history_item_delete_undo">Врати</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
+  <string name="dialog_message_clear_history_yes">Да</string>
+  <string name="dialog_message_clear_history_no">Не</string>
   <string name="nav_item_saved_pages">Зачувани страници</string>
   <string name="share_via">Сподели преку</string>
   <string name="search_redirect_from">Пренасочено од %s</string>
@@ -71,6 +71,8 @@
   <string name="title_captcha">Внесете го одговорот на сликичката</string>
   <string name="edit_section_captcha_reload">Допрете за да ја превчитате сликичката</string>
   <string name="edit_saved_page_refresh">Зачуваната страница може да е застарена и мора да се превчита за да се овозможи уредувањето. Дали сакате да ја превчитате?</string>
+  <string name="edit_saved_page_refresh_yes">Да</string>
+  <string name="edit_saved_page_refresh_no">Не</string>
   <string name="nav_item_login">Најава на Википедија</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
@@ -155,6 +157,8 @@
   <string name="about_wmf">Производ на &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
+  <string name="edit_abandon_confirm_yes">Да</string>
+  <string name="edit_abandon_confirm_no">Не</string>
   <string name="user_blocked_from_editing_title">Блокирано</string>
   <string name="user_logged_in_blocked_from_editing">Вашата корисничка сметка е блокирана и не може да уредува на ова вики.</string>
   <string name="user_anon_blocked_from_editing">Вашата IP-адреса е блокирана и не може да уредува на ова вики.</string>
@@ -181,6 +185,8 @@
   <string name="search_recent_header">Скорешни пребарувања:</string>
   <string name="button_clear_all_recent_searches">Исчисти скорешни пребарувања</string>
   <string name="clear_recent_searches_confirm">Дали сте сигурни дека сакате да ја избришете историјата на пребарувања?</string>
+  <string name="clear_recent_searches_confirm_yes">Да</string>
+  <string name="clear_recent_searches_confirm_no">Не</string>
   <string name="error_browser_not_found">Не можам да ја отворам страницата (не најдов прелистувачки прилог).</string>
   <string name="table_infobox">Накратко</string>
   <string name="table_other">Повеќе информации</string>
@@ -217,6 +223,8 @@
   <string name="menu_new_tab">Ново јазиче</string>
   <string name="menu_close_all_tabs">Затвори ги сите јазичиња</string>
   <string name="close_all_tabs_confirm">Дали сигурно сакате да ги затворите сите јазичиња?</string>
+  <string name="close_all_tabs_confirm_yes">Да</string>
+  <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Затвори јазиче</string>
   <string name="tool_tip_select_text">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>
   <string name="tool_tip_share">Откако ќе го подвлечете интересниот факт, споделете го на вашите омилени мрежи!</string>
@@ -325,6 +333,8 @@
   <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
   <string name="reading_list_login_reminder_text">Вашите списоци за читање може сега може да се зачуваат во вашата сметка на Википедија. Просто најавете се со сметката и списоците сами ќе се усогласат.</string>
   <string name="reading_lists_confirm_remote_delete">Со ова ќе ги избришете претходно усогласените списоци за читање од далечинскиот склад. Да продолжам?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Да</string>
+  <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
@@ -431,6 +441,13 @@
   <string name="compilation_download_widget_button_pause_resume_hint">Паузирај или продолжи преземање</string>
   <string name="compilation_download_widget_button_cancel_hint">Откажи преземање</string>
   <string name="compilation_download_cancel_confirm">Дали сигурно сакате да го откажете преземањето на збиркава?</string>
+  <string name="compilation_download_cancel_confirm_yes">Да</string>
+  <string name="compilation_download_cancel_confirm_no">Не</string>
+  <string name="offline_library_title">Вонмрежна библиотека</string>
+  <string name="offline_library_empty_title">Немате ништо во Вонмрежната библиотека</string>
+  <string name="offline_library_empty_description">Изберете пакет статии од Википедија што ќе ги преземете сега за да ги читате подоцна без линија.</string>
+  <string name="offline_library_empty_search">Пребарај по вонмрежната библиотека</string>
+  <string name="offline_library_onboarding_action">Дознајте за вашата Вонмрежна библиотека</string>
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>

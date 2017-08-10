@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedie Beta</string>
   <string name="app_name_alpha">Wikipedie Alfa</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Ano</string>
-  <string name="no">Ne</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Nelze se připojit k Internetu.</string>

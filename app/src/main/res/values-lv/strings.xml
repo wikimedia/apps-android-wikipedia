@@ -3,8 +3,6 @@
   <string name="app_name_prod">Vikipēdija</string>
   <string name="app_name_beta">Vikipēdija Beta</string>
   <string name="app_name_alpha">Vikipēdija Alpha</string>
-  <string name="yes">Jā</string>
-  <string name="no">Nē</string>
   <string name="search_hint">Meklēt Vikipēdijā</string>
   <string name="nav_item_history">Vēsture</string>
   <string name="error_network_error">Nevar izveidot savienojumu ar Internetu.</string>

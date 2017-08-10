@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Da</string>
-  <string name="no">Nu</string>
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>

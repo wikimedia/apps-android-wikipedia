@@ -4,8 +4,6 @@
   <string name="app_name_beta">विकिपीडिया बीटा</string>
   <string name="app_name_alpha">विकिपीडिया ऐल्फ़ा</string>
   <string name="wikimedia">विकिमीडिया</string>
-  <string name="yes">हाँ</string>
-  <string name="no">नहीं</string>
   <string name="search_hint">विकिपीडिया में खोजें</string>
   <string name="search_hint_search_history">इतिहास खोजें</string>
   <string name="search_hint_search_my_lists">मेरी सूचियाँ खोजें</string>

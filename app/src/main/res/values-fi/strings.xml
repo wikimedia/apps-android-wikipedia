@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">Kyllä</string>
-  <string name="no">Ei</string>
   <string name="search_hint">Hae Wikipediasta</string>
   <string name="search_hint_search_history">Hae historiasta</string>
   <string name="search_hint_search_my_lists">Hae lukulistoistasi</string>
@@ -248,6 +246,7 @@
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
+  <string name="reference_title">Viite %s</string>
   <string name="crash_report_dialog_title">Pahoittelut, sovellus kaatui viime kerralla</string>
   <string name="crash_report_dialog_text">Haluaisitko lähettää kaatumisilmoituksen HockeyAppiin / kolmannen osapuolen palveluntarjoajalle, jotta Wikimedia voi käydä läpi kaatumisesi ja korjata sen aiheuttaneen ongelman?</string>
   <string name="crash_report_dialog_dont_send_button">Ohita</string>
@@ -277,10 +276,10 @@
   <string name="reading_list_added_to_unnamed">Lisätty lukulukuluetteloon.</string>
   <string name="reading_list_already_exists">Tämä artikkeli on valitussa lukuluettelossa.</string>
   <string name="reading_list_added_view_button">Näytä lista</string>
-  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 artikkeli, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d artikkelia, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d yhdestä artikkelista on saatavilla offline-tilassa vieden %2$.2f MiB tilaa</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d kaikkiaan %2$d artikkelista on saatavilla offline-tilassa vieden %3$.2f MiB tilaa</string>
+  <string name="format_reading_list_statistical_summary_singular">1 artikkeli, %1$.2f Mt</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d artikkelia, %2$.2f Mt</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d yhdestä artikkelista on saatavilla offline-tilassa vieden %2$.2f Mt tilaa</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d kaikkiaan %2$d artikkelista on saatavilla offline-tilassa vieden %3$.2f Mt tilaa</string>
   <string name="reading_list_sort">Lajittele</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan käänteisesti</string>
@@ -399,22 +398,26 @@
   <string name="offline_compilations_title">Yhteydettömän tilan kokoelmat</string>
   <string name="offline_compilations_found_count">Omat kokoelmat (%d)</string>
   <string name="remote_compilations_title">Kaikki kokoelmat</string>
+  <string name="remote_compilations_description">Offline-kokoelmat ovat isoja artikkelikokoelmia, jotka voit ladata yhtenä tiedostona laitteellesi, jotta voit jatkaa selaamista ilman verkkoyhteyttä.</string>
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f Gt</string>
   <string name="offline_compilation_detail_button_download">Lataa · %.2f Gt</string>
   <string name="offline_compilation_detail_button_remove">Poista</string>
+  <string name="remote_compilation_download">Lataa</string>
   <string name="storage_size_gb">Gt</string>
   <string name="storage_size_free">%.2f Gt vapaana</string>
   <string name="storage_other_apps">Muut sovellukset</string>
   <string name="offline_compilation_download_progress_text">%1$.2f Gt / %2$.2f Gt</string>
   <plurals name="offline_compilation_download_time_remaining">
-    <item quantity="one"> 1 minuutti jäljellä</item>
+    <item quantity="one">1 minuutti jäljellä</item>
     <item quantity="other"> %d minuuttia jäljellä</item>
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Pysäytä tai jatka latausta</string>
   <string name="compilation_download_widget_button_cancel_hint">Peruuta lataus</string>
+  <string name="compilation_download_cancel_confirm">Haluatko varmasti peruuttaa tämän kokoelman lataamisen?</string>
   <string name="onboarding_skip">Ohita</string>
   <string name="onboarding_continue">Jatka</string>
   <string name="onboarding_get_started">Aloitetaan</string>
+  <string name="onboarding_explore_title">Uusia tapoja tutkia</string>
   <string name="onboarding_explore_text">Selaa suositeltuja artikkeleita, trendikkäitä aiheita ja lukuehdotuksia Tutki-syötteessä.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukuluettelot</string>
   <string name="onboarding_reading_list_sync_text">Luo lukuluetteloita artikkeleista, joita haluat lukea myöhemmin. Pystyt lukemaan lukuluetteloon tallentamiasi artikkeleita myös ilman internet-yhteyttä. &lt;a href=\"#login\"&gt;Kirjaudu sisään&lt;/a&gt; Wikipedia-tilillesi varmuuskopioidaksesi lukuluettelot käytettäviksi kaikilla laitteillasi.</string>
