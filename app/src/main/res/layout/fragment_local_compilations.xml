@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="?attr/actionBarSize"
-    android:background="?attr/window_background_color">
+    android:background="?attr/offline_library_background_color">
 
     <LinearLayout
         android:layout_width="match_parent"

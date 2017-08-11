@@ -58,6 +58,8 @@
         <item name="list_item_text_primary_color">@color/list_item_text_primary_light</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_light</item>
 
+        <item name="offline_library_background_color">@color/offline_library_background_color_light</item>
+
         <item name="nav_tab_background_color">@android:color/white</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
 
