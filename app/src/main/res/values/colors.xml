@@ -125,7 +125,7 @@
     <color name="view_wiki_error_text_color_light">@color/base70</color>
 
     <color name="offline_library_background_color_light">@color/base80</color>
-    <color name="offline_library_background_color_dark">@color/base20</color>
+    <color name="offline_library_background_color_dark">@color/base10</color>
 
     <color name="page_action_tab_enabled">@android:color/white</color>
     <color name="page_action_tab_disabled">@color/base30</color>
