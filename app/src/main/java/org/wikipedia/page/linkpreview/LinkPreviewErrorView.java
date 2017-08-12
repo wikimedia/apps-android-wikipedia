@@ -61,7 +61,7 @@ public class LinkPreviewErrorView extends LinearLayout {
         // message and subtitle in the full page view.  Figure out a good way to handle this.
         if (errorType == LinkPreviewErrorType.OFFLINE) {
             String message = getResources().getString(R.string.page_offline_notice_cannot_load_while_offline)
-                    + " " + getResources().getString(R.string.page_offline_notice_add_to_reading_list);
+                    + "\n" + getResources().getString(R.string.page_offline_notice_add_to_reading_list);
             textView.setText(message);
         } else {
             textView.setText(getContext().getResources().getString(errorType.text()));
