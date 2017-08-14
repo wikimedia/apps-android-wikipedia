@@ -18,6 +18,8 @@
   <string name="history_item_delete_undo">Kumoa</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi ja sulkee kaikki avoimet välilehdet. Oletko varma?</string>
+  <string name="dialog_message_clear_history_yes">Kyllä</string>
+  <string name="dialog_message_clear_history_no">Ei</string>
   <string name="nav_item_saved_pages">Tallennetut sivut</string>
   <string name="share_via">Jaa palvelussa</string>
   <string name="search_redirect_from">Ohjattu sivulta %s</string>
@@ -69,6 +71,8 @@
   <string name="title_captcha">Kirjoita roskapostisuojauksen kirjaimet</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
   <string name="edit_saved_page_refresh">Tämä tallennettu sivu saattaa olla vanhentunut ja se tulee päivittää, jotta muokkaaminen on mahdollista. Haluatko päivittää sivun?</string>
+  <string name="edit_saved_page_refresh_yes">Kyllä</string>
+  <string name="edit_saved_page_refresh_no">Ei</string>
   <string name="nav_item_login">Kirjaudu sisään Wikipediaan</string>
   <string name="login_username_hint">Käyttäjätunnus</string>
   <string name="login_password_hint">Salasana</string>
@@ -153,6 +157,8 @@
   <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationin&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
   <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
+  <string name="edit_abandon_confirm_yes">Kyllä</string>
+  <string name="edit_abandon_confirm_no">Ei</string>
   <string name="user_blocked_from_editing_title">Estetty</string>
   <string name="user_logged_in_blocked_from_editing">Käyttäjätunnuksesi on estetty tässä wikissä.</string>
   <string name="user_anon_blocked_from_editing">IP-osoitteesi on estetty.</string>
@@ -179,6 +185,8 @@
   <string name="search_recent_header">Äskettäin tehdyt haut:</string>
   <string name="button_clear_all_recent_searches">Tyhjennä äskettäin tehdyt haut</string>
   <string name="clear_recent_searches_confirm">Haluatko varmasti tyhjentää hakuhistorian?</string>
+  <string name="clear_recent_searches_confirm_yes">Kyllä</string>
+  <string name="clear_recent_searches_confirm_no">Ei</string>
   <string name="error_browser_not_found">Sivua ei voi avata, koska selainohjelmaa ei löydy.</string>
   <string name="table_infobox">Pikafaktoja</string>
   <string name="table_other">Lisätietoja</string>
@@ -201,7 +209,7 @@
   <string name="gallery_save_progress">Ladataan tiedostoa…</string>
   <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
-  <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten. Anna pyydetty käyttöoikeus ja yritä uudelleen.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten. Anna pyydetty käyttöoikeus ja yritä uudelleen.</string>
   <string name="err_cannot_save_file">Tiedostoa ei voitu tallentaa</string>
   <string name="snippet_share_intro">\"%1$s\" sivustolla @Wikipedia: %2$s</string>
   <string name="expand_refs">Napauta laajentaaksesi</string>
@@ -310,10 +318,13 @@
   <string name="reading_list_add_to_other_list">Lisää toiseen lukuluetteloon</string>
   <string name="reading_list_remove_from_list">Poista lukuluettelosta %s</string>
   <string name="reading_list_remove_from_lists">Poista lukuluetteloista</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
   <string name="reading_list_sync_reminder_title">Lukulistojen synkronointi on pois käytöstä</string>
   <string name="reading_list_sync_reminder_text">Lukuluettelosi voidaan synkronoida Wikipedia-tunnuksellesi, jos sallit synkronoinnin sovelluksen asetuksissa.</string>
   <string name="reading_list_sync_reminder_action">Ota käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
+  <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
@@ -393,6 +404,7 @@
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">muokkauksesi vaikutti kokeilulta tai vandalismilta.</string>
   <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan offline selaamiseen. Anna pyydetty käyttöoikeus ja yritä uudelleen.</string>
   <string name="offline_card_text">Selaat nyt Wikipediaa yhteydettömässä tilassa. Huomioithan, että yhteydettömän tilan artikkelit eivät välttämättä ole ajan tasalla verkkoversion kanssa.</string>
   <string name="offline_my_compilations">Omat kokoelmat</string>
   <string name="offline_compilations_title">Yhteydettömän tilan kokoelmat</string>
@@ -414,6 +426,9 @@
   <string name="compilation_download_widget_button_pause_resume_hint">Pysäytä tai jatka latausta</string>
   <string name="compilation_download_widget_button_cancel_hint">Peruuta lataus</string>
   <string name="compilation_download_cancel_confirm">Haluatko varmasti peruuttaa tämän kokoelman lataamisen?</string>
+  <string name="compilation_download_cancel_confirm_yes">Kyllä</string>
+  <string name="compilation_download_cancel_confirm_no">Ei</string>
+  <string name="offline_library_title">Offline kirjasto</string>
   <string name="onboarding_skip">Ohita</string>
   <string name="onboarding_continue">Jatka</string>
   <string name="onboarding_get_started">Aloitetaan</string>

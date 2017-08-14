@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Mengunduh berkas…</string>
   <string name="gallery_save_success">Berkas berhasil disimpan.</string>
   <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>
-  <string name="gallery_save_image_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda dibutuhkan untuk menyimpan gambar. Silakan coba lagi, dan bolehkan izin yang diminta.</string>
+  <string name="gallery_save_image_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda dibutuhkan untuk menyimpan gambar.</string>
   <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
   <string name="snippet_share_intro">\"%1$s\" di @Wikipedia: %2$s</string>
   <string name="expand_refs">Ketuk untuk memperluas</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi Anda tampak seperti uji coba atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Izin untuk mengakses penyimpanan pada perangkat Anda diperlukan untuk penjelajahan luring. Silakan coba lagi, dan berikan izin yang diminta.</string>
+  <string name="offline_read_permission_rationale">Izin untuk mengakses penyimpanan pada perangkat Anda diperlukan untuk penjelajahan luring.</string>
   <string name="offline_read_permission_error">Izin tidak diberikan untuk baca dari penyimpanan perangkat.</string>
   <string name="offline_card_text">Anda sekarang menjelajahi Wikipedia dalam mode luring. Harap dicatat bahwa artikel luring mungkin tidak sepenuhnya diperbarui dengan versi daring.</string>
   <string name="offline_my_compilations">Kompilasi saya</string>

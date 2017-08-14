@@ -18,6 +18,8 @@
   <string name="history_item_delete_undo">Desfacer</string>
   <string name="dialog_title_clear_history">Limpar historial de navegación</string>
   <string name="dialog_message_clear_history">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
+  <string name="dialog_message_clear_history_yes">Si</string>
+  <string name="dialog_message_clear_history_no">Non</string>
   <string name="nav_item_saved_pages">Páxinas gardadas</string>
   <string name="share_via">Compartir mediante…</string>
   <string name="search_redirect_from">Redirixido desde %s</string>
@@ -69,6 +71,8 @@
   <string name="title_captcha">Introducir o captcha</string>
   <string name="edit_section_captcha_reload">Toque o CAPTCHA para recargalo</string>
   <string name="edit_saved_page_refresh">Esta páxina gardada pode estar obsoleta; cómpre actualizala para habilitar a edición. Quere actualizar a páxina?</string>
+  <string name="edit_saved_page_refresh_yes">Si</string>
+  <string name="edit_saved_page_refresh_no">Non</string>
   <string name="nav_item_login">Acceder a Wikipedia</string>
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
@@ -153,6 +157,8 @@
   <string name="about_wmf">Un produto da &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">A páxina foi modificada. Quere saír sen gardar os cambios?</string>
+  <string name="edit_abandon_confirm_yes">Si</string>
+  <string name="edit_abandon_confirm_no">Non</string>
   <string name="user_blocked_from_editing_title">Bloqueado</string>
   <string name="user_logged_in_blocked_from_editing">A súa conta de usuario foi bloqueada e non pode editar neste wiki.</string>
   <string name="user_anon_blocked_from_editing">O seu enderezo IP está bloqueado e non pode editar.</string>
@@ -179,6 +185,8 @@
   <string name="search_recent_header">Buscas recentes:</string>
   <string name="button_clear_all_recent_searches">Limpar as buscas recentes</string>
   <string name="clear_recent_searches_confirm">Está seguro de querer borrar o seu historial de buscas?</string>
+  <string name="clear_recent_searches_confirm_yes">Si</string>
+  <string name="clear_recent_searches_confirm_no">Non</string>
   <string name="error_browser_not_found">Non se puido abrir a páxina web (non se atopou ningún navegador).</string>
   <string name="table_infobox">Datos rápidos</string>
   <string name="table_other">Máis información</string>
@@ -201,7 +209,7 @@
   <string name="gallery_save_progress">Descargando ficheiro…</string>
   <string name="gallery_save_success">O ficheiro gardouse correctamente.</string>
   <string name="gallery_error_video_failed">Non se puido reproducir o vídeo.</string>
-  <string name="gallery_save_image_write_permission_rationale">É necesario o permiso de escritura no seu dispositivo para gardar imaxes. Por favor, probe de novo, e permita o permiso solicitado.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">É necesario o permiso de escritura no seu dispositivo para gardar imaxes. Por favor, probe de novo, e permita o permiso solicitado.</string>
   <string name="err_cannot_save_file">Non se pode gardar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para ampliar</string>
@@ -215,6 +223,8 @@
   <string name="menu_new_tab">Nova lapela</string>
   <string name="menu_close_all_tabs">Pechar tódalas lapelas</string>
   <string name="close_all_tabs_confirm">Está seguro de que quere pechar tódalas lapelas?</string>
+  <string name="close_all_tabs_confirm_yes">Si</string>
+  <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Pechar a lapela</string>
   <string name="tool_tip_select_text">Prema e manteña en calquera parte do texto para resaltalo e así copialo e compartilo.</string>
   <string name="tool_tip_share">Despois de resaltar unha información interesante, probe a compartila nas súas redes favoritas!</string>
@@ -323,6 +333,8 @@
   <string name="reading_list_login_reminder_title">Sincronizar as listas de lectura</string>
   <string name="reading_list_login_reminder_text">As súas listas de lectura agora poden ser gardadas na súa conta de Wikipedia. Simplemente conéctese á súa conta, e as súas listas de lectura serán sincronizadas automaticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Isto eliminará calquera lista de lectura previamente sincronizada do almacenamento remoto. Proceder?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Si</string>
+  <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
@@ -403,7 +415,7 @@
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">a súa contribución semella unha proba ou vandalismo.</string>
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña. Por favor, inténteo de novo e conceda o permiso solicitado.</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña. Por favor, inténteo de novo e conceda o permiso solicitado.</string>
   <string name="offline_read_permission_error">Non tes permiso para ler dende o almacenamento deste dispositivo.</string>
   <string name="offline_card_text">Agora está navegando por Wikipedia en modo sen conexión. Por favor, teña en conta que os artigos sen conexión pode que non estean totalmente actualizados coa versión con conexión.</string>
   <string name="offline_my_compilations">As miñas recompilacións</string>
@@ -429,6 +441,13 @@
   <string name="compilation_download_widget_button_pause_resume_hint">Pausar ou reanudar a descarga</string>
   <string name="compilation_download_widget_button_cancel_hint">Cancelar a descarga</string>
   <string name="compilation_download_cancel_confirm">Está seguro que quere cancelar a descarga desta compilación?</string>
+  <string name="compilation_download_cancel_confirm_yes">Si</string>
+  <string name="compilation_download_cancel_confirm_no">Non</string>
+  <string name="offline_library_title">Biblioteca sen conexión</string>
+  <string name="offline_library_empty_title">Nada na súa biblioteca sen conexión</string>
+  <string name="offline_library_empty_description">Escolla un paquete de artigos de Wikipedia para descargar agora, para acceder logo sen cargo de datos.</string>
+  <string name="offline_library_empty_search">Buscar na biblioteca sen conexión</string>
+  <string name="offline_library_onboarding_action">Aprenda sobre a súa biblioteca sen conexión</string>
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>

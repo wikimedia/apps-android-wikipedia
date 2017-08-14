@@ -196,7 +196,7 @@
   <string name="gallery_save_progress">Henter fil…</string>
   <string name="gallery_save_success">Filen er gemt.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
-  <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder. Prøv venligst igen, og giv den ønskede tilladelse.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder. Prøv venligst igen, og giv den ønskede tilladelse.</string>
   <string name="err_cannot_save_file">Kan ikke gemme filen</string>
   <string name="snippet_share_intro">«%1$s» på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryk for at udvide</string>

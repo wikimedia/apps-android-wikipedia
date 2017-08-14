@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Ngundhuh barkas...</string>
   <string name="gallery_save_success">Barkas kasil disimpen.</string>
   <string name="gallery_error_video_failed">Ora bisa muter vidéo.</string>
-  <string name="gallery_save_image_write_permission_rationale">Idin nulis ing panyimpenan pirantiné panjenengan dibutuhaké kanggo nyimpen gambar. Mangga jajalen manèh, lan idinaké tumindak sing dijaluk.</string>
+  <string name="gallery_save_image_write_permission_rationale">Idin nulis ing panyimpenan pirantiné panjenengan dibutuhaké kanggo nyimpen gambar.</string>
   <string name="err_cannot_save_file">Ora bisa nyimpen barkas</string>
   <string name="snippet_share_intro">\"%1$s\" ing @Wikipedia: %2$s</string>
   <string name="expand_refs">Tunyuk saperlu njembaraké</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi panjenengan kapandeng kaya pacoban utawa vandalisme.</string>
   <string name="description_edit_revert_history">Yèn panjenengan ngrenani, delengen &lt;a href=\"%1$s\"&gt;sajarahé besutan&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan. Jajalen manèh, lan wènèhana idin sing dijaluk.</string>
+  <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan.</string>
   <string name="offline_read_permission_error">Ora antuk palilah saperlu maca saka panyimpenané piranti.</string>
   <string name="offline_card_text">Panjenengan pinuju ngluru Wikipédia ing njaban jaringan. Éling-élingen yèn artikel njaban jaringan bokmanawa ora saanyar sing ana ing njeron jaringan.</string>
   <string name="offline_my_compilations">Kompilasiné kula</string>

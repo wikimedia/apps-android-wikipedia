@@ -174,7 +174,7 @@
   <string name="gallery_save_progress">Se descarcă fișierul…</string>
   <string name="gallery_save_success">Fișier salvat cu succes.</string>
   <string name="gallery_error_video_failed">Filmul nu a putut fi redat.</string>
-  <string name="gallery_save_image_write_permission_rationale">Pentru salvarea imaginilor este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului. Încercați din nou și oferiți permisiunea solicitată.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Pentru salvarea imaginilor este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului. Încercați din nou și oferiți permisiunea solicitată.</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>
   <string name="snippet_share_intro">O informație interesantă despre %1$s la @Wikipedia: %2$s</string>
   <string name="expand_refs">Atingeți pentru a extinde</string>

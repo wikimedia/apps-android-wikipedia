@@ -406,7 +406,7 @@
   <string name="description_edit_help_tips_examples">Heading for a list of example descriptions.</string>
   <string name="description_edit_help_tips_example1">An example description of a notable work of art, music, or literature.</string>
   <string name="description_edit_help_tips_example1_hint">Title description for the article mentioned in {{msg-wikimedia|Wikipedia-android-strings-description edit help tips example1\"}}</string>
-  <string name="description_edit_help_tips_example2">An example description of a notable landmark or geological feature.</string>
+  <string name="description_edit_help_tips_example2">An example description of a notable landmark or geological feature. Like all Wikdata descriptions, it \'\'mustn\'t start with a capital\'\' unless if the first word requires it.</string>
   <string name="description_edit_help_tips_example2_hint">Title description for the article mentioned in {{msg-wikimedia|Wikipedia-android-strings-description edit help tips example2\"}}</string>
   <string name="description_edit_help_more_info">Heading for further information about descriptions.\n{{Identical|More information}}</string>
   <string name="description_edit_help_meta_info">Meta information about Wikidata descriptions and their role in Wikimedia Foundation projects.</string>

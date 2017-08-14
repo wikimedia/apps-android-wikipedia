@@ -303,7 +303,7 @@
   <string name="description_edit_help_tips_example2_hint">Everest Mendiari buruzko artikuluarentzako izenburu-deskribapena</string>
   <string name="description_edit_help_more_info">Informazio gehiago</string>
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
-  <string name="offline_read_permission_rationale">Zeure gailuko memorian konexiorik gabe sartzeko baimena. Saiatu berriro eta eman eskatutako baimena, mesedez.</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">Zeure gailuko memorian konexiorik gabe sartzeko baimena. Saiatu berriro eta eman eskatutako baimena, mesedez.</string>
   <string name="offline_read_permission_error">Ez daukazu baimenik gailuaren memoriatik irakurtzeko.</string>
   <string name="offline_card_text">Orain, Wikipedia konexiorik gabe ikusten ari zara. Jakin ezazu konexiorik gabeko artikuluak eguneratu gabe egon daitezkela.</string>
   <string name="offline_my_compilations">Nire bildumak</string>

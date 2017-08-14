@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Memuat turun fail...</string>
   <string name="gallery_save_success">Fail berjaya disimpan.</string>
   <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>
-  <string name="gallery_save_image_write_permission_rationale">Keizinan untuk menulis kepada storan pada peranti anda diperlukan untuk menyimpan gambar. Sila cuba lagi dan berikan keizinan yang dipohon.</string>
+  <string name="gallery_save_image_write_permission_rationale">Kebenaran untuk menulis kepada storan pada peranti anda diperlukan untuk menyimpan gambar.</string>
   <string name="err_cannot_save_file">Fail tidak dapat disimpan</string>
   <string name="snippet_share_intro">Fakta menarik di @Wikipedia %1$s: %2$s</string>
   <string name="expand_refs">Ketik untuk kembangkan</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">sumbangan anda tidak mengikuti salah satu daripada &lt;a href=\"%1$s\"&gt;garis panduan&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">sumbangan anda kelihatan seperti eksperimen atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika anda berminat, lihat &lt;a href=\"%1$s\"&gt;sejarah suntingan&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk melayari luar talian. Sila cuba lagi, dan berikan kebenaran yang diminta.</string>
+  <string name="offline_read_permission_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk melayari luar talian.</string>
   <string name="offline_read_permission_error">Kebenaran tidak diberikan untuk baca dari storan peranti.</string>
   <string name="offline_card_text">Anda kini melayari Wikipedia dalam mod luar talian. Sila ambil perhatian bahawa rencana luar talian mungkin tidak sepenuhnya terkini dengan versi dalam talian.</string>
   <string name="offline_my_compilations">Kompilasi saya</string>

@@ -180,7 +180,7 @@
   <string name="gallery_save_progress">Sæki skrá…</string>
   <string name="gallery_save_success">Tókst að vista skrána.</string>
   <string name="gallery_error_video_failed">Tókst ekki að spila myndskeiðið.</string>
-  <string name="gallery_save_image_write_permission_rationale">Til að vista myndir er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins. Reyndu aftur og gefðu umbeðna heimild.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Til að vista myndir er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins. Reyndu aftur og gefðu umbeðna heimild.</string>
   <string name="err_cannot_save_file">Gat ekki vistað skrá</string>
   <string name="snippet_share_intro">\"%1$s\" á @Wikipedia: %2$s</string>
   <string name="expand_refs">Banka til að stækka</string>

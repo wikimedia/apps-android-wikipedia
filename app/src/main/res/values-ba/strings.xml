@@ -172,7 +172,7 @@
   <string name="gallery_save_progress">Файл күсереү</string>
   <string name="gallery_save_success">Файл уңышлы һаҡланды.</string>
   <string name="gallery_error_video_failed">Видеоны күрһәтеп булмай</string>
-  <string name="gallery_save_image_write_permission_rationale">Һүрәтте һаҡлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт талап ителә. Тағы бер тапҡыр ҡабатлап ҡарағыҙ һәм һоралған рөхсәт бирегеҙ</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Һүрәтте һаҡлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт талап ителә. Тағы бер тапҡыр ҡабатлап ҡарағыҙ һәм һоралған рөхсәт бирегеҙ</string>
   <string name="err_cannot_save_file">\nФайлды һаҡлап булмай</string>
   <string name="snippet_share_intro">«%1$s» @Wikipedia сайтында: %2$s</string>
   <string name="expand_refs">Асыр өсөн баҫығыҙ</string>

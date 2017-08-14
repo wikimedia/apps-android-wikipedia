@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Ја преземам податотеката…</string>
   <string name="gallery_save_success">Податотеката е успешно зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
-  <string name="gallery_save_image_write_permission_rationale">Се бара дозвола за зачувување слики на вашиот уред. Обидете се повторно и дајте ја побараната дозвола.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Се бара дозвола за зачувување слики на вашиот уред. Обидете се повторно и дајте ја побараната дозвола.</string>
   <string name="err_cannot_save_file">Не можам да ја зачувам податотеката</string>
   <string name="snippet_share_intro">„%1$s“ на @Wikipedia: %2$s</string>
   <string name="expand_refs">Допрете за да проширите</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно. Обидете се повторно и дајте ја побараната дозвола.</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно. Обидете се повторно и дајте ја побараната дозвола.</string>
   <string name="offline_read_permission_error">Прилогот не доби дозвола за читање од складот на уредот.</string>
   <string name="offline_card_text">Сега ја прелистувате Википедија во вонмрежен режим. Имајте на ум дека вонмрежните статии може да не се најтековни.</string>
   <string name="offline_my_compilations">Мои збирки</string>

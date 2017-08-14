@@ -18,6 +18,8 @@
   <string name="history_item_delete_undo">واگردانی</string>
   <string name="dialog_title_clear_history">پاک کردن تاریخچه جستجو</string>
   <string name="dialog_message_clear_history">این کار ممکن است که تاریخچهٔ مرورگر شما را حذف کرد ه و همه تب‌های باز را ببندد. آیا مطمئن هستید؟</string>
+  <string name="dialog_message_clear_history_yes">بله</string>
+  <string name="dialog_message_clear_history_no">خیر</string>
   <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
   <string name="share_via">اشتراک از طریق</string>
   <string name="search_redirect_from">تغییرمسیر از %s</string>
@@ -69,6 +71,8 @@
   <string name="title_captcha">کپچا را وارد کنید</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
   <string name="edit_saved_page_refresh">با توجه به تغییرهای احتمالی، برای ویرایش این صفحه باید آن را دوباره بارگذاری نمایید. آیا مایل به بارگذاری مجدد هستید؟</string>
+  <string name="edit_saved_page_refresh_yes">بله</string>
+  <string name="edit_saved_page_refresh_no">خیر</string>
   <string name="nav_item_login">ورود به ویکی‌پدیا</string>
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">گذرواژه</string>
@@ -153,6 +157,8 @@
   <string name="about_wmf">محصول &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
+  <string name="edit_abandon_confirm_yes">بله</string>
+  <string name="edit_abandon_confirm_no">خیر</string>
   <string name="user_blocked_from_editing_title">بسته شده</string>
   <string name="user_logged_in_blocked_from_editing">دسترسی ویرایشی حساب کاربر در این ویکی بسته شده‌است.</string>
   <string name="user_anon_blocked_from_editing">نشانی آی‌پی شما در برابر ویرایش، مسدود شده‌است.</string>
@@ -179,6 +185,8 @@
   <string name="search_recent_header">جستجوهای اخیر:</string>
   <string name="button_clear_all_recent_searches">پاک‌کردن جستجوهای اخیر</string>
   <string name="clear_recent_searches_confirm">آیا مطمئنید که می‌خواهید تاریخچهٔ جستجوهای اخیر را حذف کنید؟</string>
+  <string name="clear_recent_searches_confirm_yes">بله</string>
+  <string name="clear_recent_searches_confirm_no">خیر</string>
   <string name="error_browser_not_found">قادر به گشودن صفحهٔ وب نیست  (ببرنامهٔ مرورگر یافت نشد)</string>
   <string name="table_infobox">اطلاعات اجمالی</string>
   <string name="table_other">اطلاعات بیشتر</string>
@@ -201,7 +209,7 @@
   <string name="gallery_save_progress">در حال دریافت پرونده…</string>
   <string name="gallery_save_success">پرونده با موفقیت ذخیره‌شده‌است</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
-  <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
   <string name="err_cannot_save_file">امکان ذخیره پرونده وجود ندارد</string>
   <string name="snippet_share_intro">\"%1$s\" در @ویکی‌پدیا: %2$s</string>
   <string name="expand_refs">برای بازشدن صفحه را لمس کنید</string>
@@ -215,6 +223,8 @@
   <string name="menu_new_tab">برگهٔ جدید</string>
   <string name="menu_close_all_tabs">بستن همهٔ زبانه‌ها</string>
   <string name="close_all_tabs_confirm">آیا مطمئنید می‌خواهید همهٔ زبانه‌ها را ببندید؟</string>
+  <string name="close_all_tabs_confirm_yes">بله</string>
+  <string name="close_all_tabs_confirm_no">خیر</string>
   <string name="button_close_tab">بستن برگه</string>
   <string name="tool_tip_select_text">هر جایی از متن را برای پررنگ شدن و کپی و اشتراک می‌توانید با فشاردادن و نگه‌داشتن انتخاب کنید.</string>
   <string name="tool_tip_share">بعد از پررنگ کردن مطلب مورد نظرتان، می توانید آن را در شبکه مطلوبتان به اشتراک بگذارید.</string>
@@ -323,6 +333,8 @@
   <string name="reading_list_login_reminder_title">همسازسازی فهرست‌های مطالعه</string>
   <string name="reading_list_login_reminder_text">فهرست مطالعهٔ شما ممکن است در حساب کاربری شما در ویکی‌پدیا ذخیره شده باشد. با وارد شدن به حساب کاربریتان به راحتی می‌توانید آن را به صورت خودکار همساز کنید.</string>
   <string name="reading_lists_confirm_remote_delete">اینکار فهرست‌های مطالعه‌ای که همساز کردید را حذف می‌کند. انجام شود؟</string>
+  <string name="reading_lists_confirm_remote_delete_yes">بله</string>
+  <string name="reading_lists_confirm_remote_delete_no">خیر</string>
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">اکنون در حالت آفلاین مقاله در دسترس است.</item>
@@ -403,7 +415,7 @@
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>
   <string name="description_edit_revert_reason2">مشارکت شما شبیه یک تمرین یا خرابکاریست.</string>
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
-  <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
   <string name="offline_read_permission_error">اجازه برای خواندن از حافظه دستگاه داده‌نشد.</string>
   <string name="offline_card_text">شما در حال کاوش در ویکی‌پدیا به صورت آفلاین هستید. توجه داشته باشید که نسخهٔ آفلاین لزوما آخرین نسخهٔ به روز مقالهٔ آنلاین نمی‌باشد.</string>
   <string name="offline_my_compilations">گردآوری‌های من</string>
@@ -429,6 +441,13 @@
   <string name="compilation_download_widget_button_pause_resume_hint">توقف یا ادامهٔ بارگیری</string>
   <string name="compilation_download_widget_button_cancel_hint">لغو بارگیری</string>
   <string name="compilation_download_cancel_confirm">آیا از لغو بارگیری اطمینان دارید؟</string>
+  <string name="compilation_download_cancel_confirm_yes">بله</string>
+  <string name="compilation_download_cancel_confirm_no">خیر</string>
+  <string name="offline_library_title">کتابخانه آفلاین</string>
+  <string name="offline_library_empty_title">چیزی در کتابخانه آفلاین شما وجود ندارد</string>
+  <string name="offline_library_empty_description">انتخاب بسته‌ای از مقالات ویکی‌پدیا برای بارگیری، برای دسترسی بدون نیاز به اینترنت در زمانی دیگر</string>
+  <string name="offline_library_empty_search">جستجو در کتابخانه آفلاین</string>
+  <string name="offline_library_onboarding_action">دانشتن در مورد کتابخانهٔ آفلاین</string>
   <string name="onboarding_skip">رها کردن</string>
   <string name="onboarding_continue">ادامه</string>
   <string name="onboarding_get_started">شروع شد</string>

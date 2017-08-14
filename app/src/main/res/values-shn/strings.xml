@@ -190,7 +190,7 @@
   <string name="gallery_save_progress">တိုၵ်ႉလူတ်ႇလူင်း ၾၢႆႇ...</string>
   <string name="gallery_save_success">သိမ်းဝႆႉၾၢႆႇ ၶႅမ်ႉလႅပ်ႈလီယဝ်ႉ။</string>
   <string name="gallery_error_video_failed">ဢမ်ႇၸၢင်ႈ ၽုၺ်ႇငဝ်းတူင်ႉ။</string>
-  <string name="gallery_save_image_write_permission_rationale">တွၼ်ႈတႃႇ သိမ်းၶႅပ်းႁၢင်ႈၼႆႉ တေလူဝ်ႇၶေႃႈၶႂၢင်းပၼ် တွၼ်ႈတႃႇတေတႅမ်မၢႆသႂ်ႇ တီႈၼႂ်း ၶိူင်ႈၸႂ်ႉၸဝ်ႈၵဝ်ႇဢေႃႈ။ ၶႅၼ်းတေႃႈ ႁဵတ်းတူၺ်းထႅင်ႈသေ ပၼ်ၶေႃႈၶႂၢင်း ဢၼ်တုၵ်းယွၼ်းဝႆႉၼၼ်ႉၶႃႈလႄႈ။</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">တွၼ်ႈတႃႇ သိမ်းၶႅပ်းႁၢင်ႈၼႆႉ တေလူဝ်ႇၶေႃႈၶႂၢင်းပၼ် တွၼ်ႈတႃႇတေတႅမ်မၢႆသႂ်ႇ တီႈၼႂ်း ၶိူင်ႈၸႂ်ႉၸဝ်ႈၵဝ်ႇဢေႃႈ။ ၶႅၼ်းတေႃႈ ႁဵတ်းတူၺ်းထႅင်ႈသေ ပၼ်ၶေႃႈၶႂၢင်း ဢၼ်တုၵ်းယွၼ်းဝႆႉၼၼ်ႉၶႃႈလႄႈ။</string>
   <string name="err_cannot_save_file">ဢမ်ႇၸၢင်ႈ သိမ်းၾၢႆႇ</string>
   <string name="snippet_share_intro">\"%1$s\" တီႈၼိူဝ် @ဝီႇၶီႇၽီးတီးယႃး: %2$s</string>
   <string name="expand_refs">ၼဵၵ်းတႃႇ ၵႄႈတူၺ်း</string>

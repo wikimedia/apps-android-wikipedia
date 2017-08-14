@@ -197,7 +197,7 @@
   <string name="gallery_save_progress">دابەزاندنی فایل...</string>
   <string name="gallery_save_success">فایلەکە سەرکەوتووانە پاشەکەوت کرا.</string>
   <string name="gallery_error_video_failed">نەتوانرا ڤیدیۆکە بخوێنێتەوە.</string>
-  <string name="gallery_save_image_write_permission_rationale">پێویستە ڕێگە بە ئاپەکە بدەیت بۆ وەرگرتنی زانیارییەکانی خەزێنەکەت بۆ خەزن کردنی وێنەکان. تکایە ڕێگە بدە بەم داواکارییە.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">پێویستە ڕێگە بە ئاپەکە بدەیت بۆ وەرگرتنی زانیارییەکانی خەزێنەکەت بۆ خەزن کردنی وێنەکان. تکایە ڕێگە بدە بەم داواکارییە.</string>
   <string name="err_cannot_save_file">نەتوانرا فایل پاشەکەوت بکرێت</string>
   <string name="snippet_share_intro">\"%1$s\" لە @ویکیپیدیا: %2$s</string>
   <string name="expand_refs">دابگرە بۆ فراوانکردن</string>

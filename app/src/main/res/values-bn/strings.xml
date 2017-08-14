@@ -199,7 +199,7 @@
   <string name="gallery_save_progress">ফাইল ডাউনলোড হচ্ছে…</string>
   <string name="gallery_save_success">ফাইল সফলভাবে সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
-  <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন। দয়া করে আবার চেষ্টা করুন, এবং অনুরোধকৃত অনুমতি মঞ্জুর করুন।</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন। দয়া করে আবার চেষ্টা করুন, এবং অনুরোধকৃত অনুমতি মঞ্জুর করুন।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
   <string name="snippet_share_intro">\@Wikipedia তে \"%1$s\": %2$s</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>

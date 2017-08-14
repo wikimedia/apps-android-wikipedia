@@ -187,7 +187,7 @@
   <string name="gallery_save_progress">Завантаження файлу…</string>
   <string name="gallery_save_success">Файл успішно збережено!</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
-  <string name="gallery_save_image_write_permission_rationale">Для збереження зображень потрібен дозвіл на запис у сховищі вашого пристрою. Будь ласка, спробуйте ще раз і дайте запитуваний дозвіл.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Для збереження зображень потрібен дозвіл на запис у сховищі вашого пристрою. Будь ласка, спробуйте ще раз і дайте запитуваний дозвіл.</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>
   <string name="snippet_share_intro">\"%1$s\" на сайті @Wikipedia: %2$s</string>
   <string name="expand_refs">Торкніться, щоб розкрити</string>

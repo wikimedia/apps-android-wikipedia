@@ -18,6 +18,8 @@
   <string name="history_item_delete_undo">Вернуть</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
+  <string name="dialog_message_clear_history_yes">Да</string>
+  <string name="dialog_message_clear_history_no">Нет</string>
   <string name="nav_item_saved_pages">Сохранённые страницы</string>
   <string name="share_via">Поделиться через</string>
   <string name="search_redirect_from">Перенаправлено с %s</string>
@@ -69,6 +71,8 @@
   <string name="title_captcha">Введите капчу</string>
   <string name="edit_section_captcha_reload">Коснитесь капчи для её обновления</string>
   <string name="edit_saved_page_refresh">Эта сохранённая страница может быть устаревшей и должна быть обновлена перед редактированием. Вы согласны обновить страницу?</string>
+  <string name="edit_saved_page_refresh_yes">Да</string>
+  <string name="edit_saved_page_refresh_no">Нет</string>
   <string name="nav_item_login">Войти в Википедию</string>
   <string name="login_username_hint">Имя пользователя</string>
   <string name="login_password_hint">Пароль</string>
@@ -153,6 +157,8 @@
   <string name="about_wmf">Продукт &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
   <string name="edit_abandon_confirm">Страница была изменена. Вы уверены, что хотите выйти без сохранения изменений?</string>
+  <string name="edit_abandon_confirm_yes">Да</string>
+  <string name="edit_abandon_confirm_no">Нет</string>
   <string name="user_blocked_from_editing_title">Заблокирован</string>
   <string name="user_logged_in_blocked_from_editing">Ваша учётная запись была заблокирована от редактирования в этом вики-проекте.</string>
   <string name="user_anon_blocked_from_editing">Редактирование с вашего IP-адреса было заблокировано.</string>
@@ -179,6 +185,8 @@
   <string name="search_recent_header">Последние поиски:</string>
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
+  <string name="clear_recent_searches_confirm_yes">Да</string>
+  <string name="clear_recent_searches_confirm_no">Нет</string>
   <string name="error_browser_not_found">Не удалось открыть веб-страницу (приложение браузера не найдено).</string>
   <string name="table_infobox">Краткие факты</string>
   <string name="table_other">Дополнительная информация</string>
@@ -201,7 +209,7 @@
   <string name="gallery_save_progress">Загрузка файла…</string>
   <string name="gallery_save_success">Файл успешно сохранён.</string>
   <string name="gallery_error_video_failed">Не удаётся воспроизвести видео.</string>
-  <string name="gallery_save_image_write_permission_rationale">Для сохранения изображений требуется разрешение на запись в хранилище вашего устройства. Пожалуйста, попробуйте ещё раз и дайте запрашиваемое разрешение.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Для сохранения изображений требуется разрешение на запись в хранилище вашего устройства. Пожалуйста, попробуйте ещё раз и дайте запрашиваемое разрешение.</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
   <string name="snippet_share_intro">«%1$s» на сайте @Wikipedia: %2$s</string>
   <string name="expand_refs">Нажмите, чтобы развернуть</string>
@@ -215,6 +223,8 @@
   <string name="menu_new_tab">Новая вкладка</string>
   <string name="menu_close_all_tabs">Закрыть все вкладки</string>
   <string name="close_all_tabs_confirm">Вы уверены, что хотите закрыть все вкладки?</string>
+  <string name="close_all_tabs_confirm_yes">Да</string>
+  <string name="close_all_tabs_confirm_no">Нет</string>
   <string name="button_close_tab">Закрыть вкладку</string>
   <string name="tool_tip_select_text">Нажмите и удерживайте в любом месте тексте, чтобы выделить его для копирования и возможности поделиться.</string>
   <string name="tool_tip_share">После выделения интересного факта, попробуйте поделиться им в ваших любимых соц.сетях!</string>
@@ -228,7 +238,7 @@
   <string name="button_continue_to_article">Читать статью</string>
   <string name="button_add_to_reading_list">Добавить в список для чтения</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статья не может быть загружена без подключения к Интернету.</string>
-  <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Добавьте эту статью в список к прочтению, и она будет загружена, как только появится подключение к сети.</string>
+  <string name="page_offline_notice_add_to_reading_list">Подсказка: Добавьте эту статью в список к прочтению, и она будет загружена, как только появится подключение к сети.</string>
   <string name="page_offline_notice_last_date">Вы читаете офлайн-версия статьи, сохранённой %s.</string>
   <string name="page_offline_notice_compilation_download_date">Вы читаете офлайн-версию этой статьи из компиляции, загруженной на %s.</string>
   <string name="button_get_directions">Проложить маршрут</string>
@@ -276,10 +286,10 @@
   <string name="reading_list_added_to_unnamed">Добавлено в список для чтения.</string>
   <string name="reading_list_already_exists">Эта статья уже находится в данном списке.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
-  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 статья, %1$.2f МиБ</string>
-  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d статей, %2$.2f МиБ</string>
-  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d из 1 статьи доступно без подключения к Интернету, %2$.2f МиБ</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d из %2$d статей доступно оффлайн, %3$.2f МиБ</string>
+  <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МБ</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d статей, %2$.2f МБ</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d из 1 статьи доступно без подключения к Интернету, %2$.2f МБ</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d из %2$d статей доступно офлайн, %3$.2f МБ</string>
   <string name="reading_list_sort">Сортировать</string>
   <string name="reading_list_sort_by_name">Сортировка по названию</string>
   <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>
@@ -322,6 +332,8 @@
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
   <string name="reading_list_login_reminder_text">Теперь ваши списки для чтения могут быть сохранены в ваш аккаунт Википедии. Просто авторизуйтесь в аккаунт, и ваши списки будут синхронизированы автоматически.</string>
   <string name="reading_lists_confirm_remote_delete">Это удалит все ранее синхронизированные списки для чтения из удалённого хранилища. Продолжить?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Да</string>
+  <string name="reading_lists_confirm_remote_delete_no">Нет</string>
   <string name="reading_list_article_save_in_progress">Страница скачивается. По завершению загрузки она будет доступна в офлайне.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>
@@ -403,18 +415,22 @@
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ваш вклад выглядел как эксперимент или вандализм.</string>
   <string name="description_edit_revert_history">Если интересно, взгляните на &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Для офлайн-просмотра требуется разрешение на запись в хранилище вашего устройства. Пожалуйста, попробуйте ещё раз и дайте запрашиваемое разрешение.</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">Для офлайн-просмотра требуется разрешение на запись в хранилище вашего устройства. Пожалуйста, попробуйте ещё раз и дайте запрашиваемое разрешение.</string>
   <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме. Обратите внимание, что статьи в офлайн-режиме могут быть менее актуальны, чем в онлайн-версии.</string>
   <string name="offline_my_compilations">Мои компиляции</string>
   <string name="offline_compilation_detail_button_remove">Удалить</string>
+  <string name="remote_compilation_download">Скачать</string>
   <string name="storage_size_gb">ГБ</string>
   <string name="storage_size_free">%.2f ГБ свободно</string>
+  <string name="storage_other_apps">Другие приложения</string>
   <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 мин. осталась</item>
     <item quantity="other">%d мин. осталось</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Прервать загрузку</string>
+  <string name="compilation_download_cancel_confirm_yes">Да</string>
+  <string name="compilation_download_cancel_confirm_no">Нет</string>
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>

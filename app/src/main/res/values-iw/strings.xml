@@ -18,6 +18,8 @@
   <string name="history_item_delete_undo">ביטול</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
+  <string name="dialog_message_clear_history_yes">כן</string>
+  <string name="dialog_message_clear_history_no">לא</string>
   <string name="nav_item_saved_pages">דפים שמורים</string>
   <string name="share_via">שיתוף באמצעות</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
@@ -69,6 +71,8 @@
   <string name="title_captcha">נא להזין קוד אימות אנוש</string>
   <string name="edit_section_captcha_reload">יש ללחוץ על תמונת האימות לשם רענון</string>
   <string name="edit_saved_page_refresh">ייתכן שהדף השמור הזה אינו עדכני וצריך לרענן אותו כדי לאפשר עריכה. האם לרענן את הדף?</string>
+  <string name="edit_saved_page_refresh_yes">כן</string>
+  <string name="edit_saved_page_refresh_no">לא</string>
   <string name="nav_item_login">כניסה לחשבון בוויקיפדיה</string>
   <string name="login_username_hint">שם משתמש</string>
   <string name="login_password_hint">ססמה</string>
@@ -153,6 +157,8 @@
   <string name="about_wmf">מוצר של &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שוּנה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
+  <string name="edit_abandon_confirm_yes">כן</string>
+  <string name="edit_abandon_confirm_no">לא</string>
   <string name="user_blocked_from_editing_title">חסוּם</string>
   <string name="user_logged_in_blocked_from_editing">חשבון המשתמש שלך נחסם מעריכת הוויקי הזה.</string>
   <string name="user_anon_blocked_from_editing">כתובת ה־IP שלך נחסמה מעריכה.</string>
@@ -179,6 +185,8 @@
   <string name="search_recent_header">חיפוש אחרונים:</string>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
+  <string name="clear_recent_searches_confirm_yes">כן</string>
+  <string name="clear_recent_searches_confirm_no">לא</string>
   <string name="error_browser_not_found">לא ניתן לפתוח אתר אינטרנט (לא נמצאה אפליקציית דפדפן).</string>
   <string name="table_infobox">עובדות מהירות</string>
   <string name="table_other">מידע נוסף</string>
@@ -201,7 +209,7 @@
   <string name="gallery_save_progress">הורדת קובץ…</string>
   <string name="gallery_save_success">הקובץ נשמר בהצלחה.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
-  <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות. נא לנסות שוב ולאפשר את ההרשאה המבוקשת.</string>
+  <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות.</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
   <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>
   <string name="expand_refs">יש ללחוץ להרחבה</string>
@@ -215,6 +223,8 @@
   <string name="menu_new_tab">הלשונית הבאה</string>
   <string name="menu_close_all_tabs">סגירת כל הלשוניות</string>
   <string name="close_all_tabs_confirm">האם ברצונך באמת לסגור את כל הלשוניות?</string>
+  <string name="close_all_tabs_confirm_yes">כן</string>
+  <string name="close_all_tabs_confirm_no">לא</string>
   <string name="button_close_tab">סגירת לשונית</string>
   <string name="tool_tip_select_text">יש ללחוץ ולהחזיק בכל מקום בטקסט כדי להאיר אותו להעתקה ושיתוף.</string>
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>
@@ -323,6 +333,8 @@
   <string name="reading_list_login_reminder_title">סנכרן רשימות קריאה</string>
   <string name="reading_list_login_reminder_text">רשימות המעקב יישמרו לחשבון הוויקיפדיה שלך. כשתיכנסו לחשבונכם, הן יסונכרנו באופן אוטומטי</string>
   <string name="reading_lists_confirm_remote_delete">זה ימחק כל רשימות מעקב מסונכרנות קודמות מהזיכרון בשליטה מרחוק. האם ברצונך להמשיך?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">כן</string>
+  <string name="reading_lists_confirm_remote_delete_no">לא</string>
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">הערך הזה יהיה זמין ללא חיבור לרשת.</item>
@@ -403,7 +415,7 @@
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">העריכה שלך נראתה כמו ניסוי או השחתה.</string>
   <string name="description_edit_revert_history">אם זה מעניין אותך, ר\' את &lt;a href=\"%1$s\"&gt;היסטוריית העריכות&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת. נא לנסות שוב ולתת את ההרשאה המבוקשת.</string>
+  <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת.</string>
   <string name="offline_read_permission_error">לא ניתנה הרשאה לקרוא מאחסון המכשיר.</string>
   <string name="offline_card_text">עכשיו אתם מדפדפים בוויקיפדיה ללא חיבור לרשת. נא לשים לב לכך שייתכן שערכים שנשמרו לקריאה ללא חיבור לרשת אינם מעודכנים כמו הגרסה שלהם ברשת.</string>
   <string name="offline_my_compilations">האוסָפים שלי</string>
@@ -429,6 +441,13 @@
   <string name="compilation_download_widget_button_pause_resume_hint">עצירה או חידוש הורדה</string>
   <string name="compilation_download_widget_button_cancel_hint">ביטול הורדה</string>
   <string name="compilation_download_cancel_confirm">האם באמת לבטל את ההורדה של האוסף הזה?</string>
+  <string name="compilation_download_cancel_confirm_yes">כן</string>
+  <string name="compilation_download_cancel_confirm_no">לא</string>
+  <string name="offline_library_title">ספרייה לא מקוונת</string>
+  <string name="offline_library_empty_title">אין שום דבר בספרייה הלא מקוונת שלך</string>
+  <string name="offline_library_empty_description">נא לבחור חבילת ערכי ויקיפדיה הורדה, לקריאה ללא חיבור נתונים מאוחר יותר.</string>
+  <string name="offline_library_empty_search">חיפוש בספרייה הלא מקוונת</string>
+  <string name="offline_library_onboarding_action">מידע על הספרייה הלא מקוונת שלך</string>
   <string name="onboarding_skip">לדלג</string>
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>

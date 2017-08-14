@@ -201,7 +201,7 @@
   <string name="gallery_save_progress">Laster ned fil…</string>
   <string name="gallery_save_success">Filen ble lagret.</string>
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
-  <string name="gallery_save_image_write_permission_rationale">Tilgang til lagring på enheten trengs for å lagre bilder. Vennligst prøv igjen og gi den nødvendige autorisasjonen.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Tilgang til lagring på enheten trengs for å lagre bilder. Vennligst prøv igjen og gi den nødvendige autorisasjonen.</string>
   <string name="err_cannot_save_file">Kunne ikke lagre filen</string>
   <string name="snippet_share_intro">«%1$s» på @Wikipedia: %2$s</string>
   <string name="expand_refs">Trykk for å utvide</string>
@@ -402,7 +402,7 @@
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">bidraget så ut som testing eller vandalisme.</string>
   <string name="description_edit_revert_history">Du kan finne mer informasjon i &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Hvis du vil lagre artikler for lesing offline må du gi appen tilgang til enhetens bilder, media og filer.</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">Hvis du vil lagre artikler for lesing offline må du gi appen tilgang til enhetens bilder, media og filer.</string>
   <string name="offline_read_permission_error">Tilgang til å lese filer fra enheten har ikke blitt gitt.</string>
   <string name="offline_card_text">Du leser nå Wikipedia i offline-modus. Vær oppmerksom på at offline-artikler ikke nødvendigvis er like oppdaterte some online-utgavene.</string>
   <string name="offline_my_compilations">Mine samlinger</string>
