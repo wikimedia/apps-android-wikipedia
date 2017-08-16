@@ -5,6 +5,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+// TODO: Document where it is desirable to use this class vs. a vanilla TextView
 public class AppTextView extends ConfigurableTextView {
 
     public AppTextView(Context context) {

@@ -6,6 +6,12 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * WARNING: This class was created for a very specific purpose: allowing the correct vertical
+ * centering of a vertical set of TextViews within a parent view, when the content of one or more of
+ * those TextViews was optional.  Don't use this if you don't need it!  It may break other things
+ * (for example, it breaks "android:ellipsize=true").
+ */
 public class GoneIfEmptyTextView extends AppTextView {
     public GoneIfEmptyTextView(Context context) {
         super(context);
