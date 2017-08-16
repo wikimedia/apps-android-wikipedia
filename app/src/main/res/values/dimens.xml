@@ -116,5 +116,6 @@
 
     <!-- Reading lists -->
     <integer name="reading_list_item_size_bytes_per_unit">1000000</integer> <!-- 1 MB -->
+    <integer name="reading_list_description_summary_view_max_lines">2</integer>
 
 </resources>

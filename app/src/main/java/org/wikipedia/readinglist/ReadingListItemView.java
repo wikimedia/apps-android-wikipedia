@@ -77,7 +77,11 @@ public class ReadingListItemView extends FrameLayout {
     public void setReadingList(@NonNull ReadingList readingList, @NonNull Description description) {
         this.readingList = readingList;
 
-        CharSequence text = description == Description.DETAIL
+        boolean isDetailView = description == Description.DETAIL;
+        descriptionView.setMaxLines(isDetailView
+                ? Integer.MAX_VALUE
+                : getResources().getInteger(R.integer.reading_list_description_summary_view_max_lines));
+        CharSequence text = isDetailView
                 ? buildStatisticalDetailText(readingList)
                 : buildStatisticalSummaryText(readingList);
         statisticalDescriptionView.setText(text);

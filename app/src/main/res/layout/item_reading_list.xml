@@ -92,7 +92,7 @@
                 style="@style/RtlAwareTextView"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:ellipsize="end"
-                android:maxLines="2"
+                android:maxLines="@integer/reading_list_description_summary_view_max_lines"
                 android:textColor="?attr/list_item_text_secondary_color"
                 tools:text="Sample description" />
 
