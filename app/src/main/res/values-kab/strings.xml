@@ -207,7 +207,7 @@
   <string name="gallery_save_progress">Asider n ufaylu...</string>
   <string name="gallery_save_success">Afaylu yettwasekles akken iwata.</string>
   <string name="gallery_error_video_failed">Ur izmir ara ad yurar tavidyut-agi.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Tasiregt n tira ar umḍiq n usekles n yibenk-ik tlaq i usekles n tugniwin. Ma ulac aɣilif, wreḍ tikelt-nniḍen, sakin mudd tasiregt ilaqen.</string>
+  <string name="gallery_save_image_write_permission_rationale">Tasiregt n tira ar umḍiq n usekles n yibenk-ik tlaq i usekles n tugniwin.</string>
   <string name="err_cannot_save_file">Ur izmir ara ad isekles afaylu</string>
   <string name="snippet_share_intro">\"%1$s\" ɣef @Wikipedia: %2$s</string>
   <string name="expand_refs">Aru akken ad tesnefliḍ</string>
@@ -412,7 +412,7 @@
   <string name="description_edit_revert_reason1">attekki-ik ur yedfiṛ ara yiwen seg &lt;a href=\"%1$s\"&gt;imniren&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">attekki-ik yettban am termit neɣ ahuddu.</string>
   <string name="description_edit_revert_history">Ma tebɣiḍ, wali &lt;a href=\"%1$s\"&gt;amazray n teẓrigt&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale" fuzzy="true">Azref n unekcum ar umḍiq n usekles n yibenk-ik ilaq i tunigin di s war tuqqna, ɛreḍ tikelt-nniḍen, sakin mudd izerfan yettwasutren.</string>
+  <string name="offline_read_permission_rationale">Azref n unekcum ar umḍiq n usekles n yibenk-ik ilaq i tunigin di s war tuqqna.</string>
   <string name="offline_read_permission_error">Ur ttunefken ara izerfan i tɣuri n umḍiq n usekles n yibenk-ik.</string>
   <string name="offline_card_text">Tettinigeḍ di Wikipedia s uskar n war tuqqna. Ẓer d akken imagraden n war tuqqna zemren ur ttwaleqqamen ara seg lqem srid.</string>
   <string name="offline_my_compilations">Tigrummiwin-iw</string>
@@ -425,7 +425,7 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GAṬ</string>
   <string name="offline_compilation_detail_button_download">Sider · %.2f GAṬ</string>
   <string name="offline_compilation_detail_button_remove">Kkes</string>
-  <string name="remote_compilation_download">Zdem</string>
+  <string name="remote_compilation_download">Sider</string>
   <string name="storage_size_gb">GAṬ</string>
   <string name="storage_size_free">%.2f GAṬ n umḍiq ilelli</string>
   <string name="storage_used_by_compilations">iseqdac-it Wikipedia</string>

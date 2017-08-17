@@ -207,7 +207,7 @@
   <string name="gallery_save_progress">파일을 내려받고 있습니다…</string>
   <string name="gallery_save_success">파일 저장에 성공했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다. 다시 시도한 다음 요청 권한을 부여해 주시기 바랍니다.</string>
+  <string name="gallery_save_image_write_permission_rationale">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다.</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
   <string name="snippet_share_intro">\@Wikipedia의 \"%1$s\": %2$s</string>
   <string name="expand_refs">펼치려면 탭</string>
@@ -413,7 +413,7 @@
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
   <string name="description_edit_revert_reason2">당신의 기여는 실험적이거나 문서 훼손처럼 보입니다.</string>
   <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
-  <string name="offline_read_permission_rationale" fuzzy="true">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다. 다시 시도한 다음 요청 권한을 부여해 주십시오.</string>
+  <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
   <string name="offline_read_permission_error">기억 장치로부터 읽을 권한이 부여되지 않았습니다.</string>
   <string name="offline_card_text">위키백과를 오프라인 모드에서 탐색하고 있습니다. 오프라인 문서는 온라인 판과 완전히 최신화되어 있지 않을 수 있습니다.</string>
   <string name="offline_my_compilations">나의 모음</string>

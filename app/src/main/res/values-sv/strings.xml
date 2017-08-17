@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Laddar ned filen…</string>
   <string name="gallery_save_success">Filen har sparats.</string>
   <string name="gallery_error_video_failed">Kan inte spela upp video.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att spara bilder. Försök igen och bevilja behörigheten.</string>
+  <string name="gallery_save_image_write_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att spara bilder.</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>
   <string name="snippet_share_intro">\"%1$s\" på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryck för att expandera</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale" fuzzy="true">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline. Försök igen och bevilja behörigheten.</string>
+  <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
   <string name="offline_card_text">Du läser nu Wikipedia i offlineläge. Observera att offlineartiklar kanske inte är uppdaterade med onlineversionen.</string>
   <string name="offline_my_compilations">Mina samlingar</string>

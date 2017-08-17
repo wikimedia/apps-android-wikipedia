@@ -79,6 +79,8 @@
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا ایپ عمومی سوالات</string>
   <string name="zero_interstitial_continue">چھوڑو</string>
+  <string name="zero_learn_more_learn_more">ٻیا سِکھو</string>
+  <string name="zero_learn_more_dismiss">مکاؤ</string>
   <string name="preferences_privacy_settings_heading">پرائیویسی</string>
   <string name="settings_item_preferences">ترتیباں</string>
   <string name="settings_activity_title">ترتیباں</string>
@@ -109,6 +111,7 @@
   <string name="clear_recent_searches_confirm_yes">جیا</string>
   <string name="clear_recent_searches_confirm_no">کو</string>
   <string name="table_close">بند کرو</string>
+  <string name="widget_name_search">وکی پیڈیا ڳول</string>
   <string name="dialog_close_description">بند کرو</string>
   <string name="preference_title_show_images">تصویراں ݙکھاؤ</string>
   <string name="read_more_section">ٻیا پڑھو</string>
@@ -129,8 +132,12 @@
   <string name="button_add_to_reading_list">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="enable_location_service">فعال کرو</string>
   <string name="location_permissions_enable_action">بند کرو</string>
+  <string name="view_link_preview_error_button_dismiss">مکاؤ</string>
+  <string name="error_page_does_not_exist">ایہ ورقہ کائنی</string>
+  <string name="view_wiki_error_message_offline">انٹرنیٹ نال جوڑ نی تھی سڳدا</string>
   <string name="reference_title">حوالے%s</string>
   <string name="crash_report_dialog_dont_send_button">چھوڑو</string>
+  <string name="crash_report_dialog_always_send_button">ہمیشہ بھیجو</string>
   <string name="crash_report_dialog_send_button">بھیجو</string>
   <string name="crash_report_quit">نکلو</string>
   <string name="article_header_edit_hint">لکھو۔۔۔</string>
@@ -143,7 +150,12 @@
   <string name="reading_list_create_new">نواں بݨاؤ</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_by_name">ناں نال ترتیب ݙیوو</string>
+  <string name="reading_list_menu_delete">تندیر مٹاؤ</string>
+  <string name="reading_list_menu_rename">نواں ناں لکھو</string>
+  <string name="reading_list_menu_edit_description">وضاحت وچ تبدیلی کرو</string>
   <string name="reading_list_item_delete_undo">واپس</string>
+  <string name="reading_lists_onboarding_got_it">گھن گھندا</string>
+  <string name="reading_list_no_description">وضاحت کائنی۔۔۔</string>
   <string name="reading_lists_confirm_remote_delete_yes">جیا</string>
   <string name="reading_lists_confirm_remote_delete_no">کو</string>
   <string name="view_featured_image_card_download">ڈاؤن لوڈ ، لہاوݨ</string>
