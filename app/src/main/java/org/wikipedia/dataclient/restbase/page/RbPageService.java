@@ -22,7 +22,7 @@ import static org.wikipedia.Constants.ACCEPT_HEADER_SUMMARY;
  * Retrofit service for mobile content service endpoints.
  */
 public interface RbPageService {
-    String ACCEPT_HEADER_MOBILE_SECTIONS = ACCEPT_HEADER_PREFIX + "mobile-sections/0.12.0\"";
+    String ACCEPT_HEADER_MOBILE_SECTIONS = ACCEPT_HEADER_PREFIX + "mobile-sections/0.12.2\"";
     String ACCEPT_HEADER_DEFINITION = ACCEPT_HEADER_PREFIX + "definition/0.7.2\"";
 
     /**
