@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">در حال دریافت پرونده…</string>
   <string name="gallery_save_success">پرونده با موفقیت ذخیره‌شده‌است</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
+  <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="err_cannot_save_file">امکان ذخیره پرونده وجود ندارد</string>
   <string name="snippet_share_intro">\"%1$s\" در @ویکی‌پدیا: %2$s</string>
   <string name="expand_refs">برای بازشدن صفحه را لمس کنید</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>
   <string name="description_edit_revert_reason2">مشارکت شما شبیه یک تمرین یا خرابکاریست.</string>
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
-  <string name="offline_read_permission_rationale" fuzzy="true">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
+  <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="offline_read_permission_error">اجازه برای خواندن از حافظه دستگاه داده‌نشد.</string>
   <string name="offline_card_text">شما در حال کاوش در ویکی‌پدیا به صورت آفلاین هستید. توجه داشته باشید که نسخهٔ آفلاین لزوما آخرین نسخهٔ به روز مقالهٔ آنلاین نمی‌باشد.</string>
   <string name="offline_my_compilations">گردآوری‌های من</string>

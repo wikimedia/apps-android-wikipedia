@@ -270,8 +270,8 @@
   <string name="reading_list_added_to_unnamed">Hozzáadva az olvasólistához.</string>
   <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
-  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 cikk, %1$.2f megabyte</string>
-  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d szócikk, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 cikk, %1$.2f megabyte</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d szócikk, %2$.2f megabyte</string>
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
   <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>

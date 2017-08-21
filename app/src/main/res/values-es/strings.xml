@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">tu contribución se veía como un experimento o vandalismo.</string>
   <string name="description_edit_revert_history">Si estás interesado, consulta el &lt;a href=\"%1$s\"&gt;historial de ediciones&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale" fuzzy="true">Para navegar sin conexión se necesita el permiso para acceder al almacenamiento. Inténtalo de nuevo y otorga el permiso solicitado.</string>
+  <string name="offline_read_permission_rationale">Para navegar sin conexión se necesita el permiso para acceder al almacenamiento.</string>
   <string name="offline_read_permission_error">No se otorgó el permiso para leer el dispositivo de almacenamiento.</string>
   <string name="offline_card_text">Ahora estás navegando Wikipedia en modo sin conexión. Observa que los artículos sin conexión pueden que no estén plenamente actualizados con la versión con conexión.</string>
   <string name="offline_my_compilations">Mis recopilaciones</string>
