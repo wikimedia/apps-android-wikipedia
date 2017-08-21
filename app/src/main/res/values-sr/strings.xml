@@ -190,7 +190,7 @@
   <string name="gallery_save_progress">Преузимам датотеку…</string>
   <string name="gallery_save_success">Датотека је успешно сачувана.</string>
   <string name="gallery_error_video_failed">Не могу да репродукујем видео.</string>
-  <string name="gallery_save_image_write_permission_rationale">Дозвола за модификовање меморије на вашем уређају је неопходна за спремање слика. Покушајте поново; дајте тражену дозволу.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Дозвола за модификовање меморије на вашем уређају је неопходна за спремање слика. Покушајте поново; дајте тражену дозволу.</string>
   <string name="err_cannot_save_file">Не могу да сачувам датотеку</string>
   <string name="snippet_share_intro">„%1$s“ на @Wikipedia: %2$s</string>
   <string name="expand_refs">Додирните да бисте проширили</string>

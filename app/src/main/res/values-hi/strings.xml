@@ -198,7 +198,7 @@
   <string name="gallery_save_progress">फ़ाइल को डाउनलोड किया जा रहा है…</string>
   <string name="gallery_save_success">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
   <string name="gallery_error_video_failed">वीडियो को चलाया नहीं जा सका।</string>
-  <string name="gallery_save_image_write_permission_rationale">चित्रों को सहेजने के लिए आपके स्टोरेज पर लिखने की अनुमति की आवश्यकता है। कृपया दोबारा प्रयास करें, और मांगी गयी अनुमति प्रदान करें।</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">चित्रों को सहेजने के लिए आपके स्टोरेज पर लिखने की अनुमति की आवश्यकता है। कृपया दोबारा प्रयास करें, और मांगी गयी अनुमति प्रदान करें।</string>
   <string name="err_cannot_save_file">फ़ाइल को सहेजा नहीं जा सकता</string>
   <string name="snippet_share_intro">\@Wikipedia पर \"%1$s\": %2$s</string>
   <string name="expand_refs">फ़ैलाने के लिये दबाएं</string>

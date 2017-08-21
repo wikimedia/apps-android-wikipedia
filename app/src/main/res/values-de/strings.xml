@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Lade Datei herunter …</string>
   <string name="gallery_save_success">Datei erfolgreich gespeichert.</string>
   <string name="gallery_error_video_failed">Das Video konnte nicht abgespielt werden.</string>
-  <string name="gallery_save_image_write_permission_rationale">Zum Speichern von Bildern ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich. Bitte versuche es erneut und gewähre die geforderte Berechtigung.</string>
+  <string name="gallery_save_image_write_permission_rationale">Zum Speichern von Bildern ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich.</string>
   <string name="err_cannot_save_file">Datei konnte nicht gespeichert werden</string>
   <string name="snippet_share_intro">Interessante Tatsache auf @Wikipedia %1$s: %2$s</string>
   <string name="expand_refs">Tippen zum Erweitern</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Dein Beitrag sieht wie ein Experiment oder Vandalismus aus.</string>
   <string name="description_edit_revert_history">Falls du interessiert bist, sieh dir die &lt;a href=\"%1$s\"&gt;Versionsgeschichte&lt;/a&gt; an.</string>
-  <string name="offline_read_permission_rationale">Zum Offline-Browsen ist eine Berechtigung für den Zugriff auf den Speicher deines Gerätes erforderlich. Bitte versuche es erneut und gewähre die erforderliche Berechtigung.</string>
+  <string name="offline_read_permission_rationale">Zum Offline-Browsen ist eine Berechtigung für den Zugriff auf den Speicher deines Gerätes erforderlich.</string>
   <string name="offline_read_permission_error">Die Berechtigung zum Lesen vom Gerätespeicher wurde nicht gewährt.</string>
   <string name="offline_card_text">Du benutzt jetzt Wikipedia im Offline-Modus. Bitte beachte, dass Offline-Artikel nicht in dem Umfang aktuell sind wie die Online-Version.</string>
   <string name="offline_my_compilations">Meine Zusammenstellungen</string>

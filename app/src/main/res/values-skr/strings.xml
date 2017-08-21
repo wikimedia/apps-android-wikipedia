@@ -160,6 +160,7 @@
   <string name="description_edit_help_about_title">تعارف</string>
   <string name="description_edit_help_tips_examples">مثال دے طور تے</string>
   <string name="offline_compilation_detail_button_remove">مٹاؤ</string>
+  <string name="remote_compilation_download">ڈاؤن لوڈ ، لہاوݨ</string>
   <string name="storage_size_gb">جی بی</string>
   <string name="storage_size_free">%.2f جی بی مفت</string>
   <string name="compilation_download_widget_button_cancel_hint">ڈاؤن لوڈ منسوخ کرو</string>

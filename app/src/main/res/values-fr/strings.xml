@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Téléchargement du fichier…</string>
   <string name="gallery_save_success">Fichier bien enregistré.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
-  <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans l\'espace de stockage de votre appareil est nécessaire pour enregistrer des images. Veuillez réessayer, et accorder la permission demandée.</string>
+  <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans l\'espace de stockage de votre appareil est nécessaire pour enregistrer des images.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>
   <string name="snippet_share_intro">Fait intéressant sur @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Taper pour développer</string>
@@ -406,7 +406,7 @@
   <string name="description_edit_help_tips_examples">Par exemple :</string>
   <string name="description_edit_help_tips_example1">peint par Léonard de Vinci</string>
   <string name="description_edit_help_tips_example1_hint">description de titre pour un article sur La Joconde</string>
-  <string name="description_edit_help_tips_example2">La plus haute montagne sur terre</string>
+  <string name="description_edit_help_tips_example2">plus haute montagne sur Terre</string>
   <string name="description_edit_help_tips_example2_hint">description de titre pour un article sur le mont Everest</string>
   <string name="description_edit_help_more_info">Plus d’information</string>
   <string name="description_edit_help_meta_info">Les descriptions sont stockées et mises à jour dans Wikidata, un projet de la Fondation Wikimédia qui fournit une base de données libre, collaborative, multilingue et secondaire soutenant Wikipédia et d’autres projets.</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">votre contribution ressemblait à une expérience ou à du vandalisme.</string>
   <string name="description_edit_revert_history">Si vous êtes intéressé, voyez l’&lt;a href=\"%1$s\"&gt;historique des modifications&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion. Veuillez réessayer, et accorder le droit demandé.</string>
+  <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion.</string>
   <string name="offline_read_permission_error">Droit non accordé pour lire sur le stockage de l’appareil.</string>
   <string name="offline_card_text">Vous naviguez sur Wikipédia en mode hors connexion. Veuillez noter que les articles hors connexion peuvent ne pas être complètement à jour par rapport à la version en ligne.</string>
   <string name="offline_my_compilations">Mes compilations</string>

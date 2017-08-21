@@ -196,7 +196,7 @@
   <string name="gallery_save_progress">Keur ngundeur berkas</string>
   <string name="gallery_save_success">Nyimpen berkas ngahasil</string>
   <string name="gallery_error_video_failed">Teu bisa maénkeun vidio.</string>
-  <string name="gallery_save_image_write_permission_rationale">Widi pikeun nulis ka panyimpenan di pakakas anjeun diperlukeun pikeun neundeun gambar. Mangga cobaan deui, sarta heugbaékeun widi nu dipénta.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Widi pikeun nulis ka panyimpenan di pakakas anjeun diperlukeun pikeun neundeun gambar. Mangga cobaan deui, sarta heugbaékeun widi nu dipénta.</string>
   <string name="err_cannot_save_file">Teu bisa nyimpen berkas</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Toél pikeun ngalegakeun</string>

@@ -195,7 +195,7 @@
   <string name="gallery_save_progress">ফাইল ডাউনল\'ড হৈ আছে...</string>
   <string name="gallery_save_success">ফাইল সফলতাৰে সঞ্চিত হ\'ল।</string>
   <string name="gallery_error_video_failed">ভিডিঅ\'টো চলাব পৰা নগ\'ল।</string>
-  <string name="gallery_save_image_write_permission_rationale">ছবি সাঁচিবৰ বাবে আপোনাৰ সঁজুলিৰ সংগ্ৰহস্থলত লিখাৰ অনুমতিৰ প্ৰয়োজন। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক আৰু অনুৰোধ কৰা অনুমতি মঞ্জুৰ কৰক।</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">ছবি সাঁচিবৰ বাবে আপোনাৰ সঁজুলিৰ সংগ্ৰহস্থলত লিখাৰ অনুমতিৰ প্ৰয়োজন। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক আৰু অনুৰোধ কৰা অনুমতি মঞ্জুৰ কৰক।</string>
   <string name="err_cannot_save_file">ফাইল সাঁচিব পৰা নগ\'ল</string>
   <string name="snippet_share_intro">\@Wikipedia ত \"%1$s\": %2$s</string>
   <string name="expand_refs">বহলাবলৈ টেপ্‌ কৰক</string>

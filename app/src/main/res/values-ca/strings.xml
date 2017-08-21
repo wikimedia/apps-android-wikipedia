@@ -18,6 +18,8 @@
   <string name="history_item_delete_undo">Desfés</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
+  <string name="dialog_message_clear_history_yes">Sí</string>
+  <string name="dialog_message_clear_history_no">No</string>
   <string name="nav_item_saved_pages">Pàgines desades</string>
   <string name="share_via">Comparteix mitjançant…</string>
   <string name="search_redirect_from">Redirigit des de %s</string>
@@ -69,6 +71,8 @@
   <string name="title_captcha">Introduïu el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toqueu el CAPTCHA per tornar a carregar</string>
   <string name="edit_saved_page_refresh">La pàgina desada podria no estar al dia i cal actualitzar-la per permetre\'n la modificació. Voleu fer-ho ara?</string>
+  <string name="edit_saved_page_refresh_yes">Sí</string>
+  <string name="edit_saved_page_refresh_no">No</string>
   <string name="nav_item_login">Inici de sessió</string>
   <string name="login_username_hint">Nom d\'usuari</string>
   <string name="login_password_hint">Contrasenya</string>
@@ -153,6 +157,8 @@
   <string name="about_wmf">Un producte de la &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
+  <string name="edit_abandon_confirm_yes">Sí</string>
+  <string name="edit_abandon_confirm_no">No</string>
   <string name="user_blocked_from_editing_title">Blocat</string>
   <string name="user_logged_in_blocked_from_editing">S\'ha blocat l\'edició des del vostre compte en aquest wiki.</string>
   <string name="user_anon_blocked_from_editing">S\'ha blocat l\'edició des de la vostra IP.</string>
@@ -179,6 +185,8 @@
   <string name="search_recent_header">Cerques recents:</string>
   <string name="button_clear_all_recent_searches">Esborra les cerques recents</string>
   <string name="clear_recent_searches_confirm">Segur que voleu esborrar l\'historial de cerca?</string>
+  <string name="clear_recent_searches_confirm_yes">Sí</string>
+  <string name="clear_recent_searches_confirm_no">No</string>
   <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap aplicació per navegar).</string>
   <string name="table_infobox">Dades bàsiques</string>
   <string name="table_other">Més informació</string>
@@ -201,7 +209,7 @@
   <string name="gallery_save_progress">S\'està baixant el fitxer…</string>
   <string name="gallery_save_success">La imatge s\'ha desat correctament.</string>
   <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>
-  <string name="gallery_save_image_write_permission_rationale">Cal tenir permís d\'escriptura en el vostre dispositiu per a poder desar imatges. Doneu el permís demanat i torneu-ho a provar, .</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Cal tenir permís d\'escriptura en el vostre dispositiu per a poder desar imatges. Doneu el permís demanat i torneu-ho a provar, .</string>
   <string name="err_cannot_save_file">No es pot desar el fitxer</string>
   <string name="snippet_share_intro">«%1$s» a @Viquipedia: %2$s</string>
   <string name="expand_refs">Toqueu per ampliar</string>

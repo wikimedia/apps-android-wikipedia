@@ -191,7 +191,7 @@
   <string name="gallery_save_progress">Đang tải tập tin về…</string>
   <string name="gallery_save_success">Đã lưu tập tin thành công.</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
-  <string name="gallery_save_image_write_permission_rationale">Để lưu ảnh, bạn cần cho phép ghi dữ liệu vào bộ nhớ thiết bị. Xin hãy thử lại và đồng ý cấp phép cho yêu cầu.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Để lưu ảnh, bạn cần cho phép ghi dữ liệu vào bộ nhớ thiết bị. Xin hãy thử lại và đồng ý cấp phép cho yêu cầu.</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>
   <string name="snippet_share_intro">“%1$s” trên @Wikipedia: %2$s</string>
   <string name="expand_refs">Chạm để mở rộng</string>

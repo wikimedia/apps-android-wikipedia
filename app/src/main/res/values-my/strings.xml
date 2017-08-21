@@ -191,7 +191,7 @@
   <string name="gallery_save_progress">ဖိုင်ဆွဲချနေသည်...</string>
   <string name="gallery_save_success">ဖိုင်အား အောင်မြင်စွာ သိမ်းပြီး။</string>
   <string name="gallery_error_video_failed">ဗီဒီယိုကို ဖွင့်၍ မရနိုင်ပါ။</string>
-  <string name="gallery_save_image_write_permission_rationale">ပုံများအား သိမ်းဆည်းရန် သင့်စက်ရှိ သိုလှောင်မှုတွင် ရေးသားနိုင်ရန် ခွင့်ပြုချက်ပေးပါ။ ကျေးဇူးပြု၍ နောက်တစ်ဖန် ကြိုးစားပြီး ခွင့်ပြုချက်တောင်းဆိုခြင်းကို ခွင့်ပြုပေးပါ။</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">ပုံများအား သိမ်းဆည်းရန် သင့်စက်ရှိ သိုလှောင်မှုတွင် ရေးသားနိုင်ရန် ခွင့်ပြုချက်ပေးပါ။ ကျေးဇူးပြု၍ နောက်တစ်ဖန် ကြိုးစားပြီး ခွင့်ပြုချက်တောင်းဆိုခြင်းကို ခွင့်ပြုပေးပါ။</string>
   <string name="err_cannot_save_file">ဖိုင်အား မသိမ်းဆည်းနိုင်ပါ</string>
   <string name="snippet_share_intro">\@Wikipedia ပေါ်ရှိ \"%1$s\": %2$s</string>
   <string name="expand_refs">ချဲ့ကားရန် တို့ထိ</string>

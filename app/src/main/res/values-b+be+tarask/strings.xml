@@ -172,7 +172,7 @@
   <string name="gallery_save_progress">Загрузка файлу…</string>
   <string name="gallery_save_success">Файл захаваны пасьпяхова.</string>
   <string name="gallery_error_video_failed">Не атрымалася прайграць відэа.</string>
-  <string name="gallery_save_image_write_permission_rationale">Дзеля захаваньня выяваў неабходны дазвол на запіс у сховішча Вашай прылады. Калі ласка, паспрабуйце яшчэ раз і надайце патрэбны дазвол.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Дзеля захаваньня выяваў неабходны дазвол на запіс у сховішча Вашай прылады. Калі ласка, паспрабуйце яшчэ раз і надайце патрэбны дазвол.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
   <string name="snippet_share_intro">«%1$s» на сайце @Wikipedia: %2$s</string>
   <string name="expand_refs">Націсьніце каб развярнуць</string>

@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">下载文件…</string>
   <string name="gallery_save_success">文件保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
-  <string name="gallery_save_image_write_permission_rationale">需要写入您设备存储的权限才能保存图片。请重试，并授予请求的权限。</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">需要写入您设备存储的权限才能保存图片。请重试，并授予请求的权限。</string>
   <string name="err_cannot_save_file">无法保存文件</string>
   <string name="snippet_share_intro">\@Wikipedia 上的“%1$s”：%2$s</string>
   <string name="expand_refs">点按展开</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的贡献看起来像是试验或破坏。</string>
   <string name="description_edit_revert_history">如果您感兴趣，可查看&lt;a href=\"%1$s\"&gt;编辑历史&lt;/a&gt;。</string>
-  <string name="offline_read_permission_rationale">需要访问您设备存储的权限才能离线浏览。请重试，并授予请求的权限。</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">需要访问您设备存储的权限才能离线浏览。请重试，并授予请求的权限。</string>
   <string name="offline_read_permission_error">未授予读取来自设备存储内容的权限。</string>
   <string name="offline_card_text">您正在使用离线模式浏览维基百科。请注意离线条目可能不完全像在线版本那样是最新的。</string>
   <string name="offline_my_compilations">我的汇编</string>

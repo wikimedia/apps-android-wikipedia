@@ -126,7 +126,7 @@
   <string name="preference_title_auto_upload_crash_reports">Invia segnalazioni di errori</string>
   <string name="preference_summary_auto_upload_crash_reports">Consente all\'applicazione di inviare automaticamente segnalazioni su errori a HockeyApp / un fornitore terzo di servizi, in modo da poter rivedere il tuo errore e correggere i bug più velocemente e più facilmente.</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
-  <string name="history_search_list_hint">Cerca</string>
+  <string name="history_search_list_hint">Cerca nella cronologia</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
   <string name="page_protected_sysop">Questa pagina è stata protetta.</string>
@@ -204,7 +204,7 @@
   <string name="gallery_save_progress">Scaricamento del file…</string>
   <string name="gallery_save_success">File salvato correttamente.</string>
   <string name="gallery_error_video_failed">Impossibile riprodurre il video.</string>
-  <string name="gallery_save_image_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio delle immagini. Prova di nuovo, e concedi l\'autorizzazione richiesta.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Il permesso di scrittura sul dispositivo è necessario per il salvataggio delle immagini. Prova di nuovo, e concedi l\'autorizzazione richiesta.</string>
   <string name="err_cannot_save_file">Impossibile salvare il file</string>
   <string name="snippet_share_intro">\"%1$s\" su @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca per espandere</string>
@@ -361,7 +361,7 @@
   <string name="description_edit_cancel_hint">Annulla</string>
   <string name="description_edit_help_title">Aiuto: descrizioni del titolo</string>
   <string name="description_edit_help_about_wikidata">Su Wikidata</string>
-  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/it</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduzione/it</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
   <string name="description_edit_success_saved">Descrizione pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
@@ -374,10 +374,13 @@
   <string name="description_edit_help_tips">Consigli per creare descrizioni</string>
   <string name="description_edit_help_tips_examples">Per esempio:</string>
   <string name="description_edit_help_tips_example1">dipinto da Leonardo da Vinci</string>
-  <string name="description_edit_help_tips_example2">La montagna più alta della terra</string>
+  <string name="description_edit_help_tips_example2">La montagna più alta della Terra</string>
+  <string name="description_edit_help_tips_example2_hint">descrizione del titolo per un articolo sul Monte Everest</string>
   <string name="description_edit_help_more_info">Ulteriori informazioni</string>
+  <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Per accedere allo spazio di archiviazione sul tuo dispositivo per la navigazione offline è richiesto un permesso.</string>
   <string name="offline_compilation_detail_button_remove">Rimuovi</string>
   <string name="remote_compilation_download">Scarica</string>
   <string name="storage_size_gb">GB</string>
@@ -385,8 +388,12 @@
   <string name="storage_used_by_compilations">usati da Wikipedia</string>
   <string name="storage_other_apps">Altre applicazioni</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <string name="compilation_download_widget_button_cancel_hint">Annulla il download</string>
   <string name="compilation_download_cancel_confirm_yes">Sì</string>
   <string name="compilation_download_cancel_confirm_no">No</string>
+  <string name="offline_library_title">Biblioteca offline</string>
+  <string name="offline_library_empty_title">Niente nella tua biblioteca offline</string>
+  <string name="offline_library_empty_search">Cerca nella biblioteca offline</string>
   <string name="onboarding_skip">Salta</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Inizia</string>

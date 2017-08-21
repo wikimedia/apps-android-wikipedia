@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Baixando arquivo</string>
   <string name="gallery_save_success">Arquivo salvo com sucesso.</string>
   <string name="gallery_error_video_failed">Não foi possível reproduzir o vídeo.</string>
-  <string name="gallery_save_image_write_permission_rationale">Para salver imagens, você deve permitir o uso do armazenamento do seu dispositivo. Tente novamente e conceda a permissão solicitada.</string>
+  <string name="gallery_save_image_write_permission_rationale">A permissão para gravar no armazenamento no seu dispositivo é necessária para salvar imagens.</string>
   <string name="err_cannot_save_file">Não foi possível salvar o arquivo</string>
   <string name="snippet_share_intro">\"%1$s\" em @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para expandir</string>
@@ -415,7 +415,7 @@
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Sua contribuição parecia uma experiência ou vandalismo.</string>
   <string name="description_edit_revert_history">Se estiver interessado, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">A permissão para acessar o armazenamento em seu dispositivo é necessária para a navegação off-line. Tente novamente e conceda a permissão solicitada.</string>
+  <string name="offline_read_permission_rationale">A permissão para acessar o armazenamento em seu dispositivo é necessária para a navegação off-line.</string>
   <string name="offline_read_permission_error">Permissão não concedida para ler do armazenamento do dispositivo.</string>
   <string name="offline_card_text">Agora você está navegando na Wikipédia no modo off-line. Tenha em atenção que os artigos offline podem não estar totalmente atualizados com a versão online.</string>
   <string name="offline_my_compilations">Minhas compilações</string>

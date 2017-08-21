@@ -180,7 +180,7 @@
   <string name="gallery_save_progress">ფაილის ჩამოტვირთვა…</string>
   <string name="gallery_save_success">ფაილი წარმატებით შეინახა.</string>
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
-  <string name="gallery_save_image_write_permission_rationale">თქვენი მოწყობილობის მეხსიერებაში ჩასაწერად საჭიროა ნებართვა. გთხოვთ სცადეთ კიდევ, და მიანიჭეთ მოთხოვნილი ნებართვა.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">თქვენი მოწყობილობის მეხსიერებაში ჩასაწერად საჭიროა ნებართვა. გთხოვთ სცადეთ კიდევ, და მიანიჭეთ მოთხოვნილი ნებართვა.</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>
   <string name="snippet_share_intro">„%1$s“ საიტზე @Wikipedia: %2$s</string>
   <string name="expand_refs">გადიდებისათვის დააჭირეთ</string>

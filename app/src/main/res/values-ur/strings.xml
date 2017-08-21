@@ -172,7 +172,7 @@
   <string name="gallery_save_progress">ملف کا ڈاؤنلوڈ جاری ہے …</string>
   <string name="gallery_save_success">ملف  کامیابی سے محفوظ ہو گیا۔</string>
   <string name="gallery_error_video_failed">ویڈیو کو چلایا نہیں جا سکا۔</string>
-  <string name="gallery_save_image_write_permission_rationale">اپنے آلے پر تصاویر کو محفوظ کرنے کے لیے اجازت کی ضرورت ہے۔ براہ کرم پھر سے کوشش کیجیے، اور درخواست شدہ اجازت فراہم کیجیے۔</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">اپنے آلے پر تصاویر کو محفوظ کرنے کے لیے اجازت کی ضرورت ہے۔ براہ کرم پھر سے کوشش کیجیے، اور درخواست شدہ اجازت فراہم کیجیے۔</string>
   <string name="err_cannot_save_file">ملف کو محفوظ نہیں کرسکتے</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia: \"%2$s\" پر</string>
   <string name="expand_refs">پھیلانے کے لیے طق کیجیے</string>

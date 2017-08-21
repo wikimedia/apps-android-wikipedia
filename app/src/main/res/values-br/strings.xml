@@ -198,7 +198,7 @@
   <string name="gallery_save_progress">Pellgargañ ar restr...</string>
   <string name="gallery_save_success">Restr enrollet mat.</string>
   <string name="gallery_error_video_failed">Ne c\'haller ket lenn ar video.</string>
-  <string name="gallery_save_image_write_permission_rationale">Ret eo kaout gwir da skrivañ e lec\'h stokañ hoc\'h ardivink evit enrollañ skeudennoù. Klaskit en-dro, ha roit aotre d\'en ober, mar plij.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Ret eo kaout gwir da skrivañ e lec\'h stokañ hoc\'h ardivink evit enrollañ skeudennoù. Klaskit en-dro, ha roit aotre d\'en ober, mar plij.</string>
   <string name="err_cannot_save_file">Ne c\'haller ket enrollañ ar restr</string>
   <string name="snippet_share_intro">Fed dedennus e @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Pouezañ war ur stokell evit diorren</string>

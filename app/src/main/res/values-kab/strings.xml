@@ -207,7 +207,7 @@
   <string name="gallery_save_progress">Asider n ufaylu...</string>
   <string name="gallery_save_success">Afaylu yettwasekles akken iwata.</string>
   <string name="gallery_error_video_failed">Ur izmir ara ad yurar tavidyut-agi.</string>
-  <string name="gallery_save_image_write_permission_rationale">Tasiregt n tira ar umḍiq n usekles n yibenk-ik tlaq i usekles n tugniwin. Ma ulac aɣilif, wreḍ tikelt-nniḍen, sakin mudd tasiregt ilaqen.</string>
+  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Tasiregt n tira ar umḍiq n usekles n yibenk-ik tlaq i usekles n tugniwin. Ma ulac aɣilif, wreḍ tikelt-nniḍen, sakin mudd tasiregt ilaqen.</string>
   <string name="err_cannot_save_file">Ur izmir ara ad isekles afaylu</string>
   <string name="snippet_share_intro">\"%1$s\" ɣef @Wikipedia: %2$s</string>
   <string name="expand_refs">Aru akken ad tesnefliḍ</string>
@@ -285,10 +285,10 @@
   <string name="reading_list_added_to_unnamed">Yettwarna ar tebdart n tɣuri.</string>
   <string name="reading_list_already_exists">Amagrad-agi yella yakan deg tebdart-agi.</string>
   <string name="reading_list_added_view_button">Sken tabdart</string>
-  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 n umagrad, %1$.2f MAṬ</string>
-  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d n imagraden, %2$.2f MAṬ</string>
-  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d si 1 n umagrad yellan s war tuqqna, %2$.2f MAṬ</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d si %2$d n imagraden yellan s war tuqqna, %3$.2f MAṬ</string>
+  <string name="format_reading_list_statistical_summary_singular">1 n umagrad, %1$.2f MAṬ</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d n imagraden, %2$.2f MAṬ</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d si 1 n imagraden yellan s war tuqqna, %2$.2f MAṬ</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d si %2$d n imagraden yellan s war tuqqna, %3$.2f MAṬ</string>
   <string name="reading_list_sort">Smizzwer</string>
   <string name="reading_list_sort_by_name">Smizzwer s yisem</string>
   <string name="reading_list_sort_by_name_desc">Smizzwer s yisem (tti)</string>
@@ -412,7 +412,7 @@
   <string name="description_edit_revert_reason1">attekki-ik ur yedfiṛ ara yiwen seg &lt;a href=\"%1$s\"&gt;imniren&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">attekki-ik yettban am termit neɣ ahuddu.</string>
   <string name="description_edit_revert_history">Ma tebɣiḍ, wali &lt;a href=\"%1$s\"&gt;amazray n teẓrigt&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Azref n unekcum ar umḍiq n usekles n yibenk-ik ilaq i tunigin di s war tuqqna, ɛreḍ tikelt-nniḍen, sakin mudd izerfan yettwasutren.</string>
+  <string name="offline_read_permission_rationale" fuzzy="true">Azref n unekcum ar umḍiq n usekles n yibenk-ik ilaq i tunigin di s war tuqqna, ɛreḍ tikelt-nniḍen, sakin mudd izerfan yettwasutren.</string>
   <string name="offline_read_permission_error">Ur ttunefken ara izerfan i tɣuri n umḍiq n usekles n yibenk-ik.</string>
   <string name="offline_card_text">Tettinigeḍ di Wikipedia s uskar n war tuqqna. Ẓer d akken imagraden n war tuqqna zemren ur ttwaleqqamen ara seg lqem srid.</string>
   <string name="offline_my_compilations">Tigrummiwin-iw</string>
@@ -437,8 +437,13 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Seḥbes neɣ kemmel asider</string>
   <string name="compilation_download_widget_button_cancel_hint">Sefsex asider</string>
+  <string name="compilation_download_cancel_confirm">Tabɣiḍ ad tesfesxeḍ asider n tegrumma-agi?</string>
   <string name="compilation_download_cancel_confirm_yes">Ih</string>
   <string name="compilation_download_cancel_confirm_no">Uhu</string>
+  <string name="offline_library_title">Tamkarḍiḍ war tuqqna</string>
+  <string name="offline_library_empty_title">Ulac d acu yellan di temkarḍit-ik n war tuqqna</string>
+  <string name="offline_library_empty_description">Fren tagrumma n imagraden n Wikipedia ara d-tesidreḍ tura i unekcum ilelli ticki.</string>
+  <string name="offline_library_empty_search">Nadi di temkarḍit war tuqqna</string>
   <string name="offline_library_onboarding_action">Issin ugar ɣef Temkarḍiḍ war tuqqna</string>
   <string name="onboarding_skip">Zgel</string>
   <string name="onboarding_continue">Kemmel</string>
