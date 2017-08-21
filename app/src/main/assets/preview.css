@@ -155,7 +155,10 @@ body {
 .content .thumbborder {
   border: 1px solid #c8ccd1;
 }
-.content .magnify {
+.content .magnify,
+.content figure[typeof*='mw:Image/Thumb'] > a:after,
+.content figure[typeof*='mw:Video/Thumb'] > a:after,
+.content figure[typeof*='mw:Audio/Thumb'] > a:after {
   display: none;
 }
 .content img {
@@ -377,12 +380,14 @@ code {
 pre {
   padding: 1em;
 }
+.mw-ref,
 sup {
   vertical-align: super;
 }
 sub {
   vertical-align: sub;
 }
+.mw-ref,
 sub,
 sup {
   font-size: 0.75em;
@@ -434,11 +439,13 @@ FIXME: Review all of these hacks to see if they still apply.
 .collapsible td {
   width: auto !important;
 }
+.content .vertical-navbox,
+.content .navbox {
+  display: none;
+}
 .content .tmbox,
 .content .ambox,
 .content #coordinates,
-.content .navbox,
-.content .vertical-navbox,
 .content .topicon,
 .content .metadata {
   display: none !important;
@@ -506,6 +513,12 @@ FIXME: Review all of these hacks to see if they still apply.
 .quotebox {
   margin: 0 0 0.8em !important;
   width: auto !important;
+}
+@media all and (min-width: 720px) {
+  .content .vertical-navbox,
+  .content .navbox {
+    display: inherit;
+  }
 }
 @media all and (max-width: 720px) {
   .gallery .gallerybox {
@@ -706,31 +719,31 @@ div.mwe-math-element {
 		vertical-align: top;
 		display: inline-block;
 	}
-
+	
 	ul.gallery,
 	li.gallerybox {
 		zoom: 1;
 		*display: inline;
 	}
-
+	
 	ul.gallery {
 		margin: 2px;
 		padding: 2px;
 		display: block;
 	}
-
+	
 	li.gallerycaption {
 		font-weight: bold;
 		text-align: center;
 		display: block;
 		word-wrap: break-word;
 	}
-
+	
 	li.gallerybox div.thumb {
 		background-color: #fff;
 		border: 1px solid #ccc;
 	}
-
+	
 	div.gallerytext {
 		overflow: hidden;
 		font-size: 10pt;
@@ -1317,6 +1330,7 @@ figure[typeof*='mw:Image'],
 figure[typeof*='mw:Video'],
 figure[typeof*='mw:Audio'] {
   margin: 0;
+  /* Hide the caption for frameless and plain floated images */
 }
 figure[typeof*='mw:Image'] a,
 figure[typeof*='mw:Video'] a,
@@ -1355,31 +1369,14 @@ figure[typeof*='mw:Video'].mw-halign-center,
 figure[typeof*='mw:Audio'].mw-halign-center {
   margin: 0 auto 0.5em auto;
   display: table;
+  border-collapse: collapse;
   clear: none;
   float: none;
 }
 figure[typeof*='mw:Image'] > figcaption,
 figure[typeof*='mw:Video'] > figcaption,
 figure[typeof*='mw:Audio'] > figcaption {
-  display: table-caption;
-  caption-side: bottom;
-  /* In mw-core the font-size is duplicated, 94% in thumbiner
-		 * and again 94% in thumbcaption. 88.4% for font size of the
-		 * caption results in the same behavior. */
-  font-size: 88.4%;
-  line-height: 1.4em;
-  text-align: left;
-  border: 1px solid #c8ccd1;
-  border-top: 0;
-  /* taken from .thumbcaption, plus .thumbinner */
-  padding: 0 6px 6px 6px;
-  background-color: #f8f9fa;
-}
-figure[typeof*='mw:Image'] > figcaption table,
-figure[typeof*='mw:Video'] > figcaption table,
-figure[typeof*='mw:Audio'] > figcaption table {
-  /* reset caption side for tables inside figcaptions */
-  caption-side: top;
+  display: none;
 }
 figure[typeof~='mw:Image/Thumb'],
 figure[typeof~='mw:Video/Thumb'],
@@ -1388,15 +1385,23 @@ figure[typeof~='mw:Image/Frame'],
 figure[typeof~='mw:Video/Frame'],
 figure[typeof~='mw:Audio/Frame'] {
   display: table;
-  overflow: auto;
   text-align: center;
   border: 1px solid #c8ccd1;
-  border-bottom: 0;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 3px;
   background-color: #f8f9fa;
+  width: 1px;
   margin: 0.5em 0 1.3em 1.4em;
   clear: right;
   float: right;
+}
+figure[typeof~='mw:Image/Thumb'].mw-halign-center,
+figure[typeof~='mw:Video/Thumb'].mw-halign-center,
+figure[typeof~='mw:Audio/Thumb'].mw-halign-center,
+figure[typeof~='mw:Image/Frame'].mw-halign-center,
+figure[typeof~='mw:Video/Frame'].mw-halign-center,
+figure[typeof~='mw:Audio/Frame'].mw-halign-center {
+  border-collapse: separate;
 }
 figure[typeof~='mw:Image/Thumb'] > *:first-child > img,
 figure[typeof~='mw:Video/Thumb'] > *:first-child > img,
@@ -1411,20 +1416,55 @@ figure[typeof~='mw:Image/Frame'] > *:first-child > video,
 figure[typeof~='mw:Video/Frame'] > *:first-child > video,
 figure[typeof~='mw:Audio/Frame'] > *:first-child > video {
   border: 1px solid #c8ccd1;
-  margin: 3px;
   background: #fff;
+}
+figure[typeof~='mw:Image/Thumb'] > figcaption,
+figure[typeof~='mw:Video/Thumb'] > figcaption,
+figure[typeof~='mw:Audio/Thumb'] > figcaption,
+figure[typeof~='mw:Image/Frame'] > figcaption,
+figure[typeof~='mw:Video/Frame'] > figcaption,
+figure[typeof~='mw:Audio/Frame'] > figcaption {
+  display: block;
+  /* In mw-core the font-size is duplicated, 94% in thumbiner
+		 * and again 94% in thumbcaption. 88.4% for font size of the
+		 * caption results in the same behavior. */
+  font-size: 88.4%;
+  line-height: 1.4em;
+  text-align: left;
+  /* taken from .thumbcaption, plus .thumbinner */
+  padding: 3px;
+}
+figure[typeof*='mw:Image/Thumb'] > a:after,
+figure[typeof*='mw:Video/Thumb'] > a:after,
+figure[typeof*='mw:Audio/Thumb'] > a:after {
+  content: '';
+  width: 15px;
+  height: 11px;
+  margin: 3px;
+  margin-bottom: 0;
+}
+.mw-content-ltr figure[typeof*='mw:Image/Thumb'] > a:after,
+.mw-content-ltr figure[typeof*='mw:Video/Thumb'] > a:after,
+.mw-content-ltr figure[typeof*='mw:Audio/Thumb'] > a:after {
+  /* @noflip */
+  float: right;
+  /* @noflip */
+  background-image: url(/w/resources/src/mediawiki.skinning/images/magnify-clip-ltr.png?4f704);
+  /* @noflip */
+  background-image: linear-gradient(transparent, transparent), url(/w/resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg?7fa0a);
+}
+.mw-content-rtl figure[typeof*='mw:Image/Thumb'] > a:after,
+.mw-content-rtl figure[typeof*='mw:Video/Thumb'] > a:after,
+.mw-content-rtl figure[typeof*='mw:Audio/Thumb'] > a:after {
+  /* @noflip */
+  float: left;
+  /* @noflip */
+  background-image: url(/w/resources/src/mediawiki.skinning/images/magnify-clip-rtl.png?a9fb3);
+  /* @noflip */
+  background-image: linear-gradient(transparent, transparent), url(/w/resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg?96de0);
 }
 /* Same as img.thumbborder in content.css */
 .mw-image-border > *:first-child > img,
 .mw-image-border > *:first-child > video {
   border: 1px solid #eaecf0;
-}
-/* Hide the caption for frameless and plain floated images */
-figure[typeof~='mw:Image/Frameless'] > figcaption,
-figure[typeof~='mw:Video/Frameless'] > figcaption,
-figure[typeof~='mw:Audio/Frameless'] > figcaption,
-figure[typeof~='mw:Image'] > figcaption,
-figure[typeof~='mw:Video'] > figcaption,
-figure[typeof~='mw:Audio'] > figcaption {
-  display: none;
 }
