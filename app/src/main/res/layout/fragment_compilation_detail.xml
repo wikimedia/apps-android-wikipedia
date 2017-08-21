@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/window_background_color"
+    android:background="?attr/offline_library_background_color"
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
@@ -68,6 +68,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="16dp"
             android:orientation="vertical">
 
             <include layout="@layout/include_compilation_info"/>
@@ -77,8 +78,10 @@
                 android:id="@+id/button_compilation_detail_download"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 style="@style/App.Button.TransparentBlue"
                 android:text="@string/offline_compilation_detail_button_download"/>
 
@@ -87,16 +90,14 @@
                 android:id="@+id/view_compilation_detail_download_control"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"/>
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"/>
 
             <!-- Bottom buttons for downloaded compilation -->
             <LinearLayout
                 android:id="@+id/compilation_detail_downloaded_buttons_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
                 android:visibility="gone"
                 tools:visibility="visible">
 
@@ -106,6 +107,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     style="@style/App.Button.TransparentBlue"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
                     android:text="@string/offline_compilation_detail_button_remove"/>
 
                 <TextView
@@ -114,8 +117,20 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     style="@style/App.Button.Blue"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
                     android:text="@string/offline_my_compilations"/>
             </LinearLayout>
+
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/view_compilation_info_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                android:textColor="?attr/feed_text_secondary_color"
+                android:lineSpacingMultiplier="1.2"
+                style="@style/RtlAwareTextView"/>
 
         </LinearLayout>
 

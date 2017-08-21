@@ -73,8 +73,8 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
         nameView.setText(compilation.name());
         dateSizeView.setText(String.format(getString(R.string.offline_compilation_detail_date_size),
                 getShortDateString(compilation.timestamp()), bytesToGB(compilation.size())));
-        summaryView.setText(compilation.summary());
-        descriptionView.setText(compilation.description());
+        summaryView.setText(compilation.description());
+        // descriptionView.setText(""); // TODO: update this to use description() if a "summary" is added to ZIMs
         downloadButton.setText(String.format(getString(R.string.offline_compilation_detail_button_download),
                 bytesToGB(compilation.size())));
 
