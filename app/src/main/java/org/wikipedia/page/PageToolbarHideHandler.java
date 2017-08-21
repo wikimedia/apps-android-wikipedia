@@ -2,9 +2,7 @@ package org.wikipedia.page;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 
@@ -26,8 +24,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
         LayerDrawable toolbarBackgroundLayers = (LayerDrawable) hideableView.getBackground();
         toolbarBackground = toolbarBackgroundLayers.findDrawableByLayerId(R.id.toolbar_background_solid).mutate();
-        initToolbarGradient(toolbarBackgroundLayers,
-                ContextCompat.getColor(hideableView.getContext(), R.color.lead_gradient_start));
+        initToolbarGradient(toolbarBackgroundLayers);
 
         statusBar = hideableView.findViewById(R.id.empty_status_bar).getBackground().mutate();
     }
@@ -60,8 +57,8 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         statusBar.setAlpha(opacity);
     }
 
-    private void initToolbarGradient(LayerDrawable toolbarBackgroundLayers, @ColorInt int baseColor) {
-        toolbarGradient = GradientUtil.getCubicGradient(baseColor, Gravity.TOP);
+    private void initToolbarGradient(LayerDrawable toolbarBackgroundLayers) {
+        toolbarGradient = GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP);
         toolbarBackgroundLayers.setDrawableByLayerId(R.id.toolbar_background_gradient, toolbarGradient);
     }
 

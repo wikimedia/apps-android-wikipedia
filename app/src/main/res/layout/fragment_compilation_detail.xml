@@ -22,7 +22,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/main_toolbar_color"
-            app:statusBarScrim="?attr/main_toolbar_color">
+            app:statusBarScrim="?attr/main_status_bar_color">
 
             <FrameLayout
                 android:id="@+id/compilation_detail_header_container"

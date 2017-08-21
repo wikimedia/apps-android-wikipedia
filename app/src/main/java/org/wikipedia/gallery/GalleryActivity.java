@@ -173,7 +173,7 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         // force the theme to dark...
         setTheme(Theme.DARK.getResourceId());
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_gallery);
         initToolbar();
 
@@ -196,9 +196,9 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
 
         errorView = (WikiErrorView) findViewById(R.id.view_gallery_error);
         ((ImageView) errorView.findViewById(R.id.view_wiki_error_icon))
-                .setColorFilter(ContextCompat.getColor(this, R.color.view_wiki_error_icon_tint_light));
+                .setColorFilter(color(R.color.view_wiki_error_icon_tint_light));
         ((TextView) errorView.findViewById(R.id.view_wiki_error_text))
-                .setTextColor(ContextCompat.getColor(this, R.color.view_wiki_error_text_color_light));
+                .setTextColor(color(R.color.view_wiki_error_text_color_light));
         errorView.setBackClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -627,8 +627,7 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
     }
 
     private void setBackgroundGradient(View view, int gravity) {
-        ViewUtil.setBackgroundDrawable(view, GradientUtil.getCubicGradient(
-                color(R.color.lead_gradient_start), gravity));
+        ViewUtil.setBackgroundDrawable(view, GradientUtil.getPowerGradient(R.color.lead_gradient_start, gravity));
     }
 
     private void initToolbar() {

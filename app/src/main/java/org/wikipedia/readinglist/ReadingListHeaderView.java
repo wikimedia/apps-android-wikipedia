@@ -2,7 +2,6 @@ package org.wikipedia.readinglist;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -79,8 +78,7 @@ public class ReadingListHeaderView extends FrameLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
 
-        ViewUtil.setBackgroundDrawable(gradientView,
-                GradientUtil.getCubicGradient(Color.BLACK, Gravity.TOP));
+        ViewUtil.setBackgroundDrawable(gradientView, GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
 
         if (isInEditMode()) {
             return;
