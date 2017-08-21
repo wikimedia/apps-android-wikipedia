@@ -56,6 +56,7 @@ public final class OfflineManager {
         lastSearchTime = System.currentTimeMillis();
         searchTask = new CompilationSearchTask() {
             @Override public void onFinish(List<Compilation> results) {
+                searchTask = null;
                 if (isCancelled()) {
                     return;
                 }
@@ -81,6 +82,7 @@ public final class OfflineManager {
             }
 
             @Override public void onCatch(Throwable caught) {
+                searchTask = null;
                 L.e("Error while searching for compilations.", caught);
                 callback.onError(caught);
             }
