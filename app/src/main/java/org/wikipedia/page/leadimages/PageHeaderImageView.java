@@ -3,7 +3,6 @@ package org.wikipedia.page.leadimages;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.PointF;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.Nullable;
@@ -87,7 +86,6 @@ public class PageHeaderImageView extends FrameLayout {
         inflate(getContext(), R.layout.view_page_header_image, this);
         ButterKnife.bind(this);
 
-        Drawable gradient = getPowerGradient(R.color.new_lead_gradient_start, Gravity.BOTTOM);
-        ViewUtil.setBackgroundDrawable(gradientView, gradient);
+        ViewUtil.setBackgroundDrawable(gradientView, getPowerGradient(R.color.new_lead_gradient_start, Gravity.TOP));
     }
 }

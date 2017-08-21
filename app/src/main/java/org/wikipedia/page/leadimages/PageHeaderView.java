@@ -6,8 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -61,7 +59,6 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class PageHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_page_header_image) PageHeaderImageView image;
-    @BindView(R.id.view_page_header_image_gradient) View gradient;
     @BindView(R.id.view_page_title_text) AppTextView titleText;
     @BindView(R.id.view_page_subtitle_text) AppTextView subtitleText;
     @BindView(R.id.view_page_header_divider) View divider;
@@ -115,7 +112,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
         updateText();
 
-        setTextColor(getThemedColor(getContext(), R.attr.page_title_color));
+        titleText.setTextColor(getThemedColor(getContext(), R.attr.page_title_color));
     }
 
     public void showTextImage() {
@@ -124,8 +121,8 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
         updateText();
 
-        setTextColor(getThemedColor(getContext(), R.attr.page_title_color));
-        setImageHeight(leadImageHeightForDevice());
+        titleText.setTextColor(getThemedColor(getContext(), R.attr.page_title_color));
+        DimenUtil.setViewHeight(image, leadImageHeightForDevice());
     }
 
     // TODO: remove.
@@ -255,10 +252,6 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
         avPlayer.deinit();
     }
 
-    private void setTextColor(@ColorInt int color) {
-        titleText.setTextColor(color);
-    }
-
     private void updateScroll() {
         updateScroll((int) -getTranslationY());
     }
@@ -321,22 +314,11 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
                 TextUtils.isEmpty(subtitle) ? new StyleSpan(Typeface.ITALIC) : null);
     }
 
-    private void setImageHeight(int height) {
-        final float oneThird = 1 / 3;
-        DimenUtil.setViewHeight(image, height);
-        DimenUtil.setViewHeight(gradient, (int) oneThird * height);
-    }
-
     private void init() {
         inflate(getContext(), R.layout.view_page_header, this);
         ButterKnife.bind(this);
         FeedbackUtil.setToolbarButtonLongPressToast(editPencil);
         hide();
-    }
-
-    @ColorInt
-    private int getColor(@ColorRes int id) {
-        return ContextCompat.getColor(getContext(), id);
     }
 
     private int getDimensionPixelSize(@DimenRes int id) {
