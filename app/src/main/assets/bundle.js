@@ -375,12 +375,12 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.innerHTML = payload.section.text;
     content.id = "content_block_0";
 
-    applySectionTransforms(content, true);
-
     // append the content to the DOM now, so that we can obtain
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
     document.getElementById( "loading_sections").className = "loading";
+
+    applySectionTransforms(content, true);
 
     bridge.sendMessage( "pageInfo", {
       "issues" : collectIssues(),
