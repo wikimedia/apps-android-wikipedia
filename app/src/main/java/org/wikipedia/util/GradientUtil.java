@@ -7,28 +7,34 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PaintDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
+
+import org.wikipedia.WikipediaApp;
 
 public final class GradientUtil {
     private static final int GRADIENT_NUM_STOPS = 8;
     private static final int GRADIENT_POWER = 3;
 
-    public static Drawable getCubicGradient(int baseColor, int gravity) {
+    public static Drawable getPowerGradient(@ColorRes int baseColor, int gravity) {
         PaintDrawable drawable = new PaintDrawable();
         drawable.setShape(new RectShape());
-        setCubicGradient(drawable, baseColor, gravity);
+        setPowerGradient(drawable, ContextCompat.getColor(WikipediaApp.getInstance(), baseColor), gravity);
         return drawable;
     }
 
     /**
-     * Create a cubic gradient by using a compound gradient composed of a series of linear
+     * Create a power gradient by using a compound gradient composed of a series of linear
      * gradients with intermediate color values.
      * adapted from: https://github.com/romannurik/muzei/blob/master/main/src/main/java/com/google/android/apps/muzei/util/ScrimUtil.java
      * @param baseColor The color from which the gradient starts (the ending color is transparent).
      * @param gravity Where the gradient should start from. Note: when making horizontal gradients,
      *                remember to use START/END, instead of LEFT/RIGHT.
      */
-    public static void setCubicGradient(PaintDrawable drawable, int baseColor, int gravity) {
+    private static void setPowerGradient(@NonNull PaintDrawable drawable, @ColorInt int baseColor, int gravity) {
         final int[] stopColors = new int[GRADIENT_NUM_STOPS];
 
         int red = Color.red(baseColor);

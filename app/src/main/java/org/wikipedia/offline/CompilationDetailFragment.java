@@ -1,6 +1,5 @@
 package org.wikipedia.offline;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -67,7 +66,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
         compilation = GsonUnmarshaller.unmarshal(Compilation.class,
                 getActivity().getIntent().getStringExtra(EXTRA_COMPILATION));
 
-        ViewUtil.setBackgroundDrawable(gradientView, GradientUtil.getCubicGradient(Color.BLACK, Gravity.TOP));
+        ViewUtil.setBackgroundDrawable(gradientView, GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
 
         imageView.loadImage(compilation.featureImageUri());
         nameView.setText(compilation.name());

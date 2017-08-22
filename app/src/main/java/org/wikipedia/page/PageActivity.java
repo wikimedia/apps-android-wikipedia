@@ -122,8 +122,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         app.checkCrashes(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);

@@ -6,9 +6,7 @@ import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -22,7 +20,7 @@ import org.wikipedia.views.ViewUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static org.wikipedia.util.GradientUtil.getCubicGradient;
+import static org.wikipedia.util.GradientUtil.getPowerGradient;
 
 public class PageHeaderImageView extends FrameLayout {
     @BindView(R.id.view_page_header_image_image) FaceAndColorDetectImageView image;
@@ -89,8 +87,7 @@ public class PageHeaderImageView extends FrameLayout {
         inflate(getContext(), R.layout.view_page_header_image, this);
         ButterKnife.bind(this);
 
-        @ColorInt int color = ContextCompat.getColor(getContext(), R.color.new_lead_gradient_start);
-        Drawable gradient = getCubicGradient(color, Gravity.BOTTOM);
+        Drawable gradient = getPowerGradient(R.color.new_lead_gradient_start, Gravity.BOTTOM);
         ViewUtil.setBackgroundDrawable(gradientView, gradient);
     }
 }
