@@ -16,4 +16,9 @@ public class HttpStatusException extends IOException {
     public int code() {
         return code;
     }
+
+    @Override
+    public String getMessage() {
+        return "Code: " + Integer.toString(code);
+    }
 }
