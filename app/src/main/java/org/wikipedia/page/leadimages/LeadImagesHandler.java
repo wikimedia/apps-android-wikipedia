@@ -98,6 +98,7 @@ public class LeadImagesHandler {
     public boolean isLeadImageEnabled() {
         return WikipediaApp.getInstance().isImageDownloadEnabled()
                 && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
+                && !isMainPage()
                 && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
