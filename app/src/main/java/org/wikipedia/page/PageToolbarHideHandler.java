@@ -8,7 +8,6 @@ import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.GradientUtil;
 
 public class PageToolbarHideHandler extends ViewHideHandler {
     private static final int FULL_OPACITY = 255;
@@ -16,7 +15,6 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     private boolean fadeEnabled;
     private boolean forceNoFade;
     @NonNull private final Drawable toolbarBackground;
-    private Drawable toolbarGradient;
     @NonNull private final Drawable statusBar;
 
     public PageToolbarHideHandler(@NonNull View hideableView) {
@@ -24,7 +22,6 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
         LayerDrawable toolbarBackgroundLayers = (LayerDrawable) hideableView.getBackground();
         toolbarBackground = toolbarBackgroundLayers.findDrawableByLayerId(R.id.toolbar_background_solid).mutate();
-        initToolbarGradient(toolbarBackgroundLayers);
 
         statusBar = hideableView.findViewById(R.id.empty_status_bar).getBackground().mutate();
     }
@@ -53,13 +50,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     protected void onScrolled(int oldScrollY, int scrollY) {
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);
-        toolbarGradient.setAlpha(FULL_OPACITY - opacity);
         statusBar.setAlpha(opacity);
-    }
-
-    private void initToolbarGradient(LayerDrawable toolbarBackgroundLayers) {
-        toolbarGradient = GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP);
-        toolbarBackgroundLayers.setDrawableByLayerId(R.id.toolbar_background_gradient, toolbarGradient);
     }
 
     /** @return Alpha value between 0 and 0xff. */
