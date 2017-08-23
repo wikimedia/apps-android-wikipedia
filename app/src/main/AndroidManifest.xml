@@ -188,7 +188,8 @@
         <activity
             android:name=".offline.LocalCompilationsActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleTask"/>
 
         <activity
             android:name=".offline.RemoteCompilationsActivity"
@@ -267,6 +268,12 @@
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver">
             <intent-filter>
                 <action android:name=".notifications.NotificationPollBroadcastReceiver.ACTION_POLL" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".offline.DownloadManagerReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
             </intent-filter>
         </receiver>
 
