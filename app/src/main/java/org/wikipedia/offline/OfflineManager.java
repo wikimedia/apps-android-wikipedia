@@ -90,6 +90,11 @@ public final class OfflineManager {
         searchTask.execute();
     }
 
+    public void remove(@NonNull Compilation compilation) {
+        new File(compilation.path()).delete();
+        compilations.remove(compilation);
+    }
+
     void updateFromRemoteMetadata(@NonNull List<Compilation> remoteCompilations) {
         remoteCompilationCache = remoteCompilations;
         for (Compilation remoteCompilation : remoteCompilationCache) {

@@ -1,5 +1,6 @@
 package org.wikipedia.offline;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -108,6 +109,12 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
     }
 
     @OnClick(R.id.button_compilation_detail_remove) void onRemoveClick() {
+        getDownloadObserver().removeWithConfirmation(getActivity(), compilation, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                getAppCompatActivity().finish();
+            }
+        });
     }
 
     private AppCompatActivity getAppCompatActivity() {

@@ -2,14 +2,17 @@ package org.wikipedia.offline;
 
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.SparseArrayCompat;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
 import java.util.ArrayList;
@@ -62,6 +65,23 @@ public class DownloadManagerObserver {
                 downloadManager.remove(item.id());
             }
         }
+    }
+
+    public void removeWithConfirmation(@NonNull Context context,
+                                       @NonNull final Compilation compilation,
+                                       @NonNull final DialogInterface.OnClickListener onRemoveClick) {
+        new AlertDialog.Builder(context)
+                .setMessage(R.string.compilation_remove_confirm)
+                .setPositiveButton(R.string.compilation_remove_confirm_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        remove(compilation);
+                        OfflineManager.instance().remove(compilation);
+                        onRemoveClick.onClick(dialogInterface, i);
+                    }
+                })
+                .setNegativeButton(R.string.compilation_remove_confirm_no, null)
+                .show();
     }
 
     private class PollRunnable implements Runnable {

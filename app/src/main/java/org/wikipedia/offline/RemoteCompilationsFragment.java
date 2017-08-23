@@ -355,7 +355,9 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.menu_compilation_download:
-                        MediaDownloadReceiver.download(getContext(), compilation);
+                        if (!getDownloadObserver().isDownloading(compilation)) {
+                            MediaDownloadReceiver.download(getContext(), compilation);
+                        }
                         return false;
                     default:
                         return false;

@@ -499,6 +499,11 @@
     <string name="compilation_download_cancel_confirm">Are you sure you want to cancel downloading this compilation?</string>
     <string name="compilation_download_cancel_confirm_yes">Yes</string>
     <string name="compilation_download_cancel_confirm_no">No</string>
+    <string name="compilation_share">Share</string>
+    <string name="compilation_remove">Remove</string>
+    <string name="compilation_remove_confirm">Are you sure you want to remove this compilation from your device?</string>
+    <string name="compilation_remove_confirm_yes">Yes</string>
+    <string name="compilation_remove_confirm_no">No</string>
     <string name="offline_library_title">Offline Library</string>
     <string name="offline_library_empty_title">Nothing in your Offline Library</string>
     <string name="offline_library_empty_description">Choose a pack of Wikipedia articles to download now, for data-free access later.</string>
