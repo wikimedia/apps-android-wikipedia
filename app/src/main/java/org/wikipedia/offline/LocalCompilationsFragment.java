@@ -1,11 +1,15 @@
 package org.wikipedia.offline;
 
+import android.content.DialogInterface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
 import android.text.TextUtils;
@@ -324,6 +328,9 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
 
         @Override
         public void onActionClick(@Nullable Compilation item, @NonNull View view) {
+            if (item != null) {
+                showCompilationOverflowMenu(item, view);
+            }
         }
 
         @Override
@@ -352,6 +359,44 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
         protected String getSearchHintString() {
             return getString(R.string.offline_compilations_search_by_name);
         }
+    }
+
+    private void showCompilationOverflowMenu(@NonNull final Compilation compilation, @NonNull View anchorView) {
+        PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView);
+        menu.getMenuInflater().inflate(R.menu.menu_local_compilation_item, menu.getMenu());
+        menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.menu_compilation_share:
+                        share(compilation);
+                        return false;
+                    case R.id.menu_compilation_remove:
+                        remove(compilation);
+                        return false;
+                    default:
+                        return false;
+                }
+            }
+        });
+        menu.show();
+    }
+
+    private void share(@NonNull Compilation compilation) {
+        ShareCompat.IntentBuilder.from(getActivity())
+                .setChooserTitle(R.string.share_via)
+                .setType(Compilation.MIME_TYPE)
+                .setStream(Uri.parse("file://" + compilation.path()))
+                .startChooser();
+    }
+
+    private void remove(@NonNull final Compilation compilation) {
+        getDownloadObserver().removeWithConfirmation(getActivity(), compilation, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                beginUpdate();
+            }
+        });
     }
 
     @Nullable private Callback callback() {

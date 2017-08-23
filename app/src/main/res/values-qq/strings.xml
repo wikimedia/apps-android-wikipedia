@@ -446,6 +446,11 @@
   <string name="compilation_download_cancel_confirm">Confirmation message asking if the user really wants to cancel the download.</string>
   <string name="compilation_download_cancel_confirm_yes">Affirmative answer to cancel the download.\n{{Identical|Yes}}</string>
   <string name="compilation_download_cancel_confirm_no">Negative answer to cancel the download.\n{{Identical|No}}</string>
+  <string name="compilation_share">Menu label for sharing the selected compilation through another app.</string>
+  <string name="compilation_remove">Menu label for removing the selected compilation from the device.</string>
+  <string name="compilation_remove_confirm">Confirmation message asking if the user really wants to remove the selected compilation from the device.</string>
+  <string name="compilation_remove_confirm_yes">Affirmative answer to remove the selected compilation.\n{{Identical|Yes}}</string>
+  <string name="compilation_remove_confirm_no">Negative answer to cancel the selected compilation.\n{{Identical|No}}</string>
   <string name="offline_library_title">Title shown at the top of the activity for managing the offline library.</string>
   <string name="offline_library_empty_title">Message shown when the offline library is empty.</string>
   <string name="offline_library_empty_description">Explanation encouraging the user to download an article pack for offline use later.</string>
