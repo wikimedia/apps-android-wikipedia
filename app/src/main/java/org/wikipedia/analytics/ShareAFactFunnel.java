@@ -61,8 +61,8 @@ public class ShareAFactFunnel extends Funnel {
     }
 
     /** Text in the web view was highlighted. */
-    public void logHighlight(String text) {
-        logAction("highlight", text);
+    public void logHighlight() {
+        logAction("highlight", "");
     }
 
     /** The share button in the UI was tapped. */

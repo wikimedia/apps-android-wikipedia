@@ -12,14 +12,13 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ActionMode;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.ActionMode;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -62,7 +61,6 @@ import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
-import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.snippet.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
@@ -706,7 +704,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 });
     }
 
-    public void onActionModeShown(CompatActionMode mode) {
+    public void onActionModeShown(ActionMode mode) {
         // make sure we have a page loaded, since shareHandler makes references to it.
         if (model.getPage() != null) {
             shareHandler.onTextSelected(mode);
@@ -848,7 +846,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 findInPageActionMode = mode;
                 MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
-                MenuItemCompat.setActionProvider(menuItem, findInPageActionProvider);
+                menuItem.setActionProvider(findInPageActionProvider);
+                menuItem.expandActionView();
                 return true;
             }
 

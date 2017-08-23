@@ -9,6 +9,7 @@ import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,14 +58,13 @@ public class ShareHandler {
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
     private static final String PAYLOAD_PURPOSE_EDIT_HERE = "edit_here";
-    private static final String PAYLOAD_PURPOSE_HIGHLIGHT = "highlight";
     private static final String PAYLOAD_TEXT_KEY = "text";
 
     @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.foundation_blue;
 
     @NonNull private final PageFragment fragment;
     @NonNull private final CommunicationBridge bridge;
-    @Nullable private CompatActionMode webViewActionMode;
+    @Nullable private ActionMode webViewActionMode;
     @Nullable private ShareAFactFunnel funnel;
 
     private void createFunnel() {
@@ -94,9 +94,6 @@ public class ShareHandler {
                     case PAYLOAD_PURPOSE_EDIT_HERE:
                         onEditHerePayload(messagePayload.optInt("sectionID", 0), text);
                         break;
-                    case PAYLOAD_PURPOSE_HIGHLIGHT:
-                        onHighlightText(text);
-                        break;
                     default:
                         L.d("Unknown purpose=" + purpose);
                 }
@@ -104,11 +101,11 @@ public class ShareHandler {
         });
     }
 
-    private void onHighlightText(String text) {
+    private void onHighlightText() {
         if (funnel == null) {
             createFunnel();
         }
-        funnel.logHighlight(text);
+        funnel.logHighlight();
     }
 
     public void showWiktionaryDefinition(String text) {
@@ -167,7 +164,7 @@ public class ShareHandler {
     /**
      * @param mode ActionMode under which this context is starting.
      */
-    public void onTextSelected(CompatActionMode mode) {
+    public void onTextSelected(ActionMode mode) {
         webViewActionMode = mode;
         Menu menu = mode.getMenu();
         MenuItem shareItem = menu.findItem(R.id.menu_text_select_share);
@@ -203,7 +200,7 @@ public class ShareHandler {
             editItem.setVisible(false);
         }
 
-        requestTextSelection(PAYLOAD_PURPOSE_HIGHLIGHT);
+        onHighlightText();
     }
 
     private boolean shouldEnableWiktionaryDialog() {
