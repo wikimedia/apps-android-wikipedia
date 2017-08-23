@@ -159,7 +159,7 @@ dependencies {
     String supportVersion = '25.4.0'
     String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.5.1'
-    String frescoVersion = '1.4.0' // When updating this version, resync file copies under
+    String frescoVersion = '1.5.0' // When updating this version, resync file copies under
                                    // app/src/main/java/com/facebook
     String testingSupportVersion = '0.5'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
