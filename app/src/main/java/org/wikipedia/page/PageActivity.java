@@ -23,10 +23,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
-import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
+import android.view.ActionMode;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -53,7 +54,6 @@ import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -100,7 +100,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     private WikipediaApp app;
     @Nullable private Bus bus;
     private EventBusMethods busMethods;
-    private CompatActionMode currentActionMode;
+    private ActionMode currentActionMode;
 
     private PageToolbarHideHandler toolbarHideHandler;
 
@@ -186,10 +186,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     private void finishActionMode() {
         currentActionMode.finish();
-    }
-
-    private void nullifyActionMode() {
-        currentActionMode = null;
     }
 
     public void hideSoftKeyboard() {
@@ -504,7 +500,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Nullable
     @Override
     public ActionMode onPageStartSupportActionMode(@NonNull ActionMode.Callback callback) {
-        return startSupportActionMode(callback);
+        return startActionMode(callback);
     }
 
     @Override
@@ -743,43 +739,21 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         super.onDestroy();
     }
 
-    /**
-     * ActionMode that is invoked when the user long-presses inside the WebView.
-     * @param mode ActionMode under which this context is starting.
-     */
     @Override
-    public void onSupportActionModeStarted(@NonNull ActionMode mode) {
-        if (!isCabOpen()) {
-            conditionallyInjectCustomCabMenu(mode);
-        }
-        super.onSupportActionModeStarted(mode);
-    }
-
-    @Override
-    public void onSupportActionModeFinished(@NonNull ActionMode mode) {
-        super.onSupportActionModeFinished(mode);
-        nullifyActionMode();
-    }
-
-    @Override
-    public void onActionModeStarted(android.view.ActionMode mode) {
-        if (!isCabOpen()) {
-            conditionallyInjectCustomCabMenu(mode);
-        }
+    public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
+        if (!isCabOpen() && mode.getTag() == null) {
+            Menu menu = mode.getMenu();
+            menu.clear();
+            mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+            pageFragment.onActionModeShown(mode);
+        }
     }
 
     @Override
     public void onActionModeFinished(android.view.ActionMode mode) {
         super.onActionModeFinished(mode);
-        nullifyActionMode();
-    }
-
-    private <T> void conditionallyInjectCustomCabMenu(T mode) {
-        currentActionMode = new CompatActionMode(mode);
-        if (currentActionMode.shouldInjectCustomMenu()) {
-            currentActionMode.injectCustomMenu(pageFragment);
-        }
+        currentActionMode = null;
     }
 
     private void registerBus() {

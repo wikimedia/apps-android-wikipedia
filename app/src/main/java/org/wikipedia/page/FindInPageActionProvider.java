@@ -3,8 +3,8 @@ package org.wikipedia.page;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.v4.view.ActionProvider;
 import android.support.v7.widget.SearchView;
+import android.view.ActionProvider;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView.FindListener;
@@ -127,7 +127,7 @@ public class FindInPageActionProvider extends ActionProvider {
                         return;
                     }
                     if (numberOfMatches > 0) {
-                        findInPageMatch.setText(getContext().getString(R.string.find_in_page_result,
+                        findInPageMatch.setText(fragment.getString(R.string.find_in_page_result,
                                 activeMatchOrdinal + 1, numberOfMatches));
                         findInPageNext.setEnabled(true);
                         findInPagePrev.setEnabled(true);
