@@ -303,6 +303,13 @@ bridge.registerListener( "displayFromZim", function( payload ) {
 
     // perform transforms on the last section
     performZimSectionTransforms( sectionIndex, currentSectionNode );
+    if (currentSectionNode.childNodes && currentSectionNode.childNodes.length > 1) {
+        // In the current version of ZIM files, the last div in the last section is the
+        // manually-appended "issued from Wikipedia" disclaimer, which we need to remove.
+        // (Unfortunately this div doesn't have any identifying classes or ids, so we can't
+        // find it using a selector.)
+        currentSectionNode.removeChild(currentSectionNode.childNodes[currentSectionNode.childNodes.length - 1]);
+    }
 
     bridge.sendMessage( "pageInfo", {
       "issues" : collectIssues(),
