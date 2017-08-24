@@ -199,10 +199,14 @@
             android:name=".offline.CompilationDetailActivity"
             android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name=".offline.OfflineTutorialActivity"
+            android:theme="@style/AppTheme"/>
+
         <provider
-                android:authorities="${applicationId}"
-                android:name=".database.AppContentProvider"
-                android:exported="false" />
+            android:authorities="${applicationId}"
+            android:name=".database.AppContentProvider"
+            android:exported="false" />
 
         <provider
             android:authorities="@string/user_option_authority"

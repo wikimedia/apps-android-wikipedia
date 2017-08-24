@@ -456,6 +456,13 @@
   <string name="offline_library_empty_description">Explanation encouraging the user to download an article pack for offline use later.</string>
   <string name="offline_library_empty_search">Button label for searching the list of possible article packs to download.</string>
   <string name="offline_library_onboarding_action">Button label for discovering more about the Offline Library.</string>
+  <string name="offline_library_onboarding_button_done">Label for a button for the user to confirm that the user is done with the tutorial for the Offline Library.</string>
+  <string name="offline_library_onboarding_build_library_title">Title for a tutorial screen about the Offline Library feature.</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Short explanatory text about the Offline Library feature.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Title for a tutorial screen about the Offline Library feature.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Short explanatory text about the Offline Library feature.</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Title for a tutorial screen about the Offline Library feature.</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Short explanatory text about the Offline Library feature.</string>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>

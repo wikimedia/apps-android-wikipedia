@@ -1,5 +1,6 @@
 package org.wikipedia.feed;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IntRange;
@@ -34,6 +35,7 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.LocalCompilationsActivity;
+import org.wikipedia.offline.OfflineTutorialActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
@@ -45,6 +47,9 @@ import org.wikipedia.views.ExploreOverflowView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+
+import static android.app.Activity.RESULT_OK;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_OFFLINE_TUTORIAL;
 
 public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
@@ -177,6 +182,16 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public void onPause() {
         super.onPause();
         funnel.exit();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ACTIVITY_REQUEST_OFFLINE_TUTORIAL && resultCode == RESULT_OK) {
+            Prefs.setOfflineTutorialCardEnabled(false);
+            refresh();
+            feedCallback.onViewCompilations();
+        }
     }
 
     @Override
@@ -426,7 +441,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onOnboardingPositiveAction(@NonNull Card card, @NonNull OnboardingCard.OnboardingAction action) {
             if (action == OnboardingCard.OnboardingAction.OFFLINE_LIBRARY) {
-                onViewCompilations();
+                startActivityForResult(OfflineTutorialActivity.newIntent(getContext()),
+                        ACTIVITY_REQUEST_OFFLINE_TUTORIAL);
             }
         }
     }

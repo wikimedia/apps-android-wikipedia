@@ -509,6 +509,13 @@
     <string name="offline_library_empty_description">Choose a pack of Wikipedia articles to download now, for data-free access later.</string>
     <string name="offline_library_empty_search">Search Offline Library</string>
     <string name="offline_library_onboarding_action">Learn about your Offline Library</string>
+    <string name="offline_library_onboarding_button_done">Done</string>
+    <string name="offline_library_onboarding_build_library_title">Build your Offline Library</string>
+    <string name="offline_library_onboarding_build_library_subtitle">Download Wikipedia article packs now for data-free access later.</string>
+    <string name="offline_library_onboarding_uninterrupted_reading_title">Uninterrupted reading</string>
+    <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Keep on reading and searching for articles within your Offline Library when you don\'t have access to internet.</string>
+    <string name="offline_library_onboarding_store_knowledge_title">Store more knowledge</string>
+    <string name="offline_library_onboarding_store_knowledge_subtitle">Download as much Wikipedia as your device can handle. Offline Library can also access article packs on external storage.</string>
     <!-- /Offline -->
 
     <!-- Onboarding -->

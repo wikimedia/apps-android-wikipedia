@@ -549,5 +549,9 @@ public final class Prefs {
         setString(R.string.preference_key_compilation_cache, GsonMarshaller.marshal(compilations));
     }
 
+    public static void setOfflineTutorialCardEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_offline_onboarding_card_enabled, enabled);
+    }
+
     private Prefs() { }
 }
