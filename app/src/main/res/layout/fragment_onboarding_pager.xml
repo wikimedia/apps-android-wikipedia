@@ -1,74 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/onboarding_gradient_background_135">
+    android:orientation="vertical">
 
     <android.support.v4.view.ViewPager
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_pager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent"/>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/white_translucent_40"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/fragment_onboarding_skip_button"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="0dp"
-            android:text="@string/onboarding_skip"
-            android:textColor="@android:color/white" />
-
-        <com.rd.PageIndicatorView
-            android:id="@+id/view_onboarding_page_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:piv_radius="4dp"
-            app:piv_selectedColor="@android:color/white"
-            app:piv_unselectedColor="@color/white_translucent_40"
-            app:piv_viewPager="@id/fragment_pager" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/white_translucent_40"/>
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="end|center_vertical">
-
-            <ImageView
-                android:id="@+id/fragment_onboarding_forward_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="end|center_vertical"
-                app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                android:scaleType="center"
-                android:clickable="true"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/onboarding_continue"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/fragment_onboarding_done_button"
+                android:id="@+id/fragment_onboarding_skip_button"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="0dp"
-                android:text="@string/onboarding_get_started"
+                android:text="@string/onboarding_skip"
                 android:textColor="@android:color/white" />
+
+            <com.rd.PageIndicatorView
+                android:id="@+id/view_onboarding_page_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:piv_radius="4dp"
+                app:piv_selectedColor="@android:color/white"
+                app:piv_unselectedColor="@color/white_translucent_40"
+                app:piv_viewPager="@id/fragment_pager" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center_vertical">
+
+                <ImageView
+                    android:id="@+id/fragment_onboarding_forward_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end|center_vertical"
+                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                    android:scaleType="center"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/onboarding_continue"/>
+
+                <TextView
+                    android:id="@+id/fragment_onboarding_done_button"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:text="@string/onboarding_get_started"
+                    android:textColor="@android:color/white" />
+
+            </FrameLayout>
 
         </FrameLayout>
 
-    </FrameLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

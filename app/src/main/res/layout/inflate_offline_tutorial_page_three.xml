@@ -8,4 +8,5 @@
     app:centeredImage="@drawable/ic_illustration_offlinelib_useredu_3"
     app:imageSize="240dp"
     app:primaryText="@string/offline_library_onboarding_store_knowledge_title"
-    app:secondaryText="@string/offline_library_onboarding_store_knowledge_subtitle" />
+    app:secondaryText="@string/offline_library_onboarding_store_knowledge_subtitle"
+    app:background="@drawable/onboarding_gradient_background_offline_three"/>
