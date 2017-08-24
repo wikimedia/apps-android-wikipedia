@@ -79,7 +79,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":19}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":18}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -130,25 +130,7 @@ bridge.registerListener( 'toggleDarkMode', function() {
     pagelib.ThemeTransform.setTheme( document, theme );
     pagelib.DimImagesTransform.dim( window, window.isDarkMode );
 } );
-},{"./bridge":2,"wikimedia-page-library":20}],4:[function(require,module,exports){
-var transformer = require('./transformer');
-
-transformer.register( 'displayDisambigLink', function( content ) {
-    var hatnotes = content.querySelectorAll( "div.hatnote" );
-    if ( hatnotes.length > 0 ) {
-        var container = document.getElementById( "issues_container" );
-        var wrapper = document.createElement( 'div' );
-        var i = 0,
-            len = hatnotes.length;
-        for (; i < len; i++) {
-            wrapper.appendChild( hatnotes[i] );
-        }
-        container.appendChild( wrapper );
-    }
-    return content;
-} );
-
-},{"./transformer":12}],5:[function(require,module,exports){
+},{"./bridge":2,"wikimedia-page-library":19}],4:[function(require,module,exports){
 var actions = require('./actions');
 var bridge = require('./bridge');
 
@@ -157,7 +139,7 @@ actions.register( "edit_section", function( el, event ) {
     event.preventDefault();
 } );
 
-},{"./actions":1,"./bridge":2}],6:[function(require,module,exports){
+},{"./actions":1,"./bridge":2}],5:[function(require,module,exports){
 var transformer = require('./transformer');
 
 transformer.register( 'displayIssuesLink', function( content ) {
@@ -177,7 +159,7 @@ transformer.register( 'displayIssuesLink', function( content ) {
     return content;
 } );
 
-},{"./transformer":12}],7:[function(require,module,exports){
+},{"./transformer":11}],6:[function(require,module,exports){
 var bridge = require( "./bridge" );
 var transformer = require("./transformer");
 
@@ -201,7 +183,7 @@ bridge.registerListener( "setDecorOffset", function( payload ) {
     transformer.setDecorOffset(payload.offset);
 } );
 
-},{"./bridge":2,"./transformer":12}],8:[function(require,module,exports){
+},{"./bridge":2,"./transformer":11}],7:[function(require,module,exports){
 var bridge = require("./bridge");
 
 /*
@@ -223,7 +205,7 @@ function addIPAonClick( content ) {
 module.exports = {
     addIPAonClick: addIPAonClick
 };
-},{"./bridge":2}],9:[function(require,module,exports){
+},{"./bridge":2}],8:[function(require,module,exports){
 var bridge = require("./bridge");
 var pagelib = require("wikimedia-page-library");
 
@@ -238,7 +220,7 @@ bridge.registerListener( "displayPreviewHTML", function( payload ) {
         pagelib.ThemeTransform.classifyElements( content );
     }
 } );
-},{"./bridge":2,"wikimedia-page-library":20}],10:[function(require,module,exports){
+},{"./bridge":2,"wikimedia-page-library":19}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -254,7 +236,7 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],11:[function(require,module,exports){
+},{"./bridge":2}],10:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
 var clickHandlerSetup = require("./onclick");
@@ -451,7 +433,6 @@ function applySectionTransforms( content, isLeadSection ) {
         }
     }
     if (isLeadSection) {
-        transformer.transform("displayDisambigLink", content);
         transformer.transform("displayIssuesLink", content);
     }
 }
@@ -676,7 +657,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./onclick":8,"./transformer":12,"wikimedia-page-library":20}],12:[function(require,module,exports){
+},{"./bridge":2,"./onclick":7,"./transformer":11,"wikimedia-page-library":19}],11:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -707,7 +688,7 @@ Transformer.prototype.setDecorOffset = function(offset) {
 };
 
 module.exports = new Transformer();
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var pagelib = require("wikimedia-page-library");
 var transformer = require("../transformer");
 
@@ -730,7 +711,7 @@ module.exports = {
     handleTableCollapseOrExpandClick: toggleCollapseClickCallback
 };
 
-},{"../transformer":12,"wikimedia-page-library":20}],14:[function(require,module,exports){
+},{"../transformer":11,"wikimedia-page-library":19}],13:[function(require,module,exports){
 var transformer = require("../transformer");
 var collapseTables = require("./collapseTables");
 
@@ -776,7 +757,7 @@ transformer.register( "hideRefs", function( content ) {
         bottomDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
     }
 } );
-},{"../transformer":12,"./collapseTables":13}],15:[function(require,module,exports){
+},{"../transformer":11,"./collapseTables":12}],14:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "anchorPopUpMediaTransforms", function( content ) {
@@ -809,7 +790,7 @@ transformer.register( "anchorPopUpMediaTransforms", function( content ) {
     }
 } );
 
-},{"../../transformer":12}],16:[function(require,module,exports){
+},{"../../transformer":11}],15:[function(require,module,exports){
 var transformer = require("../../transformer");
 var bridge = require("../../bridge");
 
@@ -858,7 +839,7 @@ transformer.register( "hideIPA", function( content ) {
         containerSpan.onclick = ipaClickHandler;
     }
 } );
-},{"../../bridge":2,"../../transformer":12}],17:[function(require,module,exports){
+},{"../../bridge":2,"../../transformer":11}],16:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 // Move the first non-empty paragraph (and related elements) to the top of the section.
@@ -942,7 +923,7 @@ function addTrailingNodes( span, nodes, startIndex ) {
     }
 }
 
-},{"../../transformer":12}],18:[function(require,module,exports){
+},{"../../transformer":11}],17:[function(require,module,exports){
 var maybeWidenImage = require('wikimedia-page-library').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 
@@ -964,7 +945,7 @@ transformer.register( "widenImages", function( content ) {
     }
 } );
 
-},{"../transformer":12,"wikimedia-page-library":20}],19:[function(require,module,exports){
+},{"../transformer":11,"wikimedia-page-library":19}],18:[function(require,module,exports){
 function ancestorContainsClass( element, className ) {
     var contains = false;
     var curNode = element;
@@ -1013,7 +994,7 @@ module.exports = {
     firstDivAncestor: firstDivAncestor
 };
 
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -3140,4 +3121,4 @@ return pagelib$1;
 })));
 
 
-},{}]},{},[2,7,19,12,13,14,18,15,16,17,1,4,5,6,3,9,10,11]);
+},{}]},{},[2,6,18,11,12,13,17,14,15,16,1,4,5,3,8,9,10]);
