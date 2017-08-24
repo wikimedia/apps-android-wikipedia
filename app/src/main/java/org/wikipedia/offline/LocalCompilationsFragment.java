@@ -41,6 +41,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static org.wikipedia.util.DateUtil.getShortDateString;
+import static org.wikipedia.util.FileUtil.bytesToGB;
+
 public class LocalCompilationsFragment extends DownloadObserverFragment {
     @BindView(R.id.compilation_list_container) View listContainer;
     @BindView(R.id.compilation_list) RecyclerView recyclerView;
@@ -274,7 +277,8 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
             this.compilation = compilation;
             getView().setItem(compilation);
             getView().setTitle(compilation.name());
-            getView().setDescription(compilation.description());
+            getView().setDescription(String.format(getString(R.string.offline_compilation_detail_date_size),
+                    getShortDateString(compilation.timestamp()), bytesToGB(compilation.size())));
             getView().setImageUrl(compilation.thumbUri() == null ? null : compilation.thumbUri().toString());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
