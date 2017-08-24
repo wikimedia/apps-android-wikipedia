@@ -435,14 +435,18 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         public void onViewCompilations() {
-            startActivity(LocalCompilationsActivity.newIntent(getContext()));
+            if (Prefs.isOfflineTutorialCardEnabled()) {
+                startActivityForResult(OfflineTutorialActivity.newIntent(getContext()),
+                        ACTIVITY_REQUEST_OFFLINE_TUTORIAL);
+            } else {
+                startActivity(LocalCompilationsActivity.newIntent(getContext()));
+            }
         }
 
         @Override
         public void onOnboardingPositiveAction(@NonNull Card card, @NonNull OnboardingCard.OnboardingAction action) {
             if (action == OnboardingCard.OnboardingAction.OFFLINE_LIBRARY) {
-                startActivityForResult(OfflineTutorialActivity.newIntent(getContext()),
-                        ACTIVITY_REQUEST_OFFLINE_TUTORIAL);
+                onViewCompilations();
             }
         }
     }
@@ -515,7 +519,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void compilationsClick() {
-            startActivity(LocalCompilationsActivity.newIntent(getContext()));
+            feedCallback.onViewCompilations();
         }
     }
 }

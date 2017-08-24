@@ -31,4 +31,12 @@ public class OfflineTutorialActivity extends SingleFragmentActivity<OfflineTutor
         setResult(RESULT_OK);
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragment().onBackPressed()) {
+            return;
+        }
+        finish();
+    }
 }
