@@ -194,7 +194,6 @@ function applySectionTransforms( content, isLeadSection ) {
         }
     }
     if (isLeadSection) {
-        transformer.transform("displayDisambigLink", content);
         transformer.transform("displayIssuesLink", content);
     }
 }
