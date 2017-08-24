@@ -366,6 +366,8 @@
   <string name="view_continue_reading_card_subtitle_today">Tänään</string>
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
   <string name="view_offline_card_text">Sisältöä ei voida ladata offline-tilassa</string>
+  <string name="view_featured_article_card_title">Suositeltu artikkeli</string>
+  <string name="view_featured_article_footer_save_button_label">Tallenna</string>
   <string name="description_edit_text_hint">Otsikkokuvaus</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_add_description">Lisää otsikkokuvaus</string>

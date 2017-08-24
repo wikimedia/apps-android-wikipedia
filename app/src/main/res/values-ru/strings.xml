@@ -376,6 +376,8 @@
   <string name="view_continue_reading_card_subtitle_today">Сегодня</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="view_offline_card_text">Содержимое не может быть загружено в офлайн-режиме.</string>
+  <string name="view_featured_article_card_title">Избранная статья</string>
+  <string name="view_featured_article_footer_save_button_label">Сохранить</string>
   <string name="description_edit_text_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_add_description">Добавить описание</string>

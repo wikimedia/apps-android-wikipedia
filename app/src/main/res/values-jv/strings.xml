@@ -376,6 +376,9 @@
   <string name="view_continue_reading_card_subtitle_today">Dina iki</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
   <string name="view_offline_card_text">Isèn-isèné ora bisa dimot nalika ing njaban jaringan.</string>
+  <string name="view_featured_article_card_title">Artikel pinilih</string>
+  <string name="view_featured_article_footer_save_button_label">Simpen</string>
+  <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
   <string name="description_edit_text_hint">Wedharané sesirah</string>
   <string name="description_edit_save">Babar</string>
   <string name="description_edit_add_description">Tambah wedharané sesirah</string>

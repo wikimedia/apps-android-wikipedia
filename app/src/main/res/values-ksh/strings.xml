@@ -227,4 +227,5 @@
     <item quantity="one">jäßtere</item>
     <item quantity="other">vör %d Dähsch</item>
   </plurals>
+  <string name="view_featured_article_footer_save_button_label">Faßhallde</string>
 </resources>

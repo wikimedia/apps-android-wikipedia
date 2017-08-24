@@ -376,6 +376,8 @@
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
+  <string name="view_featured_article_card_title">Utmärkt artikel</string>
+  <string name="view_featured_article_footer_save_button_label">Spara</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>

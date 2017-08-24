@@ -320,6 +320,8 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hôm nay</string>
   <string name="view_announcement_card_negative_action">Thôi</string>
+  <string name="view_featured_article_card_title">Bài viết chọn lọc</string>
+  <string name="view_featured_article_footer_save_button_label">Lưu</string>
   <string name="description_edit_text_hint">Miêu tả tiêu đề</string>
   <string name="description_edit_save" fuzzy="true">Lưu</string>
   <string name="description_edit_add_description">Thêm miêu tả tiêu đề</string>

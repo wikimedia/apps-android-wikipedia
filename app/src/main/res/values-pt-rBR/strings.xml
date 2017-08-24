@@ -376,6 +376,9 @@
   <string name="view_continue_reading_card_subtitle_today">Hoje</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
   <string name="view_offline_card_text">O conteúdo não pode ser carregado quando offline.</string>
+  <string name="view_featured_article_card_title">Artigo destacado</string>
+  <string name="view_featured_article_footer_save_button_label">Salvar</string>
+  <string name="view_featured_article_footer_saved_button_label">Salvo</string>
   <string name="description_edit_text_hint">Descrição do título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>

@@ -376,6 +376,9 @@
   <string name="view_continue_reading_card_subtitle_today">Aujourd’hui</string>
   <string name="view_announcement_card_negative_action">Non merci</string>
   <string name="view_offline_card_text">Le contennu ne peut être chargé hors connexion.</string>
+  <string name="view_featured_article_card_title">Article vedette</string>
+  <string name="view_featured_article_footer_save_button_label">Enregistrer</string>
+  <string name="view_featured_article_footer_saved_button_label">Enregistré</string>
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
@@ -443,6 +446,11 @@
   <string name="compilation_download_cancel_confirm">Êtes-vous sûr de vouloir annuler le téléchargement de cette compilation ?</string>
   <string name="compilation_download_cancel_confirm_yes">Oui</string>
   <string name="compilation_download_cancel_confirm_no">Non</string>
+  <string name="compilation_share">Partager</string>
+  <string name="compilation_remove">Supprimer</string>
+  <string name="compilation_remove_confirm">Êtes-vous sûr de vouloir supprimer cette compilation de votre appareil ?</string>
+  <string name="compilation_remove_confirm_yes">Oui</string>
+  <string name="compilation_remove_confirm_no">Non</string>
   <string name="offline_library_title">Bibliothèque hors connexion</string>
   <string name="offline_library_empty_title">Il n\'y a rien dans votre bibliothèque hors connexion</string>
   <string name="offline_library_empty_description">Choisir un ensemble d’articles de Wikipédia à télécharger maintenant, pour un accès libre plus tard.</string>

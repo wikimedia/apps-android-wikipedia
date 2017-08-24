@@ -351,7 +351,7 @@
   <string name="notification_thanks_title">당신은 감사를 받았습니다!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;님이 &lt;strong&gt;%2$s&lt;/strong&gt; 문서에서 당신의 편집에 감사를 표했습니다</string>
   <string name="view_continue_reading_card_title">계속 읽기</string>
-  <string name="view_because_you_read_card_title">읽었기 때문입니다</string>
+  <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
   <string name="view_random_card_subtitle">위키백과의 임의 문서 읽기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
@@ -374,6 +374,9 @@
   <string name="view_continue_reading_card_subtitle_today">오늘</string>
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
+  <string name="view_featured_article_card_title">알찬 글</string>
+  <string name="view_featured_article_footer_save_button_label">저장</string>
+  <string name="view_featured_article_footer_saved_button_label">저장됨</string>
   <string name="description_edit_text_hint">제목 설명</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_add_description">제목 설명 추가</string>
@@ -387,7 +390,7 @@
   <string name="description_edit_anon_limit">설명 편집에 지속적인 관심을 주셔서 감사합니다! 추가 편집을 하려면 위키백과 계정에 로그인해 주십시오.</string>
   <string name="description_edit_license_notice">제목 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="description_edit_success_saved">설명을 게시했습니다!</string>
-  <string name="description_edit_success_encouragement">당신은 방금 모든 사람을 위해 위키백과 발전에 도움을 주셨습니다</string>
+  <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
   <string name="description_edit_success_article_edit_hint">이 앱 안에서 문서를 편집할 수도 있습니다. 다음에 ^1 아이콘을 클릭하여 오자와 짧은 문장들을 수정해보세요</string>

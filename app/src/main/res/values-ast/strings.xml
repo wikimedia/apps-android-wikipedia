@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Descargando ficheru…</string>
   <string name="gallery_save_success">Ficheru guardáu correutamente.</string>
   <string name="gallery_error_video_failed">Nun pudo reproducise\'l videu.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Ríquese permisu d\'escritura nel almacenamientu del preséu pa guardar imaxes. Vuelve a intentalo y concede\'l permisu riquíu.</string>
+  <string name="gallery_save_image_write_permission_rationale">Ríquese permisu d\'escritura nel almacenamientu del preséu pa guardar imaxes.</string>
   <string name="err_cannot_save_file">Nun pudo guardase\'l ficheru</string>
   <string name="snippet_share_intro">«%1$s» en @Wikipedia: %2$s</string>
   <string name="expand_refs">Toca pa espander</string>
@@ -376,6 +376,9 @@
   <string name="view_continue_reading_card_subtitle_today">Güei</string>
   <string name="view_announcement_card_negative_action">Non, gracies</string>
   <string name="view_offline_card_text">Nun puede cargase conteníu cuando nun hai conexón</string>
+  <string name="view_featured_article_card_title">Artículu destacáu</string>
+  <string name="view_featured_article_footer_save_button_label">Guardar</string>
+  <string name="view_featured_article_footer_saved_button_label">Guardáu</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>
   <string name="description_edit_save">Espublizar</string>
   <string name="description_edit_add_description">Amestar una descripción del títulu</string>
@@ -415,7 +418,7 @@
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">la to contribución paecía un esperimentu o vandalismu.</string>
   <string name="description_edit_revert_history">Si tas interesáu, consulta &lt;a href=\"%1$s\"&gt;l\'historial d\'ediciones&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale" fuzzy="true">Ríquese permisu d\'accesu al almacenamientu del preséu pa restolar sin conexón. Vuelve a intentalo y concede\'l permisu riquíu.</string>
+  <string name="offline_read_permission_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa restolar sin conexón.</string>
   <string name="offline_read_permission_error">Nun se dio permisu pa lleer dende\'l preséu d\'almacenamientu.</string>
   <string name="offline_card_text">Agora tas restolando Wikipedia en mou ensin conexón. Recuerda que los artículos ensin conexón pueden tar desfasaos respeuto a la versión en llinia.</string>
   <string name="offline_my_compilations">Les mios compilaciones</string>

@@ -376,6 +376,9 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="view_offline_card_text">內容無法在離線時載入。</string>
+  <string name="view_featured_article_card_title">特色條目</string>
+  <string name="view_featured_article_footer_save_button_label">儲存</string>
+  <string name="view_featured_article_footer_saved_button_label">已儲存</string>
   <string name="description_edit_text_hint">標題說明</string>
   <string name="description_edit_save">發佈</string>
   <string name="description_edit_add_description">增加標題說明</string>

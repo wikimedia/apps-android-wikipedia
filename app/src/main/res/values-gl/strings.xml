@@ -209,7 +209,7 @@
   <string name="gallery_save_progress">Descargando ficheiro…</string>
   <string name="gallery_save_success">O ficheiro gardouse correctamente.</string>
   <string name="gallery_error_video_failed">Non se puido reproducir o vídeo.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">É necesario o permiso de escritura no seu dispositivo para gardar imaxes. Por favor, probe de novo, e permita o permiso solicitado.</string>
+  <string name="gallery_save_image_write_permission_rationale">É necesario o permiso de escritura no seu dispositivo para gardar imaxes.</string>
   <string name="err_cannot_save_file">Non se pode gardar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para ampliar</string>
@@ -376,6 +376,9 @@
   <string name="view_continue_reading_card_subtitle_today">Hoxe</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="view_offline_card_text">Non se pode cargar contido cando non hai conexión.</string>
+  <string name="view_featured_article_card_title">Artigo destacado</string>
+  <string name="view_featured_article_footer_save_button_label">Gardar</string>
+  <string name="view_featured_article_footer_saved_button_label">Gardado</string>
   <string name="description_edit_text_hint">Descrición de título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Engadir unha descrición de título</string>
@@ -415,7 +418,7 @@
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">a súa contribución semella unha proba ou vandalismo.</string>
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale" fuzzy="true">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña. Por favor, inténteo de novo e conceda o permiso solicitado.</string>
+  <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
   <string name="offline_read_permission_error">Non tes permiso para ler dende o almacenamento deste dispositivo.</string>
   <string name="offline_card_text">Agora está navegando por Wikipedia en modo sen conexión. Por favor, teña en conta que os artigos sen conexión pode que non estean totalmente actualizados coa versión con conexión.</string>
   <string name="offline_my_compilations">As miñas recompilacións</string>

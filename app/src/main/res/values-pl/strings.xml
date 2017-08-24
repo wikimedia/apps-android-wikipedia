@@ -314,6 +314,8 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Dzisiaj</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
+  <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
+  <string name="view_featured_article_footer_save_button_label">Zapisz</string>
   <string name="description_edit_text_hint">Opis tytułu</string>
   <string name="description_edit_save">Opublikuj</string>
   <string name="description_edit_add_description">Dodaj opis tytułu</string>

@@ -343,6 +343,7 @@
   <string name="view_continue_reading_card_subtitle_today">আজ</string>
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
   <string name="view_offline_card_text">অফলাইনে থাকা অবস্থায় সামগ্রী লোড করা যাবে না।</string>
+  <string name="view_featured_article_footer_saved_button_label">সংরক্ষিত</string>
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
