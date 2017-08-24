@@ -17,7 +17,7 @@ import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
-class Announcement extends BaseModel {
+public class Announcement extends BaseModel {
     public static final String SURVEY = "survey";
     public static final String FUNDRAISING = "fundraising";
 
@@ -32,6 +32,15 @@ class Announcement extends BaseModel {
 
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
     @SuppressWarnings("unused") @Nullable private Action action;
+
+    public Announcement() { }
+
+    public Announcement(@NonNull String id, @NonNull String text, @NonNull String imageUrl, @NonNull Action action) {
+        this.id = id;
+        this.text = text;
+        this.imageUrl = imageUrl;
+        this.action = action;
+    }
 
     @NonNull String id() {
         return id;
@@ -74,11 +83,11 @@ class Announcement extends BaseModel {
     }
 
     @NonNull String actionTitle() {
-        return action.title();
+        return action != null ? action.title() : "";
     }
 
     @NonNull String actionUrl() {
-        return action.url();
+        return action != null ? action.url() : "";
     }
 
     boolean hasFooterCaption() {
@@ -97,9 +106,14 @@ class Announcement extends BaseModel {
         return defaultString(imageUrl);
     }
 
-    static class Action {
+    public static class Action {
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String url;
+
+        public Action(@NonNull String title, @NonNull String url) {
+            this.title = title;
+            this.url = url;
+        }
 
         @NonNull String title() {
             return title;

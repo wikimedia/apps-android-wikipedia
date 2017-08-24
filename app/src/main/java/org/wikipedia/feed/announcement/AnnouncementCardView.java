@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.TextView;
 
 import org.wikipedia.R;
@@ -30,6 +31,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
     @BindView(R.id.view_announcement_action_positive) TextView actionViewPositive;
     @BindView(R.id.view_announcement_action_negative) TextView actionViewNegative;
     @BindView(R.id.view_announcement_footer_text) TextView footerTextView;
+    @BindView(R.id.view_announcement_footer_border) View footerBorderView;
 
     public AnnouncementCardView(@NonNull Context context) {
         super(context);
@@ -65,6 +67,9 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
 
         if (card.hasFooterCaption()) {
             footerTextView.setText(StringUtil.fromHtml(card.footerCaption()));
+        } else {
+            footerTextView.setVisibility(GONE);
+            footerBorderView.setVisibility(GONE);
         }
     }
 

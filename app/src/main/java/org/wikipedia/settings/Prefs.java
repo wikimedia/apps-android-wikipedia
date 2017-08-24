@@ -219,11 +219,15 @@ public final class Prefs {
         remove(R.string.preference_key_tabs);
     }
 
-    public static Set<String> getHiddenCards() {
+    @NonNull public static Set<String> getHiddenCards() {
         Set<String> emptySet = new LinkedHashSet<>();
+        if (!hasHiddenCards()) {
+            return emptySet;
+        }
         //noinspection unchecked
-        return hasHiddenCards() ? GsonUnmarshaller.unmarshal(emptySet.getClass(),
-                getString(R.string.preference_key_feed_hidden_cards, null)) : emptySet;
+        Set<String> cards = GsonUnmarshaller.unmarshal(emptySet.getClass(),
+                getString(R.string.preference_key_feed_hidden_cards, null));
+        return cards != null ? cards : emptySet;
     }
 
     public static void setHiddenCards(@NonNull Set<String> cards) {

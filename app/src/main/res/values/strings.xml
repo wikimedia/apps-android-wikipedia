@@ -509,7 +509,8 @@
     <string name="offline_library_empty_description">Choose a pack of Wikipedia articles to download now, for data-free access later.</string>
     <string name="offline_library_empty_search">Search Offline Library</string>
     <string name="offline_library_search_results_state">Search results from available offline library</string>
-    <string name="offline_library_onboarding_action">Learn about your Offline Library</string>
+    <string name="offline_library_onboarding_action">Find out more</string>
+    <string name="offline_library_onboarding_text">Introducing Offline Library — download article packs now for offline reading later.</string>
     <string name="offline_library_onboarding_button_done">Done</string>
     <string name="offline_library_onboarding_build_library_title">Build your Offline Library</string>
     <string name="offline_library_onboarding_build_library_subtitle">Download Wikipedia article packs now for data-free access later.</string>
