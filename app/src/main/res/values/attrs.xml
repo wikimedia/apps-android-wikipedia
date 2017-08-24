@@ -72,5 +72,6 @@
         <attr name="tertiaryText" format="string" />
         <attr name="switchText" format="string" />
         <attr name="imageSize" format="dimension" />
+        <attr name="background" format="reference" />
     </declare-styleable>
 </resources>

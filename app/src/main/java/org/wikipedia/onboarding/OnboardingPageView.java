@@ -99,7 +99,11 @@ public class OnboardingPageView extends LinearLayout {
             String tertiaryText = array.getString(R.styleable.OnboardingPageView_tertiaryText);
             String switchText = array.getString(R.styleable.OnboardingPageView_switchText);
             int imageSize = array.getDimensionPixelSize(R.styleable.OnboardingPageView_imageSize, 0);
+            Drawable background = array.getDrawable(R.styleable.OnboardingPageView_background);
 
+            if (background != null) {
+                setBackground(background);
+            }
             FrameLayout.LayoutParams imageParams = (FrameLayout.LayoutParams) imageViewCentered.getLayoutParams();
             imageParams.width = imageSize;
             imageParams.height = imageSize;
