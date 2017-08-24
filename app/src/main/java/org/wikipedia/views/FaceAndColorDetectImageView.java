@@ -47,7 +47,6 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
             return;
         }
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
-                .setProgressiveRenderingEnabled(true)
                 .setPostprocessor(new FacePostprocessor(listener))
                 .build();
         DraweeController controller = Fresco.newDraweeControllerBuilder()
