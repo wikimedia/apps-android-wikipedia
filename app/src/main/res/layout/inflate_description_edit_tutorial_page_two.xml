@@ -8,4 +8,5 @@
     app:imageSize="260dp"
     app:primaryText="@string/description_edit_tutorial_keep_it_short"
     app:secondaryText="@string/description_edit_tutorial_keep_it_short_instructions"
-    app:tertiaryText="@string/description_edit_tutorial_promise" />
+    app:tertiaryText="@string/description_edit_tutorial_promise"
+    app:background="@drawable/onboarding_gradient_background_90"/>

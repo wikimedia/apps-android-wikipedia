@@ -8,4 +8,5 @@
     app:centeredImage="@drawable/illustration_onboarding_explore"
     app:imageSize="160dp"
     app:primaryText="@string/onboarding_explore_title"
-    app:secondaryText="@string/onboarding_explore_text" />
+    app:secondaryText="@string/onboarding_explore_text"
+    app:background="@drawable/onboarding_gradient_background_135"/>
