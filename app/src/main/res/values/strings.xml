@@ -481,8 +481,8 @@
     <string name="offline_compilations_add">Add offline compilation</string>
     <string name="remote_compilations_title">All compilations</string>
     <string name="remote_compilations_description">Offline Compilations are large bundles of articles that can be downloaded as one file to your device, so you can continue browsing while offline.</string>
-    <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-    <string name="offline_compilation_detail_button_download">Download · %.2f GB</string>
+    <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+    <string name="offline_compilation_detail_button_download">Download • %.2f GB</string>
     <string name="offline_compilation_detail_button_remove">Remove</string>
     <string name="remote_compilation_download">Download</string>
     <string name="storage_size_gb">GB</string>
