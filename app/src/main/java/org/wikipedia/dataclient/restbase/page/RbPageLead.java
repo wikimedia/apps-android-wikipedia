@@ -8,11 +8,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.Protection;
-import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
@@ -20,7 +20,6 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.UriUtil;
-import org.wikipedia.util.log.L;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,7 +31,6 @@ import static org.wikipedia.Constants.PREFERRED_THUMB_SIZE;
  * Gson POJO for loading the first stage of page content.
  */
 public class RbPageLead implements PageLead, PageLeadProperties {
-    @SuppressWarnings("unused") private RbServiceError error;
     @SuppressWarnings("unused") private int id;
     @SuppressWarnings("unused") private long revision;
     @SuppressWarnings("unused") @Nullable private String lastmodified;
@@ -53,21 +51,18 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     @Override
     public boolean hasError() {
-        return error != null || sections == null;
+        // If we have a page lead object, RESTBase hasn't returned an error
+        return false;
     }
 
     @Override
-    @Nullable
-    public RbServiceError getError() {
-        return error;
+    public ServiceError getError() {
+        return null;
     }
 
     @Override
     public void logError(String message) {
-        if (error != null) {
-            message += ": " + error.toString();
-        }
-        L.e(message);
+
     }
 
     /** Note: before using this check that #getMobileview != null */

@@ -16,7 +16,6 @@ import org.wikipedia.json.annotations.Required;
  * is sent is "normalizedtitle".
  */
 public class RbPageSummary implements PageSummary {
-    @SuppressWarnings("unused") private RbServiceError error;
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private String extract;
     @SuppressWarnings("unused") @Nullable private String description;
@@ -24,13 +23,13 @@ public class RbPageSummary implements PageSummary {
 
     @Override
     public boolean hasError() {
-        // if there is no title or no extract set something went terribly wrong
-        return error != null || extract == null;
+        // If we have a page summary object, RESTBase hasn't returned an error
+        return false;
     }
 
     @Override @Nullable
     public RbServiceError getError() {
-        return error;
+        return null;
     }
 
     @Override @NonNull

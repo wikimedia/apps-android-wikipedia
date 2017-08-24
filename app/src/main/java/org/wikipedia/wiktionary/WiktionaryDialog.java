@@ -114,7 +114,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
                     addUnderscores(selectedText),
                     definitionOnLoadCallback);
         } else {
-            L.e("Wiktionary definitions require mobile content service loading!");
+            L.i("Wiktionary definitions require mobile content service loading!");
             displayNoDefinitionsFound();
         }
     }
@@ -125,13 +125,9 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
             if (!isAdded()) {
                 return;
             }
-            if (!definition.hasError()) {
-                progressBar.setVisibility(View.GONE);
-                currentDefinition = definition;
-                layOutDefinitionsByUsage();
-            } else {
-                definition.logError("Wiktionary definition request failed");
-            }
+            progressBar.setVisibility(View.GONE);
+            currentDefinition = definition;
+            layOutDefinitionsByUsage();
         }
 
         @Override
@@ -140,7 +136,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
                 return;
             }
             displayNoDefinitionsFound();
-            L.e("Wiktionary definition fetch error: " + throwable);
+            L.e(throwable);
         }
     };
 
