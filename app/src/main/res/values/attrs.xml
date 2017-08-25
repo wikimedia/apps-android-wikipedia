@@ -41,6 +41,7 @@
 
     <attr name="overflow_button" format="reference" />
     <attr name="multi_select_background_color" format="reference" />
+    <attr name="searchItemBackground" format="reference" />
 
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />

@@ -74,6 +74,9 @@
         <item name="feed_text_primary_color">@color/feed_text_primary_light</item>
         <item name="feed_text_secondary_color">@color/feed_text_secondary_light</item>
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_light</item>
+        <item name="searchItemBackground">@color/base100</item>
+        <item name="cardBackgroundColor">@color/base100</item>
+
     </style>
 
     <style name="Theme.Light.Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert">
