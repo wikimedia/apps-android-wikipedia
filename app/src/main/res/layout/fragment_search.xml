@@ -81,14 +81,37 @@
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-6.5dp"
-            android:layout_gravity="bottom"
-            android:elevation="4dp"
+            android:layout_marginTop="-6.5dp"
             android:indeterminate="true"
             android:indeterminateTint="?attr/colorAccent"
             android:progressBackgroundTint="@color/dark_blue"
             android:visibility="gone"
             tools:visibility="visible"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/search_offline_library_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="6dp"
+        android:background="@color/main_toolbar_background">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/base70"
+            android:textStyle="italic"
+            android:text="@string/offline_library_search_results_state"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/white_translucent_40"/>
 
     </FrameLayout>
 

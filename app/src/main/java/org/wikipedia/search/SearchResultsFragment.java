@@ -205,7 +205,7 @@ public class SearchResultsFragment extends Fragment {
                 return true;
             }
             final String mySearchTerm = (String) msg.obj;
-            if (!DeviceUtil.isOnline() && OfflineManager.hasCompilation()) {
+            if (OfflineManager.hasCompilation() && !DeviceUtil.isOnline()) {
                 doOfflineSearch(mySearchTerm);
             } else {
                 doTitlePrefixSearch(mySearchTerm);
