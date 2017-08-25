@@ -29,6 +29,7 @@ import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.settings.LanguagePreferenceDialog;
@@ -71,6 +72,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     @BindView(R.id.search_progress_bar) ProgressBar progressBar;
     @BindView(R.id.search_lang_button_container) View langButtonContainer;
     @BindView(R.id.search_lang_button) TextView langButton;
+    @BindView(R.id.search_offline_library_state) View offlineLibraryStateView;
     private Unbinder unbinder;
 
     private WikipediaApp app;
@@ -177,6 +179,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
         initSearchView();
         initLangButton();
+        updateOfflineLibraryState();
 
         if (!TextUtils.isEmpty(query)) {
             showPanel(PANEL_SEARCH_RESULTS);
@@ -321,6 +324,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             return;
         }
 
+        updateOfflineLibraryState();
         searchResultsFragment.startSearch(term, force);
     }
 
@@ -359,6 +363,12 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             callback.onSearchClose(invokeSource.fromIntent());
         }
         addRecentSearch(query);
+    }
+
+    private void updateOfflineLibraryState() {
+        offlineLibraryStateView.setVisibility(
+                (OfflineManager.hasCompilation() && !DeviceUtil.isOnline())
+                        ? View.VISIBLE : View.GONE);
     }
 
     /**
