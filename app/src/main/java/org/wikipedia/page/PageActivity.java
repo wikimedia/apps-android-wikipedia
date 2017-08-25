@@ -152,7 +152,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
+        clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         toolbarHideHandler = new PageToolbarHideHandler(toolbarContainerView);
@@ -432,7 +432,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             }
             return;
         }
-        getSupportActionBar().setTitle("");
         app.getSessionFunnel().backPressed();
         if (pageFragment.onBackPressed()) {
             return;
@@ -571,11 +570,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public void onPageLoadError(@NonNull PageTitle title) {
         getSupportActionBar().setTitle(title.getDisplayText());
-    }
-
-    @Override
-    public void onPageLoadErrorRetry() {
-        getSupportActionBar().setTitle("");
     }
 
     @Override
@@ -754,6 +748,10 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     public void onActionModeFinished(android.view.ActionMode mode) {
         super.onActionModeFinished(mode);
         currentActionMode = null;
+    }
+
+    protected void clearActionBarTitle() {
+        getSupportActionBar().setTitle("");
     }
 
     private void registerBus() {

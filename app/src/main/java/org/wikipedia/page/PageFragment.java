@@ -12,6 +12,7 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -132,7 +133,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Nullable AppCompatActivity getActivity();
         void onPageInvalidateOptionsMenu();
         void onPageLoadError(@NonNull PageTitle title);
-        void onPageLoadErrorRetry();
         void onPageLoadErrorBackPressed();
         boolean shouldLoadFromBackStack();
         boolean shouldShowTabList();
@@ -369,9 +369,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorView.setRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (callback() != null) {
-                    callback().onPageLoadErrorRetry();
-                }
                 refreshPage();
             }
         });
@@ -649,6 +646,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      */
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
                          boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
+        // clear the title in case the previous page load had failed.
+        clearActivityActionBarTitle();
+
         // update the time spent reading of the current page, before loading the new one
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
@@ -957,6 +957,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         errorView.setVisibility(View.GONE);
+
         tabLayout.enableAllTabs();
         errorState = false;
 
@@ -1032,6 +1033,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 tabsProvider.enterTabMode(true);
             }
         });
+    }
+
+    protected void clearActivityActionBarTitle() {
+        FragmentActivity currentActivity = getActivity();
+        if (currentActivity instanceof PageActivity) {
+            ((PageActivity) currentActivity).clearActionBarTitle();
+        }
     }
 
     private void openInNewTab(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
