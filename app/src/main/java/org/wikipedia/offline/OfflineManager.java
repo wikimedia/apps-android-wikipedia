@@ -171,6 +171,15 @@ public final class OfflineManager {
         return compilations.get(compIndex).getMainPageTitle();
     }
 
+    @NonNull public String getMainPageTitle(@NonNull Compilation compilation) throws IOException {
+        for (Compilation c : compilations) {
+            if (c.pathNameMatchesUri(compilation.uri())) {
+                return c.getMainPageTitle();
+            }
+        }
+        throw new IOException("No matching compilation found on disk.");
+    }
+
     @VisibleForTesting void setCompilations(@NonNull List<Compilation> compilations) {
         this.compilations = compilations;
     }

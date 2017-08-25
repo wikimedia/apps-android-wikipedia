@@ -112,14 +112,14 @@
                     android:text="@string/offline_compilation_detail_button_remove"/>
 
                 <TextView
-                    android:id="@+id/button_compilation_detail_view_compilations"
+                    android:id="@+id/button_compilation_detail_main_page"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     style="@style/App.Button.Blue"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
-                    android:text="@string/offline_my_compilations"/>
+                    tools:text="Main page"/>
             </LinearLayout>
 
             <org.wikipedia.views.GoneIfEmptyTextView

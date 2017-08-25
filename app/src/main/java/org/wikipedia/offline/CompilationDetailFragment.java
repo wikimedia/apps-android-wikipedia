@@ -13,12 +13,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.gallery.MediaDownloadReceiver;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ViewUtil;
+
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +47,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
     @BindView(R.id.view_compilation_info_summary) TextView summaryView;
     @BindView(R.id.view_compilation_info_description) TextView descriptionView;
     @BindView(R.id.button_compilation_detail_download) TextView downloadButton;
+    @BindView(R.id.button_compilation_detail_main_page) TextView mainPageButton;
     @BindView(R.id.compilation_detail_downloaded_buttons_container) View downloadedContainerView;
     @BindView(R.id.view_compilation_detail_download_control) CompilationDownloadControlView controls;
 
@@ -85,6 +95,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
             }
         });
 
+        mainPageButton.setText(MainPageNameData.valueFor(WikipediaApp.getInstance().getAppLanguageCode()));
         updateDownloadState(true, null);
         return view;
     }
@@ -104,8 +115,17 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
         }
     }
 
-    @OnClick(R.id.button_compilation_detail_view_compilations) void onMyCompilationsClick() {
-        getAppCompatActivity().finish();
+    @OnClick(R.id.button_compilation_detail_main_page) void onMainPageClick() {
+        try {
+            PageTitle title = new PageTitle(OfflineManager.instance().getMainPageTitle(compilation),
+                    WikipediaApp.getInstance().getWikiSite());
+
+            HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
+            startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
+        } catch (IOException e) {
+            L.e(e);
+            FeedbackUtil.showError(getActivity(), e);
+        }
     }
 
     @OnClick(R.id.button_compilation_detail_remove) void onRemoveClick() {
