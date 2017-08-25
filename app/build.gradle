@@ -194,6 +194,7 @@ dependencies {
     }
     compile 'net.hockeyapp.android:HockeySDK:4.1.3'
     compile 'org.apache.commons:commons-lang3:3.5'
+    compile "commons-io:commons-io:2.5"
     compile 'org.jsoup:jsoup:1.10.2'
     compile 'com.dmitrybrant:zimdroid:0.0.11'
 
@@ -213,7 +214,6 @@ dependencies {
     testCompile mockitoCore
     testCompile 'org.robolectric:robolectric:3.3.2'
     testCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
-    testCompile "commons-io:commons-io:2.5"
 
     androidTestCompile mockitoCore
     androidTestApk 'com.crittercism.dexmaker:dexmaker:1.4'

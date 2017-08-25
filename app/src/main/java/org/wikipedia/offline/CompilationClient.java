@@ -4,13 +4,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.dataclient.WikiSite;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.LineIterator;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.log.L;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -27,18 +30,14 @@ class CompilationClient {
 
     @Nullable private Call<CallbackAdapter.CompilationResponse> call;
 
-    // todo: according to Jake Wharton, Retrofit service objects are very expensive and should only
-    // be created once for the application and then cached for reuse. Figure out how to make these
-    // WikiSite-independent, and create once.
-    // https://stackoverflow.com/a/20627010/5520737
-    public void request(@NonNull WikiSite wiki, @NonNull Callback cb) {
-        cb.success(Compilation.getMockInfoForTesting()); // returning mock info for dev/testing
-
-        /*cancel();
-        Retrofit retrofit = RetrofitFactory.newInstance(getEndpoint(wiki), wiki);
-        Service service = retrofit.create(Service.class);
-        call = request(service);
-        call.enqueue(new CallbackAdapter(cb));*/
+    // TODO: replace static file with dataclient when service is set up
+    public void request(@NonNull Callback cb) {
+        try {
+            cb.success(getRemoteZimInfo());
+        } catch (IOException e) {
+            cb.error(e);
+            L.e(e);
+        }
     }
 
     public void cancel() {
@@ -97,7 +96,19 @@ class CompilationClient {
         Call<CallbackAdapter.CompilationResponse> get();
     }
 
-    private String getEndpoint(WikiSite wiki) {
-        return String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(), wiki.authority());
+    @NonNull
+    private List<Compilation> getRemoteZimInfo() throws IOException {
+        List<Compilation> result = new ArrayList<>();
+        LineIterator i = IOUtils.lineIterator(openAssetFile("zims.tsv"), "UTF-8");
+        while (i.hasNext()) {
+            result.add(new Compilation(i.nextLine().split("\t")));
+        }
+        i.close();
+        return result;
+    }
+
+    @NonNull
+    private static InputStream openAssetFile(String path) throws IOException {
+        return WikipediaApp.getInstance().getAssets().open(path);
     }
 }

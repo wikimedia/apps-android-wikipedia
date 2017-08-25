@@ -16,7 +16,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class Compilation {
     @Nullable private MediaContent media;
     @Nullable private Image thumb;
     @Nullable private Image featureImage;
-    private int count;
+    private long count;
     private long size; // bytes
     private long timestamp;
 
@@ -43,7 +42,7 @@ public class Compilation {
     @Nullable private transient ZimReader reader;
 
     public enum MediaContent {
-        ALL, IMAGES, NONE
+        ALL, NOVID, NOPIC
     }
 
     Compilation(@NonNull File file) throws IOException {
@@ -64,7 +63,7 @@ public class Compilation {
     @SuppressWarnings("checkstyle:parameternumber")
     Compilation(@NonNull String name, @NonNull Uri uri, @Nullable List<String> langCodes,
                 @Nullable String summary, @Nullable String description, @Nullable MediaContent media,
-                @Nullable Image thumb, @Nullable Image featureImage, int count, long size, long timestamp) {
+                @Nullable Image thumb, @Nullable Image featureImage, long count, long size, long timestamp) {
         this.name = name;
         this.uri = uri;
         this.langCodes = langCodes;
@@ -76,6 +75,21 @@ public class Compilation {
         this.count = count;
         this.size = size;
         this.timestamp = timestamp;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    Compilation(@NonNull String[] data) {
+        this.name = data[0];
+        this.uri = Uri.parse(data[1]);
+        this.langCodes = Collections.singletonList(data[2]);
+        this.summary = data[3];
+        this.description = data[4];
+        this.media = MediaContent.valueOf(data[5]);
+        this.thumb = new Image(Uri.parse(data[6]), 0, 0);
+        this.featureImage = new Image(Uri.parse(data[7]), 0, 0);
+        this.count = 0;  // currently unused
+        this.size = Long.parseLong(data[9]);
+        this.timestamp = Long.parseLong(data[10]);
     }
 
     public void copyMetadataFrom(@NonNull Compilation other) {
@@ -192,7 +206,7 @@ public class Compilation {
         return featureImage != null ? featureImage.uri() : null;
     }
 
-    public int count() {
+    public long count() {
         return count;
     }
 
@@ -250,10 +264,6 @@ public class Compilation {
         private int width;
         private int height;
 
-        Image(@Nullable String uri, int width, int height) {
-            this(Uri.parse(defaultString(uri)), width, height);
-        }
-
         Image(@NonNull Uri uri, int width, int height) {
             this.uri = uri;
             this.width = width;
@@ -271,68 +281,5 @@ public class Compilation {
         public int height() {
             return height;
         }
-    }
-
-    // TODO: Below functions are for dev only, remove when finished!
-    @SuppressWarnings("checkstyle:magicnumber")
-    static List<Compilation> getMockInfoForTesting() {
-        return Arrays.asList(
-                new Compilation("Wikipedia (English) top 45000 articles, Feb 2017",
-                        Uri.parse("https://download.kiwix.org/zim/wikipedia/wikipedia_en_wp1-0.8_2017-02.zim"),
-                        Collections.singletonList("en"),
-                        "",
-                        "Compilation of the top 45000 articles, by popularity, from English Wikipedia.",
-                        Compilation.MediaContent.ALL,
-                        getThumbImage(),
-                        getFeatureImage(),
-                        10000, 5453656823L, 1487065620),
-                new Compilation("Wikipedia (English) top 45000 articles without images, Feb 2017",
-                        Uri.parse("https://download.kiwix.org/zim/wikipedia/wikipedia_en_wp1-0.8_nopic_2017-02.zim"),
-                        Collections.singletonList("en"),
-                        "",
-                        "Compilation of the top 45000 articles, by popularity, from English Wikipedia. The articles in this compilation are text-only (no images) to reduce the download size.",
-                        MediaContent.NONE,
-                        getThumbImage(),
-                        getFeatureImage(),
-                        10000, 1400000000L, 1487065620),
-                new Compilation("WikiProject Medicine (English), Jun 2017",
-                        Uri.parse("https://download.kiwix.org/zim/wikipedia/wikipedia_en_medicine_novid_2017-06.zim"),
-                        Collections.singletonList("en"),
-                        "",
-                        "Compilation of all articles from WikiProject Medicine, from English Wikipedia.",
-                        Compilation.MediaContent.IMAGES,
-                        new Compilation.Image("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/WHO_Rod.svg/125px-WHO_Rod.svg.png", 125, 292),
-                        new Compilation.Image("https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg/441px-Da_Vinci_Vitruve_Luc_Viatour.jpg", 441, 600),
-                        10000, 1175000000L, 1487065620),
-                new Compilation("हिन्दी विकिपीडिया (Hindi Wikipedia), Mar 2017",
-                        Uri.parse("https://download.kiwix.org/zim/wikipedia/wikipedia_hi_all_2017-03.zim"),
-                        Collections.singletonList("hi"),
-                        "",
-                        "Compilation of all articles from Hindi Wikipedia.",
-                        MediaContent.IMAGES,
-                        new Compilation.Image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Wikipedia-logo-v2-hi.svg/209px-Wikipedia-logo-v2-hi.svg.png", 209, 240),
-                        new Compilation.Image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Wikipedia-logo-v2-hi.svg/669px-Wikipedia-logo-v2-hi.svg.png", 669, 768),
-                        10000, 847000000L, 1487065620),
-                new Compilation("Wikipedia Uganda (English) test compilation, Sep 2014",
-                        Uri.parse("https://download.kiwix.org/zim/wikipedia/wikipedia_en_uganda_09_2014.zim"),
-                        Collections.singletonList("en"),
-                        "",
-                        "Test compilation of Wikipedia articles related to Uganda.",
-                        MediaContent.IMAGES,
-                        getThumbImage(),
-                        getFeatureImage(),
-                        10000, 20000000L, 1487065620)
-
-        );
-    }
-
-    @SuppressWarnings("checkstyle:magicnumber")
-    private static Compilation.Image getFeatureImage() {
-        return new Compilation.Image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png", 640, 480);
-    }
-
-    @SuppressWarnings("checkstyle:magicnumber")
-    private static Compilation.Image getThumbImage() {
-        return new Compilation.Image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Wikipedia-logo-v2-en.svg/200px-Wikipedia-logo-v2-en.svg.png", 320, 240);
     }
 }

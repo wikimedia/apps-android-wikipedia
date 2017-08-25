@@ -23,7 +23,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.gallery.MediaDownloadReceiver;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.DimenUtil;
@@ -141,7 +140,7 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
     private void beginUpdate() {
         updating = true;
         lastError = null;
-        new CompilationClient().request(WikipediaApp.getInstance().getWikiSite(), compilationCallback);
+        new CompilationClient().request(compilationCallback);
         updateEmptyState();
     }
 
