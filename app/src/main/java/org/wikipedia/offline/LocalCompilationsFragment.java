@@ -1,6 +1,7 @@
 package org.wikipedia.offline;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -27,6 +28,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
@@ -387,11 +389,11 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     }
 
     private void share(@NonNull Compilation compilation) {
-        ShareCompat.IntentBuilder.from(getActivity())
-                .setChooserTitle(R.string.share_via)
-                .setType(Compilation.MIME_TYPE)
+        Intent intent = ShareCompat.IntentBuilder.from(getActivity())
+                .setType("*/*")
                 .setStream(Uri.parse("file://" + compilation.path()))
-                .startChooser();
+                .getIntent();
+        startActivity(ShareUtil.createChooserIntent(intent, getString(R.string.share_via), getContext()));
     }
 
     private void remove(@NonNull final Compilation compilation) {
