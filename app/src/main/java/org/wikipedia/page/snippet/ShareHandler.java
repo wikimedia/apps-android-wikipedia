@@ -1,5 +1,6 @@
 package org.wikipedia.page.snippet;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -139,7 +140,6 @@ public class ShareHandler {
         final String leadImageNameText = fragment.getPage().getPageProperties().getLeadImageName() != null
                 ? fragment.getPage().getPageProperties().getLeadImageName() : "";
 
-
         new ImageLicenseFetchClient().request(title.getWikiSite(),
                 new PageTitle(Namespace.FILE.toLegacyString(), leadImageNameText, title.getWikiSite()),
                 new ImageLicenseFetchClient.Callback() {
@@ -151,11 +151,14 @@ public class ShareHandler {
                                 fragment.getPage().isMainPage() ? "" : StringUtils.capitalize(title.getDescription()),
                                 selectedText,
                                 result);
-                        fragment.showBottomSheet(new PreviewDialog(fragment, snippetBitmap, title, selectedText, funnel));
+                        fragment.showBottomSheet(new PreviewDialog(fragment.getContext(),
+                                snippetBitmap, title, selectedText, funnel));
                     }
 
                     @Override public void failure(@NonNull Call<MwQueryResponse> call,
                                                   @NonNull Throwable caught) {
+                        // If we failed to get license info for the lead image, just share the text
+                        PreviewDialog.shareAsText(fragment.getContext(), title, selectedText, funnel);
                         L.e("Error fetching image license info for " + title.getDisplayText(), caught);
                     }
                 });
@@ -300,10 +303,10 @@ public class ShareHandler {
 class PreviewDialog extends NoDimBottomSheetDialog {
     private boolean completed = false;
 
-    PreviewDialog(final PageFragment fragment, final Bitmap resultBitmap, final PageTitle title,
+    PreviewDialog(final Context context, final Bitmap resultBitmap, final PageTitle title,
                   final String selectedText, final ShareAFactFunnel funnel) {
-        super(fragment.getContext());
-        View rootView = LayoutInflater.from(fragment.getContext()).inflate(R.layout.dialog_share_preview, null);
+        super(context);
+        View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_share_preview, null);
         setContentView(rootView);
         ImageView previewImage = (ImageView) rootView.findViewById(R.id.preview_img);
         previewImage.setImageBitmap(resultBitmap);
@@ -318,10 +321,10 @@ class PreviewDialog extends NoDimBottomSheetDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String introText = fragment.getContext().getString(R.string.snippet_share_intro,
+                        String introText = context.getString(R.string.snippet_share_intro,
                                 title.getDisplayText(),
-                                UriUtil.getUrlWithProvenance(fragment.getContext(), title, R.string.prov_share_image));
-                        ShareUtil.shareImage(fragment.getContext(), resultBitmap, title.getDisplayText(),
+                                UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_image));
+                        ShareUtil.shareImage(context, resultBitmap, title.getDisplayText(),
                                 title.getDisplayText(), introText);
                         funnel.logShareIntent(selectedText, ShareMode.image);
                         completed = true;
@@ -331,12 +334,7 @@ class PreviewDialog extends NoDimBottomSheetDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String introText = fragment.getContext().getString(R.string.snippet_share_intro,
-                                title.getDisplayText(),
-                                UriUtil.getUrlWithProvenance(fragment.getContext(), title, R.string.prov_share_text));
-                        ShareUtil.shareText(fragment.getContext(), title.getDisplayText(),
-                                constructShareText(selectedText, introText));
-                        funnel.logShareIntent(selectedText, ShareMode.text);
+                        shareAsText(context, title, selectedText, funnel);
                         completed = true;
                     }
                 });
@@ -352,7 +350,19 @@ class PreviewDialog extends NoDimBottomSheetDialog {
         startExpanded();
     }
 
-    private String constructShareText(String selectedText, String introText) {
+    static void shareAsText(@NonNull Context context, @NonNull PageTitle title,
+                            @NonNull String selectedText, @Nullable ShareAFactFunnel funnel) {
+        String introText = context.getString(R.string.snippet_share_intro,
+                title.getDisplayText(),
+                UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_text));
+        ShareUtil.shareText(context, title.getDisplayText(),
+                constructShareText(selectedText, introText));
+        if (funnel != null) {
+            funnel.logShareIntent(selectedText, ShareMode.text);
+        }
+    }
+
+    private static String constructShareText(String selectedText, String introText) {
         return selectedText + "\n\n" + introText;
     }
 }
