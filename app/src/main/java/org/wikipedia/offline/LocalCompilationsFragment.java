@@ -7,16 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ShareCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +20,6 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
@@ -62,9 +56,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     private CompilationItemAdapter adapter = new CompilationItemAdapter();
     private ItemCallback itemCallback = new ItemCallback();
 
-    private SearchCallback searchActionModeCallback = new SearchCallback();
     @NonNull private List<Compilation> displayedItems = new ArrayList<>();
-    private String currentSearchQuery;
 
     public interface Callback {
         void onRequestUpdateCompilations();
@@ -120,27 +112,6 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
         super.onDestroyView();
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_local_compilations, menu);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_search_compilations:
-                ((AppCompatActivity) getActivity()).startSupportActionMode(searchActionModeCallback);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     @OnClick({R.id.compilations_add_button, R.id.compilation_empty_search_button}) void onAddCompilationClick() {
         startActivity(RemoteCompilationsActivity.newIntent(getContext()));
     }
@@ -181,7 +152,12 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     }
 
     private void update() {
-        setSearchQuery(currentSearchQuery);
+        displayedItems.clear();
+        displayedItems.addAll(OfflineManager.instance().compilations());
+        countText.setText(getString(R.string.offline_compilations_found_count, displayedItems.size()));
+        adapter.notifyDataSetChanged();
+        updateEmptyState();
+
         long totalBytes = 0;
         for (Compilation c : OfflineManager.instance().compilations()) {
             totalBytes += c.size();
@@ -189,25 +165,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
         diskUsageView.update(totalBytes);
     }
 
-    private void setSearchQuery(@Nullable String query) {
-        currentSearchQuery = query;
-        displayedItems.clear();
-        if (TextUtils.isEmpty(query)) {
-            displayedItems.addAll(OfflineManager.instance().compilations());
-        } else {
-            query = query.toUpperCase();
-            for (Compilation c : OfflineManager.instance().compilations()) {
-                if (c.name().toUpperCase().contains(query.toUpperCase())) {
-                    displayedItems.add(c);
-                }
-            }
-        }
-        countText.setText(getString(R.string.offline_compilations_found_count, displayedItems.size()));
-        adapter.notifyDataSetChanged();
-        updateEmptyState(query);
-    }
-
-    private void updateEmptyState(@Nullable String searchQuery) {
+    private void updateEmptyState() {
         if (lastError != null) {
             errorView.setError(lastError);
             errorView.setVisibility(View.VISIBLE);
@@ -219,15 +177,9 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
         }
         errorView.setVisibility(View.GONE);
         progressBar.setVisibility(updating ? View.VISIBLE : View.GONE);
-        if (TextUtils.isEmpty(searchQuery)) {
-            searchEmptyView.setVisibility(View.GONE);
-            listContainer.setVisibility(displayedItems.isEmpty() ? View.GONE : View.VISIBLE);
-            emptyContainer.setVisibility(displayedItems.isEmpty() ? View.VISIBLE : View.GONE);
-        } else {
-            listContainer.setVisibility(displayedItems.isEmpty() ? View.GONE : View.VISIBLE);
-            searchEmptyView.setVisibility(displayedItems.isEmpty() ? View.VISIBLE : View.GONE);
-            emptyContainer.setVisibility(View.GONE);
-        }
+        searchEmptyView.setVisibility(View.GONE);
+        listContainer.setVisibility(displayedItems.isEmpty() ? View.GONE : View.VISIBLE);
+        emptyContainer.setVisibility(displayedItems.isEmpty() ? View.VISIBLE : View.GONE);
     }
 
     private class CompilationItemHolder extends DefaultViewHolder<PageItemView<Compilation>> {
@@ -341,29 +293,6 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
 
         @Override
         public void onSecondaryActionClick(@Nullable Compilation item, @NonNull View view) {
-        }
-    }
-
-    private class SearchCallback extends SearchActionModeCallback {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            return super.onCreateActionMode(mode, menu);
-        }
-
-        @Override
-        protected void onQueryChange(String s) {
-            setSearchQuery(s);
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-            super.onDestroyActionMode(mode);
-            setSearchQuery(null);
-        }
-
-        @Override
-        protected String getSearchHintString() {
-            return getString(R.string.offline_compilations_search_by_name);
         }
     }
 
