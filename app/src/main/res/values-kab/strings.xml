@@ -238,7 +238,6 @@
   <string name="page_offline_notice_cannot_load_while_offline">amagrad ur yezmir ara ad d-yali ticki ur teqqineḍ ara.</string>
   <string name="page_offline_notice_add_to_reading_list">Taxbalut: rnu amagrad ar tebdart n tɣuri sakin ad tettwasider ticki teqqneḍ tikelt-nniden.</string>
   <string name="page_offline_notice_last_date">Aqla-k teqqareḍ lqem yettwakelsen deg war tuqqna di %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Aqla-k teqqaṛeḍ lqem n war tuqqna n umagrad-agi, seg tagrumma yettwasidren di %s.</string>
   <string name="button_get_directions">Awi iwellihen</string>
   <string name="error_no_maps_app">Ur izmir ara ad d-yaf asnas yettmuddun iwellihen.</string>
   <string name="preference_title_show_link_previews">Wali tiskanin n useɣwen</string>

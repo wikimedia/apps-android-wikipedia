@@ -58,7 +58,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -480,8 +479,7 @@ public class PageFragmentLoadState {
             sendMarginPayload();
             OfflineManager.HtmlResult result = OfflineManager.instance()
                     .getHtmlForTitle(model.getTitle().getDisplayText());
-            Date downloadDate = new Date(result.compilation().timestamp());
-            page.setCompilationDownloadDate(downloadDate);
+            page.setCompilation(result.compilation());
             JSONObject zimPayload = setLeadSectionMetadata(new JSONObject(), page)
                     .put("zimhtml", result.html())
                     .put("fromRestBase", false)
@@ -499,7 +497,7 @@ public class PageFragmentLoadState {
             //give it our expected scroll position, in case we need the page to be pre-scrolled upon loading.
             zimPayload.put("scrollY", (int) (stagedScrollY / DimenUtil.getDensityScalar()));
             bridge.sendMessage("displayFromZim", zimPayload);
-            showOfflineCompilationMessage(downloadDate);
+            showOfflineCompilationMessage(result.compilation().name(), result.compilation().timestamp());
         } catch (JSONException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -644,11 +642,11 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void showOfflineCompilationMessage(@NonNull Date lastModified) {
+    private void showOfflineCompilationMessage(@NonNull String compName, @NonNull long timestamp) {
         if (fragment.isAdded()) {
-            String dateStr = DateUtil.getShortDateString(lastModified);
+            String dateStr = DateUtil.getShortDateString(timestamp);
             Toast.makeText(fragment.getContext().getApplicationContext(),
-                    fragment.getString(R.string.page_offline_notice_compilation_download_date, dateStr),
+                    fragment.getString(R.string.page_offline_notice_compilation_download_date, compName, dateStr),
                     Toast.LENGTH_LONG).show();
         }
     }

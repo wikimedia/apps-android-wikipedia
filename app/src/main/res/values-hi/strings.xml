@@ -238,7 +238,6 @@
   <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
   <string name="page_offline_notice_add_to_reading_list">सहायता: लेख को अपनी पढ़ने वाली सूची में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
   <string name="page_offline_notice_last_date">आप %s पर सहेजे गए लेख का ऑफ़लाइन वर्ज़न पढ़ रहे हैं।</string>
-  <string name="page_offline_notice_compilation_download_date">आप %s पर डाउनलोड किए गए संकलन से इस आलेख के एक ऑफ़लाइन संस्करण को पढ़ रहे हैं।</string>
   <string name="button_get_directions">दिशानिर्देश पाएं</string>
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>
   <string name="preference_title_show_link_previews">कड़ी की झलक दिखायें</string>

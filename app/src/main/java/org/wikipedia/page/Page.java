@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
+import org.wikipedia.offline.Compilation;
 import org.wikipedia.settings.RbSwitch;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,7 +20,8 @@ public class Page {
     @NonNull private final List<Section> sections;
     @NonNull private final PageProperties pageProperties;
 
-    @Nullable private Date compilationDownloadDate;
+    @Nullable private String compName;
+    @Nullable private long compTimestamp;
 
     /**
      * An indicator what payload version the page content was originally retrieved from.
@@ -94,15 +95,20 @@ public class Page {
     }
 
     public boolean isFromOfflineCompilation() {
-        return compilationDownloadDate != null;
+        return compName != null;
     }
 
-    @Nullable public Date getCompilationDownloadDate() {
-        return compilationDownloadDate;
+    @Nullable public long getCompilationTimestamp() {
+        return compTimestamp;
     }
 
-    public void setCompilationDownloadDate(@NonNull Date date) {
-        this.compilationDownloadDate = date;
+    @Nullable public String getCompilationName() {
+        return compName;
+    }
+
+    public void setCompilation(@NonNull Compilation comp) {
+        this.compName = comp.name();
+        this.compTimestamp = comp.timestamp();
     }
 
     /** For old PHP API */

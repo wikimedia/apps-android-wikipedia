@@ -240,7 +240,6 @@
   <string name="page_offline_notice_cannot_load_while_offline">Nun pué cargase l\'artículu en tando sin conexón.</string>
   <string name="page_offline_notice_add_to_reading_list">Gabitu: Añade l\'artículu a una llista de llectura y se descargará en coneutando.</string>
   <string name="page_offline_notice_last_date">Tas lleyendo una versión sin conexón d\'esti artículu guardada el %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Tas lleyendo una versión sin conexón d\'esti artículu d\'una compilación descargada el %s.</string>
   <string name="button_get_directions">Recibir indicaciones</string>
   <string name="error_no_maps_app">Nun pudo alcontrase nenguna app qu\'ufra indicaciones</string>
   <string name="preference_title_show_link_previews">Amosar vistes previes de los enllaces</string>

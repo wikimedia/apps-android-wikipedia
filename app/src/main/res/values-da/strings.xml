@@ -240,7 +240,6 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artiklen kan ikke indlæses offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Fif: Tilføj artiklen til en læseliste, og den vil blive hentet når du er på nettet igen.</string>
   <string name="page_offline_notice_last_date">Du læser en offlineudgave af denne artikel gemt den %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Du læser en lokal version af denne artikel fra en samling hentet den %s.</string>
   <string name="button_get_directions">Få rutevejledninger</string>
   <string name="error_no_maps_app">Kunne ikke finde nogen apps, der giver rutevejledninger.</string>
   <string name="preference_title_show_link_previews">Vis forhåndsvisning af links</string>

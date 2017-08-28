@@ -240,7 +240,6 @@
   <string name="page_offline_notice_cannot_load_while_offline">Der Artikel kann nicht geladen werden, während du offline bist.</string>
   <string name="page_offline_notice_add_to_reading_list">Hinweis: Füge den Artikel zu einer Leseliste hinzu und er wird heruntergeladen, sobald du wieder online bist.</string>
   <string name="page_offline_notice_last_date">Du liest eine Offline-Version dieses Artikels, die am %s gespeichert wurde.</string>
-  <string name="page_offline_notice_compilation_download_date">Du liest eine Offline-Version dieses Artikels aus einer Zusammenstellung, die am %s heruntergeladen wurde.</string>
   <string name="button_get_directions">Richtungen abrufen</string>
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>

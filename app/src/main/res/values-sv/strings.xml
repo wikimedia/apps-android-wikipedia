@@ -240,7 +240,6 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikeln kan inte läsas in i offlineläge.</string>
   <string name="page_offline_notice_add_to_reading_list">Tips: Lägg till artikeln i en läslista och den kommer att laddas ned så fort du blir online igen.</string>
   <string name="page_offline_notice_last_date">Du läser en offlineversion av denna artikel som sparades den %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Du läser en offlineversion av denna artikel från en sammanställning som laddades ned den %s.</string>
   <string name="button_get_directions">Få vägbeskrivningar</string>
   <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>

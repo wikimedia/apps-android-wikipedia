@@ -240,7 +240,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Message informing the user that an article cannot be loaded while the app is offline. This message is followed by page_offline_notice_add_to_reading_list.</string>
   <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be downloaded when the app is online. This message follows {{msg-wm|Wikipedia-android-strings-page_offline_notice_cannot_load_while_offline}}.</string>
   <string name="page_offline_notice_last_date">Message that tells the user that the current article is loaded from offline storage. The %s symbol is replaced with the date when the article was saved.</string>
-  <string name="page_offline_notice_compilation_download_date">Message that tells the user that the current article is loaded from a downloaded offline compilation. The %s symbol is replaced with the date when the compilation was downloaded.</string>
+  <string name="page_offline_notice_compilation_download_date">Message that tells the user that the current article is loaded from a downloaded offline compilation. The %1$s symbol is replaced with the name of the article pack containing the article, and the %2$s symbol is replaced with the date when the compilation was downloaded.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
@@ -421,13 +421,13 @@
   <string name="offline_read_permission_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
   <string name="offline_read_permission_error">Error shown when the app could not read from the internal or external storage of the device due to permission not being granted.</string>
   <string name="offline_card_text">Message shown in the Feed card that informs the user that they are now browsing Wikipedia in offline mode.</string>
-  <string name="offline_my_compilations">Button label for the user to access their list of article packs.</string>
+  <string name="offline_my_compilations">Button label for the user to navigate to the offline library screen.</string>
   <string name="offline_compilations_title">Title shown on the toolbar of the activity for managing article packs.</string>
   <string name="offline_compilations_search_by_name">Menu item for searching article packs by name.</string>
-  <string name="offline_compilations_found_count">Label that states how many article packs the user has available. The %d symbol is replaced with the number of article packs detected.</string>
-  <string name="offline_compilations_add">Button text for adding an offline article pack.</string>
+  <string name="offline_compilations_found_count">Label that states how many article packs the user has available in the Offline Library. The %d symbol is replaced with the number of article packs detected.</string>
+  <string name="offline_compilations_add">Button text for adding an offline article pack to the Offline Library.</string>
   <string name="remote_compilations_title">Title shown on the toolbar of the activity that shows all downloadable article packs.</string>
-  <string name="remote_compilations_description">Short description about article packs and their benefits.</string>
+  <string name="remote_compilations_description">Short description of the Offline Library.</string>
   <string name="offline_compilation_detail_date_size">Information about the date and size of an article pack. The %1$s and %2$.2f symbols will be replaced with the date and size. Only the \"GB\" unit needs to be translated (see storage_size_gb).</string>
   <string name="offline_compilation_detail_button_download">Label for a button for downloading an offline article pack. The %.2f symbol is replaced with the article pack size, in gigabytes (GB).</string>
   <string name="offline_compilation_detail_button_remove">Label for a button for removing an offline article pack from storage on the user\'s device.</string>
@@ -449,8 +449,6 @@
   <string name="compilation_share">Menu label for sharing the selected article pack through another app.</string>
   <string name="compilation_remove">Menu label for removing the selected article pack from the device.</string>
   <string name="compilation_remove_confirm">Confirmation message asking if the user really wants to remove the selected article pack from the device.</string>
-  <string name="compilation_remove_confirm_yes">Affirmative answer to remove the selected article pack.\n{{Identical|Yes}}</string>
-  <string name="compilation_remove_confirm_no">Negative answer to cancel the selected article pack.\n{{Identical|No}}</string>
   <string name="offline_library_title">Title shown at the top of the activity for managing the offline library.</string>
   <string name="offline_library_empty_title">Message shown when the offline library is empty.</string>
   <string name="offline_library_empty_description">Explanation encouraging the user to download an article pack for offline use later.</string>
