@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import org.wikipedia.WikipediaApp;
@@ -133,14 +132,6 @@ public class ObservableWebView extends WebView {
     public ObservableWebView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
-    }
-
-    @Override public void destroy() {
-        clearAllListeners();
-        if (getParent() != null) {
-            ((ViewGroup) getParent()).removeView(this);
-        }
-        super.destroy();
     }
 
     private void init() {
