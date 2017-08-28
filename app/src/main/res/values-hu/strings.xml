@@ -406,6 +406,12 @@
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
   <string name="description_edit_revert_reason2">tesztelésnek vagy vandalizmusnak tűnt</string>
   <string name="description_edit_revert_history">Többet megtudhatsz a visszavonás okáról a &lt;a href=\"%1$s\"&gt;laptörténetben&lt;/a&gt;.</string>
+  <string name="offline_compilations_title">Offline könyvtár</string>
+  <string name="compilation_share">Megosztás</string>
+  <string name="compilation_remove">Eltávolítás</string>
+  <string name="compilation_remove_confirm_yes">Igen</string>
+  <string name="compilation_remove_confirm_no">Nem</string>
+  <string name="offline_library_onboarding_button_done">Kész</string>
   <string name="onboarding_skip">Kihagy</string>
   <string name="onboarding_continue">Tovább</string>
   <string name="onboarding_get_started">Kezdés</string>

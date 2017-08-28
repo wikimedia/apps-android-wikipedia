@@ -407,7 +407,7 @@
   <string name="description_edit_revert_history">Indien uw interesse is gewekt, bekijk dan &lt;a href=\"%1$s\"&gt;bewerk geschiedenis&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale" fuzzy="true">Er is toestemming vereist om naar de opslagmedia op uw apparaat te mogen schrijven. Probeer het nogmaals, en geef vereiste toestemming.</string>
   <string name="offline_card_text">U bent momenteel Wikipedia offline aan het bekijken. Hou er rekening mee dat de offline artikels niet helemaal up to date zijn met de online versie.</string>
-  <string name="offline_my_compilations">Mijn aanpassingen</string>
+  <string name="offline_my_compilations" fuzzy="true">Mijn aanpassingen</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <string name="compilation_download_widget_button_pause_resume_hint">Pauzeer of ga door met de download</string>
   <string name="compilation_download_widget_button_cancel_hint">Annuleer download</string>

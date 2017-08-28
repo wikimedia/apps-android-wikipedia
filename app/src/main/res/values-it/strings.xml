@@ -388,8 +388,8 @@
   <string name="description_edit_revert_reason2">il tuo contributo sembra essere un esperimento o un vandalismo.</string>
   <string name="description_edit_revert_history">Se sei interessato, vedi la &lt;a href=\"%1$s\"&gt;cronologia delle modifiche&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Per accedere allo spazio di archiviazione sul tuo dispositivo per la navigazione offline è richiesto un permesso.</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Download · %.2f GB</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Scarica • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Rimuovi</string>
   <string name="remote_compilation_download">Scarica</string>
   <string name="storage_size_gb">GB</string>
@@ -405,6 +405,10 @@
   <string name="compilation_download_widget_button_cancel_hint">Annulla il download</string>
   <string name="compilation_download_cancel_confirm_yes">Sì</string>
   <string name="compilation_download_cancel_confirm_no">No</string>
+  <string name="compilation_share">Condividi</string>
+  <string name="compilation_remove">Rimuovi</string>
+  <string name="compilation_remove_confirm_yes">Sì</string>
+  <string name="compilation_remove_confirm_no">No</string>
   <string name="offline_library_title">Biblioteca offline</string>
   <string name="offline_library_empty_title">Niente nella tua biblioteca offline</string>
   <string name="offline_library_empty_search">Cerca nella biblioteca offline</string>

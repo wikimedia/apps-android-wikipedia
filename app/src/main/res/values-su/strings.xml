@@ -329,6 +329,7 @@
   <string name="reading_list_sync_reminder_text">Daptar bacaan anjeun bisa disingkronkeun kana akun Wikipédia anjeun mun anjeun ngawidian singkronisasi di pangaturan aplikasi.</string>
   <string name="reading_list_sync_reminder_action">Hurungkeun</string>
   <string name="reading_list_login_reminder_title">Singkronkeun daptar bacaan</string>
+  <string name="reading_list_login_reminder_text">Daptar bacaan anjeun kiwari bisa disimpen kana akun Wikipédia anjeun. Cukup asup log kana akun anjeun, mangka daptar bacaan anjeun bakal disingkronkeun kalawan otomatis.</string>
   <string name="reading_lists_confirm_remote_delete">Ieu bakal ngahapus daptar bacaan nu disingkronkeun saméméhna tina panyimpenan jarak jauh. Tuluykeun?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Nya</string>
   <string name="reading_lists_confirm_remote_delete_no">Teu</string>
@@ -408,20 +409,24 @@
   <string name="description_edit_help_tips_example2">Gunung pangjangkungna di marcapada</string>
   <string name="description_edit_help_tips_example2_hint">pedaran judul pikeun artikel ngeunaan Gunung Everest</string>
   <string name="description_edit_help_more_info">Informasi leuwih jero</string>
+  <string name="description_edit_help_meta_info">Déskripsi disimpen sarta dipulasara di Wikidata, hiji proyék ti Wikimedia Foundation anu nyayagakeun basis data bébas, kolaboratif, multibasa, sékunder nu ngarojong Wikipédia jeung proyék-proyék lianna.</string>
   <string name="description_edit_revert_subtitle">Hatur nuhun tos ngédit di Wikipédia!</string>
+  <string name="description_edit_revert_intro">Kami nyaho anjeun nyoba nu panghadéna, ngan salah sahiji paninjau mibanda kakhawatiran. Kamungkinan alesan éditan anjeun geus dibalikkeun ngawengku:</string>
   <string name="description_edit_revert_reason1">kontribusi anjeun teu numutkeun kana salah sahiji &lt;a href=\"%1$s\"&gt;palanggeran&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Kontribusi anjeun sigana mah coba-coba atawa vandalismeu kitu.</string>
   <string name="description_edit_revert_history">Mun anjeun kataji, témbongan &lt;a href=\"%1$s\"&gt;jujutan éditanana&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin pikeun ngaksés panyimpenan dina parangkat anjeun diperlukeun pikeun langlangan luring.</string>
   <string name="offline_read_permission_error">Idin teu dibéré pikeun maca tina panyimpenan parangkat.</string>
-  <string name="offline_my_compilations">Kompilasi kuring</string>
-  <string name="offline_compilations_title">Kompilasi luring</string>
-  <string name="offline_compilations_search_by_name">Paluruh kompilasi dumasar ngaran</string>
-  <string name="offline_compilations_found_count">Kompilasi kuring (%d)</string>
-  <string name="offline_compilations_add">Tambah kompilasi luring</string>
-  <string name="remote_compilations_title">Sakumna kompilasi</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Undeur · %.2f GB</string>
+  <string name="offline_card_text">Anjeun kiwari ngalanglang Wikipédia dina modeu luring. Wayahna baé da ari artikel luring mah meureun teu sagemblengna dianyarkeun kawas vérsi onlén.</string>
+  <string name="offline_my_compilations">Pakét artikel kuring</string>
+  <string name="offline_compilations_title">Pabukon luring</string>
+  <string name="offline_compilations_search_by_name">Paluruh pakét artikel dumasar ngaran</string>
+  <string name="offline_compilations_found_count">Pakét artikel kuring (%d)</string>
+  <string name="offline_compilations_add">Tambah pakét artikel</string>
+  <string name="remote_compilations_title">Sakumna pakét artikel</string>
+  <string name="remote_compilations_description">Pakét artikel nyaéta kumpulan artikel badag nu bisa diundeur minangka hiji berkas ka parangkat anjeun, sangkan anjeun bisa terus ngalanglang nalika luring.</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Undeur • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Pupus</string>
   <string name="remote_compilation_download">Undeur</string>
   <string name="storage_size_gb">GB</string>
@@ -435,21 +440,36 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Eureun heula atawa tuluykeun undeuran</string>
   <string name="compilation_download_widget_button_cancel_hint">Bolaykeun undeuran</string>
-  <string name="compilation_download_cancel_confirm">Anjeun yakin rék ngabolaykeun undeuran ieu kompilasi?</string>
+  <string name="compilation_download_cancel_confirm">Anjeun yakin rék ngabolaykeun undeuran ieu pakét artikel?</string>
   <string name="compilation_download_cancel_confirm_yes">Nya</string>
   <string name="compilation_download_cancel_confirm_no">Teu</string>
+  <string name="compilation_share">Bagikeun</string>
+  <string name="compilation_remove">Pupus</string>
+  <string name="compilation_remove_confirm">Anjeun yakin rék mupus ieu pakét artikel tina parangkat anjeun?</string>
+  <string name="compilation_remove_confirm_yes">Nya</string>
+  <string name="compilation_remove_confirm_no">Teu</string>
   <string name="offline_library_title">Pabukon luring</string>
   <string name="offline_library_empty_title">Taya nanaon di Pabukon Luring anjeun mah</string>
   <string name="offline_library_empty_description">Pilih sakumpulan artikel Wikipédia jang undeuran ayeuna, pikeun aksés tanpadata engké.</string>
   <string name="offline_library_empty_search">Paluruh Pabukon luring</string>
+  <string name="offline_library_search_results_state">Hasil pamaluruhan tina pabukon luring nu sayaga</string>
   <string name="offline_library_onboarding_action">Teuleuman ngeunaan Pabukon Luring anjeun</string>
+  <string name="offline_library_onboarding_button_done">Anggeus</string>
+  <string name="offline_library_onboarding_build_library_title">Wangun Pabukon Luring anjeun</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Undeur pakét artikel Wikipédia kiwari pikeun aksés bébas data engké.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Maca tanpa kaganggu</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Terus baé maca jeung maluruh artikel dina Pabukon Luring anjeun nalika anjeun miboga aksés kana internét.</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Simpen leuwih loba pangaweruh</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Undeur Wikipédia saloba-lobana parangkat anjeun bisa ngawadahan. Pabukon Luring ogé bisa ngaksés pakét artikel dina panyimpenan éksternal.</string>
   <string name="onboarding_skip">Liwatkeun</string>
   <string name="onboarding_continue">Tuluykeun</string>
   <string name="onboarding_get_started">Mitembeyan</string>
   <string name="onboarding_explore_title">Cara anyar pikeun ngalanglang</string>
   <string name="onboarding_explore_text">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
   <string name="onboarding_reading_list_sync_title">Daptar bacaan kalawan singkronisasi</string>
+  <string name="onboarding_reading_list_sync_text">Jieun daptar bacaan tina artikel anu ku anjeun rék di baca engké, malah mah mun keur luring. &lt;a href=\"#login\"&gt;Asup log atawa jieun&lt;/a&gt; akun Wikipédia anjeun supaya daptar bacaan anjeun dicadangkeun.</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
+  <string name="onboarding_analytics_text">Bantu nyieun aplikasi sangkan leuwih hadé ku cara méré béja ka kami kumaha anjeun ngagunakeunana. Data nu dikumpulkeun mangrupa anonim. &lt;a href=\"#privacy\"&gt;Teuleuman leuwih jero&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
   <string name="onboarding_create_account_sync">Singkronkeun daptar bacaan anjeun</string>
   <string name="onboarding_create_account_contributions">Catet kontribusi anjeun</string>

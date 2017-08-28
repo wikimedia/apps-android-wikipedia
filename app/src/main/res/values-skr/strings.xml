@@ -96,7 +96,7 @@
   <string name="user_blocked_from_editing_title">بلاک تھی ڳیا</string>
   <string name="edit_next">اڳوں تے ونڄو</string>
   <string name="edit_done">چھاپو</string>
-  <string name="edit_preview">نمائش</string>
+  <string name="edit_preview">پہلے ݙیکھو</string>
   <string name="edit_summary_tag_typo">درستی املا</string>
   <string name="edit_summary_tag_grammar">درستی قواعد</string>
   <string name="edit_summary_tag_links">لنک شامل کیتا</string>
@@ -164,6 +164,7 @@
   <string name="view_card_footer_button">ٻیا ݙیکھو</string>
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">کو، شکریہ</string>
+  <string name="view_featured_article_footer_saved_button_label">محفوظ</string>
   <string name="description_edit_save">شائع کرو</string>
   <string name="description_edit_add_description">عنوان دی تفصیل لکھو</string>
   <string name="description_edit_edit_description">تفصیل لکھو</string>
@@ -178,6 +179,8 @@
   <string name="compilation_download_widget_button_cancel_hint">ڈاؤن لوڈ منسوخ کرو</string>
   <string name="compilation_download_cancel_confirm_yes">جیا</string>
   <string name="compilation_download_cancel_confirm_no">کو</string>
+  <string name="compilation_remove">ہٹاؤ</string>
+  <string name="compilation_remove_confirm_yes">جیا</string>
   <string name="onboarding_skip">چھوڑو</string>
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>

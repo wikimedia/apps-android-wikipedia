@@ -342,12 +342,12 @@
   <string name="description_edit_help_tips_example1">লিঅ\'নাৰ্ড\' ডা ভিঞ্চিয়ে অঁকা চিত্ৰ</string>
   <string name="description_edit_help_more_info">অধিক তথ্য</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
-  <string name="offline_my_compilations">মোৰ সংকলন</string>
-  <string name="offline_compilations_title">অফলাইন সংকলন</string>
-  <string name="offline_compilations_search_by_name">নাম অনুযায়ী সংকলন সন্ধান কৰক</string>
-  <string name="offline_compilations_found_count">মোৰ সংকলন (%d)</string>
-  <string name="offline_compilations_add">অফলাইন সংকলন যোগ কৰক</string>
-  <string name="remote_compilations_title">সকলো সংকলন</string>
+  <string name="offline_my_compilations" fuzzy="true">মোৰ সংকলন</string>
+  <string name="offline_compilations_title" fuzzy="true">অফলাইন সংকলন</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">নাম অনুযায়ী সংকলন সন্ধান কৰক</string>
+  <string name="offline_compilations_found_count" fuzzy="true">মোৰ সংকলন (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">অফলাইন সংকলন যোগ কৰক</string>
+  <string name="remote_compilations_title" fuzzy="true">সকলো সংকলন</string>
   <string name="storage_used_by_compilations">ৱিকিপিডিয়াৰ দ্বাৰা ব্যৱহৃত</string>
   <string name="storage_other_apps">আন এপ্লিকেছনসমূহ</string>
   <string name="onboarding_skip">এৰি যাওক</string>

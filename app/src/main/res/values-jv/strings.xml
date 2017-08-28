@@ -421,15 +421,15 @@
   <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan.</string>
   <string name="offline_read_permission_error">Ora antuk palilah saperlu maca saka panyimpenané piranti.</string>
   <string name="offline_card_text">Panjenengan pinuju ngluru Wikipédia ing njaban jaringan. Éling-élingen yèn artikel njaban jaringan bokmanawa ora saanyar sing ana ing njeron jaringan.</string>
-  <string name="offline_my_compilations">Kompilasiné kula</string>
-  <string name="offline_compilations_title">Kompilasi njaban jaringan</string>
-  <string name="offline_compilations_search_by_name">Golèk kompilasi miturut jenengé</string>
-  <string name="offline_compilations_found_count">Kompilasiné kula (%d)</string>
-  <string name="offline_compilations_add">Tambah kompilasi njaban jaringan</string>
-  <string name="remote_compilations_title">Kabèh kompilasi</string>
-  <string name="remote_compilations_description">Kompilasi Jaban Jaringan iku bundhelan artikel gedhé sing bisa diundhuh dadi sabarkas menyang pirantiné panjenengan, supaya panjenengan bisa panggah ngluru nalika ing njaban jaringan.</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Undhuh · %.2f GB</string>
+  <string name="offline_my_compilations" fuzzy="true">Kompilasiné kula</string>
+  <string name="offline_compilations_title" fuzzy="true">Kompilasi njaban jaringan</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">Golèk kompilasi miturut jenengé</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Kompilasiné kula (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Tambah kompilasi njaban jaringan</string>
+  <string name="remote_compilations_title" fuzzy="true">Kabèh kompilasi</string>
+  <string name="remote_compilations_description" fuzzy="true">Kompilasi Jaban Jaringan iku bundhelan artikel gedhé sing bisa diundhuh dadi sabarkas menyang pirantiné panjenengan, supaya panjenengan bisa panggah ngluru nalika ing njaban jaringan.</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Undhuh • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Buwang</string>
   <string name="remote_compilation_download">Undhuh</string>
   <string name="storage_size_gb">GB</string>
@@ -445,6 +445,10 @@
   <string name="compilation_download_widget_button_cancel_hint">Wurung ngundhuh</string>
   <string name="compilation_download_cancel_confirm_yes">Iya</string>
   <string name="compilation_download_cancel_confirm_no">Ora</string>
+  <string name="compilation_share">Dum</string>
+  <string name="compilation_remove">Busak</string>
+  <string name="compilation_remove_confirm_yes">Iya</string>
+  <string name="compilation_remove_confirm_no">Ora</string>
   <string name="onboarding_skip">Langkahi</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>

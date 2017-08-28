@@ -329,6 +329,7 @@
   <string name="view_continue_reading_card_subtitle_today">Данас</string>
   <string name="view_announcement_card_negative_action">Не, хвала</string>
   <string name="view_offline_card_text">Садржај се не може учитати када сте офлајн.</string>
+  <string name="view_featured_article_footer_saved_button_label">Сачувано</string>
   <string name="description_edit_text_hint">Опис наслова</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_add_description">Додај опис наслова</string>
@@ -367,5 +368,9 @@
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;</string>
   <string name="description_edit_revert_reason2">ваша измена је изгледала као експеримент или вандализам</string>
   <string name="description_edit_revert_history">Ако сте заинтересовани, погледајте &lt;a href=\"%1$s\"&gt;историју уређивања&lt;/a&gt;.</string>
-  <string name="remote_compilations_title">Све збирке</string>
+  <string name="remote_compilations_title" fuzzy="true">Све збирке</string>
+  <string name="compilation_share">Дели</string>
+  <string name="compilation_remove">Уклони</string>
+  <string name="compilation_remove_confirm_yes">Да</string>
+  <string name="compilation_remove_confirm_no">Не</string>
 </resources>

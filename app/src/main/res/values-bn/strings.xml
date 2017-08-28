@@ -380,13 +380,13 @@
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
   <string name="description_edit_revert_history">আপনি যদি আগ্রহী হন তাহলে, &lt;a href=\"%1$s\"&gt;সম্পাদনা ইতিহাস&lt;/a&gt; দেখুন।</string>
-  <string name="offline_my_compilations">আমার সংকলিত বিষয়</string>
-  <string name="offline_compilations_title">অফলাইন সংকলিত বিষয়</string>
-  <string name="offline_compilations_search_by_name">নাম অনুযায়ী সংকলিত বিষয় সন্ধান করুন</string>
-  <string name="offline_compilations_found_count">আমার সংকলিত বিষয় (%d)</string>
-  <string name="offline_compilations_add">অফলাইনের সংকলিত বিষয় যোগ করুন</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f গিগাবাইট</string>
-  <string name="offline_compilation_detail_button_download">ডাউনলোড করুন · %.2f GB</string>
+  <string name="offline_my_compilations" fuzzy="true">আমার সংকলিত বিষয়</string>
+  <string name="offline_compilations_title" fuzzy="true">অফলাইন সংকলিত বিষয়</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">নাম অনুযায়ী সংকলিত বিষয় সন্ধান করুন</string>
+  <string name="offline_compilations_found_count" fuzzy="true">আমার সংকলিত বিষয় (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">অফলাইনের সংকলিত বিষয় যোগ করুন</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f গিগাবাইট</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">ডাউনলোড করুন · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">সরান</string>
   <string name="remote_compilation_download">ডাউনলোড করুন</string>
   <string name="storage_size_gb">জিবি</string>

@@ -395,13 +395,13 @@
   <string name="description_edit_revert_reason1">Vaš doprinos nije slijedio jednu od &lt;a href=\"%1$s\"&gt;smjernica&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Vaš doprinos djelovao je kao eksperiment ili vandalizam.</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;historiju izmjena&lt;/a&gt;.</string>
-  <string name="offline_my_compilations">Moje zbirke</string>
-  <string name="offline_compilations_title">Vanmrežne zbirke</string>
-  <string name="offline_compilations_search_by_name">Pretraži zbirke po imenu</string>
-  <string name="offline_compilations_found_count">Moje zbirke (%d)</string>
-  <string name="offline_compilations_add">Dodaj vanmrežnu zbirku</string>
-  <string name="remote_compilations_title">Sve zbirke</string>
-  <string name="offline_compilation_detail_button_download">Preuzmi · %.2f GB</string>
+  <string name="offline_my_compilations" fuzzy="true">Moje zbirke</string>
+  <string name="offline_compilations_title" fuzzy="true">Vanmrežne zbirke</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">Pretraži zbirke po imenu</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Moje zbirke (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Dodaj vanmrežnu zbirku</string>
+  <string name="remote_compilations_title" fuzzy="true">Sve zbirke</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">Preuzmi · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ukloni</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">slobodno %.2f GB</string>

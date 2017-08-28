@@ -406,14 +406,14 @@
   <string name="description_edit_revert_history">جيڪڏھن توھان دلچسپي رکو ٿا، تہ پوءِ &lt;a href=\"%1$s\"&gt;ترميمن جي سوانح&lt;/a&gt; ڏسو.</string>
   <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي سنڀار تائين پھچ لاءِ اجازت گھربل آھي.</string>
   <string name="offline_read_permission_error">ڊوائيس جي سنڀار مان پڙھڻ لاءِ اجازت نہ ڏني وئي.</string>
-  <string name="offline_my_compilations">منھنجا ميڙ</string>
-  <string name="offline_compilations_title">آفلائين ميڙ</string>
-  <string name="offline_compilations_search_by_name">ميڙ نالي سان ڳوليو</string>
-  <string name="offline_compilations_found_count">منھنجا ميڙ (%d)</string>
-  <string name="offline_compilations_add">آفلائين ميڙ وجھو</string>
-  <string name="remote_compilations_title">سڀ ميڙ</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f جيبي</string>
-  <string name="offline_compilation_detail_button_download">لاھيو · %.2f جيبي</string>
+  <string name="offline_my_compilations" fuzzy="true">منھنجا ميڙ</string>
+  <string name="offline_compilations_title" fuzzy="true">آفلائين ميڙ</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">ميڙ نالي سان ڳوليو</string>
+  <string name="offline_compilations_found_count" fuzzy="true">منھنجا ميڙ (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">آفلائين ميڙ وجھو</string>
+  <string name="remote_compilations_title" fuzzy="true">سڀ ميڙ</string>
+  <string name="offline_compilation_detail_date_size" fuzzy="true">%1$s · %2$.2f جيبي</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">لاھيو · %.2f جيبي</string>
   <string name="offline_compilation_detail_button_remove">ھٽايو</string>
   <string name="remote_compilation_download">لاھيو</string>
   <string name="storage_size_gb">جيبي</string>
@@ -427,7 +427,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">لاھڻ بيھاريو يا ٻيھر جاري رکو</string>
   <string name="compilation_download_widget_button_cancel_hint">لاھڻ رد ڪريو</string>
-  <string name="compilation_download_cancel_confirm">ڇا توھان کي پڪ آھي تہ توھان ھن ميڙ جو لاھڻ رد ڪرڻ ٿا چاھيو؟</string>
+  <string name="compilation_download_cancel_confirm" fuzzy="true">ڇا توھان کي پڪ آھي تہ توھان ھن ميڙ جو لاھڻ رد ڪرڻ ٿا چاھيو؟</string>
   <string name="compilation_download_cancel_confirm_yes">ھا</string>
   <string name="compilation_download_cancel_confirm_no">نہ</string>
   <string name="offline_library_title">آفلائين ڪتبخانو</string>

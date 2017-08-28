@@ -405,13 +405,13 @@
   <string name="description_edit_revert_reason2">katkınız bir deneme ya da vandalizm gibi görünüyordu.</string>
   <string name="description_edit_revert_history">Eğer ilgeliniyorsanız, &lt;a href=\"%1$s\"&gt;değişiklik geçmişine&lt;/a&gt; bakabilirsiniz.</string>
   <string name="offline_read_permission_error">Cihaz hafızasına erişim için izin verilmedi.</string>
-  <string name="offline_my_compilations">Derlemelerim</string>
-  <string name="offline_compilations_title">Çevrim dışı derlemeler</string>
-  <string name="offline_compilations_search_by_name">Derlemeleri ada göre ara</string>
-  <string name="offline_compilations_found_count">Derlemelerim (%d)</string>
-  <string name="offline_compilations_add">Çevrim dışı derleme ekle</string>
-  <string name="remote_compilations_title">Tüm derlemeler</string>
-  <string name="remote_compilations_description">Çevrim dışı Derlemeler, cihazınıza tek bir dosya olarak indirilebilen büyük madde gruplarıdır; böylece çevrim dışıyken kullanıma devam edebilirsiniz.</string>
+  <string name="offline_my_compilations" fuzzy="true">Derlemelerim</string>
+  <string name="offline_compilations_title" fuzzy="true">Çevrim dışı derlemeler</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">Derlemeleri ada göre ara</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Derlemelerim (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Çevrim dışı derleme ekle</string>
+  <string name="remote_compilations_title" fuzzy="true">Tüm derlemeler</string>
+  <string name="remote_compilations_description" fuzzy="true">Çevrim dışı Derlemeler, cihazınıza tek bir dosya olarak indirilebilen büyük madde gruplarıdır; böylece çevrim dışıyken kullanıma devam edebilirsiniz.</string>
   <string name="offline_compilation_detail_button_remove">Sil</string>
   <string name="remote_compilation_download">İndir</string>
   <string name="storage_size_gb">GB</string>

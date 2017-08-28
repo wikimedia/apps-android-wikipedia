@@ -198,9 +198,9 @@
   <string name="err_cannot_save_file">फाइल ना सहेजा पाई</string>
   <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
   <string name="gallery_uploader_unknown">अनजान अपलोडर</string>
-  <string name="remote_compilations_description">ऑफलाइन कंपाइलेशन, लेख सभ के अइसन बंडल हवे जे एगो सिंगल फाइल के रूप में राउर मोबाइलयंत्र में डाउनलोड कइल जा सके ला, जवना से कि आप ऑफलाइन रहले पर भी ब्राउजिंग क सकीं।</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f जीबी</string>
-  <string name="offline_compilation_detail_button_download">डाउनलोड · %.2f जीबी</string>
+  <string name="remote_compilations_description" fuzzy="true">ऑफलाइन कंपाइलेशन, लेख सभ के अइसन बंडल हवे जे एगो सिंगल फाइल के रूप में राउर मोबाइलयंत्र में डाउनलोड कइल जा सके ला, जवना से कि आप ऑफलाइन रहले पर भी ब्राउजिंग क सकीं।</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f जीबी</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">डाउनलोड · %.2f जीबी</string>
   <string name="offline_compilation_detail_button_remove">हटाईं</string>
   <string name="remote_compilation_download">डाउनलोड</string>
   <string name="storage_size_gb">जीबी</string>

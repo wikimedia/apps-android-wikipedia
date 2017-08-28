@@ -200,7 +200,7 @@
   <string name="dialog_close_description">Button description for the close image button. The text is mainly for screen readers.\n{{Identical|Close}}</string>
   <string name="preference_title_show_images">Preference title for selecting whether images are loaded in pages.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}\n\n{{Identical|Show image}}</string>
   <string name="preference_summary_show_images">Description of the preference for whether images are loaded, mentioning that this setting should be disabled if the user\'s internet connection is slow, or if their data plan is limited or restricted.</string>
-  <string name="read_more_section">Title of the Read More section at the bottom of each page.\n{{Identical|Read more}}</string>
+  <string name="read_more_section">Title of the Read More section at the bottom of each page.\n\nThis section shows other automatically-selected articles, similarly to how it works with \"Related Articles\" ({{msg-mw|Relatedarticles-read-more-heading}}).\n\n{{Identical|Read more}}</string>
   <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
   <string name="gallery_error_draw_failed">Error message shown when the current image could not be displayed.</string>
   <string name="license_title">Title for activity displaying the license text for a library that we use. The \"%s\" symbol is replaced with the name of the library for which the license is being shown.</string>
@@ -457,7 +457,7 @@
   <string name="offline_library_empty_search">Button label for searching the list of possible article packs to download.</string>
   <string name="offline_library_search_results_state">Label informing the user that the current search results are from one or more offline article packs.</string>
   <string name="offline_library_onboarding_action">Button label for discovering more about the Offline Library.</string>
-  <string name="offline_library_onboarding_button_done">Label for a button for the user to confirm that the user is done with the tutorial for the Offline Library.</string>
+  <string name="offline_library_onboarding_button_done">Label for a button for the user to confirm that the user is done with the tutorial for the Offline Library.\n{{Identical|Done}}</string>
   <string name="offline_library_onboarding_build_library_title">Title for a tutorial screen about the Offline Library feature.</string>
   <string name="offline_library_onboarding_build_library_subtitle">Short explanatory text about the Offline Library feature.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Title for a tutorial screen about the Offline Library feature.</string>

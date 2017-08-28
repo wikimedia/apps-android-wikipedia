@@ -396,9 +396,9 @@
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
-  <string name="offline_compilations_title">Offline-Zesummestellungen</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Eroflueden· %.2f GB</string>
+  <string name="offline_compilations_title">Offline-Bibliothéik</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Eroflueden • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ewechhuelen</string>
   <string name="remote_compilation_download">Eroflueden</string>
   <string name="storage_size_gb">GB</string>
@@ -414,6 +414,16 @@
   <string name="compilation_download_widget_button_cancel_hint">Eroflueden ofbriecen</string>
   <string name="compilation_download_cancel_confirm_yes">Jo</string>
   <string name="compilation_download_cancel_confirm_no">Neen</string>
+  <string name="compilation_share">Deelen</string>
+  <string name="compilation_remove">Ewechhuelen</string>
+  <string name="compilation_remove_confirm_yes">Jo</string>
+  <string name="compilation_remove_confirm_no">Neen</string>
+  <string name="offline_library_title">Offline-Bibliothéik</string>
+  <string name="offline_library_onboarding_button_done">Fäerdeg</string>
+  <string name="offline_library_onboarding_build_library_title">Setzt Är Offline-Bibliothéik zesummen</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Lued elo Päck vu Wikipedia-Artikelen erof fir se méi spéit offline liesen ze kënnen.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Liesen ouni Ënnerbriechung</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Méi Wësse späicheren</string>
   <string name="onboarding_skip">Iwwersprangen</string>
   <string name="onboarding_continue">Virufueren</string>
   <string name="onboarding_get_started">Fir unzefänken</string>

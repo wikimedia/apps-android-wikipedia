@@ -384,8 +384,8 @@
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason2">váš príspevok vyzeral ako experiment alebo vandalizmus</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Prevziať · %.2f GB</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">Prevziať · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Odstrániť</string>
   <string name="remote_compilation_download">Download</string>
   <string name="storage_size_gb">GB</string>

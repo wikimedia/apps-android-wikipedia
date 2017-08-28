@@ -307,14 +307,14 @@
   <string name="offline_read_permission_rationale" fuzzy="true">Zeure gailuko memorian konexiorik gabe sartzeko baimena. Saiatu berriro eta eman eskatutako baimena, mesedez.</string>
   <string name="offline_read_permission_error">Ez daukazu baimenik gailuaren memoriatik irakurtzeko.</string>
   <string name="offline_card_text">Orain, Wikipedia konexiorik gabe ikusten ari zara. Jakin ezazu konexiorik gabeko artikuluak eguneratu gabe egon daitezkela.</string>
-  <string name="offline_my_compilations">Nire bildumak</string>
-  <string name="offline_compilations_title">Konexiorik gabeko bilduma</string>
-  <string name="offline_compilations_search_by_name">Bildumak bilatu izenaren bidez</string>
-  <string name="offline_compilations_found_count">Nire bildumak (%d)</string>
-  <string name="offline_compilations_add">Konexiorik gabeko bilduma gehitu</string>
-  <string name="remote_compilations_title">Bilduma guztiak</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">· %.2f GB jaitsi</string>
+  <string name="offline_my_compilations" fuzzy="true">Nire bildumak</string>
+  <string name="offline_compilations_title" fuzzy="true">Konexiorik gabeko bilduma</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">Bildumak bilatu izenaren bidez</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Nire bildumak (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Konexiorik gabeko bilduma gehitu</string>
+  <string name="remote_compilations_title" fuzzy="true">Bilduma guztiak</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">· %.2f GB jaitsi</string>
   <string name="offline_compilation_detail_button_remove">Kendu</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB libre</string>

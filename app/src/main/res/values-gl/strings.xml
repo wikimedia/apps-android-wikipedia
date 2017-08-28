@@ -421,15 +421,15 @@
   <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
   <string name="offline_read_permission_error">Non tes permiso para ler dende o almacenamento deste dispositivo.</string>
   <string name="offline_card_text">Agora está navegando por Wikipedia en modo sen conexión. Por favor, teña en conta que os artigos sen conexión pode que non estean totalmente actualizados coa versión con conexión.</string>
-  <string name="offline_my_compilations">As miñas recompilacións</string>
-  <string name="offline_compilations_title">Recompilacións sen conexión</string>
-  <string name="offline_compilations_search_by_name">Procurar compilacións por nome</string>
-  <string name="offline_compilations_found_count">As miñas recompilacións(%d)</string>
-  <string name="offline_compilations_add">Engadir recompilacións sen conexión</string>
-  <string name="remote_compilations_title">Tódalas recompilacións</string>
-  <string name="remote_compilations_description">As recompilacións sen conexión son grandes grupos de artigos que poden descargarse como un ficheiro ó seu dispositivo, para que poida continuar navegando cando non teña conexión.</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Descarga · %.2f GB</string>
+  <string name="offline_my_compilations" fuzzy="true">As miñas recompilacións</string>
+  <string name="offline_compilations_title" fuzzy="true">Recompilacións sen conexión</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">Procurar compilacións por nome</string>
+  <string name="offline_compilations_found_count" fuzzy="true">As miñas recompilacións(%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Engadir recompilacións sen conexión</string>
+  <string name="remote_compilations_title" fuzzy="true">Tódalas recompilacións</string>
+  <string name="remote_compilations_description" fuzzy="true">As recompilacións sen conexión son grandes grupos de artigos que poden descargarse como un ficheiro ó seu dispositivo, para que poida continuar navegando cando non teña conexión.</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">Descarga · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eliminar</string>
   <string name="remote_compilation_download">Descargar</string>
   <string name="storage_size_gb">GB</string>
@@ -443,7 +443,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Pausar ou reanudar a descarga</string>
   <string name="compilation_download_widget_button_cancel_hint">Cancelar a descarga</string>
-  <string name="compilation_download_cancel_confirm">Está seguro que quere cancelar a descarga desta compilación?</string>
+  <string name="compilation_download_cancel_confirm" fuzzy="true">Está seguro que quere cancelar a descarga desta compilación?</string>
   <string name="compilation_download_cancel_confirm_yes">Si</string>
   <string name="compilation_download_cancel_confirm_no">Non</string>
   <string name="offline_library_title">Biblioteca sen conexión</string>

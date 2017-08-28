@@ -264,7 +264,7 @@
     <item quantity="other">prije %d dana</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">danas</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Preuzimanje · %.2f GB</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">Preuzimanje · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ukloni</string>
 </resources>

@@ -421,15 +421,15 @@
   <string name="offline_read_permission_rationale">Para navegar sin conexión se necesita el permiso para acceder al almacenamiento.</string>
   <string name="offline_read_permission_error">No se otorgó el permiso para leer el dispositivo de almacenamiento.</string>
   <string name="offline_card_text">Ahora estás navegando Wikipedia en modo sin conexión. Observa que los artículos sin conexión pueden que no estén plenamente actualizados con la versión con conexión.</string>
-  <string name="offline_my_compilations">Mis recopilaciones</string>
-  <string name="offline_compilations_title">Recopilaciones sin conexión</string>
-  <string name="offline_compilations_search_by_name">Buscar recopilaciones por nombre</string>
-  <string name="offline_compilations_found_count">Mis recopilaciones (%d)</string>
-  <string name="offline_compilations_add">Añadir recopilaciones sin conexión</string>
-  <string name="remote_compilations_title">Todas las recopilaciones</string>
-  <string name="remote_compilations_description">Las recopilaciones sin conexión son grandes manojos de artículos ue pueden descargarse como un archivo a tu dispositivo, para que puedas continuar navegando cuando no tengas conexión.</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Descargar · %.2f GB</string>
+  <string name="offline_my_compilations" fuzzy="true">Mis recopilaciones</string>
+  <string name="offline_compilations_title" fuzzy="true">Recopilaciones sin conexión</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">Buscar recopilaciones por nombre</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Mis recopilaciones (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Añadir recopilaciones sin conexión</string>
+  <string name="remote_compilations_title" fuzzy="true">Todas las recopilaciones</string>
+  <string name="remote_compilations_description" fuzzy="true">Las recopilaciones sin conexión son grandes manojos de artículos ue pueden descargarse como un archivo a tu dispositivo, para que puedas continuar navegando cuando no tengas conexión.</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">Descargar · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eliminar</string>
   <string name="remote_compilation_download">Descargar</string>
   <string name="storage_size_gb">GB</string>
@@ -443,7 +443,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Pausar o reanudar la descarga</string>
   <string name="compilation_download_widget_button_cancel_hint">Cancelar descarga</string>
-  <string name="compilation_download_cancel_confirm">¿Éstas seguro que quieres cancelar la descarga de está recopilación?</string>
+  <string name="compilation_download_cancel_confirm" fuzzy="true">¿Éstas seguro que quieres cancelar la descarga de está recopilación?</string>
   <string name="compilation_download_cancel_confirm_yes">Sí</string>
   <string name="compilation_download_cancel_confirm_no">No</string>
   <string name="offline_library_title">Biblioteca sin conexión</string>

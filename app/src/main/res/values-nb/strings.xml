@@ -405,15 +405,15 @@
   <string name="offline_read_permission_rationale" fuzzy="true">Hvis du vil lagre artikler for lesing offline må du gi appen tilgang til enhetens bilder, media og filer.</string>
   <string name="offline_read_permission_error">Tilgang til å lese filer fra enheten har ikke blitt gitt.</string>
   <string name="offline_card_text">Du leser nå Wikipedia i offline-modus. Vær oppmerksom på at offline-artikler ikke nødvendigvis er like oppdaterte some online-utgavene.</string>
-  <string name="offline_my_compilations">Mine samlinger</string>
-  <string name="offline_compilations_title">Offlinesamlinger</string>
-  <string name="offline_compilations_search_by_name">Finn samlinger etter navn</string>
-  <string name="offline_compilations_found_count">Mine samlinger (%d)</string>
-  <string name="offline_compilations_add">Legg til offlinesamling</string>
-  <string name="remote_compilations_title">Alle samlinger</string>
-  <string name="remote_compilations_description">Offlinesamlinger er store bolker av artikler som kan lastes ned som én fil til enheten din så du kan fortsette å lese når du er offline.</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Lastet ned · %.2f GB</string>
+  <string name="offline_my_compilations" fuzzy="true">Mine samlinger</string>
+  <string name="offline_compilations_title" fuzzy="true">Offlinesamlinger</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">Finn samlinger etter navn</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Mine samlinger (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Legg til offlinesamling</string>
+  <string name="remote_compilations_title" fuzzy="true">Alle samlinger</string>
+  <string name="remote_compilations_description" fuzzy="true">Offlinesamlinger er store bolker av artikler som kan lastes ned som én fil til enheten din så du kan fortsette å lese når du er offline.</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">Lastet ned · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Fjern</string>
   <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB ledig</string>

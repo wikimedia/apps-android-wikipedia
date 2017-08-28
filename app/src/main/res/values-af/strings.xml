@@ -305,4 +305,9 @@
   <string name="description_edit_help_tips_example2">Aarde se hoogste berg</string>
   <string name="description_edit_help_tips_example2_hint">Titelbeskrywing vir ’n artikel oor Berg Everest</string>
   <string name="description_edit_help_more_info">Meer inligting</string>
+  <string name="compilation_share">Deel</string>
+  <string name="compilation_remove">Verwyder</string>
+  <string name="compilation_remove_confirm" fuzzy="true">Is u seker u wil dié versameling vanaf u toestel uitwis?</string>
+  <string name="compilation_remove_confirm_yes">Ja</string>
+  <string name="compilation_remove_confirm_no">Nee</string>
 </resources>

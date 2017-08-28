@@ -421,15 +421,15 @@
   <string name="offline_read_permission_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at læse artikler lokalt.</string>
   <string name="offline_read_permission_error">Der er ikke givet tilladelse til at læse fra enhedslageret.</string>
   <string name="offline_card_text">Du læser nu Wikipedia lokalt. Bemærk venligst at lokale artikler måske ikke er helt opdateret med versionen på internettet.</string>
-  <string name="offline_my_compilations">Mine samlinger</string>
-  <string name="offline_compilations_title">Lokale samlinger</string>
-  <string name="offline_compilations_search_by_name">Søg i samlinger efter navn</string>
-  <string name="offline_compilations_found_count">Mine samlinger (%d)</string>
-  <string name="offline_compilations_add">tilføj lokal samling</string>
-  <string name="remote_compilations_title">Alle samlinger</string>
-  <string name="remote_compilations_description">Lokale samlinger er store samlinger af artikler, som kan hentes som en fil til din enhed, så du kan fortsætte med at læse lokalt.</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Hent  · %.2f GB</string>
+  <string name="offline_my_compilations" fuzzy="true">Mine samlinger</string>
+  <string name="offline_compilations_title" fuzzy="true">Lokale samlinger</string>
+  <string name="offline_compilations_search_by_name" fuzzy="true">Søg i samlinger efter navn</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Mine samlinger (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">tilføj lokal samling</string>
+  <string name="remote_compilations_title" fuzzy="true">Alle samlinger</string>
+  <string name="remote_compilations_description" fuzzy="true">Lokale samlinger er store samlinger af artikler, som kan hentes som en fil til din enhed, så du kan fortsætte med at læse lokalt.</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Hent • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Fjern</string>
   <string name="remote_compilation_download">Hent</string>
   <string name="storage_size_gb">GB</string>
@@ -443,14 +443,26 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Sæt overførsel på pause eller genoptag</string>
   <string name="compilation_download_widget_button_cancel_hint">Afbryd overførsel</string>
-  <string name="compilation_download_cancel_confirm">Er du sikker på, at du ønsker at afbryde overførsel af denne samling?</string>
+  <string name="compilation_download_cancel_confirm" fuzzy="true">Er du sikker på, at du ønsker at afbryde overførsel af denne samling?</string>
   <string name="compilation_download_cancel_confirm_yes">Ja</string>
   <string name="compilation_download_cancel_confirm_no">Nej</string>
+  <string name="compilation_share">Del</string>
+  <string name="compilation_remove">Fjern</string>
+  <string name="compilation_remove_confirm" fuzzy="true">Er du sikker på, at du ønsker at fjerne denne samling fra din enhed?</string>
+  <string name="compilation_remove_confirm_yes">Ja</string>
+  <string name="compilation_remove_confirm_no">Nej</string>
   <string name="offline_library_title">Lokalt bibliotek</string>
   <string name="offline_library_empty_title">Intet i dit lokale bibliotek</string>
   <string name="offline_library_empty_description">Vælg en pakke Wikipediaartikler at hente nu, for datafri adgang senere.</string>
   <string name="offline_library_empty_search">Søg i lokalt bibliotek</string>
   <string name="offline_library_onboarding_action">Lær mere om dit lokale bibliotek</string>
+  <string name="offline_library_onboarding_button_done">Udført</string>
+  <string name="offline_library_onboarding_build_library_title">Byg dit lokale bibliotek</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Hent Wikipediaartikelpakker nu for datafri adgang senere.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Læsning uden afbrydelser</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Bliv ved med at læse og søge efter artikler i dit lokale bibliotek, når du ikke har internetadgang.</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Lagr mere viden</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Hent så meget Wikipedia som din enhed kan håndtere. Et lokalt bibliotek kan også tilgå artikelpakker på eksterne lagerenheder.</string>
   <string name="onboarding_skip">Udelad</string>
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>

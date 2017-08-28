@@ -408,13 +408,13 @@
   <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale" fuzzy="true">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan offline selaamiseen. Anna pyydetty käyttöoikeus ja yritä uudelleen.</string>
   <string name="offline_card_text">Selaat nyt Wikipediaa yhteydettömässä tilassa. Huomioithan, että yhteydettömän tilan artikkelit eivät välttämättä ole ajan tasalla verkkoversion kanssa.</string>
-  <string name="offline_my_compilations">Omat kokoelmat</string>
-  <string name="offline_compilations_title">Yhteydettömän tilan kokoelmat</string>
-  <string name="offline_compilations_found_count">Omat kokoelmat (%d)</string>
-  <string name="remote_compilations_title">Kaikki kokoelmat</string>
-  <string name="remote_compilations_description">Offline-kokoelmat ovat isoja artikkelikokoelmia, jotka voit ladata yhtenä tiedostona laitteellesi, jotta voit jatkaa selaamista ilman verkkoyhteyttä.</string>
-  <string name="offline_compilation_detail_date_size">%1$s · %2$.2f Gt</string>
-  <string name="offline_compilation_detail_button_download">Lataa · %.2f Gt</string>
+  <string name="offline_my_compilations" fuzzy="true">Omat kokoelmat</string>
+  <string name="offline_compilations_title" fuzzy="true">Yhteydettömän tilan kokoelmat</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Omat kokoelmat (%d)</string>
+  <string name="remote_compilations_title" fuzzy="true">Kaikki kokoelmat</string>
+  <string name="remote_compilations_description" fuzzy="true">Offline-kokoelmat ovat isoja artikkelikokoelmia, jotka voit ladata yhtenä tiedostona laitteellesi, jotta voit jatkaa selaamista ilman verkkoyhteyttä.</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Gt</string>
+  <string name="offline_compilation_detail_button_download" fuzzy="true">Lataa · %.2f Gt</string>
   <string name="offline_compilation_detail_button_remove">Poista</string>
   <string name="remote_compilation_download">Lataa</string>
   <string name="storage_size_gb">Gt</string>
@@ -427,7 +427,7 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Pysäytä tai jatka latausta</string>
   <string name="compilation_download_widget_button_cancel_hint">Peruuta lataus</string>
-  <string name="compilation_download_cancel_confirm">Haluatko varmasti peruuttaa tämän kokoelman lataamisen?</string>
+  <string name="compilation_download_cancel_confirm" fuzzy="true">Haluatko varmasti peruuttaa tämän kokoelman lataamisen?</string>
   <string name="compilation_download_cancel_confirm_yes">Kyllä</string>
   <string name="compilation_download_cancel_confirm_no">Ei</string>
   <string name="offline_library_title">Offline kirjasto</string>
