@@ -557,5 +557,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_offline_onboarding_card_enabled, enabled);
     }
 
+    public static boolean isOfflineTutorialEnabled() {
+        return getBoolean(R.string.preference_key_offline_onboarding_enabled, true);
+    }
+
+    public static void setOfflineTutorialEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_offline_onboarding_enabled, enabled);
+    }
+
     private Prefs() { }
 }

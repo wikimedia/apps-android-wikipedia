@@ -189,6 +189,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_OFFLINE_TUTORIAL && resultCode == RESULT_OK) {
             Prefs.setOfflineTutorialCardEnabled(false);
+            Prefs.setOfflineTutorialEnabled(false);
             refresh();
             feedCallback.onViewCompilations();
         }
@@ -435,7 +436,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         public void onViewCompilations() {
-            if (Prefs.isOfflineTutorialCardEnabled()) {
+            if (Prefs.isOfflineTutorialEnabled()) {
                 startActivityForResult(OfflineTutorialActivity.newIntent(getContext()),
                         ACTIVITY_REQUEST_OFFLINE_TUTORIAL);
             } else {
