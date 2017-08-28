@@ -240,7 +240,6 @@
   <string name="page_offline_notice_cannot_load_while_offline">条目不能在离线时加载。</string>
   <string name="page_offline_notice_add_to_reading_list">提示：添加条目至阅读列表，这样当您恢复在线时它将自动被下载。</string>
   <string name="page_offline_notice_last_date">您正在阅读该条目的离线版本，其保存于%s。</string>
-  <string name="page_offline_notice_compilation_download_date">您正在阅读此条目的离线版本，其从%s下载并汇编而来。</string>
   <string name="button_get_directions">路线导航</string>
   <string name="error_no_maps_app">找不到任何提供导航的应用程序。</string>
   <string name="preference_title_show_link_previews">显示链接预览</string>

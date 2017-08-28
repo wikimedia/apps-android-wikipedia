@@ -240,7 +240,6 @@
   <string name="page_offline_notice_cannot_load_while_offline">No es pot carregar l\'article mentre estigueu fora de línia.</string>
   <string name="page_offline_notice_add_to_reading_list">Pista: En afegir l\'article a una llista de lectura es baixarà una vegada torneu a estar en línia.</string>
   <string name="page_offline_notice_last_date">Esteu llegint una versió fora de línia de l\'article desada el %s.</string>
-  <string name="page_offline_notice_compilation_download_date">Esteu llegint una versió fora de línia de l\'article d\'una compilació baixada el %s.</string>
   <string name="button_get_directions">Obtén indicacions</string>
   <string name="error_no_maps_app">No es pot trobar cap aplicació que proporcioni direccions.</string>
   <string name="preference_title_show_link_previews">Mostra l\'enllaç de vistes prèvies</string>

@@ -52,6 +52,7 @@ import java.util.List;
 
 import retrofit2.Call;
 
+import static org.wikipedia.util.DateUtil.getShortDateString;
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -298,12 +299,12 @@ public class BottomContentHandler implements BottomContentInterface,
     // content, or, for a ZIM compilation, a plain string (nothing to link) with the ZIM file's
     // local last modified date (most likely, the download date).
     private String getDateMessage(Page page) {
-        return page.isFromOfflineCompilation() ? compilationLastModifiedString(page) : lastUpdatedHtml(page);
+        return page.isFromOfflineCompilation() ? compilationInfoString(page) : lastUpdatedHtml(page);
     }
 
-    private String compilationLastModifiedString(Page page) {
-        return parentFragment.getContext().getString(R.string.bottom_content_date_downloaded,
-                formatDateRelative(page.getCompilationDownloadDate()));
+    private String compilationInfoString(Page page) {
+        return String.format(parentFragment.getString(R.string.offline_library_article_name_date),
+                page.getCompilationName(), getShortDateString(page.getCompilationTimestamp()));
     }
 
     private String lastUpdatedHtml(Page page) {

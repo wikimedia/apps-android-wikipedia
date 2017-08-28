@@ -254,7 +254,7 @@
     <string name="page_offline_notice_cannot_load_while_offline">Article cannot be loaded while offline.</string>
     <string name="page_offline_notice_add_to_reading_list">Hint: Add the article to a reading list and it will be downloaded once you\'re back online.</string>
     <string name="page_offline_notice_last_date">You are reading an offline version of this article saved on %s.</string>
-    <string name="page_offline_notice_compilation_download_date">You are reading an offline version of this article from a compilation downloaded on %s.</string>
+    <string name="page_offline_notice_compilation_download_date">You\'re reading the version of this article from %1$s • %2$s.</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
     <string name="preference_title_show_link_previews">Show link previews</string>
@@ -473,14 +473,14 @@
     <!-- Offline -->
     <string name="offline_read_permission_rationale">Permission to access storage on your device is required for offline browsing.</string>
     <string name="offline_read_permission_error">Permission not granted to read from device storage.</string>
-    <string name="offline_card_text">You are now browsing Wikipedia in offline mode. Please note that offline articles may not be fully up to date with the online version.</string>
-    <string name="offline_my_compilations">My article packs</string>
+    <string name="offline_card_text">You are now browsing Wikipedia offline with articles in your Offline Library.</string>
+    <string name="offline_my_compilations">Manage my offline library</string>
     <string name="offline_compilations_title">Offline Library</string>
     <string name="offline_compilations_search_by_name">Search article packs by name</string>
-    <string name="offline_compilations_found_count">My article packs (%d)</string>
-    <string name="offline_compilations_add">Add article pack</string>
-    <string name="remote_compilations_title">All article packs</string>
-    <string name="remote_compilations_description">Article packs are large bundles of articles that can be downloaded as one file to your device, so you can continue browsing while offline.</string>
+    <string name="offline_compilations_found_count">In my library (%d)</string>
+    <string name="offline_compilations_add">Add to my Offline Library</string>
+    <string name="remote_compilations_title">Offline Library</string>
+    <string name="remote_compilations_description">With the Offline Library, you can now download packs of articles for reading when you have no internet connection available.</string>
     <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
     <string name="offline_compilation_detail_button_download">Download • %.2f GB</string>
     <string name="offline_compilation_detail_button_remove">Remove</string>
@@ -501,14 +501,12 @@
     <string name="compilation_download_cancel_confirm_no">No</string>
     <string name="compilation_share">Share</string>
     <string name="compilation_remove">Remove</string>
-    <string name="compilation_remove_confirm">Are you sure you want to remove this article pack from your device?</string>
-    <string name="compilation_remove_confirm_yes">Yes</string>
-    <string name="compilation_remove_confirm_no">No</string>
+    <string name="compilation_remove_confirm">Do you want to remove this from your Offline Library?</string>
     <string name="offline_library_title">Offline Library</string>
     <string name="offline_library_empty_title">Nothing in your Offline Library</string>
     <string name="offline_library_empty_description">Choose a pack of Wikipedia articles to download now, for data-free access later.</string>
     <string name="offline_library_empty_search">Search Offline Library</string>
-    <string name="offline_library_search_results_state">Search results from available offline library</string>
+    <string name="offline_library_search_results_state">Search results from your Offline Library</string>
     <string name="offline_library_onboarding_action">Find out more</string>
     <string name="offline_library_onboarding_text">Introducing Offline Library — download article packs now for offline reading later.</string>
     <string name="offline_library_onboarding_button_done">Done</string>
