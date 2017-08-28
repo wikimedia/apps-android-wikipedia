@@ -333,7 +333,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge.cleanup();
         tabsProvider.setTabsProviderListener(null);
         toolbarHideHandler.setScrollView(null);
-        webView.destroy();
+        webView.clearAllListeners();
+        ((ViewGroup) webView.getParent()).removeView(webView);
+        webView = null;
         super.onDestroyView();
     }
 
