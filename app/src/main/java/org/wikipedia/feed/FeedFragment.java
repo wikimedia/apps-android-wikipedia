@@ -28,7 +28,6 @@ import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.news.NewsItemCard;
-import org.wikipedia.feed.onboarding.OnboardingCard;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
@@ -412,7 +411,18 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri) {
             funnel.cardClicked(card.type());
-            UriUtil.handleExternalLink(getContext(), uri);
+            if (uri.toString().equals(UriUtil.LOCAL_URL_OFFLINE_LIBRARY)) {
+                onViewCompilations();
+            } else if (uri.toString().equals(UriUtil.LOCAL_URL_LOGIN)) {
+                if (getCallback() != null) {
+                    getCallback().onLoginRequested();
+                }
+            } else if (uri.toString().equals(UriUtil.LOCAL_URL_SETTINGS)) {
+                startActivityForResult(SettingsActivity.newIntent(getContext()),
+                        SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
+            } else {
+                UriUtil.handleExternalLink(getContext(), uri);
+            }
         }
 
         @Override
@@ -440,13 +450,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                         ACTIVITY_REQUEST_OFFLINE_TUTORIAL);
             } else {
                 startActivity(LocalCompilationsActivity.newIntent(getContext()));
-            }
-        }
-
-        @Override
-        public void onOnboardingPositiveAction(@NonNull Card card, @NonNull OnboardingCard.OnboardingAction action) {
-            if (action == OnboardingCard.OnboardingAction.OFFLINE_LIBRARY) {
-                onViewCompilations();
             }
         }
     }

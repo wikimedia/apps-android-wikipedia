@@ -456,6 +456,7 @@
   <string name="offline_library_empty_description">Explanation encouraging the user to download an article pack for offline use later.</string>
   <string name="offline_library_empty_search">Button label for searching the list of possible article packs to download.</string>
   <string name="offline_library_search_results_state">Label informing the user that the current search results are from one or more offline article packs.</string>
+  <string name="offline_library_onboarding_text">Introductory text that explains the purpose of the Offline Library to the user.</string>
   <string name="offline_library_onboarding_action">Button label for discovering more about the Offline Library.</string>
   <string name="offline_library_onboarding_button_done">Label for a button for the user to confirm that the user is done with the tutorial for the Offline Library.\n{{Identical|Done}}</string>
   <string name="offline_library_onboarding_build_library_title">Title for a tutorial screen about the Offline Library feature.</string>

@@ -30,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
+        android:layout_marginBottom="12dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
@@ -50,9 +51,9 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/view_announcement_footer_border"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="12dp"
         android:background="@color/feed_image_border"/>
 
     <TextView
