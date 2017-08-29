@@ -58,7 +58,6 @@
                     android:hint="@string/login_username_hint">
 
                     <org.wikipedia.views.PlainPasteEditText
-                        style="?android:textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="flagNoExtractUi"
@@ -66,13 +65,21 @@
                         android:maxLines="1" />
                 </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.PasswordTextInput
+                <android.support.design.widget.TextInputLayout
                     android:id="@+id/login_password_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:hint="@string/login_password_hint"
-                    app:passwordToggleEnabled="true" />
+                    app:passwordToggleEnabled="true">
+
+                    <org.wikipedia.views.PlainPasteEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:imeOptions="flagNoExtractUi"
+                        android:maxLines="1" />
+                </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
