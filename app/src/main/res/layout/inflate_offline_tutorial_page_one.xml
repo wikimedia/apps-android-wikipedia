@@ -9,4 +9,4 @@
     app:imageSize="240dp"
     app:primaryText="@string/offline_library_onboarding_build_library_title"
     app:secondaryText="@string/offline_library_onboarding_build_library_subtitle"
-    app:background="@drawable/onboarding_gradient_background_offline_one"/>
+    app:background="@android:color/transparent"/>
