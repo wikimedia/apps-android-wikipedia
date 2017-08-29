@@ -10,6 +10,7 @@ import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -93,7 +94,8 @@ public class OnboardingPageView extends LinearLayout {
         if (attrs != null) {
             TypedArray array = getContext().obtainStyledAttributes(attrs,
                     R.styleable.OnboardingPageView, defStyleAttr, defStyleRes);
-            Drawable centeredImage = array.getDrawable(R.styleable.OnboardingPageView_centeredImage);
+            Drawable centeredImage = ContextCompat.getDrawable(getContext(),
+                    array.getResourceId(R.styleable.OnboardingPageView_centeredImage, -1));
             String primaryText = array.getString(R.styleable.OnboardingPageView_primaryText);
             String secondaryText = array.getString(R.styleable.OnboardingPageView_secondaryText);
             String tertiaryText = array.getString(R.styleable.OnboardingPageView_tertiaryText);
