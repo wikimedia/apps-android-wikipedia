@@ -7,6 +7,7 @@ import android.support.annotation.VisibleForTesting;
 import org.wikipedia.offline.Compilation;
 import org.wikipedia.settings.RbSwitch;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class Page {
     @NonNull private final PageProperties pageProperties;
 
     @Nullable private String compName;
-    @Nullable private long compTimestamp;
+    @Nullable private Date compDate;
 
     /**
      * An indicator what payload version the page content was originally retrieved from.
@@ -98,8 +99,8 @@ public class Page {
         return compName != null;
     }
 
-    @Nullable public long getCompilationTimestamp() {
-        return compTimestamp;
+    @Nullable public Date getCompilationDate() {
+        return compDate;
     }
 
     @Nullable public String getCompilationName() {
@@ -108,7 +109,7 @@ public class Page {
 
     public void setCompilation(@NonNull Compilation comp) {
         this.compName = comp.name();
-        this.compTimestamp = comp.timestamp();
+        this.compDate = comp.date();
     }
 
     /** For old PHP API */

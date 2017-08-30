@@ -15,6 +15,12 @@ import java.util.TimeZone;
 
 public final class DateUtil {
 
+    public static SimpleDateFormat getIso8601DateFormatShort() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ROOT);
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return simpleDateFormat;
+    }
+
     public static SimpleDateFormat getIso8601DateFormat() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -31,10 +37,6 @@ public final class DateUtil {
 
     public static String getFeedCardDateString(@NonNull Date date) {
         return getShortDateString(date);
-    }
-
-    public static String getShortDateString(long timestamp) {
-        return getShortDateString(new Date(timestamp));
     }
 
     public static String getShortDateString(@NonNull Date date) {

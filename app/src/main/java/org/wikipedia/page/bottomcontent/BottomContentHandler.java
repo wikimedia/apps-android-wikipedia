@@ -303,7 +303,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private String compilationInfoString(Page page) {
         return String.format(parentFragment.getString(R.string.page_offline_notice_compilation_download_date),
-                page.getCompilationName(), getShortDateString(page.getCompilationTimestamp()));
+                page.getCompilationName(), getShortDateString(page.getCompilationDate()));
     }
 
     private String lastUpdatedHtml(Page page) {

@@ -16,10 +16,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
+import java.text.ParseException;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.util.DateUtil.getIso8601DateFormatShort;
 
 public class Compilation {
     public static final String MIME_TYPE = "application/zim";
@@ -35,7 +38,7 @@ public class Compilation {
     @Nullable private Image featureImage;
     private long count;
     private long size; // bytes
-    private long timestamp;
+    @Nullable private Date date;
 
     @Nullable private String path;
     @Nullable private transient ZimFile file;
@@ -59,24 +62,6 @@ public class Compilation {
         reader = new ZimReader(this.file, titleCache, urlCache);
     }
 
-    // TODO: Constructor for development/testing only, remove when no longer needed
-    @SuppressWarnings("checkstyle:parameternumber")
-    Compilation(@NonNull String name, @NonNull Uri uri, @Nullable List<String> langCodes,
-                @Nullable String summary, @Nullable String description, @Nullable MediaContent media,
-                @Nullable Image thumb, @Nullable Image featureImage, long count, long size, long timestamp) {
-        this.name = name;
-        this.uri = uri;
-        this.langCodes = langCodes;
-        this.summary = summary;
-        this.description = description;
-        this.media = media;
-        this.thumb = thumb;
-        this.featureImage = featureImage;
-        this.count = count;
-        this.size = size;
-        this.timestamp = timestamp;
-    }
-
     @SuppressWarnings("checkstyle:magicnumber")
     Compilation(@NonNull String[] data) {
         this.name = data[0];
@@ -89,7 +74,13 @@ public class Compilation {
         this.featureImage = new Image(Uri.parse(data[7]), 0, 0);
         this.count = 0;  // currently unused
         this.size = Long.parseLong(data[9]);
-        this.timestamp = Long.parseLong(data[10]);
+        Date d = null;
+        try {
+            d = getIso8601DateFormatShort().parse(data[10]);
+        } catch (ParseException e) {
+            L.e(e);
+        }
+        this.date = d;
     }
 
     public void copyMetadataFrom(@NonNull Compilation other) {
@@ -103,7 +94,7 @@ public class Compilation {
         featureImage = other.featureImage();
         count = other.count();
         size = other.size();
-        timestamp = other.timestamp();
+        date = other.date();
     }
 
     public boolean pathNameMatchesUri(@Nullable Uri otherUri) {
@@ -153,8 +144,18 @@ public class Compilation {
         return file != null && size == 0 ? file.length() : size;
     }
 
-    public long timestamp() {
-        return file != null && timestamp == 0 ? file.lastModified() : timestamp;
+    @NonNull
+    public Date date() {
+        if (date == null) {
+            if (reader != null) {
+                date = reader.getZimDate();
+            } else if (file != null) {
+                date = new Date(file.lastModified());
+            } else {
+                date = new Date();
+            }
+        }
+        return date;
     }
 
     @NonNull

@@ -58,6 +58,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -497,7 +498,7 @@ public class PageFragmentLoadState {
             //give it our expected scroll position, in case we need the page to be pre-scrolled upon loading.
             zimPayload.put("scrollY", (int) (stagedScrollY / DimenUtil.getDensityScalar()));
             bridge.sendMessage("displayFromZim", zimPayload);
-            showOfflineCompilationMessage(result.compilation().name(), result.compilation().timestamp());
+            showOfflineCompilationMessage(result.compilation().name(), result.compilation().date());
         } catch (JSONException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -642,9 +643,9 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void showOfflineCompilationMessage(@NonNull String compName, @NonNull long timestamp) {
+    private void showOfflineCompilationMessage(@NonNull String compName, @NonNull Date date) {
         if (fragment.isAdded()) {
-            String dateStr = DateUtil.getShortDateString(timestamp);
+            String dateStr = DateUtil.getShortDateString(date);
             Toast.makeText(fragment.getContext().getApplicationContext(),
                     fragment.getString(R.string.page_offline_notice_compilation_download_date, compName, dateStr),
                     Toast.LENGTH_LONG).show();

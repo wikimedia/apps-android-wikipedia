@@ -50,7 +50,6 @@ public class OfflineManagerTest {
         OfflineManager.HtmlResult result = OfflineManager.instanceNoCache().getHtmlForTitle("Ray Charles");
         assertThat(result.html().startsWith("<html>"), is(true));
         assertThat(result.html().endsWith("</html>"), is(true));
-        assertThat(result.compilation().timestamp() > 0, is(true));
     }
 
     @Before
