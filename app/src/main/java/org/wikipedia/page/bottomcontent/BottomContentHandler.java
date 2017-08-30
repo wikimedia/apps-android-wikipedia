@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -42,6 +41,7 @@ import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ConfigurableListView;
 import org.wikipedia.views.ConfigurableTextView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -60,7 +60,6 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public class BottomContentHandler implements BottomContentInterface,
         ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnContentHeightChangedListener {
-    private static final String TAG = "BottomContentHandler";
 
     private final PageFragment parentFragment;
     private final CommunicationBridge bridge;
@@ -303,7 +302,7 @@ public class BottomContentHandler implements BottomContentInterface,
     }
 
     private String compilationInfoString(Page page) {
-        return String.format(parentFragment.getString(R.string.offline_library_article_name_date),
+        return String.format(parentFragment.getString(R.string.page_offline_notice_compilation_download_date),
                 page.getCompilationName(), getShortDateString(page.getCompilationTimestamp()));
     }
 
@@ -324,7 +323,7 @@ public class BottomContentHandler implements BottomContentInterface,
                 @Override
                 public void onCatch(Throwable caught) {
                     // Read More titles are expendable.
-                    Log.w(TAG, "Error while getting Read More topic for main page.", caught);
+                    L.w("Error while getting Read More topic for main page.", caught);
                     // but lay out the bottom content anyway:
                     layoutContent();
                 }
@@ -364,7 +363,7 @@ public class BottomContentHandler implements BottomContentInterface,
                     @Override
                     public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
                         // Read More titles are expendable.
-                        Log.w(TAG, "Error while fetching Read More titles.", caught);
+                        L.w("Error while fetching Read More titles.", caught);
                         // but lay out the bottom content anyway:
                         layoutContent();
                     }

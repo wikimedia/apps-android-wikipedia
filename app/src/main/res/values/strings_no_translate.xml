@@ -106,7 +106,4 @@
 
     <string name="storage_size_format">%.2f</string>
 
-    <!-- Offline Library article bottom content -->
-    <string name="offline_library_article_name_date">%1$s • %2$s</string>
-
 </resources>
