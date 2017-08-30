@@ -280,6 +280,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         refresh();
     }
 
+    public void onGoOnline() {
+        refresh();
+    }
+
     private void refresh() {
         funnel.refresh(coordinator.getAge());
         coordinator.reset();

@@ -449,6 +449,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
+    public void onGoOnline() {
+        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        if (fragment instanceof FeedFragment) {
+            ((FeedFragment) fragment).onGoOnline();
+        }
+    }
+
     @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
         Callback callback = callback();
         if (callback != null) {
