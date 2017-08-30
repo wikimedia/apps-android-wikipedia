@@ -14,7 +14,6 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 public final class DateUtil {
-    private static final int MILLISECONDS = 1000;
 
     public static SimpleDateFormat getIso8601DateFormat() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
@@ -35,7 +34,7 @@ public final class DateUtil {
     }
 
     public static String getShortDateString(long timestamp) {
-        return getShortDateString(new Date(timestamp * MILLISECONDS));
+        return getShortDateString(new Date(timestamp));
     }
 
     public static String getShortDateString(@NonNull Date date) {
