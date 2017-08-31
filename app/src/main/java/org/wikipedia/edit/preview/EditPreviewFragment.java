@@ -97,7 +97,7 @@ public class EditPreviewFragment extends Fragment {
         Locale newLocale = new Locale(pageTitle.getWikiSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
-        if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
+        if (!oldLocale.getLanguage().equals(newLocale.getLanguage()) && !newLocale.getLanguage().equals("test")) {
             ConfigurationCompat.setLocale(config, newLocale);
             tempResources = new Resources(assets, metrics, config);
         }
