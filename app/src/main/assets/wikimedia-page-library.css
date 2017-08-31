@@ -1,4 +1,152 @@
-/* Examples:
+/* --- Wikimedia Page Library CSS bundle --- */
+
+
+/* --- CSS from '/src/transform/ThemeTransform.css' --- */ 
+
+ /* 
+The styles referred to as 'baseline' in the comments below are critical because they ensure
+a theme colors are more universally applied even by elements colored via inline styles. These are
+particularly difficult to theme otherwise. We can build on top of, so to speak, these baseline
+styles with only the things which need tweaking.
+*/
+
+/* baseline body */
+.pagelib-theme-dark body {
+  color: #f8f9fa;
+  background: #2e3136;
+}
+.pagelib-theme-sepia body {
+  color: #222;
+  background: #f8f1e3;
+}
+
+/* baseline anchor */
+.pagelib-theme-dark a {
+  color: #69f;
+}
+.pagelib-theme-sepia a {
+  color: #36c;
+}
+
+/* external anchor */
+.pagelib-theme-dark a.external, 
+.pagelib-theme-sepia a.external {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAGJJREFUKFN1jdENgCAMBYmJn47Bak7DZrhTpc/XIm34OAjXA4qIgHI/dSBbLGTcOKjBryFlinGmjDQGiOF0MQkxI3v5wq6L38qR7SnsAx8ul37igPjAd+o5Oz2MRA+xY4ZSXuaW6wYouOLpAAAAAElFTkSuQmCC);
+}
+
+/* baseline table */
+.pagelib-theme-dark .content table,
+.pagelib-theme-dark .content td,
+.pagelib-theme-dark .content tr,
+.pagelib-theme-dark .content th {
+  background: #27292d !important;
+  color: #f8f9fa !important;
+}
+.pagelib-theme-sepia .content table,
+.pagelib-theme-sepia .content td,
+.pagelib-theme-sepia .content tr,
+.pagelib-theme-sepia .content th {
+  background: #f0e6d6 !important;
+  color: #222 !important; 
+}
+
+/* baseline div, span, ul, li */
+.pagelib-theme-dark .content div:not(.pagelib-theme-div-do-not-apply-baseline),
+.pagelib-theme-dark .content span,
+.pagelib-theme-dark .content ul,
+.pagelib-theme-dark .content ol,
+.pagelib-theme-dark .content li {
+  background-color: inherit !important;
+  color: #f8f9fa !important;
+}
+.pagelib-theme-sepia .content div:not(.pagelib-theme-div-do-not-apply-baseline),
+.pagelib-theme-sepia .content span,
+.pagelib-theme-sepia .content ul,
+.pagelib-theme-sepia .content ol,
+.pagelib-theme-sepia .content li {
+  background-color: inherit !important;
+  color: #222 !important; 
+}
+
+/* baseline border color */
+.pagelib-theme-dark .content * {
+  border-color: #43464a !important;
+}
+.pagelib-theme-sepia .content * {
+  border-color: #cbc8c1 !important;
+}
+
+/* quotebox and blockquote */
+/* en > Audioslave > 793042679 */
+/* es > Arte > 100819823 */
+.pagelib-theme-dark .content blockquote,
+.pagelib-theme-dark .content div.quotebox {
+  background: #27292d !important;
+}
+.pagelib-theme-sepia .content blockquote, 
+.pagelib-theme-sepia .content div.quotebox {
+  background: #f0e6d6 !important;
+}
+
+/* horizontal rule */
+/* en > Audioslave > 793042679 */
+/* en > Chris Cornell > 793305307 */
+.pagelib-theme-dark .content hr {
+  border-style: solid !important;
+}
+.pagelib-theme-sepia .content hr {
+  border-style: solid !important;
+}
+
+/* caption color */
+/* en > Barack Obama > 793008506 */ 
+.pagelib-theme-default .content .thumbcaption,
+.pagelib-theme-default .content figcaption {
+  color: #72777d !important;
+}
+.pagelib-theme-dark .content .thumbcaption,
+.pagelib-theme-dark .content figcaption {
+  color: #c8ccd1 !important;
+}
+.pagelib-theme-sepia .content .thumbcaption,
+.pagelib-theme-sepia .content figcaption {
+  color: #646059 !important;
+}
+
+/* caption background */
+/* fr > Team_Bentley > 138755788 */
+.pagelib-theme-dark .content caption {
+  background: #43464a !important;
+}
+.pagelib-theme-sepia .content caption {
+  background: #cbc8c1 !important;
+}
+
+/* images */
+/* compatibility transform */
+.pagelib-theme-dark.pagelib-compatibility-filter .content img.mwe-math-fallback-image-inline {
+  background: #ccc;
+  padding: 2px;
+}
+/* en > Quadratic equation > 793685454 */
+.pagelib-theme-dark .content img.mwe-math-fallback-image-inline {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+/* en > Barack Obama > 793008506 */
+/* en > Quadratic equation > 793685454 */
+.pagelib-theme-sepia .content img.pagelib-theme-image-presumes-white-background,
+.pagelib-theme-dark .content img.pagelib-theme-image-presumes-white-background {
+  background: #fff;
+}
+
+
+
+
+
+/* --- CSS from '/src/transform/CollapseTable.css' --- */ 
+
+ /* Examples:
   - Barack Obama's collapsed infobox:
 
     <div class=app_table_container>
@@ -80,7 +228,7 @@ table.infobox caption {
 }
 
 /* The outermost table container. todo: rename. */
-.app_table_container {
+div.app_table_container {
   width: 100%;
   margin-top: 14px;
   margin-bottom: 14px;
@@ -89,14 +237,14 @@ table.infobox caption {
   clear: both;
 }
 
-.pagelib-theme-dark .app_table_container {
-  box-shadow: none;
-  background-color: #202020;
+.pagelib-theme-dark .content div.app_table_container {
+  box-shadow: none !important;
+  background-color: #222 !important;
 }
 
-.pagelib-theme-sepia .app_table_container {
-  box-shadow: none;
-  background-color: #f0e6d6;
+.pagelib-theme-sepia .content div.app_table_container {
+  box-shadow: none !important;
+  background-color: #e1dad1 !important;
 }
 
 /* The outermost table container's header. todo: rename. */
@@ -110,21 +258,13 @@ table.infobox caption {
   background-size: 16px 16px;
 }
 
-.pagelib-theme-dark .app_table_collapsed_container {
-  background-color: #27292d;
-}
-
-.pagelib-theme-sepia .app_table_collapsed_container {
-  background-color: #f0e6d6;
-}
-
 /* The outermost table container header's subcaption text. todo: rename. */
 .app_span_collapse_text {
   color: #808080;
 }
 
-.pagelib-theme-dark .app_span_collapse_text {
-  color: #c8ccd1;
+.pagelib-theme-dark .content span.app_span_collapse_text {
+  color: #c8ccd1 !important;
 }
 
 /* The outermost table container's footer. todo: rename. */
@@ -140,12 +280,14 @@ table.infobox caption {
   background-size: 16px 16px;
 }
 
-.pagelib-theme-dark .app_table_collapsed_bottom {
-  background-color: #27292d;
+.pagelib-theme-dark .content div.app_table_collapsed_container,
+.pagelib-theme-dark .content div.app_table_collapsed_bottom {
+  background-color: #27292d !important;
 }
 
-.pagelib-theme-sepia .app_table_collapsed_bottom {
-  background-color: #f0e6d6;
+.pagelib-theme-sepia .content div.app_table_collapsed_container,
+.pagelib-theme-sepia .content div.app_table_collapsed_bottom {
+  background-color: #f0e6d6 !important;
 }
 
 .app_table_collapse_icon {
@@ -169,10 +311,22 @@ table.infobox caption {
 .app_table_collapse_icon {
   box-sizing: border-box;
 }
-.pagelib_dim_images img {
+
+
+
+
+/* --- CSS from '/src/transform/DimImagesTransform.css' --- */ 
+
+ .pagelib_dim_images img {
   opacity: 0.65;
 }
-#mainpage a.pagelib_edit_section_link,
+
+
+
+
+/* --- CSS from '/src/transform/EditTransform.css' --- */ 
+
+ #mainpage a.pagelib_edit_section_link,
 .no-editing a.pagelib_edit_section_link {
   display: none;
 }
@@ -255,7 +409,21 @@ a.pagelib_edit_section_link {
 .pagelib-platform-android.pagelib-theme-dark.pagelib-compatibility-filter a.pagelib_edit_section_link:active:before {
   background-color: #111;
 }
-.pagelib_footer_container {
+
+.pagelib-platform-ios h3.section_heading span.pagelib_edit_section_link_container,
+.pagelib-platform-ios h4.section_heading span.pagelib_edit_section_link_container,
+.pagelib-platform-ios h5.section_heading span.pagelib_edit_section_link_container,
+.pagelib-platform-ios h6.section_heading span.pagelib_edit_section_link_container {
+    display: none;
+}
+
+
+
+
+
+/* --- CSS from '/src/transform/FooterContainer.css' --- */ 
+
+ .pagelib_footer_container {
   background-color: #eaecf0;
 }
 
@@ -294,26 +462,37 @@ a.pagelib_edit_section_link {
 .pagelib-theme-sepia #pagelib_footer_container_menu_items {
   background-color: #cbc8c1;
 }
-.pagelib_footer_legal_contents {
+
+
+
+
+
+/* --- CSS from '/src/transform/FooterLegal.css' --- */ 
+
+ .pagelib_footer_legal_contents {
   margin-top: 27px;
   padding-top: 23px;
   padding-bottom: 27px;
   background-size: 115px 18px;
   background-repeat: no-repeat;
-  /* todo: move to image element. */
-  background-image: url('data:image/png;base64,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');
+
+  /* This appears as a background-image to allow theming. The width and height root attributes were
+     added manually for Android API 16 AOSP Nexus S emulator. Converted to b64 using
+     https://codepen.io/tigt/post/optimizing-svgs-in-data-uris. */
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="116" height="18" viewBox="0 0 116 18"%3E%3Ctitle%3EArtboard 1%3C/title%3E%3Cpath d="M14.23.29c.91,0,1.38.05,2,.05s1.19,0,1.8-.05a.92.92,0,0,1,0,.87c-1.28.21-1.82,1.22-2.43,2.46L13.75,7.31l3.16,7H17L21.72,3.44c.59-1.43.54-2.14-1.06-2.28a.91.91,0,0,1,0-.87c1.16,0,1.88.05,2.45.05s1.19,0,2.17-.05a.91.91,0,0,1,0,.87c-1.63.21-1.91,1.22-2.43,2.46L17,17.13c-.17.4-.32.61-.59.61s-.44-.21-.57-.61L12.52,9.44,8.87,17.13c-.15.4-.32.61-.59.61s-.42-.21-.57-.61L2.34,3.58C1.58,1.7,1.53,1.3.12,1.17A.91.91,0,0,1,.1.29c1.16,0,1.58.05,2.57.05S4.25.32,5.41.29a.91.91,0,0,1,0,.87c-1.56.18-1.62.6-1,2.12l4.52,11H9l2.76-6L9.72,3.58C8.9,1.7,8.7,1.33,7.64,1.17a.92.92,0,0,1,0-.87c.79,0,1.21.05,2.2.05s1.36,0,2.25-.05a.91.91,0,0,1,0,.87c-1,.16-.94.61-.26,2.12L13,6l.11.12,1.31-2.63c.76-1.53.86-2.12-.2-2.28A.92.92,0,0,1,14.23.29Zm14.28,13.9c0,2.2.27,2.3,1.78,2.41a.91.91,0,0,1,0,.87c-1.06,0-1.68-.05-2.74-.05s-1.73,0-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.92.92,0,0,1,0-.87c1.06,0,1.68.05,2.74.05s1.73,0,2.77-.05a.91.91,0,0,1,0,.87c-1.51.13-1.78.21-1.78,2.41v5.72Zm4.12-8.13a.92.92,0,0,1,0-.87c1,0,1.68.05,2.77.05.91,0,1.31,0,2.37-.05a.92.92,0,0,1,0,.87c-1.19.13-1.41.21-1.41,2.41v2.36c.81,0,1.54-.42,2.59-1.69,1.9-2.3,2.15-3,.91-3.07a.91.91,0,0,1,0-.87c1.06,0,2,.05,2.72.05s1.06,0,1.73-.05a.92.92,0,0,1,0,.87,3.23,3.23,0,0,0-2.64,1.11L39.55,9.79c-.42.48-.57.77-.57,1a.77.77,0,0,0,.22.45l3.66,4.61a2.41,2.41,0,0,0,1.58.77.87.87,0,0,1,0,.85l-1.9,0c-.64,0-1.26,0-1.53.05V17.1A1.43,1.43,0,0,0,40.64,16L37.9,12.39a1.78,1.78,0,0,0-1.53-.66v2.46c0,2.2.22,2.28,1.41,2.41a.92.92,0,0,1,0,.87c-1.06,0-1.46-.05-2.37-.05-1.09,0-1.73,0-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47C34.41,6.27,34.14,6.19,32.63,6.06ZM50,14.19c0,2.2.27,2.3,1.78,2.41a.91.91,0,0,1,0,.87c-1.06,0-1.68-.05-2.74-.05s-1.73,0-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.92.92,0,0,1,0-.87c1.06,0,1.68.05,2.74.05s1.73,0,2.77-.05a.91.91,0,0,1,0,.87C50.32,6.2,50,6.27,50,8.47v5.72Zm9.71,2.41a.92.92,0,0,1,0,.87c-1.06,0-1.68-.05-2.74-.05s-1.73,0-2.77.05a.91.91,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.91.91,0,0,1,0-.87c1.06,0,1.68.05,2.74.05.67,0,1.71-.05,2.62-.05,3.51,0,4.25,1.85,4.25,3.23a4.05,4.05,0,0,1-4.33,4.13A3.49,3.49,0,0,1,58,12.23v2C58,16.39,58.25,16.49,59.76,16.6ZM58,11.38a4.29,4.29,0,0,0,1.61.29c1.48,0,2.13-1,2.13-2.94s-.79-2.67-2.25-2.67c-1.19,0-1.48.34-1.48,1.19Zm11.49.08v4c0,.5.35,1.17.79,1.17h2.05c1.56,0,2.27-1.32,2.67-2.89a.79.79,0,0,1,.69.11,36.76,36.76,0,0,1-.74,3.65s-1.63-.05-2.62-.05H68.5l-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.92.92,0,0,1,0-.87l2.74.05h5.11a5.11,5.11,0,0,0,1-.1c.05,0,.07,0,.07.08s.35,2.25.44,3.15a1.14,1.14,0,0,1-.67.13C74,7,73.69,6.12,72.16,6.12h-1.9a.72.72,0,0,0-.79.74v3.76h1.41c1.73,0,1.65-.29,1.7-1.48a.65.65,0,0,1,.69,0c0,.66,0,1.14,0,1.88s0,1.17,0,1.93a.65.65,0,0,1-.69,0c-.05-1,0-1.48-1.7-1.48H69.46ZM83.84,5.19C88,5.19,90,7.94,90,11.46c0,4.63-3.06,6-5.81,6-2,0-2.87-.05-3.61-.05-1.09,0-1.73,0-2.77.05a.91.91,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.91.91,0,0,1,0-.87c1.06,0,1.68.05,2.74.05C81,5.24,83.2,5.19,83.84,5.19ZM83.59,16.6c2.72,0,4.25-1,4.25-4.69,0-2.75-.57-5.85-4.72-5.85-1,0-1.58.16-1.58.82v8.52C81.54,16.15,81.72,16.6,83.59,16.6Zm12.1-2.41c0,2.2.27,2.3,1.78,2.41a.92.92,0,0,1,0,.87c-1.06,0-1.68-.05-2.74-.05s-1.73,0-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.92.92,0,0,1,0-.87c1.06,0,1.68.05,2.74.05s1.73,0,2.77-.05a.92.92,0,0,1,0,.87C96,6.2,95.7,6.27,95.7,8.47Zm8.79,2.41a.91.91,0,0,1,0,.87c-.91,0-2.15-.05-3.16-.05s-1.28,0-2.2.05a.92.92,0,0,1,0-.87,2.39,2.39,0,0,0,2.47-1.88L107.09.95c.28-.71.47-.95.83-.95s.49.28.67.8l5.07,14.35c.46,1.36,1.27,1.36,2.22,1.46a.91.91,0,0,1,0,.87c-.91,0-1.8-.05-2.82-.05s-2.32,0-3.24.05a.92.92,0,0,1,0-.87c1.18-.09,2.2,0,1.83-1.08L110.15,11H105c-.59,0-.74.1-.86.45l-1.36,3.84C102.4,16.42,103.56,16.53,104.49,16.6Zm5.26-6.67-2.4-7.07h-.05l-2.48,6.72c-.1.29.07.35.62.35Z" style="fill:%2354595d"/%3E%3C/svg%3E');
 }
 
 .pagelib-theme-dark .pagelib_footer_legal_contents {
-  /* todo: move to image element. */
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAAAkCAMAAACqlLY2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEwAACxMBAJqcGAAABCNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIgogICAgICAgICAgICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgICAgICAgICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyI+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOkNvbXByZXNzaW9uPjU8L3RpZmY6Q29tcHJlc3Npb24+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjcyPC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj43MjwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjIzMDwvZXhpZjpQaXhlbFhEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOkNvbG9yU3BhY2U+MTwvZXhpZjpDb2xvclNwYWNlPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MzY8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICAgICA8ZGM6c3ViamVjdD4KICAgICAgICAgICAgPHJkZjpTZXEvPgogICAgICAgICA8L2RjOnN1YmplY3Q+CiAgICAgICAgIDx4bXA6TW9kaWZ5RGF0ZT4yMDE3OjA3OjE5IDE4OjA3OjA3PC94bXA6TW9kaWZ5RGF0ZT4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5QaXhlbG1hdG9yIDMuNjwveG1wOkNyZWF0b3JUb29sPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KcdAD2QAAAtxQTFRFAAAAAAAAgICAqqqqv7+/zMzM1dXV29vbv7+/xsbGzMzM0dHR1dXV2NjY29vb3d3dz8/P0tLS1dXV19fX2dnZ29vb3Nzc09PT1dXV1tbW2NjY2dnZ29vb3Nzc3d3d1tbW19fX2NjY2tra29vb3Nzc3d3d19fX2NjY2dnZ2tra29vb29vb3Nzc3d3d2NjY2dnZ2tra29vb29vb3Nzc3d3d2dnZ2dnZ2tra29vb29vb3Nzc3Nzc3d3d2dnZ2tra29vb29vb3Nzc3Nzc3d3d2tra2tra29vb29vb3Nzc3Nzc3d3d3d3d2tra29vb29vb29vb3Nzc29vb29vb29vb3Nzc3Nzc3d3d3d3d29vb29vb29vb3Nzc3Nzc3d3d29vb29vb29vb3Nzc3Nzc3Nzc3d3d3d3d29vb29vb3Nzc3Nzc3d3d3d3d29vb29vb3Nzc3Nzc3Nzc3Nzc3d3d29vb29vb3Nzc3Nzc3Nzc3d3d3d3d29vb3Nzc3Nzc3Nzc3d3d3d3d3Nzc3Nzc3Nzc3Nzc3d3d3d3d29vb3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3Nzc3Nzc3Nzc3d3d3d3d29vb3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3Nzc3Nzc3Nzc3Nzc3d3d3d3d3d3d3d3d3Nzc3Nzc3Nzc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');
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="116" height="18" viewBox="0 0 116 18"%3E%3Ctitle%3EArtboard 1%3C/title%3E%3Cpath d="M14.23.29c.91,0,1.38.05,2,.05s1.19,0,1.8-.05a.92.92,0,0,1,0,.87c-1.28.21-1.82,1.22-2.43,2.46L13.75,7.31l3.16,7H17L21.72,3.44c.59-1.43.54-2.14-1.06-2.28a.91.91,0,0,1,0-.87c1.16,0,1.88.05,2.45.05s1.19,0,2.17-.05a.91.91,0,0,1,0,.87c-1.63.21-1.91,1.22-2.43,2.46L17,17.13c-.17.4-.32.61-.59.61s-.44-.21-.57-.61L12.52,9.44,8.87,17.13c-.15.4-.32.61-.59.61s-.42-.21-.57-.61L2.34,3.58C1.58,1.7,1.53,1.3.12,1.17A.91.91,0,0,1,.1.29c1.16,0,1.58.05,2.57.05S4.25.32,5.41.29a.91.91,0,0,1,0,.87c-1.56.18-1.62.6-1,2.12l4.52,11H9l2.76-6L9.72,3.58C8.9,1.7,8.7,1.33,7.64,1.17a.92.92,0,0,1,0-.87c.79,0,1.21.05,2.2.05s1.36,0,2.25-.05a.91.91,0,0,1,0,.87c-1,.16-.94.61-.26,2.12L13,6l.11.12,1.31-2.63c.76-1.53.86-2.12-.2-2.28A.92.92,0,0,1,14.23.29Zm14.28,13.9c0,2.2.27,2.3,1.78,2.41a.91.91,0,0,1,0,.87c-1.06,0-1.68-.05-2.74-.05s-1.73,0-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.92.92,0,0,1,0-.87c1.06,0,1.68.05,2.74.05s1.73,0,2.77-.05a.91.91,0,0,1,0,.87c-1.51.13-1.78.21-1.78,2.41v5.72Zm4.12-8.13a.92.92,0,0,1,0-.87c1,0,1.68.05,2.77.05.91,0,1.31,0,2.37-.05a.92.92,0,0,1,0,.87c-1.19.13-1.41.21-1.41,2.41v2.36c.81,0,1.54-.42,2.59-1.69,1.9-2.3,2.15-3,.91-3.07a.91.91,0,0,1,0-.87c1.06,0,2,.05,2.72.05s1.06,0,1.73-.05a.92.92,0,0,1,0,.87,3.23,3.23,0,0,0-2.64,1.11L39.55,9.79c-.42.48-.57.77-.57,1a.77.77,0,0,0,.22.45l3.66,4.61a2.41,2.41,0,0,0,1.58.77.87.87,0,0,1,0,.85l-1.9,0c-.64,0-1.26,0-1.53.05V17.1A1.43,1.43,0,0,0,40.64,16L37.9,12.39a1.78,1.78,0,0,0-1.53-.66v2.46c0,2.2.22,2.28,1.41,2.41a.92.92,0,0,1,0,.87c-1.06,0-1.46-.05-2.37-.05-1.09,0-1.73,0-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47C34.41,6.27,34.14,6.19,32.63,6.06ZM50,14.19c0,2.2.27,2.3,1.78,2.41a.91.91,0,0,1,0,.87c-1.06,0-1.68-.05-2.74-.05s-1.73,0-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.92.92,0,0,1,0-.87c1.06,0,1.68.05,2.74.05s1.73,0,2.77-.05a.91.91,0,0,1,0,.87C50.32,6.2,50,6.27,50,8.47v5.72Zm9.71,2.41a.92.92,0,0,1,0,.87c-1.06,0-1.68-.05-2.74-.05s-1.73,0-2.77.05a.91.91,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.91.91,0,0,1,0-.87c1.06,0,1.68.05,2.74.05.67,0,1.71-.05,2.62-.05,3.51,0,4.25,1.85,4.25,3.23a4.05,4.05,0,0,1-4.33,4.13A3.49,3.49,0,0,1,58,12.23v2C58,16.39,58.25,16.49,59.76,16.6ZM58,11.38a4.29,4.29,0,0,0,1.61.29c1.48,0,2.13-1,2.13-2.94s-.79-2.67-2.25-2.67c-1.19,0-1.48.34-1.48,1.19Zm11.49.08v4c0,.5.35,1.17.79,1.17h2.05c1.56,0,2.27-1.32,2.67-2.89a.79.79,0,0,1,.69.11,36.76,36.76,0,0,1-.74,3.65s-1.63-.05-2.62-.05H68.5l-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.92.92,0,0,1,0-.87l2.74.05h5.11a5.11,5.11,0,0,0,1-.1c.05,0,.07,0,.07.08s.35,2.25.44,3.15a1.14,1.14,0,0,1-.67.13C74,7,73.69,6.12,72.16,6.12h-1.9a.72.72,0,0,0-.79.74v3.76h1.41c1.73,0,1.65-.29,1.7-1.48a.65.65,0,0,1,.69,0c0,.66,0,1.14,0,1.88s0,1.17,0,1.93a.65.65,0,0,1-.69,0c-.05-1,0-1.48-1.7-1.48H69.46ZM83.84,5.19C88,5.19,90,7.94,90,11.46c0,4.63-3.06,6-5.81,6-2,0-2.87-.05-3.61-.05-1.09,0-1.73,0-2.77.05a.91.91,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.91.91,0,0,1,0-.87c1.06,0,1.68.05,2.74.05C81,5.24,83.2,5.19,83.84,5.19ZM83.59,16.6c2.72,0,4.25-1,4.25-4.69,0-2.75-.57-5.85-4.72-5.85-1,0-1.58.16-1.58.82v8.52C81.54,16.15,81.72,16.6,83.59,16.6Zm12.1-2.41c0,2.2.27,2.3,1.78,2.41a.92.92,0,0,1,0,.87c-1.06,0-1.68-.05-2.74-.05s-1.73,0-2.77.05a.92.92,0,0,1,0-.87c1.51-.13,1.78-.21,1.78-2.41V8.47c0-2.2-.27-2.3-1.78-2.41a.92.92,0,0,1,0-.87c1.06,0,1.68.05,2.74.05s1.73,0,2.77-.05a.92.92,0,0,1,0,.87C96,6.2,95.7,6.27,95.7,8.47Zm8.79,2.41a.91.91,0,0,1,0,.87c-.91,0-2.15-.05-3.16-.05s-1.28,0-2.2.05a.92.92,0,0,1,0-.87,2.39,2.39,0,0,0,2.47-1.88L107.09.95c.28-.71.47-.95.83-.95s.49.28.67.8l5.07,14.35c.46,1.36,1.27,1.36,2.22,1.46a.91.91,0,0,1,0,.87c-.91,0-1.8-.05-2.82-.05s-2.32,0-3.24.05a.92.92,0,0,1,0-.87c1.18-.09,2.2,0,1.83-1.08L110.15,11H105c-.59,0-.74.1-.86.45l-1.36,3.84C102.4,16.42,103.56,16.53,104.49,16.6Zm5.26-6.67-2.4-7.07h-.05l-2.48,6.72c-.1.29.07.35.62.35Z" style="fill:%23ffffff"/%3E%3C/svg%3E');
 }
 
-html[dir='ltr'] .pagelib_footer_legal_contents {
+.pagelib_footer_legal_contents {
   background-position: left top;
 }
 
-html[dir='rtl'] .pagelib_footer_legal_contents {
+/* todo: standardize on RTL selectors throughout the codebase. In many places we use .content-rtl. */
+html[dir='rtl'] .pagelib_footer_legal_contents,
+.content-rtl .pagelib_footer_legal_contents {
   background-position: right top;
 }
 
@@ -353,7 +532,13 @@ html[dir='rtl'] .pagelib_footer_legal_contents {
 .pagelib-theme-sepia .pagelib_footer_legal_divider {
   background-color: #cbc8c1;
 }
-.pagelib_footer_menu_item {
+
+
+
+
+/* --- CSS from '/src/transform/FooterMenu.css' --- */ 
+
+ .pagelib_footer_menu_item {
   padding: 10px;
   background-size: 40px 40px;
   background-repeat: no-repeat;
@@ -380,6 +565,7 @@ html[dir='rtl'] .pagelib_footer_menu_item {
 
 .pagelib_footer_menu_item_title {
   color: black;
+  min-height: 1.38em;
 }
 
 .pagelib-theme-dark .pagelib_footer_menu_item_title {
@@ -471,7 +657,13 @@ html[dir='rtl'] .pagelib_footer_menu_item_subtitle {
 .pagelib-theme-sepia .pagelib_footer_menu_icon_coordinate {
   background-image: url('data:image/png;base64,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');
 }
-.pagelib_footer_readmore_page {
+
+
+
+
+/* --- CSS from '/src/transform/FooterReadMore.css' --- */ 
+
+ .pagelib_footer_readmore_page {
   background-color: white;
   padding: 11px 10px;
   margin-top: 10px;
@@ -479,6 +671,7 @@ html[dir='rtl'] .pagelib_footer_menu_item_subtitle {
   border-radius: 2px;
   box-shadow: 0px 2px 4px rgba(200, 204, 209, 0.5);
   display: block;
+  min-height: 70px;
 }
 
 .pagelib-theme-dark .pagelib_footer_readmore_page {
@@ -494,12 +687,17 @@ html[dir='rtl'] .pagelib_footer_menu_item_subtitle {
 .pagelib_footer_readmore_page_container {
 }
 
+.pagelib-platform-android #pagelib_footer_container_readmore_heading {
+  font-size: 24px;
+}
+
 .pagelib_footer_readmore_page_title {
   color: #222;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-height: 1.38em;
 }
 
 .pagelib-theme-dark .pagelib_footer_readmore_page_title {
@@ -547,7 +745,7 @@ html[dir='rtl'] .pagelib_footer_menu_item_subtitle {
   background-size: 12px 17px;
   background-repeat: no-repeat;
   font-size: .9em;
-  font-weight: 500; 
+  font-weight: 500;
   display: table-cell;
   vertical-align: middle;
 }
@@ -556,12 +754,13 @@ html[dir='rtl'] .pagelib_footer_menu_item_subtitle {
   color: #69f;
 }
 
-html[dir='rtl'] .pagelib_footer_readmore_page_save {
-  background-position: right center;
+.pagelib_footer_readmore_page_save {
+  background-position: left center;
 }
 
-html[dir='ltr'] .pagelib_footer_readmore_page_save {
-  background-position: left center;
+html[dir='rtl'] .pagelib_footer_readmore_page_save,
+.content-rtl .pagelib_footer_readmore_page_save {
+  background-position: right center;
 }
 
 .pagelib_footer_readmore_page_image {
@@ -572,18 +771,26 @@ html[dir='ltr'] .pagelib_footer_readmore_page_save {
   border-radius: 2px;
 }
 
-html[dir='ltr'] .pagelib_footer_readmore_page_image {
+.pagelib_footer_readmore_page_image {
   float: right;
   margin-left: 8px;
   margin-right: 0px;
 }
 
-html[dir='rtl'] .pagelib_footer_readmore_page_image {
+html[dir='rtl'] .pagelib_footer_readmore_page_image,
+.content-rtl .pagelib_footer_readmore_page_image {
   float: left;
   margin-right: 8px;
   margin-left: 0px;
 }
-/* Transform lifecycle:
+
+
+
+
+
+/* --- CSS from '/src/transform/LazyLoadTransform.css' --- */ 
+
+ /* Transform lifecycle:
 
 - Original:
     <img class=foo style='width: 100px; height: 200px' width=3 height=4 src=/ srcset=/ alt=bar>
@@ -703,92 +910,13 @@ html[dir='rtl'] .pagelib_footer_readmore_page_image {
 @keyframes pagelib-lazy-load-image-fade-in {
   from { opacity: 0; } to { opacity: 1; }
 }
-.pagelib-theme-dark.pagelib-compatibility-filter img.mwe-math-fallback-image-inline {
-  background: #ccc;
-  padding: 2px;
-}
 
-.pagelib-theme-dark img.mwe-math-fallback-image-inline {
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
-}
 
-.pagelib-theme-dark img.pagelib-theme-image-no-background.pagelib-theme-image-nontabular:not(.mwe-math-fallback-image-inline),
-.pagelib-theme-dark .infobox .image img.pagelib-theme-image-no-background:not(.mwe-math-fallback-image-inline) {
-  background: #fff;
-}
 
-.pagelib-theme-dark body, .pagelib-theme-dark .fixture_body {
-  color: #f8f9fa;
-  background: #2e3136;
-}
 
-.pagelib-theme-sepia body, .pagelib-theme-sepia .fixture_body {
-  color: #222;
-  background: #f8f1e3;
-}
+/* --- CSS from '/src/transform/WidenImage.css' --- */ 
 
-.pagelib-theme-dark a {
-  color: #69f;
-}
-
-.pagelib-theme-sepia a {
-  color: #36c;
-}
-
-.pagelib-theme-dark a.external, .pagelib-theme-sepia a.external {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAGJJREFUKFN1jdENgCAMBYmJn47Bak7DZrhTpc/XIm34OAjXA4qIgHI/dSBbLGTcOKjBryFlinGmjDQGiOF0MQkxI3v5wq6L38qR7SnsAx8ul37igPjAd+o5Oz2MRA+xY4ZSXuaW6wYouOLpAAAAAElFTkSuQmCC);
-}
-
-.pagelib-theme-dark .content table.infobox,
-.pagelib-theme-dark .content table.infobox th {
-  /* The infobox background. Some backgrounds need important to override inline styles like
-     https://en.m.wikipedia.org/wiki/Wolverine_(character)?oldid=789987909.
-     https://phabricator.wikimedia.org/diffusion/SMIN/browse/master/resources/skins.minerva.content.styles/hacks.less;2cc9516cde6027234de9881d503ed7161e0e2ace$44 */
-  background: #27292d !important;
-}
-
-.pagelib-theme-sepia .content table.infobox,
-.pagelib-theme-sepia .content table.infobox th {
-  background: #f0e6d6 !important;
-}
-
-/* Same specificity as in MobileFrontend/less/content/hacks.less */
-.pagelib-theme-dark .content table.infobox tr {
-  /* The infobox row background. Some backgrounds need important to override inline styles like
-     https://en.m.wikipedia.org/wiki/Wolverine_(character)?oldid=789987909. */
-  background: #27292d !important;
-}
-
-.pagelib-theme-sepia .content table.infobox tr {
-  background: #f0e6d6 !important;
-}
-
-.pagelib-theme-dark li.gallerybox div.thumb {
-  border-color: #43464a;
-  background: #27292d;
-}
-
-.pagelib-theme-dark .content table td,
-.pagelib-theme-dark .content table th,
-.pagelib-theme-dark .content table.infobox th,
-.pagelib-theme-dark .content table.infobox td {
-  /* The border around infobox columns.
-     https://phabricator.wikimedia.org/diffusion/SMIN/browse/master/resources/skins.minerva.content.styles/hacks.less;2cc9516cde6027234de9881d503ed7161e0e2ace$49 */
-  border-color: #43464a;
-}
-
-.pagelib-theme-sepia .content table td,
-.pagelib-theme-sepia .content table th,
-.pagelib-theme-sepia .content table.infobox th,
-.pagelib-theme-sepia .content table.infobox td {
-  border-color: #cbc8c1;
-}
-
-.content figcaption, .content .thumbcaption {
-  color: #a2a9b1;
-}
-.wideImageOverride {
+ .wideImageOverride {
   /* Center images. */
   display: block;
   margin-left: auto;
