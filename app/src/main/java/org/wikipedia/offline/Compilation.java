@@ -38,7 +38,7 @@ public class Compilation {
     @Nullable private Image featureImage;
     private long count;
     private long size; // bytes
-    @Nullable private Date date;
+    @NonNull private Date date = new Date();
 
     @Nullable private String path;
     @Nullable private transient ZimFile file;
@@ -46,6 +46,9 @@ public class Compilation {
 
     public enum MediaContent {
         ALL, NOVID, NOPIC
+    }
+
+    public Compilation() {
     }
 
     Compilation(@NonNull File file) throws IOException {
@@ -74,13 +77,11 @@ public class Compilation {
         this.featureImage = new Image(Uri.parse(data[7]), 0, 0);
         this.count = 0;  // currently unused
         this.size = Long.parseLong(data[9]);
-        Date d = null;
         try {
-            d = getIso8601DateFormatShort().parse(data[10]);
+            this.date = getIso8601DateFormatShort().parse(data[10]);
         } catch (ParseException e) {
             L.e(e);
         }
-        this.date = d;
     }
 
     public void copyMetadataFrom(@NonNull Compilation other) {
@@ -146,14 +147,10 @@ public class Compilation {
 
     @NonNull
     public Date date() {
-        if (date == null) {
-            if (reader != null) {
-                date = reader.getZimDate();
-            } else if (file != null) {
-                date = new Date(file.lastModified());
-            } else {
-                date = new Date();
-            }
+        if (reader != null) {
+            date = reader.getZimDate();
+        } else if (file != null) {
+            date = new Date(file.lastModified());
         }
         return date;
     }

@@ -322,6 +322,9 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
     private class CompilationCallback implements CompilationClient.Callback {
         @Override
         public void success(@NonNull List<Compilation> compilations) {
+            if (!isAdded()) {
+                return;
+            }
             OfflineManager.instance().updateFromRemoteMetadata(compilations);
 
             allItems.clear();
@@ -344,6 +347,9 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
 
         @Override
         public void error(@NonNull Throwable caught) {
+            if (!isAdded()) {
+                return;
+            }
             updating = false;
             lastError = caught;
             updateEmptyState();
