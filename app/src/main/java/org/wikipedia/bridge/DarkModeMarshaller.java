@@ -2,6 +2,7 @@ package org.wikipedia.bridge;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.settings.Prefs;
 
 // todo: move turnOn() somewhere else and rmeove bridge dependency
 public class DarkModeMarshaller {
@@ -16,16 +17,12 @@ public class DarkModeMarshaller {
 
     /**
      * Returns the JSON used as payload for JS messages to turn dark mode on/off
-     *
-     * @param hasPageLoaded Specify is the page has already been loaded or not.
-     *                      If it has been loaded, inline style inversion is done by JS.
-     *                      If not, it is handled by the transforms.
      * @return JSON used as payload for JS messages to turn dark mode on or off
      */
-    private JSONObject getPayload(boolean hasPageLoaded) {
+    private JSONObject getPayload() {
         JSONObject payload = new JSONObject();
         try {
-            payload.put("hasPageLoaded", hasPageLoaded);
+            payload.put("dimImages", Prefs.shouldDimDarkModeImages());
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -34,9 +31,8 @@ public class DarkModeMarshaller {
 
     /**
      * Turn on dark mode
-     * @param hasPageLoaded Specify is the page has already been loaded or not.
      */
-    public void turnOn(boolean hasPageLoaded) {
-        bridge.sendMessage("toggleDarkMode", getPayload(hasPageLoaded));
+    public void turnOn() {
+        bridge.sendMessage("toggleDarkMode", getPayload());
     }
 }
