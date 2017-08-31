@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.richtext.RichTextUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -23,6 +24,7 @@ public class HorizontalScrollingListCardItemView extends CardView {
     public HorizontalScrollingListCardItemView(@NonNull Context context) {
         super(context);
         inflate(getContext(), R.layout.view_horizontal_scroll_list_item_card, this);
+        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.cardBackgroundColor));
         ButterKnife.bind(this);
         imageView.setLegacyVisibilityHandlingEnabled(true);
     }
