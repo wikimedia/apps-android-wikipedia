@@ -18,7 +18,8 @@ public class DownloadManagerReceiver extends BroadcastReceiver {
             DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
             for (long id : ids) {
                 if (Compilation.MIME_TYPE.equals(downloadManager.getMimeTypeForDownloadedFile(id))) {
-                    context.startActivity(LocalCompilationsActivity.newIntent(context));
+                    context.startActivity(LocalCompilationsActivity.
+                            newIntent(context).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     break;
                 }
             }
