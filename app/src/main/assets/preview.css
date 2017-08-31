@@ -329,17 +329,17 @@ a:hover {
 a.new,
 a.new:visited,
 a.new:hover {
-  color: #cc0000;
+  color: #dd3333;
 }
 a.new > *,
 a.new:visited > *,
 a.new:hover > * {
-  color: #cc0000;
+  color: #dd3333;
 }
 a.external {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVElEQVR42n3PgQkAIAhEUXdqJ3dqJ3e6IoTPUSQcgj4EQ5IlUiLE0Jil3PECXhcHGBhZ8kg4hwxAu3MZeCGeyFnAXp4hqNQPnt7QL0nADpD6wHccLvnAKksq8iiaAAAAAElFTkSuQmCC);
   background-image: url(/w/skins/MinervaNeue/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf)!ie;
-  background-image: linear-gradient(transparent, transparent), url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%3E%3Cpath%20fill%3D%22%23fff%22%20stroke%3D%22%2306c%22%20d%3D%22M.5%203.518h5.982V9.5H.5z%22%2F%3E%3Cpath%20d%3D%22M4.755-.16H9.99v5.39L8.417%206.774l-1.31-1.31L4.383%208.19%201.695%205.5l2.808-2.807-1.31-1.31z%22%20fill%3D%22%2306f%22%2F%3E%3Cpath%20d%3D%22M8.984.845l.022%204.884L7.19%203.91%204.308%206.79%203.08%205.567l2.882-2.88L4.112.833z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E);
+  background-image: linear-gradient(transparent, transparent), url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%3E%3Cpath%20fill%3D%22%23fff%22%20stroke%3D%22%2336c%22%20d%3D%22M.5%203.518h5.982V9.5H.5z%22%2F%3E%3Cpath%20d%3D%22M4.755-.16H9.99v5.39L8.417%206.774l-1.31-1.31L4.383%208.19%201.695%205.5l2.808-2.807-1.31-1.31z%22%20fill%3D%22%2336c%22%2F%3E%3Cpath%20d%3D%22M8.984.845l.022%204.884L7.19%203.91%204.308%206.79%203.08%205.567l2.882-2.88L4.112.833z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E);
   background-image: -o-linear-gradient(transparent, transparent), url(/w/skins/MinervaNeue/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf);
   background-repeat: no-repeat;
   background-position: center right;
@@ -408,13 +408,15 @@ sup {
   text-align: left;
 }
 .content table.wikitable {
-  border: 1px solid #c8ccd1;
+  border: 1px solid #54595d;
+  border-color: rgba(84, 89, 93, 0.3);
 }
 .content table.wikitable > tr > th,
 .content table.wikitable > tr > td,
 .content table.wikitable > * > tr > th,
 .content table.wikitable > * > tr > td {
-  border: 1px solid #c8ccd1;
+  border: 1px solid #54595d;
+  border-color: rgba(84, 89, 93, 0.3);
   padding: 0.2em;
 }
 .content table.wikitable > tr > th,
@@ -443,6 +445,7 @@ FIXME: Review all of these hacks to see if they still apply.
 .content .navbox {
   display: none;
 }
+.content .fmbox,
 .content .tmbox,
 .content .ambox,
 .content #coordinates,
@@ -557,6 +560,10 @@ FIXME: Review all of these hacks to see if they still apply.
     order: 1;
     display: block;
   }
+}
+[dir='rtl'] .content .infobox {
+  /* @noflip */
+  text-align: left;
 }/* CSS for Parsoid Cite extension */
 
 /* Style for <ref>s */
@@ -1467,4 +1474,53 @@ figure[typeof*='mw:Audio/Thumb'] > a:after {
 .mw-image-border > *:first-child > img,
 .mw-image-border > *:first-child > video {
   border: 1px solid #eaecf0;
+}
+/**
+ * Avoid the need to calculate paddings individually
+ * https://stackoverflow.com/a/7310398
+ */
+.mw-gallery-traditional .gallerybox .thumb:before {
+  content: '';
+  vertical-align: middle;
+  display: inline-block;
+  height: 100%;
+}
+.mw-gallery-traditional .gallerybox .thumb > * {
+  vertical-align: middle;
+  display: inline-block;
+}
+/**
+ * Inline media items
+ */
+.mw-valign-middle > *:first-child > img,
+.mw-valign-middle > *:first-child > video {
+  vertical-align: middle;
+}
+.mw-valign-baseline > *:first-child > img,
+.mw-valign-baseline > *:first-child > video {
+  vertical-align: baseline;
+}
+.mw-valign-sub > *:first-child > img,
+.mw-valign-sub > *:first-child > video {
+  vertical-align: sub;
+}
+.mw-valign-super > *:first-child > img,
+.mw-valign-super > *:first-child > video {
+  vertical-align: super;
+}
+.mw-valign-top > *:first-child > img,
+.mw-valign-top > *:first-child > video {
+  vertical-align: top;
+}
+.mw-valign-text-top > *:first-child > img,
+.mw-valign-text-top > *:first-child > video {
+  vertical-align: text-top;
+}
+.mw-valign-bottom > *:first-child > img,
+.mw-valign-bottom > *:first-child > video {
+  vertical-align: bottom;
+}
+.mw-valign-text-bottom > *:first-child > img,
+.mw-valign-text-bottom > *:first-child > video {
+  vertical-align: text-bottom;
 }
