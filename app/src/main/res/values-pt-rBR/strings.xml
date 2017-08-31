@@ -419,14 +419,14 @@
   <string name="description_edit_revert_history">Se estiver interessado, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">A permissão para acessar o armazenamento em seu dispositivo é necessária para a navegação off-line.</string>
   <string name="offline_read_permission_error">Permissão não concedida para ler do armazenamento do dispositivo.</string>
-  <string name="offline_card_text">Agora você está navegando na Wikipédia no modo off-line. Tenha em atenção que os artigos offline podem não estar totalmente atualizados com a versão online.</string>
-  <string name="offline_my_compilations">Meus pacotes de artigos</string>
+  <string name="offline_card_text" fuzzy="true">Agora você está navegando na Wikipédia no modo off-line. Tenha em atenção que os artigos offline podem não estar totalmente atualizados com a versão online.</string>
+  <string name="offline_my_compilations" fuzzy="true">Meus pacotes de artigos</string>
   <string name="offline_compilations_title">Biblioteca Offline</string>
   <string name="offline_compilations_search_by_name">Pesquisar pacotes de artigos pelo nome</string>
-  <string name="offline_compilations_found_count">Meus pacotes de artigos (%d)</string>
-  <string name="offline_compilations_add">Adicionar pacote de artigos</string>
-  <string name="remote_compilations_title">Todos os pacotes de artigos</string>
-  <string name="remote_compilations_description">Os pacotes de artigos são grandes pacotes de artigos que podem ser baixados como um arquivo para o seu dispositivo, para que você continue a navegar enquanto estiver offline.</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Meus pacotes de artigos (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Adicionar pacote de artigos</string>
+  <string name="remote_compilations_title" fuzzy="true">Todos os pacotes de artigos</string>
+  <string name="remote_compilations_description" fuzzy="true">Os pacotes de artigos são grandes pacotes de artigos que podem ser baixados como um arquivo para o seu dispositivo, para que você continue a navegar enquanto estiver offline.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Download • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Remover</string>
@@ -447,15 +447,13 @@
   <string name="compilation_download_cancel_confirm_no">Não</string>
   <string name="compilation_share">Compartilhar</string>
   <string name="compilation_remove">Remover</string>
-  <string name="compilation_remove_confirm">Tem certeza de que deseja remover este pacote de artigos do seu dispositivo?</string>
-  <string name="compilation_remove_confirm_yes">Sim</string>
-  <string name="compilation_remove_confirm_no">Não</string>
+  <string name="compilation_remove_confirm" fuzzy="true">Tem certeza de que deseja remover este pacote de artigos do seu dispositivo?</string>
   <string name="offline_library_title">Biblioteca Offline</string>
   <string name="offline_library_empty_title">Nada na sua Biblioteca Offline</string>
   <string name="offline_library_empty_description">Escolha um pacote de artigos da Wikipedia para baixar agora, para acesso livre de dados mais tarde.</string>
   <string name="offline_library_empty_search">Pesquisar na Biblioteca Offline</string>
-  <string name="offline_library_search_results_state">Resultados da pesquisa da biblioteca off-line disponível</string>
-  <string name="offline_library_onboarding_action">Saiba mais sobre a sua Biblioteca Offline</string>
+  <string name="offline_library_search_results_state" fuzzy="true">Resultados da pesquisa da biblioteca off-line disponível</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">Saiba mais sobre a sua Biblioteca Offline</string>
   <string name="offline_library_onboarding_button_done">Feito</string>
   <string name="offline_library_onboarding_build_library_title">Crie sua biblioteca off-line</string>
   <string name="offline_library_onboarding_build_library_subtitle">Baixe pacotes de artigos da Wikipedia agora para acesso livre de dados mais tarde.</string>

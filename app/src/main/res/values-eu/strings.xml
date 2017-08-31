@@ -305,7 +305,7 @@
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
   <string name="offline_read_permission_rationale" fuzzy="true">Zeure gailuko memorian konexiorik gabe sartzeko baimena. Saiatu berriro eta eman eskatutako baimena, mesedez.</string>
   <string name="offline_read_permission_error">Ez daukazu baimenik gailuaren memoriatik irakurtzeko.</string>
-  <string name="offline_card_text">Orain, Wikipedia konexiorik gabe ikusten ari zara. Jakin ezazu konexiorik gabeko artikuluak eguneratu gabe egon daitezkela.</string>
+  <string name="offline_card_text" fuzzy="true">Orain, Wikipedia konexiorik gabe ikusten ari zara. Jakin ezazu konexiorik gabeko artikuluak eguneratu gabe egon daitezkela.</string>
   <string name="offline_my_compilations" fuzzy="true">Nire bildumak</string>
   <string name="offline_compilations_title" fuzzy="true">Konexiorik gabeko bilduma</string>
   <string name="offline_compilations_search_by_name" fuzzy="true">Bildumak bilatu izenaren bidez</string>

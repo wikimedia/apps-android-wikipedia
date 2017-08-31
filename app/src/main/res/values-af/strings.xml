@@ -308,6 +308,4 @@
   <string name="compilation_share">Deel</string>
   <string name="compilation_remove">Verwyder</string>
   <string name="compilation_remove_confirm" fuzzy="true">Is u seker u wil dié versameling vanaf u toestel uitwis?</string>
-  <string name="compilation_remove_confirm_yes">Ja</string>
-  <string name="compilation_remove_confirm_no">Nee</string>
 </resources>

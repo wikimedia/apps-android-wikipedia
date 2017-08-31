@@ -416,14 +416,14 @@
   <string name="description_edit_revert_history">Ma tebɣiḍ, wali &lt;a href=\"%1$s\"&gt;amazray n teẓrigt&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Azref n unekcum ar umḍiq n usekles n yibenk-ik ilaq i tunigin di s war tuqqna.</string>
   <string name="offline_read_permission_error">Ur ttunefken ara izerfan i tɣuri n umḍiq n usekles n yibenk-ik.</string>
-  <string name="offline_card_text">Tettinigeḍ di Wikipedia s uskar n war tuqqna. Ẓer d akken imagraden n war tuqqna zemren ur ttwaleqqamen ara seg lqem srid.</string>
-  <string name="offline_my_compilations">Tigrummiwin-iw n imagraden</string>
+  <string name="offline_card_text" fuzzy="true">Tettinigeḍ di Wikipedia s uskar n war tuqqna. Ẓer d akken imagraden n war tuqqna zemren ur ttwaleqqamen ara seg lqem srid.</string>
+  <string name="offline_my_compilations" fuzzy="true">Tigrummiwin-iw n imagraden</string>
   <string name="offline_compilations_title">Tamkarḍiḍ war tuqqna</string>
   <string name="offline_compilations_search_by_name">Nadi tigrummiwin n imagraden s yisem</string>
-  <string name="offline_compilations_found_count">Tigrummiwin-iw n imagraden (%d)</string>
-  <string name="offline_compilations_add">Rnu tagrumma n imagraden</string>
-  <string name="remote_compilations_title">Akk tigrummiwin n imagraden</string>
-  <string name="remote_compilations_description">Tigrummiwin n imagraden d tigrummiwin meqqren n imagraden izemren ad ttwasidren deg iwen n ufaylu ɣer yibenk-ik, akken ad tizmireḍ ad tkemleḍ tunigin ɣas ur teqqineḍ ara.</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Tigrummiwin-iw n imagraden (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Rnu tagrumma n imagraden</string>
+  <string name="remote_compilations_title" fuzzy="true">Akk tigrummiwin n imagraden</string>
+  <string name="remote_compilations_description" fuzzy="true">Tigrummiwin n imagraden d tigrummiwin meqqren n imagraden izemren ad twasidren deg yiwen n ufaylu ɣer yibenk-ik, akken ad tizmireḍ ad tkemleḍ tunigin ɣas ur teqqineḍ ara.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GAṬ</string>
   <string name="offline_compilation_detail_button_download">Sider • %.2f GAṬ</string>
   <string name="offline_compilation_detail_button_remove">Kkes</string>
@@ -439,20 +439,18 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Seḥbes neɣ kemmel asider</string>
   <string name="compilation_download_widget_button_cancel_hint">Sefsex asider</string>
-  <string name="compilation_download_cancel_confirm">Tabɣiḍ ad tesfesxeḍ asider n tegrumma-agi n imagraden?</string>
+  <string name="compilation_download_cancel_confirm">Tebɣiḍ ad tesfesxeḍ asider n tegrumma-agi n imagraden?</string>
   <string name="compilation_download_cancel_confirm_yes">Ih</string>
   <string name="compilation_download_cancel_confirm_no">Uhu</string>
   <string name="compilation_share">Bḍu</string>
   <string name="compilation_remove">Kkes</string>
-  <string name="compilation_remove_confirm">Tebɣiḍ ad tekkseḍ tagrumma-agi n imagraden seg ibenk-ik?</string>
-  <string name="compilation_remove_confirm_yes">Ih</string>
-  <string name="compilation_remove_confirm_no">Uhu</string>
+  <string name="compilation_remove_confirm" fuzzy="true">Tebɣiḍ ad tekkseḍ tagrumma-agi n imagraden seg ibenk-ik?</string>
   <string name="offline_library_title">Tamkarḍiḍ war tuqqna</string>
   <string name="offline_library_empty_title">Ulac d acu yellan di temkarḍit-ik n war tuqqna</string>
   <string name="offline_library_empty_description">Fren tagrumma n imagraden n Wikipedia ara d-tesidreḍ tura i unekcum ilelli ticki.</string>
   <string name="offline_library_empty_search">Nadi di temkarḍit war tuqqna</string>
-  <string name="offline_library_search_results_state">Nadi igmaḍ di temkarḍiḍ war tuqqna</string>
-  <string name="offline_library_onboarding_action">Issin ugar ɣef Temkarḍiḍ war tuqqna</string>
+  <string name="offline_library_search_results_state" fuzzy="true">Nadi igmaḍ di temkarḍiḍ war tuqqna</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">Issin ugar ɣef Temkarḍiḍ war tuqqna</string>
   <string name="offline_library_onboarding_button_done">Immed</string>
   <string name="offline_library_onboarding_build_library_title">Bnu tamkarḍit-ik war tuqqna</string>
   <string name="offline_library_onboarding_build_library_subtitle">Sider tigrummiwin n imagraden Wikipedia tura i unekcum ilelli ar zdat.</string>

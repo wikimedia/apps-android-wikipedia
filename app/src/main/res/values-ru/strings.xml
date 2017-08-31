@@ -417,10 +417,10 @@
   <string name="description_edit_revert_reason2">ваш вклад выглядел как эксперимент или вандализм.</string>
   <string name="description_edit_revert_history">Если интересно, взгляните на &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale" fuzzy="true">Для офлайн-просмотра требуется разрешение на запись в хранилище вашего устройства. Пожалуйста, попробуйте ещё раз и дайте запрашиваемое разрешение.</string>
-  <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме. Обратите внимание, что статьи в офлайн-режиме могут быть менее актуальны, чем в онлайн-версии.</string>
+  <string name="offline_card_text" fuzzy="true">Сейчас вы просматриваете Википедию в офлайн-режиме. Обратите внимание, что статьи в офлайн-режиме могут быть менее актуальны, чем в онлайн-версии.</string>
   <string name="offline_my_compilations" fuzzy="true">Мои компиляции</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Гб</string>
-  <string name="offline_compilation_detail_button_download" fuzzy="true">Скачать · %.2f Гб</string>
+  <string name="offline_compilation_detail_button_download">Скачать • %.2f Гб</string>
   <string name="offline_compilation_detail_button_remove">Удалить</string>
   <string name="remote_compilation_download">Скачать</string>
   <string name="storage_size_gb">ГБ</string>

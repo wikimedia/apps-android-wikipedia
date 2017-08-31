@@ -345,8 +345,6 @@
   <string name="compilation_download_cancel_confirm_yes">Tak</string>
   <string name="compilation_download_cancel_confirm_no">Nie</string>
   <string name="compilation_remove">Usuń</string>
-  <string name="compilation_remove_confirm_yes">Tak</string>
-  <string name="compilation_remove_confirm_no">Nie</string>
   <string name="offline_library_onboarding_button_done">Gotowe</string>
   <string name="onboarding_skip">Pomiń</string>
   <string name="onboarding_continue">Kontynuuj</string>

@@ -377,6 +377,7 @@
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
   <string name="view_featured_article_footer_save_button_label">Spara</string>
+  <string name="view_featured_article_footer_saved_button_label">Sparades</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
@@ -418,16 +419,16 @@
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
-  <string name="offline_card_text">Du läser nu Wikipedia i offlineläge. Observera att offlineartiklar kanske inte är uppdaterade med onlineversionen.</string>
-  <string name="offline_my_compilations" fuzzy="true">Mina samlingar</string>
-  <string name="offline_compilations_title" fuzzy="true">Offlinesamlingar</string>
-  <string name="offline_compilations_search_by_name" fuzzy="true">Sök samlingar efter namn</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Mina samlingar (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Lägg till offlinesamling</string>
-  <string name="remote_compilations_title" fuzzy="true">Alla samlingar</string>
-  <string name="remote_compilations_description" fuzzy="true">Offlinesamlingar är stora mängder artiklar som kan laddas ned som en fil på din enhet, så du kan fortsätta läsa offline.</string>
+  <string name="offline_card_text" fuzzy="true">Du läser nu Wikipedia i offlineläge. Observera att offlineartiklar kanske inte är uppdaterade med onlineversionen.</string>
+  <string name="offline_my_compilations" fuzzy="true">Mina artikelpaket</string>
+  <string name="offline_compilations_title">Offlinebibliotek</string>
+  <string name="offline_compilations_search_by_name">Sök artikelpaket efter namn</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Mina artikelpaket (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Lägg till artikelpaket</string>
+  <string name="remote_compilations_title" fuzzy="true">Alla artikelpaket</string>
+  <string name="remote_compilations_description" fuzzy="true">Artikelpaket är stora mängder artiklar som kan laddas ned som en fil på din enhet, så du kan fortsätta läsa offline.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download" fuzzy="true">Ladda ned · %.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Ladda ned • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ta bort</string>
   <string name="remote_compilation_download">Ladda ner</string>
   <string name="storage_size_gb">GB</string>
@@ -441,14 +442,25 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Pausa eller återuppta nedladdning</string>
   <string name="compilation_download_widget_button_cancel_hint">Avbryt nedladdning</string>
-  <string name="compilation_download_cancel_confirm" fuzzy="true">Är du säker på du vill avbryta nedladdningen av denna samling?</string>
+  <string name="compilation_download_cancel_confirm">Är du säker på du vill avbryta nedladdningen av detta artikelpaket?</string>
   <string name="compilation_download_cancel_confirm_yes">Ja</string>
   <string name="compilation_download_cancel_confirm_no">Nej</string>
+  <string name="compilation_share">Dela</string>
+  <string name="compilation_remove">Ta bort</string>
+  <string name="compilation_remove_confirm" fuzzy="true">Är du säker på att du vill ta bort detta artikelpaket från din enhet?</string>
   <string name="offline_library_title">Offlinebibliotek</string>
   <string name="offline_library_empty_title">Ingenting i ditt offlinebibliotek</string>
   <string name="offline_library_empty_description">Välj ett paket med Wikipediaartiklar att ladda ned nu för att kunna läsa offline senare.</string>
   <string name="offline_library_empty_search">Sök i offlinebiblioteket</string>
-  <string name="offline_library_onboarding_action">Läs mer om ditt offlinebibliotek</string>
+  <string name="offline_library_search_results_state" fuzzy="true">Sökresultat från tillgängliga offlinebibliotek</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">Läs mer om ditt offlinebibliotek</string>
+  <string name="offline_library_onboarding_button_done">Klar</string>
+  <string name="offline_library_onboarding_build_library_title">Bygg ditt offlinebibliotek</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Ladda ned artikelpaket från Wikipedia nu för datafri åtkomst senare.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Läsning utan avbrott</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Fortsätt läsa och söka efter artiklar i ditt offlinebibliotek när du inte har åtkomst till Internet.</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Lagra mer kunskap</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Ladda ned så mycket av Wikipedia som din enhet kan hantera. Offlinebiblioteket kan även komma åt artikelpaket på externa lagringsutrymmen.</string>
   <string name="onboarding_skip">Hoppa över</string>
   <string name="onboarding_continue">Fortsätt</string>
   <string name="onboarding_get_started">Kom igång</string>

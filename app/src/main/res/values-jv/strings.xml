@@ -419,7 +419,7 @@
   <string name="description_edit_revert_history">Yèn panjenengan ngrenani, delengen &lt;a href=\"%1$s\"&gt;sajarahé besutan&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan.</string>
   <string name="offline_read_permission_error">Ora antuk palilah saperlu maca saka panyimpenané piranti.</string>
-  <string name="offline_card_text">Panjenengan pinuju ngluru Wikipédia ing njaban jaringan. Éling-élingen yèn artikel njaban jaringan bokmanawa ora saanyar sing ana ing njeron jaringan.</string>
+  <string name="offline_card_text" fuzzy="true">Panjenengan pinuju ngluru Wikipédia ing njaban jaringan. Éling-élingen yèn artikel njaban jaringan bokmanawa ora saanyar sing ana ing njeron jaringan.</string>
   <string name="offline_my_compilations" fuzzy="true">Kompilasiné kula</string>
   <string name="offline_compilations_title" fuzzy="true">Kompilasi njaban jaringan</string>
   <string name="offline_compilations_search_by_name" fuzzy="true">Golèk kompilasi miturut jenengé</string>
@@ -446,8 +446,6 @@
   <string name="compilation_download_cancel_confirm_no">Ora</string>
   <string name="compilation_share">Dum</string>
   <string name="compilation_remove">Busak</string>
-  <string name="compilation_remove_confirm_yes">Iya</string>
-  <string name="compilation_remove_confirm_no">Ora</string>
   <string name="onboarding_skip">Langkahi</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>

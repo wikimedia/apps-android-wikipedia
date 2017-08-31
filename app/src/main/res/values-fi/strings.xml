@@ -407,7 +407,7 @@
   <string name="description_edit_revert_reason2">muokkauksesi vaikutti kokeilulta tai vandalismilta.</string>
   <string name="description_edit_revert_history">Jos olet kiinnostunut, katso &lt;a href=\"%1$s\"&gt;muokkaushistoria&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale" fuzzy="true">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan offline selaamiseen. Anna pyydetty käyttöoikeus ja yritä uudelleen.</string>
-  <string name="offline_card_text">Selaat nyt Wikipediaa yhteydettömässä tilassa. Huomioithan, että yhteydettömän tilan artikkelit eivät välttämättä ole ajan tasalla verkkoversion kanssa.</string>
+  <string name="offline_card_text" fuzzy="true">Selaat nyt Wikipediaa yhteydettömässä tilassa. Huomioithan, että yhteydettömän tilan artikkelit eivät välttämättä ole ajan tasalla verkkoversion kanssa.</string>
   <string name="offline_my_compilations" fuzzy="true">Omat kokoelmat</string>
   <string name="offline_compilations_title" fuzzy="true">Yhteydettömän tilan kokoelmat</string>
   <string name="offline_compilations_found_count" fuzzy="true">Omat kokoelmat (%d)</string>

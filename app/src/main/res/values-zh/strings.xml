@@ -419,14 +419,14 @@
   <string name="description_edit_revert_history">如果您感兴趣，可查看&lt;a href=\"%1$s\"&gt;编辑历史&lt;/a&gt;。</string>
   <string name="offline_read_permission_rationale">需要访问您设备存储的权限才能离线浏览。</string>
   <string name="offline_read_permission_error">未授予读取来自设备存储内容的权限。</string>
-  <string name="offline_card_text">您正在使用离线模式浏览维基百科。请注意离线条目可能不完全像在线版本那样是最新的。</string>
-  <string name="offline_my_compilations">我的条目包</string>
+  <string name="offline_card_text" fuzzy="true">您正在使用离线模式浏览维基百科。请注意离线条目可能不完全像在线版本那样是最新的。</string>
+  <string name="offline_my_compilations" fuzzy="true">我的条目包</string>
   <string name="offline_compilations_title">离线图书馆</string>
   <string name="offline_compilations_search_by_name">按名称搜索条目包</string>
-  <string name="offline_compilations_found_count">我的条目包（%d）</string>
-  <string name="offline_compilations_add">添加条目包</string>
-  <string name="remote_compilations_title">所有条目包</string>
-  <string name="remote_compilations_description">条目包是可以将大批量条目下载为一个文件至您设备的机制，这样您可以在离线时继续阅读它们。</string>
+  <string name="offline_compilations_found_count" fuzzy="true">我的条目包（%d）</string>
+  <string name="offline_compilations_add" fuzzy="true">添加条目包</string>
+  <string name="remote_compilations_title" fuzzy="true">所有条目包</string>
+  <string name="remote_compilations_description" fuzzy="true">条目包是可以将大批量条目下载为一个文件至您设备的机制，这样您可以在离线时继续阅读它们。</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">下载 • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">移除</string>
@@ -447,15 +447,13 @@
   <string name="compilation_download_cancel_confirm_no">否</string>
   <string name="compilation_share">分享</string>
   <string name="compilation_remove">移除</string>
-  <string name="compilation_remove_confirm">您确定要从您的设备中移除该条目包么？</string>
-  <string name="compilation_remove_confirm_yes">是</string>
-  <string name="compilation_remove_confirm_no">否</string>
+  <string name="compilation_remove_confirm" fuzzy="true">您确定要从您的设备中移除该条目包么？</string>
   <string name="offline_library_title">离线图书馆</string>
   <string name="offline_library_empty_title">您的离线图书馆没有任何东西</string>
   <string name="offline_library_empty_description">现在可以选择下载一些维基百科条目，以便日后免流量访问。</string>
   <string name="offline_library_empty_search">搜索离线图书馆</string>
-  <string name="offline_library_search_results_state">从可用离线图书馆中搜索结果</string>
-  <string name="offline_library_onboarding_action">了解更多有关您的离线图书馆的信息</string>
+  <string name="offline_library_search_results_state" fuzzy="true">从可用离线图书馆中搜索结果</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">了解更多有关您的离线图书馆的信息</string>
   <string name="offline_library_onboarding_button_done">完成</string>
   <string name="offline_library_onboarding_build_library_title">打造您的离线图书馆</string>
   <string name="offline_library_onboarding_build_library_subtitle">现在下载维基百科条目包，以便日后免流量访问。</string>

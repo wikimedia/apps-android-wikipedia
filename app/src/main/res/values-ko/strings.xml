@@ -417,14 +417,14 @@
   <string name="description_edit_revert_history">만약 관심이 있으시다면, &lt;a href=\"%1$s\"&gt; 문서 역사&lt;/a&gt;를 보십시오.</string>
   <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
   <string name="offline_read_permission_error">기억 장치로부터 읽을 권한이 부여되지 않았습니다.</string>
-  <string name="offline_card_text">위키백과를 오프라인 모드에서 탐색하고 있습니다. 오프라인 문서는 온라인 판과 완전히 최신화되어 있지 않을 수 있습니다.</string>
-  <string name="offline_my_compilations">나의 문서 꾸러미</string>
+  <string name="offline_card_text" fuzzy="true">위키백과를 오프라인 모드에서 탐색하고 있습니다. 오프라인 문서는 온라인 판과 완전히 최신화되어 있지 않을 수 있습니다.</string>
+  <string name="offline_my_compilations" fuzzy="true">나의 문서 꾸러미</string>
   <string name="offline_compilations_title">오프라인 라이브러리</string>
   <string name="offline_compilations_search_by_name">이름으로 문서 꾸러미 찾기</string>
-  <string name="offline_compilations_found_count">나의 문서 꾸러미 (%d)</string>
-  <string name="offline_compilations_add">문서 꾸러미 추가</string>
-  <string name="remote_compilations_title">모든 문서 꾸러미</string>
-  <string name="remote_compilations_description">문서 꾸러미는 하나의 파일로 장치에 다운로드할 수 있는 대량의 문서 묶음이므로 오프라인 상태에서 탐색을 계속할 수 있습니다.</string>
+  <string name="offline_compilations_found_count" fuzzy="true">나의 문서 꾸러미 (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">문서 꾸러미 추가</string>
+  <string name="remote_compilations_title" fuzzy="true">모든 문서 꾸러미</string>
+  <string name="remote_compilations_description" fuzzy="true">문서 꾸러미는 하나의 파일로 장치에 다운로드할 수 있는 대량의 문서 묶음이므로 오프라인 상태에서 탐색을 계속할 수 있습니다.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">다운로드 • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">제거</string>
@@ -445,17 +445,17 @@
   <string name="compilation_download_cancel_confirm_no">아니오</string>
   <string name="compilation_share">공유</string>
   <string name="compilation_remove">제거</string>
-  <string name="compilation_remove_confirm">이 문서 꾸러미를 장치에서 제거하시겠습니까?</string>
-  <string name="compilation_remove_confirm_yes">예</string>
-  <string name="compilation_remove_confirm_no">아니오</string>
+  <string name="compilation_remove_confirm" fuzzy="true">이 문서 꾸러미를 장치에서 제거하시겠습니까?</string>
   <string name="offline_library_title">오프라인 라이브러리</string>
   <string name="offline_library_empty_title">오프라인 라이브러리에 아무 것도 없습니다</string>
   <string name="offline_library_empty_search">오프라인 라이브러리 검색</string>
-  <string name="offline_library_search_results_state">사용 가능한 오프라인 라이브러리의 검색 결과</string>
-  <string name="offline_library_onboarding_action">오프라인 라이브러리에 대해 알아보기</string>
+  <string name="offline_library_search_results_state" fuzzy="true">사용 가능한 오프라인 라이브러리의 검색 결과</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">오프라인 라이브러리에 대해 알아보기</string>
   <string name="offline_library_onboarding_button_done">완료</string>
   <string name="offline_library_onboarding_build_library_title">오프라인 라이브러리 만들기</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">중단 없이 읽기</string>
   <string name="offline_library_onboarding_store_knowledge_title">더 많은 지식 저장하기</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">장치가 허용하는 한도 내에 위키백과를 최대한 많이 다운로드합니다. 오프라인 라이브러리 또한 외부 기억 장치의 문서 꾸러미들에 접근할 수 있습니다.</string>
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>

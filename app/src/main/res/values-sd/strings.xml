@@ -432,7 +432,7 @@
   <string name="offline_library_title">آفلائين ڪتبخانو</string>
   <string name="offline_library_empty_title">توھان جي آفلائين ڪتبخاني ۾ ڪجھ بہ ناھي</string>
   <string name="offline_library_empty_search">آفلائين ڪتبخانو ڳوليو</string>
-  <string name="offline_library_onboarding_action">پنھنجي آفلائين ڪتبخاني بابت سکو</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">پنھنجي آفلائين ڪتبخاني بابت سکو</string>
   <string name="onboarding_skip">ڇڏيو</string>
   <string name="onboarding_continue">جاري رکو</string>
   <string name="onboarding_get_started">شروع ڪريو</string>

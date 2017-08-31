@@ -235,9 +235,10 @@
   <string name="text_copied">Teks ditéplak kana papan klip.</string>
   <string name="button_continue_to_article">Baca artikel</string>
   <string name="button_add_to_reading_list">Tambahkeun kana daptar bacaan</string>
-  <string name="page_offline_notice_cannot_load_while_offline">Artikel teu bisa dimuat mun keur luring.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Artikel teu bisa dimuat mun keur oflén.</string>
   <string name="page_offline_notice_add_to_reading_list">Pituduh: Tambahkeun artikel kana daptar bacaan sangkan bisa diundeur sanggeus anjeun onlén deui.</string>
-  <string name="page_offline_notice_last_date">Anjeun keur maca vérsi luring tina ieu artikel nu disimpen dina %s</string>
+  <string name="page_offline_notice_last_date">Anjeun keur maca vérsi oflén tina ieu artikel nu disimpen dina %s</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Anjeun keur maca vérsi oflén ieu artikel tina kompilasi anu diundeur dina %1$s • %2$s.</string>
   <string name="button_get_directions">Beunangkeun pituduh arah</string>
   <string name="error_no_maps_app">Teu bisa manggihan aplikasi nu méré pituduh arah.</string>
   <string name="preference_title_show_link_previews">Témbongkeun pramidang tutumbu</string>
@@ -256,7 +257,7 @@
   <string name="view_wiki_error_message_offline">Teu bisa nyambungkeun kana internét</string>
   <string name="reference_title">Rujukan %s</string>
   <string name="crash_report_dialog_title">Hampura, aplikasi eureun sorangan bieu téh</string>
-  <string name="crash_report_dialog_text">Ari anjeun hayang ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sangkan Wikimédia bisa ninjau karuksakan anjeun sarta ngoméan kasalahan nu disumebabkeunna?</string>
+  <string name="crash_report_dialog_text">Ari anjeun hayang ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sangkan Wikimédia bisa mariksa karuksakan anjeun sarta ngoméan kasalahan nu disumebabkeunna?</string>
   <string name="crash_report_dialog_dont_send_button">Liwatkeun</string>
   <string name="crash_report_dialog_always_send_button">Kirim terus</string>
   <string name="crash_report_dialog_send_button">Kirim</string>
@@ -286,8 +287,8 @@
   <string name="reading_list_added_view_button">Tempo daptar</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d ti 1 artikel sayaga luring, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ti %2$d artikel sayaga luring, %3$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d ti 1 artikel sayaga oflén, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d ti %2$d artikel sayaga oflén, %3$.2f MB</string>
   <string name="reading_list_sort">Runtuykeun</string>
   <string name="reading_list_sort_by_name">Runtuykeun dumasar ngaran</string>
   <string name="reading_list_sort_by_name_desc">Runtuykeun dumasar ngaran (tibalik)</string>
@@ -296,8 +297,8 @@
   <string name="reading_list_menu_delete">Pupus daptar</string>
   <string name="reading_list_menu_rename">Robah ngaran</string>
   <string name="reading_list_menu_edit_description">Édit pedaran</string>
-  <string name="reading_list_action_menu_remove_from_offline">Pupus tina luring</string>
-  <string name="reading_list_action_menu_save_for_offline">Simpen pikeun luring</string>
+  <string name="reading_list_action_menu_remove_from_offline">Pupus tina oflén</string>
+  <string name="reading_list_action_menu_save_for_offline">Simpen pikeun oflén</string>
   <string name="reading_list_action_menu_add_to_another_list">Tambahkeun ka dapftar lianna</string>
   <string name="reading_list_name_sample">Daptat bacaan kuring</string>
   <string name="reading_list_name_hint">Ngaran ieu daptar</string>
@@ -307,8 +308,8 @@
   <string name="reading_list_item_delete_undo">Teu tulus</string>
   <string name="reading_list_deleted">%s dipupus</string>
   <string name="reading_lists_empty">Can aya daptar bacaan deui</string>
-  <string name="reading_lists_empty_message">Simpen artikel kana daptar bacaan hambéh engké anjeun bisa nempona deui, malah mah mun anjeun  keur luring.</string>
-  <string name="reading_lists_onboarding_intro">Jieun daptar bacaan tina artikel anu rék dibaca ku anjeun engké, malah nalika anjeun keur luring!</string>
+  <string name="reading_lists_empty_message">Simpen artikel kana daptar bacaan hambéh engké anjeun bisa nempona deui, malah mah mun anjeun  keur oflén.</string>
+  <string name="reading_lists_onboarding_intro">Jieun daptar bacaan tina artikel anu rék dibaca ku anjeun engké, malah nalika anjeun keur oflén!</string>
   <string name="reading_lists_onboarding_for_example">Pikeun conto</string>
   <string name="reading_lists_onboarding_example1">Tempat sorangkeuneun</string>
   <string name="reading_lists_onboarding_example2">Sato karesep</string>
@@ -316,14 +317,14 @@
   <string name="reading_lists_onboarding_got_it">Ngarti</string>
   <string name="reading_list_no_description">Tanpa pedaran...</string>
   <string name="reading_list_empty">Anjeun teu mibanda artikel nu ditambahkeun ka ieu daptar.</string>
-  <string name="reading_list_article_offline">Nyangkaruk kalawan luring</string>
-  <string name="reading_list_article_make_offline">Jieun ieu artikel sangkan sayaga na luring</string>
+  <string name="reading_list_article_offline">Sayaga kalawan oflén</string>
+  <string name="reading_list_article_make_offline">Jieun ieu artikel sangkan sayaga na oflén</string>
   <string name="reading_list_add_to_other_list">Tambahkeun kana daptar bacaan lianna</string>
   <string name="reading_list_remove_from_list">Hapus tina %s</string>
   <string name="reading_list_remove_from_lists">Piceun tina daptar bacaan</string>
-  <string name="reading_list_confirm_remove_article_from_offline">Hapus tina luring</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Hapus tina oflén</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel bijil dina sawatara daptar</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s teu nyangkaruk deui sacara luring pikeun sakumna daptar bacaan:</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s teu nyangkaruk deui sacara oflén pikeun sakumna daptar bacaan:</string>
   <string name="reading_list_sync_reminder_title">Singkronisasi daptar bacaan dipareuman</string>
   <string name="reading_list_sync_reminder_text">Daptar bacaan anjeun bisa disingkronkeun kana akun Wikipédia anjeun mun anjeun ngawidian singkronisasi di pangaturan aplikasi.</string>
   <string name="reading_list_sync_reminder_action">Hurungkeun</string>
@@ -332,14 +333,14 @@
   <string name="reading_lists_confirm_remote_delete">Ieu bakal ngahapus daptar bacaan nu disingkronkeun saméméhna tina panyimpenan jarak jauh. Tuluykeun?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Nya</string>
   <string name="reading_lists_confirm_remote_delete_no">Teu</string>
-  <string name="reading_list_article_save_in_progress">Artikel keur diundeur, sarta bakal nyangkaruk sacara luring nalika geus bérés.</string>
+  <string name="reading_list_article_save_in_progress">Artikel keur diundeur, sarta bakal nyangkaruk sacara oflén nalika geus bérés.</string>
   <plurals name="reading_list_article_offline_message">
-    <item quantity="one">Ieu artikel ayeuna bakal sayaga kalawan luring.</item>
-    <item quantity="other">Ieu artikel-artikel ayeuna bakal sayaga kalawan luring.</item>
+    <item quantity="one">Ieu artikel ayeuna bakal sayaga kalawan oflén.</item>
+    <item quantity="other">Ieu artikel-artikel ayeuna bakal sayaga kalawan oflén.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message">
-    <item quantity="one">Ieu artikel teu nyangkaruk deui sacara luring.</item>
-    <item quantity="other">Ieu artikel-artikel teu nyangkaruk deui sacara luring.</item>
+    <item quantity="one">Ieu artikel teu sayaga deui sacara oflén.</item>
+    <item quantity="other">Ieu artikel-artikel teu sayaga deui sacara oflén.</item>
   </plurals>
   <string name="user_option_sync_label">Préferénsi</string>
   <string name="notification_button_view_user">Ngobrol jeung pamaké</string>
@@ -372,7 +373,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Poé ieu</string>
   <string name="view_announcement_card_negative_action">Teu kudu, nuhun</string>
-  <string name="view_offline_card_text">Kontén teu bisa dipuat nalika luring.</string>
+  <string name="view_offline_card_text">Kontén teu bisa dipuat nalika oflén.</string>
   <string name="view_featured_article_card_title">Artikel petingan</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
@@ -410,20 +411,20 @@
   <string name="description_edit_help_more_info">Informasi leuwih jero</string>
   <string name="description_edit_help_meta_info">Déskripsi disimpen sarta dipulasara di Wikidata, hiji proyék ti Wikimedia Foundation anu nyayagakeun basis data bébas, kolaboratif, multibasa, sékunder nu ngarojong Wikipédia jeung proyék-proyék lianna.</string>
   <string name="description_edit_revert_subtitle">Hatur nuhun tos ngédit di Wikipédia!</string>
-  <string name="description_edit_revert_intro">Kami nyaho anjeun nyoba nu panghadéna, ngan salah sahiji paninjau mibanda kakhawatiran. Kamungkinan alesan éditan anjeun geus dibalikkeun ngawengku:</string>
+  <string name="description_edit_revert_intro">Kami nyaho anjeun nyoba nu panghadéna, ngan salah sahiji pamariksa mibanda kakhawatiran. Kamungkinan alesan éditan anjeun geus dibalikkeun ngawengku:</string>
   <string name="description_edit_revert_reason1">kontribusi anjeun teu numutkeun kana salah sahiji &lt;a href=\"%1$s\"&gt;palanggeran&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Kontribusi anjeun sigana mah coba-coba atawa vandalismeu kitu.</string>
   <string name="description_edit_revert_history">Mun anjeun kataji, témbongan &lt;a href=\"%1$s\"&gt;jujutan éditanana&lt;/a&gt;.</string>
-  <string name="offline_read_permission_rationale">Idin pikeun ngaksés panyimpenan dina parangkat anjeun diperlukeun pikeun langlangan luring.</string>
+  <string name="offline_read_permission_rationale">Idin pikeun ngaksés panyimpenan dina parangkat anjeun diperlukeun pikeun langlangan oflén.</string>
   <string name="offline_read_permission_error">Idin teu dibéré pikeun maca tina panyimpenan parangkat.</string>
-  <string name="offline_card_text">Anjeun kiwari ngalanglang Wikipédia dina modeu luring. Wayahna baé da ari artikel luring mah meureun teu sagemblengna dianyarkeun kawas vérsi onlén.</string>
-  <string name="offline_my_compilations">Pakét artikel kuring</string>
-  <string name="offline_compilations_title">Pabukon luring</string>
+  <string name="offline_card_text" fuzzy="true">Anjeun kiwari ngalanglang Wikipédia dina modeu oflén. Wayahna baé da ari artikel oflén mah meureun teu sagemblengna dianyarkeun kawas vérsi onlén.</string>
+  <string name="offline_my_compilations" fuzzy="true">Pakét artikel kuring</string>
+  <string name="offline_compilations_title">Pabukon Oflén</string>
   <string name="offline_compilations_search_by_name">Paluruh pakét artikel dumasar ngaran</string>
-  <string name="offline_compilations_found_count">Pakét artikel kuring (%d)</string>
-  <string name="offline_compilations_add">Tambah pakét artikel</string>
-  <string name="remote_compilations_title">Sakumna pakét artikel</string>
-  <string name="remote_compilations_description">Pakét artikel nyaéta kumpulan artikel badag nu bisa diundeur minangka hiji berkas ka parangkat anjeun, sangkan anjeun bisa terus ngalanglang nalika luring.</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Pakét artikel kuring (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Tambah pakét artikel</string>
+  <string name="remote_compilations_title" fuzzy="true">Sakumna pakét artikel</string>
+  <string name="remote_compilations_description" fuzzy="true">Pakét artikel nyaéta kumpulan artikel badag nu bisa diundeur minangka hiji berkas ka parangkat anjeun, sangkan anjeun bisa terus ngalanglang nalika oflén.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Undeur • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Pupus</string>
@@ -444,29 +445,27 @@
   <string name="compilation_download_cancel_confirm_no">Teu</string>
   <string name="compilation_share">Bagikeun</string>
   <string name="compilation_remove">Pupus</string>
-  <string name="compilation_remove_confirm">Anjeun yakin rék mupus ieu pakét artikel tina parangkat anjeun?</string>
-  <string name="compilation_remove_confirm_yes">Nya</string>
-  <string name="compilation_remove_confirm_no">Teu</string>
-  <string name="offline_library_title">Pabukon luring</string>
-  <string name="offline_library_empty_title">Taya nanaon di Pabukon Luring anjeun mah</string>
+  <string name="compilation_remove_confirm" fuzzy="true">Anjeun yakin rék mupus ieu pakét artikel tina parangkat anjeun?</string>
+  <string name="offline_library_title">Pabukon Oflén</string>
+  <string name="offline_library_empty_title">Taya nanaon di Pabukon Oflén anjeun mah</string>
   <string name="offline_library_empty_description">Pilih sakumpulan artikel Wikipédia jang undeuran ayeuna, pikeun aksés tanpadata engké.</string>
-  <string name="offline_library_empty_search">Paluruh Pabukon luring</string>
-  <string name="offline_library_search_results_state">Hasil pamaluruhan tina pabukon luring nu sayaga</string>
-  <string name="offline_library_onboarding_action">Teuleuman ngeunaan Pabukon Luring anjeun</string>
+  <string name="offline_library_empty_search">Paluruh Pabukon Oflén</string>
+  <string name="offline_library_search_results_state" fuzzy="true">Hasil pamaluruhan tina pabukon oflén nu sayaga</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">Teuleuman ngeunaan Pabukon Oflén anjeun</string>
   <string name="offline_library_onboarding_button_done">Anggeus</string>
-  <string name="offline_library_onboarding_build_library_title">Wangun Pabukon Luring anjeun</string>
+  <string name="offline_library_onboarding_build_library_title">Wangun Pabukon Oflén anjeun</string>
   <string name="offline_library_onboarding_build_library_subtitle">Undeur pakét artikel Wikipédia kiwari pikeun aksés bébas data engké.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Maca tanpa kaganggu</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Terus baé maca jeung maluruh artikel dina Pabukon Luring anjeun nalika anjeun miboga aksés kana internét.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Terus baé maca jeung maluruh artikel dina Pabukon Oflén anjeun nalika anjeun miboga aksés kana internét.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Simpen leuwih loba pangaweruh</string>
-  <string name="offline_library_onboarding_store_knowledge_subtitle">Undeur Wikipédia saloba-lobana parangkat anjeun bisa ngawadahan. Pabukon Luring ogé bisa ngaksés pakét artikel dina panyimpenan éksternal.</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Undeur Wikipédia saloba-lobana parangkat anjeun bisa ngawadahan. Pabukon Oflén ogé bisa ngaksés pakét artikel dina panyimpenan éksternal.</string>
   <string name="onboarding_skip">Liwatkeun</string>
   <string name="onboarding_continue">Tuluykeun</string>
   <string name="onboarding_get_started">Mitembeyan</string>
   <string name="onboarding_explore_title">Cara anyar pikeun ngalanglang</string>
   <string name="onboarding_explore_text">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
   <string name="onboarding_reading_list_sync_title">Daptar bacaan kalawan singkronisasi</string>
-  <string name="onboarding_reading_list_sync_text">Jieun daptar bacaan tina artikel anu ku anjeun rék di baca engké, malah mah mun keur luring. &lt;a href=\"#login\"&gt;Asup log atawa jieun&lt;/a&gt; akun Wikipédia anjeun supaya daptar bacaan anjeun dicadangkeun.</string>
+  <string name="onboarding_reading_list_sync_text">Jieun daptar bacaan tina artikel anu ku anjeun rék di baca engké, malah mah mun keur oflén. &lt;a href=\"#login\"&gt;Asup log atawa jieun&lt;/a&gt; akun Wikipédia anjeun supaya daptar bacaan anjeun dicadangkeun.</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_text">Bantu nyieun aplikasi sangkan leuwih hadé ku cara méré béja ka kami kumaha anjeun ngagunakeunana. Data nu dikumpulkeun mangrupa anonim. &lt;a href=\"#privacy\"&gt;Teuleuman leuwih jero&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
