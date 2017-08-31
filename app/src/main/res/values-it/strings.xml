@@ -407,8 +407,6 @@
   <string name="compilation_download_cancel_confirm_no">No</string>
   <string name="compilation_share">Condividi</string>
   <string name="compilation_remove">Rimuovi</string>
-  <string name="compilation_remove_confirm_yes">Sì</string>
-  <string name="compilation_remove_confirm_no">No</string>
   <string name="offline_library_title">Biblioteca offline</string>
   <string name="offline_library_empty_title">Niente nella tua biblioteca offline</string>
   <string name="offline_library_empty_search">Cerca nella biblioteca offline</string>

@@ -417,14 +417,14 @@
   <string name="description_edit_revert_history">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>
   <string name="offline_read_permission_rationale">ऑफ़लाइन विचरण के लिए आपके यंत्र पर संग्रहण का उपयोग करने की अनुमति आवश्यक है।</string>
   <string name="offline_read_permission_error">यंत्र के भंडारण से पढ़ने की अनुमति प्रदान नहीं की गई।</string>
-  <string name="offline_card_text">अब आप ऑफ़लाइन मोड में विकिपीडिया में विचरण कर रहे हैं। कृपया ध्यान दें कि ऑफ़लाइन लेख ऑनलाइन संस्करण के साथ पूरी तरह से अद्यतित नहीं हो सकते हैं।</string>
-  <string name="offline_my_compilations">मेरे लेख पैक्स</string>
+  <string name="offline_card_text" fuzzy="true">अब आप ऑफ़लाइन मोड में विकिपीडिया में विचरण कर रहे हैं। कृपया ध्यान दें कि ऑफ़लाइन लेख ऑनलाइन संस्करण के साथ पूरी तरह से अद्यतित नहीं हो सकते हैं।</string>
+  <string name="offline_my_compilations" fuzzy="true">मेरे लेख पैक्स</string>
   <string name="offline_compilations_title">ऑफलाइन लाइब्रेरी</string>
   <string name="offline_compilations_search_by_name">लेख पैक्स को नाम द्वारा ढूंढें</string>
-  <string name="offline_compilations_found_count">मेरे लेख पैक्स (%d)</string>
-  <string name="offline_compilations_add">लेख पैक जोड़ें</string>
-  <string name="remote_compilations_title">सभी लेख पैक्स</string>
-  <string name="remote_compilations_description">लेख पैक्स लेखों के बड़े बंडल हैं जिन्हें आपकी डिवाइस में एक फ़ाइल के रूप में डाउनलोड किया जा सकता है, ताकि आप ऑफलाइन ब्राउज़िंग जारी रख सकें।</string>
+  <string name="offline_compilations_found_count" fuzzy="true">मेरे लेख पैक्स (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">लेख पैक जोड़ें</string>
+  <string name="remote_compilations_title" fuzzy="true">सभी लेख पैक्स</string>
+  <string name="remote_compilations_description" fuzzy="true">लेख पैक्स लेखों के बड़े बंडल हैं जिन्हें आपकी डिवाइस में एक फ़ाइल के रूप में डाउनलोड किया जा सकता है, ताकि आप ऑफलाइन ब्राउज़िंग जारी रख सकें।</string>
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f जीबी</string>
   <string name="offline_compilation_detail_button_download">डाउनलोड · %.2f जीबी</string>
   <string name="offline_compilation_detail_button_remove">निकालें</string>
@@ -445,18 +445,16 @@
   <string name="compilation_download_cancel_confirm_no">नहीं</string>
   <string name="compilation_share">साझा करें</string>
   <string name="compilation_remove">हटायें</string>
-  <string name="compilation_remove_confirm">क्या आप वाकई इस लेख पैक को अपनी डिवाइस से हटाना चाहते हैं?</string>
-  <string name="compilation_remove_confirm_yes">हां</string>
-  <string name="compilation_remove_confirm_no">नहीं</string>
+  <string name="compilation_remove_confirm" fuzzy="true">क्या आप वाकई इस लेख पैक को अपनी डिवाइस से हटाना चाहते हैं?</string>
   <string name="offline_library_title">ऑफलाइन पुस्तकालय</string>
   <string name="offline_library_empty_title">आपके ऑफलाइन पुस्तकालय में कुछ भी नहीं</string>
   <string name="offline_library_empty_description">बाद में डेटा-मुक्त पहुंच के लिए, विकिपीडिया के लेखों का एक पैकेट अब अधोभारित करने के लिए चुनें।</string>
   <string name="offline_library_empty_search">ऑफलाइन पुस्तकालय ढूंढें</string>
-  <string name="offline_library_onboarding_action">अपने ऑफलाइन पुस्तकालय के बारे में सीखें</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">अपने ऑफलाइन पुस्तकालय के बारे में सीखें</string>
   <string name="offline_library_onboarding_button_done">पूर्ण हुआ</string>
   <string name="offline_library_onboarding_build_library_title">अपनी ऑफ़लाइन लाइब्रेरी का निर्माण करें</string>
   <string name="offline_library_onboarding_build_library_subtitle">बाद में डेटा-फ्री एक्सेस हेतु विकिपीडिया लेख पैक्स को अभी डाऊनलोड करें।</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_title">बाधा रहित रीडिंग</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">बाधा रहित पढ़ाई</string>
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">इंटरनेट तक पहुंच न होने पर भी ऑफलाइन लाइब्रेरी में पढ़ना और लेखों की खोज जारी रखें।</string>
   <string name="offline_library_onboarding_store_knowledge_title">अधिक ज्ञान जमा करें</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">उतना विकिपीडिया डाऊनलोड करें जितनी आपकी डिवाइस की क्षमता हो। ऑफलाइन लाइब्रेरी एक्सटर्नल स्टोरेज पर भी लेख पैक्स को एक्सेस कर सकती है।</string>

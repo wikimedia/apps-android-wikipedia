@@ -240,6 +240,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">條目不能在離線時載入。</string>
   <string name="page_offline_notice_add_to_reading_list">提示：將條目新增至閱讀清單，令您可在返回線上時下載。</string>
   <string name="page_offline_notice_last_date">您正閱讀此條目儲存於 %s 的離線版本。</string>
+  <string name="page_offline_notice_compilation_download_date">您正閱讀此條目來自下載於%1$s • %2$s的匯編離線版本。</string>
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
@@ -419,14 +420,14 @@
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
   <string name="offline_read_permission_rationale">需要可在您裝置上儲存庫的權限才能離線瀏覽。</string>
   <string name="offline_read_permission_error">未授予從裝置儲存庫讀取的權限。</string>
-  <string name="offline_card_text">您正以離線模式瀏覽維基百科。請注意離線條目可能不是目前線上版本的最新內容。</string>
-  <string name="offline_my_compilations">我的條目包</string>
+  <string name="offline_card_text">您正在您的離線圖書館瀏覽離線維基百科條目。</string>
+  <string name="offline_my_compilations">管理我的離線圖書館</string>
   <string name="offline_compilations_title">離線圖書館</string>
   <string name="offline_compilations_search_by_name">依條目包來搜尋匯編</string>
-  <string name="offline_compilations_found_count">我的條目包（%d）</string>
-  <string name="offline_compilations_add">添加條目包</string>
-  <string name="remote_compilations_title">所有條目包</string>
-  <string name="remote_compilations_description">條目包是將大筆條目弄成如同可下載的檔案存至您的裝置裡，這可讓您在離線時能繼續瀏覽。</string>
+  <string name="offline_compilations_found_count">我的離線圖書館（%d）</string>
+  <string name="offline_compilations_add">添加至我的離線圖書館</string>
+  <string name="remote_compilations_title">離線圖書館</string>
+  <string name="remote_compilations_description" fuzzy="true">條目包是將大筆條目弄成如同可下載的檔案存至您的裝置裡，這可讓您在離線時能繼續瀏覽。</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">下載 • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">移除</string>
@@ -447,15 +448,13 @@
   <string name="compilation_download_cancel_confirm_no">否</string>
   <string name="compilation_share">分享</string>
   <string name="compilation_remove">移除</string>
-  <string name="compilation_remove_confirm">您確定要從您的裝置移除此條目包？</string>
-  <string name="compilation_remove_confirm_yes">是</string>
-  <string name="compilation_remove_confirm_no">否</string>
+  <string name="compilation_remove_confirm">您要從您的離線圖書館移除此？</string>
   <string name="offline_library_title">離線圖書館</string>
   <string name="offline_library_empty_title">您的離線圖書館裡無任何事物</string>
   <string name="offline_library_empty_description">現在就挑選維基百科的條目包來下載，這可讓您事後自由存取資料。</string>
   <string name="offline_library_empty_search">搜尋離線圖書館</string>
-  <string name="offline_library_search_results_state">從可用離線圖書館來搜尋結果</string>
-  <string name="offline_library_onboarding_action">了解有關您的離線圖書館</string>
+  <string name="offline_library_search_results_state">從您的離線圖書館來搜尋結果</string>
+  <string name="offline_library_onboarding_action">了解更多</string>
   <string name="offline_library_onboarding_button_done">完成</string>
   <string name="offline_library_onboarding_build_library_title">打造您的離線圖書館</string>
   <string name="offline_library_onboarding_build_library_subtitle">現在就下載維基百科條目包，讓事後可免去存取資料。</string>

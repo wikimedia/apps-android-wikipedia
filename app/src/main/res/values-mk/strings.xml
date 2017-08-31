@@ -419,14 +419,14 @@
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно.</string>
   <string name="offline_read_permission_error">Прилогот не доби дозвола за читање од складот на уредот.</string>
-  <string name="offline_card_text">Сега ја прелистувате Википедија во вонмрежен режим. Имајте на ум дека вонмрежните статии може да не се најтековни.</string>
-  <string name="offline_my_compilations">Мои пакети од статии</string>
+  <string name="offline_card_text" fuzzy="true">Сега ја прелистувате Википедија во вонмрежен режим. Имајте на ум дека вонмрежните статии може да не се најтековни.</string>
+  <string name="offline_my_compilations" fuzzy="true">Мои пакети од статии</string>
   <string name="offline_compilations_title">Вонмрежна библиотека</string>
   <string name="offline_compilations_search_by_name">Пребарај пакети од статии по име</string>
-  <string name="offline_compilations_found_count">Мои пакети од статии (%d)</string>
-  <string name="offline_compilations_add">Додај пакет од статии</string>
-  <string name="remote_compilations_title">Сите пакети од статии</string>
-  <string name="remote_compilations_description">Пакетите од статии се големи купови од статии што можат да се преземат како една податотека на вашиот уред, за да можете да продолжите со прелистување и кога немате линија.</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Мои пакети од статии (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Додај пакет од статии</string>
+  <string name="remote_compilations_title" fuzzy="true">Сите пакети од статии</string>
+  <string name="remote_compilations_description" fuzzy="true">Пакетите од статии се големи купови од статии што можат да се преземат како една податотека на вашиот уред, за да можете да продолжите со прелистување и кога немате линија.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f ГБ</string>
   <string name="offline_compilation_detail_button_download">Преземи • %.2f ГБ</string>
   <string name="offline_compilation_detail_button_remove">Отстрани</string>
@@ -447,15 +447,13 @@
   <string name="compilation_download_cancel_confirm_no">Не</string>
   <string name="compilation_share">Сподели</string>
   <string name="compilation_remove">Отстрани</string>
-  <string name="compilation_remove_confirm">Дали сте сигурни дека сакате да го отстраните овој пакет од статии од вашиот уред?</string>
-  <string name="compilation_remove_confirm_yes">Да</string>
-  <string name="compilation_remove_confirm_no">Не</string>
+  <string name="compilation_remove_confirm" fuzzy="true">Дали сте сигурни дека сакате да го отстраните овој пакет од статии од вашиот уред?</string>
   <string name="offline_library_title">Вонмрежна библиотека</string>
   <string name="offline_library_empty_title">Немате ништо во Вонмрежната библиотека</string>
   <string name="offline_library_empty_description">Изберете пакет статии од Википедија што ќе ги преземете сега за да ги читате подоцна без линија.</string>
   <string name="offline_library_empty_search">Пребарај по вонмрежната библиотека</string>
-  <string name="offline_library_search_results_state">Исходот од пребарувањето на достапната вонмрежна библиотека</string>
-  <string name="offline_library_onboarding_action">Дознајте за вашата Вонмрежна библиотека</string>
+  <string name="offline_library_search_results_state" fuzzy="true">Исходот од пребарувањето на достапната вонмрежна библиотека</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">Дознајте за вашата Вонмрежна библиотека</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Направете ваша семрежна библиотека</string>
   <string name="offline_library_onboarding_build_library_subtitle">Преземете пакети од википедиски статии сега за да ги читате подоцна без да трошите од семрежниот промет</string>

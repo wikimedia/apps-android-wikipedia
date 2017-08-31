@@ -419,14 +419,14 @@
   <string name="description_edit_revert_history">Si tas interesáu, consulta &lt;a href=\"%1$s\"&gt;l\'historial d\'ediciones&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa restolar sin conexón.</string>
   <string name="offline_read_permission_error">Nun se dio permisu pa lleer dende\'l preséu d\'almacenamientu.</string>
-  <string name="offline_card_text">Agora tas restolando Wikipedia en mou ensin conexón. Recuerda que los artículos ensin conexón pueden tar desfasaos respeuto a la versión en llinia.</string>
-  <string name="offline_my_compilations">Los mios paquetes d\'artículos</string>
+  <string name="offline_card_text" fuzzy="true">Agora tas restolando Wikipedia en mou ensin conexón. Recuerda que los artículos ensin conexón pueden tar desfasaos respeuto a la versión en llinia.</string>
+  <string name="offline_my_compilations" fuzzy="true">Los mios paquetes d\'artículos</string>
   <string name="offline_compilations_title">Biblioteca ensin conexón</string>
   <string name="offline_compilations_search_by_name">Buscar paquetes d\'artículos pol nome</string>
-  <string name="offline_compilations_found_count">Los mios paquetes d\'artículos (%d)</string>
-  <string name="offline_compilations_add">Añadir paquete d\'artículos</string>
-  <string name="remote_compilations_title">Tolos paquetes d\'artículos</string>
-  <string name="remote_compilations_description">Los  paquetes d\'artículos son grandes esbilles d\'artículos que pueden descargase al preséu como un ficheru, pa poder siguir navegando cuando tas ensin conexón.</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Los mios paquetes d\'artículos (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Añadir paquete d\'artículos</string>
+  <string name="remote_compilations_title" fuzzy="true">Tolos paquetes d\'artículos</string>
+  <string name="remote_compilations_description" fuzzy="true">Los  paquetes d\'artículos son grandes esbilles d\'artículos que pueden descargase al preséu como un ficheru, pa poder siguir navegando cuando tas ensin conexón.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Desaniciar</string>
@@ -447,15 +447,13 @@
   <string name="compilation_download_cancel_confirm_no">Non</string>
   <string name="compilation_share">Compartir</string>
   <string name="compilation_remove">Desaniciar</string>
-  <string name="compilation_remove_confirm">¿Tas seguru de que quies desaniciar esti paquete d\'artículos del preséu?</string>
-  <string name="compilation_remove_confirm_yes">Sí</string>
-  <string name="compilation_remove_confirm_no">Non</string>
+  <string name="compilation_remove_confirm" fuzzy="true">¿Tas seguru de que quies desaniciar esti paquete d\'artículos del preséu?</string>
   <string name="offline_library_title">Biblioteca ensin conexón</string>
   <string name="offline_library_empty_title">Nun hai nada na biblioteca ensin conexón</string>
   <string name="offline_library_empty_description">Escueyi un paquete d\'artículos de Wikipedia pa descargar agora, pa tener accesu sero ensin cargu de datos.</string>
   <string name="offline_library_empty_search">Buscar na biblioteca ensin conexón</string>
-  <string name="offline_library_search_results_state">Buscar resultaos de la biblioteca ensin conexón disponible</string>
-  <string name="offline_library_onboarding_action">Saber más sobre la biblioteca ensin conexón</string>
+  <string name="offline_library_search_results_state" fuzzy="true">Buscar resultaos de la biblioteca ensin conexón disponible</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">Saber más sobre la biblioteca ensin conexón</string>
   <string name="offline_library_onboarding_button_done">Fecho</string>
   <string name="offline_library_onboarding_build_library_title">Construir una Biblioteca ensin conexón</string>
   <string name="offline_library_onboarding_build_library_subtitle">Descargar agora paquetes d\'artículos de Wikipedia pa velos sero ensin gastu de datos.</string>

@@ -371,6 +371,4 @@
   <string name="remote_compilations_title" fuzzy="true">Све збирке</string>
   <string name="compilation_share">Дели</string>
   <string name="compilation_remove">Уклони</string>
-  <string name="compilation_remove_confirm_yes">Да</string>
-  <string name="compilation_remove_confirm_no">Не</string>
 </resources>

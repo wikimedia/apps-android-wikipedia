@@ -416,8 +416,6 @@
   <string name="compilation_download_cancel_confirm_no">Neen</string>
   <string name="compilation_share">Deelen</string>
   <string name="compilation_remove">Ewechhuelen</string>
-  <string name="compilation_remove_confirm_yes">Jo</string>
-  <string name="compilation_remove_confirm_no">Neen</string>
   <string name="offline_library_title">Offline-Bibliothéik</string>
   <string name="offline_library_onboarding_button_done">Fäerdeg</string>
   <string name="offline_library_onboarding_build_library_title">Setzt Är Offline-Bibliothéik zesummen</string>

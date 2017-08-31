@@ -297,9 +297,11 @@
   <string name="description_edit_help_about_title">बारेमा</string>
   <string name="description_edit_help_tips_example2">पृथ्वीको सबैभन्दा अग्लो हिमाल</string>
   <string name="description_edit_help_more_info">थप जानकारी</string>
+  <string name="offline_compilations_title">अफलाइन पुस्तकालय</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f जीबी</string>
+  <string name="offline_compilation_detail_button_download">डाउनलोड • %.2f जीबी</string>
   <string name="remote_compilation_download">डाउनलोड</string>
   <string name="compilation_share">बाड्ने</string>
   <string name="compilation_remove">हटाउने</string>
-  <string name="compilation_remove_confirm_yes">हो</string>
-  <string name="compilation_remove_confirm_no">होइन</string>
+  <string name="offline_library_onboarding_button_done">सम्पन्न</string>
 </resources>

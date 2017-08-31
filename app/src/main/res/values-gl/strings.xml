@@ -419,7 +419,7 @@
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
   <string name="offline_read_permission_error">Non tes permiso para ler dende o almacenamento deste dispositivo.</string>
-  <string name="offline_card_text">Agora está navegando por Wikipedia en modo sen conexión. Por favor, teña en conta que os artigos sen conexión pode que non estean totalmente actualizados coa versión con conexión.</string>
+  <string name="offline_card_text" fuzzy="true">Agora está navegando por Wikipedia en modo sen conexión. Por favor, teña en conta que os artigos sen conexión pode que non estean totalmente actualizados coa versión con conexión.</string>
   <string name="offline_my_compilations" fuzzy="true">As miñas recompilacións</string>
   <string name="offline_compilations_title" fuzzy="true">Recompilacións sen conexión</string>
   <string name="offline_compilations_search_by_name" fuzzy="true">Procurar compilacións por nome</string>
@@ -449,7 +449,7 @@
   <string name="offline_library_empty_title">Nada na súa biblioteca sen conexión</string>
   <string name="offline_library_empty_description">Escolla un paquete de artigos de Wikipedia para descargar agora, para acceder logo sen cargo de datos.</string>
   <string name="offline_library_empty_search">Buscar na biblioteca sen conexión</string>
-  <string name="offline_library_onboarding_action">Aprenda sobre a súa biblioteca sen conexión</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">Aprenda sobre a súa biblioteca sen conexión</string>
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>

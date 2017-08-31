@@ -409,8 +409,6 @@
   <string name="offline_compilations_title">Offline könyvtár</string>
   <string name="compilation_share">Megosztás</string>
   <string name="compilation_remove">Eltávolítás</string>
-  <string name="compilation_remove_confirm_yes">Igen</string>
-  <string name="compilation_remove_confirm_no">Nem</string>
   <string name="offline_library_onboarding_button_done">Kész</string>
   <string name="onboarding_skip">Kihagy</string>
   <string name="onboarding_continue">Tovább</string>

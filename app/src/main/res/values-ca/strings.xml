@@ -411,7 +411,7 @@
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
   <string name="offline_read_permission_error">No s\'han atorgat permisos per a llegir des del dispositiu d\'emmagatzematge.</string>
-  <string name="offline_card_text">Esteu navegant per la Viquipèdia en mode fora de línia. Tingueu en compte que els articles fora de línia podrien no estar al dia respecte a la versió en línia.</string>
+  <string name="offline_card_text" fuzzy="true">Esteu navegant per la Viquipèdia en mode fora de línia. Tingueu en compte que els articles fora de línia podrien no estar al dia respecte a la versió en línia.</string>
   <string name="offline_my_compilations" fuzzy="true">Les meves recopilacions</string>
   <string name="offline_compilations_title" fuzzy="true">Compilacions fora de línia</string>
   <string name="offline_compilations_search_by_name" fuzzy="true">Cerca les compilacions per nom</string>
@@ -437,8 +437,6 @@
   <string name="compilation_download_cancel_confirm_yes">Sí</string>
   <string name="compilation_download_cancel_confirm_no">No</string>
   <string name="compilation_share">Comparteix</string>
-  <string name="compilation_remove_confirm_yes">Sí</string>
-  <string name="compilation_remove_confirm_no">No</string>
   <string name="offline_library_title">Biblioteca sense connexió</string>
   <string name="offline_library_empty_title">No hi ha res dins la biblioteca sense connexió</string>
   <string name="onboarding_skip">Omet</string>

@@ -419,14 +419,14 @@
   <string name="description_edit_revert_history">Er du interesseret, så se &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at læse artikler lokalt.</string>
   <string name="offline_read_permission_error">Der er ikke givet tilladelse til at læse fra enhedslageret.</string>
-  <string name="offline_card_text">Du læser nu Wikipedia lokalt. Bemærk venligst at lokale artikler måske ikke er helt opdateret med versionen på internettet.</string>
-  <string name="offline_my_compilations" fuzzy="true">Mine samlinger</string>
-  <string name="offline_compilations_title" fuzzy="true">Lokale samlinger</string>
-  <string name="offline_compilations_search_by_name" fuzzy="true">Søg i samlinger efter navn</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Mine samlinger (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">tilføj lokal samling</string>
-  <string name="remote_compilations_title" fuzzy="true">Alle samlinger</string>
-  <string name="remote_compilations_description" fuzzy="true">Lokale samlinger er store samlinger af artikler, som kan hentes som en fil til din enhed, så du kan fortsætte med at læse lokalt.</string>
+  <string name="offline_card_text" fuzzy="true">Du læser nu Wikipedia lokalt. Bemærk venligst at lokale artikler måske ikke er helt opdateret med versionen på internettet.</string>
+  <string name="offline_my_compilations" fuzzy="true">Mine artikelpakker</string>
+  <string name="offline_compilations_title">Lokalt bibliotek</string>
+  <string name="offline_compilations_search_by_name">Søg i artikelpakker efter navn</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Mine artikelpakker (%d)</string>
+  <string name="offline_compilations_add" fuzzy="true">Tilføj artikelpakke</string>
+  <string name="remote_compilations_title" fuzzy="true">Alle artikelpakker</string>
+  <string name="remote_compilations_description" fuzzy="true">Artikelpakker er store samlinger af artikler, som kan hentes som en fil til din enhed, så du kan fortsætte med at læse lokalt.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Hent • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Fjern</string>
@@ -442,19 +442,18 @@
   </plurals>
   <string name="compilation_download_widget_button_pause_resume_hint">Sæt overførsel på pause eller genoptag</string>
   <string name="compilation_download_widget_button_cancel_hint">Afbryd overførsel</string>
-  <string name="compilation_download_cancel_confirm" fuzzy="true">Er du sikker på, at du ønsker at afbryde overførsel af denne samling?</string>
+  <string name="compilation_download_cancel_confirm">Er du sikker på, at du ønsker at afbryde overførsel af denne artikelpakke?</string>
   <string name="compilation_download_cancel_confirm_yes">Ja</string>
   <string name="compilation_download_cancel_confirm_no">Nej</string>
   <string name="compilation_share">Del</string>
   <string name="compilation_remove">Fjern</string>
-  <string name="compilation_remove_confirm" fuzzy="true">Er du sikker på, at du ønsker at fjerne denne samling fra din enhed?</string>
-  <string name="compilation_remove_confirm_yes">Ja</string>
-  <string name="compilation_remove_confirm_no">Nej</string>
+  <string name="compilation_remove_confirm" fuzzy="true">Er du sikker på, at du ønsker at fjerne denne artikelpakke fra din enhed?</string>
   <string name="offline_library_title">Lokalt bibliotek</string>
   <string name="offline_library_empty_title">Intet i dit lokale bibliotek</string>
   <string name="offline_library_empty_description">Vælg en pakke Wikipediaartikler at hente nu, for datafri adgang senere.</string>
   <string name="offline_library_empty_search">Søg i lokalt bibliotek</string>
-  <string name="offline_library_onboarding_action">Lær mere om dit lokale bibliotek</string>
+  <string name="offline_library_search_results_state" fuzzy="true">Søgeresultater fra tilgængeligt lokalt bibliotek</string>
+  <string name="offline_library_onboarding_action" fuzzy="true">Lær mere om dit lokale bibliotek</string>
   <string name="offline_library_onboarding_button_done">Udført</string>
   <string name="offline_library_onboarding_build_library_title">Byg dit lokale bibliotek</string>
   <string name="offline_library_onboarding_build_library_subtitle">Hent Wikipediaartikelpakker nu for datafri adgang senere.</string>

@@ -18,6 +18,8 @@
   <string name="history_item_delete_undo">元に戻す</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
   <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか？</string>
+  <string name="dialog_message_clear_history_yes">はい</string>
+  <string name="dialog_message_clear_history_no">いいえ</string>
   <string name="nav_item_saved_pages">保存したページ</string>
   <string name="share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
@@ -69,6 +71,8 @@
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>
   <string name="edit_saved_page_refresh">この保存されたページは古くなっているかもしれません。編集するにはその前に更新する必要があります。ページを更新しますか?</string>
+  <string name="edit_saved_page_refresh_yes">はい</string>
+  <string name="edit_saved_page_refresh_no">いいえ</string>
   <string name="nav_item_login">ウィキペディアにログイン</string>
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
@@ -152,6 +156,8 @@
   <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;ウィキメディア財団&lt;/a&gt;の製品</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
+  <string name="edit_abandon_confirm_yes">はい</string>
+  <string name="edit_abandon_confirm_no">いいえ</string>
   <string name="user_blocked_from_editing_title">ブロック済み</string>
   <string name="user_logged_in_blocked_from_editing">あなたの利用者アカウントはこのウィキで編集ブロックされています。</string>
   <string name="user_anon_blocked_from_editing">あなたの IP アドレスは編集ブロックされています。</string>
@@ -178,6 +184,8 @@
   <string name="search_recent_header">最近の検索:</string>
   <string name="button_clear_all_recent_searches">最近の検索を消去</string>
   <string name="clear_recent_searches_confirm">本当に検索履歴を消去しますか?</string>
+  <string name="clear_recent_searches_confirm_yes">はい</string>
+  <string name="clear_recent_searches_confirm_no">いいえ</string>
   <string name="error_browser_not_found">ウェブページを開くことができませんでした。(ブラウザアプリが見つかりません)</string>
   <string name="table_infobox">基本データ</string>
   <string name="table_other">さらに見る</string>
@@ -200,7 +208,7 @@
   <string name="gallery_save_progress">ファイルをダウンロードしています…</string>
   <string name="gallery_save_success">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">ストレージに書き込むパーミッションは画像の保存に必要になります。もう一度やり直して、このパーミッションを許可してください。</string>
+  <string name="gallery_save_image_write_permission_rationale">ストレージに書き込む許可は画像の保存に必要になります。</string>
   <string name="err_cannot_save_file">ファイルを保存できません</string>
   <string name="snippet_share_intro">「%1$s」の記事を @Wikipedia で読む: %2$s</string>
   <string name="expand_refs">タップして開く</string>
@@ -214,6 +222,8 @@
   <string name="menu_new_tab">新規タブ</string>
   <string name="menu_close_all_tabs">全てのタブを閉じる</string>
   <string name="close_all_tabs_confirm">本当に全てのタブを閉じてよろしいですか？</string>
+  <string name="close_all_tabs_confirm_yes">はい</string>
+  <string name="close_all_tabs_confirm_no">いいえ</string>
   <string name="button_close_tab">タブを閉じる</string>
   <string name="tool_tip_select_text">テキストのどこかを長押しすると、コピーしてシェアするテキストを選択できます。</string>
   <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSで共有しましょう!</string>
@@ -239,6 +249,7 @@
   <string name="enable_location_service">有効化</string>
   <string name="location_permissions_enable_action">有効にする</string>
   <string name="error_webview_updating">Android System WebViewが更新中です。しばらくしてからもう一度お試しください。</string>
+  <string name="multi_select_items_selected">%d 件選択</string>
   <string name="error_message_generic">エラーが発生しました</string>
   <string name="view_link_preview_error_button_dismiss">閉じる</string>
   <string name="error_page_does_not_exist">このページは存在しません</string>
@@ -260,6 +271,8 @@
   <string name="color_theme_select">テーマ</string>
   <string name="color_theme_light">明</string>
   <string name="color_theme_dark">暗</string>
+  <string name="preference_title_color_theme">夜モード</string>
+  <string name="preference_summary_color_theme">アプリの配色をダークモードにします</string>
   <string name="nav_item_reading_lists">自分のリスト</string>
   <string name="reading_list_untitled">題名なし</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
