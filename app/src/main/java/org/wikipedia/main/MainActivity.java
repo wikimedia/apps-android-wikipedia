@@ -107,6 +107,11 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     }
 
     @Override
+    protected void onGoOnline() {
+        getFragment().onGoOnline();
+    }
+
+    @Override
     public void onBackPressed() {
         if (getFragment().onBackPressed()) {
             return;
