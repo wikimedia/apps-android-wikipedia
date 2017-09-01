@@ -1,17 +1,18 @@
-package org.wikipedia.bridge;
+package org.wikipedia.theme;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.settings.Prefs;
 
 // todo: move turnOn() somewhere else and rmeove bridge dependency
-public class DarkModeMarshaller {
+public class DarkModeSwitch {
     private final CommunicationBridge bridge;
 
     /**
      * @param bridge The bridge used to communicate with the WebView
      */
-    public DarkModeMarshaller(CommunicationBridge bridge) {
+    public DarkModeSwitch(CommunicationBridge bridge) {
         this.bridge = bridge;
     }
 

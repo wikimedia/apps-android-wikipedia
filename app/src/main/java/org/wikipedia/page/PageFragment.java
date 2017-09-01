@@ -46,7 +46,6 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.DarkModeMarshaller;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
@@ -71,6 +70,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.theme.DarkModeSwitch;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DeviceUtil;
@@ -170,7 +170,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ConfigurableTabLayout tabLayout;
     private ToCHandler tocHandler;
     private CommunicationBridge bridge;
-    private DarkModeMarshaller darkModeMarshaller;
+    private DarkModeSwitch darkModeSwitch;
     private LinkHandler linkHandler;
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
@@ -356,13 +356,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.setBackgroundColor(getThemedColor(getActivity(), R.attr.page_background_color));
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
-        darkModeMarshaller = new DarkModeMarshaller(bridge);
+        darkModeSwitch = new DarkModeSwitch(bridge);
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
         // make sure styles get injected before the DarkModeMarshaller and other handlers
         if (app.isCurrentThemeDark()) {
-            darkModeMarshaller.turnOn();
+            darkModeSwitch.turnOn();
         }
 
         errorView.setRetryClickListener(new View.OnClickListener() {
@@ -991,8 +991,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return bridge;
     }
 
-    DarkModeMarshaller getDarkModeMarshaller() {
-        return darkModeMarshaller;
+    DarkModeSwitch getDarkModeMarshaller() {
+        return darkModeSwitch;
     }
 
     private void setupToC(@NonNull PageViewModel model, boolean isFirstPage) {
