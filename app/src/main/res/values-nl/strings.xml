@@ -39,7 +39,6 @@
   <string name="nearby_zoom_to_location">Inzoomen op een locatie op de kaart</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; bijdragers</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
-  <string name="bottom_content_date_downloaded">Gedownload %s</string>
   <string name="talk_page_link_text">Overleg</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
@@ -408,7 +407,6 @@
   <string name="offline_card_text" fuzzy="true">U bent momenteel Wikipedia offline aan het bekijken. Hou er rekening mee dat de offline artikels niet helemaal up to date zijn met de online versie.</string>
   <string name="offline_my_compilations" fuzzy="true">Mijn aanpassingen</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
-  <string name="compilation_download_widget_button_pause_resume_hint">Pauzeer of ga door met de download</string>
   <string name="compilation_download_widget_button_cancel_hint">Annuleer download</string>
   <string name="onboarding_skip">Overslaan</string>
   <string name="onboarding_continue">Doorgaan</string>

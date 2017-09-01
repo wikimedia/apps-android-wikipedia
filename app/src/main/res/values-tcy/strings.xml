@@ -39,7 +39,6 @@
   <string name="nearby_zoom_to_location">ಮ್ಯಾಪ್ ಡಿತ್ತಿ  ಜಗೆನ್ ಮಲ್ಲೆ ಮಾಂತೂತು ತೋಜಾಲೇ</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributors</string>
   <string name="last_updated_text">ಕಡೇತಾ ಪರಿಷ್ಕರಣೆ ಮಾಂತುನಾ %s</string>
-  <string name="bottom_content_date_downloaded">ಡೌನ್‍ಲೋಡ್ %sಅಂಡ್</string>
   <string name="talk_page_link_text">ಪಾತೆರ್ಲೆ</string>
   <string name="content_license_html">ಪ್ರತ್ಯೇಕವಾದ್ ಉಲ್ಲೇಕ ಮಲ್ಪಂದೆ ಇತ್ತ್ಂಡ, ವಿಷಯ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ದಡಿಟ್ ಲಭ್ಯ ಉಂಡು.</string>
   <string name="edit_save_action_license_logged_in">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್.</string>

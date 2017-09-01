@@ -39,7 +39,6 @@
   <string name="nav_item_nearby">Наблизо</string>
   <string name="nearby_zoom_to_location">Приближаване към място на картата</string>
   <string name="last_updated_text">Последна промяна: %s</string>
-  <string name="bottom_content_date_downloaded">Изтеглено %s</string>
   <string name="talk_page_link_text">Беседа</string>
   <string name="content_license_html">Съдържанието е достъпно под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е посочено друго</string>
   <string name="preference_title_language">Език на Уикипедия</string>

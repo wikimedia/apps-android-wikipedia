@@ -2,8 +2,6 @@
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="yes">Ja</string>
-  <string name="no">Nei</string>
   <string name="search_hint">Leita í Wikipedia</string>
   <string name="nav_item_history">Søga</string>
   <string name="error_network_error" fuzzy="true">Tað er onki internet samband :(</string>

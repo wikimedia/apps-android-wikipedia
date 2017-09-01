@@ -3,8 +3,6 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
-  <string name="yes">Aw</string>
-  <string name="no">Duh lo</string>
   <string name="search_hint">Wikipedia ah kawl</string>
   <string name="nav_item_history">Cakhumh</string>
   <string name="error_network_error" fuzzy="true">Network connection a um lo,</string>

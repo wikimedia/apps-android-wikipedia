@@ -3,8 +3,6 @@
   <string name="app_name_prod">Википеди</string>
   <string name="app_name_alpha">Википеди Альфа</string>
   <string name="wikimedia">Викикимеди</string>
-  <string name="yes">ХӀаъ</string>
-  <string name="no">ХӀахӀа</string>
   <string name="search_hint">Википедин чухула лахар</string>
   <string name="nav_item_history">Истори</string>
   <string name="error_network_error" fuzzy="true">ЗӀе цакарий :(</string>

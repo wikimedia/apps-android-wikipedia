@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedii Beta</string>
   <string name="app_name_alpha">Wikipedii Alfa</string>
   <string name="wikimedia">Wikimedii</string>
-  <string name="yes">Muga</string>
-  <string name="no">Ei</string>
   <string name="search_hint">Eči Wikipedies</string>
   <string name="nav_item_history">Histourii</string>
   <string name="error_network_error">Yhtevytty internettah ei sua muvvostua</string>

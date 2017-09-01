@@ -41,7 +41,6 @@
   <string name="nearby_zoom_to_location">नक़्शे पर किसी स्थान तक ज़ूम करें</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; योगदानकर्ता</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट किया गया।</string>
-  <string name="bottom_content_date_downloaded">अधोभारित %s</string>
   <string name="talk_page_link_text">वार्ता</string>
   <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
   <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हैं।</string>
@@ -438,7 +437,6 @@
     <item quantity="one">1 मिनट बाकी</item>
     <item quantity="other">%d मिनट बाकी</item>
   </plurals>
-  <string name="compilation_download_widget_button_pause_resume_hint">अधोभारण रोकें या फिर से शुरू करें</string>
   <string name="compilation_download_widget_button_cancel_hint">डाउनलोड रद्द करें</string>
   <string name="compilation_download_cancel_confirm">क्या आप वाकई इस लेख पैक की डाउनलोडिंग को कैंसिल करना चाहते हैं?</string>
   <string name="compilation_download_cancel_confirm_yes">हाँ</string>

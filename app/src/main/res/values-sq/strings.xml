@@ -3,8 +3,6 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
-  <string name="yes">Po</string>
-  <string name="no">Jo</string>
   <string name="search_hint">Kërko në Wikipedia</string>
   <string name="nav_item_history">Historiku</string>
   <string name="error_network_error">Nuk mund të lidhet me internet.</string>
