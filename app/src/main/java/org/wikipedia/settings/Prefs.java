@@ -573,5 +573,9 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_dim_dark_mode_images, true);
     }
 
+    public static void setDimDarkModeImages(boolean enabled) {
+        setBoolean(R.string.preference_key_dim_dark_mode_images, enabled);
+    }
+
     private Prefs() { }
 }

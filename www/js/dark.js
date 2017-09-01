@@ -10,3 +10,7 @@ bridge.registerListener( 'toggleDarkMode', function( payload ) {
     pagelib.ThemeTransform.setTheme( document, theme );
     pagelib.DimImagesTransform.dim( window, window.isDarkMode && payload.dimImages );
 } );
+
+bridge.registerListener( 'toggleDimImages', function( payload ) {
+    pagelib.DimImagesTransform.dim( window, payload.dimImages );
+} );

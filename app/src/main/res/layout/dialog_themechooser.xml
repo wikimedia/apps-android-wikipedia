@@ -4,94 +4,113 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/list_separator_light" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="8dp"
+        android:id="@+id/font_change_progress_bar"/>
 
     <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:background="?attr/bottom_sheet_background_color">
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="?attr/bottom_sheet_background_color">
 
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="22dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="?attr/feed_text_primary_color"
-                android:text="@string/text_size_select"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="22dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?attr/feed_text_primary_color"
+            android:text="@string/text_size_select"/>
+
         <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="center_horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal">
+
             <TextView
-                    android:id="@+id/buttonDecreaseTextSize"
-                    style="@style/App.Button.Gray"
-                    android:padding="0dp"
-                    android:layout_width="56dp"
-                    android:text="−"
-                    android:textSize="26sp"
-                    tools:ignore="HardcodedText"/>
+                android:id="@+id/buttonDecreaseTextSize"
+                style="@style/App.Button.Gray"
+                android:padding="0dp"
+                android:layout_width="56dp"
+                android:text="−"
+                android:textSize="26sp"
+                tools:ignore="HardcodedText"/>
+
             <TextView
-                    android:id="@+id/buttonDefaultTextSize"
-                    style="@style/App.Button.Gray"
-                    android:padding="0dp"
-                    android:layout_width="56dp"
-                    android:text="○"
-                    android:textSize="26sp"
-                    tools:ignore="HardcodedText"/>
+                android:id="@+id/buttonDefaultTextSize"
+                style="@style/App.Button.Gray"
+                android:padding="0dp"
+                android:layout_width="56dp"
+                android:text="○"
+                android:textSize="26sp"
+                tools:ignore="HardcodedText"/>
+
             <TextView
-                    android:id="@+id/buttonIncreaseTextSize"
-                    style="@style/App.Button.Gray"
-                    android:padding="0dp"
-                    android:layout_width="56dp"
-                    android:text="+"
-                    android:textSize="26sp"
-                    tools:ignore="HardcodedText"/>
+                android:id="@+id/buttonIncreaseTextSize"
+                style="@style/App.Button.Gray"
+                android:padding="0dp"
+                android:layout_width="56dp"
+                android:text="+"
+                android:textSize="26sp"
+                tools:ignore="HardcodedText"/>
+
         </LinearLayout>
 
         <View
-                android:layout_gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="6dp"
-                android:background="@color/list_separator_light" />
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp"
+            android:background="@color/list_separator_light" />
 
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="?attr/feed_text_primary_color"
-                android:text="@string/color_theme_select"/>
-        <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="26dp"
-                android:layout_gravity="center_horizontal">
-            <TextView
-                    style="@style/App.Button.White"
-                    android:id="@+id/buttonColorsLight"
-                    android:text="@string/color_theme_light" />
-            <TextView
-                    style="@style/App.Button.Gray"
-                    android:id="@+id/buttonColorsDark"
-                    android:text="@string/color_theme_dark" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/list_separator_light" />
-
-    <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|end"
-            android:layout_margin="8dp"
-            android:id="@+id/font_change_progress_bar"/>
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?attr/feed_text_primary_color"
+            android:text="@string/color_theme_select"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                style="@style/App.Button.White"
+                android:id="@+id/buttonColorsLight"
+                android:text="@string/color_theme_light" />
+
+            <TextView
+                style="@style/App.Button.Gray"
+                android:id="@+id/buttonColorsDark"
+                android:text="@string/color_theme_dark" />
+        </LinearLayout>
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/theme_chooser_dark_mode_dim_images_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            style="@style/RtlAwareTextView"
+            android:textColor="?attr/feed_text_tertiary_color"
+            android:textSize="14sp"
+            android:text="@string/theme_chooser_dialog_image_dimming_switch_label"/>
+
+    </LinearLayout>
 </FrameLayout>
