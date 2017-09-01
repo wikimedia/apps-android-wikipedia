@@ -68,47 +68,40 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/compilation_list_contents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:scrollbars="vertical"
+            android:background="?attr/window_background_color"/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/compilation_list_contents"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="?attr/window_background_color"/>
+        <ProgressBar
+            android:id="@+id/compilation_list_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="48dp"/>
 
-            <ProgressBar
-                android:id="@+id/compilation_list_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="48dp"/>
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/compilation_list_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"/>
 
-            <org.wikipedia.views.WikiErrorView
-                android:id="@+id/compilation_list_error"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical"/>
+        <org.wikipedia.views.SearchEmptyView
+            android:id="@+id/search_empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="48dp"
+            android:visibility="gone"/>
 
-            <org.wikipedia.views.SearchEmptyView
-                android:id="@+id/search_empty_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="48dp"
-                android:visibility="gone"/>
-
-        </LinearLayout>
-
-    </android.support.v4.widget.NestedScrollView>
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -298,7 +298,8 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
     private class SearchCallback extends SearchActionModeCallback {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            appBarLayout.setExpanded(false, true);
+            recyclerView.stopScroll();
+            appBarLayout.setExpanded(false, false);
             return super.onCreateActionMode(mode, menu);
         }
 

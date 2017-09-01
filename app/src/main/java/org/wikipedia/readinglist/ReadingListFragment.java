@@ -737,7 +737,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
-            appBarLayout.setExpanded(false, true);
+            recyclerView.stopScroll();
+            appBarLayout.setExpanded(false, false);
             return super.onCreateActionMode(mode, menu);
         }
 
