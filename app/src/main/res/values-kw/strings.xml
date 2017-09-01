@@ -3,8 +3,6 @@
   <string name="app_name_prod">Wikipedya</string>
   <string name="app_name_beta">Wikipedya Beta</string>
   <string name="app_name_alpha">Wikipedya Alpha</string>
-  <string name="yes">Ya</string>
-  <string name="no">Na</string>
   <string name="search_hint">Hwilas yn Wikipedia</string>
   <string name="nav_item_history">Istori</string>
   <string name="error_network_error" fuzzy="true">Nyns eus junyans rosweyth :(</string>

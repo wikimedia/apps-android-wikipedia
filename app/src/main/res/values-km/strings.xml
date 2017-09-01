@@ -3,8 +3,6 @@
   <string name="app_name_prod">វិគីភីឌា</string>
   <string name="app_name_beta">វិគីភីឌាបេតា</string>
   <string name="app_name_alpha">វិគីភីឌាអាល់ហ្វា</string>
-  <string name="yes">ព្រម</string>
-  <string name="no">ទេ</string>
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
   <string name="nav_item_history">ប្រវត្តិ</string>
   <string name="error_network_error" fuzzy="true">គ្មានបណ្ដាញតភ្ជាប់ទេ :(</string>

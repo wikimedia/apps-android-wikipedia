@@ -2,8 +2,6 @@
 <resources>
   <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta">Википедия (бета)</string>
-  <string name="yes">У</string>
-  <string name="no">Гуро</string>
   <string name="search_hint">Википедиялда цӀехесе</string>
   <string name="nav_item_history">Тарих</string>
   <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>

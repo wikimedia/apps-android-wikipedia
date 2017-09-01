@@ -41,7 +41,6 @@
   <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
   <string name="nearby_osm_license">Copyright message with a link to the OpenStreetMap Copyright and License. (Please preserve the anchor tag in its exact form.)</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
-  <string name="bottom_content_date_downloaded">Message in footer of article from an offline compilation indicating when the file containing the compilation was downloaded. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site. Some use the term discussions.\n{{Identical|Talk}}</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page. Please preserve the %1$s parameter, since this will be replaced with the actual URL.</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
@@ -441,7 +440,6 @@
     <item quantity="one">Message shown when an offline article pack has an estimated one minute remaining before the download is finished.</item>
     <item quantity="other">Message shown when an offline article pack has an estimated two or more minutes remaining before the download is finished.</item>
   </plurals>
-  <string name="compilation_download_widget_button_pause_resume_hint">Accessibility hint text for a button to pause or resume an article pack download</string>
   <string name="compilation_download_widget_button_cancel_hint">Accessibility hint text for a button to cancel an article pack download</string>
   <string name="compilation_download_cancel_confirm">Confirmation message asking if the user really wants to cancel the download.</string>
   <string name="compilation_download_cancel_confirm_yes">Affirmative answer to cancel the download.\n{{Identical|Yes}}</string>

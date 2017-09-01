@@ -3,8 +3,6 @@
   <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta" tools:ignore="UnusedResources">Википедиа Бета хувилбар</string>
   <string name="app_name_alpha" tools:ignore="UnusedResources">Википедиа Альфа хувилбар</string>
-  <string name="yes">Тийм</string>
-  <string name="no">Үгүй</string>
   <string name="search_hint">Википедиа -аас хайх</string>
   <string name="nav_item_history">Түүх</string>
   <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>

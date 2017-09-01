@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="yes">Aane</string>
-  <string name="no">Daabi</string>
   <string name="search_hint">Hwehwɛ Wikipedia mu</string>
   <string name="nav_item_history">Nea atwam</string>
   <string name="error_network_error" fuzzy="true">Hwɛ sɛ wo network no yɛ adwuma a :(</string>

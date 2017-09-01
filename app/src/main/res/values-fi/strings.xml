@@ -41,7 +41,6 @@
   <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; muokkaajat</string>
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
-  <string name="bottom_content_date_downloaded">Ladattu %s</string>
   <string name="talk_page_link_text">Keskustelu</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssillä, ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
@@ -425,7 +424,6 @@
     <item quantity="one">1 minuutti jäljellä</item>
     <item quantity="other"> %d minuuttia jäljellä</item>
   </plurals>
-  <string name="compilation_download_widget_button_pause_resume_hint">Pysäytä tai jatka latausta</string>
   <string name="compilation_download_widget_button_cancel_hint">Peruuta lataus</string>
   <string name="compilation_download_cancel_confirm" fuzzy="true">Haluatko varmasti peruuttaa tämän kokoelman lataamisen?</string>
   <string name="compilation_download_cancel_confirm_yes">Kyllä</string>

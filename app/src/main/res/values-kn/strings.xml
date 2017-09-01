@@ -3,8 +3,6 @@
   <string name="app_name_prod">ವಿಕಿಪೀಡಿಯ</string>
   <string name="app_name_beta">ವಿಕಿಪೀಡಿಯ ಬೀಟಾ</string>
   <string name="app_name_alpha">ವಿಕಿಪೀಡಿಯ ಆಲ್ಫಾ</string>
-  <string name="yes">ಹೌದು</string>
-  <string name="no">ಇಲ್ಲ</string>
   <string name="search_hint">ವಿಕಿಪೀಡಿಯ ಹುಡುಕು</string>
   <string name="nav_item_history">ಇತಿಹಾಸ</string>
   <string name="error_network_error" fuzzy="true">ನೆಟವರ್ಕ್ ಸಂಪರ್ಕ ವಿಲ್ಲ :(</string>

@@ -4,8 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
-  <string name="yes">E</string>
-  <string name="no">Nê</string>
   <string name="search_hint">Wikipediya de cı geyre</string>
   <string name="nav_item_history">Tarix</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>

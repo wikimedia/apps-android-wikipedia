@@ -54,7 +54,6 @@
     <string name="nearby_osm_license"><![CDATA[&copy; &nbsp;<a href=\"https://www.openstreetmap.org/copyright/\">OpenStreetMap</a> contributors]]></string>
 
     <string name="last_updated_text">Last updated %s</string>
-    <string name="bottom_content_date_downloaded">Downloaded %s</string>
     <string name="talk_page_link_text">Talk</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"%1$s\">CC BY-SA 3.0</a> unless otherwise noted]]></string>
     <string name="edit_save_action_license_logged_in"><![CDATA[By saving, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 3.0</a> license.]]></string>
@@ -494,7 +493,6 @@
         <item quantity="one">1 min left</item>
         <item quantity="other">%d mins left</item>
     </plurals>
-    <string name="compilation_download_widget_button_pause_resume_hint">Pause or resume download</string>
     <string name="compilation_download_widget_button_cancel_hint">Cancel download</string>
     <string name="compilation_download_cancel_confirm">Are you sure you want to cancel downloading this article pack?</string>
     <string name="compilation_download_cancel_confirm_yes">Yes</string>

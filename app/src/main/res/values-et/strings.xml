@@ -2,8 +2,6 @@
 <resources>
   <string name="app_name_prod">Vikipeedia</string>
   <string name="app_name_beta">Vikipeedia beetaversioon</string>
-  <string name="yes">Jah</string>
-  <string name="no">Ei</string>
   <string name="search_hint">Otsi Vikipeediast</string>
   <string name="nav_item_history">Ajalugu</string>
   <string name="error_network_error" fuzzy="true">Võrku ühendamine ebaõnnestus.</string>

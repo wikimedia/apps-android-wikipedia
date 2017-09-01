@@ -3,8 +3,6 @@
   <string name="app_name_prod">Википєдїꙗ</string>
   <string name="app_name_beta" tools:ignore="UnusedResources">Википєдїꙗ · вита</string>
   <string name="app_name_alpha" tools:ignore="UnusedResources">Википєдїꙗ · алфа</string>
-  <string name="yes">Да</string>
-  <string name="no">Нѣтъ</string>
   <string name="search_hint">Википєдїи исканиѥ</string>
   <string name="nav_item_history">їсторїꙗ</string>
   <string name="error_network_error" fuzzy="true">сѣтьна достѫпа нѣстъ</string>

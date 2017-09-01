@@ -3,8 +3,6 @@
   <string name="app_name_prod">විකිපීඩියා</string>
   <string name="app_name_beta">විකිපීඩියා බීටා</string>
   <string name="app_name_alpha">විකිපීඩිය ඇල්ෆා</string>
-  <string name="yes">ඔව්</string>
-  <string name="no">නැත</string>
   <string name="search_hint">විකිපීඩියාව ගවේෂණය කරන්න</string>
   <string name="nav_item_history">ඉතිහාසය</string>
   <string name="error_network_error">අන්තර්ජාලය වෙත සම්බන්ධ විය නොහැක.</string>

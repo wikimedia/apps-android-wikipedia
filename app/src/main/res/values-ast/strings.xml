@@ -41,7 +41,6 @@
   <string name="nearby_zoom_to_location">Averar a un llugar del mapa</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Collaboradores de &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Caberu anovamientu %s</string>
-  <string name="bottom_content_date_downloaded">Descargóse %s</string>
   <string name="talk_page_link_text">Alderique</string>
   <string name="content_license_html">El conteníu ta disponible baxo &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; si nun se diz otra cosa</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -440,7 +439,6 @@
     <item quantity="one">falta 1 minutu</item>
     <item quantity="other">falten %d minutos</item>
   </plurals>
-  <string name="compilation_download_widget_button_pause_resume_hint">Posar o siguir la descarga</string>
   <string name="compilation_download_widget_button_cancel_hint">Encaboxar descarga</string>
   <string name="compilation_download_cancel_confirm">¿Tas seguru de que quies encaboxar la descarga d\'esti paquete d\'artículos?</string>
   <string name="compilation_download_cancel_confirm_yes">Sí</string>

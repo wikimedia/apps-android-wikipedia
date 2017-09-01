@@ -3,8 +3,6 @@
   <string name="app_name_prod">વિકિપીડિયા</string>
   <string name="app_name_beta">વિકિપીડિયા બીટા</string>
   <string name="app_name_alpha">વિકિપીડિયા આલ્ફા</string>
-  <string name="yes">હા</string>
-  <string name="no">ના</string>
   <string name="search_hint">વિકિપીડિયામાં શોધો</string>
   <string name="nav_item_history">ઇતિહાસ</string>
   <string name="error_network_error" fuzzy="true">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>

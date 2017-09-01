@@ -4,8 +4,6 @@
   <string name="app_name_beta">ვიკიპედია Zero</string>
   <string name="app_name_alpha">ვიკიპედია ალფა</string>
   <string name="wikimedia">ვიკიმედია</string>
-  <string name="yes">ქო</string>
-  <string name="no">ვარი</string>
   <string name="search_hint">ვიკიპედიას გორუა</string>
   <string name="search_hint_search_history">გორუეფიშ ისტორია</string>
   <string name="search_hint_search_my_lists">ჩქიმ ერკებულეფიშ გორუა</string>

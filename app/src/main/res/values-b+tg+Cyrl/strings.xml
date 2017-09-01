@@ -3,8 +3,6 @@
   <string name="app_name_prod">Википедиа</string>
   <string name="app_name_beta">Википедиа Бета</string>
   <string name="app_name_alpha">Википедиа Алфа</string>
-  <string name="yes">Бале</string>
-  <string name="no">На</string>
   <string name="search_hint">Ҷустуҷӯи Википедиа</string>
   <string name="nav_item_history">Таърих</string>
   <string name="error_network_error">Ба Интернет пайваст шуда наметавонам.</string>

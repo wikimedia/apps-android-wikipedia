@@ -4,8 +4,6 @@
   <string name="app_name_beta">Վիքիպեդիա Բետա</string>
   <string name="app_name_alpha">Վիքիպեդիա Ալֆա</string>
   <string name="wikimedia">Վիքիմեդիա</string>
-  <string name="yes">Այո</string>
-  <string name="no">Ոչ</string>
   <string name="search_hint">Որոնել Վիքիպեդիայում</string>
   <string name="nav_item_history">Պատմություն</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
