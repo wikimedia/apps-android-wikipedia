@@ -37,7 +37,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     public PageToolbarHideHandler(@NonNull PageFragment pageFragment, @NonNull View hideableView,
                                   @NonNull Toolbar toolbar, @NonNull ImageView tabsButton) {
-        super(hideableView, Gravity.TOP);
+        super(hideableView, null, Gravity.TOP);
         this.pageFragment = pageFragment;
         this.toolbar = toolbar;
         this.toolbarBackground = hideableView.getBackground().mutate();

@@ -11,13 +11,15 @@ import org.wikipedia.views.ViewAnimations;
 public abstract class ViewHideHandler
         implements ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnUpOrCancelMotionEventListener,
-        ObservableWebView.OnDownMotionEventListener, ObservableWebView.OnClickListener{
+        ObservableWebView.OnDownMotionEventListener, ObservableWebView.OnClickListener {
     @NonNull private final View hideableView;
+    @Nullable private final View anchoredView;
     @Nullable private ObservableWebView webView;
     private final int gravity;
 
-    public ViewHideHandler(@NonNull View hideableView, int gravity) {
+    public ViewHideHandler(@NonNull View hideableView, @Nullable View anchoredView, int gravity) {
         this.hideableView = hideableView;
+        this.anchoredView = anchoredView;
         this.gravity = gravity;
     }
 
@@ -83,6 +85,9 @@ public abstract class ViewHideHandler
             }
         }
         hideableView.setTranslationY(animMargin);
+        if (anchoredView != null) {
+            anchoredView.setTranslationY(animMargin);
+        }
     }
 
     @Override
@@ -119,10 +124,16 @@ public abstract class ViewHideHandler
 
     private void ensureDisplayed() {
         ViewAnimations.ensureTranslationY(hideableView, 0);
+        if (anchoredView != null) {
+            ViewAnimations.ensureTranslationY(anchoredView, 0);
+        }
     }
 
     private void ensureHidden() {
-        ViewAnimations.ensureTranslationY(hideableView,
-                gravity == Gravity.BOTTOM ? hideableView.getHeight() : -hideableView.getHeight());
+        int translation = gravity == Gravity.BOTTOM ? hideableView.getHeight() : -hideableView.getHeight();
+        ViewAnimations.ensureTranslationY(hideableView, translation);
+        if (anchoredView != null) {
+            ViewAnimations.ensureTranslationY(anchoredView, translation);
+        }
     }
 }
