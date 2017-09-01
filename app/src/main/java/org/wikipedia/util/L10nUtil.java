@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.text.format.DateUtils;
 import android.util.SparseArray;
@@ -14,6 +15,7 @@ import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 
@@ -153,7 +155,7 @@ public final class L10nUtil {
     private static SparseArray<String> getStringsForLocale(Locale targetLocale, @StringRes int[] strings) {
         Configuration config = getCurrentConfiguration();
         Locale systemLocale = ConfigurationCompat.getLocale(config);
-        ConfigurationCompat.setLocale(config, targetLocale);
+        setDesiredLocale(config, targetLocale);
         SparseArray<String> localizedStrings = getTargetStrings(strings, config);
         ConfigurationCompat.setLocale(config, systemLocale);
         resetConfiguration(config);
@@ -192,6 +194,25 @@ public final class L10nUtil {
      */
     public static String formatDateRelative(Date date) {
         return DateUtils.getRelativeTimeSpanString(date.getTime(), System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS, 0).toString();
+    }
+
+
+    public static void setDesiredLocale(@NonNull Configuration config, @NonNull Locale desiredLocale) {
+        // when loads API in chinese variant, we can get zh-hant, zh-hans and zh
+        // but if we want to display chinese correctly based on the article itself, we have to detect the variant from  the API responses
+        // otherwise, we will only get english texts. And this might only happen in Chinese variant
+        if (desiredLocale.getLanguage().equals(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
+            ConfigurationCompat.setLocale(config, Locale.TRADITIONAL_CHINESE);
+        } else if (desiredLocale.getLanguage().equals(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
+            ConfigurationCompat.setLocale(config, Locale.SIMPLIFIED_CHINESE);
+        } else if (desiredLocale.getLanguage().equals(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)
+                && !desiredLocale.getLanguage().equals(WikipediaApp.getInstance().getAppLanguageCode())) {
+            // create a new Locale object to manage only "zh" language code based on its app language code
+            // e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
+            setDesiredLocale(config, new Locale(WikipediaApp.getInstance().getAppLanguageCode()));
+        } else {
+            ConfigurationCompat.setLocale(config, desiredLocale);
+        }
     }
 
     private L10nUtil() {
