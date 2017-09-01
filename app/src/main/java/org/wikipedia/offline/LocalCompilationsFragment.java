@@ -55,6 +55,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     private Throwable lastError;
     private CompilationItemAdapter adapter = new CompilationItemAdapter();
     private ItemCallback itemCallback = new ItemCallback();
+    private CompilationClientCallback compilationClientCallback = new CompilationClientCallback();
 
     @NonNull private List<Compilation> displayedItems = new ArrayList<>();
 
@@ -64,8 +65,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
 
     @NonNull
     public static LocalCompilationsFragment newInstance() {
-        LocalCompilationsFragment instance = new LocalCompilationsFragment();
-        return instance;
+        return new LocalCompilationsFragment();
     }
 
     @Nullable
@@ -125,6 +125,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
         updating = false;
         lastError = null;
         update();
+        new CompilationClient().request(compilationClientCallback);
     }
 
     public void onCompilationsError(Throwable t) {
@@ -332,6 +333,21 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
                 beginUpdate();
             }
         });
+    }
+
+    private class CompilationClientCallback implements CompilationClient.Callback {
+        @Override
+        public void success(@NonNull List<Compilation> compilations) {
+            if (!isAdded()) {
+                return;
+            }
+            OfflineManager.instance().updateFromRemoteMetadata(compilations);
+            update();
+        }
+
+        @Override
+        public void error(@NonNull Throwable caught) {
+        }
     }
 
     @Nullable private Callback callback() {
