@@ -248,11 +248,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 if (isAdded()) {
                     String message;
                     if (result.size() == 0) {
-                        message = "The chosen list already contains all of the selected pages."; // todo: string res
+                        message = getString(R.string.reading_list_already_contains_selection);
                     } else {
                         message = TextUtils.isEmpty(readingList.getTitle())
-                                ? String.format("Added %d articles to reading list.", result.size()) // todo: string res
-                                : String.format("Added %1$d articles to %2$s", result.size(), readingList.getTitle()); // todo: string res
+                                ? String.format(getString(R.string.reading_list_added_articles_list_untitled), result.size())
+                                : String.format(getString(R.string.reading_list_added_articles_list_titled), result.size(), readingList.getTitle());
                         new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
                         ReadingList.DAO.makeListMostRecent(readingList);
                     }
