@@ -4,6 +4,8 @@ import android.support.annotation.DrawableRes;
 
 import org.wikipedia.R;
 
+import java.util.Locale;
+
 public enum SecondaryTestImg implements TestImg {
     NULL(0), CHECKERBOARD(R.drawable.checkerboard);
 
@@ -16,7 +18,7 @@ public enum SecondaryTestImg implements TestImg {
     }
 
     @Override public String toString() {
-        return super.toString().toLowerCase();
+        return super.toString().toLowerCase(Locale.getDefault());
     }
 
     @DrawableRes private final int id;

@@ -21,6 +21,7 @@ import org.wikipedia.analytics.AppLanguageSelectFunnel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -119,13 +120,13 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
 
         public void setFilterText(String filter) {
             this.languageCodes.clear();
-            filter = filter.toLowerCase();
+            filter = filter.toLowerCase(Locale.getDefault());
             for (String code : originalLanguageCodes) {
                 String localizedName = defaultString(app.getAppLanguageLocalizedName(code));
                 String canonicalName = defaultString(app.getAppLanguageCanonicalName(code));
                 if (code != null && code.contains(filter)
-                        || localizedName.toLowerCase().contains(filter)
-                        || canonicalName.toLowerCase().contains(filter)) {
+                        || localizedName.toLowerCase(Locale.getDefault()).contains(filter)
+                        || canonicalName.toLowerCase(Locale.getDefault()).contains(filter)) {
                     this.languageCodes.add(code);
                 }
             }

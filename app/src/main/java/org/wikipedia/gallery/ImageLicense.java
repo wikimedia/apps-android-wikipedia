@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 
+import java.util.Locale;
+
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 public class ImageLicense {
@@ -44,13 +46,13 @@ public class ImageLicense {
     }
 
     public boolean isLicenseCC() {
-        return defaultString(license).toLowerCase().startsWith(CREATIVE_COMMONS_PREFIX)
-                || defaultString(licenseShortName).toLowerCase().startsWith(CREATIVE_COMMONS_PREFIX);
+        return defaultString(license).toLowerCase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX)
+                || defaultString(licenseShortName).toLowerCase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX);
     }
 
     public boolean isLicensePD() {
-        return defaultString(license).toLowerCase().startsWith(PUBLIC_DOMAIN_PREFIX)
-                || defaultString(licenseShortName).toLowerCase().startsWith(PUBLIC_DOMAIN_PREFIX);
+        return defaultString(license).toLowerCase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX)
+                || defaultString(licenseShortName).toLowerCase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX);
     }
 
     /**

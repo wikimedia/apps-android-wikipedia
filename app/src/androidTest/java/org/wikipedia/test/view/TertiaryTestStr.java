@@ -4,6 +4,8 @@ import android.support.annotation.StringRes;
 
 import org.wikipedia.R;
 
+import java.util.Locale;
+
 public enum TertiaryTestStr implements TestStr {
     SHORT(R.string.description_edit_success_done), LONG(R.string.preference_summary_show_images);
 
@@ -16,7 +18,7 @@ public enum TertiaryTestStr implements TestStr {
     }
 
     @Override public String toString() {
-        return super.toString().toLowerCase();
+        return super.toString().toLowerCase(Locale.getDefault());
     }
 
     @StringRes private final int id;

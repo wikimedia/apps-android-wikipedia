@@ -3,6 +3,8 @@ package org.wikipedia.html;
 import android.support.annotation.FloatRange;
 import android.support.annotation.NonNull;
 
+import java.util.Locale;
+
 public class PixelDensityDescriptorParser {
     /** @throws ParseException */
     @NonNull public PixelDensityDescriptor parse(@NonNull String descriptor) {
@@ -12,7 +14,7 @@ public class PixelDensityDescriptorParser {
 
     /** @throws ParseException */
     @FloatRange(from = 0, fromInclusive = false) private float parseDensity(@NonNull String descriptor) {
-        String descriptorLowercase = descriptor.toLowerCase();
+        String descriptorLowercase = descriptor.toLowerCase(Locale.ENGLISH);
         if (descriptorLowercase.contains("x")) {
             float density;
             try {

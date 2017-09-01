@@ -38,6 +38,8 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.Locale;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -432,7 +434,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             return;
         }
 
-        langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
+        langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase(Locale.ENGLISH));
         formatLangButtonText();
         FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);
     }
@@ -483,7 +485,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         if (langCode.length() > langCodeStandardLength) {
             langButton.setTextSize(langButtonTextSizeSmaller);
             if (langCode.length() > langButtonTextMaxLength) {
-                langButton.setText(langCode.substring(0, langButtonTextMaxLength).toUpperCase());
+                langButton.setText(langCode.substring(0, langButtonTextMaxLength).toUpperCase(Locale.ENGLISH));
             }
             return;
         }
@@ -504,7 +506,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
                     return;
                 }
 
-                langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
+                langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase(Locale.ENGLISH));
                 formatLangButtonText();
                 if (!TextUtils.isEmpty(query)) {
                     startSearch(query, true);

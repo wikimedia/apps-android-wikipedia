@@ -62,6 +62,7 @@ import org.wikipedia.views.TextInputDialog;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -255,9 +256,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (TextUtils.isEmpty(query)) {
             displayedPages.addAll(readingList.getPages());
         } else {
-            query = query.toUpperCase();
+            query = query.toUpperCase(Locale.getDefault());
             for (ReadingListPage page : readingList.getPages()) {
-                if (page.title().toUpperCase().contains(query.toUpperCase())) {
+                if (page.title().toUpperCase(Locale.getDefault())
+                        .contains(query.toUpperCase(Locale.getDefault()))) {
                     displayedPages.add(page);
                 }
             }
