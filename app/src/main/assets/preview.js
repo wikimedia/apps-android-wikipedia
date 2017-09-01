@@ -359,6 +359,87 @@ var elementUtilities = {
   copyDataAttributesToAttributes: copyDataAttributesToAttributes
 };
 
+// Elements marked with these classes indicate certain ancestry constraints that are
+// difficult to describe as CSS selectors.
+var CONSTRAINT = {
+  IMAGE_PRESUMES_WHITE_BACKGROUND: 'pagelib-theme-image-presumes-white-background',
+  DIV_DO_NOT_APPLY_BASELINE: 'pagelib-theme-div-do-not-apply-baseline'
+};
+
+// Theme to CSS classes.
+var THEME = {
+  DEFAULT: 'pagelib-theme-default', DARK: 'pagelib-theme-dark', SEPIA: 'pagelib-theme-sepia'
+};
+
+/**
+ * @param {!Document} document
+ * @param {!string} theme
+ * @return {void}
+ */
+var setTheme = function setTheme(document, theme) {
+  var html = document.querySelector('html');
+
+  // Set the new theme.
+  html.classList.add(theme);
+
+  // Clear any previous theme.
+  for (var key in THEME) {
+    if (Object.prototype.hasOwnProperty.call(THEME, key) && THEME[key] !== theme) {
+      html.classList.remove(THEME[key]);
+    }
+  }
+};
+
+/**
+ * Football template image filename regex.
+ * https://en.wikipedia.org/wiki/Template:Football_kit/pattern_list
+ * @type {RegExp}
+ */
+var footballTemplateImageFilenameRegex = new RegExp('Kit_(body|socks|shorts|right_arm|left_arm)(.*).png$');
+
+/* en > Away colours > 793128975 */
+/* en > Manchester United F.C. > 793244653 */
+/**
+ * Determines whether white background should be added to image.
+ * @param  {!HTMLImageElement} image
+ * @return {!boolean}
+ */
+var imagePresumesWhiteBackground = function imagePresumesWhiteBackground(image) {
+  if (footballTemplateImageFilenameRegex.test(image.src)) {
+    return false;
+  }
+  if (image.classList.contains('mwe-math-fallback-image-inline')) {
+    return false;
+  }
+  return !elementUtilities.closestInlineStyle(image, 'background');
+};
+
+/**
+ * Annotate elements with CSS classes that can be used by CSS rules. The classes themselves are not
+ * theme-dependent so classification only need only occur once after the content is loaded, not
+ * every time the theme changes.
+ * @param {!Element} element
+ * @return {void}
+ */
+var classifyElements = function classifyElements(element) {
+  Polyfill.querySelectorAll(element, 'img').filter(imagePresumesWhiteBackground).forEach(function (image) {
+    image.classList.add(CONSTRAINT.IMAGE_PRESUMES_WHITE_BACKGROUND);
+  });
+  /* en > Away colours > 793128975 */
+  /* en > Manchester United F.C. > 793244653 */
+  /* en > Pantone > 792312384 */
+  Polyfill.querySelectorAll(element, 'div.color_swatch div, div[style*="position: absolute"]').forEach(function (div) {
+    div.classList.add(CONSTRAINT.DIV_DO_NOT_APPLY_BASELINE);
+  });
+};
+
+var ThemeTransform = {
+  CONSTRAINT: CONSTRAINT,
+  THEME: THEME,
+  setTheme: setTheme,
+  classifyElements: classifyElements
+};
+
 var SECTION_TOGGLED_EVENT_TYPE = 'section-toggled';
 
 /**
@@ -654,14 +735,15 @@ var CollapseTable = {
 
 var COMPATIBILITY = {
   FILTER: 'pagelib-compatibility-filter'
+};
 
-  /**
-   * @param {!Document} document
-   * @param {!Array.<string>} properties
-   * @param {!string} value
-   * @return {void}
-   */
-};var isStyleSupported = function isStyleSupported(document, properties, value) {
+/**
+ * @param {!Document} document
+ * @param {!Array.<string>} properties
+ * @param {!string} value
+ * @return {void}
+ */
+var isStyleSupported = function isStyleSupported(document, properties, value) {
   var element = document.createElement('span');
   return properties.some(function (property) {
     element.style[property] = value;
@@ -695,6 +777,7 @@ var CompatibilityTransform = {
 
 var CLASS = 'pagelib_dim_images';
 
+// todo: only require a Document
 /**
  * @param {!Window} window
  * @param {!boolean} enable
@@ -704,6 +787,7 @@ var dim = function dim(window, enable) {
   window.document.querySelector('html').classList[enable ? 'add' : 'remove'](CLASS);
 };
 
+// todo: only require a Document
 /**
  * @param {!Window} window
  * @return {boolean}
@@ -734,6 +818,7 @@ var ACTION_EDIT_SECTION = 'edit_section';
  */
 var newEditSectionLink = function newEditSectionLink(document, index) {
   var link = document.createElement('a');
+  link.href = '';
   link.setAttribute(DATA_ATTRIBUTE.SECTION_INDEX, index);
   link.setAttribute(DATA_ATTRIBUTE.ACTION, ACTION_EDIT_SECTION);
   link.classList.add(CLASS$1.LINK);
@@ -961,7 +1046,8 @@ var updateBottomPaddingToAllowReadMoreToScrollToTop = function updateBottomPaddi
  * @return {void}
  */
 var updateLeftAndRightMargin = function updateLeftAndRightMargin(margin, document) {
-  var elements = Polyfill.querySelectorAll(document, '\n    #pagelib_footer_container_menu_heading,\n    #pagelib_footer_container_readmore,\n    #pagelib_footer_container_legal\n  ');
+  var selectors = ['#pagelib_footer_container_menu_heading', '#pagelib_footer_container_readmore', '#pagelib_footer_container_legal'];
+  var elements = Polyfill.querySelectorAll(document, selectors.join());
   elements.forEach(function (element) {
     element.style.marginLeft = margin + 'px';
     element.style.marginRight = margin + 'px';
@@ -998,7 +1084,7 @@ var isContainerAttached = function isContainerAttached(document) {
 
 var FooterContainer = {
   containerFragment: containerFragment,
-  isContainerAttached: isContainerAttached,
+  isContainerAttached: isContainerAttached, // todo: rename isAttached()?
   updateBottomPaddingToAllowReadMoreToScrollToTop: updateBottomPaddingToAllowReadMoreToScrollToTop,
   updateLeftAndRightMargin: updateLeftAndRightMargin
 };
@@ -1014,10 +1100,11 @@ var FooterContainer = {
  * @param {?string} licenseString
  * @param {?string} licenseSubstitutionString
  * @param {!string} containerID
- * @param {?FooterLegalClickCallback} licenseLinkClickHandler
+ * @param {!FooterLegalClickCallback} licenseLinkClickHandler
  * @return {void}
  */
 var add = function add(content, licenseString, licenseSubstitutionString, containerID, licenseLinkClickHandler) {
+  // todo: don't manipulate the selector. The client can make this an ID if they want it to be.
   var container = content.querySelector('#' + containerID);
   var licenseStringHalves = licenseString.split('$1');
 
@@ -1091,11 +1178,12 @@ var MenuItemType = {
   pageIssues: 3,
   disambiguation: 4,
   coordinate: 5
-
-  /**
-   * Menu item model.
-   */
 };
+
+/**
+ * Menu item model.
+ */
+
 var MenuItem = function () {
   /**
    * MenuItem constructor.
@@ -1253,7 +1341,7 @@ var setHeading = function setHeading(headingString, headingID, document) {
 };
 
 var FooterMenu = {
-  MenuItemType: MenuItemType,
+  MenuItemType: MenuItemType, // todo: rename to just ItemType?
   setHeading: setHeading,
   maybeAddItem: maybeAddItem
 };
@@ -1272,16 +1360,16 @@ var FooterMenu = {
 
 /**
  * Display fetched read more pages.
- * @typedef {function} ShownReadMorePagesHandler
+ * @typedef {function} ShowReadMorePagesHandler
  * @param {!Array.<object>} pages
  * @param {!string} containerID
- * @param {SaveButtonClickHandler} saveButtonClickHandler
- * @param {TitlesShownHandler} titlesShownHandler
+ * @param {!SaveButtonClickHandler} saveButtonClickHandler
+ * @param {!TitlesShownHandler} titlesShownHandler
  * @param {!Document} document
  * @return {void}
  */
 
-var SAVE_BUTTON_ID_PREFIX = 'readmore:save:';
+var SAVE_BUTTON_ID_PREFIX = 'pagelib_footer_read_more_save_';
 
 /**
  * Removes parenthetical enclosures from string.
@@ -1342,7 +1430,7 @@ function ReadMorePage(title, thumbnail, terms, extract) {
  * Makes document fragment for a read more page.
  * @param {!ReadMorePage} readMorePage
  * @param {!number} index
- * @param {SaveButtonClickHandler} saveButtonClickHandler
+ * @param {!SaveButtonClickHandler} saveButtonClickHandler
  * @param {!Document} document
  * @return {!DocumentFragment}
  */
@@ -1406,7 +1494,7 @@ var documentFragmentForReadMorePage = function documentFragmentForReadMorePage(r
 
 // eslint-disable-next-line valid-jsdoc
 /**
- * @type {ShownReadMorePagesHandler}
+ * @type {ShowReadMorePagesHandler}
  */
 var showReadMorePages = function showReadMorePages(pages, containerID, saveButtonClickHandler, titlesShownHandler, document) {
   var shownTitles = [];
@@ -1430,29 +1518,32 @@ var showReadMorePages = function showReadMorePages(pages, containerID, saveButto
 var queryParameters = function queryParameters(title, count) {
   return {
     action: 'query',
-    continue: '',
-    exchars: 256,
-    exintro: 1,
-    exlimit: count,
-    explaintext: '',
     format: 'json',
+    formatversion: 2,
+    prop: 'extracts|pageimages|pageterms',
+
+    // https://www.mediawiki.org/wiki/API:Search
+    // https://www.mediawiki.org/wiki/Help:CirrusSearch
     generator: 'search',
-    gsrinfo: '',
-    gsrlimit: count,
-    gsrnamespace: 0,
-    gsroffset: 0,
-    gsrprop: 'redirecttitle',
-    gsrsearch: 'morelike:' + title,
-    gsrwhat: 'text',
-    ns: 'ppprop',
-    pilimit: count,
-    piprop: 'thumbnail',
-    pithumbsize: 120,
-    prop: 'pageterms|pageimages|pageprops|revisions|extracts',
-    rrvlimit: 1,
-    rvprop: 'ids',
-    wbptterms: 'description',
-    formatversion: 2
+    gsrlimit: count, // Limit search results by count.
+    gsrprop: 'redirecttitle', // Include a a parsed snippet of the redirect title property.
+    gsrsearch: 'morelike:' + title, // Weight search with the title.
+    gsrwhat: 'text', // Search the text then titles of pages.
+
+    // https://www.mediawiki.org/wiki/Extension:TextExtracts
+    exchars: 256, // Limit number of characters returned.
+    exintro: '', // Only content before the first section.
+    exlimit: count, // Limit extract results by count.
+    explaintext: '', // Strip HTML.
+
+    // https://www.mediawiki.org/wiki/Extension:PageImages
+    pilicense: 'any', // Include non-free images.
+    pilimit: count, // Limit thumbnail results by count.
+    piprop: 'thumbnail', // Include URL and dimensions of thumbnail.
+    pithumbsize: 120, // Limit thumbnail dimensions.
+
+    // https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bpageterms
+    wbptterms: 'description'
   };
 };
 
@@ -1484,7 +1575,24 @@ var readMoreQueryURL = function readMoreQueryURL(title, count, baseURL) {
  * @param {!string} statusText
  * @return {void}
  */
-var fetchErrorHandler = function fetchErrorHandler(statusText) {};var fetchReadMore = function fetchReadMore(title, count, containerID, baseURL, showReadMorePagesHandler, saveButtonClickHandler, titlesShownHandler, document) {
+var fetchErrorHandler = function fetchErrorHandler(statusText) {
+  // TODO: figure out if we want to hide the 'Read more' header in cases when fetch fails.
+  console.log('statusText = ' + statusText); // eslint-disable-line no-console
+};
+
+/**
+ * Fetches 'Read more' pages.
+ * @param {!string} title
+ * @param {!number} count
+ * @param {!string} containerID
+ * @param {?string} baseURL
+ * @param {!ShowReadMorePagesHandler} showReadMorePagesHandler
+ * @param {!SaveButtonClickHandler} saveButtonClickHandler
+ * @param {!TitlesShownHandler} titlesShownHandler
+ * @param {!Document} document
+ * @return {void}
+ */
+var fetchReadMore = function fetchReadMore(title, count, containerID, baseURL, showReadMorePagesHandler, saveButtonClickHandler, titlesShownHandler, document) {
   var xhr = new XMLHttpRequest(); // eslint-disable-line no-undef
   xhr.open('GET', readMoreQueryURL(title, count, baseURL), true);
   xhr.onload = function () {
@@ -1500,7 +1608,11 @@ var fetchErrorHandler = function fetchErrorHandler(statusText) {};var fetchReadM
   xhr.onerror = function () {
     return fetchErrorHandler(xhr.statusText);
   };
-  xhr.send();
+  try {
+    xhr.send();
+  } catch (error) {
+    fetchErrorHandler(error.toString());
+  }
 };
 
 /**
@@ -1538,8 +1650,8 @@ var updateSaveButtonForTitle = function updateSaveButtonForTitle(title, text, is
  * @param {!number} count
  * @param {!string} containerID
  * @param {?string} baseURL
- * @param {SaveButtonClickHandler} saveButtonClickHandler
- * @param {TitlesShownHandler} titlesShownHandler
+ * @param {!SaveButtonClickHandler} saveButtonClickHandler
+ * @param {!TitlesShownHandler} titlesShownHandler
  * @param {!Document} document
  * @return {void}
  */
@@ -1568,178 +1680,6 @@ var FooterReadMore = {
     cleanExtract: cleanExtract,
     safelyRemoveEnclosures: safelyRemoveEnclosures
   }
-};
-
-// CSS classes used to identify and present lazily loaded images. Placeholders are members of
-// PLACEHOLDER_CLASS and one state class: pending, loading, or error. Images are members of either
-// loading or loaded state classes. Class names should match those in LazyLoadTransform.css.
-var PLACEHOLDER_CLASS = 'pagelib-lazy-load-placeholder';
-var PLACEHOLDER_PENDING_CLASS = 'pagelib-lazy-load-placeholder-pending'; // Download pending.
-var PLACEHOLDER_LOADING_CLASS = 'pagelib-lazy-load-placeholder-loading'; // Download started.
-var PLACEHOLDER_ERROR_CLASS = 'pagelib-lazy-load-placeholder-error'; // Download failure.
-var IMAGE_LOADING_CLASS = 'pagelib-lazy-load-image-loading'; // Download started.
-var IMAGE_LOADED_CLASS = 'pagelib-lazy-load-image-loaded'; // Download completed.
-
-// Attributes copied from images to placeholders via data-* attributes for later restoration. The
-// image's classes and dimensions are also set on the placeholder.
-var COPY_ATTRIBUTES = ['class', 'style', 'src', 'srcset', 'width', 'height', 'alt'];
-
-// Small images, especially icons, are quickly downloaded and may appear in many places. Lazily
-// loading these images degrades the experience with little gain. Always eagerly load these images.
-// Example: flags in the medal count for the "1896 Summer Olympics medal table."
-// https://en.m.wikipedia.org/wiki/1896_Summer_Olympics_medal_table?oldid=773498394#Medal_count
-var UNIT_TO_MINIMUM_LAZY_LOAD_SIZE = {
-  px: 50, // https://phabricator.wikimedia.org/diffusion/EMFR/browse/master/includes/MobileFormatter.php;c89f371ea9e789d7e1a827ddfec7c8028a549c12$22
-  ex: 10, // ''
-  em: 5 // 1ex ≈ .5em; https://developer.mozilla.org/en-US/docs/Web/CSS/length#Units
-
-
-  /**
-   * Replace an image with a placeholder.
-   * @param {!Document} document
-   * @param {!HTMLImageElement} image The image to be replaced.
-   * @return {!HTMLSpanElement} The placeholder replacing image.
-   */
-};var convertImageToPlaceholder = function convertImageToPlaceholder(document, image) {
-  // There are a number of possible implementations for placeholders including:
-  //
-  // - [MobileFrontend] Replace the original image with a span and replace the span with a new
-  //   downloaded image.
-  //   This option has a good fade-in but has some CSS concerns for the placeholder, particularly
-  //   `max-width`, and causes significant reflows when used with image widening.
-  //
-  // - [Previous] Replace the original image with a span and append a new downloaded image to the
-  //   span.
-  //   This option has the best cross-fading and extensibility but makes duplicating all the CSS
-  //   rules for the appended image impractical.
-  //
-  // - [Previous] Replace the original image's source with a transparent image and update the source
-  //   from a new downloaded image.
-  //   This option has a good fade-in and minimal CSS concerns for the placeholder and image but
-  //   causes significant reflows when used with image widening.
-  //
-  // - [Current] Replace the original image with a couple spans and replace the spans with a new
-  //   downloaded image.
-  //   This option is about the same as MobileFrontend but supports image widening without reflows.
-
-  // Create the root placeholder.
-  var placeholder = document.createElement('span');
-
-  // Copy the image's classes and append the placeholder and current state (pending) classes.
-  if (image.hasAttribute('class')) {
-    placeholder.setAttribute('class', image.getAttribute('class'));
-  }
-  placeholder.classList.add(PLACEHOLDER_CLASS);
-  placeholder.classList.add(PLACEHOLDER_PENDING_CLASS);
-
-  // Match the image's width, if specified. If image widening is used, this width will be overridden
-  // by !important priority.
-  var geometry = ElementGeometry.from(image);
-  if (geometry.width) {
-    placeholder.style.setProperty('width', '' + geometry.width);
-  }
-
-  // Save the image's attributes to data-* attributes for later restoration.
-  elementUtilities.copyAttributesToDataAttributes(image, placeholder, COPY_ATTRIBUTES);
-
-  // Create a spacer and match the aspect ratio of the original image, if determinable. If image
-  // widening is used, this spacer will scale with the width proportionally.
-  var spacing = document.createElement('span');
-  if (geometry.width && geometry.height) {
-    // Assume units are identical.
-    var ratio = geometry.heightValue / geometry.widthValue;
-    spacing.style.setProperty('padding-top', ratio * 100 + '%');
-  }
-
-  // Append the spacer to the placeholder and replace the image with the placeholder.
-  placeholder.appendChild(spacing);
-  image.parentNode.replaceChild(placeholder, image);
-
-  return placeholder;
-};
-
-/**
- * @param {!HTMLImageElement} image The image to be considered.
- * @return {!boolean} true if image download can be deferred, false if image should be eagerly
- *                    loaded.
- */
-var isLazyLoadable = function isLazyLoadable(image) {
-  var geometry = ElementGeometry.from(image);
-  if (!geometry.width || !geometry.height) {
-    return true;
-  }
-  return geometry.widthValue >= UNIT_TO_MINIMUM_LAZY_LOAD_SIZE[geometry.widthUnit] && geometry.heightValue >= UNIT_TO_MINIMUM_LAZY_LOAD_SIZE[geometry.heightUnit];
-};
-
-/**
- * @param {!Element} element
- * @return {!Array.<HTMLImageElement>} Convertible images descendent from but not including element.
- */
-var queryLazyLoadableImages = function queryLazyLoadableImages(element) {
-  return Polyfill.querySelectorAll(element, 'img').filter(function (image) {
-    return isLazyLoadable(image);
-  });
-};
-
-/**
- * Convert images with placeholders. The transformation is inverted by calling loadImage().
- * @param {!Document} document
- * @param {!Array.<HTMLImageElement>} images The images to lazily load.
- * @return {!Array.<HTMLSpanElement>} The placeholders replacing images.
- */
-var convertImagesToPlaceholders = function convertImagesToPlaceholders(document, images) {
-  return images.map(function (image) {
-    return convertImageToPlaceholder(document, image);
-  });
-};
-
-/**
- * Start downloading image resources associated with a given placeholder and replace the placeholder
- * with a new image element when the download is complete.
- * @param {!Document} document
- * @param {!HTMLSpanElement} placeholder
- * @return {!HTMLImageElement} A new image element.
- */
-var loadPlaceholder = function loadPlaceholder(document, placeholder) {
-  placeholder.classList.add(PLACEHOLDER_LOADING_CLASS);
-  placeholder.classList.remove(PLACEHOLDER_PENDING_CLASS);
-
-  var image = document.createElement('img');
-
-  var retryListener = function retryListener(event) {
-    // eslint-disable-line require-jsdoc
-    image.setAttribute('src', image.getAttribute('src'));
-    event.stopPropagation();
-    event.preventDefault();
-  };
-
-  // Add the download listener prior to setting the src attribute to avoid missing the load event.
-  image.addEventListener('load', function () {
-    placeholder.removeEventListener('click', retryListener);
-    placeholder.parentNode.replaceChild(image, placeholder);
-    image.classList.add(IMAGE_LOADED_CLASS);
-    image.classList.remove(IMAGE_LOADING_CLASS);
-  }, { once: true });
-
-  image.addEventListener('error', function () {
-    placeholder.classList.add(PLACEHOLDER_ERROR_CLASS);
-    placeholder.classList.remove(PLACEHOLDER_LOADING_CLASS);
-    placeholder.addEventListener('click', retryListener);
-  }, { once: true });
-
-  // Set src and other attributes, triggering a download.
-  elementUtilities.copyDataAttributesToAttributes(placeholder, image, COPY_ATTRIBUTES);
-
-  // Append to the class list after copying over any preexisting classes.
-  image.classList.add(IMAGE_LOADING_CLASS);
-
-  return image;
-};
-
-var LazyLoadTransform = {
-  queryLazyLoadableImages: queryLazyLoadableImages,
-  convertImagesToPlaceholders: convertImagesToPlaceholders,
-  loadPlaceholder: loadPlaceholder
 };
 
 /** Function rate limiter. */
@@ -1896,6 +1836,257 @@ var Throttle = function () {
   return Throttle;
 }();
 
+var RESIZE_EVENT_TYPE = 'resize';
+var RESIZE_LISTENER_THROTTLE_PERIOD_MILLISECONDS = 100;
+
+var ID_CONTAINER = 'pagelib_footer_container';
+var ID_LEGAL_CONTAINER = 'pagelib_footer_container_legal';
+
+var ID_READ_MORE_CONTAINER = 'pagelib_footer_container_readmore_pages';
+var ID_READ_MORE_HEADER = 'pagelib_footer_container_readmore_heading';
+
+/** */
+
+var _class = function () {
+  /** */
+  function _class() {
+    classCallCheck(this, _class);
+
+    this._resizeListener = undefined;
+  }
+
+  /**
+   * @param {!Window} window
+   * @param {!Element} container
+   * @param {!string} baseURL
+   * @param {!string} title
+   * @param {!string} readMoreHeader
+   * @param {!number} readMoreLimit
+   * @param {!string} license
+   * @param {!string} licenseSubstitutionString
+   * @param {!FooterLegalClickCallback} licenseLinkClickHandler
+   * @param {!TitlesShownHandler} titlesShownHandler
+   * @param {!SaveButtonClickHandler} saveButtonClickHandler
+   * @return {void}
+   */
+
+
+  createClass(_class, [{
+    key: 'add',
+    value: function add(window, container, baseURL, title, readMoreHeader, readMoreLimit, license, licenseSubstitutionString, licenseLinkClickHandler, titlesShownHandler, saveButtonClickHandler) {
+      this.remove(window);
+      container.appendChild(FooterContainer.containerFragment(window.document));
+
+      FooterLegal.add(window.document, license, licenseSubstitutionString, ID_LEGAL_CONTAINER, licenseLinkClickHandler);
+
+      FooterReadMore.setHeading(readMoreHeader, ID_READ_MORE_HEADER, window.document);
+      FooterReadMore.add(title, readMoreLimit, ID_READ_MORE_CONTAINER, baseURL, saveButtonClickHandler, function (titles) {
+        FooterContainer.updateBottomPaddingToAllowReadMoreToScrollToTop(window);
+        titlesShownHandler(titles);
+      }, window.document);
+
+      this._resizeListener = Throttle.wrap(window, RESIZE_LISTENER_THROTTLE_PERIOD_MILLISECONDS, function () {
+        return FooterContainer.updateBottomPaddingToAllowReadMoreToScrollToTop(window);
+      });
+      window.addEventListener(RESIZE_EVENT_TYPE, this._resizeListener);
+    }
+
+    /**
+     * @param {!Window} window
+     * @return {void}
+     */
+
+  }, {
+    key: 'remove',
+    value: function remove(window) {
+      if (this._resizeListener) {
+        window.removeEventListener(RESIZE_EVENT_TYPE, this._resizeListener);
+        this._resizeListener.cancel();
+        this._resizeListener = undefined;
+      }
+
+      var footer = window.document.getElementById(ID_CONTAINER);
+      if (footer) {
+        // todo: support recycling.
+        footer.parentNode.removeChild(footer);
+      }
+    }
+  }]);
+  return _class;
+}();
+
+// CSS classes used to identify and present lazily loaded images. Placeholders are members of
+// PLACEHOLDER_CLASS and one state class: pending, loading, or error. Images are members of either
+// loading or loaded state classes. Class names should match those in LazyLoadTransform.css.
+var PLACEHOLDER_CLASS = 'pagelib-lazy-load-placeholder';
+var PLACEHOLDER_PENDING_CLASS = 'pagelib-lazy-load-placeholder-pending'; // Download pending.
+var PLACEHOLDER_LOADING_CLASS = 'pagelib-lazy-load-placeholder-loading'; // Download started.
+var PLACEHOLDER_ERROR_CLASS = 'pagelib-lazy-load-placeholder-error'; // Download failure.
+var IMAGE_LOADING_CLASS = 'pagelib-lazy-load-image-loading'; // Download started.
+var IMAGE_LOADED_CLASS = 'pagelib-lazy-load-image-loaded'; // Download completed.
+
+// Attributes copied from images to placeholders via data-* attributes for later restoration. The
+// image's classes and dimensions are also set on the placeholder.
+var COPY_ATTRIBUTES = ['class', 'style', 'src', 'srcset', 'width', 'height', 'alt'];
+
+// Small images, especially icons, are quickly downloaded and may appear in many places. Lazily
+// loading these images degrades the experience with little gain. Always eagerly load these images.
+// Example: flags in the medal count for the "1896 Summer Olympics medal table."
+// https://en.m.wikipedia.org/wiki/1896_Summer_Olympics_medal_table?oldid=773498394#Medal_count
+var UNIT_TO_MINIMUM_LAZY_LOAD_SIZE = {
+  px: 50, // https://phabricator.wikimedia.org/diffusion/EMFR/browse/master/includes/MobileFormatter.php;c89f371ea9e789d7e1a827ddfec7c8028a549c12$22
+  ex: 10, // ''
+  em: 5 // 1ex ≈ .5em; https://developer.mozilla.org/en-US/docs/Web/CSS/length#Units
+};
+
+/**
+ * Replace an image with a placeholder.
+ * @param {!Document} document
+ * @param {!HTMLImageElement} image The image to be replaced.
+ * @return {!HTMLSpanElement} The placeholder replacing image.
+ */
+var convertImageToPlaceholder = function convertImageToPlaceholder(document, image) {
+  // There are a number of possible implementations for placeholders including:
+  //
+  // - [MobileFrontend] Replace the original image with a span and replace the span with a new
+  //   downloaded image.
+  //   This option has a good fade-in but has some CSS concerns for the placeholder, particularly
+  //   `max-width`, and causes significant reflows when used with image widening.
+  //
+  // - [Previous] Replace the original image with a span and append a new downloaded image to the
+  //   span.
+  //   This option has the best cross-fading and extensibility but makes duplicating all the CSS
+  //   rules for the appended image impractical.
+  //
+  // - [Previous] Replace the original image's source with a transparent image and update the source
+  //   from a new downloaded image.
+  //   This option has a good fade-in and minimal CSS concerns for the placeholder and image but
+  //   causes significant reflows when used with image widening.
+  //
+  // - [Current] Replace the original image with a couple spans and replace the spans with a new
+  //   downloaded image.
+  //   This option is about the same as MobileFrontend but supports image widening without reflows.
+
+  // Create the root placeholder.
+  var placeholder = document.createElement('span');
+
+  // Copy the image's classes and append the placeholder and current state (pending) classes.
+  if (image.hasAttribute('class')) {
+    placeholder.setAttribute('class', image.getAttribute('class'));
+  }
+  placeholder.classList.add(PLACEHOLDER_CLASS);
+  placeholder.classList.add(PLACEHOLDER_PENDING_CLASS);
+
+  // Match the image's width, if specified. If image widening is used, this width will be overridden
+  // by !important priority.
+  var geometry = ElementGeometry.from(image);
+  if (geometry.width) {
+    placeholder.style.setProperty('width', '' + geometry.width);
+  }
+
+  // Save the image's attributes to data-* attributes for later restoration.
+  elementUtilities.copyAttributesToDataAttributes(image, placeholder, COPY_ATTRIBUTES);
+
+  // Create a spacer and match the aspect ratio of the original image, if determinable. If image
+  // widening is used, this spacer will scale with the width proportionally.
+  var spacing = document.createElement('span');
+  if (geometry.width && geometry.height) {
+    // Assume units are identical.
+    var ratio = geometry.heightValue / geometry.widthValue;
+    spacing.style.setProperty('padding-top', ratio * 100 + '%');
+  }
+
+  // Append the spacer to the placeholder and replace the image with the placeholder.
+  placeholder.appendChild(spacing);
+  image.parentNode.replaceChild(placeholder, image);
+
+  return placeholder;
+};
+
+/**
+ * @param {!HTMLImageElement} image The image to be considered.
+ * @return {!boolean} true if image download can be deferred, false if image should be eagerly
+ *                    loaded.
+ */
+var isLazyLoadable = function isLazyLoadable(image) {
+  var geometry = ElementGeometry.from(image);
+  if (!geometry.width || !geometry.height) {
+    return true;
+  }
+  return geometry.widthValue >= UNIT_TO_MINIMUM_LAZY_LOAD_SIZE[geometry.widthUnit] && geometry.heightValue >= UNIT_TO_MINIMUM_LAZY_LOAD_SIZE[geometry.heightUnit];
+};
+
+/**
+ * @param {!Element} element
+ * @return {!Array.<HTMLImageElement>} Convertible images descendent from but not including element.
+ */
+var queryLazyLoadableImages = function queryLazyLoadableImages(element) {
+  return Polyfill.querySelectorAll(element, 'img').filter(function (image) {
+    return isLazyLoadable(image);
+  });
+};
+
+/**
+ * Convert images with placeholders. The transformation is inverted by calling loadImage().
+ * @param {!Document} document
+ * @param {!Array.<HTMLImageElement>} images The images to lazily load.
+ * @return {!Array.<HTMLSpanElement>} The placeholders replacing images.
+ */
+var convertImagesToPlaceholders = function convertImagesToPlaceholders(document, images) {
+  return images.map(function (image) {
+    return convertImageToPlaceholder(document, image);
+  });
+};
+
+/**
+ * Start downloading image resources associated with a given placeholder and replace the placeholder
+ * with a new image element when the download is complete.
+ * @param {!Document} document
+ * @param {!HTMLSpanElement} placeholder
+ * @return {!HTMLImageElement} A new image element.
+ */
+var loadPlaceholder = function loadPlaceholder(document, placeholder) {
+  placeholder.classList.add(PLACEHOLDER_LOADING_CLASS);
+  placeholder.classList.remove(PLACEHOLDER_PENDING_CLASS);
+
+  var image = document.createElement('img');
+
+  var retryListener = function retryListener(event) {
+    // eslint-disable-line require-jsdoc
+    image.setAttribute('src', image.getAttribute('src'));
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
+  // Add the download listener prior to setting the src attribute to avoid missing the load event.
+  image.addEventListener('load', function () {
+    placeholder.removeEventListener('click', retryListener);
+    placeholder.parentNode.replaceChild(image, placeholder);
+    image.classList.add(IMAGE_LOADED_CLASS);
+    image.classList.remove(IMAGE_LOADING_CLASS);
+  }, { once: true });
+
+  image.addEventListener('error', function () {
+    placeholder.classList.add(PLACEHOLDER_ERROR_CLASS);
+    placeholder.classList.remove(PLACEHOLDER_LOADING_CLASS);
+    placeholder.addEventListener('click', retryListener);
+  }, { once: true });
+
+  // Set src and other attributes, triggering a download.
+  elementUtilities.copyDataAttributesToAttributes(placeholder, image, COPY_ATTRIBUTES);
+
+  // Append to the class list after copying over any preexisting classes.
+  image.classList.add(IMAGE_LOADING_CLASS);
+
+  return image;
+};
+
+var LazyLoadTransform = {
+  queryLazyLoadableImages: queryLazyLoadableImages,
+  convertImagesToPlaceholders: convertImagesToPlaceholders,
+  loadPlaceholder: loadPlaceholder
+};
+
 var EVENT_TYPES = ['scroll', 'resize', CollapseTable.SECTION_TOGGLED_EVENT_TYPE];
 var THROTTLE_PERIOD_MILLISECONDS = 100;
 
@@ -1905,7 +2096,7 @@ var THROTTLE_PERIOD_MILLISECONDS = 100;
  * standard browser events: resize, scroll.
  */
 
-var _class = function () {
+var _class$1 = function () {
   /**
    * @param {!Window} window
    * @param {!number} loadDistanceMultiplier Images within this multiple of the screen height are
@@ -1973,6 +2164,7 @@ var _class = function () {
       EVENT_TYPES.forEach(function (eventType) {
         return _this2._window.removeEventListener(eventType, _this2._throttledLoadPlaceholders);
       });
+      this._throttledLoadPlaceholders.reset();
 
       this._placeholders = [];
       this._registered = false;
@@ -2046,14 +2238,14 @@ var _class = function () {
   return _class;
 }();
 
-var CLASS$2 = { ANDROID: 'pagelib-platform-android', IOS: 'pagelib-platform-ios'
+var CLASS$2 = { ANDROID: 'pagelib-platform-android', IOS: 'pagelib-platform-ios' };
 
-  // Regular expressions from https://phabricator.wikimedia.org/diffusion/EMFR/browse/master/resources/mobile.startup/browser.js;c89f371ea9e789d7e1a827ddfec7c8028a549c12.
-  /**
-   * @param {!Window} window
-   * @return {!boolean} true if the user agent is Android, false otherwise.
-   */
-};var isAndroid = function isAndroid(window) {
+// Regular expressions from https://phabricator.wikimedia.org/diffusion/EMFR/browse/master/resources/mobile.startup/browser.js;c89f371ea9e789d7e1a827ddfec7c8028a549c12.
+/**
+ * @param {!Window} window
+ * @return {!boolean} true if the user agent is Android, false otherwise.
+ */
+var isAndroid = function isAndroid(window) {
   return (/android/i.test(window.navigator.userAgent)
   );
 };
@@ -2155,60 +2347,6 @@ var RedLinks = {
   }
 };
 
-// Elements marked with either of these classes indicate certain ancestry constraints that are
-// difficult to describe as CSS selectors.
-var CONSTRAINT = {
-  IMAGE_NO_BACKGROUND: 'pagelib-theme-image-no-background',
-  IMAGE_NONTABULAR: 'pagelib-theme-image-nontabular'
-
-  // Theme to CSS classes.
-};var THEME = {
-  DEFAULT: 'pagelib-theme-default', DARK: 'pagelib-theme-dark', SEPIA: 'pagelib-theme-sepia'
-
-  /**
-   * @param {!Document} document
-   * @param {!string} theme
-   * @return {void}
-   */
-};var setTheme = function setTheme(document, theme) {
-  var html = document.querySelector('html');
-
-  // Set the new theme.
-  html.classList.add(theme);
-
-  // Clear any previous theme.
-  for (var key in THEME) {
-    if (Object.prototype.hasOwnProperty.call(THEME, key) && THEME[key] !== theme) {
-      html.classList.remove(THEME[key]);
-    }
-  }
-};
-
-/**
- * Annotate elements with CSS classes that can be used by CSS rules. The classes themselves are not
- * theme-dependent so classification only need only occur once after the content is loaded, not
- * every time the theme changes.
- * @param {!Element} element
- * @return {void}
- */
-var classifyElements = function classifyElements(element) {
-  Polyfill.querySelectorAll(element, 'img').forEach(function (image) {
-    if (!elementUtilities.closestInlineStyle(image, 'background')) {
-      image.classList.add(CONSTRAINT.IMAGE_NO_BACKGROUND);
-    }
-    if (!elementUtilities.isNestedInTable(image)) {
-      image.classList.add(CONSTRAINT.IMAGE_NONTABULAR);
-    }
-  });
-};
-
-var ThemeTransform = {
-  CONSTRAINT: CONSTRAINT,
-  THEME: THEME,
-  setTheme: setTheme,
-  classifyElements: classifyElements
-};
-
 /**
  * To widen an image element a css class called 'wideImageOverride' is applied to the image element,
  * however, ancestors of the image element can prevent the widening from taking effect. This method
@@ -2300,6 +2438,14 @@ var WidenImage = {
   }
 };
 
+/* eslint-disable sort-imports */
+
+// We want the theme transform to be first. This is because the theme transform CSS has to use
+// some '!important' CSS modifiers to reliably set themes on elements which may contain inline
+// styles. Moving it to the top of the file is necessary so other transforms can override
+// these '!important' themes transform CSS bits if needed. Note - if other transforms have trouble
+// overriding things changed by theme transform remember to match or exceed the selector specificity
+// used by the theme transform for whatever it is you are trying to override.
 var pagelib$1 = {
   // todo: rename CollapseTableTransform.
   CollapseTable: CollapseTable,
@@ -2312,8 +2458,9 @@ var pagelib$1 = {
   FooterLegal: FooterLegal,
   FooterMenu: FooterMenu,
   FooterReadMore: FooterReadMore,
+  FooterTransformer: _class,
   LazyLoadTransform: LazyLoadTransform,
-  LazyLoadTransformer: _class,
+  LazyLoadTransformer: _class$1,
   PlatformTransform: PlatformTransform,
   // todo: rename RedLinkTransform.
   RedLinks: RedLinks,
