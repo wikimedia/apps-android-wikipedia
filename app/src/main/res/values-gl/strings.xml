@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">O artigo non se pode cargar mentres non haxa conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Pistaː Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
   <string name="page_offline_notice_last_date">Está lendo unha versión sen conexión deste artigo gardado o %s.</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Está lendo unha versión sen conexión deste artigo, dunha recompilación descargada o %1$s • %2$s.</string>
   <string name="button_get_directions">Obter as direccións</string>
   <string name="error_no_maps_app">Imposible atopar unha aplicación que proporcione as direccións.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>

@@ -75,6 +75,7 @@
   <string name="nav_item_login">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
+  <string name="login_2fa_hint">Kód pre dvojstupňové overenie</string>
   <string name="menu_login">Prihlásiť sa</string>
   <string name="login_activity_title">Prihlásiť sa na Wikipédiu</string>
   <string name="login_in_progress_dialog_message">Prihlasujem…</string>
@@ -83,6 +84,7 @@
   <string name="toast_logout_complete">Ste odhlásený.</string>
   <string name="history_empty_title">Žiadne nedávno zobrazené články</string>
   <string name="history_empty_message">Vaša história je prázdna.</string>
+  <string name="search_empty_message">Vyhľadávaj a čítaj voľnú encyklopédiu vo svojom jazyku</string>
   <string name="delete_selected_items">Vymazať vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Používateľské meno</string>
@@ -233,7 +235,10 @@
   <string name="text_copied">Text bol skopírovaný do schránky.</string>
   <string name="button_continue_to_article">Prečítať si článok</string>
   <string name="button_add_to_reading_list">Pridať do zoznamu na prečítanie</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Článok nemôže byť načítaný pokiaľ nie ste pripojený k internetu.</string>
+  <string name="page_offline_notice_add_to_reading_list">Tip: Pridajte článok do zoznamu na prečítanie a hneď, ako budete opäť pripojený, sa stiahne.</string>
   <string name="page_offline_notice_last_date">Čítate offline verziu tohto článku, ktorá bola uložená %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Čítate verziu článku z %1$s • %2$s.</string>
   <string name="button_get_directions">Nájsť trasu</string>
   <string name="error_no_maps_app">Nenašli sme žiadne aplikácie poskytujúce navigáciu.</string>
   <string name="preference_title_show_link_previews">Zobrazovať náhľady odkazov</string>
@@ -250,6 +255,7 @@
   <string name="view_link_preview_error_button_dismiss">Zrušiť</string>
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
+  <string name="reference_title">Referencia %s</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_text">Chcete odoslať správu o zlyhaní HockeyApp? Wikimedia tak bude môcť toto zlyhanie preskúmať a opraviť chybu, ktorá toto zlyhanie spôsobila. HockeyApp je poskytovateľ služieb (tretia strana).</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
@@ -291,6 +297,8 @@
   <string name="reading_list_menu_delete">Vymazať zoznam</string>
   <string name="reading_list_menu_rename">Premenovať</string>
   <string name="reading_list_menu_edit_description">Upraviť popis</string>
+  <string name="reading_list_action_menu_remove_from_offline">Odstrániť článok z offline úložiska</string>
+  <string name="reading_list_action_menu_save_for_offline">Uložiť článok do zariadenia</string>
   <string name="reading_list_action_menu_add_to_another_list">Pridať do ďalšieho zoznamu</string>
   <string name="reading_list_name_sample">Môj zoznam na prečítanie</string>
   <string name="reading_list_name_hint">Názov zoznamu</string>
@@ -310,14 +318,30 @@
   <string name="reading_list_no_description">Bez popisu...</string>
   <string name="reading_list_empty">V tomto zozname nemáte žiadne články.</string>
   <string name="reading_list_article_offline">Dostupné offline</string>
+  <string name="reading_list_article_make_offline">Urobiť dostupným offline</string>
   <string name="reading_list_add_to_other_list">Pridať do ďalšieho zoznamu na prečítanie</string>
   <string name="reading_list_remove_from_list">Odstrániť zo zoznamu %s</string>
   <string name="reading_list_remove_from_lists">Odstrániť zo zoznamov na prečítanie</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Odstrániť článok z offline úložiska</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Článok je vo viacerých zoznamoch</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s ďalej nebude dostupný offline pre všetky zoznamy na prečítanie:</string>
   <string name="reading_list_sync_reminder_title">Synchronizácia zoznamov na prečítanie je vypnutá</string>
+  <string name="reading_list_sync_reminder_text">Svoje zoznamy na prečítanie môžete zosynchronizovať s Vaším účtom na Wikipédii, ak v nastaveniach aplikácie povolíte synchronizovanie.</string>
   <string name="reading_list_sync_reminder_action">Zapnúť</string>
+  <string name="reading_list_login_reminder_title">Synchronizovať zoznamy na prečítanie</string>
+  <string name="reading_list_login_reminder_text">Vaše zoznamy na prečítanie môžu byť uložené vo Vašom účte na Wikipédii. Jednoducho sa prihláste a Vaše zoznamy budú zosynchronizované automaticky.</string>
+  <string name="reading_lists_confirm_remote_delete">Takto sa zo vzdialeného úložiska zmažú akékoľvek predtým zosynchronizované zoznamy na prečítanie. Pokračovať?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
+  <string name="reading_list_article_save_in_progress">Článok sa sťahuje. Keď sa sťahovanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Tento článok teraz bude dostupný bez pripojenia.</item>
+    <item quantity="other">Tieto články teraz budú dostupné bez pripojenia.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Tento článok už nebude dostupný bez pripojenia.</item>
+    <item quantity="other">Tieto články už nebudú dostupné bez pripojenia.</item>
+  </plurals>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="notification_button_view_user">Kontaktovať používateľa</string>
   <string name="notification_talk_title">Máte novú správu na Wikipédii</string>
@@ -352,6 +376,7 @@
   <string name="view_offline_card_text">Obsah nemôže byť načítaný bez pripojenia na internet.</string>
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
   <string name="view_featured_article_footer_save_button_label">Uložiť</string>
+  <string name="view_featured_article_footer_saved_button_label">Uložené</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_save">Uverejniť</string>
   <string name="description_edit_add_description">Pridať popis článku</string>
@@ -362,6 +387,8 @@
   <string name="description_edit_help_wikidata_guide">Návod na písanie popisov na Wikiúdajoch</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/sk</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Ďakujeme za Váš pokračujúci záujem o úpravu popisov! Pre ďalšie úpravy sa, prosím, prihláste do Vášho účtu na Wikipédii.</string>
+  <string name="description_edit_license_notice">Zmenou popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Popis bol uverejnený!</string>
   <string name="description_edit_success_encouragement">Wikipédia je vďaka vám lepšia než predtým</string>
   <string name="description_edit_success_done">Hotovo</string>
@@ -373,29 +400,76 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
+  <string name="description_edit_help_about_title">O popisoch</string>
+  <string name="description_edit_help_description">Popis prináša základné informácie o predmete článku kvôli jednoduchšiemu pochopeniu o čom je.</string>
   <string name="description_edit_help_tips">Tipy na tvorbu popisov</string>
+  <string name="description_edit_help_tips_description">Popis by mal byť najviac len jeden riadok, 2 až 12 slov dlhý. Nezačína sa veľkým písmenom, iba ak je prvé slovo vlastné podstatné meno.</string>
   <string name="description_edit_help_tips_examples">Napríklad:</string>
   <string name="description_edit_help_tips_example1">obraz od Leonarda da Vinciho</string>
   <string name="description_edit_help_tips_example1_hint">popis článku o Mone Lise</string>
   <string name="description_edit_help_tips_example2">najvyššia hora na Zemi</string>
   <string name="description_edit_help_tips_example2_hint">popis článku o Mont Evereste</string>
   <string name="description_edit_help_more_info">Viac informácií</string>
+  <string name="description_edit_help_meta_info">Popisy sú uložené vo Wikiúdajoch, ktoré sú projektom Wikimedia Foundation, ktorý poskytuje slobodnú, spoločne vytváranú, viacjazyčnú sekundárnu databázu podporujúcu Wikipédiu a ďalšie projekty.</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
+  <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">váš príspevok vyzeral ako experiment alebo vandalizmus</string>
+  <string name="description_edit_revert_history">Viac sa môžete dozvedieť v &lt;a href=\"%1$s\"&gt;histórii úprav stránky&lt;/a&gt;.</string>
+  <string name="offline_read_permission_rationale">Je požadované povolenie na prístup k úložisku vo Vašom zariadení pre používanie bez pripojenia k internetu.</string>
+  <string name="offline_read_permission_error">Povolenie z úložiska v zariadení neudelené.</string>
+  <string name="offline_card_text">Odteraz používate Wikipédiu v režime offline.</string>
+  <string name="offline_my_compilations">Spravovať moju offline knižnicu</string>
+  <string name="offline_compilations_title">Offline knižnica</string>
+  <string name="offline_compilations_found_count">V mojej knižnici (%d)</string>
+  <string name="offline_compilations_add">Pridať do offline knižnice</string>
+  <string name="remote_compilations_title">Offline knižnica</string>
+  <string name="remote_compilations_description">Do offline knižnice môžete stiahnuť skupiny článkov, aby ste ich mohli čítať aj bez pripojenia k internetu.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download" fuzzy="true">Prevziať · %.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Prevziať · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Odstrániť</string>
   <string name="remote_compilation_download">Download</string>
   <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">Voľných %.2f GB</string>
+  <string name="storage_used_by_compilations">použitých Wikipédiou</string>
+  <string name="storage_other_apps">Ostatné aplikácie</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">Ostáva 1 minúta</item>
+    <item quantity="other">Ostávajú %d minút</item>
+  </plurals>
+  <string name="compilation_download_widget_button_cancel_hint">Zrušiť sťahovanie</string>
+  <string name="compilation_download_cancel_confirm">Ste si istý, že chcete zrušiť sťahovanie článkov?</string>
   <string name="compilation_download_cancel_confirm_yes">Áno</string>
   <string name="compilation_download_cancel_confirm_no">Nie</string>
+  <string name="compilation_share">Zdieľať</string>
+  <string name="compilation_remove">Odstrániť</string>
+  <string name="compilation_remove_confirm">Chcete to odstrániť z Vašej offline knižnice?</string>
   <string name="offline_library_title">Offline knižnica</string>
   <string name="offline_library_empty_title">Vaša Offline knižnica je prázdna</string>
   <string name="offline_library_empty_description">Zvoľte články Wikipédie, ktoré sa majú stiahnuť, aby ste k nim mali neskôr prístup offline, bez čerpania dát.</string>
   <string name="offline_library_empty_search">Prehľadávať Offline knižnicu</string>
+  <string name="offline_library_search_results_state">Výsledky vyhľadávania v offline knižnici</string>
+  <string name="offline_library_onboarding_action">Ďalšie informácie.</string>
+  <string name="offline_library_onboarding_text">Predstavenie offline knižnice – stiahnutie článkov na používanie bez pripojenia.</string>
+  <string name="offline_library_onboarding_button_done">Hotovo</string>
+  <string name="offline_library_onboarding_build_library_title">Vytvorte si svoju offline knižnicu</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Stiahnite si článok Wikipédie, aby ste k nemu mohli neskôr opätovne pristupovať bez ďalšieho použitia dát.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Nerušené čítanie</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Pokračujte v čítaní a vyhľadávaní článkov vrámci svojej offline knižnice aj bez pripojenia k internetu.</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Uložte si viac vedomostí</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Stiahnite si toľko článkov, koľko sa zmestí do Vášho zariadenia. Offline knižnica tiež dokáže pristupovať k článkom stiahnutým do externého úložiska.</string>
   <string name="onboarding_skip">Preskočiť</string>
   <string name="onboarding_continue">Pokračovať</string>
   <string name="onboarding_get_started">Začíname</string>
+  <string name="onboarding_explore_title">Nové možnosti pre objavovanie</string>
+  <string name="onboarding_explore_text">Objavte odporúčané články, často vyhľadávané témy a odporúčania k čítaniu článkov.</string>
+  <string name="onboarding_reading_list_sync_title">Zoznamy na prečítanie so synchronizovaním</string>
+  <string name="onboarding_reading_list_sync_text">Vytvorte si zoznamy článkov, ktoré si chcete neskôr prečítať, aj keď ste offline. &lt;a href=\"#login\"&gt;Prihláste sa alebo si vytvorte&lt;/a&gt; svoj účet na Wikipédii, aby boli Vaše zoznamy zálohované.</string>
+  <string name="onboarding_analytics_title">Odosielať anonymné údaje</string>
+  <string name="onboarding_analytics_text">Pomôžte nám spraviť aplikáciu lepšou tak, že nám dáte vedieť ako ju používate. Tieto informácie sa zbierajú anonymne. &lt;a href=\"#privacy\"&gt;Zistite viac&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Posielať informácie o používaní</string>
+  <string name="onboarding_create_account_sync">Synchronizovať Vaše zoznamy na prečítanie</string>
+  <string name="onboarding_create_account_contributions">Majte prehľad o svojich úpravách</string>
+  <string name="onboarding_create_account_preferences">Uložte svoje nastavenia</string>
 </resources>

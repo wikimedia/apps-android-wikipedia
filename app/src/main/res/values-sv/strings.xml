@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikeln kan inte läsas in i offlineläge.</string>
   <string name="page_offline_notice_add_to_reading_list">Tips: Lägg till artikeln i en läslista och den kommer att laddas ned så fort du blir online igen.</string>
   <string name="page_offline_notice_last_date">Du läser en offlineversion av denna artikel som sparades den %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Du läser versionen av denna artikel från %1$s • %2$s.</string>
   <string name="button_get_directions">Få vägbeskrivningar</string>
   <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
@@ -418,14 +419,14 @@
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
-  <string name="offline_card_text" fuzzy="true">Du läser nu Wikipedia i offlineläge. Observera att offlineartiklar kanske inte är uppdaterade med onlineversionen.</string>
-  <string name="offline_my_compilations" fuzzy="true">Mina artikelpaket</string>
+  <string name="offline_card_text">Du läser nu Wikipedia offline med artiklar i ditt offlinebibliotek.</string>
+  <string name="offline_my_compilations">Hantera mitt offlinebibliotek</string>
   <string name="offline_compilations_title">Offlinebibliotek</string>
   <string name="offline_compilations_search_by_name">Sök artikelpaket efter namn</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Mina artikelpaket (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Lägg till artikelpaket</string>
-  <string name="remote_compilations_title" fuzzy="true">Alla artikelpaket</string>
-  <string name="remote_compilations_description" fuzzy="true">Artikelpaket är stora mängder artiklar som kan laddas ned som en fil på din enhet, så du kan fortsätta läsa offline.</string>
+  <string name="offline_compilations_found_count">I mitt bibliotek (%d)</string>
+  <string name="offline_compilations_add">Lägg till i mitt offlinebibliotek</string>
+  <string name="remote_compilations_title">Offlinebibliotek</string>
+  <string name="remote_compilations_description">Med offlinebiblioteket kan du ladda ned artikelpaket för att läsa när du inte har någon tillgänglig Internetanslutning.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Ladda ned • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ta bort</string>
@@ -445,13 +446,14 @@
   <string name="compilation_download_cancel_confirm_no">Nej</string>
   <string name="compilation_share">Dela</string>
   <string name="compilation_remove">Ta bort</string>
-  <string name="compilation_remove_confirm" fuzzy="true">Är du säker på att du vill ta bort detta artikelpaket från din enhet?</string>
+  <string name="compilation_remove_confirm">Vill du ta bort detta från ditt offlinebibliotek?</string>
   <string name="offline_library_title">Offlinebibliotek</string>
   <string name="offline_library_empty_title">Ingenting i ditt offlinebibliotek</string>
   <string name="offline_library_empty_description">Välj ett paket med Wikipediaartiklar att ladda ned nu för att kunna läsa offline senare.</string>
   <string name="offline_library_empty_search">Sök i offlinebiblioteket</string>
-  <string name="offline_library_search_results_state" fuzzy="true">Sökresultat från tillgängliga offlinebibliotek</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">Läs mer om ditt offlinebibliotek</string>
+  <string name="offline_library_search_results_state">Sökresultat från ditt offlinebibliotek</string>
+  <string name="offline_library_onboarding_action">Läs mer</string>
+  <string name="offline_library_onboarding_text">Introducerar offlinebiblioteket — ladda ned artikelpaket nu för att läsa offline senare.</string>
   <string name="offline_library_onboarding_button_done">Klar</string>
   <string name="offline_library_onboarding_build_library_title">Bygg ditt offlinebibliotek</string>
   <string name="offline_library_onboarding_build_library_subtitle">Ladda ned artikelpaket från Wikipedia nu för datafri åtkomst senare.</string>

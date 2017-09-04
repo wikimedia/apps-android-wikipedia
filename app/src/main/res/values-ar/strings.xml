@@ -237,6 +237,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">لا يمكن تحميل المقالة في حالة عدم الاتصال.</string>
   <string name="page_offline_notice_add_to_reading_list">ملحوظة: أضف المقالة إلى قائمة قراءة وسيتم تنزيلها حينما تعاود الاتصال بالشبكة.</string>
   <string name="page_offline_notice_last_date">أنت تقرأ نسخةً من هذه المقالة بوضع عدم الاتصال تم حفظها في %s.</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">أنت تقرأ حالياً نسخة من هذه المقالة محفوظة مسبقاً، تم تحميلها في %1$s • %2$s</string>
   <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>

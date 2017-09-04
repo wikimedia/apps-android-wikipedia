@@ -237,7 +237,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikel teu bisa dimuat mun keur oflén.</string>
   <string name="page_offline_notice_add_to_reading_list">Pituduh: Tambahkeun artikel kana daptar bacaan sangkan bisa diundeur sanggeus anjeun onlén deui.</string>
   <string name="page_offline_notice_last_date">Anjeun keur maca vérsi oflén tina ieu artikel nu disimpen dina %s</string>
-  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Anjeun keur maca vérsi oflén ieu artikel tina kompilasi anu diundeur dina %1$s • %2$s.</string>
+  <string name="page_offline_notice_compilation_download_date">Anjeun keur maca vérsi ieu artikel ti %1$s • %2$s.</string>
   <string name="button_get_directions">Beunangkeun pituduh arah</string>
   <string name="error_no_maps_app">Teu bisa manggihan aplikasi nu méré pituduh arah.</string>
   <string name="preference_title_show_link_previews">Témbongkeun pramidang tutumbu</string>
@@ -416,14 +416,14 @@
   <string name="description_edit_revert_history">Mun anjeun kataji, témbongan &lt;a href=\"%1$s\"&gt;jujutan éditanana&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin pikeun ngaksés panyimpenan dina parangkat anjeun diperlukeun pikeun langlangan oflén.</string>
   <string name="offline_read_permission_error">Idin teu dibéré pikeun maca tina panyimpenan parangkat.</string>
-  <string name="offline_card_text" fuzzy="true">Anjeun kiwari ngalanglang Wikipédia dina modeu oflén. Wayahna baé da ari artikel oflén mah meureun teu sagemblengna dianyarkeun kawas vérsi onlén.</string>
-  <string name="offline_my_compilations" fuzzy="true">Pakét artikel kuring</string>
+  <string name="offline_card_text">Ayeuna anjeun keur nyungsi Wikipédia oflén nu artikelna di Pabukon Oflén anjeun.</string>
+  <string name="offline_my_compilations">Kokola pabukon oflén kuring</string>
   <string name="offline_compilations_title">Pabukon Oflén</string>
   <string name="offline_compilations_search_by_name">Paluruh pakét artikel dumasar ngaran</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Pakét artikel kuring (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Tambah pakét artikel</string>
-  <string name="remote_compilations_title" fuzzy="true">Sakumna pakét artikel</string>
-  <string name="remote_compilations_description" fuzzy="true">Pakét artikel nyaéta kumpulan artikel badag nu bisa diundeur minangka hiji berkas ka parangkat anjeun, sangkan anjeun bisa terus ngalanglang nalika oflén.</string>
+  <string name="offline_compilations_found_count">Di pabukon kuring (%d)</string>
+  <string name="offline_compilations_add">Tambah kana Pabukon Oflén kuring</string>
+  <string name="remote_compilations_title">Pabukon Oflén</string>
+  <string name="remote_compilations_description">Ku Pabukon Oflén, anjeun ayeuna bisa ngundeur pakét artikel jang bacaeun mun anjeun keur teu boga konéksi internét.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Undeur • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Pupus</string>
@@ -443,13 +443,14 @@
   <string name="compilation_download_cancel_confirm_no">Teu</string>
   <string name="compilation_share">Bagikeun</string>
   <string name="compilation_remove">Pupus</string>
-  <string name="compilation_remove_confirm" fuzzy="true">Anjeun yakin rék mupus ieu pakét artikel tina parangkat anjeun?</string>
+  <string name="compilation_remove_confirm">Anjeun yakin rék mupus ieu tina Pabukon Oflén?</string>
   <string name="offline_library_title">Pabukon Oflén</string>
   <string name="offline_library_empty_title">Taya nanaon di Pabukon Oflén anjeun mah</string>
   <string name="offline_library_empty_description">Pilih sakumpulan artikel Wikipédia jang undeuran ayeuna, pikeun aksés tanpadata engké.</string>
   <string name="offline_library_empty_search">Paluruh Pabukon Oflén</string>
-  <string name="offline_library_search_results_state" fuzzy="true">Hasil pamaluruhan tina pabukon oflén nu sayaga</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">Teuleuman ngeunaan Pabukon Oflén anjeun</string>
+  <string name="offline_library_search_results_state">Hasil pamaluruhan tina pabukon oflén anjeun</string>
+  <string name="offline_library_onboarding_action">Paluruh leuwih jero deui</string>
+  <string name="offline_library_onboarding_text">Mangwanohkeun Pabukon Oflén - undeur pakét artikel ayeuna jang bacaeun oflén engké.</string>
   <string name="offline_library_onboarding_button_done">Anggeus</string>
   <string name="offline_library_onboarding_build_library_title">Wangun Pabukon Oflén anjeun</string>
   <string name="offline_library_onboarding_build_library_subtitle">Undeur pakét artikel Wikipédia kiwari pikeun aksés bébas data engké.</string>

@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">El artículo no se puede cargar mientras no haya conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Pista: añade el artículo a una lista de lectura y se descargará cuando te vuelvas a conectar.</string>
   <string name="page_offline_notice_last_date">Estás leyendo una versión sin conexión de este artículo guardada el %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Estás leyendo la versión sin conexión de este artículo desde %1$s • %2$s.</string>
   <string name="button_get_directions">Obtener indicaciones</string>
   <string name="error_no_maps_app">No se pudo encontrar ninguna aplicación que proporcione indicaciones.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>
@@ -418,14 +419,14 @@
   <string name="description_edit_revert_history">Si estás interesado, consulta el &lt;a href=\"%1$s\"&gt;historial de ediciones&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Para navegar sin conexión se necesita el permiso para acceder al almacenamiento.</string>
   <string name="offline_read_permission_error">No se otorgó el permiso para leer el dispositivo de almacenamiento.</string>
-  <string name="offline_card_text" fuzzy="true">Ahora estás navegando Wikipedia en modo sin conexión. Observa que los artículos sin conexión pueden que no estén plenamente actualizados con la versión con conexión.</string>
-  <string name="offline_my_compilations" fuzzy="true">Mis recopilaciones</string>
+  <string name="offline_card_text">Ahora estás navegando por Wikipedia en el modo sin conexión, con artículos de tu biblioteca sin conexión.</string>
+  <string name="offline_my_compilations">Gestionar mi biblioteca sin conexión</string>
   <string name="offline_compilations_title">Biblioteca sin conexión</string>
-  <string name="offline_compilations_search_by_name" fuzzy="true">Buscar recopilaciones por nombre</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Mis recopilaciones (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Añadir recopilaciones sin conexión</string>
-  <string name="remote_compilations_title" fuzzy="true">Todas las recopilaciones</string>
-  <string name="remote_compilations_description" fuzzy="true">Las recopilaciones sin conexión son grandes manojos de artículos ue pueden descargarse como un archivo a tu dispositivo, para que puedas continuar navegando cuando no tengas conexión.</string>
+  <string name="offline_compilations_search_by_name">Buscar paquetes de artículos por nombre</string>
+  <string name="offline_compilations_found_count">En mi biblioteca (%d)</string>
+  <string name="offline_compilations_add">Añadir a mi biblioteca sin conexión</string>
+  <string name="remote_compilations_title">Biblioteca sin conexión</string>
+  <string name="remote_compilations_description">La Biblioteca sin conexión te permite descargar paquetes de artículos para leerlos cuando no tengas conexión a Internet.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eliminar</string>
@@ -440,17 +441,19 @@
     <item quantity="other">faltan %d minutos</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Cancelar descarga</string>
-  <string name="compilation_download_cancel_confirm" fuzzy="true">¿Éstas seguro que quieres cancelar la descarga de está recopilación?</string>
+  <string name="compilation_download_cancel_confirm">¿Confirmas que quieres cancelar la descarga de este paquete de artículos?</string>
   <string name="compilation_download_cancel_confirm_yes">Sí</string>
   <string name="compilation_download_cancel_confirm_no">No</string>
   <string name="compilation_share">Compartir</string>
   <string name="compilation_remove">Eliminar</string>
+  <string name="compilation_remove_confirm">¿Quieres quitar este artículo de tu biblioteca sin conexión?</string>
   <string name="offline_library_title">Biblioteca sin conexión</string>
   <string name="offline_library_empty_title">Nada en tu biblioteca sin conexión</string>
   <string name="offline_library_empty_description">Elige un paquete de artículos de Wikipedia para descargar ahora, para acceder luego sin cargo de datos.</string>
   <string name="offline_library_empty_search">Buscar en la biblioteca sin conexión</string>
-  <string name="offline_library_search_results_state" fuzzy="true">Resultados de búsqueda de la biblioteca sin conexión disponible</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">Aprende sobre tu biblioteca sin conexión</string>
+  <string name="offline_library_search_results_state">Resultados de búsqueda de tu biblioteca sin conexión</string>
+  <string name="offline_library_onboarding_action">Más información</string>
+  <string name="offline_library_onboarding_text">Presentamos la Biblioteca sin conexión: descarga paquetes de artículos para leerlos después sin conexión.</string>
   <string name="offline_library_onboarding_button_done">Hecho</string>
   <string name="offline_library_onboarding_build_library_title">Construye tu biblioteca sin conexión</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Lectura sin interrupciones</string>

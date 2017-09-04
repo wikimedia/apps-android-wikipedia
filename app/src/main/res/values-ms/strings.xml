@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Rencana tidak boleh dimuatkan semasa di luar talian.</string>
   <string name="page_offline_notice_add_to_reading_list">Petunjuk: Menambah rencana ke senarai bacaan dan ia akan dimuat turun apabila anda kembali dalam talian.</string>
   <string name="page_offline_notice_last_date">Anda membaca versi luar talian artikel ini disimpan pada %s.</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Anda sedang membaca versi luar talian rencana ini dari kompilasi yang dimuat turun pada %1$s • %2$s.</string>
   <string name="button_get_directions">Tunjuk jalan</string>
   <string name="error_no_maps_app">Tidak dapat menemui sebarang aplikasi yang boleh menunjukkan jalan.</string>
   <string name="preference_title_show_link_previews">Paparkan pratonton pautan</string>

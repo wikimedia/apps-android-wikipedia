@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikel tidak dapat dimuat saat luring.</string>
   <string name="page_offline_notice_add_to_reading_list">Petunjuk: Tambahkan artikel ke daftar bacaan dan akan diunduh setelah Anda kembali daring.</string>
   <string name="page_offline_notice_last_date">Anda sedang membaca versi luring dari artikel ini yang disimpan pada %s</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Anda sedang membaca versi luring artikel ini dari kompilasi yang diunduh pada %1$s • %2$s.</string>
   <string name="button_get_directions">Dapatkan petunjuk arah</string>
   <string name="error_no_maps_app">Tidak dapat menemukan aplikasi yang memberikan petunjuk arah.</string>
   <string name="preference_title_show_link_previews">Tampilkan pratayang pranala</string>

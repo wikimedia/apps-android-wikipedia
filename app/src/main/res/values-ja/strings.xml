@@ -312,6 +312,8 @@
   <string name="reading_list_add_to_other_list">別のあとで読むリストに追加</string>
   <string name="reading_list_remove_from_list">%sから削除</string>
   <string name="reading_list_remove_from_lists">あとで読むリストから削除</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">この記事はオフラインで利用できるようになりました。</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">この記事はオフラインでは利用できなくなりました。</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_talk_title">ウィキペディアで新しいメッセージがあります</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; があなたのトークページ &lt;strong&gt;%2$s&lt;/strong&gt; にメッセージを投稿しました。</string>

@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статья не может быть загружена без подключения к Интернету.</string>
   <string name="page_offline_notice_add_to_reading_list">Подсказка: Добавьте эту статью в список к прочтению, и она будет загружена, как только появится подключение к сети.</string>
   <string name="page_offline_notice_last_date">Вы читаете офлайн-версия статьи, сохранённой %s.</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Вы читаете офлайн-версию этой статьи из компиляции %1$s • %2$s.</string>
   <string name="button_get_directions">Проложить маршрут</string>
   <string name="error_no_maps_app">Не удалось найти ни одного приложения, которое бы прокладывало маршрут.</string>
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>

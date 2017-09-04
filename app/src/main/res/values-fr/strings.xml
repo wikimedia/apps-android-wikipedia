@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">L’article ne peut pas être chargé hors connexion.</string>
   <string name="page_offline_notice_add_to_reading_list">Astuce: ajoutez l’article à une liste de lecture et il sera téléchargé une fois que vous serez à nouveau connecté.</string>
   <string name="page_offline_notice_last_date">Vous lisez une version hors ligne sauvegardée le %s.</string>
+  <string name="page_offline_notice_compilation_download_date">Vous lisez la version hors connexion de cet article, depuis %1$s • %2$s.</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application qui fournit des directions.</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
@@ -418,14 +419,14 @@
   <string name="description_edit_revert_history">Si vous êtes intéressé, voyez l’&lt;a href=\"%1$s\"&gt;historique des modifications&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion.</string>
   <string name="offline_read_permission_error">Droit non accordé pour lire sur le stockage de l’appareil.</string>
-  <string name="offline_card_text" fuzzy="true">Vous naviguez sur Wikipédia en mode hors connexion. Veuillez noter que les articles hors connexion peuvent ne pas être complètement à jour par rapport à la version en ligne.</string>
-  <string name="offline_my_compilations" fuzzy="true">Mes ensembles d’articles</string>
+  <string name="offline_card_text">Vous naviguez maintenant sur Wikipédia hors ligne avec les articles de votre bibliothèque hors connexion.</string>
+  <string name="offline_my_compilations">Gérer ma bibliothèque hors connexion</string>
   <string name="offline_compilations_title">Bibliothèque hors connexion</string>
   <string name="offline_compilations_search_by_name">Rechercher les ensembles d’articles par nom</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Mes ensembles d’articles (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Ajouter un ensemble d’articles</string>
-  <string name="remote_compilations_title" fuzzy="true">Tous les ensembles d’articles</string>
-  <string name="remote_compilations_description" fuzzy="true">Les ensembles d’articles hors connexion sont de larges collections d’articles qui peuvent être téléchargés comme un fichier unique sur votre appareil, afin que vous puissiez continuer à naviguer en n’étant plus connecté.</string>
+  <string name="offline_compilations_found_count">Dans ma bibliothèque (%d)</string>
+  <string name="offline_compilations_add">Ajouter à ma bibliothèque hors connexion</string>
+  <string name="remote_compilations_title">Bibliothèque hors connexion</string>
+  <string name="remote_compilations_description">Avec la bibliothèque hors connexion, vous pouvez maintenant télécharger des paquets d’articles pour les lire quand vous n’aurez pas de connexion internet disponible.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Gio</string>
   <string name="offline_compilation_detail_button_download">Télécharger • %.2f Gio</string>
   <string name="offline_compilation_detail_button_remove">Supprimer</string>
@@ -445,13 +446,14 @@
   <string name="compilation_download_cancel_confirm_no">Non</string>
   <string name="compilation_share">Partager</string>
   <string name="compilation_remove">Supprimer</string>
-  <string name="compilation_remove_confirm" fuzzy="true">Êtes-vous sûr de vouloir supprimer cet ensemble d’articles de votre appareil ?</string>
+  <string name="compilation_remove_confirm">Voulez-vous supprimer cela de votre bibliothèque hors connexion ?</string>
   <string name="offline_library_title">Bibliothèque hors connexion</string>
   <string name="offline_library_empty_title">Il n\'y a rien dans votre bibliothèque hors connexion</string>
   <string name="offline_library_empty_description">Choisir un ensemble d’articles de Wikipédia à télécharger maintenant, pour un accès libre plus tard.</string>
   <string name="offline_library_empty_search">Rechercher dans la bibliothèque hors ligne</string>
-  <string name="offline_library_search_results_state" fuzzy="true">Rechercher les résultats dans la bibliothèque disponible hors connexion</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">En savoir plus sur votre bibliothèque hors connexion</string>
+  <string name="offline_library_search_results_state">Rechercher les résultats dans votre bibliothèque hors connexion</string>
+  <string name="offline_library_onboarding_action">En savoir plus</string>
+  <string name="offline_library_onboarding_text">Introduction à la bibliothèque hors connexion — télécharger des paquets d’articles maintenant pour une lecture hors connexion ultérieure.</string>
   <string name="offline_library_onboarding_button_done">Terminé</string>
   <string name="offline_library_onboarding_build_library_title">Construire votre bibliothèque hors connexion</string>
   <string name="offline_library_onboarding_build_library_subtitle">Télécharger maintenant des ensembles d’articles de Wikipédia pour un accès ultérieur sans chargement des données.</string>

@@ -229,6 +229,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikel kan niet geladen worden in een offline-modus.</string>
   <string name="page_offline_notice_add_to_reading_list" fuzzy="true">Voeg het artikel toe aan een leeslijst en deze zal toegevoegd worden eens u terug online bent.</string>
   <string name="page_offline_notice_last_date">U bent een offline-versie aan het lezen van dit artikel opgeslaan in %s.</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">U bent een offline versie aan het lezen van dit artikel vanuit een gedowloade samenstelling op %1$s • %2$s.</string>
   <string name="button_get_directions">Routebeschrijving</string>
   <string name="error_no_maps_app">Er zijn geen apps gevonden die routebeschrijvingen bieden.</string>
   <string name="preference_title_show_link_previews">Voorvertoningen van koppelingen weergeven</string>

@@ -396,6 +396,7 @@
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
   <string name="offline_compilations_title">Offline-Bibliothéik</string>
+  <string name="offline_compilations_found_count">A menger Bibliothéik (%d)</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Eroflueden • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ewechhuelen</string>
@@ -415,6 +416,7 @@
   <string name="compilation_share">Deelen</string>
   <string name="compilation_remove">Ewechhuelen</string>
   <string name="offline_library_title">Offline-Bibliothéik</string>
+  <string name="offline_library_onboarding_action">Méi erausfannen</string>
   <string name="offline_library_onboarding_button_done">Fäerdeg</string>
   <string name="offline_library_onboarding_build_library_title">Setzt Är Offline-Bibliothéik zesummen</string>
   <string name="offline_library_onboarding_build_library_subtitle">Lued elo Päck vu Wikipedia-Artikelen erof fir se méi spéit offline liesen ze kënnen.</string>
