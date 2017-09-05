@@ -363,7 +363,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         // make sure styles get injected before the DarkModeMarshaller and other handlers
         if (app.isCurrentThemeDark()) {
-            new DarkModeMarshaller(bridge).turnOn(true);
+            new DarkModeMarshaller(bridge).turnOn();
         }
 
         errorView.setRetryClickListener(new View.OnClickListener() {

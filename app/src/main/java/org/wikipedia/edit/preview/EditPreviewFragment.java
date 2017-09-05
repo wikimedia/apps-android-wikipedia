@@ -185,7 +185,7 @@ public class EditPreviewFragment extends Fragment {
             isWebViewSetup = true;
             L10nUtil.setupDirectionality(parentActivity.getPageTitle().getWikiSite().languageCode(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().isCurrentThemeDark()) {
-                new DarkModeMarshaller(bridge).turnOn(false);
+                new DarkModeMarshaller(bridge).turnOn();
             }
 
             bridge.addListener("linkClicked", new LinkHandler(getActivity()) {

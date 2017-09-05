@@ -569,5 +569,9 @@ public final class Prefs {
         setBoolean(R.string.preference_key_offline_onboarding_enabled, enabled);
     }
 
+    public static boolean shouldDimDarkModeImages() {
+        return getBoolean(R.string.preference_key_dim_dark_mode_images, true);
+    }
+
     private Prefs() { }
 }

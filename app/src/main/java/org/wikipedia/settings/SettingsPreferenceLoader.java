@@ -19,7 +19,7 @@ import org.wikipedia.util.ReleaseUtil;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /** UI code for app settings used by PreferenceFragment. */
-public class SettingsPreferenceLoader extends BasePreferenceLoader {
+class SettingsPreferenceLoader extends BasePreferenceLoader {
 
     /*package*/ SettingsPreferenceLoader(@NonNull PreferenceFragmentCompat fragment) {
         super(fragment);
@@ -46,7 +46,7 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
                 .setOnPreferenceChangeListener(new SyncReadingListsListener(getActivity()));
 
         findPreference(R.string.preference_key_color_theme)
-                .setOnPreferenceChangeListener(new ThemeChangeListener());
+                .setOnPreferenceChangeListener(new ThemeChangeListener(getActivity()));
 
         loadPreferences(R.xml.preferences_about);
 
@@ -77,6 +77,8 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
             });
         }
 
+        setDimImagesPrefEnabled(getActivity(), WikipediaApp.getInstance().getCurrentTheme());
+
         if (!BuildConfig.APPLICATION_ID.equals("org.wikipedia")) {
             overridePackageName();
         }
@@ -103,6 +105,15 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
     private void updateLanguagePrefSummary() {
         Preference languagePref = findPreference(R.string.preference_key_language);
         languagePref.setSummary(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
+    }
+
+    private static String getDimImagesKey(Context context) {
+        return context.getString(R.string.preference_key_dim_dark_mode_images);
+    }
+
+    private void setDimImagesPrefEnabled(Context context, Theme theme) {
+        Preference dimImagesPref = findPreference(getDimImagesKey(context));
+        dimImagesPref.setEnabled(theme.isDark());
     }
 
     private static class ShowZeroInterstitialListener implements Preference.OnPreferenceChangeListener {
@@ -137,11 +148,19 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
             // clicks are handled and preferences updated accordingly; don't pass the result through
             return false;
         }
-    };
+    }
 
-    private static class ThemeChangeListener implements Preference.OnPreferenceChangeListener {
+    private final class ThemeChangeListener implements Preference.OnPreferenceChangeListener {
+        private Context context;
+
+        private ThemeChangeListener(Context context) {
+            this.context = context;
+        }
+
         @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
-            WikipediaApp.getInstance().setCurrentTheme(Theme.ofMarshallingId((Integer) newValue));
+            Theme theme = Theme.ofMarshallingId((Integer) newValue);
+            WikipediaApp.getInstance().setCurrentTheme(theme);
+            setDimImagesPrefEnabled(context, theme);
             // The setCurrentTheme call updates the nonvolatile Preference state and updates the UI
             // accordingly. Return false since the pref state is already updated by the method call.
             return false;
