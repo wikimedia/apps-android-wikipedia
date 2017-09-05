@@ -241,9 +241,6 @@ public class Compilation {
 
     @Nullable
     ByteArrayOutputStream getDataForUrl(@NonNull String url) throws IOException {
-        if (url.startsWith("A/") || url.startsWith("I/")) {
-            url = url.substring(2);
-        }
         return reader == null ? null : reader.getDataForUrl(URLDecoder.decode(url, "utf-8"));
     }
 

@@ -149,9 +149,6 @@ public final class OfflineManager {
     }
 
     @Nullable public ByteArrayOutputStream getDataForUrl(@NonNull String url) throws IOException {
-        if (url.startsWith("A/") || url.startsWith("I/")) {
-            url = url.substring(2);
-        }
         for (Compilation c : compilations) {
             ByteArrayOutputStream stream = c.getDataForUrl(url);
             if (stream != null) {
