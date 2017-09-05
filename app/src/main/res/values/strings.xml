@@ -272,8 +272,8 @@
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
     <string name="reference_title">Reference %s</string>
-    <string name="preference_title_dim_dark_mode_images">Dim images in dark mode</string>
-    <string name="preference_summary_dim_dark_mode_images">Reduce the brightness of images when in dark mode</string>
+    <string name="preference_title_dim_dark_mode_images">Dim images in dark theme</string>
+    <string name="preference_summary_dim_dark_mode_images">Reduce the brightness of images when using the dark theme</string>
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
 
     <!-- Crash reporter -->
