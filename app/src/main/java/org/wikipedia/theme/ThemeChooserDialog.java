@@ -47,7 +47,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.dialog_themechooser, container);
+        View rootView = inflater.inflate(R.layout.dialog_theme_chooser, container);
         unbinder = ButterKnife.bind(this, rootView);
         buttonDecreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.DECREASE));
         buttonDefaultTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.RESET));
