@@ -232,6 +232,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">آفلائين ھجڻ وقت صفحو لاھي نٿو سگھجي.</string>
   <string name="page_offline_notice_add_to_reading_list">اشارو:ڪو بہ مضمون پنھنجي پڙھڻ جي فھرست ۾ شامل ڪريو ان کي لاٿو ويندو جڏھن توھان ٻيھر آنلائين ٿيندئو.</string>
   <string name="page_offline_notice_last_date">توھان %s تي سانڍيل ھن مضمون جو ھڪ آفلائين ورزن پڙھي رھيا آھيو.</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">توھان %1$s • %2$s تي لاٿل ھڪ ميڙ مان ھن مضمون جو ھڪ آفلائين ورزن پڙھي رھيا آھيو.</string>
   <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
   <string name="error_no_maps_app">ھدايتون مھيا ڪندڙ ڪي بہ ايپس لڀجي نہ سگھيون.</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن جي پيش نگاھ ڏيکاريو</string>

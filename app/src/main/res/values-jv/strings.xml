@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikel ora bisa dimot nalika ing njaban jaringan.</string>
   <string name="page_offline_notice_add_to_reading_list">Pasemon: Tambah artikel nyang pratélan wacan lan artikelé bakal kaundhuh nalika panjenengan bali nyang njeron jaringan.</string>
   <string name="page_offline_notice_last_date">Panjenengan lagi maca vèrsi njaban jaringan artikel iki sing disimpen nalika %s.</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Panjenengan pinuju maca vèrsi njaban jaringané artikel iki saka kompilasi sing diundhuh nalika %1$s • %2$s.</string>
   <string name="button_get_directions">Golèk lor-kidul</string>
   <string name="error_no_maps_app">Ora bisa nemokaké apa aplikasi sing nyedhiyani pituduh.</string>
   <string name="preference_title_show_link_previews">Tampilake cuplikan pranala</string>

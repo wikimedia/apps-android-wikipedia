@@ -192,6 +192,7 @@
   <string name="text_copied">Testua klip-erretilura kopiatua.</string>
   <string name="button_continue_to_article">Artikulua irakurri</string>
   <string name="page_offline_notice_add_to_reading_list">Pista: artikulua irakurteka zerrendara gehitu eta konexioa duzunean jaitsiko da.</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">%1$s • %2$s-eko jaitsitako bildumaren konexio gabeko artikulu bat irakurtzen ari zara.</string>
   <string name="button_get_directions">Helbidea lortu</string>
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
   <string name="nav_item_donate">Wikipedia Lagundu</string>
@@ -256,6 +257,8 @@
   <string name="reading_list_remove_from_list">Kendu %s-tik</string>
   <string name="reading_list_remove_from_lists">Kendu irakurketa-zerrendetatik</string>
   <string name="reading_list_article_save_in_progress">Artikulua jaisten ari da, bukatzean konexiorik gabe erabiltzeko prest egongo da.</string>
+  <string name="reading_list_article_offline_message">{{PLURALA|bat=Artikulu hau konexiorik gabe erabiltzeko eskuragarri dago.|Artikulu hauek ez dira eskuragarriak izango konexiorik gabe.}}</string>
+  <string name="reading_list_article_not_offline_message">{{PLURALA|bat=Artikulu hau ez da eskuragarri izango konexiorik gabe.|Artikulu hauek ez dira eskuragarri izango konexiorik gabe.}}</string>
   <string name="user_option_sync_label">Hobespenak</string>
   <string name="notification_button_view_user">Hitz egin erabiltzeari</string>
   <string name="notification_talk_title">Mezu berria Wikipedian</string>

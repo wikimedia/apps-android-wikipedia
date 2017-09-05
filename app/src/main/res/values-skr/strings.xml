@@ -68,6 +68,8 @@
   <string name="login_success_toast">کامیابی نال لاگ ان تھی ڳئے</string>
   <string name="preference_title_logout">لاگ آؤٹ</string>
   <string name="toast_logout_complete">لاگ آؤٹ تھی ڳئے</string>
+  <string name="delete_selected_items">چُݨے ہوئے آئٹم مٹاو</string>
+  <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;کیپیڈ&lt;big&gt;یا&lt;/big&gt;</string>
   <string name="create_account_username_hint">صارف دا ناں</string>
   <string name="login_dont_have_account">تہاݙا کھاتہ کائنی؟</string>
   <string name="login_join_wikipedia">وکی پیڈیا جائن کرو</string>
@@ -79,7 +81,9 @@
   <string name="create_account_password_repeat_hint">پاس ورڈ ولدا لکھو</string>
   <string name="create_account_passwords_mismatch_error">پاس ورڈ ہکو سنویں کائنی</string>
   <string name="create_account_email_error">ای۔میل پتہ درست کائنی</string>
+  <string name="create_account_username_error">ورتݨ آلے ناں وچ غلط اکھر</string>
   <string name="create_account_password_error">پاس ورڈ ٹھیک کائنی</string>
+  <string name="create_account_generic_error">کھاتہ نی کھُل سڳیا</string>
   <string name="create_account_next">اڳوں تے ونڄو</string>
   <string name="create_account_button">کھاتہ کھولو</string>
   <string name="preferences_general_heading">عمومی</string>
@@ -88,12 +92,15 @@
   <string name="zero_wikipedia_zero_heading">وکیپیڈیا زیرو</string>
   <string name="zero_interstitial_title">وکیپیڈیا زیرو کوں چھوڑیندے پئے ہو۔۔۔</string>
   <string name="zero_interstitial_continue">چھوڑو</string>
+  <string name="zero_interstitial_cancel">اتھاہیں رہوو</string>
   <string name="zero_learn_more_learn_more">ٻیا سِکھو</string>
   <string name="zero_learn_more_dismiss">مکاؤ</string>
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_privacy_settings_heading">پرائیویسی</string>
+  <string name="page_protected_can_not_edit_title">ایہ ورقہ محفوظ ہے</string>
   <string name="settings_item_preferences">ترتیباں</string>
   <string name="settings_activity_title">ترتیباں</string>
+  <string name="about_description">وکی پیڈیا ایپ دے بارے</string>
   <string name="privacy_policy_description">پرائیویسی پالیسی</string>
   <string name="terms_of_use_description">ورتݨ شرطاں</string>
   <string name="about_contributors_heading">شراکتاں</string>
@@ -128,6 +135,8 @@
   <string name="menu_gallery_visit_page">فائل ورقے تے ونڄو</string>
   <string name="license_title">%s کیتے لائیسنس</string>
   <string name="gallery_menu_share">شیئر</string>
+  <string name="snippet_share_preview_image_desc">تصویر دی پہلے نمائش</string>
+  <string name="cc_logo">کریئیٹیو کامنز اجازہ</string>
   <string name="captcha_image">کیپچا تصویر</string>
   <string name="gallery_fair_use_license">مناسب استعمال</string>
   <string name="gallery_uploader_unknown">اپلوڈ کرݨ آلا نامعلوم</string>
@@ -158,6 +167,7 @@
   <string name="reading_list_untitled">بلا عنوان</string>
   <string name="reading_list_save_to">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="reading_list_create_new">نواں بݨاؤ</string>
+  <string name="reading_list_added_view_button">فہرست ݙیکھو</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_by_name">ناں نال ترتیب ݙیوو</string>
   <string name="reading_list_menu_delete">تندیر مٹاؤ</string>
@@ -166,6 +176,9 @@
   <string name="reading_list_name_hint">ایں فہرست دا ناں</string>
   <string name="reading_list_description_hint">تفصیلاں(اختیاری)</string>
   <string name="reading_list_item_delete_undo">واپس</string>
+  <string name="reading_lists_onboarding_for_example">مثال دے طور تے</string>
+  <string name="reading_lists_onboarding_example1">ݙیکھݨ کیتے جاہیں</string>
+  <string name="reading_lists_onboarding_example2">پسندیدہ جانور</string>
   <string name="reading_lists_onboarding_got_it">گھن گھندا</string>
   <string name="reading_list_no_description">وضاحت کائنی۔۔۔</string>
   <string name="reading_lists_confirm_remote_delete_yes">جیا</string>

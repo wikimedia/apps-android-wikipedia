@@ -239,6 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">امکان بارگیری مقاله در حالت آفلاین وجود ندارد.</string>
   <string name="page_offline_notice_add_to_reading_list">توجه: افزودن مقاله به فهرست خواندن و زمانی که برخط شدید، دانلود خواهد شد.</string>
   <string name="page_offline_notice_last_date">شما در حال خواندن نسخهٔ آفلاین مقاله هستید که بر روی %s ذخیره شده‌است.</string>
+  <string name="page_offline_notice_compilation_download_date">در حال مطالعهٔ نسخهٔ این مقاله از %1$s • %2$s. هستید.</string>
   <string name="button_get_directions">دریافت مسیر</string>
   <string name="error_no_maps_app">نمی تواند اپلیکیشنی برای یافتن جهت پیدا کند.</string>
   <string name="preference_title_show_link_previews">نمایش پیوند پیش‌نمایش‌ها</string>
