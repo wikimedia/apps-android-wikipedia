@@ -35,6 +35,7 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -150,9 +151,10 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
         if (TextUtils.isEmpty(query)) {
             displayedItems.addAll(allItems);
         } else {
-            query = query.toUpperCase();
+            query = query.toUpperCase(Locale.getDefault());
             for (Compilation c : allItems) {
-                if (c.name().toUpperCase().contains(query.toUpperCase())) {
+                if (c.name().toUpperCase(Locale.getDefault())
+                        .contains(query.toUpperCase(Locale.getDefault()))) {
                     displayedItems.add(c);
                 }
             }

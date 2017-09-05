@@ -11,6 +11,8 @@ import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.SpecialAliasData;
 
+import java.util.Locale;
+
 /** An enumeration describing the different possible namespace codes. Do not attempt to use this
  *  class to preserve URL path information such as Talk: or User: or localization.
  *  @see <a href='https://en.wikipedia.org/wiki/Wikipedia:Namespace'>Wikipedia:Namespace</a>
@@ -78,7 +80,7 @@ public enum Namespace implements EnumCode {
     public String toLegacyString() {
         String string = this == MAIN ? null : this.name();
         if (string != null) {
-            string = StringUtils.capitalize(string.toLowerCase());
+            string = StringUtils.capitalize(string.toLowerCase(Locale.ENGLISH));
         }
         return string;
     }

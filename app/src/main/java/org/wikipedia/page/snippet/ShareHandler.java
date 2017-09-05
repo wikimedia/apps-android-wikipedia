@@ -46,6 +46,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 import retrofit2.Call;
 
@@ -123,7 +124,7 @@ public class ShareHandler {
     }
 
     private void onDefinePayload(String text) {
-        showWiktionaryDefinition(text.toLowerCase());
+        showWiktionaryDefinition(text.toLowerCase(Locale.getDefault()));
     }
 
     private void onEditHerePayload(int sectionID, String text) {

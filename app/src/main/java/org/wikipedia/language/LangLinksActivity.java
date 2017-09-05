@@ -233,13 +233,13 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
         public void setFilterText(String filter) {
             languageEntries.clear();
-            filter = filter.toLowerCase();
+            filter = filter.toLowerCase(Locale.getDefault());
             for (PageTitle entry : originalLanguageEntries) {
                 String languageCode = entry.getWikiSite().languageCode();
                 String canonicalName = defaultString(app.getAppLanguageCanonicalName(languageCode));
                 String localizedName = defaultString(app.getAppLanguageLocalizedName(languageCode));
-                if (canonicalName.toLowerCase().contains(filter)
-                        || localizedName.toLowerCase().contains(filter)) {
+                if (canonicalName.toLowerCase(Locale.getDefault()).contains(filter)
+                        || localizedName.toLowerCase(Locale.getDefault()).contains(filter)) {
                     languageEntries.add(entry);
                 }
             }

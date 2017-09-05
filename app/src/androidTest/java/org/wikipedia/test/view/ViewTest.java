@@ -118,7 +118,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         list.add(locale.toString());
         list.add(layoutDirection == LayoutDirection.RTL ? "rtl" : "ltr");
         list.add("font" + fontScale.multiplier() + "x");
-        list.add(theme.toString().toLowerCase());
+        list.add(theme.toString().toLowerCase(Locale.ENGLISH));
         list.addAll(Arrays.asList(ArrayUtils.nullToEmpty(dataPoints)));
         Screenshot.snap(subject).setName(testName(list)).record();
     }
