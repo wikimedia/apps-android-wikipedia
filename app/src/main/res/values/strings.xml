@@ -360,6 +360,9 @@
     <string name="reading_lists_confirm_remote_delete_yes">Yes</string>
     <string name="reading_lists_confirm_remote_delete_no">No</string>
     <string name="reading_list_article_save_in_progress">The article is being downloaded, and it will be available offline when complete.</string>
+    <string name="reading_list_already_contains_selection">The chosen list already contains all of the selected pages.</string>
+    <string name="reading_list_added_articles_list_untitled">Added %d articles to reading list.</string>
+    <string name="reading_list_added_articles_list_titled">Added %1$d articles to %2$s</string>
     <plurals name="reading_list_article_offline_message">
         <item quantity="one">This article will now be available offline.</item>
         <item quantity="other">These articles will now be available offline.</item>

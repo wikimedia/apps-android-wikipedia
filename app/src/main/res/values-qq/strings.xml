@@ -335,6 +335,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Affirmative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|Yes}}</string>
   <string name="reading_lists_confirm_remote_delete_no">Negative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|No}}</string>
   <string name="reading_list_article_save_in_progress">Message shown when the article is in the process of being downloaded, and is not yet available for offline access.</string>
+  <string name="reading_list_already_contains_selection">Message shown to the user when the user tries to add pages to a reading list but the list already contains all of the chosen pages.</string>
+  <string name="reading_list_added_articles_list_untitled">Message shown when the user adds articles to an unnamed reading list.  The %d symbol is replaced with the number of articles added.</string>
+  <string name="reading_list_added_articles_list_titled">Message shown when the user adds articles to a named reading list.  The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Message shown when a single reading list article is made available for offline use.</item>
     <item quantity="other">Message shown when more than one reading list article is made available for offline use.</item>

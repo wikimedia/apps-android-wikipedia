@@ -41,14 +41,9 @@ import static org.junit.Assert.fail;
 public class TranslationTests {
     private static File RES_BASE = new File("src/main/res/");
 
-    private static final String POSSIBLE_PARAM_FLOAT_FIRST = "%1$.2f";
-    private static final String POSSIBLE_PARAM_FLOAT_SECOND = "%2$.2f";
-    private static final String POSSIBLE_PARAM_FLOAT_THIRD = "%3$.2f";
-
     /** Add more if needed, but then also add some tests. */
     private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d",
-            "%1$d", "%2$d", "%.2f", POSSIBLE_PARAM_FLOAT_FIRST, POSSIBLE_PARAM_FLOAT_SECOND,
-            POSSIBLE_PARAM_FLOAT_THIRD, "^1"};
+            "%1$d", "%2$d", "%.2f", "%1$.2f", "%2$.2f", "%3$.2f", "^1"};
 
     private static final String[] BAD_NAMES = new String[] {"ldrtl", "sw600dp", "sw720dp", "v19", "v21", "v23"};
 
@@ -78,12 +73,10 @@ public class TranslationTests {
             Map<String, String> hasTags = new StringCollector("<", "&lt;").collect(dir.getName(), doc);
             Map<String, String> hasNoTags = new StringCollector("<", "&lt;").not().collect(dir.getName(), doc);
             Map<String, String> hasStringParams = new StringCollector("%s").collect(dir.getName(), doc);
-            Map<String, String> hasTwoStringParams = new StringCollector("%2$s").collect(dir.getName(), doc);
             Map<String, String> hasDecimalParams = new StringCollector("%d").collect(dir.getName(), doc);
-            Map<String, String> hasTwoDecimalParams = new StringCollector("%2$d").collect(dir.getName(), doc);
             Map<String, String> hasFloatParams = new StringCollector("%.2f").collect(dir.getName(), doc);
-            Map<String, String> hasFloatFirstParams = new StringCollector(POSSIBLE_PARAM_FLOAT_FIRST).collect(dir.getName(), doc);
-            Map<String, String> hasFloatThirdParams = new StringCollector(POSSIBLE_PARAM_FLOAT_THIRD).collect(dir.getName(), doc);
+            Map<String, String> hasFloatFirstParams = new StringCollector("%1$.2f").collect(dir.getName(), doc);
+            Map<String, String> hasFloatThirdParams = new StringCollector("%3$.2f").collect(dir.getName(), doc);
             Map<String, String> hasTextUtilTemplateParams = new StringCollector("^1").collect(dir.getName(), doc);
             List<Element> hasPlurals = collectPluralResources(doc);
 
@@ -104,14 +97,8 @@ public class TranslationTests {
                 for (Map.Entry<String, String> entry : hasStringParams.entrySet()) {
                     checkTranslationHasParameter(lang, entry, "%s", "[stringParam]", null);
                 }
-                for (Map.Entry<String, String> entry : hasTwoStringParams.entrySet()) {
-                    checkTranslationHasTwoParameters(lang, entry, "%s", "[stringParam1]", "[stringParam2]");
-                }
                 for (Map.Entry<String, String> entry : hasDecimalParams.entrySet()) {
                     checkTranslationHasParameter(lang, entry, "%d", 42, null);
-                }
-                for (Map.Entry<String, String> entry : hasTwoDecimalParams.entrySet()) {
-                    checkTranslationHasTwoParameters(lang, entry, "%d", 42, 8675309);
                 }
                 for (Map.Entry<String, String> entry : hasFloatParams.entrySet()) {
                     checkTranslationHasParameter(lang, entry, "%.2f", .27f, "0,27");
@@ -119,7 +106,7 @@ public class TranslationTests {
                 for (Map.Entry<String, String> entry : hasFloatFirstParams.entrySet()) {
                     float input = 1.23f;
                     String expected = NumberFormat.getInstance(locale).format(input);
-                    if (entry.getValue().contains(POSSIBLE_PARAM_FLOAT_SECOND)) {
+                    if (entry.getValue().contains("%2$.2f")) {
                         testTranslation(lang, entry, expected, input, input);
                     } else {
                         testTranslation(lang, entry, expected, input);
@@ -192,19 +179,6 @@ public class TranslationTests {
         String msg = lang + ":" + entry.getKey() + " = \"" + subject + "\"";
         if (StringUtils.indexOfAny(subject, (CharSequence[]) expectedAny) < 0) {
             msg += " is missing any of \"" + Arrays.toString(expectedAny) + "\"";
-            L.e(msg);
-            mismatches.append(msg).append("\n");
-        }
-    }
-
-    private void checkTranslationHasTwoParameters(String lang, Map.Entry<String, String> entry,
-                                                  String paramName, Object val1, Object val2) {
-        String subject = String.format(new Locale(lang), entry.getValue(), val1, val2, null);
-        if (!subject.contains(String.format(paramName, val1))
-                || !subject.contains(String.format(paramName, val2))) {
-            final String msg = lang + ":" + entry.getKey() + " = " + subject
-                    + " is missing " + val1
-                    + " or " + val2;
             L.e(msg);
             mismatches.append(msg).append("\n");
         }
