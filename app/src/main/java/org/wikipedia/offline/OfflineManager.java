@@ -172,8 +172,11 @@ public final class OfflineManager {
     }
 
     @NonNull public String getMainPageTitle(@NonNull Compilation compilation) throws IOException {
+        // The compilation parameter can be a "remote" compilation (i.e. nonempty URI but empty
+        // path, or a local compilation unmarshalled from an Intent (i.e. empty URI but nonempty
+        // path), so let's match our known compilations on both of these fields.
         for (Compilation c : compilations) {
-            if (c.pathNameMatchesUri(compilation.uri())) {
+            if (c.pathNameMatchesUri(compilation.uri()) || c.path().equals(compilation.path())) {
                 return c.getMainPageTitle();
             }
         }
