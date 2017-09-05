@@ -1,6 +1,8 @@
 package org.wikipedia.theme;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,73 +13,48 @@ import com.squareup.otto.Subscribe;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.settings.Prefs;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
+    @BindView(R.id.buttonDefaultTextSize) TextView buttonDefaultTextSize;
+    @BindView(R.id.buttonDecreaseTextSize) TextView buttonDecreaseTextSize;
+    @BindView(R.id.buttonIncreaseTextSize) TextView buttonIncreaseTextSize;
+    @BindView(R.id.buttonColorsLight) TextView buttonThemeLight;
+    @BindView(R.id.buttonColorsDark) TextView buttonThemeDark;
+    @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
+    @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
+
+    public interface Callback {
+        void onToggleDimImages();
+    }
+
+    private enum FontSizeAction { INCREASE, DECREASE, RESET }
+
     private WikipediaApp app;
-    private TextView buttonDefaultTextSize;
-    private TextView buttonDecreaseTextSize;
-    private TextView buttonIncreaseTextSize;
-    private TextView buttonThemeLight;
-    private TextView buttonThemeDark;
-    private ProgressBar fontChangeProgressBar;
-    private boolean updatingFont = false;
+    private Unbinder unbinder;
     private AppearanceChangeFunnel funnel;
 
+    private boolean updatingFont = false;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_themechooser, container);
-
-        buttonDecreaseTextSize = (TextView) rootView.findViewById(R.id.buttonDecreaseTextSize);
-        buttonDecreaseTextSize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updatingFont = true;
-                float currentSize = app.getFontSize(getDialog().getWindow());
-                app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1);
-                updateButtonState();
-                funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
-            }
-        });
-
-        buttonDefaultTextSize = (TextView) rootView.findViewById(R.id.buttonDefaultTextSize);
-        buttonDefaultTextSize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updatingFont = true;
-                float currentSize = app.getFontSize(getDialog().getWindow());
-                app.setFontSizeMultiplier(0);
-                updateButtonState();
-                funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
-            }
-        });
-
-        buttonIncreaseTextSize = (TextView) rootView.findViewById(R.id.buttonIncreaseTextSize);
-        buttonIncreaseTextSize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updatingFont = true;
-                float currentSize = app.getFontSize(getDialog().getWindow());
-                app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1);
-                updateButtonState();
-                funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
-            }
-        });
-
-        ThemeOnClickListener themeOnClickListener = new ThemeOnClickListener();
-        buttonThemeLight = (TextView) rootView.findViewById(R.id.buttonColorsLight);
-        buttonThemeLight.setOnClickListener(themeOnClickListener);
-
-        buttonThemeDark = (TextView) rootView.findViewById(R.id.buttonColorsDark);
-        buttonThemeDark.setOnClickListener(themeOnClickListener);
-
-        fontChangeProgressBar = (ProgressBar) rootView.findViewById(R.id.font_change_progress_bar);
-
-        updateButtonState();
+        unbinder = ButterKnife.bind(this, rootView);
+        buttonDecreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.DECREASE));
+        buttonDefaultTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.RESET));
+        buttonIncreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.INCREASE));
+        buttonThemeLight.setOnClickListener(new ThemeButtonListener(Theme.LIGHT));
+        buttonThemeDark.setOnClickListener(new ThemeButtonListener(Theme.DARK));
+        updateComponents();
         disableBackgroundDim();
         return rootView;
     }
@@ -91,6 +68,12 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         app.getBus().unregister(this);
@@ -98,10 +81,26 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     @Subscribe public void on(WebViewInvalidateEvent event) {
         updatingFont = false;
-        updateButtonState();
+        updateComponents();
     }
 
-    private void updateButtonState() {
+    @OnClick(R.id.theme_chooser_dark_mode_dim_images_switch)
+    void onToggleDimImages() {
+        boolean enabled = Prefs.shouldDimDarkModeImages();
+        Prefs.setDimDarkModeImages(!enabled);
+        if (callback() != null) {
+            // noinspection ConstantConditions
+            callback().onToggleDimImages();
+        }
+    }
+
+    private void updateComponents() {
+        updateFontSize();
+        updateThemeButtons();
+        updateDimImagesSwitch();
+    }
+
+    private void updateFontSize() {
         int mult = Prefs.getTextSizeMultiplier();
         if (updatingFont) {
             fontChangeProgressBar.setVisibility(View.VISIBLE);
@@ -120,27 +119,59 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
                 buttonIncreaseTextSize.setEnabled(mult < WikipediaApp.FONT_SIZE_MULTIPLIER_MAX);
             }
         }
+    }
 
+    private void updateThemeButtons() {
         buttonThemeLight.setActivated(app.isCurrentThemeLight());
         buttonThemeDark.setActivated(app.isCurrentThemeDark());
     }
 
-    private class ThemeOnClickListener implements View.OnClickListener {
+    private void updateDimImagesSwitch() {
+        dimImagesSwitch.setChecked(Prefs.shouldDimDarkModeImages());
+        dimImagesSwitch.setEnabled(app.getCurrentTheme() == Theme.DARK);
+    }
+
+    private final class ThemeButtonListener implements View.OnClickListener {
+        private Theme theme;
+
+        private ThemeButtonListener(Theme theme) {
+            this.theme = theme;
+        }
+
         @Override
-        public void onClick(View view) {
-            Theme theme = getThemeChoiceForButton(view);
+        public void onClick(View v) {
             if (app.getCurrentTheme() != theme) {
-                funnel.logThemeChange(app.getCurrentTheme(), theme);
                 app.setCurrentTheme(theme);
+                funnel.logThemeChange(app.getCurrentTheme(), theme);
             }
         }
+    }
 
-        private Theme getThemeChoiceForButton(View view) {
-            return isButtonForLightTheme(view) ? Theme.LIGHT : Theme.DARK;
+    private final class FontSizeButtonListener implements View.OnClickListener {
+        private FontSizeAction action;
+
+        private FontSizeButtonListener(FontSizeAction action) {
+            this.action = action;
         }
 
-        private boolean isButtonForLightTheme(View view) {
-            return view == buttonThemeLight;
+        @Override
+        public void onClick(View view) {
+            updatingFont = true;
+            float currentSize = app.getFontSize(getDialog().getWindow());
+            if (action == FontSizeAction.INCREASE) {
+                app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1);
+            } else if (action == FontSizeAction.DECREASE) {
+                app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1);
+            } else if (action == FontSizeAction.RESET) {
+                app.setFontSizeMultiplier(0);
+            }
+            updateFontSize();
+            funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
         }
+    }
+
+    @Nullable
+    public Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }

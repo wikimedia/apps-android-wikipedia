@@ -79,7 +79,8 @@ import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, SearchFragment.Callback, WiktionaryDialog.Callback {
+        LinkPreviewDialog.Callback, SearchFragment.Callback, ThemeChooserDialog.Callback,
+        WiktionaryDialog.Callback {
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
@@ -650,6 +651,12 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public boolean shouldShowTabList() {
         return getIntent() != null && ACTION_SHOW_TAB_LIST.equals(getIntent().getAction());
+    }
+
+    @Override
+    public void onToggleDimImages() {
+        pageFragment.getDarkModeMarshaller().toggleDimImages();
+        pageFragment.refreshPage(pageFragment.getWebView().getScrollY());
     }
 
     private void copyLink(@NonNull String url) {

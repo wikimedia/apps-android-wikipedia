@@ -149,20 +149,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
-    @Nullable private PageInfo pageInfo;
+    private PageInfo pageInfo;
 
     /**
      * List of tabs, each of which contains a backstack of page titles.
      * Since the list consists of Parcelable objects, it can be saved and restored from the
      * savedInstanceState of the fragment.
      */
-    @NonNull
-    private final List<Tab> tabList = new ArrayList<>();
+    @NonNull private final List<Tab> tabList = new ArrayList<>();
 
-    @NonNull
-    private TabFunnel tabFunnel = new TabFunnel();
+    @NonNull private TabFunnel tabFunnel = new TabFunnel();
 
-    @Nullable
     private PageScrollFunnel pageScrollFunnel;
     private LeadImagesHandler leadImagesHandler;
     private PageToolbarHideHandler toolbarHideHandler;
@@ -171,12 +168,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private WikiPageErrorView errorView;
     private WikiDrawerLayout tocDrawer;
     private ConfigurableTabLayout tabLayout;
-
+    private ToCHandler tocHandler;
     private CommunicationBridge bridge;
+    private DarkModeMarshaller darkModeMarshaller;
     private LinkHandler linkHandler;
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
-    @NonNull private ShareHandler shareHandler;
+    private ShareHandler shareHandler;
     private TabsProvider tabsProvider;
     private ActiveTimer activeTimer = new ActiveTimer();
 
@@ -358,12 +356,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.setBackgroundColor(getThemedColor(getActivity(), R.attr.page_background_color));
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
+        darkModeMarshaller = new DarkModeMarshaller(bridge);
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
         // make sure styles get injected before the DarkModeMarshaller and other handlers
         if (app.isCurrentThemeDark()) {
-            new DarkModeMarshaller(bridge).turnOn();
+            darkModeMarshaller.turnOn();
         }
 
         errorView.setRetryClickListener(new View.OnClickListener() {
@@ -628,11 +627,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
                          boolean pushBackStack, int stagedScrollY) {
         loadPage(title, entry, pushBackStack, stagedScrollY, false);
-    }
-
-    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
-                         boolean pushBackStack, boolean pageRefreshed) {
-        loadPage(title, entry, pushBackStack, 0, pageRefreshed);
     }
 
     /**
@@ -951,6 +945,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void refreshPage() {
+        refreshPage(0);
+    }
+
+    public void refreshPage(int stagedScrollY) {
         if (pageFragmentLoadState.isLoading()) {
             refreshView.setRefreshing(false);
             return;
@@ -962,10 +960,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorState = false;
 
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
-        loadPage(model.getTitle(), model.getCurEntry(), false, true);
+        loadPage(model.getTitle(), model.getCurEntry(), false, stagedScrollY, true);
     }
 
-    private ToCHandler tocHandler;
     public void toggleToC(int action) {
         // tocHandler could still be null while the page is loading
         if (tocHandler == null) {
@@ -988,6 +985,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             default:
                 throw new RuntimeException("Unknown action!");
         }
+    }
+
+    CommunicationBridge getBridge() {
+        return bridge;
+    }
+
+    DarkModeMarshaller getDarkModeMarshaller() {
+        return darkModeMarshaller;
     }
 
     private void setupToC(@NonNull PageViewModel model, boolean isFirstPage) {

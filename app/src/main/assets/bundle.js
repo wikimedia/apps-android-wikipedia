@@ -130,6 +130,10 @@ bridge.registerListener( 'toggleDarkMode', function( payload ) {
     pagelib.ThemeTransform.setTheme( document, theme );
     pagelib.DimImagesTransform.dim( window, window.isDarkMode && payload.dimImages );
 } );
+
+bridge.registerListener( 'toggleDimImages', function( payload ) {
+    pagelib.DimImagesTransform.dim( window, payload.dimImages );
+} );
 },{"./bridge":2,"wikimedia-page-library":19}],4:[function(require,module,exports){
 var actions = require('./actions');
 var bridge = require('./bridge');

@@ -30,9 +30,16 @@ public class DarkModeMarshaller {
     }
 
     /**
-     * Turn on dark mode
+     * Update dark mode and image dimming styles
      */
     public void turnOn() {
         bridge.sendMessage("toggleDarkMode", getPayload());
+    }
+
+    /**
+     * Update image dimming style only
+     */
+    public void toggleDimImages() {
+        bridge.sendMessage("toggleDimImages", getPayload());
     }
 }
