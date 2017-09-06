@@ -59,7 +59,7 @@ public class DescriptionEditClient {
             }
             return false;
         } else {
-            return Arrays.asList("en", "de", "it", "fr", "es", "ja", "nl", "pt", "tr", "zh-hant")
+            return Arrays.asList("en", "de", "it", "fr", "es", "ja", "nl", "pt", "tr", "zh-hant", "zh-hans")
                     .contains(lang);
         }
     }
