@@ -189,7 +189,14 @@
             android:name=".offline.LocalCompilationsActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content" android:mimeType="application/zim" />
+                <data android:scheme="file" android:pathPattern=".*\\.zim" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".offline.RemoteCompilationsActivity"
