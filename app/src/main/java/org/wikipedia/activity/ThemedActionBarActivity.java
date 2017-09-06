@@ -28,10 +28,6 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
         busMethods = new EventBusMethods();
         WikipediaApp.getInstance().getBus().register(busMethods);
 
-        // todo: move this down into subclasses or always support all orientations and move this up
-        //       to BaseActivity
-        requestFullUserOrientation();
-
         setTheme();
         removeSplashBackground();
 
