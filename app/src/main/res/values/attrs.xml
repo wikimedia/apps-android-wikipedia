@@ -43,6 +43,8 @@
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />
 
+    <attr name="blue_switch" format="reference" />
+
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />
     </declare-styleable>

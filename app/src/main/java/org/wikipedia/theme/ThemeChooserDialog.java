@@ -128,7 +128,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     private void updateDimImagesSwitch() {
         dimImagesSwitch.setChecked(Prefs.shouldDimDarkModeImages());
-        dimImagesSwitch.setEnabled(app.getCurrentTheme() == Theme.DARK);
+        dimImagesSwitch.setClickable(app.getCurrentTheme() == Theme.DARK);
     }
 
     private final class ThemeButtonListener implements View.OnClickListener {
