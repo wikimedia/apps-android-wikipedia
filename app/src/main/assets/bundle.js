@@ -311,6 +311,7 @@ bridge.registerListener( "getTextSelection", function( payload ) {
 function setWindowAttributes( payload ) {
     document.head.getElementsByTagName("base")[0].setAttribute("href", payload.siteBaseUrl);
 
+    window.sequence = payload.sequence;
     window.apiLevel = payload.apiLevel;
     window.string_table_infobox = payload.string_table_infobox;
     window.string_table_other = payload.string_table_other;
@@ -376,8 +377,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     if (!issuesContainer.hasChildNodes()) {
         document.getElementById( "content" ).removeChild(issuesContainer);
     }
-
-    scrolledOnLoad = false;
 });
 
 function clearContents() {
@@ -441,36 +440,63 @@ function applySectionTransforms( content, isLeadSection ) {
     }
 }
 
-var scrolledOnLoad = false;
+function displayRemainingSections(json, sequence, scrollY, fragment) {
+    var contentWrapper = document.getElementById( "content" );
+    var scrolled = false;
 
-bridge.registerListener( "displaySection", function ( payload ) {
-    if ( payload.noMore ) {
-        // if we still haven't scrolled to our target offset (if we have one),
-        // then do it now.
-        if (payload.scrollY > 0 && !scrolledOnLoad) {
-            window.scrollTo( 0, payload.scrollY );
-            scrolledOnLoad = true;
-        }
-        document.getElementById( "loading_sections").className = "";
-        lazyLoadTransformer.loadPlaceholders();
-        bridge.sendMessage( "pageLoadComplete", {
-          "sequence": payload.sequence });
-    } else {
-        var contentWrapper = document.getElementById( "content" );
-        elementsForSection(payload.section).forEach(function (element) {
+    json.sections.forEach(function (section) {
+        elementsForSection(section).forEach(function (element) {
             contentWrapper.appendChild(element);
             // do we have a y-offset to scroll to?
-            if (payload.scrollY > 0 && payload.scrollY < element.offsetTop && !scrolledOnLoad) {
-                window.scrollTo( 0, payload.scrollY );
-                scrolledOnLoad = true;
+            if (scrollY > 0 && scrollY < element.offsetTop && !scrolled) {
+                window.scrollTo( 0, scrollY );
+                scrolled = true;
             }
         });
         // do we have a section to scroll to?
-        if ( typeof payload.fragment === "string" && payload.fragment.length > 0 && payload.section.anchor === payload.fragment) {
-            scrollToSection( payload.fragment );
+        if ( typeof fragment === "string" && fragment.length > 0 && section.anchor === fragment) {
+            scrollToSection( fragment );
         }
-        bridge.sendMessage( "requestSection", { "sequence": payload.sequence, "index": payload.section.id + 1 });
+    });
+
+    // if we still haven't scrolled to our target offset (if we have one), then do it now.
+    if (scrollY > 0 && !scrolled) {
+        window.scrollTo( 0, scrollY );
     }
+    document.getElementById( "loading_sections").className = "";
+    bridge.sendMessage( "pageLoadComplete", { "sequence": sequence });
+}
+
+var remainingRequest;
+
+bridge.registerListener( "queueRemainingSections", function ( payload ) {
+    if (remainingRequest) {
+        remainingRequest.abort();
+    }
+    remainingRequest = new XMLHttpRequest();
+    remainingRequest.open('GET', payload.url);
+    remainingRequest.sequence = payload.sequence;
+    remainingRequest.scrollY = payload.scrollY;
+    remainingRequest.fragment = payload.fragment;
+    if (window.apiLevel >= 19 && window.responseType !== 'json') {
+        remainingRequest.responseType = 'json';
+    }
+    remainingRequest.onreadystatechange = function() {
+        if (this.readyState !== XMLHttpRequest.DONE) {
+            return;
+        }
+        if (this.status !== 200) {
+            bridge.sendMessage( "loadRemainingError", { "status": this.status, "sequence": this.sequence });
+            return;
+        }
+        if (this.sequence !== window.sequence) {
+            return;
+        }
+        // On API <19, the XMLHttpRequest does not support responseType = json,
+        // so we have to call JSON.parse() ourselves.
+        displayRemainingSections(window.apiLevel >= 19 ? this.response : JSON.parse(this.response), this.sequence, this.scrollY, this.fragment);
+    };
+    remainingRequest.send();
 });
 
 // -- Begin custom processing of ZIM html data --

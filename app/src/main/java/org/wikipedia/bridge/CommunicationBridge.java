@@ -32,7 +32,7 @@ public class CommunicationBridge {
 
     private final BridgeMarshaller marshaller;
 
-    private boolean isDOMReady = false;
+    private boolean isDOMReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
 
     public interface JSEventListener {
@@ -45,6 +45,7 @@ public class CommunicationBridge {
         this.marshaller = new BridgeMarshaller();
 
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
 
         webView.setWebChromeClient(new CommunicatingChrome());
         webView.addJavascriptInterface(marshaller, "marshaller");
