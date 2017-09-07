@@ -76,6 +76,7 @@
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_light</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>
+        <item name="blue_switch">@style/BlueSwitchLight</item>
 
     </style>
 
@@ -91,6 +92,14 @@
 
     <style name="Theme.Light.PopupMenuStyle" parent="Widget.AppCompat.Light.PopupMenu">
         <item name="overlapAnchor">true</item>
+    </style>
+
+    <style name="BlueSwitchLight">
+        <item name="colorControlActivated">@color/base90</item>
+        <item name="colorSwitchThumbNormal">@color/base90</item>
+        <item name="android:colorForeground">@color/base30</item>
+        <item name="trackTint">@color/base70</item>
+        <item name="trackTintMode">src_in</item>
     </style>
 
 </resources>

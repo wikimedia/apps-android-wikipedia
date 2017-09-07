@@ -75,6 +75,8 @@
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_dark</item>
         <item name="searchItemBackground">@color/base12</item>
         <item name="cardBackgroundColor">@color/base14</item>
+        <item name="blue_switch">@style/BlueSwitchDark</item>
+
     </style>
 
     <style name="Theme.Dark.Dialog.Alert" parent="Theme.AppCompat.Dialog.Alert">
@@ -89,6 +91,12 @@
 
     <style name="Theme.Dark.PopupMenuStyle" parent="Widget.AppCompat.PopupMenu">
         <item name="overlapAnchor">true</item>
+    </style>
+
+    <style name="BlueSwitchDark">
+        <item name="colorControlActivated">@color/accent75</item>
+        <item name="colorSwitchThumbNormal">@color/base90</item>
+        <item name="android:colorForeground">@color/base30</item>
     </style>
 
 </resources>
