@@ -7,9 +7,9 @@
   <string name="search_hint">विकिपीडिया में खोजें</string>
   <string name="search_hint_search_history">इतिहास खोजें</string>
   <string name="search_hint_search_my_lists">मेरी सूचियाँ खोजें</string>
-  <string name="search_hint_search_reading_list">पठन सूची खोजें</string>
+  <string name="search_hint_search_reading_list">रीडिंग सूची खोजें</string>
   <string name="nav_item_history">इतिहास</string>
-  <string name="error_network_error">इंटरनेट से जोड़ा नहीं जा सकता है।</string>
+  <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="page_error_back_to_main">वापस जाएँ</string>
   <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
@@ -17,7 +17,7 @@
   <string name="history_items_deleted">%d लेख इतिहास से हटाए गए</string>
   <string name="history_item_delete_undo">पूर्ववत करें</string>
   <string name="dialog_title_clear_history">ब्राउज़िंग इतिहास साफ़ करें</string>
-  <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करेंगे?</string>
+  <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करना चाहेंगे?</string>
   <string name="dialog_message_clear_history_yes">हाँ</string>
   <string name="dialog_message_clear_history_no">नहीं</string>
   <string name="nav_item_saved_pages">सहेजे गये पृष्ठ</string>
@@ -27,12 +27,12 @@
   <string name="menu_page_other_languages">भाषा बदलें</string>
   <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="menu_page_content_issues">सामग्री समस्या</string>
-  <string name="menu_page_font_and_theme">अक्षर और विषय</string>
+  <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
   <string name="menu_page_add_to_list">पठन सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
-  <string name="menu_long_press_copy_page">कड़ी का पता कॉपी करें</string>
+  <string name="menu_long_press_copy_page">लिंक एड्रेस को कॉपी करें</string>
   <string name="menu_text_select_copy">कॉपी</string>
   <string name="menu_text_select_define">परिभाषित करें</string>
   <string name="menu_text_select_share">साझा करें</string>
@@ -63,7 +63,7 @@
   <string name="menu_show_toc">सामग्री सूची</string>
   <string name="search_no_results_found">कोई परिणाम नहीं मिले</string>
   <string name="search_reading_list_no_results">\"%s\" में कोई परिणाम नहीं मिले</string>
-  <string name="search_reading_lists_no_results">पठन सूची में कोई परिणाम नहीं मिले</string>
+  <string name="search_reading_lists_no_results">रीडिंग सूची में कोई परिणाम नहीं मिले</string>
   <string name="search_history_no_results">इतिहास में कोई परिणाम नहीं मिले</string>
   <string name="edit_section_captcha_message">स्वचालित स्पैम से बचने के लिए कृपया नीचे दिखाये गए शब्दों को लिखें</string>
   <string name="edit_section_captcha_hint">ऊपर से शब्दों को दोहराएँ।</string>
@@ -237,7 +237,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
   <string name="page_offline_notice_add_to_reading_list">सहायता: लेख को अपनी पढ़ने वाली सूची में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
   <string name="page_offline_notice_last_date">आप %s पर सहेजे गए लेख का ऑफ़लाइन वर्ज़न पढ़ रहे हैं।</string>
-  <string name="page_offline_notice_compilation_download_date" fuzzy="true">आप %1$s • %2$s पर डाउनलोड किए गए संकलन से इस आलेख के एक ऑफ़लाइन संस्करण को पढ़ रहे हैं।</string>
+  <string name="page_offline_notice_compilation_download_date">आप इस लेख के इस वर्ज़न को %1$s • %2$s में से पढ़ रहे हैं।</string>
   <string name="button_get_directions">दिशानिर्देश पाएं</string>
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>
   <string name="preference_title_show_link_previews">कड़ी की झलक दिखायें</string>
@@ -428,11 +428,11 @@
   <string name="offline_compilation_detail_date_size">%1$s · %2$.2f जीबी</string>
   <string name="offline_compilation_detail_button_download">डाउनलोड · %.2f जीबी</string>
   <string name="offline_compilation_detail_button_remove">निकालें</string>
-  <string name="remote_compilation_download">अधोभारण</string>
+  <string name="remote_compilation_download">डाउनलोड</string>
   <string name="storage_size_gb">जीबी</string>
-  <string name="storage_size_free">%.2f जीबी बचा है</string>
+  <string name="storage_size_free">%.2f जीबी खाली</string>
   <string name="storage_used_by_compilations">विकीपीडिया द्वारा प्रयुक्त</string>
-  <string name="storage_other_apps">अन्य अनुप्रयोग</string>
+  <string name="storage_other_apps">अन्य एप्लीकेशन्स</string>
   <string name="offline_compilation_download_progress_text">%1$.2f जीबी / %2$.2f जीबी</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 मिनट बाकी</item>
@@ -444,11 +444,11 @@
   <string name="compilation_download_cancel_confirm_no">नहीं</string>
   <string name="compilation_share">साझा करें</string>
   <string name="compilation_remove">हटायें</string>
-  <string name="compilation_remove_confirm">क्या आप वाकई इसे अपनी डिवाइस से हटाना चाहते हैं?</string>
-  <string name="offline_library_title">ऑफलाइन पुस्तकालय</string>
-  <string name="offline_library_empty_title">आपके ऑफलाइन पुस्तकालय में कुछ भी नहीं</string>
-  <string name="offline_library_empty_description">बाद में डेटा-मुक्त पहुंच के लिए, विकिपीडिया के लेखों का एक पैकेट अब अधोभारित करने के लिए चुनें।</string>
-  <string name="offline_library_empty_search">ऑफलाइन पुस्तकालय ढूंढें</string>
+  <string name="compilation_remove_confirm">क्या आप इसे अपनी ऑफलाइन लाइब्रेरी से हटाना चाहते हैं?</string>
+  <string name="offline_library_title">ऑफलाइन लाइब्रेरी</string>
+  <string name="offline_library_empty_title">आपके ऑफलाइन लाइब्रेरी में कुछ भी नहीं है</string>
+  <string name="offline_library_empty_description">बाद में डेटा-मुक्त पहुंच के लिए, विकिपीडिया के लेखों का एक पैकेट अब डाउनलोड करने के लिए चुनें।</string>
+  <string name="offline_library_empty_search">ऑफलाइन लाइब्रेरी ढूंढें</string>
   <string name="offline_library_search_results_state">अपने ऑफलाइन पुस्तकालय से परिणाम ढूंढें</string>
   <string name="offline_library_onboarding_action">और अधिक जानकारी प्राप्त करें</string>
   <string name="offline_library_onboarding_text">ऑफ़लाइन पुस्तकालय का परिचय - अब बाद में ऑफलाइन पढ़ने के लिए आलेख डाउनलोड करें।</string>

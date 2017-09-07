@@ -255,6 +255,7 @@
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
   <string name="reference_title">각주 %s</string>
+  <string name="preference_summary_dim_dark_mode_images">어두운 테마를 사용할 때 그림의 밝기를 낮춥니다</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>
@@ -333,6 +334,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">예</string>
   <string name="reading_lists_confirm_remote_delete_no">아니오</string>
   <string name="reading_list_article_save_in_progress">이 문서는 다운로드 중이며, 완료되면 오프라인 상태에서 읽을 수 있습니다.</string>
+  <string name="reading_list_already_contains_selection">선택된 목록은 이미 선택된 모든 문서를 포함하고 있습니다.</string>
+  <string name="reading_list_added_articles_list_untitled">읽기 목록에 %d개의 문서가 추가되었습니다.</string>
+  <string name="reading_list_added_articles_list_titled">%1$d개의 문서가 %2$s에 추가되었습니다</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
     <item quantity="other">이 글들은 이제 오프라인에서 읽을 수 있습니다.</item>

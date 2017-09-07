@@ -312,6 +312,8 @@
   <string name="reading_list_login_reminder_text">Вашите списъци за четене могат да бъдат запазвани във вашата сметка в Уикипедия. Влезте в сметката си и вашите списъци за четене ще бъдат синхронизирани автоматично.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
+  <string name="reading_list_added_articles_list_untitled">Добавени %d статии в списъка за четене.</string>
+  <string name="reading_list_added_articles_list_titled">Добавени %1$d статии в %2$s</string>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_reverted_title">Отменена редакция</string>
   <string name="notification_reverted">Ваша редакция на страница &lt;strong&gt;%2$s&lt;/strong&gt; е върната от &lt;em&gt;%1$s&lt;/em&gt;.</string>

@@ -257,6 +257,9 @@
   <string name="error_page_does_not_exist">Denne side findes ikke.</string>
   <string name="view_wiki_error_message_offline">Kan ikke oprette forbindelse til internet</string>
   <string name="reference_title">Reference %s</string>
+  <string name="preference_title_dim_dark_mode_images">Mørklæg billeder i et mørkt tema</string>
+  <string name="preference_summary_dim_dark_mode_images">Reducer lysstyrken for billeder når der bruges et mørkt tema</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Billedmørklægning (i mørkt tema)</string>
   <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
   <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
   <string name="crash_report_dialog_dont_send_button">Spring over</string>
@@ -335,6 +338,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artiklen hentes og vil være tilgængelig lokalt når færdig.</string>
+  <string name="reading_list_already_contains_selection">Den valgte liste indeholder allerede alle de valgte sider.</string>
+  <string name="reading_list_added_articles_list_untitled">Tilføjede %d artikler til læselisten.</string>
+  <string name="reading_list_added_articles_list_titled">Tilføjede %1$d artikler til %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikel vil nu være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil nu være tilgængelige lokalt.</item>

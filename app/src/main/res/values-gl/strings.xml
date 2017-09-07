@@ -239,7 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">O artigo non se pode cargar mentres non haxa conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Pistaː Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
   <string name="page_offline_notice_last_date">Está lendo unha versión sen conexión deste artigo gardado o %s.</string>
-  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Está lendo unha versión sen conexión deste artigo, dunha recompilación descargada o %1$s • %2$s.</string>
+  <string name="page_offline_notice_compilation_download_date">Está lendo a versión deste artigo de %1$s • %2$s.</string>
   <string name="button_get_directions">Obter as direccións</string>
   <string name="error_no_maps_app">Imposible atopar unha aplicación que proporcione as direccións.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>
@@ -257,6 +257,9 @@
   <string name="error_page_does_not_exist">Esta páxina non existe</string>
   <string name="view_wiki_error_message_offline">Non se puido conectar a Internet</string>
   <string name="reference_title">Referencia %s</string>
+  <string name="preference_title_dim_dark_mode_images">Atenuar imaxes no tema obscuro</string>
+  <string name="preference_summary_dim_dark_mode_images">Reducir a luminosidade das imaxes cando se use o tema obscuro</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imaxe (no tema obscuro)</string>
   <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
   <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -335,6 +338,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Si</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
+  <string name="reading_list_already_contains_selection">A lista escollida xa contén tódalas páxinas seleccionadas.</string>
+  <string name="reading_list_added_articles_list_untitled">Engadidos %d artigos á lista de lectura.</string>
+  <string name="reading_list_added_articles_list_titled">Engadidos %1$d artigos a %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
     <item quantity="other">Agora estes artigos estarán dispoñibles sen conexión.</item>
@@ -419,16 +425,16 @@
   <string name="description_edit_revert_history">Se está interesado, consulte o &lt;a href=\"%1$s\"&gt;historial de edición&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
   <string name="offline_read_permission_error">Non tes permiso para ler dende o almacenamento deste dispositivo.</string>
-  <string name="offline_card_text" fuzzy="true">Agora está navegando por Wikipedia en modo sen conexión. Por favor, teña en conta que os artigos sen conexión pode que non estean totalmente actualizados coa versión con conexión.</string>
-  <string name="offline_my_compilations" fuzzy="true">As miñas recompilacións</string>
-  <string name="offline_compilations_title" fuzzy="true">Recompilacións sen conexión</string>
-  <string name="offline_compilations_search_by_name" fuzzy="true">Procurar compilacións por nome</string>
-  <string name="offline_compilations_found_count" fuzzy="true">As miñas recompilacións(%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Engadir recompilacións sen conexión</string>
-  <string name="remote_compilations_title" fuzzy="true">Tódalas recompilacións</string>
-  <string name="remote_compilations_description" fuzzy="true">As recompilacións sen conexión son grandes grupos de artigos que poden descargarse como un ficheiro ó seu dispositivo, para que poida continuar navegando cando non teña conexión.</string>
+  <string name="offline_card_text">Agora está navegando por Wikipedia sen conexión con artigos da súa Biblioteca sen conexión.</string>
+  <string name="offline_my_compilations">Xestionar a miña biblioteca sen conexión</string>
+  <string name="offline_compilations_title">Biblioteca sen conexión</string>
+  <string name="offline_compilations_search_by_name">Procurar paquetes de artigos por nome</string>
+  <string name="offline_compilations_found_count">Na miña biblioteca (%d)</string>
+  <string name="offline_compilations_add">Engadir á miña biblioteca sen conexión</string>
+  <string name="remote_compilations_title">Biblioteca sen conexión</string>
+  <string name="remote_compilations_description">A Biblioteca sen conexión permítelle descargar paquetes de artigos para lelos cando non teña conexión a Internet dispoñible.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download" fuzzy="true">Descarga · %.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eliminar</string>
   <string name="remote_compilation_download">Descargar</string>
   <string name="storage_size_gb">GB</string>
@@ -441,14 +447,26 @@
     <item quantity="other">faltan %d minutos</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Cancelar a descarga</string>
-  <string name="compilation_download_cancel_confirm" fuzzy="true">Está seguro que quere cancelar a descarga desta compilación?</string>
+  <string name="compilation_download_cancel_confirm">Está seguro que quere cancelar a descarga deste paquete de artigos?</string>
   <string name="compilation_download_cancel_confirm_yes">Si</string>
   <string name="compilation_download_cancel_confirm_no">Non</string>
+  <string name="compilation_share">Compartir</string>
+  <string name="compilation_remove">Eliminar</string>
+  <string name="compilation_remove_confirm">Quere quitar este artigo da súa biblioteca sen conexión?</string>
   <string name="offline_library_title">Biblioteca sen conexión</string>
   <string name="offline_library_empty_title">Nada na súa biblioteca sen conexión</string>
   <string name="offline_library_empty_description">Escolla un paquete de artigos de Wikipedia para descargar agora, para acceder logo sen cargo de datos.</string>
   <string name="offline_library_empty_search">Buscar na biblioteca sen conexión</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">Aprenda sobre a súa biblioteca sen conexión</string>
+  <string name="offline_library_search_results_state">Resultados de procura da súa biblioteca sen conexión</string>
+  <string name="offline_library_onboarding_action">Máis información</string>
+  <string name="offline_library_onboarding_text">Presentamos a Biblioteca sen conexión: descargue paquetes de artigos para lelos despois sen conexión.</string>
+  <string name="offline_library_onboarding_button_done">Feito</string>
+  <string name="offline_library_onboarding_build_library_title">Construír a súa biblioteca sen conexión</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Descargar paquetes de artigos de Wikipedia agora para consultalos despois sen cargo de datos.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Lectura sen interrupcións</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continúe lendo e procurando artigos dentro da súa biblioteca sen conexión cando non ten acceso a Internet.</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Almacenar máis coñecemento</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Descargar tanto contido de Wikipedia como poida conter o seu dispositivo. A biblioteca sen conexión tamén pode acceder a paquetes de artigos en dispositivos externos.</string>
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>

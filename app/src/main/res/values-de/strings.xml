@@ -257,6 +257,9 @@
   <string name="error_page_does_not_exist">Diese Seite ist nicht vorhanden</string>
   <string name="view_wiki_error_message_offline">Es konnte keine Verbindung mit dem Internet hergestellt werden</string>
   <string name="reference_title">Einzelnachweis %s</string>
+  <string name="preference_title_dim_dark_mode_images">Bilder im dunklen Farbschema dimmen</string>
+  <string name="preference_summary_dim_dark_mode_images">Die Helligkeit von Bildern bei der Verwendung des dunklen Farbschemas reduzieren</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Bilddimmung (im dunklen Farbschema)</string>
   <string name="crash_report_dialog_title">Leider ist die App beim letzten Mal abgestürzt</string>
   <string name="crash_report_dialog_text">Möchtest du einen Absturzbericht an HockeyApp/einen Drittpartei-Diensteanbieter senden, so dass Wikimedia deinen Absturz überprüfen und den verursachenden Fehler beheben kann?</string>
   <string name="crash_report_dialog_dont_send_button">Überspringen</string>
@@ -335,6 +338,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nein</string>
   <string name="reading_list_article_save_in_progress">Der Artikel wird derzeit heruntergeladen und wird offline verfügbar sein, wenn der Download abgeschlossen ist.</string>
+  <string name="reading_list_already_contains_selection">Die ausgewählte Liste enthält bereits alle der ausgewählten Seiten.</string>
+  <string name="reading_list_added_articles_list_untitled">%d Artikel zur Leseliste hinzugefügt.</string>
+  <string name="reading_list_added_articles_list_titled">%1$d Artikel zu %2$s hinzugefügt</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dieser Artikel ist jetzt offline verfügbar.</item>
     <item quantity="other">Diese Artikel sind jetzt offline verfügbar.</item>

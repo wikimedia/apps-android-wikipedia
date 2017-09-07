@@ -257,6 +257,9 @@
   <string name="error_page_does_not_exist">该页面不存在</string>
   <string name="view_wiki_error_message_offline">无法连接至互联网</string>
   <string name="reference_title">参考文献%s</string>
+  <string name="preference_title_dim_dark_mode_images">在黑暗主题中将图片变暗</string>
+  <string name="preference_summary_dim_dark_mode_images">当使用黑暗主题时，减少图片的亮度</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">图片变暗（在黑暗主题中）</string>
   <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
   <string name="crash_report_dialog_text">您是否希望发送崩溃报告至HockeyApp/第三方服务提供方，这样维基媒体可以浏览您的崩溃报告，并修复导致它的漏洞？</string>
   <string name="crash_report_dialog_dont_send_button">跳过</string>
@@ -335,6 +338,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>
   <string name="reading_list_article_save_in_progress">条目已开始下载，并将在完成时离线可用。</string>
+  <string name="reading_list_already_contains_selection">选择的列表已包含所有选择的页面。</string>
+  <string name="reading_list_added_articles_list_untitled">已添加%d个条目至阅读列表。</string>
+  <string name="reading_list_added_articles_list_titled">已添加%1$d个条目至%2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">该条目现在可以离线使用。</item>
     <item quantity="other">这些条目现在可以离线使用。</item>

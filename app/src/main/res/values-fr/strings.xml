@@ -257,6 +257,9 @@
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
   <string name="reference_title">Référence %s</string>
+  <string name="preference_title_dim_dark_mode_images">Affaiblir les images dans le thème sombre</string>
+  <string name="preference_summary_dim_dark_mode_images">Réduire la luminosité des images quand on utilise le thème sombre</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>
@@ -335,6 +338,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Oui</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
+  <string name="reading_list_already_contains_selection">La liste choisie contient déjà toutes les pages sélectionnées.</string>
+  <string name="reading_list_added_articles_list_untitled">%d articles ajoutés à la liste de lecture.</string>
+  <string name="reading_list_added_articles_list_titled">%1$d articles ajoutés à %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Cet article est désormais disponible hors connexion.</item>
     <item quantity="other">Ces articles sont désormais disponibles hors connexion.</item>

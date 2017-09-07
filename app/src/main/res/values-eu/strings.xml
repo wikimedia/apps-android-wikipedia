@@ -15,6 +15,8 @@
   <string name="history_items_deleted">%d artikulu kendu dira historiatik</string>
   <string name="history_item_delete_undo">Desegin</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
+  <string name="dialog_message_clear_history_yes">Bai</string>
+  <string name="dialog_message_clear_history_no">Ez</string>
   <string name="nav_item_saved_pages">Gordetako orrialdeak</string>
   <string name="share_via">Partekatu honela</string>
   <string name="search_redirect_from">%s horretatik birzuzenduta</string>
@@ -56,11 +58,15 @@
   <string name="dialog_message_leaving_edit_stay">Gelditu</string>
   <string name="menu_show_toc">Eduki-taula</string>
   <string name="search_no_results_found">Ez da emaitzarik aurkitu</string>
+  <string name="search_reading_list_no_results">\"%s\"-n ez da emaitzik aurkitu</string>
+  <string name="search_history_no_results">Historian ez da emaitzik aurkitu</string>
   <string name="edit_section_captcha_message">Spam automatikoaren aurka babesteko, mesedez idatzi jarraian ageri diren hitzak</string>
   <string name="edit_section_captcha_hint">Goiko hitzak errepikatu</string>
   <string name="title_captcha">Sartu CAPTCHA</string>
   <string name="edit_section_captcha_reload">CAPTCHA sakatu eguneratu</string>
   <string name="edit_saved_page_refresh">Gordetako orrialdea zaharkitua egon daiteke, eta birkargatu behar da edizioa egin ahal izateko. Nahi al duzu birkargatzea?</string>
+  <string name="edit_saved_page_refresh_yes">Bai</string>
+  <string name="edit_saved_page_refresh_no">Ez</string>
   <string name="nav_item_login">Saioa hasi Wikipedian</string>
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
@@ -74,6 +80,8 @@
   <string name="toast_logout_complete">Saioa itxita</string>
   <string name="history_empty_title">Ez dago azkenaldian ikusitako orririk!</string>
   <string name="history_empty_message">Egin hemen irakurri duzunaren jarraipena.</string>
+  <string name="search_empty_message">Bilatu eta irakurri doako entziklopedia zure hizkuntzan</string>
+  <string name="delete_selected_items">Ezabatu aukeratutako item-ak</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>
   <string name="login_dont_have_account">Ez al duzu konturik?</string>
@@ -87,6 +95,7 @@
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_email_error">E-posta helbide okerra</string>
   <string name="create_account_username_error">Karaktere ez baliagarriak erabiltzaile izenean</string>
+  <string name="create_account_password_error">Pasahitza ez du balio</string>
   <string name="create_account_generic_error">Ezin izan da kontua sortu</string>
   <string name="create_account_next">Hurrengoa</string>
   <string name="create_account_button">Kontua sortu</string>
@@ -325,6 +334,7 @@
     <item quantity="other">%d mins left</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Deskarga deuseztatu</string>
+  <string name="offline_library_onboarding_action">Jakin ezazu gehiago.</string>
   <string name="onboarding_skip">Utzi</string>
   <string name="onboarding_continue">Jarraitu</string>
   <string name="onboarding_get_started">Has zaitez!</string>

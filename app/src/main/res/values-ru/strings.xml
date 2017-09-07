@@ -377,6 +377,7 @@
   <string name="view_offline_card_text">Содержимое не может быть загружено в офлайн-режиме.</string>
   <string name="view_featured_article_card_title">Избранная статья</string>
   <string name="view_featured_article_footer_save_button_label">Сохранить</string>
+  <string name="view_featured_article_footer_saved_button_label">Сохранено</string>
   <string name="description_edit_text_hint">Описание</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_add_description">Добавить описание</string>
@@ -435,7 +436,11 @@
   <string name="compilation_download_widget_button_cancel_hint">Прервать загрузку</string>
   <string name="compilation_download_cancel_confirm_yes">Да</string>
   <string name="compilation_download_cancel_confirm_no">Нет</string>
+  <string name="compilation_share">Поделиться</string>
+  <string name="compilation_remove">Удалить</string>
   <string name="offline_library_title">Офлайн-библиотека</string>
+  <string name="offline_library_onboarding_action">Узнайте больше</string>
+  <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>

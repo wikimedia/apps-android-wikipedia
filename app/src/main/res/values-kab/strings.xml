@@ -255,6 +255,8 @@
   <string name="error_page_does_not_exist">Asebter-agi ulac-it</string>
   <string name="view_wiki_error_message_offline">Ur izmir ara ad yeqqen ar Internet.</string>
   <string name="reference_title">Tamsisɣelt %s</string>
+  <string name="preference_summary_dim_dark_mode_images">Senɣeṣ tafat n tugniwin ticki nseqdac asentel ubrik</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Asibrek n tugna (deg usentel ubrik)</string>
   <string name="crash_report_dialog_title">Suref-aɣ, asnas yeɣli tagara-agi</string>
   <string name="crash_report_dialog_text">Tebɣiḍ ad tazneḍ aneqqis n uɣelluy ar HockeyApp  - asaǧǧaw n umeẓalu wis kraḍ - akken Wikimedia ad tizmir ad tesleḍ ugur-ik sakin ad tseɣti abug i t-id-yesseglan?</string>
   <string name="crash_report_dialog_dont_send_button">Zgel</string>
@@ -333,6 +335,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ih</string>
   <string name="reading_lists_confirm_remote_delete_no">Uhu</string>
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
+  <string name="reading_list_already_contains_selection">Tabdart yettwafernen tegber yakan akk isebtar yettwafernen.</string>
+  <string name="reading_list_added_articles_list_untitled">%d n imagraden ttwarnan ar tebdart n tɣuri.</string>
+  <string name="reading_list_added_articles_list_titled">%1$d n imagraden ttwarnan ar %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>
     <item quantity="other">Imagraden-agi llan s war tuqqna.</item>
@@ -416,14 +421,14 @@
   <string name="description_edit_revert_history">Ma tebɣiḍ, wali &lt;a href=\"%1$s\"&gt;amazray n teẓrigt&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Azref n unekcum ar umḍiq n usekles n yibenk-ik ilaq i tunigin di s war tuqqna.</string>
   <string name="offline_read_permission_error">Ur ttunefken ara izerfan i tɣuri n umḍiq n usekles n yibenk-ik.</string>
-  <string name="offline_card_text" fuzzy="true">Tettinigeḍ di Wikipedia s uskar n war tuqqna. Ẓer d akken imagraden n war tuqqna zemren ur ttwaleqqamen ara seg lqem srid.</string>
-  <string name="offline_my_compilations" fuzzy="true">Tigrummiwin-iw n imagraden</string>
+  <string name="offline_card_text">Tettinigeḍ di Wikipedia deg uskar n war tuqqna s imagraden di tnedlis-ik n war tuqqna</string>
+  <string name="offline_my_compilations">Sefrek tanedlist-iw n war tuqqna</string>
   <string name="offline_compilations_title">Tamkarḍiḍ war tuqqna</string>
   <string name="offline_compilations_search_by_name">Nadi tigrummiwin n imagraden s yisem</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Tigrummiwin-iw n imagraden (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Rnu tagrumma n imagraden</string>
+  <string name="offline_compilations_found_count">Di tnedlist-iw (%d)</string>
+  <string name="offline_compilations_add">Rnu ar tnedlist-iw n war tuqqna</string>
   <string name="remote_compilations_title">Tamkarḍiḍ war tuqqna</string>
-  <string name="remote_compilations_description" fuzzy="true">Tigrummiwin n imagraden d tigrummiwin meqqren n imagraden izemren ad twasidren deg yiwen n ufaylu ɣer yibenk-ik, akken ad tizmireḍ ad tkemleḍ tunigin ɣas ur teqqineḍ ara.</string>
+  <string name="remote_compilations_description">S tnedlist n war tuqqna, ad tizmireḍ ad tsidreḍ imagraden i tɣuri ticki ur ɣur-k ara tuqqna Internet.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GAṬ</string>
   <string name="offline_compilation_detail_button_download">Sider • %.2f GAṬ</string>
   <string name="offline_compilation_detail_button_remove">Kkes</string>
@@ -443,17 +448,18 @@
   <string name="compilation_download_cancel_confirm_no">Uhu</string>
   <string name="compilation_share">Bḍu</string>
   <string name="compilation_remove">Kkes</string>
-  <string name="compilation_remove_confirm" fuzzy="true">Tebɣiḍ ad tekkseḍ tagrumma-agi n imagraden seg ibenk-ik?</string>
+  <string name="compilation_remove_confirm">Tebɣiḍ ad tekkseḍ ayagi si tnedlis-ik n war tuqqna?</string>
   <string name="offline_library_title">Tamkarḍiḍ war tuqqna</string>
   <string name="offline_library_empty_title">Ulac d acu yellan di temkarḍit-ik n war tuqqna</string>
   <string name="offline_library_empty_description">Fren tagrumma n imagraden n Wikipedia ara d-tesidreḍ tura i unekcum ilelli ticki.</string>
   <string name="offline_library_empty_search">Nadi di temkarḍit war tuqqna</string>
-  <string name="offline_library_search_results_state" fuzzy="true">Nadi igmaḍ di temkarḍiḍ war tuqqna</string>
+  <string name="offline_library_search_results_state">Anadi n igmaḍ di tnedlis-ik n war tuqqna</string>
   <string name="offline_library_onboarding_action">Issin ugar</string>
   <string name="offline_library_onboarding_button_done">Immed</string>
   <string name="offline_library_onboarding_build_library_title">Bnu tamkarḍit-ik war tuqqna</string>
   <string name="offline_library_onboarding_build_library_subtitle">Sider tigrummiwin n imagraden Wikipedia tura i unekcum ilelli ar zdat.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Taɣuri teḥbes</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Sekles ugar n tmusni</string>
   <string name="onboarding_skip">Zgel</string>
   <string name="onboarding_continue">Kemmel</string>
   <string name="onboarding_get_started">Bdu</string>

@@ -257,6 +257,9 @@
   <string name="error_page_does_not_exist">此頁面不存在</string>
   <string name="view_wiki_error_message_offline">無法連接網路</string>
   <string name="reference_title">參考資料 %s</string>
+  <string name="preference_title_dim_dark_mode_images">在暗黑主題調暗圖片</string>
+  <string name="preference_summary_dim_dark_mode_images">當使用暗黑主題時減少圖片亮度</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在暗黑主題）</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
@@ -335,6 +338,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>
   <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
+  <string name="reading_list_already_contains_selection">挑選清單已包含所有已選頁面。</string>
+  <string name="reading_list_added_articles_list_untitled">已添加 %d 個條目至閱讀清單。</string>
+  <string name="reading_list_added_articles_list_titled">已添加 %1$d 個條目至%2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">此條目現可離線閱讀。</item>
     <item quantity="other">這些條目現可離線閱讀。</item>
@@ -426,7 +432,7 @@
   <string name="offline_compilations_found_count">我的離線圖書館（%d）</string>
   <string name="offline_compilations_add">添加至我的離線圖書館</string>
   <string name="remote_compilations_title">離線圖書館</string>
-  <string name="remote_compilations_description" fuzzy="true">條目包是將大筆條目弄成如同可下載的檔案存至您的裝置裡，這可讓您在離線時能繼續瀏覽。</string>
+  <string name="remote_compilations_description">透過離線圖書館；讓您可現在就下載條目包於無法使用網路情況下閱讀內容。</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">下載 • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">移除</string>
@@ -453,6 +459,7 @@
   <string name="offline_library_empty_search">搜尋離線圖書館</string>
   <string name="offline_library_search_results_state">從您的離線圖書館來搜尋結果</string>
   <string name="offline_library_onboarding_action">了解更多</string>
+  <string name="offline_library_onboarding_text">離線圖書館介紹 —— 下載條目包用於事後離線閱讀。</string>
   <string name="offline_library_onboarding_button_done">完成</string>
   <string name="offline_library_onboarding_build_library_title">打造您的離線圖書館</string>
   <string name="offline_library_onboarding_build_library_subtitle">現在就下載維基百科條目包，讓事後可免去存取資料。</string>

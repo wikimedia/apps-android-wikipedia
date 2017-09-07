@@ -255,7 +255,7 @@
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
-  <string name="view_wiki_error_message_offline">Error message shown when network cannot be reached when loading a page</string>
+  <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
   <string name="reference_title">Title shown on the popup dialog for a reference clicked by the user. The %s symbol is replaced with the link text of the clicked reference.</string>
   <string name="preference_title_dim_dark_mode_images">Title for a preference allowing the user to make images dimmer when using the dark theme</string>
   <string name="preference_summary_dim_dark_mode_images">Summary for a preference allowing the user to make images dimmer when using the dark theme</string>
@@ -432,7 +432,7 @@
   <string name="offline_compilations_found_count">Label that states how many article packs the user has available in the Offline Library. The %d symbol is replaced with the number of article packs detected.</string>
   <string name="offline_compilations_add">Button text for adding an offline article pack to the Offline Library.</string>
   <string name="remote_compilations_title">Title shown on the toolbar of the activity that shows all downloadable article packs.</string>
-  <string name="remote_compilations_description">Short description of the Offline Library.</string>
+  <string name="remote_compilations_description">{{Doc-mobileapp-internet}}\nShort description of the Offline Library.</string>
   <string name="offline_compilation_detail_date_size">Information about the date and size of an article pack. The %1$s and %2$.2f symbols will be replaced with the date and size. Only the \"GB\" unit needs to be translated (see storage_size_gb).</string>
   <string name="offline_compilation_detail_button_download">Label for a button for downloading an offline article pack. The %.2f symbol is replaced with the article pack size, in gigabytes (GB).</string>
   <string name="offline_compilation_detail_button_remove">Label for a button for removing an offline article pack from storage on the user\'s device.</string>
@@ -464,7 +464,7 @@
   <string name="offline_library_onboarding_build_library_title">Title for a tutorial screen about the Offline Library feature.</string>
   <string name="offline_library_onboarding_build_library_subtitle">Short explanatory text about the Offline Library feature.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Title for a tutorial screen about the Offline Library feature.</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Short explanatory text about the Offline Library feature.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">{{Doc-mobileapp-internet}}\nShort explanatory text about the Offline Library feature.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Title for a tutorial screen about the Offline Library feature.</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Short explanatory text about the Offline Library feature.</string>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
