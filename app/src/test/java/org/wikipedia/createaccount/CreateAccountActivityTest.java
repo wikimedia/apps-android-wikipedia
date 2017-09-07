@@ -12,37 +12,32 @@ import static org.wikipedia.createaccount.CreateAccountActivity.validateInput;
 @RunWith(TestRunner.class) public class CreateAccountActivityTest {
 
     @Test public void testValidateInputSuccess() throws Throwable {
-        assertThat(validateInput("user", "password", "", false, ""),
-                is(ValidateResult.SUCCESS));
-    }
-
-    @Test public void testValidateInputSuccessRepeatPassword() throws Throwable {
-        assertThat(validateInput("user", "password", "password", true, ""),
+        assertThat(validateInput("user", "password", "password",  ""),
                 is(ValidateResult.SUCCESS));
     }
 
     @Test public void testValidateInputSuccessWithEmail() throws Throwable {
-        assertThat(validateInput("user", "password", "", false, "test@example.com"),
+        assertThat(validateInput("user", "password", "password", "test@example.com"),
                 is(ValidateResult.SUCCESS));
     }
 
     @Test public void testValidateInputInvalidUser() throws Throwable {
-        assertThat(validateInput("user[]", "password", "password", true, ""),
+        assertThat(validateInput("user[]", "password", "password", ""),
                 is(ValidateResult.INVALID_USERNAME));
     }
 
     @Test public void testValidateInputInvalidPassword() throws Throwable {
-        assertThat(validateInput("user", "foo", "password", true, ""),
+        assertThat(validateInput("user", "foo", "password", ""),
                 is(ValidateResult.INVALID_PASSWORD));
     }
 
     @Test public void testValidateInputPasswordMismatch() throws Throwable {
-        assertThat(validateInput("user", "password", "passw0rd", true, ""),
+        assertThat(validateInput("user", "password", "passw0rd", ""),
                 is(ValidateResult.PASSWORD_MISMATCH));
     }
 
     @Test public void testValidateInputInvalidEmail() throws Throwable {
-        assertThat(validateInput("user", "password", "password", true, "foo"),
+        assertThat(validateInput("user", "password", "password", "foo"),
                 is(ValidateResult.INVALID_EMAIL));
     }
 }

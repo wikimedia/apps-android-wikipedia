@@ -275,7 +275,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     private void validateThenCreateAccount() {
         clearErrors();
         ValidateResult result = validateInput(getText(usernameInput), getText(passwordInput),
-                getText(passwordRepeatInput), true, getText(emailInput));
+                getText(passwordRepeatInput), getText(emailInput));
 
         switch (result) {
             case INVALID_USERNAME:
@@ -310,13 +310,12 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     static ValidateResult validateInput(@NonNull CharSequence username,
                                          @NonNull CharSequence password,
                                          @NonNull CharSequence passwordRepeat,
-                                         boolean passwordRepeatEnabled,
                                          @NonNull CharSequence email) {
         if (!USERNAME_PATTERN.matcher(username).matches()) {
             return ValidateResult.INVALID_USERNAME;
         } else if (password.length() < PASSWORD_MIN_LENGTH) {
             return ValidateResult.INVALID_PASSWORD;
-        } else if (passwordRepeatEnabled && !passwordRepeat.toString().equals(password.toString())) {
+        } else if (!passwordRepeat.toString().equals(password.toString())) {
             return ValidateResult.PASSWORD_MISMATCH;
         } else if (!TextUtils.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return ValidateResult.INVALID_EMAIL;
