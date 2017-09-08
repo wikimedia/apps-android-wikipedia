@@ -476,6 +476,7 @@
     <!-- /Description editing revert help -->
 
     <!-- Offline -->
+    <string name="offline_compilation_download_device_offline">No internet connection. Make sure you\'re back online, then try again.</string>
     <string name="offline_read_permission_rationale">Permission to access storage on your device is required for offline browsing.</string>
     <string name="offline_read_permission_error">Permission not granted to read from device storage.</string>
     <string name="offline_card_text">You are now browsing Wikipedia offline with articles in your Offline Library.</string>

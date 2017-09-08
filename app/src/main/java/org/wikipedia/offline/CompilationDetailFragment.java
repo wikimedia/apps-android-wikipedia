@@ -21,6 +21,7 @@ import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.log.L;
@@ -108,10 +109,14 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
     }
 
     @OnClick(R.id.button_compilation_detail_download) void onDownloadClick() {
-        if (!getDownloadObserver().isDownloading(compilation)) {
-            MediaDownloadReceiver.download(getContext(), compilation);
-            downloadPending = true;
-            updateDownloadState(true, null);
+        if (DeviceUtil.isOnline()) {
+            if (!getDownloadObserver().isDownloading(compilation)) {
+                MediaDownloadReceiver.download(getContext(), compilation);
+                downloadPending = true;
+                updateDownloadState(true, null);
+            }
+        } else {
+            FeedbackUtil.showMessage(getActivity(), R.string.offline_compilation_download_device_offline);
         }
     }
 
