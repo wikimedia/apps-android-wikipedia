@@ -494,7 +494,12 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
         }
         // On API <19, the XMLHttpRequest does not support responseType = json,
         // so we have to call JSON.parse() ourselves.
-        displayRemainingSections(window.apiLevel >= 19 ? this.response : JSON.parse(this.response), this.sequence, this.scrollY, this.fragment);
+        var sectionsObj = window.apiLevel >= 19 ? this.response : JSON.parse(this.response);
+        if (sectionsObj.mobileview) {
+            // If it's a mobileview response, the "sections" object will be one level deeper.
+            sectionsObj = sectionsObj.mobileview;
+        }
+        displayRemainingSections(sectionsObj, this.sequence, this.scrollY, this.fragment);
     };
     remainingRequest.send();
 });
