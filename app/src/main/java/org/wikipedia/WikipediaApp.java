@@ -94,7 +94,7 @@ public class WikipediaApp extends Application {
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    @NonNull private UserIdClient idClient = new UserIdClient();
+    @NonNull private UserIdClient userIdClient = new UserIdClient();
 
     private CrashReporter crashReporter;
     private RefWatcher refWatcher;
@@ -228,8 +228,8 @@ public class WikipediaApp extends Application {
     @NonNull
     public String getAppOrSystemLanguageCode() {
         String code = appLanguageState.getAppOrSystemLanguageCode();
-        if (AccountUtil.getIdForLanguage(code) == 0) {
-            getIdForLanguage(code);
+        if (AccountUtil.getUserIdForLanguage(code) == 0) {
+            getUserIdForLanguage(code);
         }
         return code;
     }
@@ -244,13 +244,16 @@ public class WikipediaApp extends Application {
         resetWikiSite();
     }
 
-    private void getIdForLanguage(@NonNull final String code) {
+    private void getUserIdForLanguage(@NonNull final String code) {
+        if (!AccountUtil.isLoggedIn()) {
+            return;
+        }
         final WikiSite wikiSite = WikiSite.forLanguageCode(code);
-        idClient.request(wikiSite, new UserIdClient.Callback() {
+        userIdClient.request(wikiSite, new UserIdClient.Callback() {
             @Override
             public void success(@NonNull Call<MwQueryResponse> call, int id) {
                 if (AccountUtil.isLoggedIn()) {
-                    AccountUtil.putIdForLanguage(code, id);
+                    AccountUtil.putUserIdForLanguage(code, id);
                     L.v("Found user ID " + id + " for " + code);
                 }
             }
