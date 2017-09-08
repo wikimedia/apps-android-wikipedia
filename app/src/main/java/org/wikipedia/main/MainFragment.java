@@ -198,7 +198,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void handleIntent(Intent intent) {
         IntentFunnel funnel = new IntentFunnel(WikipediaApp.getInstance());
-        if (Intent.ACTION_SEND.equals(intent.getAction())
+        if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
+            openSearchFragment(SearchInvokeSource.APP_SHORTCUTS, null);
+        } else if (Intent.ACTION_SEND.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             funnel.logShareIntent();
             openSearchFragment(SearchInvokeSource.INTENT_SHARE,

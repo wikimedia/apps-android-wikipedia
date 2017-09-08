@@ -1,0 +1,15 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <size android:width="@dimen/app_shortcut_icon_size"
+                android:height="@dimen/app_shortcut_icon_size"/>
+            <solid android:color="@color/base80"/>
+        </shape>
+    </item>
+
+    <item android:top="@dimen/app_shortcut_icon_margin"
+        android:bottom="@dimen/app_shortcut_icon_margin"
+        android:left="@dimen/app_shortcut_icon_margin"
+        android:right="@dimen/app_shortcut_icon_margin"
+        android:drawable="@drawable/ic_arrow_forward_accent50_24dp"/>
+</layer-list>
