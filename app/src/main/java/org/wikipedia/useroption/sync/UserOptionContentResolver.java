@@ -8,14 +8,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.BuildConfig;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.database.contract.UserOptionContract;
-import org.wikipedia.theme.Theme;
-import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.util.log.L;
 
 public final class UserOptionContentResolver {
@@ -63,22 +59,7 @@ public final class UserOptionContentResolver {
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
 
-            UserOptionDao.instance().theme(new UserOptionDao.Callback<Theme>() {
-                @Override
-                public void success(@Nullable Theme item) {
-                    if (item != null) {
-                        WikipediaApp.getInstance().setCurrentTheme(item);
-                    }
-                }
-            });
-            UserOptionDao.instance().fontSize(new UserOptionDao.Callback<Integer>() {
-                @Override
-                public void success(@Nullable Integer item) {
-                    if (item != null) {
-                        WikipediaApp.getInstance().setFontSizeMultiplier(item);
-                    }
-                }
-            });
+            // persist changed options here
         }
     }
 }

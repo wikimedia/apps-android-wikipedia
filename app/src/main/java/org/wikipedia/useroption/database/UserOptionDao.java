@@ -10,13 +10,12 @@ import org.wikipedia.database.BaseDao;
 import org.wikipedia.database.async.AsyncConstant;
 import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.database.http.HttpRowDao;
-import org.wikipedia.theme.Theme;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public final class UserOptionDao extends BaseDao<UserOption> {
@@ -24,11 +23,7 @@ public final class UserOptionDao extends BaseDao<UserOption> {
         void success(@Nullable T item);
     }
 
-    @NonNull private static final String THEME_KEY = "userjs-app-pref-theme";
-    @NonNull private static final String FONT_SIZE_KEY = "userjs-app-pref-font-size";
-
-    @NonNull private static final List<String> SYNCED_OPTIONS
-            = Arrays.asList(THEME_KEY, FONT_SIZE_KEY);
+    @NonNull private static final List<String> SYNCED_OPTIONS = Collections.emptyList();
 
     @NonNull private static UserOptionDao INSTANCE = new UserOptionDao();
 
@@ -36,35 +31,6 @@ public final class UserOptionDao extends BaseDao<UserOption> {
 
     public static UserOptionDao instance() {
         return INSTANCE;
-    }
-
-    public void theme(@NonNull Theme theme) {
-        new UpsertTask(new UserOption(THEME_KEY, String.valueOf(theme.isLight()))).execute();
-    }
-
-    public void theme(final Callback<Theme> callback) {
-        new QueryTask(THEME_KEY) {
-            @Override
-            public void onFinish(UserOption result) {
-                callback.success(result == null
-                        ? null
-                        : Boolean.valueOf(result.val()) ? Theme.LIGHT : Theme.DARK);
-            }
-        }.execute();
-    }
-
-    public void fontSize(int size) {
-        new UpsertTask(new UserOption(FONT_SIZE_KEY, String.valueOf(size))).execute();
-    }
-
-    public void fontSize(final Callback<Integer> callback) {
-        new QueryTask(FONT_SIZE_KEY) {
-            @Override
-            public void onFinish(UserOption result) {
-                super.onFinish(result);
-                callback.success(result == null ? null : (int) Float.parseFloat(result.val()));
-            }
-        }.execute();
     }
 
     public synchronized void reconcileTransaction(@NonNull Collection<UserOption> rows) {

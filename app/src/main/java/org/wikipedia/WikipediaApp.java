@@ -404,7 +404,6 @@ public class WikipediaApp extends Application {
         if (theme != currentTheme) {
             currentTheme = theme;
             Prefs.setThemeId(currentTheme.getMarshallingId());
-            UserOptionDao.instance().theme(theme);
             bus.post(new ThemeChangeEvent());
         }
     }
@@ -421,7 +420,6 @@ public class WikipediaApp extends Application {
         }
         if (multiplier != Prefs.getTextSizeMultiplier()) {
             Prefs.setTextSizeMultiplier(multiplier);
-            UserOptionDao.instance().fontSize(multiplier);
             bus.post(new ChangeTextSizeEvent());
         }
     }
