@@ -62,4 +62,5 @@
     <string name="preference_key_offline_onboarding_card_enabled">offlineOnboardingCardEnabled</string>
     <string name="preference_key_offline_onboarding_enabled">offlineOnboardingEnabled</string>
     <string name="preference_key_dim_dark_mode_images">dimDarkModeImages</string>
+    <string name="preference_key_suppress_notification_polling">suppressNotificationPolling</string>
 </resources>

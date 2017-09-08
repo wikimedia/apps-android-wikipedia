@@ -480,7 +480,9 @@ public class WikipediaApp extends Application {
     }
 
     public void listenForNotifications() {
-        notificationReceiver.startPollTask(this);
+        if (!Prefs.suppressNotificationPolling()) {
+            notificationReceiver.startPollTask(this);
+        }
     }
 
     private void initAppLang() {

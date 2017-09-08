@@ -577,5 +577,9 @@ public final class Prefs {
         setBoolean(R.string.preference_key_dim_dark_mode_images, enabled);
     }
 
+    public static boolean suppressNotificationPolling() {
+        return getBoolean(R.string.preference_key_suppress_notification_polling, false);
+    }
+
     private Prefs() { }
 }
