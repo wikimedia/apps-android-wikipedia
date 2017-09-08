@@ -153,7 +153,7 @@ public class EditFunnel extends Funnel {
         if (AccountUtil.isLoggedIn()) {
             // noinspection ConstantConditions
             preprocessData(eventData, "userID",
-                    AccountUtil.getIdForLanguage(title.getWikiSite().languageCode()));
+                    AccountUtil.getUserIdForLanguage(title.getWikiSite().languageCode()));
         }
         preprocessData(eventData, "pageNS", title.getNamespace());
         return super.preprocessData(eventData);

@@ -46,7 +46,7 @@ public final class AccountUtil {
         }
 
         setPassword(result.getPassword());
-        putIdForLanguage(result.getSite().languageCode(), result.getUserId());
+        putUserIdForLanguage(result.getSite().languageCode(), result.getUserId());
         setGroups(result.getGroups());
 
         UserOptionContentResolver.requestManualSync();
@@ -66,13 +66,13 @@ public final class AccountUtil {
         return account == null ? null : accountManager().getPassword(account);
     }
 
-    public static int getIdForLanguage(@NonNull String code) {
+    public static int getUserIdForLanguage(@NonNull String code) {
         Map<String, Integer> map = getUserIds();
         Integer id = map.get(code);
         return id == null ? 0 : id;
     }
 
-    public static void putIdForLanguage(@NonNull String code, int id) {
+    public static void putUserIdForLanguage(@NonNull String code, int id) {
         Map<String, Integer> ids = new HashMap<>();
         ids.putAll(getUserIds());
         ids.put(code, id);
