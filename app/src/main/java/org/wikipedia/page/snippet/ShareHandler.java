@@ -62,7 +62,7 @@ public class ShareHandler {
     private static final String PAYLOAD_PURPOSE_EDIT_HERE = "edit_here";
     private static final String PAYLOAD_TEXT_KEY = "text";
 
-    @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.foundation_blue;
+    @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.accent50;
 
     @NonNull private final PageFragment fragment;
     @NonNull private final CommunicationBridge bridge;

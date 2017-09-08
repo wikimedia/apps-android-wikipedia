@@ -196,9 +196,9 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
 
         errorView = (WikiErrorView) findViewById(R.id.view_gallery_error);
         ((ImageView) errorView.findViewById(R.id.view_wiki_error_icon))
-                .setColorFilter(color(R.color.view_wiki_error_icon_tint_light));
+                .setColorFilter(color(R.color.base70));
         ((TextView) errorView.findViewById(R.id.view_wiki_error_text))
-                .setTextColor(color(R.color.view_wiki_error_text_color_light));
+                .setTextColor(color(R.color.base70));
         errorView.setBackClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

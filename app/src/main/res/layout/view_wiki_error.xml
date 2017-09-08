@@ -36,7 +36,7 @@
                     android:layout_height="72dp"
                     android:layout_margin="24dp"
                     android:contentDescription="@null"
-                    android:tint="@color/view_wiki_error_icon_tint"
+                    android:tint="@color/base30"
                     app:srcCompat="@drawable/ic_error_black_24dp" />
 
                 <TextView
@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/error_message_generic"
-                    android:textColor="@color/view_wiki_error_text_color"
+                    android:textColor="@color/base30"
                     android:textSize="16sp" />
 
                 <TextView
@@ -69,7 +69,7 @@
                     android:lineSpacingMultiplier="1.2"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
-                    android:textColor="@color/view_wiki_error_text_color"
+                    android:textColor="@color/base30"
                     android:textSize="14sp"
                     tools:text="Footer text, if any, appears here." />
 

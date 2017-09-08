@@ -6,7 +6,7 @@
     android:id="@+id/activity_page_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkest_gray">
+    android:background="@color/base10">
 
     <fragment
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
             android:id="@+id/empty_status_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/main_toolbar_background"/>
+            android:background="@color/base18"/>
 
         <FrameLayout
             android:layout_width="match_parent"

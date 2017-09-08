@@ -28,7 +28,7 @@
     </style>
 
     <style name="AppTheme.ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">@color/main_toolbar_background</item>
+        <item name="background">@color/base18</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">4dp</item>
         <item name="titleTextStyle">@style/AppTheme.ToolBarTitleText</item>
@@ -243,7 +243,7 @@
     </style>
 
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">
-        <item name="android:textColor">@color/foundation_red</item>
+        <item name="android:textColor">@color/red50</item>
     </style>
 
     <style name="ReadingListTitleTextAppearance">

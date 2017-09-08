@@ -12,8 +12,8 @@ import static android.support.v4.content.ContextCompat.getColor;
 import static android.support.v4.graphics.drawable.DrawableCompat.setTint;
 
 public class ConfigurableTabLayout extends TabLayout {
-    @ColorRes private static final int TAB_ENABLED_COLOR = R.color.page_action_tab_enabled;
-    @ColorRes private static final int TAB_DISABLED_COLOR = R.color.page_action_tab_disabled;
+    @ColorRes private static final int TAB_ENABLED_COLOR = android.R.color.white;
+    @ColorRes private static final int TAB_DISABLED_COLOR = R.color.base30;
 
     public ConfigurableTabLayout(Context context) {
         this(context, null);

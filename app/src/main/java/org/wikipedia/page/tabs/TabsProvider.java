@@ -449,7 +449,7 @@ public class TabsProvider {
                     position == tabList.size() - 1 ? View.GONE : View.VISIBLE);
 
             @ColorRes int colorId = position == 0
-                    ? R.color.darkest_gray
+                    ? R.color.base10
                     : getThemedAttributeId(fragment.getContext(), R.attr.tab_shadow_color);
             int color = ContextCompat.getColor(fragment.getContext(), colorId);
 

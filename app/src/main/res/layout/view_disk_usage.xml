@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:parentTag="LinearLayout"
     tools:orientation="vertical"
-    tools:background="@color/window_background_light">
+    tools:background="@color/base100">
 
     <LinearLayout
         android:layout_width="match_parent"

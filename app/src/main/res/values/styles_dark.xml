@@ -27,11 +27,11 @@
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="popupMenuStyle">@style/Theme.Dark.PopupMenuStyle</item>
         <item name="alertDialogTheme">@style/Theme.Dark.Dialog.Alert</item>
-        <item name="colorAccent">@color/accent_dark</item>
+        <item name="colorAccent">@color/accent75</item>
         <item name="android:windowBackground">@color/base10</item>
         <item name="window_background_color">@color/base10</item>
         <item name="window_inverse_color">@color/base90</item>
-        <item name="page_background_color">@color/page_background_dark</item>
+        <item name="page_background_color">@color/base14</item>
         <item name="main_toolbar_color">@color/accent30</item>
         <item name="main_status_bar_color">@color/accent20</item>
         <item name="inline_onboarding_background_color">@color/base14</item>
@@ -59,17 +59,17 @@
         <item name="list_item_text_primary_color">@color/list_item_text_primary_dark</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_dark</item>
 
-        <item name="offline_library_background_color">@color/offline_library_background_color_dark</item>
+        <item name="offline_library_background_color">@color/base10</item>
 
         <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
 
         <item name="overflow_button">@color/dark_gray_overflow_button</item>
-        <item name="multi_select_background_color">@color/multi_select_background_dark</item>
+        <item name="multi_select_background_color">@color/accent30</item>
 
         <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
         <item name="android:listViewStyle">@style/ListView</item>
-        <item name="feed_window_background_color">@color/feed_window_background_dark</item>
+        <item name="feed_window_background_color">@color/base10</item>
         <item name="feed_text_primary_color">@color/feed_text_primary_dark</item>
         <item name="feed_text_secondary_color">@color/feed_text_secondary_dark</item>
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_dark</item>

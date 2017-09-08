@@ -16,7 +16,7 @@
             android:id="@+id/fragment_feed_header"
             android:layout_width="match_parent"
             android:layout_height="96dp"
-            android:background="@color/dark_blue" />
+            android:background="@color/accent30" />
 
         <org.wikipedia.feed.view.FeedView
             android:id="@+id/fragment_feed_feed"

@@ -23,37 +23,17 @@
     <color name="accent20">#223966</color>
     <color name="red90">#fee7e6</color> <!-- B AAA -->
     <color name="red75">#FF6E6E</color> <!-- Destructive text (error messages, red links) -->
-    <color name="red50">#d33</color> <!-- B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
+    <color name="red50">#d33</color> <!-- Foundation Red: B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
     <color name="red30">#b32424</color> <!-- W AAA: Destructive active buttons and links -->
 
     <!-- Supplementary -->
     <color name="green90">#d5fdf4</color> <!-- B AAA: -->
-    <color name="green50">#00af89</color> <!-- B AA: Secondary link highlight, Positive messages -->
+    <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
     <color name="green30">#14866d</color> <!-- W AA: -->
     <color name="yellow90">#fef6e7</color> <!-- W AA: -->
-    <color name="yellow50">#fc3</color> <!-- B AAA: Warning messages -->
+    <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->
     <color name="yellow30">#ac6600</color> <!-- B AAA: -->
     <color name="material_icon_default_gray">#9e9e9e</color>
-
-    <color name="accent_light">@color/accent50</color>
-    <color name="accent_dark">@color/accent75</color>
-
-    <!-- Legacy -->
-    <color name="darkest_gray">@color/base10</color>
-    <color name="dark_gray">@color/base30</color>
-    <color name="foundation_gray">@color/base50</color>
-    <color name="light_gray">@color/base70</color>
-
-    <color name="dark_blue">@color/accent30</color>
-    <color name="foundation_blue">@color/accent50</color>
-    <color name="light_blue">@color/accent90</color>
-
-    <color name="dark_green">@color/green30</color>
-    <color name="foundation_green">@color/green50</color>
-
-    <color name="foundation_red">@color/red50</color>
-
-    <color name="foundation_yellow">@color/yellow50</color>
 
     <!-- TODO: consolidate and map all of the below colors to all of the above colors. -->
 
@@ -70,23 +50,13 @@
     <color name="search_text_hint">#32ffffff</color>
     <color name="lead_gradient_start">#b8000000</color>
     <color name="new_lead_gradient_start">#50000000</color>
-    <color name="main_toolbar_background">@color/base18</color>
-
-    <color name="window_background_light">#fff</color>
-    <color name="page_background_light">#fff</color>
-    <color name="edit_text_light">#000</color>
     <color name="abusefilter_background_light">#e8e8e8</color>
     <color name="list_separator_light">#ccc</color>
     <color name="tab_shadow_light">#c0c0c0</color>
-    <color name="tool_tip_default_light">@android:color/black</color>
     <color name="link_preview_text_light">#505050</color>
     <color name="link_preview_offline_text_light">#898989</color>
     <color name="list_item_text_primary_light">#333</color>
     <color name="list_item_text_secondary_light">#777</color>
-    <color name="multi_select_background_light">@color/accent90</color>
-
-    <color name="window_background_dark">#000</color>
-    <color name="page_background_dark">@color/base14</color>
     <color name="edit_text_dark">#909090</color>
     <color name="abusefilter_background_dark">#505050</color>
     <color name="list_separator_dark">#606060</color>
@@ -96,38 +66,16 @@
     <color name="link_preview_offline_text_dark">#a0a0a0</color>
     <color name="list_item_text_primary_dark">#d0d0d0</color>
     <color name="list_item_text_secondary_dark">#808080</color>
-    <color name="multi_select_background_dark">@color/accent30</color>
-
     <color name="lead_text_shadow">#80000000</color>
-
     <color name="syntax_highlight_template_light">#a0a0a0</color>
     <color name="syntax_highlight_template_dark">#505050</color>
-
     <color name="widget_background">#a0ffffff</color>
-
-    <color name="feed_text_primary_light">#222</color>
     <color name="feed_text_primary_dark">#ddd</color>
     <color name="feed_text_secondary_light">#555</color>
     <color name="feed_text_secondary_dark">#ccc</color>
     <color name="feed_text_tertiary_light">#71777d</color>
     <color name="feed_text_tertiary_dark">#aaa</color>
     <color name="feed_image_border">#1f000000</color>
-
-    <color name="feed_window_background_light">#eaecf0</color>
-    <color name="feed_window_background_dark">#222</color>
-
-    <color name="translucent_background_dark">#E2000000</color>
-
+    <color name="translucent_background_dark">#e2000000</color>
     <color name="white_translucent_40">#6fff</color>
-
-    <color name="view_wiki_error_icon_tint">@color/base30</color>
-    <color name="view_wiki_error_text_color">@color/base30</color>
-    <color name="view_wiki_error_icon_tint_light">@color/base70</color>
-    <color name="view_wiki_error_text_color_light">@color/base70</color>
-
-    <color name="offline_library_background_color_light">@color/base80</color>
-    <color name="offline_library_background_color_dark">@color/base10</color>
-
-    <color name="page_action_tab_enabled">@android:color/white</color>
-    <color name="page_action_tab_disabled">@color/base30</color>
 </resources>

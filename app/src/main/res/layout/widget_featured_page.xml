@@ -29,7 +29,7 @@
             android:text="@string/widget_title_featured_page"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/base30"
             />
         <TextView
             android:id="@+id/widget_content_text"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             style="@style/RtlAwareTextView"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/darkest_gray"
+            android:textColor="@color/base10"
             android:maxLines="2"
             android:ellipsize="end"
             tools:text="Sample content"

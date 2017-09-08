@@ -14,12 +14,12 @@
         android:id="@+id/empty_status_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/main_toolbar_background" />
+        android:background="@color/base18" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/main_toolbar_background"
+        android:background="@color/base18"
         android:elevation="6dp">
 
         <android.support.v7.widget.Toolbar
@@ -84,7 +84,7 @@
             android:layout_marginTop="-6.5dp"
             android:indeterminate="true"
             android:indeterminateTint="?attr/colorAccent"
-            android:progressBackgroundTint="@color/dark_blue"
+            android:progressBackgroundTint="@color/accent30"
             android:visibility="gone"
             tools:visibility="visible"/>
 
@@ -95,7 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="6dp"
-        android:background="@color/main_toolbar_background">
+        android:background="@color/base18">
 
         <TextView
             android:layout_width="match_parent"

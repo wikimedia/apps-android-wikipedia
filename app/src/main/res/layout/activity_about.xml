@@ -156,7 +156,7 @@
             android:layout_margin="12dp"
             android:padding="4dp"
             app:srcCompat="@drawable/ic_wmf_logo"
-            android:tint="@color/dark_gray"
+            android:tint="@color/base30"
             android:contentDescription="@null" />
 
         <org.wikipedia.views.AppTextView

@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_marginBottom="36dp"
                 android:text="@string/description_edit_success_encouragement"
-                android:textColor="@color/light_gray"
+                android:textColor="@color/base70"
                 android:textAlignment="center"
                 android:textSize="15sp"/>
 
@@ -76,7 +76,7 @@
                 android:layout_gravity="center"
                 android:text="@string/description_edit_success_did_you_know"
                 android:textStyle="bold"
-                android:textColor="@color/light_gray"
+                android:textColor="@color/base70"
                 android:textSize="15sp"/>
 
             <org.wikipedia.views.AppTextViewWithImages
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:maxWidth="336dp"
                 android:layout_gravity="center"
-                android:textColor="@color/light_gray"
+                android:textColor="@color/base70"
                 android:textSize="14sp"
                 android:textAlignment="center"
                 android:includeFontPadding="false"

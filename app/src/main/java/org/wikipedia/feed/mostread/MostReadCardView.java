@@ -32,7 +32,7 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
                 .setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_most_read)
-                .setImageCircleColor(R.color.foundation_blue)
+                .setImageCircleColor(R.color.accent50)
                 .setCard(card)
                 .setCallback(getCallback());
         header(header);

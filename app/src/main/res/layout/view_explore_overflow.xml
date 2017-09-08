@@ -63,7 +63,7 @@
         <TextView
             android:id="@+id/explore_overflow_log_out"
             style="@style/OverflowMenuItem"
-            android:textColor="@color/foundation_red"
+            android:textColor="@color/red50"
             android:text="@string/preference_title_logout"/>
 
     </LinearLayout>
