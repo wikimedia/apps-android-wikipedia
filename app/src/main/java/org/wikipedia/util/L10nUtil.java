@@ -205,7 +205,7 @@ public final class L10nUtil {
         return getRelativeTimeSpanString(date.getTime(), currentTimeMillis(), SECOND_IN_MILLIS, 0).toString();
     }
 
-    private static void setDesiredLocale(@NonNull Configuration config, @NonNull Locale desiredLocale) {
+    public static void setDesiredLocale(@NonNull Configuration config, @NonNull Locale desiredLocale) {
         // when loads API in chinese variant, we can get zh-hant, zh-hans and zh
         // but if we want to display chinese correctly based on the article itself, we have to
         // detect the variant from the API responses; otherwise, we will only get english texts.
@@ -217,7 +217,13 @@ public final class L10nUtil {
         } else if (desiredLocale.getLanguage().equals(CHINESE_LANGUAGE_CODE)) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
-            setLocale(config, new Locale(WikipediaApp.getInstance().getAppLanguageCode()));
+            if (WikipediaApp.getInstance().getAppLanguageCode().equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
+                setLocale(config, TRADITIONAL_CHINESE);
+            } else if (WikipediaApp.getInstance().getAppLanguageCode().equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
+                setLocale(config, SIMPLIFIED_CHINESE);
+            } else {
+                setLocale(config, desiredLocale);
+            }
         } else {
             setLocale(config, desiredLocale);
         }
