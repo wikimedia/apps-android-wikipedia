@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.View;
@@ -19,10 +18,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     public PageToolbarHideHandler(@NonNull View hideableView) {
         super(hideableView, Gravity.TOP);
-
-        LayerDrawable toolbarBackgroundLayers = (LayerDrawable) hideableView.getBackground();
-        toolbarBackground = toolbarBackgroundLayers.findDrawableByLayerId(R.id.toolbar_background_solid).mutate();
-
+        toolbarBackground = hideableView.getBackground().mutate();
         statusBar = hideableView.findViewById(R.id.empty_status_bar).getBackground().mutate();
     }
 
