@@ -236,6 +236,7 @@
   <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
+  <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod. mentve: %s</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
@@ -291,6 +292,7 @@
   <string name="reading_list_menu_delete">Lista törlése</string>
   <string name="reading_list_menu_rename">Átnevezés</string>
   <string name="reading_list_menu_edit_description">Leírás szerkesztése</string>
+  <string name="reading_list_action_menu_save_for_offline">Mentés offline olvasáshoz</string>
   <string name="reading_list_action_menu_add_to_another_list">Hozzáadás másik listához</string>
   <string name="reading_list_name_sample">Saját olvasólista</string>
   <string name="reading_list_name_hint">A lista neve</string>
@@ -342,7 +344,7 @@
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; megköszönte a szerkesztésedet a(z) &lt;strong&gt;%2$s&lt;/strong&gt; lapon.</string>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
-  <string name="view_random_card_title">Vaktában</string>
+  <string name="view_random_card_title">Találomra</string>
   <string name="view_random_card_subtitle">Olvass egy véletlenszerű cikket a Wikipédiáról</string>
   <string name="view_main_page_card_title">Ma a Wikipédián</string>
   <string name="view_main_page_card_subtitle">Kezdőlap ma – %s</string>
@@ -407,6 +409,12 @@
   <string name="description_edit_revert_reason2">tesztelésnek vagy vandalizmusnak tűnt</string>
   <string name="description_edit_revert_history">Többet megtudhatsz a visszavonás okáról a &lt;a href=\"%1$s\"&gt;laptörténetben&lt;/a&gt;.</string>
   <string name="offline_compilations_title">Offline könyvtár</string>
+  <string name="offline_compilation_detail_button_remove">Eltávolítás</string>
+  <string name="remote_compilation_download">Letöltés</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="compilation_download_widget_button_cancel_hint">Letöltés törlése</string>
+  <string name="compilation_download_cancel_confirm_yes">Igen</string>
+  <string name="compilation_download_cancel_confirm_no">Nem</string>
   <string name="compilation_share">Megosztás</string>
   <string name="compilation_remove">Eltávolítás</string>
   <string name="offline_library_onboarding_button_done">Kész</string>
@@ -417,6 +425,7 @@
   <string name="onboarding_reading_list_sync_title">Olvasási listák szinkronizálással</string>
   <string name="onboarding_reading_list_sync_text">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
+  <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
   <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>
   <string name="onboarding_create_account_preferences">Beállítások mentése</string>
 </resources>

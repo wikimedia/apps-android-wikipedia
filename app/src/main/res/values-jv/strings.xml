@@ -423,7 +423,7 @@
   <string name="offline_my_compilations" fuzzy="true">Kompilasiné kula</string>
   <string name="offline_compilations_title" fuzzy="true">Kompilasi njaban jaringan</string>
   <string name="offline_compilations_search_by_name" fuzzy="true">Golèk kompilasi miturut jenengé</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Kompilasiné kula (%d)</string>
+  <string name="offline_compilations_found_count">Ing pabukonku (%d)</string>
   <string name="offline_compilations_add" fuzzy="true">Tambah kompilasi njaban jaringan</string>
   <string name="remote_compilations_title" fuzzy="true">Kabèh kompilasi</string>
   <string name="remote_compilations_description" fuzzy="true">Kompilasi Jaban Jaringan iku bundhelan artikel gedhé sing bisa diundhuh dadi sabarkas menyang pirantiné panjenengan, supaya panjenengan bisa panggah ngluru nalika ing njaban jaringan.</string>

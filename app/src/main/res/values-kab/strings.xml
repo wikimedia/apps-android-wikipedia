@@ -255,6 +255,7 @@
   <string name="error_page_does_not_exist">Asebter-agi ulac-it</string>
   <string name="view_wiki_error_message_offline">Ur izmir ara ad yeqqen ar Internet.</string>
   <string name="reference_title">Tamsisɣelt %s</string>
+  <string name="preference_title_dim_dark_mode_images">Tugnatin meẓẓiyen deg usentel aberkan</string>
   <string name="preference_summary_dim_dark_mode_images">Senɣeṣ tafat n tugniwin ticki nseqdac asentel ubrik</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Asibrek n tugna (deg usentel ubrik)</string>
   <string name="crash_report_dialog_title">Suref-aɣ, asnas yeɣli tagara-agi</string>

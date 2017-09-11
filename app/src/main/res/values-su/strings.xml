@@ -255,6 +255,9 @@
   <string name="error_page_does_not_exist">Ieu kaca geus euweuh</string>
   <string name="view_wiki_error_message_offline">Teu bisa nyambungkeun kana internét</string>
   <string name="reference_title">Rujukan %s</string>
+  <string name="preference_title_dim_dark_mode_images">Poékan gambar dina téma poék mah</string>
+  <string name="preference_summary_dim_dark_mode_images">Kurangan caang gambar nalika maké téma poék</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Pamoékan gambar (dina téma Poék)</string>
   <string name="crash_report_dialog_title">Hampura, aplikasi eureun sorangan bieu téh</string>
   <string name="crash_report_dialog_text">Ari anjeun hayang ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sangkan Wikimédia bisa mariksa karuksakan anjeun sarta ngoméan kasalahan nu disumebabkeunna?</string>
   <string name="crash_report_dialog_dont_send_button">Liwatkeun</string>
@@ -333,6 +336,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Nya</string>
   <string name="reading_lists_confirm_remote_delete_no">Teu</string>
   <string name="reading_list_article_save_in_progress">Artikel keur diundeur, sarta bakal nyangkaruk sacara oflén nalika geus bérés.</string>
+  <string name="reading_list_already_contains_selection">Daptar nu dipilih geus aya eusian sakabéh kaca nu dipilih.</string>
+  <string name="reading_list_added_articles_list_untitled">%d artikel ditambahkeun kana daptar bacaeun.</string>
+  <string name="reading_list_added_articles_list_titled">%1$d ditambahkeun ka %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ieu artikel ayeuna bakal sayaga kalawan oflén.</item>
     <item quantity="other">Ieu artikel-artikel ayeuna bakal sayaga kalawan oflén.</item>

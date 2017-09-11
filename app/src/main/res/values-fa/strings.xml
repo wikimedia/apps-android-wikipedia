@@ -257,6 +257,9 @@
   <string name="error_page_does_not_exist">این صفحه وجود ندارد</string>
   <string name="view_wiki_error_message_offline">امکان اتصال به اینترنت وجود ندارد</string>
   <string name="reference_title">منابع %s</string>
+  <string name="preference_title_dim_dark_mode_images">تصاویر را در تم تاریک محو کن</string>
+  <string name="preference_summary_dim_dark_mode_images">روشنایی تصاویر را در هنگام استفاده از تم تاریک کاهش بده</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">گم نورکردن تصویر (در حالت تیره)</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
   <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
   <string name="crash_report_dialog_dont_send_button">رها کردن</string>
@@ -335,6 +338,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">بله</string>
   <string name="reading_lists_confirm_remote_delete_no">خیر</string>
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
+  <string name="reading_list_already_contains_selection">فهرست انتخاب‌شده همیشه شامل همهٔ صفحات انتخاب‌شده‌ است.</string>
+  <string name="reading_list_added_articles_list_untitled">%d مقاله به فهرست خواندن اضافه شد.</string>
+  <string name="reading_list_added_articles_list_titled">%1$d مقاله به %2$s اضافه شد</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">اکنون در حالت آفلاین مقاله در دسترس است.</item>
     <item quantity="other">اکنون در حالت آفلاین این مقالات در دسترس هستند.</item>
@@ -419,14 +425,14 @@
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
   <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="offline_read_permission_error">اجازه برای خواندن از حافظه دستگاه داده‌نشد.</string>
-  <string name="offline_card_text" fuzzy="true">شما در حال کاوش در ویکی‌پدیا به صورت آفلاین هستید. توجه داشته باشید که نسخهٔ آفلاین لزوما آخرین نسخهٔ به روز مقالهٔ آنلاین نمی‌باشد.</string>
-  <string name="offline_my_compilations" fuzzy="true">مقاله‌های گردآوری شده من</string>
+  <string name="offline_card_text">شما در حال کاوش ویکی‌پدیا به کمک مقالات ذخیره‌شده در کتابخانه‌تان به صورت آفلاین هستید.</string>
+  <string name="offline_my_compilations">مدیریت کتابخانهٔ آفلاین</string>
   <string name="offline_compilations_title">کتابخانه آفلاین</string>
   <string name="offline_compilations_search_by_name">جستجوی بسته مقاله‌ها بر پایهٔ نام</string>
-  <string name="offline_compilations_found_count" fuzzy="true">بسته‌های مقاله من (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">افزودن بسته مقاله</string>
-  <string name="remote_compilations_title" fuzzy="true">همهٔ بسته مقاله‌ها</string>
-  <string name="remote_compilations_description" fuzzy="true">بسته مقاله‌ها بسته‌های بزرگی از مقالات هستند که شما می‌توانید آنها را یکباره به صورت یک فایل بر روی سیستمتان بارگیری کنید، پس می توانید به صورت آفلاین به جستجو و کاوش ادامه دهید.</string>
+  <string name="offline_compilations_found_count">در کتابخانهٔ من (%d)</string>
+  <string name="offline_compilations_add">افزودن به کتابخانهٔ آفلاین من</string>
+  <string name="remote_compilations_title">کتابخانهٔ آفلاین</string>
+  <string name="remote_compilations_description">به کمک کتابخانهٔ آفلاین، برای مواقعی که به اینترنت دسترسی ندارید می‌توانید بسته‌هایی از مقالات برای خواندن دانلود کنید.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">بارگیری • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">حذف</string>
@@ -446,18 +452,21 @@
   <string name="compilation_download_cancel_confirm_no">خیر</string>
   <string name="compilation_share">اشتراک‌گذاری</string>
   <string name="compilation_remove">حذف</string>
-  <string name="compilation_remove_confirm" fuzzy="true">آیا مطمئن هستید که می‌خواهید این بسته مقاله را از دستگاهتان حذف کنید؟</string>
+  <string name="compilation_remove_confirm">آیا مطمئن هستید که می‌خواهید این بسته مقاله را از کتابخانهٔ آفلاینتان حذف کنید؟</string>
   <string name="offline_library_title">کتابخانه آفلاین</string>
   <string name="offline_library_empty_title">چیزی در کتابخانه آفلاین شما وجود ندارد</string>
   <string name="offline_library_empty_description">انتخاب بسته‌ای از مقالات ویکی‌پدیا برای بارگیری، برای دسترسی بدون نیاز به اینترنت در زمانی دیگر</string>
   <string name="offline_library_empty_search">جستجو در کتابخانه آفلاین</string>
-  <string name="offline_library_search_results_state" fuzzy="true">نمایش نتایج از کتابخانه آفلاین</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">دانشتن در مورد کتابخانهٔ آفلاین</string>
+  <string name="offline_library_search_results_state">نمایش نتایج از کتابخانه آفلاین</string>
+  <string name="offline_library_onboarding_action">پیدا کردن موارد بیشتر</string>
+  <string name="offline_library_onboarding_text">معرفی کتابخانهٔ آفلاین — دانلود بسته‌های مقاله برای مطالعهٔ آفلاین در زمانی دیگر.</string>
   <string name="offline_library_onboarding_button_done">انجام شد</string>
   <string name="offline_library_onboarding_build_library_title">کتابخانه آفلاینتان را بسازید</string>
+  <string name="offline_library_onboarding_build_library_subtitle">دانلود بسته مقاله ویکی‌پدیا برای دسترسی بدون نیاز به دانلود برای بعداً.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">مطالعه بدون مزاحمت</string>
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">به مطالعه و خواندن مقاله‌ها در کتابخانه آفلاین ادامه دهید هنگامی که نیازی به اتصال به اینترنت ندارید.</string>
   <string name="offline_library_onboarding_store_knowledge_title">دانش بیشتری ذخیره کنید</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">دانلود ویکی‌پدیا به میزانی که دستگاه شما می‌تواند آن را مدیریت کند. کتابخانهٔ آفلاین همچنین می‌تواند از روی حافظهٔ خارجی هم در دسترس باشد.</string>
   <string name="onboarding_skip">رها کردن</string>
   <string name="onboarding_continue">ادامه</string>
   <string name="onboarding_get_started">شروع شد</string>

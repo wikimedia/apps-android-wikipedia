@@ -232,7 +232,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">آفلائين ھجڻ وقت صفحو لاھي نٿو سگھجي.</string>
   <string name="page_offline_notice_add_to_reading_list">اشارو:ڪو بہ مضمون پنھنجي پڙھڻ جي فھرست ۾ شامل ڪريو ان کي لاٿو ويندو جڏھن توھان ٻيھر آنلائين ٿيندئو.</string>
   <string name="page_offline_notice_last_date">توھان %s تي سانڍيل ھن مضمون جو ھڪ آفلائين ورزن پڙھي رھيا آھيو.</string>
-  <string name="page_offline_notice_compilation_download_date" fuzzy="true">توھان %1$s • %2$s تي لاٿل ھڪ ميڙ مان ھن مضمون جو ھڪ آفلائين ورزن پڙھي رھيا آھيو.</string>
+  <string name="page_offline_notice_compilation_download_date">توھان %1$s • %2$s مان ھن مضمون جو ورزن پڙھي رھيا آھيو.</string>
   <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
   <string name="error_no_maps_app">ھدايتون مھيا ڪندڙ ڪي بہ ايپس لڀجي نہ سگھيون.</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن جي پيش نگاھ ڏيکاريو</string>
@@ -331,7 +331,7 @@
     <item quantity="other">ھي مضمونَ ھاڻي وڌيڪ آفلائين موجود نہ ھوندا.</item>
   </plurals>
   <string name="user_option_sync_label">ترجيحون</string>
-  <string name="notification_button_view_user">يوزر سان ڳالھ</string>
+  <string name="notification_button_view_user">واھپ سان ڳالھايو</string>
   <string name="notification_talk_title">وڪيپيڊيا تي نئون پيغام</string>
   <string name="notification_talk">%1$s توھان جي بحث صفحي \'\'\'%2$s\'\'\' تي پيغام ڇڏيو</string>
   <string name="notification_reverted_title">ورايل ترميم</string>
@@ -364,6 +364,7 @@
   <string name="view_offline_card_text">آفلائين ھجڻ مھل مواد نٿو لاھي سگھجي.</string>
   <string name="view_featured_article_card_title">نمايان مضمون</string>
   <string name="view_featured_article_footer_save_button_label">سانڍيو</string>
+  <string name="view_featured_article_footer_saved_button_label">سانڍيل</string>
   <string name="description_edit_text_hint">عنوان  جي تشريح</string>
   <string name="description_edit_save">ڇاپيو</string>
   <string name="description_edit_add_description">عنوان جي تشريح شامل ڪريو</string>
@@ -405,14 +406,14 @@
   <string name="description_edit_revert_history">جيڪڏھن توھان دلچسپي رکو ٿا، تہ پوءِ &lt;a href=\"%1$s\"&gt;ترميمن جي سوانح&lt;/a&gt; ڏسو.</string>
   <string name="offline_read_permission_rationale">آفلائين برائوزنگ لاءِ توھان جي ڊوائيس جي سنڀار تائين پھچ لاءِ اجازت گھربل آھي.</string>
   <string name="offline_read_permission_error">ڊوائيس جي سنڀار مان پڙھڻ لاءِ اجازت نہ ڏني وئي.</string>
-  <string name="offline_my_compilations" fuzzy="true">منھنجا ميڙ</string>
-  <string name="offline_compilations_title" fuzzy="true">آفلائين ميڙ</string>
-  <string name="offline_compilations_search_by_name" fuzzy="true">ميڙ نالي سان ڳوليو</string>
-  <string name="offline_compilations_found_count" fuzzy="true">منھنجا ميڙ (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">آفلائين ميڙ وجھو</string>
-  <string name="remote_compilations_title" fuzzy="true">سڀ ميڙ</string>
-  <string name="offline_compilation_detail_date_size" fuzzy="true">%1$s · %2$.2f جيبي</string>
-  <string name="offline_compilation_detail_button_download" fuzzy="true">لاھيو · %.2f جيبي</string>
+  <string name="offline_my_compilations">منھنجو آفلائين ڪتبخانو سنڀاليو</string>
+  <string name="offline_compilations_title">آفلائين ڪتبخانو</string>
+  <string name="offline_compilations_search_by_name">مضمونن جا ميڙ نالي سان ڳوليو</string>
+  <string name="offline_compilations_found_count">منھنجي ڪتبخاني ۾ (%d)</string>
+  <string name="offline_compilations_add">منھنجي آفلائين ڪتبخاني ۾ وجھو</string>
+  <string name="remote_compilations_title">آفلائين ڪتبخانو</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f جيبي</string>
+  <string name="offline_compilation_detail_button_download">• %.2f جيبي لاھيو</string>
   <string name="offline_compilation_detail_button_remove">ھٽايو</string>
   <string name="remote_compilation_download">لاھيو</string>
   <string name="storage_size_gb">جيبي</string>
@@ -425,13 +426,17 @@
     <item quantity="other">%d منٽَ باقي</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">لاھڻ رد ڪريو</string>
-  <string name="compilation_download_cancel_confirm" fuzzy="true">ڇا توھان کي پڪ آھي تہ توھان ھن ميڙ جو لاھڻ رد ڪرڻ ٿا چاھيو؟</string>
+  <string name="compilation_download_cancel_confirm">ڇا توھان کي پڪ آھي تہ توھان ھن مضمونن جي ميڙ جو لاھڻ رد ڪرڻ ٿا چاھيو؟</string>
   <string name="compilation_download_cancel_confirm_yes">ھا</string>
   <string name="compilation_download_cancel_confirm_no">نہ</string>
+  <string name="compilation_share">ونڊيو</string>
+  <string name="compilation_remove">ھٽايو</string>
   <string name="offline_library_title">آفلائين ڪتبخانو</string>
   <string name="offline_library_empty_title">توھان جي آفلائين ڪتبخاني ۾ ڪجھ بہ ناھي</string>
   <string name="offline_library_empty_search">آفلائين ڪتبخانو ڳوليو</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">پنھنجي آفلائين ڪتبخاني بابت سکو</string>
+  <string name="offline_library_onboarding_action">وڌيڪ لھو</string>
+  <string name="offline_library_onboarding_button_done">ٿي ويو</string>
+  <string name="offline_library_onboarding_store_knowledge_title">وڌيڪ ڄاڻ سانڍيو</string>
   <string name="onboarding_skip">ڇڏيو</string>
   <string name="onboarding_continue">جاري رکو</string>
   <string name="onboarding_get_started">شروع ڪريو</string>

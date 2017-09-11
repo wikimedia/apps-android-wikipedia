@@ -107,12 +107,13 @@
   <string name="preferences_general_heading">Общи</string>
   <string name="wikipedia_app_faq">Често задавани въпроси за приложението на Уикипедия</string>
   <string name="zero_charged_verbiage">Безплатният достъп до Уикипедия вече не е активен.</string>
-  <string name="zero_warn_when_leaving">Предупреждение при напускане на Уикипедия Zero</string>
-  <string name="zero_webpage_title">Често задавани въпроси за Уикипедия Zero</string>
+  <string name="zero_warn_when_leaving">Предупреждение при напускане на Уикипедия Нула</string>
+  <string name="zero_webpage_title">Често задавани въпроси за Уикипедия Нула</string>
   <string name="zero_wikipedia_zero_heading">Уикипедия Нула</string>
   <string name="zero_interstitial_title">Напускане на Уикипедия Нула</string>
   <string name="zero_interstitial_continue">Излизане</string>
   <string name="zero_interstitial_cancel">Оставане тук</string>
+  <string name="zero_learn_more">Вашият мобилен оператор е предоставил безплатен достъп до съдържанието на Уикипедия!</string>
   <string name="zero_learn_more_learn_more">Научете повече</string>
   <string name="zero_learn_more_dismiss">Затваряне</string>
   <string name="edit_preview_fetching_dialog_message">Извличане на прегледа...</string>
@@ -125,6 +126,8 @@
   <string name="preference_title_eventlogging_opt_in">Изпращане на доклади за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Позволяване на Уикимедия да събира информация за това как използвате приложението, с цел подобряването му</string>
   <string name="preference_title_auto_upload_crash_reports">Изпращане на доклади за сривове</string>
+  <string name="preference_summary_auto_upload_crash_reports">Позволяване на приложението да изпраща доклади за сривове към HockeyApp / услуга на трети страни автоматично, така че да можем да прегледаме срива и да оправим бъга по-бързо и по-лесно.</string>
+  <string name="editing_error_spamblacklist">Открити са връзки до блокирани домейни (%s). Моля, премахнете ги и опитайте пак.</string>
   <string name="history_search_list_hint">Хронология на търсенето</string>
   <string name="error_can_not_process_link">Връзката не може да бъде показана</string>
   <string name="page_protected_autoconfirmed">Тази страница е полузащитена.</string>
@@ -145,6 +148,8 @@
   <string name="about_translators_heading">Преводачи</string>
   <string name="about_translators_translatewiki">Това приложение е преведено от доброволните преводачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценз</string>
+  <string name="about_app_license">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_wmf">Продукт на &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Фондация Уикимедия&lt;/a&gt;</string>
   <string name="about_activity_title">Относно</string>
   <string name="edit_abandon_confirm">Страницата е била променена. Сигурни ли сте, че искате да излезете, без да запазите промените си?</string>
   <string name="edit_abandon_confirm_yes">Да</string>
@@ -189,6 +194,7 @@
   <string name="alpha_update_notification_text">Докоснете за изтегляне</string>
   <string name="dialog_close_description">Затваряне</string>
   <string name="preference_title_show_images">Показване на изображения</string>
+  <string name="preference_summary_show_images">Позволяване или забраняване на зареждането на изображения в страниците. Махнете отметката от тази настройка, ако интернет връзката ви е слаба или мобилните ви данни са ограничени.</string>
   <string name="read_more_section">Прочетете повече</string>
   <string name="menu_gallery_visit_page">Към страницата на файла</string>
   <string name="gallery_error_draw_failed">Изображението не може да бъде показано.</string>
@@ -245,7 +251,11 @@
   <string name="error_page_does_not_exist">Тази страница не съществува</string>
   <string name="view_wiki_error_message_offline">Няма връзка с интернет</string>
   <string name="reference_title">Източник %s</string>
+  <string name="preference_title_dim_dark_mode_images">Избледняване на изображенията в тъмния облик</string>
+  <string name="preference_summary_dim_dark_mode_images">Намаляване на яркостта на изображенията, когато се използва тъмния облик</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
   <string name="crash_report_dialog_title">За съжаление, приложението се срина последния път</string>
+  <string name="crash_report_dialog_text">Желаете ли да изпратите доклад за срива на HockeyApp / услуга на трети страни, така че Уикимедия да разгледа срива и да оправи бъга, който го е причинил?</string>
   <string name="crash_report_dialog_dont_send_button">Пропускане</string>
   <string name="crash_report_dialog_always_send_button">Винаги изпращай</string>
   <string name="crash_report_dialog_send_button">Изпращане</string>
@@ -310,11 +320,14 @@
   <string name="reading_list_sync_reminder_action">Включване</string>
   <string name="reading_list_login_reminder_title">Синхронизация на списъците за четене</string>
   <string name="reading_list_login_reminder_text">Вашите списъци за четене могат да бъдат запазвани във вашата сметка в Уикипедия. Влезте в сметката си и вашите списъци за четене ще бъдат синхронизирани автоматично.</string>
+  <string name="reading_lists_confirm_remote_delete">Това ще изтрие всички предишно синхронизирани списъци за четене от дистанционното съхранение. Продължаване?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
+  <string name="reading_list_already_contains_selection">Избраният списък вече съдържа всичките избрани страници.</string>
   <string name="reading_list_added_articles_list_untitled">Добавени %d статии в списъка за четене.</string>
   <string name="reading_list_added_articles_list_titled">Добавени %1$d статии в %2$s</string>
   <string name="user_option_sync_label">Предпочитания</string>
+  <string name="notification_talk_title">Ново съобщение в Уикипедия</string>
   <string name="notification_reverted_title">Отменена редакция</string>
   <string name="notification_reverted">Ваша редакция на страница &lt;strong&gt;%2$s&lt;/strong&gt; е върната от &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Получихте благодарност!</string>
@@ -361,12 +374,49 @@
   <string name="description_edit_tutorial_title_descriptions">Описание на заглавията</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започнете да редактирате</string>
   <string name="description_edit_help_about_title">Относно</string>
+  <string name="description_edit_help_tips">Съвети за създаване на описания</string>
   <string name="description_edit_help_tips_examples">Например:</string>
+  <string name="description_edit_help_tips_example2">Най-високият връх на Земята</string>
+  <string name="description_edit_help_tips_example2_hint">описание на заглавието на статия за връх Еверест</string>
   <string name="description_edit_help_more_info">Допълнителна информация</string>
+  <string name="description_edit_revert_subtitle">Благодаря за редактирането на Уикипедия!</string>
+  <string name="description_edit_revert_reason2">вашият принос изглеждаше като експеримент или вандализъм.</string>
+  <string name="description_edit_revert_history">Ако се интересувате, прегледайте &lt;a href=\"%1$s\"&gt;историята на редакциите&lt;/a&gt;.</string>
+  <string name="offline_compilations_search_by_name">Търсене на пакет от статии по име</string>
+  <string name="offline_compilations_found_count">В моята библиотека (%d)</string>
+  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_button_download">Изтегляне • %.2f GB</string>
+  <string name="offline_compilation_detail_button_remove">Премахване</string>
+  <string name="remote_compilation_download">Изтегляне</string>
+  <string name="storage_size_gb">GB</string>
+  <string name="storage_size_free">%.2f GB свободни</string>
+  <string name="storage_used_by_compilations">използвани от Уикипедия</string>
+  <string name="storage_other_apps">Други приложения</string>
+  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <plurals name="offline_compilation_download_time_remaining">
+    <item quantity="one">остава 1 минута</item>
+    <item quantity="other">остават %d минути</item>
+  </plurals>
+  <string name="compilation_download_widget_button_cancel_hint">Отказване на изтеглянето</string>
+  <string name="compilation_download_cancel_confirm">Сигурни ли сте, че искате да откажете изтеглянето на този пакет от статии?</string>
   <string name="compilation_download_cancel_confirm_yes">Да</string>
   <string name="compilation_download_cancel_confirm_no">Не</string>
   <string name="compilation_share">Споделяне</string>
   <string name="compilation_remove">Премахване</string>
+  <string name="offline_library_empty_description">Избиране на пакет от статии от Уикипедия за изтегляне сега, така че да могат се четат по-късно без мобилни данни.</string>
+  <string name="offline_library_onboarding_action">Научете повече</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Изтегляне на пакет от статии от Уикипедия сега, така че да могат се четат по-късно без мобилни данни.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Четене без прекъсвания</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Складиране на повече знание</string>
   <string name="onboarding_skip">Пропускане</string>
+  <string name="onboarding_continue">Продължаване</string>
+  <string name="onboarding_get_started">Започване</string>
+  <string name="onboarding_reading_list_sync_title">Списъци за четене със синхронизация</string>
+  <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
+  <string name="onboarding_analytics_text">Помогнете ни да направим приложението по-добро, като ни уведомявате как го ползвате. Събираните данни са анонимни. &lt;a href=\"#privacy\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
+  <string name="onboarding_create_account_sync">Синхронизация на списъците ви за четене</string>
+  <string name="onboarding_create_account_contributions">Бъдете в течение с вашите приноси</string>
+  <string name="onboarding_create_account_preferences">Съхраняване на предпочитанията</string>
 </resources>
