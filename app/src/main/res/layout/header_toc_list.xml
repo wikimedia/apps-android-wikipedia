@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              style="@style/RtlAwareTextView"
-              android:textAppearance="?android:attr/textAppearanceLarge"
-              android:fontFamily="serif"
-              android:padding="16dp"
-              android:textStyle="bold"
-              tools:text="Sample title"
-              android:background="?attr/toc_item_background"
-        />
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/RtlAwareTextView"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:textColor="?attr/toc_section_text_color"
+    android:fontFamily="serif"
+    android:padding="16dp"
+    android:textStyle="bold"
+    android:background="?attr/toc_item_background"
+    tools:text="Sample title"/>
 
