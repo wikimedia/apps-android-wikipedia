@@ -21,7 +21,7 @@ import org.wikipedia.settings.Prefs;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+import butterknife.OnCheckedChanged;
 import butterknife.Unbinder;
 
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
@@ -84,10 +84,12 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         updateComponents();
     }
 
-    @OnClick(R.id.theme_chooser_dark_mode_dim_images_switch)
-    void onToggleDimImages() {
-        boolean enabled = Prefs.shouldDimDarkModeImages();
-        Prefs.setDimDarkModeImages(!enabled);
+    @OnCheckedChanged(R.id.theme_chooser_dark_mode_dim_images_switch)
+    void onToggleDimImages(boolean enabled) {
+        if (enabled == Prefs.shouldDimDarkModeImages()) {
+            return;
+        }
+        Prefs.setDimDarkModeImages(enabled);
         if (callback() != null) {
             // noinspection ConstantConditions
             callback().onToggleDimImages();
