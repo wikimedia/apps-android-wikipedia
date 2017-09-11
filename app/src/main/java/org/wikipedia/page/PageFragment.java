@@ -636,7 +636,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      * @param pushBackStack Whether to push the new page onto the backstack.
      */
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
-                         boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
+                         boolean pushBackStack, int stagedScrollY, boolean isRefresh) {
         // clear the title in case the previous page load had failed.
         clearActivityActionBarTitle();
 
@@ -655,10 +655,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         model.setTitleOriginal(title);
         model.setCurEntry(entry);
         model.setReadingListPage(null);
+        model.setForceNetwork(isRefresh);
 
         updateProgressBar(true, true, 0);
 
-        this.pageRefreshed = pageRefreshed;
+        this.pageRefreshed = isRefresh;
 
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack, stagedScrollY);

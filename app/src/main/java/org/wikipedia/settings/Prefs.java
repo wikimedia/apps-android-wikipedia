@@ -577,5 +577,9 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_suppress_notification_polling, false);
     }
 
+    public static boolean preferOfflineContent() {
+        return getBoolean(R.string.preference_key_prefer_offline_content, false);
+    }
+
     private Prefs() { }
 }

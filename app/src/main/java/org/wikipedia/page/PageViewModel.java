@@ -15,6 +15,8 @@ class PageViewModel {
     @Nullable private HistoryEntry curEntry;
     @Nullable private ReadingListPage readingListPage;
 
+    private boolean forceNetwork;
+
     @Nullable public Page getPage() {
         return page;
     }
@@ -57,5 +59,13 @@ class PageViewModel {
 
     public void setReadingListPage(@Nullable ReadingListPage page) {
         readingListPage = page;
+    }
+
+    public void setForceNetwork(boolean forceNetwork) {
+        this.forceNetwork = forceNetwork;
+    }
+
+    public boolean shouldForceNetwork() {
+        return forceNetwork;
     }
 }

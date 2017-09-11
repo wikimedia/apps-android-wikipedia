@@ -62,6 +62,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import okhttp3.CacheControl;
 import okhttp3.Protocol;
 import okhttp3.Request;
 import retrofit2.Call;
@@ -431,7 +432,8 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().leadSectionFetchStart();
         PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .lead(null, model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
+                .lead(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
+                        model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
                         model.getTitle().getPrefixedText(), calculateLeadImageWidth(), !isImageDownloadEnabled())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
@@ -762,7 +764,8 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().restSectionsFetchStart();
         Request request = PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
-                .sections(null, model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
+                .sections(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
+                        model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
                         model.getTitle().getPrefixedText(), !isImageDownloadEnabled())
                 .request();
 
