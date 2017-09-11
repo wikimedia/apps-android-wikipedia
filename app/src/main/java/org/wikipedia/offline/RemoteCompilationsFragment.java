@@ -25,7 +25,9 @@ import android.widget.ProgressBar;
 import org.wikipedia.R;
 import org.wikipedia.gallery.MediaDownloadReceiver;
 import org.wikipedia.history.SearchActionModeCallback;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -367,8 +369,12 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.menu_compilation_download:
-                        if (!getDownloadObserver().isDownloading(compilation)) {
-                            MediaDownloadReceiver.download(getContext(), compilation);
+                        if (DeviceUtil.isOnline()) {
+                            if (!getDownloadObserver().isDownloading(compilation)) {
+                                MediaDownloadReceiver.download(getContext(), compilation);
+                            }
+                        } else {
+                            FeedbackUtil.showMessage(getActivity(), R.string.offline_compilation_download_device_offline);
                         }
                         return false;
                     default:
