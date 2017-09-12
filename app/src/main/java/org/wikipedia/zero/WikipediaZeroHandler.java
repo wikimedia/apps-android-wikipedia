@@ -264,7 +264,7 @@ public class WikipediaZeroHandler {
 
     private void notifyExitZeroNetwork(@NonNull Context context) {
         NotificationCompat.Builder builder = createNotification(context);
-        builder.setColor(ContextCompat.getColor(context, R.color.foundation_red))
+        builder.setColor(ContextCompat.getColor(context, R.color.red50))
                 .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
                         ? R.drawable.ic_wikipedia_zero_off : R.mipmap.launcher)
                 .setContentText(context.getString(R.string.zero_charged_verbiage))

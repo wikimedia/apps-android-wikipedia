@@ -140,7 +140,7 @@
                 android:layout_gravity="end"
                 android:contentDescription="@string/description_edit_help_title"
                 app:srcCompat="@drawable/ic_help_black_24dp"
-                android:tint="@color/dark_gray"
+                android:tint="@color/base30"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"/>
 
@@ -159,7 +159,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="4dp"
                 app:srcCompat="@drawable/ic_license_cc"
-                android:tint="@color/dark_gray"
+                android:tint="@color/base30"
                 android:contentDescription="@string/cc_logo" />
 
             <TextView
@@ -173,7 +173,7 @@
                 android:linksClickable="true"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:lineSpacingMultiplier="1.2"
-                android:textColor="@color/dark_gray"
+                android:textColor="@color/base30"
                 android:textColorLink="?attr/colorAccent"/>
 
         </LinearLayout>

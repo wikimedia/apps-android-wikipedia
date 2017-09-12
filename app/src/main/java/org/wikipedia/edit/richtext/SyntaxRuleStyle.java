@@ -36,7 +36,7 @@ public enum SyntaxRuleStyle {
     REF {
         @NonNull @Override public SpanExtents createSpan(@NonNull Context ctx, int spanStart,
                                                          SyntaxRule syntaxItem) {
-            return new ColorSpanEx(getColor(ctx, R.color.dark_green), Color.TRANSPARENT, spanStart,
+            return new ColorSpanEx(getColor(ctx, R.color.green30), Color.TRANSPARENT, spanStart,
                     syntaxItem);
         }
     },

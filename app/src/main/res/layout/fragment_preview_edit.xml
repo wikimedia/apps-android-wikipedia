@@ -55,7 +55,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     app:srcCompat="@drawable/ic_license_cc"
-                    android:tint="@color/dark_gray"
+                    android:tint="@color/base30"
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@string/cc_logo" />
 
@@ -68,7 +68,7 @@
                     style="@style/RtlAwareTextView"
                     tools:text="Sample section license text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/dark_gray"
+                    android:textColor="@color/base30"
                     android:textColorLink="?attr/colorAccent"/>
 
         </LinearLayout>
@@ -84,7 +84,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/edit_preview"
                 android:background="@color/preview_header_background"
-                android:textColor="@color/edit_text_light"
+                android:textColor="@color/base0"
                 android:gravity="center_vertical"/>
 
         <org.wikipedia.views.ObservableWebView

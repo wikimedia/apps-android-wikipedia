@@ -99,7 +99,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 .setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_star_black_24dp)
-                .setImageCircleColor(R.color.foundation_yellow)
+                .setImageCircleColor(R.color.yellow50)
                 .setCard(card)
                 .setCallback(getCallback());
         header(header);

@@ -27,11 +27,11 @@
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="popupMenuStyle">@style/Theme.Light.PopupMenuStyle</item>
         <item name="alertDialogTheme">@style/Theme.Light.Dialog.Alert</item>
-        <item name="colorAccent">@color/accent_light</item>
+        <item name="colorAccent">@color/accent50</item>
         <item name="android:windowBackground">@color/base90</item>
         <item name="window_background_color">@color/base90</item>
         <item name="window_inverse_color">@color/base10</item>
-        <item name="page_background_color">@color/page_background_light</item>
+        <item name="page_background_color">@color/base100</item>
         <item name="main_toolbar_color">@color/accent50</item>
         <item name="main_status_bar_color">@color/accent30</item>
         <item name="inline_onboarding_background_color">@color/base80</item>
@@ -39,7 +39,7 @@
         <item name="toc_section_text_color">@color/base10</item>
         <item name="toc_subsection_text_color">@color/base30</item>
         <item name="toc_item_background">@drawable/toc_item_background_light</item>
-        <item name="edit_text_color">@color/edit_text_light</item>
+        <item name="edit_text_color">@color/base0</item>
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
@@ -52,27 +52,27 @@
         <item name="tab_item_selector">@drawable/tab_item_selector_light</item>
         <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="tab_shadow_color">@color/tab_shadow_light</item>
-        <item name="tool_tip_default_color">@color/tool_tip_default_light</item>
+        <item name="tool_tip_default_color">@android:color/black</item>
         <item name="bottom_sheet_background_color">@color/base90</item>
         <item name="link_preview_text_color">@color/link_preview_text_light</item>
         <item name="link_preview_offline_text_color">@color/link_preview_offline_text_light</item>
         <item name="list_item_text_primary_color">@color/list_item_text_primary_light</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_light</item>
 
-        <item name="offline_library_background_color">@color/offline_library_background_color_light</item>
+        <item name="offline_library_background_color">@color/base80</item>
 
         <item name="nav_tab_background_color">@android:color/white</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
 
         <item name="overflow_button">@color/light_gray_overflow_button</item>
-        <item name="multi_select_background_color">@color/multi_select_background_light</item>
+        <item name="multi_select_background_color">@color/accent90</item>
 
         <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
         <item name="android:listViewStyle">@style/ListView</item>
 
-        <item name="feed_window_background_color">@color/feed_window_background_light</item>
-        <item name="feed_text_primary_color">@color/feed_text_primary_light</item>
         <item name="feed_text_secondary_color">@color/feed_text_secondary_light</item>
+        <item name="feed_window_background_color">@color/base80</item>
+        <item name="feed_text_primary_color">@color/base10</item>
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_light</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>

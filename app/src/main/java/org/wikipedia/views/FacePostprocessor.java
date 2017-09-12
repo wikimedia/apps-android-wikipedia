@@ -50,7 +50,7 @@ public class FacePostprocessor extends BasePostprocessor {
             } catch (OutOfMemoryError e) {
                 L.logRemoteErrorIfProd(e);
             }
-            int defaultColor = ContextCompat.getColor(WikipediaApp.getInstance(), R.color.dark_gray);
+            int defaultColor = ContextCompat.getColor(WikipediaApp.getInstance(), R.color.base30);
             listener.get().onImageLoaded(destBitmap.getHeight(), facePos,
                     extractMainColor(colorPalette, defaultColor));
         } else {

@@ -29,7 +29,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
 public class CardHeaderViewTest extends ViewTest {
-    @ColorRes private static final int BLUE = R.color.foundation_blue;
+    @ColorRes private static final int BLUE = R.color.accent50;
     private CardHeaderView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,
@@ -47,7 +47,7 @@ public class CardHeaderViewTest extends ViewTest {
     }
 
     @Theory public void testTheme(@NonNull Theme theme,
-                                  @TestedOn(ints = {BLUE, R.color.foundation_green}) int circleColor) {
+                                  @TestedOn(ints = {BLUE, R.color.green50}) int circleColor) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, theme, PrimaryTestImg.NONNULL,
                 PrimaryTestStr.SHORT, SecondaryTestStr.SHORT, circleColor);
         snap(subject, circleColor == BLUE ? "blue" : "green");
@@ -96,7 +96,7 @@ public class CardHeaderViewTest extends ViewTest {
     @Test public void testSetImage() {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT, PrimaryTestImg.NONNULL,
                 PrimaryTestStr.SHORT, SecondaryTestStr.SHORT,
-                R.color.foundation_blue);
+                R.color.accent50);
         ImageView imageView = findById(subject, R.id.view_card_header_image);
         imageView.setImageDrawable(null);
         subject.setImage(SecondaryTestImg.CHECKERBOARD.id());

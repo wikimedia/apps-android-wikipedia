@@ -56,7 +56,7 @@ public final class NotificationPresenter {
                 description = StringUtil.fromHtml(context.getString(R.string.notification_talk, n.agent().name(), n.title().full()));
                 icon = R.drawable.ic_chat_white_24dp;
                 title = R.string.notification_talk_title;
-                color = ContextCompat.getColor(context, R.color.foundation_blue);
+                color = ContextCompat.getColor(context, R.color.accent50);
                 builder.addAction(0, context.getString(R.string.notification_button_view_user), agentIntent);
                 break;
             case Notification.TYPE_REVERTED:
@@ -64,14 +64,14 @@ public final class NotificationPresenter {
                 description = StringUtil.fromHtml(context.getString(R.string.notification_reverted, n.agent().name(), n.title().full()));
                 icon = R.drawable.ic_rotate_left_white_24dp;
                 title = R.string.notification_reverted_title;
-                color = ContextCompat.getColor(context, R.color.foundation_red);
+                color = ContextCompat.getColor(context, R.color.red50);
                 builder.setPriority(NotificationCompat.PRIORITY_MAX);
                 break;
             case Notification.TYPE_EDIT_THANK:
                 description = StringUtil.fromHtml(context.getString(R.string.notification_thanks, n.agent().name(), n.title().full()));
                 icon = R.drawable.ic_favorite_white_24dp;
                 title = R.string.notification_thanks_title;
-                color = ContextCompat.getColor(context, R.color.foundation_green);
+                color = ContextCompat.getColor(context, R.color.green50);
                 builder.addAction(0, context.getString(R.string.notification_button_view_user), agentIntent);
                 break;
             default:
