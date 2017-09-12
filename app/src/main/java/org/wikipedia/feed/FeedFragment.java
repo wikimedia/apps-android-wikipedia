@@ -35,6 +35,7 @@ import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.LocalCompilationsActivity;
 import org.wikipedia.offline.OfflineTutorialActivity;
+import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
@@ -150,6 +151,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         if (getCallback() != null) {
             getCallback().updateToolbarElevation(shouldElevateToolbar());
         }
+
+        ReadingListSynchronizer.instance().sync();
 
         return view;
     }
