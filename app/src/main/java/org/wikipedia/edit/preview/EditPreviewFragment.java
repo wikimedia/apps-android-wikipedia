@@ -98,7 +98,7 @@ public class EditPreviewFragment extends Fragment {
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
         if (!oldLocale.getLanguage().equals(newLocale.getLanguage()) && !newLocale.getLanguage().equals("test")) {
-            ConfigurationCompat.setLocale(config, newLocale);
+            L10nUtil.setDesiredLocale(config, newLocale);
             tempResources = new Resources(assets, metrics, config);
         }
 
