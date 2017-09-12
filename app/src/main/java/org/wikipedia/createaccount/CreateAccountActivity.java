@@ -170,11 +170,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     }
 
     @Override
-    protected void setTheme() {
-        setActionBarTheme();
-    }
-
-    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("result", createAccountResult);

@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Dark.ActionBar">
-        <item name="windowNoTitle">false</item>
-        <item name="windowActionBar">true</item>
-        <item name="windowActionBarOverlay">false</item>
-        <item name="windowActionModeOverlay">false</item>
-        <item name="actionBarPopupTheme">@null</item>
-        <item name="actionBarWidgetTheme">@null</item>
-        <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
-        <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
-        <item name="colorPrimary">@color/primary_material_dark</item>
-    </style>
+    <style name="ThemeDark">
 
-    <style name="Theme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/accent75</item>
-        <item name="textColorError">@color/red75</item>
-        <item name="windowActionModeOverlay">true</item>
-        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
-        <item name="actionMenuTextColor">@android:color/white</item>
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
-        <item name="actionBarTheme">@style/AppTheme.ToolbarTheme</item>
-        <item name="actionBarStyle">@style/AppTheme.ToolbarStyle</item>
-        <item name="actionModeStyle">@style/AppTheme.ActionModeStyle</item>
-        <item name="android:panelBackground">@color/background_floating_material_dark</item>
-        <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
-        <item name="popupMenuStyle">@style/Theme.Dark.PopupMenuStyle</item>
-        <item name="alertDialogTheme">@style/Theme.Dark.Dialog.Alert</item>
-        <item name="colorAccent">@color/accent75</item>
+        <!-- Overrides of base Android color definitions -->
         <item name="android:windowBackground">@color/base10</item>
+        <item name="android:colorBackground">@color/base10</item>
+        <item name="android:textColorPrimary">@color/base90</item>
+        <item name="android:textColorSecondary">@color/base80</item>
+        <item name="android:textColorTertiary">@color/base70</item>
+        <item name="colorPrimary">@color/accent75</item>
+        <item name="colorAccent">@color/accent75</item>
+        <item name="textColorError">@color/red75</item>
+
+        <!-- Overrides of base Android styles with color sub-definitions -->
+        <item name="popupMenuStyle">@style/PopupMenuDark</item>
+        <item name="dialogTheme">@style/DialogDark</item>
+        <item name="alertDialogTheme">@style/AlertDialogDark</item>
+
+        <!-- Overrides of our own custom style attributes -->
+        <item name="toc_item_background">@drawable/toc_item_background_dark</item>
+        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
+        <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_dark</item>
+        <item name="lead_image_drawable">@drawable/lead_default_dark</item>
+        <item name="list_separator_drawable">@drawable/divider_dark</item>
+        <item name="tab_item_selector">@drawable/tab_item_selector_dark</item>
+        <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
+        <item name="blue_switch">@style/BlueSwitchDark</item>
+
+        <!-- Overrides of our own custom color attributes -->
         <item name="window_background_color">@color/base10</item>
         <item name="window_inverse_color">@color/base90</item>
         <item name="page_background_color">@color/base14</item>
@@ -38,19 +38,12 @@
         <item name="toc_background_color">@color/base18</item>
         <item name="toc_section_text_color">@color/base90</item>
         <item name="toc_subsection_text_color">@color/base70</item>
-        <item name="toc_item_background">@drawable/toc_item_background_dark</item>
         <item name="edit_text_color">@color/edit_text_dark</item>
-        <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
-        <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_dark</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_dark</item>
-        <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="page_title_color">@color/base90</item>
         <item name="page_description_color">@color/base70</item>
         <item name="list_separator_color">@color/list_separator_dark</item>
-        <item name="list_separator_drawable">@drawable/divider_dark</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_dark</item>
-        <item name="tab_item_selector">@drawable/tab_item_selector_dark</item>
-        <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="tab_shadow_color">@color/tab_shadow_dark</item>
         <item name="tool_tip_default_color">@color/tool_tip_default_dark</item>
         <item name="bottom_sheet_background_color">@color/base14</item>
@@ -61,38 +54,32 @@
         <item name="page_header_edit_pencil_alpha">1.0</item>
 
         <item name="offline_library_background_color">@color/base10</item>
-
         <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
-
         <item name="overflow_button">@color/dark_gray_overflow_button</item>
         <item name="multi_select_background_color">@color/accent30</item>
-
-        <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
-        <item name="android:listViewStyle">@style/ListView</item>
         <item name="feed_window_background_color">@color/base10</item>
         <item name="feed_text_primary_color">@color/feed_text_primary_dark</item>
         <item name="feed_text_secondary_color">@color/feed_text_secondary_dark</item>
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_dark</item>
         <item name="searchItemBackground">@color/base12</item>
         <item name="cardBackgroundColor">@color/base14</item>
-        <item name="blue_switch">@style/BlueSwitchDark</item>
 
         <item name="edit_preview_color">@color/accent75</item>
 
     </style>
 
-    <style name="Theme.Dark.Dialog.Alert" parent="Theme.AppCompat.Dialog.Alert">
+    <style name="AlertDialogDark" parent="Theme.AppCompat.Dialog.Alert">
         <item name="colorAccent">@color/accent75</item>
     </style>
 
-    <style name="Theme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+    <style name="DialogDark" parent="Theme.AppCompat.Dialog">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorAccent">@color/accent75</item>
     </style>
 
-    <style name="Theme.Dark.PopupMenuStyle" parent="Widget.AppCompat.PopupMenu">
+    <style name="PopupMenuDark" parent="Widget.AppCompat.PopupMenu">
         <item name="overlapAnchor">true</item>
     </style>
 

@@ -67,10 +67,10 @@
         <meta-data android:name="net.hockeyapp.android.appIdentifier"
             android:value="@string/hockeyapp_app_id" />
 
-        <activity android:name=".main.MainActivity"
-                  android:theme="@style/AppTheme"
-                  android:windowSoftInputMode="adjustResize"
-                  android:launchMode="singleTask">
+        <activity
+            android:name=".main.MainActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -87,8 +87,9 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-        <activity android:name=".page.PageActivity"
-            android:theme="@style/PageTheme"
+        <activity
+            android:name=".page.PageActivity"
+            android:theme="@style/AppTheme.TranslucentStatus"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
@@ -104,52 +105,62 @@
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name=".crash.CrashReportActivity"
-                  android:label="@string/crash_report_activity_title"
-                  android:noHistory="true"
-                  android:excludeFromRecents="true"
-                />
-        <activity android:name=".settings.SettingsActivity"
-                  android:label="@string/settings_activity_title"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                />
-        <activity android:name=".settings.DeveloperSettingsActivity"
+        <activity
+            android:name=".crash.CrashReportActivity"
+            android:label="@string/crash_report_activity_title"
+            android:noHistory="true"
+            android:excludeFromRecents="true" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:label="@string/settings_activity_title"
+            android:theme="@style/AppTheme.ActionBar"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
+            android:name=".settings.DeveloperSettingsActivity"
             android:label="@string/developer_settings_activity_title"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            />
-        <activity android:name=".settings.AboutActivity"
-                  android:label="@string/about_activity_title"
-                  android:exported="false">
+            android:theme="@style/AppTheme.ActionBar"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
+            android:name=".settings.AboutActivity"
+            android:label="@string/about_activity_title"
+            android:theme="@style/AppTheme.ActionBar"
+            android:exported="false">
             <intent-filter>
                 <action android:name=".settings.AboutActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".language.LangLinksActivity"
-                  android:label="@string/langlinks_activity_title"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                />
-        <activity android:name=".edit.EditSectionActivity"
-                  android:windowSoftInputMode="adjustResize|stateVisible"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                />
-        <activity android:name=".login.LoginActivity"
-                  android:label="@string/login_activity_title"
-                  android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                />
-        <activity android:name=".createaccount.CreateAccountActivity"
-                  android:label="@string/create_account_activity_title"
-                  android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                />
-        <activity android:name=".gallery.GalleryActivity"
-                  android:configChanges="orientation|screenSize"
-                  android:theme="@style/FullScreen"
-                />
-        <activity android:name=".settings.LicenseActivity"
-                  android:exported="false"
-                  tools:ignore="GoogleAppIndexingUrlError">
+        <activity
+            android:name=".language.LangLinksActivity"
+            android:label="@string/langlinks_activity_title"
+            android:theme="@style/AppTheme.ActionBar"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
+            android:name=".edit.EditSectionActivity"
+            android:theme="@style/AppTheme.ActionBar"
+            android:windowSoftInputMode="adjustResize|stateVisible"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:label="@string/login_activity_title"
+            android:theme="@style/AppTheme.ActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
+            android:name=".createaccount.CreateAccountActivity"
+            android:theme="@style/AppTheme.ActionBar"
+            android:label="@string/create_account_activity_title"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+        <activity
+            android:name=".gallery.GalleryActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name=".settings.LicenseActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.ActionBar"
+            tools:ignore="GoogleAppIndexingUrlError">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -158,32 +169,32 @@
         </activity>
         <activity
             android:name=".useroption.ui.UserOptionRowActivity"
+            android:theme="@style/AppTheme.ActionBar"
             android:label="@string/user_option_activity_title" />
 
-        <activity android:name=".feed.news.NewsActivity"
-                  android:theme="@style/PageTheme" />
+        <activity
+            android:name=".feed.news.NewsActivity" />
 
-        <activity android:name=".descriptions.DescriptionEditActivity"
-            android:theme="@style/AppTheme"
+        <activity
+            android:name=".descriptions.DescriptionEditActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name=".descriptions.DescriptionEditSuccessActivity"
-            android:theme="@style/AppTheme.TranslucentDark"
+        <activity
+            android:name=".descriptions.DescriptionEditSuccessActivity"
+            android:theme="@style/AppTheme.FullScreen.TranslucentDark"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
-        <activity android:name=".descriptions.DescriptionEditHelpActivity"
-            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".descriptions.DescriptionEditHelpActivity" />
 
         <activity
-            android:name=".descriptions.DescriptionEditTutorialActivity"
-            android:theme="@style/AppTheme"/>
-
-        <activity android:name=".readinglist.ReadingListActivity"
-            android:theme="@style/AppTheme" />
+            android:name=".descriptions.DescriptionEditTutorialActivity" />
 
         <activity
-            android:name=".onboarding.InitialOnboardingActivity"
-            android:theme="@style/AppTheme"/>
+            android:name=".readinglist.ReadingListActivity" />
+
+        <activity
+            android:name=".onboarding.InitialOnboardingActivity" />
 
         <activity
             android:name=".offline.LocalCompilationsActivity"
@@ -199,16 +210,13 @@
         </activity>
 
         <activity
-            android:name=".offline.RemoteCompilationsActivity"
-            android:theme="@style/AppTheme"/>
+            android:name=".offline.RemoteCompilationsActivity" />
 
         <activity
-            android:name=".offline.CompilationDetailActivity"
-            android:theme="@style/AppTheme"/>
+            android:name=".offline.CompilationDetailActivity" />
 
         <activity
-            android:name=".offline.OfflineTutorialActivity"
-            android:theme="@style/AppTheme"/>
+            android:name=".offline.OfflineTutorialActivity" />
 
         <provider
             android:authorities="${applicationId}"
@@ -223,10 +231,10 @@
             android:label="@string/user_option_sync_label" />
 
         <provider
-                android:name="android.support.v4.content.FileProvider"
-                android:authorities="${applicationId}.fileprovider"
-                android:exported="false"
-                android:grantUriPermissions="true">
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

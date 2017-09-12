@@ -16,7 +16,7 @@
             android:hint="@string/menu_page_find_in_page"
             android:layout_gravity="center_vertical"
             android:imeOptions="actionSearch|flagNoExtractUi"
-            style="@style/AppTheme.SearchViewStyle"
+            style="@style/SearchViewStyle"
             app:cabEnabled="false"
             android:maxLines="1" />
     <TextView

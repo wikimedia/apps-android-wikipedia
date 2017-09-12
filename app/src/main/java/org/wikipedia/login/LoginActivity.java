@@ -144,11 +144,6 @@ public class LoginActivity extends ThemedActionBarActivity {
         visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
     }
 
-    @Override
-    protected void setTheme() {
-        setActionBarTheme();
-    }
-
     @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
         return input.getEditText() != null ? input.getEditText().getText() : "";
     }

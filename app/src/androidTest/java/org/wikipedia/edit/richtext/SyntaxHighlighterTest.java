@@ -41,7 +41,7 @@ public class SyntaxHighlighterTest {
 
     @NonNull
     private ContextThemeWrapper getContext() {
-        return new ContextThemeWrapper(getTargetContext(), R.style.Theme_Light);
+        return new ContextThemeWrapper(getTargetContext(), R.style.ThemeLight);
     }
 
     private static class Callback implements SyntaxHighlighter.OnSyntaxHighlightListener {

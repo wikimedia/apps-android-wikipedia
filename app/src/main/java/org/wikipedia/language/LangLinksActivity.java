@@ -143,11 +143,6 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     }
 
     @Override
-    protected void setTheme() {
-        setActionBarTheme();
-    }
-
-    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (languageEntries != null) {
