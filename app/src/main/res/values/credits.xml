@@ -29,10 +29,6 @@
         <!-- https://raw.githubusercontent.com/square/okhttp/master/LICENSE.txt -->
         (<a href="asset:///android_asset/licenses/OkHttp">license</a>),
 
-        <a href="https://github.com/ryanjohn1/onboarding/">Onboarding</a>
-        <!-- https://github.com/ryanjohn1/onboarding/#license -->
-        (<a href="asset:///android_asset/licenses/Onboarding">license</a>),
-
         <a href="https://square.github.io/otto/">Otto</a>
         <!-- https://raw.githubusercontent.com/square/otto/master/LICENSE.txt -->
         (<a href="asset:///android_asset/licenses/Otto">license</a>),
@@ -44,5 +40,9 @@
         <a href="https://square.github.io/retrofit/">Retrofit</a>
         <!-- https://raw.githubusercontent.com/square/retrofit/master/LICENSE.txt -->
         (<a href="asset:///android_asset/licenses/Retrofit">license</a>)
+
+        <a href="https://github.com/KeepSafe/TapTargetView">TapTargetView</a>
+        <!-- https://github.com/KeepSafe/TapTargetView/blob/master/LICENSE -->
+        (<a href="asset:///android_asset/licenses/TapTargetView">license</a>)
     </string>
 </resources>

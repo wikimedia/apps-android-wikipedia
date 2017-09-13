@@ -2,22 +2,15 @@ package org.wikipedia.page.snippet;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-
-import com.appenguin.onboarding.ToolTip;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
@@ -37,7 +30,6 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
@@ -61,8 +53,6 @@ public class ShareHandler {
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
     private static final String PAYLOAD_PURPOSE_EDIT_HERE = "edit_here";
     private static final String PAYLOAD_TEXT_KEY = "text";
-
-    @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.accent50;
 
     @NonNull private final PageFragment fragment;
     @NonNull private final CommunicationBridge bridge;
@@ -217,37 +207,20 @@ public class ShareHandler {
     }
 
     private void postShowShareToolTip(final MenuItem shareItem) {
-        // There doesn't seem to be good lifecycle event accessible at the time this called to
-        // ensure the tool tip is shown after CAB animation.
-
-        final View shareItemView = ActivityUtil.getMenuItemView(fragment.getActivity(), shareItem);
-        if (shareItemView != null) {
-            int delay = getInteger(android.R.integer.config_longAnimTime);
-            shareItemView.postDelayed(new Runnable() {
-                @Override
-                public void run() {
+        fragment.getView().post(new Runnable() {
+            @Override
+            public void run() {
+                View shareItemView = ActivityUtil.getMenuItemView(fragment.getActivity(), shareItem);
+                if (shareItemView != null) {
                     showShareToolTip(shareItemView);
                 }
-            }, delay);
-        }
+            }
+        });
     }
 
-    private void showShareToolTip(View shareItemView) {
-        ToolTipUtil.showToolTip(fragment.getActivity(), shareItemView, R.layout.inflate_tool_tip_share,
-                getColor(SHARE_TOOL_TIP_COLOR), ToolTip.Position.CENTER);
-    }
-
-    @ColorInt
-    private int getColor(@ColorRes int id) {
-        return ContextCompat.getColor(fragment.getContext(), id);
-    }
-
-    private int getInteger(@IntegerRes int id) {
-        return getResources().getInteger(id);
-    }
-
-    private Resources getResources() {
-        return fragment.getContext().getResources();
+    private void showShareToolTip(@NonNull View shareItemView) {
+        FeedbackUtil.showTapTargetView(fragment.getActivity(), shareItemView,
+                R.string.menu_text_select_share, R.string.tool_tip_share, null);
     }
 
     private void leaveActionMode() {

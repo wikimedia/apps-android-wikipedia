@@ -12,7 +12,6 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.net.ConnectivityManagerCompat;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -35,11 +34,6 @@ public final class DeviceUtil {
         intent.setData(Uri.parse("mailto:test@wikimedia.org"));
         List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(intent, 0);
         return resInfo.size() > 0;
-    }
-
-    public static boolean isBackKeyUp(@NonNull KeyEvent event) {
-        return event.getKeyCode() == KeyEvent.KEYCODE_BACK
-                && event.getAction() == KeyEvent.ACTION_UP;
     }
 
     /**

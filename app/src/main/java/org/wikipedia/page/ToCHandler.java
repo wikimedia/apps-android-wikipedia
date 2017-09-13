@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.appenguin.onboarding.ToolTip;
+import com.getkeepsafe.taptargetview.TapTargetView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,8 +24,8 @@ import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.action.PageActionTab;
-import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ConfigurableListView;
@@ -248,10 +248,14 @@ class ToCHandler {
             Field f = tocTab.getClass().getDeclaredField("mView");
             f.setAccessible(true);
             View tabView = (View) f.get(tocTab);
-            ToolTipUtil.showToolTip(fragment.getActivity(),
-                    tabView,
-                    R.layout.inflate_tool_tip_toc_button,
-                    ToolTip.Position.CENTER);
+            FeedbackUtil.showTapTargetView(fragment.getActivity(), tabView, R.string.menu_show_toc,
+                    R.string.tool_tip_toc_button, new TapTargetView.Listener() {
+                        @Override
+                        public void onTargetClick(TapTargetView view) {
+                            super.onTargetClick(view);
+                            show();
+                        }
+                    });
             WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
         } catch (Exception e) {
             // If this fails once it will likely always fail for the same reason, so let's prevent
