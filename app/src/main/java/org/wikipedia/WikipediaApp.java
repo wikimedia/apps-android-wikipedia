@@ -38,7 +38,6 @@ import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
-import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.login.UserIdClient;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
@@ -151,7 +150,7 @@ public class WikipediaApp extends Application {
         ViewAnimations.init(getResources());
         currentTheme = unmarshalCurrentTheme();
 
-        initAppLang();
+        appLanguageState = new AppLanguageState(this);
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
         database = new Database(this);
@@ -483,22 +482,6 @@ public class WikipediaApp extends Application {
         if (!Prefs.suppressNotificationPolling()) {
             notificationReceiver.startPollTask(this);
         }
-    }
-
-    private void initAppLang() {
-        appLanguageState = new AppLanguageState(this);
-        boolean langNotSet = getAppLanguageCode() == null;
-        if (ReleaseUtil.isDevRelease() && langNotSet) {
-            setRandomAppLangCode();
-        }
-    }
-
-    private void setRandomAppLangCode() {
-        AppLanguageLookUpTable lut = new AppLanguageLookUpTable(this);
-        List<String> codes = lut.getCodes();
-        int index = new Random().nextInt(codes.size());
-        String code = codes.get(index);
-        setAppLanguageCode(code);
     }
 
     private void initExceptionHandling() {
