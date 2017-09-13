@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    android:alpha="0.85"
-    android:background="?attr/bottom_sheet_background_color">
+    android:layout_gravity="bottom">
 
-    <TextView
-        android:id="@+id/link_preview_secondary_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:textColor="@color/gray_highlight"
-        android:background="?attr/selectableItemBackground"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:text="@string/button_get_directions"/>
-    <TextView
-        android:id="@+id/link_preview_primary_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:textColor="?attr/colorAccent"
-        android:background="?attr/selectableItemBackground"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/button_continue_to_article"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.85"
+        android:background="?attr/bottom_sheet_background_color"/>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/link_preview_secondary_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="@color/gray_highlight"
+            android:background="?attr/selectableItemBackground"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="@string/button_get_directions"/>
+        <TextView
+            android:id="@+id/link_preview_primary_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="?attr/colorAccent"
+            android:background="?attr/selectableItemBackground"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/button_continue_to_article"/>
+
+    </LinearLayout>
+</FrameLayout>
