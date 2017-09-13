@@ -201,7 +201,7 @@ public final class ShareUtil {
         List<Intent> intents = new ArrayList<>();
         Intent queryIntent = new Intent(targetIntent);
         if (targetIntent.getAction().equals(Intent.ACTION_VIEW)) {
-            queryIntent.setData(Uri.parse("http://example.com"));
+            queryIntent.setData(targetIntent.getData());
         }
         for (ResolveInfo intentActivity : queryIntentActivities(queryIntent, context)) {
             if (!isIntentActivityBlacklisted(intentActivity, packageNameBlacklistRegex)) {
