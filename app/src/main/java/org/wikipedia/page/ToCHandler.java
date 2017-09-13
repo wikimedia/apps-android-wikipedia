@@ -1,10 +1,6 @@
 package org.wikipedia.page;
 
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -42,7 +38,7 @@ import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
-public class ToCHandler {
+class ToCHandler {
     private static final int MAX_LEVELS = 3;
     private static final int INDENTATION_WIDTH_DP = 16;
     private static final int READ_MORE_SECTION_ID = -1;
@@ -53,7 +49,6 @@ public class ToCHandler {
     private final TextView headerView;
     private final PageFragment fragment;
     private ToCInteractionFunnel funnel;
-    @Nullable private DrawerLayout.DrawerListener drawerListener;
 
     /**
      * Flag to track if the drawer is closing because a link was clicked.
@@ -62,15 +57,15 @@ public class ToCHandler {
      */
     private boolean wasClicked = false;
 
-    public ToCHandler(final PageFragment fragment, final WikiDrawerLayout slidingPane,
+    ToCHandler(final PageFragment fragment, final WikiDrawerLayout slidingPane,
                       final CommunicationBridge bridge) {
         this.fragment = fragment;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
 
-        this.tocList = (ConfigurableListView) slidingPane.findViewById(R.id.page_toc_list);
+        this.tocList = slidingPane.findViewById(R.id.page_toc_list);
         ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, getContentTopOffsetPx(fragment.getContext()), 0, 0);
-        this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
+        this.tocProgress = slidingPane.findViewById(R.id.page_toc_in_progress);
 
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
             @Override
@@ -106,66 +101,28 @@ public class ToCHandler {
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(),
                 WikipediaApp.getInstance().getWikiSite(), 0, 0);
 
-        drawerListener = new DrawerLayout.SimpleDrawerListener() {
-            private boolean sectionRequested = false;
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                fragment.getActivity().supportInvalidateOptionsMenu();
-                funnel.logOpen();
-                wasClicked = false;
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                fragment.getActivity().supportInvalidateOptionsMenu();
-                if (!wasClicked) {
-                    funnel.logClose();
-                }
-                sectionRequested = false;
-            }
-
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                super.onDrawerSlide(drawerView, slideOffset);
-                // make sure the ActionBar is showing
-                fragment.showToolbar();
-                fragment.getSearchBarHideHandler().setForceNoFade(slideOffset != 0);
-                // request the current section to highlight, if we haven't yet
-                if (!sectionRequested) {
-                    bridge.sendMessage("requestCurrentSection", new JSONObject());
-                    sectionRequested = true;
-                }
-            }
-        };
-        slidingPane.addDrawerListener(drawerListener); // todo: remove what was added
+        slidingPane.addDrawerListener(new DrawerListener()); // todo: remove what was added
     }
 
-    public void scrollToSection(String sectionAnchor) {
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("anchor", sectionAnchor);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("scrollToSection", payload);
-    }
-
-    public void scrollToSection(Section section) {
-        if (section != null) {
-            // is it the bottom (read more) section?
-            if (section.getId() == READ_MORE_SECTION_ID) {
-                bridge.sendMessage("scrollToBottom", new JSONObject());
-            } else {
-                scrollToSection(
-                        section.isLead() ? "heading_" + section.getId() : section.getAnchor());
-            }
+    public void show() {
+        if (slidingPane.getSlidingEnabled(Gravity.END)) {
+            slidingPane.openDrawer(GravityCompat.END);
         }
     }
 
-    public void setupToC(final Page page, WikiSite wiki, boolean firstPage) {
+    public void hide() {
+        slidingPane.closeDrawer(GravityCompat.END);
+    }
+
+    public boolean isVisible() {
+        return slidingPane.isDrawerOpen(GravityCompat.END);
+    }
+
+    public void setEnabled(boolean enabled) {
+        slidingPane.setSlidingEnabled(enabled);
+    }
+
+    void setupToC(final Page page, WikiSite wiki, boolean firstPage) {
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
 
@@ -200,22 +157,26 @@ public class ToCHandler {
         }
     }
 
-    public void show() {
-        if (slidingPane.getSlidingEnabled(Gravity.END)) {
-            slidingPane.openDrawer(GravityCompat.END);
+    void scrollToSection(String sectionAnchor) {
+        JSONObject payload = new JSONObject();
+        try {
+            payload.put("anchor", sectionAnchor);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
         }
+        bridge.sendMessage("scrollToSection", payload);
     }
 
-    public void hide() {
-        slidingPane.closeDrawer(GravityCompat.END);
-    }
-
-    public boolean isVisible() {
-        return slidingPane.isDrawerOpen(GravityCompat.END);
-    }
-
-    public void setEnabled(boolean enabled) {
-        slidingPane.setSlidingEnabled(enabled);
+    private void scrollToSection(Section section) {
+        if (section != null) {
+            // is it the bottom (read more) section?
+            if (section.getId() == READ_MORE_SECTION_ID) {
+                bridge.sendMessage("scrollToBottom", new JSONObject());
+            } else {
+                scrollToSection(
+                        section.isLead() ? "heading_" + section.getId() : section.getAnchor());
+            }
+        }
     }
 
     private boolean onboardingEnabled() {
@@ -260,7 +221,7 @@ public class ToCHandler {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_toc_entry, parent, false);
             }
             Section section = getItem(position);
-            TextView sectionHeading = (TextView) convertView.findViewById(R.id.page_toc_item_text);
+            TextView sectionHeading = convertView.findViewById(R.id.page_toc_item_text);
             View sectionFiller = convertView.findViewById(R.id.page_toc_filler);
 
             LinearLayout.LayoutParams indentLayoutParameters = new LinearLayout.LayoutParams(sectionFiller.getLayoutParams());
@@ -281,7 +242,7 @@ public class ToCHandler {
     }
 
     private void showTocOnboarding() {
-        TabLayout pageActionTabLayout = (TabLayout) fragment.getActivity().findViewById(R.id.page_actions_tab_layout);
+        TabLayout pageActionTabLayout = fragment.getActivity().findViewById(R.id.page_actions_tab_layout);
         TabLayout.Tab tocTab = pageActionTabLayout.getTabAt(PageActionTab.VIEW_TOC.code());
         try {
             Field f = tocTab.getClass().getDeclaredField("mView");
@@ -300,7 +261,38 @@ public class ToCHandler {
         }
     }
 
-    @ColorInt private int getColor(@ColorRes int id) {
-        return ContextCompat.getColor(WikipediaApp.getInstance(), id);
+    private class DrawerListener extends DrawerLayout.SimpleDrawerListener {
+        private boolean sectionRequested = false;
+
+        @Override
+        public void onDrawerOpened(View drawerView) {
+            super.onDrawerOpened(drawerView);
+            fragment.getActivity().supportInvalidateOptionsMenu();
+            funnel.logOpen();
+            wasClicked = false;
+        }
+
+        @Override
+        public void onDrawerClosed(View drawerView) {
+            super.onDrawerClosed(drawerView);
+            fragment.getActivity().supportInvalidateOptionsMenu();
+            if (!wasClicked) {
+                funnel.logClose();
+            }
+            sectionRequested = false;
+        }
+
+        @Override
+        public void onDrawerSlide(View drawerView, float slideOffset) {
+            super.onDrawerSlide(drawerView, slideOffset);
+            // make sure the ActionBar is showing
+            fragment.showToolbar();
+            fragment.getSearchBarHideHandler().setForceNoFade(slideOffset != 0);
+            // request the current section to highlight, if we haven't yet
+            if (!sectionRequested) {
+                bridge.sendMessage("requestCurrentSection", new JSONObject());
+                sectionRequested = true;
+            }
+        }
     }
 }
