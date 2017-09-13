@@ -13,6 +13,9 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.UriUtil;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
@@ -20,6 +23,9 @@ import static org.wikipedia.util.UriUtil.handleExternalLink;
  * Handles any html links coming from a {@link org.wikipedia.page.PageFragment}
  */
 public abstract class LinkHandler implements CommunicationBridge.JSEventListener, LinkMovementMethodExt.UrlHandler {
+    private static final List<String> KNOWN_SCHEMES
+            = Arrays.asList("http", "https", "geo", "file", "content");
+
     @NonNull private final Context context;
 
     public LinkHandler(@NonNull Context context) {
@@ -48,18 +54,26 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     @Override
     public void onUrlClick(@NonNull String href, @Nullable String titleString) {
-        // other domain links
         if (href.startsWith("//")) {
+            // for URLs without an explicit scheme, add our default scheme explicitly.
             href = getWikiSite().scheme() + ":" + href;
         }
 
         Uri uri = Uri.parse(href);
-        if (!href.startsWith("http:") && !href.startsWith("https:")) {
+
+        boolean knownScheme = false;
+        for (String scheme : KNOWN_SCHEMES) {
+            if (href.startsWith(scheme + ":")) {
+                knownScheme = true;
+            }
+        }
+        if (!knownScheme) {
+            // for URLs without a known scheme, add our default scheme explicitly.
             uri = uri.buildUpon()
-                     .scheme(getWikiSite().scheme())
-                     .authority(getWikiSite().authority())
-                     .path(href)
-                     .build();
+                    .scheme(getWikiSite().scheme())
+                    .authority(getWikiSite().authority())
+                    .path(href)
+                    .build();
         }
 
         Log.d("Wikipedia", "Link clicked was " + uri.toString());
