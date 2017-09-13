@@ -58,6 +58,7 @@
         <item name="link_preview_offline_text_color">@color/link_preview_offline_text_light</item>
         <item name="list_item_text_primary_color">@color/list_item_text_primary_light</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_light</item>
+        <item name="page_header_edit_pencil_alpha">0.55</item>
 
         <item name="offline_library_background_color">@color/base80</item>
 

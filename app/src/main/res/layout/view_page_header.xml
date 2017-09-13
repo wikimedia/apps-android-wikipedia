@@ -73,7 +73,8 @@
         android:layout_gravity="bottom|end"
         app:srcCompat="@drawable/ic_mode_edit_white_24dp"
         android:scaleType="fitCenter"
-        android:tint="?attr/page_description_color"
+        android:tint="?android:attr/textColorSecondary"
+        android:alpha="?attr/page_header_edit_pencil_alpha"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/article_header_edit_hint" />
 
