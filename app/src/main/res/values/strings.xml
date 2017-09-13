@@ -539,4 +539,10 @@
     <string name="onboarding_create_account_preferences">Save your preferences</string>
     <!-- /Onboarding -->
 
+    <!-- App Shortcuts -->
+    <string name="app_shortcuts_random">Random</string>
+    <string name="app_shortcuts_continue_reading">Continue reading</string>
+    <string name="app_shortcuts_search">Search</string>
+    <!-- /App Shortcuts -->
+
 </resources>

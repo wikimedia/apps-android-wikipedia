@@ -481,4 +481,7 @@
   <string name="onboarding_create_account_sync">Short explanation of the benefits of creating an account, which is the ability to synchronize your reading lists.</string>
   <string name="onboarding_create_account_contributions">Short explanation of the benefits of creating an account, which is the ability to keep a record of your edits.</string>
   <string name="onboarding_create_account_preferences">Short explanation of the benefits of creating an account, which is the ability to save your preferences.</string>
+  <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.</string>
+  <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
+  <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.</string>
 </resources>

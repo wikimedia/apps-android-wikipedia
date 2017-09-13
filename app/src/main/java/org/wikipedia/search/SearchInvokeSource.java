@@ -9,7 +9,8 @@ public enum SearchInvokeSource implements EnumCode {
     INTENT_SHARE(2),
     INTENT_PROCESS_TEXT(3),
     FEED_BAR(4),
-    VOICE(5);
+    VOICE(5),
+    APP_SHORTCUTS(6);
 
     private static final EnumCodeMap<SearchInvokeSource> MAP = new EnumCodeMap<>(SearchInvokeSource.class);
 

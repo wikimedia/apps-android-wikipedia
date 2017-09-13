@@ -47,15 +47,21 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ChangeTextSizeEvent;
+import org.wikipedia.feed.continuereading.ContinueReadingCard;
+import org.wikipedia.feed.continuereading.ContinueReadingClient;
+import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.page.tabs.TabsProvider.TabPosition;
+import org.wikipedia.random.RandomSummaryClient;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
@@ -71,9 +77,12 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -288,7 +297,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
-        } else {
+        } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
+            loadRandomPage();
+        } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
+            loadContinueReadingPage();
+        }   else {
             loadMainPageInCurrentTab();
         }
     }
@@ -396,6 +409,37 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         PageTitle title = MainPageClient.getMainPageTitle();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position);
+    }
+
+    public void loadRandomPage() {
+        new RandomSummaryClient().request(app.getWikiSite(), new RandomSummaryClient.Callback() {
+            @Override
+            public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull PageTitle title) {
+                loadPageInForegroundTab(title, new HistoryEntry(title, HistoryEntry.SOURCE_APP_SHORTCUT_RANDOM));
+            }
+
+            @Override
+            public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
+                // do we need to search offline compilation?
+                finish();
+            }
+        });
+    }
+
+    public void loadContinueReadingPage() {
+        new ContinueReadingClient().request(this, app.getWikiSite(), 1, new FeedClient.Callback() {
+            @Override
+            public void success(@NonNull List<? extends Card> cards) {
+                ContinueReadingCard card = (ContinueReadingCard) cards.get(0); // top?
+                loadPageInForegroundTab(card.pageTitle(), new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_APP_SHORTCUT_CONTINUE_READING));
+            }
+
+            @Override
+            public void error(@NonNull Throwable caught) {
+                // show message if we have not read articles?
+                finish();
+            }
+        });
     }
 
     public void showLinkPreview(@NonNull PageTitle title, int entrySource) {

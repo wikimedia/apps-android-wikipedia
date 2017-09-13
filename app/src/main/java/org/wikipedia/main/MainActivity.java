@@ -10,6 +10,7 @@ import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentToolbarActivity;
+import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.settings.Prefs;
@@ -27,6 +28,7 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setSharedElementTransitions();
+        new AppShortcuts().init();
 
         //TODO: remove pre-beta feature flag when ready.
         if (ReleaseUtil.isPreBetaRelease()
