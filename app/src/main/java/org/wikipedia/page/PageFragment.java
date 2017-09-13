@@ -92,6 +92,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 import static butterknife.ButterKnife.findById;
+import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
@@ -449,7 +450,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
         dismissBottomSheet();
-        if (title.namespace() != Namespace.MAIN || !app.isLinkPreviewEnabled()
+        if (title.namespace() != Namespace.MAIN || !isLinkPreviewEnabled()
                 || (!DeviceUtil.isOnline() && OfflineManager.instance().titleExists(title.getDisplayText()))) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             loadPage(title, historyEntry);
@@ -1217,7 +1218,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private void checkAndShowSelectTextOnboarding() {
         if (model.getPage().isArticle()
-                &&  app.getOnboardingStateMachine().isSelectTextTutorialEnabled()) {
+                &&  PrefsOnboardingStateMachine.getInstance().isSelectTextTutorialEnabled()) {
             showSelectTextOnboarding();
         }
     }
@@ -1226,7 +1227,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         final View targetView = getView().findViewById(R.id.fragment_page_tool_tip_select_text_target);
         FeedbackUtil.showTapTargetView(getActivity(), targetView,
                 R.string.tool_tip_select_text_title, R.string.tool_tip_select_text, null);
-        app.getOnboardingStateMachine().setSelectTextTutorial();
+        PrefsOnboardingStateMachine.getInstance().setSelectTextTutorial();
     }
 
     private void initTabs() {

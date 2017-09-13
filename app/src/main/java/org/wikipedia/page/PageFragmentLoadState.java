@@ -67,6 +67,7 @@ import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
 
@@ -431,7 +432,7 @@ public class PageFragmentLoadState {
         PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(null, model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
-                        model.getTitle().getPrefixedText(), calculateLeadImageWidth(), !app.isImageDownloadEnabled())
+                        model.getTitle().getPrefixedText(), calculateLeadImageWidth(), !isImageDownloadEnabled())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
                         app.getSessionFunnel().leadSectionFetchEnd();
@@ -762,7 +763,7 @@ public class PageFragmentLoadState {
         Request request = PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .sections(null, model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
-                        model.getTitle().getPrefixedText(), !app.isImageDownloadEnabled())
+                        model.getTitle().getPrefixedText(), !isImageDownloadEnabled())
                 .request();
 
         queueRemainingSections(request);

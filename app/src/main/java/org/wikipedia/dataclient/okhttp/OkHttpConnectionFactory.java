@@ -35,7 +35,7 @@ public final class OkHttpConnectionFactory {
 
     @NonNull
     private static OkHttpClient createClient() {
-        SharedPreferenceCookieManager cookieManager = WikipediaApp.getInstance().getCookieManager();
+        SharedPreferenceCookieManager cookieManager = SharedPreferenceCookieManager.getInstance();
         // TODO: consider using okhttp3.CookieJar implementation instead of JavaNetCookieJar wrapper
         CookieJar cookieJar = new JavaNetCookieJar(cookieManager);
 

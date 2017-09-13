@@ -48,6 +48,7 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
@@ -123,7 +124,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         thumbnailView = (SimpleDraweeView) rootView.findViewById(R.id.link_preview_thumbnail);
 
         thumbnailGallery = (GalleryThumbnailScrollView) rootView.findViewById(R.id.link_preview_thumbnail_gallery);
-        if (app.isImageDownloadEnabled()) {
+        if (isImageDownloadEnabled()) {
             CallbackTask.execute(new CallbackTask.Task<Map<String, ImageInfo>>() {
                 @Override public Map<String, ImageInfo> execute() throws Throwable {
                     return client.request(pageTitle.getWikiSite(), pageTitle, true);

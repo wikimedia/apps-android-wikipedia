@@ -10,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller;
 
 public final class GeoUtil {
@@ -18,8 +17,7 @@ public final class GeoUtil {
     public static void sendGeoIntent(@NonNull Activity activity,
                                      @NonNull Location location,
                                      @Nullable String placeName) {
-        // Using geo:latitude,longitude doesn't give a point on the map,
-        // hence using query
+        // Using geo:latitude,longitude doesn't give a point on the map, hence using query
         String geoStr = "geo:0,0?q=" + location.getLatitude()
                 + "," + location.getLongitude();
         if (!TextUtils.isEmpty(placeName)) {
@@ -34,7 +32,7 @@ public final class GeoUtil {
 
     @Nullable public static String getGeoIPCountry() {
         try {
-            return GeoIPCookieUnmarshaller.unmarshal(WikipediaApp.getInstance()).country();
+            return GeoIPCookieUnmarshaller.unmarshal().country();
         } catch (IllegalArgumentException e) {
             // For our purposes, don't care about malformations in the GeoIP cookie for now.
             return null;

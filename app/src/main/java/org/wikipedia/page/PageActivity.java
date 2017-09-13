@@ -83,6 +83,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import retrofit2.Call;
 
+import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
@@ -346,7 +347,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             return;
         }
 
-        if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !app.isLinkPreviewEnabled()) {
+        if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
 

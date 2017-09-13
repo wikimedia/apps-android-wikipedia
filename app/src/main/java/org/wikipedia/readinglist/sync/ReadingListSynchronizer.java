@@ -11,6 +11,7 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingList;
@@ -111,7 +112,7 @@ public class ReadingListSynchronizer {
             L.d("Updating local reading lists from server.");
             reconcileAsRightJoin(remoteReadingLists);
             Prefs.setReadingListSyncRev(remoteReadingLists.rev());
-            WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
+            PrefsOnboardingStateMachine.getInstance().setReadingListTutorial();
         } else {
             L.d("Local and remote reading lists are in sync.");
             if (isReadingListsRemoteDeletePending()) {

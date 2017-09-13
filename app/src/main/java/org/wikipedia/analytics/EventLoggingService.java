@@ -3,7 +3,6 @@ package org.wikipedia.analytics;
 import android.net.Uri;
 
 import org.json.JSONObject;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
@@ -13,6 +12,8 @@ import org.wikipedia.util.log.L;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
+import static org.wikipedia.settings.Prefs.isEventLoggingEnabled;
 
 public final class EventLoggingService {
     private static final RequestBody EMPTY_REQ = RequestBody.create(null, new byte[0]);
@@ -35,7 +36,7 @@ public final class EventLoggingService {
      * Returns immediately after queueing the network request in the background.
      */
     public void log(JSONObject event) {
-        if (!WikipediaApp.getInstance().isEventLoggingEnabled()) {
+        if (!isEventLoggingEnabled()) {
             // Do not send events if the user opted out of EventLogging
             return;
         }

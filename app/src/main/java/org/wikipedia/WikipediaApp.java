@@ -41,8 +41,6 @@ import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.login.UserIdClient;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
-import org.wikipedia.onboarding.OnboardingStateMachine;
-import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListRow;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
@@ -72,6 +70,7 @@ import java.util.UUID;
 import retrofit2.Call;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
 
@@ -89,43 +88,123 @@ public class WikipediaApp extends Application {
     private SessionFunnel sessionFunnel;
     private NotificationPollBroadcastReceiver notificationReceiver = new NotificationPollBroadcastReceiver();
     private NetworkConnectivityReceiver connectivityReceiver = new NetworkConnectivityReceiver();
-
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    @NonNull private UserIdClient userIdClient = new UserIdClient();
-
+    private UserIdClient userIdClient = new UserIdClient();
     private CrashReporter crashReporter;
     private RefWatcher refWatcher;
-
-    public SessionFunnel getSessionFunnel() {
-        return sessionFunnel;
-    }
-
-    /**
-     * Singleton instance of WikipediaApp
-     */
-    private static WikipediaApp INSTANCE;
-
     private Bus bus;
-    @NonNull private Theme currentTheme = Theme.getFallback();
-
+    private Theme currentTheme = Theme.getFallback();
     private WikipediaZeroHandler zeroHandler;
-    public WikipediaZeroHandler getWikipediaZeroHandler() {
-        return zeroHandler;
-    }
+
+    private static WikipediaApp INSTANCE;
 
     public WikipediaApp() {
         INSTANCE = this;
     }
 
-    /**
-     * Returns the singleton instance of the WikipediaApp
-     *
-     * This is ok, since android treats it as a singleton anyway.
-     */
     public static WikipediaApp getInstance() {
         return INSTANCE;
+    }
+
+    public SessionFunnel getSessionFunnel() {
+        return sessionFunnel;
+    }
+
+    public RefWatcher getRefWatcher() {
+        return refWatcher;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public FunnelManager getFunnelManager() {
+        return funnelManager;
+    }
+
+    public WikipediaZeroHandler getWikipediaZeroHandler() {
+        return zeroHandler;
+    }
+
+    public RemoteConfig getRemoteConfig() {
+        return remoteConfig;
+    }
+
+    /**
+     * Gets the currently-selected theme for the app.
+     * @return Theme that is currently selected, which is the actual theme ID that can
+     * be passed to setTheme() when creating an activity.
+     */
+    @NonNull
+    public Theme getCurrentTheme() {
+        return currentTheme;
+    }
+
+    public boolean isCurrentThemeLight() {
+        return getCurrentTheme().isLight();
+    }
+
+    public boolean isCurrentThemeDark() {
+        return getCurrentTheme().isDark();
+    }
+
+    @Nullable
+    public String getAppLanguageCode() {
+        return appLanguageState.getAppLanguageCode();
+    }
+
+    @NonNull
+    public String getAppOrSystemLanguageCode() {
+        String code = appLanguageState.getAppOrSystemLanguageCode();
+        if (AccountUtil.getUserIdForLanguage(code) == 0) {
+            getUserIdForLanguage(code);
+        }
+        return code;
+    }
+
+    @NonNull
+    public String getSystemLanguageCode() {
+        return appLanguageState.getSystemLanguageCode();
+    }
+
+    public void setAppLanguageCode(@Nullable String code) {
+        appLanguageState.setAppLanguageCode(code);
+        resetWikiSite();
+    }
+
+    @Nullable
+    public String getAppOrSystemLanguageLocalizedName() {
+        return appLanguageState.getAppOrSystemLanguageLocalizedName();
+    }
+
+    @NonNull
+    public List<String> getMruLanguageCodes() {
+        return appLanguageState.getMruLanguageCodes();
+    }
+
+    @NonNull
+    public List<String> getAppMruLanguageCodes() {
+        return appLanguageState.getAppMruLanguageCodes();
+    }
+
+    public void setMruLanguageCode(@Nullable String code) {
+        appLanguageState.setMruLanguageCode(code);
+    }
+
+    @Nullable
+    public String getAppLanguageLocalizedName(String code) {
+        return appLanguageState.getAppLanguageLocalizedName(code);
+    }
+
+    @Nullable
+    public String getAppLanguageCanonicalName(String code) {
+        return appLanguageState.getAppLanguageCanonicalName(code);
     }
 
     @Override
@@ -172,14 +251,6 @@ public class WikipediaApp extends Application {
         listenForNotifications();
     }
 
-    public RefWatcher getRefWatcher() {
-        return refWatcher;
-    }
-
-    public Bus getBus() {
-        return bus;
-    }
-
     public String getUserAgent() {
         if (userAgent == null) {
             String channel = getChannel(this);
@@ -219,84 +290,6 @@ public class WikipediaApp extends Application {
         return wiki;
     }
 
-    @Nullable
-    public String getAppLanguageCode() {
-        return appLanguageState.getAppLanguageCode();
-    }
-
-    @NonNull
-    public String getAppOrSystemLanguageCode() {
-        String code = appLanguageState.getAppOrSystemLanguageCode();
-        if (AccountUtil.getUserIdForLanguage(code) == 0) {
-            getUserIdForLanguage(code);
-        }
-        return code;
-    }
-
-    @NonNull
-    public String getSystemLanguageCode() {
-        return appLanguageState.getSystemLanguageCode();
-    }
-
-    public void setAppLanguageCode(@Nullable String code) {
-        appLanguageState.setAppLanguageCode(code);
-        resetWikiSite();
-    }
-
-    private void getUserIdForLanguage(@NonNull final String code) {
-        if (!AccountUtil.isLoggedIn()) {
-            return;
-        }
-        final WikiSite wikiSite = WikiSite.forLanguageCode(code);
-        userIdClient.request(wikiSite, new UserIdClient.Callback() {
-            @Override
-            public void success(@NonNull Call<MwQueryResponse> call, int id) {
-                if (AccountUtil.isLoggedIn()) {
-                    AccountUtil.putUserIdForLanguage(code, id);
-                    L.v("Found user ID " + id + " for " + code);
-                }
-            }
-
-            @Override
-            public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                L.e("Failed to get user ID for " + wikiSite.languageCode(), caught);
-            }
-        });
-    }
-
-    @Nullable
-    public String getAppOrSystemLanguageLocalizedName() {
-        return appLanguageState.getAppOrSystemLanguageLocalizedName();
-    }
-
-    @NonNull
-    public List<String> getMruLanguageCodes() {
-        return appLanguageState.getMruLanguageCodes();
-    }
-
-    @NonNull
-    public List<String> getAppMruLanguageCodes() {
-        return appLanguageState.getAppMruLanguageCodes();
-    }
-
-    public void setMruLanguageCode(@Nullable String code) {
-        appLanguageState.setMruLanguageCode(code);
-    }
-
-    @Nullable
-    public String getAppLanguageLocalizedName(String code) {
-        return appLanguageState.getAppLanguageLocalizedName(code);
-    }
-
-    @Nullable
-    public String getAppLanguageCanonicalName(String code) {
-        return appLanguageState.getAppLanguageCanonicalName(code);
-    }
-
-    public Database getDatabase() {
-        return database;
-    }
-
     public <T> DatabaseClient<T> getDatabaseClient(Class<T> cls) {
         if (!databaseClients.containsKey(cls)) {
             DatabaseClient<?> client;
@@ -331,25 +324,6 @@ public class WikipediaApp extends Application {
         return (DatabaseClient<T>) databaseClients.get(cls);
     }
 
-    public RemoteConfig getRemoteConfig() {
-        return remoteConfig;
-    }
-
-    @NonNull public SharedPreferenceCookieManager getCookieManager() {
-        return SharedPreferenceCookieManager.getInstance();
-    }
-
-    public void logOut() {
-        L.v("logging out");
-        AccountUtil.removeAccount();
-        UserOptionDao.instance().clear();
-        getCookieManager().clearAllCookies();
-    }
-
-    public FunnelManager getFunnelManager() {
-        return funnelManager;
-    }
-
     /**
      * Get this app's unique install ID, which is a UUID that should be unique for each install
      * of the app. Useful for anonymous analytics.
@@ -381,24 +355,6 @@ public class WikipediaApp extends Application {
     }
 
     /**
-     * Gets the currently-selected theme for the app.
-     * @return Theme that is currently selected, which is the actual theme ID that can
-     * be passed to setTheme() when creating an activity.
-     */
-    @NonNull
-    public Theme getCurrentTheme() {
-        return currentTheme;
-    }
-
-    public boolean isCurrentThemeLight() {
-        return getCurrentTheme().isLight();
-    }
-
-    public boolean isCurrentThemeDark() {
-        return getCurrentTheme().isDark();
-    }
-
-    /**
      * Sets the theme of the app. If the new theme is the same as the current theme, nothing happens.
      * Otherwise, an event is sent to notify of the theme change.
      */
@@ -410,17 +366,13 @@ public class WikipediaApp extends Application {
         }
     }
 
-    public int getFontSizeMultiplier() {
-        return Prefs.getTextSizeMultiplier();
-    }
-
     public void setFontSizeMultiplier(int multiplier) {
         if (multiplier < FONT_SIZE_MULTIPLIER_MIN) {
             multiplier = FONT_SIZE_MULTIPLIER_MIN;
         } else if (multiplier > FONT_SIZE_MULTIPLIER_MAX) {
             multiplier = FONT_SIZE_MULTIPLIER_MAX;
         }
-        if (multiplier != Prefs.getTextSizeMultiplier()) {
+        if (multiplier != getTextSizeMultiplier()) {
             Prefs.setTextSizeMultiplier(multiplier);
             bus.post(new ChangeTextSizeEvent());
         }
@@ -450,32 +402,18 @@ public class WikipediaApp extends Application {
      */
     public float getFontSize(Window window) {
         return getFontSizeFromSp(window,
-                getResources().getDimension(R.dimen.textSize)) * (1.0f + getFontSizeMultiplier() * FONT_SIZE_FACTOR);
-    }
-
-    /**
-     * Gets whether EventLogging is currently enabled or disabled.
-     *
-     * @return A boolean that is true if EventLogging is enabled, and false if it is not.
-     */
-    public boolean isEventLoggingEnabled() {
-        return Prefs.isEventLoggingEnabled();
-    }
-
-    public boolean isImageDownloadEnabled() {
-        return Prefs.isImageDownloadEnabled();
-    }
-
-    public boolean isLinkPreviewEnabled() {
-        return Prefs.isLinkPreviewEnabled();
+                getResources().getDimension(R.dimen.textSize)) * (1.0f + getTextSizeMultiplier() * FONT_SIZE_FACTOR);
     }
 
     public void resetWikiSite() {
         wiki = null;
     }
 
-    public OnboardingStateMachine getOnboardingStateMachine() {
-        return PrefsOnboardingStateMachine.getInstance();
+    public void logOut() {
+        L.v("logging out");
+        AccountUtil.removeAccount();
+        UserOptionDao.instance().clear();
+        SharedPreferenceCookieManager.getInstance().clearAllCookies();
     }
 
     public void listenForNotifications() {
@@ -520,5 +458,26 @@ public class WikipediaApp extends Application {
     // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
     private void registerConnectivityReceiver() {
         registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    private void getUserIdForLanguage(@NonNull final String code) {
+        if (!AccountUtil.isLoggedIn()) {
+            return;
+        }
+        final WikiSite wikiSite = WikiSite.forLanguageCode(code);
+        userIdClient.request(wikiSite, new UserIdClient.Callback() {
+            @Override
+            public void success(@NonNull Call<MwQueryResponse> call, int id) {
+                if (AccountUtil.isLoggedIn()) {
+                    AccountUtil.putUserIdForLanguage(code, id);
+                    L.v("Found user ID " + id + " for " + code);
+                }
+            }
+
+            @Override
+            public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
+                L.e("Failed to get user ID for " + wikiSite.languageCode(), caught);
+            }
+        });
     }
 }

@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -89,8 +89,7 @@ public class CsrfTokenClient {
                 && !TextUtils.isEmpty(AccountUtil.getPassword())) {
             retries++;
 
-            WikipediaApp app = WikipediaApp.getInstance();
-            app.getCookieManager().clearAllCookies();
+            SharedPreferenceCookieManager.getInstance().clearAllCookies();
 
             login(AccountUtil.getUserName(), AccountUtil.getPassword(), new RetryCallback() {
                 @Override public void retry() {

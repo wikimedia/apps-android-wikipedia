@@ -14,11 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
+import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
@@ -150,13 +150,13 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void checkAndShowOnboarding() {
-        boolean isOnboarding = WikipediaApp.getInstance().getOnboardingStateMachine().isReadingListTutorialEnabled();
+        boolean isOnboarding = PrefsOnboardingStateMachine.getInstance().isReadingListTutorialEnabled();
         onboardingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onboardingContainer.setVisibility(View.GONE);
                 listsContainer.setVisibility(View.VISIBLE);
-                WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
+                PrefsOnboardingStateMachine.getInstance().setReadingListTutorial();
                 if (readingLists.isEmpty()) {
                     showCreateListDialog();
                 }

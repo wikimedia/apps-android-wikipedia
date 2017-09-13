@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 
 /*
 This currently supports the "v4" version of the GeoIP cookie.
@@ -21,8 +21,8 @@ public final class GeoIPCookieUnmarshaller {
     }
 
     @NonNull
-    public static GeoIPCookie unmarshal(@NonNull WikipediaApp app) {
-        return unmarshal(app.getCookieManager().getCookieByName(COOKIE_NAME));
+    public static GeoIPCookie unmarshal() {
+        return unmarshal(SharedPreferenceCookieManager.getInstance().getCookieByName(COOKIE_NAME));
     }
 
     @VisibleForTesting

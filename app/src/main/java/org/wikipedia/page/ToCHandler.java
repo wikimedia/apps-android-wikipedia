@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -180,7 +181,7 @@ class ToCHandler {
     }
 
     private boolean onboardingEnabled() {
-        return WikipediaApp.getInstance().getOnboardingStateMachine().isTocTutorialEnabled();
+        return PrefsOnboardingStateMachine.getInstance().isTocTutorialEnabled();
     }
 
     private final class ToCAdapter extends BaseAdapter {
@@ -256,11 +257,11 @@ class ToCHandler {
                             show();
                         }
                     });
-            WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
+            PrefsOnboardingStateMachine.getInstance().setTocTutorial();
         } catch (Exception e) {
             // If this fails once it will likely always fail for the same reason, so let's prevent
             // the onboarding from being attempted and failing on every page view forever.
-            WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
+            PrefsOnboardingStateMachine.getInstance().setTocTutorial();
             L.w("ToC onboarding failed", e);
         }
     }

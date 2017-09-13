@@ -45,6 +45,7 @@ import okhttp3.internal.cache.DiskLruCache;
 import retrofit2.Call;
 
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.SAVE_CACHE;
+import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public class SavedPageSyncService extends IntentService {
     @NonNull private ReadingListPageDao dao;
@@ -194,7 +195,7 @@ public class SavedPageSyncService extends IntentService {
 
         String title = pageTitle.getPrefixedText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
-        boolean noImages = !WikipediaApp.getInstance().isImageDownloadEnabled();
+        boolean noImages = !isImageDownloadEnabled();
         PageClient.CacheOption cacheOption = PageClient.CacheOption.SAVE;
 
         return client.lead(cacheControl, cacheOption, title, thumbnailWidth, noImages);
@@ -205,7 +206,7 @@ public class SavedPageSyncService extends IntentService {
         PageClient client = newPageClient(pageTitle);
 
         String title = pageTitle.getPrefixedText();
-        boolean noImages = !WikipediaApp.getInstance().isImageDownloadEnabled();
+        boolean noImages = !isImageDownloadEnabled();
         PageClient.CacheOption cacheOption = PageClient.CacheOption.SAVE;
 
         return client.sections(cacheControl, cacheOption, title, noImages);

@@ -16,8 +16,9 @@ import android.view.animation.Animation;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
+
+import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
     public static boolean detach(@Nullable View view) {
@@ -48,9 +49,7 @@ public final class ViewUtil {
 
     public static void loadImageUrlInto(@NonNull SimpleDraweeView drawee, @Nullable String url) {
         drawee.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(WikipediaApp.getInstance().isImageDownloadEnabled()
-                        && !TextUtils.isEmpty(url)
-                        ? Uri.parse(url) : null)
+                .setUri(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
                 .setAutoPlayAnimations(true)
                 .build());
     }

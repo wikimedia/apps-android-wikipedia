@@ -19,7 +19,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
@@ -39,6 +38,7 @@ import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
 
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
+import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class LeadImagesHandler {
@@ -96,7 +96,7 @@ public class LeadImagesHandler {
     }
 
     public boolean isLeadImageEnabled() {
-        return WikipediaApp.getInstance().isImageDownloadEnabled()
+        return isImageDownloadEnabled()
                 && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
                 && !isMainPage()
                 && !TextUtils.isEmpty(getLeadImageUrl());
