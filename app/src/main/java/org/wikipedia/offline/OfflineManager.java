@@ -1,5 +1,6 @@
 package org.wikipedia.offline;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
@@ -105,6 +106,23 @@ public final class OfflineManager {
             }
         }
         Prefs.setCompilationCache(compilations);
+    }
+
+    void ensureAdded(@NonNull Compilation remoteCompilation, @NonNull Uri localUri) {
+        for (Compilation c : compilations) {
+            if (c.pathNameMatchesUri(localUri)) {
+                return;
+            }
+        }
+        try {
+            Compilation c = new Compilation(new File(localUri.getPath()));
+            c.copyMetadataFrom(remoteCompilation);
+            compilations.add(c);
+
+        } catch (IOException e) {
+            L.e("Error opening compilation: " + localUri);
+            e.printStackTrace();
+        }
     }
 
     public boolean titleExists(@NonNull String title) {

@@ -55,6 +55,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
     private Unbinder unbinder;
     private Compilation compilation;
     private boolean downloadPending;
+    private boolean downloadComplete;
 
     @NonNull
     public static CompilationDetailFragment newInstance(@NonNull Compilation info) {
@@ -148,6 +149,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
 
     private void updateDownloadState(boolean indeterminate, @Nullable DownloadManagerItem item) {
         if (indeterminate) {
+            downloadComplete = false;
             downloadButton.setVisibility(View.VISIBLE);
             downloadButton.setEnabled(false);
             downloadedContainerView.setVisibility(View.GONE);
@@ -155,16 +157,22 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
             return;
         }
         if (item == null && !compilation.existsOnDisk()) {
+            downloadComplete = false;
             downloadButton.setVisibility(View.VISIBLE);
             downloadButton.setEnabled(!downloadPending);
             downloadedContainerView.setVisibility(View.GONE);
             controls.setVisibility(View.GONE);
         } else if (CompilationDownloadControlView.shouldShowControls(item)) {
+            downloadComplete = false;
             downloadButton.setVisibility(View.GONE);
             downloadedContainerView.setVisibility(View.GONE);
             controls.setVisibility(View.VISIBLE);
             controls.update(item);
         } else {
+            if (!downloadComplete && item != null) {
+                downloadComplete = true;
+                OfflineManager.instance().ensureAdded(compilation, item.uri());
+            }
             downloadButton.setVisibility(View.GONE);
             downloadedContainerView.setVisibility(View.VISIBLE);
             controls.setVisibility(View.GONE);
