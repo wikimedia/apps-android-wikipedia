@@ -73,14 +73,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         switch (requestCode) {
-            case Constants.ACTIVITY_REQUEST_READ_EXTERNAL_STORAGE_PERMISSION_OFFLINE:
+            case Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
                 if (PermissionUtil.isPermitted(grantResults)) {
                     searchOfflineCompilations(true);
                 } else {
-                    L.i("Read permission was denied by user");
+                    L.i("Write permission was denied by user");
                     onOfflineCompilationsError(new RuntimeException(getString(R.string.offline_read_permission_error)));
-                    if (PermissionUtil.shouldShowReadPermissionRationale(this)) {
-                        showReadPermissionSnackbar();
+                    if (PermissionUtil.shouldShowWritePermissionRationale(this)) {
+                        showStoragePermissionSnackbar();
                     }
                 }
                 break;
@@ -131,9 +131,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             // TODO: enable when ready for production.
             return;
         }
-        if (!PermissionUtil.hasReadExternalStoragePermission(this)) {
-            if (PermissionUtil.shouldShowReadPermissionRationale(this)) {
-                requestReadPermission();
+        if (!PermissionUtil.hasWriteExternalStoragePermission(this)) {
+            if (PermissionUtil.shouldShowWritePermissionRationale(this)) {
+                requestStoragePermission();
             } else {
                 onOfflineCompilationsError(new RuntimeException(getString(R.string.offline_read_permission_error)));
             }
@@ -163,18 +163,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private void requestReadPermission() {
-        PermissionUtil.requestReadStorageRuntimePermissions(BaseActivity.this,
-                Constants.ACTIVITY_REQUEST_READ_EXTERNAL_STORAGE_PERMISSION_OFFLINE);
+    private void requestStoragePermission() {
+        PermissionUtil.requestWriteStorageRuntimePermissions(BaseActivity.this,
+                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    private void showReadPermissionSnackbar() {
+    private void showStoragePermissionSnackbar() {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.offline_read_permission_rationale), FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.page_error_retry, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestReadPermission();
+                requestStoragePermission();
             }
         });
         snackbar.show();
