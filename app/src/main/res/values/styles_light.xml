@@ -64,9 +64,8 @@
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_light</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>
-
         <item name="edit_preview_color">@color/accent50</item>
-
+        <item name="horizontal_divider">@style/HorizontalDividerLight</item>
     </style>
 
     <style name="AlertDialogLight" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -89,6 +88,11 @@
         <item name="android:colorForeground">@color/base30</item>
         <item name="trackTint">@color/base70</item>
         <item name="trackTintMode">src_in</item>
+    </style>
+
+    <style name="HorizontalDividerLight">
+        <item name="android:background">@color/base0</item>
+        <item name="android:alpha">0.12</item>
     </style>
 
 </resources>

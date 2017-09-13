@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,7 +16,7 @@
         style="@style/RtlAwareTextView"
         android:textSize="16sp"
         android:fontFamily="sans-serif-medium"
-        android:textColor="?attr/feed_text_primary_color"
+        android:textColor="?android:textColorPrimary"
         tools:text="Reference [1]"/>
 
     <View
@@ -23,7 +24,7 @@
         android:layout_height="0.5dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/list_separator_light" />
+        android:theme="?attr/horizontal_divider" />
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/reference_text"
@@ -33,7 +34,7 @@
         style="@style/RtlAwareTextView"
         android:layout_gravity="start|center_vertical"
         android:textIsSelectable="true"
-        android:textColor="?attr/feed_text_primary_color"
+        android:textColor="?android:textColorPrimary"
         android:textColorLink="?attr/colorAccent"
         android:textSize="16sp"
         android:lineSpacingMultiplier="1.4"
