@@ -24,21 +24,10 @@ public final class PermissionUtil {
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
     }
 
-    public static boolean hasReadExternalStoragePermission(@NonNull Context context) {
-        return ContextCompat.checkSelfPermission(context,
-                Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-    }
-
-    public static void requestReadStorageRuntimePermissions(AppCompatActivity activity, int requestCode) {
-        Prefs.setAskedForPermissionOnce(Manifest.permission.READ_EXTERNAL_STORAGE);
-        ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, requestCode);
-        // once permission is granted/denied it will continue with onRequestPermissionsResult
-    }
-
     @TargetApi(Build.VERSION_CODES.M)
-    public static boolean shouldShowReadPermissionRationale(@NonNull AppCompatActivity activity) {
-        return !Prefs.askedForPermissionOnce(Manifest.permission.READ_EXTERNAL_STORAGE)
-                || activity.shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE);
+    public static boolean shouldShowWritePermissionRationale(@NonNull AppCompatActivity activity) {
+        return !Prefs.askedForPermissionOnce(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                || activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE);
     }
 
     public static boolean hasWriteExternalStoragePermission(@NonNull Context context) {
