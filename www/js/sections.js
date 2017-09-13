@@ -134,6 +134,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     if (!issuesContainer.hasChildNodes()) {
         document.getElementById( "content" ).removeChild(issuesContainer);
     }
+    lazyLoadTransformer.loadPlaceholders();
 });
 
 function clearContents() {
@@ -221,6 +222,7 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
         window.scrollTo( 0, scrollY );
     }
     document.getElementById( "loading_sections").className = "";
+    lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", { "sequence": sequence });
 }
 
