@@ -51,7 +51,6 @@
             android:textColorLink="?attr/page_description_color"
             android:textColorHighlight="?attr/page_description_color"
             android:drawablePadding="8dp"
-            android:drawableTint="?attr/colorAccent"
             tools:text="Subtitle" />
 
         <View
