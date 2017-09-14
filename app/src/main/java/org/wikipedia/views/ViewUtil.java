@@ -10,7 +10,6 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.view.ActionMode;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
@@ -21,8 +20,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
-
-import java.lang.reflect.Field;
 
 public final class ViewUtil {
     public static void setBackgroundDrawable(View view, Drawable drawable) {
@@ -58,19 +55,6 @@ public final class ViewUtil {
         view.clearAnimation();
         animation.setDuration(0);
         view.setAnimation(animation);
-    }
-
-    /**
-     * Find the originating view of an ActionMode.
-     * @param mode The ActionMode in question.
-     * @return The view from which the ActionMode originated.
-     * @throws NoSuchFieldException
-     * @throws IllegalAccessException
-     */
-    public static View getOriginatingView(ActionMode mode) throws NoSuchFieldException, IllegalAccessException {
-        Field originatingView = mode.getClass().getDeclaredField("mOriginatingView");
-        originatingView.setAccessible(true);
-        return (View) originatingView.get(mode);
     }
 
     public static void loadImageUrlInto(@NonNull SimpleDraweeView drawee, @Nullable String url) {
