@@ -14,7 +14,6 @@ import android.widget.FrameLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.views.FaceAndColorDetectImageView;
-import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,6 +85,6 @@ public class PageHeaderImageView extends FrameLayout {
         inflate(getContext(), R.layout.view_page_header_image, this);
         ButterKnife.bind(this);
 
-        ViewUtil.setBackgroundDrawable(gradientView, getPowerGradient(R.color.new_lead_gradient_start, Gravity.TOP));
+        gradientView.setBackground(getPowerGradient(R.color.new_lead_gradient_start, Gravity.TOP));
     }
 }

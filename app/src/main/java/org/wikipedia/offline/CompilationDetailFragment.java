@@ -26,7 +26,6 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
-import org.wikipedia.views.ViewUtil;
 
 import java.io.IOException;
 
@@ -79,8 +78,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
         compilation = GsonUnmarshaller.unmarshal(Compilation.class,
                 getActivity().getIntent().getStringExtra(EXTRA_COMPILATION));
 
-        ViewUtil.setBackgroundDrawable(gradientView, GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
-
+        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
         imageView.loadImage(compilation.featureImageUri());
         nameView.setText(compilation.name());
         dateSizeView.setText(String.format(getString(R.string.offline_compilation_detail_date_size),

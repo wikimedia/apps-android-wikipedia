@@ -4,9 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -22,15 +20,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 
 public final class ViewUtil {
-    public static void setBackgroundDrawable(View view, Drawable drawable) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            view.setBackground(drawable);
-        } else {
-            //noinspection deprecation
-            view.setBackgroundDrawable(drawable);
-        }
-    }
-
     public static boolean detach(@Nullable View view) {
         if (view != null && view.getParent() instanceof ViewManager) {
             ((ViewManager) view.getParent()).removeView(view);
