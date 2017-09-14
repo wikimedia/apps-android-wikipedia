@@ -1,4 +1,4 @@
-package org.wikipedia.page.snippet;
+package org.wikipedia.page.shareafact;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -269,75 +269,75 @@ public class ShareHandler {
             throw new RuntimeException(e);
         }
     }
-}
 
-/**
- * A dialog to be displayed before sharing with two action buttons:
- * "Share as image", "Share as text".
- */
-class PreviewDialog extends NoDimBottomSheetDialog {
-    private boolean completed = false;
+    /**
+     * A dialog to be displayed before sharing with two action buttons:
+     * "Share as image", "Share as text".
+     */
+    private static class PreviewDialog extends NoDimBottomSheetDialog {
+        private boolean completed = false;
 
-    PreviewDialog(final Context context, final Bitmap resultBitmap, final PageTitle title,
-                  final String selectedText, final ShareAFactFunnel funnel) {
-        super(context);
-        View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_share_preview, null);
-        setContentView(rootView);
-        ImageView previewImage = (ImageView) rootView.findViewById(R.id.preview_img);
-        previewImage.setImageBitmap(resultBitmap);
-        rootView.findViewById(R.id.close_button)
-                .setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dismiss();
+        PreviewDialog(final Context context, final Bitmap resultBitmap, final PageTitle title,
+                      final String selectedText, final ShareAFactFunnel funnel) {
+            super(context);
+            View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_share_preview, null);
+            setContentView(rootView);
+            ImageView previewImage = (ImageView) rootView.findViewById(R.id.preview_img);
+            previewImage.setImageBitmap(resultBitmap);
+            rootView.findViewById(R.id.close_button)
+                    .setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dismiss();
+                        }
+                    });
+            rootView.findViewById(R.id.share_as_image_button)
+                    .setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String introText = context.getString(R.string.snippet_share_intro,
+                                    title.getDisplayText(),
+                                    UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_image));
+                            ShareUtil.shareImage(context, resultBitmap, title.getDisplayText(),
+                                    title.getDisplayText(), introText);
+                            funnel.logShareIntent(selectedText, ShareMode.image);
+                            completed = true;
+                        }
+                    });
+            rootView.findViewById(R.id.share_as_text_button)
+                    .setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            shareAsText(context, title, selectedText, funnel);
+                            completed = true;
+                        }
+                    });
+            setOnDismissListener(new OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    resultBitmap.recycle();
+                    if (!completed) {
+                        funnel.logAbandoned(title.getDisplayText());
                     }
-                });
-        rootView.findViewById(R.id.share_as_image_button)
-                .setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String introText = context.getString(R.string.snippet_share_intro,
-                                title.getDisplayText(),
-                                UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_image));
-                        ShareUtil.shareImage(context, resultBitmap, title.getDisplayText(),
-                                title.getDisplayText(), introText);
-                        funnel.logShareIntent(selectedText, ShareMode.image);
-                        completed = true;
-                    }
-                });
-        rootView.findViewById(R.id.share_as_text_button)
-                .setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        shareAsText(context, title, selectedText, funnel);
-                        completed = true;
-                    }
-                });
-        setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                resultBitmap.recycle();
-                if (!completed) {
-                    funnel.logAbandoned(title.getDisplayText());
                 }
-            }
-        });
-        startExpanded();
-    }
-
-    static void shareAsText(@NonNull Context context, @NonNull PageTitle title,
-                            @NonNull String selectedText, @Nullable ShareAFactFunnel funnel) {
-        String introText = context.getString(R.string.snippet_share_intro,
-                title.getDisplayText(),
-                UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_text));
-        ShareUtil.shareText(context, title.getDisplayText(),
-                constructShareText(selectedText, introText));
-        if (funnel != null) {
-            funnel.logShareIntent(selectedText, ShareMode.text);
+            });
+            startExpanded();
         }
-    }
 
-    private static String constructShareText(String selectedText, String introText) {
-        return selectedText + "\n\n" + introText;
+        static void shareAsText(@NonNull Context context, @NonNull PageTitle title,
+                                @NonNull String selectedText, @Nullable ShareAFactFunnel funnel) {
+            String introText = context.getString(R.string.snippet_share_intro,
+                    title.getDisplayText(),
+                    UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_text));
+            ShareUtil.shareText(context, title.getDisplayText(),
+                    constructShareText(selectedText, introText));
+            if (funnel != null) {
+                funnel.logShareIntent(selectedText, ShareMode.text);
+            }
+        }
+
+        private static String constructShareText(String selectedText, String introText) {
+            return selectedText + "\n\n" + introText;
+        }
     }
 }

@@ -1,4 +1,4 @@
-package org.wikipedia.page.snippet;
+package org.wikipedia.page.shareafact;
 
 import android.content.Context;
 import android.graphics.Bitmap;
