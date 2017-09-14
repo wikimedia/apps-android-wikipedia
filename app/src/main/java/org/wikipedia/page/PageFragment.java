@@ -30,8 +30,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.appenguin.onboarding.ToolTip;
-
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,7 +69,6 @@ import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.DarkModeSwitch;
-import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -92,7 +89,6 @@ import org.wikipedia.views.WikiPageErrorView;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static android.app.Activity.RESULT_OK;
 import static butterknife.ButterKnife.findById;
@@ -1228,17 +1224,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private void showSelectTextOnboarding() {
         final View targetView = getView().findViewById(R.id.fragment_page_tool_tip_select_text_target);
-        targetView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (getActivity() != null) {
-                    ToolTipUtil.showToolTip(getActivity(),
-                                            targetView, R.layout.inflate_tool_tip_select_text,
-                                            ToolTip.Position.CENTER);
-                    app.getOnboardingStateMachine().setSelectTextTutorial();
-                }
-            }
-        }, TimeUnit.SECONDS.toMillis(1));
+        FeedbackUtil.showTapTargetView(getActivity(), targetView,
+                R.string.tool_tip_select_text_title, R.string.tool_tip_select_text, null);
+        app.getOnboardingStateMachine().setSelectTextTutorial();
     }
 
     private void initTabs() {

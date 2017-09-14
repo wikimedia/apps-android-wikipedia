@@ -67,7 +67,6 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
-import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
@@ -84,7 +83,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import retrofit2.Call;
 
-import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
@@ -200,13 +198,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     public void hideSoftKeyboard() {
         DeviceUtil.hideSoftKeyboard(this);
-    }
-
-    // Note: this method is invoked even when in CAB mode.
-    @Override
-    public boolean dispatchKeyEvent(@NonNull KeyEvent event) {
-        return isBackKeyUp(event) && ToolTipUtil.dismissToolTip(this)
-                || super.dispatchKeyEvent(event);
     }
 
     @Override
@@ -462,9 +453,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     // Note: back button first handled in {@link #onOptionsItemSelected()};
     @Override
     public void onBackPressed() {
-        if (ToolTipUtil.dismissToolTip(this)) {
-            return;
-        }
         if (isCabOpen()) {
             finishActionMode();
             return;
