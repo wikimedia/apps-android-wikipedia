@@ -79,6 +79,8 @@
         <item name="cardBackgroundColor">@color/base100</item>
         <item name="blue_switch">@style/BlueSwitchLight</item>
 
+        <item name="edit_preview_color">@color/accent50</item>
+
     </style>
 
     <style name="Theme.Light.Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert">

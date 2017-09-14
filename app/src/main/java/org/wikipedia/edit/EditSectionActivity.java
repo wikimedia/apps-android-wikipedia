@@ -48,6 +48,7 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
@@ -581,7 +582,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         });
 
         v.setBackgroundColor(ContextCompat.getColor(this, item.isEnabled()
-                ? (editPreviewFragment.isActive() ? R.color.accent50 : R.color.green50) : R.color.base50));
+                ? (editPreviewFragment.isActive() ? R.color.accent50
+                : ResourceUtil.getThemedAttributeId(this, R.attr.edit_preview_color)) : R.color.base50));
 
         return true;
     }
