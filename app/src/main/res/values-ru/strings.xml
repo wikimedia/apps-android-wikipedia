@@ -239,7 +239,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статья не может быть загружена без подключения к Интернету.</string>
   <string name="page_offline_notice_add_to_reading_list">Подсказка: Добавьте эту статью в список к прочтению, и она будет загружена, как только появится подключение к сети.</string>
   <string name="page_offline_notice_last_date">Вы читаете офлайн-версия статьи, сохранённой %s.</string>
-  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Вы читаете офлайн-версию этой статьи из компиляции %1$s • %2$s.</string>
+  <string name="page_offline_notice_compilation_download_date">Вы читаете версию этой статьи из компиляции из %1$s • %2$s.</string>
   <string name="button_get_directions">Проложить маршрут</string>
   <string name="error_no_maps_app">Не удалось найти ни одного приложения, которое бы прокладывало маршрут.</string>
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>
@@ -256,6 +256,7 @@
   <string name="view_link_preview_error_button_dismiss">Закрыть</string>
   <string name="error_page_does_not_exist">Такой страницы не существует</string>
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к Интернету</string>
+  <string name="reference_title">Примечание %s</string>
   <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
   <string name="crash_report_dialog_text">Вы хотите отправить отчёт об ошибке в HockeyApp / сторонний сервис-провайдер, чтобы в Викимедиа могли просмотреть информацию об аварии и исправить ошибку, вызвавшую её?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустить</string>
@@ -334,6 +335,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Нет</string>
   <string name="reading_list_article_save_in_progress">Страница скачивается. По завершению загрузки она будет доступна в офлайне.</string>
+  <string name="reading_list_already_contains_selection">Указанный список уже содержит все выбранные страницы.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>
     <item quantity="other">Эти статьи теперь будут доступны в офлайн-режиме.</item>
@@ -420,6 +422,8 @@
   <string name="offline_read_permission_rationale">Для офлайн-просмотра требуется разрешение на запись в хранилище вашего устройства.</string>
   <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме со статьями в вашей Офлайн-библиотеке.</string>
   <string name="offline_my_compilations" fuzzy="true">Мои компиляции</string>
+  <string name="offline_compilations_title">Офлайн-библиотека</string>
+  <string name="remote_compilations_title">Офлайн-библиотека</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Гб</string>
   <string name="offline_compilation_detail_button_download">Скачать • %.2f Гб</string>
   <string name="offline_compilation_detail_button_remove">Удалить</string>
@@ -439,8 +443,10 @@
   <string name="compilation_share">Поделиться</string>
   <string name="compilation_remove">Удалить</string>
   <string name="offline_library_title">Офлайн-библиотека</string>
+  <string name="offline_library_empty_title">В вашей Офлайн-библиотеке ничего нет</string>
   <string name="offline_library_onboarding_action">Узнайте больше</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
+  <string name="offline_library_onboarding_build_library_title">Создайте свою Офлайн-библиотеку</string>
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>

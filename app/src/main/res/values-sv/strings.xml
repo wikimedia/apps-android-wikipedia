@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Ingen internetanslutning. Se till att du är online igen och försök sedan igen.</string>
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
   <string name="offline_card_text">Du läser nu Wikipedia offline med artiklar i ditt offlinebibliotek.</string>

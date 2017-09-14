@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的貢獻內容看起來像是試驗性質的，或是有心破壞。</string>
   <string name="description_edit_revert_history">若您有興趣，請查看&lt;a href=\"%1$s\"&gt;編輯歷史&lt;/a&gt;。</string>
+  <string name="offline_compilation_download_device_offline">網路無法連接。請確定您有重新上線並再重試一次。</string>
   <string name="offline_read_permission_rationale">需要可在您裝置上儲存庫的權限才能離線瀏覽。</string>
   <string name="offline_read_permission_error">未授予從裝置儲存庫讀取的權限。</string>
   <string name="offline_card_text">您正在您的離線圖書館瀏覽離線維基百科條目。</string>
@@ -480,4 +481,7 @@
   <string name="onboarding_create_account_sync">同步您的閱讀清單</string>
   <string name="onboarding_create_account_contributions">保持追蹤您的貢獻</string>
   <string name="onboarding_create_account_preferences">儲存您的偏好設定</string>
+  <string name="app_shortcuts_random">隨機</string>
+  <string name="app_shortcuts_continue_reading">繼續閱讀</string>
+  <string name="app_shortcuts_search">搜尋</string>
 </resources>

@@ -56,6 +56,7 @@
   <string name="dialog_message_leaving_edit_stay">رکو</string>
   <string name="menu_show_toc">فہرست</string>
   <string name="search_no_results_found">کوئی نتیجہ نی لبھا</string>
+  <string name="search_history_no_results">تاریخ وچ کائی نتیجہ نی لبھا</string>
   <string name="title_captcha">کیپچا درج کرو</string>
   <string name="edit_saved_page_refresh_yes">جیا</string>
   <string name="edit_saved_page_refresh_no">کو</string>
@@ -127,6 +128,7 @@
   <string name="button_page_issues">ورقے دے مسئلے</string>
   <string name="text_size_select">فونٹ سائز</string>
   <string name="page_similar_titles">ہکوجہے ورقے</string>
+  <string name="search_did_you_mean">بھلا تہاݙا مطلب ہائی %s؟</string>
   <string name="search_recent_header">حالیہ ڳول:</string>
   <string name="clear_recent_searches_confirm_yes">جیا</string>
   <string name="clear_recent_searches_confirm_no">کو</string>

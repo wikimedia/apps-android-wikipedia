@@ -336,6 +336,7 @@
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history" fuzzy="true">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
+  <string name="offline_compilations_found_count">W mojej bibliotece (%d)</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Usuń</string>
   <string name="storage_size_gb">GB</string>
@@ -344,6 +345,7 @@
   <string name="compilation_download_cancel_confirm_yes">Tak</string>
   <string name="compilation_download_cancel_confirm_no">Nie</string>
   <string name="compilation_remove">Usuń</string>
+  <string name="offline_library_search_results_state">Wyniki wyszukiwania w Lokalnej Bibliotece</string>
   <string name="offline_library_onboarding_action">Dowiedz się więcej</string>
   <string name="offline_library_onboarding_button_done">Gotowe</string>
   <string name="onboarding_skip">Pomiń</string>

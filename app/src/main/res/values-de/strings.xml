@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Dein Beitrag sieht wie ein Experiment oder Vandalismus aus.</string>
   <string name="description_edit_revert_history">Falls du interessiert bist, sieh dir die &lt;a href=\"%1$s\"&gt;Versionsgeschichte&lt;/a&gt; an.</string>
+  <string name="offline_compilation_download_device_offline">Keine Internetverbindung. Stelle sicher, dass du wieder online bist und versuche es erneut.</string>
   <string name="offline_read_permission_rationale">Zum Offline-Browsen ist eine Berechtigung für den Zugriff auf den Speicher deines Gerätes erforderlich.</string>
   <string name="offline_read_permission_error">Die Berechtigung zum Lesen vom Gerätespeicher wurde nicht gewährt.</string>
   <string name="offline_card_text">Du benutzt jetzt Wikipedia offline mit Artikeln in deiner Offline-Bibliothek.</string>
@@ -480,4 +481,7 @@
   <string name="onboarding_create_account_sync">Synchronisiere deine Leselisten</string>
   <string name="onboarding_create_account_contributions">Verfolge deine Beiträge</string>
   <string name="onboarding_create_account_preferences">Speichere deine Einstellungen</string>
+  <string name="app_shortcuts_random">Zufällig</string>
+  <string name="app_shortcuts_continue_reading">Mit dem Lesen fortfahren</string>
+  <string name="app_shortcuts_search">Suchen</string>
 </resources>

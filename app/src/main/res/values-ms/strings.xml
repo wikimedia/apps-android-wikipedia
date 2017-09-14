@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">sumbangan anda tidak mengikuti salah satu daripada &lt;a href=\"%1$s\"&gt;garis panduan&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">sumbangan anda kelihatan seperti eksperimen atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika anda berminat, lihat &lt;a href=\"%1$s\"&gt;sejarah suntingan&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Tiada sambungan internet. Pastikan anda kembali dalam talian, kemudian cuba lagi.</string>
   <string name="offline_read_permission_rationale">Kebenaran untuk mengakses storan pada peranti anda diperlukan untuk melayari luar talian.</string>
   <string name="offline_read_permission_error">Kebenaran tidak diberikan untuk baca dari storan peranti.</string>
   <string name="offline_card_text">Anda kini melayari Wikipedia di luar talian dengan rencana dalam Perpustakaan Luar Talian anda.</string>

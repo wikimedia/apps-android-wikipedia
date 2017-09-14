@@ -320,6 +320,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
   <string name="reading_list_already_contains_selection">An der erausgesichter Lëscht si schonn all déi erausgesicht Säiten.</string>
   <string name="reading_list_added_articles_list_untitled">%d Artikelen an d\'Lieslëscht dobäigesat.</string>
+  <string name="reading_list_added_articles_list_titled">%1$d Artikel op %2$s dobäigesat</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dësen Artikel ass elo offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn elo offline disponibel.</item>
@@ -431,4 +432,7 @@
   <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
   <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
   <string name="onboarding_create_account_preferences">Späichert Är Astellungen</string>
+  <string name="app_shortcuts_random">Zoufall</string>
+  <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
+  <string name="app_shortcuts_search">Sichen</string>
 </resources>

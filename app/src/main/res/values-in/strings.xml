@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi Anda tampak seperti uji coba atau vandalisme.</string>
   <string name="description_edit_revert_history">Jika Anda tertarik, lihat &lt;a href=\"%1$s\"&gt;riwayat penyuntingannya&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Tidak ada koneksi internet. Pastikan Anda kembali daring, lalu coba lagi.</string>
   <string name="offline_read_permission_rationale">Izin untuk mengakses penyimpanan pada perangkat Anda diperlukan untuk penjelajahan luring.</string>
   <string name="offline_read_permission_error">Izin tidak diberikan untuk baca dari penyimpanan perangkat.</string>
   <string name="offline_card_text">Anda sekarang menjelajahi Wikipedia secara luring dengan artikel di Perpustakaan Luring Anda.</string>
