@@ -64,7 +64,6 @@
         android:padding="16dp"
         android:textSize="12sp"
         android:textColor="?attr/secondary_text_color"
-        android:textColorLink="?attr/colorAccent"
         tools:text="Lorem ipsum"/>
 
 </LinearLayout>

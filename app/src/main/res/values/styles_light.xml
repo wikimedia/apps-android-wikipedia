@@ -4,14 +4,26 @@
     <style name="ThemeLight">
 
         <!-- Overrides of base Android color definitions -->
+
+        <!-- Default background for all activities -->
         <item name="android:windowBackground">@color/base90</item>
+
+        <!-- Background for popup menus -->
         <item name="android:colorBackground">@color/base90</item>
+
         <item name="android:textColorPrimary">@color/base10</item>
         <item name="android:textColorSecondary">@color/base20</item>
         <item name="android:textColorTertiary">@color/base30</item>
         <item name="android:textColorHint">@color/base50</item>
+
+        <!-- Toolbar color, list overscroll effect -->
         <item name="colorPrimary">@color/accent50</item>
+
+        <!-- Control color (switch, progress bar, etc), text link color, edit text underline,
+             edit text cursor, text selection markers -->
         <item name="colorAccent">@color/accent50</item>
+
+        <!-- Error text in TextInputLayout -->
         <item name="textColorError">@color/red50</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
@@ -38,7 +50,6 @@
         <item name="multi_select_background_color">@color/accent90</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>
-        <item name="link_color">@color/accent50</item>
         <item name="material_theme_primary_color">@color/black87</item>
         <item name="material_theme_secondary_color">@color/black54</item>
         <item name="material_theme_de_emphasised_color">@color/black38</item>

@@ -68,8 +68,7 @@
                     style="@style/RtlAwareTextView"
                     tools:text="Sample section license text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/base30"
-                    android:textColorLink="?attr/colorAccent"/>
+                    android:textColor="@color/base30"/>
 
         </LinearLayout>
 

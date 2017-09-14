@@ -173,8 +173,7 @@
                 android:linksClickable="true"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:lineSpacingMultiplier="1.2"
-                android:textColor="@color/base30"
-                android:textColorLink="?attr/colorAccent"/>
+                android:textColor="@color/base30"/>
 
         </LinearLayout>
 

@@ -25,7 +25,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:textColor="@color/base20"
-        android:textColorLink="?attr/colorAccent"
         android:alpha="0.6"
         android:shadowColor="@android:color/white"
         android:shadowDx="2"

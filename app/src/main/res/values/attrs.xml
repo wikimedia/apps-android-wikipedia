@@ -19,7 +19,6 @@
     <attr name="searchItemBackground" format="reference" />
 
     <attr name="blue_switch" format="reference" />
-    <attr name="link_color" format="color" />
     <attr name="material_theme_primary_color" format="color" />
     <attr name="material_theme_secondary_color" format="color" />
     <attr name="material_theme_de_emphasised_color" format="color" />

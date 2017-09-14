@@ -37,7 +37,6 @@
             style="@style/RtlAwareTextView"
             android:textIsSelectable="true"
             android:textColor="?android:textColorPrimary"
-            android:textColorLink="?attr/colorAccent"
             android:textSize="16sp"
             android:lineSpacingMultiplier="1.4"
             tools:text="Reference text"/>

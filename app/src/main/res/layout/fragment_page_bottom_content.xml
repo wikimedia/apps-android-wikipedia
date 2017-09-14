@@ -31,7 +31,6 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         style="?android:textAppearanceSmall"
         android:textIsSelectable="true"
-        android:textColorLink="?attr/colorAccent"
         android:gravity="center"/>
     <org.wikipedia.views.AppTextView
         android:id="@+id/page_license_text"
@@ -42,6 +41,5 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         style="?android:textAppearanceSmall"
         android:textIsSelectable="true"
-        android:textColorLink="?attr/colorAccent"
         android:gravity="center"/>
 </LinearLayout>
