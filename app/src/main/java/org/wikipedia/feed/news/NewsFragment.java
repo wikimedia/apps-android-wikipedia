@@ -33,7 +33,6 @@ import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.FaceAndColorDetectImageView;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.List;
 
@@ -73,7 +72,7 @@ public class NewsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        ViewUtil.setBackgroundDrawable(gradientView, GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
+        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");

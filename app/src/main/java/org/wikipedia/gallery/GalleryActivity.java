@@ -53,7 +53,6 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
-import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.io.File;
@@ -627,7 +626,7 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
     }
 
     private void setBackgroundGradient(View view, int gravity) {
-        ViewUtil.setBackgroundDrawable(view, GradientUtil.getPowerGradient(R.color.lead_gradient_start, gravity));
+        view.setBackground(GradientUtil.getPowerGradient(R.color.lead_gradient_start, gravity));
     }
 
     private void initToolbar() {
