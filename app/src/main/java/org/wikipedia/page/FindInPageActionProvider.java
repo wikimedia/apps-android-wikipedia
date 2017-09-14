@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.graphics.Color;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.SearchView;
 import android.view.ActionProvider;
@@ -119,30 +118,25 @@ public class FindInPageActionProvider extends ActionProvider {
     }
 
     public void findInPage(String s) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            fragment.getWebView().setFindListener(new FindListener() {
-                @Override
-                public void onFindResultReceived(int activeMatchOrdinal, int numberOfMatches, boolean isDoneCounting) {
-                    if (!isDoneCounting) {
-                        return;
-                    }
-                    if (numberOfMatches > 0) {
-                        findInPageMatch.setText(fragment.getString(R.string.find_in_page_result,
-                                activeMatchOrdinal + 1, numberOfMatches));
-                        findInPageNext.setEnabled(true);
-                        findInPagePrev.setEnabled(true);
-                    } else {
-                        findInPageMatch.setText("0/0");
-                        findInPageNext.setEnabled(false);
-                        findInPagePrev.setEnabled(false);
-                    }
-                    findInPageMatch.setVisibility(View.VISIBLE);
+        fragment.getWebView().setFindListener(new FindListener() {
+            @Override
+            public void onFindResultReceived(int activeMatchOrdinal, int numberOfMatches, boolean isDoneCounting) {
+                if (!isDoneCounting) {
+                    return;
                 }
-            });
-            fragment.getWebView().findAllAsync(s);
-        } else {
-            //noinspection deprecation
-            fragment.getWebView().findAll(s);
-        }
+                if (numberOfMatches > 0) {
+                    findInPageMatch.setText(fragment.getString(R.string.find_in_page_result,
+                            activeMatchOrdinal + 1, numberOfMatches));
+                    findInPageNext.setEnabled(true);
+                    findInPagePrev.setEnabled(true);
+                } else {
+                    findInPageMatch.setText("0/0");
+                    findInPageNext.setEnabled(false);
+                    findInPagePrev.setEnabled(false);
+                }
+                findInPageMatch.setVisibility(View.VISIBLE);
+            }
+        });
+        fragment.getWebView().findAllAsync(s);
     }
 }
