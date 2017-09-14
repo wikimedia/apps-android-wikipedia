@@ -120,6 +120,6 @@
 
     <!-- App shortcuts -->
     <dimen name="app_shortcut_icon_size">24dp</dimen>
-    <dimen name="app_shortcut_icon_margin">7dp</dimen>
+    <dimen name="app_shortcut_icon_margin">14dp</dimen>
 
 </resources>

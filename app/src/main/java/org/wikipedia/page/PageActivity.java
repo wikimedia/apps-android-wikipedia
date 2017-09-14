@@ -46,7 +46,6 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.feed.continuereading.ContinueReadingCard;
@@ -60,7 +59,7 @@ import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.page.tabs.TabsProvider.TabPosition;
-import org.wikipedia.random.RandomSummaryClient;
+import org.wikipedia.random.RandomArticleRequestHandler;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
@@ -80,7 +79,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import retrofit2.Call;
 
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -94,6 +92,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
+    public static final String ACTION_APP_SHORTCUT = "org.wikipedia.app_shortcut";
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
 
@@ -288,7 +287,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             loadRandomPage();
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
             loadContinueReadingPage();
-        }   else {
+        } else {
             loadMainPageInCurrentTab();
         }
     }
@@ -398,22 +397,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         loadPage(title, historyEntry, position);
     }
 
-    public void loadRandomPage() {
-        new RandomSummaryClient().request(app.getWikiSite(), new RandomSummaryClient.Callback() {
-            @Override
-            public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull PageTitle title) {
-                loadPageInForegroundTab(title, new HistoryEntry(title, HistoryEntry.SOURCE_APP_SHORTCUT_RANDOM));
-            }
-
-            @Override
-            public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
-                // do we need to search offline compilation?
-                finish();
-            }
-        });
-    }
-
-    public void loadContinueReadingPage() {
+    private void loadContinueReadingPage() {
         new ContinueReadingClient().request(this, app.getWikiSite(), 1, new FeedClient.Callback() {
             @Override
             public void success(@NonNull List<? extends Card> cards) {
@@ -423,10 +407,24 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
             @Override
             public void error(@NonNull Throwable caught) {
-                // show message if we have not read articles?
-                finish();
+                loadMainPageInForegroundTab();
             }
         });
+    }
+
+    private void loadRandomPage() {
+        RandomArticleRequestHandler.getRandomPage(new RandomArticleRequestHandler.Callback() {
+            @Override
+            public void onSuccess(@NonNull PageTitle pageTitle) {
+                loadPageInForegroundTab(pageTitle, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_APP_SHORTCUT_RANDOM));
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                loadMainPageInForegroundTab();
+            }
+        });
+
     }
 
     public void showLinkPreview(@NonNull PageTitle title, int entrySource) {

@@ -29,7 +29,7 @@ public class AppShortcuts {
 
             ShortcutManager shortcutManager = app.getSystemService(ShortcutManager.class);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N_MR1) {
-                shortcutManager.setDynamicShortcuts(Arrays.asList(randomShortcut(), continueReadingShortcut(), searchShortcut()));
+                shortcutManager.setDynamicShortcuts(Arrays.asList(searchShortcut(), continueReadingShortcut(), randomShortcut()));
             }
         }
     }
@@ -42,8 +42,7 @@ public class AppShortcuts {
                 .setLongLabel(app.getString(R.string.app_shortcuts_random))
                 .setIcon(Icon.createWithResource(app, R.drawable.appshortcut_ic_random))
                 .setIntent(
-                        new Intent(Intent.ACTION_MAIN, Uri.EMPTY, app, PageActivity.class)
-                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        new Intent(PageActivity.ACTION_APP_SHORTCUT)
                                 .putExtra(Constants.INTENT_APP_SHORTCUT_RANDOM, true))
                 .build();
 
@@ -57,14 +56,9 @@ public class AppShortcuts {
                 .setShortLabel(app.getString(R.string.app_shortcuts_continue_reading))
                 .setLongLabel(app.getString(R.string.app_shortcuts_continue_reading))
                 .setIcon(Icon.createWithResource(app, R.drawable.appshortcut_ic_continue_reading))
-                .setIntents(
-                        new Intent[]{
-                                new Intent(Intent.ACTION_MAIN, Uri.EMPTY, app, MainActivity.class)
-                                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP),
-                                new Intent(Intent.ACTION_MAIN, Uri.EMPTY, app, PageActivity.class)
-                                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                        .putExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING, true)
-                        })
+                .setIntent(
+                        new Intent(PageActivity.ACTION_APP_SHORTCUT)
+                                .putExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING, true))
                 .build();
 
         return shortcut;
