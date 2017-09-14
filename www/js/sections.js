@@ -237,28 +237,40 @@ bridge.registerListener( "queueRemainingSections", function ( payload ) {
     remainingRequest.sequence = payload.sequence;
     remainingRequest.scrollY = payload.scrollY;
     remainingRequest.fragment = payload.fragment;
-    if (window.apiLevel >= 19 && window.responseType !== 'json') {
+    if (window.apiLevel > 19 && window.responseType !== 'json') {
         remainingRequest.responseType = 'json';
     }
     remainingRequest.onreadystatechange = function() {
         if (this.readyState !== XMLHttpRequest.DONE) {
             return;
         }
+        if (this.sequence !== window.sequence) {
+            return;
+        }
         if (this.status !== 200) {
             bridge.sendMessage( "loadRemainingError", { "status": this.status, "sequence": this.sequence });
             return;
         }
-        if (this.sequence !== window.sequence) {
-            return;
+        try {
+            // On API <20, the XMLHttpRequest does not support responseType = json,
+            // so we have to call JSON.parse() ourselves.
+            var sectionsObj = window.apiLevel > 19 ? this.response : JSON.parse(this.response);
+            if (sectionsObj.mobileview) {
+                // If it's a mobileview response, the "sections" object will be one level deeper.
+                sectionsObj = sectionsObj.mobileview;
+            }
+            displayRemainingSections(sectionsObj, this.sequence, this.scrollY, this.fragment);
+        } catch (e) {
+            // Catch any errors that might have come from deserializing or rendering the
+            // remaining sections.
+            // TODO: Boil this up to the Java layer more properly, even though this kind of error
+            // really shouldn't happen.
+            console.log(e);
+            // In case of such an error, send a completion event to the Java layer, so that the
+            // PageActivity can consider the page loaded, and enable the user to take additional
+            // actions that might have been dependent on page completion (e.g. refreshing).
+            bridge.sendMessage( "pageLoadComplete", { "sequence": this.sequence });
         }
-        // On API <19, the XMLHttpRequest does not support responseType = json,
-        // so we have to call JSON.parse() ourselves.
-        var sectionsObj = window.apiLevel >= 19 ? this.response : JSON.parse(this.response);
-        if (sectionsObj.mobileview) {
-            // If it's a mobileview response, the "sections" object will be one level deeper.
-            sectionsObj = sectionsObj.mobileview;
-        }
-        displayRemainingSections(sectionsObj, this.sequence, this.scrollY, this.fragment);
     };
     remainingRequest.send();
 });
