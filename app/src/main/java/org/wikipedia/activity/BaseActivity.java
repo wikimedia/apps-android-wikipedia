@@ -24,11 +24,14 @@ import com.squareup.otto.Subscribe;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.crash.CrashReportActivity;
 import org.wikipedia.events.NetworkConnectEvent;
+import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.offline.Compilation;
 import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
+import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -43,20 +46,22 @@ public abstract class BaseActivity extends AppCompatActivity {
     private EventBusMethods busMethods;
     private NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver();
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return false;
-        }
-    }
-
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         busMethods = new EventBusMethods();
         WikipediaApp.getInstance().getBus().register(busMethods);
+
+        setTheme();
+        removeSplashBackground();
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        ActivityUtil.forceOverflowMenuIcon(this);
+
+        // Conditionally execute all recurring tasks
+        new RecurringTasksExecutor(WikipediaApp.getInstance()).run();
+
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(networkStateReceiver, filter);
     }
@@ -67,6 +72,26 @@ public abstract class BaseActivity extends AppCompatActivity {
         busMethods = null;
         super.onDestroy();
         destroyed = true;
+    }
+
+    @Override protected void onResume() {
+        super.onResume();
+
+        // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
+        // less probable.
+        if (!(this instanceof CrashReportActivity)) {
+            Prefs.crashedBeforeActivityCreated(false);
+        }
+    }
+
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override
@@ -100,6 +125,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             return super.isDestroyed();
         }
         return destroyed;
+    }
+
+    protected void setTheme() {
+        setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
     }
 
     protected void setSharedElementTransitions() {
@@ -192,6 +221,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    private void removeSplashBackground() {
+        getWindow().setBackgroundDrawable(null);
+    }
+
     private class EventBusMethods {
         // todo: reevaluate lifecycle. the bus is active when this activity is paused and we show ui
         @Subscribe public void on(WikipediaZeroEnterEvent event) {
@@ -204,6 +237,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         @Subscribe public void on(NetworkConnectEvent event) {
             ReadingListSynchronizer.instance().syncSavedPages();
+        }
+
+        @Subscribe public void on(ThemeChangeEvent event) {
+            recreate();
         }
     }
 }

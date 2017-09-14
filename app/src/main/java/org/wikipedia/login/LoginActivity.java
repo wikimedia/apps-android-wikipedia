@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ThemedActionBarActivity;
+import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
@@ -36,7 +36,7 @@ import butterknife.OnClick;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class LoginActivity extends ThemedActionBarActivity {
+public class LoginActivity extends BaseActivity {
     public static final int RESULT_LOGIN_SUCCESS = 1;
     public static final int RESULT_LOGIN_FAIL = 2;
 

@@ -18,20 +18,20 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ThemedActionBarActivity;
+import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
@@ -65,7 +65,7 @@ import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
-public class GalleryActivity extends ThemedActionBarActivity implements LinkPreviewDialog.Callback,
+public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.Callback,
         GalleryItemFragment.Callback {
     public static final int ACTIVITY_RESULT_PAGE_SELECTED = 1;
 
@@ -169,10 +169,7 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // force the theme to dark...
-        setTheme(Theme.DARK.getResourceId());
 
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_gallery);
         initToolbar();
 
@@ -301,6 +298,11 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         } else {
             ShareUtil.shareText(this, title);
         }
+    }
+
+    @Override
+    protected void setTheme() {
+        setTheme(Theme.DARK.getResourceId());
     }
 
     private class GalleryPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
@@ -646,7 +648,7 @@ public class GalleryActivity extends ThemedActionBarActivity implements LinkPrev
         private GalleryCollection galleryCollection;
         private SparseArray<GalleryItemFragment> fragmentArray;
 
-        GalleryItemAdapter(ThemedActionBarActivity activity) {
+        GalleryItemAdapter(AppCompatActivity activity) {
             super(activity.getSupportFragmentManager());
             fragmentArray = new SparseArray<>();
         }

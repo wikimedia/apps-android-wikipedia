@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ThemedActionBarActivity;
+import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
@@ -36,7 +36,7 @@ import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
-public class CreateAccountActivity extends ThemedActionBarActivity {
+public class CreateAccountActivity extends BaseActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
     public static final int RESULT_ACCOUNT_NOT_CREATED = 2;
 
