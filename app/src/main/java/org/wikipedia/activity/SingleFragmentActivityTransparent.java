@@ -6,6 +6,7 @@ import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
 
 import org.wikipedia.R;
+import org.wikipedia.theme.Theme;
 
 /**
  * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
@@ -24,6 +25,12 @@ public abstract class SingleFragmentActivityTransparent<T extends Fragment> exte
         if (!isFragmentCreated()) {
             addFragment(createFragment());
         }
+    }
+
+    @Override
+    protected void setTheme() {
+        setTheme(Theme.DARK.getResourceId());
+        setTheme(R.style.AppTheme_FullScreen_TranslucentDark);
     }
 
     protected void addFragment(T fragment) {

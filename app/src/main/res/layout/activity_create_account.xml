@@ -49,6 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="?android:textColorHint"
                         android:hint="@string/login_password_hint">
 
                         <org.wikipedia.views.PlainPasteEditText
@@ -65,6 +66,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="?android:textColorHint"
                         android:hint="@string/create_account_password_repeat_hint">
 
                         <org.wikipedia.views.PlainPasteEditText

@@ -216,7 +216,8 @@
             android:name=".offline.CompilationDetailActivity" />
 
         <activity
-            android:name=".offline.OfflineTutorialActivity" />
+            android:name=".offline.OfflineTutorialActivity"
+            android:theme="@style/AppTheme.TranslucentStatus"/>
 
         <provider
             android:authorities="${applicationId}"

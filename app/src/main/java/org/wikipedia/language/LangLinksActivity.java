@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ThemedActionBarActivity;
+import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
@@ -37,7 +37,7 @@ import retrofit2.Call;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
-public class LangLinksActivity extends ThemedActionBarActivity {
+public class LangLinksActivity extends BaseActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
 
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";

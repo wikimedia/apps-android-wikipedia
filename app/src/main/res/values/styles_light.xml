@@ -9,6 +9,7 @@
         <item name="android:textColorPrimary">@color/base10</item>
         <item name="android:textColorSecondary">@color/base20</item>
         <item name="android:textColorTertiary">@color/base30</item>
+        <item name="android:textColorHint">@color/base50</item>
         <item name="colorPrimary">@color/accent50</item>
         <item name="colorAccent">@color/accent50</item>
         <item name="textColorError">@color/red50</item>
