@@ -257,6 +257,9 @@
   <string name="error_page_does_not_exist">Siden eksisterer ikke</string>
   <string name="view_wiki_error_message_offline">Kan ikke koble til internett</string>
   <string name="reference_title">Referanse %s</string>
+  <string name="preference_title_dim_dark_mode_images">Mørklegg bilder i den mørke drakten</string>
+  <string name="preference_summary_dim_dark_mode_images">Reduser lysstyrken i bilder når du bruker den mørke drakten</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Mørklegging av bilder (i den mørke drakten)</string>
   <string name="crash_report_dialog_title">Beklager, appen krasjet forrige gang</string>
   <string name="crash_report_dialog_text">Vil du sende en krasjrapport til tredjepartstjenesten HockeyApp slik at Wikimedia kan gjennomgå den og fikse feilen som førte til krasjet?</string>
   <string name="crash_report_dialog_dont_send_button">Hopp over</string>
@@ -335,6 +338,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Artikkelen lastes ned og vil bli tilgjengelig offline når den er ferdig.</string>
+  <string name="reading_list_already_contains_selection">Den valgte listen inneholder allerede alle de valgte sidene.</string>
+  <string name="reading_list_added_articles_list_untitled">La til %d artikler til leselisten.</string>
+  <string name="reading_list_added_articles_list_titled">La til %1$d artikler i %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikkelen vil nå være tilgjengelig offline.</item>
     <item quantity="other">Disse artiklene vil nå være tilgjengelig offline.</item>

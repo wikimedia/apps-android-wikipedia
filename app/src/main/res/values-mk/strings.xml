@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашиот придонес делуваше како опитен или вандалски.</string>
   <string name="description_edit_revert_history">Ако сте заинтересирани, погледајте ја &lt;a href=\"%1$s\"&gt;историјата на уредување&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Не сте поврзани со семрежјето. Навратете се кога ќе добиете линија.</string>
   <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно.</string>
   <string name="offline_read_permission_error">Прилогот не доби дозвола за читање од складот на уредот.</string>
   <string name="offline_card_text">Сега ја прелистувате Википедија вонмрежно со статии од вашата вонмрежна библиотека.</string>

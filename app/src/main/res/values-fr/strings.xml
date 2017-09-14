@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">votre contribution ressemblait à une expérience ou à du vandalisme.</string>
   <string name="description_edit_revert_history">Si vous êtes intéressé, voyez l’&lt;a href=\"%1$s\"&gt;historique des modifications&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Aucune connexion internet. Assurez-vous que vous êtes bien reconnecté, puis réessayez.</string>
   <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion.</string>
   <string name="offline_read_permission_error">Droit non accordé pour lire sur le stockage de l’appareil.</string>
   <string name="offline_card_text">Vous naviguez maintenant sur Wikipédia hors ligne avec les articles de votre bibliothèque hors connexion.</string>

@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
   <string name="description_edit_revert_reason2">您的贡献看起来像是试验或破坏。</string>
   <string name="description_edit_revert_history">如果您感兴趣，可查看&lt;a href=\"%1$s\"&gt;编辑历史&lt;/a&gt;。</string>
+  <string name="offline_compilation_download_device_offline">没有网络连接。请确保您已重新在线，然后重试。</string>
   <string name="offline_read_permission_rationale">需要访问您设备存储的权限才能离线浏览。</string>
   <string name="offline_read_permission_error">未授予读取来自设备存储内容的权限。</string>
   <string name="offline_card_text">您正在浏览您的离线图书馆中的维基百科离线版本。</string>
