@@ -10,7 +10,6 @@ import android.view.ViewConfiguration;
 
 import com.squareup.otto.Subscribe;
 
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -60,12 +59,6 @@ public abstract class ThemedActionBarActivity extends BaseActivity {
 
     protected void setTheme() {
         setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
-    }
-
-    protected void setActionBarTheme() {
-        setTheme(WikipediaApp.getInstance().isCurrentThemeLight()
-                ? R.style.Theme_Light_ActionBar
-                : R.style.Theme_Dark_ActionBar);
     }
 
     /**

@@ -8,8 +8,8 @@ import org.wikipedia.R;
 import org.wikipedia.model.EnumCode;
 
 public enum Theme implements EnumCode {
-    LIGHT(0, "light", R.style.Theme_Light),
-    DARK(1, "dark", R.style.Theme_Dark);
+    LIGHT(0, "light", R.style.ThemeLight),
+    DARK(1, "dark", R.style.ThemeDark);
 
     private final int marshallingId;
     private final String funnelName;

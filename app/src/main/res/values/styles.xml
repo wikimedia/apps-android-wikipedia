@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
@@ -11,60 +11,82 @@
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:windowActivityTransitions" tools:targetApi="21" >true</item>
         <item name="android:windowContentTransitions" tools:targetApi="21" >true</item>
+
+        <item name="windowActionModeOverlay">true</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="actionBarTheme">@style/ToolbarTheme</item>
+        <item name="actionBarStyle">@style/ToolbarStyle</item>
+        <item name="actionModeStyle">@style/ActionModeStyle</item>
+
+        <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
+        <item name="android:listViewStyle">@style/ListView</item>
     </style>
 
-    <style name="PageTheme" parent="AppTheme">
+    <style name="AppTheme.ActionBar">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="windowActionModeOverlay">false</item>
+    </style>
+
+    <style name="AppTheme.TranslucentStatus">
         <item name="android:windowTranslucentStatus" tools:targetApi="19">true</item>
     </style>
 
-    <style name="FullScreen" parent="AppTheme">
+    <style name="AppTheme.FullScreen">
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="AppTheme.ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="AppTheme.FullScreen.TranslucentDark">
+        <item name="android:windowBackground">@color/translucent_background_dark</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlActivated">@color/actionbar_highlight</item>
         <item name="colorControlHighlight">@color/actionbar_highlight</item>
     </style>
 
-    <style name="AppTheme.ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
+    <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
         <item name="background">@color/base18</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">4dp</item>
-        <item name="titleTextStyle">@style/AppTheme.ToolBarTitleText</item>
+        <item name="titleTextStyle">@style/ToolBarTitleText</item>
     </style>
 
-    <style name="AppTheme.ToolBarTitleText"
-        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
+    <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
         <item name="background">?attr/main_toolbar_color</item>
         <item name="backgroundSplit">?attr/main_toolbar_color</item>
-        <item name="titleTextStyle">@style/AppTheme.ActionModeTitleStyle</item>
-        <item name="subtitleTextStyle">@style/AppTheme.ActionModeSubtitleStyle</item>
+        <item name="titleTextStyle">@style/ActionModeTitleStyle</item>
+        <item name="subtitleTextStyle">@style/ActionModeSubtitleStyle</item>
     </style>
 
-    <style name="AppTheme.ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
+    <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
+    <style name="ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
+    <style name="SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
         <item name="closeIcon">@drawable/ic_close_white_24dp</item>
         <item name="searchIcon">@drawable/ic_search_white_24dp</item>
         <item name="searchHintIcon">@drawable/ic_search_white_24dp</item>
     </style>
 
-    <style name="AppTheme.SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
+    <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@color/search_text_hint</item>
@@ -230,16 +252,6 @@
         <item name="roundTopRight">false</item>
         <item name="roundBottomLeft">false</item>
         <item name="roundBottomRight">false</item>
-    </style>
-
-    <style name="AppTheme.TranslucentDark">
-        <item name="android:windowBackground">@color/translucent_background_dark</item>
-        <item name="android:colorBackgroundCacheHint">@null</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">

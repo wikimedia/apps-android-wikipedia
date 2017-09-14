@@ -35,9 +35,4 @@ public class LicenseActivity extends ThemedActionBarActivity {
             e.printStackTrace();
         }
     }
-
-    @Override
-    protected void setTheme() {
-        setActionBarTheme();
-    }
 }

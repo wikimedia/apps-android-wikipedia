@@ -18,9 +18,4 @@ public class SettingsActivity extends SingleFragmentActivity<SettingsFragment> {
     public SettingsFragment createFragment() {
         return SettingsFragment.newInstance();
     }
-
-    @Override
-    protected void setTheme() {
-        setActionBarTheme();
-    }
 }

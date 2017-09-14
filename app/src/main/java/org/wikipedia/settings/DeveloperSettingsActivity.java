@@ -14,9 +14,4 @@ public class DeveloperSettingsActivity extends SingleFragmentActivity<DeveloperS
     public DeveloperSettingsFragment createFragment() {
         return DeveloperSettingsFragment.newInstance();
     }
-
-    @Override
-    protected void setTheme() {
-        setActionBarTheme();
-    }
 }

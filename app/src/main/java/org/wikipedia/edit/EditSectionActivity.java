@@ -249,11 +249,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         super.onDestroy();
     }
 
-    @Override
-    protected void setTheme() {
-        setActionBarTheme();
-    }
-
     private void updateEditLicenseText() {
         TextView editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
         editLicenseText.setText(StringUtil.fromHtml(String.format(getString(AccountUtil.isLoggedIn()

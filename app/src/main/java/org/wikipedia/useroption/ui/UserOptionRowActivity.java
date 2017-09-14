@@ -15,9 +15,4 @@ public class UserOptionRowActivity extends SingleFragmentActivity<UserOptionRowF
     protected UserOptionRowFragment createFragment() {
         return UserOptionRowFragment.newInstance();
     }
-
-    @Override
-    protected void setTheme() {
-        setActionBarTheme();
-    }
 }
