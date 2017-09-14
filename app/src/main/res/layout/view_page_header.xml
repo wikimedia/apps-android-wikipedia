@@ -71,9 +71,8 @@
         android:layout_marginRight="@dimen/edit_pencil_horizontal_margin"
         android:layout_gravity="bottom|end"
         app:srcCompat="@drawable/ic_mode_edit_white_24dp"
+        style="?attr/header_edit_button"
         android:scaleType="fitCenter"
-        android:tint="?android:attr/textColorSecondary"
-        android:alpha="?attr/page_header_edit_pencil_alpha"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/article_header_edit_hint" />
 

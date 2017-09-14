@@ -47,6 +47,7 @@
     <attr name="edit_preview_color" format="reference" />
 
     <attr name="blue_switch" format="reference" />
+    <attr name="header_edit_button" format="reference" />
 
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />

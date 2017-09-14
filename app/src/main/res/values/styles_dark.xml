@@ -64,6 +64,7 @@
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_dark</item>
         <item name="searchItemBackground">@color/base12</item>
         <item name="cardBackgroundColor">@color/base14</item>
+        <item name="header_edit_button">@style/HeaderEditButtonDark</item>
         <item name="edit_preview_color">@color/accent75</item>
         <item name="horizontal_divider">@style/HorizontalDividerDark</item>
     </style>
@@ -91,6 +92,11 @@
     <style name="HorizontalDividerDark">
         <item name="android:background">@color/base100</item>
         <item name="android:alpha">0.20</item>
+    </style>
+
+    <style name="HeaderEditButtonDark">
+        <item name="android:tint">@color/base100</item>
+        <item name="android:alpha">0.7</item>
     </style>
 
 </resources>
