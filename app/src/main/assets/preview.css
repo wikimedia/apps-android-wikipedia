@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-/* GOAL: Upstream all these variables to core */
 /* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
 /* stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown */
 html,
@@ -93,8 +92,7 @@ ul {
 }
 table {
   border-collapse: collapse;
-}/* GOAL: Upstream all these variables to core */
-/* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
+}/* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
 /* stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown */
 html {
   -webkit-text-size-adjust: none;
@@ -110,7 +108,7 @@ body {
   line-height: 1.65;
   word-wrap: break-word;
 }
-@media all and (max-width: 280px) {
+@media all and (max-width: 320px) {
   body {
     font-size: 0.8em;
   }
@@ -240,27 +238,6 @@ blockquote {
   padding: 1em 25px 1em 30px;
   position: relative;
   overflow: hidden;
-}
-/**
- * This tweaks the default mediawiki.hlist module to provide performance optimisations
- * as well as subtle tweaks to the appearance. It's a work in progress.
- */
-.hlist > ul li,
-.hlist > dl li,
-.hlist > ul li,
-ul.hlist li {
-  display: inline-block;
-  margin-right: 8px;
-}
-.hlist-separated li:after {
-  content: '•';
-  padding-left: 8px;
-  color: #002bb8;
-  font-size: 16px;
-  line-height: 1;
-}
-.hlist-separated :last-child:after {
-  content: '';
 }
 .content {
   /* stylelint-disable no-descending-specificity */
@@ -434,8 +411,6 @@ https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
 
 FIXME: Review all of these hacks to see if they still apply.
 */
-/* GOAL: Upstream all these variables to core */
-/* GOAL: Upstream all these variables to core */
 /* stylelint-disable selector-no-vendor-prefix, at-rule-no-unknown */
 /* stylelint-enable selector-no-vendor-prefix, at-rule-no-unknown */
 .collapsible td {
@@ -508,10 +483,16 @@ FIXME: Review all of these hacks to see if they still apply.
 .hatnote,
 .dablink,
 .rellink {
-  padding: 0 0 0.6em 0;
-  color: #72777d;
+  padding: 5px 7px;
+  color: #54595d;
   font-size: 0.8em;
-  font-style: italic;
+  background-color: #f8f9fa;
+  margin-bottom: 1px;
+}
+.hatnote a,
+.dablink a,
+.rellink a {
+  color: #3366cc;
 }
 .quotebox {
   margin: 0 0 0.8em !important;
