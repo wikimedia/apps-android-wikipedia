@@ -4,16 +4,16 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "wikimedia-page-library": "4.5.10"
+    "wikimedia-page-library": "^4.5.11"
   },
   "devDependencies": {
-    "browserify": "14.4.0",
-    "grunt": "1.0.1",
-    "grunt-browserify": "5.2.0",
-    "grunt-cli": "1.2.0",
-    "grunt-contrib-copy": "1.0.0",
-    "grunt-contrib-jshint": "1.1.0",
-    "grunt-contrib-watch": "1.0.0",
-    "grunt-jsonlint": "1.1.0"
+    "browserify": "^14.4.0",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.2.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jsonlint": "^1.1.0"
   }
 }
