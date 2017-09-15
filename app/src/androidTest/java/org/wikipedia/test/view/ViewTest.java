@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.text.TextUtilsCompat;
-import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,6 +21,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
+import org.wikipedia.R;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ResourceUtil;
 
@@ -93,7 +93,9 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         this.layoutDirection = layoutDirection;
         this.fontScale = fontScale;
         this.theme = theme;
-        ctx = new ContextThemeWrapper(getTargetContext(), theme.getResourceId());
+        ctx = getTargetContext();
+        ctx.setTheme(R.style.AppTheme);
+        ctx.setTheme(theme.getResourceId());
         config();
     }
 
