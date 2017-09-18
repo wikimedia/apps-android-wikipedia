@@ -1,118 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="LinearLayout"
-    tools:orientation="horizontal"
     tools:background="@drawable/onboarding_gradient_background_135"
-    tools:layout_width="match_parent"
-    tools:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
-        <ImageView
-            android:id="@+id/view_onboarding_page_image_centered"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center"
-            android:contentDescription="@null"
-            tools:src="@drawable/illustration_onboarding_explore"/>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/view_onboarding_page_image_centered"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                tools:src="@drawable/illustration_onboarding_explore"/>
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        </FrameLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                android:paddingTop="24dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
-                <org.wikipedia.views.AppTextView
-                    android:id="@+id/view_onboarding_page_primary_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:fontFamily="sans-serif-medium"
-                    tools:text="Lorem ipsum" />
-
-                <org.wikipedia.views.AppTextView
-                    android:id="@+id/view_onboarding_page_secondary_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:gravity="center"
-                    android:lineSpacingMultiplier="1.22"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textColorLink="@android:color/white"
-                    android:textSize="16sp"
-                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+            android:layout_weight="1"
+            android:layout_gravity="center">
 
                 <LinearLayout
-                    android:id="@+id/view_onboarding_page_switch_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:orientation="vertical">
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.5dp"
-                        android:background="@color/white_translucent_40"/>
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="24dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
 
-                    <android.support.v7.widget.SwitchCompat
-                        android:id="@+id/view_onboarding_page_switch"
+                    <org.wikipedia.views.AppTextView
+                        android:id="@+id/view_onboarding_page_primary_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:fontFamily="sans-serif-medium"
+                        tools:text="Lorem ipsum" />
+
+                    <org.wikipedia.views.AppTextView
+                        android:id="@+id/view_onboarding_page_secondary_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.22"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"
+                        android:textColorLink="@android:color/white"
+                        android:textSize="16sp"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+                    <LinearLayout
+                        android:id="@+id/view_onboarding_page_switch_container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:theme="@style/OnboardingSwitch"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:textColor="@android:color/white"
-                        tools:text="Lorem ipsum"/>
+                        android:orientation="vertical">
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="0.5dp"
+                            android:background="@color/white_translucent_40"/>
 
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.5dp"
-                        android:background="@color/white_translucent_40"/>
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/view_onboarding_page_switch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:theme="@style/OnboardingSwitch"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="@android:color/white"
+                            tools:text="Lorem ipsum"/>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="0.5dp"
+                            android:background="@color/white_translucent_40"/>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/view_onboarding_page_tertiary_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/description_edit_tutorial_promise"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:textColor="@android:color/white" />
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/view_onboarding_page_tertiary_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/description_edit_tutorial_promise"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white" />
 
         </LinearLayout>
 
-    </ScrollView>
+    </LinearLayout>
 
-</merge>
+
+    <!-- Bottom control offset -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+</LinearLayout>
