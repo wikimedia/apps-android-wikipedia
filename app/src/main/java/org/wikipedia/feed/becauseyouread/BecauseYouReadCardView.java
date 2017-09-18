@@ -38,7 +38,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
                 .setTitle(card.title())
                 .setSubtitle(subtitle)
                 .setImage(R.drawable.ic_restore_black_24dp)
-                .setImageCircleColor(R.color.gray_highlight)
+                .setImageCircleColor(R.color.base30)
                 .setCard(card)
                 .setCallback(getCallback());
         header(header);

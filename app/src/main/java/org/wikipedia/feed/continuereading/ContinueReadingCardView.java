@@ -37,7 +37,7 @@ public class ContinueReadingCardView extends ListCardView<ContinueReadingCard>
                 .setTitle(R.string.view_continue_reading_card_title)
                 .setSubtitle(subtitle)
                 .setImage(R.drawable.ic_arrow_forward_black_24dp)
-                .setImageCircleColor(R.color.gray_highlight)
+                .setImageCircleColor(R.color.base30)
                 .setCard(card)
                 .setCallback(getCallback());
         header(header);

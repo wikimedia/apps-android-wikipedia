@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
-            android:tint="?attr/feed_text_tertiary_color"
+            android:tint="?attr/link_color"
             android:contentDescription="@null"/>
 
         <TextView
@@ -32,7 +32,7 @@
             android:layout_marginLeft="8dp"
             android:text="@string/view_featured_article_footer_save_button_label"
             android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/feed_text_tertiary_color"
+            android:textColor="?attr/link_color"
             android:textAllCaps="true"/>
 
     </LinearLayout>
@@ -48,7 +48,7 @@
         android:layout_gravity="end|center_vertical"
         app:srcCompat="@drawable/ic_share_black_24dp"
         android:scaleType="center"
-        android:tint="?attr/feed_text_tertiary_color"
+        android:tint="?attr/link_color"
         android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/share_via"/>

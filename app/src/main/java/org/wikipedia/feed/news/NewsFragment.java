@@ -72,7 +72,7 @@ public class NewsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
+        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP));
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");

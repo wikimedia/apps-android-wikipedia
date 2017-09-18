@@ -12,7 +12,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/nav_border" />
+        android:background="@color/black54" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -70,7 +70,7 @@
             android:padding="8dp"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_close_white_24dp"
-            android:tint="@color/gray_highlight"
+            android:tint="@color/base30"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/dialog_close_description" />
     </LinearLayout>

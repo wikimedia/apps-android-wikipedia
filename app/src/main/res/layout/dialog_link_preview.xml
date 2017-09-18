@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 style="@style/RtlAwareTextView"
-                android:textColor="?attr/link_preview_text_color"
+                android:textColor="?attr/bottom_sheet_text_color"
                 android:paddingBottom="4dp"
                 android:textSize="20sp"
                 android:fontFamily="serif"
@@ -58,7 +58,7 @@
                 android:background="?attr/actionBarItemBackground"
                 android:contentDescription="@string/abc_action_menu_overflow_description"
                 app:srcCompat="@drawable/ic_more_vert_white_24dp"
-                android:tint="?attr/link_preview_text_color"/>
+                android:tint="?attr/menu_icon_color"/>
         </LinearLayout>
 
         <View
@@ -66,7 +66,7 @@
             android:layout_height="0.5dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:background="@color/list_separator_light"/>
+            android:background="?attr/listSeparatorColor"/>
 
         <LinearLayout
             android:id="@+id/dialog_link_preview_content_container"
@@ -83,7 +83,7 @@
                 android:paddingRight="16dp"
                 android:textSize="16sp"
                 android:lineSpacingMultiplier="1.3"
-                android:textColor="?attr/link_preview_text_color"
+                android:textColor="?attr/bottom_sheet_text_color"
                 android:textIsSelectable="true"
                 tools:text="Lorem ipsum"/>
             <org.wikipedia.gallery.GalleryThumbnailScrollView

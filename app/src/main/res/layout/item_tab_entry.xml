@@ -41,7 +41,7 @@
             android:padding="12dp"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_close_white_24dp"
-            android:tint="@color/gray_highlight"
+            android:tint="@color/base30"
             android:contentDescription="@string/button_close_tab"
             android:background="?attr/selectableItemBackgroundBorderless"
             />

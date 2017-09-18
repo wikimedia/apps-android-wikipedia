@@ -85,6 +85,6 @@ public class PageHeaderImageView extends FrameLayout {
         inflate(getContext(), R.layout.view_page_header_image, this);
         ButterKnife.bind(this);
 
-        gradientView.setBackground(getPowerGradient(R.color.new_lead_gradient_start, Gravity.TOP));
+        gradientView.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
     }
 }

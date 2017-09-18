@@ -117,7 +117,7 @@
                 android:textSize="16sp"
                 android:fontFamily="sans-serif-medium"
                 android:lineSpacingMultiplier="1.2"
-                android:textColor="?attr/feed_text_tertiary_color"
+                android:textColor="?attr/material_secondary_color"
                 android:text="@string/offline_library_empty_description"/>
 
             <TextView

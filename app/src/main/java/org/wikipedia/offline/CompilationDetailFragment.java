@@ -78,7 +78,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
         compilation = GsonUnmarshaller.unmarshal(Compilation.class,
                 getActivity().getIntent().getStringExtra(EXTRA_COMPILATION));
 
-        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
+        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP));
         imageView.loadImage(compilation.featureImageUri());
         nameView.setText(compilation.name());
         dateSizeView.setText(String.format(getString(R.string.offline_compilation_detail_date_size),

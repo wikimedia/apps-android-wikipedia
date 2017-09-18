@@ -8,7 +8,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/list_separator_light" />
+        android:background="?attr/listSeparatorColor" />
 
     <ProgressBar
         android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
             android:layout_height="0.5dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="6dp"
-            android:background="@color/list_separator_light" />
+            android:background="?attr/listSeparatorColor" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -110,7 +110,7 @@
             android:gravity="center_vertical"
             app:theme="?attr/blue_switch"
             style="@style/RtlAwareTextView"
-            android:textColor="?attr/feed_text_tertiary_color"
+            android:textColor="?attr/material_primary_color"
             android:textSize="14sp"
             android:text="@string/theme_chooser_dialog_image_dimming_switch_label"/>
 
