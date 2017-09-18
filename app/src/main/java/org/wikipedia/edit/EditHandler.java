@@ -1,6 +1,5 @@
 package org.wikipedia.edit;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -12,7 +11,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
@@ -68,25 +66,6 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             return;
         }
         if (messageType.equals("editSectionClicked")) {
-            if (fragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
-                new AlertDialog.Builder(fragment.getActivity())
-                        .setCancelable(false)
-                        .setMessage(R.string.edit_saved_page_refresh)
-                        .setPositiveButton(R.string.edit_saved_page_refresh_yes, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                fragment.refreshPage();
-                            }
-                        })
-                        .setNegativeButton(R.string.edit_saved_page_refresh_no, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
-                        .show();
-                return;
-            }
             startEditingSection(messagePayload.optInt("sectionID"), null);
         }
     }

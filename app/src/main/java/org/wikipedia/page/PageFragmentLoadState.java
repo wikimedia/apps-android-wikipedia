@@ -307,16 +307,16 @@ public class PageFragmentLoadState {
         bridge.addListener("pageLoadComplete", new SynchronousBridgeListener() {
             @Override
             public void onMessage(JSONObject payload) {
+                app.getSessionFunnel().restSectionsFetchEnd();
+
+                if (fragment.callback() != null) {
+                    fragment.callback().onPageUpdateProgressBar(false, true, 0);
+                }
+
                 try {
                     if (!sequenceNumber.inSync(payload.getInt("sequence"))) {
                         return;
                     }
-
-                    // Do any other stuff that should happen upon page load completion...
-                    if (fragment.callback() != null) {
-                        fragment.callback().onPageUpdateProgressBar(false, true, 0);
-                    }
-
                     if (payload.has("sections")) {
                         // augment our current Page object with updated Sections received from JS
                         List<Section> sectionList = new ArrayList<>();
@@ -331,16 +331,13 @@ public class PageFragmentLoadState {
                         }
                         Page page = model.getPage();
                         page.getSections().addAll(sectionList);
-
-                        loading = false;
-                        networkErrorCallback = null;
-                        fragment.onPageLoadComplete();
                     }
                 } catch (JSONException e) {
-                    //
+                    L.e(e);
                 }
 
                 loading = false;
+                networkErrorCallback = null;
                 fragment.onPageLoadComplete();
 
                 // trigger layout of the bottom content

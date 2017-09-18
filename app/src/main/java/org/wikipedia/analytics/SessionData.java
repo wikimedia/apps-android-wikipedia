@@ -14,7 +14,6 @@ public class SessionData {
     private int pagesFromInternal;
     private int pagesFromExternal;
     private int pagesFromHistory;
-    private int pagesFromSaved;
     private int pagesFromReadingList;
     private int pagesFromNearby;
     private int pagesFromDisambig;
@@ -37,9 +36,6 @@ public class SessionData {
                 break;
             case HistoryEntry.SOURCE_HISTORY:
                 pagesFromHistory++;
-                break;
-            case HistoryEntry.SOURCE_SAVED_PAGE:
-                pagesFromSaved++;
                 break;
             case HistoryEntry.SOURCE_READING_LIST:
                 pagesFromReadingList++;
@@ -111,10 +107,6 @@ public class SessionData {
         return pagesFromHistory;
     }
 
-    public int getPagesFromSaved() {
-        return pagesFromSaved;
-    }
-
     public int getPagesFromReadingList() {
         return pagesFromReadingList;
     }
@@ -136,16 +128,16 @@ public class SessionData {
     }
 
     public void addPageFromBack() {
-        this.pagesFromBack++;
+        pagesFromBack++;
     }
 
     public void addPageWithNoDescription() {
-        this.pagesWithNoDescription++;
+        pagesWithNoDescription++;
     }
 
     public int getTotalPages() {
         return pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal
-                + pagesFromExternal + pagesFromHistory + pagesFromSaved + pagesFromReadingList
-                + pagesFromNearby + pagesFromDisambig;
+                + pagesFromExternal + pagesFromHistory + pagesFromReadingList + pagesFromNearby
+                + pagesFromDisambig;
     }
 }
