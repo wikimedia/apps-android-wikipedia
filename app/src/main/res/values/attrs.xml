@@ -36,7 +36,7 @@
     <attr name="feed_text_tertiary_color" format="reference" />
     <attr name="offline_library_background_color" format="reference" />
     <attr name="page_header_edit_pencil_alpha" format="float" />
-
+    <attr name="horizontal_divider" format="reference" />
     <attr name="nav_tab_background_color" format="reference" />
     <attr name="nav_tab_item_color_state" format="reference" />
 

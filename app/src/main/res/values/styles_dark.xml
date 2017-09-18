@@ -53,7 +53,6 @@
         <item name="list_item_text_primary_color">@color/list_item_text_primary_dark</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_dark</item>
         <item name="page_header_edit_pencil_alpha">1.0</item>
-
         <item name="offline_library_background_color">@color/base10</item>
         <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
@@ -65,9 +64,8 @@
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_dark</item>
         <item name="searchItemBackground">@color/base12</item>
         <item name="cardBackgroundColor">@color/base14</item>
-
         <item name="edit_preview_color">@color/accent75</item>
-
+        <item name="horizontal_divider">@style/HorizontalDividerDark</item>
     </style>
 
     <style name="AlertDialogDark" parent="Theme.AppCompat.Dialog.Alert">
@@ -88,6 +86,11 @@
         <item name="colorControlActivated">@color/accent75</item>
         <item name="colorSwitchThumbNormal">@color/base90</item>
         <item name="android:colorForeground">@color/base30</item>
+    </style>
+
+    <style name="HorizontalDividerDark">
+        <item name="android:background">@color/base100</item>
+        <item name="android:alpha">0.20</item>
     </style>
 
 </resources>
