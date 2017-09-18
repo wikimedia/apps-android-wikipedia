@@ -95,11 +95,16 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         });
     }
 
+    public synchronized void deleteIfOrphaned(@NonNull ReadingListPageRow row) {
+        if (row.listKeys().isEmpty()) {
+            delete(row);
+        }
+    }
+
     public synchronized void upsert(@NonNull ReadingListPage row) {
         if (row.listKeys().isEmpty()) {
             httpDao.markDeleted(new ReadingListPageHttpRow(row));
             diskDao.markDeleted(new ReadingListPageDiskRow(row));
-            delete(row);
         } else {
             httpDao.markUpserted(new ReadingListPageHttpRow(row));
             if (row.diskStatus() == DiskStatus.OUTDATED) {
@@ -107,8 +112,8 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
             } else if (row.diskStatus() == DiskStatus.ONLINE || row.diskStatus() == DiskStatus.UNSAVED) {
                 diskDao.markOnline(new ReadingListPageDiskRow(row));
             }
-            super.upsert(row);
         }
+        super.upsert(row);
     }
 
     public synchronized void markOutdated(@NonNull ReadingListPage row) {

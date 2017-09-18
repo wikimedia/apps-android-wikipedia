@@ -121,6 +121,7 @@ public class SavedPageSyncService extends IntentService {
                 }
                 cacheDelegate.remove(sectionsCall.request());
             }
+            ReadingListPageDao.instance().deleteIfOrphaned(dat);
         }
         dao.completeDiskTransaction(row);
     }
