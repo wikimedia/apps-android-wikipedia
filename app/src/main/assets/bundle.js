@@ -630,7 +630,7 @@ function performZimSectionTransforms( sectionIndex, currentSectionNode ) {
         }
     }
 
-    var placeholderTags = currentSectionNode.querySelectorAll( 'span.pagelib-lazy-load-placeholder' );
+    var placeholderTags = currentSectionNode.querySelectorAll( 'span.pagelib_lazy_load_placeholder' );
     for ( i = 0; i < placeholderTags.length; i++ ) {
         var dataSrc = placeholderTags[i].getAttribute( 'data-src' );
         if (dataSrc !== null) {
