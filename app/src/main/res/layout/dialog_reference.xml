@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/bottom_sheet_background_color"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/reference_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
         style="@style/RtlAwareTextView"
         android:textSize="16sp"
         android:fontFamily="sans-serif-medium"
@@ -22,17 +22,17 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:theme="?attr/horizontal_divider" />
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/reference_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:minHeight="72dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         style="@style/RtlAwareTextView"
-        android:layout_gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:textIsSelectable="true"
         android:textColor="?android:textColorPrimary"
         android:textColorLink="?attr/colorAccent"
