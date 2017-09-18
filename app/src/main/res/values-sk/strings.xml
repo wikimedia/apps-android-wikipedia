@@ -224,7 +224,7 @@
   <string name="close_all_tabs_confirm_yes">Áno</string>
   <string name="close_all_tabs_confirm_no">Nie</string>
   <string name="button_close_tab">Zavrieť kartu</string>
-  <string name="tool_tip_select_text">Text môžete kopírovať a zdielať. Stačí ak ho stlačíte a podržíte pokým sa nezvýrazní.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Text môžete kopírovať a zdielať. Stačí ak ho stlačíte a podržíte pokým sa nezvýrazní.</string>
   <string name="tool_tip_share">Po zvýraznení zaujímavej skutočnosti ju môžete zdieľať na vašich obľúbených sietiach!</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
   <string name="tool_tip_toc_button">Obsah môžete zobraziť kedykoľvek ťuknutím na toto tlačidlo alebo posunutím obrazovky z pravého rohu vľavo.</string>

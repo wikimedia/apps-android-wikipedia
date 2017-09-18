@@ -222,7 +222,7 @@
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Chiudi scheda</string>
-  <string name="tool_tip_select_text">Premere e tenere premuto in qualsiasi punto del testo per evidenziarlo per la copia e la condivisione.</string>
+  <string name="tool_tip_select_text">Premere e tenere premuto in qualsiasi punto del testo per selezionarlo per la copia e la condivisione.</string>
   <string name="tool_tip_share">Dopo aver evidenziato un dato interessante, prova a condividerlo sul tuo network preferito!</string>
   <string name="page_view_in_browser">Visualizza la pagina nel browser</string>
   <string name="tool_tip_toc_button">Guarda il menù dei contenuti premendo questo tasto, o scorri dal lato destro dello schermo.</string>
@@ -417,4 +417,7 @@
   <string name="onboarding_create_account_sync">Sincronizza i tuoi elenchi di lettura</string>
   <string name="onboarding_create_account_contributions">Tieni traccia dei tuoi contributi</string>
   <string name="onboarding_create_account_preferences">Salva le tue preferenze</string>
+  <string name="app_shortcuts_random">Una pagina a caso</string>
+  <string name="app_shortcuts_continue_reading">Continua a leggere</string>
+  <string name="app_shortcuts_search">Cerca</string>
 </resources>

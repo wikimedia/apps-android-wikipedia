@@ -225,7 +225,8 @@
   <string name="close_all_tabs_confirm_yes">بله</string>
   <string name="close_all_tabs_confirm_no">خیر</string>
   <string name="button_close_tab">بستن برگه</string>
-  <string name="tool_tip_select_text">هر جایی از متن را برای پررنگ شدن و کپی و اشتراک می‌توانید با فشاردادن و نگه‌داشتن انتخاب کنید.</string>
+  <string name="tool_tip_select_text_title">به مدت زیاد نگهدارید تا انتخاب شود</string>
+  <string name="tool_tip_select_text">هر جایی از متن را برای انتخاب‌شدن و کپی و اشتراک می‌توانید با فشاردادن و نگه‌داشتن انتخاب کنید.</string>
   <string name="tool_tip_share">بعد از پررنگ کردن مطلب مورد نظرتان، می توانید آن را در شبکه مطلوبتان به اشتراک بگذارید.</string>
   <string name="page_view_in_browser">دیدن صفحه در مرورگر</string>
   <string name="tool_tip_toc_button">با فشردن این دکمه جدول محتویات را هر زمانی که خواستید مشاهده کنید یا از سمت راست پنجره برگ بزنید.</string>
@@ -423,6 +424,7 @@
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>
   <string name="description_edit_revert_reason2">مشارکت شما شبیه یک تمرین یا خرابکاریست.</string>
   <string name="description_edit_revert_history">اگر مشتاق هستید می‌توانید &lt;a href=\"%1$s\"&gt;تاریخچهٔ ویرایش&lt;/a&gt; را مشاهده کنید.</string>
+  <string name="offline_compilation_download_device_offline">ارتباط اینترنتی موجود نیست. مطمئن شوید که آنلاین هستید و دوباره بازگردید.</string>
   <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="offline_read_permission_error">اجازه برای خواندن از حافظه دستگاه داده‌نشد.</string>
   <string name="offline_card_text">شما در حال کاوش ویکی‌پدیا به کمک مقالات ذخیره‌شده در کتابخانه‌تان به صورت آفلاین هستید.</string>
@@ -480,4 +482,7 @@
   <string name="onboarding_create_account_sync">همسازسازی فهرست‌های مطالعه شما</string>
   <string name="onboarding_create_account_contributions">پیگیری ویرایش‌هایتان</string>
   <string name="onboarding_create_account_preferences">ذخیره ترجیحاتتان</string>
+  <string name="app_shortcuts_random">تصادفی</string>
+  <string name="app_shortcuts_continue_reading">ادامه دادن به خواندن</string>
+  <string name="app_shortcuts_search">جستجو</string>
 </resources>

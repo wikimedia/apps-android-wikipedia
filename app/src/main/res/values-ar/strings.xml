@@ -223,7 +223,7 @@
   <string name="close_all_tabs_confirm_yes">نعم</string>
   <string name="close_all_tabs_confirm_no">لا</string>
   <string name="button_close_tab">أغلق اللسان</string>
-  <string name="tool_tip_select_text">اضغط مع الاستمرار في أي مكان في النص لتسليط الضوء عليه للنسخ والمشاركة.</string>
+  <string name="tool_tip_select_text" fuzzy="true">اضغط مع الاستمرار في أي مكان في النص لتسليط الضوء عليه للنسخ والمشاركة.</string>
   <string name="tool_tip_share">بعد تحديد حقيقة مثيرة للاهتمام، حاول مشاركتها على شبكات التواصل المفضلة لديك!</string>
   <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
   <string name="tool_tip_toc_button">طالع جدول المحتويات في أي وقت عن طريق النقر على هذا الزر، أو السحب من الحافة اليسرى من الشاشة.</string>
@@ -425,4 +425,7 @@
   <string name="onboarding_create_account_sync">زامن قوائم قراءاتك</string>
   <string name="onboarding_create_account_contributions">تتبع مساهماتك</string>
   <string name="onboarding_create_account_preferences">احفظ تفضيلاتك</string>
+  <string name="app_shortcuts_random">عشوائي</string>
+  <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
+  <string name="app_shortcuts_search">بحث</string>
 </resources>

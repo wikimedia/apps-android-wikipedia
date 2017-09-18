@@ -215,7 +215,7 @@
   <string name="menu_close_all_tabs">Alle tabbladen sluiten</string>
   <string name="close_all_tabs_confirm">Weet u zeker dat u alle tabbladen wilt sluiten?</string>
   <string name="button_close_tab">Tabblad sluiten</string>
-  <string name="tool_tip_select_text">Druk en houd vast op een willekeurige plaats in de tekst om deze te kopiëren en te kunnen delen.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Druk en houd vast op een willekeurige plaats in de tekst om deze te kopiëren en te kunnen delen.</string>
   <string name="tool_tip_share">Na het selecteren van een interessant feit, kunt u het delen op uw favoriete netwerken!</string>
   <string name="page_view_in_browser">Pagina in de browser weergeven</string>
   <string name="tool_tip_toc_button">U kunt op een willekeurig moment de inhoudsopgave bekijken door op deze knop de drukken of door op het scherm naar links te vegen.</string>

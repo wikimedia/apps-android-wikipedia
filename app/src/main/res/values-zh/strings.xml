@@ -225,7 +225,8 @@
   <string name="close_all_tabs_confirm_yes">是</string>
   <string name="close_all_tabs_confirm_no">否</string>
   <string name="button_close_tab">关闭标签页</string>
-  <string name="tool_tip_select_text">按住文本的任意位置高亮它以便复制和分享。</string>
+  <string name="tool_tip_select_text_title">长按选择</string>
+  <string name="tool_tip_select_text">按住文本的任意位置选择它以便复制和分享。</string>
   <string name="tool_tip_share">在高亮一段有趣的内容后，尝试在您最喜欢的社交网络上分享它！</string>
   <string name="page_view_in_browser">在浏览器中查看页面</string>
   <string name="tool_tip_toc_button">在任何时候都可以通过点按该按钮或从屏幕右侧向左滑动来查看目录。</string>
@@ -481,4 +482,7 @@
   <string name="onboarding_create_account_sync">同步您的阅读列表</string>
   <string name="onboarding_create_account_contributions">保持追踪您的贡献</string>
   <string name="onboarding_create_account_preferences">保存您的参数设置</string>
+  <string name="app_shortcuts_random">随机</string>
+  <string name="app_shortcuts_continue_reading">继续阅读</string>
+  <string name="app_shortcuts_search">搜索</string>
 </resources>

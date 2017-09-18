@@ -225,7 +225,7 @@
   <string name="close_all_tabs_confirm_yes">Evet</string>
   <string name="close_all_tabs_confirm_no">Hayır</string>
   <string name="button_close_tab">Sekmeyi kapat</string>
-  <string name="tool_tip_select_text">Vurgulamak, kopyalamak ve paylaşmak için metnin herhangi bir yerine dokunun ve basılı tutun.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Vurgulamak, kopyalamak ve paylaşmak için metnin herhangi bir yerine dokunun ve basılı tutun.</string>
   <string name="tool_tip_share">İlginç bir bilgiyi vurguladıktan sonra, en sevdiğiniz ağlarda paylaşmayı deneyin!</string>
   <string name="page_view_in_browser">Sayfayı tarayıcıda görüntüle</string>
   <string name="tool_tip_toc_button">İçindekiler tablosunu, bu düğmeye dokunarak veya ekranın sağ kenarından kaydırarak istediğiniz an görebilirsiniz.</string>
@@ -331,6 +331,8 @@
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
   <string name="reading_list_login_reminder_text">Artık okuma listeleriniz Vikipedi hesabınıza kaydedilebilir. Basitçe hesabınıza giriş yapın; okuma listeleriniz otomatik olarak senkronize edilecek.</string>
   <string name="reading_lists_confirm_remote_delete">Bu, daha önce dış depoplamadan senkronize edilmiş tüm okumla listelerini silecek. Devam edilsin mi?</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Evet</string>
+  <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrim dışı olarak erişilebilir olacak.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bu maddeye artık çevrim dışı olarak erişilebilir.</item>
@@ -438,6 +440,11 @@
   <string name="compilation_download_cancel_confirm">Madde paketini indirmeyi iptal etmek istediğinize emin misiniz?</string>
   <string name="compilation_download_cancel_confirm_yes">Evet</string>
   <string name="compilation_download_cancel_confirm_no">Hayır</string>
+  <string name="compilation_share">Paylaş</string>
+  <string name="compilation_remove">Sil</string>
+  <string name="compilation_remove_confirm">Bunu Çevrim dışı Kütphane\'den silmek istiyor musunuz?</string>
+  <string name="offline_library_title">Çevrim dışı Kütüphane</string>
+  <string name="offline_library_onboarding_action">Daha fazlasını öğrenin</string>
   <string name="onboarding_skip">Atla</string>
   <string name="onboarding_continue">Devam et</string>
   <string name="onboarding_get_started">Kullanmaya başla</string>
@@ -451,4 +458,5 @@
   <string name="onboarding_create_account_sync">Okuma listelerinizi senkronize edin</string>
   <string name="onboarding_create_account_contributions">Katkılarınızı takip edebilin</string>
   <string name="onboarding_create_account_preferences">Tercihlerinizi kaydedin</string>
+  <string name="app_shortcuts_search">Arama</string>
 </resources>

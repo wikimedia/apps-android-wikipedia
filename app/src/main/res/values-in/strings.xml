@@ -225,7 +225,7 @@
   <string name="close_all_tabs_confirm_yes">Ya</string>
   <string name="close_all_tabs_confirm_no">Tidak</string>
   <string name="button_close_tab">Tutup tab</string>
-  <string name="tool_tip_select_text">Tekan dan tahan di mana saja di teks untuk menyorotnya untuk salin dan berbagi.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Tekan dan tahan di mana saja di teks untuk menyorotnya untuk salin dan berbagi.</string>
   <string name="tool_tip_share">Setelah menyorot sebuah fakta yang menarik, coba membagikannya di jaringan kesukaan Anda!</string>
   <string name="page_view_in_browser">Lihat halaman di peramban</string>
   <string name="tool_tip_toc_button">Lihat daftar isi kapan saja dengan menekan tombol ini, atau geser dari tepi kanan layar.</string>
@@ -481,4 +481,7 @@
   <string name="onboarding_create_account_sync">Sinkronkan daftar bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Catat kontribusi Anda</string>
   <string name="onboarding_create_account_preferences">Simpan preferensi Anda</string>
+  <string name="app_shortcuts_random">Sembarang</string>
+  <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
+  <string name="app_shortcuts_search">Cari</string>
 </resources>

@@ -223,7 +223,7 @@
   <string name="close_all_tabs_confirm_yes">Ih</string>
   <string name="close_all_tabs_confirm_no">Uhu</string>
   <string name="button_close_tab">Mdel iccer</string>
-  <string name="tool_tip_select_text">Tekki sakin eǧǧ afus-ik anida tebɣiḍ deg uḍris akked ad yebruṛeq sakin ad tneɣleḍ neɣ ad tebḍuḍ.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Tekki sakin eǧǧ afus-ik anida tebɣiḍ deg uḍris akked ad yebruṛeq sakin ad tneɣleḍ neɣ ad tebḍuḍ.</string>
   <string name="tool_tip_share">Seld asebruṛeq n tɣawsa yelhan, ɛreḍ beṭṭu-is deg iẓeḍwa-ik inurifen!</string>
   <string name="page_view_in_browser">Sken deg iminig-ik</string>
   <string name="tool_tip_toc_button">Wali agbur yal tikelt ticki tsendeḍ ɣef tqeffalt, neɣ zuɣeṛ si tama tayeffust n ugdil.</string>
@@ -474,4 +474,7 @@
   <string name="onboarding_create_account_sync">Mtawi tibdarin-ik n tɣuri</string>
   <string name="onboarding_create_account_contributions">Ḥrez lǧeṛṛa n uttekki-ik</string>
   <string name="onboarding_create_account_preferences">Sekles ismenyifen-ik</string>
+  <string name="app_shortcuts_random">Agacuran</string>
+  <string name="app_shortcuts_continue_reading">Kemmel taɣuri</string>
+  <string name="app_shortcuts_search">Nadi</string>
 </resources>

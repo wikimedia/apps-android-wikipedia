@@ -223,7 +223,8 @@
   <string name="close_all_tabs_confirm_yes">예</string>
   <string name="close_all_tabs_confirm_no">아니오</string>
   <string name="button_close_tab">탭 닫기</string>
-  <string name="tool_tip_select_text">복사하거나 공유하기 위해 텍스트의 아무 곳이나 누르고 표시하세요.</string>
+  <string name="tool_tip_select_text_title">선택하려면 길게 누르세요</string>
+  <string name="tool_tip_select_text">복사 및 공유할 텍스트를 선택하려면 텍스트의 아무 곳이나 누르고 계십시오.</string>
   <string name="tool_tip_share">흥미로운 사실 하나를 강조한 다음, 즐겨쓰는 SNS에 공유해 보세요!</string>
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
   <string name="tool_tip_toc_button">이 버튼을 누르거나 오른쪽에서 화면을 밀어 내용의 표를 보십시오.</string>

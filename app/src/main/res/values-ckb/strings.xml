@@ -212,7 +212,7 @@
   <string name="menu_close_all_tabs">داخستنی ھەموو تابەکان</string>
   <string name="close_all_tabs_confirm">دڵنیای کە دەتەوێت ھەموو تابەکان دابخەیت؟</string>
   <string name="button_close_tab">داخستنی تاب</string>
-  <string name="tool_tip_select_text">ھەر شوێنێکی نووسینەکە دابگرە بۆ دیاریکردنی بۆ لەبەرگرتنەوەی و ھاوبەشکردنی.</string>
+  <string name="tool_tip_select_text" fuzzy="true">ھەر شوێنێکی نووسینەکە دابگرە بۆ دیاریکردنی بۆ لەبەرگرتنەوەی و ھاوبەشکردنی.</string>
   <string name="tool_tip_share">دوای دیاریکردنی شتێکی گرنگ، ھەوڵ بدە ھاوبەشی بکەیت لەو میدیایانەی کە ئارەزووت لێیان ھەیە!</string>
   <string name="page_view_in_browser">لە وێبگەڕدا بیبینە</string>
   <string name="tool_tip_toc_button">ھەموو جارێک بە کرتە لە سەر ئەم دوگمەیە پێرستی ناوەرۆکەکە ببینە، یان بە ھانینە خوارەوە لە لای ڕاستی مانیتۆرەوە.</string>

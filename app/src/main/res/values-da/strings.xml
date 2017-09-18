@@ -225,7 +225,7 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Luk fane</string>
-  <string name="tool_tip_select_text">Tryk og hold nede hvor som helst i teksten for at markere den til kopiering og deling.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Tryk og hold nede hvor som helst i teksten for at markere den til kopiering og deling.</string>
   <string name="tool_tip_share">Efter du har markeret et interessant faktum, prøv at dele det på dine foretrukne netværk.</string>
   <string name="page_view_in_browser">Få vist siden i browseren</string>
   <string name="tool_tip_toc_button">Se indholdsfortegnelsen når som helst ved at trykke på denne knap eller trække fra højre kant af skærmen.</string>
@@ -423,6 +423,7 @@
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">dit bidrag så ud som et eksperiment eller vandalisme.</string>
   <string name="description_edit_revert_history">Er du interesseret, så se &lt;a href=\"%1$s\"&gt;redigeringshistorikken&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Ingen internetforbindelse. Sikr dig at du har forbindelse og prøv så igen.</string>
   <string name="offline_read_permission_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at læse artikler lokalt.</string>
   <string name="offline_read_permission_error">Der er ikke givet tilladelse til at læse fra enhedslageret.</string>
   <string name="offline_card_text">Du læser nu Wikipedia lokalt med artikler fra dit lokale bibliotek.</string>
@@ -480,4 +481,7 @@
   <string name="onboarding_create_account_sync">Synkroniser dine læselister</string>
   <string name="onboarding_create_account_contributions">Hold styr på dine bidrag</string>
   <string name="onboarding_create_account_preferences">Gem dine præferencer</string>
+  <string name="app_shortcuts_random">Vilkårlig</string>
+  <string name="app_shortcuts_continue_reading">Fortsæt læsning</string>
+  <string name="app_shortcuts_search">Søg</string>
 </resources>

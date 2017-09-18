@@ -225,7 +225,8 @@
   <string name="close_all_tabs_confirm_yes">Oui</string>
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Fermer l’onglet</string>
-  <string name="tool_tip_select_text">Cliquez et maintenez appuyé n’importe où dans le texte pour le surligner afin de le copier et le partager.</string>
+  <string name="tool_tip_select_text_title">Appuyer longuement pour sélectionner</string>
+  <string name="tool_tip_select_text">Cliquez et maintenez appuyé n’importe où dans le texte pour le sélectionner afin de le copier et le partager.</string>
   <string name="tool_tip_share">Après avoir surligné un fait intéressant, essayez de le partager sur vos réseaux favoris !</string>
   <string name="page_view_in_browser">Afficher la page dans le navigateur</string>
   <string name="tool_tip_toc_button">Voir la table des matières à tout moment en appuyant sur ce bouton, ou glisser à partir du bord droit de l\'écran.</string>
@@ -481,4 +482,7 @@
   <string name="onboarding_create_account_sync">Synchroniser vos listes de lecture</string>
   <string name="onboarding_create_account_contributions">Garder trace de vos contributions</string>
   <string name="onboarding_create_account_preferences">Sauvegarder vos préférences</string>
+  <string name="app_shortcuts_random">Aléatoire</string>
+  <string name="app_shortcuts_continue_reading">Continuer à lire</string>
+  <string name="app_shortcuts_search">Rechercher</string>
 </resources>

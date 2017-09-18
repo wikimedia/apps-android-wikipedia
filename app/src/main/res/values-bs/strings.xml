@@ -215,7 +215,7 @@
   <string name="menu_close_all_tabs">Zatvori sve kartice</string>
   <string name="close_all_tabs_confirm">Jeste li sigurni da želite zatvoriti sve kartice?</string>
   <string name="button_close_tab">Zatvori karticu</string>
-  <string name="tool_tip_select_text">Pritisnite i držite bilo gdje u tekstu da biste ga označili za kopiranje i dijeljenje.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Pritisnite i držite bilo gdje u tekstu da biste ga označili za kopiranje i dijeljenje.</string>
   <string name="tool_tip_share">Nakon što označite zanimljivu činjenicu, podijelite je na omiljenim mrežama!</string>
   <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
   <string name="tool_tip_toc_button">Pogledajte sadržaj bilo kada tako što ćete dodirnuti ovo dugme ili prstom povući s desne ivice ekrana ulijevo.</string>

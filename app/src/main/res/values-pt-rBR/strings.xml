@@ -225,7 +225,8 @@
   <string name="close_all_tabs_confirm_yes">Sim</string>
   <string name="close_all_tabs_confirm_no">Não</string>
   <string name="button_close_tab">Fechar guia</string>
-  <string name="tool_tip_select_text">Pressione e segure em qualquer lugar no texto para destacá-lo para copiar e compartilhar.</string>
+  <string name="tool_tip_select_text_title">Pressione longamente para selecionar</string>
+  <string name="tool_tip_select_text">Pressione e segure em qualquer lugar no texto para selecioná-lo para copiar e compartilhar.</string>
   <string name="tool_tip_share">Após destacar um fato interessante, tente compartilhá-lo nas suas redes favoritas!</string>
   <string name="page_view_in_browser">Ver página no navegador</string>
   <string name="tool_tip_toc_button">Consulte o índice a qualquer momento tocando neste botão ou deslizando com o dedo a partir do canto direito da tela.</string>
@@ -257,6 +258,9 @@
   <string name="error_page_does_not_exist">Esta página não existe</string>
   <string name="view_wiki_error_message_offline">Não foi possível conectar-se à Internet</string>
   <string name="reference_title">Referência %s</string>
+  <string name="preference_title_dim_dark_mode_images">Imagens dim no tema escuro</string>
+  <string name="preference_summary_dim_dark_mode_images">Reduza o brilho das imagens ao usar o tema escuro</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Escurecimento da imagem (no tema escuro)</string>
   <string name="crash_report_dialog_title">Desculpe, o aplicativo encerrou inesperadamente da última vez</string>
   <string name="crash_report_dialog_text">Gostaria de enviar um relatório de falha ao HockeyApp / um provedor de serviço de terceiros para que a Wikimedia possa analisar a falha e corrigi-la?</string>
   <string name="crash_report_dialog_dont_send_button">Pular</string>
@@ -335,6 +339,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sim</string>
   <string name="reading_lists_confirm_remote_delete_no">Não</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo baixado, e estará disponível offline quando completo.</string>
+  <string name="reading_list_already_contains_selection">A lista escolhida já contém todas as páginas selecionadas.</string>
+  <string name="reading_list_added_articles_list_untitled">Adicionado %d artigos para a lista de leitura.</string>
+  <string name="reading_list_added_articles_list_titled">Adicionado %1$d artigos para %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível off-line.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis off-line.</item>
@@ -417,6 +424,7 @@
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Sua contribuição parecia uma experiência ou vandalismo.</string>
   <string name="description_edit_revert_history">Se estiver interessado, consulte o &lt;a href=\"%1$s\"&gt;histórico de edições&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Sem conexão à internet. Certifique-se de estar de volta online e tente novamente.</string>
   <string name="offline_read_permission_rationale">A permissão para acessar o armazenamento em seu dispositivo é necessária para a navegação off-line.</string>
   <string name="offline_read_permission_error">Permissão não concedida para ler do armazenamento do dispositivo.</string>
   <string name="offline_card_text">Agora você está navegando na Wikipédia offline com artigos na sua Biblioteca Offline.</string>
@@ -474,4 +482,7 @@
   <string name="onboarding_create_account_sync">Sincronize suas listas de leitura</string>
   <string name="onboarding_create_account_contributions">Acompanhe suas contribuições</string>
   <string name="onboarding_create_account_preferences">Salve suas preferências</string>
+  <string name="app_shortcuts_random">Aleatório</string>
+  <string name="app_shortcuts_continue_reading">Continue lendo</string>
+  <string name="app_shortcuts_search">Pesquisar</string>
 </resources>

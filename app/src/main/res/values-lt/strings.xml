@@ -179,7 +179,7 @@
   <string name="menu_new_tab">Naujas skirtukas</string>
   <string name="menu_close_all_tabs">Uždaryti visas korteles</string>
   <string name="button_close_tab">Uždaryti skirtuką</string>
-  <string name="tool_tip_select_text">Paspauskite ir palaikykite bet kur tekste, taip pažymėsite jį kopijavimui arba dalinimuisi.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Paspauskite ir palaikykite bet kur tekste, taip pažymėsite jį kopijavimui arba dalinimuisi.</string>
   <string name="tool_tip_share">Pažymėję įdomų faktą, pabandykite juo pasidalinti savo socialiniuose tinkluose!</string>
   <string name="page_view_in_browser">Peržiūra naršyklėje</string>
   <string name="error_response_malformed">Atsakas iš serverio nebuvo suformatuotas teisingai.</string>

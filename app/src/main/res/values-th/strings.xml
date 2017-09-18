@@ -58,6 +58,7 @@
   <string name="dialog_message_leaving_edit_stay">อยู่ต่อ</string>
   <string name="menu_show_toc">สารบัญ</string>
   <string name="search_no_results_found">ไม่พบผลลัพธ์</string>
+  <string name="search_reading_lists_no_results">ไม่พบผลลัพธ์ในรายการอ่าน</string>
   <string name="edit_section_captcha_message">กรุณากรอกข้อความที่ปรากฏด้านล่าง เพื่อป้องกันสแปมที่ทำงานอัตโนมัติ</string>
   <string name="edit_section_captcha_hint">ทวนคำอีกครั้งจากด้านบน</string>
   <string name="title_captcha">กรอก CAPTCHA</string>
@@ -92,6 +93,8 @@
   <string name="zero_learn_more_learn_more" fuzzy="true">อ่านเพิ่มเติม</string>
   <string name="zero_learn_more_dismiss">รับทราบ</string>
   <string name="create_account_account_created_toast">บัญชีถูกสร้าง</string>
+  <string name="preference_title_sync_reading_lists">ซิงค์รายการอ่าน</string>
+  <string name="preference_summary_sync_reading_lists">อนุญาตให้วิกิมีเดียทำการซิงค์รายการอ่านของคุณเมื่อคุณล็อกอิน</string>
   <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
@@ -146,6 +149,8 @@
   <string name="address_copied">คัดลอกที่อยู่ไปยังคลิปบอร์ด</string>
   <string name="text_copied">คัดลอกข้อความไปยังคลิปบอร์ด</string>
   <string name="button_continue_to_article">อ่านบทความ</string>
+  <string name="button_add_to_reading_list">เพิ่มลงในรายการอ่าน</string>
+  <string name="page_offline_notice_add_to_reading_list">เคล็ดลับ: เพิ่มบทความลงในรายการอ่าน โดยบทความจะถูกดาวน์โหลดเมื่อคุณกลับมาออนไลน์อีกครั้ง</string>
   <string name="preference_title_show_link_previews">แสดงตัวอย่างลิงก์</string>
   <string name="preference_summary_show_link_previews">แสดงตัวอย่างอย่างเร็วของบทความ เมื่อแตะบนลิงก์</string>
   <string name="nav_item_donate">สนับสนุนวิกิพีเดีย</string>
@@ -162,7 +167,9 @@
   <string name="color_theme_light">สว่าง</string>
   <string name="color_theme_dark">มืด</string>
   <string name="nav_item_reading_lists">รายการของฉัน</string>
+  <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_create_new">สร้างใหม่</string>
+  <string name="reading_list_title_exists">รายการอ่าน \"%s\" มีอยู่แล้ว</string>
   <string name="reading_list_added_to_named">เพิ่มไปยัง%s</string>
   <string name="reading_list_added_to_unnamed">เพิ่มในรายการอ่าน</string>
   <string name="reading_list_already_exists">บทความนี้มีอยู่ในรายการอยู่แล้ว</string>
@@ -172,6 +179,19 @@
   <string name="reading_list_sort_by_name_desc">เรียงตามชื่อ (แบบย้อนกลับ)</string>
   <string name="reading_list_sort_by_recent">เรียงตามมากที่สุดล่าสุด</string>
   <string name="reading_list_sort_by_recent_desc">เรียงตามน้อยที่สุดล่าสุด</string>
+  <string name="reading_list_menu_delete">ลบรายการ</string>
+  <string name="reading_list_action_menu_add_to_another_list">เพิ่มลงในรายการอื่น</string>
+  <string name="reading_list_name_hint">ชื่อรายการนี้</string>
+  <string name="reading_list_item_deleted">ลบ %s ออกจากรายการแล้ว</string>
+  <string name="reading_list_items_deleted">ลบ %d บทความออกจากรายการแล้ว</string>
+  <string name="reading_lists_empty">ยังไม่มีรายการอ่าน</string>
+  <string name="reading_lists_empty_message">บันทึกบทความลงในรายการอ่านเพื่อให้คุณสามารถกลับมาอ่านบทความภายหลังได้แม้กระทั่งตอนที่คุณออฟไลน์</string>
+  <string name="reading_list_empty">คุณไม่ได้เพิ่มบทความใด ๆ ลงในรายการนี้</string>
+  <string name="reading_list_add_to_other_list">เพิ่มลงในรายการอ่านอื่น</string>
+  <string name="reading_list_remove_from_lists">ลบออกจากรายการอ่าน</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s จะไม่พร้อมใช้งานแบบออฟไลน์อีกต่อไปสำหรับรายการอ่านทั้งหมด:</string>
+  <string name="reading_list_sync_reminder_text">คุณสามารถซิงค์รายการอ่านของคุณกับบัญชีวิกิพีเดียของคุณได้ ถ้าคุณเปิดใช้การซิงค์ในการตั้งค่าแอป</string>
+  <string name="reading_list_login_reminder_title">ซิงค์รายการอ่าน</string>
   <string name="view_continue_reading_card_title">อ่านต่อ</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>

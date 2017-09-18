@@ -69,7 +69,7 @@
   <string name="edit_section_captcha_hint">Balènana tembung-tembung ing ndhuwur</string>
   <string name="title_captcha">Isinen CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dudul CAPTCHA saperlu ngambali ngamot</string>
-  <string name="edit_saved_page_refresh">Kaca sing sinimpen iki wis kadaluwarsa lan kudu dianyari murih bisa dibesut. Piyé yèn kaca iki dianyari?</string>
+  <string name="edit_saved_page_refresh">Kaca sing sinimpen iki wis kadaluwarsa lan kudu dianyari murih bisané dibesut. Kepiyé yèn kaca iki dianyari?</string>
   <string name="edit_saved_page_refresh_yes">Iya</string>
   <string name="edit_saved_page_refresh_no">Ora</string>
   <string name="nav_item_login">Mlebu log Wikipédia</string>
@@ -126,7 +126,7 @@
   <string name="preference_summary_sync_reading_lists">Idini Wikimédia saperlu nyinkronisasi pratélan wacan nalika panjenengan mlebu log</string>
   <string name="preferences_privacy_settings_heading">Priangga</string>
   <string name="preference_title_eventlogging_opt_in">Kirim lapuran pangguna</string>
-  <string name="preference_summary_eventlogging_opt_in">Idinaké Wikimédia nglumpukaké informasi ngenani anggonmu nganggo aplikasi murih aplikasiné dadi luwih apik</string>
+  <string name="preference_summary_eventlogging_opt_in">Idinaké Wikimedia nglumpukaké informasi ngenani anggoné panjenengan nganggo aplikasiné murih luwih beciké</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim lapuran rusak</string>
   <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
   <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
@@ -225,7 +225,7 @@
   <string name="close_all_tabs_confirm_yes">Iya</string>
   <string name="close_all_tabs_confirm_no">Ora</string>
   <string name="button_close_tab">Tutup tab</string>
-  <string name="tool_tip_select_text">Penet terus ngendi wae ing teks kanggo nyorot kanggo Nyalin lan enggo bareng.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Penet terus ngendi wae ing teks kanggo nyorot kanggo Nyalin lan enggo bareng.</string>
   <string name="tool_tip_share">Sawisé nyentrongi kasunyatan sing narik kawigatèn, jajalen dum iku nyang jejaring kasenengané panjenengan!</string>
   <string name="page_view_in_browser">Deleng kaca ing pangluru</string>
   <string name="tool_tip_toc_button">Waca tabèl isi sawayah-wayah kanthi nunyuk tumbul iki, utawa nggèsèr driji saka pojok tengen layar.</string>
@@ -458,4 +458,7 @@
   <string name="onboarding_create_account_sync">Sinkronaké pratélan wacané panjenengan</string>
   <string name="onboarding_create_account_contributions">Lacak pisumbangé panjenengan</string>
   <string name="onboarding_create_account_preferences">Simpen pilalané panjenengan</string>
+  <string name="app_shortcuts_random">Waton</string>
+  <string name="app_shortcuts_continue_reading">Bacutaké maca</string>
+  <string name="app_shortcuts_search">Golèk</string>
 </resources>

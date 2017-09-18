@@ -223,7 +223,7 @@
   <string name="close_all_tabs_confirm_yes">हाँ</string>
   <string name="close_all_tabs_confirm_no">नहीं</string>
   <string name="button_close_tab">टैब बंद करें</string>
-  <string name="tool_tip_select_text">टेक्स्ट को कॉपी या साझा करने के हाईलाइट करने हेतु कहीं भी दबा कर रोके रखें।</string>
+  <string name="tool_tip_select_text" fuzzy="true">टेक्स्ट को कॉपी या साझा करने के हाईलाइट करने हेतु कहीं भी दबा कर रोके रखें।</string>
   <string name="tool_tip_share">किसी रोचक तथ्य को हाईलाइट करने के बाद उसे अपने पसंदीदा नेटवर्क पर साझा करने की कोशिश करें!</string>
   <string name="page_view_in_browser">पेज को ब्राउज़र में देखें</string>
   <string name="tool_tip_toc_button">सामग्री सारणी(टेबल) कभी भी इस बटन को दबाकर या स्क्रीन पर लेफ्ट या राईट से स्लाइड करके देखें।</string>

@@ -223,7 +223,8 @@
   <string name="close_all_tabs_confirm_yes">Nya</string>
   <string name="close_all_tabs_confirm_no">Teu</string>
   <string name="button_close_tab">Tutup tab</string>
-  <string name="tool_tip_select_text">Teken sarta tahan di mana waé na téks pikeun sorotan sangkan bisa néplak jeung ngabagikeun.</string>
+  <string name="tool_tip_select_text_title">Teken lila pikeun milih</string>
+  <string name="tool_tip_select_text">Teken sarta tahan di mana baé dina téks pikeun milih sangkan bisa néplak jeung ngabagikeun.</string>
   <string name="tool_tip_share">Sanggeus nyorot hiji fakta nu pitajieun, pék bagikeun gera di jaringan karesep anjeun!</string>
   <string name="page_view_in_browser">Tempo kaca na panyungsi</string>
   <string name="tool_tip_toc_button">Titénan daptar eusi iraha baé ku cara noél ieu tumbul, atawa ngagilirkeunna ti lebah tungtung katuhu layar.</string>
@@ -420,6 +421,7 @@
   <string name="description_edit_revert_reason1">kontribusi anjeun teu numutkeun kana salah sahiji &lt;a href=\"%1$s\"&gt;palanggeran&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Kontribusi anjeun sigana mah coba-coba atawa vandalismeu kitu.</string>
   <string name="description_edit_revert_history">Mun anjeun kataji, témbongan &lt;a href=\"%1$s\"&gt;jujutan éditanana&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Taya konéksi internét. Pastikeun anjeun keur onlén, tuluy cobaan deui.</string>
   <string name="offline_read_permission_rationale">Idin pikeun ngaksés panyimpenan dina parangkat anjeun diperlukeun pikeun langlangan oflén.</string>
   <string name="offline_read_permission_error">Idin teu dibéré pikeun maca tina panyimpenan parangkat.</string>
   <string name="offline_card_text">Ayeuna anjeun keur nyungsi Wikipédia oflén nu artikelna di Pabukon Oflén anjeun.</string>
@@ -477,4 +479,7 @@
   <string name="onboarding_create_account_sync">Singkronkeun daptar bacaan anjeun</string>
   <string name="onboarding_create_account_contributions">Catet kontribusi anjeun</string>
   <string name="onboarding_create_account_preferences">Simpen préferénsi anjeun</string>
+  <string name="app_shortcuts_random">Acak</string>
+  <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>
+  <string name="app_shortcuts_search">Paluruh</string>
 </resources>

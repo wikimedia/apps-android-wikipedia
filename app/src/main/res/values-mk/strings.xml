@@ -225,7 +225,7 @@
   <string name="close_all_tabs_confirm_yes">Да</string>
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Затвори јазиче</string>
-  <string name="tool_tip_select_text">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>
   <string name="tool_tip_share">Откако ќе го подвлечете интересниот факт, споделете го на вашите омилени мрежи!</string>
   <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_button">Прегледот на содржини можете да го видите во секое време, допирајќи го копчето или повлекувајќи од десниот раб на екранов.</string>
@@ -481,4 +481,7 @@
   <string name="onboarding_create_account_sync">Усогласи списоци за читање</string>
   <string name="onboarding_create_account_contributions">Бидете во тек со вашите придонеси</string>
   <string name="onboarding_create_account_preferences">Зачувајете ги вашите поставки</string>
+  <string name="app_shortcuts_random">Случајна</string>
+  <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
+  <string name="app_shortcuts_search">Пребарај</string>
 </resources>

@@ -187,7 +187,7 @@
   <string name="menu_close_all_tabs">تمام ٹیب بند کریں</string>
   <string name="close_all_tabs_confirm">کیا آپ واقعی تمام ٹیب بند کرنا چاہتے ہیں؟</string>
   <string name="button_close_tab">ٹیب بند کریں</string>
-  <string name="tool_tip_select_text">متن میں کہیں بھی دباکر پکڑیے تاکہ اسے نقل کرنے اور دوسروں کو بھیجنے کے لیے نمایاں کیا جاسکے۔</string>
+  <string name="tool_tip_select_text" fuzzy="true">متن میں کہیں بھی دباکر پکڑیے تاکہ اسے نقل کرنے اور دوسروں کو بھیجنے کے لیے نمایاں کیا جاسکے۔</string>
   <string name="tool_tip_share">ایک دلچسپ حقیقت نمایاں کرنے کے بعد کوشش کیجیے کہ اسے اپنے پسندیدہ نیٹ ورکوں پر دوسروں کو بھیج سکیں۔</string>
   <string name="page_view_in_browser">صفحہ کو براؤزر میں دیکھیں</string>
   <string name="tool_tip_toc_button">فہرست کو کسی بھی وقت دیکھنےاس بٹن کو ٹیپ کریں، یا اسکرین کے دائیں کونے سے سلائڈ کریں۔</string>

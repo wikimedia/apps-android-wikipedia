@@ -223,7 +223,7 @@
   <string name="close_all_tabs_confirm_yes">হ্যাঁ</string>
   <string name="close_all_tabs_confirm_no">না</string>
   <string name="button_close_tab">ট্যাব বন্ধ করুন</string>
-  <string name="tool_tip_select_text">অনুলিপি তৈরি বা ভাগ করার জন্য এটি আলোকপাতের জন্য লেখার যেকোন জায়গায় চাপ দিয়ে ধরে রাখুন।</string>
+  <string name="tool_tip_select_text" fuzzy="true">অনুলিপি তৈরি বা ভাগ করার জন্য এটি আলোকপাতের জন্য লেখার যেকোন জায়গায় চাপ দিয়ে ধরে রাখুন।</string>
   <string name="tool_tip_share">একটি আকর্ষণীয় তথ্য আলোকপাত করার পর, আপনার প্রিয় নেটওয়ার্কে তা জানানোর চেষ্টা করুন!</string>
   <string name="page_view_in_browser">ব্রাউজারে পাতা দেখুন</string>
   <string name="tool_tip_toc_button">যেকোন সময় এই বোতাম টোকা দিয়ে, বা পর্দার ডান প্রান্ত থেকে টেনে আনার দ্বারা টেবিলের বিষয়বস্তু দেখুন।</string>
@@ -405,11 +405,11 @@
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
   <string name="description_edit_revert_history">আপনি যদি আগ্রহী হন তাহলে, &lt;a href=\"%1$s\"&gt;সম্পাদনা ইতিহাস&lt;/a&gt; দেখুন।</string>
-  <string name="offline_my_compilations" fuzzy="true">আমার সংকলিত বিষয়</string>
-  <string name="offline_compilations_title" fuzzy="true">অফলাইন সংকলিত বিষয়</string>
+  <string name="offline_my_compilations">আমার অফলাইন গ্রন্থাগার পরিচালনা করুন</string>
+  <string name="offline_compilations_title">অফলাইন গ্রন্থাগার</string>
   <string name="offline_compilations_search_by_name" fuzzy="true">নাম অনুযায়ী সংকলিত বিষয় সন্ধান করুন</string>
-  <string name="offline_compilations_found_count" fuzzy="true">আমার সংকলিত বিষয় (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">অফলাইনের সংকলিত বিষয় যোগ করুন</string>
+  <string name="offline_compilations_found_count">আমার গ্রন্থাগারে (%d)</string>
+  <string name="offline_compilations_add">আমার অফলাইন গ্রন্থাগারে যোগ করুন</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f গিগাবাইট</string>
   <string name="offline_compilation_detail_button_download">ডাউনলোড করুন • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">সরান</string>
@@ -431,8 +431,8 @@
   <string name="offline_library_title">অফলাইন গ্রন্থাগার</string>
   <string name="offline_library_empty_title">আপনার অফলাইন গ্রন্থাগারে কিছু নেই</string>
   <string name="offline_library_empty_search">অফলাইন গ্রন্থাগারে সন্ধান করুন</string>
-  <string name="offline_library_search_results_state" fuzzy="true">উপলব্ধ অফলাইন গ্রন্থাগার থেকে অনুসন্ধানের ফলাফল</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">আপনার অফলাইন গ্রন্থাগার সম্পর্কে আরো জানুন</string>
+  <string name="offline_library_search_results_state">আপনার অফলাইন গ্রন্থাগার থেকে অনুসন্ধানের ফলাফল</string>
+  <string name="offline_library_onboarding_action">আরো জানুন</string>
   <string name="offline_library_onboarding_button_done">সম্পন্ন</string>
   <string name="offline_library_onboarding_build_library_title">আপনার অফলাইন গ্রন্থাগার তৈরি করুন</string>
   <string name="onboarding_skip">এড়ান</string>
@@ -443,4 +443,6 @@
   <string name="onboarding_analytics_switch_title">ব্যবহারের উপাত্ত পাঠান</string>
   <string name="onboarding_create_account_contributions">আপনার অবদান অনুসরণ করুন</string>
   <string name="onboarding_create_account_preferences">আপনার পছন্দ সংরক্ষণ করে</string>
+  <string name="app_shortcuts_random">অজানাভাবে</string>
+  <string name="app_shortcuts_search">অনুসন্ধান</string>
 </resources>
