@@ -52,8 +52,6 @@
         <item name="link_preview_offline_text_color">@color/link_preview_offline_text_light</item>
         <item name="list_item_text_primary_color">@color/list_item_text_primary_light</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_light</item>
-        <item name="page_header_edit_pencil_alpha">0.55</item>
-
         <item name="offline_library_background_color">@color/base80</item>
         <item name="nav_tab_background_color">@android:color/white</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
@@ -65,6 +63,7 @@
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_light</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>
+        <item name="header_edit_button">@style/HeaderEditButtonLight</item>
         <item name="edit_preview_color">@color/accent50</item>
         <item name="horizontal_divider">@style/HorizontalDividerLight</item>
     </style>
@@ -94,6 +93,10 @@
     <style name="HorizontalDividerLight">
         <item name="android:background">@color/base0</item>
         <item name="android:alpha">0.12</item>
+    </style>
+
+    <style name="HeaderEditButtonLight">
+        <item name="android:alpha">0.55</item>
     </style>
 
 </resources>
