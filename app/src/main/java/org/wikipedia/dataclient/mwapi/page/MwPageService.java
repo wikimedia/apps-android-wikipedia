@@ -52,7 +52,7 @@ public interface MwPageService {
     @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
             + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Cnamespace%7Crevision"
             + "%7Cdescription%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection"
-            + "%7Ceditable%7Cpageprops&pageprops=wikibase_item&onlyrequestedsections=1"
+            + "%7Ceditable%7Cpageprops&pageprops=wikibase_item"
             + "&sections=0&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
     @NonNull Call<MwMobileViewPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
                                              @Header(SaveHeader.FIELD) Boolean save,
