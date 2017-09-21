@@ -419,6 +419,7 @@
   <string name="description_edit_revert_reason1">ваш вклад не отвечал одному из &lt;a href=\"%1$s\"&gt;руководящих принципов&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ваш вклад выглядел как эксперимент или вандализм.</string>
   <string name="description_edit_revert_history">Если интересно, взгляните на &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Нет соединения с интернетом. Убедитесь, что вы снова в сети, а затем повторите попытку.</string>
   <string name="offline_read_permission_rationale">Для офлайн-просмотра требуется разрешение на запись в хранилище вашего устройства.</string>
   <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме со статьями в вашей Офлайн-библиотеке.</string>
   <string name="offline_my_compilations" fuzzy="true">Мои компиляции</string>

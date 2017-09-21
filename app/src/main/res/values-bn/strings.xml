@@ -444,5 +444,6 @@
   <string name="onboarding_create_account_contributions">আপনার অবদান অনুসরণ করুন</string>
   <string name="onboarding_create_account_preferences">আপনার পছন্দ সংরক্ষণ করে</string>
   <string name="app_shortcuts_random">অজানাভাবে</string>
+  <string name="app_shortcuts_continue_reading">পড়া অব্যাহত রাখুন</string>
   <string name="app_shortcuts_search">অনুসন্ধান</string>
 </resources>

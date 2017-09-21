@@ -225,7 +225,8 @@
   <string name="close_all_tabs_confirm_yes">Sí</string>
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Zarrar llingüeta</string>
-  <string name="tool_tip_select_text" fuzzy="true">Calca y caltén en cualquier parte del testu pa resaltalu pa copiar y compartir.</string>
+  <string name="tool_tip_select_text_title">Caltener primíu pa escoyer</string>
+  <string name="tool_tip_select_text">Pulsia y aguanta pulsiáu en cualquier parte del testu pa escoyelu pa copiar y compartir.</string>
   <string name="tool_tip_share">Tres resaltar una información interesante, ¡intenta compartila nes tos redes favorites!</string>
   <string name="page_view_in_browser">Ver la páxina nel navegador</string>
   <string name="tool_tip_toc_button">Consulta la tabla de conteníu en cualquier momentu tocando esti botón, o abasnando dende\'l berbesu drechu de la pantalla.</string>
@@ -239,7 +240,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Nun pué cargase l\'artículu en tando sin conexón.</string>
   <string name="page_offline_notice_add_to_reading_list">Gabitu: Añade l\'artículu a una llista de llectura y se descargará en coneutando.</string>
   <string name="page_offline_notice_last_date">Tas lleyendo una versión sin conexón d\'esti artículu guardada el %s.</string>
-  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Tas lleyendo una versión sin conexón d\'esti artículu d\'una compilación descargada el %1$s • %2$s.</string>
+  <string name="page_offline_notice_compilation_download_date">Tas lleyendo la versión d\'esti artículu de %1$s • %2$s.</string>
   <string name="button_get_directions">Recibir indicaciones</string>
   <string name="error_no_maps_app">Nun pudo alcontrase nenguna app qu\'ufra indicaciones</string>
   <string name="preference_title_show_link_previews">Amosar vistes previes de los enllaces</string>
@@ -257,6 +258,9 @@
   <string name="error_page_does_not_exist">Esta páxina nun esiste</string>
   <string name="view_wiki_error_message_offline">Nun pudo coneutase a internet</string>
   <string name="reference_title">Referencia %s</string>
+  <string name="preference_title_dim_dark_mode_images">Amortecer imaxes na tema escura</string>
+  <string name="preference_summary_dim_dark_mode_images">Amenorgar el rellumu de les imaxes cuando s\'utiliza la tema escura</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Amortecimientu d\'imaxes (na tema escura)</string>
   <string name="crash_report_dialog_title">Sentímoslo, l\'aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Quies unviar un informe de cuelgue a HockeyApp / un fornidor de serviciu d\'un terceru pa que Wikimedia pueda revisar el cuelgue ya iguar el fallu que lu causó?</string>
   <string name="crash_report_dialog_dont_send_button">Saltar</string>
@@ -335,6 +339,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">L\'artículu ta descargándose, y tará disponible sin conexón cuando se complete.</string>
+  <string name="reading_list_already_contains_selection">La llista escoyida yá contien toles páxines seleicionaes.</string>
+  <string name="reading_list_added_articles_list_untitled">Añadiéronse %d artículos a la llista de llectura.</string>
+  <string name="reading_list_added_articles_list_titled">Añadiéronse %1$d artículos a %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Esti artículu agora tará disponible sin conexón.</item>
     <item quantity="other">Estos artículos agora tarán disponibles sin conexón.</item>
@@ -417,16 +424,17 @@
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">la to contribución paecía un esperimentu o vandalismu.</string>
   <string name="description_edit_revert_history">Si tas interesáu, consulta &lt;a href=\"%1$s\"&gt;l\'historial d\'ediciones&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Nun hai conexón a Internet. Asegúrate de volver a conectate y tenta otra vuelta.</string>
   <string name="offline_read_permission_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa restolar sin conexón.</string>
   <string name="offline_read_permission_error">Nun se dio permisu pa lleer dende\'l preséu d\'almacenamientu.</string>
-  <string name="offline_card_text" fuzzy="true">Agora tas restolando Wikipedia en mou ensin conexón. Recuerda que los artículos ensin conexón pueden tar desfasaos respeuto a la versión en llinia.</string>
-  <string name="offline_my_compilations" fuzzy="true">Los mios paquetes d\'artículos</string>
+  <string name="offline_card_text">Agora tas restolando Wikipedia en mou ensin conexón con artículos de la Biblioteca ensin conexón.</string>
+  <string name="offline_my_compilations">Alministrar la mio biblioteca ensin conexón</string>
   <string name="offline_compilations_title">Biblioteca ensin conexón</string>
   <string name="offline_compilations_search_by_name">Buscar paquetes d\'artículos pol nome</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Los mios paquetes d\'artículos (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Añadir paquete d\'artículos</string>
-  <string name="remote_compilations_title" fuzzy="true">Tolos paquetes d\'artículos</string>
-  <string name="remote_compilations_description" fuzzy="true">Los  paquetes d\'artículos son grandes esbilles d\'artículos que pueden descargase al preséu como un ficheru, pa poder siguir navegando cuando tas ensin conexón.</string>
+  <string name="offline_compilations_found_count">Na mio biblioteca (%d)</string>
+  <string name="offline_compilations_add">Añadir a la mio Biblioteca ensin conexón</string>
+  <string name="remote_compilations_title">Biblioteca ensin conexón</string>
+  <string name="remote_compilations_description">Cola Biblioteca ensin conexón, agora puedes descargar paquetes d\'artículos pa lleelos cuando nun tengas conexón a Internet.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Desaniciar</string>
@@ -446,13 +454,14 @@
   <string name="compilation_download_cancel_confirm_no">Non</string>
   <string name="compilation_share">Compartir</string>
   <string name="compilation_remove">Desaniciar</string>
-  <string name="compilation_remove_confirm" fuzzy="true">¿Tas seguru de que quies desaniciar esti paquete d\'artículos del preséu?</string>
+  <string name="compilation_remove_confirm">¿Quies quitar esti artículu de la Biblioteca ensin conexón?</string>
   <string name="offline_library_title">Biblioteca ensin conexón</string>
   <string name="offline_library_empty_title">Nun hai nada na biblioteca ensin conexón</string>
   <string name="offline_library_empty_description">Escueyi un paquete d\'artículos de Wikipedia pa descargar agora, pa tener accesu sero ensin cargu de datos.</string>
   <string name="offline_library_empty_search">Buscar na biblioteca ensin conexón</string>
-  <string name="offline_library_search_results_state" fuzzy="true">Buscar resultaos de la biblioteca ensin conexón disponible</string>
-  <string name="offline_library_onboarding_action" fuzzy="true">Saber más sobre la biblioteca ensin conexón</string>
+  <string name="offline_library_search_results_state">Resultaos de la gueta de la Biblioteca ensin conexón</string>
+  <string name="offline_library_onboarding_action">Más información</string>
+  <string name="offline_library_onboarding_text">Presentamos la Biblioteca ensin conexón: descarga paquetes d\'artículos pa lleelos dempués ensin conexón.</string>
   <string name="offline_library_onboarding_button_done">Fecho</string>
   <string name="offline_library_onboarding_build_library_title">Construir una Biblioteca ensin conexón</string>
   <string name="offline_library_onboarding_build_library_subtitle">Descargar agora paquetes d\'artículos de Wikipedia pa velos sero ensin gastu de datos.</string>
@@ -473,4 +482,7 @@
   <string name="onboarding_create_account_sync">Sincronizar les llistes de llectura</string>
   <string name="onboarding_create_account_contributions">Siguir el rastru a les tos contribuciones</string>
   <string name="onboarding_create_account_preferences">Guardar les preferencies</string>
+  <string name="app_shortcuts_random">Al debalu</string>
+  <string name="app_shortcuts_continue_reading">Siguir lleyendo</string>
+  <string name="app_shortcuts_search">Buscar</string>
 </resources>
