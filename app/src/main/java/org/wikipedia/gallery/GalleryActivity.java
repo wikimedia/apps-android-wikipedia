@@ -61,6 +61,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
@@ -529,7 +530,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         int initialImagePos = -1;
         if (initialFilename != null) {
             for (GalleryItem item : collection.getItemList()) {
-                if (item.getName().equals(initialFilename)) {
+                if (addUnderscores(item.getName()).equals(addUnderscores(initialFilename))) {
                     initialImagePos = collection.getItemList().indexOf(item);
                     break;
                 }
