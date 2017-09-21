@@ -225,7 +225,8 @@
   <string name="close_all_tabs_confirm_yes">Да</string>
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Затвори јазиче</string>
-  <string name="tool_tip_select_text" fuzzy="true">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>
+  <string name="tool_tip_select_text_title">Подржете за да одберете</string>
+  <string name="tool_tip_select_text">Стиснете и држете било каде во текстот за да го изберете за копирање и споделување.</string>
   <string name="tool_tip_share">Откако ќе го подвлечете интересниот факт, споделете го на вашите омилени мрежи!</string>
   <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_button">Прегледот на содржини можете да го видите во секое време, допирајќи го копчето или повлекувајќи од десниот раб на екранов.</string>

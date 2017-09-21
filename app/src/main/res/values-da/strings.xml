@@ -225,7 +225,8 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Luk fane</string>
-  <string name="tool_tip_select_text" fuzzy="true">Tryk og hold nede hvor som helst i teksten for at markere den til kopiering og deling.</string>
+  <string name="tool_tip_select_text_title">Hold inde for at vælge</string>
+  <string name="tool_tip_select_text">Tryk og hold nede hvor som helst i teksten for at vælge den til kopiering og deling.</string>
   <string name="tool_tip_share">Efter du har markeret et interessant faktum, prøv at dele det på dine foretrukne netværk.</string>
   <string name="page_view_in_browser">Få vist siden i browseren</string>
   <string name="tool_tip_toc_button">Se indholdsfortegnelsen når som helst ved at trykke på denne knap eller trække fra højre kant af skærmen.</string>
