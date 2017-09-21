@@ -87,7 +87,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         LinkPreviewDialog.Callback, SearchFragment.Callback, ThemeChooserDialog.Callback,
         WiktionaryDialog.Callback {
 
-    public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
+    public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
+    public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
@@ -234,14 +235,23 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @NonNull
     public static Intent newIntent(@NonNull Context context, @NonNull String title) {
         PageTitle pageTitle = new PageTitle(title, WikipediaApp.getInstance().getWikiSite());
-        return newIntent(context, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK), pageTitle);
+        return newIntentForNewTab(context, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK), pageTitle);
     }
 
     @NonNull
-    public static Intent newIntent(@NonNull Context context,
-                                   @NonNull HistoryEntry entry,
-                                   @NonNull PageTitle title) {
-        return new Intent(ACTION_PAGE_FOR_TITLE)
+    public static Intent newIntentForNewTab(@NonNull Context context,
+                                            @NonNull HistoryEntry entry,
+                                            @NonNull PageTitle title) {
+        return new Intent(ACTION_LOAD_IN_NEW_TAB)
+                .setClass(context, PageActivity.class)
+                .putExtra(EXTRA_HISTORYENTRY, entry)
+                .putExtra(EXTRA_PAGETITLE, title);
+    }
+
+    public static Intent newIntentForCurrentTab(@NonNull Context context,
+                                                @NonNull HistoryEntry entry,
+                                                @NonNull PageTitle title) {
+        return new Intent(ACTION_LOAD_IN_CURRENT_TAB)
                 .setClass(context, PageActivity.class)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(EXTRA_PAGETITLE, title);
@@ -265,10 +275,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             PageTitle title = wiki.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
             loadPageInForegroundTab(title, historyEntry);
-        } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
+        } else if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())
+                || ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            loadPageInForegroundTab(title, historyEntry);
+            if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())) {
+                loadPageInForegroundTab(title, historyEntry);
+            } else if (ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
+                loadPageInCurrentTab(title, historyEntry);
+            }
             if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
                 showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER));
             }
@@ -377,6 +392,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public void loadPageInForegroundTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         loadPage(title, entry, TabPosition.NEW_TAB_FOREGROUND);
+    }
+
+    public void loadPageInCurrentTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
+        loadPage(title, entry, TabPosition.CURRENT_TAB);
     }
 
     public void loadMainPageInForegroundTab() {

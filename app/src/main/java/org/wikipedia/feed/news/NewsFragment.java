@@ -132,7 +132,7 @@ public class NewsFragment extends Fragment {
     private class Callback implements ListCardItemView.Callback {
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
-            startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
+            startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
         }
 
         @Override
