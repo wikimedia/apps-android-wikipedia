@@ -64,7 +64,6 @@
         <item name="header_edit_button">@style/HeaderEditButtonDark</item>
         <item name="edit_preview_color">@color/accent75</item>
         <item name="horizontal_divider">@style/HorizontalDividerDark</item>
-        <item name="cardHearderBackground">@color/base20</item>
         <item name="dividerColor">@color/white20</item>
         <item name="hintTextColor">@color/white50</item>
         <item name="listSeparatorColor">@color/white20</item>
@@ -72,7 +71,7 @@
         <item name="bottom_sheet_text_color">@color/base90</item>
         <item name="menu_icon_color">@color/white70</item>
         <item name="bottom_sheet_secondary_text_color">@color/white70</item>
-        <item name="card_hearder_text_color">@color/base90</item>
+        <item name="card_header_text_color">@color/base90</item>
         <item name="text_secondary_color">@color/base70</item>
         <item name="link_color">@color/accent75</item>
         <item name="material_primary_color">@color/base100</item>

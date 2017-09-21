@@ -35,7 +35,7 @@
             android:layout_marginLeft="8dp"
             android:textSize="14sp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/card_hearder_text_color"
+            android:textColor="?attr/card_header_text_color"
             android:maxLines="2"
             android:ellipsize="end"
             tools:text="Lorem ipsum"/>
