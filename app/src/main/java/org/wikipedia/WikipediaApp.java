@@ -30,6 +30,7 @@ import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.fresco.DisabledCache;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.CacheableOkHttpNetworkFetcher;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
@@ -238,6 +239,7 @@ public class WikipediaApp extends Application {
 
         ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
                 .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
+                .setFileCacheFactory(DisabledCache.factory())
                 .build();
         Fresco.initialize(this, config);
 
