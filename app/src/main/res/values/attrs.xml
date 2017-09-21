@@ -45,7 +45,6 @@
 
     <attr name="blue_switch" format="reference" />
     <attr name="header_edit_button" format="reference" />
-    <attr name="cardHearderBackground" format="color" />
     <attr name="dividerColor" format="color" />
     <attr name="hintTextColor" format="color" />
     <attr name="listSeparatorColor" format="color" />
@@ -53,7 +52,7 @@
     <attr name="bottom_sheet_text_color" format="color" />
     <attr name="menu_icon_color" format="color" />
     <attr name="bottom_sheet_secondary_text_color" format="color" />
-    <attr name="card_hearder_text_color" format="color" />
+    <attr name="card_header_text_color" format="color" />
     <attr name="text_secondary_color" format="color" />
     <attr name="link_color" format="color" />
     <attr name="material_secondary_color" format="color" />
