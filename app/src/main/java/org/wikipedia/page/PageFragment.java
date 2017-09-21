@@ -433,7 +433,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
             }
         });
-        webView.setWebViewClient(new OkHttpWebViewClient());
+        webView.setWebViewClient(new OkHttpWebViewClient() {
+            @NonNull @Override public WikiSite getWikiSite() {
+                return model.getTitle().getWikiSite();
+            }
+        });
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {

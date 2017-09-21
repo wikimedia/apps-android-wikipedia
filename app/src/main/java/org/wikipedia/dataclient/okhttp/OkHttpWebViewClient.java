@@ -12,6 +12,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.log.L;
 
 import java.io.BufferedReader;
@@ -28,7 +30,7 @@ import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class OkHttpWebViewClient extends WebViewClient {
+public abstract class OkHttpWebViewClient extends WebViewClient {
 
     /*
     Note: Any data transformations performed here are only for the benefit of WebViews.
@@ -40,6 +42,8 @@ public class OkHttpWebViewClient extends WebViewClient {
     private static final String HEADER_CONTENT_ENCODING = "content-encoding";
     private static final String CONTENT_TYPE_SVG = "image/svg+xml";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
+
+    @NonNull public abstract WikiSite getWikiSite();
 
     @SuppressWarnings("deprecation") @Override
     public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
@@ -84,8 +88,11 @@ public class OkHttpWebViewClient extends WebViewClient {
     }
 
     @NonNull private Response request(String url) throws IOException {
-        return OkHttpConnectionFactory.getClient()
-                .newCall(new Request.Builder().url(url).build())
+        return OkHttpConnectionFactory.getClient().newCall(new Request.Builder()
+                .url(url)
+                // TODO: Find a common way to set this header between here and RetrofitFactory.
+                .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(getWikiSite()))
+                .build())
                 .execute();
     }
 
