@@ -199,7 +199,7 @@ public class EditPreviewFragment extends Fragment {
                     showLeavingEditDialogue(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(PageActivity.newIntent(getContext(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
+                            startActivity(PageActivity.newIntentForNewTab(getContext(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                         }
                     });
                 }

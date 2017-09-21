@@ -698,7 +698,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 PageTitle title = ReadingListDaoProxy.pageTitle(page);
                 HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
                 ReadingList.DAO.makeListMostRecent(readingList);
-                startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
+                startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
             }
         }
 

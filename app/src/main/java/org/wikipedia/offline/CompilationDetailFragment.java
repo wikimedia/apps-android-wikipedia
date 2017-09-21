@@ -125,7 +125,7 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
                     WikipediaApp.getInstance().getWikiSite());
 
             HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
-            startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
+            startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
         } catch (IOException e) {
             L.e(e);
             FeedbackUtil.showError(getActivity(), e);
