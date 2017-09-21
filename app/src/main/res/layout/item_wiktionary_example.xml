@@ -10,4 +10,4 @@
     android:textStyle="italic"
     android:lineSpacingMultiplier="1.1"
     android:linksClickable="true"
-    android:textColor="?attr/link_preview_text_color"/>
+    android:textColor="?attr/bottom_sheet_text_color"/>

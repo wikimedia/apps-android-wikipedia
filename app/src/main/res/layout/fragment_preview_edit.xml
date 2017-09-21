@@ -83,7 +83,7 @@
                 android:paddingBottom="10dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/edit_preview"
-                android:background="@color/preview_header_background"
+                android:background="@color/base80"
                 android:textColor="@color/base0"
                 android:gravity="center_vertical"/>
 

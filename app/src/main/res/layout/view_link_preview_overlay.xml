@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:textColor="@color/gray_highlight"
+            android:textColor="@color/base30"
             android:background="?attr/selectableItemBackground"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:text="@string/button_get_directions"/>

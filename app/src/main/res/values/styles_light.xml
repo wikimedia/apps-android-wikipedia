@@ -40,32 +40,45 @@
         <item name="toc_section_text_color">@color/base10</item>
         <item name="toc_subsection_text_color">@color/base30</item>
         <item name="edit_text_color">@color/base0</item>
-        <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
+        <item name="abusefilter_background_color">@color/base80</item>
         <item name="page_title_color">@color/base0</item>
         <item name="page_description_color">@color/base30</item>
-        <item name="list_separator_color">@color/list_separator_light</item>
-        <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
-        <item name="tab_shadow_color">@color/tab_shadow_light</item>
-        <item name="tool_tip_default_color">@android:color/black</item>
+        <item name="list_separator_color">@color/black12</item>
+        <item name="syntax_highlight_template_color">@color/black54</item>
+        <item name="tab_shadow_color">@color/black26</item>
         <item name="bottom_sheet_background_color">@color/base90</item>
-        <item name="link_preview_text_color">@color/link_preview_text_light</item>
-        <item name="link_preview_offline_text_color">@color/link_preview_offline_text_light</item>
-        <item name="list_item_text_primary_color">@color/list_item_text_primary_light</item>
-        <item name="list_item_text_secondary_color">@color/list_item_text_secondary_light</item>
+
+        <item name="link_preview_offline_text_color">@color/black54</item>
+        <item name="list_item_text_primary_color">@color/black87</item>
+        <item name="list_item_text_secondary_color">@color/base30</item>
+        <item name="page_header_edit_pencil_alpha">0.55</item>
         <item name="offline_library_background_color">@color/base80</item>
         <item name="nav_tab_background_color">@android:color/white</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
-        <item name="overflow_button">@color/light_gray_overflow_button</item>
+        <item name="overflow_button">@color/black38</item>
         <item name="multi_select_background_color">@color/accent90</item>
-        <item name="feed_text_secondary_color">@color/feed_text_secondary_light</item>
+        <item name="feed_text_secondary_color">@color/base20</item>
         <item name="feed_window_background_color">@color/base80</item>
         <item name="feed_text_primary_color">@color/base10</item>
-        <item name="feed_text_tertiary_color">@color/feed_text_tertiary_light</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>
         <item name="header_edit_button">@style/HeaderEditButtonLight</item>
         <item name="edit_preview_color">@color/accent50</item>
         <item name="horizontal_divider">@style/HorizontalDividerLight</item>
+        <item name="cardHearderBackground">@color/base70</item>
+        <item name="dividerColor">@color/white20</item>
+        <item name="hintTextColor">@color/black38</item>
+        <item name="listSeparatorColor">@color/black12</item>
+        <item name="feedImageBorderColor">@color/black12</item>
+        <item name="bottom_sheet_text_color">@color/base10</item>
+        <item name="menu_icon_color">@color/black54</item>
+        <item name="bottom_sheet_secondary_text_color">@color/black54</item>
+        <item name="card_hearder_text_color">@color/base20</item>
+        <item name="text_secondary_color">@color/base30</item>
+        <item name="link_color">@color/accent50</item>
+        <item name="material_primary_color">@color/black87</item>
+        <item name="material_secondary_color">@color/black54</item>
+
     </style>
 
     <style name="AlertDialogLight" parent="Theme.AppCompat.Light.Dialog.Alert">

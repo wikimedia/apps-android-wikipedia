@@ -47,7 +47,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:textSize="14sp"
-                android:textColor="?attr/feed_text_secondary_color"
+                android:textColor="?attr/list_item_text_secondary_color"
                 android:lineSpacingMultiplier="1.2"
                 style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>

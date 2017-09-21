@@ -78,7 +78,7 @@ public class ReadingListHeaderView extends FrameLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
 
-        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.lead_gradient_start, Gravity.TOP));
+        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP));
 
         if (isInEditMode()) {
             return;

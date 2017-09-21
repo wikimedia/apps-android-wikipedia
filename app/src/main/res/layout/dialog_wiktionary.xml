@@ -41,7 +41,7 @@
                     android:layout_margin="8dp"
                     android:gravity="center_vertical"
                     style="@style/RtlAwareTextView"
-                    android:textColor="?attr/link_preview_text_color"
+                    android:textColor="?attr/bottom_sheet_text_color"
                     android:textSize="20sp"
                     android:maxLines="1"
                     android:ellipsize="end"
@@ -52,14 +52,14 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/list_separator_light"/>
+                android:background="?attr/listSeparatorColor"/>
 
             <TextView
                 android:id="@+id/wiktionary_no_definitions_found"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
-                android:textColor="?attr/link_preview_text_color"
+                android:textColor="?attr/bottom_sheet_text_color"
                 android:text="@string/wiktionary_no_definitions_found"
                 android:visibility="gone" />
 

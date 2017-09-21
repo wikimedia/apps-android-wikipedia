@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         app:srcCompat="@drawable/ic_search_white_24dp"
         android:scaleType="center"
-        android:tint="?attr/feed_text_tertiary_color"
+        android:tint="?attr/material_secondary_color"
         android:contentDescription="@string/search_hint" />
 
     <TextView
@@ -21,7 +21,7 @@
         android:layout_weight="1"
         android:layout_gravity="center_vertical"
         android:text="@string/search_hint"
-        android:textColor="?attr/feed_text_tertiary_color"
+        android:textColor="?attr/material_secondary_color"
         android:alpha="0.87"/>
 
     <ImageView
@@ -30,7 +30,7 @@
         android:layout_height="48dp"
         app:srcCompat="@drawable/ic_mic_black_24dp"
         android:scaleType="center"
-        android:tint="?attr/feed_text_tertiary_color"
+        android:tint="?attr/material_secondary_color"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:contentDescription="@string/search_hint" />

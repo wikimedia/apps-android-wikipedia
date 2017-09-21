@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:text="@string/view_announcement_card_negative_action"
-            android:textColor="?attr/feed_text_tertiary_color" />
+            android:textColor="?attr/text_secondary_color" />
 
         <TextView
             android:id="@+id/view_announcement_action_positive"
@@ -54,7 +54,7 @@
         android:id="@+id/view_announcement_footer_border"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/feed_image_border"/>
+        android:background="?attr/feedImageBorderColor"/>
 
     <TextView
         android:id="@+id/view_announcement_footer_text"
@@ -63,7 +63,7 @@
         style="@style/RtlAwareTextView"
         android:padding="16dp"
         android:textSize="12sp"
-        android:textColor="?attr/feed_text_tertiary_color"
+        android:textColor="?attr/text_secondary_color"
         android:textColorLink="?attr/colorAccent"
         tools:text="Lorem ipsum"/>
 

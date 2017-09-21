@@ -180,7 +180,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         progressBar = (ProgressBar) findViewById(R.id.gallery_progressbar);
 
         descriptionText = (TextView) findViewById(R.id.gallery_description_text);
-        descriptionText.setShadowLayer(2, 1, 1, color(R.color.lead_text_shadow));
+        descriptionText.setShadowLayer(2, 1, 1, color(R.color.black54));
         descriptionText.setMovementMethod(linkMovementMethod);
 
         licenseIcon = (ImageView) findViewById(R.id.gallery_license_icon);
@@ -188,7 +188,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         licenseIcon.setOnLongClickListener(licenseLongClickListener);
 
         creditText = (TextView) findViewById(R.id.gallery_credit_text);
-        creditText.setShadowLayer(2, 1, 1, color(R.color.lead_text_shadow));
+        creditText.setShadowLayer(2, 1, 1, color(R.color.black54));
 
         errorView = (WikiErrorView) findViewById(R.id.view_gallery_error);
         ((ImageView) errorView.findViewById(R.id.view_wiki_error_icon))
@@ -628,7 +628,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void setBackgroundGradient(View view, int gravity) {
-        view.setBackground(GradientUtil.getPowerGradient(R.color.lead_gradient_start, gravity));
+        view.setBackground(GradientUtil.getPowerGradient(R.color.black54, gravity));
     }
 
     private void initToolbar() {

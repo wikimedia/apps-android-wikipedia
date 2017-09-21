@@ -22,7 +22,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/white_translucent_40"/>
+            android:background="@color/white20"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 android:layout_gravity="center"
                 app:piv_radius="4dp"
                 app:piv_selectedColor="@android:color/white"
-                app:piv_unselectedColor="@color/white_translucent_40"
+                app:piv_unselectedColor="@color/white20"
                 app:piv_viewPager="@id/fragment_pager" />
 
             <FrameLayout

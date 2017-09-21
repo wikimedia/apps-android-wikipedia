@@ -24,7 +24,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="12sp"
-                android:textColor="?attr/feed_text_tertiary_color"/>
+                android:textColor="?attr/material_secondary_color"/>
 
             <TextView
                 android:id="@+id/compilation_download_widget_progress_time_remaining"
@@ -33,7 +33,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:textSize="12sp"
-                android:textColor="?attr/feed_text_tertiary_color"/>
+                android:textColor="?attr/material_secondary_color"/>
 
         </RelativeLayout>
 
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="2dp"
-        android:tint="?attr/feed_text_secondary_color"
+        android:tint="?attr/menu_icon_color"
         app:srcCompat="@drawable/ic_clear_white_24px"
         android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
