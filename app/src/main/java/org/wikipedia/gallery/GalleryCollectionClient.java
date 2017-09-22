@@ -23,8 +23,6 @@ import retrofit2.http.QueryMap;
 import static org.wikipedia.Constants.PREFERRED_THUMB_SIZE;
 
 public class GalleryCollectionClient {
-    // TODO: This limit seems pretty arbitrary.  Do we need or want to adjust it?
-    private static final int MAX_ITEM_COUNT = 256;
 
     @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
@@ -86,16 +84,14 @@ public class GalleryCollectionClient {
 
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&redirects=&gimlimit="
-                + MAX_ITEM_COUNT)
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&redirects=")
         Call<MwQueryResponse> fetch(@NonNull @Query("iiprop") String properties,
                                     @Nullable @Query("iiurlwidth") String thumbWidth,
                                     @Nullable @Query("iiurlheight") String thumbHeight,
                                     @NonNull @Query("titles") String title);
 
         // N.B. @QueryMap will throw if it receives a null parameter, separate handling is required.
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&redirects=&gimlimit="
-                + MAX_ITEM_COUNT)
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&redirects=")
         Call<MwQueryResponse> continueFetch(@NonNull @Query("iiprop") String properties,
                                             @Nullable @Query("iiurlwidth") String thumbWidth,
                                             @Nullable @Query("iiurlheight") String thumbHeight,
