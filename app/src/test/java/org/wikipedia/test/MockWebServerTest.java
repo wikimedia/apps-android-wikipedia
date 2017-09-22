@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.wikipedia.dataclient.okhttp.CacheIfErrorInterceptor;
+import org.wikipedia.dataclient.okhttp.CacheControlRequestInterceptor;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 
@@ -30,7 +30,7 @@ public abstract class MockWebServerTest {
         //noinspection Since15
         builder.interceptors().removeIf(new Predicate<Interceptor>() {
             @Override public boolean test(Interceptor interceptor) {
-                return interceptor instanceof CacheIfErrorInterceptor;
+                return interceptor instanceof CacheControlRequestInterceptor;
             }
         });
 
