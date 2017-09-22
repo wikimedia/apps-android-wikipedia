@@ -450,7 +450,7 @@ public class TabsProvider {
 
             @ColorRes int colorId = position == 0
                     ? R.color.base10
-                    : getThemedAttributeId(fragment.getContext(), R.attr.tab_shadow_color);
+                    : getThemedAttributeId(fragment.getContext(), R.attr.material_theme_shadow);
             int color = ContextCompat.getColor(fragment.getContext(), colorId);
 
             // dynamically set the background color that will show through the rounded corners.

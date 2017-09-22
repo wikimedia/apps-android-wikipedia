@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="?attr/actionBarSize"
-    android:background="?attr/offline_library_background_color">
+    android:background="?attr/base_color">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="16dp"
                         android:textSize="16sp"
-                        android:textColor="?attr/feed_text_primary_color"
+                        android:textColor="?attr/primary_text_color"
                         android:text="@string/offline_compilations_found_count"/>
 
                     <android.support.v7.widget.RecyclerView
@@ -96,7 +96,7 @@
                 android:gravity="center"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="?attr/feed_text_primary_color"
+                android:textColor="?attr/primary_text_color"
                 android:text="@string/offline_library_empty_title"/>
 
             <ImageView
@@ -117,7 +117,7 @@
                 android:textSize="16sp"
                 android:fontFamily="sans-serif-medium"
                 android:lineSpacingMultiplier="1.2"
-                android:textColor="?attr/material_secondary_color"
+                android:textColor="?attr/material_theme_secondary_color"
                 android:text="@string/offline_library_empty_description"/>
 
             <TextView

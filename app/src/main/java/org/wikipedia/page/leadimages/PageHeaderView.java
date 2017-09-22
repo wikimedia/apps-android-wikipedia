@@ -112,7 +112,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
         updateText();
 
-        titleText.setTextColor(getThemedColor(getContext(), R.attr.page_title_color));
+        titleText.setTextColor(getThemedColor(getContext(), R.attr.section_title_color));
     }
 
     public void showTextImage() {
@@ -121,7 +121,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
         updateText();
 
-        titleText.setTextColor(getThemedColor(getContext(), R.attr.page_title_color));
+        titleText.setTextColor(getThemedColor(getContext(), R.attr.section_title_color));
         DimenUtil.setViewHeight(image, leadImageHeightForDevice());
     }
 
@@ -288,7 +288,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     private Spanned pronunciationSpanned() {
         AudioUrlSpan pronunciationSpan = new AudioUrlSpan(titleText, avPlayer, pronunciationUrl,
                 AudioUrlSpan.ALIGN_BASELINE);
-        pronunciationSpan.setTint(getThemedColor(getContext(), R.attr.window_inverse_color));
+        pronunciationSpan.setTint(getThemedColor(getContext(), R.attr.primary_text_color));
         return RichTextUtil.setSpans(new SpannableString("  "),
                 0,
                 1,
@@ -310,7 +310,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
                 new LeadingSpan(leadingScalar),
                 new ParagraphSpan(paragraphScalar),
                 TextUtils.isEmpty(subtitle) ? descriptionClickSpan
-                        : new ForegroundColorSpan(ResourceUtil.getThemedColor(getContext(), R.attr.page_description_color)),
+                        : new ForegroundColorSpan(ResourceUtil.getThemedColor(getContext(), R.attr.secondary_text_color)),
                 TextUtils.isEmpty(subtitle) ? new StyleSpan(Typeface.ITALIC) : null);
     }
 
@@ -354,7 +354,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
         public void updateDrawState(TextPaint ds) {
             super.updateDrawState(ds);
             ds.setColor(ResourceUtil.getThemedColor(getContext(), TextUtils.isEmpty(subtitle)
-                    ? R.attr.colorAccent : R.attr.page_description_color));
+                    ? R.attr.colorAccent : R.attr.secondary_text_color));
             ds.setUnderlineText(false);
         }
     }

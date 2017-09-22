@@ -35,7 +35,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:textSize="16sp"
-                android:textColor="?attr/feed_text_primary_color"
+                android:textColor="?attr/primary_text_color"
                 style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
 
@@ -47,7 +47,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:textSize="14sp"
-                android:textColor="?attr/list_item_text_secondary_color"
+                android:textColor="?attr/secondary_text_color"
                 android:lineSpacingMultiplier="1.2"
                 style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
@@ -63,7 +63,7 @@
         android:layout_gravity="end"
         android:padding="8dp"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
-        android:tint="?attr/overflow_button"
+        android:tint="?attr/material_theme_de_emphasised_color"
         android:tintMode="src_in"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/abc_action_menu_overflow_description"/>

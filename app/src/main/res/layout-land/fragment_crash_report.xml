@@ -19,7 +19,7 @@
         android:layout_width="128dp"
         android:layout_height="128dp"
         app:srcCompat="@drawable/ic_error_black_24dp"
-        android:tint="?attr/window_inverse_color"
+        android:tint="?attr/primary_text_color"
         android:contentDescription="@null"
         android:alpha="@dimen/crash_report_icon_alpha" />
 

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:textSize="20sp"
-        android:textColor="?attr/feed_text_primary_color"
+        android:textColor="?attr/primary_text_color"
         android:fontFamily="sans-serif-medium"
         android:lineSpacingMultiplier="1.2"
         style="@style/RtlAwareTextView"/>
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:textSize="12sp"
-        android:textColor="?attr/material_secondary_color"
+        android:textColor="?attr/material_theme_secondary_color"
         android:lineSpacingMultiplier="1.2"
         style="@style/RtlAwareTextView"/>
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:textSize="14sp"
-        android:textColor="?attr/feed_text_secondary_color"
+        android:textColor="?attr/secondary_text_color"
         android:lineSpacingMultiplier="1.2"
         style="@style/RtlAwareTextView"/>
 

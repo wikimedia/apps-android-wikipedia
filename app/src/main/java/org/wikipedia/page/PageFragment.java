@@ -350,7 +350,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // Explicitly set background color of the WebView (independently of CSS, because
         // the background may be shown momentarily while the WebView loads content,
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
-        webView.setBackgroundColor(getThemedColor(getActivity(), R.attr.page_background_color));
+        webView.setBackgroundColor(getThemedColor(getActivity(), R.attr.paper_color));
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         darkModeSwitch = new DarkModeSwitch(bridge);

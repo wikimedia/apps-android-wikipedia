@@ -37,7 +37,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:textSize="16sp"
-            android:textColor="?attr/feed_text_primary_color"
+            android:textColor="?attr/primary_text_color"
             style="@style/RtlAwareTextView"
             tools:text="Lorem ipsum"/>
 
@@ -53,7 +53,7 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 app:srcCompat="@drawable/ic_subdirectory_arrow_right_black_24dp"
-                android:tint="?attr/list_item_text_secondary_color"
+                android:tint="?attr/secondary_text_color"
                 android:contentDescription="@null"/>
             <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/page_list_item_redirect"
@@ -63,7 +63,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="?attr/list_item_text_secondary_color"
+                android:textColor="?attr/secondary_text_color"
                 tools:text="Redirected from..."
                 />
         </LinearLayout>
@@ -76,7 +76,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:textSize="14sp"
-            android:textColor="?attr/feed_text_secondary_color"
+            android:textColor="?attr/secondary_text_color"
             android:lineSpacingMultiplier="1.2"
             style="@style/RtlAwareTextView"
             tools:text="Lorem ipsum"/>

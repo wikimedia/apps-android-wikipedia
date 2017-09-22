@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="8dp"
-    android:background="?attr/inline_onboarding_background_color"
+    android:background="?attr/base_color"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -27,14 +27,14 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
-                android:tint="?attr/material_secondary_color"
+                android:tint="?attr/material_theme_secondary_color"
                 app:srcCompat="@drawable/ic_check_black_24dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/onboarding_create_account_sync"
-                android:textColor="?attr/material_secondary_color" />
+                android:textColor="?attr/material_theme_secondary_color" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,14 +49,14 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
-                android:tint="?attr/material_secondary_color"
+                android:tint="?attr/material_theme_secondary_color"
                 app:srcCompat="@drawable/ic_check_black_24dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/onboarding_create_account_contributions"
-                android:textColor="?attr/material_secondary_color" />
+                android:textColor="?attr/material_theme_secondary_color" />
         </LinearLayout>
 
         <LinearLayout
@@ -71,28 +71,28 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
-                android:tint="?attr/material_secondary_color"
+                android:tint="?attr/material_theme_secondary_color"
                 app:srcCompat="@drawable/ic_check_black_24dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/onboarding_create_account_preferences"
-                android:textColor="?attr/material_secondary_color" />
+                android:textColor="?attr/material_theme_secondary_color" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_margin="8dp"
-            android:background="?attr/material_secondary_color" />
+            android:background="?attr/material_theme_secondary_color" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?attr/feed_text_primary_color"
+        android:textColor="?attr/primary_text_color"
         android:text="@string/create_account_already_have" />
 
     <TextView

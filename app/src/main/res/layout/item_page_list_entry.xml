@@ -79,7 +79,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:textSize="16sp"
-                android:textColor="?attr/feed_text_primary_color"
+                android:textColor="?attr/primary_text_color"
                 style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
 

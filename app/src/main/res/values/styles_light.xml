@@ -31,52 +31,29 @@
 
         <!-- Overrides of our own custom color attributes -->
         <item name="window_background_color">@color/base90</item>
-        <item name="window_inverse_color">@color/base10</item>
-        <item name="page_background_color">@color/base100</item>
         <item name="main_toolbar_color">@color/accent50</item>
         <item name="main_status_bar_color">@color/accent30</item>
-        <item name="inline_onboarding_background_color">@color/base80</item>
-        <item name="toc_background_color">@android:color/white</item>
-        <item name="toc_section_text_color">@color/base10</item>
-        <item name="toc_subsection_text_color">@color/base30</item>
         <item name="edit_text_color">@color/base0</item>
-        <item name="abusefilter_background_color">@color/base80</item>
-        <item name="page_title_color">@color/base0</item>
-        <item name="page_description_color">@color/base30</item>
-        <item name="list_separator_color">@color/black12</item>
-        <item name="syntax_highlight_template_color">@color/black54</item>
-        <item name="tab_shadow_color">@color/black26</item>
-        <item name="bottom_sheet_background_color">@color/base90</item>
-
-        <item name="link_preview_offline_text_color">@color/black54</item>
-        <item name="list_item_text_primary_color">@color/black87</item>
-        <item name="list_item_text_secondary_color">@color/base30</item>
         <item name="page_header_edit_pencil_alpha">0.55</item>
-        <item name="offline_library_background_color">@color/base80</item>
         <item name="nav_tab_background_color">@android:color/white</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
-        <item name="overflow_button">@color/black38</item>
         <item name="multi_select_background_color">@color/accent90</item>
-        <item name="feed_text_secondary_color">@color/base20</item>
-        <item name="feed_window_background_color">@color/base80</item>
-        <item name="feed_text_primary_color">@color/base10</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>
         <item name="header_edit_button">@style/HeaderEditButtonLight</item>
         <item name="edit_preview_color">@color/accent50</item>
-        <item name="horizontal_divider">@style/HorizontalDividerLight</item>
-        <item name="dividerColor">@color/white20</item>
-        <item name="hintTextColor">@color/black38</item>
-        <item name="listSeparatorColor">@color/black12</item>
-        <item name="feedImageBorderColor">@color/black12</item>
-        <item name="bottom_sheet_text_color">@color/base10</item>
         <item name="menu_icon_color">@color/black54</item>
-        <item name="bottom_sheet_secondary_text_color">@color/black54</item>
-        <item name="card_header_text_color">@color/base20</item>
-        <item name="text_secondary_color">@color/base30</item>
         <item name="link_color">@color/accent50</item>
-        <item name="material_primary_color">@color/black87</item>
-        <item name="material_secondary_color">@color/black54</item>
+        <item name="material_theme_primary_color">@color/black87</item>
+        <item name="material_theme_secondary_color">@color/black54</item>
+        <item name="material_theme_de_emphasised_color">@color/black38</item>
+        <item name="material_theme_border_color">@color/black12</item>
+        <item name="material_theme_shadow">@color/black26</item>
+        <item name="primary_text_color">@color/base10</item>
+        <item name="secondary_text_color">@color/base30</item>
+        <item name="section_title_color">@color/base20</item>
+        <item name="base_color">@color/base80</item>
+        <item name="paper_color">@color/base100</item>
 
     </style>
 
@@ -100,11 +77,6 @@
         <item name="android:colorForeground">@color/base30</item>
         <item name="trackTint">@color/base70</item>
         <item name="trackTintMode">src_in</item>
-    </style>
-
-    <style name="HorizontalDividerLight">
-        <item name="android:background">@color/base0</item>
-        <item name="android:alpha">0.12</item>
     </style>
 
     <style name="HeaderEditButtonLight">

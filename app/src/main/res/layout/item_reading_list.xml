@@ -70,7 +70,7 @@
                 android:textSize="16sp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="?attr/list_item_text_primary_color"
+                android:textColor="?attr/material_theme_primary_color"
                 tools:text="Lorem ipsum" />
 
             <TextView
@@ -81,7 +81,7 @@
                 android:textSize="12sp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textColor="?attr/list_item_text_secondary_color"
+                android:textColor="?attr/secondary_text_color"
                 tools:text="x items" />
 
             <TextView
@@ -93,7 +93,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:ellipsize="end"
                 android:maxLines="@integer/reading_list_description_summary_view_max_lines"
-                android:textColor="?attr/list_item_text_secondary_color"
+                android:textColor="?attr/secondary_text_color"
                 tools:text="Sample description" />
 
         </LinearLayout>
@@ -107,7 +107,7 @@
         android:layout_gravity="end"
         android:padding="8dp"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
-        android:tint="?attr/text_secondary_color"
+        android:tint="?attr/secondary_text_color"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/abc_action_menu_overflow_description"/>
 

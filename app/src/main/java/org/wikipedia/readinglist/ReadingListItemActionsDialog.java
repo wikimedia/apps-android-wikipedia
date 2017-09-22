@@ -42,7 +42,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         actionsView = new ReadingListItemActionsView(getContext());
-        actionsView.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.bottom_sheet_background_color));
+        actionsView.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         actionsView.setCallback(itemActionsCallback);
         pageIndex = getArguments().getInt("pageIndex");
         actionsView.setState(getArguments().getString("pageTitle", ""),
