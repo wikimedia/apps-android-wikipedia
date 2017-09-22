@@ -74,7 +74,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/abusefilter_background_color">
+                android:background="?attr/base_color">
                 <ImageView
                     android:id="@+id/edit_section_abusefilter_image"
                     android:layout_width="48dp"

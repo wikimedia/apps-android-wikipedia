@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:srcCompat="@drawable/ic_flag_black_24dp"
-        android:tint="?attr/window_inverse_color"
+        android:tint="?attr/primary_text_color"
         android:contentDescription="@null" />
 
     <LinearLayout
@@ -42,7 +42,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
             android:textSize="12sp"
-            android:textColor="?attr/bottom_sheet_secondary_text_color"
+            android:textColor="?attr/material_theme_secondary_color"
             android:textAllCaps="true"
             tools:text="Sample issue subtext"
             />

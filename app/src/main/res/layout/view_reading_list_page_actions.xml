@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:parentTag="LinearLayout"
-    tools:background="?attr/bottom_sheet_background_color"
+    tools:background="?attr/paper_color"
     tools:layout_width="match_parent"
     tools:layout_height="wrap_content"
     tools:orientation="vertical">
@@ -17,7 +17,7 @@
         android:paddingRight="@dimen/list_item_horizontal_padding"
         android:gravity="center_vertical"
         style="@style/RtlAwareTextView"
-        android:textColor="?attr/bottom_sheet_text_color"
+        android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
         android:fontFamily="sans-serif-medium"
         android:maxLines="1"
@@ -27,7 +27,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="?attr/list_separator_color"/>
+        android:background="?attr/material_theme_border_color"/>
 
     <LinearLayout
         android:id="@+id/reading_list_item_offline"
@@ -41,7 +41,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_offline_pin_black_24dp"
-            android:tint="?attr/bottom_sheet_text_color"
+            android:tint="?attr/primary_text_color"
             android:contentDescription="@null"/>
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/reading_list_item_offline_switch"
@@ -53,7 +53,7 @@
             android:gravity="center_vertical"
             style="@style/RtlAwareTextView"
             android:clickable="false"
-            android:textColor="?attr/bottom_sheet_text_color"
+            android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
             android:text="@string/reading_list_article_offline"/>
     </LinearLayout>
@@ -70,7 +70,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_share_black_24dp"
-            android:tint="?attr/bottom_sheet_text_color"
+            android:tint="?attr/primary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:layout_width="0dp"
@@ -80,7 +80,7 @@
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
             style="@style/RtlAwareTextView"
-            android:textColor="?attr/bottom_sheet_text_color"
+            android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
             android:text="@string/menu_text_select_share"/>
     </LinearLayout>
@@ -97,7 +97,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_bookmark_white_24dp"
-            android:tint="?attr/bottom_sheet_text_color"
+            android:tint="?attr/primary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:layout_width="0dp"
@@ -107,7 +107,7 @@
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
             style="@style/RtlAwareTextView"
-            android:textColor="?attr/bottom_sheet_text_color"
+            android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
             android:text="@string/reading_list_add_to_other_list"/>
     </LinearLayout>
@@ -117,7 +117,7 @@
         android:layout_height="0.5dp"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
-        android:background="?attr/list_separator_color"/>
+        android:background="?attr/material_theme_border_color"/>
 
     <LinearLayout
         android:id="@+id/reading_list_item_remove"
@@ -131,7 +131,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_delete_white_24dp"
-            android:tint="?attr/bottom_sheet_text_color"
+            android:tint="?attr/primary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:id="@+id/reading_list_item_remove_text"
@@ -142,7 +142,7 @@
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
             style="@style/RtlAwareTextView"
-            android:textColor="?attr/bottom_sheet_text_color"
+            android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
             tools:text="Remove from list"/>
     </LinearLayout>

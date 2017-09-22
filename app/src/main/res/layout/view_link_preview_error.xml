@@ -8,7 +8,7 @@
         android:layout_margin="16dp"
         android:layout_gravity="center_horizontal"
         app:srcCompat="@drawable/ic_error_black_24dp"
-        android:tint="?attr/link_preview_offline_text_color"
+        android:tint="?attr/material_theme_secondary_color"
         android:contentDescription="@null"/>
     <TextView
         android:id="@+id/view_link_preview_error_text"
@@ -17,7 +17,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:textSize="16sp"
-        android:textColor="?attr/link_preview_offline_text_color"
+        android:textColor="?attr/material_theme_secondary_color"
         android:gravity="center"
         android:textAlignment="center"
         android:lineSpacingMultiplier="1.1"

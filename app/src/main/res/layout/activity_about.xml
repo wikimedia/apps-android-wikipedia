@@ -22,7 +22,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/w_nav_mark"
-            android:tint="?attr/window_inverse_color"
+            android:tint="?attr/primary_text_color"
             android:contentDescription="@null"
 
             />
@@ -148,7 +148,7 @@
             android:layout_height="1px"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
-            android:background="?attr/dividerColor" />
+            android:background="?attr/material_theme_border_color" />
 
         <ImageView
             android:layout_width="wrap_content"

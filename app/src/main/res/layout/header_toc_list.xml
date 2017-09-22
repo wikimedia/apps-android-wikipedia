@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     style="@style/RtlAwareTextView"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:textColor="?attr/toc_section_text_color"
+    android:textColor="?attr/primary_text_color"
     android:fontFamily="serif"
     android:padding="16dp"
     android:textStyle="bold"

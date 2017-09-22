@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="?attr/toc_background_color">
+            android:background="?attr/paper_color">
 
             <org.wikipedia.views.ConfigurableListView
                 android:id="@+id/page_toc_list"

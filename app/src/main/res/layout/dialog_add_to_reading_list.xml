@@ -13,10 +13,10 @@
         android:paddingRight="@dimen/list_item_horizontal_padding"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:background="?attr/bottom_sheet_background_color"
+        android:background="?attr/paper_color"
         android:gravity="center_vertical"
         style="@style/RtlAwareTextView"
-        android:textColor="?attr/bottom_sheet_text_color"
+        android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
         android:text="@string/reading_list_save_to" />
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56.5dp"
-        android:background="?attr/bottom_sheet_background_color">
+        android:background="?attr/paper_color">
 
         <LinearLayout
             android:id="@+id/lists_container"
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     style="@style/RtlAwareTextView"
-                    android:textColor="?attr/bottom_sheet_text_color"
+                    android:textColor="?attr/primary_text_color"
                     android:textSize="16sp"
                     android:text="@string/reading_list_create_new" />
             </LinearLayout>

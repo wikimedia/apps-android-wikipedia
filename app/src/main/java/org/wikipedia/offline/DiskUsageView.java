@@ -76,7 +76,7 @@ public class DiskUsageView extends LinearLayout {
         setOrientation(VERTICAL);
 
         usageAppText.setText(R.string.app_name);
-        setDotTint(otherDot, R.attr.window_inverse_color);
+        setDotTint(otherDot, R.attr.primary_text_color);
         setDotTint(usedDot, R.attr.colorAccent);
         setDotTint(freeDot, R.attr.window_background_color);
 

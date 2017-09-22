@@ -31,8 +31,8 @@
             android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar"
             android:maxLines="3"
             android:ellipsize="end"
-            android:textColor="?attr/page_title_color"
-            android:textColorHighlight="?attr/page_title_color"
+            android:textColor="?attr/section_title_color"
+            android:textColorHighlight="?attr/section_title_color"
             tools:text="Title" />
 
         <org.wikipedia.views.AppTextView
@@ -47,9 +47,9 @@
             android:paddingRight="40dp"
             android:textSize="@dimen/descriptionTextSize"
             android:lineSpacingMultiplier="@dimen/lead_subtitle_leading_scalar"
-            android:textColor="?attr/page_description_color"
-            android:textColorLink="?attr/page_description_color"
-            android:textColorHighlight="?attr/page_description_color"
+            android:textColor="?attr/secondary_text_color"
+            android:textColorLink="?attr/secondary_text_color"
+            android:textColorHighlight="?attr/secondary_text_color"
             android:drawablePadding="8dp"
             tools:text="Subtitle" />
 

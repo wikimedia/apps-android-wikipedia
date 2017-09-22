@@ -233,10 +233,10 @@ class ToCHandler {
 
             if (section.getLevel() > 1) {
                 sectionHeading.setTextColor(
-                        getThemedColor(fragment.getContext(), R.attr.toc_subsection_text_color));
+                        getThemedColor(fragment.getContext(), R.attr.secondary_text_color));
             } else {
                 sectionHeading.setTextColor(
-                        getThemedColor(fragment.getContext(), R.attr.toc_section_text_color));
+                        getThemedColor(fragment.getContext(), R.attr.primary_text_color));
             }
             return convertView;
         }

@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
-            android:textColor="?attr/page_title_color"
+            android:textColor="?attr/section_title_color"
             tools:text="12.3"/>
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:textSize="24sp"
-            android:textColor="?attr/page_title_color"
+            android:textColor="?attr/section_title_color"
             android:text="@string/storage_size_gb"/>
 
         <TextView
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="12sp"
-            android:textColor="?attr/material_secondary_color"
+            android:textColor="?attr/material_theme_secondary_color"
             android:text="@string/storage_used_by_compilations"/>
 
     </LinearLayout>
@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="?attr/window_inverse_color"/>
+            android:background="?attr/primary_text_color"/>
 
         <View
             android:id="@+id/view_disk_usage_bar_used"
@@ -86,14 +86,14 @@
             android:background="@drawable/shape_circle"
             android:src="@drawable/shape_circle_outline"
             android:contentDescription="@null"
-            tools:backgroundTint="?attr/window_inverse_color" />
+            tools:backgroundTint="?attr/primary_text_color" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:textColor="?attr/window_inverse_color"
+            android:textColor="?attr/primary_text_color"
             android:textSize="12sp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/storage_other_apps"/>
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:textColor="?attr/material_secondary_color"
+            android:textColor="?attr/material_theme_secondary_color"
             android:textSize="12sp"
             android:fontFamily="sans-serif-medium"
             tools:text="123.4 GB free"/>
