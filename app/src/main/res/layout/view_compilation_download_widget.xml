@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="2dp"
-        android:tint="?attr/menu_icon_color"
+        android:tint="?attr/material_theme_secondary_color"
         app:srcCompat="@drawable/ic_clear_white_24px"
         android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
