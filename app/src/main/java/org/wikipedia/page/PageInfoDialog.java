@@ -62,7 +62,7 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
 
         if (fragment.callback() != null) {
             ListViewContextMenuListener contextMenuListener
-                    = new LongPressHandler(fragment.callback());
+                    = new LongPressHandler(fragment);
             new org.wikipedia.LongPressHandler(disambigList, HistoryEntry.SOURCE_DISAMBIG,
                     contextMenuListener);
         }
@@ -126,8 +126,8 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
 
     private class LongPressHandler extends PageContainerLongPressHandler
             implements ListViewContextMenuListener {
-        LongPressHandler(@NonNull PageFragment.Callback callback) {
-            super(callback);
+        LongPressHandler(@NonNull PageFragment fragment) {
+            super(fragment);
         }
 
         @Override

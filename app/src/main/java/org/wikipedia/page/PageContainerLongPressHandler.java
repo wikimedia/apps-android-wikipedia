@@ -4,29 +4,30 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
-public abstract class PageContainerLongPressHandler implements LongPressHandler.ContextMenuListener {
+public class PageContainerLongPressHandler implements LongPressHandler.ContextMenuListener,
+        LongPressHandler.WebViewContextMenuListener{
     @NonNull
-    private final PageFragment.Callback container;
+    private final PageFragment fragment;
 
-    public PageContainerLongPressHandler(@NonNull PageFragment.Callback container) {
-        this.container = container;
+    public PageContainerLongPressHandler(@NonNull PageFragment fragment) {
+        this.fragment = fragment;
     }
 
     @Override
     public void onOpenLink(PageTitle title, HistoryEntry entry) {
-        container.onPageLoadPage(title, entry);
+        fragment.loadPage(title, entry);
     }
 
     @Override
     public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-        container.onPageLoadPage(title, entry, TabsProvider.TabPosition.NEW_TAB_BACKGROUND);
+        fragment.openInNewBackgroundTabFromMenu(title, entry);
     }
 
     @Override
@@ -37,19 +38,24 @@ public abstract class PageContainerLongPressHandler implements LongPressHandler.
 
     @Override
     public void onShareLink(PageTitle title) {
-        ShareUtil.shareText(container.getActivity(), title);
+        ShareUtil.shareText(fragment.getActivity(), title);
     }
 
     @Override
     public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
-        container.onPageAddToReadingList(title, source);
+        fragment.addToReadingList(source);
+    }
+
+    @Override
+    public WikiSite getWikiSite() {
+        return fragment.getTitleOriginal().getWikiSite();
     }
 
     private void copyLink(String url) {
-        ClipboardUtil.setPlainText(container.getActivity(), null, url);
+        ClipboardUtil.setPlainText(fragment.getActivity(), null, url);
     }
 
     private void showCopySuccessMessage() {
-        FeedbackUtil.showMessage(container.getActivity(), R.string.address_copied);
+        FeedbackUtil.showMessage(fragment.getActivity(), R.string.address_copied);
     }
 }

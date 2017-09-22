@@ -107,7 +107,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
         if (parentFragment.callback() != null) {
             ListViewContextMenuListener contextMenuListener
-                    = new LongPressHandler(parentFragment.callback());
+                    = new LongPressHandler(parentFragment);
 
             new org.wikipedia.LongPressHandler(readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
                     contextMenuListener);
@@ -413,8 +413,8 @@ public class BottomContentHandler implements BottomContentInterface,
     private class LongPressHandler extends PageContainerLongPressHandler
             implements ListViewContextMenuListener {
         private int lastPosition;
-        LongPressHandler(@NonNull PageFragment.Callback callback) {
-            super(callback);
+        LongPressHandler(@NonNull PageFragment fragment) {
+            super(fragment);
         }
 
         @Override

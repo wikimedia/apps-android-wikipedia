@@ -292,7 +292,7 @@ class ToCHandler {
             super.onDrawerSlide(drawerView, slideOffset);
             // make sure the ActionBar is showing
             fragment.showToolbar();
-            fragment.getSearchBarHideHandler().setForceNoFade(slideOffset != 0);
+            fragment.setToolbarForceNoFace(slideOffset != 0);
             // request the current section to highlight, if we haven't yet
             if (!sectionRequested) {
                 bridge.sendMessage("requestCurrentSection", new JSONObject());

@@ -75,9 +75,9 @@ public class TabsProvider {
         this.fragment = fragment;
         this.tabList = tabList;
 
-        pageContentView = fragment.getContentView();
+        pageContentView = fragment.getView();
         tabContainerView = fragment.getTabsContainerView();
-        tabListView = (ListView) tabContainerView.findViewById(R.id.tabs_list);
+        tabListView = tabContainerView.findViewById(R.id.tabs_list);
         tabListAdapter = new TabListAdapter(fragment.getActivity().getLayoutInflater());
         tabListView.setAdapter(tabListAdapter);
 
@@ -149,7 +149,7 @@ public class TabsProvider {
             tabActionMode = mode;
             mode.getMenuInflater().inflate(R.menu.menu_tabs, menu);
             Animation anim = loadPageContentViewAnimation();
-            fragment.getContentView().startAnimation(anim);
+            fragment.getView().startAnimation(anim);
             layoutTabList(onTabModeEntered);
 
             return true;
@@ -195,7 +195,7 @@ public class TabsProvider {
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             Animation anim = AnimationUtils.loadAnimation(fragment.getContext(), R.anim.tab_list_zoom_exit);
-            fragment.getContentView().startAnimation(anim);
+            fragment.getView().startAnimation(anim);
             hideTabList();
             tabActionMode = null;
             fragment.showToolbar();
