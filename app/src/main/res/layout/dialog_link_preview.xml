@@ -49,7 +49,7 @@
                 android:maxLines="3"
                 android:ellipsize="end"
                 tools:text="Lorem ipsum" />
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/link_preview_overflow_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -58,7 +58,8 @@
                 android:background="?attr/actionBarItemBackground"
                 android:contentDescription="@string/abc_action_menu_overflow_description"
                 app:srcCompat="@drawable/ic_more_vert_white_24dp"
-                android:tint="?attr/material_theme_secondary_color"/>
+                app:tint="?attr/material_theme_secondary_color"
+                app:tintMode="src_in"/>
         </LinearLayout>
 
         <View
