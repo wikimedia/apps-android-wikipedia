@@ -1,7 +1,7 @@
-Jinja2==2.8
-lxml==3.6.0
-MarkupSafe==0.23
-Pillow==3.3.0
-sh==1.11
-unicodecsv==0.14.1
-flake8==3.0.4
+Jinja2>=2.9.6
+lxml>=4.0.0
+MarkupSafe>=1.0
+Pillow>=4.2.1
+sh>=1.12.14
+unicodecsv>=0.14.1
+flake8>=3.4.1
