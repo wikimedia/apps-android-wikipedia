@@ -35,6 +35,10 @@ public class InitialOnboardingFragment extends OnboardingFragment {
         return R.string.onboarding_get_started;
     }
 
+    @Override protected int getBackgroundResId() {
+        return R.drawable.onboarding_gradient_background_135;
+    }
+
     @Override public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
