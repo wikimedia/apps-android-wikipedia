@@ -9,7 +9,7 @@
               android:padding="8dp"
               android:visibility="gone"
               tools:visibility="visible"
-              android:background="?attr/window_background_color"
+              android:background="?android:windowBackground"
               >
 
     <android.support.design.widget.TextInputLayout

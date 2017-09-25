@@ -13,7 +13,6 @@
         app:srcCompat="@drawable/ic_search_white_24dp"
         android:tint="@color/base30"
         android:background="@drawable/shape_circle"
-        tools:backgroundTint="?attr/window_background_color"
         android:contentDescription="@null" />
 
     <TextView

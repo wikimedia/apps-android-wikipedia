@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="window_background_color" format="reference"/>
     <attr name="main_toolbar_color" format="reference"/>
     <attr name="main_status_bar_color" format="reference"/>
     <attr name="toc_item_background" format="reference"/>

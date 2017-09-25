@@ -7,8 +7,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:background="?attr/window_background_color">
+    android:paddingRight="@dimen/activity_horizontal_margin">
 
     <TextView
         android:id="@+id/view_description_edit_help_contents"

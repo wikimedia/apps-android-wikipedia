@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingBottom="16dp"
-    android:background="?attr/window_background_color">
+    android:background="?android:windowBackground">
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"

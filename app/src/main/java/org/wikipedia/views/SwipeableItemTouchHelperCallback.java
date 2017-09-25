@@ -28,7 +28,7 @@ public class SwipeableItemTouchHelperCallback extends ItemTouchHelper.Callback {
         deleteBackgroundPaint.setStyle(Paint.Style.FILL);
         deleteBackgroundPaint.setColor(Color.RED);
         itemBackgroundPaint.setStyle(Paint.Style.FILL);
-        itemBackgroundPaint.setColor(ResourceUtil.getThemedColor(context, R.attr.window_background_color));
+        itemBackgroundPaint.setColor(ResourceUtil.getThemedColor(context, android.R.attr.windowBackground));
         deleteIcon = ResourceUtil.bitmapFromVectorDrawable(context, R.drawable.ic_delete_white_24dp);
     }
 

@@ -30,7 +30,6 @@
         <item name="blue_switch">@style/BlueSwitchLight</item>
 
         <!-- Overrides of our own custom color attributes -->
-        <item name="window_background_color">@color/base90</item>
         <item name="main_toolbar_color">@color/accent50</item>
         <item name="main_status_bar_color">@color/accent30</item>
         <item name="edit_text_color">@color/base0</item>

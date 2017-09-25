@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
-            android:background="?attr/window_background_color"/>
+            android:background="?android:windowBackground"/>
 
         <TextView
             android:id="@+id/reading_list_empty_text"
