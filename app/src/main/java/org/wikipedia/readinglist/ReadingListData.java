@@ -212,7 +212,9 @@ public final class ReadingListData {
         try {
             if (cursor.getCount() != 0) {
                 cursor.moveToFirst();
-                return ReadingListPage.fromCursor(cursor);
+                ReadingListPage page = ReadingListPage.fromCursor(cursor);
+                // If a page doesn't belong to any lists, it's likely queued for deletion.
+                return page.listKeys().size() > 0 ? page : null;
             }
         } finally {
             cursor.close();
