@@ -21,7 +21,7 @@
             android:layout_gravity="end|center_vertical"
             style="@style/Widget.AppCompat.ImageButton"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:tint="?attr/menu_icon_color"
+            android:tint="?attr/material_theme_secondary_color"
             app:srcCompat="@drawable/ic_close_white_24dp"
             android:contentDescription="@string/dialog_close_description"/>
 

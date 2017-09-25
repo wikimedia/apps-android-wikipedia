@@ -116,7 +116,7 @@
             android:clickable="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_favorite_white_24dp"
-            android:tint="@color/material_icon_default_gray"
+            android:tint="?attr/material_theme_de_emphasised_color"
             android:contentDescription="@null"
             android:visibility="gone"
             tools:visibility="visible"/>

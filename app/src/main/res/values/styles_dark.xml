@@ -34,7 +34,6 @@
         <item name="main_toolbar_color">@color/accent30</item>
         <item name="main_status_bar_color">@color/accent20</item>
         <item name="edit_text_color">@color/base90</item>
-        <item name="page_header_edit_pencil_alpha">1.0</item>
         <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
         <item name="multi_select_background_color">@color/accent30</item>
@@ -42,7 +41,6 @@
         <item name="cardBackgroundColor">@color/base14</item>
         <item name="header_edit_button">@style/HeaderEditButtonDark</item>
         <item name="edit_preview_color">@color/accent75</item>
-        <item name="menu_icon_color">@color/white70</item>
         <item name="link_color">@color/accent75</item>
         <item name="material_theme_primary_color">@color/base100</item>
         <item name="material_theme_secondary_color">@color/white70</item>

@@ -13,7 +13,6 @@
     <attr name="tab_item_selector" format="reference"/>
     <attr name="tab_shadow_drawable" format="reference"/>
     <attr name="material_theme_shadow" format="reference"/>
-    <attr name="page_header_edit_pencil_alpha" format="float" />
     <attr name="nav_tab_background_color" format="reference" />
     <attr name="nav_tab_item_color_state" format="reference" />
 
@@ -24,7 +23,6 @@
 
     <attr name="blue_switch" format="reference" />
     <attr name="header_edit_button" format="reference" />
-    <attr name="menu_icon_color" format="color" />
     <attr name="link_color" format="color" />
     <attr name="material_theme_secondary_color" format="color" />
     <attr name="material_theme_primary_color" format="color" />
