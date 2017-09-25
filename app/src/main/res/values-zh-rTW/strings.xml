@@ -261,6 +261,8 @@
   <string name="preference_title_dim_dark_mode_images">在暗黑主題調暗圖片</string>
   <string name="preference_summary_dim_dark_mode_images">當使用暗黑主題時減少圖片亮度</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在暗黑主題）</string>
+  <string name="preference_title_prefer_offline_content">離線內容優先</string>
+  <string name="preference_summary_prefer_offline_content">依載入可用在離線狀況下的條目；優先於最新版本條目來儲存資料使用量</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>

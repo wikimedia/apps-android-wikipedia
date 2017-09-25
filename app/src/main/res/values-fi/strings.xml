@@ -258,7 +258,9 @@
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
   <string name="reference_title">Viite %s</string>
   <string name="preference_title_dim_dark_mode_images">Himmennä kuvat tummaa teemaa käytettäessä</string>
+  <string name="preference_summary_dim_dark_mode_images">Vähennä kuvien kirkkautta tummaa teemaa käytettäessä</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Kuvien himmentäminen (tummassa teemassa)</string>
+  <string name="preference_title_prefer_offline_content">Suosi yhteydettömän tilan sisältöä</string>
   <string name="crash_report_dialog_title">Pahoittelut, sovellus kaatui viime kerralla</string>
   <string name="crash_report_dialog_text">Haluaisitko lähettää kaatumisilmoituksen HockeyAppiin / kolmannen osapuolen palveluntarjoajalle, jotta Wikimedia voi käydä läpi kaatumisesi ja korjata sen aiheuttaneen ongelman?</string>
   <string name="crash_report_dialog_dont_send_button">Ohita</string>
@@ -324,15 +326,19 @@
   <string name="reading_list_remove_from_list">Poista lukuluettelosta %s</string>
   <string name="reading_list_remove_from_lists">Poista lukuluetteloista</string>
   <string name="reading_list_confirm_remove_article_from_offline">Poista offlinesta</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Artikkeli löytyy useammasta luettelosta</string>
   <string name="reading_list_sync_reminder_title">Lukulistojen synkronointi on pois käytöstä</string>
   <string name="reading_list_sync_reminder_text">Lukuluettelosi voidaan synkronoida Wikipedia-tunnuksellesi, jos sallit synkronoinnin sovelluksen asetuksissa.</string>
   <string name="reading_list_sync_reminder_action">Ota käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
+  <string name="reading_list_login_reminder_text">Lukuluettelosi voidaan nyt tallentaa Wikipedia-tunnuksellesi. Kirjaudu sisään tunnuksellesi ja lukuluettelosi synkronoidaan automaattisesti.</string>
+  <string name="reading_lists_confirm_remote_delete">Tämä poistaa kaikki aiemmin synkronoidut lukuluettelot etätallennusvarannosta. Jatketaanko?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
   <string name="reading_list_already_contains_selection">Valittu luettelo sisältää jo kaikki valitut sivut.</string>
   <string name="reading_list_added_articles_list_untitled">Lisättiin %d artikkelia lukuluetteloon.</string>
+  <string name="reading_list_added_articles_list_titled">Lisättiin %1$d artikkelia luetteloon %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>
@@ -417,7 +423,7 @@
   <string name="offline_compilation_download_device_offline">Ei Internet-yhteyttä. Varmista, että yhteytesi toimii ja yritä sitten uudelleen.</string>
   <string name="offline_read_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan selaamiseen ilman verkkoyhteyttä.</string>
   <string name="offline_read_permission_error">Laitteen muistin lukemisen käyttö-oikeutta ei ole myönnetty.</string>
-  <string name="offline_card_text" fuzzy="true">Selaat nyt Wikipediaa yhteydettömässä tilassa. Huomioithan, että yhteydettömän tilan artikkelit eivät välttämättä ole ajan tasalla verkkoversion kanssa.</string>
+  <string name="offline_card_text">Selaat nyt Wikipediaa yhteydettömässä tilassa Offline-kirjaston artikkeleiden kanssa.</string>
   <string name="offline_my_compilations">Hallinnoi yhteydettömän tilan kirjastoani</string>
   <string name="offline_compilations_title">Yhteydettömän tilan kirjasto</string>
   <string name="offline_compilations_search_by_name">Etsi artikkelipaketeista nimen perusteella</string>
@@ -447,6 +453,7 @@
   <string name="compilation_remove_confirm">Haluatko poistaa tämän yhteydettömän tilan kirjastostasi?</string>
   <string name="offline_library_title">Offline kirjasto</string>
   <string name="offline_library_empty_title">Yhteydettömän tilan kirjastossasi ei ole mitään</string>
+  <string name="offline_library_empty_description">Valitse paketti Wikipedia-artikkeleita ladattavaksi nyt jotta voit käyttää niitä myöhemmin ilman datayhteyttä.</string>
   <string name="offline_library_empty_search">Etsi yhteydettömän tilan kirjastosta</string>
   <string name="offline_library_search_results_state">Hakutulokset yhteydettömän tilan kirjastostasi</string>
   <string name="offline_library_onboarding_action">Lue lisää</string>
@@ -454,6 +461,7 @@
   <string name="offline_library_onboarding_button_done">Valmis</string>
   <string name="offline_library_onboarding_build_library_title">Rakenna yhteydettömän tilan kirjastosi</string>
   <string name="offline_library_onboarding_build_library_subtitle">Lataa Wikipedian artikkelipaketteja nyt käyttääksesi niitä myöhemmin ilman datayhteyttä.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Jatka lukemista ja artikkelien etsimistä yhteydettömän tilan kirjastossasi kun sinulla ei ole Internet-yhteyttä.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Tallenna lisää tietoa</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Lataa niin paljon Wikipediaa kuin mitä laitteesi kestää. Yhteydettömän tilan kirjasto voi myös käsitellä ulkoisella muistilla olevia artikkelipaketteja.</string>
   <string name="onboarding_skip">Ohita</string>
@@ -471,4 +479,5 @@
   <string name="onboarding_create_account_preferences">Tallenna asetuksesi</string>
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
+  <string name="app_shortcuts_search">Etsi</string>
 </resources>

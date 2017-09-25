@@ -223,7 +223,8 @@
   <string name="close_all_tabs_confirm_yes">Ih</string>
   <string name="close_all_tabs_confirm_no">Uhu</string>
   <string name="button_close_tab">Mdel iccer</string>
-  <string name="tool_tip_select_text" fuzzy="true">Tekki sakin eǧǧ afus-ik anida tebɣiḍ deg uḍris akked ad yebruṛeq sakin ad tneɣleḍ neɣ ad tebḍuḍ.</string>
+  <string name="tool_tip_select_text_title">Eǧǧ afus-ik akken ad tferneḍ</string>
+  <string name="tool_tip_select_text">Tekki sakin eǧǧ afus-ik anida tebɣiḍ deg uḍris akken ad tferneḍ aḍris i unɣalneɣ beṭṭu.</string>
   <string name="tool_tip_share">Seld asebruṛeq n tɣawsa yelhan, ɛreḍ beṭṭu-is deg iẓeḍwa-ik inurifen!</string>
   <string name="page_view_in_browser">Sken deg iminig-ik</string>
   <string name="tool_tip_toc_button">Wali agbur yal tikelt ticki tsendeḍ ɣef tqeffalt, neɣ zuɣeṛ si tama tayeffust n ugdil.</string>
@@ -258,6 +259,8 @@
   <string name="preference_title_dim_dark_mode_images">Tugnatin meẓẓiyen deg usentel aberkan</string>
   <string name="preference_summary_dim_dark_mode_images">Senɣeṣ tafat n tugniwin ticki nseqdac asentel ubrik</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Asibrek n tugna (deg usentel ubrik)</string>
+  <string name="preference_title_prefer_offline_content">Bɣiɣ agbur n war tuqqna</string>
+  <string name="preference_summary_prefer_offline_content">Sekles axiṛ isefka s usali n imagraden yellan s war tuqqna wala asali n lqem aneggaru n umagrad.</string>
   <string name="crash_report_dialog_title">Suref-aɣ, asnas yeɣli tagara-agi</string>
   <string name="crash_report_dialog_text">Tebɣiḍ ad tazneḍ aneqqis n uɣelluy ar HockeyApp  - asaǧǧaw n umeẓalu wis kraḍ - akken Wikimedia ad tizmir ad tesleḍ ugur-ik sakin ad tseɣti abug i t-id-yesseglan?</string>
   <string name="crash_report_dialog_dont_send_button">Zgel</string>
@@ -420,6 +423,7 @@
   <string name="description_edit_revert_reason1">attekki-ik ur yedfiṛ ara yiwen seg &lt;a href=\"%1$s\"&gt;imniren&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">attekki-ik yettban am termit neɣ ahuddu.</string>
   <string name="description_edit_revert_history">Ma tebɣiḍ, wali &lt;a href=\"%1$s\"&gt;amazray n teẓrigt&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Ulac tuqqna Internet. Wali ma yella teqqneḍ, sakin ɛred.</string>
   <string name="offline_read_permission_rationale">Azref n unekcum ar umḍiq n usekles n yibenk-ik ilaq i tunigin di s war tuqqna.</string>
   <string name="offline_read_permission_error">Ur ttunefken ara izerfan i tɣuri n umḍiq n usekles n yibenk-ik.</string>
   <string name="offline_card_text">Tettinigeḍ di Wikipedia deg uskar n war tuqqna s imagraden di tnedlis-ik n war tuqqna</string>
@@ -460,7 +464,9 @@
   <string name="offline_library_onboarding_build_library_title">Bnu tamkarḍit-ik war tuqqna</string>
   <string name="offline_library_onboarding_build_library_subtitle">Sider tigrummiwin n imagraden Wikipedia tura i unekcum ilelli ar zdat.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Taɣuri teḥbes</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Kemmel taɣuri udiɣ nadi imagraden di tnedlist n war tuqqna ticki ur ɣur-k ara tuqqna Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Sekles ugar n tmusni</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Sider ayen yemzer ad tawi tiliɣri-ik si Wikipedia. Tanedlist n war tuqqna tezmer ad tekcem ar tagrumma n imagraden deg usekles azɣaray.</string>
   <string name="onboarding_skip">Zgel</string>
   <string name="onboarding_continue">Kemmel</string>
   <string name="onboarding_get_started">Bdu</string>

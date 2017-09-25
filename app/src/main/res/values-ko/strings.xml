@@ -257,6 +257,7 @@
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
   <string name="reference_title">각주 %s</string>
   <string name="preference_summary_dim_dark_mode_images">어두운 테마를 사용할 때 그림의 밝기를 낮춥니다</string>
+  <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>

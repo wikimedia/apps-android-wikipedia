@@ -261,6 +261,8 @@
   <string name="preference_title_dim_dark_mode_images">Samarkan imej dalam tema gelap</string>
   <string name="preference_summary_dim_dark_mode_images">Kurangkan kecerahan imej apabila menggunakan tema gelap</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pemalapan imej (dalam tema Gelap)</string>
+  <string name="preference_title_prefer_offline_content">Lebih suka kandungan luar talian</string>
+  <string name="preference_summary_prefer_offline_content">Menjimatkan penggunaan data dengan memuatkan rencana yang tersedia di luar talian dan bukannya memuatkan versi terkini rencana</string>
   <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
   <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Langkau</string>

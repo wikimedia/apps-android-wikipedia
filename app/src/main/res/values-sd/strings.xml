@@ -218,6 +218,7 @@
   <string name="close_all_tabs_confirm_yes">ھا</string>
   <string name="close_all_tabs_confirm_no">نہ</string>
   <string name="button_close_tab">ٽيب بنديو</string>
+  <string name="tool_tip_select_text_title">چونڊڻ لاءِ ڊگھو-زور ڏيو</string>
   <string name="tool_tip_select_text">متن ۾ ڪنهن بہ جڳھ تي زور ڏيو يا جهلي بيهو تہ جيئن ان جو نقل ڪرڻ ۽ ونڊڻ جي لاءِ چونڊجي سگهي.</string>
   <string name="tool_tip_share">ڪا دلچسپ ڳالھ نمايان ڪرڻ کانپوءِ، ان کي پنھنجي پسنديده نيٽورڪس تي ونڊي ڏسو!</string>
   <string name="page_view_in_browser">صفحي کي جھانگُوءَ ۾ ڏسو</string>
@@ -250,6 +251,8 @@
   <string name="error_page_does_not_exist">ھي صفحو وجود نٿو رکي</string>
   <string name="view_wiki_error_message_offline">انٽرنيٽ سان ڳنڍي نٿو سگھي</string>
   <string name="reference_title">حوالو %s</string>
+  <string name="preference_title_dim_dark_mode_images">گھري نظاري ۾ ڊم عڪس</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">(گھري نظاري ۾) عڪسن کي ڊم ڪندي</string>
   <string name="crash_report_dialog_title">معاف ڪجو، پوئين ڀيري ايپ خراب ٿي وئي</string>
   <string name="crash_report_dialog_dont_send_button">ڇڏيو</string>
   <string name="crash_report_dialog_always_send_button">ھميشہ اماڻيو</string>
@@ -322,6 +325,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">ھا</string>
   <string name="reading_lists_confirm_remote_delete_no">نہ</string>
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>
+  <string name="reading_list_added_articles_list_untitled">%d مضمون پڙھڻ جي فھرست ۾ شامل ڪيا ويا.</string>
+  <string name="reading_list_added_articles_list_titled">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ھي مضمون ھاڻي آفلائين موجود ھوندو.</item>
     <item quantity="other">ھي مضمونَ ھاڻي آفلائين موجود ھوندا.</item>
@@ -431,11 +436,14 @@
   <string name="compilation_download_cancel_confirm_no">نہ</string>
   <string name="compilation_share">ونڊيو</string>
   <string name="compilation_remove">ھٽايو</string>
+  <string name="compilation_remove_confirm">ڇا توھان ھن کي پنھنجي آفلائين ڪتبخاني مان ڪڍڻ ٿا چاھيو؟</string>
   <string name="offline_library_title">آفلائين ڪتبخانو</string>
   <string name="offline_library_empty_title">توھان جي آفلائين ڪتبخاني ۾ ڪجھ بہ ناھي</string>
   <string name="offline_library_empty_search">آفلائين ڪتبخانو ڳوليو</string>
+  <string name="offline_library_search_results_state">پنھنجي آفلائين ڪتبخاني مان نتيجا ڳوليو</string>
   <string name="offline_library_onboarding_action">وڌيڪ لھو</string>
   <string name="offline_library_onboarding_button_done">ٿي ويو</string>
+  <string name="offline_library_onboarding_build_library_title">پنھنجو آفلائين ڪتبخانو جوڙيو</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">اڻرنڊيل پڙھائي</string>
   <string name="offline_library_onboarding_store_knowledge_title">وڌيڪ ڄاڻ سانڍيو</string>
   <string name="onboarding_skip">ڇڏيو</string>

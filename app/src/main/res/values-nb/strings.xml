@@ -261,6 +261,8 @@
   <string name="preference_title_dim_dark_mode_images">Mørklegg bilder i den mørke drakten</string>
   <string name="preference_summary_dim_dark_mode_images">Reduser lysstyrken i bilder når du bruker den mørke drakten</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mørklegging av bilder (i den mørke drakten)</string>
+  <string name="preference_title_prefer_offline_content">Foretrekk offline-innhold</string>
+  <string name="preference_summary_prefer_offline_content">Minsk dataforbruket ved å laste artikler som er tilgjengelige offline i stedet for å alltid laste den siste versjonen av en artikkel</string>
   <string name="crash_report_dialog_title">Beklager, appen krasjet forrige gang</string>
   <string name="crash_report_dialog_text">Vil du sende en krasjrapport til tredjepartstjenesten HockeyApp slik at Wikimedia kan gjennomgå den og fikse feilen som førte til krasjet?</string>
   <string name="crash_report_dialog_dont_send_button">Hopp over</string>

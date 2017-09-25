@@ -261,6 +261,8 @@
   <string name="preference_title_dim_dark_mode_images">Пригушени слики во темниот изглед</string>
   <string name="preference_summary_dim_dark_mode_images">Намалување на светлоста на сликите при употреба на темниот изглед</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
+  <string name="preference_title_prefer_offline_content">Претпочитам вонмрежно</string>
+  <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>

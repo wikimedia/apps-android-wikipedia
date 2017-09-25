@@ -261,6 +261,8 @@
   <string name="preference_title_dim_dark_mode_images">Amortecer imaxes na tema escura</string>
   <string name="preference_summary_dim_dark_mode_images">Amenorgar el rellumu de les imaxes cuando s\'utiliza la tema escura</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Amortecimientu d\'imaxes (na tema escura)</string>
+  <string name="preference_title_prefer_offline_content">Preferir conteníu ensin conexón</string>
+  <string name="preference_summary_prefer_offline_content">Aforrar l\'usu de datos cargando artículos que tean disponibles ensin conexón, en llugar de cargar siempres la última versión d\'un artículu.</string>
   <string name="crash_report_dialog_title">Sentímoslo, l\'aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Quies unviar un informe de cuelgue a HockeyApp / un fornidor de serviciu d\'un terceru pa que Wikimedia pueda revisar el cuelgue ya iguar el fallu que lu causó?</string>
   <string name="crash_report_dialog_dont_send_button">Saltar</string>
