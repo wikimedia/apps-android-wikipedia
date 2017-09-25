@@ -62,7 +62,8 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                argument('butterknife.minSdk', minSdkVersion.apiString)
+                arguments('butterknife.minSdk': minSdkVersion.apiString,
+                          'butterknife.debuggable': 'false')
             }
         }
     }
@@ -159,7 +160,7 @@ dependencies {
     String retrofitVersion = '2.3.0'
     String supportVersion = '26.0.2'
     String espressoVersion = '2.2.2'
-    String butterKnifeVersion = '8.5.1'
+    String butterKnifeVersion = '8.8.1'
     String frescoVersion = '1.5.0' // When updating this version, resync file copies under
                                    // app/src/main/java/com/facebook
     String testingSupportVersion = '0.5'
