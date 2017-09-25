@@ -16,7 +16,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
@@ -113,7 +112,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private PageToolbarHideHandler toolbarHideHandler;
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
-    @Nullable private PageLoadCallbacks pageLoadCallbacks;
 
     private DialogInterface.OnDismissListener listDialogDismissListener = new DialogInterface.OnDismissListener() {
         @Override
@@ -558,12 +556,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         hideSoftKeyboard();
     }
 
-    @Nullable
-    @Override
-    public PageLoadCallbacks onPageGetPageLoadCallbacks() {
-        return pageLoadCallbacks;
-    }
-
     @Override
     public void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
                                @NonNull TabPosition tabPosition) {
@@ -877,11 +869,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .setPositiveButton(android.R.string.ok, null)
                 .create()
                 .show();
-    }
-
-    @VisibleForTesting
-    public void setPageLoadCallbacks(@Nullable PageLoadCallbacks pageLoadCallbacks) {
-        this.pageLoadCallbacks = pageLoadCallbacks;
     }
 
     @SuppressLint("CommitTransaction")

@@ -120,7 +120,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Nullable ActionMode onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
         void onPageShowToolbar();
         void onPageHideSoftKeyboard();
-        @Nullable PageLoadCallbacks onPageGetPageLoadCallbacks();
         void onPageAddToReadingList(@NonNull PageTitle title,
                                     @NonNull AddToReadingListDialog.InvokeSource source);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
@@ -903,10 +902,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // TODO: update this title in the db to be queued for saving by the service.
 
         checkAndShowSelectTextOnboarding();
-
-        if (getPageLoadCallbacks() != null) {
-            getPageLoadCallbacks().onLoadComplete();
-        }
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -939,10 +934,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorState = true;
         if (callback() != null) {
             callback().onPageLoadError(getTitle());
-        }
-
-        if (getPageLoadCallbacks() != null) {
-            getPageLoadCallbacks().onLoadError(caught);
         }
     }
 
@@ -1390,16 +1381,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (callback != null) {
             callback.onPageHideSoftKeyboard();
         }
-    }
-
-    @Nullable
-    private PageLoadCallbacks getPageLoadCallbacks() {
-        PageLoadCallbacks callbacks = null;
-        Callback callback = callback();
-        if (callback != null) {
-            callbacks = callback.onPageGetPageLoadCallbacks();
-        }
-        return callbacks;
     }
 
     public void addToReadingList(@NonNull AddToReadingListDialog.InvokeSource source) {
