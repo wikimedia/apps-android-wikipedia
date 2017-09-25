@@ -28,7 +28,7 @@
                 android:id="@+id/compilation_detail_header_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/window_background_color"
+                android:background="?android:windowBackground"
                 app:layout_collapseMode="parallax"
                 android:fitsSystemWindows="true">
 

@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="?attr/window_background_color">
+              android:background="?android:windowBackground">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"

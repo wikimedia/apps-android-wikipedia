@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/window_background_color">
+    android:layout_height="match_parent">
 
     <ProgressBar
         android:id="@+id/edit_section_load_progress"
@@ -63,7 +62,7 @@
         android:id="@+id/edit_section_abusefilter_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/window_background_color"
+        android:background="?android:windowBackground"
         android:visibility="gone"
         tools:visibility="visible">
         <LinearLayout
@@ -105,7 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@color/base80"
+        android:background="?android:windowBackground"
         android:orientation="vertical"
         android:visibility="gone"/>
 </FrameLayout>

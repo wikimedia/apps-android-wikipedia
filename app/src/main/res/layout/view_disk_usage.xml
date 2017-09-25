@@ -70,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:background="?attr/window_background_color"/>
+            android:background="?android:windowBackground"/>
 
     </LinearLayout>
 
@@ -139,7 +139,7 @@
             android:background="@drawable/shape_circle"
             android:src="@drawable/shape_circle_outline"
             android:contentDescription="@null"
-            tools:backgroundTint="?attr/window_background_color" />
+            tools:backgroundTint="?android:windowBackground" />
 
         <TextView
             android:id="@+id/view_disk_usage_text_free"

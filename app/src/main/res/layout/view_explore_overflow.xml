@@ -43,7 +43,7 @@
         android:orientation="vertical"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:background="?attr/window_background_color">
+        android:background="?android:windowBackground">
 
         <TextView
             android:id="@+id/explore_overflow_compilations"
