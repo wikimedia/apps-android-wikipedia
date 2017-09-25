@@ -2,6 +2,7 @@ package org.wikipedia.onboarding;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -42,6 +43,8 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
 
     @StringRes protected abstract int getDoneButtonText();
 
+    @DrawableRes protected abstract int getBackgroundResId();
+
     protected ViewPager getViewPager() {
         return viewPager;
     }
@@ -54,7 +57,7 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_onboarding_pager, container, false);
         unbinder = ButterKnife.bind(this, view);
-        background = (GradientDrawable) ContextCompat.getDrawable(getContext(), R.drawable.onboarding_gradient_background_offline);
+        background = (GradientDrawable) ContextCompat.getDrawable(getContext(), getBackgroundResId());
         background.mutate();
         layout.setBackground(background);
         adapter = getAdapter();

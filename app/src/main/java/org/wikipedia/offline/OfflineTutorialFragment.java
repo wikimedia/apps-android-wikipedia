@@ -40,6 +40,11 @@ public class OfflineTutorialFragment extends OnboardingFragment {
         return R.string.offline_library_onboarding_button_done;
     }
 
+    @Override
+    protected int getBackgroundResId() {
+        return R.drawable.onboarding_gradient_background_offline;
+    }
+
     private BackgroundGradientOnPageChangeListener.MutatableGradientColors getBackgroundGradientColors() {
         List<Integer> startColors = new ArrayList<>();
         List<Integer> centerColors = new ArrayList<>();
