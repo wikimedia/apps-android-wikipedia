@@ -46,13 +46,14 @@
 
     </LinearLayout>
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/compilation_download_widget_button_cancel"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="2dp"
-        android:tint="?attr/material_theme_secondary_color"
         app:srcCompat="@drawable/ic_clear_white_24px"
+        app:tint="?attr/material_theme_secondary_color"
+        app:tintMode="src_in"
         android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/compilation_download_widget_button_cancel_hint"/>

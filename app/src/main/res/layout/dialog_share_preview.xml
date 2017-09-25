@@ -14,15 +14,16 @@
         android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/close_button"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="end|center_vertical"
             style="@style/Widget.AppCompat.ImageButton"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:tint="?attr/material_theme_secondary_color"
             app:srcCompat="@drawable/ic_close_white_24dp"
+            app:tint="?attr/material_theme_secondary_color"
+            app:tintMode="src_in"
             android:contentDescription="@string/dialog_close_description"/>
 
         <LinearLayout

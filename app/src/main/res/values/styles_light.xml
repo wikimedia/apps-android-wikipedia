@@ -39,7 +39,6 @@
         <item name="multi_select_background_color">@color/accent90</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>
-        <item name="header_edit_button">@style/HeaderEditButtonLight</item>
         <item name="edit_preview_color">@color/accent50</item>
         <item name="link_color">@color/accent50</item>
         <item name="material_theme_primary_color">@color/black87</item>
@@ -75,10 +74,6 @@
         <item name="android:colorForeground">@color/base30</item>
         <item name="trackTint">@color/base70</item>
         <item name="trackTintMode">src_in</item>
-    </style>
-
-    <style name="HeaderEditButtonLight">
-        <item name="android:alpha">0.55</item>
     </style>
 
 </resources>

@@ -10,7 +10,6 @@ import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -173,8 +172,8 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     }
 
     public void setProtected(boolean isProtected) {
-        editPencil.setImageDrawable(ContextCompat.getDrawable(getContext(), isProtected
-                ? R.drawable.ic_edit_lock_24px : R.drawable.ic_mode_edit_white_24dp));
+        editPencil.setImageResource(isProtected
+                ? R.drawable.ic_edit_lock_24px : R.drawable.ic_mode_edit_white_24dp);
     }
 
     public void setLocale(@NonNull String locale) {

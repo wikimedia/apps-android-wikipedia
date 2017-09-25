@@ -21,14 +21,15 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp">
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
-                android:tint="?attr/material_theme_secondary_color"
-                app:srcCompat="@drawable/ic_check_black_24dp" />
+                app:srcCompat="@drawable/ic_check_black_24dp"
+                app:tint="?attr/material_theme_secondary_color"
+                app:tintMode="src_in" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -43,14 +44,15 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp">
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
-                android:tint="?attr/material_theme_secondary_color"
-                app:srcCompat="@drawable/ic_check_black_24dp" />
+                app:srcCompat="@drawable/ic_check_black_24dp"
+                app:tint="?attr/material_theme_secondary_color"
+                app:tintMode="src_in" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -65,14 +67,15 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp">
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:contentDescription="@null"
-                android:tint="?attr/material_theme_secondary_color"
-                app:srcCompat="@drawable/ic_check_black_24dp" />
+                app:srcCompat="@drawable/ic_check_black_24dp"
+                app:tint="?attr/material_theme_secondary_color"
+                app:tintMode="src_in" />
 
             <TextView
                 android:layout_width="match_parent"

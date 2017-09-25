@@ -39,7 +39,6 @@
         <item name="multi_select_background_color">@color/accent30</item>
         <item name="searchItemBackground">@color/base12</item>
         <item name="cardBackgroundColor">@color/base14</item>
-        <item name="header_edit_button">@style/HeaderEditButtonDark</item>
         <item name="edit_preview_color">@color/accent75</item>
         <item name="link_color">@color/accent75</item>
         <item name="material_theme_primary_color">@color/base100</item>
@@ -73,11 +72,6 @@
         <item name="colorControlActivated">@color/accent75</item>
         <item name="colorSwitchThumbNormal">@color/base90</item>
         <item name="android:colorForeground">@color/base30</item>
-    </style>
-
-    <style name="HeaderEditButtonDark">
-        <item name="android:tint">@color/base100</item>
-        <item name="android:alpha">0.7</item>
     </style>
 
 </resources>

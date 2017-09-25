@@ -7,12 +7,13 @@
     android:background="?attr/selectableItemBackground"
     android:clickable="true">
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
-        app:srcCompat="@drawable/ic_search_white_24dp"
         android:scaleType="center"
-        android:tint="?attr/material_theme_secondary_color"
+        app:srcCompat="@drawable/ic_search_white_24dp"
+        app:tint="?attr/material_theme_secondary_color"
+        app:tintMode="src_in"
         android:contentDescription="@string/search_hint" />
 
     <TextView
@@ -21,16 +22,16 @@
         android:layout_weight="1"
         android:layout_gravity="center_vertical"
         android:text="@string/search_hint"
-        android:textColor="?attr/material_theme_secondary_color"
-        android:alpha="0.87"/>
+        android:textColor="?attr/material_theme_de_emphasised_color" />
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/voice_search_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        app:srcCompat="@drawable/ic_mic_black_24dp"
         android:scaleType="center"
-        android:tint="?attr/material_theme_secondary_color"
+        app:srcCompat="@drawable/ic_mic_black_24dp"
+        app:tint="?attr/material_theme_secondary_color"
+        app:tintMode="src_in"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:contentDescription="@string/search_hint" />

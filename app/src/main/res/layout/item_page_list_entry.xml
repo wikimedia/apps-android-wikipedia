@@ -108,7 +108,7 @@
             android:visibility="gone"
             tools:visibility="visible"/>
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/page_list_item_action_primary"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -116,7 +116,8 @@
             android:clickable="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_favorite_white_24dp"
-            android:tint="?attr/material_theme_de_emphasised_color"
+            app:tint="?attr/material_theme_de_emphasised_color"
+            app:tintMode="src_in"
             android:contentDescription="@null"
             android:visibility="gone"
             tools:visibility="visible"/>

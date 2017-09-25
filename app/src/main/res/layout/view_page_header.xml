@@ -63,7 +63,7 @@
             android:background="@color/base70"/>
     </LinearLayout>
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/view_page_header_edit_pencil"
         android:layout_width="@dimen/edit_pencil_size"
         android:layout_height="@dimen/edit_pencil_size"
@@ -71,7 +71,8 @@
         android:layout_marginRight="@dimen/edit_pencil_horizontal_margin"
         android:layout_gravity="bottom|end"
         app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-        style="?attr/header_edit_button"
+        app:tint="?attr/material_theme_secondary_color"
+        app:tintMode="src_in"
         android:scaleType="fitCenter"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/article_header_edit_hint" />
