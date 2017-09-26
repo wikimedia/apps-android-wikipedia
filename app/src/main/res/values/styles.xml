@@ -18,6 +18,7 @@
         <item name="actionBarStyle">@style/ToolbarStyle</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
 
+        <item name="searchViewStyle">@style/SearchViewStyle</item>
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
     </style>
@@ -97,7 +98,7 @@
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textColorHint">?attr/material_theme_de_emphasised_color</item>
+        <item name="android:textColorHint">@color/white50</item>
     </style>
 
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
