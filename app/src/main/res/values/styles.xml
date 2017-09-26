@@ -44,10 +44,18 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="AppTheme.GreenActionMode">
+        <item name="actionModeStyle">@style/ActionModeGreen</item>
+    </style>
+
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlActivated">@color/base30</item>
         <item name="colorControlHighlight">@color/base30</item>
+    </style>
+
+    <style name="ActionModeGreen" parent="Widget.AppCompat.ActionMode">
+        <item name="background">@color/green50</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
