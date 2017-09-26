@@ -77,8 +77,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
-                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
 
         errorView.setBackClickListener(new View.OnClickListener() {

@@ -4,64 +4,45 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
+import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import org.wikipedia.util.ResourceUtil;
+
 // todo: replace with DividerItemDecoration once it supports headers and footers
 public class DrawableItemDecoration extends RecyclerView.ItemDecoration {
-    @Nullable private final Drawable drawable;
-    private final boolean drawEnds;
+    @NonNull private final Drawable drawable;
 
-    public DrawableItemDecoration(@NonNull Context context, @DrawableRes int id,
-                                  boolean drawEnds) {
-        this(ContextCompat.getDrawable(context, id), drawEnds);
+    public DrawableItemDecoration(@NonNull Context context, @AttrRes int id) {
+        this.drawable = ContextCompat.getDrawable(context,
+                ResourceUtil.getThemedAttributeId(context, id));
     }
 
-    public DrawableItemDecoration(@Nullable Drawable drawable, boolean drawEnds) {
-        this.drawable = drawable;
-        this.drawEnds = drawEnds;
+    @Override public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+                                         RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+        outRect.top = drawable.getIntrinsicHeight();
+        if (parent.getChildAdapterPosition(view) == state.getItemCount() - 1) {
+            outRect.bottom = drawable.getIntrinsicHeight();
+        }
     }
 
     @Override public void onDraw(Canvas canvas, @NonNull RecyclerView parent,
                                  RecyclerView.State state) {
         super.onDraw(canvas, parent, state);
-
-        if (drawable == null || parent.getChildCount() == 0) {
+        if (parent.getChildCount() == 0) {
             return;
         }
 
         int end = parent.getChildCount() - 1;
-        onDrawHeader(canvas, parent, state, parent.getChildAt(0));
-        for (int i = 1; i < end; ++i) {
-            View child = parent.getChildAt(i);
-            onDrawItem(canvas, parent, state, child);
+        for (int i = 0; i < end; ++i) {
+            draw(canvas, bounds(parent, parent.getChildAt(i), true));
         }
-        onDrawFooter(canvas, parent, state, parent.getChildAt(end));
-    }
-
-    private void onDrawHeader(Canvas canvas, @NonNull RecyclerView parent,
-                              RecyclerView.State state, @NonNull View child) {
-        if (drawEnds) {
-            draw(canvas, bounds(parent, child, true));
-        }
-        draw(canvas, bounds(parent, child, false));
-    }
-
-    private void onDrawFooter(Canvas canvas, @NonNull RecyclerView parent,
-                              RecyclerView.State state, @NonNull View child) {
-        if (drawEnds) {
-            draw(canvas, bounds(parent, child, false));
-        }
-    }
-
-    private void onDrawItem(Canvas canvas, @NonNull RecyclerView parent, RecyclerView.State state,
-                            @NonNull View child) {
-
-        draw(canvas, bounds(parent, child, false));
+        draw(canvas, bounds(parent, parent.getChildAt(end), true));
+        draw(canvas, bounds(parent, parent.getChildAt(end), false));
     }
 
     private Rect bounds(@NonNull RecyclerView parent, @NonNull View child, boolean top) {

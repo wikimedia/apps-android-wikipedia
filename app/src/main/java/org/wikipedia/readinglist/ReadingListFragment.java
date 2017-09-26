@@ -48,7 +48,6 @@ import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.DefaultViewHolder;
@@ -130,8 +129,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
-                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);

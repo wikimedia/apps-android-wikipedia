@@ -27,7 +27,6 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.GradientUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -103,8 +102,7 @@ public class NewsFragment extends Fragment {
 
     private void initRecycler() {
         links.setLayoutManager(new LinearLayoutManager(getContext()));
-        links.addItemDecoration(new DrawableItemDecoration(getContext(),
-                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+        links.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
         links.setNestedScrollingEnabled(false);
     }
 

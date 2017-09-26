@@ -9,7 +9,6 @@ import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.ViewUtil;
 
@@ -60,8 +59,7 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         directly. */
     protected void initRecycler(@NonNull RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
-                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
         recyclerView.setNestedScrollingEnabled(false);
     }
 }

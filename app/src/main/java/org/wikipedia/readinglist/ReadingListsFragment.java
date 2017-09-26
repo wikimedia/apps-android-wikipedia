@@ -36,7 +36,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.TextInputDialog;
@@ -88,8 +87,7 @@ public class ReadingListsFragment extends Fragment {
         searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
-        readingListView.addItemDecoration(new DrawableItemDecoration(getContext(),
-                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
+        readingListView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
         updateLists();
