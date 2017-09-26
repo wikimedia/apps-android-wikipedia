@@ -202,7 +202,6 @@
 
         <activity
             android:name=".offline.LocalCompilationsActivity"
-            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize"
             android:launchMode="singleTask">
             <intent-filter>
@@ -214,7 +213,8 @@
         </activity>
 
         <activity
-            android:name=".offline.RemoteCompilationsActivity" />
+            android:name=".offline.RemoteCompilationsActivity"
+            android:theme="@style/AppTheme.GreenActionMode"/>
 
         <activity
             android:name=".offline.CompilationDetailActivity" />
