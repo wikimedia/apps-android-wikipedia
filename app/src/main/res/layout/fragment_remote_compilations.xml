@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/base_color">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/compilation_list_app_bar"
@@ -77,8 +76,7 @@
             android:id="@+id/compilation_list_contents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            android:background="?android:windowBackground"/>
+            android:scrollbars="vertical"/>
 
         <ProgressBar
             android:id="@+id/compilation_list_progress"

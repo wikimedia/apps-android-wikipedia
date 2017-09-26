@@ -56,7 +56,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:background="@color/base80"
+                    android:background="?android:windowBackground"
                     android:visibility="gone"/>
 
                 <org.wikipedia.page.PageActionTabLayout

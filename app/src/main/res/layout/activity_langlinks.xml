@@ -35,8 +35,9 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:hint="@string/langlinks_filter_hint">
+            android:padding="12dp"
+            android:hint="@string/langlinks_filter_hint"
+            android:background="?attr/paper_color">
 
             <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/langlinks_filter"
@@ -56,14 +57,13 @@
             android:text="@string/langlinks_no_match"
             android:textAlignment="center"
             style="?android:textAppearanceLarge"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_margin="16dp"
             android:visibility="gone" />
 
         <ListView
             android:id="@+id/langlinks_list"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -74,7 +74,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@color/base80"
+        android:background="?android:windowBackground"
         android:visibility="gone"
         tools:visibility="visible"/>
 </FrameLayout>

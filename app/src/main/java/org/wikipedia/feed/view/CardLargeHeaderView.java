@@ -53,7 +53,7 @@ public class CardLargeHeaderView extends RelativeLayout {
     }
 
     private void resetBackgroundColor() {
-        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.cardBackgroundColor));
+        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
     }
 
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
@@ -81,7 +81,7 @@ public class CardLargeHeaderView extends RelativeLayout {
         private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
             final int animDuration = 500;
             ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor",
-                    ResourceUtil.getThemedColor(getContext(), R.attr.cardBackgroundColor),
+                    ResourceUtil.getThemedColor(getContext(), R.attr.paper_color),
                     targetColor);
             animator.setEvaluator(new ArgbEvaluator());
             animator.setDuration(animDuration);

@@ -26,7 +26,6 @@
     <attr name="primary_text_color" format="color" />
     <attr name="secondary_text_color" format="color" />
     <attr name="section_title_color" format="color" />
-    <attr name="base_color" format="color" />
     <attr name="paper_color" format="color" />
 
     <declare-styleable name="CabSearchView">

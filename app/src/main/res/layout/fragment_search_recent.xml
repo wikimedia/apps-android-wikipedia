@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/base_color"
+    android:background="?android:windowBackground"
     android:id="@+id/recent_searches_container">
 
     <LinearLayout
@@ -15,7 +15,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
-        android:background="?attr/base_color">
+        android:background="?android:windowBackground">
 
         <ImageView
             android:id="@+id/search_empty_image"

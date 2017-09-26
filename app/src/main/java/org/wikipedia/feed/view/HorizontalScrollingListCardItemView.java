@@ -24,7 +24,7 @@ public class HorizontalScrollingListCardItemView extends CardView {
     public HorizontalScrollingListCardItemView(@NonNull Context context) {
         super(context);
         inflate(getContext(), R.layout.view_horizontal_scroll_list_item_card, this);
-        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.cardBackgroundColor));
+        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color));
         ButterKnife.bind(this);
         imageView.setLegacyVisibilityHandlingEnabled(true);
     }

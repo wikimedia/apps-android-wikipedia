@@ -117,7 +117,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/base_color">
+        android:background="?android:windowBackground">
 
         <fragment
             android:id="@+id/fragment_search_results"

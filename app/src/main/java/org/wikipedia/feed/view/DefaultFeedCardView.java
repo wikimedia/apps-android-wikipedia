@@ -15,7 +15,7 @@ public abstract class DefaultFeedCardView<T extends Card> extends CardView imple
 
     public DefaultFeedCardView(Context context) {
         super(context);
-        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.cardBackgroundColor));
+        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color));
     }
 
     @Override public void setCard(@NonNull T card) {

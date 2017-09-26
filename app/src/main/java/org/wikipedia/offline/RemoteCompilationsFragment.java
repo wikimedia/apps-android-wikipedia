@@ -205,7 +205,7 @@ public class RemoteCompilationsFragment extends DownloadObserverFragment {
                     DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.list_item_footer_padding)),
                     DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.activity_horizontal_margin)),
                     DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.list_item_footer_padding)));
-            controlView.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.base_color));
+            controlView.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), android.R.attr.windowBackground));
             controlView.setCallback(new CompilationDownloadControlView.Callback() {
                 @Override
                 public void onCancel() {

@@ -3,14 +3,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="?android:windowBackground">
+              android:layout_height="match_parent">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:hint="@string/preference_languages_filter_hint">
+        android:padding="12dp"
+        android:hint="@string/preference_languages_filter_hint"
+        android:background="?attr/paper_color">
         <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/preference_languages_filter"
                 android:layout_width="match_parent"

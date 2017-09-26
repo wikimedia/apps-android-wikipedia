@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/paper_color"
+    android:foreground="?attr/selectableItemBackground">
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"

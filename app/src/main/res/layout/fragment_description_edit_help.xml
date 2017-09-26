@@ -4,4 +4,5 @@
     android:id="@+id/fragment_description_edit_help_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="?attr/actionBarSize" />
+    android:layout_marginTop="?attr/actionBarSize"
+    android:background="?attr/paper_color"/>
