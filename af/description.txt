@@ -1,0 +1,40 @@
+Die amptelike Wikipedia Android app is ontwerp om jou te help vind, ontdek en verken kennis op Wikipedia. Beoordeel 'n weddenskap met 'n vriend deur doen 'n vinnige soektog deur die program of snuffel deur die artikels, beelde, artikels, en meer met die explore voer aanbevelings. Met meer as 39 miljoen artikels in byna 300 tale, jou gunsteling gratis aanlyn ensiklopedie is nou aan jou vingerpunte.
+
+Kenmerke:
+
+Verken toevoer - die nuwe 'verken voer' bied en voortdurend aanbevelings werk tans by Wikipedia inhoud aan die huis skerm, insluitend trending artikels, huidige gebeure, voorgestel om te lees, en meer.
+
+Stem-Geïntegreerde soek - Kry maklik wat jy soek met 'n prominente soekbalk aan die bokant van die app, insluitend stem gemagtigde soektog op jou toestel.
+
+Nearby - Kom meer te wete oor wat rondom jou deur punte op 'n interaktiewe kaart om te sien artikels wat verband hou om jou huidige en nabygeleë ligging te kies.
+
+Taal ondersteun - Skakel eenvoudig na lees van enige taal-ondersteunde Wikipedia, of deur die taal van die huidige artikel te verander, of verander jou voorkeur soek taal terwyl soek.
+
+Skakel voorskoue - Tik op 'n artikel om dit te voorskou, sonder om jou plek in wat jy tans lees verloor. Druk en hou 'n skakel om dit te open in 'n nuwe oortjie, sodat jy om te hou die huidige artikel lees sonder om jou plek te verloor en oorskakel na die nuwe oortjie wanneer jy gereed is.
+
+Inhoudsopgawe - vee links op enige artikel om die inhoudsopgawe op te roep, waarmee jy  maklik kan spring na artikel seksies.
+
+Lees lyste - Organiseer die artikels wat jy lees in lyste, wat jy kan lees tot selfs wanneer jy aflyn is. Skep soveel lyste soos jy wil, gee hulle individuele name en beskrywings en vul hulle in met artikels uit enige taal wiki.
+
+Foto galery - Tik op 'n foto om die beeld te vertoon in volskerm  hoë resolusie, met opsies om te vee om bykomende foto te blaai.
+
+Definisies van Wiktionary - Tik-en-hou beklemtoon 'n woord, en tik dan die "Definieer"-knoppie om te sien 'n definisie van die woord vanuit Wiktionary.
+
+Wikipedia nul - Lees Wikipedia vir Android vry van data fooie vir deelnemende mobiele operateurs. (skakel na deelnemende operateurs).
+
+Stuur ons jou terugvoer oor die program! In die kieslys, press "Instellings", dan "oor die Wikipedia app", dan "Stuur app terugvoer".
+
+Die kode is 100% oop bron. As jy ondervinding het met Java en die Android SDK, dan sien ons uit na jou bydraes! https://github.com/wikimedia/Apps-Android-Wikipedia
+
+Deur die program te gebruik, gee jy imlisiet toestemming tot outomatiese versending van fout verslaeaan 'n derdeparty diensverskaffer. As jy wil graag hierdie funksie deaktiveer, Tik "Instellings", "Stuur fout verslae" onder die algemene afdeling. Verduideliking van regte benodig nodig deur die program: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Privaatheid beleid: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Programfout verslag derdeparty diens verskaffer se privaatheidsbeleid: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Gebruikvoorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Meer oor die Wikimedia Foundation
+
+Die die Wikimedia Foundation is die nie-winsgewende organisasie wat Wikipedia en die ander die Wikimedia projekte ondersteun. Die die Wikimedia Foundation is 'n liefdadigheids organisasie en word hoofsaaklik deur skenkings gefinansier. Vir meer inligting, besoek asseblief ons webwerf: https://wikimediafoundation.org/wiki/Home.
+
