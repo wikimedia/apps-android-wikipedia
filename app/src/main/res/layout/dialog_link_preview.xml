@@ -33,7 +33,7 @@
                 android:layout_margin="16dp"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@null"
-                app:backgroundImage="@drawable/view_list_card_item_image_background"/>
+                app:backgroundImage="?attr/paper_color"/>
             <TextView
                 android:id="@+id/link_preview_title"
                 android:layout_width="0dp"
