@@ -32,8 +32,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:layout_gravity="center_vertical"
-                style="@style/SearchViewStyle">
+                android:layout_gravity="center_vertical">
 
                 <org.wikipedia.views.CabSearchView
                     android:id="@+id/search_cab_view"

@@ -28,7 +28,6 @@
     <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
     <color name="green30">#14866d</color> <!-- W AA: -->
     <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->
-    <color name="material_icon_default_gray">#9e9e9e</color>
 
     <!-- Light and Dark mode consolidation-->
     <color name="black87">#DE000000</color>
