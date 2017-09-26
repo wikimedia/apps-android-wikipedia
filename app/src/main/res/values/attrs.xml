@@ -18,8 +18,6 @@
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />
 
-    <attr name="edit_preview_color" format="reference" />
-
     <attr name="blue_switch" format="reference" />
     <attr name="link_color" format="color" />
     <attr name="material_theme_primary_color" format="color" />

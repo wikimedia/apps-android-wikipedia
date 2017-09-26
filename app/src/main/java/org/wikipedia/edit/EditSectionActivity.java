@@ -578,7 +578,7 @@ public class EditSectionActivity extends BaseActivity {
 
         v.setBackgroundColor(ContextCompat.getColor(this, item.isEnabled()
                 ? (editPreviewFragment.isActive() ? R.color.accent50
-                : ResourceUtil.getThemedAttributeId(this, R.attr.edit_preview_color)) : R.color.base50));
+                : ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent)) : R.color.base50));
 
         return true;
     }

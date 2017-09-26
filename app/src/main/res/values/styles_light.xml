@@ -38,7 +38,6 @@
         <item name="multi_select_background_color">@color/accent90</item>
         <item name="searchItemBackground">@color/base100</item>
         <item name="cardBackgroundColor">@color/base100</item>
-        <item name="edit_preview_color">@color/accent50</item>
         <item name="link_color">@color/accent50</item>
         <item name="material_theme_primary_color">@color/black87</item>
         <item name="material_theme_secondary_color">@color/black54</item>
