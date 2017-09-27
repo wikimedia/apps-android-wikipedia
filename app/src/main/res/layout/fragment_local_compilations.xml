@@ -101,7 +101,7 @@
                 android:layout_height="96dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:src="@drawable/empty_offlinelibrary"
+                app:srcCompat="@drawable/ic_empty_offlinelibrary"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@null"/>
 
