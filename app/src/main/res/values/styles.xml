@@ -28,6 +28,7 @@
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
         <item name="windowActionModeOverlay">false</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/base12</item>
     </style>
 
     <style name="AppTheme.TranslucentStatus">
