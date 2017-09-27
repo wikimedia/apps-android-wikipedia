@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="?attr/wikipedia_space_used_color"/>
+            android:background="?attr/primary_text_color"/>
 
         <View
             android:layout_width="0.5dp"
@@ -74,7 +74,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:background="?attr/space_free_color"/>
+            android:background="?attr/paper_color"/>
 
     </LinearLayout>
 
@@ -90,7 +90,7 @@
             android:background="@drawable/shape_circle"
             android:src="@drawable/shape_circle_outline"
             android:contentDescription="@null"
-            app:tint="?attr/wikipedia_space_used_color"
+            app:tint="?attr/primary_text_color"
             app:tintMode="src_in"/>
 
         <TextView
@@ -143,7 +143,7 @@
             android:background="@drawable/shape_circle"
             android:src="@drawable/shape_circle_outline"
             android:contentDescription="@null"
-            app:tint="?attr/space_free_color"
+            app:tint="?attr/paper_color"
             app:tintMode="src_in"/>
 
         <TextView

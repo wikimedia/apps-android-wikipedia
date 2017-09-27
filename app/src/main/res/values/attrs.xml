@@ -27,9 +27,7 @@
     <attr name="secondary_text_color" format="color" />
     <attr name="section_title_color" format="color" />
     <attr name="paper_color" format="color" />
-    <attr name="wikipedia_space_used_color" format="color" />
     <attr name="other_apps_space_used_color" format="color" />
-    <attr name="space_free_color" format="color" />
 
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />
