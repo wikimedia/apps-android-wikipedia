@@ -2,19 +2,15 @@ package org.wikipedia.offline;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Environment;
-import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.util.ResourceUtil;
 
 import java.io.File;
 
@@ -74,12 +70,7 @@ public class DiskUsageView extends LinearLayout {
         inflate(getContext(), R.layout.view_disk_usage, this);
         ButterKnife.bind(this);
         setOrientation(VERTICAL);
-
         usageAppText.setText(R.string.app_name);
-        setDotTint(otherDot, R.attr.primary_text_color);
-        setDotTint(usedDot, R.attr.colorAccent);
-        setDotTint(freeDot, android.R.attr.windowBackground);
-
         update(0);
     }
 
@@ -87,10 +78,5 @@ public class DiskUsageView extends LinearLayout {
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) barView.getLayoutParams();
         params.weight = weight;
         barView.setLayoutParams(params);
-    }
-
-    private void setDotTint(@NonNull View dotView, @AttrRes int id) {
-        ViewCompat.setBackgroundTintList(dotView, new ColorStateList(new int[][]{new int[]{}},
-                new int[]{ResourceUtil.getThemedColor(getContext(), id)}));
     }
 }
