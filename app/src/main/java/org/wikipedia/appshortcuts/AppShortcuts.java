@@ -24,6 +24,7 @@ public class AppShortcuts {
         app = WikipediaApp.getInstance();
     }
 
+    @TargetApi(android.os.Build.VERSION_CODES.N_MR1)
     public void init() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
 
