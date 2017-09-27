@@ -44,7 +44,6 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.AppTextView;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.views.StatusBarBlankView;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
@@ -62,7 +61,6 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     @BindView(R.id.view_page_subtitle_text) AppTextView subtitleText;
     @BindView(R.id.view_page_header_divider) View divider;
     @BindView(R.id.view_page_header_container) LinearLayout container;
-    @BindView(R.id.view_page_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
     @BindView(R.id.view_page_header_edit_pencil) ImageView editPencil;
 
     @Nullable private Callback callback;
@@ -108,19 +106,13 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     public void showText() {
         setVisibility(View.VISIBLE);
         setTopOffset();
-
         updateText();
-
-        titleText.setTextColor(getThemedColor(getContext(), R.attr.section_title_color));
     }
 
     public void showTextImage() {
         setVisibility(View.VISIBLE);
         unsetTopOffset();
-
         updateText();
-
-        titleText.setTextColor(getThemedColor(getContext(), R.attr.section_title_color));
         DimenUtil.setViewHeight(image, leadImageHeightForDevice());
     }
 
@@ -333,7 +325,6 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     }
 
     private void setTopOffset(boolean noImage) {
-        statusBarPlaceholder.setVisibility(noImage ? View.VISIBLE : View.GONE);
         int offset = noImage ? getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) : 0;
 
         // Offset is a resolved pixel dimension, not a resource id

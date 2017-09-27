@@ -495,7 +495,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void openSearchFragment(@NonNull SearchInvokeSource source, @Nullable String query) {
         Fragment fragment = searchFragment();
         if (fragment == null) {
-            fragment = SearchFragment.newInstance(source, StringUtils.trim(query), false);
+            fragment = SearchFragment.newInstance(source, StringUtils.trim(query));
             getChildFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment_main_container, fragment)

@@ -9,11 +9,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <org.wikipedia.views.StatusBarBlankView
-            android:id="@+id/view_page_header_status_bar_placeholder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <org.wikipedia.page.leadimages.PageHeaderImageView
             android:id="@+id/view_page_header_image"
             android:layout_width="match_parent"
@@ -31,8 +26,8 @@
             android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar"
             android:maxLines="3"
             android:ellipsize="end"
-            android:textColor="?attr/section_title_color"
-            android:textColorHighlight="?attr/section_title_color"
+            android:textColor="?attr/primary_text_color"
+            android:textColorHighlight="?attr/primary_text_color"
             tools:text="Title" />
 
         <org.wikipedia.views.AppTextView

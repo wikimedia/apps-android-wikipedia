@@ -10,12 +10,6 @@
     android:orientation="vertical"
     tools:visibility="visible">
 
-    <org.wikipedia.views.StatusBarBlankView
-        android:id="@+id/empty_status_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/base18" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

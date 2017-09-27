@@ -891,7 +891,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private void openSearchFragment(@NonNull SearchInvokeSource source, @Nullable String query) {
         Fragment fragment = searchFragment();
         if (fragment == null) {
-            fragment = SearchFragment.newInstance(source, StringUtils.trim(query), true);
+            fragment = SearchFragment.newInstance(source, StringUtils.trim(query));
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.activity_page_container, fragment)
