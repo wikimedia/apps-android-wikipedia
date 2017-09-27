@@ -33,7 +33,7 @@
                 android:layout_margin="16dp"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@null"
-                app:backgroundImage="?attr/paper_color"/>
+                app:backgroundImage="@color/base100"/>
             <TextView
                 android:id="@+id/link_preview_title"
                 android:layout_width="0dp"

@@ -8,7 +8,7 @@
         <!-- Default background for all activities -->
         <item name="android:windowBackground">@color/base80</item>
 
-        <!-- Background for popup menus -->
+        <!-- Background for popup menus, text areas -->
         <item name="android:colorBackground">@color/base90</item>
 
         <item name="android:textColorPrimary">@color/base10</item>
@@ -45,7 +45,7 @@
         <item name="main_toolbar_color">@color/accent50</item>
         <item name="main_status_bar_color">@color/accent30</item>
         <item name="edit_text_color">@color/base0</item>
-        <item name="nav_tab_background_color">@android:color/white</item>
+        <item name="nav_tab_background_color">@color/base100</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>
         <item name="multi_select_background_color">@color/accent90</item>
         <item name="searchItemBackground">@color/base100</item>

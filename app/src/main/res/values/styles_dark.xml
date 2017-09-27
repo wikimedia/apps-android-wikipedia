@@ -8,8 +8,8 @@
         <!-- Default background for all activities -->
         <item name="android:windowBackground">@color/base10</item>
 
-        <!-- Background for popup menus -->
-        <item name="android:colorBackground">@color/base10</item>
+        <!-- Background for popup menus, text areas -->
+        <item name="android:colorBackground">@color/base12</item>
 
         <item name="android:textColorPrimary">@color/base90</item>
         <item name="android:textColorSecondary">@color/base80</item>

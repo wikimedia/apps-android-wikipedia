@@ -2,15 +2,17 @@
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:parentTag="LinearLayout">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        android:layout_marginRight="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -24,7 +26,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="12sp"
-                android:textColor="?attr/material_theme_secondary_color"/>
+                android:textColor="?attr/material_theme_secondary_color"
+                tools:text="Downloading..."/>
 
             <TextView
                 android:id="@+id/compilation_download_widget_progress_time_remaining"
@@ -33,7 +36,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:textSize="12sp"
-                android:textColor="?attr/material_theme_secondary_color"/>
+                android:textColor="?attr/material_theme_secondary_color"
+                tools:text="1 min remaining"/>
 
         </RelativeLayout>
 
@@ -48,9 +52,10 @@
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/compilation_download_widget_button_cancel"
-        android:layout_width="wrap_content"
+        android:layout_width="24dp"
         android:layout_height="match_parent"
-        android:padding="2dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         app:srcCompat="@drawable/ic_clear_white_24px"
         app:tint="?attr/material_theme_secondary_color"
         app:tintMode="src_in"
