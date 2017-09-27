@@ -62,7 +62,7 @@ public class DiskUsageView extends LinearLayout {
         float usedGB = bytesToGB(usedBytes);
         otherGB -= usedGB;
 
-        sizeText.setText(getResources().getString(R.string.storage_size_format, usedGB));
+        sizeText.setText(getResources().getString(R.string.storage_size, usedGB));
         usageFreeText.setText(getResources().getString(R.string.storage_size_free, availableGB));
 
         setUsageBarWeight(otherBar, otherGB);
