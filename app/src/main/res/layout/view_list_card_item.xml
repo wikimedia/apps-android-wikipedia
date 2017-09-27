@@ -19,7 +19,7 @@
             android:layout_height="@dimen/view_list_card_item_image"
             android:layout_marginTop="6dp"
             app:roundedCornerRadius="2dp"
-            app:backgroundImage="?attr/paper_color" />
+            app:backgroundImage="@color/base100" />
 
         <LinearLayout
             android:layout_width="0dp"

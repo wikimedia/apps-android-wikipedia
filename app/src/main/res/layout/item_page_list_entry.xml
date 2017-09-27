@@ -47,10 +47,9 @@
                 android:layout_width="@dimen/view_list_card_item_image"
                 android:layout_height="@dimen/view_list_card_item_image"
                 app:roundedCornerRadius="2dp"
-                app:backgroundImage="?attr/paper_color" />
+                app:backgroundImage="@color/base100" />
 
             <android.support.v7.widget.AppCompatImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/page_list_item_selected_image"
                 android:layout_width="@dimen/view_list_card_item_image"
                 android:layout_height="@dimen/view_list_card_item_image"
