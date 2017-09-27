@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:minHeight="@dimen/bottomSheetPeekHeight"
-        android:background="?attr/paper_color"
         android:animateLayoutChanges="true">
 
         <LinearLayout

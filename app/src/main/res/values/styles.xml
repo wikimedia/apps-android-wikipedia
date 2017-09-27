@@ -3,7 +3,6 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
-        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
@@ -175,10 +174,6 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">?attr/primary_text_color</item>
 
-    </style>
-
-    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
     </style>
 
     <style name="AppBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">

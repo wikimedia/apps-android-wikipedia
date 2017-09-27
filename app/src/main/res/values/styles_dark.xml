@@ -30,6 +30,7 @@
         <item name="popupMenuStyle">@style/PopupMenuDark</item>
         <item name="dialogTheme">@style/DialogDark</item>
         <item name="alertDialogTheme">@style/AlertDialogDark</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>
 
         <!-- Overrides of our own custom style attributes -->
         <item name="toc_item_background">@drawable/toc_item_background_dark</item>
@@ -77,6 +78,12 @@
 
     <style name="PopupMenuDark" parent="Widget.AppCompat.PopupMenu">
         <item name="overlapAnchor">true</item>
+    </style>
+
+    <style name="BottomSheetDialogDark" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
+        <item name="colorAccent">@color/accent75</item>
+        <item name="android:colorBackground">?attr/paper_color</item>
     </style>
 
     <style name="BlueSwitchDark">

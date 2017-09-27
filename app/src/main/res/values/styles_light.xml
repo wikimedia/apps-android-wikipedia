@@ -30,6 +30,7 @@
         <item name="popupMenuStyle">@style/PopupMenuLight</item>
         <item name="dialogTheme">@style/DialogLight</item>
         <item name="alertDialogTheme">@style/AlertDialogLight</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
 
         <!-- Overrides of our own custom style attributes -->
         <item name="toc_item_background">@drawable/toc_item_background_light</item>
@@ -77,6 +78,12 @@
 
     <style name="PopupMenuLight" parent="Widget.AppCompat.Light.PopupMenu">
         <item name="overlapAnchor">true</item>
+    </style>
+
+    <style name="BottomSheetDialogLight" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
+        <item name="colorAccent">@color/accent50</item>
+        <item name="android:colorBackground">?attr/paper_color</item>
     </style>
 
     <style name="BlueSwitchLight">
