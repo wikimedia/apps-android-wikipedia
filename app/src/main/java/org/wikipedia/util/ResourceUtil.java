@@ -2,15 +2,12 @@ package org.wikipedia.util;
 
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
-import android.os.LocaleList;
 import android.support.annotation.AnyRes;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.AttrRes;
@@ -23,9 +20,6 @@ import android.support.graphics.drawable.VectorDrawableCompat;
 import android.util.TypedValue;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-
-import java.util.Locale;
 
 public final class ResourceUtil {
     // See Resources.getIdentifier().
@@ -114,38 +108,6 @@ public final class ResourceUtil {
                 .appendPath(res.getResourceTypeName(id))
                 .appendPath(res.getResourceEntryName(id))
                 .build();
-    }
-
-    public static void setLocale(@NonNull Context ctx, @NonNull String lang) {
-        // todo: this conversion is performed elsewhere in the app but is probably buggy
-        Locale locale = new Locale(lang);
-        String sysLang = WikipediaApp.getInstance().getSystemLanguageCode();
-        Configuration cfg = new Configuration(ctx.getResources().getConfiguration());
-        if (lang.equals(sysLang)) {
-            setLocale(ctx, cfg, locale);
-        } else {
-            setLocale(ctx, cfg, locale, new Locale(sysLang));
-        }
-    }
-
-    public static void setLocale(@NonNull Context ctx, @NonNull Configuration cfg,
-                                 @NonNull Locale... locales) {
-        Locale.setDefault(locales[0]);
-
-        setConfigLocale(cfg, locales);
-        ctx.getResources().updateConfiguration(cfg, ctx.getResources().getDisplayMetrics());
-    }
-
-    private static void setConfigLocale(@NonNull Configuration config, @NonNull Locale... locales) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            config.setLocales(new LocaleList(locales));
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            config.setLocale(locales[0]);
-            config.setLayoutDirection(locales[0]);
-        } else {
-            //noinspection deprecation
-            config.locale = locales[0];
-        }
     }
 
     private static void checkId(@IdRes int id) {

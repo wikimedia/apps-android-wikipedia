@@ -23,7 +23,6 @@ import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
 import org.wikipedia.R;
 import org.wikipedia.theme.Theme;
-import org.wikipedia.util.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +35,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
+import static org.wikipedia.util.ConfigurationCompat.setLocale;
 
 @RunWith(Theories.class) public abstract class ViewTest {
     @SuppressWarnings("WeakerAccess")
@@ -165,7 +165,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         Configuration cfg = new Configuration(ctx.getResources().getConfiguration());
         cfg.screenWidthDp = widthDp;
         cfg.fontScale = fontScale.multiplier();
-        ResourceUtil.setLocale(ctx, cfg, locale);
+        setLocale(cfg, locale);
     }
 
     // todo: identify method name by @Theory / @Test annotation instead of depth and remove repeated
