@@ -7,7 +7,7 @@ import urllib2
 import lxml
 import lxml.builder as lb
 import unicodecsv
-
+from HTMLParser import HTMLParser
 
 # Returns CSV of all wikipedias, ordered by number of 'good' articles
 QUERY_API_URL = ('https://' 'wikistats.wmflabs.org' '/' 'api.php' '?')
@@ -20,10 +20,12 @@ lang_keys = []
 lang_local_names = []
 lang_eng_names = []
 
+parser = HTMLParser()
+
 
 def add_lang(key, local_name, eng_name):
     lang_keys.append(key)
-    lang_local_names.append(local_name)
+    lang_local_names.append(parser.unescape(local_name))
     lang_eng_names.append(eng_name)
 
 
@@ -59,6 +61,7 @@ for row in itertools.islice(csv_data, start_at_row, end_at_row):
              eng_name=escape(english_name))
 
 add_lang(key='test', local_name='Test', eng_name='Test')
+add_lang(key='en-x-piglatin', local_name='Igpay Atinlay', eng_name='Pig Latin')
 add_lang(key='', local_name='None', eng_name='None (development)')
 
 # Generate the XML, for Android
