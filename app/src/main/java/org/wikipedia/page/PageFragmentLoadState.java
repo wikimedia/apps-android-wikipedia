@@ -116,7 +116,6 @@ public class PageFragmentLoadState {
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
-    private PageToolbarHideHandler toolbarHideHandler;
     private EditHandler editHandler;
 
     private BottomContentInterface bottomContentHandler;
@@ -127,7 +126,6 @@ public class PageFragmentLoadState {
                       @NonNull SwipeRefreshLayoutWithScroll refreshView,
                       @NonNull ObservableWebView webView,
                       @NonNull CommunicationBridge bridge,
-                      @NonNull PageToolbarHideHandler toolbarHideHandler,
                       @NonNull LeadImagesHandler leadImagesHandler,
                       @NonNull List<PageBackStackItem> backStack) {
         this.model = model;
@@ -135,7 +133,6 @@ public class PageFragmentLoadState {
         this.refreshView = refreshView;
         this.webView = webView;
         this.bridge = bridge;
-        this.toolbarHideHandler = toolbarHideHandler;
         this.leadImagesHandler = leadImagesHandler;
 
         setUpBridgeListeners();
@@ -169,7 +166,6 @@ public class PageFragmentLoadState {
         // function, which will continue the loading process.
         leadImagesHandler.hide();
         bottomContentHandler.hide();
-        fragment.getSearchBarHideHandler().setFadeEnabled(false);
 
         this.stagedScrollY = stagedScrollY;
         pageLoadCheckReadingLists(sequenceNumber.get());
@@ -226,10 +222,6 @@ public class PageFragmentLoadState {
         return backStack.isEmpty();
     }
 
-    public void onHidePageContent() {
-        bottomContentHandler.hide();
-    }
-
     public void setEditHandler(EditHandler editHandler) {
         this.editHandler = editHandler;
     }
@@ -246,7 +238,7 @@ public class PageFragmentLoadState {
             @Override
             public void onLayoutComplete(int sequence) {
                 if (fragment.isAdded()) {
-                    toolbarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+                    fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
                 }
             }
         }, sequenceNumber.get());
@@ -469,7 +461,7 @@ public class PageFragmentLoadState {
                 if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
                     return;
                 }
-                toolbarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+                fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
                 loadContentsFromCompilation();
             }
         }, sequenceNumber.get());
@@ -789,7 +781,7 @@ public class PageFragmentLoadState {
             if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
                 return;
             }
-            toolbarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+            fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
 
             if (runnable != null) {
                 // when the lead image is laid out, load the lead section and the rest

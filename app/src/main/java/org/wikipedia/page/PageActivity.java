@@ -20,7 +20,6 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
@@ -68,8 +67,10 @@ import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
@@ -184,6 +185,54 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
             UserOptionContentResolver.requestManualSync();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (!isSearching()) {
+            getMenuInflater().inflate(R.menu.menu_page_actions, menu);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        if (isSearching()) {
+            return false;
+        }
+
+        MenuItem otherLangItem = menu.findItem(R.id.menu_page_other_languages);
+        MenuItem shareItem = menu.findItem(R.id.menu_page_share);
+        MenuItem addToListItem = menu.findItem(R.id.menu_page_add_to_list);
+        MenuItem findInPageItem = menu.findItem(R.id.menu_page_find_in_page);
+        MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
+        MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
+        MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
+        MenuItem tabsItem = menu.findItem(R.id.menu_page_show_tabs);
+
+        tabsItem.setIcon(ResourceUtil.getTabListIcon(pageFragment.getTabCount()));
+
+        if (pageFragment.isLoading() || pageFragment.getErrorState()) {
+            otherLangItem.setEnabled(false);
+            shareItem.setEnabled(false);
+            addToListItem.setEnabled(false);
+            findInPageItem.setEnabled(false);
+            contentIssues.setEnabled(false);
+            similarTitles.setEnabled(false);
+            themeChooserItem.setEnabled(false);
+        } else {
+            // Only display "Read in other languages" if the article is in other languages
+            otherLangItem.setVisible(pageFragment.getPage() != null && pageFragment.getPage().getPageProperties().getLanguageCount() != 0);
+            otherLangItem.setEnabled(true);
+            shareItem.setEnabled(pageFragment.getPage() != null && pageFragment.getPage().isArticle());
+            addToListItem.setEnabled(pageFragment.getPage() != null && pageFragment.getPage().isArticle());
+            findInPageItem.setEnabled(true);
+            themeChooserItem.setEnabled(true);
+            updateMenuPageInfo(menu);
+        }
+        return true;
     }
 
     private void finishActionMode() {
@@ -498,10 +547,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.dismiss(getSupportFragmentManager());
     }
 
-    @Nullable
     @Override
-    public PageToolbarHideHandler onPageGetToolbarHideHandler() {
-        return toolbarHideHandler;
+    public void onPageInitWebView(@NonNull ObservableWebView webView) {
+        toolbarHideHandler.setScrollView(webView);
     }
 
     @Override
@@ -525,25 +573,14 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public boolean onPageIsSearching() {
-        return isSearching();
-    }
-
-    @Nullable
-    @Override
-    public Fragment onPageGetTopFragment() {
-        return pageFragment;
-    }
-
-    @Override
     public void onPageShowThemeChooser() {
         bottomSheetPresenter.show(getSupportFragmentManager(), new ThemeChooserDialog());
     }
 
     @Nullable
     @Override
-    public ActionMode onPageStartSupportActionMode(@NonNull ActionMode.Callback callback) {
-        return startActionMode(callback);
+    public void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback) {
+        startActionMode(callback);
     }
 
     @Override
@@ -557,12 +594,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
-                               @NonNull TabPosition tabPosition) {
-        loadPage(title, entry, tabPosition);
-    }
-
-    @Override
     public void onPageAddToReadingList(@NonNull PageTitle title,
                                 @NonNull AddToReadingListDialog.InvokeSource source) {
         showAddToListDialog(title, source);
@@ -573,21 +604,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (!pageFragment.isAdded()) {
             return;
         }
-        FeedbackUtil.showMessage(getActivity(),
+        FeedbackUtil.showMessage(this,
                 getString(R.string.reading_list_item_deleted, title.getDisplayText()));
         pageFragment.updateBookmarkFromDao();
-    }
-
-    @Nullable
-    @Override
-    public View onPageGetContentView() {
-        return pageFragment.getView();
-    }
-
-    @Nullable
-    @Override
-    public View onPageGetTabsContainerView() {
-        return tabsContainerView;
     }
 
     @Override
@@ -619,6 +638,21 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
         loadPage(entry.getTitle(), entry, inNewTab ? TabsProvider.TabPosition.NEW_TAB_BACKGROUND
                 : TabsProvider.TabPosition.CURRENT_TAB);
+    }
+
+    @Override
+    public void onPageHideAllContent() {
+        toolbarHideHandler.setFadeEnabled(false);
+    }
+
+    @Override
+    public void onPageSetToolbarFadeEnabled(boolean enabled) {
+        toolbarHideHandler.setFadeEnabled(enabled);
+    }
+
+    @Override
+    public void onPageSetToolbarForceNoFace(boolean force) {
+        toolbarHideHandler.setForceNoFade(force);
     }
 
     @Override
@@ -679,18 +713,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public boolean shouldLoadFromBackStack() {
-        return getIntent() != null
-                && (ACTION_SHOW_TAB_LIST.equals(getIntent().getAction())
-                || ACTION_RESUME_READING.equals(getIntent().getAction()));
-    }
-
-    @Override
-    public boolean shouldShowTabList() {
-        return getIntent() != null && ACTION_SHOW_TAB_LIST.equals(getIntent().getAction());
-    }
-
-    @Override
     public void onToggleDimImages() {
         pageFragment.getDarkModeMarshaller().toggleDimImages();
         pageFragment.refreshPage(pageFragment.getWebView().getScrollY());
@@ -702,12 +724,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showCopySuccessMessage() {
         FeedbackUtil.showMessage(this, R.string.address_copied);
-    }
-
-    @Nullable
-    @Override
-    public AppCompatActivity getActivity() {
-        return this;
     }
 
     private boolean shouldRecreateMainActivity() {
@@ -881,6 +897,16 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     .add(R.id.activity_page_container, fragment)
                     .commitNowAllowingStateLoss();
         }
+    }
+
+    private void updateMenuPageInfo(@NonNull Menu menu) {
+        MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
+        MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
+        PageInfo pageInfo = pageFragment.getPageInfo();
+        contentIssues.setVisible(pageInfo != null && pageInfo.hasContentIssues());
+        contentIssues.setEnabled(true);
+        similarTitles.setVisible(pageInfo != null && pageInfo.hasSimilarTitles());
+        similarTitles.setEnabled(true);
     }
 
     @SuppressLint("CommitTransaction")
