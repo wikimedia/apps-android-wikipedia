@@ -18,9 +18,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/view_offline_card_text"
-        android:textColor="@color/base30"
-        android:textAlignment="center"
-        android:textSize="16sp" />
+        style="@style/MaterialMediumSecondaryCaption" />
 
     <TextView
         android:id="@+id/view_card_offline_button_retry"

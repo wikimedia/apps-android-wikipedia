@@ -20,8 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-medium"
+            style="@style/MaterialLargePrimaryTitle"
             android:layout_marginBottom="20dp"
             android:text="@string/history_empty_title" />
         <ImageView
@@ -38,7 +37,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"
             android:gravity="center"
-            android:textSize="16sp"
+            style="@style/MaterialMediumSecondaryCaption"
             android:text="@string/history_empty_message" />
     </LinearLayout>
 

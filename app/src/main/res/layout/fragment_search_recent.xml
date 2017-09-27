@@ -33,8 +33,7 @@
             android:layout_marginRight="30dp"
             android:gravity="center"
             android:text="@string/search_empty_message"
-            android:textSize="16sp"
-            android:lineSpacingMultiplier="1.25"/>
+            style="@style/MaterialMediumSecondaryCaption"/>
     </LinearLayout>
 
     <LinearLayout

@@ -15,8 +15,8 @@
             android:id="@+id/localized_language_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/RtlAwareTextView"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            style="@style/MaterialListTitle"
+            android:textAppearance="@style/RtlAwareTextView"
             android:gravity="center_vertical"
             tools:text="Sample language local name"
             />
@@ -24,8 +24,8 @@
             android:id="@+id/language_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/RtlAwareTextView"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            style="@style/MaterialListSubtitle"
+            android:textAppearance="@style/RtlAwareTextView"
             android:gravity="center_vertical"
             tools:text="Sample article local name"
             />

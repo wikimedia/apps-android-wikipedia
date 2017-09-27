@@ -24,10 +24,10 @@
         android:layout_marginLeft="@dimen/list_item_horizontal_padding"
         android:layout_marginRight="@dimen/list_item_horizontal_padding"
         android:gravity="center_vertical"
+        android:textColor="?attr/section_title_color"
         android:visibility="gone"
         tools:visibility="visible"
-        tools:text="Header text"
-        />
+        tools:text="Header text" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,9 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:textSize="16sp"
-                android:textColor="?attr/primary_text_color"
-                style="@style/RtlAwareTextView"
+                style="@style/MaterialListTitle"
+                android:textAppearance="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
 
             <org.wikipedia.views.GoneIfEmptyTextView
@@ -89,10 +88,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:textSize="14sp"
-                android:textColor="@color/base30"
-                android:lineSpacingMultiplier="1.2"
-                style="@style/RtlAwareTextView"
+                style="@style/MaterialListSubtitle"
+                android:textAppearance="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
         </LinearLayout>
 

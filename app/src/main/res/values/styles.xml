@@ -106,15 +106,9 @@
         <item name="android:dividerHeight">0dp</item>
     </style>
 
-    <style name="RtlAwareTextView" parent="@android:style/Widget.TextView" tools:targetApi="17">
+    <style name="RtlAwareTextView" tools:targetApi="17">
         <item name="android:textDirection">anyRtl</item>
         <item name="android:textAlignment">viewStart</item>
-    </style>
-
-    <style name="ToolTipTextView" parent="@style/RtlAwareTextView" tools:targetApi="17">
-        <item name="android:layoutDirection">locale</item>
-        <item name="android:maxWidth">@dimen/tool_tip_max_width</item>
-        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="OverflowMenuItem" parent="@android:style/TextAppearance">
@@ -262,6 +256,31 @@
 
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">
         <item name="android:textColor">@color/red50</item>
+    </style>
+
+    <style name="MaterialLargePrimaryTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">?attr/material_theme_secondary_color</item>
+    </style>
+
+    <style name="MaterialMediumSecondaryCaption">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">?attr/material_theme_secondary_color</item>
+    </style>
+
+    <style name="MaterialListTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">?attr/material_theme_primary_color</item>
+    </style>
+
+    <style name="MaterialListSubtitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">?attr/material_theme_secondary_color</item>
     </style>
 
     <style name="ReadingListTitleTextAppearance">

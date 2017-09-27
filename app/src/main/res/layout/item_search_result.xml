@@ -37,9 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:textSize="16sp"
-            android:textColor="?attr/primary_text_color"
-            style="@style/RtlAwareTextView"
+            style="@style/MaterialListTitle"
+            android:textAppearance="@style/RtlAwareTextView"
             tools:text="Lorem ipsum"/>
 
         <LinearLayout
@@ -60,13 +59,11 @@
                 android:id="@+id/page_list_item_redirect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                style="@style/MaterialListSubtitle"
+                android:textAppearance="@style/RtlAwareTextView"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="?attr/secondary_text_color"
-                tools:text="Redirected from..."
-                />
+                tools:text="Redirected from..." />
         </LinearLayout>
 
         <org.wikipedia.views.GoneIfEmptyTextView
@@ -76,10 +73,8 @@
             android:layout_marginTop="2dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:textSize="14sp"
-            android:textColor="?attr/secondary_text_color"
-            android:lineSpacingMultiplier="1.2"
-            style="@style/RtlAwareTextView"
+            style="@style/MaterialListSubtitle"
+            android:textAppearance="@style/RtlAwareTextView"
             tools:text="Lorem ipsum"/>
     </LinearLayout>
 

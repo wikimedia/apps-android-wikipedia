@@ -95,7 +95,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/material_theme_primary_color"
         android:text="@string/create_account_already_have" />
 
     <TextView

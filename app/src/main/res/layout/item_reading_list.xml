@@ -67,22 +67,21 @@
                 android:id="@+id/item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:textSize="16sp"
+                android:textAppearance="@style/RtlAwareTextView"
+                style="@style/MaterialListTitle"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="?attr/material_theme_primary_color"
                 tools:text="Lorem ipsum" />
 
             <TextView
                 android:id="@+id/item_reading_list_statistical_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
+                android:textAppearance="@style/RtlAwareTextView"
+                style="@style/MaterialListSubtitle"
                 android:textSize="12sp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textColor="?attr/secondary_text_color"
                 tools:text="x items" />
 
             <TextView
@@ -90,11 +89,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                style="@style/RtlAwareTextView"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="@style/RtlAwareTextView"
+                style="@style/MaterialListSubtitle"
                 android:ellipsize="end"
                 android:maxLines="@integer/reading_list_description_summary_view_max_lines"
-                android:textColor="?attr/secondary_text_color"
                 tools:text="Sample description" />
 
         </LinearLayout>

@@ -59,7 +59,7 @@
             android:layout_marginTop="96dp"
             android:gravity="center"
             android:padding="16dp"
-            android:textSize="16sp"
+            style="@style/MaterialMediumSecondaryCaption"
             android:text="@string/reading_list_empty"
             android:visibility="gone"
             tools:visibility="visible"/>

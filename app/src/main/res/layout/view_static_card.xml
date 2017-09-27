@@ -22,7 +22,7 @@
             android:layout_marginBottom="2dp"
             android:fontFamily="sans-serif-medium"
             android:textSize="14sp"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/section_title_color"
             tools:text="Title of card"/>
 
         <TextView

@@ -22,8 +22,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="24dp"
         android:gravity="center"
-        android:textSize="16sp"
-        android:textColor="@color/base30"
+        style="@style/MaterialMediumSecondaryCaption"
         android:text="@string/search_no_results_found" />
 
 </merge>
