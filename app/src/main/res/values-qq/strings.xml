@@ -441,7 +441,7 @@
   <string name="offline_compilation_detail_button_download">Label for a button for downloading an offline article pack. The %.2f symbol is replaced with the article pack size, in gigabytes (GB).</string>
   <string name="offline_compilation_detail_button_remove">Label for a button for removing an offline article pack from storage on the user\'s device.</string>
   <string name="remote_compilation_download">Menu label for downloading a selected article pack.</string>
-  <string name="storage_size_gb">Abbreviated form for the unit of a gigabyte.</string>
+  <string name="storage_size">Label that says how much space on the device is used by the Wikipedia app. The %.2f symbol is replaced with the number in gigabytes.</string>
   <string name="storage_size_free">Label that says how much free space is available on the device. The %.2f symbol is replaced with the number in gigabytes.</string>
   <string name="storage_used_by_compilations">Label that appears next to the number of gigabytes used by the Wikipedia app.</string>
   <string name="storage_other_apps">Legend label for the amount of space used by other applications on the device.</string>
