@@ -65,6 +65,7 @@
 
     <style name="AlertDialogDark" parent="Theme.AppCompat.Dialog.Alert">
         <item name="colorAccent">@color/accent75</item>
+        <item name="android:colorBackground">?attr/paper_color</item>
     </style>
 
     <style name="DialogDark" parent="Theme.AppCompat.Dialog">
