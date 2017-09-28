@@ -190,7 +190,7 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile 'com.getkeepsafe.taptargetview:taptargetview:1.9.1'
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
-    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.1.0@aar') {
+    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.1.4@aar') {
         transitive = true
     }
     compile 'net.hockeyapp.android:HockeySDK:4.1.3'
