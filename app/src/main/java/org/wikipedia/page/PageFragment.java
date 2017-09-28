@@ -92,6 +92,7 @@ import static android.app.Activity.RESULT_OK;
 import static butterknife.ButterKnife.findById;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageActivity.ACTION_SHOW_TAB_LIST;
+import static org.wikipedia.page.PageCacher.loadIntoCache;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
@@ -1019,8 +1020,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (shouldCreateNewTab()) {
             // create a new tab
             Tab tab = new Tab();
+            boolean isForeground = position == getForegroundTabPosition();
             // if the requested position is at the top, then make its backstack current
-            if (position == getForegroundTabPosition()) {
+            if (isForeground) {
                 pageFragmentLoadState.setBackStack(tab.getBackStack());
             }
             // put this tab in the requested position
@@ -1029,6 +1031,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             tabsProvider.invalidate();
             // add the requested page to its backstack
             tab.getBackStack().add(new PageBackStackItem(title, entry));
+            if (!isForeground) {
+                loadIntoCache(title);
+            }
             getActivity().supportInvalidateOptionsMenu();
         } else {
             getTopMostTab().getBackStack().add(new PageBackStackItem(title, entry));

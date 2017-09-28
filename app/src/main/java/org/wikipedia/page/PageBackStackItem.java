@@ -6,20 +6,23 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.model.BaseModel;
 
 public class PageBackStackItem extends BaseModel {
-    private final PageTitle title;
-    @NonNull private final HistoryEntry historyEntry;
+    @NonNull private PageTitle title;
+    @NonNull private HistoryEntry historyEntry;
+
     private int scrollY;
 
-    public PageBackStackItem(PageTitle title, @NonNull HistoryEntry historyEntry) {
+    public PageBackStackItem(@NonNull PageTitle title, @NonNull HistoryEntry historyEntry) {
         this.title = title;
         this.historyEntry = historyEntry;
     }
 
+    @NonNull
     public PageTitle getTitle() {
         return title;
     }
 
-    @NonNull public HistoryEntry getHistoryEntry() {
+    @NonNull
+    public HistoryEntry getHistoryEntry() {
         return historyEntry;
     }
 
