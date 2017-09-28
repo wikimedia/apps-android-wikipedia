@@ -74,6 +74,8 @@
                 android:textSize="16sp"
                 android:fontFamily="serif"
                 android:lineSpacingMultiplier="1.2"
+                android:textColor="?attr/section_title_color"
+                android:background="?attr/paper_color"
                 style="@style/RtlAwareTextView"/>
 
             <android.support.v7.widget.RecyclerView
