@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
@@ -18,6 +19,9 @@ import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.DiscreteSeekBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,11 +29,14 @@ import butterknife.OnCheckedChanged;
 import butterknife.Unbinder;
 
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
-    @BindView(R.id.buttonDefaultTextSize) TextView buttonDefaultTextSize;
     @BindView(R.id.buttonDecreaseTextSize) TextView buttonDecreaseTextSize;
     @BindView(R.id.buttonIncreaseTextSize) TextView buttonIncreaseTextSize;
-    @BindView(R.id.buttonColorsLight) TextView buttonThemeLight;
-    @BindView(R.id.buttonColorsDark) TextView buttonThemeDark;
+    @BindView(R.id.text_size_percent) TextView textSizePercent;
+    @BindView(R.id.text_size_seek_bar) DiscreteSeekBar textSizeSeekBar;
+    @BindView(R.id.button_theme_light) TextView buttonThemeLight;
+    @BindView(R.id.button_theme_dark) TextView buttonThemeDark;
+    @BindView(R.id.button_theme_light_highlight) View buttonThemeLightHighlight;
+    @BindView(R.id.button_theme_dark_highlight) View buttonThemeDarkHighlight;
     @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
 
@@ -50,10 +57,35 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         View rootView = inflater.inflate(R.layout.dialog_theme_chooser, container);
         unbinder = ButterKnife.bind(this, rootView);
         buttonDecreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.DECREASE));
-        buttonDefaultTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.RESET));
         buttonIncreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.INCREASE));
+        FeedbackUtil.setToolbarButtonLongPressToast(buttonDecreaseTextSize, buttonIncreaseTextSize);
         buttonThemeLight.setOnClickListener(new ThemeButtonListener(Theme.LIGHT));
         buttonThemeDark.setOnClickListener(new ThemeButtonListener(Theme.DARK));
+
+        textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int value, boolean fromUser) {
+                if (!fromUser) {
+                    return;
+                }
+                float currentSize = app.getFontSize(getDialog().getWindow());
+                boolean changed = app.setFontSizeMultiplier(textSizeSeekBar.getValue());
+                if (changed) {
+                    updatingFont = true;
+                    updateFontSize();
+                    funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
         updateComponents();
         disableBackgroundDim();
         return rootView;
@@ -102,35 +134,31 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         updateDimImagesSwitch();
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private void updateFontSize() {
         int mult = Prefs.getTextSizeMultiplier();
+        textSizeSeekBar.setValue(mult);
+        String percentStr = getString(R.string.text_size_percent,
+                (int) (100 * (1 + mult * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))));
+        textSizePercent.setText(mult == 0
+                ? getString(R.string.text_size_percent_default, percentStr) : percentStr);
         if (updatingFont) {
             fontChangeProgressBar.setVisibility(View.VISIBLE);
-            buttonDefaultTextSize.setEnabled(false);
-            buttonDecreaseTextSize.setEnabled(false);
-            buttonIncreaseTextSize.setEnabled(false);
         } else {
             fontChangeProgressBar.setVisibility(View.GONE);
-            if (mult == 0) {
-                buttonDefaultTextSize.setEnabled(false);
-                buttonDecreaseTextSize.setEnabled(true);
-                buttonIncreaseTextSize.setEnabled(true);
-            } else {
-                buttonDefaultTextSize.setEnabled(true);
-                buttonDecreaseTextSize.setEnabled(mult > WikipediaApp.FONT_SIZE_MULTIPLIER_MIN);
-                buttonIncreaseTextSize.setEnabled(mult < WikipediaApp.FONT_SIZE_MULTIPLIER_MAX);
-            }
         }
     }
 
     private void updateThemeButtons() {
-        buttonThemeLight.setActivated(app.isCurrentThemeLight());
-        buttonThemeDark.setActivated(app.isCurrentThemeDark());
+        buttonThemeLightHighlight.setVisibility(app.isCurrentThemeLight() ? View.VISIBLE : View.GONE);
+        buttonThemeLight.setClickable(app.isCurrentThemeDark());
+        buttonThemeDarkHighlight.setVisibility(app.isCurrentThemeDark() ? View.VISIBLE : View.GONE);
+        buttonThemeDark.setClickable(app.isCurrentThemeLight());
     }
 
     private void updateDimImagesSwitch() {
         dimImagesSwitch.setChecked(Prefs.shouldDimDarkModeImages());
-        dimImagesSwitch.setClickable(app.getCurrentTheme() == Theme.DARK);
+        dimImagesSwitch.setEnabled(app.getCurrentTheme() == Theme.DARK);
     }
 
     private final class ThemeButtonListener implements View.OnClickListener {
@@ -158,17 +186,20 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
         @Override
         public void onClick(View view) {
-            updatingFont = true;
+            boolean changed = false;
             float currentSize = app.getFontSize(getDialog().getWindow());
             if (action == FontSizeAction.INCREASE) {
-                app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1);
+                changed = app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1);
             } else if (action == FontSizeAction.DECREASE) {
-                app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1);
+                changed = app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1);
             } else if (action == FontSizeAction.RESET) {
-                app.setFontSizeMultiplier(0);
+                changed = app.setFontSizeMultiplier(0);
             }
-            updateFontSize();
-            funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
+            if (changed) {
+                updatingFont = true;
+                updateFontSize();
+                funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
+            }
         }
     }
 

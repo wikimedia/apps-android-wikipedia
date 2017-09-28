@@ -104,4 +104,7 @@
     <!-- Transition names -->
     <string name="transition_news_item">newsItemTransition</string>
 
+    <!-- Miscellaneous -->
+    <string name="text_size_percent">%d%%</string>
+
 </resources>

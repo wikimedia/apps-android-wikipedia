@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Button label for Dark color theme\n{{Identical|Dark}}</string>
   <string name="preference_title_color_theme">Title for a preference allowing the user to turn on the dark theme</string>
   <string name="preference_summary_color_theme">Description for a preference allowing the user to turn on the dark theme</string>
+  <string name="text_size_increase">Button hint for increasing the text size used in articles.</string>
+  <string name="text_size_decrease">Button hint for decreasing the text size used in articles.</string>
+  <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
   <string name="reading_list_untitled">Name for a reading list that has an empty title.\n{{Identical|Untitled}}</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>

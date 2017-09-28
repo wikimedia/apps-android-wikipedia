@@ -22,6 +22,9 @@
 
     <!-- Default font size for WebView text based on system settings -->
     <dimen name="textSize">16sp</dimen>
+    <integer name="minTextSizeMultiplier">-5</integer>
+    <integer name="maxTextSizeMultiplier">8</integer>
+    <item type="dimen" format="float" name="textSizeMultiplierFactor">0.1</item>
 
     <!-- Default height of list items -->
     <dimen name="defaultListItemSize">56dp</dimen>

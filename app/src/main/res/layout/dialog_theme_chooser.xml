@@ -11,107 +11,174 @@
         android:background="?attr/material_theme_border_color" />
 
     <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_gravity="top|end"
         android:layout_margin="8dp"
         android:id="@+id/font_change_progress_bar"/>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="22dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?attr/primary_text_color"
-            android:text="@string/text_size_select"/>
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/text_size_select"
+            android:textColor="?attr/section_title_color" />
+
+        <TextView
+            android:id="@+id/text_size_percent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="?attr/secondary_text_color"
+            tools:text="100% (Default)"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_marginTop="12dp">
 
             <TextView
                 android:id="@+id/buttonDecreaseTextSize"
-                style="@style/App.Button.Gray"
-                android:padding="0dp"
-                android:layout_width="56dp"
-                android:text="−"
-                android:textSize="26sp"
-                tools:ignore="HardcodedText"/>
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:paddingBottom="4dp"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:gravity="center_horizontal|bottom"
+                android:text="T"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:contentDescription="@string/text_size_decrease"
+                tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/buttonDefaultTextSize"
-                style="@style/App.Button.Gray"
-                android:padding="0dp"
-                android:layout_width="56dp"
-                android:text="○"
-                android:textSize="26sp"
-                tools:ignore="HardcodedText"/>
+            <org.wikipedia.views.DiscreteSeekBar
+                android:id="@+id/text_size_seek_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:max="@integer/maxTextSizeMultiplier"
+                app:min="@integer/minTextSizeMultiplier"
+                android:progressBackgroundTint="?attr/chart_shade5"
+                app:tickDrawable="@drawable/ic_seek_bar_tick"
+                app:centerDrawable="@drawable/ic_seek_bar_center"
+                />
 
             <TextView
                 android:id="@+id/buttonIncreaseTextSize"
-                style="@style/App.Button.Gray"
-                android:padding="0dp"
-                android:layout_width="56dp"
-                android:text="+"
-                android:textSize="26sp"
-                tools:ignore="HardcodedText"/>
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:paddingBottom="2dp"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:gravity="center_horizontal|bottom"
+                android:text="T"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:contentDescription="@string/text_size_increase"
+                tools:ignore="HardcodedText" />
 
         </LinearLayout>
 
         <View
-            android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="6dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:background="?attr/material_theme_border_color" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?attr/primary_text_color"
-            android:text="@string/color_theme_select"/>
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/color_theme_select"
+            android:textColor="?attr/section_title_color" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp">
 
-            <TextView
-                style="@style/App.Button.White"
-                android:id="@+id/buttonColorsLight"
-                android:text="@string/color_theme_light" />
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1">
 
-            <TextView
-                style="@style/App.Button.Gray"
-                android:id="@+id/buttonColorsDark"
-                android:text="@string/color_theme_dark" />
+                <TextView
+                    android:id="@+id/button_theme_light"
+                    style="@style/App.Button.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    android:text="@string/color_theme_light" />
+
+                <View
+                    android:id="@+id/button_theme_light_highlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:elevation="4dp"
+                    android:background="@drawable/button_shape_highlight_transparent"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/button_theme_dark"
+                    style="@style/App.Button.Gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    android:text="@string/color_theme_dark" />
+
+                <View
+                    android:id="@+id/button_theme_dark_highlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:elevation="4dp"
+                    android:background="@drawable/button_shape_highlight_transparent"/>
+
+            </FrameLayout>
+
         </LinearLayout>
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/theme_chooser_dark_mode_dim_images_switch"
+            style="@style/RtlAwareTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:gravity="center_vertical"
-            app:theme="?attr/blue_switch"
-            style="@style/RtlAwareTextView"
-            android:textColor="?attr/material_theme_primary_color"
-            android:textSize="14sp"
-            android:text="@string/theme_chooser_dialog_image_dimming_switch_label"/>
+            android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
+            android:textColor="?attr/section_title_color" />
 
     </LinearLayout>
 </FrameLayout>

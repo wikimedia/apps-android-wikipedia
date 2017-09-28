@@ -40,7 +40,6 @@
         <item name="list_separator_drawable">@drawable/divider_dark</item>
         <item name="tab_item_selector">@drawable/tab_item_selector_dark</item>
         <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
-        <item name="blue_switch">@style/BlueSwitchDark</item>
 
         <!-- Overrides of our own custom color attributes -->
         <item name="main_toolbar_color">@color/accent30</item>
@@ -87,13 +86,9 @@
     <style name="BottomSheetDialogDark" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
         <item name="colorAccent">@color/accent75</item>
-        <item name="android:colorBackground">?attr/paper_color</item>
-    </style>
-
-    <style name="BlueSwitchDark">
-        <item name="colorControlActivated">@color/accent75</item>
         <item name="colorSwitchThumbNormal">@color/base90</item>
-        <item name="android:colorForeground">@color/base30</item>
+        <item name="android:colorBackground">?attr/paper_color</item>
+        <item name="android:disabledAlpha">1.0</item>
     </style>
 
 </resources>

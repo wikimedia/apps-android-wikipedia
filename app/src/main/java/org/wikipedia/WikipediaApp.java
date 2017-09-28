@@ -56,6 +56,7 @@ import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
@@ -77,10 +78,6 @@ import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
     private static final int EVENT_LOG_TESTING_ID = new Random().nextInt(Integer.MAX_VALUE);
-
-    public static final int FONT_SIZE_MULTIPLIER_MIN = -5;
-    public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
-    private static final float FONT_SIZE_FACTOR = 0.1f;
 
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
@@ -368,16 +365,20 @@ public class WikipediaApp extends Application {
         }
     }
 
-    public void setFontSizeMultiplier(int multiplier) {
-        if (multiplier < FONT_SIZE_MULTIPLIER_MIN) {
-            multiplier = FONT_SIZE_MULTIPLIER_MIN;
-        } else if (multiplier > FONT_SIZE_MULTIPLIER_MAX) {
-            multiplier = FONT_SIZE_MULTIPLIER_MAX;
+    public boolean setFontSizeMultiplier(int multiplier) {
+        int minMultiplier = getResources().getInteger(R.integer.minTextSizeMultiplier);
+        int maxMultiplier = getResources().getInteger(R.integer.maxTextSizeMultiplier);
+        if (multiplier < minMultiplier) {
+            multiplier = minMultiplier;
+        } else if (multiplier > maxMultiplier) {
+            multiplier = maxMultiplier;
         }
         if (multiplier != getTextSizeMultiplier()) {
             Prefs.setTextSizeMultiplier(multiplier);
             bus.post(new ChangeTextSizeEvent());
+            return true;
         }
+        return false;
     }
 
     public void putCrashReportProperty(String key, String value) {
@@ -404,7 +405,8 @@ public class WikipediaApp extends Application {
      */
     public float getFontSize(Window window) {
         return getFontSizeFromSp(window,
-                getResources().getDimension(R.dimen.textSize)) * (1.0f + getTextSizeMultiplier() * FONT_SIZE_FACTOR);
+                getResources().getDimension(R.dimen.textSize)) * (1.0f + getTextSizeMultiplier()
+                * DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor));
     }
 
     public void resetWikiSite() {

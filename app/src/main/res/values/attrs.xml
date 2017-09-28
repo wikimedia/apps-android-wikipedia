@@ -18,7 +18,6 @@
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />
 
-    <attr name="blue_switch" format="reference" />
     <attr name="material_theme_primary_color" format="color" />
     <attr name="material_theme_secondary_color" format="color" />
     <attr name="material_theme_de_emphasised_color" format="color" />
@@ -64,5 +63,11 @@
         <attr name="switchText" format="string" />
         <attr name="imageSize" format="dimension" />
         <attr name="background" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="DiscreteSeekBar">
+        <attr name="min" format="integer" />
+        <attr name="tickDrawable" format="reference" />
+        <attr name="centerDrawable" format="reference" />
     </declare-styleable>
 </resources>
