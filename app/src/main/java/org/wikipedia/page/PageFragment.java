@@ -403,7 +403,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab().getBackStack());
 
-        if (shouldLoadFromBackstack(getActivity())) {
+        if (shouldLoadFromBackstack(getActivity()) || savedInstanceState != null) {
             pageFragmentLoadState.loadFromBackStack();
         }
 
