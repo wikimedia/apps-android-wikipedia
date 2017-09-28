@@ -103,6 +103,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="https" />
+                <data android:host="*.wikipedia.org" android:pathPrefix="/zh" android:pathPattern="-.*/" android:scheme="http" />
+                <data android:host="*.wikipedia.org" android:pathPrefix="/zh" android:pathPattern="-.*/" android:scheme="https" />
             </intent-filter>
             <intent-filter>
                 <action android:name="org.wikipedia.app_shortcut" />

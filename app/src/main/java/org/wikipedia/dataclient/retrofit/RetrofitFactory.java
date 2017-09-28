@@ -2,10 +2,10 @@ package org.wikipedia.dataclient.retrofit;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
+import org.wikipedia.util.L10nUtil;
 
 import java.io.IOException;
 
@@ -42,7 +42,7 @@ public final class RetrofitFactory {
         public Response intercept(Interceptor.Chain chain) throws IOException {
             Request request = chain.request();
             request = request.newBuilder()
-                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
+                    .header("Accept-Language", L10nUtil.getAcceptLanguageCode(wiki))
                     .build();
             return chain.proceed(request);
         }
