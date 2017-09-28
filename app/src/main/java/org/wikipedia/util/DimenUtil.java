@@ -3,7 +3,6 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.support.annotation.DimenRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -44,10 +43,6 @@ public final class DimenUtil {
         return TypedValue.complexToFloat(getValue(id).data);
     }
 
-    public static int getTranslucentStatusBarHeightPx(Context context) {
-        return DimenUtil.roundedDpToPx(getTranslucentStatusBarHeight(context));
-    }
-
     /**
      * Calculates the actual font size for the current device, based on an "sp" measurement.
      * @param window The window on which the font will be rendered.
@@ -79,16 +74,7 @@ public final class DimenUtil {
     }
 
     public static float getContentTopOffset(Context context) {
-        return getToolbarHeight(context) + getTranslucentStatusBarHeight(context);
-    }
-
-    /** @return Height of status bar if translucency is enabled, zero otherwise. */
-    public static float getTranslucentStatusBarHeight(Context context) {
-        return isStatusBarTranslucent() ? getStatusBarHeight(context) : 0;
-    }
-
-    public static int getStatusBarHeightPx(Context context) {
-        return DimenUtil.roundedDpToPx(getStatusBarHeight(context));
+        return getToolbarHeight(context);
     }
 
     private static TypedValue getValue(@DimenRes int id) {
@@ -139,10 +125,6 @@ public final class DimenUtil {
         ViewGroup.LayoutParams params = view.getLayoutParams();
         params.height = height;
         view.setLayoutParams(params);
-    }
-
-    private static boolean isStatusBarTranslucent() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
     }
 
     public static int leadImageHeightForDevice() {

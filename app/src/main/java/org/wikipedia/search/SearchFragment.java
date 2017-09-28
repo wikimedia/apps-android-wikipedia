@@ -61,12 +61,10 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_QUERY = "lastQuery";
-    private static final String ARG_STATUS_BAR_VISIBLE = "statusBarVisible";
 
     private static final int PANEL_RECENT_SEARCHES = 0;
     private static final int PANEL_SEARCH_RESULTS = 1;
 
-    @BindView(R.id.empty_status_bar) View statusBarView;
     @BindView(R.id.search_container) View searchContainer;
     @BindView(R.id.search_toolbar) Toolbar toolbar;
     @BindView(R.id.search_cab_view) SearchView searchView;
@@ -91,7 +89,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
      * the TitleSearch and FullSearch sub-fragments.
      */
     @Nullable private String query;
-    private boolean statusBarVisible;
 
     private RecentSearchesFragment recentSearchesFragment;
     private SearchResultsFragment searchResultsFragment;
@@ -126,14 +123,12 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     };
 
     @NonNull public static SearchFragment newInstance(@NonNull SearchInvokeSource source,
-                                                      @Nullable String query,
-                                                      boolean statusBarVisible) {
+                                                      @Nullable String query) {
         SearchFragment fragment = new SearchFragment();
 
         Bundle args = new Bundle();
         args.putInt(ARG_INVOKE_SOURCE, source.code());
         args.putString(ARG_QUERY, query);
-        args.putBoolean(ARG_STATUS_BAR_VISIBLE, statusBarVisible);
 
         fragment.setArguments(args);
         return fragment;
@@ -146,7 +141,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
         invokeSource = SearchInvokeSource.of(getArguments().getInt(ARG_INVOKE_SOURCE));
         query = getArguments().getString(ARG_QUERY);
-        statusBarVisible = getArguments().getBoolean(ARG_STATUS_BAR_VISIBLE);
 
         funnel = new SearchFunnel(app, invokeSource);
     }
@@ -162,8 +156,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         app = WikipediaApp.getInstance();
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, view);
-
-        statusBarView.setVisibility(statusBarVisible ? View.VISIBLE : View.GONE);
 
         FragmentManager childFragmentManager = getChildFragmentManager();
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(

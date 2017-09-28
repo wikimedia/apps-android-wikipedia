@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.View;
 
-import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 
 public class PageToolbarHideHandler extends ViewHideHandler {
@@ -14,12 +13,10 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     private boolean fadeEnabled;
     private boolean forceNoFade;
     @NonNull private final Drawable toolbarBackground;
-    @NonNull private final Drawable statusBar;
 
     public PageToolbarHideHandler(@NonNull View hideableView) {
         super(hideableView, Gravity.TOP);
         toolbarBackground = hideableView.getBackground().mutate();
-        statusBar = hideableView.findViewById(R.id.empty_status_bar).getBackground().mutate();
     }
 
     /**
@@ -46,7 +43,6 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     protected void onScrolled(int oldScrollY, int scrollY) {
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);
-        statusBar.setAlpha(opacity);
     }
 
     /** @return Alpha value between 0 and 0xff. */

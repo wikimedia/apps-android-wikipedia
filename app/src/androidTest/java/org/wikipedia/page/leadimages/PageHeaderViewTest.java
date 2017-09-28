@@ -98,7 +98,6 @@ public class PageHeaderViewTest extends ViewTest {
         }
         showText();
         assertThat(subject.getVisibility(), is(View.VISIBLE));
-        assertThat(subject.statusBarPlaceholder.getVisibility(), is(View.VISIBLE));
     }
 
     @Theory public void testShowTextImageVisible(@TestedOnBool boolean afterHide) {
@@ -108,7 +107,6 @@ public class PageHeaderViewTest extends ViewTest {
         }
         showTextImage();
         assertThat(subject.getVisibility(), is(View.VISIBLE));
-        assertThat(subject.statusBarPlaceholder.getVisibility(), is(View.GONE));
     }
 
     @Theory public void testGetImage(@TestedOnBool boolean nul) {
