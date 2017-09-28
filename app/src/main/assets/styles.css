@@ -316,7 +316,7 @@ a.new:hover > * {
 a.external {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVElEQVR42n3PgQkAIAhEUXdqJ3dqJ3e6IoTPUSQcgj4EQ5IlUiLE0Jil3PECXhcHGBhZ8kg4hwxAu3MZeCGeyFnAXp4hqNQPnt7QL0nADpD6wHccLvnAKksq8iiaAAAAAElFTkSuQmCC);
   background-image: url(/w/skins/MinervaNeue/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf)!ie;
-  background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,%3C%3Fxml version=%221.0%22 encoding=%22UTF-8%22%3F%3E%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2210%22 height=%2210%22%3E%3Cpath fill=%22%23fff%22 stroke=%22%2336c%22 d=%22M.5 3.518h5.982V9.5H.5z%22/%3E%3Cpath d=%22M4.755-.16H9.99v5.39L8.417 6.774l-1.31-1.31L4.383 8.19 1.695 5.5l2.808-2.807-1.31-1.31z%22 fill=%22%2336c%22/%3E%3Cpath d=%22M8.984.845l.022 4.884L7.19 3.91 4.308 6.79 3.08 5.567l2.882-2.88L4.112.833z%22 fill=%22%23fff%22/%3E%3C/svg%3E");
+  background-image: linear-gradient(transparent, transparent), url('data:image/svg+xml,%3C%3Fxml version="1.0" encoding="UTF-8"%3F%3E%3Csvg xmlns="http://www.w3.org/2000/svg" width="10" height="10"%3E%3Cpath fill="%23fff" stroke="%2336c" d="M.5 3.518h5.982V9.5H.5z"/%3E%3Cpath d="M4.755-.16H9.99v5.39L8.417 6.774l-1.31-1.31L4.383 8.19 1.695 5.5l2.808-2.807-1.31-1.31z" fill="%2336c"/%3E%3Cpath d="M8.984.845l.022 4.884L7.19 3.91 4.308 6.79 3.08 5.567l2.882-2.88L4.112.833z" fill="%23fff"/%3E%3C/svg%3E');
   background-image: -o-linear-gradient(transparent, transparent), url(/w/skins/MinervaNeue/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf);
   background-repeat: no-repeat;
   background-position: center right;
@@ -420,7 +420,7 @@ FIXME: Review all of these hacks to see if they still apply.
 .content .navbox {
   display: none;
 }
-.content .fmbox,
+.content .action-edit .fmbox,
 .content .tmbox,
 .content .ambox,
 .content #coordinates,
@@ -702,42 +702,7 @@ div.mwe-math-element {
 .timeline-wrapper {
 	max-width: 100%;
 	overflow: auto;
-}@media print {
-	li.gallerybox {
-		vertical-align: top;
-		display: inline-block;
-	}
-	
-	ul.gallery,
-	li.gallerybox {
-		zoom: 1;
-		*display: inline;
-	}
-	
-	ul.gallery {
-		margin: 2px;
-		padding: 2px;
-		display: block;
-	}
-	
-	li.gallerycaption {
-		font-weight: bold;
-		text-align: center;
-		display: block;
-		word-wrap: break-word;
-	}
-	
-	li.gallerybox div.thumb {
-		background-color: #fff;
-		border: 1px solid #ccc;
-	}
-	
-	div.gallerytext {
-		overflow: hidden;
-		font-size: 10pt;
-		padding: 2px 4px;
-		word-wrap: break-word;
-	}}/* Galleries */
+}/* Galleries */
 /* These display attributes look nonsensical, but are needed to support IE and FF2 */
 /* Don't forget to update gallery.print.css */
 li.gallerybox {
@@ -924,7 +889,65 @@ ul.mw-gallery-slideshow li.gallerycarousel {
 		border: 1px solid #c8ccd1;
 		background-color: #f8f9fa;
 	}
-}#issues_container div.hatnote {
+}@media print {
+	li.gallerybox {
+		vertical-align: top;
+		display: inline-block;
+	}
+	
+	ul.gallery,
+	li.gallerybox {
+		zoom: 1;
+		*display: inline;
+	}
+	
+	ul.gallery {
+		margin: 2px;
+		padding: 2px;
+		display: block;
+	}
+	
+	li.gallerycaption {
+		font-weight: bold;
+		text-align: center;
+		display: block;
+		word-wrap: break-word;
+	}
+	
+	li.gallerybox div.thumb {
+		background-color: #fff;
+		border: 1px solid #ccc;
+	}
+	
+	div.gallerytext {
+		overflow: visible;
+	}
+	
+	ul.mw-gallery-packed-hover div.gallerytextwrapper {
+		overflow: visible;
+		height: auto;
+	}
+	
+	ul.mw-gallery-packed-hover li.gallerybox:hover div.gallerytextwrapper,
+	ul.mw-gallery-packed-overlay li.gallerybox div.gallerytextwrapper,
+	ul.mw-gallery-packed-hover li.gallerybox.mw-gallery-focused div.gallerytextwrapper {
+		position: static;
+		background: transparent;
+		padding: 0;
+		bottom: 0;
+		max-height: none;
+		overflow: visible;
+		font-weight: normal;
+		margin: 0; /* correspond to style on div.thumb */
+	}
+	
+	ul.mw-gallery-packed-hover li.gallerybox:hover div.gallerytextwrapper p,
+	ul.mw-gallery-packed-overlay li.gallerybox div.gallerytextwrapper p,
+	ul.mw-gallery-packed-hover li.gallerybox.mw-gallery-focused div.gallerytextwrapper p {
+		text-overflow: clip;
+		white-space: normal;
+		overflow: visible;
+	}}#issues_container div.hatnote {
   display: none;
 }
 a.disambig_button {
