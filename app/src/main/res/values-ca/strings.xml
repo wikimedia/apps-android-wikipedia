@@ -422,7 +422,6 @@
   <string name="offline_compilation_detail_button_download">Baixada • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Suprimeix</string>
   <string name="remote_compilation_download">Baixa</string>
-  <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB lliures</string>
   <string name="storage_used_by_compilations">utilitzat per la Viquipèdia</string>
   <string name="storage_other_apps">Altres aplicacions</string>

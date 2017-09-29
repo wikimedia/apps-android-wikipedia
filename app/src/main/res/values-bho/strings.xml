@@ -202,7 +202,6 @@
   <string name="offline_compilation_detail_button_download" fuzzy="true">डाउनलोड · %.2f जीबी</string>
   <string name="offline_compilation_detail_button_remove">हटाईं</string>
   <string name="remote_compilation_download">डाउनलोड</string>
-  <string name="storage_size_gb">जीबी</string>
   <string name="storage_size_free">%.2f जीबी फ्री</string>
   <string name="storage_used_by_compilations">विकिपीडिया द्वारा इस्तेमाल में</string>
   <string name="storage_other_apps">अन्य एप्लीकेशन</string>

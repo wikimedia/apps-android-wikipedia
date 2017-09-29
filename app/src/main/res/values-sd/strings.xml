@@ -421,7 +421,6 @@
   <string name="offline_compilation_detail_button_download">• %.2f جيبي لاھيو</string>
   <string name="offline_compilation_detail_button_remove">ھٽايو</string>
   <string name="remote_compilation_download">لاھيو</string>
-  <string name="storage_size_gb">جيبي</string>
   <string name="storage_size_free">%.2f جيبي فارغ</string>
   <string name="storage_used_by_compilations">وڪيپيڊيا پاران استعمال ٿيندڙ</string>
   <string name="storage_other_apps">ٻيون ايپس</string>

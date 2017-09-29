@@ -430,7 +430,6 @@
   <string name="offline_compilation_detail_button_download">Pellgargañ • %.2f Go</string>
   <string name="offline_compilation_detail_button_remove">Dilemel</string>
   <string name="remote_compilation_download">Pellgargañ</string>
-  <string name="storage_size_gb">Go</string>
   <string name="storage_size_free">%.2f Go dieub</string>
   <string name="storage_used_by_compilations">implijet gant Wikipedia</string>
   <string name="storage_other_apps">Arloadoù all</string>

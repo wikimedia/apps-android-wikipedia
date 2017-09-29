@@ -261,6 +261,8 @@
   <string name="preference_title_dim_dark_mode_images">Atenuar imaxes no tema obscuro</string>
   <string name="preference_summary_dim_dark_mode_images">Reducir a luminosidade das imaxes cando se use o tema obscuro</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imaxe (no tema obscuro)</string>
+  <string name="preference_title_prefer_offline_content">Preferir contido sen conexión</string>
+  <string name="preference_summary_prefer_offline_content">Aforrar o uso de datos mediante a carga de artigos que estean dispoñibles sen conexión, en lugar de cargar sempre a última versión do artigo.</string>
   <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
   <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -439,7 +441,6 @@
   <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eliminar</string>
   <string name="remote_compilation_download">Descargar</string>
-  <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB libres</string>
   <string name="storage_used_by_compilations">utilizado por Wikipedia</string>
   <string name="storage_other_apps">Outras aplicacións</string>

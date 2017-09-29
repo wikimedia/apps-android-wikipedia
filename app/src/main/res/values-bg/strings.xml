@@ -414,7 +414,6 @@
   <string name="offline_compilation_detail_button_download">Изтегляне • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Премахване</string>
   <string name="remote_compilation_download">Изтегляне</string>
-  <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB свободни</string>
   <string name="storage_used_by_compilations">използвани от Уикипедия</string>
   <string name="storage_other_apps">Други приложения</string>

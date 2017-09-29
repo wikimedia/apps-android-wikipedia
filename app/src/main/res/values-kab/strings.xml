@@ -438,7 +438,6 @@
   <string name="offline_compilation_detail_button_download">Sider • %.2f GAṬ</string>
   <string name="offline_compilation_detail_button_remove">Kkes</string>
   <string name="remote_compilation_download">Sider</string>
-  <string name="storage_size_gb">GAṬ</string>
   <string name="storage_size_free">%.2f GAṬ n umḍiq ilelli</string>
   <string name="storage_used_by_compilations">iseqdac-it Wikipedia</string>
   <string name="storage_other_apps">Isnasen-nniḍen</string>
@@ -460,6 +459,7 @@
   <string name="offline_library_empty_search">Nadi di temkarḍit war tuqqna</string>
   <string name="offline_library_search_results_state">Anadi n igmaḍ di tnedlis-ik n war tuqqna</string>
   <string name="offline_library_onboarding_action">Issin ugar</string>
+  <string name="offline_library_onboarding_text">Tazwart ar tnedlist n war tuqqna — sider ikemmusen n imagraden tura akken ad ten-teɣreḍ s war tuqqna ticki.</string>
   <string name="offline_library_onboarding_button_done">Immed</string>
   <string name="offline_library_onboarding_build_library_title">Bnu tamkarḍit-ik war tuqqna</string>
   <string name="offline_library_onboarding_build_library_subtitle">Sider tigrummiwin n imagraden Wikipedia tura i unekcum ilelli ar zdat.</string>

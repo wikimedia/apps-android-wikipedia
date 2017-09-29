@@ -414,7 +414,6 @@
   <string name="offline_compilation_detail_button_download">ডাউনলোড করুন • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">সরান</string>
   <string name="remote_compilation_download">ডাউনলোড করুন</string>
-  <string name="storage_size_gb">জিবি</string>
   <string name="storage_size_free">%.2f GB খালি আছে</string>
   <string name="storage_used_by_compilations">উইকিপিডিয়া দ্বারা ব্যবহৃত</string>
   <string name="storage_other_apps">অন্যান্য অ্যাপ্লিকেশন</string>
