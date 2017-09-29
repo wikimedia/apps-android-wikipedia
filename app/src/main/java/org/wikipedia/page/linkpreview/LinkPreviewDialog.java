@@ -110,10 +110,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         TextView titleText = rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
         setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            // for oldish devices, reset line spacing to 1, since it truncates the descenders.
-            titleText.setLineSpacing(0, 1.0f);
-        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             // for <5.0, give the title a bit more bottom padding, since these versions
             // incorrectly cut off the bottom of the text when line spacing is <1.
             final int bottomPadding = 8;
@@ -122,8 +119,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
         extractText = rootView.findViewById(R.id.link_preview_extract);
         thumbnailView = rootView.findViewById(R.id.link_preview_thumbnail);
-
         thumbnailGallery = rootView.findViewById(R.id.link_preview_thumbnail_gallery);
+
         if (isImageDownloadEnabled()) {
             CallbackTask.execute(new CallbackTask.Task<Map<String, ImageInfo>>() {
                 @Override public Map<String, ImageInfo> execute() throws Throwable {

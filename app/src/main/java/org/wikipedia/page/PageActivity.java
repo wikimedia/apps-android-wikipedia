@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -10,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -416,7 +414,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
      * @param position Whether to open this page in the current tab, a new background tab, or new
      *                 foreground tab.
      */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void loadPage(@NonNull final PageTitle title,
                          @NonNull final HistoryEntry entry,
                          @NonNull final TabPosition position) {

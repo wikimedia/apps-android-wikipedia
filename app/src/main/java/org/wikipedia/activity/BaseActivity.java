@@ -1,6 +1,5 @@
 package org.wikipedia.activity;
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -42,7 +41,6 @@ import org.wikipedia.util.log.L;
 import java.util.List;
 
 public abstract class BaseActivity extends AppCompatActivity {
-    private boolean destroyed;
     private EventBusMethods busMethods;
     private NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver();
 
@@ -71,7 +69,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         WikipediaApp.getInstance().getBus().unregister(busMethods);
         busMethods = null;
         super.onDestroy();
-        destroyed = true;
     }
 
     @Override protected void onResume() {
@@ -121,10 +118,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override public boolean isDestroyed() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            return super.isDestroyed();
-        }
-        return destroyed;
+        return super.isDestroyed();
     }
 
     protected void setTheme() {
@@ -171,7 +165,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    @TargetApi(17)
     private void searchOfflineCompilations(boolean force) {
         if ((!DeviceUtil.isOnline() && OfflineManager.instance().shouldSearchAgain()) || force) {
             OfflineManager.instance().searchForCompilations(new OfflineManager.Callback() {

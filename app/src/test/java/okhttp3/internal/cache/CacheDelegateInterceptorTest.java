@@ -1,8 +1,6 @@
 package okhttp3.internal.cache;
 
-import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
@@ -77,7 +75,6 @@ public class CacheDelegateInterceptorTest extends MockWebServerTest {
     }
 
     // The size on disk of OkHttp metadata is expected to be nonzero.
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Test public void testAssumptionCacheSizeMetadataIsNonzero() throws Throwable {
         Request req = newRequest();
         requestResponse("A", req);
@@ -92,7 +89,6 @@ public class CacheDelegateInterceptorTest extends MockWebServerTest {
 
     // Although OkHttp decompresses gzipped service responses seamlessly, the cache is expected to
     // persist them in compressed form and report the compressed size, not the decompressed size.
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Test public void testAssumptionCacheSizeCompressedSizeIsReported() throws Throwable {
         String interval = "0123456789"; // One cycle.
         String body = StringUtils.repeat(interval, 100_000); // The body is many intervals.

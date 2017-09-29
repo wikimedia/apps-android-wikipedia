@@ -1,7 +1,6 @@
 package org.wikipedia.views;
 
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
@@ -91,9 +90,7 @@ public class AppTextViewWithImagesTest extends ViewTest {
                                    @NonNull FontScale fontScale, @NonNull Theme theme) {
         super.setUp(widthDp, layoutDirection, fontScale, theme);
         subject = new AppTextViewWithImages(ctx());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            subject.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-        }
+        subject.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
     }
 
     private void setUpTypical() {

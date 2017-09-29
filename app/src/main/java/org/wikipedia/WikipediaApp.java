@@ -443,7 +443,7 @@ public class WikipediaApp extends Application {
     }
 
     private void enableWebViewDebugging() {
-        if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (BuildConfig.DEBUG) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
     }

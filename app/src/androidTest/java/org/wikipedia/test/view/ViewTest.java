@@ -3,7 +3,6 @@ package org.wikipedia.test.view;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
@@ -100,13 +99,11 @@ import static org.wikipedia.util.ConfigurationCompat.setLocale;
     }
 
     protected void snap(@NonNull View subject, @Nullable String... dataPoints) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            int rtl = layoutDirection == LayoutDirection.RTL
-                    ? View.LAYOUT_DIRECTION_RTL
-                    : TextUtilsCompat.getLayoutDirectionFromLocale(locale);
-            //noinspection WrongConstant
-            subject.setLayoutDirection(rtl);
-        }
+        int rtl = layoutDirection == LayoutDirection.RTL
+                ? View.LAYOUT_DIRECTION_RTL
+                : TextUtilsCompat.getLayoutDirectionFromLocale(locale);
+        //noinspection WrongConstant
+        subject.setLayoutDirection(rtl);
 
         ViewHelpers viewHelpers = ViewHelpers.setupView(subject).setExactWidthDp(widthDp);
         if (heightDp != null) {

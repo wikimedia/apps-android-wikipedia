@@ -107,13 +107,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     @NonNull private InputStream getInputStream(@NonNull Response rsp) throws IOException {
         InputStream inputStream = rsp.body().byteStream();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-                && CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
+        if (CONTENT_TYPE_OGG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
             inputStream = new AvailableInputStream(rsp.body().byteStream(),
                     rsp.body().contentLength());
-        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT
-                && CONTENT_TYPE_SVG.equals(rsp.header(HEADER_CONTENT_TYPE))) {
-            return transformSvgFile(inputStream);
         }
 
         return inputStream;

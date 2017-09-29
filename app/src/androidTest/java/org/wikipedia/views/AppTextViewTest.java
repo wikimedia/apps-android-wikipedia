@@ -1,6 +1,5 @@
 package org.wikipedia.views;
 
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -52,8 +51,6 @@ public class AppTextViewTest extends ViewTest {
     private void init(@Nullable CharSequence text) {
         subject = new AppTextView(ctx());
         subject.setText(text);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            subject.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-        }
+        subject.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
     }
 }

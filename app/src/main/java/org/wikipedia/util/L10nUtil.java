@@ -3,7 +3,6 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.util.SparseArray;
@@ -95,9 +94,7 @@ public final class L10nUtil {
      * @param lang Wiki code for the language based on which to set direction
      */
     public static void setConditionalTextDirection(View view, String lang) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            view.setTextDirection(isLangRTL(lang) ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
-        }
+        view.setTextDirection(isLangRTL(lang) ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
     }
 
     /**
@@ -109,9 +106,7 @@ public final class L10nUtil {
      * @param lang Wiki code for the language based on which to set direction
      */
     public static void setConditionalLayoutDirection(View view, String lang) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            view.setLayoutDirection(isLangRTL(lang) ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
-        }
+        view.setLayoutDirection(isLangRTL(lang) ? View.LAYOUT_DIRECTION_RTL : View.LAYOUT_DIRECTION_LTR);
     }
 
     /**

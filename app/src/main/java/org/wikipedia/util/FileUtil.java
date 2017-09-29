@@ -1,7 +1,6 @@
 package org.wikipedia.util;
 
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.StatFs;
 import android.support.annotation.NonNull;
 
@@ -29,12 +28,7 @@ public final class FileUtil {
     public static long blockSize(File file) {
         StatFs statFs = new StatFs(file.getAbsolutePath());
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            return statFs.getBlockSizeLong();
-        }
-
-        //noinspection deprecation
-        return statFs.getBlockSize();
+        return statFs.getBlockSizeLong();
     }
 
     public static File writeToFile(ByteArrayOutputStream bytes, File destinationFile) throws IOException {

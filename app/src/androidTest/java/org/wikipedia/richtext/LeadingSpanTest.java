@@ -1,6 +1,5 @@
 package org.wikipedia.richtext;
 
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Spannable;
@@ -60,9 +59,7 @@ public class LeadingSpanTest extends ViewTest {
     private void init(@Nullable CharSequence text, float leadingScalar) {
         textView = new AppTextView(ctx());
         textView.setText(spanned(text, leadingScalar));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            textView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-        }
+        textView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
     }
 
     private Spanned spanned(@Nullable CharSequence text, float leadingScalar) {
