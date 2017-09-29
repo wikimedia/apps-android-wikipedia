@@ -435,7 +435,6 @@
   <string name="offline_compilation_detail_button_download">Lataa • %.2f Gt</string>
   <string name="offline_compilation_detail_button_remove">Poista</string>
   <string name="remote_compilation_download">Lataa</string>
-  <string name="storage_size_gb">Gt</string>
   <string name="storage_size_free">%.2f Gt vapaana</string>
   <string name="storage_used_by_compilations">Wikipedian käyttämä</string>
   <string name="storage_other_apps">Muut sovellukset</string>

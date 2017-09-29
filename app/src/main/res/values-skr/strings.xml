@@ -209,7 +209,6 @@
   <string name="description_edit_help_more_info">ٻیاں معلومات</string>
   <string name="offline_compilation_detail_button_remove">مٹاؤ</string>
   <string name="remote_compilation_download">ڈاؤن لوڈ ، لہاوݨ</string>
-  <string name="storage_size_gb">جی بی</string>
   <string name="storage_size_free">%.2f جی بی مفت</string>
   <string name="compilation_download_widget_button_cancel_hint">ڈاؤن لوڈ منسوخ کرو</string>
   <string name="compilation_download_cancel_confirm_yes">جیا</string>

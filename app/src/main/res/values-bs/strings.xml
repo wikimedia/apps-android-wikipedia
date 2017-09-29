@@ -402,7 +402,6 @@
   <string name="remote_compilations_title" fuzzy="true">Sve zbirke</string>
   <string name="offline_compilation_detail_button_download">Preuzmi • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ukloni</string>
-  <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">slobodno %.2f GB</string>
   <string name="storage_other_apps">Druge aplikacije</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>

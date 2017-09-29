@@ -324,7 +324,7 @@
   <string name="reading_lists_onboarding_got_it">明白了</string>
   <string name="reading_list_no_description">无描述…</string>
   <string name="reading_list_empty">您没有添加至此列表的条目。</string>
-  <string name="reading_list_article_offline">在线可用</string>
+  <string name="reading_list_article_offline">离线可用</string>
   <string name="reading_list_article_make_offline">使该条目离线时可用</string>
   <string name="reading_list_add_to_other_list">添加到另一个阅读列表</string>
   <string name="reading_list_remove_from_list">从%s中移除</string>
@@ -441,7 +441,7 @@
   <string name="offline_compilation_detail_button_download">下载 • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">移除</string>
   <string name="remote_compilation_download">下载</string>
-  <string name="storage_size_gb">GB</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB免费</string>
   <string name="storage_used_by_compilations">用于维基百科</string>
   <string name="storage_other_apps">其他应用</string>

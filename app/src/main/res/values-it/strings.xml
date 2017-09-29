@@ -234,6 +234,7 @@
   <string name="button_continue_to_article">Leggi voce</string>
   <string name="button_add_to_reading_list">Aggiungi all\'elenco di lettura</string>
   <string name="page_offline_notice_cannot_load_while_offline">Non è possibile caricare la voce in assenza di connessione.</string>
+  <string name="page_offline_notice_add_to_reading_list">Suggerimento: Aggiungere l\'articolo alla lista di lettura e sarà scaricato appena sarai collegato a internet.</string>
   <string name="page_offline_notice_last_date">Stai leggendo una versione di questo voce in assenza di connessione salvata il %s</string>
   <string name="button_get_directions">Ottieni indicazioni</string>
   <string name="error_no_maps_app">Impossibile trovare applicazioni che forniscono indicazioni.</string>
@@ -391,7 +392,6 @@
   <string name="offline_compilation_detail_button_download">Scarica • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Rimuovi</string>
   <string name="remote_compilation_download">Scarica</string>
-  <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB liberi</string>
   <string name="storage_used_by_compilations">usati da Wikipedia</string>
   <string name="storage_other_apps">Altre applicazioni</string>

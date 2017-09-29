@@ -258,8 +258,11 @@
   <string name="error_page_does_not_exist">Такой страницы не существует</string>
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к Интернету</string>
   <string name="reference_title">Примечание %s</string>
-  <string name="preference_title_dim_dark_mode_images">Отусклять изображения в чёрной теме</string>
+  <string name="preference_title_dim_dark_mode_images">Делать изображения в тёмной теме менее яркими</string>
+  <string name="preference_summary_dim_dark_mode_images">Уменьшение яркости изображений при использовании тёмной темы</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений (в Тёмной теме)</string>
   <string name="preference_title_prefer_offline_content">Предпочитать оффлайн</string>
+  <string name="preference_summary_prefer_offline_content">Экономит трафик, загружая статьи, которые доступны офлайн, вместо того, чтоб всегда загружают последнюю версию статьи</string>
   <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
   <string name="crash_report_dialog_text">Вы хотите отправить отчёт об ошибке в HockeyApp / сторонний сервис-провайдер, чтобы в Викимедиа могли просмотреть информацию об аварии и исправить ошибку, вызвавшую её?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустить</string>
@@ -425,7 +428,7 @@
   <string name="offline_compilation_download_device_offline">Нет соединения с интернетом. Убедитесь, что вы снова в сети, а затем повторите попытку.</string>
   <string name="offline_read_permission_rationale">Для офлайн-просмотра требуется разрешение на запись в хранилище вашего устройства.</string>
   <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме со статьями в вашей Офлайн-библиотеке.</string>
-  <string name="offline_my_compilations" fuzzy="true">Мои компиляции</string>
+  <string name="offline_my_compilations">Управление моей офлайн-библиотекой</string>
   <string name="offline_compilations_title">Офлайн-библиотека</string>
   <string name="offline_compilations_found_count">В моей библиотеке (%d)</string>
   <string name="offline_compilations_add">Добавить в мою оффлайн библиотеку</string>
@@ -434,7 +437,7 @@
   <string name="offline_compilation_detail_button_download">Скачать • %.2f Гб</string>
   <string name="offline_compilation_detail_button_remove">Удалить</string>
   <string name="remote_compilation_download">Скачать</string>
-  <string name="storage_size_gb">ГБ</string>
+  <string name="storage_size">%.2f Гб</string>
   <string name="storage_size_free">%.2f ГБ свободно</string>
   <string name="storage_used_by_compilations">используется Википедией</string>
   <string name="storage_other_apps">Другие приложения</string>
@@ -466,6 +469,7 @@
   <string name="onboarding_create_account_sync">Синхронизация списков для чтения</string>
   <string name="onboarding_create_account_contributions">Отслеживание вашего вклада</string>
   <string name="onboarding_create_account_preferences">Сохранение ваших настроек</string>
+  <string name="app_shortcuts_random">Случайная</string>
   <string name="app_shortcuts_continue_reading">Продолжить чтение</string>
   <string name="app_shortcuts_search">Поиск</string>
 </resources>

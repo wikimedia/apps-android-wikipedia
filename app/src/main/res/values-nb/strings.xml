@@ -441,7 +441,7 @@
   <string name="offline_compilation_detail_button_download">Last ned • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Fjern</string>
   <string name="remote_compilation_download">Last ned</string>
-  <string name="storage_size_gb">GB</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB ledig</string>
   <string name="storage_used_by_compilations">brukes av Wikipedia</string>
   <string name="storage_other_apps">Andre applikasjoner</string>

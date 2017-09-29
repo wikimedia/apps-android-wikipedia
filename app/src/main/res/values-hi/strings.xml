@@ -223,7 +223,8 @@
   <string name="close_all_tabs_confirm_yes">हाँ</string>
   <string name="close_all_tabs_confirm_no">नहीं</string>
   <string name="button_close_tab">टैब बंद करें</string>
-  <string name="tool_tip_select_text" fuzzy="true">टेक्स्ट को कॉपी या साझा करने के हाईलाइट करने हेतु कहीं भी दबा कर रोके रखें।</string>
+  <string name="tool_tip_select_text_title">चयन के लिए देर तक दबाएं</string>
+  <string name="tool_tip_select_text">टेक्स्ट को कॉपी या साझा करने के हाईलाइट करने हेतु कहीं भी दबा कर रोके रखें।</string>
   <string name="tool_tip_share">किसी रोचक तथ्य को हाईलाइट करने के बाद उसे अपने पसंदीदा नेटवर्क पर साझा करने की कोशिश करें!</string>
   <string name="page_view_in_browser">पेज को ब्राउज़र में देखें</string>
   <string name="tool_tip_toc_button">सामग्री सारणी(टेबल) कभी भी इस बटन को दबाकर या स्क्रीन पर लेफ्ट या राईट से स्लाइड करके देखें।</string>
@@ -255,6 +256,11 @@
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
   <string name="reference_title">सन्दर्भ %s</string>
+  <string name="preference_title_dim_dark_mode_images">अंधेरे विषय में मंद छवियां</string>
+  <string name="preference_summary_dim_dark_mode_images">अंधेरे विषय का उपयोग करते समय छवियों की चमक कम करें</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">धुंधली छवि (अँधेरे विषय में )</string>
+  <string name="preference_title_prefer_offline_content">ऑफलाइन प्रकरण को प्राथमिकता</string>
+  <string name="preference_summary_prefer_offline_content">किसी आलेख के नवीनतम संस्करण को हमेशा लोड करने के बजाय ऑफ़लाइन उपलब्ध लेखों को लोड करके डेटा उपयोग को बचाएं</string>
   <string name="crash_report_dialog_title">क्षमा करें, आखिरी बार एप क्रैश हो गयी थी।</string>
   <string name="crash_report_dialog_text">क्या आप HockeyApp/ एक थर्ड-पार्टी सर्विस प्रोवाइडर को क्रैश रिपोर्ट भेजना चाहते हैं ताकि विकिमीडिया आपके क्रैश को जाँच कर कर सके और उस कमी को सही कर सके?</string>
   <string name="crash_report_dialog_dont_send_button">छोड़ें</string>
@@ -333,6 +339,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">हाँ</string>
   <string name="reading_lists_confirm_remote_delete_no">नहीं</string>
   <string name="reading_list_article_save_in_progress">लेख का अधोभारण हो रहा है, और यह ऑफलाइन उपलब्ध होगा जब यह पूरा हो जाएगा।</string>
+  <string name="reading_list_already_contains_selection">चुनी गयी सूची में चयनित पृष्ठ पहले से ही समाहित हैं।</string>
+  <string name="reading_list_added_articles_list_untitled">पढ़ने की सूची में %d लेख जोड़ा गया।</string>
+  <string name="reading_list_added_articles_list_titled">%2$s में %1$d आलेख जोड़े गए</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>
@@ -415,6 +424,7 @@
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
   <string name="description_edit_revert_reason2">आपका संपादन एक परिक्षण या बर्बरता जैसा लगा।</string>
   <string name="description_edit_revert_history">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>
+  <string name="offline_compilation_download_device_offline">कोई इंटरनेट संपर्क नहीं। सुनिश्चित करें कि आप ऑनलाइन वापस आ गए हैं, फिर पुनः प्रयास करें।</string>
   <string name="offline_read_permission_rationale">ऑफ़लाइन विचरण के लिए आपके यंत्र पर संग्रहण का उपयोग करने की अनुमति आवश्यक है।</string>
   <string name="offline_read_permission_error">यंत्र के भंडारण से पढ़ने की अनुमति प्रदान नहीं की गई।</string>
   <string name="offline_card_text">अब आप अपने ऑफ़लाइन पुस्तकालय में लेखों के साथ विकिपीडिया ऑफ़लाइन ब्राउज़ कर रहे हैं।</string>
@@ -429,7 +439,6 @@
   <string name="offline_compilation_detail_button_download">डाउनलोड · %.2f जीबी</string>
   <string name="offline_compilation_detail_button_remove">निकालें</string>
   <string name="remote_compilation_download">डाउनलोड</string>
-  <string name="storage_size_gb">जीबी</string>
   <string name="storage_size_free">%.2f जीबी खाली</string>
   <string name="storage_used_by_compilations">विकीपीडिया द्वारा प्रयुक्त</string>
   <string name="storage_other_apps">अन्य एप्लीकेशन्स</string>
@@ -472,4 +481,7 @@
   <string name="onboarding_create_account_sync">\nअपनी पठन सूचियों को सिंक करें</string>
   <string name="onboarding_create_account_contributions">अपने योगदान पर नज़र रखें</string>
   <string name="onboarding_create_account_preferences">अपनी पसंद रक्षित करें</string>
+  <string name="app_shortcuts_random">यादृच्छिक</string>
+  <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
+  <string name="app_shortcuts_search">खोजना</string>
 </resources>

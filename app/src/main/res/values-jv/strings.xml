@@ -335,6 +335,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">Iya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ora</string>
   <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
+  <string name="reading_list_added_articles_list_untitled">Nambahaké artikel %d ing pratélan wewacan.</string>
+  <string name="reading_list_added_articles_list_titled">Nambahaké artikel %1$d ing %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel iki saiki bakal ana nalika ing njaban jaringan.</item>
     <item quantity="other">Artikel-artikel iki saiki bakal ana nalika ing njaban jaringan.</item>
@@ -419,19 +421,18 @@
   <string name="description_edit_revert_history">Yèn panjenengan ngrenani, delengen &lt;a href=\"%1$s\"&gt;sajarahé besutan&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan.</string>
   <string name="offline_read_permission_error">Ora antuk palilah saperlu maca saka panyimpenané piranti.</string>
-  <string name="offline_card_text" fuzzy="true">Panjenengan pinuju ngluru Wikipédia ing njaban jaringan. Éling-élingen yèn artikel njaban jaringan bokmanawa ora saanyar sing ana ing njeron jaringan.</string>
-  <string name="offline_my_compilations" fuzzy="true">Kompilasiné kula</string>
-  <string name="offline_compilations_title" fuzzy="true">Kompilasi njaban jaringan</string>
-  <string name="offline_compilations_search_by_name" fuzzy="true">Golèk kompilasi miturut jenengé</string>
+  <string name="offline_card_text">Panjenengan pinuju ngluru Wikipédia kanthi oflèn mawa artikel ing Pabukon Oflèn.</string>
+  <string name="offline_my_compilations">Tata pabukon oflèné panjenengan</string>
+  <string name="offline_compilations_title">Pabukon Oflèn</string>
+  <string name="offline_compilations_search_by_name">Golèk pakèt artikel miturut jenengé</string>
   <string name="offline_compilations_found_count">Ing pabukonku (%d)</string>
-  <string name="offline_compilations_add" fuzzy="true">Tambah kompilasi njaban jaringan</string>
-  <string name="remote_compilations_title" fuzzy="true">Kabèh kompilasi</string>
-  <string name="remote_compilations_description" fuzzy="true">Kompilasi Jaban Jaringan iku bundhelan artikel gedhé sing bisa diundhuh dadi sabarkas menyang pirantiné panjenengan, supaya panjenengan bisa panggah ngluru nalika ing njaban jaringan.</string>
+  <string name="offline_compilations_add">Tambah ing Pabukon Oflènku</string>
+  <string name="remote_compilations_title">Pabukon Oflèn</string>
+  <string name="remote_compilations_description">Nganggo Pabukon Oflèn, panjenengan saiki bisa ngundhuh pakèt artikel kanggo diwaca nalika panjenengan lagi ora duwé sambungan internèt.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Undhuh • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Buwang</string>
   <string name="remote_compilation_download">Undhuh</string>
-  <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB kosong</string>
   <string name="storage_used_by_compilations">dienggo déning Wikipédia</string>
   <string name="storage_other_apps">Aplikasi liyané</string>
@@ -445,6 +446,8 @@
   <string name="compilation_download_cancel_confirm_no">Ora</string>
   <string name="compilation_share">Dum</string>
   <string name="compilation_remove">Busak</string>
+  <string name="offline_library_onboarding_button_done">Rampung</string>
+  <string name="offline_library_onboarding_build_library_title">Bangunen Pabukon Oflèné panjenengan</string>
   <string name="onboarding_skip">Langkahi</string>
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>

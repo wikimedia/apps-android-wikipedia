@@ -441,7 +441,6 @@
   <string name="offline_compilation_detail_button_download">Unduh • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Hapus</string>
   <string name="remote_compilation_download">Unduh</string>
-  <string name="storage_size_gb">GB</string>
   <string name="storage_size_free">%.2f GB bebas</string>
   <string name="storage_used_by_compilations">digunakan oleh Wikipedia</string>
   <string name="storage_other_apps">Aplikasi lainnya</string>

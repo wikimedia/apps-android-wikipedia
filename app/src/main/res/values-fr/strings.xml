@@ -261,6 +261,8 @@
   <string name="preference_title_dim_dark_mode_images">Affaiblir les images dans le thème sombre</string>
   <string name="preference_summary_dim_dark_mode_images">Réduire la luminosité des images quand on utilise le thème sombre</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
+  <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
+  <string name="preference_summary_prefer_offline_content">Économiser l’utilisation des données en chargeant des articles qui sont disponibles hors connexion, plutôt que toujours charger la dernière version d’un article</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>
@@ -439,7 +441,6 @@
   <string name="offline_compilation_detail_button_download">Télécharger • %.2f Gio</string>
   <string name="offline_compilation_detail_button_remove">Supprimer</string>
   <string name="remote_compilation_download">Télécharger</string>
-  <string name="storage_size_gb">Go</string>
   <string name="storage_size_free">%.2f Go libres</string>
   <string name="storage_used_by_compilations">utilisé par Wikipédia</string>
   <string name="storage_other_apps">Autres applications</string>

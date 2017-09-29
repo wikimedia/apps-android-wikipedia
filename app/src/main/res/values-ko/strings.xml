@@ -436,7 +436,7 @@
   <string name="offline_compilation_detail_button_download">다운로드 • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">제거</string>
   <string name="remote_compilation_download">다운로드</string>
-  <string name="storage_size_gb">GB</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB 남음</string>
   <string name="storage_used_by_compilations">(위키백과가 사용 중)</string>
   <string name="storage_other_apps">다른 애플리케이션</string>

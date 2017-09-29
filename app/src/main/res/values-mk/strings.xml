@@ -441,7 +441,7 @@
   <string name="offline_compilation_detail_button_download">Преземи • %.2f ГБ</string>
   <string name="offline_compilation_detail_button_remove">Отстрани</string>
   <string name="remote_compilation_download">Преземи</string>
-  <string name="storage_size_gb">ГБ</string>
+  <string name="storage_size">%.2f ГБ</string>
   <string name="storage_size_free">слободни %.2f ГБ</string>
   <string name="storage_used_by_compilations">се користат од Википедија</string>
   <string name="storage_other_apps">Други прилози</string>
