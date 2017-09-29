@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -183,6 +185,7 @@ public class LangLinksActivity extends BaseActivity {
         }
 
         private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
+            boolean haveChineseEntry = false;
             for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
                 PageTitle link = it.next();
                 String languageCode = link.getWikiSite().languageCode();
@@ -190,8 +193,9 @@ public class LangLinksActivity extends BaseActivity {
                 if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
                     // Remove Gothic since it causes Android to segfault.
                     it.remove();
-                } else if (Locale.CHINESE.getLanguage().equals(languageCode)) {
+                } else if (AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE.equals(languageCode)) {
                     // Replace Chinese with Simplified and Traditional dialects.
+                    haveChineseEntry = true;
                     it.remove();
                     for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                             AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
@@ -199,11 +203,15 @@ public class LangLinksActivity extends BaseActivity {
                     }
                 }
             }
+
+            if (!haveChineseEntry) {
+                addChineseEntriesIfNeeded(title.getWikiSite().languageCode(), title.getText(), languageEntries);
+            }
         }
 
         private void sortLanguageEntriesByMru(List<PageTitle> entries) {
             int addIndex = 0;
-            for (String language : WikipediaApp.getInstance().getMruLanguageCodes()) {
+            for (String language : app.getMruLanguageCodes()) {
                 for (int i = 0; i < entries.size(); i++) {
                     if (entries.get(i).getWikiSite().languageCode().equals(language)) {
                         PageTitle entry = entries.remove(i);
@@ -211,6 +219,22 @@ public class LangLinksActivity extends BaseActivity {
                         break;
                     }
                 }
+            }
+        }
+    }
+
+    @VisibleForTesting
+    public static void addChineseEntriesIfNeeded(@NonNull String langCode,
+                                                 @Nullable String languageTitle,
+                                                 @NonNull List<PageTitle> languageEntries) {
+        // TODO: setup PageTitle in correct variant
+        if (langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+            if (!langCode.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
+                languageEntries.add(new PageTitle(languageTitle, WikiSite.forLanguageCode(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)));
+            }
+
+            if (!langCode.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
+                languageEntries.add(new PageTitle(languageTitle, WikiSite.forLanguageCode(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)));
             }
         }
     }

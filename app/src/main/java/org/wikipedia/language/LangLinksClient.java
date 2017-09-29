@@ -59,7 +59,7 @@ class LangLinksClient {
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=langlinks&lllimit=500")
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=langlinks&lllimit=500&converttitles=true")
         Call<MwQueryResponse> langLinks(@NonNull @Query("titles") String title);
     }
 }
