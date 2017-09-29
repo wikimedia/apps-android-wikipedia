@@ -8,13 +8,13 @@ import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -53,7 +53,7 @@ public class CardLargeHeaderView extends RelativeLayout {
     }
 
     private void resetBackgroundColor() {
-        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
+        setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
     }
 
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
@@ -81,7 +81,7 @@ public class CardLargeHeaderView extends RelativeLayout {
         private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
             final int animDuration = 500;
             ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor",
-                    ResourceUtil.getThemedColor(getContext(), R.attr.paper_color),
+                    ContextCompat.getColor(getContext(), R.color.base20),
                     targetColor);
             animator.setEvaluator(new ArgbEvaluator());
             animator.setDuration(animDuration);
