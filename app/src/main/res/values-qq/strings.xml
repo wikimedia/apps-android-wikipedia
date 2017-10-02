@@ -443,7 +443,7 @@
   <string name="remote_compilation_download">Menu label for downloading a selected article pack.</string>
   <string name="storage_size">Label that says how much space on the device is used by the Wikipedia app. The %.2f symbol is replaced with the number in gigabytes.</string>
   <string name="storage_size_free">Label that says how much free space is available on the device. The %.2f symbol is replaced with the number in gigabytes.</string>
-  <string name="storage_used_by_compilations">Label that appears next to the number of gigabytes used by the Wikipedia app.</string>
+  <string name="storage_used_by_compilations">Label that appears next to the number of gigabytes used by all the downloaded packs in the user\'s Offline Library.</string>
   <string name="storage_other_apps">Legend label for the amount of space used by other applications on the device.</string>
   <string name="offline_compilation_download_progress_text">Information about an offline article pack download in progress. The %1$.2f symbol represents the number of GB downloaded and the %2$.2f symbol represents the total size of the file.</string>
   <plurals name="offline_compilation_download_time_remaining">

@@ -58,7 +58,11 @@
         <item name="primary_text_color">@color/base10</item>
         <item name="secondary_text_color">@color/base30</item>
         <item name="section_title_color">@color/base20</item>
-        <item name="other_apps_space_used_color">@color/base30</item>
+
+        <item name="chart_shade1">@color/base10</item>
+        <item name="chart_shade4">@color/base50</item>
+        <item name="chart_shade5">@color/base70</item>
+        <item name="chart_shade7">@color/base100</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>
