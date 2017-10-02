@@ -190,7 +190,7 @@
   <string name="table_infobox">快速預覽</string>
   <string name="table_other">更多資訊</string>
   <string name="table_close">關閉</string>
-  <string name="widget_name_featured_page">維基百科特色頁面</string>
+  <string name="widget_name_featured_page">維基百科典範頁面</string>
   <string name="widget_title_featured_page">今日特色頁面：</string>
   <string name="widget_name_search">維基百科搜尋</string>
   <string name="wiktionary_no_definitions_found">找不到定義。</string>
@@ -384,7 +384,7 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="view_offline_card_text">內容無法在離線時載入。</string>
-  <string name="view_featured_article_card_title">特色條目</string>
+  <string name="view_featured_article_card_title">典範條目</string>
   <string name="view_featured_article_footer_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
   <string name="description_edit_text_hint">標題說明</string>
@@ -475,7 +475,7 @@
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
   <string name="onboarding_explore_title">探索的新方法</string>
-  <string name="onboarding_explore_text">在探索訊息來源裡發掘特色條目、熱門主題，和閱讀建議。</string>
+  <string name="onboarding_explore_text">在探索訊息來源裡發掘典範條目、熱門主題，和閱讀建議。</string>
   <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
   <string name="onboarding_reading_list_sync_text">從條目建立閱讀清單可讓您於事後閱讀；即使您是在離線的狀態之下。&lt;a href=\"#login\"&gt;登入或建立&lt;/a&gt;您的維基百科帳號以維持您的閱讀清單備份。</string>
   <string name="onboarding_analytics_title">寄送匿名資料</string>

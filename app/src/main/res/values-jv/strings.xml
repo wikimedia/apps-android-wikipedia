@@ -433,6 +433,7 @@
   <string name="offline_compilation_detail_button_download">Undhuh • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Buwang</string>
   <string name="remote_compilation_download">Undhuh</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB kosong</string>
   <string name="storage_used_by_compilations">dienggo déning Wikipédia</string>
   <string name="storage_other_apps">Aplikasi liyané</string>

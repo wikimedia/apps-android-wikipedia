@@ -435,6 +435,7 @@
   <string name="offline_compilation_detail_button_download">Lataa • %.2f Gt</string>
   <string name="offline_compilation_detail_button_remove">Poista</string>
   <string name="remote_compilation_download">Lataa</string>
+  <string name="storage_size">%.2f Gt</string>
   <string name="storage_size_free">%.2f Gt vapaana</string>
   <string name="storage_used_by_compilations">Wikipedian käyttämä</string>
   <string name="storage_other_apps">Muut sovellukset</string>
@@ -452,7 +453,7 @@
   <string name="compilation_remove_confirm">Haluatko poistaa tämän yhteydettömän tilan kirjastostasi?</string>
   <string name="offline_library_title">Offline kirjasto</string>
   <string name="offline_library_empty_title">Yhteydettömän tilan kirjastossasi ei ole mitään</string>
-  <string name="offline_library_empty_description">Valitse paketti Wikipedia-artikkeleita ladattavaksi nyt jotta voit käyttää niitä myöhemmin ilman datayhteyttä.</string>
+  <string name="offline_library_empty_description">Valitse nyt paketti Wikipedia-artikkeleita ladattavaksi niin voit käyttää niitä myöhemmin ilman datayhteyttä.</string>
   <string name="offline_library_empty_search">Etsi yhteydettömän tilan kirjastosta</string>
   <string name="offline_library_search_results_state">Hakutulokset yhteydettömän tilan kirjastostasi</string>
   <string name="offline_library_onboarding_action">Lue lisää</string>

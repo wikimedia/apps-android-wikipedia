@@ -405,6 +405,7 @@
   <string name="offline_compilation_detail_button_download">Eroflueden • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ewechhuelen</string>
   <string name="remote_compilation_download">Eroflueden</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB fräi</string>
   <string name="storage_used_by_compilations">vu Wikipedia benotzt</string>
   <string name="storage_other_apps">Aner Programmen</string>

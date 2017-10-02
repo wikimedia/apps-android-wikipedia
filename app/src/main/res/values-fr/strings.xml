@@ -441,6 +441,7 @@
   <string name="offline_compilation_detail_button_download">Télécharger • %.2f Gio</string>
   <string name="offline_compilation_detail_button_remove">Supprimer</string>
   <string name="remote_compilation_download">Télécharger</string>
+  <string name="storage_size">%.2f Gio</string>
   <string name="storage_size_free">%.2f Go libres</string>
   <string name="storage_used_by_compilations">utilisé par Wikipédia</string>
   <string name="storage_other_apps">Autres applications</string>

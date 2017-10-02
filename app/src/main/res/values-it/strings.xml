@@ -392,6 +392,7 @@
   <string name="offline_compilation_detail_button_download">Scarica • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Rimuovi</string>
   <string name="remote_compilation_download">Scarica</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB liberi</string>
   <string name="storage_used_by_compilations">usati da Wikipedia</string>
   <string name="storage_other_apps">Altre applicazioni</string>

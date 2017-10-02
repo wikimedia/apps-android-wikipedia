@@ -441,6 +441,7 @@
   <string name="offline_compilation_detail_button_download">Muat turun • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Buang</string>
   <string name="remote_compilation_download">Muat turun</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB bebas</string>
   <string name="storage_used_by_compilations">digunakan oleh Wikipedia</string>
   <string name="storage_other_apps">Aplikasi lain</string>

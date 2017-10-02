@@ -183,7 +183,7 @@
   <string name="search_did_you_mean">¿Quisiste decir «%s»?</string>
   <string name="search_recent_header">Búsquedas recientes:</string>
   <string name="button_clear_all_recent_searches">Borrar búsquedas recientes</string>
-  <string name="clear_recent_searches_confirm">¿Estás seguro que deseas borrar tu historial de búsqueda?</string>
+  <string name="clear_recent_searches_confirm">¿Confirmas que quieres vaciar tu historial de búsquedas?</string>
   <string name="clear_recent_searches_confirm_yes">Sí</string>
   <string name="clear_recent_searches_confirm_no">No</string>
   <string name="error_browser_not_found">No se pudo abrir la página web (no se encontró una aplicación para navegar).</string>
@@ -441,6 +441,7 @@
   <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eliminar</string>
   <string name="remote_compilation_download">Descargar</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB libre</string>
   <string name="storage_used_by_compilations">usado por Wikipedia</string>
   <string name="storage_other_apps">Otras aplicaciones</string>
