@@ -27,7 +27,11 @@
     <attr name="secondary_text_color" format="color" />
     <attr name="section_title_color" format="color" />
     <attr name="paper_color" format="color" />
-    <attr name="other_apps_space_used_color" format="color" />
+
+    <attr name="chart_shade1" format="color" />
+    <attr name="chart_shade4" format="color" />
+    <attr name="chart_shade5" format="color" />
+    <attr name="chart_shade7" format="color" />
 
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />

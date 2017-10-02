@@ -21,14 +21,12 @@ import static org.wikipedia.util.FileUtil.bytesToGB;
 
 public class DiskUsageView extends LinearLayout {
     @BindView(R.id.view_disk_usage_size_text) TextView sizeText;
-    @BindView(R.id.view_disk_usage_text_app) TextView usageAppText;
     @BindView(R.id.view_disk_usage_text_free) TextView usageFreeText;
     @BindView(R.id.view_disk_usage_bar_other) View otherBar;
+    @BindView(R.id.view_disk_usage_bar_other_separator) View otherSeparator;
     @BindView(R.id.view_disk_usage_bar_used) View usedBar;
+    @BindView(R.id.view_disk_usage_bar_used_separator) View usedSeparator;
     @BindView(R.id.view_disk_usage_bar_free) View freeBar;
-    @BindView(R.id.view_disk_usage_dot_other) View otherDot;
-    @BindView(R.id.view_disk_usage_dot_used) View usedDot;
-    @BindView(R.id.view_disk_usage_dot_free) View freeDot;
 
     public DiskUsageView(Context context) {
         super(context);
@@ -61,16 +59,17 @@ public class DiskUsageView extends LinearLayout {
         sizeText.setText(getResources().getString(R.string.storage_size, usedGB));
         usageFreeText.setText(getResources().getString(R.string.storage_size_free, availableGB));
 
-        setUsageBarWeight(otherBar, otherGB);
-        setUsageBarWeight(freeBar, availableGB);
         setUsageBarWeight(usedBar, usedGB);
+        usedSeparator.setVisibility(usedGB > 0f ? VISIBLE : GONE);
+        setUsageBarWeight(otherBar, otherGB);
+        otherSeparator.setVisibility(otherGB > 0f ? VISIBLE : GONE);
+        setUsageBarWeight(freeBar, availableGB);
     }
 
     private void init() {
         inflate(getContext(), R.layout.view_disk_usage, this);
         ButterKnife.bind(this);
         setOrientation(VERTICAL);
-        usageAppText.setText(R.string.app_name);
         update(0);
     }
 

@@ -496,7 +496,7 @@
     <string name="remote_compilation_download">Download</string>
     <string name="storage_size">%.2f GB</string>
     <string name="storage_size_free">%.2f GB free</string>
-    <string name="storage_used_by_compilations">used by Wikipedia</string>
+    <string name="storage_used_by_compilations">used by Offline Library</string>
     <string name="storage_other_apps">Other applications</string>
     <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
     <plurals name="offline_compilation_download_time_remaining">

@@ -32,7 +32,6 @@
             android:layout_marginRight="8dp"
             android:textSize="12sp"
             android:textColor="?attr/primary_text_color"
-            android:fontFamily="sans-serif-medium"
             android:text="@string/storage_used_by_compilations"/>
 
     </LinearLayout>
@@ -50,31 +49,33 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="?attr/primary_text_color"/>
+            android:background="?attr/chart_shade1"/>
 
         <View
+            android:id="@+id/view_disk_usage_bar_used_separator"
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
-            android:background="@color/base100"/>
+            android:background="@color/base70"/>
 
         <View
             android:id="@+id/view_disk_usage_bar_other"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:background="?attr/other_apps_space_used_color"/>
+            android:background="?attr/chart_shade4"/>
 
         <View
+            android:id="@+id/view_disk_usage_bar_other_separator"
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
-            android:background="@color/base100"/>
+            android:background="@color/base70"/>
 
         <View
             android:id="@+id/view_disk_usage_bar_free"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:background="?attr/paper_color"/>
+            android:background="?attr/chart_shade7"/>
 
     </LinearLayout>
 
@@ -82,16 +83,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/view_disk_usage_dot_used"
+        <FrameLayout
             android:layout_width="8dp"
             android:layout_height="8dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/shape_circle"
-            android:src="@drawable/shape_circle_outline"
-            android:contentDescription="@null"
-            app:tint="?attr/primary_text_color"
-            app:tintMode="src_in"/>
+            android:layout_gravity="center_vertical">
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/shape_circle"
+                android:contentDescription="@null"
+                app:tint="?attr/chart_shade1"
+                app:tintMode="src_in"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/shape_circle_outline"
+                android:contentDescription="@null"
+                app:tint="?attr/chart_shade5"
+                app:tintMode="src_in"/>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/view_disk_usage_text_app"
@@ -101,7 +111,7 @@
             android:layout_marginRight="8dp"
             android:textColor="?attr/primary_text_color"
             android:textSize="12sp"
-            tools:text="Wikipedia"/>
+            android:text="@string/offline_library_title"/>
 
     </LinearLayout>
 
@@ -109,16 +119,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/view_disk_usage_dot_other"
+        <FrameLayout
             android:layout_width="8dp"
             android:layout_height="8dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/shape_circle"
-            android:src="@drawable/shape_circle_outline"
-            android:contentDescription="@null"
-            app:tint="?attr/other_apps_space_used_color"
-            app:tintMode="src_in"/>
+            android:layout_gravity="center_vertical">
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/shape_circle"
+                android:contentDescription="@null"
+                app:tint="?attr/chart_shade4"
+                app:tintMode="src_in"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/shape_circle_outline"
+                android:contentDescription="@null"
+                app:tint="?attr/chart_shade5"
+                app:tintMode="src_in"/>
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -135,16 +154,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/view_disk_usage_dot_free"
+        <FrameLayout
             android:layout_width="8dp"
             android:layout_height="8dp"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/shape_circle"
-            android:src="@drawable/shape_circle_outline"
-            android:contentDescription="@null"
-            app:tint="?attr/paper_color"
-            app:tintMode="src_in"/>
+            android:layout_gravity="center_vertical">
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/shape_circle"
+                android:contentDescription="@null"
+                app:tint="?attr/chart_shade7"
+                app:tintMode="src_in"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/shape_circle_outline"
+                android:contentDescription="@null"
+                app:tint="?attr/chart_shade5"
+                app:tintMode="src_in"/>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/view_disk_usage_text_free"
