@@ -361,7 +361,7 @@ public class PageFragmentLoadState {
                             return;
                         }
                         model.setReadingListPage(page);
-                        fragment.updateBookmark();
+                        fragment.updateBookmarkAndMenuOptions();
                         pageLoadPrepareWebView();
                     }
 
@@ -371,7 +371,7 @@ public class PageFragmentLoadState {
                             return;
                         }
                         L.w(caught);
-                        fragment.updateBookmark();
+                        fragment.updateBookmarkAndMenuOptions();
                         pageLoadPrepareWebView();
                     }
                 });

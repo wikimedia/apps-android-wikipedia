@@ -64,6 +64,7 @@ import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.RemoveFromReadingListsDialog;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.settings.Prefs;
@@ -253,6 +254,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public PageTitle getTitle() {
         return model.getTitle();
+    }
+
+    public boolean isPresentInOfflineLists() {
+        return model.isInReadingList();
     }
 
     public PageTitle getTitleOriginal() {
@@ -688,7 +693,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack, stagedScrollY);
-        updateBookmark();
+        updateBookmarkAndMenuOptions();
     }
 
     public Bitmap getLeadImageBitmap() {
@@ -703,14 +708,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
     }
 
-    public void updateBookmark() {
+    public void updateBookmarkAndMenuOptions() {
         if (!isAdded()) {
             return;
         }
         pageActionTabsCallback.updateBookmark(model.isInReadingList());
+        if (callback() != null) {
+            callback().onPageInvalidateOptionsMenu();
+        }
     }
 
-    public void updateBookmarkFromDao() {
+    public void updateBookmarkAndMenuOptionsFromDao() {
         ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
                 new CallbackTask.DefaultCallback<ReadingListPage>() {
                     @Override public void success(@Nullable ReadingListPage page) {
@@ -719,6 +727,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         }
                         model.setReadingListPage(page);
                         pageActionTabsCallback.updateBookmark(page != null);
+                        if (callback() != null) {
+                            callback().onPageInvalidateOptionsMenu();
+                        }
                     }
                 });
     }
@@ -769,6 +780,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             case R.id.menu_page_add_to_list:
                 addToReadingList(AddToReadingListDialog.InvokeSource.PAGE_OVERFLOW_MENU);
                 return true;
+            case R.id.menu_page_remove_from_list:
+                showRemoveFromListsDialog();
+                return true;
             case R.id.menu_page_find_in_page:
                 showFindInPage();
                 return true;
@@ -792,6 +806,18 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void showRemoveFromListsDialog() {
+        new RemoveFromReadingListsDialog(model.getReadingListPage()).deleteOrShowDialog(getContext(),
+                new RemoveFromReadingListsDialog.Callback() {
+                    @Override
+                    public void onDeleted(@NonNull ReadingListPage page) {
+                        if (callback() != null) {
+                            callback().onPageRemoveFromReadingLists(getTitle());
+                        }
+                    }
+                });
     }
 
     public void sharePageLink() {

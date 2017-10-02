@@ -61,6 +61,11 @@ class PageViewModel {
         readingListPage = page;
     }
 
+    @Nullable
+    public ReadingListPage getReadingListPage() {
+        return readingListPage;
+    }
+
     public void setForceNetwork(boolean forceNetwork) {
         this.forceNetwork = forceNetwork;
     }
