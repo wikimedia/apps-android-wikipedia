@@ -21,7 +21,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
 
-import static org.wikipedia.util.StringUtil.md5string;
 import static org.wikipedia.util.UriUtil.decodeURL;
 
 /**
@@ -34,7 +33,6 @@ import static org.wikipedia.util.UriUtil.decodeURL;
  * of a PageTitle to remain constant for the lifetime of the object.
  */
 public class PageTitle implements Parcelable {
-    private static final String LANGUAGE_CODE_KEY = "languageCode";
 
     public static final Parcelable.Creator<PageTitle> CREATOR
             = new Parcelable.Creator<PageTitle>() {
@@ -161,12 +159,7 @@ public class PageTitle implements Parcelable {
         this.text = json.optString("text", null);
         this.fragment = json.optString("fragment", null);
         if (json.has("site")) {
-            if (json.has(LANGUAGE_CODE_KEY)) {
-                wiki = new WikiSite(json.optString("site"), json.optString(LANGUAGE_CODE_KEY));
-            } else {
-                // TODO: remove in September 2016.
-                wiki = new WikiSite(json.optString("site"));
-            }
+            wiki = new WikiSite(json.optString("site"), json.optString("languageCode"));
         } else {
             L.logRemoteErrorIfProd(new RemoteLogException("wiki is null").put("json", json.toString()));
             wiki = WikipediaApp.getInstance().getWikiSite();
@@ -242,15 +235,10 @@ public class PageTitle implements Parcelable {
         return properties != null && properties.isDisambiguationPage();
     }
 
-    /** Please keep the ID stable. */
-    public String getIdentifier() {
-        return md5string(toIdentifierJSON().toString());
-    }
-
     public JSONObject toJSON() {
         try {
             JSONObject json = toIdentifierJSON();
-            json.put(LANGUAGE_CODE_KEY, wiki.languageCode());
+            json.put("languageCode", wiki.languageCode());
             if (properties != null) {
                 json.put("properties", properties.toJSON());
             }

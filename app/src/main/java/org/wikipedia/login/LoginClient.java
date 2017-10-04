@@ -119,7 +119,7 @@ public class LoginClient {
                 loginResult.setGroups(groups);
                 cb.success(loginResult);
 
-                L.v("Found user ID " + id + " for " + wiki.languageCode());
+                L.v("Found user ID " + id + " for " + wiki.subdomain());
             }
 
             @Override

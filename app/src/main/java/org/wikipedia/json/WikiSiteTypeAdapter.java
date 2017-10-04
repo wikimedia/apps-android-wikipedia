@@ -32,7 +32,7 @@ public class WikiSiteTypeAdapter extends TypeAdapter<WikiSite> {
             return new WikiSite(Uri.parse(in.nextString()));
         }
 
-        String url = null;
+        String domain = null;
         String languageCode = null;
         in.beginObject();
         while (in.hasNext()) {
@@ -40,7 +40,7 @@ public class WikiSiteTypeAdapter extends TypeAdapter<WikiSite> {
             String val = in.nextString();
             switch (field) {
                 case DOMAIN:
-                    url = val;
+                    domain = val;
                     break;
                 case LANGUAGE_CODE:
                     languageCode = val;
@@ -50,28 +50,14 @@ public class WikiSiteTypeAdapter extends TypeAdapter<WikiSite> {
         }
         in.endObject();
 
-        if (url == null) {
+        if (domain == null) {
             throw new JsonParseException("Missing domain");
         }
 
         // todo: legacy; remove in June 2018
         if (languageCode == null) {
-            if (url.startsWith("http")) {
-                return new WikiSite(Uri.parse(url));
-            }
-            return new WikiSite(url);
+            return new WikiSite(domain);
         }
-
-        Uri uri;
-        if (url.startsWith("http")) {
-            uri = Uri.parse(url);
-        } else {
-            // todo: legacy; remove in June 2018
-            uri = new Uri.Builder()
-                    .scheme("https")
-                    .authority(url)
-                    .build();
-        }
-        return new WikiSite(uri, languageCode);
+        return new WikiSite(domain, languageCode);
     }
 }

@@ -12,8 +12,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.BufferedReader;
@@ -91,7 +91,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         return OkHttpConnectionFactory.getClient().newCall(new Request.Builder()
                 .url(url)
                 // TODO: Find a common way to set this header between here and RetrofitFactory.
-                .header("Accept-Language", L10nUtil.getAcceptLanguageCode(getWikiSite()))
+                .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(getWikiSite()))
                 .build())
                 .execute();
     }

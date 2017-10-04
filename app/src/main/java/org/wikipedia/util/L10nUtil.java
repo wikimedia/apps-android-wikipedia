@@ -14,7 +14,6 @@ import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 
@@ -220,24 +219,15 @@ public final class L10nUtil {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
             String appLanguageCode = WikipediaApp.getInstance().getAppLanguageCode();
-            if (appLanguageCode != null && appLanguageCode.equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
+            if (appLanguageCode.equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
                 setLocale(config, TRADITIONAL_CHINESE);
-            } else if (appLanguageCode != null && appLanguageCode.equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
+            } else if (appLanguageCode.equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
                 setLocale(config, SIMPLIFIED_CHINESE);
             } else {
                 setLocale(config, desiredLocale);
             }
         } else {
             setLocale(config, desiredLocale);
-        }
-    }
-
-    public static String getAcceptLanguageCode(@NonNull WikiSite wikiSite) {
-        if (wikiSite.internalLinkLanguageCode() == null || wikiSite.internalLinkLanguageCode().equals("wiki")) {
-            return WikipediaApp.getInstance().getAcceptLanguage(wikiSite);
-        } else {
-            // zh variants site, e.g.: /zh-hant/
-            return wikiSite.internalLinkLanguageCode();
         }
     }
 

@@ -108,7 +108,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
 
         // TODO: centralize the Wiktionary domain better. Maybe a SharedPreference that defaults to
         //       https://wiktionary.org.
-        PageClient pageClient = PageClientFactory.create(new WikiSite(pageTitle.getWikiSite().languageCode() + WIKTIONARY_DOMAIN), Namespace.MAIN);
+        PageClient pageClient = PageClientFactory.create(new WikiSite(pageTitle.getWikiSite().subdomain() + WIKTIONARY_DOMAIN), Namespace.MAIN);
         if (pageClient instanceof RbPageClient) {
             ((RbPageClient) pageClient).define(
                     addUnderscores(selectedText),

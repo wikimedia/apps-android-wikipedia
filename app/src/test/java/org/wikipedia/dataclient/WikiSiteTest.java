@@ -49,16 +49,17 @@ import static org.hamcrest.Matchers.not;
     @Test public void testForLanguageCodeLanguageAuthority() {
         WikiSite subject = WikiSite.forLanguageCode("zh-hans");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
+        assertThat(subject.languageCode(), is("zh-hans"));
     }
 
     @Test public void testCtorScheme() {
-        WikiSite subject = new WikiSite(false, "simple.wikipedia.beta.wmflabs.org", "simple");
-        assertThat(subject.secureScheme(), is(false));
+        WikiSite subject = new WikiSite("http://wikipedia.org");
+        assertThat(subject.scheme(), is("http"));
     }
 
-    @Test public void testCtorNoScheme() {
+    @Test public void testCtorDefaultScheme() {
         WikiSite subject = new WikiSite("wikipedia.org");
-        assertThat(subject.secureScheme(), is(true));
+        assertThat(subject.scheme(), is("https"));
     }
 
     @Test public void testCtorAuthority() {
@@ -86,33 +87,44 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.languageCode(), is(""));
     }
 
+    @Test public void testCtorUriLangVariant() {
+        WikiSite subject = new WikiSite("zh.wikipedia.org/zh-hant/Foo");
+        assertThat(subject.authority(), is("zh.wikipedia.org"));
+        assertThat(subject.mobileAuthority(), is("zh.m.wikipedia.org"));
+        assertThat(subject.subdomain(), is("zh"));
+        assertThat(subject.languageCode(), is("zh-hant"));
+        assertThat(subject.scheme(), is("https"));
+        assertThat(subject.dbName(), is("zhwiki"));
+        assertThat(subject.url(), is("https://zh.wikipedia.org"));
+    }
+
+    @Test public void testCtorMobileUriLangVariant() {
+        WikiSite subject = new WikiSite("zh.m.wikipedia.org/zh-hant/Foo");
+        assertThat(subject.authority(), is("zh.m.wikipedia.org"));
+        assertThat(subject.mobileAuthority(), is("zh.m.wikipedia.org"));
+        assertThat(subject.subdomain(), is("zh"));
+        assertThat(subject.languageCode(), is("zh-hant"));
+        assertThat(subject.scheme(), is("https"));
+        assertThat(subject.url(), is("https://zh.m.wikipedia.org"));
+    }
+
+    @Test public void testCtorUriNoLangVariant() {
+        WikiSite subject = new WikiSite("http://zh.wikipedia.org/wiki/Foo");
+        assertThat(subject.authority(), is("zh.wikipedia.org"));
+        assertThat(subject.mobileAuthority(), is("zh.m.wikipedia.org"));
+        assertThat(subject.subdomain(), is("zh"));
+        assertThat(subject.languageCode(), is("zh"));
+        assertThat(subject.scheme(), is("http"));
+        assertThat(subject.url(), is("http://zh.wikipedia.org"));
+    }
+
     @Test public void testCtorParcel() throws Throwable {
         WikiSite subject = WikiSite.forLanguageCode("test");
         TestParcelUtil.test(subject);
     }
 
-    @Test public void testSecureSchemeHttp() {
-        WikiSite subject = new WikiSite(false, "192.168.1.11:8080", "");
-        assertThat(subject.secureScheme(), is(false));
-    }
-
-    @Test public void testSecureSchemeHttps() {
-        WikiSite subject = new WikiSite(true, "192.168.1.11:8080", "");
-        assertThat(subject.secureScheme(), is(true));
-    }
-
-    @Test public void testSchemeHttp() {
-        WikiSite subject = new WikiSite(false, "meta.wikimedia.org", "");
-        assertThat(subject.scheme(), is("http"));
-    }
-
-    @Test public void testSchemeHttps() {
-        WikiSite subject = new WikiSite(true, "meta.wikimedia.org", "");
-        assertThat(subject.scheme(), is("https"));
-    }
-
     @Test public void testAuthority() {
-        WikiSite subject = new WikiSite(true, "test.wikipedia.org", "test");
+        WikiSite subject = new WikiSite("test.wikipedia.org", "test");
         assertThat(subject.authority(), is("test.wikipedia.org"));
     }
 
@@ -151,32 +163,6 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.dbName(), is("nowiki"));
     }
 
-    @Test public void testHost() {
-        WikiSite subject = WikiSite.forLanguageCode("test");
-        assertThat(subject.host(), is("test.wikipedia.org"));
-    }
-
-    @Test public void testMobileHost() {
-        WikiSite subject = WikiSite.forLanguageCode("test");
-        assertThat(subject.mobileHost(), is("test.m.wikipedia.org"));
-    }
-
-    @Test public void testMobileHostNoLanguage() {
-        WikiSite subject = WikiSite.forLanguageCode("");
-        assertThat(subject.mobileHost(), is("m.wikipedia.org"));
-    }
-
-    @Test public void testPort() {
-        final int port = 8080;
-        WikiSite subject = new WikiSite("192.168.1.11:" + port);
-        assertThat(subject.port(), is(port));
-    }
-
-    @Test public void testPortDefault() {
-        WikiSite subject = WikiSite.forLanguageCode("test");
-        assertThat(subject.port(), is(-1));
-    }
-
     @Test public void testPath() {
         WikiSite subject = WikiSite.forLanguageCode("test");
         assertThat(subject.path("Segment"), is("/w/Segment"));
@@ -188,8 +174,8 @@ import static org.hamcrest.Matchers.not;
     }
 
     @Test public void testUrl() {
-        WikiSite subject = new WikiSite(false, "test.192.168.1.11:8080", "test");
-        assertThat(subject.url(), is("http://test.192.168.1.11:8080"));
+        WikiSite subject = new WikiSite("test.192.168.1.11:8080", "test");
+        assertThat(subject.url(), is("https://test.192.168.1.11:8080"));
     }
 
     @Test public void testUrlPath() {
@@ -208,7 +194,7 @@ import static org.hamcrest.Matchers.not;
     }
 
     @Test public void testUnmarshalScheme() {
-        WikiSite wiki = new WikiSite(false, "wikipedia.org", "");
+        WikiSite wiki = new WikiSite("wikipedia.org", "");
         assertThat(GsonUnmarshaller.unmarshal(WikiSite.class, GsonMarshaller.marshal(wiki)), is(wiki));
     }
 

@@ -13,8 +13,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.UriUtil;
 
-import java.util.Locale;
-
 /**
  * The base URL and Wikipedia language code for a MediaWiki site. Examples:
  *
@@ -40,6 +38,8 @@ import java.util.Locale;
  * </ul>
  */
 public class WikiSite implements Parcelable {
+    public static final String DEFAULT_SCHEME = "https";
+
     public static final Parcelable.Creator<WikiSite> CREATOR = new Parcelable.Creator<WikiSite>() {
         @Override
         public WikiSite createFromParcel(Parcel in) {
@@ -54,72 +54,46 @@ public class WikiSite implements Parcelable {
 
     // todo: remove @SerializedName. this is now in the TypeAdapter and a "uri" case may be added
     @SerializedName("domain") @NonNull private final Uri uri;
-    @NonNull private final String languageCode; // possibly empty
-    @NonNull private String internalLinkLanguageCode; // for url
+    @NonNull private String languageCode;
 
-    /**
-     * @return True if the authority is supported by the app.
-     */
     public static boolean supportedAuthority(@NonNull String authority) {
         return authority.endsWith(Prefs.getMediaWikiBaseUri().getAuthority());
     }
 
     public static WikiSite forLanguageCode(@NonNull String languageCode) {
-        Uri uri = Prefs.getMediaWikiBaseUri();
-        boolean secureSchema = uri.getScheme().equals("https");
-        return new WikiSite(secureSchema,
-                (languageCode.isEmpty() ? "" : (languageCodeToSubdomain(languageCode) + ".")) + uri.getAuthority(),
+        Uri uri = ensureScheme(Prefs.getMediaWikiBaseUri());
+        return new WikiSite((languageCode.isEmpty()
+                ? "" : (languageCodeToSubdomain(languageCode) + ".")) + uri.getAuthority(),
                 languageCode);
     }
 
-    /** This method cannot resolve multi-dialect wikis like Simplified and Traditional Chinese as
-        the variant is unavailable. */
-    public WikiSite(@NonNull String authority) {
-        this(authority, authorityToLanguageCode(authority));
+    public WikiSite(@NonNull Uri uri) {
+        Uri tempUri = ensureScheme(uri);
+        String langVariant = UriUtil.getLanguageVariantFromUri(tempUri);
+        if (!TextUtils.isEmpty(langVariant) && !langVariant.equals("wiki")) {
+            languageCode = langVariant;
+        } else {
+            languageCode = authorityToLanguageCode(tempUri.getAuthority());
+        }
+        this.uri = new Uri.Builder()
+                .scheme(tempUri.getScheme())
+                .encodedAuthority(tempUri.getAuthority())
+                .build();
+    }
+
+    public WikiSite(@NonNull String url) {
+        this(url.startsWith("http") ? Uri.parse(url) : url.startsWith("//")
+                ? Uri.parse(DEFAULT_SCHEME + ":" + url) : Uri.parse(DEFAULT_SCHEME + "://" + url));
     }
 
     public WikiSite(@NonNull String authority, @NonNull String languageCode) {
-        this(true, authority, languageCode);
-    }
-
-    public WikiSite(boolean secureScheme, @NonNull String authority, @NonNull String languageCode) {
-        this(new Uri.Builder()
-                .scheme(secureScheme ? "https" : "http")
-                .encodedAuthority(authority)
-                .build(), languageCode);
-    }
-
-    /** This method cannot resolve multi-dialect wikis like Simplified and Traditional Chinese as
-     the variant is unavailable. */
-    public WikiSite(@NonNull Uri uri) {
-        this(uri, authorityToLanguageCode(uri.getAuthority()));
-    }
-
-    public WikiSite(@NonNull Uri uri, @NonNull String languageCode) {
-        // todo: uncomment
-        // if (!supportedAuthority(uri.getAuthority())) {
-        //     throw new IllegalArgumentException("Unsupported authority=" + uri.getAuthority());
-        // }
-        this.uri = uri;
+        this(authority);
         this.languageCode = languageCode;
-    }
-
-    /**
-     * @return True if the URL scheme is secure. Examples:
-     *
-     * <ul>
-     *     <lh>Scheme: return value</lh>
-     *     <li>HTTPS: true</li>
-     *     <li>HTTP: false</li>
-     * </ul>
-     */
-    public boolean secureScheme() {
-        return uri.getScheme().equals("https");
     }
 
     @NonNull
     public String scheme() {
-        return uri.getScheme();
+        return TextUtils.isEmpty(uri.getScheme()) ? DEFAULT_SCHEME : uri.getScheme();
     }
 
     /**
@@ -133,18 +107,8 @@ public class WikiSite implements Parcelable {
         return uri.getAuthority();
     }
 
-    @NonNull
-    public String mobileAuthority() {
-        return authorityToMobile(authority());
-    }
-
-    @NonNull
-    public String host() {
-        return uri.getHost();
-    }
-
     /**
-     * Like {@link #host} but with a "m." between the language subdomain and the rest of the host.
+     * Like {@link #authority()} but with a "m." between the language subdomain and the rest of the host.
      * Examples:
      *
      * <ul>
@@ -159,13 +123,13 @@ public class WikiSite implements Parcelable {
      * </ul>
      */
     @NonNull
-    public String mobileHost() {
-        return authorityToMobile(host());
+    public String mobileAuthority() {
+        return authorityToMobile(authority());
     }
 
-    /**  @return the port if specified or -1 if invalid or not present */
-    public int port() {
-        return uri.getPort();
+    @NonNull
+    public String subdomain() {
+        return languageCodeToSubdomain(languageCode);
     }
 
     /**
@@ -206,11 +170,6 @@ public class WikiSite implements Parcelable {
         return languageCode;
     }
 
-    @NonNull
-    public String internalLinkLanguageCode() {
-        return internalLinkLanguageCode;
-    }
-
     // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
     /**
      * Create a PageTitle object from an internal link string.
@@ -220,8 +179,6 @@ public class WikiSite implements Parcelable {
      * @return A {@link PageTitle} object representing the internalLink passed in.
      */
     public PageTitle titleForInternalLink(String internalLink) {
-        // Handle language variants on non /wiki/ site.
-        internalLinkLanguageCode = UriUtil.getLanguageCodeFromUrl(internalLink);
         // Strip the /wiki/ from the href
         return new PageTitle(UriUtil.removeInternalLinkPrefix(internalLink), this);
     }
@@ -241,7 +198,7 @@ public class WikiSite implements Parcelable {
     }
 
     @NonNull public String dbName() {
-        return languageCodeToSubdomain(languageCode) + "wiki";
+        return subdomain() + "wiki";
     }
 
     // Auto-generated
@@ -291,7 +248,8 @@ public class WikiSite implements Parcelable {
     }
 
     protected WikiSite(@NonNull Parcel in) {
-        this(in.<Uri>readParcelable(Uri.class.getClassLoader()), in.readString());
+        this.uri = in.readParcelable(Uri.class.getClassLoader());
+        this.languageCode = in.readString();
     }
 
     @NonNull
@@ -299,7 +257,7 @@ public class WikiSite implements Parcelable {
         switch (languageCode) {
             case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
             case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
-                return Locale.CHINA.getLanguage();
+                return AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
             case AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE:
                 return AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE; // T114042
             default:
@@ -320,12 +278,18 @@ public class WikiSite implements Parcelable {
         return parts[0];
     }
 
+    @NonNull private static Uri ensureScheme(@NonNull Uri uri) {
+        if (TextUtils.isEmpty(uri.getScheme())) {
+            return uri.buildUpon().scheme(DEFAULT_SCHEME).build();
+        }
+        return uri;
+    }
+
     /** @param authority Host and optional port. */
     @NonNull private String authorityToMobile(@NonNull String authority) {
         if (authority.startsWith("m.") || authority.contains(".m.")) {
             return authority;
         }
-        String subdomain = languageCodeToSubdomain(languageCode);
-        return authority.replaceFirst("^" + subdomain + "\\.?", "$0m.");
+        return authority.replaceFirst("^" + subdomain() + "\\.?", "$0m.");
     }
 }

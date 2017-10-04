@@ -151,10 +151,10 @@ public final class UriUtil {
         return removeFragment(removeLinkPrefix(url)).replace("_", " ");
     }
 
-    /** Get language code from internal link, especially for the zh variants, will get "wiki" or "zh-*" */
+    /** Get language variant code from a Uri, especially for the zh variants, will get "wiki" or "zh-*" */
     @NonNull
-    public static String getLanguageCodeFromUrl(@NonNull String link) {
-        return link.replaceAll("^/|/.*", "");
+    public static String getLanguageVariantFromUri(@NonNull Uri uri) {
+        return StringUtils.defaultString(uri.getPath()).replaceAll("^/|/.*", "");
     }
 
     /** For internal links only */

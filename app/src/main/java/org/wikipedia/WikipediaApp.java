@@ -152,9 +152,9 @@ public class WikipediaApp extends Application {
         return getCurrentTheme().isDark();
     }
 
-    @Nullable
+    @NonNull
     public String getAppLanguageCode() {
-        return appLanguageState.getAppLanguageCode();
+        return defaultString(appLanguageState.getAppLanguageCode());
     }
 
     @NonNull
@@ -272,7 +272,7 @@ public class WikipediaApp extends Application {
         String wikiLang = wiki == null || "meta".equals(wiki.languageCode())
                 ? ""
                 : defaultString(wiki.languageCode());
-        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, defaultString(getAppLanguageCode()),
+        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, getAppLanguageCode(),
                 appLanguageState.getSystemLanguageCode());
     }
 
@@ -480,7 +480,7 @@ public class WikipediaApp extends Application {
 
             @Override
             public void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught) {
-                L.e("Failed to get user ID for " + wikiSite.languageCode(), caught);
+                L.e("Failed to get user ID for " + code, caught);
             }
         });
     }

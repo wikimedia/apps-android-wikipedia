@@ -18,7 +18,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 /** Language lookup and state management for the application language and most recently used article
  * and application languages. */
 public class AppLanguageState {
-    public static final String SYSTEM_LANGUAGE_CODE = null;
+    private static final String SYSTEM_LANGUAGE_CODE = null;
 
     @NonNull
     private final AppLanguageLookUpTable appLanguageLookUpTable;
@@ -55,11 +55,11 @@ public class AppLanguageState {
         Prefs.setAppLanguageCode(code);
     }
 
-    public boolean isSystemLanguageEnabled() {
-        return isSystemLanguageCode(getAppLanguageCode());
+    private boolean isSystemLanguageEnabled() {
+        return isSystemLanguageCode(appLanguageCode);
     }
 
-    public boolean isSystemLanguageCode(@Nullable String code) {
+    private boolean isSystemLanguageCode(@Nullable String code) {
         return StringUtils.equals(code, SYSTEM_LANGUAGE_CODE);
     }
 

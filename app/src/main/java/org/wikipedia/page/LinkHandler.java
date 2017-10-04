@@ -79,11 +79,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         Log.d("Wikipedia", "Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
                 && uri.getPath().startsWith("/wiki/")) {
-            WikiSite site = new WikiSite(uri.getAuthority());
+            WikiSite site = new WikiSite(uri);
             PageTitle title = site.titleForInternalLink(uri.getPath());
             onInternalLinkClicked(title);
         } else if (!TextUtils.isEmpty(titleString) && UriUtil.isValidOfflinePageLink(uri)) {
-            WikiSite site = new WikiSite(uri.getAuthority());
+            WikiSite site = new WikiSite(uri);
             PageTitle title = PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
             onInternalLinkClicked(title);
         } else if (!TextUtils.isEmpty(uri.getFragment())) {

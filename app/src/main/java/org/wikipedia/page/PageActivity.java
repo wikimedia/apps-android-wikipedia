@@ -318,7 +318,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void handleIntent(@NonNull Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
-            WikiSite wiki = new WikiSite(intent.getData().getAuthority());
+            WikiSite wiki = new WikiSite(intent.getData());
             PageTitle title = wiki.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
             loadPageInForegroundTab(title, historyEntry);

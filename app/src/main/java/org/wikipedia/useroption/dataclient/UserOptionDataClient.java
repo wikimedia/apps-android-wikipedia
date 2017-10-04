@@ -71,7 +71,7 @@ public class UserOptionDataClient {
                     @Override
                     public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
                         if (response.body() != null && !response.body().success(response.body().result())) {
-                            L.e("Bad response for wiki " + wiki.host() + " = " + response.body().result());
+                            L.e("Bad response for wiki " + wiki.authority() + " = " + response.body().result());
                         } else if (callback != null) {
                             callback.success();
                         }
@@ -97,7 +97,7 @@ public class UserOptionDataClient {
                     @Override
                     public void onResponse(Call<PostResponse> call, Response<PostResponse> response) {
                         if (response.body() != null && !response.body().success(response.body().result())) {
-                            L.e("Bad response for wiki " + wiki.host() + " = " + response.body().result());
+                            L.e("Bad response for wiki " + wiki.authority() + " = " + response.body().result());
                         } else if (callback != null) {
                             callback.success();
                         }
