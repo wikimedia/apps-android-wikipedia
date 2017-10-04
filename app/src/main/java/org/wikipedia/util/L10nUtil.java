@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 
@@ -210,6 +211,7 @@ public final class L10nUtil {
         // but if we want to display chinese correctly based on the article itself, we have to
         // detect the variant from the API responses; otherwise, we will only get english texts.
         // And this might only happen in Chinese variant
+
         if (desiredLocale.getLanguage().equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
             setLocale(config, TRADITIONAL_CHINESE);
         } else if (desiredLocale.getLanguage().equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
@@ -217,15 +219,25 @@ public final class L10nUtil {
         } else if (desiredLocale.getLanguage().equals(CHINESE_LANGUAGE_CODE)) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
-            if (WikipediaApp.getInstance().getAppLanguageCode().equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
+            String appLanguageCode = WikipediaApp.getInstance().getAppLanguageCode();
+            if (appLanguageCode != null && appLanguageCode.equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
                 setLocale(config, TRADITIONAL_CHINESE);
-            } else if (WikipediaApp.getInstance().getAppLanguageCode().equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
+            } else if (appLanguageCode != null && appLanguageCode.equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
                 setLocale(config, SIMPLIFIED_CHINESE);
             } else {
                 setLocale(config, desiredLocale);
             }
         } else {
             setLocale(config, desiredLocale);
+        }
+    }
+
+    public static String getAcceptLanguageCode(@NonNull WikiSite wikiSite) {
+        if (wikiSite.internalLinkLanguageCode() == null || wikiSite.internalLinkLanguageCode().equals("wiki")) {
+            return WikipediaApp.getInstance().getAcceptLanguage(wikiSite);
+        } else {
+            // zh variants site, e.g.: /zh-hant/
+            return wikiSite.internalLinkLanguageCode();
         }
     }
 
