@@ -257,6 +257,11 @@ public class WikiSite implements Parcelable {
         switch (languageCode) {
             case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
             case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
+            case AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE:
+            case AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE:
+            case AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE:
+            case AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE:
+            case AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE:
                 return AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
             case AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE:
                 return AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE; // T114042

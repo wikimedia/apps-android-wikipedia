@@ -19,6 +19,11 @@ import java.util.Locale;
 public class AppLanguageLookUpTable {
     public static final String SIMPLIFIED_CHINESE_LANGUAGE_CODE = "zh-hans";
     public static final String TRADITIONAL_CHINESE_LANGUAGE_CODE = "zh-hant";
+    public static final String CHINESE_CN_LANGUAGE_CODE = "zh-cn";
+    public static final String CHINESE_HK_LANGUAGE_CODE = "zh-hk";
+    public static final String CHINESE_MO_LANGUAGE_CODE = "zh-mo";
+    public static final String CHINESE_SG_LANGUAGE_CODE = "zh-sg";
+    public static final String CHINESE_TW_LANGUAGE_CODE = "zh-tw";
     public static final String CHINESE_LANGUAGE_CODE = "zh";
     public static final String NORWEGIAN_LEGACY_LANGUAGE_CODE = "no";
     public static final String NORWEGIAN_BOKMAL_LANGUAGE_CODE = "nb";
