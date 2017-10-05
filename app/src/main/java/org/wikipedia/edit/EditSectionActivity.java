@@ -601,7 +601,8 @@ public class EditSectionActivity extends BaseActivity {
         if (sectionWikitext == null) {
             new WikitextClient().request(title.getWikiSite(), title, sectionID, new WikitextClient.Callback() {
                 @Override
-                public void success(@NonNull Call<MwQueryResponse> call, @NonNull String wikitext) {
+                public void success(@NonNull Call<MwQueryResponse> call, @NonNull String normalizedTitle, @NonNull String wikitext) {
+                    title = new PageTitle(normalizedTitle, title.getWikiSite());
                     sectionWikitext = wikitext;
                     displaySectionText();
                 }

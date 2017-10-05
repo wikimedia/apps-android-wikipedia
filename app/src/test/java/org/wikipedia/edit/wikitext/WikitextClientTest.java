@@ -26,14 +26,13 @@ public class WikitextClientTest extends MockWebServerTest {
     private PageTitle title = new PageTitle(null, "TEST", WikiSite.forLanguageCode("test"));
 
     @Test public void testRequestSuccessHasResults() throws Throwable {
-        String expected = "\\o/\n\ntest12\n\n3";
         enqueueFromFile("wikitext.json");
 
         WikitextClient.Callback cb = mock(WikitextClient.Callback.class);
         Call<MwQueryResponse> call = request(cb);
 
         server().takeRequest();
-        assertCallbackSuccess(call, cb, expected);
+        assertCallbackSuccess(call, cb, "User:Mhollo/sandbox", "\\o/\n\ntest12\n\n3");
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
@@ -68,8 +67,9 @@ public class WikitextClientTest extends MockWebServerTest {
 
     private void assertCallbackSuccess(@NonNull Call<MwQueryResponse> call,
                                        @NonNull WikitextClient.Callback cb,
-                                       @NonNull String expected) {
-        verify(cb).success(eq(call), eq(expected));
+                                       @NonNull String expectedTitle,
+                                       @NonNull String expectedText) {
+        verify(cb).success(eq(call), eq(expectedTitle), eq(expectedText));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
@@ -78,7 +78,7 @@ public class WikitextClientTest extends MockWebServerTest {
                                        @NonNull WikitextClient.Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(String.class));
+        verify(cb, never()).success(any(Call.class), any(String.class), any(String.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 

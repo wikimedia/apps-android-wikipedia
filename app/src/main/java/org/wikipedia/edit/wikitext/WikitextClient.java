@@ -36,7 +36,7 @@ public class WikitextClient {
                 // noinspection ConstantConditions
                 if (response.body().success() && response.body().query().wikitext() != null) {
                     // noinspection ConstantConditions
-                    cb.success(call, response.body().query().wikitext());
+                    cb.success(call, response.body().query().pages().get(0).title(), response.body().query().wikitext());
                 } else if (response.body().hasError()) {
                     // noinspection ConstantConditions
                     cb.failure(call, new MwException(response.body().getError()));
@@ -55,12 +55,12 @@ public class WikitextClient {
     }
 
     public interface Callback {
-        void success(@NonNull Call<MwQueryResponse> call, @NonNull String wikitext);
+        void success(@NonNull Call<MwQueryResponse> call, @NonNull String normalizedTitle, @NonNull String wikitext);
         void failure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable caught);
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=revisions&rvprop=content&rvlimit=1")
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=revisions&rvprop=content&rvlimit=1&converttitles=true")
         Call<MwQueryResponse> request(@NonNull @Query("titles") String title, @Query("rvsection") int section);
     }
 }

@@ -38,7 +38,7 @@ public interface MwPageService {
     @Headers("x-analytics: preview=1")
     @GET("w/api.php?action=query&format=json&formatversion=2&prop=extracts%7Cpageimages"
             + "&redirects=true&exsentences=5&explaintext=true&piprop=thumbnail%7Cname"
-            + "&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
+            + "&converttitles=true&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
     @NonNull Call<MwQueryPageSummary> summary(@NonNull @Query("titles") String title);
 
     /**
