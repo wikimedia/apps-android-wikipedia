@@ -39,19 +39,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/base18"
+        android:background="?attr/page_toolbar_color"
         android:elevation="4dp">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <android.support.v7.widget.Toolbar
-                android:theme="@style/ToolbarTheme"
                 android:id="@+id/page_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:titleTextColor="@android:color/white"
-                app:navigationIcon="@drawable/ic_close_white_24dp">
+                android:theme="@style/PageToolbarTheme"
+                app:titleTextColor="?attr/page_toolbar_icon_color"
+                app:navigationIcon="@drawable/ic_close_themed_24dp">
             </android.support.v7.widget.Toolbar>
             <ProgressBar
                 android:id="@+id/page_progress_bar"

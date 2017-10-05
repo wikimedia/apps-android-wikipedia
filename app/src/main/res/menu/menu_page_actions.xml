@@ -10,11 +10,15 @@
     screens, instead of overflowing into the native overflow menu.
     -->
     <item android:id="@+id/menu_page_search"
-        android:title="@string/search_hint"
-        android:icon="@drawable/ic_search_white_24dp"
-        app:showAsAction="always" />
+          android:title="@string/search_hint"
+          android:icon="@drawable/ic_search_white_24dp"
+          app:iconTint="?attr/page_toolbar_icon_color"
+          app:iconTintMode="src_in"
+          app:showAsAction="always" />
     <item android:id="@+id/menu_page_show_tabs"
           android:title="@string/menu_page_show_tabs"
+          app:iconTint="?attr/page_toolbar_icon_color"
+          app:iconTintMode="src_in"
           app:showAsAction="always" />
     <item android:id="@+id/menu_page_other_languages"
           android:title="@string/menu_page_other_languages"
