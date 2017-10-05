@@ -441,7 +441,7 @@
   <string name="offline_compilation_detail_button_remove">Вилучити</string>
   <string name="remote_compilation_download">Завантажити</string>
   <string name="storage_size_free">%.2f ГБ вільно</string>
-  <string name="storage_used_by_compilations">використовується Вікіпедією</string>
+  <string name="storage_used_by_compilations" fuzzy="true">використовується Вікіпедією</string>
   <string name="storage_other_apps">Інші додатки</string>
   <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
   <plurals name="offline_compilation_download_time_remaining">

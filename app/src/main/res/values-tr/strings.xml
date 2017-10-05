@@ -428,7 +428,7 @@
   <string name="offline_compilation_detail_button_remove">Sil</string>
   <string name="remote_compilation_download">İndir</string>
   <string name="storage_size_free">%.2f GB boş</string>
-  <string name="storage_used_by_compilations">Vikipedi tarafından kullanılıyor</string>
+  <string name="storage_used_by_compilations" fuzzy="true">Vikipedi tarafından kullanılıyor</string>
   <string name="storage_other_apps">Diğer uygulamalar</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

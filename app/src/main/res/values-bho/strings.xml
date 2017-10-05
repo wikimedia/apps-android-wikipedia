@@ -203,7 +203,7 @@
   <string name="offline_compilation_detail_button_remove">हटाईं</string>
   <string name="remote_compilation_download">डाउनलोड</string>
   <string name="storage_size_free">%.2f जीबी फ्री</string>
-  <string name="storage_used_by_compilations">विकिपीडिया द्वारा इस्तेमाल में</string>
+  <string name="storage_used_by_compilations" fuzzy="true">विकिपीडिया द्वारा इस्तेमाल में</string>
   <string name="storage_other_apps">अन्य एप्लीकेशन</string>
   <string name="offline_compilation_download_progress_text">%1$.2f जीबी / %2$.2f जीबी</string>
   <string name="onboarding_create_account_contributions">आपन योगदान के निगरानी रखीं</string>

@@ -282,6 +282,9 @@
   <string name="color_theme_dark">夜间</string>
   <string name="preference_title_color_theme">黑暗主题</string>
   <string name="preference_summary_color_theme">切换成应用的黑暗颜色主题</string>
+  <string name="text_size_increase">调高文本大小</string>
+  <string name="text_size_decrease">调低文本大小</string>
+  <string name="text_size_percent_default">%s（默认）</string>
   <string name="nav_item_reading_lists">我的列表</string>
   <string name="reading_list_untitled">未命名标题</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
@@ -443,7 +446,7 @@
   <string name="remote_compilation_download">下载</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB免费</string>
-  <string name="storage_used_by_compilations">用于维基百科</string>
+  <string name="storage_used_by_compilations">用于离线图书馆</string>
   <string name="storage_other_apps">其他应用</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

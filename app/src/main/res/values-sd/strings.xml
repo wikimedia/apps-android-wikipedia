@@ -422,7 +422,7 @@
   <string name="offline_compilation_detail_button_remove">ھٽايو</string>
   <string name="remote_compilation_download">لاھيو</string>
   <string name="storage_size_free">%.2f جيبي فارغ</string>
-  <string name="storage_used_by_compilations">وڪيپيڊيا پاران استعمال ٿيندڙ</string>
+  <string name="storage_used_by_compilations" fuzzy="true">وڪيپيڊيا پاران استعمال ٿيندڙ</string>
   <string name="storage_other_apps">ٻيون ايپس</string>
   <string name="offline_compilation_download_progress_text">%1$.2f جيبي / %2$.2f جيبي</string>
   <plurals name="offline_compilation_download_time_remaining">

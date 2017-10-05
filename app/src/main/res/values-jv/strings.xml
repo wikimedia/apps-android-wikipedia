@@ -3,11 +3,11 @@
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Béta</string>
   <string name="app_name_alpha">Wikipédia Alfa</string>
-  <string name="wikimedia">Wikimédia</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Golèk ing Wikipédia</string>
-  <string name="search_hint_search_history">Sajarah golèkan</string>
-  <string name="search_hint_search_my_lists">Golèk pratélanku</string>
-  <string name="search_hint_search_reading_list">Golèk pratélan wacan</string>
+  <string name="search_hint_search_history">Golèk ing sajarah</string>
+  <string name="search_hint_search_my_lists">Golèk ing pratélanku</string>
+  <string name="search_hint_search_reading_list">Golèk ing pratélan wacan</string>
   <string name="nav_item_history">Sajarah</string>
   <string name="error_network_error">Ora nggayut Internèt.</string>
   <string name="page_error_retry">Jajal manèh</string>
@@ -435,7 +435,7 @@
   <string name="remote_compilation_download">Undhuh</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB kosong</string>
-  <string name="storage_used_by_compilations">dienggo déning Wikipédia</string>
+  <string name="storage_used_by_compilations" fuzzy="true">dienggo déning Wikipédia</string>
   <string name="storage_other_apps">Aplikasi liyané</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

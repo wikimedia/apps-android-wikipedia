@@ -439,7 +439,7 @@
   <string name="remote_compilation_download">Скачать</string>
   <string name="storage_size">%.2f Гб</string>
   <string name="storage_size_free">%.2f ГБ свободно</string>
-  <string name="storage_used_by_compilations">используется Википедией</string>
+  <string name="storage_used_by_compilations">используется Оффлайн-библиотекой</string>
   <string name="storage_other_apps">Другие приложения</string>
   <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
   <plurals name="offline_compilation_download_time_remaining">

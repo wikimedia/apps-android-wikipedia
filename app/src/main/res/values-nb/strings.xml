@@ -443,7 +443,7 @@
   <string name="remote_compilation_download">Last ned</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB ledig</string>
-  <string name="storage_used_by_compilations">brukes av Wikipedia</string>
+  <string name="storage_used_by_compilations" fuzzy="true">brukes av Wikipedia</string>
   <string name="storage_other_apps">Andre applikasjoner</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

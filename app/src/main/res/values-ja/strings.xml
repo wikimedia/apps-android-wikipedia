@@ -272,6 +272,9 @@
   <string name="color_theme_dark">暗</string>
   <string name="preference_title_color_theme">夜モード</string>
   <string name="preference_summary_color_theme">アプリの配色をダークモードにします</string>
+  <string name="text_size_increase">テキストサイズを拡大します</string>
+  <string name="text_size_decrease">テキストサイズを縮小します</string>
+  <string name="text_size_percent_default">%s (既定)</string>
   <string name="nav_item_reading_lists">自分のリスト</string>
   <string name="reading_list_untitled">題名なし</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>

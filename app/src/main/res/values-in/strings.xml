@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Gelap</string>
   <string name="preference_title_color_theme">Tema gelap</string>
   <string name="preference_summary_color_theme">Beralih menggunakan tema warna gelap aplikasi</string>
+  <string name="text_size_increase">Tingkatkan ukuran teks</string>
+  <string name="text_size_decrease">Kurangi ukuran teks</string>
+  <string name="text_size_percent_default">%s (Baku)</string>
   <string name="nav_item_reading_lists">Daftar saya</string>
   <string name="reading_list_untitled">Tanpa judul</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
@@ -443,7 +446,7 @@
   <string name="remote_compilation_download">Unduh</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB bebas</string>
-  <string name="storage_used_by_compilations">digunakan oleh Wikipedia</string>
+  <string name="storage_used_by_compilations">digunakan oleh Perpustakaan Luring</string>
   <string name="storage_other_apps">Aplikasi lainnya</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

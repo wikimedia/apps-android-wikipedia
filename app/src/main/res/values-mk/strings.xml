@@ -443,7 +443,7 @@
   <string name="remote_compilation_download">Преземи</string>
   <string name="storage_size">%.2f ГБ</string>
   <string name="storage_size_free">слободни %.2f ГБ</string>
-  <string name="storage_used_by_compilations">се користат од Википедија</string>
+  <string name="storage_used_by_compilations" fuzzy="true">се користат од Википедија</string>
   <string name="storage_other_apps">Други прилози</string>
   <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
   <plurals name="offline_compilation_download_time_remaining">

@@ -423,7 +423,7 @@
   <string name="offline_compilation_detail_button_remove">Suprimeix</string>
   <string name="remote_compilation_download">Baixa</string>
   <string name="storage_size_free">%.2f GB lliures</string>
-  <string name="storage_used_by_compilations">utilitzat per la Viquipèdia</string>
+  <string name="storage_used_by_compilations" fuzzy="true">utilitzat per la Viquipèdia</string>
   <string name="storage_other_apps">Altres aplicacions</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

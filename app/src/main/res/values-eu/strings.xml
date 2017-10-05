@@ -325,7 +325,7 @@
   <string name="offline_compilation_detail_button_download" fuzzy="true">· %.2f GB jaitsi</string>
   <string name="offline_compilation_detail_button_remove">Kendu</string>
   <string name="storage_size_free">%.2f GB libre</string>
-  <string name="storage_used_by_compilations">Wikipediak erabilia</string>
+  <string name="storage_used_by_compilations" fuzzy="true">Wikipediak erabilia</string>
   <string name="storage_other_apps">Beste aplikazioak</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

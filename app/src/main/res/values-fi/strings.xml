@@ -437,7 +437,7 @@
   <string name="remote_compilation_download">Lataa</string>
   <string name="storage_size">%.2f Gt</string>
   <string name="storage_size_free">%.2f Gt vapaana</string>
-  <string name="storage_used_by_compilations">Wikipedian käyttämä</string>
+  <string name="storage_used_by_compilations" fuzzy="true">Wikipedian käyttämä</string>
   <string name="storage_other_apps">Muut sovellukset</string>
   <string name="offline_compilation_download_progress_text">%1$.2f Gt / %2$.2f Gt</string>
   <plurals name="offline_compilation_download_time_remaining">

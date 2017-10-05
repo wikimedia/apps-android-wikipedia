@@ -439,7 +439,7 @@
   <string name="offline_compilation_detail_button_remove">Kkes</string>
   <string name="remote_compilation_download">Sider</string>
   <string name="storage_size_free">%.2f GAṬ n umḍiq ilelli</string>
-  <string name="storage_used_by_compilations">iseqdac-it Wikipedia</string>
+  <string name="storage_used_by_compilations" fuzzy="true">iseqdac-it Wikipedia</string>
   <string name="storage_other_apps">Isnasen-nniḍen</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GAṬ / %2$.2f GAṬ</string>
   <plurals name="offline_compilation_download_time_remaining">

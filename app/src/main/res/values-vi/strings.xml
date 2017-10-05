@@ -432,7 +432,7 @@
   <string name="offline_compilation_detail_button_remove">Xóa</string>
   <string name="remote_compilation_download">Tải về</string>
   <string name="storage_size_free">%.2fGB trống</string>
-  <string name="storage_used_by_compilations">được sử dụng bởi Wikipedia</string>
+  <string name="storage_used_by_compilations" fuzzy="true">được sử dụng bởi Wikipedia</string>
   <string name="storage_other_apps">Ứng dụng khác</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <string name="offline_compilation_download_time_remaining">còn %d phút</string>

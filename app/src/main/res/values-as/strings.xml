@@ -347,7 +347,7 @@
   <string name="offline_compilations_found_count" fuzzy="true">মোৰ সংকলন (%d)</string>
   <string name="offline_compilations_add" fuzzy="true">অফলাইন সংকলন যোগ কৰক</string>
   <string name="remote_compilations_title" fuzzy="true">সকলো সংকলন</string>
-  <string name="storage_used_by_compilations">ৱিকিপিডিয়াৰ দ্বাৰা ব্যৱহৃত</string>
+  <string name="storage_used_by_compilations" fuzzy="true">ৱিকিপিডিয়াৰ দ্বাৰা ব্যৱহৃত</string>
   <string name="storage_other_apps">আন এপ্লিকেছনসমূহ</string>
   <string name="onboarding_skip">এৰি যাওক</string>
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>

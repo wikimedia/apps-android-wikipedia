@@ -443,7 +443,7 @@
   <string name="remote_compilation_download">بارگیری</string>
   <string name="storage_size">%.2f گیگابایت</string>
   <string name="storage_size_free">%.2f گیگابایت فضای خالی</string>
-  <string name="storage_used_by_compilations">توسط ویکی‌پدیا استفاده شده</string>
+  <string name="storage_used_by_compilations" fuzzy="true">توسط ویکی‌پدیا استفاده شده</string>
   <string name="storage_other_apps">سایر نرم‌افزارها</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

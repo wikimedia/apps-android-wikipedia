@@ -440,7 +440,7 @@
   <string name="offline_compilation_detail_button_remove">निकालें</string>
   <string name="remote_compilation_download">डाउनलोड</string>
   <string name="storage_size_free">%.2f जीबी खाली</string>
-  <string name="storage_used_by_compilations">विकीपीडिया द्वारा प्रयुक्त</string>
+  <string name="storage_used_by_compilations" fuzzy="true">विकीपीडिया द्वारा प्रयुक्त</string>
   <string name="storage_other_apps">अन्य एप्लीकेशन्स</string>
   <string name="offline_compilation_download_progress_text">%1$.2f जीबी / %2$.2f जीबी</string>
   <plurals name="offline_compilation_download_time_remaining">

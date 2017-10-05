@@ -440,7 +440,7 @@
   <string name="remote_compilation_download">Undeur</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB kosong</string>
-  <string name="storage_used_by_compilations">dipaké ku Wikipédia</string>
+  <string name="storage_used_by_compilations" fuzzy="true">dipaké ku Wikipédia</string>
   <string name="storage_other_apps">Aplikasi lianna</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

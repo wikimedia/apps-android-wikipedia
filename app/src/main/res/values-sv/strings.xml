@@ -261,7 +261,7 @@
   <string name="preference_title_dim_dark_mode_images">Mörklägg bild i mörkt tema</string>
   <string name="preference_summary_dim_dark_mode_images">Reducera ljusstyrkan på bilder när mörkt tema används</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
-  <string name="preference_title_prefer_offline_content">Föredra offlineinnehåll</string>
+  <string name="preference_title_prefer_offline_content">Visa offlineinnehåll om möjligt</string>
   <string name="preference_summary_prefer_offline_content">Spara dataanvändning genom att läsa in artiklar som är tillgängliga offline istället för att alltid läsa in den senaste versionen av en artikel</string>
   <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
   <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
@@ -443,7 +443,7 @@
   <string name="remote_compilation_download">Ladda ner</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB ledigt</string>
-  <string name="storage_used_by_compilations">används av Wikipedia</string>
+  <string name="storage_used_by_compilations">används av offlinebiblioteket</string>
   <string name="storage_other_apps">Andra applikationer</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

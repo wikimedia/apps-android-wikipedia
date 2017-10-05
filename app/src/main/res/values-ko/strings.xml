@@ -277,6 +277,9 @@
   <string name="color_theme_dark">어두움</string>
   <string name="preference_title_color_theme">어두운 테마</string>
   <string name="preference_summary_color_theme">앱의 어두운 색 테마로 전환</string>
+  <string name="text_size_increase">텍스트 크기 늘리기</string>
+  <string name="text_size_decrease">텍스트 크기 줄이기</string>
+  <string name="text_size_percent_default">%s (기본값)</string>
   <string name="nav_item_reading_lists">내 목록</string>
   <string name="reading_list_untitled">제목 없음</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
@@ -438,7 +441,7 @@
   <string name="remote_compilation_download">다운로드</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB 남음</string>
-  <string name="storage_used_by_compilations">(위키백과가 사용 중)</string>
+  <string name="storage_used_by_compilations">(오프라인 라이브러리가 사용 중)</string>
   <string name="storage_other_apps">다른 애플리케이션</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

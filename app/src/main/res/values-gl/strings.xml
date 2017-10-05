@@ -441,8 +441,9 @@
   <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eliminar</string>
   <string name="remote_compilation_download">Descargar</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB libres</string>
-  <string name="storage_used_by_compilations">utilizado por Wikipedia</string>
+  <string name="storage_used_by_compilations">utilizado por Biblioteca sen liña</string>
   <string name="storage_other_apps">Outras aplicacións</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

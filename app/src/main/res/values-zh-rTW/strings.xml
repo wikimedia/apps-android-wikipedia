@@ -282,6 +282,9 @@
   <string name="color_theme_dark">暗黑</string>
   <string name="preference_title_color_theme">暗黑主題</string>
   <string name="preference_summary_color_theme">切換到使用應用程式的暗黑色彩主題</string>
+  <string name="text_size_increase">增加文字大小</string>
+  <string name="text_size_decrease">增少文字大小</string>
+  <string name="text_size_percent_default">%s（預設）</string>
   <string name="nav_item_reading_lists">我的清單</string>
   <string name="reading_list_untitled">未命名標題</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
@@ -443,7 +446,7 @@
   <string name="remote_compilation_download">下載</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB 可用</string>
-  <string name="storage_used_by_compilations">由維基百科使用</string>
+  <string name="storage_used_by_compilations">由離線圖書館使用</string>
   <string name="storage_other_apps">其他應用程式</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

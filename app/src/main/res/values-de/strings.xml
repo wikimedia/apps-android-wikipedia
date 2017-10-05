@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Dunkel</string>
   <string name="preference_title_color_theme">Dunkles Farbschema</string>
   <string name="preference_summary_color_theme">Wechsle zur Verwendung der App in einem dunklen Farbschema</string>
+  <string name="text_size_increase">Text vergrößern</string>
+  <string name="text_size_decrease">Text verkleinern</string>
+  <string name="text_size_percent_default">%s (Standard)</string>
   <string name="nav_item_reading_lists">Meine Listen</string>
   <string name="reading_list_untitled">Unbenannt</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
@@ -443,7 +446,7 @@
   <string name="remote_compilation_download">Herunterladen</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB frei</string>
-  <string name="storage_used_by_compilations">von Wikipedia verwendet</string>
+  <string name="storage_used_by_compilations">von der Offline-Bibliothek verwendet</string>
   <string name="storage_other_apps">Andere Anwendungen</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB von %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

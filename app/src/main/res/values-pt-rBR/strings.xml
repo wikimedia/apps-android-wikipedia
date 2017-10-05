@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Escuro</string>
   <string name="preference_title_color_theme">Tema escuro</string>
   <string name="preference_summary_color_theme">Mude para usar o tema da cor escura do aplicativo</string>
+  <string name="text_size_increase">Aumentar o tamanho do texto</string>
+  <string name="text_size_decrease">Diminuir o tamanho do texto</string>
+  <string name="text_size_percent_default">%s (Padrão)</string>
   <string name="nav_item_reading_lists">Minhas listas</string>
   <string name="reading_list_untitled">Sem título</string>
   <string name="reading_list_save_to">Salvar na lista de leitura</string>
@@ -441,8 +444,9 @@
   <string name="offline_compilation_detail_button_download">Download • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Remover</string>
   <string name="remote_compilation_download">Baixar</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB grátis</string>
-  <string name="storage_used_by_compilations">Usado pela Wikipedia</string>
+  <string name="storage_used_by_compilations">usado pela biblioteca off-line</string>
   <string name="storage_other_apps">Outros aplicativos</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

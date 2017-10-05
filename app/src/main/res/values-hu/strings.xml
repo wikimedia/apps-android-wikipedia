@@ -418,7 +418,7 @@
   <string name="offline_compilation_detail_button_remove">Eltávolítás</string>
   <string name="remote_compilation_download">Letöltés</string>
   <string name="storage_size_free">%.2f GB szabad</string>
-  <string name="storage_used_by_compilations">Wikipédia által használva</string>
+  <string name="storage_used_by_compilations" fuzzy="true">Wikipédia által használva</string>
   <string name="storage_other_apps">Más alkalmazások</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

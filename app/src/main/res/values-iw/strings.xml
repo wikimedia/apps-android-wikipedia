@@ -443,7 +443,7 @@
   <string name="remote_compilation_download">הורדה</string>
   <string name="storage_size">%.2f ג\"ב</string>
   <string name="storage_size_free">%.2f ג\"ב פנויים</string>
-  <string name="storage_used_by_compilations">בשימוש ויקיפדיה</string>
+  <string name="storage_used_by_compilations" fuzzy="true">בשימוש ויקיפדיה</string>
   <string name="storage_other_apps">אפליקציות אחרות</string>
   <string name="offline_compilation_download_progress_text">%1$.2f ג\"ב / %2$.2f ג\"ב</string>
   <plurals name="offline_compilation_download_time_remaining">

@@ -407,6 +407,7 @@
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">вашият принос изглеждаше като експеримент или вандализъм.</string>
   <string name="description_edit_revert_history">Ако се интересувате, прегледайте &lt;a href=\"%1$s\"&gt;историята на редакциите&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Няма връзка с Интернет. Уверете се, че сте свързани, след което опитайте отново.</string>
   <string name="offline_read_permission_error">Не е позволено четенето от съхранението на устройството.</string>
   <string name="offline_compilations_search_by_name">Търсене на пакет от статии по име</string>
   <string name="offline_compilations_found_count">В моята библиотека (%d)</string>
@@ -416,7 +417,7 @@
   <string name="remote_compilation_download">Изтегляне</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB свободни</string>
-  <string name="storage_used_by_compilations">използвани от Уикипедия</string>
+  <string name="storage_used_by_compilations" fuzzy="true">използвани от Уикипедия</string>
   <string name="storage_other_apps">Други приложения</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

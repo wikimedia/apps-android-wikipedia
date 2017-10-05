@@ -443,7 +443,7 @@
   <string name="remote_compilation_download">Descargar</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB libre</string>
-  <string name="storage_used_by_compilations">usado por Wikipedia</string>
+  <string name="storage_used_by_compilations" fuzzy="true">usado por Wikipedia</string>
   <string name="storage_other_apps">Otras aplicaciones</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">
