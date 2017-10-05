@@ -26,7 +26,7 @@ parser = HTMLParser()
 def add_lang(key, local_name, eng_name):
     lang_keys.append(key)
     lang_local_names.append(parser.unescape(local_name))
-    lang_eng_names.append(eng_name)
+    lang_eng_names.append(parser.unescape(eng_name))
 
 
 def escape(s):

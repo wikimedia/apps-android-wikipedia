@@ -35,10 +35,10 @@
     <item>eu</item>
     <item>eo</item>
     <item>bg</item>
-    <item>da</item>
     <item>hy</item>
-    <item>sk</item>
+    <item>da</item>
     <item>zh-min-nan</item>
+    <item>sk</item>
     <item>min</item>
     <item>kk</item>
     <item>he</item>
@@ -66,8 +66,8 @@
     <item>mg</item>
     <item>oc</item>
     <item>tl</item>
-    <item>lv</item>
     <item>ky</item>
+    <item>lv</item>
     <item>bs</item>
     <item>tt</item>
     <item>new</item>
@@ -152,13 +152,13 @@
     <item>nso</item>
     <item>se</item>
     <item>ace</item>
-    <item>nds-nl</item>
     <item>bcl</item>
     <item>mi</item>
     <item>nah</item>
     <item>zh-classical</item>
-    <item>gan</item>
+    <item>nds-nl</item>
     <item>szl</item>
+    <item>gan</item>
     <item>vls</item>
     <item>rue</item>
     <item>wuu</item>
@@ -168,8 +168,8 @@
     <item>sc</item>
     <item>fiu-vro</item>
     <item>co</item>
-    <item>crh</item>
     <item>frr</item>
+    <item>crh</item>
     <item>km</item>
     <item>lrc</item>
     <item>tk</item>
@@ -188,8 +188,8 @@
     <item>stq</item>
     <item>ie</item>
     <item>nrm</item>
-    <item>pcd</item>
     <item>nv</item>
+    <item>pcd</item>
     <item>mwl</item>
     <item>rm</item>
     <item>koi</item>
@@ -235,8 +235,8 @@
     <item>kbd</item>
     <item>ha</item>
     <item>tpi</item>
-    <item>tet</item>
     <item>tyv</item>
+    <item>tet</item>
     <item>ig</item>
     <item>ki</item>
     <item>na</item>
@@ -281,11 +281,11 @@
     <item>ee</item>
     <item>ks</item>
     <item>ak</item>
-    <item>ve</item>
     <item>ik</item>
+    <item>ve</item>
     <item>sg</item>
-    <item>ff</item>
     <item>dz</item>
+    <item>ff</item>
     <item>ti</item>
     <item>cr</item>
     <item>atj</item>
@@ -339,10 +339,10 @@
     <item>Euskara</item>
     <item>Esperanto</item>
     <item>Български</item>
-    <item>Dansk</item>
     <item>Հայերեն</item>
-    <item>Slovenčina</item>
+    <item>Dansk</item>
     <item>Bân-lâm-gú</item>
+    <item>Slovenčina</item>
     <item>Baso Minangkabau</item>
     <item>Қазақша</item>
     <item>עברית</item>
@@ -370,8 +370,8 @@
     <item>Malagasy</item>
     <item>Occitan</item>
     <item>Tagalog</item>
-    <item>Latviešu</item>
     <item>Кыргызча</item>
+    <item>Latviešu</item>
     <item>Bosanski</item>
     <item>Tatarça / Татарча</item>
     <item>नेपाल भाषा</item>
@@ -456,13 +456,13 @@
     <item>Sesotho sa Leboa</item>
     <item>Sámegiella</item>
     <item>Bahsa Acèh</item>
-    <item>Nedersaksisch</item>
     <item>Bikol</item>
     <item>Māori</item>
     <item>Nāhuatl</item>
     <item>古文 / 文言文</item>
-    <item>贛語</item>
+    <item>Nedersaksisch</item>
     <item>Ślůnski</item>
+    <item>贛語</item>
     <item>West-Vlams</item>
     <item>русиньскый язык</item>
     <item>吴语</item>
@@ -472,8 +472,8 @@
     <item>Sardu</item>
     <item>Võro</item>
     <item>Corsu</item>
-    <item>Qırımtatarca</item>
     <item>Nordfriisk</item>
+    <item>Qırımtatarca</item>
     <item>ភាសាខ្មែរ</item>
     <item>لۊری شومالی</item>
     <item>تركمن / Туркмен</item>
@@ -492,8 +492,8 @@
     <item>Seeltersk</item>
     <item>Interlingue</item>
     <item>Nouormand/Normaund</item>
-    <item>Picard</item>
     <item>Diné bizaad</item>
+    <item>Picard</item>
     <item>Mirandés</item>
     <item>Rumantsch</item>
     <item>Перем Коми (Perem Komi)</item>
@@ -539,8 +539,8 @@
     <item>Адыгэбзэ (Adighabze)</item>
     <item>هَوُسَ</item>
     <item>Tok Pisin</item>
-    <item>Tetun</item>
     <item>тыва дыл</item>
+    <item>Tetun</item>
     <item>Igbo</item>
     <item>Gĩkũyũ</item>
     <item>dorerin Naoero</item>
@@ -585,11 +585,11 @@
     <item>Eʋegbe</item>
     <item>कश्मीरी / كشميري</item>
     <item>Akana</item>
-    <item>Tshivenda</item>
     <item>Iñupiak</item>
+    <item>Tshivenda</item>
     <item>Sängö</item>
-    <item>Fulfulde</item>
     <item>ཇོང་ཁ</item>
+    <item>Fulfulde</item>
     <item>ትግርኛ</item>
     <item>Nehiyaw</item>
     <item>Atikamekw Nehiromowin</item>
@@ -629,7 +629,7 @@
     <item>Persian</item>
     <item>Catalan</item>
     <item>Arabic</item>
-    <item>Norwegian (Bokm&amp;#229;l)</item>
+    <item>Norwegian (Bokmål)</item>
     <item>Serbo-Croatian</item>
     <item>Finnish</item>
     <item>Hungarian</item>
@@ -643,10 +643,10 @@
     <item>Basque</item>
     <item>Esperanto</item>
     <item>Bulgarian</item>
-    <item>Danish</item>
     <item>Armenian</item>
-    <item>Slovak</item>
+    <item>Danish</item>
     <item>Min Nan</item>
+    <item>Slovak</item>
     <item>Minangkabau</item>
     <item>Kazakh</item>
     <item>Hebrew</item>
@@ -665,7 +665,7 @@
     <item>Azerbaijani</item>
     <item>Urdu</item>
     <item>Hindi</item>
-    <item>Volap&amp;#252;k</item>
+    <item>Volapük</item>
     <item>Thai</item>
     <item>Georgian</item>
     <item>Tamil</item>
@@ -674,8 +674,8 @@
     <item>Malagasy</item>
     <item>Occitan</item>
     <item>Tagalog</item>
-    <item>Latvian</item>
     <item>Kirghiz</item>
+    <item>Latvian</item>
     <item>Bosnian</item>
     <item>Tatar</item>
     <item>Newar / Nepal Bhasa</item>
@@ -684,7 +684,7 @@
     <item>Telugu</item>
     <item>Piedmontese</item>
     <item>Breton</item>
-    <item>Belarusian (Tara&amp;#353;kievica)</item>
+    <item>Belarusian (Taraškievica)</item>
     <item>Cantonese</item>
     <item>Bengali</item>
     <item>Malayalam</item>
@@ -760,13 +760,13 @@
     <item>Northern Sotho</item>
     <item>Northern Sami</item>
     <item>Acehnese</item>
-    <item>Dutch Low Saxon</item>
     <item>Central_Bicolano</item>
     <item>Maori</item>
     <item>Nahuatl</item>
     <item>Classical Chinese</item>
-    <item>Gan</item>
+    <item>Dutch Low Saxon</item>
     <item>Silesian</item>
+    <item>Gan</item>
     <item>West Flemish</item>
     <item>Rusyn</item>
     <item>Wu</item>
@@ -774,10 +774,10 @@
     <item>Gilaki</item>
     <item>Vepsian</item>
     <item>Sardinian</item>
-    <item>V&amp;#245;ro</item>
+    <item>Võro</item>
     <item>Corsican</item>
-    <item>Crimean Tatar</item>
     <item>North Frisian</item>
+    <item>Crimean Tatar</item>
     <item>Khmer</item>
     <item>Northern Luri</item>
     <item>Turkmen</item>
@@ -796,8 +796,8 @@
     <item>Saterland Frisian</item>
     <item>Interlingue</item>
     <item>Norman</item>
-    <item>Picard</item>
     <item>Navajo</item>
+    <item>Picard</item>
     <item>Mirandese</item>
     <item>Romansh</item>
     <item>Komi-Permyak</item>
@@ -819,7 +819,7 @@
     <item>Ripuarian</item>
     <item>Lao</item>
     <item>Gagauz</item>
-    <item>Franco-Proven&amp;#231;al/Arpitan</item>
+    <item>Franco-Provençal/Arpitan</item>
     <item>Pangasinan</item>
     <item>Pali</item>
     <item>Livvi-Karelian</item>
@@ -843,8 +843,8 @@
     <item>Kabardian Circassian</item>
     <item>Hausa</item>
     <item>Tok Pisin</item>
-    <item>Tetum</item>
     <item>Tuvan</item>
+    <item>Tetum</item>
     <item>Igbo</item>
     <item>Kikuyu</item>
     <item>Nauruan</item>
@@ -889,11 +889,11 @@
     <item>Ewe</item>
     <item>Kashmiri</item>
     <item>Akan</item>
-    <item>Venda</item>
     <item>Inupiak</item>
+    <item>Venda</item>
     <item>Sango</item>
-    <item>Fula</item>
     <item>Dzongkha</item>
+    <item>Fula</item>
     <item>Tigrinya</item>
     <item>Cree</item>
     <item>Atikamekw</item>
