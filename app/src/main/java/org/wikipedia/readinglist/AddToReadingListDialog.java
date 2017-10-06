@@ -302,6 +302,14 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         @Override
         public void onDelete(@NonNull ReadingList readingList) {
         }
+
+        @Override
+        public void onSaveAllOffline(@NonNull ReadingList readingList) {
+        }
+
+        @Override
+        public void onRemoveAllOffline(@NonNull ReadingList readingList) {
+        }
     }
 
     private class ReadingListItemHolder extends RecyclerView.ViewHolder {

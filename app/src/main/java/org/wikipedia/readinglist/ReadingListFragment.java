@@ -208,6 +208,16 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             case R.id.menu_reading_list_delete:
                 delete();
                 return true;
+            case R.id.menu_reading_list_save_all_offline:
+                if (readingList != null) {
+                    saveSelectedPagesForOffline(readingList.getPages());
+                }
+                return true;
+            case R.id.menu_reading_list_remove_all_offline:
+                if (readingList != null) {
+                    removeSelectedPagesFromOffline(readingList.getPages());
+                }
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -433,28 +443,28 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
-    private void removeSelectedPagesFromOffline() {
-        List<ReadingListPage> selectedPages = getSelectedPages();
+    private void removeSelectedPagesFromOffline(List<ReadingListPage> selectedPages) {
         if (!selectedPages.isEmpty()) {
             for (ReadingListPage page : selectedPages) {
                 if (page.isOffline()) {
                     ReadingListData.instance().setPageOffline(page, false);
                 }
             }
+            ReadingListSynchronizer.instance().sync();
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, false);
             adapter.notifyDataSetChanged();
             update();
         }
     }
 
-    private void saveSelectedPagesForOffline() {
-        List<ReadingListPage> selectedPages = getSelectedPages();
+    private void saveSelectedPagesForOffline(List<ReadingListPage> selectedPages) {
         if (!selectedPages.isEmpty()) {
             for (ReadingListPage page : selectedPages) {
                 if (!page.isOffline()) {
                     ReadingListData.instance().setPageOffline(page, true);
                 }
             }
+            ReadingListSynchronizer.instance().sync();
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, true);
             adapter.notifyDataSetChanged();
             update();
@@ -605,6 +615,16 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         public void onDelete(@NonNull ReadingList readingList) {
             delete();
+        }
+
+        @Override
+        public void onSaveAllOffline(@NonNull ReadingList readingList) {
+            saveSelectedPagesForOffline(readingList.getPages());
+        }
+
+        @Override
+        public void onRemoveAllOffline(@NonNull ReadingList readingList) {
+            removeSelectedPagesFromOffline(readingList.getPages());
         }
     }
 
@@ -775,11 +795,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     finishActionMode();
                     return true;
                 case R.id.menu_remove_from_offline:
-                    removeSelectedPagesFromOffline();
+                    removeSelectedPagesFromOffline(getSelectedPages());
                     finishActionMode();
                     return true;
                 case R.id.menu_save_for_offline:
-                    saveSelectedPagesForOffline();
+                    saveSelectedPagesForOffline(getSelectedPages());
                     finishActionMode();
                     return true;
                 case R.id.menu_add_to_another_list:

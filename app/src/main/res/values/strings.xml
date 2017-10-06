@@ -334,6 +334,8 @@
     <string name="reading_list_menu_edit_description">Edit description</string>
     <string name="reading_list_action_menu_remove_from_offline">Remove from offline</string>
     <string name="reading_list_action_menu_save_for_offline">Save for offline</string>
+    <string name="reading_list_action_menu_remove_all_from_offline">Remove all from offline</string>
+    <string name="reading_list_action_menu_save_all_for_offline">Save all for offline</string>
     <string name="reading_list_action_menu_add_to_another_list">Add to another list</string>
     <string name="reading_list_name_sample">My reading list</string>
     <string name="reading_list_name_hint">Name of this list</string>
