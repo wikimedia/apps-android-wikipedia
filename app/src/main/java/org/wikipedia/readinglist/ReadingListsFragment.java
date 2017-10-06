@@ -30,6 +30,7 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.onboarding.OnboardingView;
+import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
@@ -288,6 +289,37 @@ public class ReadingListsFragment extends Fragment {
         public void onDelete(@NonNull ReadingList readingList) {
             deleteList(readingList);
         }
+
+        @Override
+        public void onSaveAllOffline(@NonNull ReadingList readingList) {
+            for (ReadingListPage page : readingList.getPages()) {
+                if (!page.isOffline()) {
+                    ReadingListData.instance().setPageOffline(page, true);
+                }
+            }
+            ReadingListSynchronizer.instance().sync();
+            updateLists();
+            showMultiSelectOfflineStateChangeSnackbar(readingList.getPages(), true);
+        }
+
+        @Override
+        public void onRemoveAllOffline(@NonNull ReadingList readingList) {
+            for (ReadingListPage page : readingList.getPages()) {
+                if (page.isOffline()) {
+                    ReadingListData.instance().setPageOffline(page, false);
+                }
+            }
+            ReadingListSynchronizer.instance().sync();
+            updateLists();
+            showMultiSelectOfflineStateChangeSnackbar(readingList.getPages(), false);
+        }
+    }
+
+    private void showMultiSelectOfflineStateChangeSnackbar(List<ReadingListPage> pages, boolean offline) {
+        String message = offline
+                ? getResources().getQuantityString(R.plurals.reading_list_article_offline_message, pages.size())
+                : getResources().getQuantityString(R.plurals.reading_list_article_not_offline_message, pages.size());
+        FeedbackUtil.showMessage(getActivity(), message);
     }
 
     private void maybeDeleteListFromIntent() {
