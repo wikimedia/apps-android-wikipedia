@@ -280,6 +280,9 @@
   <string name="color_theme_dark">Tumma</string>
   <string name="preference_title_color_theme">Tumma teema</string>
   <string name="preference_summary_color_theme">Vaihda sovelluksen tummaan väriteemaan</string>
+  <string name="text_size_increase">Pienennä tekstin kokoa</string>
+  <string name="text_size_decrease">Kasvata tekstin kokoa</string>
+  <string name="text_size_percent_default">%s (oletus)</string>
   <string name="nav_item_reading_lists">Omat lukuluettelot</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukuluetteloon</string>
@@ -437,7 +440,7 @@
   <string name="remote_compilation_download">Lataa</string>
   <string name="storage_size">%.2f Gt</string>
   <string name="storage_size_free">%.2f Gt vapaana</string>
-  <string name="storage_used_by_compilations" fuzzy="true">Wikipedian käyttämä</string>
+  <string name="storage_used_by_compilations">Yhteydettömän tilan kirjaston käyttämä</string>
   <string name="storage_other_apps">Muut sovellukset</string>
   <string name="offline_compilation_download_progress_text">%1$.2f Gt / %2$.2f Gt</string>
   <plurals name="offline_compilation_download_time_remaining">

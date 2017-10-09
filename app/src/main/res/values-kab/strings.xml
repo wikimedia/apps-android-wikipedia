@@ -280,6 +280,9 @@
   <string name="color_theme_dark">Aberkan</string>
   <string name="preference_title_color_theme">Asentel aberkan</string>
   <string name="preference_summary_color_theme">Tibdarin-iw</string>
+  <string name="text_size_increase">Semɣer aḍris</string>
+  <string name="text_size_decrease">Senɣes teɣzi n uḍris</string>
+  <string name="text_size_percent_default">%s (Amezwer)</string>
   <string name="nav_item_reading_lists">tibdarin-iw</string>
   <string name="reading_list_untitled">War azwel</string>
   <string name="reading_list_save_to">Sekles tabdart n tɣuri</string>
@@ -304,6 +307,8 @@
   <string name="reading_list_menu_edit_description">Ẓreg aglam</string>
   <string name="reading_list_action_menu_remove_from_offline">Kkes seg war tuqqna</string>
   <string name="reading_list_action_menu_save_for_offline">Sekles i war tuqqna</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Kkes meṛṛa seg war tuqqna</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Sekles meṛṛa di war tuqqna</string>
   <string name="reading_list_action_menu_add_to_another_list">Rnu tabdart-nniḍen</string>
   <string name="reading_list_name_sample">Tabdart-iw n tɣuri</string>
   <string name="reading_list_name_hint">Isem n tebdart-agi</string>
@@ -438,8 +443,9 @@
   <string name="offline_compilation_detail_button_download">Sider • %.2f GAṬ</string>
   <string name="offline_compilation_detail_button_remove">Kkes</string>
   <string name="remote_compilation_download">Sider</string>
+  <string name="storage_size">%.2f GAṭ</string>
   <string name="storage_size_free">%.2f GAṬ n umḍiq ilelli</string>
-  <string name="storage_used_by_compilations" fuzzy="true">iseqdac-it Wikipedia</string>
+  <string name="storage_used_by_compilations">tseqdac-it tnedlist n war tuqqna</string>
   <string name="storage_other_apps">Isnasen-nniḍen</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GAṬ / %2$.2f GAṬ</string>
   <plurals name="offline_compilation_download_time_remaining">

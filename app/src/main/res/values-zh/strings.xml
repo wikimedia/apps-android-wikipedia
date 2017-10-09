@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">编辑描述</string>
   <string name="reading_list_action_menu_remove_from_offline">从离线内容中移除</string>
   <string name="reading_list_action_menu_save_for_offline">保存供离线使用</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">从离线内容中移除所有</string>
+  <string name="reading_list_action_menu_save_all_for_offline">保存所有供离线使用</string>
   <string name="reading_list_action_menu_add_to_another_list">添加到另一列表</string>
   <string name="reading_list_name_sample">我的阅读列表</string>
   <string name="reading_list_name_hint">此列表的名称</string>

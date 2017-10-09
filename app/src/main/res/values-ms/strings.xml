@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Sunting keterangan</string>
   <string name="reading_list_action_menu_remove_from_offline">Padam dari luar talian</string>
   <string name="reading_list_action_menu_save_for_offline">Simpan untuk luar talian</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Padam semua dari luar talian</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Simpan semua untuk luar talian</string>
   <string name="reading_list_action_menu_add_to_another_list">Tambah ke senarai lain</string>
   <string name="reading_list_name_sample">Senarai bacaan saya</string>
   <string name="reading_list_name_hint">Nama senarai ini</string>

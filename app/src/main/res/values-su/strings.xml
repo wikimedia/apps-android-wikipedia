@@ -280,6 +280,9 @@
   <string name="color_theme_dark">Poék</string>
   <string name="preference_title_color_theme">Téma poék</string>
   <string name="preference_summary_color_theme">Alihkeun maké téma aplikasi nu warna poék</string>
+  <string name="text_size_increase">Gedéan ukuran téks</string>
+  <string name="text_size_decrease">Leutikan ukuran téks</string>
+  <string name="text_size_percent_default">%s (Baku)</string>
   <string name="nav_item_reading_lists">Daptar kuring</string>
   <string name="reading_list_untitled">Taya judulan</string>
   <string name="reading_list_save_to">Simpen kana daptar bacaan</string>
@@ -304,6 +307,8 @@
   <string name="reading_list_menu_edit_description">Édit pedaran</string>
   <string name="reading_list_action_menu_remove_from_offline">Pupus tina oflén</string>
   <string name="reading_list_action_menu_save_for_offline">Simpen pikeun oflén</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Pupus sakumna tina oflén</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Simpen sakumna kana oflén</string>
   <string name="reading_list_action_menu_add_to_another_list">Tambahkeun ka dapftar lianna</string>
   <string name="reading_list_name_sample">Daptat bacaan kuring</string>
   <string name="reading_list_name_hint">Ngaran ieu daptar</string>
@@ -440,7 +445,7 @@
   <string name="remote_compilation_download">Undeur</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB kosong</string>
-  <string name="storage_used_by_compilations" fuzzy="true">dipaké ku Wikipédia</string>
+  <string name="storage_used_by_compilations">dipaké ku Pabukon Wikipédia</string>
   <string name="storage_other_apps">Aplikasi lianna</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

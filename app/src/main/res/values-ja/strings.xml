@@ -374,6 +374,7 @@
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
   <string name="description_edit_revert_reason2">あなたの投稿がテスト投稿、あるいは荒らしのように見えた。</string>
   <string name="description_edit_revert_history">もしご興味があれば、&lt;a href=\"%1$s\"&gt;編集履歴&lt;/a&gt;をご覧ください。</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="compilation_share">共有</string>
   <string name="compilation_remove">削除</string>
   <string name="offline_library_onboarding_button_done">完了</string>

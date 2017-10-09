@@ -77,7 +77,7 @@
   <string name="login_password_hint">Contrasinal</string>
   <string name="login_2fa_hint">Autenticación en dous factores</string>
   <string name="login_2fa_other_workflow_error_msg">Autenticación en dous factores obrigatoriaǃ Por favor, volva á actividade principal e conéctese co seu identificador 2FA, despois inténteo de novo.</string>
-  <string name="menu_login">Acceder ao sistema</string>
+  <string name="menu_login">Acceder ó sistema</string>
   <string name="login_activity_title">Iniciar sesión na Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
   <string name="login_success_toast">Accedeu correctamente!</string>

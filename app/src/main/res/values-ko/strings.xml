@@ -304,6 +304,8 @@
   <string name="reading_list_menu_edit_description">설명 편집</string>
   <string name="reading_list_action_menu_remove_from_offline">오프라인에서 제거</string>
   <string name="reading_list_action_menu_save_for_offline">오프라인을 위해 저장</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">오프라인에서 모두 제거</string>
+  <string name="reading_list_action_menu_save_all_for_offline">오프라인을 위해 모두 저장</string>
   <string name="reading_list_action_menu_add_to_another_list">다른 목록에 추가</string>
   <string name="reading_list_name_sample">내 읽기 목록</string>
   <string name="reading_list_name_hint">이 목록의 이름</string>

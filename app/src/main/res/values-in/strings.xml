@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Sunting deskripsi</string>
   <string name="reading_list_action_menu_remove_from_offline">Hapus dari luring</string>
   <string name="reading_list_action_menu_save_for_offline">Simpan untuk luring</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Hapus semua dari luring</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Simpan semua untuk luring</string>
   <string name="reading_list_action_menu_add_to_another_list">Tambah ke daftar lainnya</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
   <string name="reading_list_name_hint">Nama daftar ini</string>

@@ -278,6 +278,9 @@
   <string name="color_theme_dark">Тъмен</string>
   <string name="preference_title_color_theme">Тъмен облик</string>
   <string name="preference_summary_color_theme">Превключване към тъмния облик на приложението</string>
+  <string name="text_size_increase">Увеличаване на размера на текста</string>
+  <string name="text_size_decrease">Намаляване на размера на текста</string>
+  <string name="text_size_percent_default">%s (по подразбиране)</string>
   <string name="nav_item_reading_lists">Моите списъци</string>
   <string name="reading_list_untitled">Неозаглавен</string>
   <string name="reading_list_save_to">Добавяне в списъка за четене</string>
@@ -417,7 +420,7 @@
   <string name="remote_compilation_download">Изтегляне</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB свободни</string>
-  <string name="storage_used_by_compilations" fuzzy="true">използвани от Уикипедия</string>
+  <string name="storage_used_by_compilations">използвани от Офлайн библиотека</string>
   <string name="storage_other_apps">Други приложения</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">
@@ -434,7 +437,7 @@
   <string name="offline_library_onboarding_action">Научете повече</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_subtitle">Изтегляне на пакет със статии от Уикипедия сега, така че да могат да се четат по-късно без мобилни данни.</string>
-  <string name="offline_library_onboarding_uninterrupted_reading_title">Четене без прекъсвание</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Четене без прекъсване</string>
   <string name="offline_library_onboarding_store_knowledge_title">Складиране на повече знание</string>
   <string name="onboarding_skip">Пропускане</string>
   <string name="onboarding_continue">Продължаване</string>

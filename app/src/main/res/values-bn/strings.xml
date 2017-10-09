@@ -299,6 +299,8 @@
   <string name="reading_list_menu_edit_description">বিবরণ সম্পাদনা করুন</string>
   <string name="reading_list_action_menu_remove_from_offline">অফলাইন থেকে সরান</string>
   <string name="reading_list_action_menu_save_for_offline">অফলাইনের জন্য সংরক্ষণ করুন</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">অফলাইন থেকে সব সরান</string>
+  <string name="reading_list_action_menu_save_all_for_offline">অফলাইনের জন্য সব সংরক্ষণ করুন</string>
   <string name="reading_list_action_menu_add_to_another_list">আরেকটি তালিকায় যোগ করুন</string>
   <string name="reading_list_name_sample">আমার পড়ার তালিকা</string>
   <string name="reading_list_name_hint">এই তালিকার নাম</string>

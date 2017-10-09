@@ -282,6 +282,9 @@
   <string name="color_theme_dark">تیره</string>
   <string name="preference_title_color_theme">سبک تیره</string>
   <string name="preference_summary_color_theme">سویچ به سبک با رنگ تیره</string>
+  <string name="text_size_increase">افزایش اندازه متن</string>
+  <string name="text_size_decrease">کاهش اندازه متن</string>
+  <string name="text_size_percent_default">%s (پیش‌فرض)</string>
   <string name="nav_item_reading_lists">فهرست‌های من</string>
   <string name="reading_list_untitled">بدون عنوان</string>
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
@@ -443,7 +446,7 @@
   <string name="remote_compilation_download">بارگیری</string>
   <string name="storage_size">%.2f گیگابایت</string>
   <string name="storage_size_free">%.2f گیگابایت فضای خالی</string>
-  <string name="storage_used_by_compilations" fuzzy="true">توسط ویکی‌پدیا استفاده شده</string>
+  <string name="storage_used_by_compilations">توسط کتابخانهٔ آفلاین استفاده شده</string>
   <string name="storage_other_apps">سایر نرم‌افزارها</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

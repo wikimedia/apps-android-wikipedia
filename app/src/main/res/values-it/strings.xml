@@ -269,6 +269,9 @@
   <string name="color_theme_light">Chiaro</string>
   <string name="color_theme_dark">Scuro</string>
   <string name="preference_title_color_theme">Tema scuro</string>
+  <string name="text_size_increase">Aumenta la dimensione del testo</string>
+  <string name="text_size_decrease">Diminuisci la dimensione del testo</string>
+  <string name="text_size_percent_default">%s (predefinito)</string>
   <string name="nav_item_reading_lists">I miei elenchi</string>
   <string name="reading_list_untitled">Senza titolo</string>
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>

@@ -44,7 +44,7 @@
   <string name="talk_page_link_text">Обсуждение</string>
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
   <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуетесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
+  <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
@@ -195,7 +195,7 @@
   <string name="widget_name_search">Поиск по Википедии</string>
   <string name="wiktionary_no_definitions_found">Никаких определений не найдено.</string>
   <string name="alpha_update_notification_title">Доступно новое обновление альфа-версии</string>
-  <string name="alpha_update_notification_text">Нажмите чтобы скачать</string>
+  <string name="alpha_update_notification_text">Нажмите, чтобы скачать</string>
   <string name="dialog_close_description">Закрыть</string>
   <string name="preference_title_show_images">Показывать изображения</string>
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
@@ -230,7 +230,7 @@
   <string name="tool_tip_share">После выделения интересного факта, попробуйте поделиться им в ваших любимых соц.сетях!</string>
   <string name="page_view_in_browser">Просмотр страницы в браузере</string>
   <string name="tool_tip_toc_button">Смотрите оглавление в любое время, нажав на эту кнопку или проведя пальцем от правого края экрана.</string>
-  <string name="error_response_malformed">Ответ сервера был не корректно отформатирован.</string>
+  <string name="error_response_malformed">Ответ сервера был некорректно отформатирован.</string>
   <string name="error_unknown">Произошла неизвестная ошибка.</string>
   <string name="format_error_server_message">Сообщение: «%s»</string>
   <string name="address_copied">Адрес скопирован в буфер обмена.</string>

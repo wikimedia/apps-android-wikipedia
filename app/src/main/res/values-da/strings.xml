@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Mørk</string>
   <string name="preference_title_color_theme">Mørkt tema</string>
   <string name="preference_summary_color_theme">Skift til app\'ens mørke farvetema</string>
+  <string name="text_size_increase">Øg tekststørrelse</string>
+  <string name="text_size_decrease">Sænk tekststørrelse</string>
+  <string name="text_size_percent_default">%s (standard)</string>
   <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_untitled">Unavngivet</string>
   <string name="reading_list_save_to">Gem til læseliste</string>
@@ -443,7 +446,7 @@
   <string name="remote_compilation_download">Hent</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB ledigt</string>
-  <string name="storage_used_by_compilations" fuzzy="true">brugt af Wikipedia</string>
+  <string name="storage_used_by_compilations">brugt af det lokale bibiotek</string>
   <string name="storage_other_apps">Andre programmer</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

@@ -251,6 +251,8 @@
   <string name="color_theme_light">Jasna</string>
   <string name="color_theme_dark">Ciemna</string>
   <string name="preference_title_color_theme">Ciemniejszy motyw</string>
+  <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
+  <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
   <string name="nav_item_reading_lists">Moje listy</string>
   <string name="reading_list_untitled">Bez tytułu</string>
   <string name="reading_list_save_to">Zapisz listę do przeczytania</string>

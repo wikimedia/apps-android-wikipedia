@@ -265,6 +265,9 @@
   <string name="color_theme_select">Faarfschema</string>
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Däischter</string>
+  <string name="text_size_increase">Gréisst vum Text méi grouss maachen</string>
+  <string name="text_size_decrease">Gréisst vum Text méi kleng maachen</string>
+  <string name="text_size_percent_default">%s (Standard)</string>
   <string name="nav_item_reading_lists">Meng Lëschten</string>
   <string name="reading_list_untitled">Ouni Titel</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
@@ -287,6 +290,8 @@
   <string name="reading_list_menu_delete">Lëscht läschen</string>
   <string name="reading_list_menu_rename">Ëmbenennen</string>
   <string name="reading_list_menu_edit_description">Beschreiwung änneren</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">All aus dem offline eraushuelen</string>
+  <string name="reading_list_action_menu_save_all_for_offline">All fir offline späicheren</string>
   <string name="reading_list_action_menu_add_to_another_list">Op eng aner Lëscht derbäisetzen</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>
   <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>

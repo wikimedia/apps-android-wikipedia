@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Escuru</string>
   <string name="preference_title_color_theme">Tema escura</string>
   <string name="preference_summary_color_theme">Camudar a la tema escura de l\'aplicación</string>
+  <string name="text_size_increase">Aumentar tamañu del testu</string>
+  <string name="text_size_decrease">Amenorgar tamañu del testu</string>
+  <string name="text_size_percent_default">%s (Predeterminao)</string>
   <string name="nav_item_reading_lists">Les mios llistes</string>
   <string name="reading_list_untitled">Ensin títulu</string>
   <string name="reading_list_save_to">Guardar na llista de llectura</string>
@@ -441,8 +444,9 @@
   <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Desaniciar</string>
   <string name="remote_compilation_download">Descargar</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB llibres</string>
-  <string name="storage_used_by_compilations" fuzzy="true">usaos por Wikipedia</string>
+  <string name="storage_used_by_compilations">usaos por Biblioteca sin conexón</string>
   <string name="storage_other_apps">Otres aplicaciones</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Mörk</string>
   <string name="preference_title_color_theme">Mörkt tema</string>
   <string name="preference_summary_color_theme">Byt till appens mörka färgtema</string>
+  <string name="text_size_increase">Öka textstorlek</string>
+  <string name="text_size_decrease">Minska textstorlek</string>
+  <string name="text_size_percent_default">%s (Standard)</string>
   <string name="nav_item_reading_lists">Mina listor</string>
   <string name="reading_list_untitled">Namnlös</string>
   <string name="reading_list_save_to">Spara i läslista</string>

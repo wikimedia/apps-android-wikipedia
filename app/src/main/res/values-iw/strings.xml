@@ -282,6 +282,9 @@
   <string name="color_theme_dark">כהה</string>
   <string name="preference_title_color_theme">ערכת נושא כהה</string>
   <string name="preference_summary_color_theme">מעבר לשימוש בערכת צבעים כהים של היישום</string>
+  <string name="text_size_increase">הגדלת הטקסט</string>
+  <string name="text_size_decrease">הקטנת הטקסט</string>
+  <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="nav_item_reading_lists">רשימות</string>
   <string name="reading_list_untitled">ללא כותרת</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
@@ -306,6 +309,8 @@
   <string name="reading_list_menu_edit_description">עריכת תיאור</string>
   <string name="reading_list_action_menu_remove_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_action_menu_save_for_offline">שמירה לקריאה ללא חיבור לרשת</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">להסיר הכול מקריאה לא מקוונת</string>
+  <string name="reading_list_action_menu_save_all_for_offline">לשמור הכול לקריאה לא מקוונת</string>
   <string name="reading_list_action_menu_add_to_another_list">הוספה לרשימה אחרת</string>
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
@@ -443,7 +448,7 @@
   <string name="remote_compilation_download">הורדה</string>
   <string name="storage_size">%.2f ג\"ב</string>
   <string name="storage_size_free">%.2f ג\"ב פנויים</string>
-  <string name="storage_used_by_compilations" fuzzy="true">בשימוש ויקיפדיה</string>
+  <string name="storage_used_by_compilations">בשימוש ספרייה לא מקוונת</string>
   <string name="storage_other_apps">אפליקציות אחרות</string>
   <string name="offline_compilation_download_progress_text">%1$.2f ג\"ב / %2$.2f ג\"ב</string>
   <plurals name="offline_compilation_download_time_remaining">
