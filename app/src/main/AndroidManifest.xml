@@ -169,7 +169,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:pathPrefix="/android_asset/licenses/" android:scheme="asset" />
+                <data android:pathPrefix="/android_asset/licenses/" android:scheme="content" />
             </intent-filter>
         </activity>
         <activity
