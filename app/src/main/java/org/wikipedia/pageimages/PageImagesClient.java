@@ -43,7 +43,8 @@ public class PageImagesClient {
                                   @NonNull final List<PageTitle> titles, @NonNull final Callback cb) {
         Call<MwQueryResponse> call = service.request(TextUtils.join("|", titles));
         call.enqueue(new retrofit2.Callback<MwQueryResponse>() {
-            @Override public void onResponse(Call<MwQueryResponse> call, Response<MwQueryResponse> response) {
+            @Override public void onResponse(@NonNull Call<MwQueryResponse> call,
+                                             @NonNull Response<MwQueryResponse> response) {
                 Map<PageTitle, PageImage> pageImagesMap = new ArrayMap<>();
                 // error cases
                 if (response.body().success()) {
@@ -58,6 +59,14 @@ public class PageImagesClient {
                     for (MwQueryPage page : response.body().query().pages()) {
                         thumbnailSourcesMap.put(new PageTitle(null, page.title(),
                                 wiki).getPrefixedText(), page.thumbUrl());
+                        if (!TextUtils.isEmpty(page.convertedFrom())) {
+                            thumbnailSourcesMap.put(new PageTitle(null, page.convertedFrom(),
+                                    wiki).getPrefixedText(), page.thumbUrl());
+                        }
+                        if (!TextUtils.isEmpty(page.redirectFrom())) {
+                            thumbnailSourcesMap.put(new PageTitle(null, page.redirectFrom(),
+                                    wiki).getPrefixedText(), page.thumbUrl());
+                        }
                     }
 
                     for (String key : titlesMap.keySet()) {
@@ -75,7 +84,7 @@ public class PageImagesClient {
                 }
             }
 
-            @Override public void onFailure(Call<MwQueryResponse> call, Throwable t) {
+            @Override public void onFailure(@NonNull Call<MwQueryResponse> call, @NonNull Throwable t) {
                 cb.failure(call, t);
             }
         });

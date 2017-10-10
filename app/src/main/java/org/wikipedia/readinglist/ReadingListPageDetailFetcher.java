@@ -116,6 +116,12 @@ final class ReadingListPageDetailFetcher {
             Map<String, MwQueryPage> result = new HashMap<>();
             for (MwQueryPage page : pages) {
                 result.put(page.title(), page);
+                if (!TextUtils.isEmpty(page.convertedFrom())) {
+                    result.put(page.convertedFrom(), page);
+                }
+                if (!TextUtils.isEmpty(page.redirectFrom())) {
+                    result.put(page.redirectFrom(), page);
+                }
             }
             return result;
         }
