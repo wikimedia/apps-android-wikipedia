@@ -19,6 +19,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
@@ -28,6 +29,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -78,6 +80,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
@@ -101,6 +104,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
+    @BindView(R.id.page_toolbar_button_show_tabs) ImageView tabsButton;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -158,7 +162,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toolbarHideHandler = new PageToolbarHideHandler(toolbarContainerView);
+
+        tabsButton.setImageDrawable(ContextCompat.getDrawable(pageFragment.getContext(),
+                ResourceUtil.getTabListIcon(pageFragment.getTabCount())));
+
+        toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
         boolean languageChanged = false;
         if (savedInstanceState != null) {
@@ -210,9 +218,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
         MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
         MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
-        MenuItem tabsItem = menu.findItem(R.id.menu_page_show_tabs);
-
-        tabsItem.setIcon(ResourceUtil.getTabListIcon(pageFragment.getTabCount()));
 
         if (pageFragment.isLoading() || pageFragment.getErrorState()) {
             otherLangItem.setEnabled(false);
@@ -233,6 +238,16 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             updateMenuPageInfo(menu);
         }
         return true;
+    }
+
+    @OnClick(R.id.page_toolbar_button_search)
+    public void onSearchButtonClicked() {
+        openSearchFragment(SearchInvokeSource.TOOLBAR, null);
+    }
+
+    @OnClick(R.id.page_toolbar_button_show_tabs)
+    public void onShowTabsButtonClicked() {
+        pageFragment.enterTabMode(false);
     }
 
     private void finishActionMode() {
@@ -620,11 +635,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageSearchRequested() {
-        openSearchFragment(SearchInvokeSource.TOOLBAR, null);
-    }
-
-    @Override
     public void onPageLoadError(@NonNull PageTitle title) {
         getSupportActionBar().setTitle(title.getDisplayText());
     }
@@ -808,6 +818,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onActionModeFinished(android.view.ActionMode mode) {
         super.onActionModeFinished(mode);
         currentActionMode = null;
+        toolbarHideHandler.onScrolled(pageFragment.getWebView().getScrollY(),
+                pageFragment.getWebView().getScrollY());
     }
 
     protected void clearActionBarTitle() {

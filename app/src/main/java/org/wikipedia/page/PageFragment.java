@@ -112,7 +112,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageShowLinkPreview(@NonNull PageTitle title, int source);
         void onPageLoadMainPageInForegroundTab();
         void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
-        void onPageSearchRequested();
         void onPageShowThemeChooser();
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
         void onPageShowToolbar();
@@ -781,14 +780,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             case R.id.menu_page_font_and_theme:
                 showThemeChooser();
                 return true;
-            case R.id.menu_page_show_tabs:
-                tabsProvider.enterTabMode(false);
-                return true;
-            case R.id.menu_page_search:
-                if (callback() != null) {
-                    callback().onPageSearchRequested();
-                }
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -971,6 +962,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     DarkModeSwitch getDarkModeMarshaller() {
         return darkModeSwitch;
+    }
+
+    void enterTabMode(boolean launchedExternally) {
+        tabsProvider.enterTabMode(launchedExternally);
     }
 
     private void setupToC(@NonNull PageViewModel model, boolean isFirstPage) {
