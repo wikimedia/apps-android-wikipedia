@@ -193,6 +193,11 @@ public class LangLinksActivity extends BaseActivity {
                 if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
                     // Remove Gothic since it causes Android to segfault.
                     it.remove();
+                } else if ("be-x-old".equals(languageCode)) {
+                    // Replace legacy name of тарашкевіца language with the correct name.
+                    // TODO: Can probably be removed when T111853 is resolved.
+                    it.remove();
+                    it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode("be-tarask")));
                 } else if (AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE.equals(languageCode)) {
                     // Replace Chinese with Simplified and Traditional dialects.
                     haveChineseEntry = true;
