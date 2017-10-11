@@ -52,6 +52,28 @@
                 android:theme="@style/PageToolbarTheme"
                 app:titleTextColor="?attr/page_toolbar_icon_color"
                 app:navigationIcon="@drawable/ic_close_themed_24dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|end">
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/page_toolbar_button_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        app:srcCompat="@drawable/ic_search_themed_24dp"
+                        app:tint="?attr/page_toolbar_icon_color"
+                        app:tintMode="src_in"/>
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/page_toolbar_button_show_tabs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        app:tint="?attr/page_toolbar_icon_color"
+                        app:tintMode="src_in"/>
+                </LinearLayout>
             </android.support.v7.widget.Toolbar>
             <ProgressBar
                 android:id="@+id/page_progress_bar"
