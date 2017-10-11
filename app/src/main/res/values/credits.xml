@@ -3,46 +3,46 @@
     <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Bernd Sitzmann, Brion Vibber, Dan Garry, Dmitry Brant, Elena Tonkovidova, Kaity Hammerstein, Kenan Wang, Maryana Pinchuk, Matanya Moses, Max Semenik, Michael Holloway, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Rita Ho, Rummana Yasmeen, Stephen Niedzielski, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
     <string name="libraries_list"><a href="https://jakewharton.github.io/butterknife/">ButterKnife</a>
         <!-- https://raw.githubusercontent.com/JakeWharton/butterknife/master/LICENSE.txt -->
-        (<a href="asset:///android_asset/licenses/ButterKnife">license</a>),
+        (<a href="content:///android_asset/licenses/ButterKnife">license</a>),
 
         <a href="https://commons.apache.org/proper/commons-lang/">Commons Lang</a>
         <!-- https://www.apache.org/licenses/ -->
-        (<a href="asset:///android_asset/licenses/CommonsLang3">license</a>),
+        (<a href="content:///android_asset/licenses/CommonsLang3">license</a>),
 
         <a href="http://frescolib.org/">Fresco</a>
         <!-- https://raw.githubusercontent.com/facebook/fresco/master/LICENSE -->
-        (<a href="asset:///android_asset/licenses/Fresco">license</a>),
+        (<a href="content:///android_asset/licenses/Fresco">license</a>),
 
         <a href="https://hockeyapp.net/">HockeySDK-Android</a>
         <!-- https://raw.githubusercontent.com/bitstadium/HockeySDK-Android/develop/LICENSE -->
-        (<a href="asset:///android_asset/licenses/HockeySDK-Android">license</a>),
+        (<a href="content:///android_asset/licenses/HockeySDK-Android">license</a>),
 
         <a href="https://github.com/jhy/jsoup">jsoup</a>
         <!-- https://raw.githubusercontent.com/jhy/jsoup/master/LICENSE -->
-        (<a href="asset:///android_asset/licenses/jsoup">license</a>),
+        (<a href="content:///android_asset/licenses/jsoup">license</a>),
 
         <a href="https://www.mapbox.com/android-sdk/">Mapbox Android SDK</a>
         <!-- https://raw.githubusercontent.com/mapbox/mapbox-gl-native/master/LICENSE.md-->
-        (<a href="asset:///android_asset/licenses/Mapbox">license</a>),
+        (<a href="content:///android_asset/licenses/Mapbox">license</a>),
 
         <a href="https://square.github.io/okhttp/">OkHttp</a>
         <!-- https://raw.githubusercontent.com/square/okhttp/master/LICENSE.txt -->
-        (<a href="asset:///android_asset/licenses/OkHttp">license</a>),
+        (<a href="content:///android_asset/licenses/OkHttp">license</a>),
 
         <a href="https://square.github.io/otto/">Otto</a>
         <!-- https://raw.githubusercontent.com/square/otto/master/LICENSE.txt -->
-        (<a href="asset:///android_asset/licenses/Otto">license</a>),
+        (<a href="content:///android_asset/licenses/Otto">license</a>),
 
         <a href="https://github.com/romandanylyk/PageIndicatorView">PageIndicatorView</a>
         <!-- https://github.com/romandanylyk/PageIndicatorView#license -->
-        (<a href="asset:///android_asset/licenses/PageIndicatorView">license</a>),
+        (<a href="content:///android_asset/licenses/PageIndicatorView">license</a>),
 
         <a href="https://square.github.io/retrofit/">Retrofit</a>
         <!-- https://raw.githubusercontent.com/square/retrofit/master/LICENSE.txt -->
-        (<a href="asset:///android_asset/licenses/Retrofit">license</a>)
+        (<a href="content:///android_asset/licenses/Retrofit">license</a>)
 
         <a href="https://github.com/KeepSafe/TapTargetView">TapTargetView</a>
         <!-- https://github.com/KeepSafe/TapTargetView/blob/master/LICENSE -->
-        (<a href="asset:///android_asset/licenses/TapTargetView">license</a>)
+        (<a href="content:///android_asset/licenses/TapTargetView">license</a>)
     </string>
 </resources>
