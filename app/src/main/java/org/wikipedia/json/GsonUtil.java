@@ -23,7 +23,8 @@ public final class GsonUtil {
             .registerTypeAdapter(WikiSite.class, new WikiSiteTypeAdapter().nullSafe())
             .registerTypeAdapter(ZeroConfig.class, new ZeroConfigTypeAdapter().nullSafe())
             .registerTypeAdapter(RemoteReadingListPage.class, new RemoteReadingListPageTypeAdapter().nullSafe())
-            .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory());
+            .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory())
+            .registerTypeAdapterFactory(new PostProcessingTypeAdapter());
 
     private static final Gson DEFAULT_GSON = DEFAULT_GSON_BUILDER.create();
 

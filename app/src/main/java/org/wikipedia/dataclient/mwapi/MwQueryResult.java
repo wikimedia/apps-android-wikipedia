@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.gallery.VideoInfo;
+import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.nearby.NearbyPage;
 import org.wikipedia.notifications.Notification;
@@ -22,9 +23,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class MwQueryResult extends BaseModel {
+public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapter.PostProcessable {
     @SuppressWarnings("unused") @Nullable private List<MwQueryPage> pages;
     @SuppressWarnings("unused") @Nullable private List<Redirect> redirects;
+    @SuppressWarnings("unused") @Nullable private List<ConvertedTitle> converted;
     @SuppressWarnings("unused") @SerializedName("userinfo") private UserInfo userInfo;
     @SuppressWarnings("unused") @Nullable private List<ListUsersResponse> users;
     @SuppressWarnings("unused") @Nullable private Tokens tokens;
@@ -36,10 +38,6 @@ public class MwQueryResult extends BaseModel {
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
-    }
-
-    @Nullable public List<Redirect> redirects() {
-        return redirects;
     }
 
     @Nullable public UserInfo userInfo() {
@@ -147,7 +145,46 @@ public class MwQueryResult extends BaseModel {
         return result;
     }
 
-    public static class Redirect {
+    @Override
+    public void postProcess() {
+        resolveConvertedTitles();
+        resolveRedirectedTitles();
+    }
+
+    private void resolveRedirectedTitles() {
+        if (redirects == null || pages == null) {
+            return;
+        }
+        for (MwQueryPage page : pages) {
+            for (MwQueryResult.Redirect redirect : redirects) {
+                // TODO: Looks like result pages and redirects can also be matched on the "index"
+                // property.  Confirm in the API docs and consider updating.
+                if (page.title().equals(redirect.to())) {
+                    page.redirectFrom(redirect.from());
+                    if (redirect.toFragment() != null) {
+                        page.appendTitleFragment(redirect.toFragment());
+                    }
+                }
+            }
+        }
+    }
+
+    private void resolveConvertedTitles() {
+        if (converted == null || pages == null) {
+            return;
+        }
+        // noinspection ConstantConditions
+        for (MwQueryResult.ConvertedTitle convertedTitle : converted) {
+            // noinspection ConstantConditions
+            for (MwQueryPage page : pages) {
+                if (page.title().equals(convertedTitle.to())) {
+                    page.convertedFrom(convertedTitle.from());
+                }
+            }
+        }
+    }
+
+    private static class Redirect {
         @SuppressWarnings("unused") private int index;
         @SuppressWarnings("unused") @Nullable private String from;
         @SuppressWarnings("unused") @Nullable private String to;
@@ -163,6 +200,19 @@ public class MwQueryResult extends BaseModel {
 
         @Nullable public String toFragment() {
             return toFragment;
+        }
+    }
+
+    private static class ConvertedTitle {
+        @SuppressWarnings("unused") @Nullable private String from;
+        @SuppressWarnings("unused") @Nullable private String to;
+
+        @Nullable public String to() {
+            return to;
+        }
+
+        @Nullable public String from() {
+            return from;
         }
     }
 

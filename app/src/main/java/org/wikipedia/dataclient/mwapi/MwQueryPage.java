@@ -29,6 +29,7 @@ public class MwQueryPage extends BaseModel {
     @SuppressWarnings("unused") @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
     @SuppressWarnings("unused") @SerializedName("videoinfo") @Nullable private List<VideoInfo> videoInfo;
     @Nullable private String redirectFrom;
+    @Nullable private String convertedFrom;
 
     @NonNull public String title() {
         return title;
@@ -77,6 +78,14 @@ public class MwQueryPage extends BaseModel {
 
     public void redirectFrom(@Nullable String from) {
         redirectFrom = from;
+    }
+
+    @Nullable public String convertedFrom() {
+        return convertedFrom;
+    }
+
+    public void convertedFrom(@Nullable String from) {
+        convertedFrom = from;
     }
 
     public void appendTitleFragment(@Nullable String fragment) {

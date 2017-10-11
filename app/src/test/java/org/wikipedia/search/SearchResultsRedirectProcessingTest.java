@@ -1,42 +1,45 @@
 package org.wikipedia.search;
 
-import com.google.gson.reflect.TypeToken;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResult;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.test.TestRunner;
-
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(TestRunner.class) public class SearchResultsRedirectProcessingTest {
 
-    private List<MwQueryResult.Redirect> redirects;
-    private List<MwQueryPage> results;
+    private MwQueryResult result;
 
     @Before public void setUp() throws Throwable {
-        TypeToken<List<MwQueryPage>> resultListToken = new TypeToken<List<MwQueryPage>>(){};
-        results = GsonUtil.getDefaultGson().fromJson(resultsJson, resultListToken.getType());
-        TypeToken<List<MwQueryResult.Redirect>> redirectListToken = new TypeToken<List<MwQueryResult.Redirect>>(){};
-        redirects = GsonUtil.getDefaultGson().fromJson(redirectsJson, redirectListToken.getType());
+        result = GsonUtil.getDefaultGson().fromJson(queryJson, MwQueryResult.class);
     }
 
     @Test public void testRedirectHandling() throws Throwable {
-        List<MwQueryPage> processedResults = PrefixSearchClient.updateWithRedirectInfo(results, redirects);
-        assertThat(processedResults.size(), is(2));
-        assertThat(processedResults.get(0).title(), is("Narthecium#Foo"));
-        assertThat(processedResults.get(0).redirectFrom(), is("Abama"));
-        assertThat(processedResults.get(1).title(), is("Amitriptyline"));
-        assertThat(processedResults.get(1).redirectFrom(), is("Abamax"));
+        assertThat(result.pages().size(), is(2));
+        assertThat(result.pages().get(0).title(), is("Narthecium#Foo"));
+        assertThat(result.pages().get(0).redirectFrom(), is("Abama"));
+        assertThat(result.pages().get(1).title(), is("Amitriptyline"));
+        assertThat(result.pages().get(1).redirectFrom(), is("Abamax"));
     }
 
-    private String redirectsJson = "[\n"
+    @Test public void testConvertTitleHandling() throws Throwable {
+        assertThat(result.pages().size(), is(2));
+        assertThat(result.pages().get(0).title(), is("Narthecium#Foo"));
+        assertThat(result.pages().get(0).convertedFrom(), is("NotNarthecium"));
+    }
+
+    private String queryJson = "{\n"
+            + "    \"converted\": [\n"
+            + "      {\n"
+            + "        \"from\": \"NotNarthecium\",\n"
+            + "        \"to\": \"Narthecium\"\n"
+            + "      }\n"
+            + "    ],\n"
+            + "    \"redirects\": [\n"
             + "      {\n"
             + "        \"index\": 1,\n"
             + "        \"from\": \"Abama\",\n"
@@ -48,9 +51,8 @@ import static org.hamcrest.Matchers.is;
             + "        \"from\": \"Abamax\",\n"
             + "        \"to\": \"Amitriptyline\"\n"
             + "      }\n"
-            + "    ]";
-
-    private String resultsJson = "[\n"
+            + "    ],\n"
+            + "    \"pages\":[\n"
             + "      {\n"
             + "        \"pageid\": 2060913,\n"
             + "        \"ns\": 0,\n"
@@ -84,6 +86,7 @@ import static org.hamcrest.Matchers.is;
             + "          \"height\": 320\n"
             + "        }\n"
             + "      }\n"
-            + "    ]";
+            + "    ]\n"
+            + "  }";
 
 }

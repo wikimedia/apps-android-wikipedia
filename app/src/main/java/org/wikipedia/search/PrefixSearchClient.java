@@ -8,7 +8,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
-import org.wikipedia.dataclient.mwapi.MwQueryResult;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
 
@@ -49,13 +48,6 @@ public class PrefixSearchClient {
                     // noinspection ConstantConditions
                     List<MwQueryPage> pages = response.body().query().pages();
                     // noinspection ConstantConditions
-                    List<MwQueryResult.Redirect> redirects = response.body().query().redirects();
-
-                    if (redirects != null) {
-                        // noinspection ConstantConditions
-                        updateWithRedirectInfo(pages, redirects);
-                    }
-                    // noinspection ConstantConditions
                     cb.success(call, new SearchResults(pages, wiki, response.body().continuation(),
                             response.body().suggestion()));
                 } else if (response.body().hasError()) {
@@ -90,24 +82,6 @@ public class PrefixSearchClient {
             call.cancel();
             call = null;
         }
-    }
-
-    @VisibleForTesting static List<MwQueryPage> updateWithRedirectInfo(@NonNull List<MwQueryPage> pages,
-                                                                       @NonNull List<MwQueryResult.Redirect> redirects) {
-        for (MwQueryPage page : pages) {
-            for (MwQueryResult.Redirect redirect : redirects) {
-                // TODO: Looks like result pages and redirects can also be matched on the "index"
-                // property.  Confirm in the API docs and consider updating.
-                if (page.title().equals(redirect.to())) {
-                    page.redirectFrom(redirect.from());
-                    if (redirect.toFragment() != null) {
-                        page.appendTitleFragment(redirect.toFragment());
-                    }
-                    break;
-                }
-            }
-        }
-        return pages;
     }
 
     @VisibleForTesting interface Service {
