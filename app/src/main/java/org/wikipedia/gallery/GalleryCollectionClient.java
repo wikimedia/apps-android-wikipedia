@@ -84,14 +84,14 @@ public class GalleryCollectionClient {
 
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&converttitles=true&redirects=")
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&converttitles=&redirects=")
         Call<MwQueryResponse> fetch(@NonNull @Query("iiprop") String properties,
                                     @Nullable @Query("iiurlwidth") String thumbWidth,
                                     @Nullable @Query("iiurlheight") String thumbHeight,
                                     @NonNull @Query("titles") String title);
 
         // N.B. @QueryMap will throw if it receives a null parameter, separate handling is required.
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&converttitles=true&redirects=")
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=imageinfo&generator=images&converttitles=&redirects=")
         Call<MwQueryResponse> continueFetch(@NonNull @Query("iiprop") String properties,
                                             @Nullable @Query("iiurlwidth") String thumbWidth,
                                             @Nullable @Query("iiurlheight") String thumbHeight,

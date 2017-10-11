@@ -60,7 +60,7 @@ public class WikitextClient {
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=query&format=json&formatversion=2&prop=revisions&rvprop=content&rvlimit=1&converttitles=true")
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=revisions&rvprop=content&rvlimit=1&converttitles=")
         Call<MwQueryResponse> request(@NonNull @Query("titles") String title, @Query("rvsection") int section);
     }
 }
