@@ -36,9 +36,9 @@ public interface MwPageService {
       unparsed wikitext, which we certainly don't want.
     */
     @Headers("x-analytics: preview=1")
-    @GET("w/api.php?action=query&format=json&formatversion=2&prop=extracts%7Cpageimages"
-            + "&redirects=true&exsentences=5&explaintext=true&piprop=thumbnail%7Cname"
-            + "&converttitles=true&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
+    @GET("w/api.php?action=query&format=json&formatversion=2&redirects=&converttitles="
+            + "&prop=extracts%7Cpageimages&exsentences=5&explaintext=&piprop=thumbnail%7Cname"
+            + "&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
     @NonNull Call<MwQueryPageSummary> summary(@NonNull @Query("titles") String title);
 
     /**
@@ -53,7 +53,7 @@ public interface MwPageService {
             + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Cnamespace%7Crevision"
             + "%7Cdescription%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection"
             + "%7Ceditable%7Cpageprops&pageprops=wikibase_item"
-            + "&sections=0&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
+            + "&sections=0&sectionprop=toclevel%7Cline%7Canchor&noheadings=")
     @NonNull Call<MwMobileViewPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
                                              @Header(SaveHeader.FIELD) Boolean save,
                                              @NonNull @Query("page") String title,
@@ -68,7 +68,7 @@ public interface MwPageService {
      */
     @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
             + "text%7Csections&onlyrequestedsections=1&sections=1-"
-            + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
+            + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=")
     @NonNull Call<MwMobileViewPageRemaining> sections(@Nullable @Header("Cache-Control") String cacheControl,
                                                       @Header(SaveHeader.FIELD) Boolean save,
                                                       @NonNull @Query("page") String title,

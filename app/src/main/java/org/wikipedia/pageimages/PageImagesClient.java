@@ -93,7 +93,7 @@ public class PageImagesClient {
 
     @VisibleForTesting interface Service {
         @GET("w/api.php?action=query&format=json&formatversion=2&prop=pageimages&piprop=thumbnail"
-                + "&converttitles=true&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
+                + "&converttitles=&pilicense=any&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE)
         Call<MwQueryResponse> request(@NonNull @Query("titles") String titles);
     }
 }
