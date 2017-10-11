@@ -97,7 +97,7 @@
     </style>
 
     <style name="PageToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?attr/page_toolbar_icon_color</item>
+        <item name="android:textColor">?attr/primary_text_color</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
