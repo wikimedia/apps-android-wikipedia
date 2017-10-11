@@ -25,10 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:textColor="?attr/page_toolbar_icon_color"
             tools:text="99/99"
-            style="?android:textAppearanceSmall"
-            />
+            style="?android:textAppearanceSmall"/>
     <ImageView
             style="@style/Widget.AppCompat.ImageButton"
             android:id="@+id/find_in_page_prev"
@@ -36,7 +35,7 @@
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/find_previous"
-            app:srcCompat="@drawable/ic_expand_less_white_24dp"/>
+            app:srcCompat="@drawable/ic_expand_less_themed_24dp"/>
     <ImageView
             style="@style/Widget.AppCompat.ImageButton"
             android:id="@+id/find_in_page_next"
@@ -44,5 +43,5 @@
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/find_next"
-            app:srcCompat="@drawable/ic_expand_more_white_24dp"/>
+            app:srcCompat="@drawable/ic_expand_more_themed_24dp"/>
 </LinearLayout>

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-        >
+      xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_close_all_tabs"
-        android:icon="@drawable/ic_delete_white_24dp"
-        android:title="@string/menu_close_all_tabs"
-        app:showAsAction="ifRoom" />
+          android:icon="@drawable/ic_delete_themed_24dp"
+          android:title="@string/menu_close_all_tabs"
+          app:showAsAction="ifRoom" />
     <item android:id="@+id/menu_new_tab"
-          android:icon="@drawable/ic_add_box_white_24dp"
+          android:icon="@drawable/ic_add_box_themed_24dp"
           android:title="@string/menu_new_tab"
           app:showAsAction="ifRoom" />
-
 </menu>

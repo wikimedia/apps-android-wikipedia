@@ -91,6 +91,7 @@
             android:name=".page.PageActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.Page"
             android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity">
             <meta-data
@@ -138,7 +139,7 @@
         <activity
             android:name=".language.LangLinksActivity"
             android:label="@string/langlinks_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.Page"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".edit.EditSectionActivity"
