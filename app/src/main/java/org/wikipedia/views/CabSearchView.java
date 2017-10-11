@@ -39,7 +39,7 @@ public class CabSearchView extends SearchView {
         int themedIconColor = getThemedColor(getContext(), R.attr.page_toolbar_icon_color);
         SearchView.SearchAutoComplete searchSrcTextView = findViewById(R.id.search_src_text);
         searchSrcTextView.setCustomSelectionActionModeCallback(new Callback());
-        searchSrcTextView.setTextColor(themedIconColor);
+        searchSrcTextView.setTextColor(getThemedColor(getContext(), R.attr.primary_text_color));
         searchSrcTextView.setHintTextColor(themedIconColor);
         ImageView searchMagIcon = findViewById(R.id.search_mag_icon);
         searchMagIcon.setColorFilter(themedIconColor);

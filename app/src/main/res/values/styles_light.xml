@@ -45,7 +45,7 @@
         <item name="main_toolbar_color">@color/accent50</item>
         <item name="main_status_bar_color">@color/accent30</item>
         <item name="page_toolbar_color">@color/base90</item>
-        <item name="page_toolbar_icon_color">@color/base0</item>
+        <item name="page_toolbar_icon_color">@color/base30</item>
         <item name="edit_text_color">@color/base0</item>
         <item name="nav_tab_background_color">@color/base100</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_light</item>

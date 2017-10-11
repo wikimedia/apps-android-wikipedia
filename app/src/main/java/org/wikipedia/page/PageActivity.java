@@ -104,6 +104,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
+    @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
     @BindView(R.id.page_toolbar_button_show_tabs) ImageView tabsButton;
     @Nullable private Unbinder unbinder;
 
@@ -162,7 +163,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton);
         tabsButton.setImageDrawable(ContextCompat.getDrawable(pageFragment.getContext(),
                 ResourceUtil.getTabListIcon(pageFragment.getTabCount())));
 
