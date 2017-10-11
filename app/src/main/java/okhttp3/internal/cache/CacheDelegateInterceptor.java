@@ -47,10 +47,10 @@ import static okhttp3.internal.Util.discard;
 /** Serves requests from the cache and writes responses to the cache. Copied from the OkHttp
  repository (https://github.com/square/okhttp) to allow a custom cache strategy.
 
- Last synchronized with OkHttp at the "parent-3.8.0" tag (last change: "Invalidate the cache even if
- the response has no body." (c9496d3))
+ Last synchronized with OkHttp at the "parent-3.9.0" tag (last change: "Improve handling of HEAD
+ requests with a Content-Length specified." (33d31d0))
 
- https://github.com/square/okhttp/blob/parent-3.8.0/okhttp/src/main/java/okhttp3/internal/cache/CacheInterceptor.java
+ https://github.com/square/okhttp/blob/parent-3.9.0/okhttp/src/main/java/okhttp3/internal/cache/CacheInterceptor.java
 
  Deviations are marked with "Change:". */
 public final class CacheDelegateInterceptor implements Interceptor {
@@ -244,12 +244,14 @@ public final class CacheDelegateInterceptor implements Interceptor {
       }
     };
 
+    String contentType = response.header("Content-Type");
+    long contentLength = response.body().contentLength();
     return response.newBuilder()
-        .body(new RealResponseBody(response.headers(), Okio.buffer(cacheWritingSource)))
+        .body(new RealResponseBody(contentType, contentLength, Okio.buffer(cacheWritingSource)))
         .build();
   }
 
-  /** Combines cached headers with a network headers as defined by RFC 2616, 13.5.3. */
+  /** Combines cached headers with a network headers as defined by RFC 7234, 4.3.4. */
   private static Headers combine(Headers cachedHeaders, Headers networkHeaders) {
     Headers.Builder result = new Headers.Builder();
 
