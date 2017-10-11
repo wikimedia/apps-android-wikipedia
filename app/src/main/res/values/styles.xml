@@ -79,7 +79,7 @@
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">@color/base18</item>
+        <item name="background">?attr/main_toolbar_color</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">4dp</item>
         <item name="titleTextStyle">@style/ToolBarTitleText</item>
