@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="AlwaysShowAction">
-    <!--
-    Some of the items in this menu are marked with showAsAction="always" on purpose:
-    We truly want the "search" and "tabs" buttons to always be shown in the toolbar, even on small
-    screens, instead of overflowing into the native overflow menu.
-    -->
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_page_other_languages"
           android:title="@string/menu_page_other_languages"
           app:showAsAction="never"
@@ -37,5 +29,4 @@
           android:title="@string/menu_page_font_and_theme"
           app:showAsAction="never"
           android:enabled="false" />
-
 </menu>
