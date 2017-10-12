@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Escuro</string>
   <string name="preference_title_color_theme">Tema escuro</string>
   <string name="preference_summary_color_theme">Cambiar ó tema obscuro da aplicación</string>
+  <string name="text_size_increase">Aumentar o texto</string>
+  <string name="text_size_decrease">Reducir o texto</string>
+  <string name="text_size_percent_default">%s (por defecto)</string>
   <string name="nav_item_reading_lists">As miñas listas</string>
   <string name="reading_list_untitled">Sen título</string>
   <string name="reading_list_save_to">Gardar en lista de lectura</string>

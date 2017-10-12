@@ -283,7 +283,7 @@
   <string name="preference_title_color_theme">Thème sombre</string>
   <string name="preference_summary_color_theme">Basculer pour utiliser le thème couleur sombre de l’application</string>
   <string name="text_size_increase">Agrandir le texte</string>
-  <string name="text_size_decrease">Réduire le texte</string>
+  <string name="text_size_decrease">Réduire la taille du texte</string>
   <string name="text_size_percent_default">%s (par défaut)</string>
   <string name="nav_item_reading_lists">Mes listes</string>
   <string name="reading_list_untitled">Sans titre</string>
@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Modifier la description</string>
   <string name="reading_list_action_menu_remove_from_offline">Supprimer de hors connexion</string>
   <string name="reading_list_action_menu_save_for_offline">Enregistrer pour hors connexion</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Supprimer tout de hors connexion</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Enregistrer tout pour hors connexion</string>
   <string name="reading_list_action_menu_add_to_another_list">Ajouter à une autre liste</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>
   <string name="reading_list_name_hint">Nom de cette liste</string>
@@ -446,7 +448,7 @@
   <string name="remote_compilation_download">Télécharger</string>
   <string name="storage_size">%.2f Gio</string>
   <string name="storage_size_free">%.2f Go libres</string>
-  <string name="storage_used_by_compilations" fuzzy="true">utilisé par Wikipédia</string>
+  <string name="storage_used_by_compilations">utilisé par la Bibliothèque hors connexion</string>
   <string name="storage_other_apps">Autres applications</string>
   <string name="offline_compilation_download_progress_text">%1$.2f Go / %2$.2f Go</string>
   <plurals name="offline_compilation_download_time_remaining">

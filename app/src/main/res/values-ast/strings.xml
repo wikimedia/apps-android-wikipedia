@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Editar la descripción</string>
   <string name="reading_list_action_menu_remove_from_offline">Quitar de les llistes sin conexón</string>
   <string name="reading_list_action_menu_save_for_offline">Guardar nes llistes sin conexón</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Quitar too de la llista sin conexón</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Guardar too na llista sin conexón</string>
   <string name="reading_list_action_menu_add_to_another_list">Añadir a otra llista</string>
   <string name="reading_list_name_sample">La mio llista de llectura</string>
   <string name="reading_list_name_hint">Nome d\'esta llista</string>

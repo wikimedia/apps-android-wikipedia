@@ -415,6 +415,8 @@
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
   <string name="description_edit_revert_reason2">katkınız bir deneme ya da vandalizm gibi görünüyordu.</string>
   <string name="description_edit_revert_history">Eğer ilgeliniyorsanız, &lt;a href=\"%1$s\"&gt;değişiklik geçmişine&lt;/a&gt; bakabilirsiniz.</string>
+  <string name="offline_compilation_download_device_offline">İnternet bağlantısı yok. Çevrimiçi olduğunuzdan emin olunca yeniden deneyin.</string>
+  <string name="offline_read_permission_rationale">Çevrimdışı gözatma için cihazınızın belleğine erişim izni olması gerekmektedir.</string>
   <string name="offline_read_permission_error">Cihaz hafızasına erişim için izin verilmedi.</string>
   <string name="offline_my_compilations">Çevrim dışı kütüphanemi yönet</string>
   <string name="offline_compilations_title">Çevrim dışı Kütüphane</string>
@@ -443,6 +445,7 @@
   <string name="compilation_remove">Sil</string>
   <string name="compilation_remove_confirm">Bunu Çevrim dışı Kütphane\'den silmek istiyor musunuz?</string>
   <string name="offline_library_title">Çevrim dışı Kütüphane</string>
+  <string name="offline_library_empty_title">Çevrimdışı Kütüphaneniz boş</string>
   <string name="offline_library_onboarding_action">Daha fazlasını öğrenin</string>
   <string name="onboarding_skip">Atla</string>
   <string name="onboarding_continue">Devam et</string>

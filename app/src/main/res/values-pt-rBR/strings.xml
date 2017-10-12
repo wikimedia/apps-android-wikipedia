@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Editar descrição</string>
   <string name="reading_list_action_menu_remove_from_offline">Remover do modo offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salvar off-line</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Remover tudo do offline</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Salve tudo offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Adicione em outra lista</string>
   <string name="reading_list_name_sample">Minha lista de leitura</string>
   <string name="reading_list_name_hint">Nome da lista</string>

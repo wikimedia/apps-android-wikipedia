@@ -271,6 +271,9 @@
   <string name="color_theme_dark">گهرو</string>
   <string name="preference_title_color_theme">ڪارو نظارو</string>
   <string name="preference_summary_color_theme">ايپ جي ڪاري رنگ واري نظاري استعمال ڪرڻ ڏانھن مٽايو</string>
+  <string name="text_size_increase">متن جي ماپ وڌايو</string>
+  <string name="text_size_decrease">متن جي ماپ گھٽايو</string>
+  <string name="text_size_percent_default">%s (ڏنل)</string>
   <string name="nav_item_reading_lists">منھنجون فھرستون</string>
   <string name="reading_list_untitled">بلاعنوان</string>
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
@@ -295,6 +298,8 @@
   <string name="reading_list_menu_edit_description">تشريح سنواريو</string>
   <string name="reading_list_action_menu_remove_from_offline">آفلائين تان ھٽايو</string>
   <string name="reading_list_action_menu_save_for_offline">آفلائين لاءِ سانڍيو</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">آفلائين مان سڀ ھٽايو</string>
+  <string name="reading_list_action_menu_save_all_for_offline">آفلائين لاءِ سڀ سانڍيو</string>
   <string name="reading_list_action_menu_add_to_another_list">ھڪ ٻي فھرست ۾ وجھو</string>
   <string name="reading_list_name_sample">منھنجي پڙھڻ جي فھرست</string>
   <string name="reading_list_name_hint">فھرست جو نالو</string>
@@ -421,8 +426,9 @@
   <string name="offline_compilation_detail_button_download">• %.2f جيبي لاھيو</string>
   <string name="offline_compilation_detail_button_remove">ھٽايو</string>
   <string name="remote_compilation_download">لاھيو</string>
+  <string name="storage_size">%.2f جيبي</string>
   <string name="storage_size_free">%.2f جيبي فارغ</string>
-  <string name="storage_used_by_compilations" fuzzy="true">وڪيپيڊيا پاران استعمال ٿيندڙ</string>
+  <string name="storage_used_by_compilations">آفلائين ڪتبخاني پاران استعمال ڪيل</string>
   <string name="storage_other_apps">ٻيون ايپس</string>
   <string name="offline_compilation_download_progress_text">%1$.2f جيبي / %2$.2f جيبي</string>
   <plurals name="offline_compilation_download_time_remaining">

@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Redigera beskrivning</string>
   <string name="reading_list_action_menu_remove_from_offline">Ta bort från offline</string>
   <string name="reading_list_action_menu_save_for_offline">Spara för offline</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Ta bort alla från offline</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Spara alla för offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Lägg till i en annan lista</string>
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>

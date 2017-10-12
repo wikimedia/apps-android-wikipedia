@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Тёмное</string>
   <string name="preference_title_color_theme">Тёмная тема</string>
   <string name="preference_summary_color_theme">Переключите для использования тёмной темы оформления приложения</string>
+  <string name="text_size_increase">Увеличить размер шрифта</string>
+  <string name="text_size_decrease">Уменьшить размер шрифта</string>
+  <string name="text_size_percent_default">%s (по умолчанию)</string>
   <string name="nav_item_reading_lists">Мои списки</string>
   <string name="reading_list_untitled">Без названия</string>
   <string name="reading_list_save_to">Сохранить в список для чтения</string>
@@ -306,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Редактирование описание</string>
   <string name="reading_list_action_menu_remove_from_offline">Удалить из офлайн-режима</string>
   <string name="reading_list_action_menu_save_for_offline">Сохранить в автономный режим</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Удалить все из офлайн-режима</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Сохранить все для офлайн-режима</string>
   <string name="reading_list_action_menu_add_to_another_list">Добавить в другой список</string>
   <string name="reading_list_name_sample">Мой список для чтения</string>
   <string name="reading_list_name_hint">Название этого списка</string>
@@ -427,6 +432,7 @@
   <string name="description_edit_revert_history">Если интересно, взгляните на &lt;a href=\"%1$s\"&gt;историю изменений&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Нет соединения с интернетом. Убедитесь, что вы снова в сети, а затем повторите попытку.</string>
   <string name="offline_read_permission_rationale">Для офлайн-просмотра требуется разрешение на запись в хранилище вашего устройства.</string>
+  <string name="offline_read_permission_error">Не предоставлено разрешение для чтения с хранилища устройства.</string>
   <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме со статьями в вашей Офлайн-библиотеке.</string>
   <string name="offline_my_compilations">Управление моей офлайн-библиотекой</string>
   <string name="offline_compilations_title">Офлайн-библиотека</string>
