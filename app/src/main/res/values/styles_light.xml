@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="ThemeLight">
 
@@ -31,6 +31,9 @@
         <item name="dialogTheme">@style/DialogLight</item>
         <item name="alertDialogTheme">@style/AlertDialogLight</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
+
+        <!-- Theme for dialog after long pressing on internal links -->
+        <item name="android:alertDialogTheme">@style/LongPressAlertDialogLight</item>
 
         <!-- Overrides of our own custom style attributes -->
         <item name="toc_item_background">@drawable/toc_item_background_light</item>
@@ -73,6 +76,10 @@
     <style name="AlertDialogLight" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/accent50</item>
         <item name="android:colorBackground">?attr/paper_color</item>
+    </style>
+
+    <style name="LongPressAlertDialogLight" parent="AlertDialogLight">
+        <item name="android:backgroundTint" tools:targetApi="21">?attr/paper_color</item>
     </style>
 
     <style name="DialogLight" parent="Theme.AppCompat.Light.Dialog">
