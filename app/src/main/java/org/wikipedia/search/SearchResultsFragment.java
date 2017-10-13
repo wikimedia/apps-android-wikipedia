@@ -486,10 +486,10 @@ public class SearchResultsFragment extends Fragment {
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item_search_result, parent, false);
             }
-            TextView pageTitleText = (TextView) convertView.findViewById(R.id.page_list_item_title);
+            TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = (SearchResult) getItem(position);
 
-            GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
+            GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
             View redirectContainer = convertView.findViewById(R.id.page_list_item_redirect_container);
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
                 redirectContainer.setVisibility(View.GONE);
@@ -497,7 +497,7 @@ public class SearchResultsFragment extends Fragment {
             } else {
                 redirectContainer.setVisibility(View.VISIBLE);
                 descriptionText.setVisibility(View.GONE);
-                TextView redirectText = (TextView) convertView.findViewById(R.id.page_list_item_redirect);
+                TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
                 redirectText.setText(String.format(getString(R.string.search_redirect_from), result.getRedirectFrom()));
             }
 

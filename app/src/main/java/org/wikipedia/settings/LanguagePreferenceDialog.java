@@ -51,13 +51,13 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView textView = (TextView) findViewById(android.R.id.title);
+        TextView textView = findViewById(android.R.id.title);
         if (textView != null) {
             textView.setSingleLine(false);
         }
 
-        languagesList = (ListView) findViewById(R.id.preference_languages_list);
-        EditText languagesFilter = (EditText) findViewById(R.id.preference_languages_filter);
+        languagesList = findViewById(R.id.preference_languages_list);
+        EditText languagesFilter = findViewById(R.id.preference_languages_filter);
 
         languagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -152,8 +152,8 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_language_list_entry, parent, false);
             }
 
-            TextView localizedNameTextView = (TextView) convertView.findViewById(R.id.localized_language_name);
-            TextView canonicalNameTextView = (TextView) convertView.findViewById(R.id.language_subtitle);
+            TextView localizedNameTextView = convertView.findViewById(R.id.localized_language_name);
+            TextView canonicalNameTextView = convertView.findViewById(R.id.language_subtitle);
 
             String languageCode = getItem(position);
 

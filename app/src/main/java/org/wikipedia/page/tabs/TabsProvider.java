@@ -434,8 +434,8 @@ public class TabsProvider {
                 convertView = inflater.inflate(R.layout.item_tab_entry, parent, false);
                 convertView.setTag(viewHolder);
                 viewHolder.container = convertView;
-                viewHolder.title = (TextView) convertView.findViewById(R.id.tab_item_title);
-                viewHolder.thumbnail = (SimpleDraweeView) convertView.findViewById(R.id.tab_item_thumbnail);
+                viewHolder.title = convertView.findViewById(R.id.tab_item_title);
+                viewHolder.thumbnail = convertView.findViewById(R.id.tab_item_thumbnail);
                 viewHolder.gradient = convertView.findViewById(R.id.tab_item_bottom_gradient);
                 viewHolder.closeButton = convertView.findViewById(R.id.tab_item_close);
             } else {

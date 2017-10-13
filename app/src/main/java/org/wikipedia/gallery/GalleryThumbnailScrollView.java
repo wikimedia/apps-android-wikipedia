@@ -57,7 +57,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
 
         GalleryItemHolder(View itemView) {
             super(itemView);
-            mImageView = (SimpleDraweeView) itemView.findViewById(R.id.gallery_thumbnail_image);
+            mImageView = itemView.findViewById(R.id.gallery_thumbnail_image);
         }
 
         public void bindItem(GalleryItem item) {

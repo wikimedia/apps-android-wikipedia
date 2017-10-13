@@ -26,7 +26,7 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
         mode.setTag(ACTION_MODE_TAG);
         mode.getMenuInflater().inflate(R.menu.menu_action_mode_search, menu);
         searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search_view));
-        searchMagIcon = (ImageView) searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
+        searchMagIcon = searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
         searchMagIcon.setImageDrawable(null);
         searchView.setIconifiedByDefault(false);
         searchView.setQueryHint(getSearchHintString());

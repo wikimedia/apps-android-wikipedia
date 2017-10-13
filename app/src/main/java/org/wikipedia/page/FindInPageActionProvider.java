@@ -62,9 +62,9 @@ public class FindInPageActionProvider extends ActionProvider {
             }
         });
 
-        findInPageMatch = (TextView) view.findViewById(R.id.find_in_page_match);
+        findInPageMatch = view.findViewById(R.id.find_in_page_match);
 
-        SearchView searchView = (SearchView) view.findViewById(R.id.find_in_page_input);
+        SearchView searchView = view.findViewById(R.id.find_in_page_input);
         searchView.setQueryHint(fragment.getContext().getString(R.string.menu_page_find_in_page));
         searchView.setFocusable(true);
         searchView.requestFocusFromTouch();

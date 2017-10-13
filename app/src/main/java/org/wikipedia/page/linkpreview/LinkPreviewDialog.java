@@ -100,14 +100,14 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         location = getArguments().getParcelable("location");
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
-        dialogContainer = (LinearLayout) rootView.findViewById(R.id.dialog_link_preview_container);
+        dialogContainer = rootView.findViewById(R.id.dialog_link_preview_container);
         contentContainer = rootView.findViewById(R.id.dialog_link_preview_content_container);
-        errorContainer = (LinkPreviewErrorView) rootView.findViewById(R.id.dialog_link_preview_error_container);
-        progressBar = (ProgressBar) rootView.findViewById(R.id.link_preview_progress);
+        errorContainer = rootView.findViewById(R.id.dialog_link_preview_error_container);
+        progressBar = rootView.findViewById(R.id.link_preview_progress);
         toolbarView = rootView.findViewById(R.id.link_preview_toolbar);
         toolbarView.setOnClickListener(goToPageListener);
 
-        TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
+        TextView titleText = rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
         setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
@@ -120,10 +120,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             ViewUtil.setBottomPaddingDp(titleText, bottomPadding);
         }
 
-        extractText = (TextView) rootView.findViewById(R.id.link_preview_extract);
-        thumbnailView = (SimpleDraweeView) rootView.findViewById(R.id.link_preview_thumbnail);
+        extractText = rootView.findViewById(R.id.link_preview_extract);
+        thumbnailView = rootView.findViewById(R.id.link_preview_thumbnail);
 
-        thumbnailGallery = (GalleryThumbnailScrollView) rootView.findViewById(R.id.link_preview_thumbnail_gallery);
+        thumbnailGallery = rootView.findViewById(R.id.link_preview_thumbnail_gallery);
         if (isImageDownloadEnabled()) {
             CallbackTask.execute(new CallbackTask.Task<Map<String, ImageInfo>>() {
                 @Override public Map<String, ImageInfo> execute() throws Throwable {
@@ -179,7 +179,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     @Override public void onResume() {
         super.onResume();
         if (overlayView == null) {
-            ViewGroup containerView = (ViewGroup) getDialog().findViewById(R.id.container);
+            ViewGroup containerView = getDialog().findViewById(R.id.container);
             overlayView = new LinkPreviewOverlayView(getContext());
             overlayView.setCallback(new OverlayViewCallback());
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));

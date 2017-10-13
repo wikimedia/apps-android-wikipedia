@@ -114,7 +114,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         onboardingButton = rootView.findViewById(R.id.onboarding_button);
         checkAndShowOnboarding();
 
-        RecyclerView readingListView = (RecyclerView) rootView.findViewById(R.id.list_of_lists);
+        RecyclerView readingListView = rootView.findViewById(R.id.list_of_lists);
         readingListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         readingListView.setAdapter(adapter);
 

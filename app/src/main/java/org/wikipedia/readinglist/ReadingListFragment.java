@@ -579,7 +579,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
         dialog.show();
-        TextView text = (TextView) dialog.findViewById(android.R.id.message);
+        TextView text = dialog.findViewById(android.R.id.message);
         text.setLineSpacing(0, 1.3f);
     }
 

@@ -109,9 +109,9 @@ public final class FeedbackUtil {
 
     private static Snackbar makeSnackbar(View view, CharSequence text, int duration) {
         Snackbar snackbar = Snackbar.make(view, text, duration);
-        TextView textView = (TextView) snackbar.getView().findViewById(R.id.snackbar_text);
+        TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
         textView.setMaxLines(SNACKBAR_MAX_LINES);
-        TextView actionView = (TextView) snackbar.getView().findViewById(R.id.snackbar_action);
+        TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
         actionView.setTextColor(ContextCompat.getColor(view.getContext(), R.color.green50));
         return snackbar;
     }

@@ -81,9 +81,9 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.dialog_wiktionary, container);
-        progressBar = (ProgressBar) rootView.findViewById(R.id.dialog_wiktionary_progress);
+        progressBar = rootView.findViewById(R.id.dialog_wiktionary_progress);
 
-        TextView titleText = (TextView) rootView.findViewById(R.id.wiktionary_definition_dialog_title);
+        TextView titleText = rootView.findViewById(R.id.wiktionary_definition_dialog_title);
         titleText.setText(sanitizeForDialogTitle(selectedText));
         setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
 
@@ -141,14 +141,14 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     };
 
     private void displayNoDefinitionsFound() {
-        TextView noDefinitionsFoundView = (TextView) rootView.findViewById(R.id.wiktionary_no_definitions_found);
+        TextView noDefinitionsFoundView = rootView.findViewById(R.id.wiktionary_no_definitions_found);
         noDefinitionsFoundView.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
     }
 
     private void layOutDefinitionsByUsage() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        LinearLayout fullDefinitionsList = (LinearLayout) rootView.findViewById(R.id.wiktionary_definitions_by_part_of_speech);
+        LinearLayout fullDefinitionsList = rootView.findViewById(R.id.wiktionary_definitions_by_part_of_speech);
 
         RbDefinition.Usage[] usageList = currentDefinition.getUsagesForLang("en");
         if (usageList == null || usageList.length == 0) {
@@ -163,9 +163,9 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void layOutUsage(RbDefinition.Usage currentUsage, View usageView, LayoutInflater inflater) {
-        TextView partOfSpeechView = (TextView) usageView.findViewById(R.id.wiktionary_part_of_speech);
+        TextView partOfSpeechView = usageView.findViewById(R.id.wiktionary_part_of_speech);
         partOfSpeechView.setText(currentUsage.getPartOfSpeech());
-        LinearLayout definitionsForPartOfSpeechList = (LinearLayout) usageView.findViewById(R.id.list_wiktionary_definitions_with_examples);
+        LinearLayout definitionsForPartOfSpeechList = usageView.findViewById(R.id.list_wiktionary_definitions_with_examples);
 
         for (int i = 0; i < currentUsage.getDefinitions().length; i++) {
             View definitionContainerView = inflater.inflate(R.layout.item_wiktionary_definition_with_examples, (ViewGroup) rootView, false);
@@ -175,12 +175,12 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void layOutDefinitionWithExamples(RbDefinition.Definition currentDefinition, View definitionContainerView, LayoutInflater inflater, int count) {
-        AppTextView definitionView = (AppTextView) definitionContainerView.findViewById(R.id.wiktionary_definition);
+        AppTextView definitionView = definitionContainerView.findViewById(R.id.wiktionary_definition);
         String definitionWithCount = getCounterString(count) + currentDefinition.getDefinition();
         definitionView.setText(StringUtil.fromHtml(definitionWithCount));
         definitionView.setMovementMethod(linkMovementMethod);
 
-        LinearLayout examplesView = (LinearLayout) definitionContainerView.findViewById(R.id.wiktionary_examples);
+        LinearLayout examplesView = definitionContainerView.findViewById(R.id.wiktionary_examples);
         if (currentDefinition.getExamples() != null) {
             layoutExamples(currentDefinition.getExamples(), examplesView, inflater);
         }
