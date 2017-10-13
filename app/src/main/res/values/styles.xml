@@ -11,7 +11,9 @@
         <item name="android:windowActivityTransitions" tools:targetApi="21" >true</item>
         <item name="android:windowContentTransitions" tools:targetApi="21" >true</item>
 
-        <item name="android:statusBarColor" tools:targetApi="21">@color/base12</item>
+        <!-- System status bar color. May be overridden in onCreate. -->
+        <item name="android:statusBarColor" tools:targetApi="21">?attr/main_status_bar_color</item>
+
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="actionBarTheme">@style/ToolbarTheme</item>

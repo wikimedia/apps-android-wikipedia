@@ -56,7 +56,7 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
     @Override
     public void onSearchOpen() {
         getToolbar().setVisibility(View.GONE);
-        setStatusBarColor(android.R.color.black);
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.page_status_bar_color));
     }
 
     @Override

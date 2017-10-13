@@ -159,6 +159,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
 
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.page_status_bar_color));
         setSupportActionBar(toolbar);
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

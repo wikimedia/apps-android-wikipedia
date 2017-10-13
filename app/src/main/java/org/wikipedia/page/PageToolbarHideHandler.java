@@ -4,6 +4,7 @@ import android.animation.ArgbEvaluator;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -30,6 +31,10 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     @NonNull private Drawable toolbarBackground;
     @NonNull private ImageView tabsButton;
 
+    @ColorInt private int themedIconColor;
+    @ColorInt private int baseStatusBarColor;
+    @ColorInt private int themedStatusBarColor;
+
     public PageToolbarHideHandler(@NonNull PageFragment pageFragment, @NonNull View hideableView,
                                   @NonNull Toolbar toolbar, @NonNull ImageView tabsButton) {
         super(hideableView, Gravity.TOP);
@@ -37,6 +42,10 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         this.toolbar = toolbar;
         this.toolbarBackground = hideableView.getBackground().mutate();
         this.tabsButton = tabsButton;
+
+        themedIconColor = getThemedColor(toolbar.getContext(), R.attr.page_toolbar_icon_color);
+        baseStatusBarColor = ContextCompat.getColor(pageFragment.getContext(), R.color.base12);
+        themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_status_bar_color);
     }
 
     /**
@@ -67,6 +76,10 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            pageFragment.getActivity().getWindow()
+                    .setStatusBarColor(calculateStatusBarTintForOpacity(opacity));
+        }
     }
 
     /** @return Alpha value between 0 and 0xff. */
@@ -103,6 +116,12 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     @ColorInt
     private int calculateIconTintForOpacity(float opacity) {
         return (Integer) argbEvaluator.evaluate(opacity / FULL_OPACITY, Color.WHITE,
-                getThemedColor(toolbar.getContext(), R.attr.page_toolbar_icon_color));
+                themedIconColor);
+    }
+
+    @ColorInt
+    private int calculateStatusBarTintForOpacity(float opacity) {
+        return (Integer) argbEvaluator.evaluate(opacity / FULL_OPACITY, baseStatusBarColor,
+                themedStatusBarColor);
     }
 }

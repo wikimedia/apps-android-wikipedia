@@ -9,7 +9,6 @@ import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ResourceUtil;
 
 /**
  * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
@@ -24,7 +23,6 @@ public abstract class SingleFragmentToolbarActivity<T extends Fragment> extends 
             getSupportActionBar().setTitle("");
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.main_status_bar_color));
     }
 
     public void setWordmarkVisible(boolean visible) {

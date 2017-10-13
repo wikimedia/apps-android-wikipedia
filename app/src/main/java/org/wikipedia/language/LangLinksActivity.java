@@ -25,6 +25,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
 
@@ -66,6 +67,7 @@ public class LangLinksActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
+        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, R.attr.page_status_bar_color));
 
         setContentView(R.layout.activity_langlinks);
 
