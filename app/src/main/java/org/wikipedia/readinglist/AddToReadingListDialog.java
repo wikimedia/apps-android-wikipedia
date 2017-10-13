@@ -172,6 +172,22 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 readingLists.set(rows);
                 readingLists.sort(Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC));
                 adapter.notifyDataSetChanged();
+                for (ReadingList list : readingLists.get()) {
+                    updateListDetailsAsync(list);
+                }
+            }
+        });
+    }
+
+    private void updateListDetailsAsync(@NonNull ReadingList list) {
+        ReadingListPageDetailFetcher.updateInfo(list, new ReadingListPageDetailFetcher.Callback() {
+            @Override public void success() {
+                if (!isAdded()) {
+                    return;
+                }
+                adapter.notifyDataSetChanged();
+            }
+            @Override public void failure(Throwable e) {
             }
         });
     }

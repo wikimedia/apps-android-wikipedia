@@ -20,7 +20,10 @@ import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.readinglist.ReadingListData;
+import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
@@ -129,17 +132,25 @@ public class SavedPageSyncService extends IntentService {
     private void saveNewEntries(List<ReadingListPageDiskRow> queue) {
         sendSyncEvent();
         while (!queue.isEmpty()) {
-            ReadingListPageDiskRow row = queue.remove(0);
-            PageTitle pageTitle = makeTitleFrom(row);
+
+            // Pick off the DB row that we'll be working on...
+            ReadingListPageDiskRow tempRow = queue.remove(0);
+
+            @Nullable PageTitle pageTitle = makeTitleFrom(tempRow);
             if (pageTitle == null) {
-                // todo: won't this fail forever or until the page is marked unsaved / removed somehow?
-                dao.failDiskTransaction(row);
+                // TODO: delete this orphaned row from Disk table, since Page item no longer exists.
+                dao.failDiskTransaction(tempRow);
                 continue;
             }
 
-            AggregatedResponseSize size;
+            boolean success = false;
+            @Nullable AggregatedResponseSize size = null;
             try {
-                size = savePageFor(row, pageTitle);
+
+                // Lengthy operation during which the db state may change...
+                size = savePageFor(tempRow, pageTitle);
+                success = true;
+
             } catch (Exception e) {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
@@ -149,14 +160,31 @@ public class SavedPageSyncService extends IntentService {
                     // to make sure we've fixed any other errors with saving pages.
                     L.logRemoteError(e);
                 }
-                dao.failDiskTransaction(row);
+            }
+
+            // Query the database again, and see if this page title is still actually there,
+            // or if the page has been added to more lists.
+            @Nullable ReadingListPage page = ReadingListData.instance()
+                    .findPageInAnyList(ReadingListDaoProxy.key(pageTitle));
+            if (page == null) {
+                // The page has been deleted while we were busy!
                 continue;
             }
 
-            ReadingListPageDiskRow rowWithUpdatedSize = new ReadingListPageDiskRow(row,
-                    ReadingListPageRow.builder().copy(row.dat()).logicalSize(size.logicalSize()).physicalSize(size.physicalSize()).build());
-            dao.completeDiskTransaction(rowWithUpdatedSize);
-            sendSyncEvent();
+            // Make an updated DiskRow based on the refreshed page.
+            ReadingListPageDiskRow updatedRow = new ReadingListPageDiskRow(tempRow,
+                    ReadingListPageRow.builder()
+                            .copy(page)
+                            .logicalSize(size != null ? size.logicalSize() : 0)
+                            .physicalSize(size != null ? size.physicalSize() : 0)
+                            .build());
+
+            if (success) {
+                dao.completeDiskTransaction(updatedRow);
+                sendSyncEvent();
+            } else {
+                dao.failDiskTransaction(updatedRow);
+            }
         }
     }
 

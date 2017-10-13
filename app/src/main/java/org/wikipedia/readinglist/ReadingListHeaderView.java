@@ -67,7 +67,7 @@ public class ReadingListHeaderView extends FrameLayout {
         } else {
             imageContainerView.setVisibility(VISIBLE);
             emptyView.setVisibility(GONE);
-            getThumbnails();
+            updateThumbnails();
         }
     }
 
@@ -84,21 +84,6 @@ public class ReadingListHeaderView extends FrameLayout {
             return;
         }
         clearThumbnails();
-    }
-
-    private void getThumbnails() {
-        ReadingListPageDetailFetcher.updateInfo(readingList, new ReadingListPageDetailFetcher.Callback() {
-            @Override public void success() {
-                if (getWindowToken() == null) {
-                    return;
-                }
-                updateThumbnails();
-            }
-
-            @Override public void failure(Throwable e) {
-            }
-        });
-        updateThumbnails();
     }
 
     private void clearThumbnails() {

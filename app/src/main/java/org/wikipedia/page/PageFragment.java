@@ -205,7 +205,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
                     @Override
                     public void onAddRequest(@Nullable ReadingListPage page) {
-                        addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+                        addToReadingList(getTitle(), AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
                     }
 
                     @Override
@@ -216,7 +216,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     }
                 }).show(getTitle());
             } else {
-                addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+                addToReadingList(getTitle(), AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
             }
         }
 
@@ -766,7 +766,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 sharePageLink();
                 return true;
             case R.id.menu_page_add_to_list:
-                addToReadingList(AddToReadingListDialog.InvokeSource.PAGE_OVERFLOW_MENU);
+                addToReadingList(getTitle(), AddToReadingListDialog.InvokeSource.PAGE_OVERFLOW_MENU);
                 return true;
             case R.id.menu_page_find_in_page:
                 showFindInPage();
@@ -1313,10 +1313,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void addToReadingList(@NonNull AddToReadingListDialog.InvokeSource source) {
+    public void addToReadingList(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageAddToReadingList(getTitle(), source);
+            callback.onPageAddToReadingList(title, source);
         }
     }
 

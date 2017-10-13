@@ -181,6 +181,22 @@ public class ReadingListsFragment extends Fragment {
                 sortLists();
                 updateEmptyState(searchQuery);
                 maybeDeleteListFromIntent();
+                for (ReadingList list : readingLists.get()) {
+                    updateListDetailsAsync(list);
+                }
+            }
+        });
+    }
+
+    private void updateListDetailsAsync(@NonNull ReadingList list) {
+        ReadingListPageDetailFetcher.updateInfo(list, new ReadingListPageDetailFetcher.Callback() {
+            @Override public void success() {
+                if (!isAdded()) {
+                    return;
+                }
+                adapter.notifyDataSetChanged();
+            }
+            @Override public void failure(Throwable e) {
             }
         });
     }
@@ -204,7 +220,7 @@ public class ReadingListsFragment extends Fragment {
             this.itemView = itemView;
         }
 
-        public void bindItem(ReadingList readingList) {
+        void bindItem(ReadingList readingList) {
             itemView.setReadingList(readingList, ReadingListItemView.Description.SUMMARY);
         }
 

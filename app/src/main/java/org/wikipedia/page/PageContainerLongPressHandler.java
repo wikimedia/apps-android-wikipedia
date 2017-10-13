@@ -43,7 +43,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.ContextMe
 
     @Override
     public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
-        fragment.addToReadingList(source);
+        fragment.addToReadingList(title, source);
     }
 
     @Override
