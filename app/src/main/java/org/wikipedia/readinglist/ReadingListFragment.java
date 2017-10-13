@@ -236,6 +236,20 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         headerImageView.setReadingList(readingList);
         readingList.sort(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
+        updateListDetailsAsync(readingList);
+    }
+
+    private void updateListDetailsAsync(@NonNull ReadingList list) {
+        ReadingListPageDetailFetcher.updateInfo(list, new ReadingListPageDetailFetcher.Callback() {
+            @Override public void success() {
+                if (!isAdded()) {
+                    return;
+                }
+                adapter.notifyDataSetChanged();
+            }
+            @Override public void failure(Throwable e) {
+            }
+        });
     }
 
     private void updateReadingListData() {

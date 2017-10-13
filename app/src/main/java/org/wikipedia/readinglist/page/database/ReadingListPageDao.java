@@ -117,7 +117,11 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
     }
 
     public synchronized void markOutdated(@NonNull ReadingListPage row) {
-        diskDao.markOutdated(new ReadingListPageDiskRow(row));
+        markOutdated(new ReadingListPageDiskRow(row));
+    }
+
+    public synchronized void markOutdated(@NonNull ReadingListPageDiskRow row) {
+        diskDao.markOutdated(row);
     }
 
     @NonNull public synchronized Collection<ReadingListPageDiskRow> startDiskTransaction() {

@@ -47,6 +47,10 @@ public class ReadingLists {
         return null;
     }
 
+    public List<ReadingList> get() {
+        return lists;
+    }
+
     public int size() {
         return lists.size();
     }

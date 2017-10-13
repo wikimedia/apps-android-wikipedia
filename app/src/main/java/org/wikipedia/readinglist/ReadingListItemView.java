@@ -90,7 +90,7 @@ public class ReadingListItemView extends FrameLayout {
 
         updateDetails();
         if (imageContainer.getVisibility() == VISIBLE) {
-            getThumbnails();
+            updateThumbnails();
         }
     }
 
@@ -137,21 +137,6 @@ public class ReadingListItemView extends FrameLayout {
 
         setClickable(true);
         clearThumbnails();
-    }
-
-    private void getThumbnails() {
-        ReadingListPageDetailFetcher.updateInfo(readingList, new ReadingListPageDetailFetcher.Callback() {
-            @Override public void success() {
-                if (getWindowToken() == null) {
-                    return;
-                }
-                updateThumbnails();
-            }
-
-            @Override public void failure(@NonNull Throwable e) {
-            }
-        });
-        updateThumbnails();
     }
 
     private void updateDetails() {
