@@ -808,7 +808,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
-        if (!isCabOpen() && mode.getTag() == null) {
+        if (!isSearching() && !isCabOpen() && mode.getTag() == null) {
             Menu menu = mode.getMenu();
             menu.clear();
             mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
