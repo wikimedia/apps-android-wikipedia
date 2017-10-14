@@ -122,7 +122,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private DialogInterface.OnDismissListener listDialogDismissListener = new DialogInterface.OnDismissListener() {
         @Override
         public void onDismiss(DialogInterface dialogInterface) {
-            pageFragment.updateBookmarkFromDao();
+            pageFragment.updateBookmarkAndMenuOptionsFromDao();
         }
     };
 
@@ -216,6 +216,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         MenuItem otherLangItem = menu.findItem(R.id.menu_page_other_languages);
         MenuItem shareItem = menu.findItem(R.id.menu_page_share);
         MenuItem addToListItem = menu.findItem(R.id.menu_page_add_to_list);
+        MenuItem removeFromListsItem = menu.findItem(R.id.menu_page_remove_from_list);
         MenuItem findInPageItem = menu.findItem(R.id.menu_page_find_in_page);
         MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
         MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
@@ -229,12 +230,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             contentIssues.setEnabled(false);
             similarTitles.setEnabled(false);
             themeChooserItem.setEnabled(false);
+            removeFromListsItem.setEnabled(false);
         } else {
             // Only display "Read in other languages" if the article is in other languages
             otherLangItem.setVisible(pageFragment.getPage() != null && pageFragment.getPage().getPageProperties().getLanguageCount() != 0);
             otherLangItem.setEnabled(true);
             shareItem.setEnabled(pageFragment.getPage() != null && pageFragment.getPage().isArticle());
             addToListItem.setEnabled(pageFragment.getPage() != null && pageFragment.getPage().isArticle());
+            removeFromListsItem.setVisible(pageFragment.isPresentInOfflineLists());
+            removeFromListsItem.setEnabled(pageFragment.isPresentInOfflineLists());
             findInPageItem.setEnabled(true);
             themeChooserItem.setEnabled(true);
             updateMenuPageInfo(menu);
@@ -623,7 +627,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
         FeedbackUtil.showMessage(this,
                 getString(R.string.reading_list_item_deleted, title.getDisplayText()));
-        pageFragment.updateBookmarkFromDao();
+        pageFragment.updateBookmarkAndMenuOptionsFromDao();
     }
 
     @Override
