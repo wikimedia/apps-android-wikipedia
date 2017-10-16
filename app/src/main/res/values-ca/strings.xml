@@ -257,6 +257,7 @@
   <string name="error_page_does_not_exist">La pàgina no existeix</string>
   <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
   <string name="reference_title">Referència %s</string>
+  <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
   <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
   <string name="crash_report_dialog_text">Voleu enviar d\'un informe d\'errors a HockeyApp / un proveïdor de serveis extern de manera que Wikimedia pugui revisar l\'error i corregir-ne la causa?</string>
   <string name="crash_report_dialog_dont_send_button">Omet</string>
@@ -276,6 +277,9 @@
   <string name="color_theme_dark">Fosc</string>
   <string name="preference_title_color_theme">Tema fosc</string>
   <string name="preference_summary_color_theme">Canvia al tema de color fosc de l\'aplicació</string>
+  <string name="text_size_increase">Augmenta la mida del text</string>
+  <string name="text_size_decrease">Redueix la mida del text</string>
+  <string name="text_size_percent_default">%s (per defecte)</string>
   <string name="nav_item_reading_lists">Les meves llistes</string>
   <string name="reading_list_untitled">Sense títol</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
@@ -300,6 +304,7 @@
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
   <string name="reading_list_action_menu_remove_from_offline">Suprimeix del fora de línia</string>
   <string name="reading_list_action_menu_save_for_offline">Desa per a fora de línia</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Desa-ho tot per a fora de línia</string>
   <string name="reading_list_action_menu_add_to_another_list">Afegeix a una altra llista</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
   <string name="reading_list_name_hint">Nom de la llista</string>
@@ -333,6 +338,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
+  <string name="reading_list_added_articles_list_untitled">S\'han afegit %d articles a la llista de lectura.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
     <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>
@@ -414,8 +420,8 @@
   <string name="offline_card_text" fuzzy="true">Esteu navegant per la Viquipèdia en mode fora de línia. Tingueu en compte que els articles fora de línia podrien no estar al dia respecte a la versió en línia.</string>
   <string name="offline_my_compilations" fuzzy="true">Les meves recopilacions</string>
   <string name="offline_compilations_title" fuzzy="true">Compilacions fora de línia</string>
-  <string name="offline_compilations_search_by_name" fuzzy="true">Cerca les compilacions per nom</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Les meves compilacions (%d)</string>
+  <string name="offline_compilations_search_by_name">Cerca paquets d\'articles per nom</string>
+  <string name="offline_compilations_found_count">A la meva biblioteca (%d)</string>
   <string name="offline_compilations_add" fuzzy="true">Afegeix una compilació fora de línia</string>
   <string name="remote_compilations_title" fuzzy="true">Totes les compilacions</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
@@ -437,6 +443,10 @@
   <string name="compilation_share">Comparteix</string>
   <string name="offline_library_title">Biblioteca sense connexió</string>
   <string name="offline_library_empty_title">No hi ha res dins la biblioteca sense connexió</string>
+  <string name="offline_library_empty_search">Cerca a la biblioteca fora de línia</string>
+  <string name="offline_library_onboarding_action">Més informació</string>
+  <string name="offline_library_onboarding_button_done">Fet</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Emmagatzema més coneixement</string>
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
@@ -448,4 +458,7 @@
   <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>
   <string name="onboarding_create_account_contributions">Estigueu al dia de les vostres contribucions</string>
   <string name="onboarding_create_account_preferences">Desa les preferències</string>
+  <string name="app_shortcuts_random">A l\'atzar</string>
+  <string name="app_shortcuts_continue_reading">Continua llegint</string>
+  <string name="app_shortcuts_search">Cerca</string>
 </resources>

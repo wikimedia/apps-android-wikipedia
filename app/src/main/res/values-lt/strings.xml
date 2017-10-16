@@ -222,6 +222,9 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Šviesi</string>
   <string name="color_theme_dark">Tamsi</string>
+  <string name="text_size_increase">Padidinti teksto dydį</string>
+  <string name="text_size_decrease">Sumažinti teksto dydį</string>
+  <string name="text_size_percent_default">%s (Numatytasis)</string>
   <string name="nav_item_reading_lists">Mano sąrašai</string>
   <string name="reading_list_untitled">Be pavadinimo</string>
   <string name="reading_list_save_to">Įtraukti į skaitymo sąrašą</string>

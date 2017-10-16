@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Editar a descrición</string>
   <string name="reading_list_action_menu_remove_from_offline">Quitar de sen conexión</string>
   <string name="reading_list_action_menu_save_for_offline">Gardar para sen conexión</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Quitar todo do almacén sen conexión</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Gardar todo para ler sen conexión</string>
   <string name="reading_list_action_menu_add_to_another_list">Engadir a outra lista</string>
   <string name="reading_list_name_sample">A miña lista de lectura</string>
   <string name="reading_list_name_hint">Nome desta lista</string>

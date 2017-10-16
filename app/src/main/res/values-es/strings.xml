@@ -282,6 +282,9 @@
   <string name="color_theme_dark">Oscuro</string>
   <string name="preference_title_color_theme">Tema oscuro</string>
   <string name="preference_summary_color_theme">Cambiar al tema oscuro de la aplicación</string>
+  <string name="text_size_increase">Aumentar tamaño del texto</string>
+  <string name="text_size_decrease">Disminuir tamaño del texto</string>
+  <string name="text_size_percent_default">%s (predeterminado)</string>
   <string name="nav_item_reading_lists">Mis listas</string>
   <string name="reading_list_untitled">Sin título</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
@@ -306,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Editar descripción</string>
   <string name="reading_list_action_menu_remove_from_offline">Quitar de sin conexión</string>
   <string name="reading_list_action_menu_save_for_offline">Guardar para sin conexión</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Quitar todo del almacén sin conexión</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Guardar todo para leer sin conexión</string>
   <string name="reading_list_action_menu_add_to_another_list">Añadir a otra lista</string>
   <string name="reading_list_name_sample">Mi lista de lectura</string>
   <string name="reading_list_name_hint">Nombre de esta lista</string>
@@ -443,7 +448,7 @@
   <string name="remote_compilation_download">Descargar</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB libre</string>
-  <string name="storage_used_by_compilations" fuzzy="true">usado por Wikipedia</string>
+  <string name="storage_used_by_compilations">utilizado por la Biblioteca sin conexión</string>
   <string name="storage_other_apps">Otras aplicaciones</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

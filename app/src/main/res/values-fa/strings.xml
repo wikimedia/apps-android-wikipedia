@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">ویرایش توضیحات</string>
   <string name="reading_list_action_menu_remove_from_offline">حذف از آفلاین</string>
   <string name="reading_list_action_menu_save_for_offline">ذخیره برای آفلاین</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">حذف همه از آفلاین</string>
+  <string name="reading_list_action_menu_save_all_for_offline">ذخیره همه برای آفلاین</string>
   <string name="reading_list_action_menu_add_to_another_list">افزودن به فهرست دیگر</string>
   <string name="reading_list_name_sample">فهرست مطالعهٔ من</string>
   <string name="reading_list_name_hint">نام این فهرست</string>

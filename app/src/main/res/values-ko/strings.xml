@@ -459,13 +459,16 @@
   <string name="compilation_remove_confirm">오프라인 라이브러리에서 이 항목을 제거하시겠습니까?</string>
   <string name="offline_library_title">오프라인 라이브러리</string>
   <string name="offline_library_empty_title">오프라인 라이브러리에 아무 것도 없습니다</string>
+  <string name="offline_library_empty_description">추후 데이터 무제한 접근을 위해 지금 다운로드할 위키백과 문서의 묶음을 하나 선택하십시오.</string>
   <string name="offline_library_empty_search">오프라인 라이브러리 검색</string>
   <string name="offline_library_search_results_state">오프라인 라이브러리의 검색 결과</string>
   <string name="offline_library_onboarding_action">더 알아보기</string>
   <string name="offline_library_onboarding_text">오프라인 라이브러리 소개 — 나중에 오프라인 상태에서 읽을 수 있도록 문서 꾸러미를 지금 다운로드하세요.</string>
   <string name="offline_library_onboarding_button_done">완료</string>
   <string name="offline_library_onboarding_build_library_title">오프라인 라이브러리 만들기</string>
+  <string name="offline_library_onboarding_build_library_subtitle">추후 데이터 무제한 접근을 위해 지금 위키백과 문서를 다운로드합니다.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">중단 없이 읽기</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">인터넷에 접속되어 있지 않을 때 오프라인 라이브러리의 문서를 계속 읽고 검색합니다.</string>
   <string name="offline_library_onboarding_store_knowledge_title">더 많은 지식 저장하기</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">장치가 허용하는 한도 내에 위키백과를 최대한 많이 다운로드합니다. 오프라인 라이브러리 또한 외부 기억 장치의 문서 꾸러미들에 접근할 수 있습니다.</string>
   <string name="onboarding_skip">건너뛰기</string>
@@ -476,6 +479,7 @@
   <string name="onboarding_reading_list_sync_text">나중에 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만듭니다. 읽기 목록을 보관하려면 위키백과 계정을 &lt;a href=\"#login\"&gt;만들거나 로그인&lt;/a&gt;하십시오.</string>
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
   <string name="onboarding_analytics_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#privacy\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>
   <string name="onboarding_create_account_sync">읽기 목록 동기화</string>
   <string name="onboarding_create_account_contributions">내 기여를 추적합니다</string>
   <string name="onboarding_create_account_preferences">환경 설정 저장하기</string>

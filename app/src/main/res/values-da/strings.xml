@@ -309,6 +309,8 @@
   <string name="reading_list_menu_edit_description">Rediger beskrivelse</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjern lokal version</string>
   <string name="reading_list_action_menu_save_for_offline">Gem lokalt</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Fjern alle fra lokal version</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Gem alle lokalt</string>
   <string name="reading_list_action_menu_add_to_another_list">Tilføj til en anden liste</string>
   <string name="reading_list_name_sample">Min læseliste</string>
   <string name="reading_list_name_hint">Navn på denne liste</string>
