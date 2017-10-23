@@ -254,6 +254,11 @@
   <string name="view_link_preview_error_button_dismiss">Сап</string>
   <string name="error_page_does_not_exist">Маннык сирэй суох эбит</string>
   <string name="view_wiki_error_message_offline">Интэриниэккэ холбонор сатаммата</string>
+  <string name="reference_title">Быһаарыы %s</string>
+  <string name="preference_title_dim_dark_mode_images">Хараҥа тиэмэҕэ ойуулары наһаа сырдык гыныма</string>
+  <string name="preference_summary_dim_dark_mode_images">Хараҥа тиэмэҕэ ойуу сырдыгын кыччатыы</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Ойууну хараҥардыы (Хараҥа тиэмэҕэ)</string>
+  <string name="preference_title_prefer_offline_content">Ситимэ суоҕу талар буол</string>
   <string name="crash_report_dialog_title">Хомойуох иһин, ааспыкка дьибилгэт моһуогура сылдьыбыт</string>
   <string name="crash_report_dialog_text">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо Бикимиэдьийэ саахал туһунан тута билиэ этэ уонна алҕаһы түргэнник көннөрүө этэ.</string>
   <string name="crash_report_dialog_dont_send_button">Аһар</string>
@@ -271,6 +276,11 @@
   <string name="color_theme_select">Тас көстүүтэ</string>
   <string name="color_theme_light">Сырдык</string>
   <string name="color_theme_dark">Хараҥа</string>
+  <string name="preference_title_color_theme">Хараҥа тиэмэ</string>
+  <string name="preference_summary_color_theme">Хараҥа тиэмэни туһанарга холбоо</string>
+  <string name="text_size_increase">Бичигин улаатыннар</string>
+  <string name="text_size_decrease">Бичигин кыччат</string>
+  <string name="text_size_percent_default">%s (анаан эппэтэххэ)</string>
   <string name="nav_item_reading_lists">Тиһилигим</string>
   <string name="reading_list_untitled">Аата суох</string>
   <string name="reading_list_save_to">Ааҕар тиһиликкэ киллэр</string>
@@ -281,10 +291,10 @@
   <string name="reading_list_added_to_unnamed">Угулунна.</string>
   <string name="reading_list_already_exists">Бу ыстатыйа урут угуллубут эбит.</string>
   <string name="reading_list_added_view_button">Тиһилиги көрүү</string>
-  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 ыстатыйа %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d ыстатыйалар, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_singular" fuzzy="true">%1$d из 1 аhaҕac ыстатыйа офлайн, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d из %2$d аha5ac ыстатыйалар офлайн, %3$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_singular">1 ыстатыйа %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d ыстатыйа, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d Интэриниэккэ холбоммокко 1 аhaҕac ыстатыйаттан, %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d ыстатыйа Интэриниэккэ холбоммокко %2$d аhaҕac ыстатыйа, %3$.2f MB</string>
   <string name="reading_list_sort">Нардаа</string>
   <string name="reading_list_sort_by_name">Аатынан</string>
   <string name="reading_list_sort_by_name_desc">Аатынан наардааһын (төттөрү)</string>
@@ -293,6 +303,10 @@
   <string name="reading_list_menu_delete">Испииһэги сот</string>
   <string name="reading_list_menu_rename">Аатын уларыт</string>
   <string name="reading_list_menu_edit_description">Ойуулааһыны уларытыы</string>
+  <string name="reading_list_action_menu_remove_from_offline">Оффлайн-эрэсиимтэн сотуу</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Офлайн-эрэсиимтэн сотторуу</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Барытын офлай-эрэсиимҥэ хааллар</string>
+  <string name="reading_list_action_menu_add_to_another_list">Атын испииһэккэ эбии</string>
   <string name="reading_list_name_sample">Мин тиһилигим</string>
   <string name="reading_list_name_hint">Тиһилик аата</string>
   <string name="reading_list_description_hint">Тиһилик туһунан (булгуччута суох)</string>
@@ -306,7 +320,7 @@
   <string name="reading_lists_onboarding_for_example">Холобур</string>
   <string name="reading_lists_onboarding_example1">Сылдьыллыахтаах сирдэр</string>
   <string name="reading_lists_onboarding_example2">Сөбүлүүр кыылларым</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Космос куйаара!</string>
+  <string name="reading_lists_onboarding_example3">Куйаары чинчийии</string>
   <string name="reading_lists_onboarding_got_it">Бу өйдөнөр</string>
   <string name="reading_list_no_description">Бу туһунан суох...</string>
   <string name="reading_list_empty">Испииһэккэ эбиллибит ыстатыйа суох эбит.</string>

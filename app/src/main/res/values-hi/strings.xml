@@ -280,6 +280,9 @@
   <string name="color_theme_dark">गहरा</string>
   <string name="preference_title_color_theme">गहरी विषय</string>
   <string name="preference_summary_color_theme">गहरी विषय लगाएं</string>
+  <string name="text_size_increase">टेक्स्ट साइज़ बढ़ाएं</string>
+  <string name="text_size_decrease">टेक्स्ट साइज़ घटाएं</string>
+  <string name="text_size_percent_default">%s (डिफ़ॉल्ट)</string>
   <string name="nav_item_reading_lists">मेरी सूचियां</string>
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
@@ -304,6 +307,8 @@
   <string name="reading_list_menu_edit_description">विवरण सम्पादित करें</string>
   <string name="reading_list_action_menu_remove_from_offline">ऑफलाइन से हटाएं</string>
   <string name="reading_list_action_menu_save_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">ऑफलाइन से सब हटायें</string>
+  <string name="reading_list_action_menu_save_all_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>
   <string name="reading_list_action_menu_add_to_another_list">दूसरी सूची में जोड़ें</string>
   <string name="reading_list_name_sample">मेरी पठन सूची</string>
   <string name="reading_list_name_hint">सूची का नाम</string>
@@ -439,8 +444,9 @@
   <string name="offline_compilation_detail_button_download">डाउनलोड · %.2f जीबी</string>
   <string name="offline_compilation_detail_button_remove">निकालें</string>
   <string name="remote_compilation_download">डाउनलोड</string>
+  <string name="storage_size">%.2f जीबी</string>
   <string name="storage_size_free">%.2f जीबी खाली</string>
-  <string name="storage_used_by_compilations" fuzzy="true">विकीपीडिया द्वारा प्रयुक्त</string>
+  <string name="storage_used_by_compilations">ऑफलाइन लाइब्रेरी द्वारा प्रयोग में</string>
   <string name="storage_other_apps">अन्य एप्लीकेशन्स</string>
   <string name="offline_compilation_download_progress_text">%1$.2f जीबी / %2$.2f जीबी</string>
   <plurals name="offline_compilation_download_time_remaining">
