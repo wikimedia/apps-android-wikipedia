@@ -149,19 +149,19 @@ public class EditSectionActivity extends BaseActivity {
             supportActionBar.setTitle("");
         }
 
-        sectionText = (EditText) findViewById(R.id.edit_section_text);
+        sectionText = findViewById(R.id.edit_section_text);
 
         syntaxHighlighter = new SyntaxHighlighter(this, sectionText);
 
         sectionProgress = findViewById(R.id.edit_section_load_progress);
-        sectionContainer = (ScrollView) findViewById(R.id.edit_section_container);
+        sectionContainer = findViewById(R.id.edit_section_container);
         sectionContainer.setSmoothScrollingEnabled(false);
-        errorView = (WikiErrorView) findViewById(R.id.view_edit_section_error);
+        errorView = findViewById(R.id.view_edit_section_error);
 
         abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
-        abuseFilterImage = (ImageView) findViewById(R.id.edit_section_abusefilter_image);
-        abusefilterTitle = (TextView) findViewById(R.id.edit_section_abusefilter_title);
-        abusefilterText = (TextView) findViewById(R.id.edit_section_abusefilter_text);
+        abuseFilterImage = findViewById(R.id.edit_section_abusefilter_image);
+        abusefilterTitle = findViewById(R.id.edit_section_abusefilter_title);
+        abusefilterText = findViewById(R.id.edit_section_abusefilter_text);
 
         captchaHandler = new CaptchaHandler(this, title.getWikiSite(), progressDialog, sectionContainer, "", null);
 
@@ -251,7 +251,7 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     private void updateEditLicenseText() {
-        TextView editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
+        TextView editLicenseText = findViewById(R.id.edit_section_license_text);
         editLicenseText.setText(StringUtil.fromHtml(String.format(getString(AccountUtil.isLoggedIn()
                         ? R.string.edit_save_action_license_logged_in
                         : R.string.edit_save_action_license_anon),
@@ -564,7 +564,7 @@ public class EditSectionActivity extends BaseActivity {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         v.setLayoutParams(params);
-        TextView txtView = (TextView) v.findViewById(R.id.edit_actionbar_button_text);
+        TextView txtView = v.findViewById(R.id.edit_actionbar_button_text);
         txtView.setText(item.getTitle());
         txtView.setTypeface(null, item.isEnabled() ? Typeface.BOLD : Typeface.NORMAL);
         v.setTag(item);

@@ -299,27 +299,26 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
 
-        webView = (ObservableWebView) rootView.findViewById(R.id.page_web_view);
+        webView = rootView.findViewById(R.id.page_web_view);
         initWebViewListeners();
 
-        tocDrawer = (WikiDrawerLayout) rootView.findViewById(R.id.page_toc_drawer);
+        tocDrawer = rootView.findViewById(R.id.page_toc_drawer);
         tocDrawer.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
 
-        refreshView = (SwipeRefreshLayoutWithScroll) rootView
-                .findViewById(R.id.page_refresh_container);
+        refreshView = rootView.findViewById(R.id.page_refresh_container);
         int swipeOffset = getContentTopOffsetPx(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
         refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
         refreshView.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
 
-        tabLayout = (ConfigurableTabLayout) rootView.findViewById(R.id.page_actions_tab_layout);
+        tabLayout = rootView.findViewById(R.id.page_actions_tab_layout);
         tabLayout.addOnTabSelectedListener(pageActionTabListener);
 
         PageActionToolbarHideHandler pageActionToolbarHideHandler = new PageActionToolbarHideHandler(tabLayout);
         pageActionToolbarHideHandler.setScrollView(webView);
 
-        errorView = (WikiPageErrorView) rootView.findViewById(R.id.page_error);
+        errorView = rootView.findViewById(R.id.page_error);
 
         return rootView;
     }

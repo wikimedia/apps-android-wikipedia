@@ -28,7 +28,7 @@ public class EditSummaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         editSummaryContainer = inflater.inflate(R.layout.fragment_preview_summary, container, false);
-        summaryText = (AutoCompleteTextView) editSummaryContainer.findViewById(R.id.edit_summary_edit);
+        summaryText = editSummaryContainer.findViewById(R.id.edit_summary_edit);
 
         // Explicitly enable standard dictionary autocompletion in the edit summary box
         // We should be able to do this in the XML, but doing it there doesn't work. Thanks Android!

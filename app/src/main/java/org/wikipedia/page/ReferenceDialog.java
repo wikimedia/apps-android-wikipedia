@@ -20,11 +20,11 @@ public class ReferenceDialog extends BottomSheetDialog {
         View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_reference, null);
         setContentView(rootView);
 
-        TextView referenceText = (TextView) rootView.findViewById(R.id.reference_text);
+        TextView referenceText = rootView.findViewById(R.id.reference_text);
         referenceText.setText(StringUtil.fromHtml(html));
         referenceText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
 
-        TextView titleText = (TextView) rootView.findViewById(R.id.reference_title_text);
+        TextView titleText = rootView.findViewById(R.id.reference_title_text);
         titleText.setText(getContext().getString(R.string.reference_title, linkText));
     }
 }

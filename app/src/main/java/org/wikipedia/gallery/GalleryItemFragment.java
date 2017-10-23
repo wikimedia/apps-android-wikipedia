@@ -113,12 +113,12 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
-        progressBar = (ProgressBar) rootView.findViewById(R.id.gallery_item_progress_bar);
+        progressBar = rootView.findViewById(R.id.gallery_item_progress_bar);
         videoContainer = rootView.findViewById(R.id.gallery_video_container);
-        videoView = (VideoView) rootView.findViewById(R.id.gallery_video);
-        videoThumbnail = (SimpleDraweeView) rootView.findViewById(R.id.gallery_video_thumbnail);
+        videoView = rootView.findViewById(R.id.gallery_video);
+        videoThumbnail = rootView.findViewById(R.id.gallery_video_thumbnail);
         videoPlayButton = rootView.findViewById(R.id.gallery_video_play_button);
-        imageView = (ZoomableDraweeViewWithBackground) rootView.findViewById(R.id.gallery_image);
+        imageView = rootView.findViewById(R.id.gallery_image);
         imageView.setTapListener(new DoubleTapGestureListener(imageView) {
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {

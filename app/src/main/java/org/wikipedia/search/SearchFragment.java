@@ -414,7 +414,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
                 .findViewById(android.support.v7.appcompat.R.id.search_plate);
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
 
-        ImageView searchClose = (ImageView) searchView.findViewById(
+        ImageView searchClose = searchView.findViewById(
                 android.support.v7.appcompat.R.id.search_close_btn);
         FeedbackUtil.setToolbarButtonLongPressToast(searchClose);
     }

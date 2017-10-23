@@ -75,13 +75,13 @@ public class LangLinksActivity extends BaseActivity {
             throw new RuntimeException("Only ACTION_LANGLINKS_FOR_TITLE is supported");
         }
 
-        langLinksList = (ListView) findViewById(R.id.langlinks_list);
+        langLinksList = findViewById(R.id.langlinks_list);
         langLinksProgress = findViewById(R.id.langlinks_load_progress);
         langLinksContainer = findViewById(R.id.langlinks_list_container);
         langLinksEmpty = findViewById(R.id.langlinks_empty);
         langLinksNoMatch = findViewById(R.id.langlinks_no_match);
-        langLinksError = (WikiErrorView) findViewById(R.id.langlinks_error);
-        EditText langLinksFilter = (EditText) findViewById(R.id.langlinks_filter);
+        langLinksError = findViewById(R.id.langlinks_error);
+        EditText langLinksFilter = findViewById(R.id.langlinks_filter);
 
         title = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
 
@@ -297,8 +297,8 @@ public class LangLinksActivity extends BaseActivity {
             String languageCode = item.getWikiSite().languageCode();
             String localizedLanguageName = app.getAppLanguageLocalizedName(languageCode);
 
-            TextView localizedLanguageNameTextView = (TextView) convertView.findViewById(R.id.localized_language_name);
-            TextView articleTitleTextView = (TextView) convertView.findViewById(R.id.language_subtitle);
+            TextView localizedLanguageNameTextView = convertView.findViewById(R.id.localized_language_name);
+            TextView articleTitleTextView = convertView.findViewById(R.id.language_subtitle);
 
             localizedLanguageNameTextView.setText(localizedLanguageName);
             articleTitleTextView.setText(item.getDisplayText());

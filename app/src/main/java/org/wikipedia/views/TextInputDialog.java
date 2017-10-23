@@ -45,8 +45,8 @@ public final class TextInputDialog extends AlertDialog {
 
     public TextInputDialog setView(@LayoutRes int id) {
         View rootView = LayoutInflater.from(getContext()).inflate(id, null);
-        editText = (EditText) rootView.findViewById(R.id.text_input);
-        editTextContainer = (TextInputLayout) rootView.findViewById(R.id.text_input_container);
+        editText = rootView.findViewById(R.id.text_input);
+        editTextContainer = rootView.findViewById(R.id.text_input_container);
         super.setView(rootView);
 
         editTextContainer.setErrorEnabled(true);

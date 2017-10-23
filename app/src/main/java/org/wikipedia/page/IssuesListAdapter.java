@@ -43,9 +43,9 @@ class IssuesListAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_issue, parent, false);
             holder = new ViewHolder();
-            holder.icon = (ImageView) convertView.findViewById(R.id.issue_icon);
-            holder.text = (TextView) convertView.findViewById(R.id.issue_text);
-            holder.subText = (TextView) convertView.findViewById(R.id.issue_subtext);
+            holder.icon = convertView.findViewById(R.id.issue_icon);
+            holder.text = convertView.findViewById(R.id.issue_text);
+            holder.subText = convertView.findViewById(R.id.issue_subtext);
             convertView.setTag(holder);
         } else {
             // view already defined, retrieve view holder

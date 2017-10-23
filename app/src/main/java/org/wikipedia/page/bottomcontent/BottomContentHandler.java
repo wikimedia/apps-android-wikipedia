@@ -465,11 +465,11 @@ public class BottomContentHandler implements BottomContentInterface,
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item_page_list_entry, parent, false);
             }
-            TextView pageTitleText = (TextView) convertView.findViewById(R.id.page_list_item_title);
+            TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = getItem(position);
             pageTitleText.setText(result.getPageTitle().getDisplayText());
 
-            GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
+            GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
             descriptionText.setText(StringUtils.capitalize(result.getPageTitle().getDescription()));
 
             ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image), result.getPageTitle().getThumbUrl());

@@ -65,9 +65,9 @@ public class EditPreviewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_preview_edit, container, false);
-        webview = (ObservableWebView) parent.findViewById(R.id.edit_preview_webview);
-        previewContainer = (ScrollView) parent.findViewById(R.id.edit_preview_container);
-        editSummaryTagsContainer = (ViewGroup) parent.findViewById(R.id.edit_summary_tags_container);
+        webview = parent.findViewById(R.id.edit_preview_webview);
+        previewContainer = parent.findViewById(R.id.edit_preview_container);
+        editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
 
         bridge = new CommunicationBridge(webview, "file:///android_asset/preview.html");
 

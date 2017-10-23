@@ -38,7 +38,7 @@ public class AboutActivity extends BaseActivity {
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
 
-        mScrollView = (ScrollView) findViewById(R.id.about_scrollview);
+        mScrollView = findViewById(R.id.about_scrollview);
         translatorsTextView.setText(StringUtil.fromHtml(getString(R.string.about_translators_translatewiki)));
         RichTextUtil.removeUnderlinesFromLinks(translatorsTextView);
         wmfTextView.setText(StringUtil.fromHtml(getString(R.string.about_wmf)));
