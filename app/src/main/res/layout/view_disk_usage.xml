@@ -42,7 +42,8 @@
         android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         android:padding="0.5dp"
-        android:background="@drawable/shape_disk_usage">
+        android:background="@drawable/shape_disk_usage"
+        android:backgroundTint="?attr/chart_shade5">
 
         <View
             android:id="@+id/view_disk_usage_bar_used"
