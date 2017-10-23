@@ -26,8 +26,8 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
             android:fontFamily="sans-serif-medium"
             android:text="@string/text_size_select"
             android:textColor="?attr/section_title_color" />
@@ -36,7 +36,6 @@
             android:id="@+id/text_size_percent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:gravity="center"
             android:textSize="16sp"
             android:textColor="?attr/secondary_text_color"
@@ -45,7 +44,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="4dp">
 
             <TextView
                 android:id="@+id/buttonDecreaseTextSize"
@@ -113,6 +112,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginRight="-4dp"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp">
 
