@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# For use with Jenkins CI, pass the Android SDK location as an argument:
+# Optionally pass an Android SDK location as an argument:
 # $ apps-android-wikipedia-publish /srv/jenkins-workspace/tools/android-sdk
 if [ ! $# -eq 0 ]; then
   echo "org.gradle.jvmargs=-Xmx1536M" >> gradle.properties
