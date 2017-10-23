@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.AttrRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -62,11 +63,18 @@ public class DiscreteSeekBar extends SeekBar {
 
     @Override
     protected synchronized void onDraw(Canvas canvas) {
-        drawTickMarks(canvas);
-        super.onDraw(canvas);
+        int value = getValue();
+        if (value >= 0) {
+            drawTickMarks(canvas, true, false);
+            super.onDraw(canvas);
+            drawTickMarks(canvas, false, true);
+        } else {
+            super.onDraw(canvas);
+            drawTickMarks(canvas, true, true);
+        }
     }
 
-    void drawTickMarks(Canvas canvas) {
+    void drawTickMarks(@NonNull Canvas canvas, boolean drawCenter, boolean drawOther) {
         int max = getMax() + min;
         int value = getValue();
         if (tickDrawable != null) {
@@ -83,10 +91,10 @@ public class DiscreteSeekBar extends SeekBar {
         canvas.save();
         canvas.translate((float) getPaddingLeft(), (float) (getHeight() / 2));
         for (int i = min; i <= max; ++i) {
-            if (tickDrawable != null && i > value) {
+            if (drawOther && tickDrawable != null && i > value) {
                 tickDrawable.draw(canvas);
             }
-            if (i == 0 && centerDrawable != null) {
+            if (drawCenter && i == 0 && centerDrawable != null) {
                 centerDrawable.draw(canvas);
             }
             canvas.translate(tickSpacing, 0.0f);

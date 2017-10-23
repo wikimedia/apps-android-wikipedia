@@ -2,6 +2,7 @@ package org.wikipedia.theme;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DiscreteSeekBar;
 
 import butterknife.BindView;
@@ -159,6 +161,9 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private void updateDimImagesSwitch() {
         dimImagesSwitch.setChecked(Prefs.shouldDimDarkModeImages());
         dimImagesSwitch.setEnabled(app.getCurrentTheme() == Theme.DARK);
+        dimImagesSwitch.setTextColor(dimImagesSwitch.isEnabled()
+                ? ResourceUtil.getThemedColor(getContext(), R.attr.section_title_color)
+                : ContextCompat.getColor(getContext(), R.color.black26));
     }
 
     private final class ThemeButtonListener implements View.OnClickListener {
