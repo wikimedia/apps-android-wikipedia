@@ -99,6 +99,7 @@
   <string name="about_app_license_heading">منښتليک</string>
   <string name="about_activity_title">په اړه</string>
   <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
+  <string name="edit_how_page_improved">په ليکنه کې مو څنګه بدلون رامنځته کړ؟</string>
   <string name="edit_next">راتلونکی</string>
   <string name="edit_done" fuzzy="true">خوندي کول</string>
   <string name="edit_preview">مخليدنه</string>

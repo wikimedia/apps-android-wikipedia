@@ -412,7 +412,7 @@
   <string name="remote_compilation_download">Eroflueden</string>
   <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB fräi</string>
-  <string name="storage_used_by_compilations" fuzzy="true">vu Wikipedia benotzt</string>
+  <string name="storage_used_by_compilations">vun der Offline-Bibliothéik benotzt</string>
   <string name="storage_other_apps">Aner Programmen</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB vu(n) %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">

@@ -172,7 +172,7 @@
   <string name="gallery_save_progress">Загрузка файлу…</string>
   <string name="gallery_save_success">Файл захаваны пасьпяхова.</string>
   <string name="gallery_error_video_failed">Не атрымалася прайграць відэа.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Дзеля захаваньня выяваў неабходны дазвол на запіс у сховішча Вашай прылады. Калі ласка, паспрабуйце яшчэ раз і надайце патрэбны дазвол.</string>
+  <string name="gallery_save_image_write_permission_rationale">Для захаваньня выяваў неабходны дазвол на запіс у сховішча вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
   <string name="snippet_share_intro">«%1$s» на сайце @Wikipedia: %2$s</string>
   <string name="expand_refs">Націсьніце каб развярнуць</string>
@@ -185,7 +185,7 @@
   <string name="gallery_uploader_unknown">Загрузіў невядомы</string>
   <string name="menu_new_tab">Новая ўкладка</string>
   <string name="button_close_tab">Закрыць укладку</string>
-  <string name="tool_tip_select_text" fuzzy="true">Націсьніце і ўтрымлівайце ў любым месцы тэкста, каб выдзяліць яго для капіраваньне і магчымасьці падзяліцца.</string>
+  <string name="tool_tip_select_text">Націсьніце і ўтрымлівайце ў любым месцы тэксту, каб абраць яго для капяваньня і магчымасьці падзяліцца.</string>
   <string name="tool_tip_share">Пасья выдзяленьня цікавага факту, паспрабуйце падзяліцца ім ў Вашых улюблёных сацыяльных сетках!</string>
   <string name="page_view_in_browser">Праглядзець старонку ў браўзэры</string>
   <string name="tool_tip_toc_button">Глядзіце сьпіс зьместу ў любы час націснуўшы гэтую кнопку, ці правёўшы пальцам ад правага боку экрана.</string>

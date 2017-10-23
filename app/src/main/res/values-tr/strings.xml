@@ -225,7 +225,8 @@
   <string name="close_all_tabs_confirm_yes">Evet</string>
   <string name="close_all_tabs_confirm_no">Hayır</string>
   <string name="button_close_tab">Sekmeyi kapat</string>
-  <string name="tool_tip_select_text" fuzzy="true">Vurgulamak, kopyalamak ve paylaşmak için metnin herhangi bir yerine dokunun ve basılı tutun.</string>
+  <string name="tool_tip_select_text_title">Seçmek için basılı tutun</string>
+  <string name="tool_tip_select_text">Kopyalamak ve paylaşmak üzere seçmek için metnin herhangi bir yerine dokunun ve basılı tutun.</string>
   <string name="tool_tip_share">İlginç bir bilgiyi vurguladıktan sonra, en sevdiğiniz ağlarda paylaşmayı deneyin!</string>
   <string name="page_view_in_browser">Sayfayı tarayıcıda görüntüle</string>
   <string name="tool_tip_toc_button">İçindekiler tablosunu, bu düğmeye dokunarak veya ekranın sağ kenarından kaydırarak istediğiniz an görebilirsiniz.</string>
@@ -275,6 +276,8 @@
   <string name="color_theme_dark">Koyu</string>
   <string name="preference_title_color_theme">Koyu tema</string>
   <string name="preference_summary_color_theme">Uygulamanın koyu renk temasına geçiş yapın</string>
+  <string name="text_size_increase">Metin boyutunu büyüt</string>
+  <string name="text_size_decrease">Metin boyutunu küçült</string>
   <string name="nav_item_reading_lists">Listelerim</string>
   <string name="reading_list_untitled">Başlıksız</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
@@ -430,7 +433,7 @@
   <string name="offline_compilation_detail_button_remove">Sil</string>
   <string name="remote_compilation_download">İndir</string>
   <string name="storage_size_free">%.2f GB boş</string>
-  <string name="storage_used_by_compilations" fuzzy="true">Vikipedi tarafından kullanılıyor</string>
+  <string name="storage_used_by_compilations">Çevrimdışı Kütüphane tarafından kullanılıyor</string>
   <string name="storage_other_apps">Diğer uygulamalar</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">
@@ -460,5 +463,7 @@
   <string name="onboarding_create_account_sync">Okuma listelerinizi senkronize edin</string>
   <string name="onboarding_create_account_contributions">Katkılarınızı takip edebilin</string>
   <string name="onboarding_create_account_preferences">Tercihlerinizi kaydedin</string>
+  <string name="app_shortcuts_random">Rastgele</string>
+  <string name="app_shortcuts_continue_reading">Okumaya devam et</string>
   <string name="app_shortcuts_search">Arama</string>
 </resources>
