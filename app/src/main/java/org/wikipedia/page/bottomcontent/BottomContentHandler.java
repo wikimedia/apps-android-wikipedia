@@ -91,12 +91,12 @@ public class BottomContentHandler implements BottomContentInterface,
         webview.addOnScrollChangeListener(this);
         webview.addOnContentHeightChangedListener(this);
 
-        pageLastUpdatedText = (TextView) bottomContentContainer.findViewById(R.id.page_last_updated_text);
-        pageLicenseText = (TextView) bottomContentContainer.findViewById(R.id.page_license_text);
+        pageLastUpdatedText = bottomContentContainer.findViewById(R.id.page_last_updated_text);
+        pageLicenseText = bottomContentContainer.findViewById(R.id.page_license_text);
         readMoreContainer = bottomContentContainer.findViewById(R.id.read_more_container);
-        readMoreList = (ConfigurableListView) bottomContentContainer.findViewById(R.id.read_more_list);
+        readMoreList = bottomContentContainer.findViewById(R.id.read_more_list);
 
-        TextView pageExternalLink = (TextView) bottomContentContainer.findViewById(R.id.page_external_link);
+        TextView pageExternalLink = bottomContentContainer.findViewById(R.id.page_external_link);
         pageExternalLink.setPaintFlags(pageExternalLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         pageExternalLink.setOnClickListener(new View.OnClickListener() {
             @Override
