@@ -22,15 +22,17 @@ public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
     @NonNull private final Context context;
     private final int age;
     private final long earlierThanTime;
+    private final long noEarlierThanTime;
 
-    public LastPageReadTask(@NonNull Context context, int age, int minDaysOld) {
+    public LastPageReadTask(@NonNull Context context, int age, int minDaysOld, int maxDaysOld) {
         this.context = context;
         this.age = age;
         earlierThanTime = new Date().getTime() - (minDaysOld * DateUtils.DAY_IN_MILLIS);
+        noEarlierThanTime  = new Date().getTime() - (maxDaysOld * DateUtils.DAY_IN_MILLIS);
     }
 
     @Nullable @Override public HistoryEntry performTask() throws Throwable {
-        Cursor cursor = queryLastPage(earlierThanTime);
+        Cursor cursor = queryLastPage(earlierThanTime, noEarlierThanTime);
         if (cursor == null) {
             return null;
         }
@@ -47,16 +49,17 @@ public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
         return null;
     }
 
-    @Nullable private Cursor queryLastPage(long earlierThanTime) {
+    @Nullable private Cursor queryLastPage(long earlierThanTime, long noEarlierThanTime) {
         ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context);
         try {
             Uri uri = PageHistoryContract.PageWithImage.URI;
             final String[] projection = null;
-            final String selection = ":timestampCol < ? and :sourceCol != ? and :sourceCol != ? and :timeSpentCol >= ?"
+            final String selection = ":timestampCol < ? and :timestampCol >= ? and :sourceCol != ? and :sourceCol != ? and :timeSpentCol >= ?"
                     .replaceAll(":timestampCol", PageHistoryContract.Col.TIMESTAMP.getName())
                     .replaceAll(":sourceCol", PageHistoryContract.Page.SOURCE.qualifiedName())
                     .replaceAll(":timeSpentCol", PageHistoryContract.Page.TIME_SPENT.qualifiedName());
             final String[] selectionArgs = {Long.toString(earlierThanTime),
+                    Long.toString(noEarlierThanTime),
                     Integer.toString(HistoryEntry.SOURCE_MAIN_PAGE),
                     Integer.toString(HistoryEntry.SOURCE_FEED_MAIN_PAGE),
                     Integer.toString(context.getResources().getInteger(R.integer.article_engagement_threshold_sec))};

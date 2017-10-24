@@ -15,6 +15,7 @@ import java.util.Collections;
 
 public class ContinueReadingClient implements FeedClient {
     private static final int MIN_DAYS_OLD = 1;
+    private static final int MAX_DAYS_OLD = 30;
 
     @Nullable private LastPageReadTask lastPageReadTask;
 
@@ -22,7 +23,7 @@ public class ContinueReadingClient implements FeedClient {
     public void request(@NonNull Context context, @NonNull WikiSite wiki, int age,
                         @NonNull final FeedClient.Callback cb) {
         cancel();
-        lastPageReadTask = new LastPageReadTask(context, age, MIN_DAYS_OLD) {
+        lastPageReadTask = new LastPageReadTask(context, age, MIN_DAYS_OLD, MAX_DAYS_OLD) {
             @Override
             public void onFinish(@Nullable HistoryEntry entry) {
                 if (entry == null) {
