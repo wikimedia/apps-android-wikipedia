@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+mkdir tmp && export TMPDIR="$PWD/tmp"
+
 ./gradlew clean checkstyle lintAlphaRelease testAllAlphaRelease
 
 scripts/diff-screenshots
