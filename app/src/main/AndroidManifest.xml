@@ -225,6 +225,10 @@
             android:name=".offline.OfflineTutorialActivity"
             android:theme="@style/AppTheme.TranslucentStatus"/>
 
+        <activity
+            android:name=".feed.mostread.MostReadArticlesActivity"
+            android:theme="@style/AppTheme.ActionBar"/>
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"

@@ -1,5 +1,4 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,4 +21,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/view_list_card_large_header" />
 
+    <org.wikipedia.views.GoneIfEmptyTextView
+        android:id="@+id/more_events"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_list_card_list"
+        android:background="@color/black12"
+        android:drawableEnd="@drawable/ic_chevron_forward_gray"
+        android:drawableRight="@drawable/ic_chevron_forward_gray"
+        android:padding="12dp"
+        android:visibility="gone" />
 </RelativeLayout>

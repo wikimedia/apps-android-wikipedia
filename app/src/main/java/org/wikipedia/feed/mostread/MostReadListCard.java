@@ -47,7 +47,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
         for (FeedPageSummary article : articles) {
             cards.add(new MostReadItemCard(article, wiki));
         }
-        return cards.subList(0, Math.min(cards.size(), MAX_SIZE));
+        return cards;
     }
 
     @NonNull private String getString(@StringRes int id, @Nullable Object... formatArgs) {

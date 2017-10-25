@@ -10,15 +10,19 @@ import android.view.View;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T> {
     @BindView(R.id.view_list_card_header) View headerView;
     @BindView(R.id.view_list_card_large_header) View largeHeaderView;
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;
+    @BindView(R.id.more_events) GoneIfEmptyTextView moreEvents;
+    private Callback callback;
 
     public ListCardView(Context context) {
         super(context);
@@ -61,5 +65,21 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
         recyclerView.setNestedScrollingEnabled(false);
+    }
+
+    protected void setMoreEventsTextView(String moreEventsText, Callback callback) {
+        moreEvents.setVisibility(VISIBLE);
+        moreEvents.setText(moreEventsText);
+        this.callback = callback;
+    }
+
+    @OnClick(R.id.more_events) void moreEventsClicked() {
+        if (callback != null) {
+            callback.onMoreEventsSelected();
+        }
+    }
+
+    public interface Callback {
+        void onMoreEventsSelected();
     }
 }
