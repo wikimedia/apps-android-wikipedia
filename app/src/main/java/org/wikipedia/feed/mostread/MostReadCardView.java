@@ -1,28 +1,23 @@
 package org.wikipedia.feed.mostread;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-import static org.wikipedia.feed.mostread.MostReadArticlesActivity.MOST_READ_CARD;
-
 public class MostReadCardView extends ListCardView<MostReadListCard>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView, ListCardView.Callback {
+        implements ItemTouchHelperSwipeAdapter.SwipeableView {
     private static final int EVENTS_SHOWN = 5;
     private MostReadListCard card;
     public MostReadCardView(Context context) {
@@ -34,17 +29,8 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
         header(card);
         this.card = card;
         set(new RecyclerAdapter(card.items().subList(0, Math.min(card.items().size(), EVENTS_SHOWN))));
-        setMoreEventsTextView(String.format(getContext().getString(R.string.all_trending_text), card.subtitle()), this);
+        setMoreContentTextView(String.format(getContext().getString(R.string.all_trending_text), card.subtitle()));
     }
-
-
-    private void launchMoreEventsActivity() {
-        Context context = WikipediaApp.getInstance();
-        Intent intent = new Intent(context, MostReadArticlesActivity.class);
-        intent.putExtra(MOST_READ_CARD, GsonMarshaller.marshal(card));
-        context.startActivity(intent);
-    }
-
 
     private void header(@NonNull MostReadListCard card) {
         CardHeaderView header = new CardHeaderView(getContext())
@@ -55,11 +41,6 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
                 .setCard(card)
                 .setCallback(getCallback());
         header(header);
-    }
-
-    @Override
-    public void onMoreEventsSelected() {
-        launchMoreEventsActivity();
     }
 
     private class RecyclerAdapter extends ListCardRecyclerAdapter<MostReadItemCard> {

@@ -19,8 +19,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MostReadListCard extends ListCard<MostReadItemCard> {
-    private static final int MAX_SIZE = 5;
-
     @NonNull private final MostReadArticles articles;
 
     public MostReadListCard(@NonNull MostReadArticles articles, @NonNull WikiSite wiki) {

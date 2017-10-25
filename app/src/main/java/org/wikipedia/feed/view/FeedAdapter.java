@@ -28,7 +28,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
             ListCardItemView.Callback, CardHeaderView.Callback,
             FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
             AnnouncementCardView.Callback, FeaturedArticleCardView.Callback,
-            RandomCardView.Callback, OfflineCompilationCardView.Callback {
+            RandomCardView.Callback, OfflineCompilationCardView.Callback, ListCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onRetryFromOffline();

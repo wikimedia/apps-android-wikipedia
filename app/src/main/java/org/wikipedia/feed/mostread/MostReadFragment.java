@@ -1,6 +1,5 @@
 package org.wikipedia.feed.mostread;
 
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,11 +33,9 @@ import butterknife.Unbinder;
 
 import static org.wikipedia.feed.mostread.MostReadArticlesActivity.MOST_READ_CARD;
 
-
 public class MostReadFragment extends Fragment {
 
-    @BindView(R.id.view_most_read_fullscreen_link_card_list)
-    RecyclerView mostReadLinks;
+    @BindView(R.id.view_most_read_fullscreen_link_card_list) RecyclerView mostReadLinks;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private Unbinder unbinder;
 
@@ -73,7 +70,6 @@ public class MostReadFragment extends Fragment {
         super.onDestroyView();
     }
 
-
     private void initRecycler() {
         mostReadLinks.setLayoutManager(new LinearLayoutManager(getContext()));
         mostReadLinks.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
@@ -99,7 +95,7 @@ public class MostReadFragment extends Fragment {
             MostReadItemCard card = item(position);
             holder.getView().setCard(card)
                     .setHistoryEntry(new HistoryEntry(card.pageTitle(),
-                            HistoryEntry.SOURCE_FEED_MOST_READ)).setCallback(callback);
+                            HistoryEntry.SOURCE_FEED_MOST_READ_ACTIVITY)).setCallback(callback);
 
         }
     }
@@ -118,7 +114,7 @@ public class MostReadFragment extends Fragment {
         public void onAddPageToList(@NonNull HistoryEntry entry) {
             bottomSheetPresenter.show(getChildFragmentManager(),
                     AddToReadingListDialog.newInstance(entry.getTitle(),
-                            AddToReadingListDialog.InvokeSource.FEED));
+                            AddToReadingListDialog.InvokeSource.MOST_READ_ACTIVITY));
         }
 
         @Override
