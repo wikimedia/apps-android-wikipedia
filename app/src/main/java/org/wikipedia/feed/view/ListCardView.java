@@ -5,12 +5,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.views.DrawableItemDecoration;
-import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
@@ -18,11 +19,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T> {
+    public interface Callback {
+        void onMoreContentSelected(@NonNull Card card);
+    }
+
     @BindView(R.id.view_list_card_header) View headerView;
     @BindView(R.id.view_list_card_large_header) View largeHeaderView;
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;
-    @BindView(R.id.more_events) GoneIfEmptyTextView moreEvents;
-    private Callback callback;
+    @BindView(R.id.view_list_card_more_container) View moreContentContainer;
+    @BindView(R.id.view_list_card_more_text) TextView moreContentTextView;
 
     public ListCardView(Context context) {
         super(context);
@@ -67,19 +72,14 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         recyclerView.setNestedScrollingEnabled(false);
     }
 
-    protected void setMoreEventsTextView(String moreEventsText, Callback callback) {
-        moreEvents.setVisibility(VISIBLE);
-        moreEvents.setText(moreEventsText);
-        this.callback = callback;
+    protected void setMoreContentTextView(@NonNull String text) {
+        moreContentContainer.setVisibility(TextUtils.isEmpty(text) ? GONE : VISIBLE);
+        moreContentTextView.setText(text);
     }
 
-    @OnClick(R.id.more_events) void moreEventsClicked() {
-        if (callback != null) {
-            callback.onMoreEventsSelected();
+    @OnClick(R.id.view_list_card_more_container) void moreContentClicked() {
+        if (getCallback() != null && getCard() != null) {
+            getCallback().onMoreContentSelected(getCard());
         }
-    }
-
-    public interface Callback {
-        void onMoreEventsSelected();
     }
 }

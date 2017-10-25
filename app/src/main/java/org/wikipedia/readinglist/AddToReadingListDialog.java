@@ -42,7 +42,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         PAGE_OVERFLOW_MENU(3),
         FEED(4),
         NEWS_ACTIVITY(5),
-        READING_LIST_ACTIVITY(6);
+        READING_LIST_ACTIVITY(6),
+        MOST_READ_ACTIVITY(7);
 
         private static final EnumCodeMap<InvokeSource> MAP = new EnumCodeMap<>(InvokeSource.class);
 

@@ -553,7 +553,7 @@
     <string name="app_shortcuts_continue_reading">Continue reading</string>
     <string name="app_shortcuts_search">Search</string>
     <string name="all_trending_text">All trending articles on %1$s</string>
-    <string name="top_on_this_day">Top on %1$s</string>
+    <string name="top_on_this_day">Trending on %1$s</string>
     <!-- /App Shortcuts -->
 
 </resources>

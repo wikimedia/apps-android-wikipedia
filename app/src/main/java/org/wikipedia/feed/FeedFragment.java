@@ -27,6 +27,8 @@ import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.mostread.MostReadArticlesActivity;
+import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.view.FeedAdapter;
@@ -459,6 +461,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             } else {
                 startActivity(LocalCompilationsActivity.newIntent(getContext()));
             }
+        }
+
+        @Override
+        public void onMoreContentSelected(@NonNull Card card) {
+            startActivity(MostReadArticlesActivity.newIntent(getContext(), (MostReadListCard) card));
         }
     }
 
