@@ -1,0 +1,45 @@
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="org.wikipedia.feed.onthisday.OnThisDayFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/paper_color"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/day_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="@dimen/titleTextSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/day_info_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:textColor="?attr/secondary_text_color"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/events_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:overScrollMode="never" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>

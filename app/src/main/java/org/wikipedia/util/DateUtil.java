@@ -1,7 +1,9 @@
 package org.wikipedia.util;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.UtcDate;
 
@@ -10,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -57,6 +60,21 @@ public final class DateUtil {
         SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ROOT);
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         return df.parse(dateStr);
+    }
+
+    @NonNull public static String yearToStringWithEra(int year) {
+        Calendar cal = new GregorianCalendar(year, 1, 1);
+        return new SimpleDateFormat(year < 0 ? "y GG" : "y", Locale.getDefault()).format(cal.getTime());
+    }
+
+    @NonNull public static String getYearDifferenceString(int year) {
+        Context context = WikipediaApp.getInstance().getApplicationContext();
+        int diffInYears = Calendar.getInstance().get(Calendar.YEAR) - year;
+        if (diffInYears == 0) {
+            return context.getString(R.string.this_year);
+        } else {
+            return context.getResources().getQuantityString(R.plurals.diff_years, diffInYears, diffInYears);
+        }
     }
 
     private DateUtil() {

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="12dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginStart="12dp"
+    android:background="?attr/colorAccent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:background="?attr/paper_color"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingBottom="12dp"
+        android:paddingEnd="3dp"
+        android:paddingRight="3dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin" />
+
+        <include
+            android:id="@+id/year_layout"
+            layout="@layout/view_on_this_day_event" />
+    </RelativeLayout>
+</LinearLayout>

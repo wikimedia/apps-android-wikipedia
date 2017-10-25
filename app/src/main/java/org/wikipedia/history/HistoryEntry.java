@@ -32,6 +32,7 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_APP_SHORTCUT_RANDOM = 20;
     public static final int SOURCE_APP_SHORTCUT_CONTINUE_READING = 21;
     public static final int SOURCE_FEED_MOST_READ_ACTIVITY = 22;
+    public static final int SOURCE_ON_THIS_DAY_LIST = 22;
 
     @NonNull private final PageTitle title;
     @NonNull private final Date timestamp;

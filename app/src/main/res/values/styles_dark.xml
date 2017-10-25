@@ -63,7 +63,6 @@
         <item name="primary_text_color">@color/base90</item>
         <item name="secondary_text_color">@color/base70</item>
         <item name="section_title_color">@color/base90</item>
-
         <item name="chart_shade1">@color/base100</item>
         <item name="chart_shade4">@color/base50</item>
         <item name="chart_shade5">@color/base30</item>

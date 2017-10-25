@@ -232,7 +232,7 @@
   <string name="tool_tip_toc_button">Advice on accessing the table of contents for a page.\n\n\'\'\'In right-to-left languages\'\'\' (Hebrew, Arabic, etc.) write \'\'\'left\'\'\' edge and not \"right\".</string>
   <string name="error_response_malformed">Generic error message that tells the user that the response from the server was not formatted correctly.</string>
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
-  <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API response from the server.\n{{Identical|Message}}</string>
+  <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API onThisDay from the server.\n{{Identical|Message}}</string>
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
@@ -495,4 +495,13 @@
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
   <string name="all_trending_text">Instruction text for button leading to All trending articles on that day. \"%1$s\" represents the date string</string>
   <string name="top_on_this_day">Title for the screen with all trending links. \"%1$s\" represents the date string</string>
+  <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
+  <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date</string>
+  <string name="events_count_text">The \"%1$s\" symbol is replaced with the number of events .Text indicating the total number of events that are being displayed.  \"%2$s\" is begining year - \"%3$d\" is ending year</string>
+  <string name="this_year">Text to say, \'This year\'</string>
+  <string name="on_this_day">Text is the title for the \'On this day\' events screen</string>
+  <plurals name="diff_years">
+    <item quantity="one">Text indicating that the event occured one year ago.</item>
+    <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>
+  </plurals>
 </resources>
