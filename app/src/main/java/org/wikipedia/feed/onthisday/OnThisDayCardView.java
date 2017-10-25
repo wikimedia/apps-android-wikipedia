@@ -3,6 +3,7 @@ package org.wikipedia.feed.onthisday;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -19,15 +20,12 @@ import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.MarginItemDecoration;
 import org.wikipedia.views.ViewUtil;
 
-import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +45,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     private UtcDate date;
     private OnThisDay onThisDay;
 
-    public OnThisDayCardView(Context context) {
+    public OnThisDayCardView(@NonNull Context context) {
         super(context);
         inflate(getContext(), R.layout.view_card_on_this_day, this);
         ButterKnife.bind(this);
@@ -55,7 +53,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     }
 
     private void launchOnThisDayActivity() {
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), onThisDay, wiki, date.baseCalendar().getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()) + " " + ((date.date().charAt(0) == '0') ? date.date().substring(1) : date.date())));
+        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), onThisDay, wiki, date));
     }
 
     private void initRecycler() {
@@ -67,12 +65,9 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical));
         pagesRecycler.addOnItemTouchListener(new DontInterceptTouchListener());
         pagesRecycler.setNestedScrollingEnabled(false);
-        pagesRecycler.setClipToPadding(false);
-        final int padding = DimenUtil.roundedDpToPx(12);
-        pagesRecycler.setPadding(padding, 0, padding, 0);
     }
 
-    static class RecyclerAdapter<T> extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
+    static class RecyclerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
         private List<OnThisDay.Page> pages;
         private WikiSite wiki;
 
@@ -86,7 +81,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.item_on_this_day_pages, viewGroup, false);
-            return new OnThisDayPagesViewHolder(itemView, wiki);
+            return new OnThisDayPagesViewHolder((CardView) itemView, wiki);
         }
 
         @Override
@@ -98,7 +93,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
         public int getItemCount() {
             return pages.size();
         }
-
     }
 
     @Override
@@ -142,6 +136,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
         header(card);
     }
 
-    @OnClick({R.id.more_events_layout, R.id.text}) void onMoreClick() {
+    @OnClick({R.id.more_events_layout, R.id.view_on_this_day_click_container}) void onMoreClick() {
         launchOnThisDayActivity();
-    }}
+    }
+}

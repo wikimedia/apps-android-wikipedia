@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipChildren="false"
@@ -28,11 +29,14 @@
         android:clipToPadding="false">
 
         <RelativeLayout
+            android:id="@+id/view_on_this_day_click_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="1dp"
             android:layout_marginStart="1dp"
+            android:clickable="true"
             android:background="?attr/paper_color"
+            android:foreground="?attr/selectableItemBackground"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:paddingEnd="3dp"
@@ -78,30 +82,29 @@
     <LinearLayout
         android:id="@+id/more_events_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:background="?android:colorBackground"
-        android:drawableEnd="@drawable/ic_chevron_forward_gray"
-        android:drawableRight="@drawable/ic_chevron_forward_gray"
-        android:gravity="center_vertical"
-        android:paddingBottom="10dp"
-        android:paddingEnd="12dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingStart="12dp"
-        android:paddingTop="10dp">
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/more_events"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="start"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:gravity="center_vertical"
+            android:textColor="?attr/secondary_text_color"
             android:text="@string/more_events_text" />
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:srcCompat="@drawable/ic_chevron_forward_gray" />
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_chevron_forward_gray"
+            android:tint="?attr/secondary_text_color"
+            android:contentDescription="@null"/>
     </LinearLayout>
 
 

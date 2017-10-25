@@ -21,7 +21,8 @@
                 android:layout_marginStart="12dp"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="@dimen/titleTextSize"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium"
+                tools:text="January 1"/>
 
             <TextView
                 android:id="@+id/day_info_text_view"
