@@ -78,8 +78,13 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
         Log.d("Wikipedia", "Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
-                && uri.getPath().startsWith("/wiki/")) {
+                && (uri.getPath().startsWith("/wiki/") || uri.getPath().startsWith("/zh-"))) {
             WikiSite site = new WikiSite(uri);
+            if (site.subdomain().equals(getWikiSite().subdomain())
+                    && !site.languageCode().equals(getWikiSite().languageCode())) {
+                // override the languageCode from the parent WikiSite, in case it's a variant.
+                site = new WikiSite(uri.getAuthority(), getWikiSite().languageCode());
+            }
             PageTitle title = TextUtils.isEmpty(titleString)
                     ? site.titleForInternalLink(uri.getPath())
                     : new PageTitle(titleString, site);
