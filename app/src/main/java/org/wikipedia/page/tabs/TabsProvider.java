@@ -194,6 +194,9 @@ public class TabsProvider {
 
         @Override
         public void onDestroyActionMode(ActionMode mode) {
+            if (!fragment.isAdded() || fragment.getContext() == null) {
+                return;
+            }
             Animation anim = AnimationUtils.loadAnimation(fragment.getContext(), R.anim.tab_list_zoom_exit);
             fragment.getView().startAnimation(anim);
             hideTabList();
