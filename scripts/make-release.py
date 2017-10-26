@@ -95,7 +95,7 @@ def copy_artifacts(flavor):
 
 
 def get_original_apk_file_name(flavor):
-    return 'app/build/outputs/apk/app-%s-release.apk' % flavor
+    return 'app/build/outputs/apk/' + flavor + '/release/app-' + flavor + '-release.apk'
 
 
 def get_android_home():

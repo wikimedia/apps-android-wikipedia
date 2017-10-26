@@ -25,7 +25,7 @@ if (continuousIntegrationBuild) {
     println "Device timeout is ${DdmPreferences.getTimeOut()}ms"
 }
 
-def getDate() {
+def static getDate() {
     def date = new Date()
     def formattedDate = date.format('yyyy-MM-dd')
     return formattedDate
@@ -248,7 +248,7 @@ private setSigningConfigKey(config, Properties props) {
     return config
 }
 
-@Nullable private Properties loadProperties(File file) {
+private static Properties loadProperties(File file) {
     Properties props = null
     if (file.canRead()) {
         props = new Properties()
