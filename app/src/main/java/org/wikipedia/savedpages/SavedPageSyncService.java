@@ -1,9 +1,10 @@
 package org.wikipedia.savedpages;
 
-import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.JobIntentService;
 import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
@@ -50,7 +51,10 @@ import retrofit2.Call;
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.SAVE_CACHE;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
-public class SavedPageSyncService extends IntentService {
+public class SavedPageSyncService extends JobIntentService {
+    // Unique job ID for this service (do not duplicate).
+    private static final int JOB_ID = 1000;
+
     @NonNull private ReadingListPageDao dao;
     @NonNull private final CacheDelegate cacheDelegate = new CacheDelegate(SAVE_CACHE);
     @NonNull private final PageImageUrlParser pageImageUrlParser
@@ -58,12 +62,16 @@ public class SavedPageSyncService extends IntentService {
     private long blockSize;
 
     public SavedPageSyncService() {
-        super("SavedPageSyncService");
         dao = ReadingListPageDao.instance();
         blockSize = FileUtil.blockSize(cacheDelegate.diskLruCache().getDirectory());
     }
 
-    @Override protected void onHandleIntent(@Nullable Intent intent) {
+    public static void enqueueService(@NonNull Context context) {
+        enqueueWork(context, SavedPageSyncService.class, JOB_ID,
+                new Intent(context, SavedPageSyncService.class));
+    }
+
+    @Override protected void onHandleWork(@NonNull Intent intent) {
         List<ReadingListPageDiskRow> queue = new ArrayList<>();
         Collection<ReadingListPageDiskRow> rows = dao.startDiskTransaction();
 
