@@ -288,7 +288,7 @@ public class PageFragmentLoadState {
                     int sequence = payload.getInt("sequence");
                     int status = payload.getInt("status");
                     commonSectionFetchOnCatch(new HttpStatusException(new okhttp3.Response.Builder()
-                            .code(status).protocol(Protocol.HTTP_1_1)
+                            .code(status).protocol(Protocol.HTTP_1_1).message("")
                             .request(new okhttp3.Request.Builder()
                                     .url(model.getTitle().getMobileUri()).build()).build()),
                             sequence);
