@@ -94,45 +94,55 @@ android {
         }
     }
 
+    flavorDimensions 'default'
+
     productFlavors {
         dev {
             versionName computeVersionName('dev')
             applicationIdSuffix 'dev'
             signingConfig signingConfigs.debug
             testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
+            dimension 'default'
         }
         prod {
             versionName computeVersionName('r')
             signingConfig signingConfigs.prod
+            dimension 'default'
         }
         releasesprod {
             versionName computeVersionName('releasesprod')
             signingConfig signingConfigs.prod
+            dimension 'default'
         }
         alpha {
             versionName computeVersionName('alpha')
             applicationIdSuffix 'alpha'
             signingConfig signingConfigs.debug
             testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
+            dimension 'default'
         }
         beta {
             versionName computeVersionName('beta')
             applicationIdSuffix 'beta'
             signingConfig signingConfigs.prod
+            dimension 'default'
         }
         amazon {
             versionName computeVersionName('amazon')
             signingConfig signingConfigs.prod
+            dimension 'default'
         }
         fdroid {
             versionName computeVersionName('fdroid')
             signingConfig signingConfigs.prod
+            dimension 'default'
         }
         custom {
             versionName computeVersionName(customChannel)
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
+            dimension 'default'
         }
     }
 
@@ -167,37 +177,37 @@ dependencies {
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '1.5'
 
-    compile "com.android.support:support-compat:$supportVersion"
-    compile "com.android.support:support-core-utils:$supportVersion"
-    compile "com.android.support:support-core-ui:$supportVersion"
-    compile "com.android.support:support-fragment:$supportVersion"
+    implementation "com.android.support:support-compat:$supportVersion"
+    implementation "com.android.support:support-core-utils:$supportVersion"
+    implementation "com.android.support:support-core-ui:$supportVersion"
+    implementation "com.android.support:support-fragment:$supportVersion"
 
-    compile "com.android.support:cardview-v7:$supportVersion"
-    compile "com.android.support:design:$supportVersion"
-    compile "com.android.support:recyclerview-v7:$supportVersion"
-    compile "com.android.support:palette-v7:$supportVersion"
-    compile "com.android.support:preference-v14:$supportVersion"
+    implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+    implementation "com.android.support:recyclerview-v7:$supportVersion"
+    implementation "com.android.support:palette-v7:$supportVersion"
+    implementation "com.android.support:preference-v14:$supportVersion"
 
-    compile "com.facebook.fresco:animated-gif:$frescoVersion"
-    compile "com.facebook.fresco:fresco:$frescoVersion"
-    compile "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
-    compile 'com.google.code.gson:gson:2.8.1'
-    compile 'com.romandanylyk:pageindicatorview:0.1.2'
-    compile "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // for JavaNetCookieJar
-    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    compile 'com.squareup:otto:1.3.8'
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile 'com.getkeepsafe.taptargetview:taptargetview:1.9.1'
-    compile "com.jakewharton:butterknife:$butterKnifeVersion"
-    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.1.4@aar') {
+    implementation "com.facebook.fresco:animated-gif:$frescoVersion"
+    implementation "com.facebook.fresco:fresco:$frescoVersion"
+    implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
+    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.romandanylyk:pageindicatorview:0.1.2'
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // for JavaNetCookieJar
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    implementation 'com.squareup:otto:1.3.8'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.9.1'
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    implementation('com.mapbox.mapboxsdk:mapbox-android-sdk:5.1.4@aar') {
         transitive = true
     }
-    compile 'net.hockeyapp.android:HockeySDK:4.1.3'
-    compile 'org.apache.commons:commons-lang3:3.5'
-    compile "commons-io:commons-io:2.5"
-    compile 'org.jsoup:jsoup:1.10.2'
-    compile 'com.dmitrybrant:zimdroid:0.0.14'
+    implementation 'net.hockeyapp.android:HockeySDK:4.1.3'
+    implementation 'org.apache.commons:commons-lang3:3.5'
+    implementation "commons-io:commons-io:2.5"
+    implementation 'org.jsoup:jsoup:1.10.2'
+    implementation 'com.dmitrybrant:zimdroid:0.0.14'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
@@ -208,24 +218,24 @@ dependencies {
         } else {
             dep = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
         }
-        "${flavor.name}Compile" dep
+        "${flavor.name}Implementation" dep
     }
 
-    testCompile 'junit:junit:4.12'
-    testCompile mockitoCore
-    testCompile 'org.robolectric:robolectric:3.3.2'
-    testCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+    testImplementation 'junit:junit:4.12'
+    testImplementation mockitoCore
+    testImplementation 'org.robolectric:robolectric:3.3.2'
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
-    androidTestCompile mockitoCore
-    androidTestApk 'com.crittercism.dexmaker:dexmaker:1.4'
-    androidTestCompile 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
-    androidTestApk 'com.crittercism.dexmaker:dexmaker-dx:1.4'
+    androidTestImplementation mockitoCore
+    androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker:1.4'
+    androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
+    androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
 
     // Required by Android JUnit Runner.
-    androidTestCompile "com.android.support:support-annotations:$supportVersion"
-    androidTestCompile "com.android.support.test:rules:$testingSupportVersion" // JUnit Rules
-    androidTestCompile "com.android.support.test:runner:$testingSupportVersion" // Android JUnit Runner
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "com.android.support:support-annotations:$supportVersion"
+    androidTestImplementation "com.android.support.test:rules:$testingSupportVersion" // JUnit Rules
+    androidTestImplementation "com.android.support.test:runner:$testingSupportVersion" // Android JUnit Runner
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
 }
 
 private setSigningConfigKey(config, Properties props) {
