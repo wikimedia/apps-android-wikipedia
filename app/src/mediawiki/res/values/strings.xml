@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wikimedia">MediaWiki</string>
+    <string name="search_hint">Search MediaWiki</string>
+    <string name="preference_title_language">MediaWiki language</string>
+    <string name="nav_item_login">Log in to MediaWiki</string>
+    <string name="wp_stylized"><![CDATA[<big>M</big>EDIA<big>W</big>IKI]]></string>
+
+    <string name="login_create_account_link">Don\'t have an account? Join this wiki</string>
+    <string name="about_description">About the MediaWiki app</string>
+    <string name="widget_name_search">MediaWiki search</string>
+    <string name="snippet_share_intro">\"%1$s\" on @MediaWiki: %2$s</string>
+    <string name="crash_report_relaunch_or_quit">We\'re sorry, the MediaWiki app has experienced an error and was terminated.\n\nWould you like to start over or quit?</string>
+    <string name="notification_talk_title">New message on MediaWiki</string>
+    <string name="view_random_card_subtitle">Read a random article from MediaWiki</string>
+    <string name="view_main_page_card_title">Today on MediaWiki</string>
+    <string name="description_edit_success_encouragement">You just made this wiki better for everyone</string>
+    <string name="description_edit_revert_subtitle">Thanks for editing this wiki!</string>
+</resources>

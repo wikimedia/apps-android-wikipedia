@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">@string/app_name_mediawiki</string>
+    <string name="channel">MediaWiki Channel</string>
+    <string name="hockeyapp_app_id">10bb726927f04092b3e6ba19a1cc044c</string>
+
+    <!-- The alpha build uses a different signature than beta and prod. -->
+    <string name="account_name">MediaWiki</string>
+    <string name="account_type">org.mediawiki</string>
+
+    <string name="user_option_sync_label">Preferences</string>
+</resources>

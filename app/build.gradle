@@ -134,6 +134,12 @@ android {
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
         }
+        mediawiki {
+            applicationId 'org.mediawiki'
+            versionName computeVersionName('mediawiki')
+            signingConfig signingConfigs.prod
+            testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
+        }
     }
 
     packagingOptions {
@@ -261,6 +267,6 @@ private void addSyncContentProviderAuthority(String path, String name) {
 
 private String appId(ProductFlavor flavor) {
     String suffix = flavor.applicationIdSuffix
-    String id = android.defaultConfig.applicationId + (suffix ? ".$suffix" : '')
+    String id = flavor.applicationId + (suffix ? ".$suffix" : '')
     return id
 }

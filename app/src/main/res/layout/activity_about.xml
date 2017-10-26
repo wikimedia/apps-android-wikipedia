@@ -15,15 +15,9 @@
             android:padding="24dp"
             android:gravity="center"
             >
-        <ImageView
-            android:id="@+id/about_logo_image"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/w_nav_mark"
-            android:tint="?attr/primary_text_color"
-            android:contentDescription="@null"
 
-            />
+        <include layout="@layout/about_logo_image" />
+
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
