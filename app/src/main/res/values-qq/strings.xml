@@ -498,8 +498,8 @@
   <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
   <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date</string>
   <string name="events_count_text">The \"%1$s\" symbol is replaced with the number of events .Text indicating the total number of events that are being displayed.  \"%2$s\" is begining year - \"%3$d\" is ending year</string>
-  <string name="this_year">Text to say, \'This year\'</string>
   <string name="on_this_day">Text is the title for the \'On this day\' events screen</string>
+  <string name="this_year">Text to say, \'This year\'</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occured one year ago.</item>
     <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>

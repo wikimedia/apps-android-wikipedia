@@ -182,6 +182,7 @@
   <string name="view_because_you_read_card_title">Jo tu lasīji</string>
   <string name="view_random_card_title">Nejauša lapa</string>
   <string name="view_random_card_subtitle">Lasi nejaušu Vikipēdijas lapu</string>
+  <string name="view_next_random_article">Ielādēt vēl vienu nejaušu rakstu</string>
   <string name="view_main_page_card_title">Šodien Vikipēdijā</string>
   <string name="view_main_page_card_subtitle">%s sākumlapa</string>
   <string name="view_featured_image_card_title">Dienas attēls</string>
@@ -214,4 +215,7 @@
   <string name="storage_size">%.2f GB</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
+  <string name="on_this_day_card_title">Šajā dienā</string>
+  <string name="on_this_day">Šajā dienā</string>
+  <string name="this_year">Šajā gadā</string>
 </resources>

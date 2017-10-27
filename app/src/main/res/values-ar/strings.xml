@@ -353,6 +353,7 @@
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
   <string name="view_random_card_subtitle">اقرأ مقالة عشوائية من ويكيبيديا</string>
+  <string name="view_next_random_article">مقال عشوائي اخر</string>
   <string name="view_main_page_card_title">اليوم في ويكيبيديا</string>
   <string name="view_main_page_card_subtitle">الصفحة الرئيسية في %s</string>
   <string name="view_featured_image_card_title">صورة اليوم</string>
@@ -431,4 +432,7 @@
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
+  <string name="top_on_this_day">متجها على %1$s من المال</string>
+  <string name="on_this_day">في مثل هذا اليوم</string>
+  <string name="this_year">هذا العام</string>
 </resources>

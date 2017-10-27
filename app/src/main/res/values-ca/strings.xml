@@ -340,6 +340,7 @@
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
   <string name="reading_list_added_articles_list_untitled">S\'han afegit %d articles a la llista de lectura.</string>
+  <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
     <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>
@@ -418,7 +419,7 @@
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
   <string name="offline_read_permission_error">No s\'han atorgat permisos per a llegir des del dispositiu d\'emmagatzematge.</string>
-  <string name="offline_card_text" fuzzy="true">Esteu navegant per la Viquipèdia en mode fora de línia. Tingueu en compte que els articles fora de línia podrien no estar al dia respecte a la versió en línia.</string>
+  <string name="offline_card_text">Esteu navegant per la Viquipèdia en mode fora de línia amb articles de la vostra biblioteca fora de línia.</string>
   <string name="offline_my_compilations">Gestiona la meva biblioteca fora de línia</string>
   <string name="offline_compilations_title">Biblioteca fora de línia</string>
   <string name="offline_compilations_search_by_name">Cerca paquets d\'articles per nom</string>
@@ -430,7 +431,7 @@
   <string name="offline_compilation_detail_button_remove">Suprimeix</string>
   <string name="remote_compilation_download">Baixa</string>
   <string name="storage_size_free">%.2f GB lliures</string>
-  <string name="storage_used_by_compilations" fuzzy="true">utilitzat per la Viquipèdia</string>
+  <string name="storage_used_by_compilations">utilitzat per la biblioteca fora de línia</string>
   <string name="storage_other_apps">Altres aplicacions</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
   <plurals name="offline_compilation_download_time_remaining">
@@ -438,7 +439,7 @@
     <item quantity="other">queden %d mins</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Cancel·la la baixada</string>
-  <string name="compilation_download_cancel_confirm" fuzzy="true">Esteu segur que voleu cancel·lar la baixada de la compilació?</string>
+  <string name="compilation_download_cancel_confirm">Esteu segur que voleu cancel·lar la baixada d\'aquest paquet d\'articles?</string>
   <string name="compilation_download_cancel_confirm_yes">Sí</string>
   <string name="compilation_download_cancel_confirm_no">No</string>
   <string name="compilation_share">Comparteix</string>
