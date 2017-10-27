@@ -342,6 +342,7 @@
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
   <string name="view_random_card_subtitle">Leggi una voce a caso da Wikipedia</string>
+  <string name="view_next_random_article">Carica un\'altra voce a caso</string>
   <string name="view_main_page_card_title">Oggi su Wikipedia</string>
   <string name="view_main_page_card_subtitle">Pagina principale del %s</string>
   <string name="view_featured_image_card_title">Immagine del giorno</string>
@@ -424,4 +425,13 @@
   <string name="app_shortcuts_random">Una pagina a caso</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
+  <string name="on_this_day_card_title">In questo giorno</string>
+  <string name="more_events_text">Alti eventi storici in questo giorno</string>
+  <string name="events_count_text">%1$s eventi dal %2$s - %3$d</string>
+  <string name="on_this_day">In questo giorno</string>
+  <string name="this_year">Questo anno</string>
+  <plurals name="diff_years">
+    <item quantity="one">L\'anno scorso</item>
+    <item quantity="other">%d anni fa</item>
+  </plurals>
 </resources>
