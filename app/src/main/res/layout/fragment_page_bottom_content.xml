@@ -1,45 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<merge
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:background="?android:windowBackground">
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="@drawable/toolbar_bottom_shadow"/>
-    <TextView
-        android:id="@+id/page_external_link"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        style="?android:textAppearanceSmall"
-        android:text="@string/page_view_in_browser"
-        android:textColor="?attr/colorAccent"
-        android:gravity="center"/>
-    <org.wikipedia.views.AppTextView
-        android:id="@+id/page_last_updated_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="8dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        style="?android:textAppearanceSmall"
-        android:textIsSelectable="true"
-        android:gravity="center"/>
-    <org.wikipedia.views.AppTextView
-        android:id="@+id/page_license_text"
+        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:paddingLeft="@dimen/list_item_horizontal_padding"
+        android:paddingBottom="4dp"
+        android:orientation="vertical">
+
+        <org.wikipedia.views.ConfigurableTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:fontFamily="serif"
+            android:textSize="24sp"
+            android:text="@string/about_article_section" />
+
+        <LinearLayout
+            android:id="@+id/page_languages_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_translate_white_24dp"
+                android:tint="?attr/secondary_text_color"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/page_languages_count_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                style="@style/MaterialListTitle"
+                tools:text="Lorem ipsum"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/page_languages_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color"/>
+
+        <LinearLayout
+            android:id="@+id/page_edit_history_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_restore_black_24dp"
+                android:tint="?attr/secondary_text_color"
+                android:contentDescription="@null"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/MaterialListTitle"
+                    android:text="@string/edit_history_link_text"/>
+
+                <TextView
+                    android:id="@+id/page_last_updated_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/MaterialListSubtitle"
+                    android:text="Last edited 4 days ago"
+                    tools:text="Lorem ipsum"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/page_edit_history_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color"/>
+
+        <LinearLayout
+            android:id="@+id/page_talk_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_chat_white_24dp"
+                android:tint="?attr/secondary_text_color"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                style="@style/MaterialListTitle"
+                android:text="@string/talk_page_link_text"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/page_talk_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/material_theme_border_color"/>
+
+        <LinearLayout
+            android:id="@+id/page_view_map_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_place_black_24dp"
+                android:tint="?attr/secondary_text_color"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                style="@style/MaterialListTitle"
+                android:text="@string/map_view_link_text"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        style="?android:textAppearanceSmall"
-        android:textIsSelectable="true"
-        android:gravity="center"/>
-</LinearLayout>
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:background="?android:windowBackground">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/toolbar_bottom_shadow"/>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/read_more_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="?attr/paper_color"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <org.wikipedia.views.ConfigurableTextView
+                    android:id="@+id/read_more_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingRight="@dimen/list_item_horizontal_padding"
+                    android:paddingLeft="@dimen/list_item_horizontal_padding"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="?attr/section_title_color"
+                    android:gravity="center_vertical"
+                    android:text="@string/read_more_section" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="?attr/material_theme_border_color"/>
+
+                <ListView
+                    android:id="@+id/read_more_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?attr/list_separator_drawable"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            app:srcCompat="@drawable/wp_wordmark"
+            android:tint="?attr/secondary_text_color"
+            android:contentDescription="@null"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="?attr/material_theme_border_color"/>
+
+        <org.wikipedia.views.AppTextView
+            android:id="@+id/page_license_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            style="?android:textAppearanceSmall"
+            android:textColor="?attr/secondary_text_color"
+            android:textIsSelectable="true"
+            tools:text="Lorem ipsum"/>
+
+        <TextView
+            android:id="@+id/page_external_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            style="?android:textAppearanceSmall"
+            android:text="@string/page_view_in_browser"
+            android:textColor="?attr/colorAccent"/>
+
+    </LinearLayout>
+
+</merge>

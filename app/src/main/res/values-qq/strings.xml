@@ -42,6 +42,10 @@
   <string name="nearby_osm_license">Copyright message with a link to the OpenStreetMap Copyright and License. (Please preserve the anchor tag in its exact form.)</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site. Some use the term discussions.\n{{Identical|Talk}}</string>
+  <string name="edit_history_link_text">Link text for accessing the edit history for the current article.</string>
+  <string name="map_view_link_text">Link text for viewing the current article on a map (assuming the article has geo coordinates).</string>
+  <string name="language_count_link_text">Link text that says how many languages the current article is available in.  The %d symbol is replaced with the number of languages.</string>
+  <string name="about_article_section">Title of section that contains information specific to the current article.</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page. Please preserve the %1$s parameter, since this will be replaced with the actual URL.</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a login link before saving edits, only when the user has not logged in. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs. Also please do not change the href=\'https://#login\' part of the message.</string>

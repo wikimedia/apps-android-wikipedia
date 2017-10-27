@@ -10,7 +10,6 @@ import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -35,8 +34,6 @@ import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.OfflineContentProvider;
 import org.wikipedia.offline.OfflineManager;
-import org.wikipedia.page.bottomcontent.BottomContentHandler;
-import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesClient;
@@ -118,8 +115,6 @@ public class PageFragmentLoadState {
     private LeadImagesHandler leadImagesHandler;
     private EditHandler editHandler;
 
-    private BottomContentInterface bottomContentHandler;
-
     @SuppressWarnings("checkstyle:parameternumber")
     public void setUp(@NonNull PageViewModel model,
                       @NonNull PageFragment fragment,
@@ -136,10 +131,6 @@ public class PageFragmentLoadState {
         this.leadImagesHandler = leadImagesHandler;
 
         setUpBridgeListeners();
-
-        bottomContentHandler = new BottomContentHandler(fragment, bridge, webView,
-                fragment.getLinkHandler(),
-                (ViewGroup) fragment.getView().findViewById(R.id.bottom_content_container));
 
         this.backStack = backStack;
     }
@@ -165,7 +156,6 @@ public class PageFragmentLoadState {
         // The callback event from the WebView will then call the loadOnWebViewReady()
         // function, which will continue the loading process.
         leadImagesHandler.hide();
-        bottomContentHandler.hide();
 
         this.stagedScrollY = stagedScrollY;
         pageLoadCheckReadingLists(sequenceNumber.get());
@@ -332,13 +322,6 @@ public class PageFragmentLoadState {
                 loading = false;
                 networkErrorCallback = null;
                 fragment.onPageLoadComplete();
-
-                // trigger layout of the bottom content
-                // Check to see if the page title has changed (e.g. due to following a redirect),
-                // because if it has then the handler needs the new title to make sure it doesn't
-                // accidentally display the current article as a "read more" suggestion
-                bottomContentHandler.setTitle(model.getTitle());
-                bottomContentHandler.beginLayout();
             }
         });
         bridge.addListener("pageInfo", new CommunicationBridge.JSEventListener() {

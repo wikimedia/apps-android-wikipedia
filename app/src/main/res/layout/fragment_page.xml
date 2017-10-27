@@ -33,21 +33,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <!-- Read More + bottom content (view in browser link, license, last updated) -->
-                <LinearLayout
-                    android:id="@+id/bottom_content_container"
+                <org.wikipedia.page.bottomcontent.BottomContentView
+                    android:id="@+id/page_bottom_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="-400dp"
-                    android:layout_gravity="bottom"
                     android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <include layout="@layout/fragment_page_read_more"/>
-
-                    <include layout="@layout/fragment_page_bottom_content"/>
-
-                </LinearLayout>
+                    android:layout_gravity="bottom"/>
 
                 <org.wikipedia.views.WikiPageErrorView
                     android:id="@+id/page_error"

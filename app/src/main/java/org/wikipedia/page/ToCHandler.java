@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,7 +30,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ConfigurableListView;
 import org.wikipedia.views.WikiDrawerLayout;
 
 import java.lang.reflect.Field;
@@ -37,13 +37,14 @@ import java.util.ArrayList;
 
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 class ToCHandler {
     private static final int MAX_LEVELS = 3;
     private static final int INDENTATION_WIDTH_DP = 16;
-    private static final int READ_MORE_SECTION_ID = -1;
-    private final ConfigurableListView tocList;
+    private static final int ABOUT_SECTION_ID = -1;
+    private final ListView tocList;
     private final ProgressBar tocProgress;
     private final CommunicationBridge bridge;
     private final WikiDrawerLayout slidingPane;
@@ -77,17 +78,19 @@ class ToCHandler {
                     return;
                 }
                 int itemToSelect = 0;
-                // Find the list item that corresponds to the returned sectionID.
-                // Start with index 1 of the list adapter, since index 0 is the header view,
-                // and won't have a Section object associated with it.
-                // And end with the second-to-last section, since the last section is the
-                // artificial Read More section, and unknown to the WebView.
-                // The lead section (id 0) will automatically fall through the loop.
-                for (int i = 1; i < tocList.getAdapter().getCount() - 1; i++) {
-                    if (((Section) tocList.getAdapter().getItem(i)).getId() <= sectionID) {
-                        itemToSelect = i;
-                    } else {
-                        break;
+                if (sectionID == ABOUT_SECTION_ID) {
+                    itemToSelect = tocList.getAdapter().getCount() - 1;
+                } else {
+                    // Find the list item that corresponds to the returned sectionID.
+                    // Start with index 1 of the list adapter, since index 0 is the header view,
+                    // and won't have a Section object associated with it.
+                    // The lead section (id 0) will automatically fall through the loop.
+                    for (int i = 1; i < tocList.getAdapter().getCount() - 1; i++) {
+                        if (((Section) tocList.getAdapter().getItem(i)).getId() <= sectionID) {
+                            itemToSelect = i;
+                        } else {
+                            break;
+                        }
                     }
                 }
                 tocList.setItemChecked(itemToSelect, true);
@@ -138,7 +141,8 @@ class ToCHandler {
             }
         });
 
-        tocList.setAdapter(new ToCAdapter(page), wiki.languageCode());
+        tocList.setAdapter(new ToCAdapter(page));
+        setConditionalLayoutDirection(tocList, wiki.languageCode());
         tocList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -170,8 +174,8 @@ class ToCHandler {
 
     private void scrollToSection(Section section) {
         if (section != null) {
-            // is it the bottom (read more) section?
-            if (section.getId() == READ_MORE_SECTION_ID) {
+            // is it the bottom (about) section?
+            if (section.getId() == ABOUT_SECTION_ID) {
                 bridge.sendMessage("scrollToBottom", new JSONObject());
             } else {
                 scrollToSection(
@@ -194,11 +198,9 @@ class ToCHandler {
                     sections.add(s);
                 }
             }
-            if (page.couldHaveReadMoreSection()) {
-                // add a fake section at the end to represent the "read more" contents at the bottom:
-                sections.add(new Section(READ_MORE_SECTION_ID, 0,
-                        getStringForArticleLanguage(page.getTitle(), R.string.read_more_section), "", ""));
-            }
+            // add a fake section at the end to represent the "about this article" contents at the bottom:
+            sections.add(new Section(ABOUT_SECTION_ID, 0,
+                    getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), "", ""));
         }
 
         @Override

@@ -1,11 +1,9 @@
 package org.wikipedia.page.leadimages;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -43,6 +41,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.AppTextView;
 import org.wikipedia.views.FaceAndColorDetectImageView;
+import org.wikipedia.views.LinearLayoutOverWebView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
@@ -55,12 +54,11 @@ import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.L10nUtil.isLangRTL;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
-public class PageHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
+public class PageHeaderView extends LinearLayoutOverWebView implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_page_header_image) PageHeaderImageView image;
     @BindView(R.id.view_page_title_text) AppTextView titleText;
     @BindView(R.id.view_page_subtitle_text) AppTextView subtitleText;
     @BindView(R.id.view_page_header_divider) View divider;
-    @BindView(R.id.view_page_header_container) LinearLayout container;
     @BindView(R.id.view_page_header_edit_pencil) ImageView editPencil;
 
     @Nullable private Callback callback;
@@ -73,6 +71,7 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     @VisibleForTesting @NonNull final ClickableSpan descriptionClickSpan = new DescriptionClickableSpan();
 
     public interface Callback {
+        void onImageClicked();
         void onDescriptionClicked();
         void onEditDescription();
         void onEditLeadSection();
@@ -90,12 +89,6 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
 
     public PageHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public PageHeaderView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
 
@@ -209,6 +202,12 @@ public class PageHeaderView extends FrameLayout implements ObservableWebView.OnS
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         updateScroll(scrollY);
+    }
+
+    @OnClick(R.id.view_page_header_image) void onImageClick() {
+        if (callback != null) {
+            callback.onImageClicked();
+        }
     }
 
     @OnClick(R.id.view_page_header_edit_pencil) void onEditClick() {

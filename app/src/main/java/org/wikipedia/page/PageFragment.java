@@ -58,8 +58,8 @@ import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
+import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
-import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
@@ -93,7 +93,6 @@ import java.util.Date;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
-import static butterknife.ButterKnife.findById;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageActivity.ACTION_SHOW_TAB_LIST;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
@@ -156,6 +155,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private PageScrollFunnel pageScrollFunnel;
     private LeadImagesHandler leadImagesHandler;
+    private BottomContentView bottomContentView;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiPageErrorView errorView;
@@ -331,6 +331,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         });
 
+        bottomContentView = rootView.findViewById(R.id.page_bottom_view);
+
         PageActionToolbarHideHandler pageActionToolbarHideHandler
                 = new PageActionToolbarHideHandler(tabLayout, randomButton);
         pageActionToolbarHideHandler.setScrollView(webView);
@@ -406,8 +408,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler = new ToCHandler(this, tocDrawer, bridge);
 
         // TODO: initialize View references in onCreateView().
-        PageHeaderView pageHeaderView = findById(getView(), R.id.page_header_view);
-        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, pageHeaderView);
+        leadImagesHandler = new LeadImagesHandler(this, bridge, webView,
+                getView().findViewById(R.id.page_header_view));
+
+        bottomContentView.setup(this, bridge, webView);
 
         shareHandler = new ShareHandler(this, bridge);
         tabsProvider = new TabsProvider(this, tabList);
@@ -706,6 +710,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack, stagedScrollY);
+        bottomContentView.hide();
         updateBookmarkAndMenuOptions();
 
         if (entry.getSource() == HistoryEntry.SOURCE_RANDOM
@@ -914,6 +919,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         setupToC(model, pageFragmentLoadState.isFirstPage());
         editHandler.setPage(model.getPage());
         initPageScrollFunnel();
+        bottomContentView.setPage(model.getPage());
 
         // TODO: update this title in the db to be queued for saving by the service.
 
@@ -1406,7 +1412,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return getActivity().findViewById(R.id.tabs_container);
     }
 
-    private void startLangLinksActivity() {
+    public void startLangLinksActivity() {
         Intent langIntent = new Intent();
         langIntent.setClass(getActivity(), LangLinksActivity.class);
         langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
