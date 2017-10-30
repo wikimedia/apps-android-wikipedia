@@ -119,7 +119,9 @@ public class ShareHandler {
     }
 
     private void onEditHerePayload(int sectionID, String text) {
-        fragment.getEditHandler().startEditingSection(sectionID, text);
+        if (sectionID >= 0) {
+            fragment.getEditHandler().startEditingSection(sectionID, text);
+        }
     }
 
     private void showCopySnackbar() {

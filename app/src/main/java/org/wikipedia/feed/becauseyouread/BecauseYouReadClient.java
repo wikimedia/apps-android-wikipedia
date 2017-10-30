@@ -31,7 +31,7 @@ public class BecauseYouReadClient extends FullTextSearchClient implements FeedCl
     @Override public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
                                   @NonNull final FeedClient.Callback cb) {
         cancel();
-        readMoreTopicTask = new MainPageReadMoreTopicTask(context, age) {
+        readMoreTopicTask = new MainPageReadMoreTopicTask(age) {
             @Override public void onFinish(@Nullable HistoryEntry entry) {
                 if (entry == null) {
                     cb.error(new IOException("Error retrieving history entry for suggestions"));

@@ -19,11 +19,11 @@ bridge.registerListener( "setMargins", function( payload ) {
 });
 
 bridge.registerListener( "setPaddingTop", function( payload ) {
-    document.getElementById( "content" ).style.paddingTop = payload.paddingTop + "px";
+    document.body.style.paddingTop = payload.paddingTop + "px";
 });
 
 bridge.registerListener( "setPaddingBottom", function( payload ) {
-    document.getElementById( "content" ).style.paddingBottom = payload.paddingBottom + "px";
+    document.body.style.paddingBottom = payload.paddingBottom + "px";
 });
 
 bridge.registerListener( "beginNewPage", function( payload ) {
@@ -443,11 +443,16 @@ bridge.registerListener( "scrollToBottom", function () {
 });
 
 /**
- * Returns the section id of the section that has the header closest to but above midpoint of screen
+ * Returns the section id of the section that has the header closest to but above midpoint of screen,
+ * or -1 if the page is scrolled all the way to the bottom (i.e. native bottom content should be shown).
  */
 function getCurrentSection() {
     var sectionHeaders = document.getElementsByClassName( "section_heading" );
+    var bottomDiv = document.getElementById( "bottom_stopper" );
     var topCutoff = window.scrollY + ( document.documentElement.clientHeight / 2 );
+    if (topCutoff > bottomDiv.offsetTop) {
+        return -1;
+    }
     var curClosest = null;
     for ( var i = 0; i < sectionHeaders.length; i++ ) {
         var el = sectionHeaders[i];

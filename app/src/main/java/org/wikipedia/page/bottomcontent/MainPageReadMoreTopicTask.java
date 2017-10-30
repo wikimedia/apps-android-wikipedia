@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.RemoteException;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
@@ -18,15 +19,13 @@ import org.wikipedia.util.ContentProviderClientCompat;
  * We're looking at the last history entry that is not of source main page or random.
  */
 public class MainPageReadMoreTopicTask extends SaneAsyncTask<HistoryEntry> {
-    private final Context context;
     private int age;
 
-    public MainPageReadMoreTopicTask(Context context) {
-        this(context, 0);
+    public MainPageReadMoreTopicTask() {
+        this(0);
     }
 
-    public MainPageReadMoreTopicTask(Context context, int age) {
-        this.context = context;
+    public MainPageReadMoreTopicTask(int age) {
         this.age = age;
     }
 
@@ -46,6 +45,7 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<HistoryEntry> {
     }
 
     private Cursor getInterestedHistoryEntry() {
+        Context context = WikipediaApp.getInstance();
         ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context);
         try {
             Uri uri = PageHistoryContract.PageWithImage.URI;
