@@ -350,7 +350,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 new ReadingListTitleDialog.Callback() {
                     @Override
                     public void onSuccess(@NonNull CharSequence text) {
-                        ReadingList.DAO.renameAndSaveListInfo(readingList, text.toString());
+                        readingListTitle = text.toString();
+                        ReadingList.DAO.renameAndSaveListInfo(readingList, readingListTitle);
                         ReadingListSynchronizer.instance().bumpRevAndSync();
                         update();
                         funnel.logModifyList(readingList, readingLists.size());
