@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
@@ -41,9 +40,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     @BindView(R.id.next_year_layout) LinearLayout nextYearLayout;
     @BindView(R.id.more_events_layout) LinearLayout moreEventsLayout;
     @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
-    private WikiSite wiki;
-    private UtcDate date;
-    private OnThisDay onThisDay;
+    private int age;
 
     public OnThisDayCardView(@NonNull Context context) {
         super(context);
@@ -53,7 +50,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     }
 
     private void launchOnThisDayActivity() {
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), onThisDay, wiki, date));
+        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age));
     }
 
     private void initRecycler() {
@@ -118,9 +115,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
         yearLayout.setBackground(GradientUtil.getPowerGradient(R.color.base100, Gravity.TOP));
         nextYearLayout.setBackground(GradientUtil.getPowerGradient(R.color.base100, Gravity.BOTTOM));
         nextYearTextView.setText(DateUtil.yearToStringWithEra(card.nextYear()));
-        this.wiki = card.wiki();
-        this.onThisDay = card.onthisday();
-        this.date = card.date();
         header(header);
     }
 
@@ -132,6 +126,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     @Override
     public void setCard(@NonNull OnThisDayCard card) {
         super.setCard(card);
+        this.age = card.getAge();
         pagesRecycler.setAdapter(new RecyclerAdapter(card.pages(), card.wiki()));
         header(card);
     }
