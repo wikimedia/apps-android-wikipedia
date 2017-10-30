@@ -145,7 +145,7 @@ public class EditPreviewFragment extends Fragment {
         with the original Locale (from above)
          */
         if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
-            ConfigurationCompat.setLocale(config, oldLocale);
+            config.setLocale(oldLocale);
             new Resources(assets, metrics, config);
         }
 

@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.annotation.VisibleForTesting;
 import android.view.KeyEvent;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -16,11 +15,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.log.L;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +36,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String HEADER_CONTENT_ENCODING = "content-encoding";
-    private static final String CONTENT_TYPE_SVG = "image/svg+xml";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
 
     @NonNull public abstract WikiSite getWikiSite();
@@ -113,27 +108,5 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         }
 
         return inputStream;
-    }
-
-    /*
-    T107775
-    In API 18 and below, the system WebView does not perform correct rendering of SVG
-    files that specify dimensions with "ex" units. This code rewrites usages of "ex"
-    units with "em" before the SVG arrives at the WebView.
-    */
-    @VisibleForTesting
-    @NonNull
-    static InputStream transformSvgFile(@NonNull InputStream inputStream) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            if (line.contains("<svg")) {
-                line = line.replace("ex\"", "em\"").replace("ex;", "em;");
-            }
-            sb.append(line);
-        }
-        inputStream.close();
-        return new ByteArrayInputStream(sb.toString().getBytes());
     }
 }

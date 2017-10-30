@@ -336,7 +336,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         PageActionToolbarHideHandler pageActionToolbarHideHandler
                 = new PageActionToolbarHideHandler(tabLayout, randomButton);
         pageActionToolbarHideHandler.setScrollView(webView);
-        errorView = rootView.findViewById(R.id.page_error);
 
         return rootView;
     }

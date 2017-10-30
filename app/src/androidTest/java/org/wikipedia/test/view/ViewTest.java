@@ -34,7 +34,6 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
-import static org.wikipedia.util.ConfigurationCompat.setLocale;
 
 @RunWith(Theories.class) public abstract class ViewTest {
     @SuppressWarnings("WeakerAccess")
@@ -162,7 +161,7 @@ import static org.wikipedia.util.ConfigurationCompat.setLocale;
         Configuration cfg = new Configuration(ctx.getResources().getConfiguration());
         cfg.screenWidthDp = widthDp;
         cfg.fontScale = fontScale.multiplier();
-        setLocale(cfg, locale);
+        cfg.setLocale(locale);
     }
 
     // todo: identify method name by @Theory / @Test annotation instead of depth and remove repeated

@@ -28,7 +28,6 @@ import static java.util.Locale.TRADITIONAL_CHINESE;
 import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
-import static org.wikipedia.util.ConfigurationCompat.setLocale;
 
 /**
  * A collection of localization related methods.
@@ -161,7 +160,7 @@ public final class L10nUtil {
         Locale systemLocale = ConfigurationCompat.getLocale(config);
         setDesiredLocale(config, targetLocale);
         SparseArray<String> localizedStrings = getTargetStrings(strings, config);
-        setLocale(config, systemLocale);
+        config.setLocale(systemLocale);
         resetConfiguration(config);
         return localizedStrings;
     }
@@ -207,22 +206,22 @@ public final class L10nUtil {
         // And this might only happen in Chinese variant
 
         if (desiredLocale.getLanguage().equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-            setLocale(config, TRADITIONAL_CHINESE);
+            config.setLocale(TRADITIONAL_CHINESE);
         } else if (desiredLocale.getLanguage().equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
-            setLocale(config, SIMPLIFIED_CHINESE);
+            config.setLocale(SIMPLIFIED_CHINESE);
         } else if (desiredLocale.getLanguage().equals(CHINESE_LANGUAGE_CODE)) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
             String appLanguageCode = WikipediaApp.getInstance().getAppLanguageCode();
             if (appLanguageCode.equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-                setLocale(config, TRADITIONAL_CHINESE);
+                config.setLocale(TRADITIONAL_CHINESE);
             } else if (appLanguageCode.equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
-                setLocale(config, SIMPLIFIED_CHINESE);
+                config.setLocale(SIMPLIFIED_CHINESE);
             } else {
-                setLocale(config, desiredLocale);
+                config.setLocale(desiredLocale);
             }
         } else {
-            setLocale(config, desiredLocale);
+            config.setLocale(desiredLocale);
         }
     }
 

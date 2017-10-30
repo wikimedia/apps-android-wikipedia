@@ -117,10 +117,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    @Override public boolean isDestroyed() {
-        return super.isDestroyed();
-    }
-
     protected void setTheme() {
         setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
     }
