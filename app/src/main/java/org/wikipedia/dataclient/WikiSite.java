@@ -70,7 +70,7 @@ public class WikiSite implements Parcelable {
     public WikiSite(@NonNull Uri uri) {
         Uri tempUri = ensureScheme(uri);
         String langVariant = UriUtil.getLanguageVariantFromUri(tempUri);
-        if (!TextUtils.isEmpty(langVariant) && !langVariant.equals("wiki")) {
+        if (!TextUtils.isEmpty(langVariant)) {
             languageCode = langVariant;
         } else {
             languageCode = authorityToLanguageCode(tempUri.getAuthority());
