@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Bernd Sitzmann, Brion Vibber, Dan Garry, Dmitry Brant, Elena Tonkovidova, Kaity Hammerstein, Kenan Wang, Maryana Pinchuk, Matanya Moses, Max Semenik, Michael Holloway, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Rita Ho, Rummana Yasmeen, Stephen Niedzielski, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
+    <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Anthony Borba, Bernd Sitzmann, Brion Vibber, Cooltey Feng, Dan Garry, Dmitry Brant, Elena Tonkovidova, Kaity Hammerstein, Kenan Wang, Maryana Pinchuk, Matanya Moses, Max Semenik, Michael Holloway, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Rita Ho, Rummana Yasmeen, Sharvani Haran, Stephen Niedzielski, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
     <string name="libraries_list"><a href="https://jakewharton.github.io/butterknife/">ButterKnife</a>
         <!-- https://raw.githubusercontent.com/JakeWharton/butterknife/master/LICENSE.txt -->
         (<a href="content:///android_asset/licenses/ButterKnife">license</a>),
