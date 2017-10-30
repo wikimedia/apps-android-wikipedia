@@ -493,4 +493,15 @@
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
+  <string name="all_trending_text">כל הערכים המובילים ב־%1$s</string>
+  <string name="top_on_this_day">מובילים ב{{GRAMMAR:תחילית|%1$s}}</string>
+  <string name="on_this_day_card_title">ביום הזה</string>
+  <string name="more_events_text">אירועים היסטוריים נוספים שהתרחשו ביום הזה</string>
+  <string name="events_count_text">%1$s אירועים מ{{GRAMMAR:תחילית|%2$s}} - %3$d</string>
+  <string name="on_this_day">ביום הזה</string>
+  <string name="this_year">בשנה הזאת</string>
+  <plurals name="diff_years">
+    <item quantity="one">שנה שעברה</item>
+    <item quantity="other">שנתיים</item>
+  </plurals>
 </resources>

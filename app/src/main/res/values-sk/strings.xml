@@ -430,6 +430,7 @@
   <string name="offline_compilation_detail_button_download">Prevziať · %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Odstrániť</string>
   <string name="remote_compilation_download">Download</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">Voľných %.2f GB</string>
   <string name="storage_used_by_compilations" fuzzy="true">použitých Wikipédiou</string>
   <string name="storage_other_apps">Ostatné aplikácie</string>
@@ -472,6 +473,7 @@
   <string name="onboarding_create_account_sync">Synchronizovať Vaše zoznamy na prečítanie</string>
   <string name="onboarding_create_account_contributions">Majte prehľad o svojich úpravách</string>
   <string name="onboarding_create_account_preferences">Uložte svoje nastavenia</string>
+  <string name="app_shortcuts_random">Náhodný článok</string>
   <string name="all_trending_text">Všetky trendové články na %1$s</string>
   <string name="top_on_this_day" fuzzy="true">Najlepšie na %1$s</string>
 </resources>

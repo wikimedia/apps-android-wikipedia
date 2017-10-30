@@ -258,7 +258,11 @@
   <string name="error_page_does_not_exist">La pàgina no existeix</string>
   <string name="view_wiki_error_message_offline">No es pot connectar a Internet</string>
   <string name="reference_title">Referència %s</string>
+  <string name="preference_title_dim_dark_mode_images">Atenua les imatges en el tema fosc</string>
+  <string name="preference_summary_dim_dark_mode_images">Redueix la brillantor de les imatges en utilitzar el tema fosc</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuació d\'imatges (en el tema fosc)</string>
   <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
+  <string name="preference_summary_prefer_offline_content">Estalvia ús de dades carregant articles que són disponibles fora de línia en comptes de carregar la darrera versió de l\'article</string>
   <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
   <string name="crash_report_dialog_text">Voleu enviar d\'un informe d\'errors a HockeyApp / un proveïdor de serveis extern de manera que Wikimedia pugui revisar l\'error i corregir-ne la causa?</string>
   <string name="crash_report_dialog_dont_send_button">Omet</string>
@@ -305,6 +309,7 @@
   <string name="reading_list_menu_edit_description">Modifica la descripció</string>
   <string name="reading_list_action_menu_remove_from_offline">Suprimeix del fora de línia</string>
   <string name="reading_list_action_menu_save_for_offline">Desa per a fora de línia</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Elimina-ho tot de fora de línia</string>
   <string name="reading_list_action_menu_save_all_for_offline">Desa-ho tot per a fora de línia</string>
   <string name="reading_list_action_menu_add_to_another_list">Afegeix a una altra llista</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
@@ -336,9 +341,12 @@
   <string name="reading_list_sync_reminder_text">Les llistes de lectura poden sincronitzar-se amb el vostre compte de la Viquipèdia si ho permeteu en els paràmetres de l\'aplicació.</string>
   <string name="reading_list_sync_reminder_action">Activa</string>
   <string name="reading_list_login_reminder_title">Sincronitza les llistes de lectura</string>
+  <string name="reading_list_login_reminder_text">Les vostres llistes de lectura poden ara desar-se en el compte de Viquipèdia. Nomes cal que inicieu una sessió al vostre compte i les llistes de lectura se sincronitzaran automàticament.</string>
+  <string name="reading_lists_confirm_remote_delete">Això suprimirà qualsevol llista de lectura que s\'hagi sincronitzat prèviament a l\'emmagatzematge remot. Voleu procedir?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
+  <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
   <string name="reading_list_added_articles_list_untitled">S\'han afegit %d articles a la llista de lectura.</string>
   <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
   <plurals name="reading_list_article_offline_message">
@@ -361,6 +369,7 @@
   <string name="view_because_you_read_card_title">Com has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>
   <string name="view_random_card_subtitle">Llegiu un article a l\'atzar de la Viquipèdia</string>
+  <string name="view_next_random_article">Carrega un altre article a l\'atzar</string>
   <string name="view_main_page_card_title">Avui a la Viquipèdia</string>
   <string name="view_main_page_card_subtitle">Pàgina principal a %s</string>
   <string name="view_featured_image_card_title">Foto del dia</string>
@@ -409,6 +418,7 @@
   <string name="description_edit_help_about_title">Quant a</string>
   <string name="description_edit_help_description">Les descripcions del títol d\'un article ajuden als lectors a entendre la temàtica d\'un cop d\'ull</string>
   <string name="description_edit_help_tips">Consells per a crear descripcions</string>
+  <string name="description_edit_help_tips_description">Les descripcions idealment haurien de cabre en una línia i tenir entre dues i dotze paraules. No es posen en majúscules a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_edit_help_tips_examples">Per exemple:</string>
   <string name="description_edit_help_tips_example1">quadre de Leonardo da Vinci</string>
   <string name="description_edit_help_tips_example1_hint">descripció de títol d\'un article sobre la Mona Lisa</string>
@@ -416,8 +426,11 @@
   <string name="description_edit_help_tips_example2_hint">descripció d\'un títol d\'un article sobre l\'Everest</string>
   <string name="description_edit_help_more_info">Més informació</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
+  <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">la contribució sembla un experiment o vandalisme.</string>
   <string name="description_edit_revert_history">Si hi esteu interessat, consulteu l\'&lt;a href=\"%1$s\"&gt;historial de modificacions&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Sense connexió a Internet. Assegureu-vos que torneu a estar en línia i torneu-ho a provar.</string>
+  <string name="offline_read_permission_rationale">Cal permís per accedir a l\'emmagatzematge del vostre dispositiu per a navegar fora de línia.</string>
   <string name="offline_read_permission_error">No s\'han atorgat permisos per a llegir des del dispositiu d\'emmagatzematge.</string>
   <string name="offline_card_text">Esteu navegant per la Viquipèdia en mode fora de línia amb articles de la vostra biblioteca fora de línia.</string>
   <string name="offline_my_compilations">Gestiona la meva biblioteca fora de línia</string>
@@ -430,6 +443,7 @@
   <string name="offline_compilation_detail_button_download">Baixada • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Suprimeix</string>
   <string name="remote_compilation_download">Baixa</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB lliures</string>
   <string name="storage_used_by_compilations">utilitzat per la biblioteca fora de línia</string>
   <string name="storage_other_apps">Altres aplicacions</string>
@@ -443,13 +457,18 @@
   <string name="compilation_download_cancel_confirm_yes">Sí</string>
   <string name="compilation_download_cancel_confirm_no">No</string>
   <string name="compilation_share">Comparteix</string>
+  <string name="compilation_remove">Elimina</string>
+  <string name="compilation_remove_confirm">Voleu suprimir-lo de la vostra biblioteca fora de línia?</string>
   <string name="offline_library_title">Biblioteca sense connexió</string>
   <string name="offline_library_empty_title">No hi ha res dins la biblioteca sense connexió</string>
+  <string name="offline_library_empty_description">Trieu un paquet d\'articles de la Viquipèdia per baixar ara, per tal d\'accedir-hi lliurement més endavant.</string>
   <string name="offline_library_empty_search">Cerca a la biblioteca fora de línia</string>
   <string name="offline_library_search_results_state">Cerqueu resultats a la vostra biblioteca fora de línia</string>
   <string name="offline_library_onboarding_action">Més informació</string>
+  <string name="offline_library_onboarding_text">Presentació de la biblioteca fora de línia — baixeu ara paquets d\'articles fora de línia per a llegir-los més endavant.</string>
   <string name="offline_library_onboarding_button_done">Fet</string>
   <string name="offline_library_onboarding_build_library_title">Construïu la vostra biblioteca fora de línia</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Baixeu ara paquets d\'articles de la Viquipèdia per a un accés sense de dades més endavant.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Lectura sense interrupcions</string>
   <string name="offline_library_onboarding_store_knowledge_title">Emmagatzema més coneixement</string>
   <string name="onboarding_skip">Omet</string>
@@ -466,4 +485,15 @@
   <string name="app_shortcuts_random">A l\'atzar</string>
   <string name="app_shortcuts_continue_reading">Continua llegint</string>
   <string name="app_shortcuts_search">Cerca</string>
+  <string name="all_trending_text">Tots els articles en tendència el %1$s</string>
+  <string name="top_on_this_day">Tendència el %1$s</string>
+  <string name="on_this_day_card_title">Un dia com avui</string>
+  <string name="more_events_text">Més esdeveniments històrics un dia com avui</string>
+  <string name="events_count_text">%1$s esdeveniments des de %2$s - %3$d</string>
+  <string name="on_this_day">Un dia com avui</string>
+  <string name="this_year">Enguany</string>
+  <plurals name="diff_years">
+    <item quantity="one">El darrer any</item>
+    <item quantity="other">Fa %d anys</item>
+  </plurals>
 </resources>

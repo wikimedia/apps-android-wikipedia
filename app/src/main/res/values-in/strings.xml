@@ -369,6 +369,7 @@
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_random_card_subtitle">Baca sembarang artikel dari Wikipedia</string>
+  <string name="view_next_random_article">Muat artikel sembarang lainnya</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
   <string name="view_main_page_card_subtitle">Halaman utama pada %s</string>
   <string name="view_featured_image_card_title">Gambar pilihan</string>
@@ -492,4 +493,15 @@
   <string name="app_shortcuts_random">Sembarang</string>
   <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
+  <string name="all_trending_text">Semua artikel yang sedang tren pada %1$s</string>
+  <string name="top_on_this_day">Sedang tren pada %1$s</string>
+  <string name="on_this_day_card_title">Hari ini dalam sejarah</string>
+  <string name="more_events_text">Peristiwa bersejarah lainnya pada hari ini</string>
+  <string name="events_count_text">%1$s peristiwa dari %2$s - %3$d</string>
+  <string name="on_this_day">Hari ini dalam sejarah</string>
+  <string name="this_year">Tahun ini</string>
+  <plurals name="diff_years">
+    <item quantity="one">Tahun lalu</item>
+    <item quantity="other">%d tahun yang lalu</item>
+  </plurals>
 </resources>

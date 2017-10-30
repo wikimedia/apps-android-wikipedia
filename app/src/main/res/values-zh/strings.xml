@@ -494,5 +494,14 @@
   <string name="app_shortcuts_continue_reading">继续阅读</string>
   <string name="app_shortcuts_search">搜索</string>
   <string name="all_trending_text">在%1$s的所有趋势条目</string>
-  <string name="top_on_this_day" fuzzy="true">%1$s上的最热门话题</string>
+  <string name="top_on_this_day">%1$s上的趋势</string>
+  <string name="on_this_day_card_title">历史上的今天</string>
+  <string name="more_events_text">这一天的更多历史事件</string>
+  <string name="events_count_text">在%2$s~%3$d年间的%1$s次事件</string>
+  <string name="on_this_day">历史上的今天</string>
+  <string name="this_year">今年</string>
+  <plurals name="diff_years">
+    <item quantity="one">去年</item>
+    <item quantity="other">%d年前</item>
+  </plurals>
 </resources>
