@@ -139,7 +139,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginBottom="6dp"
                     android:elevation="4dp"
-                    android:background="@drawable/button_shape_highlight_transparent"/>
+                    android:background="?attr/button_highlight_border_shape"/>
 
             </FrameLayout>
 
@@ -165,7 +165,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginBottom="6dp"
                     android:elevation="4dp"
-                    android:background="@drawable/button_shape_highlight_transparent"/>
+                    android:background="?attr/button_highlight_border_shape"/>
 
             </FrameLayout>
 
