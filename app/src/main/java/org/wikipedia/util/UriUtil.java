@@ -151,10 +151,14 @@ public final class UriUtil {
         return removeFragment(removeLinkPrefix(url)).replace("_", " ");
     }
 
-    /** Get language variant code from a Uri, especially for the zh variants, will get "wiki" or "zh-*" */
+    /** Get language variant code from a Uri, e.g. "zh-*", otherwise returns empty string. */
     @NonNull
     public static String getLanguageVariantFromUri(@NonNull Uri uri) {
-        return StringUtils.defaultString(uri.getPath()).replaceAll("^/|/.*", "");
+        if (TextUtils.isEmpty(uri.getPath())) {
+            return "";
+        }
+        String[] parts = StringUtils.split(StringUtils.defaultString(uri.getPath()), '/');
+        return parts.length > 1 && !parts[0].equals("wiki") ? parts[0] : "";
     }
 
     /** For internal links only */
