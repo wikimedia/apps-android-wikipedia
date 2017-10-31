@@ -6,8 +6,8 @@ import org.wikipedia.R;
 import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.offline.OfflineManager;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
-import org.wikipedia.util.ReleaseUtil;
 
 public class OfflineOnboardingCard extends OnboardingCard {
     public OfflineOnboardingCard(@NonNull Announcement announcement) {
@@ -19,8 +19,7 @@ public class OfflineOnboardingCard extends OnboardingCard {
     }
 
     public boolean shouldShow() {
-        // TODO: remove pre-beta flag when ready.
-        return super.shouldShow() && ReleaseUtil.isPreBetaRelease() && DeviceUtil.isOnline() && !OfflineManager.hasCompilation();
+        return super.shouldShow() && Prefs.offlineLibraryEnabled() && DeviceUtil.isOnline() && !OfflineManager.hasCompilation();
     }
 
     @Override public int prefKey() {

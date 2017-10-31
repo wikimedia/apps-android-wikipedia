@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.settings.Prefs;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -93,8 +93,7 @@ public class ExploreOverflowView extends FrameLayout {
         inflate(getContext(), R.layout.view_explore_overflow, this);
         ButterKnife.bind(this);
 
-        // TODO: remove when ready
-        if (!ReleaseUtil.isPreBetaRelease()) {
+        if (!Prefs.offlineLibraryEnabled()) {
             compilationsView.setVisibility(GONE);
         }
 

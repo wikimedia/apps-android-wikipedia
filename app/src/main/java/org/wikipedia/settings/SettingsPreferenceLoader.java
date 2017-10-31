@@ -12,9 +12,11 @@ import android.support.v7.preference.SwitchPreferenceCompat;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.StringUtil;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -43,10 +45,15 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         }
 
         findPreference(R.string.preference_key_sync_reading_lists)
-                .setOnPreferenceChangeListener(new SyncReadingListsListener(getActivity()));
+                .setOnPreferenceChangeListener(new SyncReadingListsListener());
+
+        findPreference(R.string.preference_key_enable_offline_library)
+                .setOnPreferenceChangeListener(new OfflineLibraryEnableListener());
+        findPreference(R.string.preference_key_enable_offline_library)
+                .setSummary(StringUtil.fromHtml(getPreferenceHost().getString(R.string.preference_summary_enable_offline_library)));
 
         findPreference(R.string.preference_key_color_theme)
-                .setOnPreferenceChangeListener(new ThemeChangeListener(getActivity()));
+                .setOnPreferenceChangeListener(new ThemeChangeListener());
 
         loadPreferences(R.xml.preferences_about);
 
@@ -121,13 +128,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         }
     }
 
-    private static final class SyncReadingListsListener implements Preference.OnPreferenceChangeListener {
-        private Context context;
-
-        private SyncReadingListsListener(Context context) {
-            this.context = context;
-        }
-
+    private final class SyncReadingListsListener implements Preference.OnPreferenceChangeListener {
         @Override public boolean onPreferenceChange(final Preference preference, Object newValue) {
             final ReadingListSynchronizer synchronizer = ReadingListSynchronizer.instance();
             if (newValue == Boolean.TRUE) {
@@ -135,7 +136,7 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
                 Prefs.setReadingListSyncEnabled(true);
                 synchronizer.sync();
             } else {
-                new AlertDialog.Builder(context)
+                new AlertDialog.Builder(getActivity())
                         .setMessage(R.string.reading_lists_confirm_remote_delete)
                         .setPositiveButton(R.string.reading_lists_confirm_remote_delete_yes, new DeleteRemoteListsYesListener(preference, synchronizer))
                         .setNegativeButton(R.string.reading_lists_confirm_remote_delete_no, new DeleteRemoteListsNoListener(preference))
@@ -147,19 +148,22 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
     }
 
     private final class ThemeChangeListener implements Preference.OnPreferenceChangeListener {
-        private Context context;
-
-        private ThemeChangeListener(Context context) {
-            this.context = context;
-        }
-
         @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
             Theme theme = Theme.ofMarshallingId((Integer) newValue);
             WikipediaApp.getInstance().setCurrentTheme(theme);
-            setDimImagesPrefEnabled(context, theme);
+            setDimImagesPrefEnabled(getActivity(), theme);
             // The setCurrentTheme call updates the nonvolatile Preference state and updates the UI
             // accordingly. Return false since the pref state is already updated by the method call.
             return false;
+        }
+    }
+
+    private final class OfflineLibraryEnableListener implements Preference.OnPreferenceChangeListener {
+        @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
+            if (((Boolean) newValue)) {
+                ((BaseActivity) getActivity()).searchOfflineCompilationsWithPermission(true);
+            }
+            return true;
         }
     }
 

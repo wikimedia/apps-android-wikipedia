@@ -18,4 +18,9 @@ public class SettingsActivity extends SingleFragmentActivity<SettingsFragment> {
     public SettingsFragment createFragment() {
         return SettingsFragment.newInstance();
     }
+
+    @Override
+    protected void onOfflineCompilationsError(Throwable t) {
+        getFragment().updateOfflineLibraryPref(false);
+    }
 }

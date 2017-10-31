@@ -14,6 +14,10 @@ import android.support.v7.preference.PreferenceFragmentCompat;
         preferenceHost = fragment;
     }
 
+    protected PreferenceFragmentCompat getPreferenceHost() {
+        return preferenceHost;
+    }
+
     protected Preference findPreference(@StringRes int key) {
         return findPreference(getKey(key));
     }
