@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.SpannedString;
 import android.text.TextUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -112,11 +113,16 @@ public final class StringUtil {
                 .trim();
     }
 
-    /** Fix Html.fromHtml is deprecated problem
-     * @param source provided Html string
-     * @return returned Spanned of appropriate method according to version check
-     * */
+    /**
+     * @param source String that may contain HTML tags.
+     * @return returned Spanned string that may contain spans parsed from the HTML source.
+     */
     @NonNull public static Spanned fromHtml(@NonNull String source) {
+        if (!source.contains("<")) {
+            // If the string doesn't contain any hints of HTML tags, then skip the expensive
+            // processing that fromHtml() performs.
+            return new SpannedString(source);
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
         } else {
