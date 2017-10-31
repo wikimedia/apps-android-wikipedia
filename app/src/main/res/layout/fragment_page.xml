@@ -38,7 +38,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_gravity="bottom"/>
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="-320dp"/>
 
                 <org.wikipedia.views.WikiPageErrorView
                     android:id="@+id/page_error"
