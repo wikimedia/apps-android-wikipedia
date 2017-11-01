@@ -33,45 +33,77 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
 
-            <android.support.v7.widget.CardView
+            <LinearLayout
                 android:id="@+id/compilation_list_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="?attr/paper_color">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="?attr/paper_color">
 
-                    <TextView
-                        android:id="@+id/compilations_count_text"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:textSize="16sp"
-                        android:textColor="?attr/primary_text_color"
-                        android:text="@string/offline_compilations_found_count"/>
+                        android:orientation="vertical">
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/compilation_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/compilations_count_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:textSize="16sp"
+                            android:textColor="?attr/primary_text_color"
+                            android:text="@string/offline_compilations_found_count"/>
 
-                    <TextView
-                        android:id="@+id/compilations_add_button"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="4dp"
-                        android:text="@string/offline_compilations_add"
-                        android:textColor="?attr/colorAccent" />
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/compilation_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-                </LinearLayout>
+                        <!-- Unhide when ready to allow downloading of packs. -->
+                        <TextView
+                            android:id="@+id/compilations_add_button"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:text="@string/offline_compilations_add"
+                            android:textColor="?attr/colorAccent"
+                            android:visibility="gone"/>
 
-            </android.support.v7.widget.CardView>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/compilation_packs_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    style="@style/MaterialMediumSecondaryCaption"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="4sp"
+                    android:text="@string/offline_library_packs_hint"/>
+
+                <TextView
+                    android:id="@+id/compilation_data_usage_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    style="@style/MaterialMediumSecondaryCaption"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="4sp"
+                    android:text="@string/offline_library_data_usage_hint"/>
+
+            </LinearLayout>
 
             <org.wikipedia.views.WikiErrorView
                 android:id="@+id/compilation_search_error"
@@ -101,19 +133,21 @@
                 android:layout_height="96dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                app:srcCompat="@drawable/ic_empty_offlinelibrary"
+                app:srcCompat="@drawable/ic_empty_sideloading_offlinelibrary"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@null"/>
 
             <TextView
+                android:id="@+id/compilation_empty_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:gravity="center"
                 style="@style/MaterialMediumSecondaryCaption"
-                android:text="@string/offline_library_empty_description"/>
+                android:text="@string/offline_library_empty_description_sideload"/>
 
+            <!-- Unhide when ready to allow downloading of packs. -->
             <TextView
                 android:id="@+id/compilation_empty_search_button"
                 style="@style/App.Button.Blue"
@@ -121,7 +155,8 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/offline_library_empty_search"
                 android:layout_marginLeft="0dp"
-                android:layout_marginRight="0dp"/>
+                android:layout_marginRight="0dp"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

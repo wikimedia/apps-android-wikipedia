@@ -496,7 +496,7 @@
     <string name="offline_my_compilations">Manage my offline library</string>
     <string name="offline_compilations_title">Offline Library</string>
     <string name="offline_compilations_search_by_name">Search article packs by name</string>
-    <string name="offline_compilations_found_count">In my library (%d)</string>
+    <string name="offline_compilations_found_count">In my Offline Library (%d)</string>
     <string name="offline_compilations_add">Add to my Offline Library</string>
     <string name="remote_compilations_title">Offline Library</string>
     <string name="remote_compilations_description">With the Offline Library, you can now download packs of articles for reading when you have no internet connection available.</string>
@@ -523,6 +523,9 @@
     <string name="offline_library_title">Offline Library</string>
     <string name="offline_library_empty_title">Nothing in your Offline Library</string>
     <string name="offline_library_empty_description">Choose a pack of Wikipedia articles to download now, for data-free access later.</string>
+    <string name="offline_library_empty_description_sideload"><![CDATA[“Article packs” in your Offline library are pre-packaged sets of articles for convenient storage on your device, so you can continue reading when offline.<br /><a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support">Find out more</a>]]></string>
+    <string name="offline_library_packs_hint"><![CDATA[Article packs in your library remain available for reading when you are offline. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support">Find out more</a>]]></string>
+    <string name="offline_library_data_usage_hint"><![CDATA[Want to save on data usage? Choose to “Prefer offline content” in Settings to show available offline articles first, even when you have connectivity. <a href="#settings">Go to Settings</a>]]></string>
     <string name="offline_library_empty_search">Search Offline Library</string>
     <string name="offline_library_search_results_state">Search results from your Offline Library</string>
     <string name="offline_library_onboarding_action">Find out more</string>

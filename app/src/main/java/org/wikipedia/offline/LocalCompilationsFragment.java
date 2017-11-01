@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,9 +21,14 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.page.LinkMovementMethodExt;
+import org.wikipedia.richtext.RichTextUtil;
+import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
@@ -49,6 +55,9 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     @BindView(R.id.disk_usage_view) DiskUsageView diskUsageView;
     @BindView(R.id.compilation_search_error) WikiErrorView errorView;
     @BindView(R.id.compilation_empty_container) View emptyContainer;
+    @BindView(R.id.compilation_empty_description) TextView emptyDescription;
+    @BindView(R.id.compilation_packs_hint) TextView packsHint;
+    @BindView(R.id.compilation_data_usage_hint) TextView dataUsageHint;
     private Unbinder unbinder;
 
     private boolean updating;
@@ -87,6 +96,22 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
             }
         });
 
+        emptyDescription.setMovementMethod(LinkMovementMethod.getInstance());
+        emptyDescription.setText(StringUtil.fromHtml(getString(R.string.offline_library_empty_description_sideload)));
+        RichTextUtil.removeUnderlinesFromLinks(emptyDescription);
+        packsHint.setMovementMethod(LinkMovementMethod.getInstance());
+        packsHint.setText(StringUtil.fromHtml(getString(R.string.offline_library_packs_hint)));
+        RichTextUtil.removeUnderlinesFromLinks(packsHint);
+        dataUsageHint.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
+            @Override
+            public void onUrlClick(@NonNull String url, @Nullable String titleString) {
+                if (url.equals(UriUtil.LOCAL_URL_SETTINGS)) {
+                    startActivity(SettingsActivity.newIntent(getContext()));
+                }
+            }
+        }));
+        dataUsageHint.setText(StringUtil.fromHtml(getString(R.string.offline_library_data_usage_hint)));
+        RichTextUtil.removeUnderlinesFromLinks(dataUsageHint);
         return view;
     }
 
