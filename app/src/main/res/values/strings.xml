@@ -402,6 +402,13 @@
     <string name="notification_reverted"><![CDATA[Your edit to the article <strong>%2$s</strong> was reverted by <em>%1$s</em>.]]></string>
     <string name="notification_thanks_title">You\'ve been thanked!</string>
     <string name="notification_thanks"><![CDATA[<em>%1$s</em> thanked you for your edit on the page <strong>%2$s</strong>]]></string>
+    <string name="notification_channel_name">Syncing</string>
+    <string name="notification_channel_description">Syncing progress</string>
+    <string name="notification_syncing_title">Syncing %1$d articles&#8230;</string>
+    <string name="notification_syncing_description">%1$d articles left</string>
+    <string name="notification_syncing_pause_button">PAUSE</string>
+    <string name="notification_syncing_resume_button">RESUME</string>
+    <string name="notification_syncing_cancel_button">CANCEL</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->
@@ -575,4 +582,6 @@
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>
     </plurals>
+    <!-- /On This Day -->
+
 </resources>

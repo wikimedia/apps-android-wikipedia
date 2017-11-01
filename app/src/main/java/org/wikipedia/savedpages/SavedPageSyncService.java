@@ -54,6 +54,9 @@ import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 public class SavedPageSyncService extends JobIntentService {
     // Unique job ID for this service (do not duplicate).
     private static final int JOB_ID = 1000;
+    private static final String RESUME_OR_PAUSE_SYNCING = "RESUME_OR_PAUSE_SYNCING";
+    private static final String CANCEL_SYNCING = "CANCEL_SYNCING";
+    private static final String SHOW_NOTIFICATION_WHEN_SYNCING = "SHOW_NOTIFICATION_WHEN_SYNCING";
 
     @NonNull private ReadingListPageDao dao;
     @NonNull private final CacheDelegate cacheDelegate = new CacheDelegate(SAVE_CACHE);
@@ -61,19 +64,57 @@ public class SavedPageSyncService extends JobIntentService {
             = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
     private long blockSize;
 
+    private SavedPageSyncNotification savedPageSyncNotification;
+
     public SavedPageSyncService() {
         dao = ReadingListPageDao.instance();
         blockSize = FileUtil.blockSize(cacheDelegate.diskLruCache().getDirectory());
+        savedPageSyncNotification = SavedPageSyncNotification.getInstance();
     }
 
-    public static void enqueueService(@NonNull Context context) {
-        enqueueWork(context, SavedPageSyncService.class, JOB_ID,
-                new Intent(context, SavedPageSyncService.class));
+
+    public static void enqueueService(@NonNull Context context, @NonNull boolean showNotification) {
+        Intent intent = new Intent(context, SavedPageSyncService.class);
+        intent.putExtra(RESUME_OR_PAUSE_SYNCING, false);
+        intent.putExtra(CANCEL_SYNCING, false);
+        intent.putExtra(SHOW_NOTIFICATION_WHEN_SYNCING, showNotification);
+        enqueueWork(context, SavedPageSyncService.class, JOB_ID, intent);
+    }
+
+    public static void resumeService(@NonNull Context context) {
+        Intent intent = new Intent(context, SavedPageSyncService.class);
+        intent.putExtra(RESUME_OR_PAUSE_SYNCING, true);
+        intent.putExtra(CANCEL_SYNCING, false);
+        intent.putExtra(SHOW_NOTIFICATION_WHEN_SYNCING, true);
+        enqueueWork(context, SavedPageSyncService.class, JOB_ID, intent);
+    }
+
+    public static void cancelService(@NonNull Context context) {
+        Intent intent = new Intent(context, SavedPageSyncService.class);
+        intent.putExtra(RESUME_OR_PAUSE_SYNCING, false);
+        intent.putExtra(CANCEL_SYNCING, true);
+        intent.putExtra(SHOW_NOTIFICATION_WHEN_SYNCING, true);
+        enqueueWork(context, SavedPageSyncService.class, JOB_ID, intent);
     }
 
     @Override protected void onHandleWork(@NonNull Intent intent) {
+        savedPageSyncNotification.setVisible(intent.getBooleanExtra(SHOW_NOTIFICATION_WHEN_SYNCING, false));
+        if (!intent.getBooleanExtra(CANCEL_SYNCING, false)) {
+            setupSyncEvent(intent.getBooleanExtra(RESUME_OR_PAUSE_SYNCING, false));
+        } else {
+            setupCancelSyncEvent();
+        }
+    }
+
+    private void setupSyncEvent(boolean resumeTransaction) {
         List<ReadingListPageDiskRow> queue = new ArrayList<>();
-        Collection<ReadingListPageDiskRow> rows = dao.startDiskTransaction();
+        Collection<ReadingListPageDiskRow> rows;
+
+        if (!resumeTransaction) {
+            rows = dao.startDiskTransaction();
+        } else {
+            rows = dao.startPausedDiskTransaction();
+        }
 
         for (ReadingListPageDiskRow row : rows) {
             switch (row.status()) {
@@ -94,7 +135,23 @@ public class SavedPageSyncService extends JobIntentService {
                             + row.status().name());
             }
         }
+
+        savedPageSyncNotification.setQueueSize(queue.size());
         saveNewEntries(queue);
+    }
+
+    private void setupCancelSyncEvent() {
+        Collection<ReadingListPageDiskRow> rows = dao.collectPausedDiskTransactions();
+
+        // not sure this is a better way to "actually" delete the cache and turn the status into ONLINE rather than just change the disk status
+        for (ReadingListPageDiskRow row : rows) {
+            ReadingListPage tempPage = ReadingListPage.fromDiskRow(row);
+            if (tempPage != null) {
+                ReadingListData.instance().setPageOffline(tempPage, false);
+            }
+        }
+
+        savedPageSyncNotification.clearAll();
     }
 
     private void sendSyncEvent() {
@@ -102,6 +159,9 @@ public class SavedPageSyncService extends JobIntentService {
         // received on the main thread.
         WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
     }
+
+
+
 
     private void deleteRow(@NonNull ReadingListPageDiskRow row) {
         ReadingListPageRow dat = row.dat();
@@ -139,7 +199,8 @@ public class SavedPageSyncService extends JobIntentService {
 
     private void saveNewEntries(List<ReadingListPageDiskRow> queue) {
         sendSyncEvent();
-        while (!queue.isEmpty()) {
+        savedPageSyncNotification.show(true);
+        while (!queue.isEmpty() && !savedPageSyncNotification.isSyncCanceled() && !savedPageSyncNotification.isSyncPaused()) {
 
             // Pick off the DB row that we'll be working on...
             ReadingListPageDiskRow tempRow = queue.remove(0);
@@ -190,6 +251,7 @@ public class SavedPageSyncService extends JobIntentService {
             if (success) {
                 dao.completeDiskTransaction(updatedRow);
                 sendSyncEvent();
+                savedPageSyncNotification.show(false);
             } else {
                 dao.failDiskTransaction(updatedRow);
             }

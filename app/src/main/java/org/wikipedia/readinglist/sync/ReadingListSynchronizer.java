@@ -39,6 +39,7 @@ import static org.wikipedia.settings.Prefs.isReadingListsRemoteDeletePending;
 public class ReadingListSynchronizer {
     private static final String READING_LISTS_SYNC_OPTION = "userjs-reading-lists-v1";
     private static final ReadingListSynchronizer INSTANCE = new ReadingListSynchronizer();
+    private boolean showNotification = false;
 
     private final Handler syncHandler = new Handler(WikipediaApp.getInstance().getMainLooper());
     private final SyncRunnable syncRunnable = new SyncRunnable();
@@ -56,31 +57,38 @@ public class ReadingListSynchronizer {
         syncHandler.postDelayed(syncRunnable, TimeUnit.SECONDS.toMillis(1));
     }
 
+    public void sync(@NonNull boolean showNotification) {
+        this.showNotification = showNotification;
+        sync();
+    }
+
     public void sync() {
         if (!ReleaseUtil.isPreBetaRelease()  // TODO: remove when ready for beta/production
                 || !AccountUtil.isLoggedIn()
                 || !(isReadingListSyncEnabled() || isReadingListsRemoteDeletePending())) {
-            syncSavedPages();
+            syncSavedPages(showNotification);
+            showNotification = false;
             L.d("Skipped sync of reading lists.");
             return;
         }
-        UserOptionDataClientSingleton.instance().get(new UserOptionDataClient.UserInfoCallback() {
-            @Override
-            public void success(@NonNull final UserInfo info) {
-                CallbackTask.execute(new CallbackTask.Task<Void>() {
-                    @Override public Void execute() throws Throwable {
+        UserOptionDataClientSingleton.instance().get((UserInfo info) ->
+                CallbackTask.execute(() -> {
                         syncFromRemote(info);
-                        syncSavedPages();
+                        syncSavedPages(showNotification);
+                        showNotification = false;
                         return null;
-                    }
-                });
-            }
-        });
+                })
+        );
+    }
+
+    public void syncSavedPages(@NonNull boolean showNotification) {
+        SavedPageSyncService.enqueueService(WikipediaApp.getInstance(), showNotification);
     }
 
     public void syncSavedPages() {
-        SavedPageSyncService.enqueueService(WikipediaApp.getInstance());
+        SavedPageSyncService.enqueueService(WikipediaApp.getInstance(), false);
     }
+
 
     private synchronized void syncFromRemote(@NonNull UserInfo info) {
         long localRev = Prefs.getReadingListSyncRev();
@@ -229,7 +237,7 @@ public class ReadingListSynchronizer {
                         .mtime(now)
                         .atime(now)
                         .description(remoteList.desc())
-                        .pages(new ArrayList<ReadingListPage>())
+                        .pages(new ArrayList<>())
                         .build();
                 ReadingList.DAO.addList(localList);
                 localLists.add(localList);

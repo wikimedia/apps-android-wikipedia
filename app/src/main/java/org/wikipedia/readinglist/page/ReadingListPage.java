@@ -20,6 +20,13 @@ public final class ReadingListPage extends ReadingListPageRow {
                 .build();
     }
 
+    public static ReadingListPage fromDiskRow(@NonNull ReadingListPageDiskRow diskRow) {
+        return builder()
+                .copy(diskRow.dat())
+                .diskStatus(diskRow.status())
+                .build();
+    }
+
     public static Builder builder() {
         return new Builder();
     }
