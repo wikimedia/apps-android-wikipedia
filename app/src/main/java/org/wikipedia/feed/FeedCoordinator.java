@@ -29,7 +29,7 @@ class FeedCoordinator extends FeedCoordinatorBase {
         boolean online = DeviceUtil.isOnline();
 
         conditionallyAddPendingClient(new SearchClient(), age == 0);
-        conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online && OfflineManager.hasCompilation() && isPreBetaRelease());
+        conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online && OfflineManager.hasCompilation());
         conditionallyAddPendingClient(new OnboardingClient(), age == 0);
         conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && online);
         conditionallyAddPendingClient(new AggregatedFeedContentClient(), online);

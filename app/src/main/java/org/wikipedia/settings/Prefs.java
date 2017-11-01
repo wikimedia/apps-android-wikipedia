@@ -581,5 +581,9 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_prefer_offline_content, false);
     }
 
+    public static boolean offlineLibraryEnabled() {
+        return getBoolean(R.string.preference_key_enable_offline_library, false);
+    }
+
     private Prefs() { }
 }
