@@ -40,6 +40,7 @@ import org.wikipedia.pageimages.PageImagesClient;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -379,11 +380,16 @@ public class PageFragmentLoadState {
         L10nUtil.setupDirectionality(model.getTitle().getWikiSite().languageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
-        pageLoadFromNetwork(new ErrorCallback() {
-            @Override public void call(final Throwable networkError) {
-                fragment.onPageLoadError(networkError);
-            }
-        });
+        if (Prefs.preferOfflineContent() && OfflineManager.instance().titleExists(model.getTitle().getDisplayText())) {
+            pageLoadFromCompilation();
+        } else {
+            pageLoadFromNetwork(new ErrorCallback() {
+                @Override
+                public void call(final Throwable networkError) {
+                    fragment.onPageLoadError(networkError);
+                }
+            });
+        }
     }
 
     private void pageLoadFromNetwork(final ErrorCallback errorCallback) {
@@ -433,7 +439,7 @@ public class PageFragmentLoadState {
         PageTitle newTitle = TextUtils.isEmpty(normalizedTitle) ? model.getTitle()
                 : new PageTitle(normalizedTitle, model.getTitle().getWikiSite());
 
-        Page page = new Page(newTitle, new ArrayList<Section>(), new PageProperties(newTitle));
+        Page page = new Page(newTitle, new ArrayList<>(), new PageProperties(newTitle));
 
         model.setPage(page);
         editHandler.setPage(model.getPage());
