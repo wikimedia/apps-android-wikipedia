@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
@@ -204,18 +203,13 @@ public class BottomContentView extends LinearLayoutOverWebView
         int contentHeight = (int)(webView.getContentHeight() * DimenUtil.getDensityScalar());
         int bottomOffset = contentHeight - scrollY - webView.getHeight();
         int bottomHeight = getHeight();
-        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) getLayoutParams();
         if (bottomOffset > bottomHeight) {
-            if (params.bottomMargin != -bottomHeight) {
-                params.bottomMargin = -bottomHeight;
-                params.topMargin = 0;
-                setLayoutParams(params);
+            setTranslationY(bottomHeight);
+            if (getVisibility() != View.INVISIBLE) {
                 setVisibility(View.INVISIBLE);
             }
         } else {
-            params.bottomMargin = -bottomOffset;
-            params.topMargin = -bottomHeight;
-            setLayoutParams(params);
+            setTranslationY(bottomOffset);
             if (getVisibility() != View.VISIBLE) {
                 setVisibility(View.VISIBLE);
             }
