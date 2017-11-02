@@ -26,13 +26,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public class OnThisDayClient implements FeedClient {
-
-    public interface Callback {
-        void success(@NonNull OnThisDay result);
-
-        void failure(@NonNull Call<OnThisDay> call, @NonNull Throwable caught);
-    }
-
     @Nullable private Call<OnThisDay> call;
 
     @Override
@@ -46,24 +39,13 @@ public class OnThisDayClient implements FeedClient {
         call.enqueue(new CallbackAdapter(cb, today, wiki, age));
     }
 
-    public void request(@NonNull WikiSite wiki, int age, @NonNull Callback cb) {
+    public Call<OnThisDay> request(@NonNull WikiSite wiki, int age) {
         UtcDate today = DateUtil.getUtcRequestDateFor(age);
         String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
                 wiki.authority());
         Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
         OnThisDayClient.Service service = retrofit.create(Service.class);
-        call = service.getAllOtdEvents(today.month(), today.date());
-        call.enqueue(new retrofit2.Callback<OnThisDay>() {
-            @Override
-            public void onResponse(Call<OnThisDay> call, Response<OnThisDay> response) {
-                cb.success(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<OnThisDay> call, Throwable caught) {
-                cb.failure(call, caught);
-            }
-        });
+        return service.getAllOtdEvents(today.month(), today.date());
     }
 
     @Override
@@ -93,7 +75,11 @@ public class OnThisDayClient implements FeedClient {
                                @NonNull Response<OnThisDay> response) {
             List<Card> cards = new ArrayList<>();
             OnThisDay onThisDay = response.body();
-            int randomIndex = new Random().nextInt(onThisDay.selectedEvents().size() - 2);
+            if (onThisDay == null || onThisDay.selectedEvents().size() <= 1) {
+                cb.error(new RuntimeException("Incorrect response format."));
+                return;
+            }
+            int randomIndex = new Random().nextInt(onThisDay.selectedEvents().size() - 1);
             OnThisDay.Event event = onThisDay.selectedEvents().get(randomIndex);
             OnThisDayCard card = new OnThisDayCard(onThisDay, event, onThisDay.selectedEvents().get(randomIndex + 1).year(), today, wiki, age);
             cards.add(card);
@@ -109,10 +95,12 @@ public class OnThisDayClient implements FeedClient {
 
     @VisibleForTesting
     interface Service {
+        @NonNull
         @GET("feed/onthisday/selected/{mm}/{dd}")
         Call<OnThisDay> getSelectedEvent(@Path("mm") String month,
                                          @Path("dd") String day);
 
+        @NonNull
         @GET("feed/onthisday/all/{mm}/{dd}")
         Call<OnThisDay> getAllOtdEvents(@Path("mm") String month,
                                         @Path("dd") String day);
