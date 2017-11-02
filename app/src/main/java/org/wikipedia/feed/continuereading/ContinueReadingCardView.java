@@ -6,8 +6,6 @@ import android.support.annotation.PluralsRes;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.CardLargeHeaderView;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -33,19 +31,15 @@ public class ContinueReadingCardView extends ListCardView<ContinueReadingCard>
             subtitlePlural = R.plurals.view_continue_reading_card_subtitle;
             subtitle = getResources().getQuantityString(subtitlePlural, age, age);
         }
-        CardHeaderView header = new CardHeaderView(getContext())
-                .setTitle(R.string.view_continue_reading_card_title)
+        headerView().setTitle(R.string.view_continue_reading_card_title)
                 .setSubtitle(subtitle)
                 .setImage(R.drawable.ic_arrow_forward_black_24dp)
                 .setImageCircleColor(R.color.base30)
                 .setCard(card)
                 .setCallback(getCallback());
-        header(header);
-        CardLargeHeaderView largeHeader = new CardLargeHeaderView(getContext())
-                .setTitle(card.title())
+        largeHeaderView().setTitle(card.title())
                 .setImage(card.image())
                 .onClickListener(new CardClickListener());
-        largeHeader(largeHeader);
     }
 
     private class CardClickListener implements OnClickListener {

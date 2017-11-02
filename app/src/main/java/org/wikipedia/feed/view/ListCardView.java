@@ -12,7 +12,6 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.views.DrawableItemDecoration;
-import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,8 +22,8 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         void onMoreContentSelected(@NonNull Card card);
     }
 
-    @BindView(R.id.view_list_card_header) View headerView;
-    @BindView(R.id.view_list_card_large_header) View largeHeaderView;
+    @BindView(R.id.view_list_card_header) CardHeaderView headerView;
+    @BindView(R.id.view_list_card_large_header) CardLargeHeaderView largeHeaderView;
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;
     @BindView(R.id.view_list_card_more_container) View moreContentContainer;
     @BindView(R.id.view_list_card_more_text) TextView moreContentTextView;
@@ -39,9 +38,7 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
-        if (headerView instanceof CardHeaderView) {
-            ((CardHeaderView) headerView).setCallback(callback);
-        }
+        headerView.setCallback(callback);
     }
 
     protected void set(@Nullable RecyclerView.Adapter<?> adapter) {
@@ -54,14 +51,12 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         }
     }
 
-    protected void header(@NonNull View view) {
-        ViewUtil.replace(headerView, view);
-        headerView = view;
+    protected CardHeaderView headerView() {
+        return headerView;
     }
 
-    protected void largeHeader(@NonNull View view) {
-        ViewUtil.replace(largeHeaderView, view);
-        largeHeaderView = view;
+    protected CardLargeHeaderView largeHeaderView() {
+        return largeHeaderView;
     }
 
     /** Called by the constructor. Override to provide custom behavior but otherwise do not call

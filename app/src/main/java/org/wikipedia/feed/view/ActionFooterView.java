@@ -6,6 +6,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -24,6 +25,20 @@ public class ActionFooterView extends FrameLayout {
 
     public ActionFooterView(Context context) {
         super(context);
+        init();
+    }
+
+    public ActionFooterView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public ActionFooterView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
         inflate(getContext(), R.layout.view_card_action_footer, this);
         ButterKnife.bind(this);
     }

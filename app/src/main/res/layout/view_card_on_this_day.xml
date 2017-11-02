@@ -8,11 +8,10 @@
     android:clipToPadding="false"
     android:orientation="vertical">
 
-    <View
+    <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_on_this_day_card_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:id="@+id/base_view"

@@ -7,11 +7,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <View
+    <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_featured_article_card_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
+        android:layout_height="wrap_content" />
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         style="@style/SimpleDraweeViewPlaceholder"
@@ -79,10 +78,9 @@
 
     </LinearLayout>
 
-    <View
+    <org.wikipedia.feed.view.ActionFooterView
         android:id="@+id/view_featured_article_card_footer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

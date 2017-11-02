@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
+    <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_list_card_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_height="wrap_content"/>
 
-    <View
+    <org.wikipedia.feed.view.CardLargeHeaderView
         android:id="@+id/view_list_card_large_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

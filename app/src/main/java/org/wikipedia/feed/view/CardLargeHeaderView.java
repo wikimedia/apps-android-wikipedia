@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,7 +28,20 @@ public class CardLargeHeaderView extends RelativeLayout {
 
     public CardLargeHeaderView(Context context) {
         super(context);
+        init();
+    }
 
+    public CardLargeHeaderView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public CardLargeHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
         resetBackgroundColor();
         inflate(getContext(), R.layout.view_card_header_large, this);
         ButterKnife.bind(this);

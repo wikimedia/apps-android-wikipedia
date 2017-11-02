@@ -7,8 +7,6 @@ import android.support.annotation.VisibleForTesting;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.CardLargeHeaderView;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
@@ -34,19 +32,15 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
     private void header(@NonNull final BecauseYouReadCard card) {
         int age = (int) card.daysOld();
         String subtitle = getSubtitle(age);
-        CardHeaderView header = new CardHeaderView(getContext())
-                .setTitle(card.title())
+        headerView().setTitle(card.title())
                 .setSubtitle(subtitle)
                 .setImage(R.drawable.ic_restore_black_24dp)
                 .setImageCircleColor(R.color.base30)
                 .setCard(card)
                 .setCallback(getCallback());
-        header(header);
-        CardLargeHeaderView largeHeader = new CardLargeHeaderView(getContext())
-                .setTitle(card.pageTitle())
+        largeHeaderView().setTitle(card.pageTitle())
                 .setImage(card.image())
                 .onClickListener(new SelectPageCallbackAdapter(card));
-        largeHeader(largeHeader);
     }
 
     @VisibleForTesting @NonNull String getSubtitle(int age) {
