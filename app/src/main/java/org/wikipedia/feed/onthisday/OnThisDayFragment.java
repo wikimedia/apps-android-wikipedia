@@ -2,22 +2,22 @@ package org.wikipedia.feed.onthisday;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.UtcDate;
-import org.wikipedia.json.GsonMarshaller;
-import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.MarginItemDecoration;
 
@@ -28,27 +28,26 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import retrofit2.Call;
 
-import static org.wikipedia.feed.onthisday.OnThisDayActivity.EXTRA_DATE;
-import static org.wikipedia.feed.onthisday.OnThisDayActivity.EXTRA_PAGES;
-import static org.wikipedia.feed.onthisday.OnThisDayActivity.EXTRA_WIKI;
+import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 
 public class OnThisDayFragment extends Fragment {
     @BindView(R.id.day_text_view) TextView dayTextView;
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
     @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
+    @BindView(R.id.progress) ProgressBar progressBar;
     private OnThisDay onThisDay;
     private WikiSite wiki;
     private UtcDate date;
     private Unbinder unbinder;
+    private OnThisDayClient client;
 
-    @NonNull
-    public static OnThisDayFragment newInstance(@NonNull OnThisDay onThisDay, @NonNull WikiSite wiki, String stringExtra) {
+    @NonNull public static OnThisDayFragment newInstance(int age) {
+
         OnThisDayFragment instance = new OnThisDayFragment();
         Bundle args = new Bundle();
-        args.putString(EXTRA_PAGES, GsonMarshaller.marshal(onThisDay));
-        args.putString(EXTRA_WIKI, GsonMarshaller.marshal(wiki));
-        args.putString(EXTRA_DATE, stringExtra);
+        args.putInt(AGE, age);
         instance.setArguments(args);
         return instance;
     }
@@ -56,12 +55,27 @@ public class OnThisDayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        onThisDay = GsonUnmarshaller.unmarshal(OnThisDay.class, getActivity().getIntent().getStringExtra(EXTRA_PAGES));
-        wiki = GsonUnmarshaller.unmarshal(WikiSite.class, getActivity().getIntent().getStringExtra(EXTRA_WIKI));
-        date = GsonUnmarshaller.unmarshal(UtcDate.class, getActivity().getIntent().getStringExtra(EXTRA_DATE));
+
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
         unbinder = ButterKnife.bind(this, view);
-        updateTextView();
+        client = new OnThisDayClient();
+        wiki = WikipediaApp.getInstance().getWikiSite();
+        int age = getActivity().getIntent().getIntExtra(AGE, 0);
+        client.request(wiki, age, new OnThisDayClient.Callback() {
+            @Override
+            public void success(@NonNull OnThisDay result) {
+                onThisDay = result;
+                date = DateUtil.getUtcRequestDateFor(age);
+                progressBar.setVisibility(View.GONE);
+                updateTextView();
+                updateRecyclerView();
+            }
+
+            @Override
+            public void failure(@NonNull Call<OnThisDay> call, @NonNull Throwable caught) {
+                L.v(caught);
+            }
+        });
         return view;
     }
 
@@ -83,16 +97,6 @@ public class OnThisDayFragment extends Fragment {
         dayTextView.setText(new SimpleDateFormat("MMMM d", Locale.getDefault()).format(date.baseCalendar().getTime()));
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        setUpRecycler(eventsRecycler);
-        if (onThisDay != null) {
-            eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
-        }
-    }
-
     private void setUpRecycler(RecyclerView recycler) {
         recycler.addItemDecoration(new MarginItemDecoration(getContext(),
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
@@ -104,6 +108,14 @@ public class OnThisDayFragment extends Fragment {
         recycler.setClipToPadding(false);
         final int padding = DimenUtil.roundedDpToPx(12);
         recycler.setPadding(padding, 0, padding, 0);
+    }
+
+    private void updateRecyclerView() {
+        eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        setUpRecycler(eventsRecycler);
+        if (onThisDay != null) {
+            eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
+        }
     }
 
     private class RecyclerAdapter extends RecyclerView.Adapter<EventsViewHolder> {

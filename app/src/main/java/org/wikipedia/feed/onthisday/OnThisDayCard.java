@@ -20,14 +20,16 @@ public class OnThisDayCard extends Card {
     private FeedAdapter.Callback callback;
     private WikiSite wiki;
     private OnThisDay.Event eventShownOnCard;
+    private int age;
 
-    OnThisDayCard(@NonNull OnThisDay onThisDay, @NonNull OnThisDay.Event event, int nextYear, @NonNull UtcDate date, @NonNull WikiSite wiki) {
+    OnThisDayCard(@NonNull OnThisDay onThisDay, @NonNull OnThisDay.Event event, int nextYear, @NonNull UtcDate date, @NonNull WikiSite wiki, int age) {
         super();
         this.onThisDay = onThisDay;
         eventShownOnCard = event;
         this.date = date;
         this.nextYear = nextYear;
         this.wiki = wiki;
+        this.age = age;
     }
 
     @NonNull public OnThisDay onthisday() {
@@ -43,7 +45,7 @@ public class OnThisDayCard extends Card {
     }
 
     @NonNull public List<OnThisDay.Event> events() {
-        return onThisDay.events();
+        return onThisDay.selectedEvents();
     }
 
     @Override @NonNull public CardType type() {
@@ -82,4 +84,7 @@ public class OnThisDayCard extends Card {
         return eventShownOnCard.pages();
     }
 
+    int getAge() {
+        return age;
+    }
 }

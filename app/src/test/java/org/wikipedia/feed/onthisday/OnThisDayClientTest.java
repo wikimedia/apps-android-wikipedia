@@ -71,6 +71,6 @@ public class OnThisDayClientTest extends MockWebServerTest {
 
     private void request(@NonNull FeedClient.Callback cb) {
         Call<OnThisDay> call = client.request(service(OnThisDayClient.Service.class));
-        call.enqueue(new OnThisDayClient.CallbackAdapter(cb, null, null));
+        call.enqueue(new OnThisDayClient.CallbackAdapter(cb, null, null, 0));
     }
 }

@@ -7,14 +7,27 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.feed.model.Thumbnail;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OnThisDay {
 
+    private List<Event> selected;
     private List<Event> events;
+    private List<Event> births;
+    private List<Event> deaths;
+    private List<Event> holidays;
 
+    @NonNull public List<Event> selectedEvents() {
+        return selected;
+    }
     @NonNull public List<Event> events() {
-        return events;
+        ArrayList<Event> allEvents = new ArrayList<>();
+        allEvents.addAll(events);
+        allEvents.addAll(births);
+        allEvents.addAll(deaths);
+        allEvents.addAll(holidays);
+        return allEvents;
     }
 
     static class Event {
