@@ -2,6 +2,7 @@ package org.wikipedia.feed.onthisday;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +30,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 
@@ -37,11 +40,10 @@ public class OnThisDayFragment extends Fragment {
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
     @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
     @BindView(R.id.progress) ProgressBar progressBar;
-    private OnThisDay onThisDay;
-    private WikiSite wiki;
-    private UtcDate date;
+    @Nullable private OnThisDay onThisDay;
+    @Nullable private WikiSite wiki;
+    @Nullable private UtcDate date;
     private Unbinder unbinder;
-    private OnThisDayClient client;
 
     @NonNull public static OnThisDayFragment newInstance(int age) {
 
@@ -58,13 +60,16 @@ public class OnThisDayFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
         unbinder = ButterKnife.bind(this, view);
-        client = new OnThisDayClient();
         wiki = WikipediaApp.getInstance().getWikiSite();
         int age = getActivity().getIntent().getIntExtra(AGE, 0);
-        client.request(wiki, age, new OnThisDayClient.Callback() {
+
+        new OnThisDayClient().request(wiki, age).enqueue(new Callback<OnThisDay>() {
             @Override
-            public void success(@NonNull OnThisDay result) {
-                onThisDay = result;
+            public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
+                if (!isAdded()) {
+                    return;
+                }
+                onThisDay = response.body();
                 date = DateUtil.getUtcRequestDateFor(age);
                 progressBar.setVisibility(View.GONE);
                 updateTextView();
@@ -72,10 +77,11 @@ public class OnThisDayFragment extends Fragment {
             }
 
             @Override
-            public void failure(@NonNull Call<OnThisDay> call, @NonNull Throwable caught) {
-                L.v(caught);
+            public void onFailure(@NonNull Call<OnThisDay> call, @NonNull Throwable t) {
+                L.e(t);
             }
         });
+
         return view;
     }
 

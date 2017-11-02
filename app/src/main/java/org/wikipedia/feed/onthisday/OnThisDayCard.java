@@ -7,6 +7,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DateUtil;
@@ -80,7 +81,7 @@ public class OnThisDayCard extends Card {
         return wiki;
     }
 
-    @NonNull public List<OnThisDay.Page> pages() {
+    @NonNull public List<FeedPageSummary> pages() {
         return eventShownOnCard.pages();
     }
 

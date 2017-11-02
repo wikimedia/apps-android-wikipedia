@@ -1,50 +1,44 @@
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color"
-    tools:context="org.wikipedia.feed.onthisday.OnThisDayFragment">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/day_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="@dimen/titleTextSize"
+        tools:text="January 1" />
+
+    <TextView
+        android:id="@+id/day_info_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:textColor="?attr/secondary_text_color"
+        android:textSize="18sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/events_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
         android:clipChildren="false"
-        android:clipToPadding="false"
-        android:orientation="vertical">
-
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/day_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/primary_text_color"
-            android:textSize="@dimen/titleTextSize"
-            tools:text="January 1" />
-
-        <TextView
-            android:id="@+id/day_info_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp"
-            android:textColor="?attr/secondary_text_color"
-            android:textSize="18sp" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/events_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:overScrollMode="never" />
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+        android:clipToPadding="false" />
+</LinearLayout>
