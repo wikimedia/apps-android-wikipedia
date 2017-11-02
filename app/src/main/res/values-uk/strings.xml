@@ -432,7 +432,7 @@
   <string name="offline_my_compilations">Керування автономною бібліотекою</string>
   <string name="offline_compilations_title">Автономна бібліотека</string>
   <string name="offline_compilations_search_by_name">Шукати добірки статтей за назвою</string>
-  <string name="offline_compilations_found_count">У моїй бібліотеці (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">У моїй бібліотеці (%d)</string>
   <string name="offline_compilations_add">Додати в автономну бібліотеку</string>
   <string name="remote_compilations_title">Автономна бібліотека</string>
   <string name="remote_compilations_description">З автономною бібліотекою ви можете завантажувати добірки статей для читання на випадок відсутнього доступу до мережі.</string>

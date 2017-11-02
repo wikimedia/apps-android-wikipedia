@@ -439,7 +439,7 @@
   <string name="offline_my_compilations">Gerencie minha biblioteca off-line</string>
   <string name="offline_compilations_title">Biblioteca Offline</string>
   <string name="offline_compilations_search_by_name">Pesquisar pacotes de artigos pelo nome</string>
-  <string name="offline_compilations_found_count">Na minha biblioteca (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Na minha biblioteca (%d)</string>
   <string name="offline_compilations_add">Adicionar à minha Biblioteca Offline</string>
   <string name="remote_compilations_title">Biblioteca Offline</string>
   <string name="remote_compilations_description">Com a Biblioteca Offline, agora você pode baixar pacotes de artigos para ler quando você não possui conexão à internet disponível.</string>

@@ -438,7 +438,7 @@
   <string name="offline_my_compilations">Administrer det lokale biblioteket mitt</string>
   <string name="offline_compilations_title">Lokalt bibliotek</string>
   <string name="offline_compilations_search_by_name">Finn artikkelpakker etter navn</string>
-  <string name="offline_compilations_found_count">I biblioteket mitt (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">I biblioteket mitt (%d)</string>
   <string name="offline_compilations_add">Legg til i det lokale biblioteket mitt</string>
   <string name="remote_compilations_title">Lokalt bibliotek</string>
   <string name="remote_compilations_description">Med det lokale biblioteket kan du nå laste ned pakker av artikler så du kan lese dem når du er uten internettforbindelse.</string>

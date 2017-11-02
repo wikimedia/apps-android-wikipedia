@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;開放街圖&lt;/a&gt;貢獻者</string>
   <string name="last_updated_text">最後更新時間：%s</string>
   <string name="talk_page_link_text">討論</string>
+  <string name="edit_history_link_text">編輯歷史</string>
+  <string name="map_view_link_text">在地圖上檢視</string>
+  <string name="language_count_link_text">在 %d 種其他語言中可用</string>
   <string name="content_license_html">除非另有註明，否則頁面內容均以 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/A&gt; 條款授權</string>
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>
   <string name="edit_save_action_license_anon">儲存後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/A&gt;。同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
@@ -200,6 +203,7 @@
   <string name="preference_title_show_images">顯示圖片</string>
   <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的資料流量計劃受限制，則取消選擇本設定。</string>
   <string name="read_more_section">延伸閱讀</string>
+  <string name="about_article_section">關於此條目</string>
   <string name="menu_gallery_visit_page">前往檔案頁面</string>
   <string name="gallery_error_draw_failed">無法產生圖片。</string>
   <string name="license_title">%s 的授權條款</string>
@@ -439,7 +443,7 @@
   <string name="offline_my_compilations">管理我的離線圖書館</string>
   <string name="offline_compilations_title">離線圖書館</string>
   <string name="offline_compilations_search_by_name">依條目包來搜尋匯編</string>
-  <string name="offline_compilations_found_count">我的離線圖書館（%d）</string>
+  <string name="offline_compilations_found_count" fuzzy="true">我的離線圖書館（%d）</string>
   <string name="offline_compilations_add">添加至我的離線圖書館</string>
   <string name="remote_compilations_title">離線圖書館</string>
   <string name="remote_compilations_description">透過離線圖書館；讓您可現在就下載條目包於無法使用網路情況下閱讀內容。</string>

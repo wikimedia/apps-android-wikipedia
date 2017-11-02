@@ -435,7 +435,7 @@
   <string name="offline_my_compilations">Sefrek tanedlist-iw n war tuqqna</string>
   <string name="offline_compilations_title">Tamkarḍiḍ war tuqqna</string>
   <string name="offline_compilations_search_by_name">Nadi tigrummiwin n imagraden s yisem</string>
-  <string name="offline_compilations_found_count">Di tnedlist-iw (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Di tnedlist-iw (%d)</string>
   <string name="offline_compilations_add">Rnu ar tnedlist-iw n war tuqqna</string>
   <string name="remote_compilations_title">Tamkarḍiḍ war tuqqna</string>
   <string name="remote_compilations_description">S tnedlist n war tuqqna, ad tizmireḍ ad tsidreḍ imagraden i tɣuri ticki ur ɣur-k ara tuqqna Internet.</string>

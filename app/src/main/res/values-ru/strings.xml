@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Участники &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="talk_page_link_text">Обсуждение</string>
+  <string name="edit_history_link_text">История изменений</string>
+  <string name="map_view_link_text">Посмотреть на карте</string>
+  <string name="language_count_link_text">Доступно на %d других языках</string>
   <string name="content_license_html">Содержимое доступно в соответствии с лицензией &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, если не указано иное</string>
   <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Правки будут привязаны в IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
@@ -200,6 +203,7 @@
   <string name="preference_title_show_images">Показывать изображения</string>
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
   <string name="read_more_section">Подробнее</string>
+  <string name="about_article_section">Об этой статье</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Лицензия для %s</string>
@@ -437,7 +441,7 @@
   <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме со статьями в вашей Офлайн-библиотеке.</string>
   <string name="offline_my_compilations">Управление моей офлайн-библиотекой</string>
   <string name="offline_compilations_title">Офлайн-библиотека</string>
-  <string name="offline_compilations_found_count">В моей библиотеке (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">В моей библиотеке (%d)</string>
   <string name="offline_compilations_add">Добавить в мою оффлайн библиотеку</string>
   <string name="remote_compilations_title">Офлайн-библиотека</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Гб</string>
@@ -464,6 +468,7 @@
   <string name="offline_library_onboarding_action">Узнайте больше</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Создайте свою Офлайн-библиотеку</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Непрерывное чтение</string>
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>

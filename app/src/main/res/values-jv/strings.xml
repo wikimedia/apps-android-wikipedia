@@ -425,7 +425,7 @@
   <string name="offline_my_compilations">Tata pabukon oflèné panjenengan</string>
   <string name="offline_compilations_title">Pabukon Oflèn</string>
   <string name="offline_compilations_search_by_name">Golèk pakèt artikel miturut jenengé</string>
-  <string name="offline_compilations_found_count">Ing pabukonku (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Ing pabukonku (%d)</string>
   <string name="offline_compilations_add">Tambah ing Pabukon Oflènku</string>
   <string name="remote_compilations_title">Pabukon Oflèn</string>
   <string name="remote_compilations_description">Nganggo Pabukon Oflèn, panjenengan saiki bisa ngundhuh pakèt artikel kanggo diwaca nalika panjenengan lagi ora duwé sambungan internèt.</string>

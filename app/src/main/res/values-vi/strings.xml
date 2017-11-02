@@ -436,7 +436,7 @@
   <string name="offline_my_compilations">Quản lý thư viện ngoại tuyến</string>
   <string name="offline_compilations_title">Thư viện Ngoại tuyến</string>
   <string name="offline_compilations_search_by_name">Tìm gói bài theo tên</string>
-  <string name="offline_compilations_found_count">Trong thư viện của tôi (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Trong thư viện của tôi (%d)</string>
   <string name="offline_compilations_add">Thêm vào Thư viện Ngoại tuyến</string>
   <string name="remote_compilations_title">Thư viện Ngoại tuyến</string>
   <string name="remote_compilations_description">Với Thư viện Ngoại tuyến, bạn có thể tải về các gói bài để đọc khi nào mất kết nối Internet.</string>

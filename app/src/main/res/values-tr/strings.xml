@@ -424,7 +424,7 @@
   <string name="offline_my_compilations">Çevrim dışı kütüphanemi yönet</string>
   <string name="offline_compilations_title">Çevrim dışı Kütüphane</string>
   <string name="offline_compilations_search_by_name">Madde paketlerini ada göre ara</string>
-  <string name="offline_compilations_found_count">Kütüphanemdekiler (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Kütüphanemdekiler (%d)</string>
   <string name="offline_compilations_add">Çevrim dışı Kütüphane\'ye ekle</string>
   <string name="remote_compilations_title">Çevrim dışı Kütüphane</string>
   <string name="remote_compilations_description">Çevrim dışı Kütüphane ile, artık madde gruplarını internet bağlantınız olmadığında okumak için indirebilirsiniz.</string>

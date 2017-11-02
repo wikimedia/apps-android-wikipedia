@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; 기여자</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="talk_page_link_text">토론</string>
+  <string name="edit_history_link_text">편집 역사</string>
+  <string name="map_view_link_text">지도에서 보기</string>
+  <string name="language_count_link_text">%d개의 다른 언어로 읽을 수 있음</string>
   <string name="content_license_html">별도로 명시하지 않는 한 콘텐츠는 &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 이용할 수 있습니다</string>
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>
   <string name="edit_save_action_license_anon">저장하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다. 편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
@@ -198,6 +201,7 @@
   <string name="preference_title_show_images">그림 보이기</string>
   <string name="preference_summary_show_images">문서에서 그림 불러오기를 사용하거나 사용하지 않습니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정의 체크를 제거하세요.</string>
   <string name="read_more_section">더 읽어보기</string>
+  <string name="about_article_section">이 문서의 정보</string>
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
   <string name="license_title">%s의 라이선스</string>
@@ -434,7 +438,7 @@
   <string name="offline_my_compilations">내 오프라인 라이브러리 관리</string>
   <string name="offline_compilations_title">오프라인 라이브러리</string>
   <string name="offline_compilations_search_by_name">이름으로 문서 꾸러미 찾기</string>
-  <string name="offline_compilations_found_count">내 라이브러리(%d)에서</string>
+  <string name="offline_compilations_found_count" fuzzy="true">내 라이브러리(%d)에서</string>
   <string name="offline_compilations_add">내 오프라인 라이브러리에 추가</string>
   <string name="remote_compilations_title">오프라인 라이브러리</string>
   <string name="remote_compilations_description">인터넷 접속이 불가능할 때 문서를 읽을 수 있도록 오프라인 라이브러리를 사용하여 지금 문서 꾸러미들을 다운로드할 수 있습니다.</string>

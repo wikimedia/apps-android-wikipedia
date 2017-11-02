@@ -45,7 +45,6 @@
   <string name="edit_history_link_text">Link text for accessing the edit history for the current article.</string>
   <string name="map_view_link_text">Link text for viewing the current article on a map (assuming the article has geo coordinates).</string>
   <string name="language_count_link_text">Link text that says how many languages the current article is available in.  The %d symbol is replaced with the number of languages.</string>
-  <string name="about_article_section">Title of section that contains information specific to the current article.</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page. Please preserve the %1$s parameter, since this will be replaced with the actual URL.</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a login link before saving edits, only when the user has not logged in. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs. Also please do not change the href=\'https://#login\' part of the message.</string>
@@ -204,6 +203,7 @@
   <string name="preference_title_show_images">Preference title for selecting whether images are loaded in pages.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}\n\n{{Identical|Show image}}</string>
   <string name="preference_summary_show_images">Description of the preference for whether images are loaded, mentioning that this setting should be disabled if the user\'s internet connection is slow, or if their data plan is limited or restricted.</string>
   <string name="read_more_section">Title of the Read More section at the bottom of each page.\n\nThis section shows other automatically-selected articles, similarly to how it works with \"Related Articles\" ({{msg-mw|Relatedarticles-read-more-heading}}).\n\n{{Identical|Read more}}</string>
+  <string name="about_article_section">Title of section that contains information specific to the current article.</string>
   <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
   <string name="gallery_error_draw_failed">Error message shown when the current image could not be displayed.</string>
   <string name="license_title">Title for activity displaying the license text for a library that we use. The \"%s\" symbol is replaced with the name of the library for which the license is being shown.</string>

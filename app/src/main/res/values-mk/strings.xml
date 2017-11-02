@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; учесници на&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Последна измена: %s</string>
   <string name="talk_page_link_text">Разговор</string>
+  <string name="edit_history_link_text">Историја на уредувања</string>
+  <string name="map_view_link_text">Погл. на карта</string>
+  <string name="language_count_link_text">Достапно на %d други јазици</string>
   <string name="content_license_html">Содржината е достапна под &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Зачувувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
@@ -200,6 +203,7 @@
   <string name="preference_title_show_images">Прикажувај слики</string>
   <string name="preference_summary_show_images">Овозможи или оневозможи вчитување на слики во страниците. Отштиклирајте ја поставкава ако сегашната семрежна врска ви е бавна, или пак ако имате ограничен податочен пакет.</string>
   <string name="read_more_section">Прочитајте повеќе</string>
+  <string name="about_article_section">За статијава</string>
   <string name="menu_gallery_visit_page">Оди на податотечната страница</string>
   <string name="gallery_error_draw_failed">Не можев да ја исцртам сликата.</string>
   <string name="license_title">Лиценца за %s</string>
@@ -439,7 +443,7 @@
   <string name="offline_my_compilations">Раковод. со мојата вонмрежна библиотека</string>
   <string name="offline_compilations_title">Вонмрежна библиотека</string>
   <string name="offline_compilations_search_by_name">Пребарај пакети од статии по име</string>
-  <string name="offline_compilations_found_count">Во мојата библиотека (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Во мојата библиотека (%d)</string>
   <string name="offline_compilations_add">Додај во вонмрежната библиотека</string>
   <string name="remote_compilations_title">Вонмрежна библиотека</string>
   <string name="remote_compilations_description">Со вонмрежната библиотека, можете да преземате пакети од статии за читање кога немате линија.</string>

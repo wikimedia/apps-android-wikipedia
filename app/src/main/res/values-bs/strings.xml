@@ -413,7 +413,7 @@
   <string name="offline_my_compilations" fuzzy="true">Moje zbirke</string>
   <string name="offline_compilations_title" fuzzy="true">Vanmrežne zbirke</string>
   <string name="offline_compilations_search_by_name" fuzzy="true">Pretraži zbirke po imenu</string>
-  <string name="offline_compilations_found_count">U mojoj biblioteci (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">U mojoj biblioteci (%d)</string>
   <string name="offline_compilations_add">Dodaj u vanmrežnu biblioteku</string>
   <string name="remote_compilations_title">Vanmrežna biblioteka</string>
   <string name="offline_compilation_detail_button_download">Preuzmi • %.2f GB</string>

@@ -413,7 +413,7 @@
   <string name="offline_compilation_download_device_offline">Няма връзка с Интернет. Уверете се, че сте свързани, след което опитайте отново.</string>
   <string name="offline_read_permission_error">Не е позволено четенето от съхранението на устройството.</string>
   <string name="offline_compilations_search_by_name">Търсене на пакет от статии по име</string>
-  <string name="offline_compilations_found_count">В моята библиотека (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">В моята библиотека (%d)</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Изтегляне • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Премахване</string>

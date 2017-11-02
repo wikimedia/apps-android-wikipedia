@@ -422,7 +422,7 @@
   <string name="offline_read_permission_rationale">Ret eo kaout gwir da vont d\'ar skokañ en hoc\'h ardivink evit merdeiñ ezlinenn.</string>
   <string name="offline_compilations_title">Levraoueg ezlinenn</string>
   <string name="offline_compilations_search_by_name">Klask an holl bennadoù dre anv</string>
-  <string name="offline_compilations_found_count">Em levraoueg (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Em levraoueg (%d)</string>
   <string name="offline_compilations_add">Ouzhpennañ da\'m levraoueg ezlinenn</string>
   <string name="remote_compilations_title">Levraoueg ezlinenn</string>
   <string name="remote_compilations_description">Gant al levraoueg enlinenn e c\'hallit bremañ pellgargañ pakadoù pennadoù evit lenn anezho pa ne c\'hallit ket kevreañ ouzh ar Genrouedad.</string>

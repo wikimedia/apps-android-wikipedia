@@ -430,7 +430,7 @@
   <string name="offline_my_compilations">Hallinnoi yhteydettömän tilan kirjastoani</string>
   <string name="offline_compilations_title">Yhteydettömän tilan kirjasto</string>
   <string name="offline_compilations_search_by_name">Etsi artikkelipaketeista nimen perusteella</string>
-  <string name="offline_compilations_found_count">Kirjastossani (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Kirjastossani (%d)</string>
   <string name="offline_compilations_add">Lisää yhteydettömän tilan kirjastooni</string>
   <string name="remote_compilations_title">Yhteydettömän tilan kirjasto</string>
   <string name="remote_compilations_description">Yhteydettömän tilan kirjaston avulla voit ladata artikkelipaketteja voidaksesi lukea niitä myöhemmin ilman Internet-yhteyttä.</string>

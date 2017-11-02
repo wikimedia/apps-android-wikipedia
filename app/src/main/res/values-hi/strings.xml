@@ -436,7 +436,7 @@
   <string name="offline_my_compilations">अपनी ऑफलाइन पुस्तकालय को प्रबंधित करें</string>
   <string name="offline_compilations_title">ऑफलाइन लाइब्रेरी</string>
   <string name="offline_compilations_search_by_name">लेख पैक्स को नाम द्वारा ढूंढें</string>
-  <string name="offline_compilations_found_count">मेरे पुस्तकालय में (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">मेरे पुस्तकालय में (%d)</string>
   <string name="offline_compilations_add">मेरे ऑफलाइन पुस्तकालय से जोङें</string>
   <string name="remote_compilations_title">ऑफलाइन पुस्तकालय</string>
   <string name="remote_compilations_description">ऑफ़लाइन पुस्तकालय के साथ, अब आप पढ़ने के लिए लेखों का पैक डाउनलोड कर सकते हैं जब आपके पास कोई इंटरनेट कनेक्शन उपलब्ध न हो।</string>

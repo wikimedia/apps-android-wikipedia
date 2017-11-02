@@ -435,7 +435,7 @@
   <string name="offline_my_compilations">Kokola pabukon oflén kuring</string>
   <string name="offline_compilations_title">Pabukon Oflén</string>
   <string name="offline_compilations_search_by_name">Paluruh pakét artikel dumasar ngaran</string>
-  <string name="offline_compilations_found_count">Di pabukon kuring (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Di pabukon kuring (%d)</string>
   <string name="offline_compilations_add">Tambah kana Pabukon Oflén kuring</string>
   <string name="remote_compilations_title">Pabukon Oflén</string>
   <string name="remote_compilations_description">Ku Pabukon Oflén, anjeun ayeuna bisa ngundeur pakét artikel jang bacaeun mun anjeun keur teu boga konéksi internét.</string>

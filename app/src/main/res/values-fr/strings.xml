@@ -38,13 +38,16 @@
   <string name="menu_text_select_share">Partager</string>
   <string name="menu_text_select_edit_here">Modifier ici</string>
   <string name="nav_item_nearby">À proximité</string>
-  <string name="nearby_zoom_to_location">Zoomer sur un endroit de la carte</string>
+  <string name="nearby_zoom_to_location">Zoomer sur un emplacement sur la carte</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributeurs</string>
   <string name="last_updated_text">Dernière modification le %s</string>
   <string name="talk_page_link_text">Discussion</string>
+  <string name="edit_history_link_text">Historique des modifications</string>
+  <string name="map_view_link_text">Afficher sur une carte</string>
+  <string name="language_count_link_text">Disponible dans %d autres langues</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"%1$s\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
-  <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.\nLes modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
+  <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.\nLes modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="preference_title_language">Langue de Wikipédia</string>
   <string name="preference_languages_filter_hint">Rechercher</string>
   <string name="langlinks_filter_hint">Rechercher</string>
@@ -69,27 +72,27 @@
   <string name="edit_section_captcha_hint">Répéter les mots ci-dessus</string>
   <string name="title_captcha">Entrer le captcha</string>
   <string name="edit_section_captcha_reload">Taper le captcha pour recharger</string>
-  <string name="edit_saved_page_refresh">Cette page enregistrée est peut-être désuète et doit être rechargée pour pouvoir la modifier. Voulez-vous rafraîchir la page ?</string>
+  <string name="edit_saved_page_refresh">Cette page enregistrée est peut-être désuète et doit être rechargée pour pouvoir être modifiée. Voulez-vous actualiser la page ?</string>
   <string name="edit_saved_page_refresh_yes">Oui</string>
   <string name="edit_saved_page_refresh_no">Non</string>
   <string name="nav_item_login">Connexion à Wikipédia</string>
   <string name="login_username_hint">Nom d’utilisateur</string>
   <string name="login_password_hint">Mot de passe</string>
   <string name="login_2fa_hint">Code d’authentification à deux facteurs</string>
-  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs obligatoire ! Veuillez revenir à l’activité principale et connectez-vous avec votre jeton 2FA, puis réessayez.</string>
+  <string name="login_2fa_other_workflow_error_msg">Authentification à deux facteurs requise ! Veuillez revenir à l’activité principale et vous connecter avec votre jeton d\'authentification, puis réessayez.</string>
   <string name="menu_login">Connexion</string>
   <string name="login_activity_title">Se connecter à Wikipédia</string>
   <string name="login_in_progress_dialog_message">Connexion en cours…</string>
   <string name="login_success_toast">Connecté avec succès !</string>
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="toast_logout_complete">Déconnecté</string>
-  <string name="history_empty_title">Aucun article vu récemment</string>
+  <string name="history_empty_title">Aucun article consulté récemment</string>
   <string name="history_empty_message">Tracer ce que vous avez lu ici.</string>
-  <string name="search_empty_message">Parcourez et lisez l’encyclopédie libre dans votre langue</string>
+  <string name="search_empty_message">Cherchez et lisez l’encyclopédie libre dans votre langue</string>
   <string name="delete_selected_items">Supprimer les éléments sélectionnés</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d’utilisateur</string>
-  <string name="login_dont_have_account">Pas encore de compte ?</string>
+  <string name="login_dont_have_account">Vous n\'avez pas de compte ?</string>
   <string name="login_join_wikipedia">Rejoindre Wikipedia</string>
   <string name="login_forgot_password">Mot de passe oublié ?</string>
   <string name="create_account_already_have">Vous avez déja un compte ?</string>
@@ -150,7 +153,7 @@
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_translators_heading">Traducteurs</string>
-  <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs volontaires de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénvoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fondation Wikimédia&lt;/a&gt;</string>
@@ -200,6 +203,7 @@
   <string name="preference_title_show_images">Voir les images</string>
   <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à Internet est lente, ou si votre volume de données est limité.</string>
   <string name="read_more_section">En savoir plus</string>
+  <string name="about_article_section">À propos de cet article</string>
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
   <string name="gallery_error_draw_failed">Impossible d\'afficher l’image.</string>
   <string name="license_title">Licence pour la bibliothèque %s</string>
@@ -439,7 +443,7 @@
   <string name="offline_my_compilations">Gérer ma bibliothèque hors connexion</string>
   <string name="offline_compilations_title">Bibliothèque hors connexion</string>
   <string name="offline_compilations_search_by_name">Rechercher les ensembles d’articles par nom</string>
-  <string name="offline_compilations_found_count">Dans ma bibliothèque (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Dans ma bibliothèque (%d)</string>
   <string name="offline_compilations_add">Ajouter à ma bibliothèque hors connexion</string>
   <string name="remote_compilations_title">Bibliothèque hors connexion</string>
   <string name="remote_compilations_description">Avec la bibliothèque hors connexion, vous pouvez maintenant télécharger des paquets d’articles pour les lire quand vous n’aurez pas de connexion internet disponible.</string>

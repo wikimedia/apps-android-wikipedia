@@ -438,7 +438,7 @@
   <string name="offline_my_compilations">Alministrar la mio biblioteca ensin conexón</string>
   <string name="offline_compilations_title">Biblioteca ensin conexón</string>
   <string name="offline_compilations_search_by_name">Buscar paquetes d\'artículos pol nome</string>
-  <string name="offline_compilations_found_count">Na mio biblioteca (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Na mio biblioteca (%d)</string>
   <string name="offline_compilations_add">Añadir a la mio Biblioteca ensin conexón</string>
   <string name="remote_compilations_title">Biblioteca ensin conexón</string>
   <string name="remote_compilations_description">Cola Biblioteca ensin conexón, agora puedes descargar paquetes d\'artículos pa lleelos cuando nun tengas conexón a Internet.</string>

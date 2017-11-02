@@ -419,7 +419,7 @@
   <string name="offline_my_compilations">منھنجو آفلائين ڪتبخانو سنڀاليو</string>
   <string name="offline_compilations_title">آفلائين ڪتبخانو</string>
   <string name="offline_compilations_search_by_name">مضمونن جا ميڙ نالي سان ڳوليو</string>
-  <string name="offline_compilations_found_count">منھنجي ڪتبخاني ۾ (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">منھنجي ڪتبخاني ۾ (%d)</string>
   <string name="offline_compilations_add">منھنجي آفلائين ڪتبخاني ۾ وجھو</string>
   <string name="remote_compilations_title">آفلائين ڪتبخانو</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f جيبي</string>

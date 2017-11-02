@@ -439,7 +439,7 @@
   <string name="offline_my_compilations">Uruskan pustaka luar talian saya</string>
   <string name="offline_compilations_title">Perpustakaan Luar Talian</string>
   <string name="offline_compilations_search_by_name">Cari pek rencana mengikut nama</string>
-  <string name="offline_compilations_found_count">Di perpustakaan saya (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">Di perpustakaan saya (%d)</string>
   <string name="offline_compilations_add">Tambah ke Perpustakaan Luar Talian saya</string>
   <string name="remote_compilations_title">Perpustakaan Luar Talian</string>
   <string name="remote_compilations_description">Dengan Perpustakaan Luar Talian, anda kini boleh memuat turun pek rencana untuk dibaca apabila anda tidak mempunyai sambungan internet.</string>

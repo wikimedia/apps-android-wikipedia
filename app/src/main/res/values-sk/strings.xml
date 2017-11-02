@@ -422,7 +422,7 @@
   <string name="offline_card_text">Odteraz používate Wikipédiu v režime offline.</string>
   <string name="offline_my_compilations">Spravovať moju offline knižnicu</string>
   <string name="offline_compilations_title">Offline knižnica</string>
-  <string name="offline_compilations_found_count">V mojej knižnici (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">V mojej knižnici (%d)</string>
   <string name="offline_compilations_add">Pridať do offline knižnice</string>
   <string name="remote_compilations_title">Offline knižnica</string>
   <string name="remote_compilations_description">Do offline knižnice môžete stiahnuť skupiny článkov, aby ste ich mohli čítať aj bez pripojenia k internetu.</string>

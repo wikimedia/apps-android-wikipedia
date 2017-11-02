@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;-bidragsydere</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
   <string name="talk_page_link_text">Diskussion</string>
+  <string name="edit_history_link_text">Redigeringshistorik</string>
+  <string name="map_view_link_text">Vis på et kort</string>
+  <string name="language_count_link_text">Tilgængelig på %d andre sprog</string>
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
   <string name="edit_save_action_license_logged_in">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
   <string name="edit_save_action_license_anon">Ved at gemme, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
@@ -200,6 +203,7 @@
   <string name="preference_title_show_images">Vis billeder</string>
   <string name="preference_summary_show_images">Slå indlæsning af billeder på sider til eller fra. Fravælg denne indstilling, hvis din internetforbindelse er langsom, eller hvis dit dataabonnement er begrænset.</string>
   <string name="read_more_section">Læs mere</string>
+  <string name="about_article_section">Om denne artikel</string>
   <string name="menu_gallery_visit_page">Gå til filside</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne billede.</string>
   <string name="license_title">Licens for %s</string>
@@ -369,6 +373,7 @@
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
   <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia</string>
+  <string name="view_next_random_article">Indlæs en anden vilkårlig artikel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
   <string name="view_featured_image_card_title">Dagens billede</string>
@@ -438,7 +443,7 @@
   <string name="offline_my_compilations">Håndter mit lokale bibliotek</string>
   <string name="offline_compilations_title">Lokalt bibliotek</string>
   <string name="offline_compilations_search_by_name">Søg i artikelpakker efter navn</string>
-  <string name="offline_compilations_found_count">I mit bibliotek (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">I mit bibliotek (%d)</string>
   <string name="offline_compilations_add">Tilføj til mit lokale bibliotek</string>
   <string name="remote_compilations_title">Lokalt bibliotek</string>
   <string name="remote_compilations_description">Med det lokale bibliotek kan du nu hente artikelpakker, så du kan læse uden en tilgængelig internetforbindelse.</string>
@@ -492,4 +497,15 @@
   <string name="app_shortcuts_random">Vilkårlig</string>
   <string name="app_shortcuts_continue_reading">Fortsæt læsning</string>
   <string name="app_shortcuts_search">Søg</string>
+  <string name="all_trending_text">Alle populære artikler på %1$s</string>
+  <string name="top_on_this_day">Populær på %1$s</string>
+  <string name="on_this_day_card_title">På denne dag</string>
+  <string name="more_events_text">Flere historiske hændelser på denne dag</string>
+  <string name="events_count_text">%1$s hændelser fra %2$s - %3$d</string>
+  <string name="on_this_day">På denne dag</string>
+  <string name="this_year">Dette år</string>
+  <plurals name="diff_years">
+    <item quantity="one">Sidste år</item>
+    <item quantity="other">%d år siden</item>
+  </plurals>
 </resources>

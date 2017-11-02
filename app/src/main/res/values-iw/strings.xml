@@ -439,7 +439,7 @@
   <string name="offline_my_compilations">ניהול הספרייה הלא מקוונת שלי</string>
   <string name="offline_compilations_title">ספרייה לא מקוונת</string>
   <string name="offline_compilations_search_by_name">חיפוש חבילות ערכים לפי שם</string>
-  <string name="offline_compilations_found_count">בספרייה שלי (%d)</string>
+  <string name="offline_compilations_found_count" fuzzy="true">בספרייה שלי (%d)</string>
   <string name="offline_compilations_add">הוספה לספרייה הלא מקוונת שלי</string>
   <string name="remote_compilations_title">ספרייה לא מקוונת</string>
   <string name="remote_compilations_description">עם הספרייה הלא מקוונת, אפשר להוריד חבילות של ערכים לקריאה כשאין לכם חיבור לאינטרנט.</string>
