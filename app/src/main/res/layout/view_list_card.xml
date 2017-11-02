@@ -1,32 +1,33 @@
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_list_card_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="48dp"/>
 
     <org.wikipedia.feed.view.CardLargeHeaderView
         android:id="@+id/view_list_card_large_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view_list_card_header"
+        android:layout_height="96dp"
+        app:layout_constraintTop_toBottomOf="@id/view_list_card_header"
         android:visibility="gone" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/view_list_card_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_list_card_large_header" />
+        app:layout_constraintTop_toBottomOf="@id/view_list_card_large_header"/>
 
     <LinearLayout
         android:id="@+id/view_list_card_more_container"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        app:layout_constraintTop_toBottomOf="@id/view_list_card_list"
         android:background="?android:colorBackground"
         android:foreground="?attr/selectableItemBackground"
         android:clickable="true"
@@ -54,4 +55,4 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

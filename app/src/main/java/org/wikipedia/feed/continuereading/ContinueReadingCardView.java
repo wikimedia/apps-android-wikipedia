@@ -39,7 +39,8 @@ public class ContinueReadingCardView extends ListCardView<ContinueReadingCard>
                 .setCallback(getCallback());
         largeHeaderView().setTitle(card.title())
                 .setImage(card.image())
-                .onClickListener(new CardClickListener());
+                .onClickListener(new CardClickListener())
+                .setVisibility(VISIBLE);
     }
 
     private class CardClickListener implements OnClickListener {
