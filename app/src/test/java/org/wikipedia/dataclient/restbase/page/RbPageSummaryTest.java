@@ -1,4 +1,4 @@
-package org.wikipedia.feed.model;
+package org.wikipedia.dataclient.restbase.page;
 
 import android.net.Uri;
 
@@ -16,15 +16,15 @@ import static org.hamcrest.Matchers.nullValue;
 
 @RunWith(TestRunner.class)
 @SuppressWarnings("checkstyle:magicnumber")
-public class FeedPageSummaryTest {
-    private List<FeedPageSummary> subjects;
+public class RbPageSummaryTest {
+    private List<RbPageSummary> subjects;
 
     @Before public void setUp() throws Throwable {
         subjects = MostReadArticlesTest.unmarshal("most_read.json").articles();
     }
 
     @Test public void testUnmarshalThumbnails() throws Throwable {
-        FeedPageSummary subject = subjects.get(3);
+        RbPageSummary subject = subjects.get(3);
 
         assertThat(subject.getNormalizedTitle(), is("Marilyn Monroe"));
         assertThat(subject.getTitle(), is("Marilyn_Monroe"));
@@ -35,7 +35,7 @@ public class FeedPageSummaryTest {
     }
 
     @Test public void testUnmarshalNoThumbnails() {
-        FeedPageSummary subject = subjects.get(0);
+        RbPageSummary subject = subjects.get(0);
 
         assertThat(subject.getNormalizedTitle(), is("Bicycle Race"));
         assertThat(subject.getTitle(), is("Bicycle_Race"));

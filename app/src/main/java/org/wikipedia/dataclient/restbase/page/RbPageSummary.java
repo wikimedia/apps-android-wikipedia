@@ -3,6 +3,8 @@ package org.wikipedia.dataclient.restbase.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbServiceError;
 import org.wikipedia.json.annotations.Required;
@@ -17,6 +19,8 @@ import org.wikipedia.json.annotations.Required;
  */
 public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
+    @SuppressWarnings("unused,NullableProblems") @Nullable @SerializedName("normalizedtitle")
+    private String normalizedTitle;
     @SuppressWarnings("unused") @Nullable private String extract;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
@@ -50,6 +54,11 @@ public class RbPageSummary implements PageSummary {
     @Nullable
     public String getDescription() {
         return description;
+    }
+
+    @NonNull
+    public String getNormalizedTitle() {
+        return normalizedTitle == null ? title : normalizedTitle;
     }
 
     /**

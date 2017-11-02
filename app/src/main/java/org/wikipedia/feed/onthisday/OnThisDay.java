@@ -3,7 +3,7 @@ package org.wikipedia.feed.onthisday;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.feed.model.FeedPageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.json.annotations.Required;
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class OnThisDay {
     static class Event {
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
         @SuppressWarnings("unused") private int year;
-        @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<FeedPageSummary> pages;
+        @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<RbPageSummary> pages;
 
         @NonNull public String text() {
             return text;
@@ -59,7 +59,7 @@ public class OnThisDay {
             return year;
         }
 
-        @NonNull public List<FeedPageSummary> pages() {
+        @NonNull public List<RbPageSummary> pages() {
             return pages;
         }
     }

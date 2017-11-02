@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.model.FeedPageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.test.TestFileUtil;
 import org.wikipedia.test.TestRunner;
@@ -31,7 +31,7 @@ public class NewsLinkCardTest {
     @Test public void testTitleNormalization() throws Throwable {
         List<NewsItemCard> newsItemCards = NewsListCard.toItemCards(content, TEST);
         for (NewsItemCard newsItemCard : newsItemCards) {
-            for (FeedPageSummary link : newsItemCard.links()) {
+            for (RbPageSummary link : newsItemCard.links()) {
                 assertThat(new NewsLinkCard(link, TEST).title(), not(containsString("_")));
             }
         }

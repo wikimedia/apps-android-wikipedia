@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.model.FeedPageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -37,7 +37,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.page_list_item_image) FaceAndColorDetectImageView pageItemImageView;
     @BindView(R.id.parent) View parent;
     private WikiSite wiki;
-    private FeedPageSummary selectedPage;
+    private RbPageSummary selectedPage;
 
     OnThisDayPagesViewHolder(@NonNull CardView v, @NonNull WikiSite wiki) {
         super(v);
@@ -46,7 +46,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         this.wiki = wiki;
     }
 
-    public void setFields(@NonNull FeedPageSummary page) {
+    public void setFields(@NonNull RbPageSummary page) {
         selectedPage = page;
         pageItemDescTextView.setText(StringUtil.fromHtml(StringUtils.defaultString(page.getExtract())));
         pageItemTitleTextView.setText(StringUtil.fromHtml(StringUtils.defaultString(page.getNormalizedTitle())));

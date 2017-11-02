@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.model.FeedPageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.TestFileUtil;
 import org.wikipedia.test.TestRunner;
@@ -16,11 +16,11 @@ import static org.hamcrest.Matchers.not;
 @RunWith(TestRunner.class)
 public class FeaturedArticleCardTest {
     private static WikiSite TEST = WikiSite.forLanguageCode("test");
-    private FeedPageSummary content;
+    private RbPageSummary content;
 
     @Before public void setUp() throws Throwable {
         String json = TestFileUtil.readRawFile("featured_2016_11_07.json");
-        content = GsonUnmarshaller.unmarshal(FeedPageSummary.class, json);
+        content = GsonUnmarshaller.unmarshal(RbPageSummary.class, json);
     }
 
     @Test public void testTitleNormalization() throws Throwable {

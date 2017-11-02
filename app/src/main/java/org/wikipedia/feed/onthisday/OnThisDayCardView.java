@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.model.FeedPageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
@@ -66,10 +66,10 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     }
 
     static class RecyclerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
-        private List<FeedPageSummary> pages;
+        private List<RbPageSummary> pages;
         private WikiSite wiki;
 
-        RecyclerAdapter(@NonNull List<FeedPageSummary> pages, WikiSite wiki) {
+        RecyclerAdapter(@NonNull List<RbPageSummary> pages, WikiSite wiki) {
             this.pages = pages;
             this.wiki = wiki;
         }

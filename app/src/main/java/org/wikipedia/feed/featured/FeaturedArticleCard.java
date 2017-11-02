@@ -8,19 +8,19 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DateUtil;
 
 public class FeaturedArticleCard extends Card {
-    @NonNull private FeedPageSummary page;
+    @NonNull private RbPageSummary page;
     private int age;
     @NonNull private WikiSite wiki;
 
-    public FeaturedArticleCard(@NonNull FeedPageSummary page, int age, @NonNull WikiSite wiki) {
+    public FeaturedArticleCard(@NonNull RbPageSummary page, int age, @NonNull WikiSite wiki) {
         this.page = page;
         this.age = age;
         this.wiki = wiki;

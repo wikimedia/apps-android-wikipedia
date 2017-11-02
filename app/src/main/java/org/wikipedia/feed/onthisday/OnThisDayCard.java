@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DateUtil;
@@ -81,7 +81,7 @@ public class OnThisDayCard extends Card {
         return wiki;
     }
 
-    @NonNull public List<FeedPageSummary> pages() {
+    @NonNull public List<RbPageSummary> pages() {
         return eventShownOnCard.pages();
     }
 

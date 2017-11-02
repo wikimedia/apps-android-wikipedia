@@ -7,18 +7,18 @@ import android.text.TextUtils;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.page.PageTitle;
 
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 class NewsLinkCard extends Card {
-    @NonNull private FeedPageSummary page;
+    @NonNull private RbPageSummary page;
     @NonNull private WikiSite wiki;
 
-    NewsLinkCard(@NonNull FeedPageSummary page, @NonNull WikiSite wiki) {
+    NewsLinkCard(@NonNull RbPageSummary page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }

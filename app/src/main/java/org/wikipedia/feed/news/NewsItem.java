@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.model.FeedPageSummary;
+import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.json.annotations.Required;
 
 import java.util.ArrayList;
@@ -17,20 +17,20 @@ import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 public final class NewsItem {
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String story;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private List<FeedPageSummary> links
+    @SuppressWarnings("unused,NullableProblems") @NonNull private List<RbPageSummary> links
             = Collections.emptyList();
 
     @NonNull String story() {
         return story;
     }
 
-    @NonNull public List<FeedPageSummary> links() {
+    @NonNull public List<RbPageSummary> links() {
         return links;
     }
 
     @NonNull List<NewsLinkCard> linkCards(WikiSite wiki) {
         List<NewsLinkCard> linkCards = new ArrayList<>();
-        for (FeedPageSummary link : links) {
+        for (RbPageSummary link : links) {
             linkCards.add(new NewsLinkCard(link, wiki));
         }
         return linkCards;
@@ -49,8 +49,8 @@ public final class NewsItem {
      * Iterate through the CardPageItems associated with the news story's links and return the first
      * thumb URI found.
      */
-    @Nullable private Uri getFirstImageUri(List<FeedPageSummary> links) {
-        for (FeedPageSummary link : links) {
+    @Nullable private Uri getFirstImageUri(List<RbPageSummary> links) {
+        for (RbPageSummary link : links) {
             String thumbnail = link.getThumbnailUrl();
             if (thumbnail != null) {
                 return Uri.parse(thumbnail);
