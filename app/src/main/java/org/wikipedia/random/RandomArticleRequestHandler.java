@@ -22,7 +22,8 @@ public final class RandomArticleRequestHandler{
     public static void getRandomPage(@NonNull final Callback cb) {
         new RandomSummaryClient().request(WikipediaApp.getInstance().getWikiSite(), new RandomSummaryClient.Callback() {
             @Override
-            public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull PageTitle title) {
+            public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary) {
+                PageTitle title = new PageTitle(null, pageSummary.getTitle(), WikipediaApp.getInstance().getWikiSite());
                 cb.onSuccess(title);
             }
 
