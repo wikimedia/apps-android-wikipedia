@@ -40,7 +40,8 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
                 .setCallback(getCallback());
         largeHeaderView().setTitle(card.pageTitle())
                 .setImage(card.image())
-                .onClickListener(new SelectPageCallbackAdapter(card));
+                .onClickListener(new SelectPageCallbackAdapter(card))
+                .setVisibility(VISIBLE);
     }
 
     @VisibleForTesting @NonNull String getSubtitle(int age) {

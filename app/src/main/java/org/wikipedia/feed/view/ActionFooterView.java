@@ -5,10 +5,10 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +17,7 @@ import org.wikipedia.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ActionFooterView extends FrameLayout {
+public class ActionFooterView extends ConstraintLayout {
     @BindView(R.id.view_card_action_footer_button) View actionButton;
     @BindView(R.id.view_card_action_footer_button_icon) ImageView actionIcon;
     @BindView(R.id.view_card_action_footer_button_text) TextView actionText;
