@@ -408,7 +408,7 @@
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
   <string name="offline_compilations_title">Offline-Bibliothéik</string>
-  <string name="offline_compilations_found_count" fuzzy="true">A menger Bibliothéik (%d)</string>
+  <string name="offline_compilations_found_count">A menger Offline Bibliothéik (%d)</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">Eroflueden • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ewechhuelen</string>

@@ -38,7 +38,7 @@
   <string name="menu_text_select_share">Partager</string>
   <string name="menu_text_select_edit_here">Modifier ici</string>
   <string name="nav_item_nearby">À proximité</string>
-  <string name="nearby_zoom_to_location">Zoomer sur un emplacement sur la carte</string>
+  <string name="nearby_zoom_to_location">Zoomer sur un emplacement de la carte</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contributeurs</string>
   <string name="last_updated_text">Dernière modification le %s</string>
   <string name="talk_page_link_text">Discussion</string>
@@ -153,7 +153,7 @@
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_translators_heading">Traducteurs</string>
-  <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénvoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
   <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Fondation Wikimédia&lt;/a&gt;</string>
@@ -267,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Obscurcissement de l’image (dans le thème sombre)</string>
   <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
   <string name="preference_summary_prefer_offline_content">Économiser l’utilisation des données en chargeant des articles qui sont disponibles hors connexion, plutôt que toujours charger la dernière version d’un article</string>
+  <string name="preference_title_enable_offline_library">Activer la bibliothèque hors connexion</string>
+  <string name="preference_summary_enable_offline_library">Accéder aux paquets d’article de Wikipédia (affichés sous forme de fichiers .ZIM) qui ont été téléchargés sur votre appareil pour une lecture hors connexion. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>
@@ -443,7 +445,7 @@
   <string name="offline_my_compilations">Gérer ma bibliothèque hors connexion</string>
   <string name="offline_compilations_title">Bibliothèque hors connexion</string>
   <string name="offline_compilations_search_by_name">Rechercher les ensembles d’articles par nom</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Dans ma bibliothèque (%d)</string>
+  <string name="offline_compilations_found_count">Dans ma bibliothèque hors connexion (%d)</string>
   <string name="offline_compilations_add">Ajouter à ma bibliothèque hors connexion</string>
   <string name="remote_compilations_title">Bibliothèque hors connexion</string>
   <string name="remote_compilations_description">Avec la bibliothèque hors connexion, vous pouvez maintenant télécharger des paquets d’articles pour les lire quand vous n’aurez pas de connexion internet disponible.</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">Bibliothèque hors connexion</string>
   <string name="offline_library_empty_title">Il n\'y a rien dans votre bibliothèque hors connexion</string>
   <string name="offline_library_empty_description">Choisir un ensemble d’articles de Wikipédia à télécharger maintenant, pour un accès libre plus tard.</string>
+  <string name="offline_library_empty_description_sideload">Les « paquets d’article » dans votre bibliothèque hors connexion sont des ensembles préfabriqués d’articles pour un stockage approprié sur votre appareil, afin que vous puissiez continuer à lire hors connexion.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Les paquets d’article dans votre bibliothèque restent disponibles pour une lecture hors connexion. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Vous voulez économiser l’utilisation de votre quota de données ? Choisissez « Préférer le contenu hors connexion » dans les Paramètres pour afficher d’abord les articles disponibles hors connexion, même quand vous avez une connexion. &lt;a href=\"#settings\"&gt;Aller aux paramètres&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Rechercher dans la bibliothèque hors ligne</string>
   <string name="offline_library_search_results_state">Rechercher les résultats dans votre bibliothèque hors connexion</string>
   <string name="offline_library_onboarding_action">En savoir plus</string>

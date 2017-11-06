@@ -267,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Billedmørklægning (i mørkt tema)</string>
   <string name="preference_title_prefer_offline_content">Fortræk lokalt indhold</string>
   <string name="preference_summary_prefer_offline_content">Spar på dataforbruget ved at indlæse artikler, som er tilgængeligt lokalt frem for altid at indlæse den seneste version af en artikel</string>
+  <string name="preference_title_enable_offline_library">Aktiver lokalt bibliotek</string>
+  <string name="preference_summary_enable_offline_library">Tilgå Wikipediaartikelpakker (vist som .ZIM-file) som er blevet hentet til din enhed for lokal læsning. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
   <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
   <string name="crash_report_dialog_dont_send_button">Spring over</string>
@@ -443,7 +445,7 @@
   <string name="offline_my_compilations">Håndter mit lokale bibliotek</string>
   <string name="offline_compilations_title">Lokalt bibliotek</string>
   <string name="offline_compilations_search_by_name">Søg i artikelpakker efter navn</string>
-  <string name="offline_compilations_found_count" fuzzy="true">I mit bibliotek (%d)</string>
+  <string name="offline_compilations_found_count">I mit lokale bibliotek (%d)</string>
   <string name="offline_compilations_add">Tilføj til mit lokale bibliotek</string>
   <string name="remote_compilations_title">Lokalt bibliotek</string>
   <string name="remote_compilations_description">Med det lokale bibliotek kan du nu hente artikelpakker, så du kan læse uden en tilgængelig internetforbindelse.</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">Lokalt bibliotek</string>
   <string name="offline_library_empty_title">Intet i dit lokale bibliotek</string>
   <string name="offline_library_empty_description">Vælg en pakke Wikipediaartikler at hente nu, for datafri adgang senere.</string>
+  <string name="offline_library_empty_description_sideload">»Artikelpakker« i dit lokale bibliotek er forhåndspakkede artikelsæt for nem lagring på din enhed, så du kan læse uden internetadgang.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Lær mere&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Artikelpakker i dit bibliotek er stadig tilgængelige uden internetadgang. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Lær mere&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Ønsker du at spare på dataforbrug? Vælg »Foretræk lokalt indhold« i indstillinger for at vise tilgængelig lokale artikler først, selv når du har forbindelse. &lt;a href=\"#settings\"&gt;Go to Settings&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Søg i lokalt bibliotek</string>
   <string name="offline_library_search_results_state">Søgeresultater fra dit lokale bibliotek</string>
   <string name="offline_library_onboarding_action">Læs mere</string>

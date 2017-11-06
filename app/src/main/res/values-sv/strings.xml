@@ -267,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
   <string name="preference_title_prefer_offline_content">Visa offlineinnehåll om möjligt</string>
   <string name="preference_summary_prefer_offline_content">Spara dataanvändning genom att läsa in artiklar som är tillgängliga offline istället för att alltid läsa in den senaste versionen av en artikel</string>
+  <string name="preference_title_enable_offline_library">Aktivera offlinebiblioteket</string>
+  <string name="preference_summary_enable_offline_library">Få tillgång till Wikipedia-artikelpaket (visas som .ZIM-filer) som laddas ned till din enhet så du kan läsa när du är offline. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
   <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
   <string name="crash_report_dialog_dont_send_button">Hoppa över</string>
@@ -436,14 +438,14 @@
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
-  <string name="offline_compilation_download_device_offline">Ingen internetanslutning. Se till att du är online igen och försök sedan igen.</string>
+  <string name="offline_compilation_download_device_offline">Ingen Internetanslutning. Se till att du är online igen och försök sedan igen.</string>
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
   <string name="offline_card_text">Du läser nu Wikipedia offline med artiklar i ditt offlinebibliotek.</string>
   <string name="offline_my_compilations">Hantera mitt offlinebibliotek</string>
   <string name="offline_compilations_title">Offlinebibliotek</string>
   <string name="offline_compilations_search_by_name">Sök artikelpaket efter namn</string>
-  <string name="offline_compilations_found_count" fuzzy="true">I mitt bibliotek (%d)</string>
+  <string name="offline_compilations_found_count">I mitt offlinebibliotek (%d)</string>
   <string name="offline_compilations_add">Lägg till i mitt offlinebibliotek</string>
   <string name="remote_compilations_title">Offlinebibliotek</string>
   <string name="remote_compilations_description">Med offlinebiblioteket kan du ladda ned artikelpaket för att läsa när du inte har någon tillgänglig Internetanslutning.</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">Offlinebibliotek</string>
   <string name="offline_library_empty_title">Ingenting i ditt offlinebibliotek</string>
   <string name="offline_library_empty_description">Välj ett paket med Wikipediaartiklar att ladda ned nu för att kunna läsa offline senare.</string>
+  <string name="offline_library_empty_description_sideload">“Artikelpaket” i ditt offlinebibliotek är förhandspaketerade uppsättningar med artiklar som lagras på din enhet, så du kan fortsätta läsa när du är offline.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Artikelpaket i ditt bibliotek är fortfarande tillgängliga när du är offline. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Vill du spara dataanvändning? Markera \"Visa offlineinnehåll om möjligt\" i inställningarna för att visa tillgängliga offlineartiklar först, även när du har Internetanslutning. &lt;a href=\"#settings\"&gt;Gå till inställningar&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Sök i offlinebiblioteket</string>
   <string name="offline_library_search_results_state">Sökresultat från ditt offlinebibliotek</string>
   <string name="offline_library_onboarding_action">Läs mer</string>

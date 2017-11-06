@@ -262,6 +262,7 @@
   <string name="reference_title">각주 %s</string>
   <string name="preference_summary_dim_dark_mode_images">어두운 테마를 사용할 때 그림의 밝기를 낮춥니다</string>
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
+  <string name="preference_title_enable_offline_library">오프라인 라이브러리 사용</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>
@@ -438,7 +439,7 @@
   <string name="offline_my_compilations">내 오프라인 라이브러리 관리</string>
   <string name="offline_compilations_title">오프라인 라이브러리</string>
   <string name="offline_compilations_search_by_name">이름으로 문서 꾸러미 찾기</string>
-  <string name="offline_compilations_found_count" fuzzy="true">내 라이브러리(%d)에서</string>
+  <string name="offline_compilations_found_count">내 오프라인 라이브러리(%d)에서</string>
   <string name="offline_compilations_add">내 오프라인 라이브러리에 추가</string>
   <string name="remote_compilations_title">오프라인 라이브러리</string>
   <string name="remote_compilations_description">인터넷 접속이 불가능할 때 문서를 읽을 수 있도록 오프라인 라이브러리를 사용하여 지금 문서 꾸러미들을 다운로드할 수 있습니다.</string>

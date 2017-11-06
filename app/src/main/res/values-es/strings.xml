@@ -267,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuación de imágenes (en el tema oscuro)</string>
   <string name="preference_title_prefer_offline_content">Preferir contenido sin conexión</string>
   <string name="preference_summary_prefer_offline_content">Ahorrar el uso de datos mediante la carga de artículos que estén disponibles sin conexión, en lugar de cargar siempre la última versión del artículo.</string>
+  <string name="preference_title_enable_offline_library">Activar la biblioteca sin conexión</string>
+  <string name="preference_summary_enable_offline_library">Accede a los paquetes de artículos de Wikipedia (mostrados como archivos .ZIM) que se hayan descargado en tu dispositivo electrónico para leer sin conexión.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Más información&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Te gustaría enviar un informe de fallo a HockeyApp / un proveedor de servicios de terceros para que Wikimedia pueda revisar tu fallo y corregir el error que lo causó?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -443,7 +445,7 @@
   <string name="offline_my_compilations">Gestionar mi biblioteca sin conexión</string>
   <string name="offline_compilations_title">Biblioteca sin conexión</string>
   <string name="offline_compilations_search_by_name">Buscar paquetes de artículos por nombre</string>
-  <string name="offline_compilations_found_count" fuzzy="true">En mi biblioteca (%d)</string>
+  <string name="offline_compilations_found_count">En mi biblioteca sin conexión (%d)</string>
   <string name="offline_compilations_add">Añadir a mi biblioteca sin conexión</string>
   <string name="remote_compilations_title">Biblioteca sin conexión</string>
   <string name="remote_compilations_description">La Biblioteca sin conexión te permite descargar paquetes de artículos para leerlos cuando no tengas conexión a Internet.</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">Biblioteca sin conexión</string>
   <string name="offline_library_empty_title">Nada en tu biblioteca sin conexión</string>
   <string name="offline_library_empty_description">Elige un paquete de artículos de Wikipedia para descargar ahora, para acceder luego sin cargo de datos.</string>
+  <string name="offline_library_empty_description_sideload">“Paquetes de artículos” en tu biblioteca Off-line son conjuntos de artículos para almacenar convenientemente en tu dispositivo electrónico, así puedes continuar leyendo cuándo estás off-line.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Descubre más&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Los paquetes de artículos de tu biblioteca permanecen disponibles para su lectura fuera de línea. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Más información&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">¿Quieres ahorrar datos? Selecciona «Preferir contenido sin conexión» en la configuración para mostrar en primer lugar los artículos disponibles sin conexión, incluso cuando estés conectado. &lt;a href=\"#settings\"&gt;Abrir la configuración&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Buscar en la biblioteca sin conexión</string>
   <string name="offline_library_search_results_state">Resultados de búsqueda de tu biblioteca sin conexión</string>
   <string name="offline_library_onboarding_action">Más información</string>

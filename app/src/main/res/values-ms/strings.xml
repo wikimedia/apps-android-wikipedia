@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;penyumbang &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
   <string name="talk_page_link_text">Bincang</string>
+  <string name="edit_history_link_text">Sejarah penyuntingan</string>
+  <string name="map_view_link_text">Paparkan di peta</string>
+  <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Dengan menyimpan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Suntingan akan diatribusikan kepada alamat IP peranti anda. Jika anda &lt;a href=\"https://#login\"&gt;log masuk&lt;/a&gt;, maka privasi anda bertambah baik.</string>
@@ -200,6 +203,7 @@
   <string name="preference_title_show_images">Paparkan imej</string>
   <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
   <string name="read_more_section">Selanjutnya</string>
+  <string name="about_article_section">Mengenai rencana ini</string>
   <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
   <string name="gallery_error_draw_failed">Imej tidak dapat dilukis.</string>
   <string name="license_title">Lesen untuk %s</string>
@@ -263,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pemalapan imej (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Lebih suka kandungan luar talian</string>
   <string name="preference_summary_prefer_offline_content">Menjimatkan penggunaan data dengan memuatkan rencana yang tersedia di luar talian dan bukannya memuatkan versi terkini rencana</string>
+  <string name="preference_title_enable_offline_library">Bolehkan Perpustakaan Luar Talian</string>
+  <string name="preference_summary_enable_offline_library">Akses pek rencana Wikipedia (ditunjukkan sebagai fail .ZIM) yang telah dimuat turun ke peranti anda untuk dibaca apabila anda berada di luar talian. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
   <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Langkau</string>
@@ -439,7 +445,7 @@
   <string name="offline_my_compilations">Uruskan pustaka luar talian saya</string>
   <string name="offline_compilations_title">Perpustakaan Luar Talian</string>
   <string name="offline_compilations_search_by_name">Cari pek rencana mengikut nama</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Di perpustakaan saya (%d)</string>
+  <string name="offline_compilations_found_count">Di Perpustakaan Luar Talian saya (%d)</string>
   <string name="offline_compilations_add">Tambah ke Perpustakaan Luar Talian saya</string>
   <string name="remote_compilations_title">Perpustakaan Luar Talian</string>
   <string name="remote_compilations_description">Dengan Perpustakaan Luar Talian, anda kini boleh memuat turun pek rencana untuk dibaca apabila anda tidak mempunyai sambungan internet.</string>
@@ -466,6 +472,9 @@
   <string name="offline_library_title">Perpustakaan Luar Talian</string>
   <string name="offline_library_empty_title">Tiada apa-apa dalam Perpustakaan Luar Talian anda</string>
   <string name="offline_library_empty_description">Pilih satu pak rencana Wikipedia untuk dimuat turun sekarang, untuk akses tanpa data kemudian.</string>
+  <string name="offline_library_empty_description_sideload">“Pakej rencana” dalam pustaka Luar Talian anda adalah set pra-pakej rencana untuk penyimpanan mudah pada peranti anda, supaya anda boleh terus membaca semasa di luar talian.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Pek rencana di pustaka anda tetap tersedia untuk dibaca apabila anda berada di luar talian. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Ingin menjimatkan penggunaan data? Pilih “Pilih kandungan luar talian” dalam Tetapan untuk menunjukkan rencana luar talian yang ada dahulu, walaupun anda mempunyai sambungan. &lt;a href=\"#settings\"&gt;Pergi ke Tetapan&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Carian Perpustakaan Luar Talian</string>
   <string name="offline_library_search_results_state">Hasil carian dari Perpustakaan Luar Talian anda</string>
   <string name="offline_library_onboarding_action">Ketahui lebih lanjut</string>

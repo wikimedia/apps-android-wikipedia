@@ -267,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Bilddimmung (im dunklen Farbschema)</string>
   <string name="preference_title_prefer_offline_content">Offline-Inhalt bevorzugen</string>
   <string name="preference_summary_prefer_offline_content">Datennutzung durch das Laden von offline verfügbaren Artikeln einsparen und nicht immer die aktuelle Artikelversion laden.</string>
+  <string name="preference_title_enable_offline_library">Offline-Bibliothek aktivieren</string>
+  <string name="preference_summary_enable_offline_library">Auf Wikipedia-Artikelpakete zugreifen (als .ZIM-Dateien angezeigt), die auf dein Gerät zum Offline-Lesen heruntergeladen wurden. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Leider ist die App beim letzten Mal abgestürzt</string>
   <string name="crash_report_dialog_text">Möchtest du einen Absturzbericht an HockeyApp/einen Drittpartei-Diensteanbieter senden, so dass Wikimedia deinen Absturz überprüfen und den verursachenden Fehler beheben kann?</string>
   <string name="crash_report_dialog_dont_send_button">Überspringen</string>
@@ -443,7 +445,7 @@
   <string name="offline_my_compilations">Meine Offline-Bibliothek verwalten</string>
   <string name="offline_compilations_title">Offline-Bibliothek</string>
   <string name="offline_compilations_search_by_name">Artikelpakete nach Namen suchen</string>
-  <string name="offline_compilations_found_count" fuzzy="true">In meiner Bibliothek (%d)</string>
+  <string name="offline_compilations_found_count">In meiner Offline-Bibliothek (%d)</string>
   <string name="offline_compilations_add">Zu meiner Offline-Bibliothek hinzufügen</string>
   <string name="remote_compilations_title">Offline-Bibliothek</string>
   <string name="remote_compilations_description">Mit der Offline-Bibliothek kannst du jetzt Artikelpakete zum Lesen herunterladen, wenn du keine verfügbare Internetverbindung hast.</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">Offline-Bibliothek</string>
   <string name="offline_library_empty_title">Es befindet sich nichts in deiner Offline-Bibliothek</string>
   <string name="offline_library_empty_description">Wähle ein Paket mit Wikipedia-Artikeln aus, um es jetzt herunterzuladen und später darauf offline zuzugreifen.</string>
+  <string name="offline_library_empty_description_sideload">„Artikelpakete“ in deiner Offline-Bibliothek sind vorbepackte Artikelsätze für geeigneten Speicher auf deinem Gerät, so dass du mit dem Lesen fortfahren kannst, wenn du offline bist.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Artikelpakete in deiner Bibliothek bleiben zum Lesen verfügbar, wenn du offline bist. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Möchtest du Datenverbrauch einsparen? Wähle „Offline-Inhalte bevorzugen“ in den Einstellungen aus, um verfügbare Offline-Artikel zuerst anzuzeigen, auch wenn du nicht mit dem Internet verbunden bist. &lt;a href=\"#settings\"&gt;Zu den Einstellungen gehen&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Offline-Bibliothek durchsuchen</string>
   <string name="offline_library_search_results_state">Ergebnisse von deiner Offline-Bibliothek suchen</string>
   <string name="offline_library_onboarding_action">Mehr erfahren</string>

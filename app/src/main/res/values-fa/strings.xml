@@ -267,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">گم نورکردن تصویر (در حالت تیره)</string>
   <string name="preference_title_prefer_offline_content">محتوای آفلاین را ترجیح بده</string>
   <string name="preference_summary_prefer_offline_content">با نشان دادن محتوای آفلاین به جای گرفتن آخرین نسخه می‌توانید در مصرف داده صرفه‌جویی کنید</string>
+  <string name="preference_title_enable_offline_library">فعال کردن کتابخانهٔ آفلاین</string>
+  <string name="preference_summary_enable_offline_library">دسترسی به بستهٔ مقالات ویکی‌پدیا (نشان داده شده در فایل .ZIM) که بر روی دستگاه شما برای مطالعهٔ آفلاین دانلود شده‌است. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;موارد بیشتر&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
   <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
   <string name="crash_report_dialog_dont_send_button">رها کردن</string>
@@ -443,7 +445,7 @@
   <string name="offline_my_compilations">مدیریت کتابخانهٔ آفلاین</string>
   <string name="offline_compilations_title">کتابخانه آفلاین</string>
   <string name="offline_compilations_search_by_name">جستجوی بسته مقاله‌ها بر پایهٔ نام</string>
-  <string name="offline_compilations_found_count" fuzzy="true">در کتابخانهٔ من (%d)</string>
+  <string name="offline_compilations_found_count">در کتابخانهٔ آفلاین من (%d)</string>
   <string name="offline_compilations_add">افزودن به کتابخانهٔ آفلاین من</string>
   <string name="remote_compilations_title">کتابخانهٔ آفلاین</string>
   <string name="remote_compilations_description">به کمک کتابخانهٔ آفلاین، برای مواقعی که به اینترنت دسترسی ندارید می‌توانید بسته‌هایی از مقالات برای خواندن دانلود کنید.</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">کتابخانه آفلاین</string>
   <string name="offline_library_empty_title">چیزی در کتابخانه آفلاین شما وجود ندارد</string>
   <string name="offline_library_empty_description">انتخاب بسته‌ای از مقالات ویکی‌پدیا برای بارگیری، برای دسترسی بدون نیاز به اینترنت در زمانی دیگر</string>
+  <string name="offline_library_empty_description_sideload">«بستهٔ مقالات» در کتابخانهٔ آفلاین که برای ذخیره در دستگاه شما بسته‌بندی شده‌است که می‌توانید مقالات را به صورت آفلاین مطالعه کنید.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;موارد بیشتر&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">بسته مقالات باقی‌مانده در کتابخانهٔ شما برای زمانی که قصد مطالعهٔ آفلاین دارید.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;موارد بیشتر&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">آیا قصد دارید از اینترنت موبایلتان برای ذخیره استفاده کنید؟ گزینهٔ «ترجیح می‌دهم از محتویا آفلاین استفاده کنم» را در تنظیمات انتخاب کنید تا مقالات آفلاین را ابتدا نمایش دهد حتی در زمانی که به اینترنت وصل هستید.&lt;a href=\"#settings\"&gt;رفتن به تنظیمات&lt;/a&gt;</string>
   <string name="offline_library_empty_search">جستجو در کتابخانه آفلاین</string>
   <string name="offline_library_search_results_state">نمایش نتایج از کتابخانه آفلاین</string>
   <string name="offline_library_onboarding_action">پیدا کردن موارد بیشتر</string>

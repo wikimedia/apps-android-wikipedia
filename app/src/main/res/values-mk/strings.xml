@@ -265,8 +265,10 @@
   <string name="preference_title_dim_dark_mode_images">Пригушени слики во темниот изглед</string>
   <string name="preference_summary_dim_dark_mode_images">Намалување на светлоста на сликите при употреба на темниот изглед</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
-  <string name="preference_title_prefer_offline_content">Претпочитам вонмрежно</string>
+  <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
+  <string name="preference_title_enable_offline_library">Овозможи Вонмрежна библиотека</string>
+  <string name="preference_summary_enable_offline_library">Пакети со статии од Википедија (прикажани како .ZIM-податотеки) преземени на вашиот уред за читање кога не сте на линија. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>
@@ -443,7 +445,7 @@
   <string name="offline_my_compilations">Раковод. со мојата вонмрежна библиотека</string>
   <string name="offline_compilations_title">Вонмрежна библиотека</string>
   <string name="offline_compilations_search_by_name">Пребарај пакети од статии по име</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Во мојата библиотека (%d)</string>
+  <string name="offline_compilations_found_count">Во мојата вонмрежна библиотека (%d)</string>
   <string name="offline_compilations_add">Додај во вонмрежната библиотека</string>
   <string name="remote_compilations_title">Вонмрежна библиотека</string>
   <string name="remote_compilations_description">Со вонмрежната библиотека, можете да преземате пакети од статии за читање кога немате линија.</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">Вонмрежна библиотека</string>
   <string name="offline_library_empty_title">Немате ништо во Вонмрежната библиотека</string>
   <string name="offline_library_empty_description">Изберете пакет статии од Википедија што ќе ги преземете сега за да ги читате подоцна без линија.</string>
+  <string name="offline_library_empty_description_sideload">„Пакети со статии“ во вашата Вонмрежна библиотека се претходно спакувани збирови од статии за згодно складирање на вашиот уред, за да можете да продолжите со читање кога немате линија.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Пакетите со статии остануваат достапни за читање и кога немате линија. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Сакате да заштедите? Изберете „Претпочитај вонмрежни“ во поставките за прво да ви се прикажуваат достапни вонмрежни статии, дури и кога имате линија. &lt;a href=\"#settings\"&gt;Одете на поставките&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Пребарај по вонмрежната библиотека</string>
   <string name="offline_library_search_results_state">Исходот од пребарувањето на вашата вонмрежна библиотека</string>
   <string name="offline_library_onboarding_action">Дознајте повеќе</string>

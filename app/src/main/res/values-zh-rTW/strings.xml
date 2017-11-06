@@ -265,8 +265,10 @@
   <string name="preference_title_dim_dark_mode_images">在暗黑主題調暗圖片</string>
   <string name="preference_summary_dim_dark_mode_images">當使用暗黑主題時減少圖片亮度</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在暗黑主題）</string>
-  <string name="preference_title_prefer_offline_content">離線內容優先</string>
+  <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">依載入可用在離線狀況下的條目；優先於最新版本條目來儲存資料使用量</string>
+  <string name="preference_title_enable_offline_library">啟用離線圖書館</string>
+  <string name="preference_summary_enable_offline_library">存取已下載到您裝置的維基百科條目包（以 .ZIM 檔案格式顯示）能讓您處於離線狀態時仍可進行閱讀。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
@@ -443,7 +445,7 @@
   <string name="offline_my_compilations">管理我的離線圖書館</string>
   <string name="offline_compilations_title">離線圖書館</string>
   <string name="offline_compilations_search_by_name">依條目包來搜尋匯編</string>
-  <string name="offline_compilations_found_count" fuzzy="true">我的離線圖書館（%d）</string>
+  <string name="offline_compilations_found_count">在我的離線圖書館（%d）</string>
   <string name="offline_compilations_add">添加至我的離線圖書館</string>
   <string name="remote_compilations_title">離線圖書館</string>
   <string name="remote_compilations_description">透過離線圖書館；讓您可現在就下載條目包於無法使用網路情況下閱讀內容。</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">離線圖書館</string>
   <string name="offline_library_empty_title">您的離線圖書館裡無任何事物</string>
   <string name="offline_library_empty_description">現在就挑選維基百科的條目包來下載，這可讓您事後自由存取資料。</string>
+  <string name="offline_library_empty_description_sideload">在您離線圖書館裡的「條目包」；是種事先打包好的條目集合，可在您的裝置方便儲存，這可讓您在離線時繼續閱讀。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">在您圖書館裡的條目包能讓您在離線時仍可繼續閱讀。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">想要儲存在資料用量裡？在設定裡的「首選離線內容」來挑選出即使是在已連線狀態下；優先顯示出的離線條目。&lt;a href=\"#settings\"&gt;前往設定&lt;/a&gt;</string>
   <string name="offline_library_empty_search">搜尋離線圖書館</string>
   <string name="offline_library_search_results_state">從您的離線圖書館來搜尋結果</string>
   <string name="offline_library_onboarding_action">了解更多</string>

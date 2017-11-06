@@ -267,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">图片变暗（在黑暗主题中）</string>
   <string name="preference_title_prefer_offline_content">偏好离线内容</string>
   <string name="preference_summary_prefer_offline_content">通过加载可供离线使用的条目保存数据使用，而不总是加载条目最新版本</string>
+  <string name="preference_title_enable_offline_library">启用离线图书馆</string>
+  <string name="preference_summary_enable_offline_library">访问已下载到您设备的维基百科条目包（显示为.ZIM文件）以在您离线时阅读。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
   <string name="crash_report_dialog_text">您是否希望发送崩溃报告至HockeyApp/第三方服务提供方，这样维基媒体可以浏览您的崩溃报告，并修复导致它的漏洞？</string>
   <string name="crash_report_dialog_dont_send_button">跳过</string>
@@ -443,7 +445,7 @@
   <string name="offline_my_compilations">管理我的离线图书馆</string>
   <string name="offline_compilations_title">离线图书馆</string>
   <string name="offline_compilations_search_by_name">按名称搜索条目包</string>
-  <string name="offline_compilations_found_count" fuzzy="true">在我的图书馆中（%d）</string>
+  <string name="offline_compilations_found_count">在我的离线图书馆中（%d）</string>
   <string name="offline_compilations_add">添加至我的离线图书馆</string>
   <string name="remote_compilations_title">离线图书馆</string>
   <string name="remote_compilations_description">通过离线图书馆，您现在可以打包下载条目，以在您没有可用的互联网连接时阅读。</string>
@@ -470,6 +472,9 @@
   <string name="offline_library_title">离线图书馆</string>
   <string name="offline_library_empty_title">您的离线图书馆没有任何东西</string>
   <string name="offline_library_empty_description">现在可以选择下载一些维基百科条目，以便日后免流量访问。</string>
+  <string name="offline_library_empty_description_sideload">您的离线图书馆中的“条目包”是预打包的条目集合，以便在您的设备上存储，这样您可以在离线时继续阅读。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">您的图书馆中的条目包会在您离线时提供阅读。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">想要在数据使用时保存？在设置中选择“首选离线内容”以首先显示可用离线条目，即便您已连接到网络。&lt;a href=\"#settings\"&gt;前往设置&lt;/a&gt;</string>
   <string name="offline_library_empty_search">搜索离线图书馆</string>
   <string name="offline_library_search_results_state">搜索您的离线图书馆的结果</string>
   <string name="offline_library_onboarding_action">了解更多</string>

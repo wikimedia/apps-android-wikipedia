@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; contribuintes</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="talk_page_link_text">Discussão</string>
+  <string name="edit_history_link_text">Histórico de edições</string>
+  <string name="map_view_link_text">Ver no mapa</string>
+  <string name="language_count_link_text">Disponível em %d outros idiomas</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license_logged_in">Ao salvar, você estará concordando com os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao salvar, você estará concordando com os &lt;a href=\"%1$s\"&gt;Termos de Uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar sessão&lt;/a&gt;, você terá mais privacidade.</string>
@@ -200,6 +203,7 @@
   <string name="preference_title_show_images">Mostrar imagens</string>
   <string name="preference_summary_show_images">Habilita ou desabilita o carregamento de imagens em páginas. Desmarque esta opção caso sua conexão à Internet for lenta ou caso seu plano de dados for limitado.</string>
   <string name="read_more_section">Ler mais</string>
+  <string name="about_article_section">Sobre este artigo</string>
   <string name="menu_gallery_visit_page">Ir para a página do arquivo</string>
   <string name="gallery_error_draw_failed">Não foi possível desenhar a imagem.</string>
   <string name="license_title">Licença para %s</string>
@@ -263,6 +267,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Escurecimento da imagem (no tema escuro)</string>
   <string name="preference_title_prefer_offline_content">Prefira o conteúdo off-line</string>
   <string name="preference_summary_prefer_offline_content">Salve o uso de dados carregando artigos que estão disponíveis offline em vez de carregar sempre a versão mais recente de um artigo</string>
+  <string name="preference_title_enable_offline_library">Ativar biblioteca off-line</string>
+  <string name="preference_summary_enable_offline_library">Acesse os pacotes de artigos da Wikipédia (mostrado como .ZIM files) que foram baixados para o seu dispositivo para ler quando você está desconectado. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Descubra mais&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Desculpe, o aplicativo encerrou inesperadamente da última vez</string>
   <string name="crash_report_dialog_text">Gostaria de enviar um relatório de falha ao HockeyApp / um provedor de serviço de terceiros para que a Wikimedia possa analisar a falha e corrigi-la?</string>
   <string name="crash_report_dialog_dont_send_button">Pular</string>
@@ -439,7 +445,7 @@
   <string name="offline_my_compilations">Gerencie minha biblioteca off-line</string>
   <string name="offline_compilations_title">Biblioteca Offline</string>
   <string name="offline_compilations_search_by_name">Pesquisar pacotes de artigos pelo nome</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Na minha biblioteca (%d)</string>
+  <string name="offline_compilations_found_count">Na minha Biblioteca Offline (%d)</string>
   <string name="offline_compilations_add">Adicionar à minha Biblioteca Offline</string>
   <string name="remote_compilations_title">Biblioteca Offline</string>
   <string name="remote_compilations_description">Com a Biblioteca Offline, agora você pode baixar pacotes de artigos para ler quando você não possui conexão à internet disponível.</string>
@@ -466,6 +472,9 @@
   <string name="offline_library_title">Biblioteca Offline</string>
   <string name="offline_library_empty_title">Nada na sua Biblioteca Offline</string>
   <string name="offline_library_empty_description">Escolha um pacote de artigos da Wikipedia para baixar agora, para acesso livre de dados mais tarde.</string>
+  <string name="offline_library_empty_description_sideload">“Pacotes de artigos” na sua biblioteca off-line são conjuntos de artigos pré-empacotados para armazenamento conveniente em seu dispositivo, para que você continue a ler quando estiver desconectado.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Descubra mais&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Pacotes de artigos em sua biblioteca permanecem disponíveis para leitura quando você está desconectado. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Descubra mais&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Deseja economizar no uso de dados? Escolha para “Prefira o conteúdo off-line” em Configurações para exibir os artigos off-line disponíveis, mesmo quando você possui conectividade. &lt;a href=\"#settings\"&gt;Vá para as configurações&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Pesquisar na Biblioteca Offline</string>
   <string name="offline_library_search_results_state">Resultados da pesquisa da sua Biblioteca Offline</string>
   <string name="offline_library_onboarding_action">Descubra mais</string>
