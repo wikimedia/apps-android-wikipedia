@@ -23,7 +23,6 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.MarginItemDecoration;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.List;
 
@@ -32,7 +31,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
-    @BindView(R.id.view_on_this_day_card_header) View headerView;
+    @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
     @BindView(R.id.text) TextView descTextView;
     @BindView(R.id.year) TextView yearTextView;
     @BindView(R.id.next_year) TextView nextYearTextView;
@@ -96,15 +95,11 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     @Override
     public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
-        if (headerView instanceof CardHeaderView) {
-            ((CardHeaderView) headerView).setCallback(callback);
-        }
+        headerView.setCallback(callback);
     }
 
     private void header(@NonNull OnThisDayCard card) {
-
-        CardHeaderView header = new CardHeaderView(getContext())
-                .setTitle(card.title())
+        headerView.setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_otd_icon)
                 .setImageCircleColor(R.color.base30)
@@ -116,12 +111,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
         yearLayout.setBackground(GradientUtil.getPowerGradient(R.color.base100, Gravity.TOP));
         nextYearLayout.setBackground(GradientUtil.getPowerGradient(R.color.base100, Gravity.BOTTOM));
         nextYearTextView.setText(DateUtil.yearToStringWithEra(card.nextYear()));
-        header(header);
-    }
-
-    private void header(@NonNull View view) {
-        ViewUtil.replace(headerView, view);
-        headerView = view;
     }
 
     @Override

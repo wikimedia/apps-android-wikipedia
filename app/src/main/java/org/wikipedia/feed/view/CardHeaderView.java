@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.PopupMenu;
+import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -37,7 +38,21 @@ public class CardHeaderView extends FrameLayout {
 
     public CardHeaderView(Context context) {
         super(context);
-        inflate(context, R.layout.view_card_header, this);
+        init();
+    }
+
+    public CardHeaderView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public CardHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
+        inflate(getContext(), R.layout.view_card_header, this);
         ButterKnife.bind(this);
     }
 

@@ -15,7 +15,6 @@ import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
-import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,8 +29,8 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         void onFeaturedImageSelected(@NonNull FeaturedImageCard card);
     }
 
-    @BindView(R.id.view_featured_image_card_header) View headerView;
-    @BindView(R.id.view_featured_image_card_footer) View footerView;
+    @BindView(R.id.view_featured_image_card_header) CardHeaderView headerView;
+    @BindView(R.id.view_featured_image_card_footer) ActionFooterView footerView;
     @BindView(R.id.view_featured_image_card_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.featured_image_description_Text) TextView descriptionView;
 
@@ -53,9 +52,7 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
-        if (headerView instanceof CardHeaderView) {
-            ((CardHeaderView) headerView).setCallback(callback);
-        }
+        headerView.setCallback(callback);
     }
 
     private void image(@NonNull Uri uri) {
@@ -71,32 +68,19 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
     }
 
     private void header(@NonNull FeaturedImageCard card) {
-        CardHeaderView header = new CardHeaderView(getContext())
-                .setTitle(card.title())
+        headerView.setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.icon_potd_photo_camera)
                 .setImageCircleColor(R.color.base30)
                 .setCard(card)
                 .setCallback(getCallback());
-        header(header);
     }
 
     private void footer() {
-        footer(new ActionFooterView(getContext())
-                .actionIcon(R.drawable.ic_file_download)
+        footerView.actionIcon(R.drawable.ic_file_download)
                 .actionText(R.string.view_featured_image_card_download)
                 .onActionListener(new CardDownloadListener())
-                .onShareListener(new CardShareListener()));
-    }
-
-    private void header(@NonNull View view) {
-        ViewUtil.replace(headerView, view);
-        headerView = view;
-    }
-
-    private void footer(@NonNull View view) {
-        ViewUtil.replace(footerView, view);
-        footerView = view;
+                .onShareListener(new CardShareListener());
     }
 
     private class CardClickListener implements OnClickListener {
