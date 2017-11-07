@@ -585,5 +585,39 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_enable_offline_library, false);
     }
 
+    @NonNull public static List<Boolean> getFeedCardsEnabled() {
+        if (!contains(R.string.preference_key_feed_cards_enabled)) {
+            return Collections.emptyList();
+        }
+        //noinspection unchecked
+        List<Boolean> enabledList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<Boolean>>(){},
+                getString(R.string.preference_key_feed_cards_enabled, null));
+        return enabledList != null ? enabledList : Collections.emptyList();
+    }
+
+    public static void setFeedCardsEnabled(@NonNull List<Boolean> enabledList) {
+        setString(R.string.preference_key_feed_cards_enabled, GsonMarshaller.marshal(enabledList));
+    }
+
+    @NonNull public static List<Integer> getFeedCardsOrder() {
+        if (!contains(R.string.preference_key_feed_cards_order)) {
+            return Collections.emptyList();
+        }
+        //noinspection unchecked
+        List<Integer> orderList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<Integer>>(){},
+                getString(R.string.preference_key_feed_cards_order, null));
+        return orderList != null ? orderList : Collections.emptyList();
+    }
+
+    public static void setFeedCardsOrder(@NonNull List<Integer> orderList) {
+        setString(R.string.preference_key_feed_cards_order, GsonMarshaller.marshal(orderList));
+    }
+
+    public static void resetFeedCustomizations() {
+        remove(R.string.preference_key_feed_hidden_cards);
+        remove(R.string.preference_key_feed_cards_enabled);
+        remove(R.string.preference_key_feed_cards_order);
+    }
+
     private Prefs() { }
 }

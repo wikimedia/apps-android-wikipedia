@@ -65,4 +65,6 @@
     <string name="preference_key_suppress_notification_polling">suppressNotificationPolling</string>
     <string name="preference_key_prefer_offline_content">preferOfflineContent</string>
     <string name="preference_key_enable_offline_library">enableOfflineLibrary</string>
+    <string name="preference_key_feed_cards_order">feedCardsOrder</string>
+    <string name="preference_key_feed_cards_enabled">feedCardsEnabled</string>
 </resources>
