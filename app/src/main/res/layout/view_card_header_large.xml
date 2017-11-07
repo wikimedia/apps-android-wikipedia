@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:layout_width="match_parent"
-    tools:layout_height="96dp"
+    tools:layout_height="@dimen/view_card_header_large_height"
     tools:parentTag="android.support.constraint.ConstraintLayout">
 
     <View

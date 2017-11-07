@@ -9,7 +9,7 @@
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_featured_article_card_header"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="@dimen/view_card_header_height" />
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         style="@style/SimpleDraweeViewPlaceholder"
@@ -85,7 +85,7 @@
     <org.wikipedia.feed.view.ActionFooterView
         android:id="@+id/view_featured_article_card_footer"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/view_card_footer_height"
         app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_text_container"/>
 
 </android.support.constraint.ConstraintLayout>
