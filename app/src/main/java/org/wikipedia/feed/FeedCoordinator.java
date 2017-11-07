@@ -19,6 +19,7 @@ import org.wikipedia.util.DeviceUtil;
 import static org.wikipedia.util.ReleaseUtil.isPreBetaRelease;
 
 class FeedCoordinator extends FeedCoordinatorBase {
+    @NonNull private AggregatedFeedContentClient aggregatedClient = new AggregatedFeedContentClient();
 
     FeedCoordinator(@NonNull Context context) {
         super(context);
@@ -32,7 +33,10 @@ class FeedCoordinator extends FeedCoordinatorBase {
         conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online && OfflineManager.hasCompilation());
         conditionallyAddPendingClient(new OnboardingClient(), age == 0);
         conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && online);
-        conditionallyAddPendingClient(new AggregatedFeedContentClient(), online);
+        conditionallyAddPendingClient(new AggregatedFeedContentClient.InTheNews(aggregatedClient), online);
+        conditionallyAddPendingClient(new AggregatedFeedContentClient.FeaturedArticle(aggregatedClient), online);
+        conditionallyAddPendingClient(new AggregatedFeedContentClient.TrendingArticles(aggregatedClient), online);
+        conditionallyAddPendingClient(new AggregatedFeedContentClient.FeaturedImage(aggregatedClient), online);
         addPendingClient(new ContinueReadingClient());
         conditionallyAddPendingClient(new OnThisDayClient(), online && isPreBetaRelease());
         conditionallyAddPendingClient(new MainPageClient(), age == 0);
