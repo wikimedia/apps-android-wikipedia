@@ -434,6 +434,9 @@
     <string name="view_featured_article_card_title">Featured article</string>
     <string name="view_featured_article_footer_save_button_label">Save</string>
     <string name="view_featured_article_footer_saved_button_label">Saved</string>
+    <string name="feed_configure_menu_title">Configure cards</string>
+    <string name="feed_configure_activity_title">Configure Explore cards</string>
+    <string name="feed_configure_menu_reset">Reset to defaults</string>
     <!-- /The Feed -->
 
     <!-- Description editing -->

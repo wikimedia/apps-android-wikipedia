@@ -19,10 +19,12 @@ import android.view.ViewGroup;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.BuildConfig;
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -51,6 +53,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import static android.app.Activity.RESULT_OK;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OFFLINE_TUTORIAL;
 
 public class FeedFragment extends Fragment implements BackPressedHandler {
@@ -196,6 +199,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             Prefs.setOfflineTutorialEnabled(false);
             refresh();
             feedCallback.onViewCompilations();
+        } else if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE
+                && resultCode == ConfigureActivity.CONFIGURATION_CHANGED_RESULT) {
+            coordinator.updateHiddenCards();
+            refresh();
         }
     }
 
@@ -311,7 +318,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onRequestMore() {
             funnel.requestMore(coordinator.getAge());
-            coordinator.more(app.getWikiSite());
+            feedView.post(() -> {
+                if (isAdded()) {
+                    coordinator.incrementAge();
+                    coordinator.more(app.getWikiSite());
+                }
+            });
         }
 
         @Override
@@ -527,6 +539,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     Uri.parse(String.format(getString(R.string.donate_url),
                             BuildConfig.VERSION_NAME,
                             WikipediaApp.getInstance().getSystemLanguageCode())));
+        }
+
+        @Override
+        public void configureCardsClick() {
+            startActivityForResult(ConfigureActivity.newIntent(getActivity()),
+                    Constants.ACTIVITY_REQUEST_FEED_CONFIGURE);
         }
 
         @Override

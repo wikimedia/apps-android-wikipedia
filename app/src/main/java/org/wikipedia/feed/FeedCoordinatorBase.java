@@ -47,6 +47,11 @@ public abstract class FeedCoordinatorBase {
 
     public FeedCoordinatorBase(@NonNull Context context) {
         this.context = context;
+        updateHiddenCards();
+    }
+
+    public void updateHiddenCards() {
+        hiddenCards.clear();
         hiddenCards.addAll(Prefs.getHiddenCards());
     }
 
@@ -69,15 +74,15 @@ public abstract class FeedCoordinatorBase {
         cards.clear();
     }
 
+    public void incrementAge() {
+        currentAge++;
+    }
+
     public void more(@NonNull WikiSite wiki) {
         this.wiki = wiki;
 
         if (cards.size() == 0) {
             insertCard(progressCard, 0);
-        }
-
-        if (cards.size() > 1) {
-            currentAge++;
         }
 
         buildScript(currentAge);
@@ -114,12 +119,14 @@ public abstract class FeedCoordinatorBase {
 
     protected abstract void buildScript(int age);
 
-    void addPendingClient(FeedClient client) {
-        pendingClients.add(client);
+    void addPendingClient(@Nullable FeedClient client) {
+        if (client != null) {
+            pendingClients.add(client);
+        }
     }
 
-    void conditionallyAddPendingClient(FeedClient client, boolean condition) {
-        if (condition) {
+    void conditionallyAddPendingClient(@Nullable FeedClient client, boolean condition) {
+        if (condition && client != null) {
             pendingClients.add(client);
         }
     }

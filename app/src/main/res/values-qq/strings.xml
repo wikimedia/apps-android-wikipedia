@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed\n{{Identical|Featured article}}</string>
   <string name="view_featured_article_footer_save_button_label">Button label for saving the current featured article to a reading list, if it is not already saved.\n{{Identical|Save}}</string>
   <string name="view_featured_article_footer_saved_button_label">Button label for when the current featured article is already saved to a reading list, but may now be removed from the list, or saved to a different list.\n{{Identical|Saved}}</string>
+  <string name="feed_configure_menu_title">Menu label for showing the screen where the user configures which cards are shown in the Explore feed.</string>
+  <string name="feed_configure_activity_title">Title shown at the top of the screen where the user configures which cards are shown in the Explore feed.</string>
+  <string name="feed_configure_menu_reset">Menu label for resetting the configuration of the Explore feed cards to the original defaults.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.\n{{Identical|Publish}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>

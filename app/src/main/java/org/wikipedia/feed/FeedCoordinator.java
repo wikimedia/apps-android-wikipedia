@@ -5,24 +5,23 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.announcement.AnnouncementClient;
-import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
-import org.wikipedia.feed.continuereading.ContinueReadingClient;
-import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.offline.OfflineCompilationClient;
 import org.wikipedia.feed.onboarding.OnboardingClient;
-import org.wikipedia.feed.onthisday.OnThisDayClient;
-import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.feed.searchbar.SearchClient;
 import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.util.DeviceUtil;
 
-import static org.wikipedia.util.ReleaseUtil.isPreBetaRelease;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-class FeedCoordinator extends FeedCoordinatorBase {
+public class FeedCoordinator extends FeedCoordinatorBase {
     @NonNull private AggregatedFeedContentClient aggregatedClient = new AggregatedFeedContentClient();
 
     FeedCoordinator(@NonNull Context context) {
         super(context);
+        FeedContentType.restoreState();
     }
 
     @Override
@@ -33,14 +32,14 @@ class FeedCoordinator extends FeedCoordinatorBase {
         conditionallyAddPendingClient(new OfflineCompilationClient(), age == 0 && !online && OfflineManager.hasCompilation());
         conditionallyAddPendingClient(new OnboardingClient(), age == 0);
         conditionallyAddPendingClient(new AnnouncementClient(), age == 0 && online);
-        conditionallyAddPendingClient(new AggregatedFeedContentClient.InTheNews(aggregatedClient), online);
-        conditionallyAddPendingClient(new AggregatedFeedContentClient.FeaturedArticle(aggregatedClient), online);
-        conditionallyAddPendingClient(new AggregatedFeedContentClient.TrendingArticles(aggregatedClient), online);
-        conditionallyAddPendingClient(new AggregatedFeedContentClient.FeaturedImage(aggregatedClient), online);
-        addPendingClient(new ContinueReadingClient());
-        conditionallyAddPendingClient(new OnThisDayClient(), online && isPreBetaRelease());
-        conditionallyAddPendingClient(new MainPageClient(), age == 0);
-        conditionallyAddPendingClient(new BecauseYouReadClient(), online);
-        conditionallyAddPendingClient(new RandomClient(), age == 0);
+
+        List<FeedContentType> orderedContentTypes = new ArrayList<>();
+        orderedContentTypes.addAll(Arrays.asList(FeedContentType.values()));
+        Collections.sort(orderedContentTypes, (FeedContentType a, FeedContentType b)
+                -> a.getOrder().compareTo(b.getOrder()));
+
+        for (FeedContentType contentType : orderedContentTypes) {
+            addPendingClient(contentType.newClient(aggregatedClient, age, online));
+        }
     }
 }
