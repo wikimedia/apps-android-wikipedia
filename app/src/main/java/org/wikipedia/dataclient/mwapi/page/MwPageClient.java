@@ -30,19 +30,17 @@ public class MwPageClient implements PageClient {
     @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
                                                             @NonNull CacheOption cacheOption,
                                                             @NonNull String title,
-                                                            int leadImageWidth,
-                                                            boolean noImages) {
+                                                            int leadImageWidth) {
         return service.lead(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title, leadImageWidth, optional(noImages));
+                optional(cacheOption.save()), title, leadImageWidth);
     }
 
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageRemaining> sections(@Nullable CacheControl cacheControl,
                                                                      @NonNull CacheOption cacheOption,
-                                                                     @NonNull String title,
-                                                                     boolean noImages) {
+                                                                     @NonNull String title) {
         return service.sections(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title, optional(noImages));
+                optional(cacheOption.save()), title);
     }
 
     /**

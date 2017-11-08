@@ -46,7 +46,6 @@ public interface MwPageService {
      *
      * @param title the page title with prefix if necessary
      * @param leadImageWidth one of the bucket widths for the lead image
-     * @param noImages add the noimages flag to the request if true
      */
     @Headers("x-analytics: pageview=1")
     @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
@@ -57,20 +56,17 @@ public interface MwPageService {
     @NonNull Call<MwMobileViewPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
                                              @Header(SaveHeader.FIELD) Boolean save,
                                              @NonNull @Query("page") String title,
-                                             @Query("thumbwidth") int leadImageWidth,
-                                             @Nullable @Query("noimages") Boolean noImages);
+                                             @Query("thumbwidth") int leadImageWidth);
 
     /**
      * Gets the remaining sections of a given title.
      *
      * @param title the page title to be used including prefix
-     * @param noImages add the noimages flag to the request if true
      */
     @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
             + "text%7Csections&onlyrequestedsections=1&sections=1-"
             + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=")
     @NonNull Call<MwMobileViewPageRemaining> sections(@Nullable @Header("Cache-Control") String cacheControl,
                                                       @Header(SaveHeader.FIELD) Boolean save,
-                                                      @NonNull @Query("page") String title,
-                                                      @Nullable @Query("noimages") Boolean noImages);
+                                                      @NonNull @Query("page") String title);
 }

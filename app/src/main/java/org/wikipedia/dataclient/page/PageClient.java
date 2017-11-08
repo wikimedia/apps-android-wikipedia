@@ -38,22 +38,18 @@ public interface PageClient {
      *
      * @param title the page title with prefix if necessary
      * @param leadThumbnailWidth one of the bucket widths for the lead image
-     * @param noImages add the noimages flag to the request if true
      */
     @NonNull <T extends PageLead> Call<T> lead(@Nullable CacheControl cacheControl,
                                                @NonNull CacheOption cacheOption,
                                                @NonNull String title,
-                                               int leadThumbnailWidth,
-                                               boolean noImages);
+                                               int leadThumbnailWidth);
 
     /**
      * Gets the remaining sections of a given title.
      *
      * @param title the page title to be used including prefix
-     * @param noImages add the noimages flag to the request if true
      */
     @NonNull <T extends PageRemaining> Call<T> sections(@Nullable CacheControl cacheControl,
                                                         @NonNull CacheOption cacheOption,
-                                                        @NonNull String title,
-                                                        boolean noImages);
+                                                        @NonNull String title);
 }

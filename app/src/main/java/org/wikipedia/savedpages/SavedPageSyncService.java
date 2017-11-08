@@ -28,6 +28,7 @@ import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -49,7 +50,6 @@ import okhttp3.internal.cache.DiskLruCache;
 import retrofit2.Call;
 
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.SAVE_CACHE;
-import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public class SavedPageSyncService extends JobIntentService {
     // Unique job ID for this service (do not duplicate).
@@ -218,7 +218,9 @@ public class SavedPageSyncService extends JobIntentService {
         Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
         imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
 
-        size = size.add(reqSaveImage(pageTitle.getWikiSite(), imageUrls));
+        if (Prefs.isImageDownloadEnabled()) {
+            size = size.add(reqSaveImage(pageTitle.getWikiSite(), imageUrls));
+        }
 
         String title = pageTitle.getPrefixedText();
         L.i("Saved page " + title + " (" + size + ")");
@@ -232,10 +234,9 @@ public class SavedPageSyncService extends JobIntentService {
 
         String title = pageTitle.getPrefixedText();
         int thumbnailWidth = DimenUtil.calculateLeadImageWidth();
-        boolean noImages = !isImageDownloadEnabled();
         PageClient.CacheOption cacheOption = PageClient.CacheOption.SAVE;
 
-        return client.lead(cacheControl, cacheOption, title, thumbnailWidth, noImages);
+        return client.lead(cacheControl, cacheOption, title, thumbnailWidth);
     }
 
     @NonNull private Call<PageRemaining> reqPageSections(@Nullable CacheControl cacheControl,
@@ -243,10 +244,9 @@ public class SavedPageSyncService extends JobIntentService {
         PageClient client = newPageClient(pageTitle);
 
         String title = pageTitle.getPrefixedText();
-        boolean noImages = !isImageDownloadEnabled();
         PageClient.CacheOption cacheOption = PageClient.CacheOption.SAVE;
 
-        return client.sections(cacheControl, cacheOption, title, noImages);
+        return client.sections(cacheControl, cacheOption, title);
     }
 
     private AggregatedResponseSize reqSaveImage(@NonNull WikiSite wiki, @NonNull Iterable<String> urls) throws IOException {

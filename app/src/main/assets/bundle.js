@@ -79,7 +79,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":18}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":19}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -134,7 +134,7 @@ bridge.registerListener( 'toggleDarkMode', function( payload ) {
 bridge.registerListener( 'toggleDimImages', function( payload ) {
     pagelib.DimImagesTransform.dim( window, payload.dimImages );
 } );
-},{"./bridge":2,"wikimedia-page-library":19}],4:[function(require,module,exports){
+},{"./bridge":2,"wikimedia-page-library":20}],4:[function(require,module,exports){
 var actions = require('./actions');
 var bridge = require('./bridge');
 
@@ -224,7 +224,7 @@ bridge.registerListener( "displayPreviewHTML", function( payload ) {
         pagelib.ThemeTransform.classifyElements( content );
     }
 } );
-},{"./bridge":2,"wikimedia-page-library":19}],9:[function(require,module,exports){
+},{"./bridge":2,"wikimedia-page-library":20}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -324,6 +324,7 @@ function setWindowAttributes( payload ) {
     window.isBeta = payload.isBeta;
     window.siteLanguage = payload.siteLanguage;
     window.isNetworkMetered = payload.isNetworkMetered;
+    window.showImages = payload.showImages;
 }
 
 function setTitleElement( parentNode ) {
@@ -408,6 +409,10 @@ function elementsForSection( section ) {
 }
 
 function applySectionTransforms( content, isLeadSection ) {
+    if (!window.showImages) {
+        transformer.transform( "hideImages", content );
+    }
+
     if (!window.fromRestBase) {
         // Content service transformations
         if (isLeadSection) {
@@ -718,7 +723,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./onclick":7,"./transformer":11,"wikimedia-page-library":19}],11:[function(require,module,exports){
+},{"./bridge":2,"./onclick":7,"./transformer":11,"wikimedia-page-library":20}],11:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -772,7 +777,24 @@ module.exports = {
     handleTableCollapseOrExpandClick: toggleCollapseClickCallback
 };
 
-},{"../transformer":11,"wikimedia-page-library":19}],13:[function(require,module,exports){
+},{"../transformer":11,"wikimedia-page-library":20}],13:[function(require,module,exports){
+var transformer = require("../transformer");
+
+transformer.register( "hideImages", function( content ) {
+    var minImageSize = 64;
+    var images = content.querySelectorAll( 'img' );
+    for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        if (img.width < minImageSize && img.height < minImageSize) {
+            continue;
+        }
+        // Just replace the src of the image with a placeholder image from our assets.
+        img.src = "file:///android_asset/checkerboard.png";
+        img.srcset = "";
+    }
+} );
+
+},{"../transformer":11}],14:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "hideRefs", function( content ) {
@@ -794,7 +816,7 @@ transformer.register( "hideRefs", function( content ) {
         td.appendChild(refLists[i]);
     }
 } );
-},{"../transformer":11}],14:[function(require,module,exports){
+},{"../transformer":11}],15:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "anchorPopUpMediaTransforms", function( content ) {
@@ -827,7 +849,7 @@ transformer.register( "anchorPopUpMediaTransforms", function( content ) {
     }
 } );
 
-},{"../../transformer":11}],15:[function(require,module,exports){
+},{"../../transformer":11}],16:[function(require,module,exports){
 var transformer = require("../../transformer");
 var bridge = require("../../bridge");
 
@@ -876,7 +898,7 @@ transformer.register( "hideIPA", function( content ) {
         containerSpan.onclick = ipaClickHandler;
     }
 } );
-},{"../../bridge":2,"../../transformer":11}],16:[function(require,module,exports){
+},{"../../bridge":2,"../../transformer":11}],17:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 // Move the first non-empty paragraph (and related elements) to the top of the section.
@@ -960,7 +982,7 @@ function addTrailingNodes( span, nodes, startIndex ) {
     }
 }
 
-},{"../../transformer":11}],17:[function(require,module,exports){
+},{"../../transformer":11}],18:[function(require,module,exports){
 var maybeWidenImage = require('wikimedia-page-library').WidenImage.maybeWidenImage;
 var transformer = require("../transformer");
 
@@ -982,7 +1004,7 @@ transformer.register( "widenImages", function( content ) {
     }
 } );
 
-},{"../transformer":11,"wikimedia-page-library":19}],18:[function(require,module,exports){
+},{"../transformer":11,"wikimedia-page-library":20}],19:[function(require,module,exports){
 function ancestorContainsClass( element, className ) {
     var contains = false;
     var curNode = element;
@@ -1031,7 +1053,7 @@ module.exports = {
     firstDivAncestor: firstDivAncestor
 };
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -3300,4 +3322,4 @@ return pagelib$1;
 })));
 
 
-},{}]},{},[2,6,18,11,12,13,17,14,15,16,1,4,5,3,8,9,10]);
+},{}]},{},[2,6,19,11,12,13,14,18,15,16,17,1,4,5,3,8,9,10]);
