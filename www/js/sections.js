@@ -282,10 +282,19 @@ bridge.registerListener( "displayFromZim", function( payload ) {
     clearContents();
     setWindowAttributes(payload);
     window.isOffline = true;
+    window.mainPageHint = payload.mainPageHint;
     window.offlineContentProvider = payload.offlineContentProvider;
 
     var contentElem = document.getElementById( "content" );
     setTitleElement(contentElem);
+
+    if (window.isMainPage) {
+        // TODO: remove this when the actual Main Pages in ZIM files contain more descriptive content.
+        var helperDiv = document.createElement( "div" );
+        helperDiv.innerHTML = window.mainPageHint;
+        helperDiv.style = "font-size: 85%; margin: 12px 0 20px 0; padding: 12px; line-height: 120%; background-color: rgba(0, 0, 0, 0.04); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 2px;";
+        contentElem.appendChild( helperDiv );
+    }
 
     var issuesContainer = setIssuesElement(contentElem);
 

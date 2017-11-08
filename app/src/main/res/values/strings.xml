@@ -539,6 +539,7 @@
     <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Keep on reading and searching for articles within your Offline Library when you don\'t have access to internet.</string>
     <string name="offline_library_onboarding_store_knowledge_title">Store more knowledge</string>
     <string name="offline_library_onboarding_store_knowledge_subtitle">Download as much Wikipedia as your device can handle. Offline Library can also access article packs on external storage.</string>
+    <string name="offline_library_main_page_hint_html"><![CDATA[This Main Page provides an overview of the contents of this article pack.<br /><br />You may also explore the contents of any article pack in your Offline Library by searching for available articles while you are offline.]]></string>
     <!-- /Offline -->
 
     <!-- Onboarding -->

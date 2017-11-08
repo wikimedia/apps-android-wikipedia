@@ -43,6 +43,7 @@ public class Compilation {
     @Nullable private String path;
     @Nullable private transient ZimFile file;
     @Nullable private transient ZimReader reader;
+    @Nullable private transient String mainPageTitle;
 
     public enum MediaContent {
         ALL, NOVID, NOPIC
@@ -251,7 +252,10 @@ public class Compilation {
 
     @NonNull
     String getMainPageTitle() throws IOException {
-        return reader.getMainPageTitle();
+        if (mainPageTitle == null) {
+            mainPageTitle = reader.getMainPageTitle();
+        }
+        return mainPageTitle;
     }
 
     public static class Image {

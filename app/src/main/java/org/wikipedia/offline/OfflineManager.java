@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.text.TextUtils;
 
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
@@ -184,6 +185,22 @@ public final class OfflineManager {
     @NonNull public String getMainPageTitle() throws IOException {
         int compIndex = new Random().nextInt(compilations.size());
         return compilations.get(compIndex).getMainPageTitle();
+    }
+
+    public boolean isMainPage(@Nullable String title) {
+        if (TextUtils.isEmpty(title)) {
+            return false;
+        }
+        try {
+            for (Compilation c : compilations) {
+                if (title.equals(c.getMainPageTitle())) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            // ignore
+        }
+        return false;
     }
 
     @NonNull public String getMainPageTitle(@NonNull Compilation compilation) throws IOException {

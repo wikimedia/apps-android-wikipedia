@@ -91,7 +91,7 @@ public class PageProperties implements Parcelable {
      * namespace fields, and explicitly disables editing. All other fields initialized to defaults.
      * @param title Title to which these properties apply.
      */
-    public PageProperties(@NonNull PageTitle title) {
+    public PageProperties(@NonNull PageTitle title, boolean isMainPage) {
         pageId = 0;
         namespace = title.namespace();
         revisionId = 0;
@@ -104,7 +104,7 @@ public class PageProperties implements Parcelable {
         leadImageName = "";
         lastModified = new Date();
         canEdit = false;
-        isMainPage = false;
+        this.isMainPage = isMainPage;
         isDisambiguationPage = false;
         wikiBaseItem = null;
     }

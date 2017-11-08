@@ -439,7 +439,8 @@ public class PageFragmentLoadState {
         PageTitle newTitle = TextUtils.isEmpty(normalizedTitle) ? model.getTitle()
                 : new PageTitle(normalizedTitle, model.getTitle().getWikiSite());
 
-        Page page = new Page(newTitle, new ArrayList<>(), new PageProperties(newTitle));
+        Page page = new Page(newTitle, new ArrayList<>(),
+                new PageProperties(newTitle, OfflineManager.instance().isMainPage(newTitle.getDisplayText())));
 
         model.setPage(page);
         editHandler.setPage(model.getPage());
@@ -476,6 +477,9 @@ public class PageFragmentLoadState {
                     .put("zimhtml", result.html())
                     .put("fromRestBase", false)
                     .put("offlineContentProvider", OfflineContentProvider.getBaseUrl());
+            if (page.isMainPage()) {
+                zimPayload.put("mainPageHint", fragment.getString(R.string.offline_library_main_page_hint_html));
+            }
 
             if (sectionTargetFromTitle != null) {
                 //if we have a section to scroll to (from our PageTitle):

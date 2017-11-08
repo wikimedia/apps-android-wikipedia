@@ -486,6 +486,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">{{Doc-mobileapp-internet}}\nShort explanatory text about the Offline Library feature.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Title for a tutorial screen about the Offline Library feature.</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Short explanatory text about the Offline Library feature.</string>
+  <string name="offline_library_main_page_hint_html">Message to be shown at the top of Main Pages of offline article packs, providing additional guidance to the user about usage of the Main Page.</string>
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>
