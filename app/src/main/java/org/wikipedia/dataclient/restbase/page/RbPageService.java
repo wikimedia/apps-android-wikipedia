@@ -13,7 +13,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 import static org.wikipedia.Constants.ACCEPT_HEADER_PREFIX;
 import static org.wikipedia.Constants.ACCEPT_HEADER_SUMMARY;
@@ -41,7 +40,6 @@ public interface RbPageService {
      * Gets the lead section and initial metadata of a given title.
      *
      * @param title the page title with prefix if necessary
-     * @param noImages add the noimages flag to the request if true
      */
     @Headers({
             "x-analytics: pageview=1",
@@ -50,21 +48,18 @@ public interface RbPageService {
     @GET("page/mobile-sections-lead/{title}")
     @NonNull Call<RbPageLead> lead(@Nullable @Header("Cache-Control") String cacheControl,
                                    @Header(SaveHeader.FIELD) Boolean save,
-                                   @NonNull @Path("title") String title,
-                                   @Nullable @Query("noimages") Boolean noImages);
+                                   @NonNull @Path("title") String title);
 
     /**
      * Gets the remaining sections of a given title.
      *
      * @param title the page title to be used including prefix
-     * @param noImages add the noimages flag to the request if true
      */
     @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
     @GET("page/mobile-sections-remaining/{title}")
     @NonNull Call<RbPageRemaining> sections(@Nullable @Header("Cache-Control") String cacheControl,
                                             @Header(SaveHeader.FIELD) Boolean save,
-                                            @NonNull @Path("title") String title,
-                                            @Nullable @Query("noimages") Boolean noImages);
+                                            @NonNull @Path("title") String title);
 
     // todo: this Content Service-only endpoint is under page/ but that implementation detail should
     //       probably not be reflected here. Move to WordDefinitionClient

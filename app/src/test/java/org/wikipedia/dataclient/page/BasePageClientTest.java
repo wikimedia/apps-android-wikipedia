@@ -17,70 +17,53 @@ import static org.hamcrest.Matchers.nullValue;
 
 public abstract class BasePageClientTest extends MockWebServerTest {
     @Test public void testLeadCacheControl() throws Throwable {
-        Call<?> call = subject().lead(CacheControl.FORCE_NETWORK, PageClient.CacheOption.CACHE, "", 0,
-                false);
+        Call<?> call = subject().lead(CacheControl.FORCE_NETWORK, PageClient.CacheOption.CACHE, "", 0);
         assertThat(call.request().header("Cache-Control"), containsString("no-cache"));
     }
 
     @Test public void testLeadNoCacheControl() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "", 0, false);
+        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "", 0);
         assertThat(call.request().header("Cache-Control"), nullValue());
     }
 
     @Test public void testLeadCacheOptionCache() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "", 0, false);
+        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "", 0);
         assertThat(call.request().header(SaveHeader.FIELD), nullValue());
     }
 
     @Test public void testLeadCacheOptionSave() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.SAVE, "", 0, false);
+        Call<?> call = subject().lead(null, PageClient.CacheOption.SAVE, "", 0);
         assertThat(call.request().header(SaveHeader.FIELD), is(SaveHeader.VAL_ENABLED));
     }
 
     @Test public void testLeadTitle() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "title", 0, false);
+        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "title", 0);
         assertThat(call.request().url().toString(), containsString("title"));
     }
 
-    @Test public void testLeadImages() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "", 0, false);
-        assertThat(call.request().url().queryParameter("noimages"), nullValue());
-    }
-
-    @Test public void testLeadNoImages() throws Throwable {
-        Call<?> call = subject().lead(null, PageClient.CacheOption.CACHE, "", 0, true);
-        assertThat(call.request().url().queryParameter("noimages"), is("true"));
-    }
-
     @Test public void testSectionsCacheControl() throws Throwable {
-        Call<?> call = subject().sections(CacheControl.FORCE_NETWORK, PageClient.CacheOption.CACHE, "",
-                false);
+        Call<?> call = subject().sections(CacheControl.FORCE_NETWORK, PageClient.CacheOption.CACHE, "");
         assertThat(call.request().header("Cache-Control"), containsString("no-cache"));
     }
 
     @Test public void testSectionsNoCacheControl() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "", false);
+        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "");
         assertThat(call.request().header("Cache-Control"), nullValue());
     }
 
     @Test public void testSectionsCacheOptionCache() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "", false);
+        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "");
         assertThat(call.request().header(SaveHeader.FIELD), nullValue());
     }
 
     @Test public void testSectionsCacheOptionSave() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.SAVE, "", false);
+        Call<?> call = subject().sections(null, PageClient.CacheOption.SAVE, "");
         assertThat(call.request().header(SaveHeader.FIELD), is(SaveHeader.VAL_ENABLED));
     }
 
     @Test public void testSectionsTitle() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "title", false);
+        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "title");
         assertThat(call.request().url().toString(), containsString("title"));
-    }
-
-    @Test public void testSectionsNoImages() throws Throwable {
-        Call<?> call = subject().sections(null, PageClient.CacheOption.CACHE, "", true);
-        assertThat(call.request().url().queryParameter("noimages"), is("true"));
     }
 
     @NonNull protected abstract PageClient subject();

@@ -21,7 +21,7 @@ public class MwPageClientTest extends BasePageClientTest {
     }
 
     @Test public void testLeadThumbnailWidth() throws Throwable {
-        Call<?> call = subject.lead(null, PageClient.CacheOption.CACHE, "", 10, false);
+        Call<?> call = subject.lead(null, PageClient.CacheOption.CACHE, "", 10);
         assertThat(call.request().url().toString(), containsString("10"));
     }
 

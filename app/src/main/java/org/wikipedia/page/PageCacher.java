@@ -24,7 +24,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
@@ -45,14 +44,13 @@ public final class PageCacher {
     @NonNull
     private static Call<PageLead> leadReq(@NonNull PageClient client, @NonNull PageTitle title) {
         return client.lead(null, PageClient.CacheOption.CACHE, title.getPrefixedText(),
-                calculateLeadImageWidth(), !isImageDownloadEnabled());
+                calculateLeadImageWidth());
     }
 
     @NonNull
     private static Call<PageRemaining> remainingReq(@NonNull PageClient client,
                                                     @NonNull PageTitle title) {
-        return client.sections(null, PageClient.CacheOption.CACHE, title.getPrefixedText(),
-                !isImageDownloadEnabled());
+        return client.sections(null, PageClient.CacheOption.CACHE, title.getPrefixedText());
     }
 
     private static void fetchImages(@NonNull final WikiSite wiki,

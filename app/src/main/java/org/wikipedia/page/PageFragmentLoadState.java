@@ -66,7 +66,6 @@ import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
 
@@ -412,7 +411,7 @@ public class PageFragmentLoadState {
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .lead(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
                         model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
-                        model.getTitle().getPrefixedText(), calculateLeadImageWidth(), !isImageDownloadEnabled())
+                        model.getTitle().getPrefixedText(), calculateLeadImageWidth())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(@NonNull Call<PageLead> call, @NonNull Response<PageLead> rsp) {
                         app.getSessionFunnel().leadSectionFetchEnd();
@@ -579,7 +578,8 @@ public class PageFragmentLoadState {
                 .put("isFilePage", page.isFilePage())
                 .put("fromRestBase", page.isFromRestBase())
                 .put("isNetworkMetered", DeviceUtil.isNetworkMetered(app))
-                .put("apiLevel", Build.VERSION.SDK_INT);
+                .put("apiLevel", Build.VERSION.SDK_INT)
+                .put("showImages", Prefs.isImageDownloadEnabled());
     }
 
     private JSONObject leadSectionPayload(@NonNull Page page) {
@@ -744,11 +744,12 @@ public class PageFragmentLoadState {
             return;
         }
         app.getSessionFunnel().restSectionsFetchStart();
+
         Request request = PageClientFactory
                 .create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .sections(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK : null,
                         model.shouldSaveOffline() ? PageClient.CacheOption.SAVE : PageClient.CacheOption.CACHE,
-                        model.getTitle().getPrefixedText(), !isImageDownloadEnabled())
+                        model.getTitle().getPrefixedText())
                 .request();
 
         queueRemainingSections(request);

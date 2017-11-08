@@ -33,8 +33,6 @@ public final class RbSwitch {
     /**
      * Returns true if RB is enabled for a particular WikiSite (or PageTitle if you will).
      * This method has a few extra checks over the overloaded #isRestBaseEnabled():
-     * It disables RB also when image download is disabled since the noimages parameter is
-     * not functional yet. T119161
      * It also disables RB usage if the wiki is zhwiki since RB endpoints have a harder time
      * dealing with caching of language variants. T118905
      * @param wiki the WikiSite of the PageTitle to use for the check
@@ -42,7 +40,6 @@ public final class RbSwitch {
      */
     public boolean isRestBaseEnabled(WikiSite wiki) {
         return isRestBaseEnabled()
-                && Prefs.isImageDownloadEnabled()
                 && !wiki.languageCode().startsWith("zh");
     }
 

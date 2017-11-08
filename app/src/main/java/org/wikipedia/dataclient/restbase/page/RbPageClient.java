@@ -51,19 +51,17 @@ public class RbPageClient implements PageClient {
     @NonNull @Override public Call<? extends PageLead> lead(@Nullable CacheControl cacheControl,
                                                             @NonNull CacheOption cacheOption,
                                                             @NonNull String title,
-                                                            int leadThumbnailWidth,
-                                                            boolean noImages) {
+                                                            int leadThumbnailWidth) {
         return service.lead(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title, optional(noImages));
+                optional(cacheOption.save()), title);
     }
 
     @SuppressWarnings("unchecked")
     @NonNull @Override public Call<? extends PageRemaining> sections(@Nullable CacheControl cacheControl,
                                                                      @NonNull CacheOption cacheOption,
-                                                                     @NonNull String title,
-                                                                     boolean noImages) {
+                                                                     @NonNull String title) {
         return service.sections(cacheControl == null ? null : cacheControl.toString(),
-                optional(cacheOption.save()), title, optional(noImages));
+                optional(cacheOption.save()), title);
     }
 
     /* Not defined in the PageClient interface since the Wiktionary definition endpoint exists only

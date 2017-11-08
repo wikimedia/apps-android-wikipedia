@@ -28,7 +28,6 @@ import org.wikipedia.util.log.L;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.UriUtil.decodeURL;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
@@ -81,8 +80,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
 
         getApiService(title)
                 .lead(null, PageClient.CacheOption.CACHE, title.getPrefixedText(),
-                        DimenUtil.calculateLeadImageWidth(),
-                        !isImageDownloadEnabled())
+                        DimenUtil.calculateLeadImageWidth())
                 .enqueue(new retrofit2.Callback<PageLead>() {
                     @Override public void onResponse(Call<PageLead> call, Response<PageLead> rsp) {
                         PageLead lead = rsp.body();
