@@ -1,17 +1,8 @@
 Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
 
-Fonctionnalités :
-   - Vitesse : notre nouvelle application native vous permet de naviguer sur Wikipédia et de modifier plus vite que jamais.
-   - Modification : vous pouvez modifier Wikipédia ! connecté ou non, nous vous remercions pour toutes vos contributions.
-   - Pages récentes : nous conservons votre historique de lecture, afin que vous puissiez suivre autant de liens que vous voulez sans jamais être perdu.
-   - Pages enregistrées : vous pouvez enregistrer des pages pour une lecture hors ligne et y naviguer même sans avoir de connexion.
-   - Partager : utilisez vos applications de réseau social existantes pour partager la somme de tout le savoir humain.
-   - Support linguistique : l’application vous permet de basculer de façon transparente pour lire Wikipédia dans n’importe quelle langue.
-   - Wikipédia Zéro : les frais de données sont annulés pour les opérateurs mobiles participants.
+Fonctionnalités :
 
-Le code est entièrement ouvert. Si vous êtes expérimenté avec Java et le kit de développement Android, alors venez créer votre variante ! https://github.com/wikimedia/apps-android-wikipedia
-
-Recherche par la voix intégré - Trouvez facilement ce que vous cherchez avec une grande barre de recherche en haut de l'application, incluant l'activation de la recherche vocale sur votre appareil
+Recherche par la voix intégrée - Trouvez facilement ce que vous cherchez avec une grande barre de recherche en haut de l'application, incluant l'activation de la recherche vocale sur votre appareil.
 
 Proche - Apprenez plus sur ce qu'il y a autour de vous en sélectionnant des points sur une carte interactive pour voir les articles associés à votre position actuelle et proche.
 
@@ -33,4 +24,15 @@ Envoyez-nous des retours à propos de l'application ! Dans le menu, appuyez sur 
 
 Le code est 100 % open-source. Si vous avez de l'expérience avec Java et le SDK Android, alors nous attendons avec impatience vos contributions ! https://github.com/wikimedia/apps-android-wikipedia
 
-En utilisant cette application vous acceptez la transmission automatique de rapports d'incident à un fournisseur de service tiers. Si vous voulez désactiver cette fonctionnalité, veuillez appuyer sur "Paramètres", puis désactiver "Envoyer des rapports d'incident" en-dessous de la section Général. Explications des permissions nécessaires par l'applic
+En utilisant cette application vous acceptez la transmission automatique de rapports d'incident à un fournisseur de service tiers. Si vous voulez désactiver cette fonctionnalité, veuillez appuyer sur "Paramètres", puis désactiver "Envoyer des rapports d'incident" en-dessous de la section Général. Explications des permissions nécessaires par l'application : https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Politique sur la vie privée : https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Politique sur la vie privée du fournisseur de services tiers pour les rapports d'incident : https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Conditions d'utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+À propos de la Fondation Wikimédia
+
+La Fondation Wikimédia est une organisation non-lucrative qui supporte Wikipédia et les autres projets Wikimédia. La Fondation Wikimédia est une organisation de bienfaisance dont les fonds sont basés principalement sur les dons. Pour plus d'informations, veuillez visiter notre site web : https://wikimediafoundation.org/wiki/Home.
+
