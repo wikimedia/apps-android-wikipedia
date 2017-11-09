@@ -88,7 +88,7 @@
   <string name="toast_logout_complete">로그아웃됨</string>
   <string name="history_empty_title">최근에 본 글이 없습니다</string>
   <string name="history_empty_message">당신이 읽고 계신 문서를 여기에서 추적하세요.</string>
-  <string name="search_empty_message">당신의 언어로 우리 모두의 백과사전을 검색하고 읽기</string>
+  <string name="search_empty_message">여러분의 언어로 우리 모두의 백과사전을 검색하고 읽습니다</string>
   <string name="delete_selected_items">선택된 개체 삭제</string>
   <string name="wp_stylized">&lt;big&gt;위&lt;/big&gt;키백&lt;big&gt;과&lt;/big&gt;</string>
   <string name="create_account_username_hint">사용자 이름</string>

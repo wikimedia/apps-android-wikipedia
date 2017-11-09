@@ -486,6 +486,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Lese und suche Artikel innerhalb deiner Offline-Bibliothek weiter, wenn du keinen Zugang zum Internet hast.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Speichere mehr Wissen</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Lade so viel Wikipedia herunter, wie dein Gerät verarbeiten kann. Deine Offline-Bibliothek kann auch auf Artikelpakete auf externen Speichern zugreifen.</string>
+  <string name="offline_library_main_page_hint_html">Diese Hauptseite bietet eine Übersicht über die Inhalte dieses Artikelpakets.&lt;br /&gt;&lt;br /&gt;Du kannst auch die Inhalte eines beliebigen Artikelpakets in deiner Offline-Bibliothek entdecken, indem du nach verfügbaren Artikeln suchst, während du offline bist.</string>
   <string name="onboarding_skip">Überspringen</string>
   <string name="onboarding_continue">Fortfahren</string>
   <string name="onboarding_get_started">Anfangen</string>

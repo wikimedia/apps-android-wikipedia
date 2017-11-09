@@ -446,11 +446,11 @@
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
   <string name="all_trending_text">المقالات الأكثر زيارةً في %1$s</string>
-  <string name="top_on_this_day">متجها على %1$s من المال</string>
+  <string name="top_on_this_day">الأكثر زيارةً في %1$s</string>
   <string name="on_this_day_card_title">في هذا اليوم</string>
   <string name="more_events_text">المزيد من الأحداث التاريخية في هذا اليوم</string>
   <string name="events_count_text">%1$s حدثًا من %2$s - %3$d</string>
-  <string name="on_this_day">في مثل هذا اليوم</string>
+  <string name="on_this_day">في هذا اليوم</string>
   <string name="this_year">هذا العام</string>
   <plurals name="diff_years">
     <item quantity="one">السنة الماضية</item>

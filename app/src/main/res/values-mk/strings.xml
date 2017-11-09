@@ -486,6 +486,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Продолжете со читање и пребарување статии со вашата Вонмрежна библиотека кога немате семрежен пристап</string>
   <string name="offline_library_onboarding_store_knowledge_title">Складирајте повеќе знаење</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Можете да преземате неограничен број на статии, колку што можете да сместите на уредот. Вонмрежната библиотека исто така чита пакети од статии од надворешен склад.</string>
+  <string name="offline_library_main_page_hint_html">Оваа Главна страница дава преглед на содржините на овој пакет статии.&lt;br /&gt;&lt;br /&gt;Исто така, можете да ги истражите содржините на било кој пакет во вашата Семрежна библиотека пребарувајќи достапни статии додека не сте на линија.</string>
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>

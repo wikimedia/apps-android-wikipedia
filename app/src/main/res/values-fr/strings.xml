@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Article vedette</string>
   <string name="view_featured_article_footer_save_button_label">Enregistrer</string>
   <string name="view_featured_article_footer_saved_button_label">Enregistré</string>
+  <string name="feed_configure_menu_title">Configurer les cartes</string>
+  <string name="feed_configure_activity_title">Configurer les cartes d’exploration</string>
+  <string name="feed_configure_menu_reset">Réinitialiser aux valeurs par défaut</string>
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continuer à lire et à rechercher des articles dans votre bibliothèque hors connexion quand vous n’avez pas accès à Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Stocker plus de connaissance</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Télécharger autant de Wikipédia que votre appareil peut en contenir. La bibliothèque hors connexion peut aussi accéder à des ensembles d’articles sur un stockage externe.</string>
+  <string name="offline_library_main_page_hint_html">Cette page d’accueil fournit une vue d’ensemble des contenus de ce paquet d’article. &lt;br /&gt;&lt;br /&gt;Vous pouvez aussi explorer les contenus d’un paquet d’articles quelconque dans votre bibliothèque hors connexion en recherchant les articles disponibles quand vous n’êtes pas connecté.</string>
   <string name="onboarding_skip">Sauter</string>
   <string name="onboarding_continue">Continuer</string>
   <string name="onboarding_get_started">C’est parti</string>

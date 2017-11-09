@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Rencana pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
   <string name="view_featured_article_footer_saved_button_label">Disimpan</string>
+  <string name="feed_configure_menu_title">Konfigurasikan kad</string>
+  <string name="feed_configure_activity_title">Konfigurasikan kad Jelajah</string>
+  <string name="feed_configure_menu_reset">Tetapkan semula kepada lalai</string>
   <string name="description_edit_text_hint">Huraian tajuk</string>
   <string name="description_edit_save">Terbitkan</string>
   <string name="description_edit_add_description">Tambah huraian tajuk</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Terus membaca dan mencari rencana dalam Perpustakaan Luar Talian anda apabila anda tidak mempunyai akses ke internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Simpan lebih banyak pengetahuan</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Muat turun seberapa banyak Wikipedia sebagai peranti anda boleh mengendalikan. Perpustakaan Luar Talian juga boleh mengakses pek rencana mengenai storan luaran.</string>
+  <string name="offline_library_main_page_hint_html">Laman Utama ini memberikan gambaran keseluruhan kandungan pek rencana ini.&lt;br /&gt;&lt;br /&gt;Anda juga boleh meneroka kandungan mana-mana pek rencana dalam Perpustakaan Luar Talian anda dengan mencari rencana yang ada semasa anda berada di luar talian.</string>
   <string name="onboarding_skip">Langkau</string>
   <string name="onboarding_continue">Teruskan</string>
   <string name="onboarding_get_started">Memulakan</string>

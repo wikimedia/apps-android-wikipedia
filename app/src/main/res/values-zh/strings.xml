@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">典范条目</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_featured_article_footer_saved_button_label">已保存</string>
+  <string name="feed_configure_menu_title">配置卡片</string>
+  <string name="feed_configure_activity_title">配置探索卡片</string>
+  <string name="feed_configure_menu_reset">重置为默认</string>
   <string name="description_edit_text_hint">标题描述</string>
   <string name="description_edit_save">发布</string>
   <string name="description_edit_add_description">添加标题描述</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">当您没有互联网访问时，保持阅读并在您的离线图书馆中搜索条目。</string>
   <string name="offline_library_onboarding_store_knowledge_title">存储更多知识</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">在您的设备能够处理的情况下，尽可能多的下载维基百科。离线图书馆也可以访问外部存储上的条目包。</string>
+  <string name="offline_library_main_page_hint_html">此首页提供这个条目包的内容概览。&lt;br /&gt;&lt;br /&gt;当您离线时，您也可以在您的离线图书馆通过搜索可用条目，探索任意条目包的内容。</string>
   <string name="onboarding_skip">跳过</string>
   <string name="onboarding_continue">继续</string>
   <string name="onboarding_get_started">入门</string>

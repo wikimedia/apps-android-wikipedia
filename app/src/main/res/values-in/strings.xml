@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Artikel pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
   <string name="view_featured_article_footer_saved_button_label">Tersimpan</string>
+  <string name="feed_configure_menu_title">Konfigurasikan kartu</string>
+  <string name="feed_configure_activity_title">Konfigurasikan kartu Jelajahi</string>
+  <string name="feed_configure_menu_reset">Setel ulang ke baku</string>
   <string name="description_edit_text_hint">Deskripsi judul</string>
   <string name="description_edit_save">Terbitkan</string>
   <string name="description_edit_add_description">Tambah deskripsi judul</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Teruslah membaca dan mencari artikel dalam Perpustakaan Luring Anda saat Anda tidak memiliki akses ke internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Simpan lebih banyak pengetahuan</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Unduh sebanyak-banyaknya Wikipedia yang bisa ditangani perangkat Anda. Perpustakaan Luring juga dapat mengakses paket artikel pada penyimpanan eksternal.</string>
+  <string name="offline_library_main_page_hint_html">Halaman Utama ini memberikan gambaran umum dari isi paket artikel ini.&lt;br /&gt;&lt;br /&gt;Anda juga dapat menjelajahi isi paket artikel apa pun di Perpustakaan Luring Anda dengan mencari artikel yang tersedia saat Anda sedang luring.</string>
   <string name="onboarding_skip">Lewati</string>
   <string name="onboarding_continue">Lanjutkan</string>
   <string name="onboarding_get_started">Memulai</string>

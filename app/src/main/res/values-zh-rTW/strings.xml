@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">典範條目</string>
   <string name="view_featured_article_footer_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
+  <string name="feed_configure_menu_title">設置卡片</string>
+  <string name="feed_configure_activity_title">設置探索卡片</string>
+  <string name="feed_configure_menu_reset">重新設定成預設值</string>
   <string name="description_edit_text_hint">標題說明</string>
   <string name="description_edit_save">發佈</string>
   <string name="description_edit_add_description">增加標題說明</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">當您無法存取網路時，在您的離線圖書館上保持閱讀和條目搜尋。</string>
   <string name="offline_library_onboarding_store_knowledge_title">儲存更多知識</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">僅可能下載您裝置能處理的維基百科內容。離線圖書館也可在額外儲存庫上存取條目包。</string>
+  <string name="offline_library_main_page_hint_html">此主頁面提供此條目包概要內容。&lt;br /&gt;&lt;br /&gt;您也可以於您的離線圖書館裡搜尋在離線時的可用條目；來探索任何條目包內容。</string>
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
