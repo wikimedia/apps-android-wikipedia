@@ -10,10 +10,12 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -54,6 +56,20 @@ public class ReadingListDbHelper {
         return lists;
     }
 
+    public List<ReadingList> getAllListsWithUnsyncedPages() {
+        List<ReadingList> lists = getAllListsWithoutContents();
+        List<ReadingListPage> pages = getAllPagesToBeSynced();
+        for (ReadingListPage page : pages) {
+            for (ReadingList list : lists) {
+                if (page.listId() == list.id()) {
+                    list.pages().add(page);
+                    break;
+                }
+            }
+        }
+        return lists;
+    }
+
     @NonNull
     public ReadingList createList(@NonNull String title, @Nullable String description) {
         SQLiteDatabase db = getWritableDatabase();
@@ -75,28 +91,38 @@ public class ReadingListDbHelper {
         }
     }
 
-    public void updateList(@NonNull ReadingList list) {
+    public void updateList(@NonNull ReadingList list, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
-        updateList(db, list);
+        updateLists(db, Collections.singletonList(list), queueForSync);
     }
 
-    public void updateList(@NonNull SQLiteDatabase db, @NonNull ReadingList list) {
+    public void updateList(@NonNull SQLiteDatabase db, @NonNull ReadingList list, boolean queueForSync) {
+        updateLists(db, Collections.singletonList(list), queueForSync);
+    }
+
+    private void updateLists(SQLiteDatabase db, @NonNull List<ReadingList> lists, boolean queueForSync) {
         db.beginTransaction();
         try {
-            // implicitly update the last-access time of the list
-            list.touch();
-            int result = db.update(ReadingListContract.TABLE, ReadingList.DATABASE_TABLE.toContentValues(list),
-                    ReadingListContract.Col.ID.getName() + " = ?", new String[]{Long.toString(list.id())});
-            if (result != 1) {
-                L.w("Failed to update db entry for list " + list.title());
+            for (ReadingList list : lists) {
+                if (queueForSync) {
+                    list.dirty(true);
+                }
+                updateListInDb(db, list);
             }
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
         }
+        if (queueForSync) {
+            ReadingListSyncAdapter.manualSync();
+        }
     }
 
     public void deleteList(@NonNull ReadingList list) {
+        deleteList(list, true);
+    }
+
+    public void deleteList(@NonNull ReadingList list, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -106,12 +132,15 @@ public class ReadingListDbHelper {
                 L.w("Failed to delete db entry for list " + list.title());
             }
             db.setTransactionSuccessful();
+            if (queueForSync) {
+                ReadingListSyncAdapter.manualSyncWithDeleteList(list);
+            }
         } finally {
             db.endTransaction();
         }
     }
 
-    public void addPageToList(@NonNull ReadingList list, @NonNull PageTitle title) {
+    public void addPageToList(@NonNull ReadingList list, @NonNull PageTitle title, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -121,14 +150,20 @@ public class ReadingListDbHelper {
             db.endTransaction();
         }
         SavedPageSyncService.enqueue();
+        if (queueForSync) {
+            ReadingListSyncAdapter.manualSync();
+        }
     }
 
-    public void addPagesToList(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
+    public void addPagesToList(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         addPagesToList(db, list, pages);
+        if (queueForSync) {
+            ReadingListSyncAdapter.manualSync();
+        }
     }
 
-    public void addPagesToList(@NonNull SQLiteDatabase db, @NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
+    void addPagesToList(@NonNull SQLiteDatabase db, @NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
         db.beginTransaction();
         try {
             for (ReadingListPage page : pages) {
@@ -147,7 +182,7 @@ public class ReadingListDbHelper {
         int numAdded = 0;
         try {
             for (PageTitle title : titles) {
-                if (pageExistsInList(db, list, title)) {
+                if (getPageByTitle(db, list, title) != null) {
                     continue;
                 }
                 addPageToList(db, list, title);
@@ -157,24 +192,23 @@ public class ReadingListDbHelper {
         } finally {
             db.endTransaction();
         }
-        SavedPageSyncService.enqueue();
+        if (numAdded > 0) {
+            SavedPageSyncService.enqueue();
+            ReadingListSyncAdapter.manualSync();
+        }
         return numAdded;
     }
 
-    public void markPageForDeletion(@NonNull ReadingListPage page) {
-        SQLiteDatabase db = getWritableDatabase();
-        db.beginTransaction();
-        try {
-            page.status(ReadingListPage.STATUS_QUEUE_FOR_DELETE);
-            updatePageInDb(db, page);
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
-        SavedPageSyncService.enqueue();
+    private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
+        ReadingListPage protoPage = new ReadingListPage(title);
+        insertPageInDb(db, list, protoPage);
     }
 
-    public void markPagesForDeletion(@NonNull List<ReadingListPage> pages) {
+    public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
+        markPagesForDeletion(list, pages, true);
+    }
+
+    public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -183,6 +217,9 @@ public class ReadingListDbHelper {
                 updatePageInDb(db, page);
             }
             db.setTransactionSuccessful();
+            if (queueForSync) {
+                ReadingListSyncAdapter.manualSyncWithDeletePages(list, pages);
+            }
         } finally {
             db.endTransaction();
         }
@@ -223,6 +260,24 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
+    public void markEverythingUnsynced() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(ReadingListContract.Col.REMOTEID.getName(), -1);
+            int result = db.update(ReadingListContract.TABLE, contentValues, null, null);
+            L.d("Updated " + result + " lists in db.");
+            contentValues = new ContentValues();
+            contentValues.put(ReadingListPageContract.Col.REMOTEID.getName(), -1);
+            result = db.update(ReadingListPageContract.TABLE, contentValues, null, null);
+            L.d("Updated " + result + " pages in db.");
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
     public void updatePage(@NonNull ReadingListPage page) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
@@ -254,6 +309,16 @@ public class ReadingListDbHelper {
                 ReadingListPageContract.Col.ID.getName() + " = ?", new String[]{Long.toString(page.id())});
         if (result != 1) {
             L.w("Failed to delete db entry for page " + page.title());
+        }
+    }
+
+    private void updateListInDb(@NonNull SQLiteDatabase db, @NonNull ReadingList list) {
+        // implicitly update the last-access time of the list
+        list.touch();
+        int result = db.update(ReadingListContract.TABLE, ReadingList.DATABASE_TABLE.toContentValues(list),
+                ReadingListContract.Col.ID.getName() + " = ?", new String[]{Long.toString(list.id())});
+        if (result != 1) {
+            L.w("Failed to update db entry for list " + list.title());
         }
     }
 
@@ -294,7 +359,13 @@ public class ReadingListDbHelper {
 
     public boolean pageExistsInList(@NonNull ReadingList list, @NonNull PageTitle title) {
         SQLiteDatabase db = getReadableDatabase();
-        return pageExistsInList(db, list, title);
+        return getPageByTitle(db, list, title) != null;
+    }
+
+    @Nullable
+    public ReadingListPage getPageByTitle(@NonNull ReadingList list, @NonNull PageTitle title) {
+        SQLiteDatabase db = getReadableDatabase();
+        return getPageByTitle(db, list, title);
     }
 
     @NonNull
@@ -393,6 +464,21 @@ public class ReadingListDbHelper {
         return pages;
     }
 
+    @NonNull
+    private List<ReadingListPage> getAllPagesToBeSynced() {
+        List<ReadingListPage> pages = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
+                ReadingListPageContract.Col.REMOTEID.getName() + " < ?",
+                new String[]{Integer.toString(1)},
+                null, null, null)) {
+            while (cursor.moveToNext()) {
+                pages.add(ReadingListPage.DATABASE_TABLE.fromCursor(cursor));
+            }
+        }
+        return pages;
+    }
+
     public void resetUnsavedPageStatus() {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
@@ -444,8 +530,7 @@ public class ReadingListDbHelper {
 
     private void populateListPages(SQLiteDatabase db, @NonNull ReadingList list) {
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
-                ReadingListPageContract.Col.LISTID.getName() + " = ? AND "
-                + ReadingListPageContract.Col.STATUS.getName() + " != ?",
+                (ReadingListPageContract.Col.LISTID.getName() + " = ? AND " + ReadingListPageContract.Col.STATUS.getName() + " != ?"),
                 new String[]{Long.toString(list.id()), Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
             while (cursor.moveToNext()) {
@@ -454,7 +539,8 @@ public class ReadingListDbHelper {
         }
     }
 
-    private boolean pageExistsInList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
+    @Nullable
+    private ReadingListPage getPageByTitle(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
@@ -467,18 +553,12 @@ public class ReadingListDbHelper {
                         Long.toString(list.id()),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
-            if (cursor.getCount() > 0) {
-                return true;
+            if (cursor.moveToNext()) {
+                return ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
             }
         }
-        return false;
+        return null;
     }
-
-    private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
-        ReadingListPage protoPage = new ReadingListPage(title);
-        insertPageInDb(db, list, protoPage);
-    }
-
 
     private SQLiteDatabase getReadableDatabase() {
         return WikipediaApp.getInstance().getDatabase().getReadableDatabase();

@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,6 +36,7 @@ import org.wikipedia.onboarding.OnboardingView;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
@@ -51,6 +53,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+
 public class ReadingListsFragment extends Fragment {
     private Unbinder unbinder;
     @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
@@ -61,6 +65,7 @@ public class ReadingListsFragment extends Fragment {
     @BindView(R.id.empty_message) TextView emptyMessage;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
+    @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
 
     private List<ReadingList> readingLists = new ArrayList<>();
 
@@ -101,6 +106,9 @@ public class ReadingListsFragment extends Fragment {
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
 
         contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+
+        swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
+        swipeRefreshLayout.setOnRefreshListener(ReadingListSyncAdapter::manualSyncWithRefresh);
         return view;
     }
 
@@ -184,6 +192,7 @@ public class ReadingListsFragment extends Fragment {
                 if (getActivity() == null) {
                     return;
                 }
+                swipeRefreshLayout.setRefreshing(false);
                 readingLists = lists;
                 sortLists();
                 updateEmptyState(searchQuery);
@@ -283,7 +292,9 @@ public class ReadingListsFragment extends Fragment {
             ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.title(),
                     existingTitles, text -> {
                         readingList.title(text.toString());
-                        ReadingListDbHelper.instance().updateList(readingList);
+                        readingList.dirty(true);
+                        ReadingListDbHelper.instance().updateList(readingList, true);
+                        ReadingListSyncAdapter.manualSync();
 
                         updateLists();
                         funnel.logModifyList(readingList, readingLists.size());
@@ -302,7 +313,9 @@ public class ReadingListsFragment extends Fragment {
                 @Override
                 public void onSuccess(@NonNull CharSequence text) {
                     readingList.description(text.toString());
-                    ReadingListDbHelper.instance().updateList(readingList);
+                    readingList.dirty(true);
+                    ReadingListDbHelper.instance().updateList(readingList, true);
+
                     updateLists();
                     funnel.logModifyList(readingList, readingLists.size());
                 }
@@ -354,7 +367,7 @@ public class ReadingListsFragment extends Fragment {
             showDeleteListUndoSnackbar(readingList);
 
             ReadingListDbHelper.instance().deleteList(readingList);
-            ReadingListDbHelper.instance().markPagesForDeletion(readingList.pages());
+            ReadingListDbHelper.instance().markPagesForDeletion(readingList, readingList.pages(), false);
 
             funnel.logDeleteList(readingList, readingLists.size());
             updateLists();
@@ -368,7 +381,7 @@ public class ReadingListsFragment extends Fragment {
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
 
             ReadingList newList = ReadingListDbHelper.instance().createList(readingList.title(), readingList.description());
-            ReadingListDbHelper.instance().addPagesToList(newList, readingList.pages());
+            ReadingListDbHelper.instance().addPagesToList(newList, readingList.pages(), true);
             updateLists();
         });
         snackbar.show();

@@ -41,6 +41,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.LocalCompilationsActivity;
 import org.wikipedia.offline.OfflineTutorialActivity;
 import org.wikipedia.random.RandomActivity;
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.DeviceUtil;
@@ -145,6 +146,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         if (getCallback() != null) {
             getCallback().updateToolbarElevation(shouldElevateToolbar());
         }
+
+        ReadingListSyncAdapter.manualSync();
 
         return view;
     }

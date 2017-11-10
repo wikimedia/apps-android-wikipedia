@@ -105,7 +105,7 @@ public class SavedPageSyncService extends JobIntentService {
         }
     }
 
-    private void sendSyncEvent() {
+    public static void sendSyncEvent() {
         // Note: this method posts from a background thread but subscribers expect events to be
         // received on the main thread.
         WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());

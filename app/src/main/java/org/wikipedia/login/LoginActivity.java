@@ -23,6 +23,7 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
@@ -241,7 +242,8 @@ public class LoginActivity extends BaseActivity {
                     hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);
 
-                    // TODO: sync/save reading list pages
+                    ReadingListSyncAdapter.manualSync();
+
                     finish();
                 } else if (result.fail()) {
                     String message = result.getMessage();

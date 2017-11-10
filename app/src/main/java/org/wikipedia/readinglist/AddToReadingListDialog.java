@@ -220,7 +220,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                             readingList.isDefault() ? getString(R.string.default_reading_list_name) : readingList.title());
                     new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
 
-                    ReadingListDbHelper.instance().addPageToList(readingList, title);
+                    ReadingListDbHelper.instance().addPageToList(readingList, title, true);
                 }
                 showViewListSnackBar(readingList, message);
                 dismiss();

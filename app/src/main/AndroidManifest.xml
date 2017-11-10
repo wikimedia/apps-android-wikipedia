@@ -248,6 +248,13 @@
             android:exported="false" />
 
         <provider
+            android:authorities="@string/reading_lists_authority"
+            android:name=".database.ReadingListsContentProvider"
+            android:exported="false"
+            android:syncable="true"
+            android:label="@string/user_option_sync_label" />
+
+        <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
@@ -312,6 +319,20 @@
                 <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".readinglist.sync.ReadingListSyncService"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/reading_list_sync_adapter" />
+
+        </service>
 
         <service
             android:name=".auth.AuthenticatorService"

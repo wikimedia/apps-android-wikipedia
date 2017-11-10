@@ -309,7 +309,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), message,
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
-            ReadingListDbHelper.instance().addPagesToList(readingList, pages);
+            ReadingListDbHelper.instance().addPagesToList(readingList, pages, true);
             readingList.pages().addAll(pages);
             update();
         });
@@ -331,7 +331,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.title(), existingTitles,
                 text -> {
                     readingList.title(text.toString());
-                    ReadingListDbHelper.instance().updateList(readingList);
+                    ReadingListDbHelper.instance().updateList(readingList, true);
 
                     update();
                     funnel.logModifyList(readingList, 0);
@@ -353,7 +353,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             public void onSuccess(@NonNull CharSequence text) {
 
                 readingList.description(text.toString());
-                ReadingListDbHelper.instance().updateList(readingList);
+                readingList.dirty(true);
+                ReadingListDbHelper.instance().updateList(readingList, true);
 
                 update();
                 funnel.logModifyList(readingList, 0);
@@ -429,7 +430,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         List<ReadingListPage> selectedPages = getSelectedPages();
         if (!selectedPages.isEmpty()) {
 
-            ReadingListDbHelper.instance().markPagesForDeletion(selectedPages);
+            ReadingListDbHelper.instance().markPagesForDeletion(readingList, selectedPages);
             readingList.pages().removeAll(selectedPages);
 
             funnel.logDeleteItem(readingList, 0);
@@ -475,7 +476,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             return;
         }
         showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
-        ReadingListDbHelper.instance().markPageForDeletion(page);
+        ReadingListDbHelper.instance().markPagesForDeletion(readingList, Collections.singletonList(page));
         readingList.pages().remove(page);
         funnel.logDeleteItem(readingList, 0);
         update();
@@ -710,7 +711,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
                 page.touch();
                 CallbackTask.execute(() -> {
-                    ReadingListDbHelper.instance().updateList(readingList);
+                    ReadingListDbHelper.instance().updateList(readingList, false);
                     ReadingListDbHelper.instance().updatePage(page);
                 });
 

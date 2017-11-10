@@ -131,10 +131,9 @@ public class ReadingListItemView extends FrameLayout {
         menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
 
         if (readingList.isDefault()) {
-            MenuItem renameItem = menu.getMenu().findItem(R.id.menu_reading_list_rename);
-            renameItem.setVisible(false);
-            MenuItem deleteItem = menu.getMenu().findItem(R.id.menu_reading_list_delete);
-            deleteItem.setVisible(false);
+            menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
+            menu.getMenu().findItem(R.id.menu_reading_list_edit_description).setVisible(false);
+            menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
         }
         menu.setOnMenuItemClickListener(new OverflowMenuClickListener());
         menu.show();
@@ -155,10 +154,15 @@ public class ReadingListItemView extends FrameLayout {
         if (readingList == null) {
             return;
         }
+        defaultListEmptyView.setVisibility((readingList.isDefault() && readingList.pages().size() == 0) ? VISIBLE : GONE);
+        imageContainer.setVisibility(defaultListEmptyView.getVisibility() == VISIBLE ? GONE : VISIBLE);
         titleView.setText(readingList.isDefault()
                 ? getString(R.string.default_reading_list_name)
                 : readingList.title());
-        if (TextUtils.isEmpty(readingList.description()) && showDescriptionEmptyHint) {
+        if (readingList.isDefault()) {
+            descriptionView.setText(getContext().getString(R.string.default_reading_list_description));
+            descriptionView.setTypeface(descriptionView.getTypeface(), Typeface.NORMAL);
+        } else if (TextUtils.isEmpty(readingList.description()) && showDescriptionEmptyHint) {
             descriptionView.setText(getContext().getString(R.string.reading_list_no_description));
             descriptionView.setTypeface(descriptionView.getTypeface(), Typeface.ITALIC);
         } else {
@@ -177,8 +181,6 @@ public class ReadingListItemView extends FrameLayout {
         if (readingList == null) {
             return;
         }
-        defaultListEmptyView.setVisibility((readingList.isDefault() && readingList.pages().size() == 0) ? VISIBLE : GONE);
-        imageContainer.setVisibility(defaultListEmptyView.getVisibility() == VISIBLE ? GONE : VISIBLE);
         clearThumbnails();
         List<String> thumbUrls = new ArrayList<>();
         for (ReadingListPage page : readingList.pages()) {

@@ -10,6 +10,7 @@ import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RemoveFromReadingListsDialog {
@@ -28,7 +29,8 @@ public class RemoveFromReadingListsDialog {
             return;
         }
         if (listsContainingPage.size() == 1 && !listsContainingPage.get(0).pages().isEmpty()) {
-            ReadingListDbHelper.instance().markPageForDeletion(listsContainingPage.get(0).pages().get(0));
+            ReadingListDbHelper.instance().markPagesForDeletion(listsContainingPage.get(0),
+                    Collections.singletonList(listsContainingPage.get(0).pages().get(0)));
             if (callback != null) {
                 callback.onDeleted(listsContainingPage.get(0).pages().get(0));
             }
@@ -52,7 +54,8 @@ public class RemoveFromReadingListsDialog {
                     for (int i = 0; i < listNames.length; i++) {
                         if (selected[i]) {
                             atLeastOneSelected = true;
-                            ReadingListDbHelper.instance().markPageForDeletion(listsContainingPage.get(i).pages().get(0));
+                            ReadingListDbHelper.instance().markPagesForDeletion(listsContainingPage.get(i),
+                                    Collections.singletonList(listsContainingPage.get(i).pages().get(0)));
                         }
                     }
                     if (callback != null && atLeastOneSelected) {

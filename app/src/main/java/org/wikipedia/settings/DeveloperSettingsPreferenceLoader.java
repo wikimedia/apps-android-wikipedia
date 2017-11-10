@@ -165,7 +165,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
             PageTitle pageTitle = new PageTitle("" + (i + 1), WikipediaApp.getInstance().getWikiSite());
             pages.add(new ReadingListPage(pageTitle));
         }
-        ReadingListDbHelper.instance().addPagesToList(list, pages);
+        ReadingListDbHelper.instance().addPagesToList(list, pages, true);
     }
 
     private void setUpCookies(@NonNull PreferenceCategory cat) {

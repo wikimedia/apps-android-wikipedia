@@ -26,6 +26,7 @@ import org.wikipedia.util.StringUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -511,6 +512,14 @@ public final class Prefs {
         setBoolean(R.string.preference_key_reading_lists_remote_delete_pending, pending);
     }
 
+    public static boolean isReadingListsRemoteSetupPending() {
+        return getBoolean(R.string.preference_key_reading_lists_remote_setup_pending, false);
+    }
+
+    public static void setReadingListsRemoteSetupPending(boolean pending) {
+        setBoolean(R.string.preference_key_reading_lists_remote_setup_pending, pending);
+    }
+
     public static boolean isInitialOnboardingEnabled() {
         return getBoolean(R.string.preference_key_initial_onboarding_enabled, true);
     }
@@ -621,6 +630,56 @@ public final class Prefs {
 
     public static void setFeedCustomizeTutorialCardEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_feed_customize_onboarding_card_enabled, enabled);
+    }
+
+    public static String getReadingListsLastSyncTime() {
+        return getString(R.string.preference_key_reading_lists_last_sync_time, "");
+    }
+
+    public static void setReadingListsLastSyncTime(String timeStr) {
+        setString(R.string.preference_key_reading_lists_last_sync_time, timeStr);
+    }
+
+    @NonNull public static Set<Long> getReadingListsDeletedIds() {
+        Set<Long> set = new HashSet<>();
+        if (!contains(R.string.preference_key_reading_lists_deleted_ids)) {
+            return set;
+        }
+        //noinspection unchecked
+        Set<Long> tempSet = GsonUnmarshaller.unmarshal(new TypeToken<Set<Long>>(){},
+                getString(R.string.preference_key_reading_lists_deleted_ids, null));
+        if (tempSet != null) {
+            set.addAll(tempSet);
+        }
+        return set;
+    }
+
+    public static void setReadingListsDeletedIds(@NonNull Set<Long> set) {
+        Set<Long> currentSet = getReadingListsDeletedIds();
+        currentSet.addAll(set);
+        // TODO: constrain size?
+        setString(R.string.preference_key_reading_lists_deleted_ids, GsonMarshaller.marshal(set));
+    }
+
+    @NonNull public static Set<String> getReadingListPagesDeletedIds() {
+        Set<String> set = new HashSet<>();
+        if (!contains(R.string.preference_key_reading_lists_deleted_ids)) {
+            return set;
+        }
+        //noinspection unchecked
+        Set<String> tempSet = GsonUnmarshaller.unmarshal(new TypeToken<Set<String>>(){},
+                getString(R.string.preference_key_reading_list_pages_deleted_ids, null));
+        if (tempSet != null) {
+            set.addAll(tempSet);
+        }
+        return set;
+    }
+
+    public static void setReadingListPagesDeletedIds(@NonNull Set<String> set) {
+        Set<String> currentSet = getReadingListPagesDeletedIds();
+        currentSet.addAll(set);
+        // TODO: constrain size?
+        setString(R.string.preference_key_reading_list_pages_deleted_ids, GsonMarshaller.marshal(set));
     }
 
     private Prefs() { }
