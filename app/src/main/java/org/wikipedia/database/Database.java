@@ -10,7 +10,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListRow;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
-import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.util.log.L;
@@ -23,7 +22,6 @@ public class Database extends SQLiteOpenHelper {
             HistoryEntry.DATABASE_TABLE,
             PageImage.DATABASE_TABLE,
             RecentSearch.DATABASE_TABLE,
-            SavedPage.DATABASE_TABLE,
             EditSummary.DATABASE_TABLE,
 
             // Order matters. UserOptionDatabaseTable has a dependency on
