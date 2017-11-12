@@ -11,6 +11,7 @@ public interface PageSummary {
     boolean hasError();
     @Nullable ServiceError getError();
     @Nullable String getTitle();
+    @Nullable String getDisplayTitle();
     @Nullable String getExtract();
     @Nullable String getThumbnailUrl();
 }

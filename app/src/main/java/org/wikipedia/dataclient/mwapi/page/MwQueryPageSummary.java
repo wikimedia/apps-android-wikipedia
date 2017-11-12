@@ -29,6 +29,11 @@ public class MwQueryPageSummary implements PageSummary {
     }
 
     @Override @Nullable
+    public String getDisplayTitle() {
+        return getFirstPage() == null ? null : getFirstPage().getDisplayTitle();
+    }
+
+    @Override @Nullable
     public String getExtract() {
         return getFirstPage() == null ? null : getFirstPage().extract;
     }
@@ -49,6 +54,7 @@ public class MwQueryPageSummary implements PageSummary {
 
     private static class MwPage {
         @SuppressWarnings("unused") @Nullable private String title;
+        @SuppressWarnings("unused") @Nullable private PageProps pageprops;
         @SuppressWarnings("unused") @Nullable private String extract;
         @SuppressWarnings("unused") @Nullable private Thumb thumbnail;
 
@@ -56,16 +62,31 @@ public class MwQueryPageSummary implements PageSummary {
         public String getThumbnailUrl() {
             return thumbnail == null ? null : thumbnail.getUrl();
         }
+
+        @Nullable
+        public String getDisplayTitle() {
+            return pageprops != null && pageprops.displayTitle() != null
+                    ? pageprops.displayTitle()
+                    : title;
+        }
     }
 
     /**
      * For the thumbnail URL of the page
      */
-    public static class Thumb {
+    static class Thumb {
         @SuppressWarnings("unused") private String source;
 
-        public String getUrl() {
+        String getUrl() {
             return source;
+        }
+    }
+
+    static class PageProps {
+        @SuppressWarnings("unused") @Nullable private String displaytitle;
+
+        String displayTitle() {
+            return displaytitle;
         }
     }
 }

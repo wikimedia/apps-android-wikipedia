@@ -71,6 +71,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private SimpleDraweeView thumbnailView;
     private GalleryThumbnailScrollView thumbnailGallery;
     private LinkPreviewOverlayView overlayView;
+    private TextView titleText;
     private View toolbarView;
     private View overflowButton;
 
@@ -107,8 +108,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         toolbarView = rootView.findViewById(R.id.link_preview_toolbar);
         toolbarView.setOnClickListener(goToPageListener);
 
-        TextView titleText = rootView.findViewById(R.id.link_preview_title);
-        titleText.setText(pageTitle.getDisplayText());
+        titleText = rootView.findViewById(R.id.link_preview_title);
         setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             // for <5.0, give the title a bit more bottom padding, since these versions
@@ -229,7 +229,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         PageClientFactory
                 .create(pageTitle.getWikiSite(), pageTitle.namespace())
                 .summary(pageTitle.getPrefixedText())
-                .enqueue(linkPreviewNetworkOnLoadCallback);
+                .enqueue(linkPreviewCallback);
     }
 
     private void showPreview(@NonNull LinkPreviewContents contents) {
@@ -274,7 +274,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         ViewUtil.loadImageUrlInto(thumbnailView, contents.getTitle().getThumbUrl());
     }
 
-    private retrofit2.Callback<PageSummary> linkPreviewNetworkOnLoadCallback
+    private retrofit2.Callback<PageSummary> linkPreviewCallback
             = new retrofit2.Callback<PageSummary>() {
         @Override public void onResponse(Call<PageSummary> call, Response<PageSummary> rsp) {
             if (!isAdded()) {
@@ -283,8 +283,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
             PageSummary summary = rsp.body();
             if (summary != null && !summary.hasError()) {
+                titleText.setText(summary.getDisplayTitle());
                 showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
             } else {
+                titleText.setText(pageTitle.getDisplayText());
                 showError(null);
                 logError(summary.hasError() ? summary.getError() : null,
                         "Page summary network request failed");
@@ -296,6 +298,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             if (!isAdded()) {
                 return;
             }
+            titleText.setText(pageTitle.getDisplayText());
             showError(caught);
         }
     };
