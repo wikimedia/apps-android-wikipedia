@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Vorgestellter Artikel</string>
   <string name="view_featured_article_footer_save_button_label">Speichern</string>
   <string name="view_featured_article_footer_saved_button_label">Gespeichert</string>
+  <string name="feed_configure_menu_title">Karten konfigurieren</string>
+  <string name="feed_configure_activity_title">Entdecken-Karten konfigurieren</string>
+  <string name="feed_configure_menu_reset">Auf die Standards zurücksetzen</string>
   <string name="description_edit_text_hint">Titelbeschreibung</string>
   <string name="description_edit_save">Veröffentlichen</string>
   <string name="description_edit_add_description">Titelbeschreibung hinzufügen</string>

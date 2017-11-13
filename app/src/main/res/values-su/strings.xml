@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;kontributor &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Ayaran panungtung %s</string>
   <string name="talk_page_link_text">Obrolan</string>
+  <string name="edit_history_link_text">Jujutan édit</string>
+  <string name="map_view_link_text">Tempo dina péta</string>
+  <string name="language_count_link_text">Nyangkaruk dina %d$1 basa séjén</string>
   <string name="content_license_html">Eusi ditangtayungan ku &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; iwal mun disebutkeun séjén</string>
   <string name="edit_save_action_license_logged_in">Ku nyimpenna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ku nyimpenna, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan ditumbukeun ka alamat IP pakakas. Mun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal meunang privasi leuwih.</string>
@@ -198,6 +201,7 @@
   <string name="preference_title_show_images">Témbongkeun gambar</string>
   <string name="preference_summary_show_images">Ngahirupan atau mareuman pamuatan gambar dina kaca. Hapus centang ieu pangaturan mun sambungan internét anjeun lénglét, atawa mun pakét data anjeun kawates.</string>
   <string name="read_more_section">Baca leuwih jero</string>
+  <string name="about_article_section">Ngeunaan ieu artikel</string>
   <string name="menu_gallery_visit_page">Miang ka kaca berkas</string>
   <string name="gallery_error_draw_failed">Teu bisa ngagambar gambar</string>
   <string name="license_title">Lisénsi pikeun %s</string>
@@ -261,6 +265,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pamoékan gambar (dina téma Poék)</string>
   <string name="preference_title_prefer_offline_content">Resep kénéh kontén oflén</string>
   <string name="preference_summary_prefer_offline_content">Ngirit pamakéan data ku cara muat artikel nu sayaga sacara oflén tinimbang muat vérsi anyar artikel</string>
+  <string name="preference_title_enable_offline_library">Hurungkeun Pabukon Oflén</string>
+  <string name="preference_summary_enable_offline_library">Aksés pakét artikel Wikipédia (ditémbongkeun jadi berkas .ZIM) nu geus diundeur kana pakakas anjeung pikeun bacaeun mangsa keur oflén. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Teuleuman leuwih jero&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Hampura, aplikasi eureun sorangan bieu téh</string>
   <string name="crash_report_dialog_text">Ari anjeun hayang ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sangkan Wikimédia bisa mariksa karuksakan anjeun sarta ngoméan kasalahan nu disumebabkeunna?</string>
   <string name="crash_report_dialog_dont_send_button">Liwatkeun</string>
@@ -367,6 +373,7 @@
   <string name="view_because_you_read_card_title">Sabab anjeun maca</string>
   <string name="view_random_card_title">Kaca acak</string>
   <string name="view_random_card_subtitle">Baca kaca acak tina Wikipédia</string>
+  <string name="view_next_random_article">Puat artikel acak lianna</string>
   <string name="view_main_page_card_title">Poé ieu na Wikipédia</string>
   <string name="view_main_page_card_subtitle">Tepas na %s</string>
   <string name="view_featured_image_card_title">Gambar poé ieu</string>
@@ -390,6 +397,9 @@
   <string name="view_featured_article_card_title">Artikel petingan</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
+  <string name="feed_configure_menu_title">Konfigurasikeun kartu</string>
+  <string name="feed_configure_activity_title">Konfigurasikeun kartu Langlangan</string>
+  <string name="feed_configure_menu_reset">Balikkeun kana setélan buhun</string>
   <string name="description_edit_text_hint">\nPedaran judul</string>
   <string name="description_edit_save">Medalkeun</string>
   <string name="description_edit_add_description">Tambahkeun pedaran judul</string>
@@ -435,7 +445,7 @@
   <string name="offline_my_compilations">Kokola pabukon oflén kuring</string>
   <string name="offline_compilations_title">Pabukon Oflén</string>
   <string name="offline_compilations_search_by_name">Paluruh pakét artikel dumasar ngaran</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Di pabukon kuring (%d)</string>
+  <string name="offline_compilations_found_count">Dina Pabukon Oflén kuring (%d)</string>
   <string name="offline_compilations_add">Tambah kana Pabukon Oflén kuring</string>
   <string name="remote_compilations_title">Pabukon Oflén</string>
   <string name="remote_compilations_description">Ku Pabukon Oflén, anjeun ayeuna bisa ngundeur pakét artikel jang bacaeun mun anjeun keur teu boga konéksi internét.</string>
@@ -462,6 +472,9 @@
   <string name="offline_library_title">Pabukon Oflén</string>
   <string name="offline_library_empty_title">Taya nanaon di Pabukon Oflén anjeun mah</string>
   <string name="offline_library_empty_description">Pilih sakumpulan artikel Wikipédia jang undeuran ayeuna, pikeun aksés tanpadata engké.</string>
+  <string name="offline_library_empty_description_sideload">“Pakét artikel” di Pabukon oflén anjeun mangrupa kumpulan artikel nu geus dibuntel saméméhna pikeun panyimpenan nu babari dipakéna dina pakakas anjeun, sangkan anjeun bisa terus maca nalika oflén.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Teuleuman leuwih jero&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Pakét artikel di pabukon anjeun tetep nyangkaruk jang bacaeun mangsa keur oflén. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Teuleuman leuwih jero&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Hayang ngahémat pamakéan data? Pilih opsi “Pidangkeun kontén oflén heula” di Pangaturan pikeun némbongkeun artikel vérsi oflén nu sayaga heula, malah mah keur anjeun mibanda sambungan ogé. &lt;a href=\"#settings\"&gt;Miang ka Pangaturan&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Paluruh Pabukon Oflén</string>
   <string name="offline_library_search_results_state">Hasil pamaluruhan tina pabukon oflén anjeun</string>
   <string name="offline_library_onboarding_action">Paluruh leuwih jero deui</string>
@@ -473,6 +486,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Terus baé maca jeung maluruh artikel dina Pabukon Oflén anjeun nalika anjeun miboga aksés kana internét.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Simpen leuwih loba pangaweruh</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Undeur Wikipédia saloba-lobana parangkat anjeun bisa ngawadahan. Pabukon Oflén ogé bisa ngaksés pakét artikel dina panyimpenan éksternal.</string>
+  <string name="offline_library_main_page_hint_html">Ieu Tépas méré gambaran umum tina eusi ieu pakét artikel.&lt;br /&gt;&lt;br /&gt;Anjeun ogé bisa ngalanglang eusi pakét artikel naon baé di Pabukon Oflén ku cara maluruh artikel nu sayaga ayeuna mangsa anjeun keur oflén.</string>
   <string name="onboarding_skip">Liwatkeun</string>
   <string name="onboarding_continue">Tuluykeun</string>
   <string name="onboarding_get_started">Mitembeyan</string>
@@ -489,4 +503,12 @@
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>
   <string name="app_shortcuts_search">Paluruh</string>
+  <string name="all_trending_text">Sakumna artikel nu keur trén dina %1$s</string>
+  <string name="top_on_this_day">Keur trén dina %1$s</string>
+  <string name="on_this_day_card_title">Dina poé ieu</string>
+  <string name="more_events_text">Kajadian sajarah lianna dina poé ieu</string>
+  <string name="events_count_text">%1$s kajadian ti %2$s - %3$d</string>
+  <string name="on_this_day">Dina poé ieu</string>
+  <string name="this_year">Taun ieu</string>
+  <string name="diff_years">{{PLURAL|one=Taun kamari|%d ka tukang}</string>
 </resources>

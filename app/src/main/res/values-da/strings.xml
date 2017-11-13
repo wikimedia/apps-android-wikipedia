@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Anbefalet artikel</string>
   <string name="view_featured_article_footer_save_button_label">Gem</string>
   <string name="view_featured_article_footer_saved_button_label">Gemt</string>
+  <string name="feed_configure_menu_title">Konfigurer kort</string>
+  <string name="feed_configure_activity_title">Konfigurer udforskningskort</string>
+  <string name="feed_configure_menu_reset">Nulstil til standarderne</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Bliv ved med at læse og søge efter artikler i dit lokale bibliotek, når du ikke har internetadgang.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Lagr mere viden</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Hent så meget Wikipedia som din enhed kan håndtere. Et lokalt bibliotek kan også tilgå artikelpakker på eksterne lagerenheder.</string>
+  <string name="offline_library_main_page_hint_html">Denne hovedside giver en oversigt over indholdet i denne artikelpakke.&lt;br /&gt;&lt;br /&gt;Du kan også udforske indholdet i artikelpakker i dit lokale bibliotek ved at søge efter tilgængelige artikler, mens du er uden internetforbindelse.</string>
   <string name="onboarding_skip">Udelad</string>
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>

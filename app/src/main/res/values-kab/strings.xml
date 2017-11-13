@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; imttekkiyen</string>
   <string name="last_updated_text">Lqem aneggaru %s</string>
   <string name="talk_page_link_text">Asqerdec</string>
+  <string name="edit_history_link_text">Ẓreg amazray</string>
+  <string name="map_view_link_text">Sken ɣef tkarḍa</string>
+  <string name="language_count_link_text">Yella di %d n tutlayin nniḍen</string>
   <string name="content_license_html">Agbur yella daw n &lt;a href=\"%1$s\"&gt;turagt CC BY-SA 3.0&lt;/a&gt; alama yettwammel akken-nniḍen</string>
   <string name="edit_save_action_license_logged_in">Su jerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec &lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ik daw n turagt &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">S ujerred, ad tqebleḍ &lt;a href=\"%1$s\"&gt;tiwtilin n useqdec&lt;/a&gt;, udiɣ ad tserseḍ ilebda ittekkiyen-ikdaw n turagt &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;.\nAkk ayen tbeddleḍ ad ittunefk i tensa IP n yibenk-ik. Ma yella &lt;a href=\"https://#login\"&gt;teqqneḍ&lt;/a&gt;, ad yili ɣur-k ugar n tbaḍnit.</string>
@@ -198,6 +201,7 @@
   <string name="preference_title_show_images">Sken tugniwin</string>
   <string name="preference_summary_show_images">Rmed neɣ sens asnifel n tugniwin deg isebtar. Kkes acraḍ n uɣewwaṛ-agi ma yella tuqqna-ik ar Internet ẓẓayet, neɣ ma ɣur-k talast n isefka.</string>
   <string name="read_more_section">Ɣeṛ ugar</string>
+  <string name="about_article_section">Ɣef umagrad-agi</string>
   <string name="menu_gallery_visit_page">Ddu ar usebter n ufaylu</string>
   <string name="gallery_error_draw_failed">Ur izmir ara ad isunneɣ tugna.</string>
   <string name="license_title">Turagt i %s</string>
@@ -261,6 +265,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Asibrek n tugna (deg usentel ubrik)</string>
   <string name="preference_title_prefer_offline_content">Bɣiɣ agbur n war tuqqna</string>
   <string name="preference_summary_prefer_offline_content">Sekles axiṛ isefka s usali n imagraden yellan s war tuqqna wala asali n lqem aneggaru n umagrad.</string>
+  <string name="preference_title_enable_offline_library">Rmed tanedlist war tuqqna</string>
   <string name="crash_report_dialog_title">Suref-aɣ, asnas yeɣli tagara-agi</string>
   <string name="crash_report_dialog_text">Tebɣiḍ ad tazneḍ aneqqis n uɣelluy ar HockeyApp  - asaǧǧaw n umeẓalu wis kraḍ - akken Wikimedia ad tizmir ad tesleḍ ugur-ik sakin ad tseɣti abug i t-id-yesseglan?</string>
   <string name="crash_report_dialog_dont_send_button">Zgel</string>
@@ -367,6 +372,7 @@
   <string name="view_because_you_read_card_title">Acku teɣriḍ</string>
   <string name="view_random_card_title">Agacuran</string>
   <string name="view_random_card_subtitle">Ɣeṛ amagrad agacuran si Wikipedia</string>
+  <string name="view_next_random_article">Sali-d amagrad nniden agacuran</string>
   <string name="view_main_page_card_title">Ass-a di Wikipedia</string>
   <string name="view_main_page_card_subtitle">Asebter agejdan di %s</string>
   <string name="view_featured_image_card_title">Tugna n wass</string>
@@ -390,6 +396,9 @@
   <string name="view_featured_article_card_title">Amagrad ifazen</string>
   <string name="view_featured_article_footer_save_button_label">Sekles</string>
   <string name="view_featured_article_footer_saved_button_label">Yettwasekles</string>
+  <string name="feed_configure_menu_title">Swel tikarḍiwin</string>
+  <string name="feed_configure_activity_title">Swel tikarḍiwin n usnirem</string>
+  <string name="feed_configure_menu_reset">Ales awennez ar umezwer</string>
   <string name="description_edit_text_hint">Aglam n uzwel</string>
   <string name="description_edit_save">Suffeɣ-d</string>
   <string name="description_edit_add_description">Rnu aglam n uzwel</string>
@@ -435,7 +444,7 @@
   <string name="offline_my_compilations">Sefrek tanedlist-iw n war tuqqna</string>
   <string name="offline_compilations_title">Tamkarḍiḍ war tuqqna</string>
   <string name="offline_compilations_search_by_name">Nadi tigrummiwin n imagraden s yisem</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Di tnedlist-iw (%d)</string>
+  <string name="offline_compilations_found_count">Deg tnedlist-iw n war tuqqna (%d)</string>
   <string name="offline_compilations_add">Rnu ar tnedlist-iw n war tuqqna</string>
   <string name="remote_compilations_title">Tamkarḍiḍ war tuqqna</string>
   <string name="remote_compilations_description">S tnedlist n war tuqqna, ad tizmireḍ ad tsidreḍ imagraden i tɣuri ticki ur ɣur-k ara tuqqna Internet.</string>
@@ -489,4 +498,13 @@
   <string name="app_shortcuts_random">Agacuran</string>
   <string name="app_shortcuts_continue_reading">Kemmel taɣuri</string>
   <string name="app_shortcuts_search">Nadi</string>
+  <string name="on_this_day_card_title">Ass-a</string>
+  <string name="more_events_text">Ugar n tidyanin timazrayin ass-a</string>
+  <string name="events_count_text">%1$s n tidyanin i %2$s - %3$d</string>
+  <string name="on_this_day">Ass-a</string>
+  <string name="this_year">Aseggas-a</string>
+  <plurals name="diff_years">
+    <item quantity="one">Ilindi</item>
+    <item quantity="other">%d n iseggasen aya</item>
+  </plurals>
 </resources>

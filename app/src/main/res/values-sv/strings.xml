@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
   <string name="view_featured_article_footer_save_button_label">Spara</string>
   <string name="view_featured_article_footer_saved_button_label">Sparades</string>
+  <string name="feed_configure_menu_title">Konfigurera kort</string>
+  <string name="feed_configure_activity_title">Konfigurera utforskningskort</string>
+  <string name="feed_configure_menu_reset">Återställ till standardvärden</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Fortsätt läsa och söka efter artiklar i ditt offlinebibliotek när du inte har åtkomst till Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Lagra mer kunskap</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Ladda ned så mycket av Wikipedia som din enhet kan hantera. Offlinebiblioteket kan även komma åt artikelpaket på externa lagringsutrymmen.</string>
+  <string name="offline_library_main_page_hint_html">Denna huvudsida ger dig en översikt av innehållet i detta artikelpaket.&lt;br /&gt;&lt;br /&gt;Du kan även utforska innehållet för alla artikelpaket i ditt offlinebibliotek genom att söka efter tillgängliga artiklar när du är offline.</string>
   <string name="onboarding_skip">Hoppa över</string>
   <string name="onboarding_continue">Fortsätt</string>
   <string name="onboarding_get_started">Kom igång</string>

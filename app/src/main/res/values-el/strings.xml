@@ -221,6 +221,9 @@
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="view_card_news_title">Στις ειδήσεις</string>
+  <string name="feed_configure_menu_title">Διαμορφώστε τις κάρτες</string>
+  <string name="feed_configure_activity_title">Διαμορφώστε τις κάρτες Αναζήτησης</string>
+  <string name="feed_configure_menu_reset">Βάλτε ξανά στις προ-επιλογές</string>
   <string name="description_edit_help_about_title">Σχετικά</string>
   <string name="description_edit_help_tips_examples">Για παράδειγμα:</string>
   <string name="description_edit_help_tips_example2">Το ψηλότερο βουνό της γης</string>
@@ -229,4 +232,5 @@
   <string name="offline_library_empty_description_sideload">\'\'Πακέτα άρθρων\'\' στην βιβλιοθήκη σας Offline είναι σύνολα άρθρων που έχουν ταξινομηθεί από πριν, έτσι μπορείτε να συνεχίστε την ανάγνωση όταν είστε offline &lt;br/&gt;&lt;a href=\'\'https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\'\'&gt; Δείτε περισσότερα&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">Τα πακέτα άρθρων στην βιβλιοθήκη σας παραμένουν διαθέσιμα για ανάγνωση όταν είστε offline. &lt;a href=\'\'https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\'\'Ανακαλύψετε περισσότερα &lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Θέλετε να αποθηκεύσετε τα δεδομένα; Επιλέξετε να \'\'Προτιμήστε περιεχόμενο offline\'\' σε Παραμέτρους για να δείξετε διαθέσιμα άρθρα  offline πρώτα, ακόμα και αν είστε online &lt;a href=#settings\'\' &gt; Πηγαίνετε στις Ρυθμίσεις &lt;/a&gt;</string>
+  <string name="offline_library_main_page_hint_html">Η Αρχική Σελίδα παρέχει πρόσβαση στα περιεχόμενα αυτών των άρθρων&lt;br/&gt;&lt;br&gt;. Mπορείτε επίσης να εξερευνήσετε τα περιεχόμενα αυτών των άρθρων στην Βιβλιοθήκη Offline αναζητώντας διαθέσιμα άρθρα ενώ είστε offline.</string>
 </resources>

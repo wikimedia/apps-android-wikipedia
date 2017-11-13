@@ -393,6 +393,7 @@
   <string name="view_featured_article_card_title">알찬 글</string>
   <string name="view_featured_article_footer_save_button_label">저장</string>
   <string name="view_featured_article_footer_saved_button_label">저장됨</string>
+  <string name="feed_configure_menu_reset">기본값으로 초기화</string>
   <string name="description_edit_text_hint">제목 설명</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_add_description">제목 설명 추가</string>
