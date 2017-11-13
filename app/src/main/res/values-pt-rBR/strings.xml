@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Salvar</string>
   <string name="view_featured_article_footer_saved_button_label">Salvo</string>
+  <string name="feed_configure_menu_title">Configurar cartões</string>
+  <string name="feed_configure_activity_title">Configurar Explorar cartões</string>
+  <string name="feed_configure_menu_reset">Redefinir os padrões</string>
   <string name="description_edit_text_hint">Descrição do título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continue lendo e procurando artigos dentro da sua Biblioteca Offline quando você não tiver acesso à Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Armazenar mais conhecimento</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Baixe a Wikipedia tanto quanto seu dispositivo possa lidar. A Biblioteca off-line também pode acessar pacotes de artigos no armazenamento externo.</string>
+  <string name="offline_library_main_page_hint_html">Esta Página Principal fornece uma visão geral do conteúdo deste pacote de artigos.&lt;br /&gt;&lt;br /&gt;Você também pode explorar o conteúdo de qualquer pacote de artigos na sua Biblioteca Offline procurando por artigos disponíveis enquanto estiver desconectado.</string>
   <string name="onboarding_skip">Pular</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>

@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Избрана статија</string>
   <string name="view_featured_article_footer_save_button_label">Зачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Зачувано</string>
+  <string name="feed_configure_menu_title">Постави картички</string>
+  <string name="feed_configure_activity_title">Постави картички за „Истражи“</string>
+  <string name="feed_configure_menu_reset">Врати по основно</string>
   <string name="description_edit_text_hint">Опис на насловот</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_add_description">Додај опис на насловот</string>

@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">مقاله برگزیده</string>
   <string name="view_featured_article_footer_save_button_label">ذخیره</string>
   <string name="view_featured_article_footer_saved_button_label">ذخیره شد</string>
+  <string name="feed_configure_menu_title">کارت‌های تنظیم</string>
+  <string name="feed_configure_activity_title">برگه‌های تنظیم کاوش</string>
+  <string name="feed_configure_menu_reset">بازگردانی به پیش‌فرض</string>
   <string name="description_edit_text_hint">توضیحات عنوان</string>
   <string name="description_edit_save">منتشر</string>
   <string name="description_edit_add_description">افزودن توضیحات عنوان</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">به مطالعه و خواندن مقاله‌ها در کتابخانه آفلاین ادامه دهید هنگامی که نیازی به اتصال به اینترنت ندارید.</string>
   <string name="offline_library_onboarding_store_knowledge_title">دانش بیشتری ذخیره کنید</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">دانلود ویکی‌پدیا به میزانی که دستگاه شما می‌تواند آن را مدیریت کند. کتابخانهٔ آفلاین همچنین می‌تواند از روی حافظهٔ خارجی هم در دسترس باشد.</string>
+  <string name="offline_library_main_page_hint_html">این صفحهٔ اصلی دید کلی‌ای از محتوای صفحه ارائه می‌دهد.&lt;br /&gt;&lt;br /&gt;همچنین در زمانی که آفلاین هستید می‌توانید در محتوای هر مقالهٔ آفلاین کتابخانه‌تان جستجو کنید.</string>
   <string name="onboarding_skip">رها کردن</string>
   <string name="onboarding_continue">ادامه</string>
   <string name="onboarding_get_started">شروع شد</string>

@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Gardar</string>
   <string name="view_featured_article_footer_saved_button_label">Gardado</string>
+  <string name="feed_configure_menu_title">Configurar as tarxetas</string>
+  <string name="feed_configure_activity_title">Configurar as tarxetas de exploración</string>
+  <string name="feed_configure_menu_reset">Reinicializar ós valores por defecto</string>
   <string name="description_edit_text_hint">Descrición de título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Engadir unha descrición de título</string>

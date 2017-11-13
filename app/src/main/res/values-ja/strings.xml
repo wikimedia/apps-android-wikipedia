@@ -44,6 +44,7 @@
   <string name="talk_page_link_text">ノート</string>
   <string name="edit_history_link_text">編集履歴</string>
   <string name="map_view_link_text">地図で見る</string>
+  <string name="language_count_link_text">他に%dの言語で利用可能</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
@@ -266,6 +267,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">画像を暗くする（ダークモードで)</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
+  <string name="preference_title_enable_offline_library">オフラインライブラリを有効にする</string>
   <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
   <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか?　これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
   <string name="crash_report_dialog_dont_send_button">スキップ</string>
@@ -396,6 +398,8 @@
   <string name="view_featured_article_card_title">秀逸な記事</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_featured_article_footer_saved_button_label">保存しました</string>
+  <string name="feed_configure_activity_title">「探索する」カードの編集</string>
+  <string name="feed_configure_menu_reset">デフォルトに戻す</string>
   <string name="description_edit_text_hint">編集の要約</string>
   <string name="description_edit_save">公開</string>
   <string name="description_edit_add_description">説明を追加</string>
@@ -441,7 +445,7 @@
   <string name="offline_my_compilations">オフラインライブラリを管理する</string>
   <string name="offline_compilations_title">オフラインライブラリ</string>
   <string name="offline_compilations_search_by_name">記事パックを名前で検索する</string>
-  <string name="offline_compilations_found_count" fuzzy="true">マイライブラリ(%d)</string>
+  <string name="offline_compilations_found_count">マイオフラインライブラリ(%d)</string>
   <string name="offline_compilations_add">マイオフラインライブラリに追加</string>
   <string name="remote_compilations_title">オフラインライブラリ</string>
   <string name="remote_compilations_description">オフラインライブラリを使用すると、インターネットに接続できないときに、記事のパックをダウンロードして読むことができます。</string>
@@ -468,6 +472,9 @@
   <string name="offline_library_title">オフラインライブラリ</string>
   <string name="offline_library_empty_title">オフラインライブラリには何もありません</string>
   <string name="offline_library_empty_description">後でデータを自由にアクセスできるように、今すぐダウンロードするWikipedia記事のパックを選択してください。</string>
+  <string name="offline_library_empty_description_sideload">オフラインライブラリ内の「記事パック」は、デバイスの内部ストレージで利用可能な、あらかじめ記事をまとめたものです。オフラインでも記事を読み続けられます。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">ライブラリ内の記事パックはオフラインでも続けて読むことができます。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">データ使用量を抑えませんか？　設定で「オフラインコンテンツを優先」を選択すると、データ通信が可能な場合であっても、オフラインの記事を優先的に表示するようになります。 &lt;a href=\"#settings\"&gt;設定へ&lt;/a&gt;</string>
   <string name="offline_library_empty_search">オフラインライブラリを検索</string>
   <string name="offline_library_search_results_state">オフラインライブラリの検索結果</string>
   <string name="offline_library_onboarding_action">詳細を見る</string>

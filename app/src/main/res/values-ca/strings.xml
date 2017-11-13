@@ -398,6 +398,9 @@
   <string name="view_featured_article_card_title">Article destacat</string>
   <string name="view_featured_article_footer_save_button_label">Desa</string>
   <string name="view_featured_article_footer_saved_button_label">Desat</string>
+  <string name="feed_configure_menu_title">Configura la targetes</string>
+  <string name="feed_configure_activity_title">Configura les targetes d\'exploració</string>
+  <string name="feed_configure_menu_reset">Reinicialitza als valors per defecte</string>
   <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_add_description">Afegeix una descripció de títol</string>
@@ -431,6 +434,7 @@
   <string name="description_edit_help_tips_example2">La muntanya més alta de la Terra</string>
   <string name="description_edit_help_tips_example2_hint">descripció d\'un títol d\'un article sobre l\'Everest</string>
   <string name="description_edit_help_more_info">Més informació</string>
+  <string name="description_edit_help_meta_info">Les descripcions s\'emmagatzemen i mantenen a Wikidata, el projecte de la Fundació Wikimedia que proporciona una base de dades secundària lliure, col·laborativa i multilingüe per a donar suport a la Viquipèdia i a altres projectes.</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>
@@ -470,6 +474,7 @@
   <string name="offline_library_title">Biblioteca sense connexió</string>
   <string name="offline_library_empty_title">No hi ha res dins la biblioteca sense connexió</string>
   <string name="offline_library_empty_description">Trieu un paquet d\'articles de la Viquipèdia per baixar ara, per tal d\'accedir-hi lliurement més endavant.</string>
+  <string name="offline_library_data_usage_hint">Voleu estalviar dades? Trieu «Prefereix contingut fora de línia» a la configuració per a mostrar abans aquells articles que estiguin fora de línia fins i tot si teniu connectivitat. &lt;a href=\"#settings\"&gt;Vés als paràmetres&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Cerca a la biblioteca fora de línia</string>
   <string name="offline_library_search_results_state">Cerqueu resultats a la vostra biblioteca fora de línia</string>
   <string name="offline_library_onboarding_action">Més informació</string>
@@ -478,13 +483,16 @@
   <string name="offline_library_onboarding_build_library_title">Construïu la vostra biblioteca fora de línia</string>
   <string name="offline_library_onboarding_build_library_subtitle">Baixeu ara paquets d\'articles de la Viquipèdia per a un accés sense de dades més endavant.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Lectura sense interrupcions</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continueu llegint i cercant articles des de la biblioteca fora de línia quan no tingueu accés a Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Emmagatzema més coneixement</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Descarregueu tanta Viquipèdia com ho permeti el vostre dispositiu. La biblioteca fora de línia pot accedir també als paquets d\'articles d\'un emmagatzemament extern.</string>
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
   <string name="onboarding_explore_title">Noves formes d\'explorar</string>
   <string name="onboarding_explore_text">Descobriu els articles destacats, els temes rellevants i els suggeriments de lectura al canal Explora.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
+  <string name="onboarding_reading_list_sync_text">Crea llistes de lectura d\'articles que voleu llegir més endavant, fins i tot si esteu fora de línia. &lt;a href=\"#login\"&gt;Inicieu una sessió o creeu in compte&lt;/a&gt; a la Viquipèdia per a conservar una còpia de les vostres llistes de lectura.</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>

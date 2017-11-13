@@ -399,6 +399,9 @@
   <string name="view_featured_article_card_title">Utvalgt artikkel</string>
   <string name="view_featured_article_footer_save_button_label">Lagre</string>
   <string name="view_featured_article_footer_saved_button_label">Lagret</string>
+  <string name="feed_configure_menu_title">Konfigurer kort</string>
+  <string name="feed_configure_activity_title">Konfigurer utforskningskort</string>
+  <string name="feed_configure_menu_reset">Tilbakestill til standardinnstillinger</string>
   <string name="description_edit_text_hint">Tittelbeskrivelse</string>
   <string name="description_edit_save">Publiser</string>
   <string name="description_edit_add_description">Legg til en tittelbeskrivelse</string>
@@ -486,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Du kan fortsette å lese og søke etter artikler i det lokale biblioteket ditt når du ikke har internettforbindelse.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Lagre mer kunnskap</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Last ned så mye av Wikipedia som enheten din har plass til. Det lokale biblioteket kan også lese artikkelpakker fra minnekort.</string>
+  <string name="offline_library_main_page_hint_html">Denne hovedsiden gir en oversikt over innholdet i denne artikkelpakka.&lt;br /&gt;&lt;br /&gt;Du kan også utforske innholdet i artikkelpakker i det frakoblede biblioteket ditt ved å søke etter tilgjengelige artikler mens du er frakoblet.</string>
   <string name="onboarding_skip">Hopp over</string>
   <string name="onboarding_continue">Fortsett</string>
   <string name="onboarding_get_started">Kom i gang</string>
