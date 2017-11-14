@@ -193,7 +193,7 @@ public final class L10nUtil {
     /**
      * Formats provided date relative to the current system time
      * @param date Date to format
-     * @return String representing the relative time difference of the paramter from current time
+     * @return String representing the relative time difference of the parameter from current time
      */
     public static String formatDateRelative(Date date) {
         return getRelativeTimeSpanString(date.getTime(), currentTimeMillis(), SECOND_IN_MILLIS, 0).toString();
