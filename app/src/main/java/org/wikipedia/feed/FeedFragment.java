@@ -25,7 +25,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.feed.configure.ConfigureActivity;
-import org.wikipedia.feed.featured.FeaturedArticleCard;
+import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
@@ -76,8 +76,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
         void onFeedAddPageToList(HistoryEntry entry);
-        void onFeedAddFeaturedPageToList(FeedFragment fragment, FeaturedArticleCard card, HistoryEntry entry);
-        void onFeedRemovePageFromList(FeedFragment fragment, Card card, HistoryEntry entry);
+        void onFeedAddFeaturedPageToList(FeaturedArticleCardView view, HistoryEntry entry);
+        void onFeedRemovePageFromList(FeaturedArticleCardView view, HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsItemCard card, HorizontalScrollingListCardItemView view);
         void onFeedShareImage(FeaturedImageCard card);
@@ -160,12 +160,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         ReadingListSynchronizer.instance().sync();
 
         return view;
-    }
-
-    public void notifyItemChanged(@NonNull Card card) {
-        if (feedAdapter != null && feedAdapter.getItemPosition(card) > -1) {
-            feedAdapter.notifyItemChanged(feedAdapter.getItemPosition(card));
-        }
     }
 
     public boolean shouldElevateToolbar() {
@@ -353,16 +347,16 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onAddFeaturedPageToList(@NonNull FeaturedArticleCard card, @NonNull HistoryEntry entry) {
+        public void onAddFeaturedPageToList(@NonNull FeaturedArticleCardView view, @NonNull HistoryEntry entry) {
             if (getCallback() != null) {
-                getCallback().onFeedAddFeaturedPageToList(FeedFragment.this, card, entry);
+                getCallback().onFeedAddFeaturedPageToList(view, entry);
             }
         }
 
         @Override
-        public void onRemoveFeaturedPageFromList(@NonNull FeaturedArticleCard card, @NonNull HistoryEntry entry) {
+        public void onRemoveFeaturedPageFromList(@NonNull FeaturedArticleCardView view, @NonNull HistoryEntry entry) {
             if (getCallback() != null) {
-                getCallback().onFeedRemovePageFromList(FeedFragment.this, card, entry);
+                getCallback().onFeedRemovePageFromList(view, entry);
             }
         }
 

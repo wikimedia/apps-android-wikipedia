@@ -33,10 +33,9 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
-import org.wikipedia.feed.featured.FeaturedArticleCard;
+import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
@@ -246,25 +245,24 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                         AddToReadingListDialog.InvokeSource.FEED));
     }
 
-    @Override public void onFeedAddFeaturedPageToList(@NonNull final FeedFragment fragment,
-                                                      @NonNull final FeaturedArticleCard card,
+    @Override public void onFeedAddFeaturedPageToList(@NonNull final FeaturedArticleCardView view,
                                                       @NonNull HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(entry.getTitle(),
                         AddToReadingListDialog.InvokeSource.FEED,
                         new DialogInterface.OnDismissListener() {
                             @Override public void onDismiss(DialogInterface dialogInterface) {
-                                // Update card view in case saved state has changed
-                                fragment.notifyItemChanged(card);
+                                view.updateFooter();
                             }
                         }));
     }
 
     @Override
-    public void onFeedRemovePageFromList(FeedFragment fragment, Card card, HistoryEntry entry) {
+    public void onFeedRemovePageFromList(@NonNull FeaturedArticleCardView view,
+                                         @NonNull HistoryEntry entry) {
         FeedbackUtil.showMessage(getActivity(),
                 getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-        fragment.notifyItemChanged(card);
+        view.updateFooter();
     }
 
     @Override public void onFeedSharePage(HistoryEntry entry) {

@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.progress.ProgressCard;
 import org.wikipedia.settings.Prefs;
@@ -99,14 +100,30 @@ public abstract class FeedCoordinatorBase {
 
     public int dismissCard(@NonNull Card card) {
         int position = cards.indexOf(card);
-        addHiddenCard(card);
+        if (card.type() == CardType.RANDOM) {
+            FeedContentType.RANDOM.setEnabled(false);
+            FeedContentType.saveState();
+        } else if (card.type() == CardType.MAIN_PAGE) {
+            FeedContentType.MAIN_PAGE.setEnabled(false);
+            FeedContentType.saveState();
+        } else {
+            addHiddenCard(card);
+        }
         removeCard(card, position);
         card.onDismiss();
         return position;
     }
 
     public void undoDismissCard(@NonNull Card card, int position) {
-        unHideCard(card);
+        if (card.type() == CardType.RANDOM) {
+            FeedContentType.RANDOM.setEnabled(true);
+            FeedContentType.saveState();
+        } else if (card.type() == CardType.MAIN_PAGE) {
+            FeedContentType.MAIN_PAGE.setEnabled(true);
+            FeedContentType.saveState();
+        } else {
+            unHideCard(card);
+        }
         insertCard(card, position);
         card.onRestore();
     }
