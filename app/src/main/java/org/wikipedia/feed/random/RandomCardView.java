@@ -17,19 +17,23 @@ public class RandomCardView extends StaticCardView<RandomCard> {
 
     public RandomCardView(@NonNull Context context) {
         super(context);
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getRandomPage();
-            }
-        });
     }
 
     @Override public void setCard(@NonNull RandomCard card) {
         super.setCard(card);
         setTitle(getString(R.string.view_random_card_title));
         setSubtitle(getString(R.string.view_random_card_subtitle));
-        setIcon(R.drawable.icon_feed_random);
+        setIcon(R.drawable.ic_casino_accent50_24dp);
+        setContainerBackground(R.color.accent50);
+        setAction(R.drawable.ic_casino_accent50_24dp, R.string.view_random_card_action);
+    }
+
+    protected void onContentClick(View v) {
+        getRandomPage();
+    }
+
+    protected void onActionClick(View v) {
+        getRandomPage();
     }
 
     public void getRandomPage() {

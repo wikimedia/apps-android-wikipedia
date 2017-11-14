@@ -32,8 +32,8 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
 
     public interface Callback {
-        void onAddFeaturedPageToList(@NonNull FeaturedArticleCard card, @NonNull HistoryEntry entry);
-        void onRemoveFeaturedPageFromList(@NonNull FeaturedArticleCard card, @NonNull HistoryEntry entry);
+        void onAddFeaturedPageToList(@NonNull FeaturedArticleCardView view, @NonNull HistoryEntry entry);
+        void onRemoveFeaturedPageFromList(@NonNull FeaturedArticleCardView view, @NonNull HistoryEntry entry);
     }
 
     @BindView(R.id.view_featured_article_card_header) CardHeaderView headerView;
@@ -49,7 +49,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         ButterKnife.bind(this);
     }
 
-    @Override public void setCard(@NonNull FeaturedArticleCard card) {
+    public void setCard(@NonNull FeaturedArticleCard card) {
         super.setCard(card);
 
         String articleTitle = card.articleTitle();
@@ -64,6 +64,12 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
         header(card);
         footer(card);
+    }
+
+    public void updateFooter() {
+        if (getCard() != null) {
+            footer(getCard());
+        }
     }
 
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_text_container})
@@ -147,7 +153,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         @Override
         public void onClick(View v) {
             if (getCallback() != null && getCard() != null) {
-                getCallback().onAddFeaturedPageToList(getCard(), getEntry());
+                getCallback().onAddFeaturedPageToList(FeaturedArticleCardView.this, getEntry());
             }
         }
     }
@@ -160,7 +166,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                     @Override
                     public void onAddRequest(@Nullable ReadingListPage page) {
                         if (getCallback() != null && getCard() != null) {
-                            getCallback().onAddFeaturedPageToList(getCard(),
+                            getCallback().onAddFeaturedPageToList(FeaturedArticleCardView.this,
                                     getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
                         }
                     }
@@ -168,7 +174,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                     @Override
                     public void onDeleted(@Nullable ReadingListPage page) {
                         if (getCallback() != null && getCard() != null) {
-                            getCallback().onRemoveFeaturedPageFromList(getCard(), getEntry());
+                            getCallback().onRemoveFeaturedPageFromList(FeaturedArticleCardView.this, getEntry());
                         }
                     }
                 }).show(getEntry().getTitle());
