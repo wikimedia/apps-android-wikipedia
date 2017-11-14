@@ -39,7 +39,7 @@ final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 android {
     // Keep version in sync with /project.properties
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.1'
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
