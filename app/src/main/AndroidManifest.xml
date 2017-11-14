@@ -232,9 +232,7 @@
             android:name=".feed.mostread.MostReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
-        <activity android:name=".feed.onthisday.OnThisDayActivity"
-            android:label="@string/on_this_day"
-            android:theme="@style/AppTheme.ActionBar"/>
+        <activity android:name=".feed.onthisday.OnThisDayActivity" />
 
         <activity android:name=".feed.configure.ConfigureActivity"
             android:label="@string/feed_configure_activity_title"

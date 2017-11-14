@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipChildren="false"
@@ -10,7 +11,23 @@
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_on_this_day_card_header"
         android:layout_width="match_parent"
-        android:layout_height="48dp"/>
+        android:layout_height="48dp" />
+
+    <TextView
+        android:id="@+id/day"
+        style="@style/RtlAwareTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="0sp"
+        android:maxLines="3"
+        android:paddingBottom="4dp"
+        android:layout_marginStart="16dp"
+        android:paddingTop="12dp"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="24sp"
+        tools:text="November 1" />
 
     <LinearLayout
         android:id="@+id/base_view"
@@ -18,11 +35,9 @@
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/margin"
         android:layout_marginEnd="12dp"
-        android:layout_marginLeft="26dp"
-        android:layout_marginRight="12dp"
         android:layout_marginStart="26dp"
         android:layout_weight="1"
-        android:background="?attr/colorAccent"
+        android:background="?attr/chart_shade5"
         android:clipChildren="false"
         android:clipToPadding="false">
 
@@ -30,79 +45,70 @@
             android:id="@+id/view_on_this_day_click_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="1dp"
             android:layout_marginStart="1dp"
-            android:clickable="true"
             android:background="?attr/paper_color"
-            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:paddingEnd="3dp"
-            android:paddingRight="3dp">
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingEnd="3dp">
 
             <include
                 android:id="@+id/year_layout"
                 layout="@layout/view_on_this_day_event" />
 
-            <LinearLayout
-                android:id="@+id/next_year_layout"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/next_event_years"
+                style="@style/RtlAwareTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/year_layout"
-                android:layout_marginLeft="-4dp"
-                android:layout_marginStart="-4dp"
+                android:layout_marginStart="-12dp"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/transparent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/next_event_year_dot"
-                    android:layout_width="6dp"
-                    android:layout_height="6dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@android:color/white"
-                    android:tint="?attr/colorAccent"
-                    app:srcCompat="@drawable/ic_panorama_fish_eye"
-                    android:contentDescription="@null" />
-
-                <TextView
-                    android:id="@+id/next_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginStart="12dp"
-                    android:text=""
-                    android:textColor="?attr/colorAccent" />
-            </LinearLayout>
+                android:background="@drawable/button_shape_light_gray_corner_rounded"
+                android:fontFamily="sans-serif"
+                android:padding="3dp"
+                android:lineSpacingExtra="4sp"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                tools:text="1,652 years ago" />
         </RelativeLayout>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="-15dp"
+        android:background="?attr/chart_shade5" />
 
     <LinearLayout
         android:id="@+id/more_events_layout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="?android:colorBackground"
-        android:foreground="?attr/selectableItemBackground"
-        android:clickable="true">
+        android:clickable="true"
+        android:layout_marginBottom="-15dp"
+        android:background="?attr/nav_tab_background_color"
+        android:foreground="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:tint="?attr/secondary_text_color"
+            app:srcCompat="@drawable/ic_arrow_forward_base30" />
 
         <TextView
             android:id="@+id/more_events"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:gravity="center_vertical"
-            android:textColor="?attr/secondary_text_color"
-            android:text="@string/more_events_text" />
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:scaleType="center"
-            app:srcCompat="@drawable/ic_chevron_forward_gray"
-            android:tint="?attr/secondary_text_color"
-            android:contentDescription="@null"/>
+            android:text="@string/more_events_text"
+            android:textColor="?attr/secondary_text_color" />
     </LinearLayout>
 
 

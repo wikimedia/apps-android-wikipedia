@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 
 
 public class OnThisDayCardViewTest extends ViewTest {
-    private static final int NEXT_YEAR = 2001;
+    private static final String NEXT_YEAR_STR = "Last year";
     private static final int YEAR = 2000;
     private static final String TEXT = "Here's a description of the event for this date.";
     private OnThisDayCardView subject;
@@ -27,7 +27,7 @@ public class OnThisDayCardViewTest extends ViewTest {
 
     @Theory
     public void testSetNextYearText() {
-        assertThat(subject.nextYearTextView.getText().toString(), is("" + NEXT_YEAR));
+        assertThat(subject.nextEventYearsTextView.getText().toString(), is("" + NEXT_YEAR_STR));
     }
 
     @Theory
@@ -54,16 +54,15 @@ public class OnThisDayCardViewTest extends ViewTest {
     public void setUp() {
         super.setUp(WIDTH_DP_M, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT);
         subject = new OnThisDayCardView(ctx());
-        subject.setCard(mockAnnouncementCard(NEXT_YEAR, YEAR, PrimaryTestStr.SHORT, SecondaryTestStr.SHORT, TEXT));
+        subject.setCard(mockAnnouncementCard(YEAR, PrimaryTestStr.SHORT, SecondaryTestStr.SHORT, TEXT));
     }
 
     @NonNull
-    private OnThisDayCard mockAnnouncementCard(int nextYear, int year, PrimaryTestStr title, TestStr subtitle, String text) {
+    private OnThisDayCard mockAnnouncementCard(int year, PrimaryTestStr title, TestStr subtitle, String text) {
         OnThisDayCard card = mock(OnThisDayCard.class);
         when(card.title()).thenReturn(str(title));
         when(card.subtitle()).thenReturn(str(subtitle));
         when(card.text()).thenReturn(text);
-        when(card.nextYear()).thenReturn(nextYear);
         when(card.year()).thenReturn(year);
         return card;
     }

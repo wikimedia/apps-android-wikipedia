@@ -61,6 +61,10 @@ public class OnThisDayCard extends Card {
         return DateUtil.getFeedCardDateString(date().baseCalendar());
     }
 
+    @NonNull String dayString() {
+        return DateUtil.getMonthOnlyDateString(date().baseCalendar().getTime());
+    }
+
     @NonNull public String text() {
         return eventShownOnCard.text();
     }
