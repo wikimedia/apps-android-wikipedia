@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless">
 
