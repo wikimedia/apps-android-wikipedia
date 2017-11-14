@@ -37,6 +37,7 @@ import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GeoUtil;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ConfigurableTextView;
@@ -265,12 +266,18 @@ public class BottomContentView extends LinearLayoutOverWebView
         pageLastUpdatedText.setText(parentFragment.getString(R.string.last_updated_text,
                 formatDateRelative(page.getPageProperties().getLastModified())));
         pageLastUpdatedText.setVisibility(View.VISIBLE);
-
         pageTalkContainer.setVisibility(page.getTitle().namespace() == Namespace.TALK ? GONE : VISIBLE);
 
-        pageLanguagesContainer.setVisibility(page.getPageProperties().getLanguageCount() == 0 ? GONE : VISIBLE);
-        pageLanguagesCount.setText(parentFragment.getString(R.string.language_count_link_text,
-                page.getPageProperties().getLanguageCount()));
+        /**
+         * TODO: It only updates the count when the article is in Chinese.
+         * If an article is also available in Chinese, the count will be less one.
+         * @see LangLinksActivity.java updateLanguageEntriesSupported()
+         */
+        int getLanguageCount = L10nUtil.getUpdatedLanguageCountIfNeeded(page.getTitle().getWikiSite().languageCode(),
+                page.getPageProperties().getLanguageCount());
+
+        pageLanguagesContainer.setVisibility(getLanguageCount == 0 ? GONE : VISIBLE);
+        pageLanguagesCount.setText(parentFragment.getString(R.string.language_count_link_text, getLanguageCount));
 
         pageMapContainer.setVisibility(page.getPageProperties().getGeo() == null ? GONE : VISIBLE);
 
