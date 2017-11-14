@@ -445,6 +445,7 @@
   <string name="offline_read_permission_rationale">Message explaining why we need permission to access the device storage when reading articles in offline mode.</string>
   <string name="offline_read_permission_error">Error shown when the app could not read from the internal or external storage of the device due to permission not being granted.</string>
   <string name="offline_card_text">Message shown in the Feed card that informs the user that they are now browsing Wikipedia in offline mode.</string>
+  <string name="offline_card_sideloading_text">Message shown in the Feed card that informs the user that they are now browsing Wikipedia from article packs in offline mode.</string>
   <string name="offline_my_compilations">Button label for the user to navigate to the offline library screen.</string>
   <string name="offline_compilations_title">Title shown on the toolbar of the activity for managing article packs.</string>
   <string name="offline_compilations_search_by_name">Menu item for searching article packs by name.</string>

@@ -21,7 +21,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:lineSpacingMultiplier="1.2"
-        android:text="@string/offline_card_text"
+        android:text="@string/offline_card_sideloading_text"
         android:textColor="@android:color/white" />
 
     <View
