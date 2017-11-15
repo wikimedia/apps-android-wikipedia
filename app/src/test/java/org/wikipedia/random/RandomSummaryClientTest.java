@@ -1,14 +1,11 @@
 package org.wikipedia.random;
 
-
 import android.support.annotation.NonNull;
 
 import com.google.gson.JsonParseException;
 
 import org.junit.Test;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomSummaryClient.Callback;
 import org.wikipedia.random.RandomSummaryClient.Service;
 import org.wikipedia.test.MockWebServerTest;
@@ -59,12 +56,12 @@ public class RandomSummaryClientTest extends MockWebServerTest {
     }
 
     @NonNull private Call<RbPageSummary> request(@NonNull Callback cb) {
-        return client.request(service(Service.class), WikiSite.forLanguageCode("test"), cb);
+        return client.request(service(Service.class), cb);
     }
 
     private void assertCallbackSuccess(@NonNull Call<RbPageSummary> call,
                                        @NonNull Callback cb) {
-        verify(cb).onSuccess(eq(call), any(PageTitle.class));
+        verify(cb).onSuccess(eq(call), any(RbPageSummary.class));
         //noinspection unchecked
         verify(cb, never()).onError(any(Call.class), any(Throwable.class));
     }
@@ -73,7 +70,7 @@ public class RandomSummaryClientTest extends MockWebServerTest {
                                        @NonNull Callback cb,
                                        @NonNull Class<? extends Throwable> expectedThrowable) {
         //noinspection unchecked
-        verify(cb, never()).onSuccess(any(Call.class), any(PageTitle.class));
+        verify(cb, never()).onSuccess(any(Call.class), any(RbPageSummary.class));
         verify(cb).onError(eq(call), isA(expectedThrowable));
     }
 }

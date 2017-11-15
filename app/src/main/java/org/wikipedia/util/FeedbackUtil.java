@@ -20,6 +20,7 @@ import com.getkeepsafe.taptargetview.TapTargetView;
 import org.wikipedia.R;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.random.RandomActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -129,6 +130,8 @@ public final class FeedbackUtil {
             return activity.findViewById(R.id.fragment_main_coordinator);
         } else if (activity instanceof PageActivity) {
             return activity.findViewById(R.id.page_contents_container);
+        } else if (activity instanceof RandomActivity) {
+            return activity.findViewById(R.id.random_coordinator_layout);
         } else {
             return activity.findViewById(android.R.id.content);
         }

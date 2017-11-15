@@ -240,6 +240,10 @@
             android:label="@string/feed_configure_activity_title"
             android:theme="@style/AppTheme.ActionBar"/>
 
+        <activity android:name=".random.RandomActivity"
+            android:label="@string/view_random_card_title"
+            android:theme="@style/AppTheme.ActionBar"/>
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"

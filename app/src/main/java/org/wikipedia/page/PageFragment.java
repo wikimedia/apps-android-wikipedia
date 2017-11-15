@@ -11,8 +11,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -63,7 +61,6 @@ import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
-import org.wikipedia.random.RandomArticleRequestHandler;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
@@ -162,7 +159,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private WikiDrawerLayout tocDrawer;
     private ConfigurableTabLayout tabLayout;
     private ToCHandler tocHandler;
-    private FloatingActionButton randomButton;
 
     private CommunicationBridge bridge;
     private DarkModeSwitch darkModeSwitch;
@@ -322,19 +318,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         errorView = rootView.findViewById(R.id.page_error);
 
-        randomButton = rootView.findViewById(R.id.page_random_button);
-        FeedbackUtil.setToolbarButtonLongPressToast(randomButton);
-        randomButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadRandomPage();
-            }
-        });
-
         bottomContentView = rootView.findViewById(R.id.page_bottom_view);
 
         PageActionToolbarHideHandler pageActionToolbarHideHandler
-                = new PageActionToolbarHideHandler(tabLayout, randomButton);
+                = new PageActionToolbarHideHandler(tabLayout, null);
         pageActionToolbarHideHandler.setScrollView(webView);
 
         return rootView;
@@ -712,14 +699,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         pageFragmentLoadState.load(pushBackStack, stagedScrollY);
         bottomContentView.hide();
         updateBookmarkAndMenuOptions();
-
-        if (entry.getSource() == HistoryEntry.SOURCE_RANDOM
-                || entry.getSource() == HistoryEntry.SOURCE_FEED_RANDOM
-                || entry.getSource() == HistoryEntry.SOURCE_APP_SHORTCUT_RANDOM) {
-            randomButton.show();
-        } else {
-            randomButton.hide();
-        }
     }
 
     public Bitmap getLeadImageBitmap() {
@@ -1033,40 +1012,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             bookmarkTab.setIcon(pageSaved ? R.drawable.ic_bookmark_white_24dp
                     : R.drawable.ic_bookmark_border_white_24dp);
         }
-    }
-
-    private void loadRandomPage() {
-        updateProgressBar(true, true, 0);
-        randomButton.hide();
-        RandomArticleRequestHandler.getRandomPage(new RandomArticleRequestHandler.Callback() {
-            @Override
-            public void onSuccess(@NonNull PageTitle pageTitle) {
-                if (!isAdded()) {
-                    return;
-                }
-                updateProgressBar(false, true, 0);
-                loadPage(pageTitle, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_RANDOM));
-            }
-
-            @Override
-            public void onError(Throwable t) {
-                if (!isAdded()) {
-                    return;
-                }
-                updateProgressBar(false, true, 0);
-                randomButton.show();
-                Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), ThrowableUtil.isOffline(t)
-                                ? getString(R.string.view_wiki_error_message_offline) : t.getMessage(),
-                        FeedbackUtil.LENGTH_DEFAULT);
-                snackbar.setAction(R.string.page_error_retry, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        loadRandomPage();
-                    }
-                });
-                snackbar.show();
-            }
-        });
     }
 
     private void showContentIssues() {

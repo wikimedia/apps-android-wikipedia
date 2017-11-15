@@ -61,22 +61,6 @@
                     app:tabSelectedTextColor="@color/base18"
                     app:tabIndicatorColor="@color/base18" />
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/page_random_button"
-                    style="@style/FloatingActionButton"
-                    android:layout_marginBottom="64dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:contentDescription="@string/view_next_random_article"
-                    app:backgroundTint="?attr/colorAccent"
-                    app:borderWidth="0dp"
-                    app:elevation="4dp"
-                    app:srcCompat="@drawable/ic_casino_accent50_24dp"
-                    android:tint="@android:color/white"
-                    android:visibility="gone"
-                    tools:visibility="visible"/>
-
             </android.support.design.widget.CoordinatorLayout>
 
         </org.wikipedia.views.SwipeRefreshLayoutWithScroll>

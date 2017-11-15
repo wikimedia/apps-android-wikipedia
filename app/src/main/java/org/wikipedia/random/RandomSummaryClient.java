@@ -9,7 +9,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.dataclient.retrofit.RbCachedService;
 import org.wikipedia.dataclient.retrofit.WikiCachedService;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
 import retrofit2.Call;
@@ -24,11 +23,10 @@ public class RandomSummaryClient {
             = new RbCachedService<>(Service.class);
 
     public Call<RbPageSummary> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
-        return request(cachedService.service(wiki), wiki, cb);
+        return request(cachedService.service(wiki), cb);
     }
 
     @VisibleForTesting Call<RbPageSummary> request(@NonNull Service service,
-                                                   @NonNull final WikiSite wiki,
                                                    @NonNull final Callback cb) {
         Call<RbPageSummary> call = service.get();
         call.enqueue(new retrofit2.Callback<RbPageSummary>() {
@@ -39,9 +37,7 @@ public class RandomSummaryClient {
                     cb.onError(call, new JsonParseException("Response missing required field(s)"));
                     return;
                 }
-                RbPageSummary item = response.body();
-                PageTitle title = new PageTitle(null, item.getTitle(), wiki);
-                cb.onSuccess(call, title);
+                cb.onSuccess(call, response.body());
             }
 
             @Override
@@ -60,7 +56,7 @@ public class RandomSummaryClient {
     }
 
     public interface Callback {
-        void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull PageTitle title);
+        void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary);
         void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t);
     }
 }

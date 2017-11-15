@@ -1,6 +1,7 @@
 package org.wikipedia.feed.random;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.view.View;
 
@@ -12,11 +13,15 @@ import org.wikipedia.random.RandomArticleRequestHandler;
 
 public class RandomCardView extends StaticCardView<RandomCard> {
     public interface Callback {
+        void onRandomClick(@NonNull RandomCardView view);
         void onGetRandomError(@NonNull Throwable t, @NonNull RandomCardView view);
     }
 
     public RandomCardView(@NonNull Context context) {
         super(context);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setTransitionName(getString(R.string.transition_random_activity));
+        }
     }
 
     @Override public void setCard(@NonNull RandomCard card) {
@@ -29,11 +34,15 @@ public class RandomCardView extends StaticCardView<RandomCard> {
     }
 
     protected void onContentClick(View v) {
-        getRandomPage();
+        if (getCallback() != null) {
+            getCallback().onRandomClick(RandomCardView.this);
+        }
     }
 
     protected void onActionClick(View v) {
-        getRandomPage();
+        if (getCallback() != null) {
+            getCallback().onRandomClick(RandomCardView.this);
+        }
     }
 
     public void getRandomPage() {

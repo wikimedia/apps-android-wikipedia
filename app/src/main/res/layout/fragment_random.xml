@@ -1,0 +1,72 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/random_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorAccent"
+    android:transitionName="@string/transition_random_activity"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPagerWithVelocity
+        android:id="@+id/random_item_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_behavior="org.wikipedia.random.BottomViewBehavior">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/random_back_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="4dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_replay_black_24dp"
+                android:tint="@android:color/white"
+                android:contentDescription="@null"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/random_next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:contentDescription="@string/view_next_random_article"
+                app:backgroundTint="@android:color/white"
+                app:borderWidth="0dp"
+                app:elevation="4dp"
+                app:srcCompat="@drawable/ic_casino_accent50_24dp"
+                android:tint="?attr/main_toolbar_color"/>
+
+            <ImageView
+                android:id="@+id/random_save_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="4dp"
+                android:focusable="true"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_bookmark_border_white_24dp"
+                android:tint="@android:color/white"
+                android:contentDescription="@string/button_add_to_reading_list"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>
