@@ -249,7 +249,7 @@
   <string name="view_continue_reading_card_title">Continuă lectura</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
   <string name="view_random_card_title">Aleatoriu</string>
-  <string name="view_random_card_subtitle">Citiți un articol aleatoriu din Wikipedia</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Citiți un articol aleatoriu din Wikipedia</string>
   <string name="view_main_page_card_title">Astăzi la Wikipedia</string>
   <string name="view_main_page_card_subtitle">Pagina principală la %s</string>
   <string name="view_featured_image_card_title">Imaginea zilei</string>

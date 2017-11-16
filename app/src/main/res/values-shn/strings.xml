@@ -307,7 +307,7 @@
   <string name="view_continue_reading_card_title">သိုပ်ႇလူ</string>
   <string name="view_because_you_read_card_title">ယွၼ်ႉပိူဝ်ႈၸဝ်ႈၵဝ်ႇ လူ</string>
   <string name="view_random_card_title">တူဝ်တႅဝ်ႇ</string>
-  <string name="view_random_card_subtitle">လူပွင်ႈလိၵ်ႈတႅဝ်ႇ ၵႃႈတီႈတီႈ ဝီႇၶီႇၽီးတီးယႃး</string>
+  <string name="view_random_card_subtitle" fuzzy="true">လူပွင်ႈလိၵ်ႈတႅဝ်ႇ ၵႃႈတီႈတီႈ ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="view_main_page_card_title">မိူဝ်ႈၼႆႉ တီႈၼိူဝ် ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="view_main_page_card_subtitle">ၼႃႈလိၵ်ႈႁူဝ်ႁႅၵ်ႇ တီႈ %s</string>
   <string name="view_featured_image_card_title">ၶႅပ်းႁၢင်ႈ တႃႇ မိူဝ်ႈၼႆႉ</string>

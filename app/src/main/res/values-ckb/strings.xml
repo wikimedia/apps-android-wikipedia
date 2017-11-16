@@ -325,9 +325,10 @@
   <string name="view_continue_reading_card_title">بەردەوامبوون لە خوێندنەوە</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>
   <string name="view_random_card_title">وتارێک بە ھەڵکەوت</string>
-  <string name="view_random_card_subtitle">خوێندنەوەی وتارێکی بەھەڵکەوت لە ویکیپیدیا</string>
+  <string name="view_random_card_subtitle" fuzzy="true">خوێندنەوەی وتارێکی بەھەڵکەوت لە ویکیپیدیا</string>
   <string name="view_main_page_card_title">ئەمڕۆ لە ویکیپیدیا</string>
   <string name="view_main_page_card_subtitle">پەڕەی سەرەکی لە %s</string>
+  <string name="view_main_page_card_action">پیشاندانی پەڕەی سەرەکی</string>
   <string name="view_featured_image_card_title">وێنەی ڕۆژ</string>
   <string name="view_featured_image_card_download">داگرتن</string>
   <string name="menu_feed_card_dismiss">شاردنەوەی ئەم کارتە</string>

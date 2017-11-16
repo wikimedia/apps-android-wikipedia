@@ -374,10 +374,12 @@
   <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
   <string name="view_because_you_read_card_title">Weil du liest</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
-  <string name="view_random_card_subtitle">Einen zufälligen Artikel aus der Wikipedia lesen</string>
+  <string name="view_random_card_subtitle">Durch zufällige Artikel aus der Wikipedia blättern.</string>
+  <string name="view_random_card_action">Den Würfel rollen</string>
   <string name="view_next_random_article">Einen anderen zufälligen Artikel laden</string>
   <string name="view_main_page_card_title">Heute auf der Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hauptseite auf %s</string>
+  <string name="view_main_page_card_action">Hauptseite ansehen</string>
   <string name="view_featured_image_card_title">Bild des Tages</string>
   <string name="view_featured_image_card_download">Herunterladen</string>
   <string name="menu_feed_card_dismiss">Diese Karte ausblenden</string>

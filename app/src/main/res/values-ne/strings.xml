@@ -276,7 +276,7 @@
   <string name="view_continue_reading_card_title">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
-  <string name="view_random_card_subtitle">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएको कुनै लेख पढ्नुहोस्</string>
+  <string name="view_random_card_subtitle" fuzzy="true">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएको कुनै लेख पढ्नुहोस्</string>
   <string name="view_main_page_card_title">विकिपिडियामा आज</string>
   <string name="view_main_page_card_subtitle">%s को मुख्य पृष्ठ</string>
   <string name="view_featured_image_card_title">आजको तस्बिर</string>

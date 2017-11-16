@@ -246,7 +246,7 @@
   <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>
-  <string name="view_random_card_subtitle">Pročitajte slučajan članak s Wikipedije</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Pročitajte slučajan članak s Wikipedije</string>
   <string name="view_main_page_card_title">Danas na Wikipediji</string>
   <string name="view_main_page_card_subtitle">Početna stranica na %s</string>
   <string name="view_featured_image_card_title">Fotografija dana</string>

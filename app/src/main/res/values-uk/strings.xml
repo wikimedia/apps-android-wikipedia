@@ -361,7 +361,7 @@
   <string name="view_continue_reading_card_title">Продовжити читання</string>
   <string name="view_because_you_read_card_title">Тому, що Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
-  <string name="view_random_card_subtitle">Читати випадкову статтю з Вікіпедії</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Читати випадкову статтю з Вікіпедії</string>
   <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
   <string name="view_main_page_card_subtitle">Головна сторінка на %s</string>
   <string name="view_featured_image_card_title">Зображення дня</string>

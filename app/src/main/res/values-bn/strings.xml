@@ -354,9 +354,11 @@
   <string name="view_continue_reading_card_title">পড়া অব্যাহত রাখুন</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
-  <string name="view_random_card_subtitle">উইকিপিডিয়া থেকে একটি অজানা নিবন্ধ পড়ুন</string>
+  <string name="view_random_card_subtitle" fuzzy="true">উইকিপিডিয়া থেকে একটি অজানা নিবন্ধ পড়ুন</string>
+  <string name="view_random_card_action">ঘুঁটি ঘুরান</string>
   <string name="view_main_page_card_title">উইকিপিডিয়ায় আজ</string>
   <string name="view_main_page_card_subtitle">%s-এর প্রধান পাতাটি</string>
+  <string name="view_main_page_card_action">প্রধান পাতা দেখুন</string>
   <string name="view_featured_image_card_title">আজকের নির্বাচিত ছবি</string>
   <string name="view_featured_image_card_download">ডাউনলোড করুন</string>
   <string name="menu_feed_card_dismiss">এই কার্ড লুকান</string>

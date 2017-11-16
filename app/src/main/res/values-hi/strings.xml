@@ -7,7 +7,7 @@
   <string name="search_hint">विकिपीडिया में खोजें</string>
   <string name="search_hint_search_history">इतिहास खोजें</string>
   <string name="search_hint_search_my_lists">मेरी सूचियाँ खोजें</string>
-  <string name="search_hint_search_reading_list">रीडिंग सूची खोजें</string>
+  <string name="search_hint_search_reading_list">पढ़ने वाली सूची खोजें</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
@@ -28,7 +28,7 @@
   <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="menu_page_content_issues">सामग्री समस्या</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
-  <string name="menu_page_add_to_list">पठन सूची में जोड़ें</string>
+  <string name="menu_page_add_to_list">पढ़ने वाली सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
@@ -66,7 +66,7 @@
   <string name="menu_show_toc">सामग्री सूची</string>
   <string name="search_no_results_found">कोई परिणाम नहीं मिले</string>
   <string name="search_reading_list_no_results">\"%s\" में कोई परिणाम नहीं मिले</string>
-  <string name="search_reading_lists_no_results">रीडिंग सूची में कोई परिणाम नहीं मिले</string>
+  <string name="search_reading_lists_no_results">पढ़ने वाली सूची में कोई परिणाम नहीं मिले</string>
   <string name="search_history_no_results">इतिहास में कोई परिणाम नहीं मिले</string>
   <string name="edit_section_captcha_message">स्वचालित स्पैम से बचने के लिए कृपया नीचे दिखाये गए शब्दों को लिखें</string>
   <string name="edit_section_captcha_hint">ऊपर से शब्दों को दोहराएँ।</string>
@@ -78,7 +78,7 @@
   <string name="nav_item_login">विकिपीडिया में प्रवेश करें</string>
   <string name="login_username_hint">सदस्यनाम</string>
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
-  <string name="login_2fa_hint">द्विस्तरीय प्रमाणीकरण कूट</string>
+  <string name="login_2fa_hint">द्विस्तरीय प्रमाणीकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg">द्विस्तरीय प्रमाणीकरण कूट आवश्यक! कृपया मुख्य कार्यकलाप पर वापस जाएँ और अपने 2FA टोकन से लॉगिन कर दोबारा प्रयास करें।</string>
   <string name="menu_login">प्रवेश</string>
   <string name="login_activity_title">विकिपीडिया में प्रवेश करें</string>
@@ -125,8 +125,8 @@
   <string name="send_feedback">एप फीडबैक भेजें</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
   <string name="preferences_heading_storage_and_syncing">स्टोरेज और सिंक</string>
-  <string name="preference_title_sync_reading_lists">\nअपनी पठन सूचियों को सिंक करें</string>
-  <string name="preference_summary_sync_reading_lists">लोग-इन होते ही विकिपीडिया पठन सूचियां सिंक कर सके, इसकी अनुमति दें</string>
+  <string name="preference_title_sync_reading_lists">अपनी पढ़ने वाली सूचियों को सिंक करें</string>
+  <string name="preference_summary_sync_reading_lists">लॉग-इन होते ही विकिपीडिया पढ़ने वाली सूचियां सिंक कर सके, इसकी अनुमति दें</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
   <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजें</string>
   <string name="preference_summary_eventlogging_opt_in">विकिमीडिया को जानकारी इकट्ठा करने की अनुमति दें कि आप कैसे एप को प्रयोग करते हैं ताकि एप को बेहतर बनाया जा सके</string>
@@ -238,7 +238,7 @@
   <string name="address_copied">पते को क्लिपबोर्ड पर कॉपी कर लिया गया है।</string>
   <string name="text_copied">टेक्स्ट को क्लिपबोर्ड पर कॉपी कर लिया गया है।</string>
   <string name="button_continue_to_article">लेख पढ़ें</string>
-  <string name="button_add_to_reading_list">पठन सूची में जोड़ें</string>
+  <string name="button_add_to_reading_list">पढ़ने वाली सूची में जोड़ें</string>
   <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन होने पर लेख लोड नहीं किया जा सकता।</string>
   <string name="page_offline_notice_add_to_reading_list">सहायता: लेख को अपनी पढ़ने वाली सूची में जोड़ें और जब आप वापस ऑनलाइन होंगे इसे डाउनलोड कर लिया जाएगा।</string>
   <string name="page_offline_notice_last_date">आप %s पर सहेजे गए लेख का ऑफ़लाइन वर्ज़न पढ़ रहे हैं।</string>
@@ -260,12 +260,13 @@
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
   <string name="reference_title">सन्दर्भ %s</string>
-  <string name="preference_title_dim_dark_mode_images">अंधेरे विषय में मंद छवियां</string>
-  <string name="preference_summary_dim_dark_mode_images">अंधेरे विषय का उपयोग करते समय छवियों की चमक कम करें</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">धुंधली छवि (अँधेरे विषय में )</string>
+  <string name="preference_title_dim_dark_mode_images">डार्क थीम में डिम चित्र दिखाएँ</string>
+  <string name="preference_summary_dim_dark_mode_images">डार्क थीम का प्रयोग करते समय चित्रों की चमक कम करें</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">कम चित्र चमक (डार्क थीम में)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन प्रकरण को प्राथमिकता</string>
   <string name="preference_summary_prefer_offline_content">किसी आलेख के नवीनतम संस्करण को हमेशा लोड करने के बजाय ऑफ़लाइन उपलब्ध लेखों को लोड करके डेटा उपयोग को बचाएं</string>
   <string name="preference_title_enable_offline_library">ऑफ़लाइन लाइब्रेरी इनेबल करें</string>
+  <string name="preference_summary_enable_offline_library">विकिपीडिया लेख पैक को खोलें (.ZIM फ़ाइल द्वारा प्रदर्शित) जिन्हें आपकी डिवाइस पर जब आप ऑफलाइन हों तब पढ़ने के लिए डाउनलोड किया गया है। &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;अधिक जानें&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">क्षमा करें, आखिरी बार एप क्रैश हो गयी थी।</string>
   <string name="crash_report_dialog_text">क्या आप HockeyApp/ एक थर्ड-पार्टी सर्विस प्रोवाइडर को क्रैश रिपोर्ट भेजना चाहते हैं ताकि विकिमीडिया आपके क्रैश को जाँच कर कर सके और उस कमी को सही कर सके?</string>
   <string name="crash_report_dialog_dont_send_button">छोड़ें</string>
@@ -275,7 +276,7 @@
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
   <string name="crash_report_quit">बंद करें</string>
-  <string name="article_menu_bar_bookmark">इस लेख को पठन सूची में जोड़ें</string>
+  <string name="article_menu_bar_bookmark">इस लेख को पढ़ने वाली सूची में जोड़ें</string>
   <string name="article_menu_bar_share">लेख कङी को साझा करें</string>
   <string name="article_header_edit_hint">सम्पादित करें</string>
   <string name="article_header_edit_description">शीर्षक वर्णन को सम्पादित करें</string>
@@ -283,19 +284,19 @@
   <string name="color_theme_select">विषय</string>
   <string name="color_theme_light">हल्का</string>
   <string name="color_theme_dark">गहरा</string>
-  <string name="preference_title_color_theme">गहरी विषय</string>
-  <string name="preference_summary_color_theme">गहरी विषय लगाएं</string>
+  <string name="preference_title_color_theme">डार्क थीम</string>
+  <string name="preference_summary_color_theme">एप को डार्क थीम में परिवर्तित करें</string>
   <string name="text_size_increase">टेक्स्ट साइज़ बढ़ाएं</string>
   <string name="text_size_decrease">टेक्स्ट साइज़ घटाएं</string>
   <string name="text_size_percent_default">%s (डिफ़ॉल्ट)</string>
   <string name="nav_item_reading_lists">मेरी सूचियां</string>
   <string name="reading_list_untitled">बिना शीर्षक</string>
-  <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
+  <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
-  <string name="reading_list_title_exists">रीडिंग सूची \"%s\" पहले से है।</string>
+  <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>
   <string name="reading_list_entry_empty">कृपया शीर्षक डालें।</string>
   <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
-  <string name="reading_list_added_to_unnamed">पठन सूची में जोड़ा गया।</string>
+  <string name="reading_list_added_to_unnamed">पढ़ने वाली सूची में जोड़ा गया।</string>
   <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
   <string name="reading_list_added_view_button">सूची देखें</string>
   <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
@@ -315,7 +316,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">ऑफलाइन से सब हटायें</string>
   <string name="reading_list_action_menu_save_all_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>
   <string name="reading_list_action_menu_add_to_another_list">दूसरी सूची में जोड़ें</string>
-  <string name="reading_list_name_sample">मेरी पठन सूची</string>
+  <string name="reading_list_name_sample">मेरी पढ़ने वाली सूची</string>
   <string name="reading_list_name_hint">सूची का नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
   <string name="reading_list_item_deleted">%s सूची में से हटाया गया</string>
@@ -371,12 +372,14 @@
   <string name="view_continue_reading_card_title">पढ़ना जारी रखें</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
-  <string name="view_random_card_subtitle">विकिपीडिया से कोई बेतरतीब लेख पढ़ें</string>
+  <string name="view_random_card_subtitle">विकिपीडिया से पढ़ने के लिए बेतरतीब लेख पलट के देखें</string>
+  <string name="view_random_card_action">पासे को पलटें</string>
   <string name="view_next_random_article">कोई दूसरा रैंडम लेख लोड करें</string>
   <string name="view_main_page_card_title">विकिपीडिया पर आज</string>
   <string name="view_main_page_card_subtitle">%s पर मुख्य पृष्ठ</string>
+  <string name="view_main_page_card_action">मुख्य पेज देखें</string>
   <string name="view_featured_image_card_title">आज का चित्र</string>
-  <string name="view_featured_image_card_download">अधोभारण</string>
+  <string name="view_featured_image_card_download">डाउनलोड</string>
   <string name="menu_feed_card_dismiss">इस कार्ड को छुपाएं</string>
   <string name="menu_feed_card_dismissed">कार्ड छुपा हुआ</string>
   <string name="menu_feed_overflow_label">अधिक विकल्प</string>
@@ -396,6 +399,9 @@
   <string name="view_featured_article_card_title">प्रधान लेख</string>
   <string name="view_featured_article_footer_save_button_label">सहेजें</string>
   <string name="view_featured_article_footer_saved_button_label">सहेजा गया</string>
+  <string name="feed_configure_menu_title">कार्ड्स को कॉन्फ़िगर करें</string>
+  <string name="feed_configure_activity_title">एक्स्प्लोर कार्ड्स को कॉन्फ़िगर करें</string>
+  <string name="feed_configure_menu_reset">डिफ़ॉल्ट पर रिसेट करें</string>
   <string name="description_edit_text_hint">शीर्षक विवरण</string>
   <string name="description_edit_save">प्रकाशित करें</string>
   <string name="description_edit_add_description">शीर्षक विवरण जोड़ें</string>
@@ -469,6 +475,9 @@
   <string name="offline_library_title">ऑफलाइन लाइब्रेरी</string>
   <string name="offline_library_empty_title">आपके ऑफलाइन लाइब्रेरी में कुछ भी नहीं है</string>
   <string name="offline_library_empty_description">बाद में डेटा-मुक्त पहुंच के लिए, विकिपीडिया के लेखों का एक पैकेट अब डाउनलोड करने के लिए चुनें।</string>
+  <string name="offline_library_empty_description_sideload">\"लेख पैक\" आपकी ऑफलाइन लाइब्रेरी में सहेजने की सहजता हेतु पहले से पैक किये गए लेखों के सेट हैं, ताकी आप ऑफलाइन होने पर भी पढ़ना जारी रखें। &lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;अधिक जानें&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">आपकी लाइब्रेरी के लेख पैक ऑफलाइन होने पर भी पढ़ने के लिए उपलब्ध रहते हैं। &lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;अधिक जानें&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">डाटा यूसेज पर बचाना चाहते हैं? कनेक्टिविटी होने पर भी ऑफलाइन लेखों को पहले दिखाने के लिए \"ऑफलाइन कंटेंट वरीयता\" सेटिंग्स में जाके चुने। &lt;a href=\"#settings\"&gt;सेटिंग्स में जाएँ&lt;/a&gt;</string>
   <string name="offline_library_empty_search">ऑफलाइन लाइब्रेरी ढूंढें</string>
   <string name="offline_library_search_results_state">अपने ऑफलाइन पुस्तकालय से परिणाम ढूंढें</string>
   <string name="offline_library_onboarding_action">और अधिक जानकारी प्राप्त करें</string>
@@ -480,6 +489,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">इंटरनेट तक पहुंच न होने पर भी ऑफलाइन लाइब्रेरी में पढ़ना और लेखों की खोज जारी रखें।</string>
   <string name="offline_library_onboarding_store_knowledge_title">अधिक ज्ञान जमा करें</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">उतना विकिपीडिया डाऊनलोड करें जितनी आपकी डिवाइस की क्षमता हो। ऑफलाइन लाइब्रेरी एक्सटर्नल स्टोरेज पर भी लेख पैक्स को एक्सेस कर सकती है।</string>
+  <string name="offline_library_main_page_hint_html">यह मुख्य पृष्ठ इस लेख पैक की सामग्रियों का अवलोकन प्रदान करता है। &lt;br /&gt; &lt;br /&gt; आप ऑफ़लाइन होने पर उपलब्ध लेखों की खोज करके अपने ऑफ़लाइन लाइब्रेरी में किसी भी लेख पैक की सामग्री का पता लगा सकते हैं।</string>
   <string name="onboarding_skip">छोड़ें</string>
   <string name="onboarding_continue">जारी रहना</string>
   <string name="onboarding_get_started">शुरू करें</string>
@@ -496,8 +506,15 @@
   <string name="app_shortcuts_random">यादृच्छिक</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>
-  <string name="all_trending_text" fuzzy="true">%1$s पर सभी ट्रेंडिंग लेख</string>
-  <string name="top_on_this_day" fuzzy="true">%1$s पर ट्रेंडिंग</string>
+  <string name="all_trending_text">%1$s पर सभी ट्रेंडिंग लेख</string>
+  <string name="top_on_this_day">%1$s पर ट्रेंडिंग</string>
   <string name="on_this_day_card_title">इस दिन</string>
   <string name="more_events_text">इस दिन पर अन्य ऐतिहासिक घटनाएं</string>
+  <string name="events_count_text">%1$s घटनाक्रम %2$s से  - %3$d तक</string>
+  <string name="on_this_day">आज के दिन</string>
+  <string name="this_year">इस साल</string>
+  <plurals name="diff_years">
+    <item quantity="one">पिछले साल</item>
+    <item quantity="other">%d साल पहले</item>
+  </plurals>
 </resources>

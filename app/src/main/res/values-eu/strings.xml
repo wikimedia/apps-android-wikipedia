@@ -274,7 +274,7 @@
   <string name="notification_thanks_title">Eskerrak eman dizkizute!</string>
   <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
   <string name="view_random_card_title">Ausazkoa</string>
-  <string name="view_random_card_subtitle">Irakurri Wikipediako ausazko artikulu bat</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Irakurri Wikipediako ausazko artikulu bat</string>
   <string name="view_main_page_card_title">Gaur Wikipedian</string>
   <string name="view_main_page_card_subtitle">Azala %s(e)an</string>
   <string name="view_featured_image_card_title">Eguneko irudia</string>

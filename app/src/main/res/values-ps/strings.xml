@@ -178,7 +178,7 @@
   <string name="user_option_sync_label">غوره توبونه</string>
   <string name="view_continue_reading_card_title">پرله پورې لوستل</string>
   <string name="view_because_you_read_card_title">ځکه چې تاسې لولی</string>
-  <string name="view_random_card_subtitle">د ويکيپېډيا يوه ناټاکلې ليکنه لوستل</string>
+  <string name="view_random_card_subtitle" fuzzy="true">د ويکيپېډيا يوه ناټاکلې ليکنه لوستل</string>
   <string name="view_main_page_card_title">نن په ويکيپېډيا کې</string>
   <string name="view_main_page_card_subtitle">لومړی مخ په %s</string>
   <string name="view_featured_image_card_title">د نن ورځې انځور</string>

@@ -356,7 +356,7 @@
   <string name="view_continue_reading_card_title">Kenderc\'hel da lenn</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
   <string name="view_random_card_title">Dre zegouezh</string>
-  <string name="view_random_card_subtitle">Lenn ur pennad eus Wikipedia dre zegouezh</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Lenn ur pennad eus Wikipedia dre zegouezh</string>
   <string name="view_main_page_card_title">Hiziv e Wikipedia</string>
   <string name="view_main_page_card_subtitle">Pajenn bennañ d\'an %s</string>
   <string name="view_featured_image_card_title">Skeudenn an deiz</string>

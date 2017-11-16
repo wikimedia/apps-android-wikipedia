@@ -348,7 +348,7 @@
   <string name="view_continue_reading_card_title">Продължаване на четенето</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
-  <string name="view_random_card_subtitle">Прочетете случайна статия от Уикипедия</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Прочетете случайна статия от Уикипедия</string>
   <string name="view_main_page_card_title">Днес в Уикипедия</string>
   <string name="view_main_page_card_subtitle">Главна страница на %s</string>
   <string name="view_featured_image_card_title">Картинка на деня</string>

@@ -354,7 +354,7 @@
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
-  <string name="view_random_card_subtitle">Een willekeurige pagina uit Wikipedia lezen</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Een willekeurige pagina uit Wikipedia lezen</string>
   <string name="view_main_page_card_title">Vandaag op Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hoofdpagina op %s</string>
   <string name="view_featured_image_card_title">Afbeelding van de dag</string>

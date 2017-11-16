@@ -349,7 +349,7 @@
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
-  <string name="view_random_card_subtitle">Liest en zoufällegen Artikel vu Wikipedia</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Liest en zoufällegen Artikel vu Wikipedia</string>
   <string name="view_main_page_card_title">Haut op Wikipedia</string>
   <string name="view_main_page_card_subtitle">Haaptsäit op %s</string>
   <string name="view_featured_image_card_title">Bild vum Dag</string>
@@ -372,6 +372,7 @@
   <string name="view_offline_card_text">Et ka keen INhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>
   <string name="view_featured_article_footer_saved_button_label">Gespäichert</string>
+  <string name="feed_configure_menu_title">Kaarte konfiguréieren</string>
   <string name="feed_configure_menu_reset">Op de Standard zrécksetzen</string>
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>

@@ -374,7 +374,7 @@
   <string name="view_continue_reading_card_title">Fortsæt læsning</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
-  <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Læs en tilfældig artikel fra Wikipedia</string>
   <string name="view_next_random_article">Indlæs en anden vilkårlig artikel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>

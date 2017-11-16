@@ -361,7 +361,7 @@
   <string name="view_continue_reading_card_title">پڑھنا جاری یکھیں</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>
-  <string name="view_random_card_subtitle">ویکیپیڈیا سے کوئی بھی ایک مضمون پڑھیں</string>
+  <string name="view_random_card_subtitle" fuzzy="true">ویکیپیڈیا سے کوئی بھی ایک مضمون پڑھیں</string>
   <string name="view_main_page_card_title">آج ویکیپیڈیا پر</string>
   <string name="view_main_page_card_subtitle">%s کا صفحۂ اول</string>
   <string name="view_featured_image_card_title">آج کی تصویر</string>
@@ -418,7 +418,7 @@
   <string name="offline_card_text">اب آپ ویکیپیڈیا کو آفلائن اپنی آفلائن لائبریری کے مضامین کے ذریعے دیکھ رہے ہیں۔</string>
   <string name="offline_my_compilations">میری آفلائن لائبریری کا انتظام کیجیے</string>
   <string name="offline_compilations_title">آفلائن لائبریزی</string>
-  <string name="offline_compilations_found_count" fuzzy="true">میری لائبریری میں (%d)</string>
+  <string name="offline_compilations_found_count">میری آف لائن لائبریری میں (%d)</string>
   <string name="offline_compilations_add">میری آفلائن لائبریری سے جوڑیے</string>
   <string name="remote_compilations_title">آفلائن لائبریری</string>
   <string name="remote_compilations_description">آفلائن لائبریری کے ساتھ آپ مضامین کے پیکوں کو بعد میں آفلائن پڑھنے کے لیے ڈاؤنلوڈ کرسکتے ہیں جب انٹرنیٹ رابطہ موجود نہ ہو۔</string>

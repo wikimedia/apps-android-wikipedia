@@ -368,7 +368,7 @@
   <string name="view_continue_reading_card_title">Bacutaké maca</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
-  <string name="view_random_card_subtitle">Maca sembarang artikel Wikipédia</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Maca sembarang artikel Wikipédia</string>
   <string name="view_main_page_card_title">Dina iki ing Wikipédia</string>
   <string name="view_main_page_card_subtitle">Kaca tepas ing %s</string>
   <string name="view_featured_image_card_title">Gambar dina iki</string>
