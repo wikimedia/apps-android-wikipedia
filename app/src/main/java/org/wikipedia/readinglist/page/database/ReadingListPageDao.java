@@ -124,19 +124,8 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         diskDao.markOutdated(row);
     }
 
-    @NonNull public synchronized Collection<ReadingListPageDiskRow> collectPausedDiskTransactions() {
-        Collection<ReadingListPageDiskRow> rows = queryPausedDiskTransactions();
-        return rows;
-    }
-
     @NonNull public synchronized Collection<ReadingListPageDiskRow> startDiskTransaction() {
         Collection<ReadingListPageDiskRow> rows = queryPendingDiskTransactions();
-        diskDao.startTransaction(rows);
-        return rows;
-    }
-
-    @NonNull public synchronized Collection<ReadingListPageDiskRow> startPausedDiskTransaction() {
-        Collection<ReadingListPageDiskRow> rows = queryPausedDiskTransactions();
         diskDao.startTransaction(rows);
         return rows;
     }
@@ -187,25 +176,6 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         return rows;
     }
 
-    @NonNull private Collection<ReadingListPageDiskRow> queryPausedDiskTransactions() {
-        Uri uri = ReadingListPageContract.DiskWithPage.URI;
-        String selection = Sql.SELECT_ROWS_PAUSED_DISK_TRANSACTION;
-        final String[] selectionArgs = null;
-        final String order = null;
-        Cursor cursor = client().select(uri, selection,
-                selectionArgs, order);
-
-        Collection<ReadingListPageDiskRow> rows = new ArrayList<>();
-        try {
-            while (cursor.moveToNext()) {
-                rows.add(ReadingListPageDiskRow.fromCursor(cursor));
-            }
-        } finally {
-            cursor.close();
-        }
-        return rows;
-    }
-
     // TODO: expose HTTP DAO methods.
 
     private ReadingListPageDao() {
@@ -236,9 +206,5 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         private static String SELECT_ROWS_PENDING_DISK_TRANSACTION = ":transactionIdCol == :noTransactionId"
             .replaceAll(":transactionIdCol", ReadingListPageContract.DiskWithPage.DISK_TRANSACTION_ID.qualifiedName())
             .replaceAll(":noTransactionId", String.valueOf(AsyncConstant.NO_TRANSACTION_ID));
-
-        private static String SELECT_ROWS_PAUSED_DISK_TRANSACTION = ":diskStatusCol == :diskStatus"
-                .replaceAll(":diskStatusCol", ReadingListPageContract.DiskWithPage.DISK_STATUS.qualifiedName())
-                .replaceAll(":diskStatus", String.valueOf(DiskStatus.OUTDATED.code()));
     }
 }

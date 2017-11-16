@@ -54,9 +54,6 @@ import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 public class SavedPageSyncService extends JobIntentService {
     // Unique job ID for this service (do not duplicate).
     private static final int JOB_ID = 1000;
-    private static final String RESUME_OR_PAUSE_SYNCING = "RESUME_OR_PAUSE_SYNCING";
-    private static final String CANCEL_SYNCING = "CANCEL_SYNCING";
-    private static final String SHOW_NOTIFICATION_WHEN_SYNCING = "SHOW_NOTIFICATION_WHEN_SYNCING";
 
     @NonNull private ReadingListPageDao dao;
     @NonNull private final CacheDelegate cacheDelegate = new CacheDelegate(SAVE_CACHE);
@@ -72,49 +69,14 @@ public class SavedPageSyncService extends JobIntentService {
         savedPageSyncNotification = SavedPageSyncNotification.getInstance();
     }
 
-
-    public static void enqueueService(@NonNull Context context, @NonNull boolean showNotification) {
-        Intent intent = new Intent(context, SavedPageSyncService.class);
-        intent.putExtra(RESUME_OR_PAUSE_SYNCING, false);
-        intent.putExtra(CANCEL_SYNCING, false);
-        intent.putExtra(SHOW_NOTIFICATION_WHEN_SYNCING, showNotification);
-        enqueueWork(context, SavedPageSyncService.class, JOB_ID, intent);
-    }
-
-    public static void resumeService(@NonNull Context context) {
-        Intent intent = new Intent(context, SavedPageSyncService.class);
-        intent.putExtra(RESUME_OR_PAUSE_SYNCING, true);
-        intent.putExtra(CANCEL_SYNCING, false);
-        intent.putExtra(SHOW_NOTIFICATION_WHEN_SYNCING, true);
-        enqueueWork(context, SavedPageSyncService.class, JOB_ID, intent);
-    }
-
-    public static void cancelService(@NonNull Context context) {
-        Intent intent = new Intent(context, SavedPageSyncService.class);
-        intent.putExtra(RESUME_OR_PAUSE_SYNCING, false);
-        intent.putExtra(CANCEL_SYNCING, true);
-        intent.putExtra(SHOW_NOTIFICATION_WHEN_SYNCING, true);
-        enqueueWork(context, SavedPageSyncService.class, JOB_ID, intent);
+    public static void enqueueService(@NonNull Context context) {
+        enqueueWork(context, SavedPageSyncService.class, JOB_ID,
+                new Intent(context, SavedPageSyncService.class));
     }
 
     @Override protected void onHandleWork(@NonNull Intent intent) {
-        savedPageSyncNotification.setVisible(intent.getBooleanExtra(SHOW_NOTIFICATION_WHEN_SYNCING, false));
-        if (!intent.getBooleanExtra(CANCEL_SYNCING, false)) {
-            setupSyncEvent(intent.getBooleanExtra(RESUME_OR_PAUSE_SYNCING, false));
-        } else {
-            setupCancelSyncEvent();
-        }
-    }
-
-    private void setupSyncEvent(boolean resumeTransaction) {
         List<ReadingListPageDiskRow> queue = new ArrayList<>();
-        Collection<ReadingListPageDiskRow> rows;
-
-        if (!resumeTransaction) {
-            rows = dao.startDiskTransaction();
-        } else {
-            rows = dao.startPausedDiskTransaction();
-        }
+        Collection<ReadingListPageDiskRow> rows = dao.startDiskTransaction();
 
         for (ReadingListPageDiskRow row : rows) {
             switch (row.status()) {
@@ -136,22 +98,18 @@ public class SavedPageSyncService extends JobIntentService {
             }
         }
 
-        savedPageSyncNotification.setQueueSize(queue.size());
-        saveNewEntries(queue);
-    }
-
-    private void setupCancelSyncEvent() {
-        Collection<ReadingListPageDiskRow> rows = dao.collectPausedDiskTransactions();
-
-        // not sure this is a better way to "actually" delete the cache and turn the status into ONLINE rather than just change the disk status
-        for (ReadingListPageDiskRow row : rows) {
-            ReadingListPage tempPage = ReadingListPage.fromDiskRow(row);
-            if (tempPage != null) {
-                ReadingListData.instance().setPageOffline(tempPage, false);
+        int itemsTotal = queue.size();
+        int itemsSaved = 0;
+        try {
+            itemsSaved = saveNewEntries(queue);
+        } finally {
+            if (savedPageSyncNotification.isSyncPaused()) {
+                savedPageSyncNotification.setNotificationPaused(getApplicationContext(), itemsTotal, itemsSaved);
+            } else {
+                savedPageSyncNotification.cancelNotification(getApplicationContext());
+                savedPageSyncNotification.setSyncCanceled(false);
             }
         }
-
-        savedPageSyncNotification.clearAll();
     }
 
     private void sendSyncEvent() {
@@ -159,9 +117,6 @@ public class SavedPageSyncService extends JobIntentService {
         // received on the main thread.
         WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
     }
-
-
-
 
     private void deleteRow(@NonNull ReadingListPageDiskRow row) {
         ReadingListPageRow dat = row.dat();
@@ -197,13 +152,26 @@ public class SavedPageSyncService extends JobIntentService {
         dao.completeDiskTransaction(row);
     }
 
-    private void saveNewEntries(List<ReadingListPageDiskRow> queue) {
+    private int saveNewEntries(List<ReadingListPageDiskRow> queue) {
         sendSyncEvent();
-        savedPageSyncNotification.show(true);
-        while (!queue.isEmpty() && !savedPageSyncNotification.isSyncCanceled() && !savedPageSyncNotification.isSyncPaused()) {
+        int itemsTotal = queue.size();
+        int itemsSaved = 0;
+        while (!queue.isEmpty()) {
 
             // Pick off the DB row that we'll be working on...
             ReadingListPageDiskRow tempRow = queue.remove(0);
+
+            if (savedPageSyncNotification.isSyncPaused()) {
+                // fail all remaining transactions. They'll be picked up again when
+                // the service is resumed.
+                dao.failDiskTransaction(tempRow);
+                continue;
+            } else if (savedPageSyncNotification.isSyncCanceled()) {
+                ReadingListPage tempPage = ReadingListPage.fromDiskRow(tempRow);
+                ReadingListData.instance().setPageOffline(tempPage, false);
+                continue;
+            }
+            savedPageSyncNotification.setNotificationProgress(getApplicationContext(), itemsTotal, itemsSaved);
 
             @Nullable PageTitle pageTitle = makeTitleFrom(tempRow);
             if (pageTitle == null) {
@@ -220,6 +188,8 @@ public class SavedPageSyncService extends JobIntentService {
                 size = savePageFor(tempRow, pageTitle);
                 success = true;
 
+            } catch (InterruptedException e) {
+                // fall through
             } catch (Exception e) {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
@@ -250,16 +220,17 @@ public class SavedPageSyncService extends JobIntentService {
 
             if (success) {
                 dao.completeDiskTransaction(updatedRow);
+                itemsSaved++;
                 sendSyncEvent();
-                savedPageSyncNotification.show(false);
             } else {
                 dao.failDiskTransaction(updatedRow);
             }
         }
+        return itemsSaved;
     }
 
     @NonNull private AggregatedResponseSize savePageFor(@NonNull ReadingListPageDiskRow row,
-                                                        @NonNull PageTitle pageTitle) throws IOException {
+                                                        @NonNull PageTitle pageTitle) throws IOException, InterruptedException {
         AggregatedResponseSize size = new AggregatedResponseSize(0, 0, 0);
 
         Call<PageLead> leadCall = reqPageLead(null, pageTitle);
@@ -311,9 +282,12 @@ public class SavedPageSyncService extends JobIntentService {
         return client.sections(cacheControl, cacheOption, title, noImages);
     }
 
-    private AggregatedResponseSize reqSaveImage(@NonNull WikiSite wiki, @NonNull Iterable<String> urls) throws IOException {
+    private AggregatedResponseSize reqSaveImage(@NonNull WikiSite wiki, @NonNull Iterable<String> urls) throws IOException, InterruptedException {
         AggregatedResponseSize size = new AggregatedResponseSize(0, 0, 0);
         for (String url : urls) {
+            if (savedPageSyncNotification.isSyncPaused() || savedPageSyncNotification.isSyncCanceled()) {
+                throw new InterruptedException("Sync paused or cancelled.");
+            }
             try {
                 size = size.add(reqSaveImage(wiki, url));
             } catch (Exception e) {

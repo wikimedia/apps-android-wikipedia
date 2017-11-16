@@ -157,7 +157,7 @@ public class ReadingListTable extends DatabaseTable<ReadingListRow> {
                 } finally {
                     c.close();
                 }
-                ReadingListSynchronizer.instance().syncSavedPages(true);
+                ReadingListSynchronizer.instance().syncSavedPages();
                 return null;
             }
         }, null);

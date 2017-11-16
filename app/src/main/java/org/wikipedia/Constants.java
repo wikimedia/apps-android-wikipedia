@@ -36,7 +36,7 @@ public final class Constants {
     public static final String INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber";
     public static final String INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList";
 
-    public static final String INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE = "syncPause";
+    public static final String INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume";
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel";
 
     public static final int PROGRESS_BAR_MAX_VALUE = 10_000;
