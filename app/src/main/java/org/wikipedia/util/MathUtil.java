@@ -1,6 +1,10 @@
 package org.wikipedia.util;
 
+import android.support.annotation.NonNull;
+
 public final class MathUtil {
+
+    private static final int PERCENTAGE_BASE = 100;
 
     public static float constrain(float f, float min, float max) {
         return Math.min(Math.max(min, f), max);
@@ -23,6 +27,10 @@ public final class MathUtil {
             sampleSum = 0;
             sampleSize = 0;
         }
+    }
+
+    public static int percentage(@NonNull float numerator, @NonNull float denominator) {
+        return (int) (numerator / denominator * PERCENTAGE_BASE);
     }
 
     private MathUtil() {

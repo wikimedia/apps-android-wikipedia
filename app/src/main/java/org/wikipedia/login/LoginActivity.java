@@ -242,7 +242,7 @@ public class LoginActivity extends BaseActivity {
                     hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);
 
-                    ReadingListSynchronizer.instance().sync();
+                    ReadingListSynchronizer.instance().sync(true);
                     finish();
                 } else if (result.fail()) {
                     String message = result.getMessage();

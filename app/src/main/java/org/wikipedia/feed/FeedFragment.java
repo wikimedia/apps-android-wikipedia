@@ -160,7 +160,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             getCallback().updateToolbarElevation(shouldElevateToolbar());
         }
 
-        ReadingListSynchronizer.instance().sync();
+        ReadingListSynchronizer.instance().sync(true);
 
         return view;
     }

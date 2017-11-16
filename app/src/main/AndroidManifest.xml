@@ -354,5 +354,9 @@
             android:name=".savedpages.SavedPageSyncService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
+        <!-- TODO: Investigate the addAction buttons with same Intent class issue -->
+        <receiver android:name=".savedpages.SavedPageSyncBroadcastReceiver$SyncCancelReceiver" />
+        <receiver android:name=".savedpages.SavedPageSyncBroadcastReceiver$SyncPauseReceiver" />
+
     </application>
 </manifest>
