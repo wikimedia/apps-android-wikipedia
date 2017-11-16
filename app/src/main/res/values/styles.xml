@@ -30,6 +30,7 @@
         <item name="searchViewStyle">@style/PageSearchViewStyle</item>
         <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
         <item name="actionModeCloseDrawable">@drawable/ic_arrow_back_themed_24dp</item>
+        <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
     </style>
 
     <style name="AppTheme.ActionBar">
