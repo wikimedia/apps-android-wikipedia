@@ -406,9 +406,9 @@
     <string name="notification_channel_description">Syncing progress</string>
     <string name="notification_syncing_title">Syncing %1$d articles&#8230;</string>
     <string name="notification_syncing_description">%1$d articles left</string>
-    <string name="notification_syncing_pause_button">PAUSE</string>
-    <string name="notification_syncing_resume_button">RESUME</string>
-    <string name="notification_syncing_cancel_button">CANCEL</string>
+    <string name="notification_syncing_pause_button">Pause</string>
+    <string name="notification_syncing_resume_button">Resume</string>
+    <string name="notification_syncing_cancel_button">Cancel</string>
     <!-- /Notifications -->
 
     <!-- The Feed -->

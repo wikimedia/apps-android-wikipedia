@@ -39,7 +39,6 @@ import static org.wikipedia.settings.Prefs.isReadingListsRemoteDeletePending;
 public class ReadingListSynchronizer {
     private static final String READING_LISTS_SYNC_OPTION = "userjs-reading-lists-v1";
     private static final ReadingListSynchronizer INSTANCE = new ReadingListSynchronizer();
-    private boolean showNotification = false;
 
     private final Handler syncHandler = new Handler(WikipediaApp.getInstance().getMainLooper());
     private final SyncRunnable syncRunnable = new SyncRunnable();
@@ -57,38 +56,26 @@ public class ReadingListSynchronizer {
         syncHandler.postDelayed(syncRunnable, TimeUnit.SECONDS.toMillis(1));
     }
 
-    public void sync(@NonNull boolean showNotification) {
-        this.showNotification = showNotification;
-        sync();
-    }
-
     public void sync() {
         if (!ReleaseUtil.isPreBetaRelease()  // TODO: remove when ready for beta/production
                 || !AccountUtil.isLoggedIn()
                 || !(isReadingListSyncEnabled() || isReadingListsRemoteDeletePending())) {
-            syncSavedPages(showNotification);
-            showNotification = false;
+            syncSavedPages();
             L.d("Skipped sync of reading lists.");
             return;
         }
         UserOptionDataClientSingleton.instance().get((UserInfo info) ->
                 CallbackTask.execute(() -> {
                         syncFromRemote(info);
-                        syncSavedPages(showNotification);
-                        showNotification = false;
+                        syncSavedPages();
                         return null;
                 })
         );
     }
 
-    public void syncSavedPages(@NonNull boolean showNotification) {
-        SavedPageSyncService.enqueueService(WikipediaApp.getInstance(), showNotification);
-    }
-
     public void syncSavedPages() {
-        SavedPageSyncService.enqueueService(WikipediaApp.getInstance(), false);
+        SavedPageSyncService.enqueueService(WikipediaApp.getInstance());
     }
-
 
     private synchronized void syncFromRemote(@NonNull UserInfo info) {
         long localRev = Prefs.getReadingListSyncRev();

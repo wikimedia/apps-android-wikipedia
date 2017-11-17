@@ -198,7 +198,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if (DeviceUtil.isOnline()) {
                 onGoOnline();
-                ReadingListSynchronizer.instance().syncSavedPages(true);
+                ReadingListSynchronizer.instance().syncSavedPages();
             } else {
                 onGoOffline();
             }
@@ -220,7 +220,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         @Subscribe public void on(NetworkConnectEvent event) {
-            ReadingListSynchronizer.instance().syncSavedPages(false);
+            ReadingListSynchronizer.instance().syncSavedPages();
         }
 
         @Subscribe public void on(ThemeChangeEvent event) {
