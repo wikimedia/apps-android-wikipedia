@@ -507,6 +507,7 @@
     <string name="offline_read_permission_rationale">Permission to access storage on your device is required for offline browsing.</string>
     <string name="offline_read_permission_error">Permission not granted to read from device storage.</string>
     <string name="offline_card_text">You are now browsing Wikipedia offline with articles in your Offline Library.</string>
+    <string name="offline_card_sideloading_text">You are now browsing Wikipedia offline from article packs in your Offline Library.</string>
     <string name="offline_my_compilations">Manage my offline library</string>
     <string name="offline_compilations_title">Offline Library</string>
     <string name="offline_compilations_search_by_name">Search article packs by name</string>

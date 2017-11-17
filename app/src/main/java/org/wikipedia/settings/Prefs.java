@@ -558,7 +558,7 @@ public final class Prefs {
     }
 
     public static boolean isOfflineTutorialEnabled() {
-        return getBoolean(R.string.preference_key_offline_onboarding_enabled, true);
+        return getBoolean(R.string.preference_key_offline_onboarding_enabled, false);
     }
 
     public static void setOfflineTutorialEnabled(boolean enabled) {
