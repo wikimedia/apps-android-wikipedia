@@ -4,23 +4,23 @@
 
     <item android:id="@+id/menu_text_select_copy"
           android:title="@string/menu_text_select_copy"
-          android:icon="?actionModeCopyDrawable"
+          android:icon="@drawable/ic_content_copy_themed_24dp"
           app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_text_select_share"
           android:title="@string/menu_text_select_share"
-          android:icon="?actionModeShareDrawable"
+          android:icon="@drawable/ic_share_themed_24dp"
           app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_text_select_define"
           android:title="@string/menu_text_select_define"
-          android:icon="@drawable/ic_define_light"
+          android:icon="@drawable/ic_define_themed"
           android:visible="false"
           app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_text_edit_here"
         android:title="@string/menu_text_select_edit_here"
-        android:icon="@drawable/ic_mode_edit_white_24dp"
+        android:icon="@drawable/ic_mode_edit_themed_24dp"
         app:showAsAction="ifRoom" />
 
 </menu>
