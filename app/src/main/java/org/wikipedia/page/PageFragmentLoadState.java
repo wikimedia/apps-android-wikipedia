@@ -42,7 +42,6 @@ import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ReleaseUtil;
@@ -577,7 +576,6 @@ public class PageFragmentLoadState {
                 .put("isMainPage", page.isMainPage())
                 .put("isFilePage", page.isFilePage())
                 .put("fromRestBase", page.isFromRestBase())
-                .put("isNetworkMetered", DeviceUtil.isNetworkMetered(app))
                 .put("apiLevel", Build.VERSION.SDK_INT)
                 .put("showImages", Prefs.isImageDownloadEnabled());
     }

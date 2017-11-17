@@ -323,7 +323,6 @@ function setWindowAttributes( payload ) {
     window.fromRestBase = payload.fromRestBase;
     window.isBeta = payload.isBeta;
     window.siteLanguage = payload.siteLanguage;
-    window.isNetworkMetered = payload.isNetworkMetered;
     window.showImages = payload.showImages;
 }
 
@@ -432,10 +431,7 @@ function applySectionTransforms( content, isLeadSection ) {
     }
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content );
-
-        if (!window.isNetworkMetered) {
-            transformer.transform( "widenImages", content );
-        }
+        transformer.transform( "widenImages", content );
 
         if (!window.isFilePage) {
             lazyLoadTransformer.convertImagesToPlaceholders( content );
