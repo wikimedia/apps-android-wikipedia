@@ -9,7 +9,6 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.v4.net.ConnectivityManagerCompat;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -64,11 +63,6 @@ public final class DeviceUtil {
         InputMethodManager keyboard = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
         keyboard.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
-    public static boolean isNetworkMetered(Context context) {
-        return ConnectivityManagerCompat.isActiveNetworkMetered(
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
     }
 
     public static boolean isLocationServiceEnabled(@NonNull Context context) {
