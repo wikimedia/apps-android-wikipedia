@@ -3,4 +3,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_feed_card_dismiss"
         android:title="@string/menu_feed_card_dismiss"/>
+    <item android:id="@+id/menu_feed_card_customize"
+        android:title="@string/feed_configure_activity_title"/>
 </menu>

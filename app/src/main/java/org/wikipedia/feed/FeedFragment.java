@@ -397,6 +397,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
+        public void onRequestCustomize() {
+            showConfigureActivity();
+        }
+
+        @Override
         public void onSwiped(@IntRange(from = 0) int itemPos) {
             onRequestDismissCard(coordinator.getCards().get(itemPos));
         }

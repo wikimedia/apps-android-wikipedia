@@ -28,6 +28,7 @@ import butterknife.OnClick;
 public class CardHeaderView extends ConstraintLayout {
     public interface Callback {
         boolean onRequestDismissCard(@NonNull Card card);
+        void onRequestCustomize();
     }
 
     @BindView(R.id.view_card_header_image) AppCompatImageView imageView;
@@ -119,6 +120,11 @@ public class CardHeaderView extends ConstraintLayout {
                         return callback.onRequestDismissCard(card);
                     }
                     return false;
+                case R.id.menu_feed_card_customize:
+                    if (callback != null) {
+                        callback.onRequestCustomize();
+                    }
+                    return true;
                 default:
                     return false;
             }
