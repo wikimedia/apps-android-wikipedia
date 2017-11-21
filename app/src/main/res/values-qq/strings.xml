@@ -400,10 +400,11 @@
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">Subtitle for a day old \"continue reading\" card. The first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]]. Use the %d parameter to insert the number of days passed since the content (an article) was last seen.</item>
+    <item quantity="one">Subtitle for a day old \"continue reading\" card. The word should be in lowercase if appropriate for the language.</item>
     <item quantity="other">Subtitle for a \"continue reading\" card two or more days old. The first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]]. Use the %d parameter to insert the number of days passed since the content (an article) was last seen.</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.\n{{Identical|Today}}</string>
+  <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.\n{{Identical|today}}. The word should be in lowercase if appropriate for the language.</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Subtitle for number of days passed since the article was last seen and shown on cards in the feed. Use the %s parameter to insert the number of days passed since the content (an article) was last seen.</string>
   <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.\n{{Identical|No thanks}}</string>
   <string name="view_offline_card_text">Message in the feed informing the user that additional content cannot be loaded while offline.</string>
   <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed\n{{Identical|Featured article}}</string>
