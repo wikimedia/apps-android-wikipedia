@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import org.wikipedia.R;
@@ -101,6 +102,14 @@ public class RandomItemFragment extends Fragment {
         articleTitleView.setText(summary.getNormalizedTitle());
         articleSubtitleView.setText(null); //summary.getDescription());
         extractView.setText(summary.getExtract());
+        ViewTreeObserver observer = extractView.getViewTreeObserver();
+        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                extractView.setMaxLines(extractView.getHeight() / extractView.getLineHeight());
+                extractView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
         imageView.loadImage(TextUtils.isEmpty(summary.getThumbnailUrl()) ? null
                 : Uri.parse(summary.getThumbnailUrl()));
     }
