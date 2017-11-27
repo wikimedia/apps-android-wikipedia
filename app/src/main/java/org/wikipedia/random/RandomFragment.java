@@ -22,11 +22,11 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,11 +36,11 @@ import butterknife.Unbinder;
 public class RandomFragment extends Fragment {
     @BindView(R.id.random_item_pager) ViewPager randomPager;
     @BindView(R.id.random_next_button) View nextButton;
-    @BindView(R.id.random_save_button) ImageView saveShareButton;
+    @BindView(R.id.random_save_button) ImageView saveButton;
     @BindView(R.id.random_back_button) View backButton;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
-    private boolean saveShareButtonState;
+    private boolean saveButtonState;
     private ViewPagerListener viewPagerListener = new ViewPagerListener();
 
     @NonNull
@@ -54,7 +54,7 @@ public class RandomFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_random, container, false);
         unbinder = ButterKnife.bind(this, view);
-        FeedbackUtil.setToolbarButtonLongPressToast(nextButton, saveShareButton);
+        FeedbackUtil.setToolbarButtonLongPressToast(nextButton, saveButton);
 
         randomPager.setOffscreenPageLimit(2);
         randomPager.setAdapter(new RandomItemAdapter((AppCompatActivity) getActivity()));
@@ -88,8 +88,20 @@ public class RandomFragment extends Fragment {
         if (title == null) {
             return;
         }
-        if (saveShareButtonState) {
-            ShareUtil.shareText(getActivity(), title);
+        if (saveButtonState) {
+            new ReadingListBookmarkMenu(saveButton, new ReadingListBookmarkMenu.Callback() {
+                @Override
+                public void onAddRequest(@Nullable ReadingListPage page) {
+                    onAddPageToList(title);
+                }
+
+                @Override
+                public void onDeleted(@Nullable ReadingListPage page) {
+                    FeedbackUtil.showMessage(getActivity(),
+                            getString(R.string.reading_list_item_deleted, title.getDisplayText()));
+                    updateSaveShareButton(title);
+                }
+            }).show(title);
         } else {
             onAddPageToList(title);
         }
@@ -117,9 +129,9 @@ public class RandomFragment extends Fragment {
         ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(title),
                 new CallbackTask.DefaultCallback<ReadingListPage>() {
                     @Override public void success(@Nullable ReadingListPage page) {
-                        saveShareButtonState = page != null;
-                        saveShareButton.setImageResource(saveShareButtonState
-                                ? R.drawable.ic_share_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
+                        saveButtonState = page != null;
+                        saveButton.setImageResource(saveButtonState
+                                ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
                     }
                 });
     }

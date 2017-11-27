@@ -44,7 +44,7 @@
             <LinearLayout
                 android:id="@+id/view_featured_article_card_text_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="164dp"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
@@ -62,7 +62,7 @@
                     android:fontFamily="serif"
                     android:textColor="?attr/primary_text_color"
                     android:lineSpacingMultiplier="0.9"
-                    android:maxLines="3"
+                    android:maxLines="2"
                     android:ellipsize="end"
                     tools:text="Lorem ipsum"/>
 
@@ -83,7 +83,8 @@
                     style="@style/RtlAwareTextView"
                     android:id="@+id/view_featured_article_card_extract"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:paddingTop="8dp"
                     android:paddingBottom="16dp"
                     android:maxLines="4"
