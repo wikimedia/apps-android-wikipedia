@@ -18,7 +18,7 @@ import org.wikipedia.R;
 import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.views.DefaultViewHolder;
-import org.wikipedia.views.HeaderMarginItemDecoration;
+import org.wikipedia.views.DrawableItemDecoration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,11 +76,25 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_feed_configure_select_all:
+                for (FeedContentType type : FeedContentType.values()) {
+                    type.setEnabled(true);
+                }
+                touch();
+                recyclerView.getAdapter().notifyDataSetChanged();
+                return true;
+            case R.id.menu_feed_configure_deselect_all:
+                for (FeedContentType type : FeedContentType.values()) {
+                    type.setEnabled(false);
+                }
+                touch();
+                recyclerView.getAdapter().notifyDataSetChanged();
+                return true;
             case R.id.menu_feed_configure_reset:
                 Prefs.resetFeedCustomizations();
                 FeedContentType.restoreState();
                 prepareContentTypeList();
-                getActivity().setResult(ConfigureActivity.CONFIGURATION_CHANGED_RESULT);
+                touch();
                 recyclerView.getAdapter().notifyDataSetChanged();
                 return true;
             default:
@@ -100,10 +114,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         ConfigureItemAdapter adapter = new ConfigureItemAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        recyclerView.addItemDecoration(new HeaderMarginItemDecoration(getContext(),
-                R.dimen.view_feed_padding_top,
-                R.dimen.view_feed_padding_top));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
 
         itemTouchHelper = new ItemTouchHelper(new RearrangeableItemTouchHelperCallback(adapter));
         itemTouchHelper.attachToRecyclerView(recyclerView);
@@ -111,15 +122,19 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
 
     @Override
     public void onCheckedChanged(FeedContentType contentType, boolean checked) {
-        getActivity().setResult(ConfigureActivity.CONFIGURATION_CHANGED_RESULT);
+        touch();
         contentType.setEnabled(checked);
     }
 
     private void updateItemOrder() {
-        getActivity().setResult(ConfigureActivity.CONFIGURATION_CHANGED_RESULT);
+        touch();
         for (int i = 0; i < orderedContentTypes.size(); i++) {
             orderedContentTypes.get(i).setOrder(i);
         }
+    }
+
+    private void touch() {
+        getActivity().setResult(ConfigureActivity.CONFIGURATION_CHANGED_RESULT);
     }
 
     private class ConfigureItemHolder extends DefaultViewHolder<ConfigureItemView> {
