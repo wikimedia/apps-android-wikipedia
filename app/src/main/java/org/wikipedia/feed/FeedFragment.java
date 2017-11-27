@@ -285,6 +285,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         return false;
     }
 
+    public void scrollToTop() {
+        feedView.smoothScrollToPosition(0);
+    }
+
     public void onGoOffline() {
         refresh();
     }
