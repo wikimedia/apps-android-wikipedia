@@ -444,8 +444,19 @@
     <string name="view_featured_article_footer_save_button_label">Save</string>
     <string name="view_featured_article_footer_saved_button_label">Saved</string>
     <string name="feed_configure_menu_title">Configure cards</string>
-    <string name="feed_configure_activity_title">Configure Explore cards</string>
-    <string name="feed_configure_menu_reset">Reset to defaults</string>
+    <string name="feed_configure_activity_title">Customize the feed</string>
+    <string name="feed_configure_menu_reset">Restore default view</string>
+    <string name="feed_configure_menu_select_all">Select all</string>
+    <string name="feed_configure_menu_deselect_all">Deselect all</string>
+    <string name="feed_item_type_news">Articles about current events</string>
+    <string name="feed_item_type_on_this_day">Events in history on this day</string>
+    <string name="feed_item_type_continue_reading">Quick link back to reading an open article in one of your tabs</string>
+    <string name="feed_item_type_because_you_read">Suggestions based on a recently read article from your history</string>
+    <string name="feed_item_type_featured_article">Daily featured article on Wikipedia</string>
+    <string name="feed_item_type_trending">Daily most-viewed articles</string>
+    <string name="feed_item_type_featured_image">Daily featured image from Wikimedia Commons</string>
+    <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
+    <string name="feed_item_type_randomizer">Generate random articles to read</string>
     <!-- /The Feed -->
 
     <!-- Description editing -->

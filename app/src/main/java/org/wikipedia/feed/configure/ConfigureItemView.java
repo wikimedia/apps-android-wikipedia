@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedContentType;
@@ -20,7 +21,9 @@ public class ConfigureItemView extends FrameLayout {
         void onCheckedChanged(FeedContentType contentType, boolean checked);
     }
 
-    @BindView(R.id.feed_content_type_checkbox) CheckBox titleView;
+    @BindView(R.id.feed_content_type_checkbox) CheckBox checkBox;
+    @BindView(R.id.feed_content_type_title) TextView titleView;
+    @BindView(R.id.feed_content_type_subtitle) TextView subtitleView;
     @BindView(R.id.feed_content_type_drag_handle) View dragHandleView;
     @Nullable private Callback callback;
     private FeedContentType contentType;
@@ -47,7 +50,8 @@ public class ConfigureItemView extends FrameLayout {
     public void setContents(FeedContentType contentType) {
         this.contentType = contentType;
         titleView.setText(contentType.titleId());
-        titleView.setChecked(contentType.isEnabled());
+        subtitleView.setText(contentType.subtitleId());
+        checkBox.setChecked(contentType.isEnabled());
     }
 
     public void setDragHandleTouchListener(OnTouchListener listener) {
