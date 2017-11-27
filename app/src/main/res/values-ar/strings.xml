@@ -358,6 +358,7 @@
   <string name="notification_reverted">تعديلك في مقالة &lt;strong&gt;%2$s&lt;/strong&gt; قد تراجع عنه &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">لقد تمّ شُكرك!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; شكرك على تعديلك على صفحة &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_syncing_cancel_button">ألغ</string>
   <string name="view_continue_reading_card_title">واصل القراءة</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
@@ -365,6 +366,7 @@
   <string name="view_next_random_article">مقال عشوائي اخر</string>
   <string name="view_main_page_card_title">اليوم في ويكيبيديا</string>
   <string name="view_main_page_card_subtitle">الصفحة الرئيسية في %s</string>
+  <string name="view_main_page_card_action">اعرض الصفحة الرئيسية</string>
   <string name="view_featured_image_card_title">صورة اليوم</string>
   <string name="view_featured_image_card_download">تنزيل</string>
   <string name="menu_feed_card_dismiss">أخف هذه البطاقة</string>

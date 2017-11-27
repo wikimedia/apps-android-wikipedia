@@ -375,10 +375,9 @@
   <string name="notification_channel_description">Description of the notification channel</string>
   <string name="notification_syncing_title">Title for notification when the syncing process begins. The \"%1$d\" symbol corresponds to the amount of articles.</string>
   <string name="notification_syncing_description">Text of notification shows the remaining articles. The \"%1$d\" symbol corresponds to the amount of remaining articles.</string>
-  <string name="notification_syncing_pause_button">Text of button on notification bar to pause the syncing process</string>
+  <string name="notification_syncing_pause_button">Text of button on notification bar to pause the syncing process\n{{Identical|Pause}}</string>
   <string name="notification_syncing_resume_button">Text of button on notification bar to resume the syncing process</string>
-  <string name="notification_syncing_cancel_button">Text of button on notification bar to cancel the syncing process</string>
-
+  <string name="notification_syncing_cancel_button">Text of button on notification bar to cancel the syncing process\n{{Identical|Cancel}}</string>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>

@@ -371,6 +371,13 @@
   <string name="notification_reverted">Suntingan Anda pada artikel &lt;strong&gt;%2$s&lt;/strong&gt; telah dibalikkan oleh &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Anda telah menerima ucapan terima kasih!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; berterima kasih untuk suntingan Anda pada halaman &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Menyinkronkan</string>
+  <string name="notification_channel_description">Kemajuan sinkronisasi</string>
+  <string name="notification_syncing_title">Menyinkronkan %1$d artikel...</string>
+  <string name="notification_syncing_description">%1$d artikel tersisa</string>
+  <string name="notification_syncing_pause_button">Jeda</string>
+  <string name="notification_syncing_resume_button">Lanjutkan</string>
+  <string name="notification_syncing_cancel_button">Batal</string>
   <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
@@ -447,6 +454,7 @@
   <string name="offline_read_permission_rationale">Izin untuk mengakses penyimpanan pada perangkat Anda diperlukan untuk penjelajahan luring.</string>
   <string name="offline_read_permission_error">Izin tidak diberikan untuk baca dari penyimpanan perangkat.</string>
   <string name="offline_card_text">Anda sekarang menjelajahi Wikipedia secara luring dengan artikel di Perpustakaan Luring Anda.</string>
+  <string name="offline_card_sideloading_text">Anda sekarang menjelajahi Wikipedia secara luring dari paket artikel di Perpustakaan Luring Anda.</string>
   <string name="offline_my_compilations">Kelola perpustakaan luring saya</string>
   <string name="offline_compilations_title">Perpustakaan Luring</string>
   <string name="offline_compilations_search_by_name">Cari paket artikel menurut nama</string>

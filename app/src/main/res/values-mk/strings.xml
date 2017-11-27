@@ -371,6 +371,13 @@
   <string name="notification_reverted">Вашето уредување на статијата &lt;strong&gt;%2$s&lt;/strong&gt; е отповикано од &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Добивте благодарност!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ви благодари за вашето уредување на страницатга &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Усогласување</string>
+  <string name="notification_channel_description">Напредок на усогласувањето</string>
+  <string name="notification_syncing_title">Усогласувам %1$d статии…</string>
+  <string name="notification_syncing_description">преостануваат %1$d статии</string>
+  <string name="notification_syncing_pause_button" fuzzy="true">ПАУЗИРАЈ</string>
+  <string name="notification_syncing_resume_button" fuzzy="true">ПРОДОЛЖИ</string>
+  <string name="notification_syncing_cancel_button" fuzzy="true">ОТКАЖИ</string>
   <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
@@ -447,6 +454,7 @@
   <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно.</string>
   <string name="offline_read_permission_error">Прилогот не доби дозвола за читање од складот на уредот.</string>
   <string name="offline_card_text">Сега ја прелистувате Википедија вонмрежно со статии од вашата вонмрежна библиотека.</string>
+  <string name="offline_card_sideloading_text">Сега ја прелистувате Википедија вонмрежно со пакети статии од вашата вонмрежна библиотека.</string>
   <string name="offline_my_compilations">Раковод. со мојата вонмрежна библиотека</string>
   <string name="offline_compilations_title">Вонмрежна библиотека</string>
   <string name="offline_compilations_search_by_name">Пребарај пакети од статии по име</string>

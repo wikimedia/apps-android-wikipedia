@@ -197,6 +197,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">جیا</string>
   <string name="reading_lists_confirm_remote_delete_no">کو</string>
   <string name="user_option_sync_label">ترجیحات</string>
+  <string name="notification_syncing_pause_button">اجھکو</string>
+  <string name="notification_syncing_cancel_button">منسوخ</string>
   <string name="view_featured_image_card_download">ڈاؤن لوڈ ، لہاوݨ</string>
   <string name="menu_feed_card_dismiss">ایں کارڈ کوں لکاؤ</string>
   <string name="menu_feed_overflow_label">ٻئے اختیار</string>

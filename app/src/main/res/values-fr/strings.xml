@@ -268,7 +268,7 @@
   <string name="preference_title_prefer_offline_content">Préférer le contenu hors connexion</string>
   <string name="preference_summary_prefer_offline_content">Économiser l’utilisation des données en chargeant des articles qui sont disponibles hors connexion, plutôt que toujours charger la dernière version d’un article</string>
   <string name="preference_title_enable_offline_library">Activer la bibliothèque hors connexion</string>
-  <string name="preference_summary_enable_offline_library">Accéder aux paquets d’article de Wikipédia (affichés sous forme de fichiers .ZIM) qui ont été téléchargés sur votre appareil pour une lecture hors connexion. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="preference_summary_enable_offline_library">Accéder aux paquets d’articles de Wikipédia (affichés sous forme de fichiers .ZIM) qui ont été téléchargés sur votre appareil pour une lecture hors connexion. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>
@@ -371,11 +371,18 @@
   <string name="notification_reverted">Votre modification sur l’article &lt;strong&gt;%2$s&lt;/strong&gt; a été annulée par &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Vous avez été remercié !</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vous a remercié pour votre modification sur la page &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Synchronisation</string>
+  <string name="notification_channel_description">Avancement de la synchronisation</string>
+  <string name="notification_syncing_title">Synchronisation de %1$d articles…</string>
+  <string name="notification_syncing_description">%1$d articles restants</string>
+  <string name="notification_syncing_pause_button" fuzzy="true">PAUSE</string>
+  <string name="notification_syncing_resume_button" fuzzy="true">REPRISE</string>
+  <string name="notification_syncing_cancel_button" fuzzy="true">ANNULATION</string>
   <string name="view_continue_reading_card_title">Continuer à lire</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>
-  <string name="view_random_card_subtitle">Voltiger à travers des articles aléatoires pour lire depuis Wikipédia.</string>
-  <string name="view_random_card_action">Lancer le dé</string>
+  <string name="view_random_card_subtitle">Voltiger à travers des articles aléatoires à lire depuis Wikipédia.</string>
+  <string name="view_random_card_action">Lancer les dés</string>
   <string name="view_next_random_article">Charger un autre article aléatoire</string>
   <string name="view_main_page_card_title">Aujourd\'hui sur Wikipedia</string>
   <string name="view_main_page_card_subtitle">Page principale le %s</string>
@@ -477,8 +484,8 @@
   <string name="offline_library_title">Bibliothèque hors connexion</string>
   <string name="offline_library_empty_title">Il n\'y a rien dans votre bibliothèque hors connexion</string>
   <string name="offline_library_empty_description">Choisir un ensemble d’articles de Wikipédia à télécharger maintenant, pour un accès libre plus tard.</string>
-  <string name="offline_library_empty_description_sideload">Les « paquets d’article » dans votre bibliothèque hors connexion sont des ensembles préfabriqués d’articles pour un stockage approprié sur votre appareil, afin que vous puissiez continuer à lire hors connexion.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
-  <string name="offline_library_packs_hint">Les paquets d’article dans votre bibliothèque restent disponibles pour une lecture hors connexion. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">Les « paquets d’articles » dans votre bibliothèque hors connexion sont des ensembles préfabriqués d’articles pour un stockage approprié sur votre appareil, afin que vous puissiez continuer à lire hors connexion.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Les paquets d’articles dans votre bibliothèque restent disponibles pour une lecture hors connexion. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Vous voulez économiser l’utilisation de votre quota de données ? Choisissez « Préférer le contenu hors connexion » dans les Paramètres pour afficher d’abord les articles disponibles hors connexion, même quand vous avez une connexion. &lt;a href=\"#settings\"&gt;Aller aux paramètres&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Rechercher dans la bibliothèque hors ligne</string>
   <string name="offline_library_search_results_state">Rechercher les résultats dans votre bibliothèque hors connexion</string>
@@ -491,7 +498,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continuer à lire et à rechercher des articles dans votre bibliothèque hors connexion quand vous n’avez pas accès à Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Stocker plus de connaissance</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Télécharger autant de Wikipédia que votre appareil peut en contenir. La bibliothèque hors connexion peut aussi accéder à des ensembles d’articles sur un stockage externe.</string>
-  <string name="offline_library_main_page_hint_html">Cette page d’accueil fournit une vue d’ensemble des contenus de ce paquet d’article. &lt;br /&gt;&lt;br /&gt;Vous pouvez aussi explorer les contenus d’un paquet d’articles quelconque dans votre bibliothèque hors connexion en recherchant les articles disponibles quand vous n’êtes pas connecté.</string>
+  <string name="offline_library_main_page_hint_html">Cette page d’accueil fournit une vue d’ensemble des contenus de ce paquet d’articles.&lt;br /&gt;&lt;br /&gt;Vous pouvez aussi explorer les contenus d’un paquet d’articles quelconque dans votre bibliothèque hors connexion en recherchant les articles disponibles tandis vous n’êtes pas connecté.</string>
   <string name="onboarding_skip">Sauter</string>
   <string name="onboarding_continue">Continuer</string>
   <string name="onboarding_get_started">C’est parti</string>

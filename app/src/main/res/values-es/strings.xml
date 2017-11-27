@@ -371,13 +371,22 @@
   <string name="notification_reverted">Tu edición en el artículo &lt;strong&gt;%2$s&lt;/strong&gt; fue revertida por &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">¡Te han dado las gracias!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; te ha dado las gracias por tu edición en la página &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Sincronización</string>
+  <string name="notification_channel_description">Progreso de la sincronización</string>
+  <string name="notification_syncing_title">Sincronizando %1$d artículos…</string>
+  <string name="notification_syncing_description">%1$d artículos restantes</string>
+  <string name="notification_syncing_pause_button">Pausar</string>
+  <string name="notification_syncing_resume_button">Reanudar</string>
+  <string name="notification_syncing_cancel_button">Cancelar</string>
   <string name="view_continue_reading_card_title">Continuar leyendo</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_card_subtitle" fuzzy="true">Leer un artículo al azar de Wikipedia</string>
+  <string name="view_random_card_action">Lanzar el dado</string>
   <string name="view_next_random_article">Cargar otro artículo al azar</string>
   <string name="view_main_page_card_title">Hoy en Wikipedia</string>
   <string name="view_main_page_card_subtitle">Página principal al %s</string>
+  <string name="view_main_page_card_action">Ver la página principal</string>
   <string name="view_featured_image_card_title">Imagen del día</string>
   <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss">Ocultar esta tarjeta</string>
@@ -443,6 +452,7 @@
   <string name="offline_read_permission_rationale">Para navegar sin conexión se necesita el permiso para acceder al almacenamiento.</string>
   <string name="offline_read_permission_error">No se otorgó el permiso para leer el dispositivo de almacenamiento.</string>
   <string name="offline_card_text">Ahora estás navegando por Wikipedia en el modo sin conexión, con artículos de tu biblioteca sin conexión.</string>
+  <string name="offline_card_sideloading_text">Estás ahora explorando Wikipedia sin conexión, a través de los paquetes de artículos de tu biblioteca.</string>
   <string name="offline_my_compilations">Gestionar mi biblioteca sin conexión</string>
   <string name="offline_compilations_title">Biblioteca sin conexión</string>
   <string name="offline_compilations_search_by_name">Buscar paquetes de artículos por nombre</string>

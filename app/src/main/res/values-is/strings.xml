@@ -5,6 +5,9 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Leita á Wikipedia</string>
+  <string name="search_hint_search_history">Leitarferill</string>
+  <string name="search_hint_search_my_lists">Leita í mínum listum</string>
+  <string name="search_hint_search_reading_list">Leita í leslista</string>
   <string name="nav_item_history">Breytingaskrá</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>
@@ -37,7 +40,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;þáttakendur&amp;nbsp;í&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Síðast uppfært %s</string>
   <string name="talk_page_link_text">Spjall</string>
+  <string name="edit_history_link_text">Breytingaskrá</string>
   <string name="map_view_link_text">Skoða á korti</string>
+  <string name="language_count_link_text">Aðgengilegt á %d öðrum tungumálum</string>
   <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
   <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
   <string name="edit_save_action_license_anon">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
@@ -58,6 +63,7 @@
   <string name="dialog_message_leaving_edit_stay">Vera hér</string>
   <string name="menu_show_toc">Efnisyfirlit</string>
   <string name="search_no_results_found">Engar niðurstöður fundust</string>
+  <string name="search_reading_list_no_results">Engar niðurstöður fundust í „%s“</string>
   <string name="edit_section_captcha_message">Sem hjálp við að berjast á móti sjálfvirkum ruslpóstsendingum, skaltu setja inn orðin sem birtast hér fyrir neðan</string>
   <string name="edit_section_captcha_hint">Endurtaktu orðin að ofan</string>
   <string name="title_captcha">Settu inn CAPTCHA</string>
@@ -80,6 +86,10 @@
   <string name="delete_selected_items">Eyða völdum atriðum</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Notandanafn</string>
+  <string name="login_dont_have_account">Ekki með aðgang?</string>
+  <string name="login_join_wikipedia">Skráðu þig hjá Wikipedia</string>
+  <string name="login_forgot_password">Gleymt lykilorð?</string>
+  <string name="create_account_already_have">Ertu með aðgang?</string>
   <string name="create_account_activity_title">Stofnaðu aðgang</string>
   <string name="dialog_create_account_checking_progress">Í yfirferð</string>
   <string name="create_account_email_hint">Netfang (valfrjálst)</string>
@@ -87,6 +97,7 @@
   <string name="create_account_passwords_mismatch_error">Lykilorðin samsvara ekki</string>
   <string name="create_account_email_error">Ógilt netfang</string>
   <string name="create_account_username_error">Ógildir stafir í notandanafni</string>
+  <string name="create_account_password_error">Ógilt lykilorð</string>
   <string name="create_account_generic_error">Gat ekki búið til notandaaðgang</string>
   <string name="create_account_next">Næsta</string>
   <string name="create_account_button">Stofna aðgang</string>
@@ -101,12 +112,15 @@
   <string name="zero_interstitial_leave_app">Gagnakostnaður gæti átt við. Halda áfram á ytri síðu?</string>
   <string name="zero_interstitial_continue">Fara</string>
   <string name="zero_interstitial_cancel">Vera hér</string>
-  <string name="zero_learn_more" fuzzy="true">Gagnakostnaður á ekki við fyrir þetta Wikipedia-app.</string>
+  <string name="zero_learn_more">Símafyrirtæki þitt býður upp á ókeypis aðgang að efni á Wikipedia!</string>
   <string name="zero_learn_more_learn_more">Vita meira</string>
   <string name="zero_learn_more_dismiss">Hafna</string>
   <string name="edit_preview_fetching_dialog_message">Sæki forskoðun…</string>
   <string name="send_feedback">Senda ábendingar um appið</string>
   <string name="create_account_account_created_toast">Aðgangur búinn til!</string>
+  <string name="preferences_heading_storage_and_syncing">Geymsla og samstilling</string>
+  <string name="preference_title_sync_reading_lists">Samstilla leslista</string>
+  <string name="preference_summary_sync_reading_lists">Leyfa Wikimedia að samstilla leslista þína þegar þú skráir þig inn</string>
   <string name="preferences_privacy_settings_heading">Gagnaleynd</string>
   <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
   <string name="preference_summary_eventlogging_opt_in">Leyfa Wikimedia til að safna upplýsingum um hvernig þú notar appið, til að gera það betra</string>
@@ -181,6 +195,7 @@
   <string name="preference_title_show_images">Birta myndir</string>
   <string name="preference_summary_show_images">Virkja eða afvirkja hleðslu mynda í síðum. Taktu hakið úr þessu ef nettengingin þín er hægvirk, eða ef þú þarft að borga aukalega fyrir gagnamagnið.</string>
   <string name="read_more_section">Lesa meira</string>
+  <string name="about_article_section">Um þessa grein</string>
   <string name="menu_gallery_visit_page">Fara á síðu skráarinnar</string>
   <string name="gallery_error_draw_failed">Gat ekki dregið upp myndina.</string>
   <string name="license_title">Notkunarleyfi fyrir %s</string>
@@ -229,6 +244,7 @@
   <string name="view_link_preview_error_button_dismiss">Hafna</string>
   <string name="error_page_does_not_exist">Þessi síða er ekki til</string>
   <string name="view_wiki_error_message_offline">Næ ekki að tengjast netinu</string>
+  <string name="reference_title">Heimild %s</string>
   <string name="crash_report_dialog_title">Því miður, appið hrundi síðast</string>
   <string name="crash_report_dialog_text">Viltu senda tilkynningu um hrunið til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis?</string>
   <string name="crash_report_dialog_dont_send_button">Sleppa</string>
@@ -241,12 +257,35 @@
   <string name="article_menu_bar_bookmark">Bæta þessari grein á leslista</string>
   <string name="article_menu_bar_share">Deila tengli á greinina</string>
   <string name="article_header_edit_hint">Breyta…</string>
+  <string name="article_header_edit_description">Breyta titillýsingu</string>
+  <string name="article_header_edit_lead_section">Breyta inngangi</string>
   <string name="color_theme_select">Þema</string>
   <string name="color_theme_light">Ljóst</string>
   <string name="color_theme_dark">Dökkt</string>
+  <string name="preference_title_color_theme">Dökkt skinn</string>
+  <string name="text_size_increase">Stækka texta</string>
+  <string name="text_size_decrease">Minnka texta</string>
+  <string name="text_size_percent_default">%s (sjálfgefið)</string>
+  <string name="nav_item_reading_lists">Mínir listar</string>
   <string name="reading_list_untitled">Ónefnt</string>
   <string name="reading_list_save_to">Vista í leslista</string>
   <string name="reading_list_create_new">Búa til nýjan</string>
+  <string name="reading_list_title_exists">Leslistinn „%s“ er þegar til.</string>
+  <string name="reading_list_entry_empty">Vinsamlegast sláðu inn titil.</string>
+  <string name="reading_list_added_to_named">Bætt við %s.</string>
   <string name="reading_list_sort">Raða</string>
   <string name="reading_list_menu_delete">Eyða lista</string>
+  <string name="reading_list_menu_rename">Endurnefna</string>
+  <string name="reading_list_menu_edit_description">Breyta lýsingu</string>
+  <string name="reading_list_action_menu_save_for_offline">Vista til sambandslauss lestrar</string>
+  <string name="reading_list_name_sample">Minn leslisti</string>
+  <string name="reading_list_name_hint">Heiti á þessum lista</string>
+  <string name="reading_list_description_hint">Lýsing (valfrjáls)</string>
+  <string name="reading_list_item_delete_undo">Afturkalla</string>
+  <string name="reading_lists_onboarding_for_example">Til dæmis</string>
+  <string name="reading_lists_onboarding_example2">Uppáhaldsdýr</string>
+  <string name="reading_lists_onboarding_got_it">Náði því</string>
+  <string name="reading_list_no_description">Engin lýsing…</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Já</string>
+  <string name="reading_lists_confirm_remote_delete_no">Nei</string>
 </resources>

@@ -365,6 +365,13 @@
   <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; 문서에 하신 당신의 편집은 &lt;em&gt;%1$s&lt;/em&gt;님에 의해 되돌려졌습니다.</string>
   <string name="notification_thanks_title">당신은 감사를 받았습니다!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;님이 &lt;strong&gt;%2$s&lt;/strong&gt; 문서에서 당신의 편집에 감사를 표했습니다</string>
+  <string name="notification_channel_name">동기화 중</string>
+  <string name="notification_channel_description">동기화 진척도</string>
+  <string name="notification_syncing_title">문서 %1$d개를 동기화하고 있습니다...</string>
+  <string name="notification_syncing_description">%1$d개 문서 남음</string>
+  <string name="notification_syncing_pause_button">일시 정지</string>
+  <string name="notification_syncing_resume_button">재개</string>
+  <string name="notification_syncing_cancel_button">취소</string>
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의 문서 보기</string>
@@ -438,6 +445,7 @@
   <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
   <string name="offline_read_permission_error">기억 장치로부터 읽을 권한이 부여되지 않았습니다.</string>
   <string name="offline_card_text">지금 오프라인 라이브러리의 문서를 오프라인 상태에서 둘러보고 있습니다.</string>
+  <string name="offline_card_sideloading_text">지금 오프라인 라이브러리의 문서 묶음을 오프라인 상태에서 둘러보고 있습니다.</string>
   <string name="offline_my_compilations">내 오프라인 라이브러리 관리</string>
   <string name="offline_compilations_title">오프라인 라이브러리</string>
   <string name="offline_compilations_search_by_name">이름으로 문서 꾸러미 찾기</string>

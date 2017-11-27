@@ -371,13 +371,22 @@
   <string name="notification_reverted">Din redigering til artiklen &lt;strong&gt;%2$s&lt;/strong&gt; blev omgjort af &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Du er blevet takket!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; takkede dig for din redigering på siden &lt;strong&gt;%2$s/strong&gt;</string>
+  <string name="notification_channel_name">Synkroniserer</string>
+  <string name="notification_channel_description">Synkroniseringsstatus</string>
+  <string name="notification_syncing_title">Synkroniserer %1$d artikler …</string>
+  <string name="notification_syncing_description">%1$d artikler tilbage</string>
+  <string name="notification_syncing_pause_button">Pause</string>
+  <string name="notification_syncing_resume_button">Genoptag</string>
+  <string name="notification_syncing_cancel_button">Afbryd</string>
   <string name="view_continue_reading_card_title">Fortsæt læsning</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Læs en tilfældig artikel fra Wikipedia</string>
+  <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia.</string>
+  <string name="view_random_card_action">Kast terningen</string>
   <string name="view_next_random_article">Indlæs en anden vilkårlig artikel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
+  <string name="view_main_page_card_action">Vis hovedsiden</string>
   <string name="view_featured_image_card_title">Dagens billede</string>
   <string name="view_featured_image_card_download">Hent</string>
   <string name="menu_feed_card_dismiss">Skjul dette kort</string>
@@ -445,6 +454,7 @@
   <string name="offline_read_permission_rationale">Tilladelse til at tilgå lageret på din enhed er krævet for at læse artikler lokalt.</string>
   <string name="offline_read_permission_error">Der er ikke givet tilladelse til at læse fra enhedslageret.</string>
   <string name="offline_card_text">Du læser nu Wikipedia lokalt med artikler fra dit lokale bibliotek.</string>
+  <string name="offline_card_sideloading_text">Du læser nu Wikipedia lokalt fra artikelpakker i dit lokale bibliotek.</string>
   <string name="offline_my_compilations">Håndter mit lokale bibliotek</string>
   <string name="offline_compilations_title">Lokalt bibliotek</string>
   <string name="offline_compilations_search_by_name">Søg i artikelpakker efter navn</string>

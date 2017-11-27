@@ -268,6 +268,7 @@
   <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
   <string name="preference_summary_prefer_offline_content">Estalvia ús de dades carregant articles que són disponibles fora de línia en comptes de carregar la darrera versió de l\'article</string>
   <string name="preference_title_enable_offline_library">Habilita la biblioteca fora de línia</string>
+  <string name="preference_summary_enable_offline_library">Accediu als paquets d\'articles de la Viquipèdia (mostrats com fitxers .ZIM) que s\'hagin baixat en el vostre dispositiu per a llegir quan estigueu fora de línia.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Més informació&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
   <string name="crash_report_dialog_text">Voleu enviar d\'un informe d\'errors a HockeyApp / un proveïdor de serveis extern de manera que Wikimedia pugui revisar l\'error i corregir-ne la causa?</string>
   <string name="crash_report_dialog_dont_send_button">Omet</string>
@@ -370,13 +371,22 @@
   <string name="notification_reverted">La vostra modificació a l\'article &lt;strong&gt;%2$s&lt;/strong&gt; ha estat revertida per &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Us han agraït!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ha agraït la vostra modificació a la pàgina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Sincronització</string>
+  <string name="notification_channel_description">Progrés de la sincronització</string>
+  <string name="notification_syncing_title">Sincronització de %1$d articles…</string>
+  <string name="notification_syncing_description">queden %1$d articles</string>
+  <string name="notification_syncing_pause_button" fuzzy="true">PAUSA</string>
+  <string name="notification_syncing_resume_button" fuzzy="true">REPRÈN</string>
+  <string name="notification_syncing_cancel_button" fuzzy="true">CANCEL·LA</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Com has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Llegiu un article a l\'atzar de la Viquipèdia</string>
+  <string name="view_random_card_subtitle">Volteu per articles a l\'atzar per llegir de la Viquipèdia</string>
+  <string name="view_random_card_action">Llença el deu</string>
   <string name="view_next_random_article">Carrega un altre article a l\'atzar</string>
   <string name="view_main_page_card_title">Avui a la Viquipèdia</string>
   <string name="view_main_page_card_subtitle">Pàgina principal a %s</string>
+  <string name="view_main_page_card_action">Mostra la pàgina principal</string>
   <string name="view_featured_image_card_title">Foto del dia</string>
   <string name="view_featured_image_card_download">Descarrega</string>
   <string name="menu_feed_card_dismiss">Amaga la targeta</string>
@@ -444,6 +454,7 @@
   <string name="offline_read_permission_rationale">Cal permís per accedir a l\'emmagatzematge del vostre dispositiu per a navegar fora de línia.</string>
   <string name="offline_read_permission_error">No s\'han atorgat permisos per a llegir des del dispositiu d\'emmagatzematge.</string>
   <string name="offline_card_text">Esteu navegant per la Viquipèdia en mode fora de línia amb articles de la vostra biblioteca fora de línia.</string>
+  <string name="offline_card_sideloading_text">Esteu navegant la Viquipèdia fora de línia des dels paquets d\'articles en la vostra biblioteca fora de línia.</string>
   <string name="offline_my_compilations">Gestiona la meva biblioteca fora de línia</string>
   <string name="offline_compilations_title">Biblioteca fora de línia</string>
   <string name="offline_compilations_search_by_name">Cerca paquets d\'articles per nom</string>
@@ -474,6 +485,8 @@
   <string name="offline_library_title">Biblioteca sense connexió</string>
   <string name="offline_library_empty_title">No hi ha res dins la biblioteca sense connexió</string>
   <string name="offline_library_empty_description">Trieu un paquet d\'articles de la Viquipèdia per baixar ara, per tal d\'accedir-hi lliurement més endavant.</string>
+  <string name="offline_library_empty_description_sideload">Els «paquets d\'articles» de la vostra biblioteca fora de línia són conjunts d\'articles per emmagatzemar convenientment en el vostre dispositiu, i així podeu continuar llegint-los quan estigueu fora de línia.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Més informació&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Els paquets d\'articles de la vostra biblioteca continuen disponibles per ser llegits quan esteu fora de línia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Més ifnormació&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Voleu estalviar dades? Trieu «Prefereix contingut fora de línia» a la configuració per a mostrar abans aquells articles que estiguin fora de línia fins i tot si teniu connectivitat. &lt;a href=\"#settings\"&gt;Vés als paràmetres&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Cerca a la biblioteca fora de línia</string>
   <string name="offline_library_search_results_state">Cerqueu resultats a la vostra biblioteca fora de línia</string>
@@ -486,6 +499,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continueu llegint i cercant articles des de la biblioteca fora de línia quan no tingueu accés a Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Emmagatzema més coneixement</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Descarregueu tanta Viquipèdia com ho permeti el vostre dispositiu. La biblioteca fora de línia pot accedir també als paquets d\'articles d\'un emmagatzemament extern.</string>
+  <string name="offline_library_main_page_hint_html">Aquesta pàgina principal proporciona un resum dels continguts del paquet d\'articles.&lt;br /&gt;&lt;br /&gt;Podeu explorar els contingut de qualsevol paquet d\'articles des de la biblioteca fora de línia cercant els articles disponibles quan sou fora de línia.</string>
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
@@ -494,6 +508,7 @@
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_reading_list_sync_text">Crea llistes de lectura d\'articles que voleu llegir més endavant, fins i tot si esteu fora de línia. &lt;a href=\"#login\"&gt;Inicieu una sessió o creeu in compte&lt;/a&gt; a la Viquipèdia per a conservar una còpia de les vostres llistes de lectura.</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
+  <string name="onboarding_analytics_text">Ajudeu-nos a millorar l\'aplicació fent-nos saber com la feu servir. Les dades que es recullen són anònimes. &lt;a href=\"#privacy\"&gt;Més informació&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>
   <string name="onboarding_create_account_contributions">Estigueu al dia de les vostres contribucions</string>

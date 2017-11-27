@@ -371,13 +371,22 @@
   <string name="notification_reverted">Din redigering på artikeln &lt;strong&gt;%2$s&lt;/strong&gt; gjordes ogjord av &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Du har tackats!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; tackade dig för din redigering på sidan &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Synkroniserar</string>
+  <string name="notification_channel_description">Synkroniseringsförlopp</string>
+  <string name="notification_syncing_title">Synkroniserar %1$d artiklar…</string>
+  <string name="notification_syncing_description">%1$d artiklar kvar</string>
+  <string name="notification_syncing_pause_button">Pausa</string>
+  <string name="notification_syncing_resume_button">Återuppta</string>
+  <string name="notification_syncing_cancel_button">Avbryt</string>
   <string name="view_continue_reading_card_title">Fortsätt läs</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Randomiserare</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Läs en slumpartikel från Wikipedia</string>
+  <string name="view_random_card_subtitle">Bläddra bland slumpartiklar att läsa från Wikipedia</string>
+  <string name="view_random_card_action">Kasta tärningen</string>
   <string name="view_next_random_article">Läs in en annan slumpartikel</string>
   <string name="view_main_page_card_title">Idag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Huvudsidan på %s</string>
+  <string name="view_main_page_card_action">Visa huvudsidan</string>
   <string name="view_featured_image_card_title">Dagens bild</string>
   <string name="view_featured_image_card_download">Ladda ned</string>
   <string name="menu_feed_card_dismiss">Dölj detta kort</string>
@@ -445,6 +454,7 @@
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
   <string name="offline_card_text">Du läser nu Wikipedia offline med artiklar i ditt offlinebibliotek.</string>
+  <string name="offline_card_sideloading_text">Du läser nu Wikipedia offline från artiklar i ditt offlinebibliotek.</string>
   <string name="offline_my_compilations">Hantera mitt offlinebibliotek</string>
   <string name="offline_compilations_title">Offlinebibliotek</string>
   <string name="offline_compilations_search_by_name">Sök artikelpaket efter namn</string>

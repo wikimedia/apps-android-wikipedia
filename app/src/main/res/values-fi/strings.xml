@@ -362,6 +362,7 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; kumosi muokkauksesi artikkeliin &lt;strong&gt;%2$s&lt;/strong&gt;.</string>
   <string name="notification_thanks_title">Sinua on kiitetty tekemästäsi muokkauksesta!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; kiitti sinua muokkauksestasi sivuun &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_syncing_cancel_button">Peruuta</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>

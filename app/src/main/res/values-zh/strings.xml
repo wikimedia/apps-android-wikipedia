@@ -371,10 +371,17 @@
   <string name="notification_reverted">您对条目&lt;strong&gt;%2$s&lt;/strong&gt;的编辑被&lt;em&gt;%1$s&lt;/em&gt;回退。</string>
   <string name="notification_thanks_title">您已被感谢！</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;感谢了您对页面&lt;strong&gt;%2$s&lt;/strong&gt;的编辑</string>
+  <string name="notification_channel_name">同步</string>
+  <string name="notification_channel_description">同步过程</string>
+  <string name="notification_syncing_title">正在同步%1$d个条目…</string>
+  <string name="notification_syncing_description">剩余%1$d个条目</string>
+  <string name="notification_syncing_pause_button">暂停</string>
+  <string name="notification_syncing_resume_button">恢复</string>
+  <string name="notification_syncing_cancel_button">取消</string>
   <string name="view_continue_reading_card_title">继续阅读</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
-  <string name="view_random_card_subtitle">轻划浏览要阅读的来自维基百科的随机条目。</string>
+  <string name="view_random_card_subtitle">轻划浏览以阅读来自维基百科的随机条目。</string>
   <string name="view_random_card_action">掷骰子</string>
   <string name="view_next_random_article">加载另一个随机条目</string>
   <string name="view_main_page_card_title">维基百科今日</string>
@@ -447,6 +454,7 @@
   <string name="offline_read_permission_rationale">需要访问您设备存储的权限才能离线浏览。</string>
   <string name="offline_read_permission_error">未授予读取来自设备存储内容的权限。</string>
   <string name="offline_card_text">您正在浏览您的离线图书馆中的维基百科离线版本。</string>
+  <string name="offline_card_sideloading_text">您正在从您的离线图书馆中的条目包离线浏览维基百科。</string>
   <string name="offline_my_compilations">管理我的离线图书馆</string>
   <string name="offline_compilations_title">离线图书馆</string>
   <string name="offline_compilations_search_by_name">按名称搜索条目包</string>

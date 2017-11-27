@@ -342,6 +342,12 @@
   <string name="notification_reverted">La tua modifica alla voce &lt;strong&gt;%2$s&lt;/strong&gt; è stata annullata da &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Sei stato ringraziato!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ti ha ringraziato per la tua modifica nella pagina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Sincronizzazione</string>
+  <string name="notification_syncing_title">Sincronizzazione di %1$d voci…</string>
+  <string name="notification_syncing_description">%1$d voci rimanenti</string>
+  <string name="notification_syncing_pause_button">Pausa</string>
+  <string name="notification_syncing_resume_button">Riprendi</string>
+  <string name="notification_syncing_cancel_button">Annulla</string>
   <string name="view_continue_reading_card_title">Continua a leggere</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>

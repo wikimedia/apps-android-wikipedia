@@ -371,13 +371,22 @@
   <string name="notification_reverted">Redigeringen din på artikkelen &lt;strong&gt;%2$s&lt;/strong&gt; ble tilbakestilt av &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Du er blitt takket!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; takket for redigeringen din på siden &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Synkroniserer</string>
+  <string name="notification_channel_description">Synkroniseringsframgang</string>
+  <string name="notification_syncing_title">Synkroniserer %1$d artikler …</string>
+  <string name="notification_syncing_description">%1$d artikler igjen</string>
+  <string name="notification_syncing_pause_button" fuzzy="true">PAUSE</string>
+  <string name="notification_syncing_resume_button" fuzzy="true">FORTSETT</string>
+  <string name="notification_syncing_cancel_button" fuzzy="true">AVBRYT</string>
   <string name="view_continue_reading_card_title">Fortsett å lese</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Les en tilfeldig artikkel på Wikipedia</string>
+  <string name="view_random_card_subtitle">Gå gjennom tilfeldige artikler å lese fra Wikipedia.</string>
+  <string name="view_random_card_action">Kast terning</string>
   <string name="view_next_random_article">Last en annen tilfeldig artikkel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
+  <string name="view_main_page_card_action">Vis hovedsiden</string>
   <string name="view_featured_image_card_title">Dagens bilde</string>
   <string name="view_featured_image_card_download">Last ned</string>
   <string name="menu_feed_card_dismiss">Skjul dette kortet</string>
@@ -445,6 +454,7 @@
   <string name="offline_read_permission_rationale">Hvis du vil lagre artikler for lesing offline må du gi appen tilgang til enhetens bilder, media og filer.</string>
   <string name="offline_read_permission_error">Tilgang til å lese filer fra enheten har ikke blitt gitt.</string>
   <string name="offline_card_text">Du leser nå Wikipedia offline med artikler fra det lokale biblioteket ditt.</string>
+  <string name="offline_card_sideloading_text">Du leser nå Wikipedia frakoblet med artikkelpakker fra det frakoblede biblioteket ditt.</string>
   <string name="offline_my_compilations">Administrer det lokale biblioteket mitt</string>
   <string name="offline_compilations_title">Lokalt bibliotek</string>
   <string name="offline_compilations_search_by_name">Finn artikkelpakker etter navn</string>

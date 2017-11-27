@@ -371,6 +371,9 @@
   <string name="notification_reverted">ویرایش شما در مقالۀ &lt;strong&gt;%2$s&lt;/strong&gt; توسط &lt;em&gt;%1$s&lt;/em&gt; واگرداندی شد.</string>
   <string name="notification_thanks_title">از شما تشکر شده‌است!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ممنون از ویرایش شما در صفحۀ &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_syncing_pause_button">مکث</string>
+  <string name="notification_syncing_resume_button">ادامه</string>
+  <string name="notification_syncing_cancel_button" fuzzy="true">لغو</string>
   <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>
@@ -378,6 +381,7 @@
   <string name="view_next_random_article">بارگیری مقالهٔ تصادفی دیگر</string>
   <string name="view_main_page_card_title">امروز در ویکی‌پدیا</string>
   <string name="view_main_page_card_subtitle">صفحه اصلی در%s</string>
+  <string name="view_main_page_card_action">دیدن صفحه اصلی</string>
   <string name="view_featured_image_card_title">تصویر روز</string>
   <string name="view_featured_image_card_download">بارگیری</string>
   <string name="menu_feed_card_dismiss">مخفی کردن این کارت</string>

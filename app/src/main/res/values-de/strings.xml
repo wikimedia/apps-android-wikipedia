@@ -371,6 +371,13 @@
   <string name="notification_reverted">Deine Bearbeitung an dem Artikel &lt;strong&gt;%2$s&lt;/strong&gt; wurde von &lt;em&gt;%1$s&lt;/em&gt; rückgängig gemacht.</string>
   <string name="notification_thanks_title">Du hast ein Dankeschön erhalten!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; hat sich für deine Bearbeitung auf der Seite &lt;strong&gt;%2$s&lt;/strong&gt; bedankt</string>
+  <string name="notification_channel_name">Synchronisieren</string>
+  <string name="notification_channel_description">Synchronisierungsfortschritt</string>
+  <string name="notification_syncing_title">Synchronisiere %1$d Artikel …</string>
+  <string name="notification_syncing_description">%1$d Artikel verbleibend</string>
+  <string name="notification_syncing_pause_button">Pausieren</string>
+  <string name="notification_syncing_resume_button">Fortfahren</string>
+  <string name="notification_syncing_cancel_button">Abbrechen</string>
   <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
   <string name="view_because_you_read_card_title">Weil du liest</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
@@ -447,6 +454,7 @@
   <string name="offline_read_permission_rationale">Zum Offline-Browsen ist eine Berechtigung für den Zugriff auf den Speicher deines Gerätes erforderlich.</string>
   <string name="offline_read_permission_error">Die Berechtigung zum Lesen vom Gerätespeicher wurde nicht gewährt.</string>
   <string name="offline_card_text">Du benutzt jetzt Wikipedia offline mit Artikeln in deiner Offline-Bibliothek.</string>
+  <string name="offline_card_sideloading_text">Du durchstöberst jetzt Wikipedia offline aufgrund der Artikelpakete in deiner Offline-Bibliothek.</string>
   <string name="offline_my_compilations">Meine Offline-Bibliothek verwalten</string>
   <string name="offline_compilations_title">Offline-Bibliothek</string>
   <string name="offline_compilations_search_by_name">Artikelpakete nach Namen suchen</string>

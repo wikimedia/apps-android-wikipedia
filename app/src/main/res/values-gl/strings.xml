@@ -371,13 +371,22 @@
   <string name="notification_reverted">A túa edición no artigo &lt;strong&gt;%2$s&lt;/strong&gt; foi revertida por &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Déronche as grazas!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; agradeceu a túa edición na páxina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Sincronización</string>
+  <string name="notification_channel_description">Avance da sincronización</string>
+  <string name="notification_syncing_title">Sincronización de %1$d artigos...</string>
+  <string name="notification_syncing_description">%1$d artigos restantes</string>
+  <string name="notification_syncing_pause_button">Pausa</string>
+  <string name="notification_syncing_resume_button">Continuar</string>
+  <string name="notification_syncing_cancel_button">Cancelar</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Ler un artigo aleatorio de Wikipedia</string>
+  <string name="view_random_card_subtitle">Ollar artigos aleatorios da Wikipedia para ler.</string>
+  <string name="view_random_card_action">Lanzar o dado</string>
   <string name="view_next_random_article">Cargar outro artigo ó chou</string>
   <string name="view_main_page_card_title">Hoxe na Wikipedia</string>
   <string name="view_main_page_card_subtitle">Páxina principal en %s</string>
+  <string name="view_main_page_card_action">Ver a páxina principal</string>
   <string name="view_featured_image_card_title">Imaxe do día</string>
   <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss">Agochar esta tarxeta</string>
@@ -445,6 +454,7 @@
   <string name="offline_read_permission_rationale">É necesario ter permiso para acceder ó almacenamento no seu dispositivo para a navegación sen liña.</string>
   <string name="offline_read_permission_error">Non tes permiso para ler dende o almacenamento deste dispositivo.</string>
   <string name="offline_card_text">Agora está navegando por Wikipedia sen conexión con artigos da súa Biblioteca sen conexión.</string>
+  <string name="offline_card_sideloading_text">Esta navigando en Wikipedia sen liña dende os paquetes de artigos da súa Biblioteca fóra de liña.</string>
   <string name="offline_my_compilations">Xestionar a miña biblioteca sen conexión</string>
   <string name="offline_compilations_title">Biblioteca sen conexión</string>
   <string name="offline_compilations_search_by_name">Procurar paquetes de artigos por nome</string>
@@ -489,6 +499,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continúe lendo e procurando artigos dentro da súa biblioteca sen conexión cando non ten acceso a Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Almacenar máis coñecemento</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Descargar tanto contido de Wikipedia como poida conter o seu dispositivo. A biblioteca sen conexión tamén pode acceder a paquetes de artigos en dispositivos externos.</string>
+  <string name="offline_library_main_page_hint_html">Esta páxina principal proporciona un resumo dos contidos deste paquete de artigos.&lt;br /&gt;&lt;br /&gt;Tamén pode explorar os contidos de calquera paquete de artigos da súa biblioteca fóra de liña procurando nos artigos dispoñibles mentres non ten liña.</string>
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>
