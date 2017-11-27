@@ -34,6 +34,10 @@ public class AnnouncementCard extends Card {
         return Uri.parse(announcement.actionUrl());
     }
 
+    @Nullable public String negativeText() {
+        return announcement.negativeText();
+    }
+
     public boolean hasFooterCaption() {
         return announcement.hasFooterCaption();
     }

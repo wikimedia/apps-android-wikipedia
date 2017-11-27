@@ -26,6 +26,7 @@ public final class UriUtil {
     public static final String LOCAL_URL_OFFLINE_LIBRARY = "#offlinelibrary";
     public static final String LOCAL_URL_SETTINGS = "#settings";
     public static final String LOCAL_URL_LOGIN = "#login";
+    public static final String LOCAL_URL_CUSTOMIZE_FEED = "#customizefeed";
 
     /**
      * Decodes a URL-encoded string into its UTF-8 equivalent. If the string cannot be decoded, the

@@ -32,14 +32,17 @@ public class Announcement extends BaseModel {
 
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
     @SuppressWarnings("unused") @Nullable private Action action;
+    @SuppressWarnings("unused") @Nullable private String negativeText;
 
     public Announcement() { }
 
-    public Announcement(@NonNull String id, @NonNull String text, @NonNull String imageUrl, @NonNull Action action) {
+    public Announcement(@NonNull String id, @NonNull String text, @NonNull String imageUrl,
+                        @NonNull Action action, @NonNull String negativeText) {
         this.id = id;
         this.text = text;
         this.imageUrl = imageUrl;
         this.action = action;
+        this.negativeText = negativeText;
     }
 
     @NonNull String id() {
@@ -104,6 +107,10 @@ public class Announcement extends BaseModel {
 
     @NonNull String imageUrl() {
         return defaultString(imageUrl);
+    }
+
+    @Nullable String negativeText() {
+        return negativeText;
     }
 
     public static class Action {
