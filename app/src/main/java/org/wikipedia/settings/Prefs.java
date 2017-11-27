@@ -619,5 +619,9 @@ public final class Prefs {
         remove(R.string.preference_key_feed_cards_order);
     }
 
+    public static void setFeedCustomizeTutorialCardEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_feed_customize_onboarding_card_enabled, enabled);
+    }
+
     private Prefs() { }
 }

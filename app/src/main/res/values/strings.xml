@@ -457,6 +457,8 @@
     <string name="feed_item_type_featured_image">Daily featured image from Wikimedia Commons</string>
     <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
+    <string name="feed_configure_onboarding_action">Customize</string>
+    <string name="feed_configure_onboarding_text"><![CDATA[<strong>Customize your Explore feed</strong><br /><br />You can now choose what to show on your feed, and also prioritize your favorite types of content.]]></string>
     <!-- /The Feed -->
 
     <!-- Description editing -->
@@ -580,6 +582,7 @@
     <string name="onboarding_create_account_sync">Sync your reading lists</string>
     <string name="onboarding_create_account_contributions">Keep track of your contributions</string>
     <string name="onboarding_create_account_preferences">Save your preferences</string>
+    <string name="onboarding_got_it">Got it</string>
     <!-- /Onboarding -->
 
     <!-- App Shortcuts -->

@@ -67,4 +67,5 @@
     <string name="preference_key_enable_offline_library">enableOfflineLibrary</string>
     <string name="preference_key_feed_cards_order">feedCardsOrder</string>
     <string name="preference_key_feed_cards_enabled">feedCardsEnabled</string>
+    <string name="preference_key_feed_customize_onboarding_card_enabled">feedCustomizeOnboardingCardEnabled</string>
 </resources>
