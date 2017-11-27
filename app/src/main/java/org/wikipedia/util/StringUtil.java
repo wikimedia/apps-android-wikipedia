@@ -117,7 +117,10 @@ public final class StringUtil {
      * @param source String that may contain HTML tags.
      * @return returned Spanned string that may contain spans parsed from the HTML source.
      */
-    @NonNull public static Spanned fromHtml(@NonNull String source) {
+    @NonNull public static Spanned fromHtml(@Nullable String source) {
+        if (source == null) {
+            return new SpannedString("");
+        }
         if (!source.contains("<")) {
             // If the string doesn't contain any hints of HTML tags, then skip the expensive
             // processing that fromHtml() performs.

@@ -38,6 +38,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.GeoUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
@@ -283,10 +284,10 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
             PageSummary summary = rsp.body();
             if (summary != null && !summary.hasError()) {
-                titleText.setText(summary.getDisplayTitle());
+                titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
                 showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
             } else {
-                titleText.setText(pageTitle.getDisplayText());
+                titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
                 showError(null);
                 logError(summary.hasError() ? summary.getError() : null,
                         "Page summary network request failed");
@@ -298,7 +299,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             if (!isAdded()) {
                 return;
             }
-            titleText.setText(pageTitle.getDisplayText());
+            titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
             showError(caught);
         }
     };
