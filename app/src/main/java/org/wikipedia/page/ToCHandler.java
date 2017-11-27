@@ -176,10 +176,17 @@ class ToCHandler {
         if (section != null) {
             // is it the bottom (about) section?
             if (section.getId() == ABOUT_SECTION_ID) {
-                bridge.sendMessage("scrollToBottom", new JSONObject());
+                JSONObject payload = new JSONObject();
+                try {
+                    final int topPadding = 16;
+                    payload.put("offset", topPadding
+                            + (int)(fragment.getBottomContentView().getHeight() / DimenUtil.getDensityScalar()));
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+                bridge.sendMessage("scrollToBottom", payload);
             } else {
-                scrollToSection(
-                        section.isLead() ? "heading_" + section.getId() : section.getAnchor());
+                scrollToSection(section.isLead() ? "heading_" + section.getId() : section.getAnchor());
             }
         }
     }

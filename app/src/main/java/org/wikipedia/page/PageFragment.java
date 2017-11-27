@@ -284,6 +284,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return errorState;
     }
 
+    public BottomContentView getBottomContentView() {
+        return bottomContentView;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
