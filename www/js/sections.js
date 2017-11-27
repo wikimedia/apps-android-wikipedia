@@ -448,8 +448,8 @@ function scrollToSection( anchor ) {
     }
 }
 
-bridge.registerListener( "scrollToBottom", function () {
-    window.scrollTo(0, document.body.scrollHeight);
+bridge.registerListener( "scrollToBottom", function ( payload ) {
+    window.scrollTo(0, document.body.scrollHeight - payload.offset - transformer.getDecorOffset());
 });
 
 /**

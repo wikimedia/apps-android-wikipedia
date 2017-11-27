@@ -691,8 +691,8 @@ function scrollToSection( anchor ) {
     }
 }
 
-bridge.registerListener( "scrollToBottom", function () {
-    window.scrollTo(0, document.body.scrollHeight);
+bridge.registerListener( "scrollToBottom", function ( payload ) {
+    window.scrollTo(0, document.body.scrollHeight - payload.offset - transformer.getDecorOffset());
 });
 
 /**
@@ -1276,11 +1276,8 @@ var classifyElements = function classifyElements(element) {
   /* en > Away colours > 793128975 */
   /* en > Manchester United F.C. > 793244653 */
   /* en > Pantone > 792312384 */
-  /* en > Wikipedia:Graphs_and_charts > 801754530 */
-  /* en > PepsiCo > 807406166 */
-  var selector = ['div.color_swatch div', 'div[style*="position: absolute"]', 'div.barbox table div[style*="background:"]', 'div.chart div[style*="background-color"]', 'div.chart ul li span[style*="background-color"]', 'span.legend-color'].join();
-  Polyfill.querySelectorAll(element, selector).forEach(function (element) {
-    return element.classList.add(CONSTRAINT.DIV_DO_NOT_APPLY_BASELINE);
+  Polyfill.querySelectorAll(element, 'div.color_swatch div, div[style*="position: absolute"]').forEach(function (div) {
+    div.classList.add(CONSTRAINT.DIV_DO_NOT_APPLY_BASELINE);
   });
 };
 
