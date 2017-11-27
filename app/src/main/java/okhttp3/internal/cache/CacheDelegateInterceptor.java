@@ -47,10 +47,10 @@ import static okhttp3.internal.Util.discard;
 /** Serves requests from the cache and writes responses to the cache. Copied from the OkHttp
  repository (https://github.com/square/okhttp) to allow a custom cache strategy.
 
- Last synchronized with OkHttp at the "parent-3.9.0" tag (last change: "Improve handling of HEAD
- requests with a Content-Length specified." (33d31d0))
+ Last synchronized with OkHttp at the "parent-3.9.1" tag
+ (last change: "Improve handling of HEAD requests with a Content-Length specified" (23b6f75))
 
- https://github.com/square/okhttp/blob/parent-3.9.0/okhttp/src/main/java/okhttp3/internal/cache/CacheInterceptor.java
+ https://github.com/square/okhttp/blob/parent-3.9.1/okhttp/src/main/java/okhttp3/internal/cache/CacheInterceptor.java
 
  Deviations are marked with "Change:". */
 public final class CacheDelegateInterceptor implements Interceptor {

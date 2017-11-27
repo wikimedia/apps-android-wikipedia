@@ -165,7 +165,7 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '3.9.0' // When updating this version, resync file copies under
+    String okHttpVersion = '3.9.1' // When updating this version, resync file copies under
                                    // app/src/main/java/okhttp3
     String retrofitVersion = '2.3.0'
     String supportVersion = '26.0.2'
