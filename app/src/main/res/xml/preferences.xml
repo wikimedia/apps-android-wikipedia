@@ -17,16 +17,11 @@
             android:defaultValue="true"
             android:title="@string/preference_title_show_link_previews"
             android:summary="@string/preference_summary_show_link_previews" />
-        <org.wikipedia.theme.ThemeSwitchPreferenceCompat
+        <org.wikipedia.settings.PreferenceMultiLine
             android:key="@string/preference_key_color_theme"
             android:defaultValue="0"
-            android:title="@string/preference_title_color_theme"
+            android:title="@string/preference_title_app_theme"
             android:summary="@string/preference_summary_color_theme"/>
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_dim_dark_mode_images"
-            android:defaultValue="true"
-            android:title="@string/preference_title_dim_dark_mode_images"
-            android:summary="@string/preference_summary_dim_dark_mode_images"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/preference_category_storage_sync"

@@ -169,6 +169,32 @@
 
             </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/button_theme_black"
+                    style="@style/App.Button.Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    android:text="@string/color_theme_black" />
+
+                <View
+                    android:id="@+id/button_theme_black_highlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:elevation="4dp"
+                    android:background="?attr/button_highlight_border_shape"/>
+
+            </FrameLayout>
+
         </LinearLayout>
 
         <android.support.v7.widget.SwitchCompat

@@ -1,6 +1,5 @@
 package org.wikipedia.settings;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,7 +13,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
-import org.wikipedia.theme.Theme;
+import org.wikipedia.theme.ThemeFittingRoomActivity;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 
@@ -55,9 +54,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             offlineLibPref.setVisible(false);
         }
 
-        findPreference(R.string.preference_key_color_theme)
-                .setOnPreferenceChangeListener(new ThemeChangeListener());
-
         loadPreferences(R.xml.preferences_about);
 
         updateLanguagePrefSummary();
@@ -83,7 +79,12 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
             }
         });
 
-        setDimImagesPrefEnabled(getActivity(), WikipediaApp.getInstance().getCurrentTheme());
+        Preference themePref = findPreference(R.string.preference_key_color_theme);
+        themePref.setSummary(WikipediaApp.getInstance().getCurrentTheme().getNameId());
+        themePref.setOnPreferenceClickListener(preference -> {
+            getActivity().startActivity(ThemeFittingRoomActivity.newIntent(getActivity()));
+            return true;
+        });
 
         if (!BuildConfig.APPLICATION_ID.equals("org.wikipedia")) {
             overridePackageName();
@@ -113,15 +114,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         languagePref.setSummary(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
     }
 
-    private static String getDimImagesKey(Context context) {
-        return context.getString(R.string.preference_key_dim_dark_mode_images);
-    }
-
-    private void setDimImagesPrefEnabled(Context context, Theme theme) {
-        Preference dimImagesPref = findPreference(getDimImagesKey(context));
-        dimImagesPref.setEnabled(theme.isDark());
-    }
-
     private static class ShowZeroInterstitialListener implements Preference.OnPreferenceChangeListener {
         @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
             if (newValue == Boolean.FALSE) {
@@ -146,17 +138,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
                         .show();
             }
             // clicks are handled and preferences updated accordingly; don't pass the result through
-            return false;
-        }
-    }
-
-    private final class ThemeChangeListener implements Preference.OnPreferenceChangeListener {
-        @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
-            Theme theme = Theme.ofMarshallingId((Integer) newValue);
-            WikipediaApp.getInstance().setCurrentTheme(theme);
-            setDimImagesPrefEnabled(getActivity(), theme);
-            // The setCurrentTheme call updates the nonvolatile Preference state and updates the UI
-            // accordingly. Return false since the pref state is already updated by the method call.
             return false;
         }
     }

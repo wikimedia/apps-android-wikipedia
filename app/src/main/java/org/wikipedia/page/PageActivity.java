@@ -709,9 +709,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onToggleDimImages() {
-        pageFragment.getDarkModeMarshaller().toggleDimImages();
-        pageFragment.refreshPage(pageFragment.getWebView().getScrollY());
+        recreate();
     }
+
+    @Override
+    public void onCancel() { }
 
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(this, null, url);

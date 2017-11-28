@@ -205,6 +205,10 @@
         <item name="backgroundTint">@color/color_state_gray</item>
     </style>
 
+    <style name="App.Button.Black">
+        <item name="backgroundTint">@color/color_state_black</item>
+    </style>
+
     <style name="App.Button.White">
         <item name="backgroundTint">@color/color_state_white</item>
         <item name="android:textColor">@color/base30</item>
