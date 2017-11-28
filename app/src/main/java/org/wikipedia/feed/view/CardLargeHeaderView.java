@@ -25,6 +25,7 @@ public class CardLargeHeaderView extends ConstraintLayout {
     @BindView(R.id.view_card_header_large_background) View backgroundView;
     @BindView(R.id.view_card_header_large_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.view_card_header_large_title) TextView titleView;
+    @BindView(R.id.view_card_header_large_subtitle) TextView subtitleView;
 
     public CardLargeHeaderView(Context context) {
         super(context);
@@ -58,6 +59,11 @@ public class CardLargeHeaderView extends ConstraintLayout {
 
     @NonNull public CardLargeHeaderView setTitle(@Nullable CharSequence title) {
         titleView.setText(title);
+        return this;
+    }
+
+    @NonNull public CardLargeHeaderView setSubtitle(@Nullable CharSequence subtitle) {
+        subtitleView.setText(String.format(getResources().getString(R.string.view_continue_reading_card_subtitle_read_date), subtitle));
         return this;
     }
 
