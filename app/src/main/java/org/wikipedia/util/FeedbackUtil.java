@@ -87,6 +87,10 @@ public final class FeedbackUtil {
         visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)));
     }
 
+    public static void showAboutWikipedia(Context context) {
+        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.about_wikipedia_url)));
+    }
+
     public static void setToolbarButtonLongPressToast(View... views) {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);

@@ -63,6 +63,8 @@ public class InitialOnboardingFragment extends OnboardingFragment {
                         Constants.ACTIVITY_REQUEST_LOGIN);
             } else if (url.equals("#privacy")) {
                 FeedbackUtil.showPrivacyPolicy(getContext());
+            } else if (url.equals("#about")) {
+                FeedbackUtil.showAboutWikipedia(getContext());
             } else  {
                 handleExternalLink(getActivity(), Uri.parse(url));
             }
@@ -106,6 +108,7 @@ public class InitialOnboardingFragment extends OnboardingFragment {
     }
 
     private enum OnboardingPage implements EnumCode {
+        PAGE_WELCOME(R.layout.inflate_initial_onboarding_page_zero),
         PAGE_EXPLORE(R.layout.inflate_initial_onboarding_page_one),
         PAGE_READING_LISTS(R.layout.inflate_initial_onboarding_page_two),
         PAGE_USAGE_DATA(R.layout.inflate_initial_onboarding_page_three);

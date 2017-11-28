@@ -159,6 +159,7 @@
     <string name="about_description">About the Wikipedia app</string>
     <string name="privacy_policy_description">Privacy policy</string>
     <string name="terms_of_use_description">Terms of use</string>
+    <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
     <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
     <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -572,8 +573,12 @@
     <string name="onboarding_skip">Skip</string>
     <string name="onboarding_continue">Continue</string>
     <string name="onboarding_get_started">Get started</string>
+    <string name="onboarding_welcome_title">The free encyclopedia</string>
+    <string name="onboarding_welcome_text"><![CDATA[Wikipedia is written collaboratively by volunteers and consists of more than 40 million articles in nearly 300 different languages. <a href="#about">Learn more</a>]]></string>
     <string name="onboarding_explore_title">New ways to explore</string>
-    <string name="onboarding_explore_text">Discover featured articles, trending topics, and reading suggestions on the Explore feed.</string>
+    <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
+    <string name="onboarding_save_to_reading_lists_title">Save to reading lists</string>
+    <string name="onboarding_save_to_reading_lists_text">Create reading lists from articles you want to read later, even when you’re offline.</string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
     <string name="onboarding_reading_list_sync_text"><![CDATA[Create reading lists from articles you want to read later, even when you\'re offline. <a href="#login">Log in or create</a> your Wikipedia account to keep your reading lists backed up.]]></string>
     <string name="onboarding_analytics_title">Send anonymous data</string>

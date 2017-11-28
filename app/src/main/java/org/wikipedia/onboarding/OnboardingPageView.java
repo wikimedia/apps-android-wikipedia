@@ -119,13 +119,10 @@ public class OnboardingPageView extends LinearLayout {
             switchView.setText(switchText);
 
             secondaryTextView.setMovementMethod(new LinkMovementMethodExt(
-                    new LinkMovementMethodExt.UrlHandler() {
-                        @Override
-                        public void onUrlClick(@NonNull String url, @Nullable String notUsed) {
+                    (@NonNull String url, @Nullable String notUsed) -> {
                             if (callback != null) {
                                 callback.onLinkClick(OnboardingPageView.this, url);
                             }
-                        }
                     }));
 
             array.recycle();
