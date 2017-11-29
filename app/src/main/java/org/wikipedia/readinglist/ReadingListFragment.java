@@ -779,7 +779,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         @Override
         protected void onQueryChange(String s) {
-            setSearchQuery(s);
+            setSearchQuery(s.trim());
         }
 
         @Override

@@ -398,7 +398,7 @@ public class ReadingListsFragment extends Fragment {
 
         @Override
         protected void onQueryChange(String s) {
-            updateLists(s);
+            updateLists(s.trim());
         }
 
         @Override
