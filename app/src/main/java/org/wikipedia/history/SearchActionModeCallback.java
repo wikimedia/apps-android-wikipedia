@@ -1,7 +1,6 @@
 package org.wikipedia.history;
 
 import android.support.annotation.Nullable;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -25,7 +24,7 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         mode.setTag(ACTION_MODE_TAG);
         mode.getMenuInflater().inflate(R.menu.menu_action_mode_search, menu);
-        searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search_view));
+        searchView = (SearchView) menu.findItem(R.id.menu_search_view).getActionView();
         searchMagIcon = searchView.findViewById(android.support.v7.appcompat.R.id.search_mag_icon);
         searchMagIcon.setImageDrawable(null);
         searchView.setIconifiedByDefault(false);
