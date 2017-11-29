@@ -10,14 +10,16 @@
         android:id="@+id/view_static_card_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:clickable="true"
+        android:gravity="center_vertical"
         android:foreground="?attr/selectableItemBackground">
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center_vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:orientation="vertical">
@@ -26,7 +28,6 @@
                 android:id="@+id/view_static_card_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
                 android:fontFamily="sans-serif-medium"
                 android:textSize="14sp"
                 android:textColor="@android:color/white"
@@ -36,33 +37,34 @@
                 android:id="@+id/view_static_card_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:textSize="12sp"
                 android:textColor="@android:color/white"
                 android:alpha="0.87"
                 android:lineSpacingExtra="2dp"
-                tools:text="Subtitle of card"/>
+                tools:text="Subtitle of card that will surely overflow onto multiple lines."/>
 
         </LinearLayout>
 
         <FrameLayout
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_gravity="end|center_vertical">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp">
 
             <ImageView
                 android:id="@+id/view_static_card_icon"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="12dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
                 android:contentDescription="@string/view_static_card_icon_content_description"
                 android:tint="@android:color/white"
                 tools:src="@drawable/ic_casino_accent50_24dp"/>
 
             <ProgressBar
                 android:id="@+id/view_static_card_progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_gravity="center"/>
 
         </FrameLayout>
