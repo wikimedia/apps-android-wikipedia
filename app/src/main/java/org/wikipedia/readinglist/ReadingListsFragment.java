@@ -381,7 +381,7 @@ public class ReadingListsFragment extends Fragment {
         }
         Prefs.setReadingListSortMode(sortMode);
         sortLists();
-        getActivity().supportInvalidateOptionsMenu();
+        getActivity().invalidateOptionsMenu();
     }
 
     private void sortLists() {

@@ -512,7 +512,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
             if (shouldShowSearchIcon != searchIconVisible) {
                 searchIconVisible = shouldShowSearchIcon;
-                getActivity().supportInvalidateOptionsMenu();
+                getActivity().invalidateOptionsMenu();
                 if (getCallback() != null) {
                     getCallback().updateToolbarElevation(shouldElevateToolbar());
                 }
