@@ -4,9 +4,12 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -133,6 +136,19 @@ public final class StringUtil {
             return Html.fromHtml(source);
         }
     }
+
+    public static SpannableStringBuilder boldenSubstrings(String text, @NonNull List<String> subStrings) {
+        SpannableStringBuilder sb = new SpannableStringBuilder(text);
+        for (String subString : subStrings) {
+            if (text.contains(subString)) {
+                StyleSpan b = new StyleSpan(android.graphics.Typeface.BOLD);
+                sb.setSpan(b, text.indexOf(subString), text.indexOf(subString) + subString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+            }
+        }
+        return sb;
+    }
+
+
 
     private StringUtil() { }
 }

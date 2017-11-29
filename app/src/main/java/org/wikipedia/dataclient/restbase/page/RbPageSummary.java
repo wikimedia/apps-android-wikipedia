@@ -74,4 +74,10 @@ public class RbPageSummary implements PageSummary {
             return source;
         }
     }
+
+
+    public void setDescription(@Nullable String description) {
+        this.description = description;
+    }
+
 }

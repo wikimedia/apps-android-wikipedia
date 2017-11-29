@@ -2,9 +2,12 @@ package org.wikipedia.feed.onthisday;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.SpannableStringBuilder;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.json.annotations.Required;
+import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,8 +55,13 @@ public class OnThisDay {
         @SuppressWarnings("unused") private int year;
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<RbPageSummary> pages;
 
-        @NonNull public String text() {
-            return text;
+        @NonNull
+        public SpannableStringBuilder text() {
+            List<String> pageTitles = new ArrayList<>();
+            for (RbPageSummary page : pages) {
+                pageTitles.add((StringUtil.fromHtml(StringUtils.defaultString(page.getNormalizedTitle()))).toString());
+            }
+            return StringUtil.boldenSubstrings(text, pageTitles);
         }
 
         public int year() {

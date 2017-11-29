@@ -2,6 +2,7 @@ package org.wikipedia.feed.onthisday;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.SpannableStringBuilder;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -9,22 +10,22 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DateUtil;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class OnThisDayCard extends Card {
     private int nextYear;
-    private UtcDate date;
+    private Calendar date;
     private OnThisDay onThisDay;
     private FeedAdapter.Callback callback;
     private WikiSite wiki;
     private OnThisDay.Event eventShownOnCard;
     private int age;
 
-    OnThisDayCard(@NonNull OnThisDay onThisDay, @NonNull OnThisDay.Event event, int nextYear, @NonNull UtcDate date, @NonNull WikiSite wiki, int age) {
+    OnThisDayCard(@NonNull OnThisDay onThisDay, @NonNull OnThisDay.Event event, int nextYear, @NonNull Calendar date, @NonNull WikiSite wiki, int age) {
         super();
         this.onThisDay = onThisDay;
         eventShownOnCard = event;
@@ -59,14 +60,14 @@ public class OnThisDayCard extends Card {
     }
 
     @Override @NonNull public String subtitle() {
-        return DateUtil.getFeedCardDateString(date().baseCalendar());
+        return DateUtil.getFeedCardShortDateString(date);
     }
 
     @NonNull String dayString() {
-        return DateUtil.getMonthOnlyDateString(date().baseCalendar().getTime());
+        return DateUtil.getMonthOnlyDateString(date.getTime());
     }
 
-    @NonNull public String text() {
+    @NonNull public SpannableStringBuilder text() {
         return eventShownOnCard.text();
     }
 
@@ -74,7 +75,7 @@ public class OnThisDayCard extends Card {
         return eventShownOnCard.year();
     }
 
-    @NonNull public UtcDate date() {
+    @NonNull public Calendar date() {
         return date;
     }
 

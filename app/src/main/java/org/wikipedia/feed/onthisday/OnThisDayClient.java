@@ -9,12 +9,12 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
@@ -30,16 +30,16 @@ public class OnThisDayClient implements FeedClient {
 
     @Override
     public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull FeedClient.Callback cb) {
-        UtcDate today = DateUtil.getUtcRequestDateFor(age);
+        Calendar today = DateUtil.getDefaultDateFor(age);
         String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
                 wiki.authority());
         Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
         OnThisDayClient.Service service = retrofit.create(Service.class);
-        call = service.getSelectedEvent(today.month(), today.date());
+        call = service.getSelectedEvent(today.get(Calendar.MONTH) + 1, today.get(Calendar.DATE));
         call.enqueue(new CallbackAdapter(cb, today, wiki, age));
     }
 
-    public Call<OnThisDay> request(@NonNull WikiSite wiki, String month, String date) {
+    public Call<OnThisDay> request(@NonNull WikiSite wiki, int month, int date) {
         String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
                 wiki.authority());
         Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
@@ -58,11 +58,11 @@ public class OnThisDayClient implements FeedClient {
 
     static class CallbackAdapter implements retrofit2.Callback<OnThisDay> {
         @NonNull private final FeedClient.Callback cb;
-        private UtcDate today;
+        private Calendar today;
         private WikiSite wiki;
         private int age;
 
-        CallbackAdapter(@NonNull FeedClient.Callback cb, UtcDate today, WikiSite wiki, int age) {
+        CallbackAdapter(@NonNull FeedClient.Callback cb, Calendar today, WikiSite wiki, int age) {
             this.cb = cb;
             this.today = today;
             this.wiki = wiki;
@@ -96,17 +96,18 @@ public class OnThisDayClient implements FeedClient {
     interface Service {
         @NonNull
         @GET("feed/onthisday/selected/{mm}/{dd}")
-        Call<OnThisDay> getSelectedEvent(@Path("mm") String month,
-                                         @Path("dd") String day);
+        Call<OnThisDay> getSelectedEvent(@Path("mm") int month,
+                                         @Path("dd") int day);
 
         @NonNull
         @GET("feed/onthisday/events/{mm}/{dd}")
-        Call<OnThisDay> getAllOtdEvents(@Path("mm") String month,
-                                        @Path("dd") String day);
+        Call<OnThisDay> getAllOtdEvents(@Path("mm") int month,
+                                        @Path("dd") int day);
     }
 
     @VisibleForTesting
-    @NonNull Call<OnThisDay> request(@NonNull Service service) {
-        return service.getSelectedEvent("10", "05");
+    @NonNull
+    Call<OnThisDay> request(@NonNull Service service, int mon, int day) {
+        return service.getSelectedEvent(mon, day);
     }
 }

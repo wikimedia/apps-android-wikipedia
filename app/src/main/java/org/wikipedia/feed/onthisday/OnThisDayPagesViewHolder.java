@@ -50,7 +50,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
 
     public void setFields(@NonNull RbPageSummary page) {
         selectedPage = page;
-        pageItemDescTextView.setText(StringUtil.fromHtml(StringUtils.defaultString(page.getExtract())));
+        pageItemDescTextView.setText(StringUtils.capitalize(page.getDescription()));
         pageItemTitleTextView.setText(StringUtil.fromHtml(StringUtils.defaultString(page.getNormalizedTitle())));
         setImage(page.getThumbnailUrl());
     }
@@ -66,7 +66,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
 
     @OnClick(R.id.parent) void onBaseViewClicked() {
         Context context = WikipediaApp.getInstance().getApplicationContext();
-        PageTitle pageTitle = new PageTitle(selectedPage.getNormalizedTitle(), wiki);
+        PageTitle pageTitle = new PageTitle(selectedPage.getTitle(), wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
         Intent intent = new Intent(ACTION_LOAD_IN_NEW_TAB)
