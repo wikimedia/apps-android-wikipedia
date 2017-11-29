@@ -47,10 +47,13 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(R.string.preference_key_sync_reading_lists)
                 .setOnPreferenceChangeListener(new SyncReadingListsListener());
 
-        findPreference(R.string.preference_key_enable_offline_library)
-                .setOnPreferenceChangeListener(new OfflineLibraryEnableListener());
-        findPreference(R.string.preference_key_enable_offline_library)
-                .setSummary(StringUtil.fromHtml(getPreferenceHost().getString(R.string.preference_summary_enable_offline_library)));
+        Preference offlineLibPref = findPreference(R.string.preference_key_enable_offline_library);
+        offlineLibPref.setOnPreferenceChangeListener(new OfflineLibraryEnableListener());
+        offlineLibPref.setSummary(StringUtil.fromHtml(getPreferenceHost().getString(R.string.preference_summary_enable_offline_library)));
+        // TODO: remove when offline library sideloading is ready to go.
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            offlineLibPref.setVisible(false);
+        }
 
         findPreference(R.string.preference_key_color_theme)
                 .setOnPreferenceChangeListener(new ThemeChangeListener());
