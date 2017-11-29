@@ -281,7 +281,7 @@ class ToCHandler {
         @Override
         public void onDrawerOpened(View drawerView) {
             super.onDrawerOpened(drawerView);
-            fragment.getActivity().supportInvalidateOptionsMenu();
+            fragment.getActivity().invalidateOptionsMenu();
             funnel.logOpen();
             wasClicked = false;
         }
@@ -289,7 +289,7 @@ class ToCHandler {
         @Override
         public void onDrawerClosed(View drawerView) {
             super.onDrawerClosed(drawerView);
-            fragment.getActivity().supportInvalidateOptionsMenu();
+            fragment.getActivity().invalidateOptionsMenu();
             if (!wasClicked) {
                 funnel.logClose();
             }

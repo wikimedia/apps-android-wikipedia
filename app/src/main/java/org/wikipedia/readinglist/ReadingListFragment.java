@@ -310,7 +310,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             sortMode = sortModeDesc;
         }
         Prefs.setReadingListPageSortMode(sortMode);
-        getActivity().supportInvalidateOptionsMenu();
+        getActivity().invalidateOptionsMenu();
         update();
     }
 

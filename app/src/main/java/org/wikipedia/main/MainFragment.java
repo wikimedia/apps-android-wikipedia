@@ -134,7 +134,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         downloadReceiver.setCallback(downloadReceiverCallback);
         // update toolbar, since Tab count might have changed
-        getActivity().supportInvalidateOptionsMenu();
+        getActivity().invalidateOptionsMenu();
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
     }

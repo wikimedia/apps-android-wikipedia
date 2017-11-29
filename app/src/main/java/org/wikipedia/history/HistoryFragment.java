@@ -316,7 +316,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 return;
             }
             updateEmptyState(currentSearchQuery);
-            getActivity().supportInvalidateOptionsMenu();
+            getActivity().invalidateOptionsMenu();
         }
 
         @Override

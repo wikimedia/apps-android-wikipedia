@@ -555,7 +555,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             tabList.remove(position);
             tabFunnel.logClose(tabList.size(), position);
             tabsProvider.invalidate();
-            getActivity().supportInvalidateOptionsMenu();
+            getActivity().invalidateOptionsMenu();
             if (tabList.size() == 0) {
                 tabFunnel.logCancel(tabList.size());
                 tabsProvider.exitTabMode();
@@ -1066,7 +1066,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             if (!isForeground) {
                 loadIntoCache(title);
             }
-            getActivity().supportInvalidateOptionsMenu();
+            getActivity().invalidateOptionsMenu();
         } else {
             getTopMostTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
@@ -1221,7 +1221,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void updatePageInfo(@Nullable PageInfo pageInfo) {
         this.pageInfo = pageInfo;
         if (getActivity() != null) {
-            getActivity().supportInvalidateOptionsMenu();
+            getActivity().invalidateOptionsMenu();
         }
     }
 
