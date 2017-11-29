@@ -28,7 +28,6 @@ import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.constants.MyLocationTracking;
 import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapbox.mapboxsdk.location.LocationSource;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
@@ -36,6 +35,7 @@ import com.mapbox.mapboxsdk.maps.Projection;
 import com.mapbox.services.android.telemetry.MapboxTelemetry;
 import com.mapbox.services.android.telemetry.location.LocationEngine;
 import com.mapbox.services.android.telemetry.location.LocationEngineListener;
+import com.mapbox.services.android.telemetry.location.LocationEngineProvider;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -133,7 +133,7 @@ public class NearbyFragment extends Fragment {
             }
         }
 
-        locationEngine = new LocationSource(getContext());
+        locationEngine = new LocationEngineProvider(getContext()).obtainBestLocationEngineAvailable();
         locationEngine.addLocationEngineListener(locationChangeListener);
 
         onLoading();
