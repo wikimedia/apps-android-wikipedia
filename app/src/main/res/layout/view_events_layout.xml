@@ -8,7 +8,7 @@
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
     android:layout_marginStart="12dp"
-    android:background="?attr/colorAccent"
+    android:background="?attr/chart_shade5"
     android:clipChildren="false"
     android:clipToPadding="false">
 

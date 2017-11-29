@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +18,9 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
+import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.MarginItemDecoration;
 
@@ -33,11 +33,11 @@ import butterknife.OnClick;
 public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
     @BindView(R.id.text) TextView descTextView;
+    @BindView(R.id.next_event_years) TextView nextEventYearsTextView;
+    @BindView(R.id.day) TextView dayTextView;
     @BindView(R.id.year) TextView yearTextView;
-    @BindView(R.id.next_year) TextView nextYearTextView;
     @BindView(R.id.years_text) TextView yearsInfoTextView;
     @BindView(R.id.year_layout) LinearLayout yearLayout;
-    @BindView(R.id.next_year_layout) LinearLayout nextYearLayout;
     @BindView(R.id.more_events_layout) LinearLayout moreEventsLayout;
     @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
     private int age;
@@ -102,15 +102,15 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
         headerView.setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_otd_icon)
-                .setImageCircleColor(R.color.base30)
+                .setImageCircleColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color))
                 .setCard(card)
                 .setCallback(getCallback());
         descTextView.setText(card.text());
+        RichTextUtil.removeUnderlinesFromLinksAndMakeBold(descTextView);
         yearTextView.setText(DateUtil.yearToStringWithEra(card.year()));
         yearsInfoTextView.setText(DateUtil.getYearDifferenceString(card.year()));
-        yearLayout.setBackground(GradientUtil.getPowerGradient(R.color.base100, Gravity.TOP));
-        nextYearLayout.setBackground(GradientUtil.getPowerGradient(R.color.base100, Gravity.BOTTOM));
-        nextYearTextView.setText(DateUtil.yearToStringWithEra(card.nextYear()));
+        dayTextView.setText(card.dayString());
+        nextEventYearsTextView.setText(DateUtil.getYearDifferenceString(card.nextYear()));
     }
 
     @Override

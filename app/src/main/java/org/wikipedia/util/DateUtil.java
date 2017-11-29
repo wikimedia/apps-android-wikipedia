@@ -42,6 +42,10 @@ public final class DateUtil {
         return getShortDateString(date);
     }
 
+    public static String getMonthOnlyDateString(@NonNull Date date) {
+        return new SimpleDateFormat("MMMM d", Locale.getDefault()).format(date);
+    }
+
     public static String getShortDateString(@NonNull Date date) {
         // todo: consider allowing TWN date formats. It would be useful to have but might be
         //       difficult for translators to write correct format specifiers without being able to

@@ -39,13 +39,12 @@ public class OnThisDayClient implements FeedClient {
         call.enqueue(new CallbackAdapter(cb, today, wiki, age));
     }
 
-    public Call<OnThisDay> request(@NonNull WikiSite wiki, int age) {
-        UtcDate today = DateUtil.getUtcRequestDateFor(age);
+    public Call<OnThisDay> request(@NonNull WikiSite wiki, String month, String date) {
         String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
                 wiki.authority());
         Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
         OnThisDayClient.Service service = retrofit.create(Service.class);
-        return service.getAllOtdEvents(today.month(), today.date());
+        return service.getAllOtdEvents(month, date);
     }
 
     @Override
@@ -101,7 +100,7 @@ public class OnThisDayClient implements FeedClient {
                                          @Path("dd") String day);
 
         @NonNull
-        @GET("feed/onthisday/all/{mm}/{dd}")
+        @GET("feed/onthisday/events/{mm}/{dd}")
         Call<OnThisDay> getAllOtdEvents(@Path("mm") String month,
                                         @Path("dd") String day);
     }
