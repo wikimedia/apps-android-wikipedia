@@ -397,8 +397,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onRequestCustomize() {
-            showConfigureActivity();
+        public void onRequestCustomize(@NonNull Card card) {
+            showConfigureActivity(card.type().code());
         }
 
         @Override
@@ -449,7 +449,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 startActivityForResult(SettingsActivity.newIntent(getContext()),
                         SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_CUSTOMIZE_FEED)) {
-                showConfigureActivity();
+                showConfigureActivity(card.type().code());
             } else {
                 UriUtil.handleExternalLink(getContext(), uri);
             }
@@ -533,8 +533,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         snackbar.show();
     }
 
-    private void showConfigureActivity() {
-        startActivityForResult(ConfigureActivity.newIntent(getActivity()),
+    private void showConfigureActivity(int invokeSource) {
+        startActivityForResult(ConfigureActivity.newIntent(getActivity(), invokeSource),
                 Constants.ACTIVITY_REQUEST_FEED_CONFIGURE);
     }
 
@@ -567,7 +567,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void configureCardsClick() {
-            showConfigureActivity();
+            showConfigureActivity(-1);
         }
 
         @Override

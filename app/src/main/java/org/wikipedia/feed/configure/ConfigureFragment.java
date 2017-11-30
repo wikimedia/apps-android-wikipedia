@@ -2,6 +2,7 @@ package org.wikipedia.feed.configure;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.FeedConfigureFunnel;
 import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.views.DefaultViewHolder;
@@ -34,6 +37,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     private Unbinder unbinder;
     private ItemTouchHelper itemTouchHelper;
     private List<FeedContentType> orderedContentTypes = new ArrayList<>();
+    @Nullable private FeedConfigureFunnel funnel;
 
     @NonNull public static ConfigureFragment newInstance() {
         return new ConfigureFragment();
@@ -46,6 +50,9 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
 
         prepareContentTypeList();
         setupRecyclerView();
+
+        funnel = new FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
+                getActivity().getIntent().getIntExtra(ConfigureActivity.INVOKE_SOURCE_EXTRA, -1));
         return view;
     }
 
@@ -65,6 +72,10 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     public void onDestroyView() {
         unbinder.unbind();
         unbinder = null;
+        if (funnel != null) {
+            funnel.done(orderedContentTypes);
+            funnel = null;
+        }
         super.onDestroyView();
     }
 

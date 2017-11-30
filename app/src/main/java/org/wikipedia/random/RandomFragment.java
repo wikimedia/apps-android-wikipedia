@@ -78,6 +78,7 @@ public class RandomFragment extends Fragment {
         unbinder = null;
         if (funnel != null) {
             funnel.done();
+            funnel = null;
         }
         super.onDestroyView();
     }

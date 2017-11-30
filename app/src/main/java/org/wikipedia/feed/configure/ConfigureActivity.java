@@ -8,9 +8,11 @@ import org.wikipedia.activity.SingleFragmentActivity;
 
 public class ConfigureActivity extends SingleFragmentActivity<ConfigureFragment> {
     public static final int CONFIGURATION_CHANGED_RESULT = 1;
+    static final String INVOKE_SOURCE_EXTRA = "invokeSource";
 
-    public static Intent newIntent(@NonNull Context context) {
-        return new Intent(context, ConfigureActivity.class);
+    public static Intent newIntent(@NonNull Context context, int invokeSource) {
+        return new Intent(context, ConfigureActivity.class)
+                .putExtra(INVOKE_SOURCE_EXTRA, invokeSource);
     }
 
     @Override
