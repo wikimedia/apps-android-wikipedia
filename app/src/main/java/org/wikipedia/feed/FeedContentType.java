@@ -29,60 +29,60 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() && age == 0 && isOnline ? new AggregatedFeedContentClient.InTheNews(aggregatedClient) : null;
         }
     },
-    FEATURED_ARTICLE(1, R.string.view_featured_article_card_title, R.string.feed_item_type_featured_article) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
-            return isEnabled() && isOnline ? new AggregatedFeedContentClient.FeaturedArticle(aggregatedClient) : null;
-        }
-    },
-    TRENDING_ARTICLES(2, R.string.most_read_list_card_title, R.string.feed_item_type_trending) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
-            return isEnabled() && isOnline ? new AggregatedFeedContentClient.TrendingArticles(aggregatedClient) : null;
-        }
-    },
-    FEATURED_IMAGE(3, R.string.view_featured_image_card_title, R.string.feed_item_type_featured_image) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
-            return isEnabled() && isOnline ? new AggregatedFeedContentClient.FeaturedImage(aggregatedClient) : null;
-        }
-    },
-    ON_THIS_DAY(4, R.string.on_this_day_card_title, R.string.feed_item_type_on_this_day) {
+    ON_THIS_DAY(1, R.string.on_this_day_card_title, R.string.feed_item_type_on_this_day) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
             return isEnabled() && isOnline && isPreBetaRelease() ? new OnThisDayClient() : null;
         }
     },
-    CONTINUE_READING(5, R.string.view_continue_reading_card_title, R.string.feed_item_type_continue_reading) {
+    CONTINUE_READING(2, R.string.view_continue_reading_card_title, R.string.feed_item_type_continue_reading) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
             return isEnabled() ? new ContinueReadingClient() : null;
         }
     },
-    BECAUSE_YOU_READ(6, R.string.view_because_you_read_card_title, R.string.feed_item_type_because_you_read) {
+    TRENDING_ARTICLES(3, R.string.most_read_list_card_title, R.string.feed_item_type_trending) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
-            return isEnabled() && isOnline ? new BecauseYouReadClient() : null;
+            return isEnabled() && isOnline ? new AggregatedFeedContentClient.TrendingArticles(aggregatedClient) : null;
         }
     },
-    MAIN_PAGE(7, R.string.view_main_page_card_title, R.string.feed_item_type_main_page) {
+    MAIN_PAGE(4, R.string.view_main_page_card_title, R.string.feed_item_type_main_page) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
             return isEnabled() && age == 0 ? new MainPageClient() : null;
         }
     },
-    RANDOM(8, R.string.view_random_card_title, R.string.feed_item_type_randomizer) {
+    RANDOM(5, R.string.view_random_card_title, R.string.feed_item_type_randomizer) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
             return isEnabled() && age % 2 == 0 ? new RandomClient() : null;
+        }
+    },
+    FEATURED_ARTICLE(6, R.string.view_featured_article_card_title, R.string.feed_item_type_featured_article) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
+            return isEnabled() && isOnline ? new AggregatedFeedContentClient.FeaturedArticle(aggregatedClient) : null;
+        }
+    },
+    FEATURED_IMAGE(7, R.string.view_featured_image_card_title, R.string.feed_item_type_featured_image) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
+            return isEnabled() && isOnline ? new AggregatedFeedContentClient.FeaturedImage(aggregatedClient) : null;
+        }
+    },
+    BECAUSE_YOU_READ(8, R.string.view_because_you_read_card_title, R.string.feed_item_type_because_you_read) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
+            return isEnabled() && isOnline ? new BecauseYouReadClient() : null;
         }
     };
 
