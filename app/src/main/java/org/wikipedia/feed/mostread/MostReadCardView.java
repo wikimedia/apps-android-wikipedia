@@ -28,7 +28,7 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
         header(card);
         this.card = card;
         set(new RecyclerAdapter(card.items().subList(0, Math.min(card.items().size(), EVENTS_SHOWN))));
-        setMoreContentTextView(String.format(getContext().getString(R.string.all_trending_text), card.subtitle()));
+        setMoreContentTextView(getContext().getString(R.string.more_trending_text));
     }
 
     private void header(@NonNull MostReadListCard card) {
