@@ -66,7 +66,7 @@
             android:orientation="vertical"
             android:fitsSystemWindows="true">
 
-            <TextView
+            <org.wikipedia.views.AppTextView
                 android:id="@+id/view_news_fullscreen_story_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,6 +74,7 @@
                 android:textSize="16sp"
                 android:fontFamily="serif"
                 android:lineSpacingMultiplier="1.2"
+                android:textIsSelectable="true"
                 android:textColor="?attr/section_title_color"
                 android:background="?attr/paper_color"
                 style="@style/RtlAwareTextView"/>
