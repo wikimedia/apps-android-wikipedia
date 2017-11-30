@@ -7,12 +7,15 @@ import android.support.annotation.NonNull;
 import org.wikipedia.activity.SingleFragmentActivity;
 
 public class OnThisDayActivity extends SingleFragmentActivity<OnThisDayFragment> {
-
     public static final String AGE = "age";
+    public static final int INVOKE_SOURCE_CARD_BODY = 0;
+    public static final int INVOKE_SOURCE_CARD_FOOTER = 1;
+    static final String INVOKE_SOURCE_EXTRA = "invokeSource";
 
-
-    public static Intent newIntent(@NonNull Context context, int age) {
-        return new Intent(context, OnThisDayActivity.class).putExtra(AGE, age);
+    public static Intent newIntent(@NonNull Context context, int age, int invokeSource) {
+        return new Intent(context, OnThisDayActivity.class)
+                .putExtra(AGE, age)
+                .putExtra(INVOKE_SOURCE_EXTRA, invokeSource);
     }
 
     @Override

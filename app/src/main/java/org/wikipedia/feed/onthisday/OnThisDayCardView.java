@@ -49,10 +49,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
         initRecycler();
     }
 
-    private void launchOnThisDayActivity() {
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age));
-    }
-
     private void initRecycler() {
         pagesRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         pagesRecycler.addItemDecoration(new MarginItemDecoration(getContext(),
@@ -67,10 +63,12 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     static class RecyclerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
         private List<RbPageSummary> pages;
         private WikiSite wiki;
+        private final boolean isSingleCard;
 
-        RecyclerAdapter(@NonNull List<RbPageSummary> pages, WikiSite wiki) {
+        RecyclerAdapter(@NonNull List<RbPageSummary> pages, @NonNull WikiSite wiki, boolean isSingleCard) {
             this.pages = pages;
             this.wiki = wiki;
+            this.isSingleCard = isSingleCard;
         }
 
         @Override
@@ -78,7 +76,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.item_on_this_day_pages, viewGroup, false);
-            return new OnThisDayPagesViewHolder((CardView) itemView, wiki);
+            return new OnThisDayPagesViewHolder((CardView) itemView, wiki, isSingleCard);
         }
 
         @Override
@@ -117,11 +115,17 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     public void setCard(@NonNull OnThisDayCard card) {
         super.setCard(card);
         this.age = card.getAge();
-        pagesRecycler.setAdapter(new RecyclerAdapter(card.pages(), card.wiki()));
+        pagesRecycler.setAdapter(new RecyclerAdapter(card.pages(), card.wiki(), true));
         header(card);
     }
 
-    @OnClick({R.id.more_events_layout, R.id.view_on_this_day_click_container}) void onMoreClick() {
-        launchOnThisDayActivity();
+    @OnClick({R.id.view_on_this_day_click_container}) void onMoreClick() {
+        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
+                OnThisDayActivity.INVOKE_SOURCE_CARD_BODY));
+    }
+
+    @OnClick({R.id.more_events_layout}) void onMoreFooterClick() {
+        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
+                OnThisDayActivity.INVOKE_SOURCE_CARD_FOOTER));
     }
 }

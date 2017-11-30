@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.OnThisDayFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.util.DateUtil;
@@ -60,6 +61,7 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
     @Nullable private WikiSite wiki;
     private Calendar date;
     private Unbinder unbinder;
+    @Nullable private OnThisDayFunnel funnel;
 
     @NonNull
     public static OnThisDayFragment newInstance(int age) {
@@ -82,6 +84,9 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         requestEvents(today.month(), today.date());
         setUpToolbar();
         initEventsRecycler();
+
+        funnel = new OnThisDayFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
+                getActivity().getIntent().getIntExtra(OnThisDayActivity.INVOKE_SOURCE_EXTRA, 0));
         return view;
     }
 
@@ -183,6 +188,10 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
 
     @Override
     public void onDestroyView() {
+        if (funnel != null && eventsRecycler.getAdapter() != null) {
+            funnel.done(eventsRecycler.getAdapter().getItemCount());
+            funnel = null;
+        }
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -251,6 +260,9 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         @Override
         public void onBindViewHolder(EventsViewHolder eventsViewHolder, int i) {
             eventsViewHolder.setFields(events.get(i));
+            if (funnel != null) {
+                funnel.scrolledToPosition(i);
+            }
         }
 
         @Override
@@ -287,7 +299,7 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         }
 
         public void setFields(final OnThisDay.Event event) {
-            pagesRecycler.setAdapter(new OnThisDayCardView.RecyclerAdapter(event.pages(), wiki));
+            pagesRecycler.setAdapter(new OnThisDayCardView.RecyclerAdapter(event.pages(), wiki, false));
             descTextView.setText(event.text());
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
