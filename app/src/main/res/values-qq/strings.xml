@@ -146,6 +146,7 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
+  <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://m.wikimediafoundation.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
   <string name="cc_by_sa_3_url">URL for details about the Creative Commons CC BY-SA 3.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
@@ -517,8 +518,12 @@
   <string name="onboarding_skip">Button label to skip the current onboarding or tutorial screen.\n{{Identical|Skip}}</string>
   <string name="onboarding_continue">Button label to continue to the next onboarding or tutorial screen.\n{{Identical|Continue}}</string>
   <string name="onboarding_get_started">Button label to finish the current onboarding or tutorial workflow.\n{{Identical|Get started}}</string>
+  <string name="onboarding_welcome_title">Title for a tutorial screen about the general introducing to Wikipedia.</string>
+  <string name="onboarding_welcome_text">General introduction about the Wikipedia. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_explore_title">Title for a tutorial screen about the Explore feed.</string>
   <string name="onboarding_explore_text">Short explanatory text about the benefits of the Explore feed.</string>
+  <string name="onboarding_save_to_reading_lists_title">Title for a tutorial screen about saving articles to reading lists.</string>
+  <string name="onboarding_save_to_reading_lists_text">Short explanatory text about the benefits of saving articles to reading lists. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_reading_list_sync_title">Title for a tutorial screen about synchronizing reading lists.</string>
   <string name="onboarding_reading_list_sync_text">Short explanatory text about the benefits of synchronizing reading lists. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_analytics_title">Title for a tutorial screen about anonymous usage reports sent by the app.</string>
