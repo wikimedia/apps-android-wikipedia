@@ -254,7 +254,7 @@
   <string name="menu_feed_overflow_label">Rhagor o opsiynau</string>
   <string name="feed_featured_image_share_subject">Lluniau dethol o Gomin Wicimedia</string>
   <string name="view_card_footer_button">Gweld rhagor</string>
-  <string name="view_continue_reading_card_subtitle_today">Heddiw</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Heddiw</string>
   <string name="view_announcement_card_negative_action">Dim diolch</string>
   <string name="description_edit_help_about_wikidata">Ynglŷn â Wicidata</string>
 </resources>

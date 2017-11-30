@@ -274,7 +274,7 @@
   <string name="feed">शोध करा</string>
   <string name="view_card_footer_button">अधिक बघा</string>
   <string name="view_card_news_title">बातम्यांमध्ये</string>
-  <string name="view_continue_reading_card_subtitle_today">आज</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">आज</string>
   <string name="view_announcement_card_negative_action">नाही धन्यवाद</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
   <string name="view_featured_article_footer_save_button_label">जतन करा</string>

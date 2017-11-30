@@ -356,7 +356,7 @@
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Liest en zoufällegen Artikel vu Wikipedia</string>
+  <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
   <string name="view_main_page_card_title">Haut op Wikipedia</string>
   <string name="view_main_page_card_subtitle">Haaptsäit op %s</string>
   <string name="view_main_page_card_action">Haaptsäit weisen</string>
@@ -371,17 +371,21 @@
   <string name="most_read_list_card_title">Beléift</string>
   <string name="view_static_card_icon_content_description">Kaartesymbol</string>
   <string name="view_card_news_title">An den Neiegkeeten</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Gëschter</item>
     <item quantity="other">viru(n) %d Deeg</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Haut</string>
+  <string name="view_continue_reading_card_subtitle_today">haut</string>
+  <string name="view_continue_reading_card_subtitle_read_date">%s geliest</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
   <string name="view_offline_card_text">Et ka keen INhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>
   <string name="view_featured_article_footer_saved_button_label">Gespäichert</string>
   <string name="feed_configure_menu_title">Kaarte konfiguréieren</string>
-  <string name="feed_configure_menu_reset">Op de Standard zrécksetzen</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Op de Standard zrécksetzen</string>
+  <string name="feed_configure_menu_select_all">Alles uwielen</string>
+  <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
+  <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
@@ -451,12 +455,17 @@
   <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
   <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
   <string name="onboarding_create_account_preferences">Späichert Är Astellungen</string>
+  <string name="onboarding_got_it">Verstan</string>
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
   <string name="on_this_day_card_title">Op dësem Dag</string>
+  <string name="more_events_text">MÉI OP DËSEM DAG</string>
+  <string name="events_count_text">OP DËSEM DAG\n%1$s Evenementer vum %2$s bis %3$d</string>
   <string name="on_this_day">Op dësem Dag</string>
   <string name="this_year">Dëst Joer</string>
+  <string name="back_to_top">ZRÉCK NO UEWEN</string>
+  <string name="date_picker">Datum eraussichen</string>
   <plurals name="diff_years">
     <item quantity="one">Lescht Joer</item>
     <item quantity="other">Viru(n) %d Joer</item>

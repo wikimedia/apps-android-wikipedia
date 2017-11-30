@@ -368,11 +368,11 @@
   <string name="most_read_list_card_title">Trendy</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">Správy</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">včera</item>
     <item quantity="other">pred %d dňami</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Dnes</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Dnes</string>
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
   <string name="view_offline_card_text">Obsah nemôže byť načítaný bez pripojenia na internet.</string>
   <string name="view_featured_article_card_title">Odporúčaný článok</string>

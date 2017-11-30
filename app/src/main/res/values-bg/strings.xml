@@ -264,6 +264,7 @@
   <string name="preference_summary_dim_dark_mode_images">Намаляване на яркостта на изображенията, когато се използва тъмният облик</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
   <string name="preference_title_prefer_offline_content">Предпочитане на офлайн съдържание</string>
+  <string name="preference_summary_prefer_offline_content">Пестете мобилни данни, като зареждате статии, които са налични в офлайн режим, вместо да зареждате последната им версия.</string>
   <string name="preference_title_enable_offline_library">Включване на офлайн библиотека</string>
   <string name="crash_report_dialog_title">За съжаление, приложението се срина последния път</string>
   <string name="crash_report_dialog_text">Желаете ли да изпратите доклад за срива на HockeyApp / услуга на трети страни, така че Уикимедия да разгледа срива и да оправи бъга, който го е причинил?</string>
@@ -323,6 +324,7 @@
   <string name="reading_list_deleted">%s е изтрит</string>
   <string name="reading_lists_empty">Все още няма списъци за четене</string>
   <string name="reading_lists_empty_message">Запазете статии в списъци за четене, така че да можете да ги прегледате по-късно, дори когато нямате мрежа.</string>
+  <string name="reading_lists_onboarding_intro">Създавайте списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа!</string>
   <string name="reading_lists_onboarding_for_example">Например</string>
   <string name="reading_lists_onboarding_example1">Места за посещение</string>
   <string name="reading_lists_onboarding_example2">Любими животни</string>
@@ -353,6 +355,10 @@
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Тази статия вече е налична офлайн.</item>
     <item quantity="other">Тези статии вече са налични офлайн.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Тази статия вече не е налична в офлайн режим.</item>
+    <item quantity="other">Тези статии вече не са налични в офлайн режим.</item>
   </plurals>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_button_view_user">Беседа с потребителя</string>
@@ -389,18 +395,30 @@
   <string name="most_read_list_card_title">Най-четено</string>
   <string name="view_static_card_icon_content_description">Икона за карта</string>
   <string name="view_card_news_title">В новините</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Вчера</item>
     <item quantity="other">Преди %d дни</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Днес</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Днес</string>
   <string name="view_announcement_card_negative_action">Не, благодаря</string>
   <string name="view_offline_card_text">Съдържанието не може да бъде заредено без интернет.</string>
   <string name="view_featured_article_card_title">Избрана статия</string>
   <string name="view_featured_article_footer_save_button_label">Съхраняване</string>
   <string name="view_featured_article_footer_saved_button_label">Съхранено</string>
   <string name="feed_configure_menu_title">Конфигуриране на карти</string>
-  <string name="feed_configure_menu_reset">Нулиране на настройките по подразбиране</string>
+  <string name="feed_configure_activity_title">Персонализиране на хранилката</string>
+  <string name="feed_configure_menu_reset">Нулиране на изгледа по подразбиране</string>
+  <string name="feed_configure_menu_select_all">Избиране на всички</string>
+  <string name="feed_item_type_news">Статии за текущи събития</string>
+  <string name="feed_item_type_on_this_day">Събития в историята на този ден</string>
+  <string name="feed_item_type_continue_reading">Бърза връзка обратно към четене на отворена статия в един от разделите Ви</string>
+  <string name="feed_item_type_because_you_read">Предложения, базирани на скоро четена статия от историята Ви</string>
+  <string name="feed_item_type_featured_article">Дневна избрана статия в Уикипедия</string>
+  <string name="feed_item_type_trending">Дневно най-четени статии</string>
+  <string name="feed_item_type_featured_image">Дневна избрана картинка от Общомедия</string>
+  <string name="feed_item_type_main_page">Начална страница на Уикипедия с дневно избрано съдържание</string>
+  <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
+  <string name="feed_configure_onboarding_action">Персонализиране</string>
   <string name="description_edit_text_hint">Описание на заглавието</string>
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_add_description">Добавяне на описание на заглавието</string>
@@ -468,6 +486,7 @@
   <string name="compilation_share">Споделяне</string>
   <string name="compilation_remove">Премахване</string>
   <string name="offline_library_title">Офлайн библиотека</string>
+  <string name="offline_library_empty_title">Няма нищо във вашата офлайн библиотека</string>
   <string name="offline_library_empty_description">Избиране на пакет със статии от Уикипедия за изтегляне сега, така че да могат да се четат по-късно без мобилни данни.</string>
   <string name="offline_library_empty_search">Търсене в офлайн библиотеката</string>
   <string name="offline_library_onboarding_action">Научете повече</string>
@@ -488,12 +507,13 @@
   <string name="onboarding_create_account_sync">Синхронизация на списъците Ви за четене</string>
   <string name="onboarding_create_account_contributions">Бъдете в течение с приносите си</string>
   <string name="onboarding_create_account_preferences">Съхраняване на предпочитанията</string>
+  <string name="onboarding_got_it">Разбрах</string>
   <string name="app_shortcuts_random">Случайна</string>
   <string name="app_shortcuts_continue_reading">Продължаване с четенето</string>
   <string name="app_shortcuts_search">Търсене</string>
   <string name="on_this_day_card_title">На този ден</string>
-  <string name="more_events_text">Още исторически събития на този ден</string>
-  <string name="events_count_text">%1$s събития от %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Още исторически събития на този ден</string>
+  <string name="events_count_text" fuzzy="true">%1$s събития от %2$s - %3$d</string>
   <string name="on_this_day">На този ден</string>
   <string name="this_year">Тази година</string>
   <plurals name="diff_years">

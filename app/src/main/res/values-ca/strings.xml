@@ -375,9 +375,9 @@
   <string name="notification_channel_description">Progrés de la sincronització</string>
   <string name="notification_syncing_title">Sincronització de %1$d articles…</string>
   <string name="notification_syncing_description">queden %1$d articles</string>
-  <string name="notification_syncing_pause_button" fuzzy="true">PAUSA</string>
-  <string name="notification_syncing_resume_button" fuzzy="true">REPRÈN</string>
-  <string name="notification_syncing_cancel_button" fuzzy="true">CANCEL·LA</string>
+  <string name="notification_syncing_pause_button">Pausa</string>
+  <string name="notification_syncing_resume_button">Reprèn</string>
+  <string name="notification_syncing_cancel_button">Cancel·la</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Com has llegit</string>
   <string name="view_random_card_title">A l\'atzar</string>
@@ -398,19 +398,30 @@
   <string name="most_read_list_card_title">Tendències</string>
   <string name="view_static_card_icon_content_description">Icona de targeta</string>
   <string name="view_card_news_title">Actualitat</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Ahir</item>
     <item quantity="other">Fa %d dies</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Avui</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Avui</string>
   <string name="view_announcement_card_negative_action">No, gràcies</string>
   <string name="view_offline_card_text">El contingut no es pot carregar quan s\'està fora de línia.</string>
   <string name="view_featured_article_card_title">Article destacat</string>
   <string name="view_featured_article_footer_save_button_label">Desa</string>
   <string name="view_featured_article_footer_saved_button_label">Desat</string>
   <string name="feed_configure_menu_title">Configura la targetes</string>
-  <string name="feed_configure_activity_title">Configura les targetes d\'exploració</string>
-  <string name="feed_configure_menu_reset">Reinicialitza als valors per defecte</string>
+  <string name="feed_configure_activity_title">Personalitza el canal</string>
+  <string name="feed_configure_menu_reset">Restaura la vista per defecte</string>
+  <string name="feed_configure_menu_select_all">Selecciona-ho tot</string>
+  <string name="feed_configure_menu_deselect_all">Desselecciona-ho tot</string>
+  <string name="feed_item_type_news">Articles dels esdeveniments actuals</string>
+  <string name="feed_item_type_on_this_day">Efemèrides</string>
+  <string name="feed_item_type_because_you_read">Suggeriments basats en un article llegit recentment del vostre historial</string>
+  <string name="feed_item_type_featured_article">Articles destacats a la Viquipèdia</string>
+  <string name="feed_item_type_trending">Articles més vistos del dia</string>
+  <string name="feed_item_type_featured_image">Imatge destacada del dia a Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Pàgina principal de la Viquipèdia amb contingut destacat del dia</string>
+  <string name="feed_item_type_randomizer">Genera articles a l\'atzar per llegir</string>
+  <string name="feed_configure_onboarding_action">Personalitza</string>
   <string name="description_edit_text_hint">Descripció de títol</string>
   <string name="description_edit_save">Publica</string>
   <string name="description_edit_add_description">Afegeix una descripció de títol</string>
@@ -513,14 +524,15 @@
   <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>
   <string name="onboarding_create_account_contributions">Estigueu al dia de les vostres contribucions</string>
   <string name="onboarding_create_account_preferences">Desa les preferències</string>
+  <string name="onboarding_got_it">Entesos</string>
   <string name="app_shortcuts_random">A l\'atzar</string>
   <string name="app_shortcuts_continue_reading">Continua llegint</string>
   <string name="app_shortcuts_search">Cerca</string>
   <string name="all_trending_text">Tots els articles en tendència el %1$s</string>
   <string name="top_on_this_day">Tendència el %1$s</string>
   <string name="on_this_day_card_title">Un dia com avui</string>
-  <string name="more_events_text">Més esdeveniments històrics un dia com avui</string>
-  <string name="events_count_text">%1$s esdeveniments des de %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Més esdeveniments històrics un dia com avui</string>
+  <string name="events_count_text" fuzzy="true">%1$s esdeveniments des de %2$s - %3$d</string>
   <string name="on_this_day">Un dia com avui</string>
   <string name="this_year">Enguany</string>
   <plurals name="diff_years">

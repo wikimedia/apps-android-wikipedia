@@ -259,7 +259,7 @@
   <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
   <string name="reference_title">তথ্যসূত্র %s</string>
   <string name="preference_title_dim_dark_mode_images">কালো থিমে চিত্রের উজ্জ্বলতা হ্রাস করুন</string>
-  <string name="preference_summary_dim_dark_mode_images">কালো থিম ব্যবহার করার সময় চিত্রের উজ্জ্বলতা হ্রাস করবে</string>
+  <string name="preference_summary_dim_dark_mode_images">কালো থিম ব্যবহার করার সময় চিত্রের উজ্জ্বলতা হ্রাস করুন</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">চিত্রের উজ্জ্বলতা হ্রাস (কালো থিমে)</string>
   <string name="preference_title_prefer_offline_content">অফলাইন সামগ্রীর পছন্দ</string>
   <string name="preference_summary_prefer_offline_content">সর্বদা নিবন্ধের সর্বশেষ সংস্করণ লোড করার পরিবর্তে অফলাইনে উপলব্ধ নিবন্ধগুলি লোড করে ডেটা খরচ বাঁচান</string>
@@ -385,16 +385,24 @@
   <string name="most_read_list_card_title">প্রবণতা</string>
   <string name="view_static_card_icon_content_description">কার্ড আইকন</string>
   <string name="view_card_news_title">সংবাদে</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">গতকাল</item>
     <item quantity="other">%d দিন আগে</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">আজ</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">আজ</string>
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
   <string name="view_offline_card_text">অফলাইনে থাকা অবস্থায় সামগ্রী লোড করা যাবে না।</string>
   <string name="view_featured_article_card_title">নির্বাচিত নিবন্ধ</string>
   <string name="view_featured_article_footer_save_button_label">সংরক্ষণ করুন</string>
   <string name="view_featured_article_footer_saved_button_label">সংরক্ষিত</string>
+  <string name="feed_configure_activity_title">পছন্দমত ফিড তৈরি করুন</string>
+  <string name="feed_configure_menu_reset">মূল দৃশ্যপট পুনঃস্থাপন</string>
+  <string name="feed_configure_menu_deselect_all">সব অনির্বাচিত করুন</string>
+  <string name="feed_item_type_news">চলমান ঘটনা সম্পর্কিত প্রবন্ধ সমূম</string>
+  <string name="feed_item_type_on_this_day">এই দিনের ঐতিহাসিক ঘটনাবলি</string>
+  <string name="feed_item_type_trending">দৈনিক বেশী দেখা প্রবন্ধ সমূহ</string>
+  <string name="feed_item_type_randomizer">পড়ার জন্য অনির্ধারিত প্রবন্ধ বের করুন</string>
+  <string name="feed_configure_onboarding_action">পছন্দকরণ</string>
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>
@@ -477,8 +485,8 @@
   <string name="app_shortcuts_search">অনুসন্ধান</string>
   <string name="top_on_this_day">%1$s-এর প্রবণতা</string>
   <string name="on_this_day_card_title">আজকের এই দিনে</string>
-  <string name="more_events_text">এই দিনের আরো ঐতিহাসিক ঘটনা</string>
-  <string name="events_count_text">%2$s থেকে %3$d পর্যন্ত %1$sটি ঘটনা</string>
+  <string name="more_events_text" fuzzy="true">এই দিনের আরো ঐতিহাসিক ঘটনা</string>
+  <string name="events_count_text" fuzzy="true">%2$s থেকে %3$d পর্যন্ত %1$sটি ঘটনা</string>
   <string name="on_this_day">আজকের এই দিনে</string>
   <string name="this_year">এই বছর</string>
   <plurals name="diff_years">

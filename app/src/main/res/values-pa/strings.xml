@@ -252,7 +252,7 @@
     <item quantity="one">ਕੱਲ੍ਹ</item>
     <item quantity="other">%d ਦਿਨ ਪਹਿਲਾਂ</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">ਅੱਜ</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">ਅੱਜ</string>
   <string name="description_edit_text_hint" fuzzy="true">ਵੇਰਵਾ ਭਰੋ</string>
   <string name="description_edit_save">ਸਾਂਭੋ</string>
   <string name="description_edit_add_description" fuzzy="true">ਵੇਰਵਾ ਸੋਧੋ</string>

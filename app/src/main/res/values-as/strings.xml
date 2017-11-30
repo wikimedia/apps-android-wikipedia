@@ -316,7 +316,7 @@
   <string name="view_card_footer_button">আৰু চাওক</string>
   <string name="most_read_list_card_title">ট্ৰেণ্ডিং</string>
   <string name="view_card_news_title">খবৰৰ শীৰ্ষত</string>
-  <string name="view_continue_reading_card_subtitle_today">আজি</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">আজি</string>
   <string name="view_announcement_card_negative_action">নালাগে। ধন্যবাদ</string>
   <string name="description_edit_text_hint">শিৰোনামৰ বিৱৰণ</string>
   <string name="description_edit_save">প্ৰকাশ কৰক</string>

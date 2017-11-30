@@ -239,7 +239,7 @@
   <string name="format_error_server_message">Mensaxe: \"%s\"</string>
   <string name="address_copied">O enderezo copiouse no portapapeis.</string>
   <string name="text_copied">O texto copiouse no portapapeis.</string>
-  <string name="button_continue_to_article">Artigo lido</string>
+  <string name="button_continue_to_article">Ler artigo</string>
   <string name="button_add_to_reading_list">Engadir á lista de lectura</string>
   <string name="page_offline_notice_cannot_load_while_offline">O artigo non se pode cargar mentres non haxa conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Pistaː Engade o artigo a unha lista de lectura e descargarase cando se volva conectar.</string>
@@ -398,19 +398,19 @@
   <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icona de tarxeta</string>
   <string name="view_card_news_title">Actualidade</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">onte</item>
     <item quantity="other">fai %d días</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Hoxe</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Hoxe</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="view_offline_card_text">Non se pode cargar contido cando non hai conexión.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Gardar</string>
   <string name="view_featured_article_footer_saved_button_label">Gardado</string>
   <string name="feed_configure_menu_title">Configurar as tarxetas</string>
-  <string name="feed_configure_activity_title">Configurar as tarxetas de exploración</string>
-  <string name="feed_configure_menu_reset">Reinicializar ós valores por defecto</string>
+  <string name="feed_configure_activity_title" fuzzy="true">Configurar as tarxetas de exploración</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Reinicializar ós valores por defecto</string>
   <string name="description_edit_text_hint">Descrición de título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Engadir unha descrición de título</string>
@@ -519,8 +519,8 @@
   <string name="all_trending_text">Tódolos artigos en tendencia do %1$s</string>
   <string name="top_on_this_day">Tendencias do %1$s</string>
   <string name="on_this_day_card_title">Un día coma hoxe</string>
-  <string name="more_events_text">Máis acontecementos históricos neste día</string>
-  <string name="events_count_text">%1$s acontecementos entre %2$s e %3$d</string>
+  <string name="more_events_text" fuzzy="true">Máis acontecementos históricos neste día</string>
+  <string name="events_count_text" fuzzy="true">%1$s acontecementos entre %2$s e %3$d</string>
   <string name="on_this_day">Neste día</string>
   <string name="this_year">Este ano</string>
   <plurals name="diff_years">

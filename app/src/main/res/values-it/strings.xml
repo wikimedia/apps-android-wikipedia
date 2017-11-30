@@ -369,14 +369,26 @@
   <string name="view_static_card_icon_content_description">Icona scheda</string>
   <string name="view_card_news_title">Nelle notizie</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">Ieri</item>
+    <item quantity="one">ieri</item>
     <item quantity="other">%d giorni fa</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Oggi</string>
+  <string name="view_continue_reading_card_subtitle_today">oggi</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Letto %s</string>
   <string name="view_announcement_card_negative_action">No, grazie</string>
   <string name="view_featured_article_card_title">Voce in vetrina</string>
   <string name="view_featured_article_footer_save_button_label">Salva</string>
   <string name="view_featured_article_footer_saved_button_label">Salvato</string>
+  <string name="feed_configure_activity_title">Personalizza il feed</string>
+  <string name="feed_configure_menu_select_all">Seleziona tutto</string>
+  <string name="feed_configure_menu_deselect_all">Deseleziona tutto</string>
+  <string name="feed_item_type_news">Voci su eventi attuali</string>
+  <string name="feed_item_type_on_this_day">Eventi nella storia in questo giorno</string>
+  <string name="feed_item_type_because_you_read">Suggerimenti basati su una voce letta di recente dalla tua cronologia</string>
+  <string name="feed_item_type_trending">Voci più viste al giorno</string>
+  <string name="feed_item_type_featured_image">Immagine in primo piano quotidiana di Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Pagina principale di Wikipedia con contenuti giornalieri in primo piano</string>
+  <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
+  <string name="feed_configure_onboarding_action">Personalizza</string>
   <string name="description_edit_text_hint">Descrizione del titolo</string>
   <string name="description_edit_save">Pubblica</string>
   <string name="description_edit_add_description">Aggiungi una descrizione del titolo</string>
@@ -434,12 +446,13 @@
   <string name="onboarding_create_account_sync">Sincronizza i tuoi elenchi di lettura</string>
   <string name="onboarding_create_account_contributions">Tieni traccia dei tuoi contributi</string>
   <string name="onboarding_create_account_preferences">Salva le tue preferenze</string>
+  <string name="onboarding_got_it">Capito</string>
   <string name="app_shortcuts_random">Una pagina a caso</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
   <string name="on_this_day_card_title">In questo giorno</string>
-  <string name="more_events_text">Alti eventi storici in questo giorno</string>
-  <string name="events_count_text">%1$s eventi dal %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Alti eventi storici in questo giorno</string>
+  <string name="events_count_text" fuzzy="true">%1$s eventi dal %2$s - %3$d</string>
   <string name="on_this_day">In questo giorno</string>
   <string name="this_year">Questo anno</string>
   <plurals name="diff_years">

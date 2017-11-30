@@ -375,9 +375,9 @@
   <string name="notification_channel_description">同步進程</string>
   <string name="notification_syncing_title">同步 %1$d 個條目…</string>
   <string name="notification_syncing_description">剩下 %1$d 個條目</string>
-  <string name="notification_syncing_pause_button" fuzzy="true">暫停</string>
-  <string name="notification_syncing_resume_button" fuzzy="true">繼續</string>
-  <string name="notification_syncing_cancel_button" fuzzy="true">取消</string>
+  <string name="notification_syncing_pause_button">暫停</string>
+  <string name="notification_syncing_resume_button">繼續</string>
+  <string name="notification_syncing_cancel_button">取消</string>
   <string name="view_continue_reading_card_title">繼續閱讀</string>
   <string name="view_because_you_read_card_title">因為您讀了</string>
   <string name="view_random_card_title">隨機條目產生器</string>
@@ -403,14 +403,28 @@
     <item quantity="other">%d 日前</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今天</string>
+  <string name="view_continue_reading_card_subtitle_read_date">讀取 %s</string>
   <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="view_offline_card_text">內容無法在離線時載入。</string>
   <string name="view_featured_article_card_title">典範條目</string>
   <string name="view_featured_article_footer_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
   <string name="feed_configure_menu_title">設置卡片</string>
-  <string name="feed_configure_activity_title">設置探索卡片</string>
-  <string name="feed_configure_menu_reset">重新設定成預設值</string>
+  <string name="feed_configure_activity_title">設置訊息來源</string>
+  <string name="feed_configure_menu_reset">重新設定預設檢視</string>
+  <string name="feed_configure_menu_select_all">選擇全部</string>
+  <string name="feed_configure_menu_deselect_all">取消全選</string>
+  <string name="feed_item_type_news">有關目前事件的條目</string>
+  <string name="feed_item_type_on_this_day">在歷史上的今天之事件</string>
+  <string name="feed_item_type_continue_reading">快速連結返回至您分頁裡來閱讀一個所開啓條目</string>
+  <string name="feed_item_type_because_you_read">基於在您的歷史裡近期所閱讀條目之建設</string>
+  <string name="feed_item_type_featured_article">在維基百科上的每日典範條目</string>
+  <string name="feed_item_type_trending">每日最多瀏覽的條目</string>
+  <string name="feed_item_type_featured_image">來自維基共享資源的每日特色圖片</string>
+  <string name="feed_item_type_main_page">帶有每日特色內容的維基百科首頁</string>
+  <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
+  <string name="feed_configure_onboarding_action">自訂</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;自訂您的探索來源&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;您現在可在您的探索來源裡挑選出所要顯示內容，並且可以排序您所喜愛的內容種類。</string>
   <string name="description_edit_text_hint">標題說明</string>
   <string name="description_edit_save">發佈</string>
   <string name="description_edit_add_description">增加標題說明</string>
@@ -513,16 +527,19 @@
   <string name="onboarding_create_account_sync">同步您的閱讀清單</string>
   <string name="onboarding_create_account_contributions">保持追蹤您的貢獻</string>
   <string name="onboarding_create_account_preferences">儲存您的偏好設定</string>
+  <string name="onboarding_got_it">了解</string>
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
   <string name="all_trending_text">在 %1$s 的所有趨勢條目</string>
   <string name="top_on_this_day">在 %1$s 的熱門事物</string>
   <string name="on_this_day_card_title">歷史上的今天</string>
-  <string name="more_events_text">更多歷史上的今天事件</string>
-  <string name="events_count_text">%2$s - %3$d 年間的 %1$s 個事件</string>
+  <string name="more_events_text">更多歷史上的今天</string>
+  <string name="events_count_text">歷史上的今天\n%2$s - %3$d 年間的 %1$s 個事件</string>
   <string name="on_this_day">歷史上的今天</string>
   <string name="this_year">今年</string>
+  <string name="back_to_top">返回頂端</string>
+  <string name="date_picker">日期挑選</string>
   <plurals name="diff_years">
     <item quantity="one">去年</item>
     <item quantity="other">%d 年前</item>

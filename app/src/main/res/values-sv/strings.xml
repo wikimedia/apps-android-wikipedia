@@ -398,19 +398,32 @@
   <string name="most_read_list_card_title">Populärt</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">På nyheterna</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">I går</item>
     <item quantity="other">%d dagar sedan</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">I dag</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
   <string name="view_featured_article_footer_save_button_label">Spara</string>
   <string name="view_featured_article_footer_saved_button_label">Sparades</string>
   <string name="feed_configure_menu_title">Konfigurera kort</string>
-  <string name="feed_configure_activity_title">Konfigurera utforskningskort</string>
-  <string name="feed_configure_menu_reset">Återställ till standardvärden</string>
+  <string name="feed_configure_activity_title">Anpassa flödet</string>
+  <string name="feed_configure_menu_reset">Återställ standardvyn</string>
+  <string name="feed_configure_menu_select_all">Markera alla</string>
+  <string name="feed_configure_menu_deselect_all">Avmarkera alla</string>
+  <string name="feed_item_type_news">Artiklar om nuvarande händelser</string>
+  <string name="feed_item_type_on_this_day">Händelser i historien på denna dag</string>
+  <string name="feed_item_type_continue_reading">Snabblänk tillbaka för att läsa en öppnad artikel i en av dina flikar</string>
+  <string name="feed_item_type_because_you_read">Förslag baserade på en nyligen läst artikel från din historik</string>
+  <string name="feed_item_type_featured_article">Dagens utmärkta artikel på Wikipedia</string>
+  <string name="feed_item_type_trending">Dagens mest lästa artiklar</string>
+  <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
+  <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
+  <string name="feed_configure_onboarding_action">Anpassa</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Anpassa ditt utforskningsflöde&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu välja vad som ska visas i ditt flöde och även prioritera dina favoritinnehållstyper.</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_save">Publicera</string>
   <string name="description_edit_add_description">Lägg till titelbeskrivning</string>
@@ -513,14 +526,15 @@
   <string name="onboarding_create_account_sync">Synkronisera dina läslistor</string>
   <string name="onboarding_create_account_contributions">Håll koll på dina bidrag</string>
   <string name="onboarding_create_account_preferences">Spara dina inställningar</string>
+  <string name="onboarding_got_it">Jag förstår</string>
   <string name="app_shortcuts_random">Slumpartikel</string>
   <string name="app_shortcuts_continue_reading">Fortsätt läsa</string>
   <string name="app_shortcuts_search">Sök</string>
   <string name="all_trending_text">Alla populära artiklar på %1$s</string>
   <string name="top_on_this_day">Populärt på %1$s</string>
   <string name="on_this_day_card_title">På denna dag</string>
-  <string name="more_events_text">Fler historiska händelser på denna dag</string>
-  <string name="events_count_text">%1$s händelser från %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Fler historiska händelser på denna dag</string>
+  <string name="events_count_text" fuzzy="true">%1$s händelser från %2$s - %3$d</string>
   <string name="on_this_day">På denna dag</string>
   <string name="this_year">Detta år</string>
   <plurals name="diff_years">

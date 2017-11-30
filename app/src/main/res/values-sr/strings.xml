@@ -322,11 +322,11 @@
   <string name="most_read_list_card_title">Актуелно</string>
   <string name="view_static_card_icon_content_description">Икона картице</string>
   <string name="view_card_news_title">Вести</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Јуче</item>
     <item quantity="other">Пре %d дана</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Данас</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Данас</string>
   <string name="view_announcement_card_negative_action">Не, хвала</string>
   <string name="view_offline_card_text">Садржај се не може учитати када сте офлајн.</string>
   <string name="view_featured_article_footer_saved_button_label">Сачувано</string>

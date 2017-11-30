@@ -396,19 +396,19 @@
   <string name="most_read_list_card_title">रुझानों में</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकॉन</string>
   <string name="view_card_news_title">समाचारों में</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">कल</item>
     <item quantity="other">%d दिन पहले</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">आज</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">आज</string>
   <string name="view_announcement_card_negative_action">नहीं धन्यवाद</string>
   <string name="view_offline_card_text">ऑफलाइन रहते हुए कंटेंट को भरा नहीं जा सकता है।</string>
   <string name="view_featured_article_card_title">प्रधान लेख</string>
   <string name="view_featured_article_footer_save_button_label">सहेजें</string>
   <string name="view_featured_article_footer_saved_button_label">सहेजा गया</string>
   <string name="feed_configure_menu_title">कार्ड्स को कॉन्फ़िगर करें</string>
-  <string name="feed_configure_activity_title">एक्स्प्लोर कार्ड्स को कॉन्फ़िगर करें</string>
-  <string name="feed_configure_menu_reset">डिफ़ॉल्ट पर रिसेट करें</string>
+  <string name="feed_configure_activity_title" fuzzy="true">एक्स्प्लोर कार्ड्स को कॉन्फ़िगर करें</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">डिफ़ॉल्ट पर रिसेट करें</string>
   <string name="description_edit_text_hint">शीर्षक विवरण</string>
   <string name="description_edit_save">प्रकाशित करें</string>
   <string name="description_edit_add_description">शीर्षक विवरण जोड़ें</string>
@@ -517,8 +517,8 @@
   <string name="all_trending_text">%1$s पर सभी ट्रेंडिंग लेख</string>
   <string name="top_on_this_day">%1$s पर ट्रेंडिंग</string>
   <string name="on_this_day_card_title">इस दिन</string>
-  <string name="more_events_text">इस दिन पर अन्य ऐतिहासिक घटनाएं</string>
-  <string name="events_count_text">%1$s घटनाक्रम %2$s से  - %3$d तक</string>
+  <string name="more_events_text" fuzzy="true">इस दिन पर अन्य ऐतिहासिक घटनाएं</string>
+  <string name="events_count_text" fuzzy="true">%1$s घटनाक्रम %2$s से  - %3$d तक</string>
   <string name="on_this_day">आज के दिन</string>
   <string name="this_year">इस साल</string>
   <plurals name="diff_years">

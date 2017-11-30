@@ -214,6 +214,6 @@
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>
-  <string name="view_continue_reading_card_subtitle_today">Сёньня</string>
+  <string name="view_continue_reading_card_subtitle_today">сёньня</string>
   <string name="description_edit_save">Апублікаваць</string>
 </resources>

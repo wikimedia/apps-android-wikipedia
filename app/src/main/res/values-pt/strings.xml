@@ -398,19 +398,19 @@
   <string name="most_read_list_card_title">Tendências</string>
   <string name="view_static_card_icon_content_description">Ícone de cartão</string>
   <string name="view_card_news_title">Atualidades</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Ontem</item>
     <item quantity="other">Há %d dias</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Hoje</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Hoje</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
   <string name="view_offline_card_text">O conteúdo não pode ser carregado sem acesso à Internet.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
   <string name="feed_configure_menu_title">Configurar cartões</string>
-  <string name="feed_configure_activity_title">Configurar cartões Explorar</string>
-  <string name="feed_configure_menu_reset">Repor valores predefinidos</string>
+  <string name="feed_configure_activity_title" fuzzy="true">Configurar cartões Explorar</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Repor valores predefinidos</string>
   <string name="description_edit_text_hint">Descrição do título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>
@@ -519,8 +519,8 @@
   <string name="all_trending_text">Todos os artigos em tendência a %1$s</string>
   <string name="top_on_this_day">Em tendência a %1$s</string>
   <string name="on_this_day_card_title">Neste dia</string>
-  <string name="more_events_text">Mais acontecimentos históricos neste dia</string>
-  <string name="events_count_text">%1$s acontecimentos de %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Mais acontecimentos históricos neste dia</string>
+  <string name="events_count_text" fuzzy="true">%1$s acontecimentos de %2$s - %3$d</string>
   <string name="on_this_day">Neste dia</string>
   <string name="this_year">Este ano</string>
   <plurals name="diff_years">

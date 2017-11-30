@@ -375,9 +375,9 @@
   <string name="notification_channel_description">Avancement de la synchronisation</string>
   <string name="notification_syncing_title">Synchronisation de %1$d articles…</string>
   <string name="notification_syncing_description">%1$d articles restants</string>
-  <string name="notification_syncing_pause_button" fuzzy="true">PAUSE</string>
-  <string name="notification_syncing_resume_button" fuzzy="true">REPRISE</string>
-  <string name="notification_syncing_cancel_button" fuzzy="true">ANNULATION</string>
+  <string name="notification_syncing_pause_button">Pause</string>
+  <string name="notification_syncing_resume_button">Reprise</string>
+  <string name="notification_syncing_cancel_button">Annulation</string>
   <string name="view_continue_reading_card_title">Continuer à lire</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>
@@ -399,18 +399,32 @@
   <string name="view_static_card_icon_content_description">Icône de la carte</string>
   <string name="view_card_news_title">Dans l’actualité</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">Hier</item>
-    <item quantity="other">Il y a %d jours</item>
+    <item quantity="one">hier</item>
+    <item quantity="other">il y a %d jours</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Aujourd’hui</string>
+  <string name="view_continue_reading_card_subtitle_today">aujourd’hui</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Lire %s</string>
   <string name="view_announcement_card_negative_action">Non merci</string>
   <string name="view_offline_card_text">Le contennu ne peut être chargé hors connexion.</string>
   <string name="view_featured_article_card_title">Article vedette</string>
   <string name="view_featured_article_footer_save_button_label">Enregistrer</string>
   <string name="view_featured_article_footer_saved_button_label">Enregistré</string>
   <string name="feed_configure_menu_title">Configurer les cartes</string>
-  <string name="feed_configure_activity_title">Configurer les cartes d’exploration</string>
-  <string name="feed_configure_menu_reset">Réinitialiser aux valeurs par défaut</string>
+  <string name="feed_configure_activity_title">Configurer le fil</string>
+  <string name="feed_configure_menu_reset">Rétablir la vue par défaut</string>
+  <string name="feed_configure_menu_select_all">Tout sélectionner</string>
+  <string name="feed_configure_menu_deselect_all">Tout déselectionner</string>
+  <string name="feed_item_type_news">Articles sur des événements actuels</string>
+  <string name="feed_item_type_on_this_day">Événements dans l’historique de ce jour</string>
+  <string name="feed_item_type_continue_reading">Lien de retour rapide pour lire un article ouvert dans un de vos onglets</string>
+  <string name="feed_item_type_because_you_read">Suggestions basées sur un article récemment lu de votre historique</string>
+  <string name="feed_item_type_featured_article">Article du jour en vedette sur Wikipédia</string>
+  <string name="feed_item_type_trending">Articles les plus vus du jour</string>
+  <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimédia Communs</string>
+  <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
+  <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
+  <string name="feed_configure_onboarding_action">Personnaliser</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre fil d’exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil, et aussi prioriser vos types de contenu favoris.</string>
   <string name="description_edit_text_hint">Description du titre</string>
   <string name="description_edit_save">Publier</string>
   <string name="description_edit_add_description">Ajouter une description du titre</string>
@@ -454,6 +468,7 @@
   <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion.</string>
   <string name="offline_read_permission_error">Droit non accordé pour lire sur le stockage de l’appareil.</string>
   <string name="offline_card_text">Vous naviguez maintenant sur Wikipédia hors ligne avec les articles de votre bibliothèque hors connexion.</string>
+  <string name="offline_card_sideloading_text">Vous naviguez maintenant sur Wikimédia hors connexion sur des paquets d’articles dans votre bibliothèque hors connexion.</string>
   <string name="offline_my_compilations">Gérer ma bibliothèque hors connexion</string>
   <string name="offline_compilations_title">Bibliothèque hors connexion</string>
   <string name="offline_compilations_search_by_name">Rechercher les ensembles d’articles par nom</string>
@@ -512,16 +527,19 @@
   <string name="onboarding_create_account_sync">Synchroniser vos listes de lecture</string>
   <string name="onboarding_create_account_contributions">Garder trace de vos contributions</string>
   <string name="onboarding_create_account_preferences">Sauvegarder vos préférences</string>
+  <string name="onboarding_got_it">C’est bon</string>
   <string name="app_shortcuts_random">Aléatoire</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
   <string name="all_trending_text">Tous les articles en vogue sur %1$s</string>
   <string name="top_on_this_day">En vogue sur %1$s</string>
   <string name="on_this_day_card_title">Ce jour</string>
-  <string name="more_events_text">Davantage d’événements historiques de ce jour</string>
-  <string name="events_count_text">%1$s événements pour %2$s - %3$d</string>
+  <string name="more_events_text">DAVANTAGE SUR CETTE JOURNÉE</string>
+  <string name="events_count_text">CE JOUR-LÀ\n%1$s événements pour %2$s - %3$d</string>
   <string name="on_this_day">Ce jour</string>
   <string name="this_year">Cette année</string>
+  <string name="back_to_top">RETOUR AU DÉBUT</string>
+  <string name="date_picker">sélectionneur de date</string>
   <plurals name="diff_years">
     <item quantity="one">Année dernière</item>
     <item quantity="other">Il y a %d ans</item>

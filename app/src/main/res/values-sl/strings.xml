@@ -171,11 +171,11 @@
   <string name="view_featured_image_card_title">Slika dneva</string>
   <string name="view_featured_image_card_download">Prenesi</string>
   <string name="menu_feed_overflow_label">Več možnosti</string>
-  <string name="view_continue_reading_card_subtitle_today">Danes</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Danes</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
   <string name="view_featured_article_footer_save_button_label">Shrani</string>
   <string name="view_featured_article_footer_saved_button_label">Shranjeno</string>
-  <string name="feed_configure_menu_reset">Ponastavi na privzeto</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Ponastavi na privzeto</string>
   <string name="description_edit_cancel_hint">Prekliči</string>
   <string name="description_edit_success_saved">Opis objavljen!</string>
   <string name="description_edit_help_tips_examples">Na primer:</string>

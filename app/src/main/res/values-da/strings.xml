@@ -398,19 +398,19 @@
   <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">I nyhederne</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">I går</item>
     <item quantity="other">for %d dage siden</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">I dag</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
   <string name="view_offline_card_text">Indhold kan ikke indlæses offline.</string>
   <string name="view_featured_article_card_title">Anbefalet artikel</string>
   <string name="view_featured_article_footer_save_button_label">Gem</string>
   <string name="view_featured_article_footer_saved_button_label">Gemt</string>
   <string name="feed_configure_menu_title">Konfigurer kort</string>
-  <string name="feed_configure_activity_title">Konfigurer udforskningskort</string>
-  <string name="feed_configure_menu_reset">Nulstil til standarderne</string>
+  <string name="feed_configure_activity_title" fuzzy="true">Konfigurer udforskningskort</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Nulstil til standarderne</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
@@ -519,8 +519,8 @@
   <string name="all_trending_text">Alle populære artikler på %1$s</string>
   <string name="top_on_this_day">Populær på %1$s</string>
   <string name="on_this_day_card_title">På denne dag</string>
-  <string name="more_events_text">Flere historiske hændelser på denne dag</string>
-  <string name="events_count_text">%1$s hændelser fra %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Flere historiske hændelser på denne dag</string>
+  <string name="events_count_text" fuzzy="true">%1$s hændelser fra %2$s - %3$d</string>
   <string name="on_this_day">På denne dag</string>
   <string name="this_year">Dette år</string>
   <plurals name="diff_years">
