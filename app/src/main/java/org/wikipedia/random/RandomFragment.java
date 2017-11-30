@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.RandomizerFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
@@ -42,6 +44,7 @@ public class RandomFragment extends Fragment {
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private boolean saveButtonState;
     private ViewPagerListener viewPagerListener = new ViewPagerListener();
+    @Nullable private RandomizerFunnel funnel;
 
     @NonNull
     public static RandomFragment newInstance() {
@@ -62,6 +65,9 @@ public class RandomFragment extends Fragment {
         randomPager.addOnPageChangeListener(viewPagerListener);
 
         updateBackButton(0);
+
+        funnel = new RandomizerFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
+                getActivity().getIntent().getIntExtra(RandomActivity.INVOKE_SOURCE_EXTRA, 0));
         return view;
     }
 
@@ -70,16 +76,27 @@ public class RandomFragment extends Fragment {
         randomPager.removeOnPageChangeListener(viewPagerListener);
         unbinder.unbind();
         unbinder = null;
+        if (funnel != null) {
+            funnel.done();
+        }
         super.onDestroyView();
     }
 
     @OnClick(R.id.random_next_button) void onNextClick() {
+        viewPagerListener.setNextPageSelectedAutomatic();
         randomPager.setCurrentItem(randomPager.getCurrentItem() + 1, true);
+        if (funnel != null) {
+            funnel.clickedForward();
+        }
     }
 
     @OnClick(R.id.random_back_button) void onBacklick() {
+        viewPagerListener.setNextPageSelectedAutomatic();
         if (randomPager.getCurrentItem() > 0) {
             randomPager.setCurrentItem(randomPager.getCurrentItem() - 1, true);
+            if (funnel != null) {
+                funnel.clickedBack();
+            }
         }
     }
 
@@ -196,6 +213,13 @@ public class RandomFragment extends Fragment {
     }
 
     private class ViewPagerListener implements ViewPager.OnPageChangeListener {
+        private int prevPosition;
+        private boolean nextPageSelectedAutomatic;
+
+        void setNextPageSelectedAutomatic() {
+            nextPageSelectedAutomatic = true;
+        }
+
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         }
@@ -207,6 +231,15 @@ public class RandomFragment extends Fragment {
             if (title != null) {
                 updateSaveShareButton(title);
             }
+            if (!nextPageSelectedAutomatic && funnel != null) {
+                if (position > prevPosition) {
+                    funnel.swipedForward();
+                } else if (position < prevPosition) {
+                    funnel.swipedBack();
+                }
+            }
+            nextPageSelectedAutomatic = false;
+            prevPosition = position;
         }
 
         @Override
