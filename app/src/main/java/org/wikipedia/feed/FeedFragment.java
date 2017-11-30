@@ -467,7 +467,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             } else {
                 ActivityOptionsCompat options = ActivityOptionsCompat.
                         makeSceneTransitionAnimation(getActivity(), view, getString(R.string.transition_random_activity));
-                startActivity(RandomActivity.newIntent(getActivity()), options.toBundle());
+                startActivity(RandomActivity.newIntent(getActivity(), RandomActivity.INVOKE_SOURCE_FEED), options.toBundle());
             }
         }
 

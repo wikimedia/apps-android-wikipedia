@@ -43,7 +43,8 @@ public class AppShortcuts {
                 .setLongLabel(app.getString(R.string.app_shortcuts_random))
                 .setIcon(Icon.createWithResource(app, R.drawable.appshortcut_ic_random))
                 .setIntent(
-                        new Intent(PageActivity.ACTION_APP_SHORTCUT)
+                        new Intent(Intent.ACTION_MAIN, Uri.EMPTY, app, MainActivity.class)
+                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 .putExtra(Constants.INTENT_APP_SHORTCUT_RANDOM, true))
                 .build();
 

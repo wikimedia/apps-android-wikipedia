@@ -51,6 +51,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
@@ -195,6 +196,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         IntentFunnel funnel = new IntentFunnel(WikipediaApp.getInstance());
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
             openSearchFragment(SearchInvokeSource.APP_SHORTCUTS, null);
+        } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
+            startActivity(RandomActivity.newIntent(getActivity(), RandomActivity.INVOKE_SOURCE_SHORTCUT));
         } else if (Intent.ACTION_SEND.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             funnel.logShareIntent();

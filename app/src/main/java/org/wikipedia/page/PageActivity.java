@@ -57,7 +57,6 @@ import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.page.tabs.TabsProvider.TabPosition;
-import org.wikipedia.random.RandomArticleRequestHandler;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
@@ -364,8 +363,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
-        } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOM)) {
-            loadRandomPage();
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
             loadContinueReadingPage();
         } else {
@@ -494,21 +491,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 loadMainPageInForegroundTab();
             }
         });
-    }
-
-    private void loadRandomPage() {
-        RandomArticleRequestHandler.getRandomPage(new RandomArticleRequestHandler.Callback() {
-            @Override
-            public void onSuccess(@NonNull PageTitle pageTitle) {
-                loadPageInForegroundTab(pageTitle, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_APP_SHORTCUT_RANDOM));
-            }
-
-            @Override
-            public void onError(Throwable t) {
-                loadMainPageInForegroundTab();
-            }
-        });
-
     }
 
     public void showLinkPreview(@NonNull PageTitle title, int entrySource) {
