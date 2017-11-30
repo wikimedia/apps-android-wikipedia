@@ -278,7 +278,7 @@
   <string name="view_main_page_card_subtitle">Галоўная старонка на %s</string>
   <string name="view_featured_image_card_title">Выява дня</string>
   <string name="view_featured_image_card_download">Загрузіць</string>
-  <string name="view_continue_reading_card_subtitle_today">Сёння</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Сёння</string>
   <string name="view_featured_article_footer_save_button_label">Захаваць</string>
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>

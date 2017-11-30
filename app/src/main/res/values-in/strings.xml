@@ -398,19 +398,32 @@
   <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Peristiwa terkini</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Kemarin</item>
     <item quantity="other">%d hari yang lalu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Hari ini</string>
   <string name="view_announcement_card_negative_action">Tidak, terima kasih</string>
   <string name="view_offline_card_text">Konten tidak dapat dimuat saat luring.</string>
   <string name="view_featured_article_card_title">Artikel pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
   <string name="view_featured_article_footer_saved_button_label">Tersimpan</string>
   <string name="feed_configure_menu_title">Konfigurasikan kartu</string>
-  <string name="feed_configure_activity_title">Konfigurasikan kartu Jelajahi</string>
-  <string name="feed_configure_menu_reset">Setel ulang ke baku</string>
+  <string name="feed_configure_activity_title">Sesuaikan umpan</string>
+  <string name="feed_configure_menu_reset">Pulihkan tampilan baku</string>
+  <string name="feed_configure_menu_select_all">Pilih semua</string>
+  <string name="feed_configure_menu_deselect_all">Tidak pilih semua</string>
+  <string name="feed_item_type_news">Artikel mengenai peristiwa saat ini</string>
+  <string name="feed_item_type_on_this_day">Peristiwa bersejarah pada hari ini</string>
+  <string name="feed_item_type_continue_reading">Pranala cepat kembali untuk membaca artikel yang terbuka di salah satu tab Anda</string>
+  <string name="feed_item_type_because_you_read">Saran berdasarkan artikel yang baru dibaca dari riwayat Anda</string>
+  <string name="feed_item_type_featured_article">Artikel pilihan harian di Wikipedia</string>
+  <string name="feed_item_type_trending">Artikel harian yang paling banyak dilihat</string>
+  <string name="feed_item_type_featured_image">Gambar pilihan harian dari Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan isi pilihan harian</string>
+  <string name="feed_item_type_randomizer">Menghasilkan sembarang artikel untuk dibaca</string>
+  <string name="feed_configure_onboarding_action">Sesuaikan</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Sesuaikan umpan Jelajahi Anda&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anda sekarang dapat memilih apa yang akan ditampilkan pada umpan Anda, dan juga memprioritaskan jenis konten favorit Anda.</string>
   <string name="description_edit_text_hint">Deskripsi judul</string>
   <string name="description_edit_save">Terbitkan</string>
   <string name="description_edit_add_description">Tambah deskripsi judul</string>
@@ -513,14 +526,15 @@
   <string name="onboarding_create_account_sync">Sinkronkan daftar bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Catat kontribusi Anda</string>
   <string name="onboarding_create_account_preferences">Simpan preferensi Anda</string>
+  <string name="onboarding_got_it">Mengerti</string>
   <string name="app_shortcuts_random">Sembarang</string>
   <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
   <string name="all_trending_text">Semua artikel yang sedang tren pada %1$s</string>
   <string name="top_on_this_day">Sedang tren pada %1$s</string>
   <string name="on_this_day_card_title">Hari ini dalam sejarah</string>
-  <string name="more_events_text">Peristiwa bersejarah lainnya pada hari ini</string>
-  <string name="events_count_text">%1$s peristiwa dari %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Peristiwa bersejarah lainnya pada hari ini</string>
+  <string name="events_count_text" fuzzy="true">%1$s peristiwa dari %2$s - %3$d</string>
   <string name="on_this_day">Hari ini dalam sejarah</string>
   <string name="this_year">Tahun ini</string>
   <plurals name="diff_years">

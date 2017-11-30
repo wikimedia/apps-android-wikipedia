@@ -387,19 +387,19 @@
   <string name="most_read_list_card_title">Keur ngetrén</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Dina warta</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Kamari</item>
     <item quantity="other">%d poé ka tukang</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Poé ieu</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Poé ieu</string>
   <string name="view_announcement_card_negative_action">Teu kudu, nuhun</string>
   <string name="view_offline_card_text">Kontén teu bisa dipuat nalika oflén.</string>
   <string name="view_featured_article_card_title">Artikel petingan</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
   <string name="feed_configure_menu_title">Konfigurasikeun kartu</string>
-  <string name="feed_configure_activity_title">Konfigurasikeun kartu Langlangan</string>
-  <string name="feed_configure_menu_reset">Balikkeun kana setélan buhun</string>
+  <string name="feed_configure_activity_title" fuzzy="true">Konfigurasikeun kartu Langlangan</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Balikkeun kana setélan buhun</string>
   <string name="description_edit_text_hint">\nPedaran judul</string>
   <string name="description_edit_save">Medalkeun</string>
   <string name="description_edit_add_description">Tambahkeun pedaran judul</string>
@@ -506,8 +506,8 @@
   <string name="all_trending_text">Sakumna artikel nu keur trén dina %1$s</string>
   <string name="top_on_this_day">Keur trén dina %1$s</string>
   <string name="on_this_day_card_title">Dina poé ieu</string>
-  <string name="more_events_text">Kajadian sajarah lianna dina poé ieu</string>
-  <string name="events_count_text">%1$s kajadian ti %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Kajadian sajarah lianna dina poé ieu</string>
+  <string name="events_count_text" fuzzy="true">%1$s kajadian ti %2$s - %3$d</string>
   <string name="on_this_day">Dina poé ieu</string>
   <string name="this_year">Taun ieu</string>
   <string name="diff_years">{{PLURAL|one=Taun kamari|%d ka tukang}</string>

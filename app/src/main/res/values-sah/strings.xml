@@ -384,11 +384,11 @@
   <string name="most_read_list_card_title">Трендэ</string>
   <string name="view_static_card_icon_content_description">Карточка иконката</string>
   <string name="view_card_news_title">Сонуннарга</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Бэҕэһээ</item>
     <item quantity="other">%d хонук ынараа өттүгэр</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Бүгүн</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Бүгүн</string>
   <string name="view_announcement_card_negative_action">Суох, махтанабын</string>
   <string name="view_offline_card_text">Ситимэ суох көрдөрөр табыллыбат эбит.</string>
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>

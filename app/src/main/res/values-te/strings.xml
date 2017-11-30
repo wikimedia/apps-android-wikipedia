@@ -201,11 +201,11 @@
   <string name="menu_feed_overflow_label">మరిన్ని ఎంపికలు</string>
   <string name="view_card_footer_button">ఇంకా చూడండి</string>
   <string name="view_card_news_title">వార్తల్లో</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">నిన్న</item>
     <item quantity="other">%d రోజుల క్రితం</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">నేడు</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">నేడు</string>
   <string name="description_edit_text_hint">శీర్షిక వివరణ</string>
   <string name="description_edit_save" fuzzy="true">భద్రపరచు</string>
   <string name="description_edit_edit_description">వివరణను మార్చు</string>

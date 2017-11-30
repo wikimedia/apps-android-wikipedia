@@ -375,12 +375,12 @@
   <string name="most_read_list_card_title">Популярне</string>
   <string name="view_static_card_icon_content_description">Значок картки</string>
   <string name="view_card_news_title">У новинах</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Учора</item>
     <item quantity="few">%d дні тому</item>
     <item quantity="other">%d днів тому</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Сьогодні</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Сьогодні</string>
   <string name="view_announcement_card_negative_action">Ні, дякую</string>
   <string name="view_offline_card_text">Вміст не може бути завантажений в автономному режимі.</string>
   <string name="view_featured_article_card_title">Вибрана стаття</string>

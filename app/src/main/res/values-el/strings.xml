@@ -233,8 +233,8 @@
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="view_card_news_title">Στις ειδήσεις</string>
   <string name="feed_configure_menu_title">Διαμορφώστε τις κάρτες</string>
-  <string name="feed_configure_activity_title">Διαμορφώστε τις κάρτες Αναζήτησης</string>
-  <string name="feed_configure_menu_reset">Βάλτε ξανά στις προ-επιλογές</string>
+  <string name="feed_configure_activity_title" fuzzy="true">Διαμορφώστε τις κάρτες Αναζήτησης</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Βάλτε ξανά στις προ-επιλογές</string>
   <string name="description_edit_help_about_title">Σχετικά</string>
   <string name="description_edit_help_tips_examples">Για παράδειγμα:</string>
   <string name="description_edit_help_tips_example2">Το ψηλότερο βουνό της γης</string>
@@ -248,8 +248,8 @@
   <string name="all_trending_text">Όλα τα άρθρα που σχετίζονται με την εμπορική δραστηριότητα στο %1$s</string>
   <string name="top_on_this_day">Εμπορική κίνηση στο %1$s</string>
   <string name="on_this_day_card_title">Αυτήν την μέρα</string>
-  <string name="more_events_text">Mas eventos historicos este dia</string>
-  <string name="events_count_text">%1$s συμβάντα των  %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Mas eventos historicos este dia</string>
+  <string name="events_count_text" fuzzy="true">%1$s συμβάντα των  %2$s - %3$d</string>
   <string name="on_this_day">Αυτήν την μέρα</string>
   <string name="this_year">Φέτος</string>
 </resources>

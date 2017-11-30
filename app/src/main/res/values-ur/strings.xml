@@ -394,18 +394,19 @@
   <string name="most_read_list_card_title">مقبول صفحات</string>
   <string name="view_static_card_icon_content_description">کارڈ آئیکون</string>
   <string name="view_card_news_title">خبروں میں</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">گزشتہ کل</item>
     <item quantity="other">%d دن قبل</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">آج</string>
+  <string name="view_continue_reading_card_subtitle_read_date">پڑھیں%s</string>
   <string name="view_announcement_card_negative_action">نہیں، شکریہ!</string>
   <string name="view_offline_card_text">آف لائن ہونے کے دوران میں مواد لوڈ نہیں کیا جا سکتا۔</string>
   <string name="view_featured_article_card_title">منتخب مضمون</string>
   <string name="view_featured_article_footer_save_button_label">محفوظ کریں</string>
   <string name="view_featured_article_footer_saved_button_label">محفوظ ہوگیا</string>
   <string name="feed_configure_menu_title">کارڈز کو خاص ہیئت دیں</string>
-  <string name="feed_configure_activity_title">ایکسپلور کارڈز کو خاص ہیئت دیں</string>
+  <string name="feed_configure_activity_title" fuzzy="true">ایکسپلور کارڈز کو خاص ہیئت دیں</string>
   <string name="description_edit_text_hint">عنوان کی وضاحت</string>
   <string name="description_edit_save">شائع کریں</string>
   <string name="description_edit_add_description">عنوان کی وضاحت درج کریں</string>

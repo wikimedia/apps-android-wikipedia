@@ -391,17 +391,27 @@
   <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">어제</item>
     <item quantity="other">%d일 전</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">오늘</string>
+  <string name="view_continue_reading_card_subtitle_read_date">%s 읽기</string>
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
   <string name="view_featured_article_card_title">알찬 글</string>
   <string name="view_featured_article_footer_save_button_label">저장</string>
   <string name="view_featured_article_footer_saved_button_label">저장됨</string>
-  <string name="feed_configure_menu_reset">기본값으로 초기화</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">기본값으로 초기화</string>
+  <string name="feed_configure_menu_select_all">모두 선택</string>
+  <string name="feed_configure_menu_deselect_all">모두 선택하지 않음</string>
+  <string name="feed_item_type_news">요즘 화제에 관한 글</string>
+  <string name="feed_item_type_on_this_day">오늘의 역사의 사건</string>
+  <string name="feed_item_type_featured_article">위키백과의 일일 알찬글</string>
+  <string name="feed_item_type_trending">하루 중 가장 많이 본 글</string>
+  <string name="feed_item_type_featured_image">위키미디어 공용의 일일 알찬글</string>
+  <string name="feed_item_type_randomizer">읽어볼 임의 문서를 만듭니다</string>
+  <string name="feed_configure_onboarding_action">사용자 지정</string>
   <string name="description_edit_text_hint">제목 설명</string>
   <string name="description_edit_save">게시</string>
   <string name="description_edit_add_description">제목 설명 추가</string>
@@ -499,14 +509,17 @@
   <string name="onboarding_create_account_sync">읽기 목록 동기화</string>
   <string name="onboarding_create_account_contributions">내 기여를 추적합니다</string>
   <string name="onboarding_create_account_preferences">환경 설정 저장하기</string>
+  <string name="onboarding_got_it">알겠습니다</string>
   <string name="app_shortcuts_random">임의 문서</string>
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
   <string name="on_this_day_card_title">오늘의 역사</string>
-  <string name="more_events_text">이 날에 있었던 더 많은 역사적 사건</string>
-  <string name="events_count_text">%2$s~%3$d년 사이의 이벤트 %1$s개</string>
+  <string name="more_events_text" fuzzy="true">이 날에 있었던 더 많은 역사적 사건</string>
+  <string name="events_count_text" fuzzy="true">%2$s~%3$d년 사이의 이벤트 %1$s개</string>
   <string name="on_this_day">오늘의 역사</string>
   <string name="this_year">올해</string>
+  <string name="back_to_top">맨 위로 돌아가기</string>
+  <string name="date_picker">날짜 선택기</string>
   <plurals name="diff_years">
     <item quantity="one">지난해</item>
     <item quantity="other">%d년 전</item>

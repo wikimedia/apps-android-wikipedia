@@ -398,17 +398,17 @@
   <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icono de tarjeta</string>
   <string name="view_card_news_title">En las noticias</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Ayer</item>
     <item quantity="other">Hace %d días</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Hoy</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Hoy</string>
   <string name="view_announcement_card_negative_action">No, gracias</string>
   <string name="view_offline_card_text">No se puede cargar contenido cuando no hay conexión</string>
   <string name="view_featured_article_card_title">Artículo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
-  <string name="feed_configure_menu_reset">Restablecer valores predeterminados</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Restablecer valores predeterminados</string>
   <string name="description_edit_text_hint">Descripción de título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Añade descripción de título</string>
@@ -516,8 +516,8 @@
   <string name="all_trending_text">Todos los artículos en tendencia del %1$s</string>
   <string name="top_on_this_day">Tendencias del %1$s</string>
   <string name="on_this_day_card_title">Un día como hoy</string>
-  <string name="more_events_text">Más acontecimientos históricos en este día</string>
-  <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
+  <string name="more_events_text" fuzzy="true">Más acontecimientos históricos en este día</string>
+  <string name="events_count_text" fuzzy="true">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="on_this_day">Un día como hoy</string>
   <string name="this_year">Este año</string>
   <plurals name="diff_years">

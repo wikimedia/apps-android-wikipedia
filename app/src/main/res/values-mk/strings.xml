@@ -375,9 +375,9 @@
   <string name="notification_channel_description">Напредок на усогласувањето</string>
   <string name="notification_syncing_title">Усогласувам %1$d статии…</string>
   <string name="notification_syncing_description">преостануваат %1$d статии</string>
-  <string name="notification_syncing_pause_button" fuzzy="true">ПАУЗИРАЈ</string>
-  <string name="notification_syncing_resume_button" fuzzy="true">ПРОДОЛЖИ</string>
-  <string name="notification_syncing_cancel_button" fuzzy="true">ОТКАЖИ</string>
+  <string name="notification_syncing_pause_button">Паузирај</string>
+  <string name="notification_syncing_resume_button">Продолжи</string>
+  <string name="notification_syncing_cancel_button">Откажи</string>
   <string name="view_continue_reading_card_title">Продолжете со читање</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
   <string name="view_random_card_title">Случаен избирач</string>
@@ -399,18 +399,32 @@
   <string name="view_static_card_icon_content_description">Икона за картичка</string>
   <string name="view_card_news_title">Вести</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">Вчера</item>
-    <item quantity="other">Пред %d дена</item>
+    <item quantity="one">вчера</item>
+    <item quantity="other">пред %d дена</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Денес</string>
+  <string name="view_continue_reading_card_subtitle_today">денес</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
   <string name="view_offline_card_text">Содржината не може да се вчита додека не сте на линија.</string>
   <string name="view_featured_article_card_title">Избрана статија</string>
   <string name="view_featured_article_footer_save_button_label">Зачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Зачувано</string>
   <string name="feed_configure_menu_title">Постави картички</string>
-  <string name="feed_configure_activity_title">Постави картички за „Истражи“</string>
-  <string name="feed_configure_menu_reset">Врати по основно</string>
+  <string name="feed_configure_activity_title">Прилагоди го доводот</string>
+  <string name="feed_configure_menu_reset">Поврати основен изглед</string>
+  <string name="feed_configure_menu_select_all">Избери сè</string>
+  <string name="feed_configure_menu_deselect_all">Поништи избрано</string>
+  <string name="feed_item_type_news">Статии за тековни настани</string>
+  <string name="feed_item_type_on_this_day">Настани од историјата на овој ден</string>
+  <string name="feed_item_type_continue_reading">Брза врска кон статија отворена во јазиче</string>
+  <string name="feed_item_type_because_you_read">Предлози според неодамна прочитана статија од вашата историја</string>
+  <string name="feed_item_type_featured_article">Статија на денот на Википедија</string>
+  <string name="feed_item_type_trending">Најпосетени статии за денес</string>
+  <string name="feed_item_type_featured_image">Слика на денот од Ризницата</string>
+  <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
+  <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
+  <string name="feed_configure_onboarding_action">Прилагоди</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Прилагодете си го тековникот „Истражи“&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Можете да изберете што да се прикажува во тековникот и да им дадете предност на вашите омилени видови содржини.</string>
   <string name="description_edit_text_hint">Опис на насловот</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_add_description">Додај опис на насловот</string>
@@ -504,7 +518,7 @@
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>
   <string name="onboarding_explore_title">Нови начини на истражување</string>
-  <string name="onboarding_explore_text">Откријте ги избраните статии, тековните изгледи и предлозите за читање во каналот „Истражи“.</string>
+  <string name="onboarding_explore_text">Откријте ги избраните статии, тековните изгледи и предлозите за читање во тековникот „Истражи“.</string>
   <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
   <string name="onboarding_reading_list_sync_text">Создавајте списоци за читање од статиите што сакате да ги прочитате подоцна, дури и кога немате линија. &lt;a href=\"#login\"&gt;Најавете се или направете&lt;/a&gt; ваша сметка на Википедија за да ги запазите списоците.</string>
   <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
@@ -513,16 +527,19 @@
   <string name="onboarding_create_account_sync">Усогласи списоци за читање</string>
   <string name="onboarding_create_account_contributions">Бидете во тек со вашите придонеси</string>
   <string name="onboarding_create_account_preferences">Зачувајете ги вашите поставки</string>
+  <string name="onboarding_got_it">Јасно</string>
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
   <string name="all_trending_text">Сите најчитани страници на %1$s</string>
   <string name="top_on_this_day">Најчитано на %1$s</string>
   <string name="on_this_day_card_title">На денешен ден</string>
-  <string name="more_events_text">Повеќе историски настани на денешен ден</string>
-  <string name="events_count_text">%1$s настани од %2$s до %3$d г.</string>
+  <string name="more_events_text">ПОВЕЌЕ НА ОВОЈ ДЕН</string>
+  <string name="events_count_text">НА ДЕНЕШЕН ДЕН \n%1$s настани од %2$s до %3$d г.</string>
   <string name="on_this_day">На денешен ден</string>
   <string name="this_year">Годинава</string>
+  <string name="back_to_top">НАЈГОРЕ</string>
+  <string name="date_picker">избирач на датуми</string>
   <plurals name="diff_years">
     <item quantity="one">Лани</item>
     <item quantity="other">Пред %d години</item>

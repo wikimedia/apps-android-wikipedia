@@ -287,11 +287,11 @@
   <string name="view_featured_image_card_download">Laai af</string>
   <string name="feed">Verken</string>
   <string name="view_card_news_title">In die nuus</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Gister</item>
     <item quantity="other">%d dae gekede</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Vandag</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Vandag</string>
   <string name="view_announcement_card_negative_action">Nee dankie</string>
   <string name="description_edit_cancel_hint">Kanselleer</string>
   <string name="description_edit_success_did_you_know">Het u geweet?</string>

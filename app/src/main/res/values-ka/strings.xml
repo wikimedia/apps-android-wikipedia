@@ -309,11 +309,11 @@
   <string name="view_card_footer_button">იხილეთ მეტი</string>
   <string name="view_static_card_icon_content_description">ბარათის ხატულა</string>
   <string name="view_card_news_title">სიახლეებში</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">გუშინ</item>
     <item quantity="other">%d დღის წინ</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">დღეს</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">დღეს</string>
   <string name="view_announcement_card_negative_action">არა, გმადლობთ</string>
   <string name="description_edit_text_hint">სათაურის აღწერა</string>
   <string name="description_edit_save">გამოქვეყნება</string>

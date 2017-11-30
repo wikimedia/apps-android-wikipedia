@@ -194,12 +194,13 @@
   <string name="menu_feed_overflow_label">Vairāk iespēju</string>
   <string name="view_card_footer_button">Skatīt vairāk</string>
   <string name="view_card_news_title">Ziņās</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Vakardien</item>
     <item quantity="other">Pirms %d dienām</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Šodien</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
+  <string name="feed_configure_onboarding_action">Pielāgot</string>
   <string name="description_edit_text_hint" fuzzy="true">Uzraksti aprakstu!</string>
   <string name="description_edit_save">Publicēt</string>
   <string name="description_edit_add_description" fuzzy="true">Pievieno īsu aprakstu!</string>
@@ -217,6 +218,7 @@
   <string name="storage_size">%.2f GB</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
+  <string name="onboarding_got_it">Sapratu</string>
   <string name="on_this_day_card_title">Šajā dienā</string>
   <string name="on_this_day">Šajā dienā</string>
   <string name="this_year">Šajā gadā</string>

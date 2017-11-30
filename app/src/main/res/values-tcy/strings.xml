@@ -220,7 +220,7 @@
   <string name="menu_feed_card_dismissed">ಅಭಿಪ್ರಾಯೊ ದೆಂಗಾಲೆ</string>
   <string name="menu_feed_overflow_label">ನಾನಾತ್ ಆಯ್ಕೆಲೂ</string>
   <string name="view_card_footer_button">ನನತ್ ತೂಲೆ</string>
-  <string name="view_continue_reading_card_subtitle_today">ಇನಿ</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">ಇನಿ</string>
   <string name="view_announcement_card_negative_action">ಬೊಡ್ಚಿ ಸೊಲ್ಮೆಲೋ</string>
   <string name="description_edit_save">ಪ್ರಕಟ ಮಾನ್ಪುಲೆ</string>
   <string name="description_edit_add_description">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>

@@ -381,11 +381,11 @@
   <string name="most_read_list_card_title">Nousussa</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Eilen</item>
     <item quantity="other">%d päivää sitten</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Tänään</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Tänään</string>
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
   <string name="view_offline_card_text">Sisältöä ei voida ladata offline-tilassa</string>
   <string name="view_featured_article_card_title">Suositeltu artikkeli</string>

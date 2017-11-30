@@ -386,19 +386,19 @@
   <string name="most_read_list_card_title">Tiddin</string>
   <string name="view_static_card_icon_content_description">Tignit n tkarḍa</string>
   <string name="view_card_news_title">Deg isallen</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Iḍelli</item>
     <item quantity="other">%d n wussan aya</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Ass-a</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Ass-a</string>
   <string name="view_announcement_card_negative_action">Ala tanemmirt</string>
   <string name="view_offline_card_text">Agbur ur yezmir ara ad d-yali s war tuqqna.</string>
   <string name="view_featured_article_card_title">Amagrad ifazen</string>
   <string name="view_featured_article_footer_save_button_label">Sekles</string>
   <string name="view_featured_article_footer_saved_button_label">Yettwasekles</string>
   <string name="feed_configure_menu_title">Swel tikarḍiwin</string>
-  <string name="feed_configure_activity_title">Swel tikarḍiwin n usnirem</string>
-  <string name="feed_configure_menu_reset">Ales awennez ar umezwer</string>
+  <string name="feed_configure_activity_title" fuzzy="true">Swel tikarḍiwin n usnirem</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Ales awennez ar umezwer</string>
   <string name="description_edit_text_hint">Aglam n uzwel</string>
   <string name="description_edit_save">Suffeɣ-d</string>
   <string name="description_edit_add_description">Rnu aglam n uzwel</string>
@@ -499,8 +499,8 @@
   <string name="app_shortcuts_continue_reading">Kemmel taɣuri</string>
   <string name="app_shortcuts_search">Nadi</string>
   <string name="on_this_day_card_title">Ass-a</string>
-  <string name="more_events_text">Ugar n tidyanin timazrayin ass-a</string>
-  <string name="events_count_text">%1$s n tidyanin i %2$s - %3$d</string>
+  <string name="more_events_text" fuzzy="true">Ugar n tidyanin timazrayin ass-a</string>
+  <string name="events_count_text" fuzzy="true">%1$s n tidyanin i %2$s - %3$d</string>
   <string name="on_this_day">Ass-a</string>
   <string name="this_year">Aseggas-a</string>
   <plurals name="diff_years">

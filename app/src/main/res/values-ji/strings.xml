@@ -191,7 +191,7 @@
   <string name="user_option_sync_label">פרעפֿערענצן</string>
   <string name="view_featured_image_card_download">אַראָפלאָדן</string>
   <string name="menu_feed_card_dismiss">באהאלטן די קארטע</string>
-  <string name="view_continue_reading_card_subtitle_today">הײנט</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">הײנט</string>
   <string name="view_announcement_card_negative_action">ניין, א דאנק</string>
   <string name="description_edit_save">פֿאַרעפֿנטלעכן</string>
   <string name="description_edit_add_description">צולייגן טיטל־באַשרייבונג</string>

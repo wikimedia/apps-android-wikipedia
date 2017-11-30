@@ -382,11 +382,11 @@
   <string name="most_read_list_card_title">Lagi mumbul</string>
   <string name="view_static_card_icon_content_description">Ikon kertu</string>
   <string name="view_card_news_title">Lagi dadi warta</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Wingi</item>
     <item quantity="other">%d dina kapungkur</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Dina iki</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Dina iki</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
   <string name="view_offline_card_text">Isèn-isèné ora bisa dimot nalika ing njaban jaringan.</string>
   <string name="view_featured_article_card_title">Artikel pinilih</string>

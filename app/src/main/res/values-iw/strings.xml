@@ -383,11 +383,11 @@
   <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">אתמול</item>
     <item quantity="other">לפני %d ימים</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">היום</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">היום</string>
   <string name="view_announcement_card_negative_action">לא, תודה</string>
   <string name="view_offline_card_text">לא ניתן לטעון את התוכן ללא חיבור לרשת.</string>
   <string name="view_featured_article_card_title">ערך מומלץ</string>
@@ -496,8 +496,8 @@
   <string name="all_trending_text">כל הערכים המובילים ב־%1$s</string>
   <string name="top_on_this_day">מובילים ב{{GRAMMAR:תחילית|%1$s}}</string>
   <string name="on_this_day_card_title">ביום הזה</string>
-  <string name="more_events_text">אירועים היסטוריים נוספים שהתרחשו ביום הזה</string>
-  <string name="events_count_text">%1$s אירועים מ{{GRAMMAR:תחילית|%2$s}} - %3$d</string>
+  <string name="more_events_text" fuzzy="true">אירועים היסטוריים נוספים שהתרחשו ביום הזה</string>
+  <string name="events_count_text" fuzzy="true">%1$s אירועים מ{{GRAMMAR:תחילית|%2$s}} - %3$d</string>
   <string name="on_this_day">ביום הזה</string>
   <string name="this_year">בשנה הזאת</string>
   <plurals name="diff_years">

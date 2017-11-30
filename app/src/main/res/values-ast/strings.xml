@@ -391,19 +391,19 @@
   <string name="most_read_list_card_title">Tendencies</string>
   <string name="view_static_card_icon_content_description">Iconu de tarxeta</string>
   <string name="view_card_news_title">Actualidá</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Ayeri</item>
     <item quantity="other">Fai %d díes</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Güei</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Güei</string>
   <string name="view_announcement_card_negative_action">Non, gracies</string>
   <string name="view_offline_card_text">Nun puede cargase conteníu cuando nun hai conexón</string>
   <string name="view_featured_article_card_title">Artículu destacáu</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardáu</string>
   <string name="feed_configure_menu_title">Configurar tarxetes</string>
-  <string name="feed_configure_activity_title">Configurar les tarxetes n\'Esplorar</string>
-  <string name="feed_configure_menu_reset">Volver a predeterminaos</string>
+  <string name="feed_configure_activity_title" fuzzy="true">Configurar les tarxetes n\'Esplorar</string>
+  <string name="feed_configure_menu_reset" fuzzy="true">Volver a predeterminaos</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>
   <string name="description_edit_save">Espublizar</string>
   <string name="description_edit_add_description">Amestar una descripción del títulu</string>
@@ -511,8 +511,8 @@
   <string name="all_trending_text">Tolos artículos en tendencia del %1$s</string>
   <string name="top_on_this_day">Tendencies del %1$s</string>
   <string name="on_this_day_card_title">Tal día como güei</string>
-  <string name="more_events_text">Más socesos históricos d\'esti día</string>
-  <string name="events_count_text">%1$s acontecimientos ente %2$s y %3$d</string>
+  <string name="more_events_text" fuzzy="true">Más socesos históricos d\'esti día</string>
+  <string name="events_count_text" fuzzy="true">%1$s acontecimientos ente %2$s y %3$d</string>
   <string name="on_this_day">Tal día como güei</string>
   <string name="this_year">Anguaño</string>
   <plurals name="diff_years">
