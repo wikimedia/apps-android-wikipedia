@@ -6,8 +6,8 @@ import android.support.v7.widget.SearchView;
 import android.view.ActionProvider;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.webkit.WebView.FindListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.FindInPageFunnel;
@@ -20,6 +20,11 @@ public class FindInPageActionProvider extends ActionProvider {
     private View findInPageNext;
     private View findInPagePrev;
     private TextView findInPageMatch;
+
+    private String searchQuery;
+    private boolean lastOccurenceSearchFlag;
+    private boolean isFirstOccurence;
+    private boolean isLastOccurence;
 
     public FindInPageActionProvider(@NonNull PageFragment fragment,
                                     @NonNull FindInPageFunnel funnel) {
@@ -37,29 +42,54 @@ public class FindInPageActionProvider extends ActionProvider {
     public View onCreateActionView() {
         View view = View.inflate(fragment.getContext(), R.layout.group_find_in_page, null);
         findInPageNext = view.findViewById(R.id.find_in_page_next);
-        findInPageNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DeviceUtil.hideSoftKeyboard(view);
-                if (!pageFragmentValid()) {
-                    return;
-                }
-                funnel.addFindNext();
-                fragment.getWebView().findNext(true);
+        findInPageNext.setOnClickListener(v -> {
+            DeviceUtil.hideSoftKeyboard(v);
+            if (!pageFragmentValid()) {
+                return;
             }
+            funnel.addFindNext();
+            fragment.getWebView().findNext(true);
+        });
+        findInPageNext.setOnLongClickListener(v -> {
+            if (!pageFragmentValid() || searchQuery == null) {
+                return true;
+            }
+            if (isLastOccurence) {
+                Toast.makeText(fragment.getContext(), fragment.getResources().getString(R.string.find_last_occurence), Toast.LENGTH_SHORT).show();
+            } else {
+                fragment.hideSoftKeyboard();
+                // Go to the last match by going to the first one and then going one back.
+                funnel.addFindPrev();
+                fragment.getWebView().clearMatches();
+                fragment.getWebView().findAllAsync(searchQuery);
+                lastOccurenceSearchFlag = true;
+            }
+            return true;
         });
 
         findInPagePrev = view.findViewById(R.id.find_in_page_prev);
-        findInPagePrev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragment.hideSoftKeyboard();
-                if (!pageFragmentValid()) {
-                    return;
-                }
-                funnel.addFindPrev();
-                fragment.getWebView().findNext(false);
+        findInPagePrev.setOnClickListener(v -> {
+            fragment.hideSoftKeyboard();
+            if (!pageFragmentValid()) {
+                return;
             }
+            funnel.addFindPrev();
+            fragment.getWebView().findNext(false);
+        });
+        findInPagePrev.setOnLongClickListener(v -> {
+            if (!pageFragmentValid()) {
+                return true;
+            }
+            if (isFirstOccurence) {
+                Toast.makeText(fragment.getContext(), fragment.getResources().getString(R.string.find_first_occurence), Toast.LENGTH_SHORT).show();
+            } else {
+                fragment.hideSoftKeyboard();
+                // Go to the first match by "restarting" the search.
+                funnel.addFindNext();
+                fragment.getWebView().clearMatches();
+                fragment.getWebView().findAllAsync(searchQuery);
+            }
+            return true;
         });
 
         findInPageMatch = view.findViewById(R.id.find_in_page_match);
@@ -96,8 +126,10 @@ public class FindInPageActionProvider extends ActionProvider {
             }
             funnel.setFindText(s);
             if (s.length() > 0) {
+                searchQuery = s;
                 findInPage(s);
             } else {
+                searchQuery = null;
                 fragment.getWebView().clearMatches();
                 findInPageMatch.setVisibility(View.GONE);
             }
@@ -118,25 +150,35 @@ public class FindInPageActionProvider extends ActionProvider {
     }
 
     public void findInPage(String s) {
-        fragment.getWebView().setFindListener(new FindListener() {
-            @Override
-            public void onFindResultReceived(int activeMatchOrdinal, int numberOfMatches, boolean isDoneCounting) {
-                if (!isDoneCounting) {
-                    return;
-                }
-                if (numberOfMatches > 0) {
-                    findInPageMatch.setText(fragment.getString(R.string.find_in_page_result,
-                            activeMatchOrdinal + 1, numberOfMatches));
-                    findInPageNext.setEnabled(true);
-                    findInPagePrev.setEnabled(true);
-                } else {
-                    findInPageMatch.setText("0/0");
-                    findInPageNext.setEnabled(false);
-                    findInPagePrev.setEnabled(false);
-                }
-                findInPageMatch.setVisibility(View.VISIBLE);
+        fragment.getWebView().setFindListener((activeMatchOrdinal, numberOfMatches, isDoneCounting) -> {
+            if (!isDoneCounting) {
+                return;
+            }
+            if (numberOfMatches > 0) {
+                findInPageMatch.setText(fragment.getString(R.string.find_in_page_result,
+                        activeMatchOrdinal + 1, numberOfMatches));
+                findInPageNext.setEnabled(true);
+                findInPagePrev.setEnabled(true);
+
+                isFirstOccurence = activeMatchOrdinal == 0;
+                isLastOccurence = activeMatchOrdinal + 1 == numberOfMatches;
+            } else {
+                findInPageMatch.setText("0/0");
+                findInPageNext.setEnabled(false);
+                findInPagePrev.setEnabled(false);
+
+                isFirstOccurence = false;
+                isLastOccurence = false;
+            }
+            findInPageMatch.setVisibility(View.VISIBLE);
+
+            if (lastOccurenceSearchFlag) {
+                // Go one occurrence back from the first one so it shows the last one.
+                fragment.getWebView().findNext(false);
+                lastOccurenceSearchFlag = false;
             }
         });
+
         fragment.getWebView().findAllAsync(s);
     }
 }
