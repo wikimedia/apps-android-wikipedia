@@ -1,6 +1,7 @@
 package org.wikipedia.feed.onthisday;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -85,7 +86,7 @@ public class OnThisDayCard extends Card {
         return wiki;
     }
 
-    @NonNull public List<RbPageSummary> pages() {
+    @Nullable public List<RbPageSummary> pages() {
         return eventShownOnCard.pages();
     }
 

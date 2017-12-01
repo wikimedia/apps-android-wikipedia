@@ -43,6 +43,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.view.View.GONE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 
 public class OnThisDayFragment extends Fragment implements DatePickerFragment.Callback {
@@ -150,7 +151,7 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
                     return;
                 }
                 onThisDay = response.body();
-                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(GONE);
                 eventsRecycler.setVisibility(View.VISIBLE);
                 updateRecyclerView();
                 updateTextView();
@@ -176,7 +177,7 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
                     dayTextView.setVisibility(View.VISIBLE);
                 } else if (verticalOffset == 0) {
                     // Expanded
-                    dayTextView.setVisibility(View.GONE);
+                    dayTextView.setVisibility(GONE);
                 }
             }
         });
@@ -233,7 +234,7 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
     @Override
     public void onDatePicked(int year, int month, int day) {
 
-        eventsRecycler.setVisibility(View.GONE);
+        eventsRecycler.setVisibility(GONE);
         progressBar.setVisibility(View.VISIBLE);
         date.set(year, month, day, 0, 0);
         requestEvents("" + (month + 1), "" + day);
@@ -299,11 +300,20 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         }
 
         public void setFields(final OnThisDay.Event event) {
-            pagesRecycler.setAdapter(new OnThisDayCardView.RecyclerAdapter(event.pages(), wiki, false));
+            setPagesRecycler(event);
             descTextView.setText(event.text());
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
             yearsInfoTextView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape_light_gray_corner_rounded));
+        }
+
+
+        private void setPagesRecycler(OnThisDay.Event event) {
+            if (event.pages() != null) {
+                pagesRecycler.setAdapter(new OnThisDayCardView.RecyclerAdapter(event.pages(), wiki, false));
+            } else {
+                pagesRecycler.setVisibility(GONE);
+            }
         }
 
         void setDarkView() {
@@ -319,7 +329,7 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         }
 
         void hidePadding() {
-            space.setVisibility(View.GONE);
+            space.setVisibility(GONE);
         }
     }
 

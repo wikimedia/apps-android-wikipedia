@@ -115,7 +115,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     public void setCard(@NonNull OnThisDayCard card) {
         super.setCard(card);
         this.age = card.getAge();
-        pagesRecycler.setAdapter(new RecyclerAdapter(card.pages(), card.wiki(), true));
+        setPagesRecycler(card);
         header(card);
     }
 
@@ -127,5 +127,13 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     @OnClick({R.id.more_events_layout}) void onMoreFooterClick() {
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
                 OnThisDayActivity.INVOKE_SOURCE_CARD_FOOTER));
+    }
+
+    private void setPagesRecycler(OnThisDayCard card) {
+        if (card.pages() != null) {
+            pagesRecycler.setAdapter(new RecyclerAdapter(card.pages(), card.wiki(), true));
+        } else {
+            pagesRecycler.setVisibility(GONE);
+        }
     }
 }

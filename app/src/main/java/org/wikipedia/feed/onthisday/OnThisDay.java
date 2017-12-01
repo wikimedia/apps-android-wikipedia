@@ -9,6 +9,7 @@ import org.wikipedia.json.annotations.Required;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 public class OnThisDay {
@@ -59,7 +60,14 @@ public class OnThisDay {
             return year;
         }
 
-        @NonNull public List<RbPageSummary> pages() {
+        @Nullable
+        public List<RbPageSummary> pages() {
+            Iterator iterator = pages.iterator();
+            while ((iterator.hasNext())) {
+                if (iterator.next() == null) {
+                    iterator.remove();
+                }
+            }
             return pages;
         }
     }
