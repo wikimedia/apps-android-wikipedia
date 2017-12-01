@@ -241,6 +241,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
     }
 
+    @Override public void onFeedSelectPageFromExistingTab(HistoryEntry entry) {
+        startActivity(PageActivity.newIntentForExistingTab(getContext(), entry, entry.getTitle()));
+    }
+
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(entry.getTitle(),

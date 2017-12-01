@@ -47,7 +47,8 @@ public class TabsProvider {
     public enum TabPosition {
         CURRENT_TAB,
         NEW_TAB_BACKGROUND,
-        NEW_TAB_FOREGROUND
+        NEW_TAB_FOREGROUND,
+        EXISTING_TAB
     }
 
     private PageFragment fragment;

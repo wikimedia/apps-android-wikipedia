@@ -60,7 +60,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
 
         @Override public void onClick(View view) {
             if (getCallback() != null) {
-                getCallback().onSelectPage(card, new HistoryEntry(card.getPageTitle(),
+                getCallback().onSelectPageFromExistingTab(card, new HistoryEntry(card.getPageTitle(),
                         HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
             }
         }

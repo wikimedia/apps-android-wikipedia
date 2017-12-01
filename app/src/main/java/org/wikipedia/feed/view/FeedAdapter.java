@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
+import org.wikipedia.feed.continuereading.ContinueReadingCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
@@ -28,7 +29,8 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
             ListCardItemView.Callback, CardHeaderView.Callback,
             FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
             AnnouncementCardView.Callback, FeaturedArticleCardView.Callback,
-            RandomCardView.Callback, OfflineCompilationCardView.Callback, ListCardView.Callback {
+            RandomCardView.Callback, OfflineCompilationCardView.Callback, ListCardView.Callback,
+            ContinueReadingCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onRetryFromOffline();

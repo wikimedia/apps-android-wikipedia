@@ -417,7 +417,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab().getBackStack());
 
         if (shouldLoadFromBackstack(getActivity()) || savedInstanceState != null) {
-            pageFragmentLoadState.loadFromBackStack();
+            if (!pageFragmentLoadState.backStackEmpty()) {
+                pageFragmentLoadState.loadFromBackStack();
+            } else {
+                loadMainPageInForegroundTab();
+            }
         }
 
         if (shouldShowTabList(getActivity())) {
@@ -440,7 +444,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private boolean shouldLoadFromBackstack(@NonNull Activity activity) {
         return activity.getIntent() != null
                 && (ACTION_SHOW_TAB_LIST.equals(activity.getIntent().getAction())
-                || ACTION_RESUME_READING.equals(activity.getIntent().getAction()));
+                || ACTION_RESUME_READING.equals(activity.getIntent().getAction())
+                || activity.getIntent().hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING));
     }
 
     private boolean shouldShowTabList(@NonNull Activity activity) {
@@ -518,16 +523,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onTabSelected(int position) {
-            // move the selected tab to the bottom of the list, and navigate to it!
-            // (but only if it's a different tab than the one currently in view!
-            if (position != tabList.size() - 1) {
-                Tab tab = tabList.remove(position);
-                tabList.add(tab);
-                tabsProvider.invalidate();
-                pageFragmentLoadState.updateCurrentBackStackItem();
-                pageFragmentLoadState.setBackStack(tab.getBackStack());
-                pageFragmentLoadState.loadFromBackStack();
-            }
+            setCurrentTab(position, true);
             tabsProvider.exitTabMode();
             tabFunnel.logSelect(tabList.size(), position);
             leadImagesHandler.setAnimationPaused(false);
@@ -622,6 +618,21 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabsProvider.invalidate();
     }
 
+    private void setCurrentTab(int position, boolean updatePrevBackStackItem) {
+        // move the selected tab to the bottom of the list, and navigate to it!
+        // (but only if it's a different tab than the one currently in view!
+        if (position < tabList.size() - 1) {
+            Tab tab = tabList.remove(position);
+            tabList.add(tab);
+            tabsProvider.invalidate();
+            if (updatePrevBackStackItem) {
+                pageFragmentLoadState.updateCurrentBackStackItem();
+            }
+            pageFragmentLoadState.setBackStack(tab.getBackStack());
+            pageFragmentLoadState.loadFromBackStack();
+        }
+    }
+
     public void openInNewBackgroundTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         if (noPagesOpen()) {
             openInNewForegroundTabFromMenu(title, entry);
@@ -639,6 +650,29 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void openInNewTabFromMenu(@NonNull PageTitle title, @NonNull HistoryEntry entry, int position) {
         openInNewTab(title, entry, position);
         tabFunnel.logOpenInNew(tabList.size());
+    }
+
+    public void openFromExistingTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
+        // find the tab in which this title appears...
+        int selectedTabPosition = -1;
+        for (Tab tab : tabList) {
+            for (PageBackStackItem item : tab.getBackStack()) {
+                if (item.getTitle().equals(title)) {
+                    selectedTabPosition = tabList.indexOf(tab);
+                    break;
+                }
+            }
+        }
+        if (selectedTabPosition == -1) {
+            // open the page anyway, in a new tab
+            openInNewForegroundTabFromMenu(title, entry);
+            return;
+        }
+        if (selectedTabPosition == tabList.size() - 1) {
+            pageFragmentLoadState.loadFromBackStack();
+        } else {
+            setCurrentTab(selectedTabPosition, false);
+        }
     }
 
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean pushBackStack) {
