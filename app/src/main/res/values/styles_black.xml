@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="ThemeBlack" parent="ThemeDark">
+
+        <!-- Default background for all activities -->
+        <item name="android:windowBackground">@color/base4</item>
+
+        <!-- Overrides of our own custom color attributes -->
+        <item name="main_toolbar_color">@color/accent16</item>
+        <item name="main_status_bar_color">@color/accent10</item>
+        <item name="page_toolbar_color">@color/base14</item>
+        <item name="nav_tab_background_color">@color/base14</item>
+
+        <!-- Background for cards, lists, and controls -->
+        <item name="paper_color">@color/base0</item>
+
+    </style>
+
+</resources>

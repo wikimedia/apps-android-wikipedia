@@ -1,5 +1,6 @@
 package org.wikipedia.theme;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -37,13 +38,16 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.text_size_seek_bar) DiscreteSeekBar textSizeSeekBar;
     @BindView(R.id.button_theme_light) TextView buttonThemeLight;
     @BindView(R.id.button_theme_dark) TextView buttonThemeDark;
+    @BindView(R.id.button_theme_black) TextView buttonThemeBlack;
     @BindView(R.id.button_theme_light_highlight) View buttonThemeLightHighlight;
     @BindView(R.id.button_theme_dark_highlight) View buttonThemeDarkHighlight;
+    @BindView(R.id.button_theme_black_highlight) View buttonThemeBlackHighlight;
     @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
 
     public interface Callback {
         void onToggleDimImages();
+        void onCancel();
     }
 
     private enum FontSizeAction { INCREASE, DECREASE, RESET }
@@ -63,6 +67,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         FeedbackUtil.setToolbarButtonLongPressToast(buttonDecreaseTextSize, buttonIncreaseTextSize);
         buttonThemeLight.setOnClickListener(new ThemeButtonListener(Theme.LIGHT));
         buttonThemeDark.setOnClickListener(new ThemeButtonListener(Theme.DARK));
+        buttonThemeBlack.setOnClickListener(new ThemeButtonListener(Theme.BLACK));
 
         textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -113,6 +118,15 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         app.getBus().unregister(this);
     }
 
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
+        if (callback() != null) {
+            // noinspection ConstantConditions
+            callback().onCancel();
+        }
+    }
+
     @Subscribe public void on(WebViewInvalidateEvent event) {
         updatingFont = false;
         updateComponents();
@@ -152,15 +166,17 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateThemeButtons() {
-        buttonThemeLightHighlight.setVisibility(app.isCurrentThemeLight() ? View.VISIBLE : View.GONE);
-        buttonThemeLight.setClickable(app.isCurrentThemeDark());
-        buttonThemeDarkHighlight.setVisibility(app.isCurrentThemeDark() ? View.VISIBLE : View.GONE);
-        buttonThemeDark.setClickable(app.isCurrentThemeLight());
+        buttonThemeLightHighlight.setVisibility(app.getCurrentTheme() == Theme.LIGHT ? View.VISIBLE : View.GONE);
+        buttonThemeLight.setClickable(app.getCurrentTheme() != Theme.LIGHT);
+        buttonThemeDarkHighlight.setVisibility(app.getCurrentTheme() == Theme.DARK ? View.VISIBLE : View.GONE);
+        buttonThemeDark.setClickable(app.getCurrentTheme() != Theme.DARK);
+        buttonThemeBlackHighlight.setVisibility(app.getCurrentTheme() == Theme.BLACK ? View.VISIBLE : View.GONE);
+        buttonThemeBlack.setClickable(app.getCurrentTheme() != Theme.BLACK);
     }
 
     private void updateDimImagesSwitch() {
         dimImagesSwitch.setChecked(Prefs.shouldDimDarkModeImages());
-        dimImagesSwitch.setEnabled(app.getCurrentTheme() == Theme.DARK);
+        dimImagesSwitch.setEnabled(app.getCurrentTheme().isDark());
         dimImagesSwitch.setTextColor(dimImagesSwitch.isEnabled()
                 ? ResourceUtil.getThemedColor(getContext(), R.attr.section_title_color)
                 : ContextCompat.getColor(getContext(), R.color.black26));

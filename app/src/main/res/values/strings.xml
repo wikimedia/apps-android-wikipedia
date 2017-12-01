@@ -309,6 +309,10 @@
     <string name="color_theme_select">Theme</string>
     <string name="color_theme_light">Light</string>
     <string name="color_theme_dark">Dark</string>
+    <string name="color_theme_black">Black</string>
+    <string name="color_theme_test_title">Sample text</string>
+    <string name="color_theme_test_text">Drag the slider to change the size of the text that is used when reading articles. To set the text size throughout the rest of the app, change your system text size.</string>
+    <string name="preference_title_app_theme">App theme</string>
     <string name="preference_title_color_theme">Dark theme</string>
     <string name="preference_summary_color_theme">Switch to using the app\'s dark color theme</string>
     <string name="text_size_increase">Increase text size</string>

@@ -13,6 +13,7 @@
     <color name="base14">#2e3136</color> <!-- AAA: "Thermosphere gray" -->
     <color name="base12">#27292d</color> <!-- AAA: "Exosphere gray" -->
     <color name="base10">#222</color> <!-- W AAA: Copy color, Buttons / widgets text -->
+    <color name="base4">#101418</color> <!-- W AAA: "Pitch black" -->
     <color name="base0">#000</color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
 
     <!-- Accent -->
@@ -21,6 +22,8 @@
     <color name="accent50">#36c</color> <!-- W AA Progressive: Primary buttons, Links, Page accents, Focus outlines -->
     <color name="accent30">#2a4b8d</color> <!-- W AAA: Active buttons, Active links -->
     <color name="accent20">#223966</color>
+    <color name="accent16">#1A3060</color> <!-- W AAA: "Midnight blue" -->
+    <color name="accent10">#101830</color>
     <color name="red75">#FF6E6E</color> <!-- Destructive text (error messages, red links) -->
     <color name="red50">#d33</color> <!-- Foundation Red: B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
 

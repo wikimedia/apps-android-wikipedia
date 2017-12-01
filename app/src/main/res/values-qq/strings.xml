@@ -287,6 +287,10 @@
   <string name="color_theme_select">Label that describes color theme selection\n{{Identical|Theme}}</string>
   <string name="color_theme_light">Button label for Light color theme\n{{Identical|Light}}</string>
   <string name="color_theme_dark">Button label for Dark color theme\n{{Identical|Dark}}</string>
+  <string name="color_theme_black">Button label for Black color theme\n{{Identical|Black}}</string>
+  <string name="color_theme_test_title">An example header title for previewing color theme changes.</string>
+  <string name="color_theme_test_text">Sample descriptive text giving the user instructions on using the text size slider.</string>
+  <string name="preference_title_app_theme">Title for a preference allowing the user to change the color theme of the app</string>
   <string name="preference_title_color_theme">Title for a preference allowing the user to turn on the dark theme</string>
   <string name="preference_summary_color_theme">Description for a preference allowing the user to turn on the dark theme</string>
   <string name="text_size_increase">Button hint for increasing the text size used in articles.</string>

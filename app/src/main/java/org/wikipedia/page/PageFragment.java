@@ -68,7 +68,7 @@ import org.wikipedia.readinglist.RemoveFromReadingListsDialog;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.theme.DarkModeSwitch;
+import org.wikipedia.theme.ThemeBridgeAdapter;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -161,7 +161,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ToCHandler tocHandler;
 
     private CommunicationBridge bridge;
-    private DarkModeSwitch darkModeSwitch;
     private LinkHandler linkHandler;
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
@@ -365,13 +364,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.setBackgroundColor(getThemedColor(getActivity(), R.attr.paper_color));
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
-        darkModeSwitch = new DarkModeSwitch(bridge);
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
-        // make sure styles get injected before the DarkModeMarshaller and other handlers
-        if (app.isCurrentThemeDark()) {
-            darkModeSwitch.turnOn();
+        if (!app.getCurrentTheme().isDefault()) {
+            ThemeBridgeAdapter.setTheme(bridge);
         }
 
         errorView.setRetryClickListener(new View.OnClickListener() {
@@ -1029,10 +1026,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     CommunicationBridge getBridge() {
         return bridge;
-    }
-
-    DarkModeSwitch getDarkModeMarshaller() {
-        return darkModeSwitch;
     }
 
     void enterTabMode(boolean launchedExternally) {

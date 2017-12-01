@@ -17,6 +17,7 @@ import com.facebook.imagepipeline.request.BasePostprocessor;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
 
@@ -115,5 +116,11 @@ public class FacePostprocessor extends BasePostprocessor {
         backgroundPaint.setColor(Color.WHITE);
         canvas.drawRect(0f, 0f, destBitmap.getWidth(), destBitmap.getHeight(), backgroundPaint);
         canvas.drawBitmap(sourceBitmap, 0f, 0f, backgroundPaint);
+        if (WikipediaApp.getInstance().getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages()) {
+            // "dim" images by drawing a translucent black rectangle over them.
+            final int blackAlpha = 100;
+            backgroundPaint.setColor(Color.argb(blackAlpha, 0, 0, 0));
+            canvas.drawRect(0f, 0f, destBitmap.getWidth(), destBitmap.getHeight(), backgroundPaint);
+        }
     }
 }

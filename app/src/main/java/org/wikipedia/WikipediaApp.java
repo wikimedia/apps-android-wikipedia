@@ -143,14 +143,6 @@ public class WikipediaApp extends Application {
         return currentTheme;
     }
 
-    public boolean isCurrentThemeLight() {
-        return getCurrentTheme().isLight();
-    }
-
-    public boolean isCurrentThemeDark() {
-        return getCurrentTheme().isDark();
-    }
-
     @NonNull
     public String getAppLanguageCode() {
         return defaultString(appLanguageState.getAppLanguageCode());
