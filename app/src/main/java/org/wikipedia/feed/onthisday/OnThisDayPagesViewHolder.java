@@ -38,12 +38,14 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.parent) View parent;
     private WikiSite wiki;
     private RbPageSummary selectedPage;
+    private final boolean isSingleCard;
 
-    OnThisDayPagesViewHolder(@NonNull CardView v, @NonNull WikiSite wiki) {
+    OnThisDayPagesViewHolder(@NonNull CardView v, @NonNull WikiSite wiki, boolean isSingleCard) {
         super(v);
         ButterKnife.bind(this, v);
         v.setCardBackgroundColor(ResourceUtil.getThemedColor(v.getContext(), R.attr.paper_color));
         this.wiki = wiki;
+        this.isSingleCard = isSingleCard;
     }
 
     public void setFields(@NonNull RbPageSummary page) {
@@ -65,7 +67,8 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @OnClick(R.id.parent) void onBaseViewClicked() {
         Context context = WikipediaApp.getInstance().getApplicationContext();
         PageTitle pageTitle = new PageTitle(selectedPage.getNormalizedTitle(), wiki);
-        HistoryEntry entry = new HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_LIST);
+        HistoryEntry entry = new HistoryEntry(pageTitle,
+                isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
         Intent intent = new Intent(ACTION_LOAD_IN_NEW_TAB)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .setClass(context, PageActivity.class)
