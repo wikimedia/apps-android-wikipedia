@@ -46,11 +46,7 @@ import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.feed.continuereading.ContinueReadingCard;
-import org.wikipedia.feed.continuereading.ContinueReadingClient;
-import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
@@ -73,8 +69,6 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -89,6 +83,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
+    public static final String ACTION_LOAD_FROM_EXISTING_TAB = "org.wikipedia.load_from_existing_tab";
     public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
@@ -322,6 +317,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .putExtra(EXTRA_PAGETITLE, title);
     }
 
+    public static Intent newIntentForExistingTab(@NonNull Context context,
+                                                 @NonNull HistoryEntry entry,
+                                                 @NonNull PageTitle title) {
+        return new Intent(ACTION_LOAD_FROM_EXISTING_TAB)
+                .setClass(context, PageActivity.class)
+                .putExtra(EXTRA_HISTORYENTRY, entry)
+                .putExtra(EXTRA_PAGETITLE, title);
+    }
+
     @NonNull
     public static Intent newIntentForTabList(@NonNull Context context) {
         return new Intent(ACTION_SHOW_TAB_LIST).setClass(context, PageActivity.class);
@@ -347,13 +351,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (ACTION_LOAD_IN_NEW_TAB.equals(intent.getAction())) {
                 loadPageInForegroundTab(title, historyEntry);
             } else if (ACTION_LOAD_IN_CURRENT_TAB.equals(intent.getAction())) {
-                loadPageInCurrentTab(title, historyEntry);
+                loadPage(title, historyEntry, TabPosition.CURRENT_TAB);
             }
             if (intent.hasExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)) {
                 showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER));
             }
+        } else if (ACTION_LOAD_FROM_EXISTING_TAB.equals(intent.getAction())) {
+            PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
+            HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
+            loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
         } else if (ACTION_SHOW_TAB_LIST.equals(intent.getAction())
-                || ACTION_RESUME_READING.equals(intent.getAction())) {
+                || ACTION_RESUME_READING.equals(intent.getAction())
+                || intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
             // do nothing, since this will be handled indirectly by PageFragment.
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
@@ -363,8 +372,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
-        } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
-            loadContinueReadingPage();
         } else {
             loadMainPageInCurrentTab();
         }
@@ -444,6 +451,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     pageFragment.loadPage(title, entry, true);
                 } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
                     pageFragment.openInNewBackgroundTabFromMenu(title, entry);
+                } else if (position == TabPosition.EXISTING_TAB) {
+                    pageFragment.openFromExistingTab(title, entry);
                 } else {
                     pageFragment.openInNewForegroundTabFromMenu(title, entry);
                 }
@@ -454,10 +463,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public void loadPageInForegroundTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         loadPage(title, entry, TabPosition.NEW_TAB_FOREGROUND);
-    }
-
-    public void loadPageInCurrentTab(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
-        loadPage(title, entry, TabPosition.CURRENT_TAB);
     }
 
     public void loadMainPageInForegroundTab() {
@@ -476,21 +481,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         PageTitle title = MainPageClient.getMainPageTitle();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position);
-    }
-
-    private void loadContinueReadingPage() {
-        new ContinueReadingClient().request(this, app.getWikiSite(), 1, new FeedClient.Callback() {
-            @Override
-            public void success(@NonNull List<? extends Card> cards) {
-                ContinueReadingCard card = (ContinueReadingCard) cards.get(0); // top?
-                loadPageInForegroundTab(card.pageTitle(), new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_APP_SHORTCUT_CONTINUE_READING));
-            }
-
-            @Override
-            public void error(@NonNull Throwable caught) {
-                loadMainPageInForegroundTab();
-            }
-        });
     }
 
     public void showLinkPreview(@NonNull PageTitle title, int entrySource) {
