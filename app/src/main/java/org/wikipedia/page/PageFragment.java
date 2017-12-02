@@ -55,7 +55,7 @@ import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.action.PageActionTab;
-import org.wikipedia.page.action.PageActionToolbarHideHandler;
+import org.wikipedia.page.action.ViewHideHandlerWithBottomGravity;
 import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.shareafact.ShareHandler;
@@ -323,9 +323,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         bottomContentView = rootView.findViewById(R.id.page_bottom_view);
 
-        PageActionToolbarHideHandler pageActionToolbarHideHandler
-                = new PageActionToolbarHideHandler(tabLayout, null);
+        ViewHideHandlerWithBottomGravity pageActionToolbarHideHandler
+                = new ViewHideHandlerWithBottomGravity(tabLayout, null);
         pageActionToolbarHideHandler.setScrollView(webView);
+        ViewHideHandlerWithBottomGravity snackbarHideHandler =
+                new ViewHideHandlerWithBottomGravity(rootView.findViewById(R.id.fragment_page_coordinator), null);
+        snackbarHideHandler.setScrollView(webView);
 
         return rootView;
     }
@@ -864,6 +867,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (getPage() != null) {
             ShareUtil.shareText(getActivity(), getPage().getTitle());
         }
+    }
+
+    @NonNull public TabLayout getTabLayout() {
+        return tabLayout;
     }
 
     public int getTabCount() {
