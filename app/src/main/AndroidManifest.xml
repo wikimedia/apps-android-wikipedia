@@ -167,7 +167,7 @@
             android:theme="@style/AppTheme.FullScreen" />
         <activity
             android:name=".settings.LicenseActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/AppTheme.ActionBar"
             tools:ignore="GoogleAppIndexingUrlError">
             <intent-filter>
