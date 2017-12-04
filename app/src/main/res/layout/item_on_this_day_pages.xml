@@ -12,10 +12,11 @@
         android:orientation="horizontal">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
+            style="@style/SimpleDraweeViewPlaceholder.Article"
             android:id="@+id/page_list_item_image"
             android:layout_width="72dp"
             android:layout_height="match_parent"
-            android:visibility="gone"
+            app:backgroundImage="@color/base80"
             app:actualImageScaleType="centerCrop" />
 
         <LinearLayout
@@ -36,7 +37,7 @@
                 android:maxLines="1"
                 android:textColor="?attr/primary_text_color" />
 
-            <TextView
+            <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/page_list_item_description"
                 style="@style/RtlAwareTextView"
                 android:layout_width="wrap_content"

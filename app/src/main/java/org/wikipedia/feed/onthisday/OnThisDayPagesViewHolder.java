@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -56,12 +55,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void setImage(@Nullable String url) {
-        if (!TextUtils.isEmpty(url)) {
-            pageItemImageView.setVisibility(View.VISIBLE);
-            pageItemImageView.loadImage(Uri.parse(url));
-        } else {
-            pageItemImageView.setVisibility(View.GONE);
-        }
+        pageItemImageView.loadImage(url == null ? null : Uri.parse(url));
     }
 
     @OnClick(R.id.parent) void onBaseViewClicked() {
