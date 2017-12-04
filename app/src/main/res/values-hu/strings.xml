@@ -500,7 +500,7 @@
   <string name="onboarding_continue">Tovább</string>
   <string name="onboarding_get_started">Kezdés</string>
   <string name="onboarding_explore_title">Új módok a felfedezésre</string>
-  <string name="onboarding_explore_text">Fedezzen fel kiemelt cikkeket, népszerű témákat és olvasási javaslatokat a Felfedezés csatornában.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Fedezzen fel kiemelt cikkeket, népszerű témákat és olvasási javaslatokat a Felfedezés csatornában.</string>
   <string name="onboarding_reading_list_sync_title">Olvasási listák szinkronizálással</string>
   <string name="onboarding_reading_list_sync_text">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>

@@ -481,7 +481,7 @@
   <string name="onboarding_continue">להמשיך</string>
   <string name="onboarding_get_started">להתחיל</string>
   <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
-  <string name="onboarding_explore_text">לגלות ערכים מומלצים, נושאים חמים, והצעות לקריאה בהזנת \"לחקור\".</string>
+  <string name="onboarding_explore_text" fuzzy="true">לגלות ערכים מומלצים, נושאים חמים, והצעות לקריאה בהזנת \"לחקור\".</string>
   <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
   <string name="onboarding_reading_list_sync_text">צרו רשימות קריאה מערכים שאתם רוצים לקרוא מאוחר יותר, גם אם אינכם מחוברים. &lt;a href=\"#login\"&gt;נא להיכנס לחשבון הוויקיפדיה שלך או ליצור אותו&lt;/a&gt; כדי לשמור גיבוי של רשימות הקריאה שלך.</string>
   <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>

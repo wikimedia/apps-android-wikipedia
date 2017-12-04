@@ -504,7 +504,7 @@
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>
   <string name="onboarding_explore_title">Novas formas de explorar</string>
-  <string name="onboarding_explore_text">Descubrir artigos de calidade, relevantes e suxestións na lista de Explorar.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Descubrir artigos de calidade, relevantes e suxestións na lista de Explorar.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura sincronizadas</string>
   <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artigos que queres ler máis tarde, incluso cando esteas sen conexión. &lt;a href=\"#login\"&gt;Inicia sesión ou crea&lt;/a&gt; a túa conta de Wikipedia para mantener as túas listas de lectura sincronizadas.</string>
   <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>

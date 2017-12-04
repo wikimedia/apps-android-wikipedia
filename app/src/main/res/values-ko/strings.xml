@@ -146,6 +146,7 @@
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인정보 정책</string>
   <string name="terms_of_use_description">이용 약관</string>
+  <string name="about_wikipedia_url">https://ko.m.wikipedia.org/wiki/위키백과:소개</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
@@ -260,8 +261,10 @@
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
   <string name="reference_title">각주 %s</string>
+  <string name="preference_title_dim_dark_mode_images">어두운 테마에서 낮은 밝기의 그림</string>
   <string name="preference_summary_dim_dark_mode_images">어두운 테마를 사용할 때 그림의 밝기를 낮춥니다</string>
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
+  <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용 절약</string>
   <string name="preference_title_enable_offline_library">오프라인 라이브러리 사용</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
@@ -280,6 +283,10 @@
   <string name="color_theme_select">테마</string>
   <string name="color_theme_light">밝음</string>
   <string name="color_theme_dark">어두움</string>
+  <string name="color_theme_black">검정</string>
+  <string name="color_theme_test_title">샘플 텍스트</string>
+  <string name="color_theme_test_text">글을 읽을 때 사용되는 텍스트의 크기를 변경하려면 슬라이더를 드래그하십시오. 앱의 나머지 부분의 텍스트 크기를 설정하려면 시스템 텍스트 크기를 변경하십시오.</string>
+  <string name="preference_title_app_theme">앱 테마</string>
   <string name="preference_title_color_theme">어두운 테마</string>
   <string name="preference_summary_color_theme">앱의 어두운 색 테마로 전환</string>
   <string name="text_size_increase">텍스트 크기 늘리기</string>
@@ -391,7 +398,7 @@
   <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">어제</item>
     <item quantity="other">%d일 전</item>
   </plurals>
@@ -500,7 +507,10 @@
   <string name="onboarding_skip">건너뛰기</string>
   <string name="onboarding_continue">계속</string>
   <string name="onboarding_get_started">시작하기</string>
+  <string name="onboarding_welcome_title">우리 모두의 백과사전</string>
   <string name="onboarding_explore_title">탐구를 위한 새로운 방법</string>
+  <string name="onboarding_save_to_reading_lists_title">읽기 목록에 저장</string>
+  <string name="onboarding_save_to_reading_lists_text">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
   <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
   <string name="onboarding_reading_list_sync_text">나중에 오프라인 상태에서도 읽을 수 있도록 문서의 읽기 목록을 만듭니다. 읽기 목록을 보관하려면 위키백과 계정을 &lt;a href=\"#login\"&gt;만들거나 로그인&lt;/a&gt;하십시오.</string>
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
@@ -513,8 +523,10 @@
   <string name="app_shortcuts_random">임의 문서</string>
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
+  <string name="all_trending_text">%1$s에 유행하는 모든 글</string>
+  <string name="top_on_this_day">%1$s의 유행</string>
   <string name="on_this_day_card_title">오늘의 역사</string>
-  <string name="more_events_text" fuzzy="true">이 날에 있었던 더 많은 역사적 사건</string>
+  <string name="more_events_text">이 날에 있었던 더 많은 사건</string>
   <string name="events_count_text" fuzzy="true">%2$s~%3$d년 사이의 이벤트 %1$s개</string>
   <string name="on_this_day">오늘의 역사</string>
   <string name="this_year">올해</string>

@@ -144,7 +144,7 @@
   <string name="settings_item_preferences">ترتیبات</string>
   <string name="settings_activity_title">ترتیبات</string>
   <string name="about_description">ویکیپیڈیا ایپ کے بارے میں</string>
-  <string name="privacy_policy_description">اصول براۓ اخفائے راز</string>
+  <string name="privacy_policy_description">اصول برائے اخفائے راز</string>
   <string name="terms_of_use_description">استعمال کے شرائط</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -399,7 +399,7 @@
     <item quantity="other">%d دن قبل</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">آج</string>
-  <string name="view_continue_reading_card_subtitle_read_date">پڑھیں%s</string>
+  <string name="view_continue_reading_card_subtitle_read_date">پڑھیں %s</string>
   <string name="view_announcement_card_negative_action">نہیں، شکریہ!</string>
   <string name="view_offline_card_text">آف لائن ہونے کے دوران میں مواد لوڈ نہیں کیا جا سکتا۔</string>
   <string name="view_featured_article_card_title">منتخب مضمون</string>
@@ -481,7 +481,7 @@
   <string name="onboarding_continue">جاری رکھیں</string>
   <string name="onboarding_get_started">شروع کریں</string>
   <string name="onboarding_explore_title">اکتشاف کی نئی راہیں</string>
-  <string name="onboarding_explore_text">اکتشاف فیڈ میں منتخب مضامین، مقبول عام موضوعات اور مطالعے کی تجویزیں دیکھیں۔</string>
+  <string name="onboarding_explore_text" fuzzy="true">اکتشاف فیڈ میں منتخب مضامین، مقبول عام موضوعات اور مطالعے کی تجویزیں دیکھیں۔</string>
   <string name="onboarding_reading_list_sync_title">مطالعاتی فہرستیں مع مطابقت پزیری</string>
   <string name="onboarding_analytics_title">گمنام ڈیٹا بھیجیں</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>

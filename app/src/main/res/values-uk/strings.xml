@@ -473,7 +473,7 @@
   <string name="onboarding_continue">Продовжити</string>
   <string name="onboarding_get_started">Розпочати</string>
   <string name="onboarding_explore_title">Пізнаємо по-новому</string>
-  <string name="onboarding_explore_text">Відкрийте для себе обрані статті, популярні теми та поради щодо читання в каналі перегляду.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Відкрийте для себе обрані статті, популярні теми та поради щодо читання в каналі перегляду.</string>
   <string name="onboarding_reading_list_sync_title">Синхронізовані списки читання</string>
   <string name="onboarding_reading_list_sync_text">Створіть список читання з статей, які ви хочете читати пізніше, навіть коли ви знаходитесь не в мережі. &lt;a href=\"#login\"&gt;Увійдіть або створіть&lt;/a&gt; ваш обліковий запис у Вікіпедії, щоб підтримувати резервнe копію списків читання.</string>
   <string name="onboarding_analytics_title">Надіслати анонімні дані</string>

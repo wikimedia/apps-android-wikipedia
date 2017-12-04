@@ -502,7 +502,7 @@
   <string name="onboarding_continue">जारी रहना</string>
   <string name="onboarding_get_started">शुरू करें</string>
   <string name="onboarding_explore_title">अन्वेषण के नए तरीके</string>
-  <string name="onboarding_explore_text">अन्वेषण प्रदाय पर विशेष रुप से प्रदर्शित लेख, रुझान वाले विषयों की खोज और सुझावों को ढूंढें।</string>
+  <string name="onboarding_explore_text" fuzzy="true">अन्वेषण प्रदाय पर विशेष रुप से प्रदर्शित लेख, रुझान वाले विषयों की खोज और सुझावों को ढूंढें।</string>
   <string name="onboarding_reading_list_sync_title">सिंक के साथ पढ़ने वाली सूचियां</string>
   <string name="onboarding_reading_list_sync_text">उन लेखों की पठन सूचियां बनाएं जिन्हें आप बाद में पढ़ना चाहते हैं, तब भी जब आप ऑफ़लाइन हो। अपनी पठन सूचियों को बैक अप रखने के लिए अपने विकिपीडिया खाते में &lt;a href=\"#login\"&gt; लॉग इन करें या खाता बनाएं &lt;/a&gt;।</string>
   <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>

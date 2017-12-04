@@ -454,7 +454,7 @@
   <string name="onboarding_continue">Devam et</string>
   <string name="onboarding_get_started">Kullanmaya başla</string>
   <string name="onboarding_explore_title">Keşfetmenin yeni yolları</string>
-  <string name="onboarding_explore_text">Keşfet bölümünde seçkin maddeleri, en popüler başlıkları ve okuma önerilerini inceleyin.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Keşfet bölümünde seçkin maddeleri, en popüler başlıkları ve okuma önerilerini inceleyin.</string>
   <string name="onboarding_reading_list_sync_title">Okuma listelerinin senkronizasyonu</string>
   <string name="onboarding_reading_list_sync_text">Daha sonra, çevrim dışı olsanız bile, okumak istediğiniz maddelerden okuma listeleri okuşturun. Okuma listelerinizi yedekleyip saklamak için Vikipedi hesabınızda &lt;a href=\"#login\"&gt;oturum açın veya yeni hesap oluşturun&lt;/a&gt;.</string>
   <string name="onboarding_analytics_title">Anonim veri gönder</string>

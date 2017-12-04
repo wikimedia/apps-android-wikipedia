@@ -436,7 +436,7 @@
   <string name="onboarding_continue">استمر</string>
   <string name="onboarding_get_started">ابدأ</string>
   <string name="onboarding_explore_title">طريقة جديدة للاستكشاف</string>
-  <string name="onboarding_explore_text">اكتشف المقالات المختارة، والمواضيع الشائعة، واقتراحات القراءة في خلاصات \"استكشف\".</string>
+  <string name="onboarding_explore_text" fuzzy="true">اكتشف المقالات المختارة، والمواضيع الشائعة، واقتراحات القراءة في خلاصات \"استكشف\".</string>
   <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
   <string name="onboarding_reading_list_sync_text">أنشئ قوائم قراءة من المقالات التي تُريد قراءتها لاحقًا، حتى في وضع عدم الاتصال. &lt;a href=\"#login\"&gt;أنشئ حسابًا أو سجل دخولك&lt;/a&gt; لحسابك في ويكيبيديا لإبقاء قوائم قراءتك منسوخةً احتياطيا.</string>
   <string name="onboarding_analytics_title">إرسال بيانات مجهولة المصدر</string>

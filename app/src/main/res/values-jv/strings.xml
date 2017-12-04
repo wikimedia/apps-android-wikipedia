@@ -146,6 +146,7 @@
   <string name="about_description">Babagan aplikasi Wikipédia</string>
   <string name="privacy_policy_description">Pranatan bab priangga</string>
   <string name="terms_of_use_description">Bebakuning Pangguna</string>
+  <string name="about_wikipedia_url">https://jv.m.wikipedia.org/wiki/Wikipedia:Bab</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -365,6 +366,7 @@
   <string name="notification_reverted">Besutané panjenengan tumrap artikel &lt;strong&gt;%2$s&lt;/strong&gt; diwurungaké déning &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Panjenengan nampa atur panuwun!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; matur nuwun marang panjenengan awit besutané panjenengan ing kaca &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_syncing_cancel_button">Wurung</string>
   <string name="view_continue_reading_card_title">Bacutaké maca</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
@@ -382,16 +384,17 @@
   <string name="most_read_list_card_title">Lagi mumbul</string>
   <string name="view_static_card_icon_content_description">Ikon kertu</string>
   <string name="view_card_news_title">Lagi dadi warta</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Wingi</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">wingi</item>
     <item quantity="other">%d dina kapungkur</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Dina iki</string>
+  <string name="view_continue_reading_card_subtitle_today">dina iki</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
   <string name="view_offline_card_text">Isèn-isèné ora bisa dimot nalika ing njaban jaringan.</string>
   <string name="view_featured_article_card_title">Artikel pinilih</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
+  <string name="feed_configure_onboarding_action">Pasaké</string>
   <string name="description_edit_text_hint">Wedharané sesirah</string>
   <string name="description_edit_save">Babar</string>
   <string name="description_edit_add_description">Tambah wedharané sesirah</string>
@@ -465,7 +468,9 @@
   <string name="onboarding_continue">Banjuraké</string>
   <string name="onboarding_get_started">Miwiti</string>
   <string name="onboarding_explore_title">Cara anyar ndlajah</string>
-  <string name="onboarding_explore_text">Golèk artikel pilihan, rembug mumbul, lan saran wacan ing lebon Djalah.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Golèk artikel pilihan, rembug mumbul, lan saran wacan ing lebon Djalah.</string>
+  <string name="onboarding_save_to_reading_lists_title">Simpen menyang pratélan wacan</string>
+  <string name="onboarding_save_to_reading_lists_text">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan.</string>
   <string name="onboarding_reading_list_sync_title">Pratélan wacan mawa sinkronisasi</string>
   <string name="onboarding_reading_list_sync_text">Gawé pratélan wacan saka artikel sing arep panjenengan waca ing tembé, masiya ing njaban jaringan. &lt;a href=\"#login\"&gt;Mlebua log utawa gawéa&lt;/a&gt; akun Wikipédiané panjenengan supaya pratélan wacané panjenengan bisa disèrepaké.</string>
   <string name="onboarding_analytics_title">Kirim dhata anonim</string>
@@ -474,12 +479,14 @@
   <string name="onboarding_create_account_sync">Sinkronaké pratélan wacané panjenengan</string>
   <string name="onboarding_create_account_contributions">Lacak pisumbangé panjenengan</string>
   <string name="onboarding_create_account_preferences">Simpen pilalané panjenengan</string>
+  <string name="onboarding_got_it">Mudheng</string>
   <string name="app_shortcuts_random">Waton</string>
   <string name="app_shortcuts_continue_reading">Bacutaké maca</string>
   <string name="app_shortcuts_search">Golèk</string>
   <string name="on_this_day_card_title">Ing dina iki</string>
   <string name="on_this_day">Ing dina iki</string>
   <string name="this_year">Taun iki</string>
+  <string name="back_to_top">BALI MENYANG NDHUWUR</string>
   <plurals name="diff_years">
     <item quantity="one">Taun kapungkur</item>
     <item quantity="other">%d taun kapungkur</item>

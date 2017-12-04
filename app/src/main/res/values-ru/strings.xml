@@ -484,8 +484,9 @@
   <string name="onboarding_skip">Пропустить</string>
   <string name="onboarding_continue">Продолжить</string>
   <string name="onboarding_get_started">Начать</string>
+  <string name="onboarding_welcome_title">Свободная энциклопедия</string>
   <string name="onboarding_explore_title">Новые способы исследования</string>
-  <string name="onboarding_explore_text">Обозревайте избранные статьи, популярные темы и предложения для чтения в ленте Explore.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Обозревайте избранные статьи, популярные темы и предложения для чтения в ленте Explore.</string>
   <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
   <string name="onboarding_reading_list_sync_text">Создавайте списки для чтения из статей, которые вы хотите прочитать, даже если вы находитесь в офлайне. &lt;a href=\"#login\"&gt;Авторизуйтесь или создайте учётную запись в Википедии&lt;/a&gt; для сохранения списков для чтения.</string>
   <string name="onboarding_analytics_title">Отправка анонимных данных</string>

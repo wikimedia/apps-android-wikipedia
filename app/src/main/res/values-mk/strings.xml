@@ -146,6 +146,7 @@
   <string name="about_description">За прилогот „Википедија“</string>
   <string name="privacy_policy_description">Заштита на личните податоци</string>
   <string name="terms_of_use_description">Услови на употреба</string>
+  <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_Policy/mk?uselang=mk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">Изглед</string>
   <string name="color_theme_light">Светол</string>
   <string name="color_theme_dark">Темен</string>
+  <string name="color_theme_black">Црн</string>
+  <string name="color_theme_test_title">Примерен текст</string>
+  <string name="color_theme_test_text">Повлечете го лизгачот за да ја измените големината на текстот во статиите што ги читате. За да зададете големина на фонтот во целиот прилог, сменете го во системските поставки за фонт.</string>
+  <string name="preference_title_app_theme">Изглед на прилогот</string>
   <string name="preference_title_color_theme">Темен изглед</string>
   <string name="preference_summary_color_theme">Префрлете се на темниот изглед на прилогот</string>
   <string name="text_size_increase">Зголеми текст</string>
@@ -327,7 +332,7 @@
   <string name="reading_list_deleted">%s е избришана</string>
   <string name="reading_lists_empty">Засега нема списоци за читање</string>
   <string name="reading_lists_empty_message">Зачувувајте ги статиите во списоци за читање, за да можете да им се навратите подоцна, дури и кога немате линија.</string>
-  <string name="reading_lists_onboarding_intro">Создајте списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
+  <string name="reading_lists_onboarding_intro">Правете списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посета</string>
   <string name="reading_lists_onboarding_example2">Омилени животни</string>
@@ -517,8 +522,12 @@
   <string name="onboarding_skip">Прескокни</string>
   <string name="onboarding_continue">Продолжи</string>
   <string name="onboarding_get_started">Започнете</string>
+  <string name="onboarding_welcome_title">Слободната енциклопедија</string>
+  <string name="onboarding_welcome_text">Википедија е соработно дело кое го пишуваат доброволци и се состои од преку 40 милиони статии на речиси 300 различни јазици. &lt;a href=\"#about\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Нови начини на истражување</string>
-  <string name="onboarding_explore_text">Откријте ги избраните статии, тековните изгледи и предлозите за читање во тековникот „Истражи“.</string>
+  <string name="onboarding_explore_text">Нурнете се длабоко во Википедија со постојано подновениот тековник „Истражи“.&lt;br/&gt; &lt;b&gt;Прилагодете&lt;/b&gt; го тековниот според вашите интереси — дознајте за историските настани кои се случиле &lt;b&gt;На денешен ден&lt;/b&gt; или пробајте си ја среќата со &lt;b&gt;Случајна&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Зачувување во списоци за читање</string>
+  <string name="onboarding_save_to_reading_lists_text">Правете списоци за читање од статиите што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
   <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
   <string name="onboarding_reading_list_sync_text">Создавајте списоци за читање од статиите што сакате да ги прочитате подоцна, дури и кога немате линија. &lt;a href=\"#login\"&gt;Најавете се или направете&lt;/a&gt; ваша сметка на Википедија за да ги запазите списоците.</string>
   <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
@@ -531,6 +540,7 @@
   <string name="app_shortcuts_random">Случајна</string>
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
+  <string name="more_trending_text">Повеќе вакви</string>
   <string name="all_trending_text">Сите најчитани страници на %1$s</string>
   <string name="top_on_this_day">Најчитано на %1$s</string>
   <string name="on_this_day_card_title">На денешен ден</string>

@@ -514,8 +514,9 @@
   <string name="onboarding_skip">Omet</string>
   <string name="onboarding_continue">Continua</string>
   <string name="onboarding_get_started">Primers passos</string>
+  <string name="onboarding_welcome_title">L’enciclopèdia lliure</string>
   <string name="onboarding_explore_title">Noves formes d\'explorar</string>
-  <string name="onboarding_explore_text">Descobriu els articles destacats, els temes rellevants i els suggeriments de lectura al canal Explora.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Descobriu els articles destacats, els temes rellevants i els suggeriments de lectura al canal Explora.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_reading_list_sync_text">Crea llistes de lectura d\'articles que voleu llegir més endavant, fins i tot si esteu fora de línia. &lt;a href=\"#login\"&gt;Inicieu una sessió o creeu in compte&lt;/a&gt; a la Viquipèdia per a conservar una còpia de les vostres llistes de lectura.</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>

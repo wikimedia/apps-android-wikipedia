@@ -316,5 +316,5 @@
   <string name="compilation_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="compilation_remove">हटाउनुहोस्</string>
   <string name="offline_library_onboarding_button_done">सम्पन्न भयो</string>
-  <string name="onboarding_explore_text">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
+  <string name="onboarding_explore_text" fuzzy="true">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
 </resources>

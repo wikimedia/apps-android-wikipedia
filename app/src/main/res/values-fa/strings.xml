@@ -498,7 +498,7 @@
   <string name="onboarding_continue">ادامه</string>
   <string name="onboarding_get_started">شروع شد</string>
   <string name="onboarding_explore_title">روش‌های جدید برای کاوش</string>
-  <string name="onboarding_explore_text">کاوش خصوصیات مقالات، رتبه موضوعات و خواندن پیشنهادها در بازخورد کاوش.</string>
+  <string name="onboarding_explore_text" fuzzy="true">کاوش خصوصیات مقالات، رتبه موضوعات و خواندن پیشنهادها در بازخورد کاوش.</string>
   <string name="onboarding_reading_list_sync_title">مطالعهٔ فهرست با همسان‌سازی</string>
   <string name="onboarding_reading_list_sync_text">ایجاد فهرست‌های مطالعه از مقالاتی که شما قصد مطالعهٔ آنها را برای بعدا دارید، با وجودی که آفلاین هستید &lt;a href=\"#login\"&gt;به سامانه وارد شوید&lt;/a&gt; یا حساب کاربری ویکی‌پدیا ایجاد کنید تا از فهرست‌های خواند پشتیبانی داشته باشید.</string>
   <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>

@@ -146,6 +146,7 @@
   <string name="about_description">Sobre o aplicativo da Wikipédia</string>
   <string name="privacy_policy_description">Política de privacidade</string>
   <string name="terms_of_use_description">Termos de uso</string>
+  <string name="about_wikipedia_url">https://pt.m.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Termos_de_Uso</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
+  <string name="color_theme_black">Preto</string>
+  <string name="color_theme_test_title">Texto de amostra</string>
+  <string name="color_theme_test_text">Arraste a barra deslizante para alterar o tamanho do texto que é usado para ler artigos. Para definir o tamanho do texto na restante aplicação, altere o tamanho de texto do sistema.</string>
+  <string name="preference_title_app_theme">Tema do aplicativo</string>
   <string name="preference_title_color_theme">Tema escuro</string>
   <string name="preference_summary_color_theme">Mude para usar o tema da cor escura do aplicativo</string>
   <string name="text_size_increase">Aumentar o tamanho do texto</string>
@@ -517,8 +522,12 @@
   <string name="onboarding_skip">Pular</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>
+  <string name="onboarding_welcome_title">A Enciclopédia Livre</string>
+  <string name="onboarding_welcome_text">A Wikipédia é escrita de forma colaborativa por voluntários e contém mais de 40 milhões de artigos em quase 300 línguas diferentes. &lt;a href=\"#about\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Novas maneiras de explorar</string>
-  <string name="onboarding_explore_text">Descubra artigos em destaque, tópicos de tendências e sugestões de leitura no feed do Explore.</string>
+  <string name="onboarding_explore_text">Mergulhe o buraco de coelho da Wikipédia com uma atualização constante Explore feed. &lt;br/&gt; &lt;b&gt;Customizar&lt;/b&gt; A alimentação de seus interesses - seja aprendendo sobre eventos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou rolando os dados com &lt;b&gt;Aleatória&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Salvar nas listas de leitura</string>
+  <string name="onboarding_save_to_reading_lists_text">Crie listas de leitura a partir dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à internet.</string>
   <string name="onboarding_reading_list_sync_title">Listas de leitura sincronizadas</string>
   <string name="onboarding_reading_list_sync_text">Crie listas de leitura de artigos que você deseja ler mais tarde, mesmo quando você está desconectado. &lt;a href=\"#login\"&gt;Faça login ou crie&lt;/a&gt; sua conta de Wikipedia para manter suas listas de leitura protegidas.</string>
   <string name="onboarding_analytics_title">Enviar dados anônimos</string>
@@ -531,6 +540,7 @@
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continue lendo</string>
   <string name="app_shortcuts_search">Pesquisar</string>
+  <string name="more_trending_text">Mais como isso</string>
   <string name="all_trending_text">Todos os artigos tendentes sobre %1$s</string>
   <string name="top_on_this_day">Tendências em %1$s</string>
   <string name="on_this_day_card_title">Neste dia</string>

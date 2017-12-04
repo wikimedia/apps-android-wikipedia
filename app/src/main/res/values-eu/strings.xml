@@ -338,7 +338,7 @@
   <string name="onboarding_continue">Jarraitu</string>
   <string name="onboarding_get_started">Has zaitez!</string>
   <string name="onboarding_explore_title">Exploratzeko era berriak</string>
-  <string name="onboarding_explore_text">Artikulua aipagarriak edo modan dauden gaiak aurkitu eta irakurketa iradokizunak Exploren.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Artikulua aipagarriak edo modan dauden gaiak aurkitu eta irakurketa iradokizunak Exploren.</string>
   <string name="onboarding_reading_list_sync_title">Sinkronizatutako irakurketa zerrendak</string>
   <string name="onboarding_reading_list_sync_text">Geroago irakurri nahi dituzun artikuluen irakurketa zerrenda sortu, baita konexiorik gabe zaudenean ere. &lt;a href=\"#login\"&gt;Log in or create&lt;/a&gt; zure Wikipedia kontuan irakurketa zerrendak gordetzeko.</string>
   <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>

@@ -146,6 +146,7 @@
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私政策</string>
   <string name="terms_of_use_description">使用條款</string>
+  <string name="about_wikipedia_url">https://zh.m.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">主題</string>
   <string name="color_theme_light">日間模式</string>
   <string name="color_theme_dark">暗黑</string>
+  <string name="color_theme_black">漆黑</string>
+  <string name="color_theme_test_title">試樣文字</string>
+  <string name="color_theme_test_text">拖拉滑標來變更使用在閱讀條目的文字大小。要設定應用程式外其餘文字大小，請變更您的系統文字大小。</string>
+  <string name="preference_title_app_theme">套用主題</string>
   <string name="preference_title_color_theme">暗黑主題</string>
   <string name="preference_summary_color_theme">切換到使用應用程式的暗黑色彩主題</string>
   <string name="text_size_increase">增加文字大小</string>
@@ -382,7 +387,7 @@
   <string name="view_because_you_read_card_title">因為您讀了</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_card_subtitle">快速翻閱來自維基百科的隨機條目。</string>
-  <string name="view_random_card_action">隨機產生</string>
+  <string name="view_random_card_action">擲骰產生</string>
   <string name="view_next_random_article">載入另一個隨機條目</string>
   <string name="view_main_page_card_title">維基百科今日</string>
   <string name="view_main_page_card_subtitle">%s 首頁</string>
@@ -517,8 +522,12 @@
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
+  <string name="onboarding_welcome_title">自由的百科全書</string>
+  <string name="onboarding_welcome_text">維基百科是透過志願者們所協作編寫，並且包含超過 4000 多萬條；以將近 300 種語言所建立的條目。&lt;a href=\"#about\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_explore_title">探索的新方法</string>
-  <string name="onboarding_explore_text">在探索訊息來源裡發掘典範條目、熱門主題，和閱讀建議。</string>
+  <string name="onboarding_explore_text">一腳跳進不斷更新探索訊息來源的維基百科兔子洞裡頭。&lt;br/&gt; &lt;b&gt;自定義&lt;/b&gt;訊息來源在您感興趣的項目 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;學習歷史事件、或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
+  <string name="onboarding_save_to_reading_lists_title">儲存至閱讀清單</string>
+  <string name="onboarding_save_to_reading_lists_text">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀。</string>
   <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
   <string name="onboarding_reading_list_sync_text">從條目建立閱讀清單可讓您於事後閱讀；即使您是在離線的狀態之下。&lt;a href=\"#login\"&gt;登入或建立&lt;/a&gt;您的維基百科帳號以維持您的閱讀清單備份。</string>
   <string name="onboarding_analytics_title">寄送匿名資料</string>
@@ -531,6 +540,7 @@
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
+  <string name="more_trending_text">更多相似內容</string>
   <string name="all_trending_text">在 %1$s 的所有趨勢條目</string>
   <string name="top_on_this_day">在 %1$s 的熱門事物</string>
   <string name="on_this_day_card_title">歷史上的今天</string>

@@ -425,7 +425,7 @@
   <string name="onboarding_continue">Doorgaan</string>
   <string name="onboarding_get_started">Aan de slag</string>
   <string name="onboarding_explore_title">Nieuwe manieren om te ontdekken</string>
-  <string name="onboarding_explore_text">Ontdek populaire artikelen, populaire onderwerpen en lees-suggesties op de ontdekking-feed.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Ontdek populaire artikelen, populaire onderwerpen en lees-suggesties op de ontdekking-feed.</string>
   <string name="onboarding_reading_list_sync_title">Leeslijsten met synchronisatie</string>
   <string name="onboarding_reading_list_sync_text">Maak leeslijsten aan van artikels dat u later wenst te lezen wanneer u offline bent. &lt;a href=\"#login\"&gt;Log in of maak aan&lt;/a&gt; uw Wikipedia-account om uw leeslijsten op te slaan in een backup.</string>
   <string name="onboarding_analytics_title">Verstuur data anoniem</string>

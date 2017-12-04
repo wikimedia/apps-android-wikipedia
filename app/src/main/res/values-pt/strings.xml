@@ -146,6 +146,7 @@
   <string name="about_description">Sobre a aplicação Wikipédia</string>
   <string name="privacy_policy_description">Normas de privacidade</string>
   <string name="terms_of_use_description">Condições de utilização</string>
+  <string name="about_wikipedia_url">https://pt.m.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
+  <string name="color_theme_black">Preto</string>
+  <string name="color_theme_test_title">Texto exemplificativo</string>
+  <string name="color_theme_test_text">Arraste a barra deslizante para alterar o tamanho do texto que é usado para ler artigos. Para definir o tamanho do texto na restante aplicação, altere o tamanho de texto do sistema.</string>
+  <string name="preference_title_app_theme">Tema da aplicação</string>
   <string name="preference_title_color_theme">Tema escuro</string>
   <string name="preference_summary_color_theme">Mudar para o tema escuro da aplicação</string>
   <string name="text_size_increase">Aumentar o tamanho do texto</string>
@@ -398,19 +403,33 @@
   <string name="most_read_list_card_title">Tendências</string>
   <string name="view_static_card_icon_content_description">Ícone de cartão</string>
   <string name="view_card_news_title">Atualidades</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Ontem</item>
-    <item quantity="other">Há %d dias</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ontem</item>
+    <item quantity="other">há %d dias</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Hoje</string>
+  <string name="view_continue_reading_card_subtitle_today">hoje</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Ler %s</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
   <string name="view_offline_card_text">O conteúdo não pode ser carregado sem acesso à Internet.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
   <string name="feed_configure_menu_title">Configurar cartões</string>
-  <string name="feed_configure_activity_title" fuzzy="true">Configurar cartões Explorar</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">Repor valores predefinidos</string>
+  <string name="feed_configure_activity_title">Personalizar o feed</string>
+  <string name="feed_configure_menu_reset">Repor vista predefinida</string>
+  <string name="feed_configure_menu_select_all">Selecionar todos</string>
+  <string name="feed_configure_menu_deselect_all">Desmarcar todos</string>
+  <string name="feed_item_type_news">Artigos sobre atualidades</string>
+  <string name="feed_item_type_on_this_day">Acontecimentos na história neste dia</string>
+  <string name="feed_item_type_continue_reading">Ligação rápida para ler um artigo aberto num dos seus separadores</string>
+  <string name="feed_item_type_because_you_read">Sugestões baseadas num artigo recentemente lido do seu histórico</string>
+  <string name="feed_item_type_featured_article">Artigo destacado do dia na Wikipédia</string>
+  <string name="feed_item_type_trending">Artigos mais vistos do dia</string>
+  <string name="feed_item_type_featured_image">Imagem destacada do dia no Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Página principal da Wikipédia com o conteúdo destacado diário</string>
+  <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
+  <string name="feed_configure_onboarding_action">Personalizar</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalize o seu feed Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escolher o que deseja mostrar no seu feed, e também priorizar os seus tipos de conteúdos favoritos.</string>
   <string name="description_edit_text_hint">Descrição do título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Adicionar descrição do título</string>
@@ -503,8 +522,12 @@
   <string name="onboarding_skip">Ignorar</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Começar</string>
+  <string name="onboarding_welcome_title">A enciclopédia livre</string>
+  <string name="onboarding_welcome_text">A Wikipédia é escrita de forma colaborativa por voluntários e contém mais de 40 milhões de artigos em quase 300 línguas diferentes. &lt;a href=\"#about\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Novas formas de explorar</string>
-  <string name="onboarding_explore_text">Descubra artigos em destaque, tópicos em tendência e sugestões de leitura no feed Explorar.</string>
+  <string name="onboarding_explore_text">Mergulhe no poço sem fundo da Wikipédia com um feed Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Personalize&lt;/b&gt; o feed com as suas preferências – quer seja acontecimentos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou assuntos ao calhas com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Guardar nas listas de leitura</string>
+  <string name="onboarding_save_to_reading_lists_text">Crie listas de leitura a partir dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet.</string>
   <string name="onboarding_reading_list_sync_title">Listas de leitura com sincronização</string>
   <string name="onboarding_reading_list_sync_text">Crie listas de leitura com os artigos que pretende ler mais tarde, mesmo sem acesso à Internet. &lt;a href=\"#login\"&gt;Inicie sessão ou crie&lt;/a&gt; a sua conta na Wikipédia para manter cópias de segurança das suas listas de leitura.</string>
   <string name="onboarding_analytics_title">Enviar dados anónimos</string>
@@ -513,16 +536,20 @@
   <string name="onboarding_create_account_sync">Sincronize as suas listas de leitura</string>
   <string name="onboarding_create_account_contributions">Mantenha registos das suas contribuições</string>
   <string name="onboarding_create_account_preferences">Grave as suas preferências</string>
+  <string name="onboarding_got_it">Percebido</string>
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continuar a ler</string>
   <string name="app_shortcuts_search">Pesquisar</string>
+  <string name="more_trending_text">Mais disto</string>
   <string name="all_trending_text">Todos os artigos em tendência a %1$s</string>
   <string name="top_on_this_day">Em tendência a %1$s</string>
   <string name="on_this_day_card_title">Neste dia</string>
-  <string name="more_events_text" fuzzy="true">Mais acontecimentos históricos neste dia</string>
-  <string name="events_count_text" fuzzy="true">%1$s acontecimentos de %2$s - %3$d</string>
+  <string name="more_events_text">MAIS NESTE DIA</string>
+  <string name="events_count_text">NESTE DIA\n%1$s acontecimentos de %2$s - %3$d</string>
   <string name="on_this_day">Neste dia</string>
   <string name="this_year">Este ano</string>
+  <string name="back_to_top">VOLTAR AO TOPO</string>
+  <string name="date_picker">selecionador de data</string>
   <plurals name="diff_years">
     <item quantity="one">No ano passado</item>
     <item quantity="other">Há %d anos</item>

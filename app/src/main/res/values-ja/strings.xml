@@ -146,6 +146,7 @@
   <string name="about_description">ウィキペディアアプリについて</string>
   <string name="privacy_policy_description">プライバシー・ポリシー</string>
   <string name="terms_of_use_description">利用規約</string>
+  <string name="about_wikipedia_url">https://ja.m.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -285,6 +286,7 @@
   <string name="color_theme_select">テーマ</string>
   <string name="color_theme_light">明</string>
   <string name="color_theme_dark">暗</string>
+  <string name="preference_title_app_theme">アプリのテーマ</string>
   <string name="preference_title_color_theme">ダークモード</string>
   <string name="preference_summary_color_theme">アプリの配色をダークモードにします</string>
   <string name="text_size_increase">テキストサイズを拡大します</string>
@@ -510,8 +512,11 @@
   <string name="onboarding_skip">スキップ</string>
   <string name="onboarding_continue">続ける</string>
   <string name="onboarding_get_started">始めよう</string>
+  <string name="onboarding_welcome_title">フリー百科事典</string>
   <string name="onboarding_explore_title">探検する新しい方法</string>
-  <string name="onboarding_explore_text">特集記事、トレンドトピック、および提案を読んでみましょう。</string>
+  <string name="onboarding_explore_text" fuzzy="true">特集記事、トレンドトピック、および提案を読んでみましょう。</string>
+  <string name="onboarding_save_to_reading_lists_title">あとで読むリストに保存</string>
+  <string name="onboarding_save_to_reading_lists_text">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます。</string>
   <string name="onboarding_reading_list_sync_title">同期したリストを読む</string>
   <string name="onboarding_reading_list_sync_text">あなたがオフラインでも、後で読む記事からリーディングリストを作成します。リーディングリストをバックアップしておくために、ウィキペディアアカウントを&lt;a href=\"#login\"&gt;ログインまたは作成&lt;/a&gt;してください。</string>
   <string name="onboarding_analytics_title">匿名データを送信</string>
@@ -530,6 +535,7 @@
   <string name="events_count_text">今日の出来事\n%2$sから%3$dまでに起こった%1$s件の出来事</string>
   <string name="on_this_day">今日は何の日</string>
   <string name="this_year">今年</string>
+  <string name="back_to_top">トップへ</string>
   <plurals name="diff_years">
     <item quantity="one">昨年</item>
     <item quantity="other">%d年前</item>

@@ -146,6 +146,7 @@
   <string name="about_description">Относно приложението Уикипедия.</string>
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
+  <string name="about_wikipedia_url">https://bg.m.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
@@ -283,6 +284,10 @@
   <string name="color_theme_select">Облик</string>
   <string name="color_theme_light">Светъл</string>
   <string name="color_theme_dark">Тъмен</string>
+  <string name="color_theme_black">Черно</string>
+  <string name="color_theme_test_title">Примерен текст</string>
+  <string name="color_theme_test_text">Преместете плъзгача, за да промените размера на текста, който се използва за четене на статии. За да настроите размера на текста в другите части на приложението, променете системния размер на текста.</string>
+  <string name="preference_title_app_theme">Тема на приложението</string>
   <string name="preference_title_color_theme">Тъмен облик</string>
   <string name="preference_summary_color_theme">Превключване към тъмния облик на приложението</string>
   <string name="text_size_increase">Увеличаване на размера на текста</string>
@@ -395,11 +400,12 @@
   <string name="most_read_list_card_title">Най-четено</string>
   <string name="view_static_card_icon_content_description">Икона за карта</string>
   <string name="view_card_news_title">В новините</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Вчера</item>
-    <item quantity="other">Преди %d дни</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">вчера</item>
+    <item quantity="other">преди %d дни</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Днес</string>
+  <string name="view_continue_reading_card_subtitle_today">днес</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Прочетена %s</string>
   <string name="view_announcement_card_negative_action">Не, благодаря</string>
   <string name="view_offline_card_text">Съдържанието не може да бъде заредено без интернет.</string>
   <string name="view_featured_article_card_title">Избрана статия</string>
@@ -497,8 +503,9 @@
   <string name="onboarding_skip">Пропускане</string>
   <string name="onboarding_continue">Продължаване</string>
   <string name="onboarding_get_started">Започване</string>
+  <string name="onboarding_welcome_title">Свободната енциклопедия</string>
   <string name="onboarding_explore_title">Нови начини за откриване</string>
-  <string name="onboarding_explore_text">Открийте избрани статии, най-четени теми и предложения за четене в лентата за Откриване.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Открийте избрани статии, най-четени теми и предложения за четене в лентата за Откриване.</string>
   <string name="onboarding_reading_list_sync_title">Списъци за четене със синхронизация</string>
   <string name="onboarding_reading_list_sync_text">Създавайте списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа. &lt;a href=\"#login\"&gt;Влезте или създайте&lt;/a&gt; сметка в Уикипедия, за да запазите списъците си за четене.</string>
   <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>

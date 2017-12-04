@@ -504,7 +504,7 @@
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>
   <string name="onboarding_explore_title">Nye måder at udforske</string>
-  <string name="onboarding_explore_text">Find anbefalede artikler, trendemner og læseforslag på nyhedskilden Explore.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Find anbefalede artikler, trendemner og læseforslag på nyhedskilden Explore.</string>
   <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text">Opret læselister med artikler du ønsker at læse senere, selv uden adgang til internettet. &lt;a href=\"#login\"&gt;Log ind eller opret&lt;/a&gt; din Wikipediakonto for at sikre sikkerhedskopiering af dine læselister.</string>
   <string name="onboarding_analytics_title">Send anonyme data</string>

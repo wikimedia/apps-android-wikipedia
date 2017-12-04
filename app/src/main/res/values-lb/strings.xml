@@ -268,6 +268,9 @@
   <string name="color_theme_select">Faarfschema</string>
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Däischter</string>
+  <string name="color_theme_black">Schwaarz</string>
+  <string name="color_theme_test_title">Beispilltext</string>
+  <string name="preference_title_app_theme">Ausgesi vun der App</string>
   <string name="text_size_increase">Gréisst vum Text méi grouss maachen</string>
   <string name="text_size_decrease">Gréisst vum Text méi kleng maachen</string>
   <string name="text_size_percent_default">%s (Standard)</string>
@@ -451,6 +454,8 @@
   <string name="onboarding_skip">Iwwersprangen</string>
   <string name="onboarding_continue">Virufueren</string>
   <string name="onboarding_get_started">Fir unzefänken</string>
+  <string name="onboarding_welcome_title">Déi fräi Enzyklopedie</string>
+  <string name="onboarding_save_to_reading_lists_title">Op d\'Lieslëschte späicheren</string>
   <string name="onboarding_reading_list_sync_title">Lieslëschten mat Synchroniséierung</string>
   <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
   <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
@@ -459,6 +464,7 @@
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
+  <string name="more_trending_text">Méi esou wéi dëst</string>
   <string name="on_this_day_card_title">Op dësem Dag</string>
   <string name="more_events_text">MÉI OP DËSEM DAG</string>
   <string name="events_count_text">OP DËSEM DAG\n%1$s Evenementer vum %2$s bis %3$d</string>

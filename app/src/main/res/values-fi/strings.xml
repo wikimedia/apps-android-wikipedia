@@ -477,7 +477,7 @@
   <string name="onboarding_continue">Jatka</string>
   <string name="onboarding_get_started">Aloitetaan</string>
   <string name="onboarding_explore_title">Uusia tapoja tutkia</string>
-  <string name="onboarding_explore_text">Selaa suositeltuja artikkeleita, trendikkäitä aiheita ja lukuehdotuksia Tutki-syötteessä.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Selaa suositeltuja artikkeleita, trendikkäitä aiheita ja lukuehdotuksia Tutki-syötteessä.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukuluettelot</string>
   <string name="onboarding_reading_list_sync_text">Luo lukuluetteloita artikkeleista, joita haluat lukea myöhemmin. Pystyt lukemaan lukuluetteloon tallentamiasi artikkeleita myös ilman internet-yhteyttä. &lt;a href=\"#login\"&gt;Kirjaudu sisään&lt;/a&gt; Wikipedia-tilillesi varmuuskopioidaksesi lukuluettelot käytettäviksi kaikilla laitteillasi.</string>
   <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>

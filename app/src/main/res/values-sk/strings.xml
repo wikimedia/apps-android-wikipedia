@@ -464,7 +464,7 @@
   <string name="onboarding_continue">Pokračovať</string>
   <string name="onboarding_get_started">Začíname</string>
   <string name="onboarding_explore_title">Nové možnosti pre objavovanie</string>
-  <string name="onboarding_explore_text">Objavte odporúčané články, často vyhľadávané témy a odporúčania k čítaniu článkov.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Objavte odporúčané články, často vyhľadávané témy a odporúčania k čítaniu článkov.</string>
   <string name="onboarding_reading_list_sync_title">Zoznamy na prečítanie so synchronizovaním</string>
   <string name="onboarding_reading_list_sync_text">Vytvorte si zoznamy článkov, ktoré si chcete neskôr prečítať, aj keď ste offline. &lt;a href=\"#login\"&gt;Prihláste sa alebo si vytvorte&lt;/a&gt; svoj účet na Wikipédii, aby boli Vaše zoznamy zálohované.</string>
   <string name="onboarding_analytics_title">Odosielať anonymné údaje</string>

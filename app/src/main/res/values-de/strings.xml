@@ -146,6 +146,7 @@
   <string name="about_description">Über die Wikipedia-App</string>
   <string name="privacy_policy_description">Datenschutzrichtlinie</string>
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
+  <string name="about_wikipedia_url">https://de.m.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/de</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">Farbschema</string>
   <string name="color_theme_light">Hell</string>
   <string name="color_theme_dark">Dunkel</string>
+  <string name="color_theme_black">Schwarz</string>
+  <string name="color_theme_test_title">Beispieltext</string>
+  <string name="color_theme_test_text">Ziehe den Schieber, um die Größe des Textes zu ändern, der für das Lesen von Artikeln verwendet wird. Um die Textgröße auch für den Rest der App festzulegen, ändere die Systemtextgröße.</string>
+  <string name="preference_title_app_theme">Farbschema der App</string>
   <string name="preference_title_color_theme">Dunkles Farbschema</string>
   <string name="preference_summary_color_theme">Wechsle zur Verwendung der App in einem dunklen Farbschema</string>
   <string name="text_size_increase">Text vergrößern</string>
@@ -517,8 +522,12 @@
   <string name="onboarding_skip">Überspringen</string>
   <string name="onboarding_continue">Fortfahren</string>
   <string name="onboarding_get_started">Anfangen</string>
+  <string name="onboarding_welcome_title">Die freie Enzyklopädie</string>
+  <string name="onboarding_welcome_text">Wikipedia wird kollaborativ von Freiwilligen erstellt und besteht aus mehr als 40 Millionen Artikeln in fast 300 unterschiedlichen Sprachen. &lt;a href=\"#about\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Neue Wege zum Entdecken</string>
-  <string name="onboarding_explore_text">Entdecke vorgestellte Artikel, beliebte Themen und Lesevorschläge auf dem Entdecken-Feed.</string>
+  <string name="onboarding_explore_text">Tauche in das Wikipedia-Kaninchenloch ein mit einem ständig aktuellen Entdecken-Feed.&lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed deinen Interessen an – ob er dir historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; nahebringt oder wirf den Würfel mit &lt;b&gt;Zufällig&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Zu den Leselisten speichern</string>
+  <string name="onboarding_save_to_reading_lists_text">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist.</string>
   <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
   <string name="onboarding_reading_list_sync_text">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist. &lt;a href=\"#login\"&gt;Melde dich an oder erstelle&lt;/a&gt; ein Wikipedia-Benutzerkonto, damit deine Leselisten immer gesichert werden.</string>
   <string name="onboarding_analytics_title">Anonymisierte Daten senden</string>
@@ -531,6 +540,7 @@
   <string name="app_shortcuts_random">Zufällig</string>
   <string name="app_shortcuts_continue_reading">Mit dem Lesen fortfahren</string>
   <string name="app_shortcuts_search">Suchen</string>
+  <string name="more_trending_text">Mehr wie dies</string>
   <string name="all_trending_text">Alle beliebten Artikel am %1$s</string>
   <string name="top_on_this_day">Beliebt am %1$s</string>
   <string name="on_this_day_card_title">Heute</string>

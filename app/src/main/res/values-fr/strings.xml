@@ -146,6 +146,7 @@
   <string name="about_description">À propos de l’application Wikipédia</string>
   <string name="privacy_policy_description">Politique de confidentialité</string>
   <string name="terms_of_use_description">Conditions d’utilisation</string>
+  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/fr</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">Thème</string>
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
+  <string name="color_theme_black">Noir</string>
+  <string name="color_theme_test_title">Texte d\'exemple</string>
+  <string name="color_theme_test_text">Charger le diaporeme pour faire changer le volume du texte qui est utilise pour lire des articles. Afin de determiner le volume du texte, a l\'aide du reste d\'application, changer le volume du texte dans le systeme.</string>
+  <string name="preference_title_app_theme">Theme d\'App</string>
   <string name="preference_title_color_theme">Thème sombre</string>
   <string name="preference_summary_color_theme">Basculer pour utiliser le thème couleur sombre de l’application</string>
   <string name="text_size_increase">Agrandir le texte</string>
@@ -414,7 +419,7 @@
   <string name="feed_configure_menu_reset">Rétablir la vue par défaut</string>
   <string name="feed_configure_menu_select_all">Tout sélectionner</string>
   <string name="feed_configure_menu_deselect_all">Tout déselectionner</string>
-  <string name="feed_item_type_news">Articles sur des événements actuels</string>
+  <string name="feed_item_type_news">Articles sur les événements actuels</string>
   <string name="feed_item_type_on_this_day">Événements dans l’historique de ce jour</string>
   <string name="feed_item_type_continue_reading">Lien de retour rapide pour lire un article ouvert dans un de vos onglets</string>
   <string name="feed_item_type_because_you_read">Suggestions basées sur un article récemment lu de votre historique</string>
@@ -517,8 +522,12 @@
   <string name="onboarding_skip">Sauter</string>
   <string name="onboarding_continue">Continuer</string>
   <string name="onboarding_get_started">C’est parti</string>
+  <string name="onboarding_welcome_title">L’encyclopédie libre</string>
+  <string name="onboarding_welcome_text">Wikipédia est écrit de façon collaborative par des bénévoles et consiste en plus de quarante millions d’articles dans près de trois cents langues. &lt;a href=\"#about\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nouvelles façons d’explorer</string>
-  <string name="onboarding_explore_text">Découvrir des articles mis en avant, des sujets à la mode et des suggestions de lecture avec le fil Explorer.</string>
+  <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un fil Explorer continuellement mis à jour. &lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le fil selon vos intérêts — si c’est d’apprendre les événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt;, ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Enregistrer dans les listes de lecture</string>
+  <string name="onboarding_save_to_reading_lists_text">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même hors connexion.</string>
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text">Créer des listes de lecture avec les articles que vous voulez lire plus tard, même hors connexion. &lt;a href=\"#login\"&gt;Connectez-vous ou créez&lt;/a&gt; votre compte Wikipédia pour conserver vos listes de lecture sauvegardées.</string>
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
@@ -531,6 +540,7 @@
   <string name="app_shortcuts_random">Aléatoire</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
+  <string name="more_trending_text">Autres similaires</string>
   <string name="all_trending_text">Tous les articles en vogue sur %1$s</string>
   <string name="top_on_this_day">En vogue sur %1$s</string>
   <string name="on_this_day_card_title">Ce jour</string>

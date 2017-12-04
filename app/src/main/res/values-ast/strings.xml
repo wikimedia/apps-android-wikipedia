@@ -146,6 +146,7 @@
   <string name="about_description">Tocante a la app de Wikipedia</string>
   <string name="privacy_policy_description">Política d\'intimidá</string>
   <string name="terms_of_use_description">Condiciones d\'usu</string>
+  <string name="about_wikipedia_url">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -371,6 +372,13 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; revertió la to edición del artículu &lt;em&gt;%2$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">¡Diéronte les gracies!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; agradecióte la edición de la páxina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Sincronización</string>
+  <string name="notification_channel_description">Avance de la sincronización</string>
+  <string name="notification_syncing_title">Sincronizando %1$d artículos…</string>
+  <string name="notification_syncing_description">queden %1$d artículos</string>
+  <string name="notification_syncing_pause_button">Posar</string>
+  <string name="notification_syncing_resume_button">Siguir</string>
+  <string name="notification_syncing_cancel_button">Encaboxar</string>
   <string name="view_continue_reading_card_title">Siguir lleyendo</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
@@ -391,19 +399,24 @@
   <string name="most_read_list_card_title">Tendencies</string>
   <string name="view_static_card_icon_content_description">Iconu de tarxeta</string>
   <string name="view_card_news_title">Actualidá</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Ayeri</item>
-    <item quantity="other">Fai %d díes</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ayeri</item>
+    <item quantity="other">hai %d díes</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Güei</string>
+  <string name="view_continue_reading_card_subtitle_today">güei</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Lleíu %s</string>
   <string name="view_announcement_card_negative_action">Non, gracies</string>
   <string name="view_offline_card_text">Nun puede cargase conteníu cuando nun hai conexón</string>
   <string name="view_featured_article_card_title">Artículu destacáu</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardáu</string>
   <string name="feed_configure_menu_title">Configurar tarxetes</string>
-  <string name="feed_configure_activity_title" fuzzy="true">Configurar les tarxetes n\'Esplorar</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">Volver a predeterminaos</string>
+  <string name="feed_configure_activity_title">Personalizar la canal</string>
+  <string name="feed_configure_menu_reset">Restaurar la vista predeterminada</string>
+  <string name="feed_configure_menu_select_all">Seleccionar too</string>
+  <string name="feed_configure_menu_deselect_all">Nun seleccionar nada</string>
+  <string name="feed_item_type_news">Artículos d\'acontecimientos actuales</string>
+  <string name="feed_item_type_on_this_day">Acontecimientos históricos de güei</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>
   <string name="description_edit_save">Espublizar</string>
   <string name="description_edit_add_description">Amestar una descripción del títulu</string>
@@ -496,7 +509,7 @@
   <string name="onboarding_continue">Siguir</string>
   <string name="onboarding_get_started">Primeros pasos</string>
   <string name="onboarding_explore_title">Nueves maneres d\'esplorar</string>
-  <string name="onboarding_explore_text">Descubrir artículos destacaos, tendencies d\'actualidá y suxerencies na canal Esplorar.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Descubrir artículos destacaos, tendencies d\'actualidá y suxerencies na canal Esplorar.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de llectura sincronizaes</string>
   <string name="onboarding_reading_list_sync_text">Crear llistes de llectura a partir d\'artículos que quies lleer sero, inclusive cuando teas ensin conexón. &lt;a href=\"#login\"&gt;Anicia sesión o crea&lt;/a&gt; una cuenta de Wikipedia pa tener copia de seguranza de les llistes de llectura.</string>
   <string name="onboarding_analytics_title">Unviar datos anónimos</string>

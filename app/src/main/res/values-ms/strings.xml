@@ -146,6 +146,7 @@
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Dasar privasi</string>
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
+  <string name="about_wikipedia_url">https://ms.m.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ms</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
+  <string name="color_theme_black">Hitam</string>
+  <string name="color_theme_test_title">Teks contoh</string>
+  <string name="color_theme_test_text">Seret gelangsar untuk menukar saiz teks yang digunakan semasa membaca rencana. Untuk menetapkan saiz teks sepanjang seluruh aplikasi, tukar saiz teks sistem anda.</string>
+  <string name="preference_title_app_theme">Tema aplikasi</string>
   <string name="preference_title_color_theme">Tema gelap</string>
   <string name="preference_summary_color_theme">Tukar untuk menggunakan tema warna gelap apl itu</string>
   <string name="text_size_increase">Tingkatkan saiz teks</string>
@@ -398,11 +403,12 @@
   <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kad</string>
   <string name="view_card_news_title">Berita terkini</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Semalam</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">semalam</item>
     <item quantity="other">%d hari yang lalu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Hari ini</string>
+  <string name="view_continue_reading_card_subtitle_today">hari ini</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Tak apalah</string>
   <string name="view_offline_card_text">Kandungan tidak boleh dimuatkan semasa di luar talian.</string>
   <string name="view_featured_article_card_title">Rencana pilihan</string>
@@ -516,8 +522,12 @@
   <string name="onboarding_skip">Langkau</string>
   <string name="onboarding_continue">Teruskan</string>
   <string name="onboarding_get_started">Memulakan</string>
+  <string name="onboarding_welcome_title">Ensiklopedia bebas</string>
+  <string name="onboarding_welcome_text">Wikipedia ditulis secara sukarela oleh sukarelawan dan terdiri daripada lebih 40 juta rencana dalam hampir 300 bahasa yang berbeza. &lt;a href=\"#about\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Cara baru untuk diterokai</string>
-  <string name="onboarding_explore_text">Temui rencana pilihan, topik tren, dan cadangan bacaan pada suapan Jelajah.</string>
+  <string name="onboarding_explore_text">Dengarkan lubang kelinci Wikipedia dengan mengemas kini suapan Jelajah secara berterusan. &lt;br/&gt; &lt;b&gt;Ubahsuai&lt;/b&gt; suapan untuk minat anda – sama ada pembelajaran tentang peristiwa sejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau membaling dadu dengan &lt;b&gt;Rawak&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Simpan ke senarai bacaan</string>
+  <string name="onboarding_save_to_reading_lists_text">Buat senarai bacaan dari rencana yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian.</string>
   <string name="onboarding_reading_list_sync_title">Senarai bacaan dengan penyegerakan</string>
   <string name="onboarding_reading_list_sync_text">Buat senarai bacaan dari artikel yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian. &lt;a href=\"#login\"&gt;Log masuk atau buat&lt;/a&gt; akaun Wikipedia anda untuk memastikan senarai bacaan anda disokong.</string>
   <string name="onboarding_analytics_title">Hantar data tanpa nama</string>
@@ -530,13 +540,16 @@
   <string name="app_shortcuts_random">Rawak</string>
   <string name="app_shortcuts_continue_reading">Teruskan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
+  <string name="more_trending_text">Lebih banyak seperti ini</string>
   <string name="all_trending_text">Semua rencana tren pada %1$s</string>
   <string name="top_on_this_day">Sedang tren pada %1$s</string>
   <string name="on_this_day_card_title">Pada hari ini</string>
-  <string name="more_events_text" fuzzy="true">Lebih banyak peristiwa bersejarah pada hari ini</string>
-  <string name="events_count_text" fuzzy="true">%1$s peristiwa dari %2$s - %3$d</string>
+  <string name="more_events_text">LEBIH BANYAK PADA HARI INI</string>
+  <string name="events_count_text">PADA HARI INI\n%1$s peristiwa dari %2$s - %3$d</string>
   <string name="on_this_day">Pada hari ini</string>
   <string name="this_year">Tahun ini</string>
+  <string name="back_to_top">KEMBALI KE ATAS</string>
+  <string name="date_picker">pemilih tarikh</string>
   <plurals name="diff_years">
     <item quantity="one">Tahun lalu</item>
     <item quantity="other">%d tahun lepas</item>

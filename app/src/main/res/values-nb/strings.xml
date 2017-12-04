@@ -146,6 +146,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Personvernpolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
+  <string name="about_wikipedia_url">https://no.m.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.no</string>
@@ -286,6 +287,8 @@
   <string name="color_theme_select">Drakt</string>
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
+  <string name="color_theme_black">Svart</string>
+  <string name="color_theme_test_title">Eksempeltekst</string>
   <string name="preference_title_color_theme">Mørkt tema</string>
   <string name="preference_summary_color_theme">Bytt til appens mørke fargetema</string>
   <string name="text_size_increase">Øk tekststørrelse</string>
@@ -375,9 +378,9 @@
   <string name="notification_channel_description">Synkroniseringsframgang</string>
   <string name="notification_syncing_title">Synkroniserer %1$d artikler …</string>
   <string name="notification_syncing_description">%1$d artikler igjen</string>
-  <string name="notification_syncing_pause_button" fuzzy="true">PAUSE</string>
-  <string name="notification_syncing_resume_button" fuzzy="true">FORTSETT</string>
-  <string name="notification_syncing_cancel_button" fuzzy="true">AVBRYT</string>
+  <string name="notification_syncing_pause_button">Pause</string>
+  <string name="notification_syncing_resume_button">Fortsett</string>
+  <string name="notification_syncing_cancel_button">Avbryt</string>
   <string name="view_continue_reading_card_title">Fortsett å lese</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
@@ -398,11 +401,12 @@
   <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortsymbol</string>
   <string name="view_card_news_title">I nyhetene</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">I går</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">i går</item>
     <item quantity="other">for %d dager siden</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">I dag</string>
+  <string name="view_continue_reading_card_subtitle_today">i dag</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Lest %s</string>
   <string name="view_announcement_card_negative_action">Nei takk</string>
   <string name="view_offline_card_text">Innholdet kan ikke lastes når du er offline.</string>
   <string name="view_featured_article_card_title">Utvalgt artikkel</string>
@@ -504,7 +508,7 @@
   <string name="onboarding_continue">Fortsett</string>
   <string name="onboarding_get_started">Kom i gang</string>
   <string name="onboarding_explore_title">Nye måter å utforske</string>
-  <string name="onboarding_explore_text">Utforsk gode og utmerkede artikler, aktuelle temaer, og leseforslag i Utforsker.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Utforsk gode og utmerkede artikler, aktuelle temaer, og leseforslag i Utforsker.</string>
   <string name="onboarding_reading_list_sync_title">Leselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text">Lag leselister over artikler du vil lese senere, selv når du er offline. &lt;a href=\"#login\"&gt;Logg inn eller opprett&lt;/a&gt; en Wikipedia-konto for å sikkerhetskopiere listene.</string>
   <string name="onboarding_analytics_title">Send anonyme data</string>

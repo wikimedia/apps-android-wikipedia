@@ -146,6 +146,7 @@
   <string name="about_description">关于维基百科应用</string>
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
+  <string name="about_wikipedia_url">https://zh.m.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url" fuzzy="true">https://m.wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_Policy</string>
   <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">主题</string>
   <string name="color_theme_light">日间</string>
   <string name="color_theme_dark">夜间</string>
+  <string name="color_theme_black">黑</string>
+  <string name="color_theme_test_title">示例文本</string>
+  <string name="color_theme_test_text">拖动滑块以更改阅读条目时的文本大小。要设置应用其他部分的文本大小，请更改您的系统文本大小。</string>
+  <string name="preference_title_app_theme">应用主题</string>
   <string name="preference_title_color_theme">黑暗主题</string>
   <string name="preference_summary_color_theme">切换成应用的黑暗颜色主题</string>
   <string name="text_size_increase">调高文本大小</string>
@@ -517,8 +522,12 @@
   <string name="onboarding_skip">跳过</string>
   <string name="onboarding_continue">继续</string>
   <string name="onboarding_get_started">入门</string>
+  <string name="onboarding_welcome_title">自由的百科全书</string>
+  <string name="onboarding_welcome_text">维基百科由志愿者合作撰写，并包含将近300种不同语言的超过4000万个条目。&lt;a href=\"#about\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_explore_title">浏览的新方式</string>
-  <string name="onboarding_explore_text">在浏览订阅上发现特色条目、热门话题和阅读建议。</string>
+  <string name="onboarding_explore_text">通过不断更新的探索订阅源扑进维基百科的怀抱。&lt;br/&gt;&lt;b&gt;自定义&lt;/b&gt;您感兴趣内容的订阅源——无论是了解有关&lt;b&gt;历史上的今天&lt;/b&gt;，还是&lt;b&gt;随机&lt;/b&gt;掷骰子。</string>
+  <string name="onboarding_save_to_reading_lists_title">保存至阅读列表</string>
+  <string name="onboarding_save_to_reading_lists_text">从您希望稍后阅读的条目创建阅读列表，即便当您离线时。</string>
   <string name="onboarding_reading_list_sync_title">通过同步阅读列表</string>
   <string name="onboarding_reading_list_sync_text">创建包含您希望日后阅读条目的阅读列表，这样即便您离线也可阅读。&lt;a href=\"#login\"&gt;登录或创建&lt;/a&gt;您的维基百科账户来保持您的阅读列表备份。</string>
   <string name="onboarding_analytics_title">发送匿名数据</string>
@@ -531,6 +540,7 @@
   <string name="app_shortcuts_random">随机</string>
   <string name="app_shortcuts_continue_reading">继续阅读</string>
   <string name="app_shortcuts_search">搜索</string>
+  <string name="more_trending_text">更多类似条目</string>
   <string name="all_trending_text">在%1$s的所有趋势条目</string>
   <string name="top_on_this_day">%1$s上的趋势</string>
   <string name="on_this_day_card_title">历史上的今天</string>

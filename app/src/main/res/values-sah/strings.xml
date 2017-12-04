@@ -281,6 +281,8 @@
   <string name="color_theme_select">Тас көстүүтэ</string>
   <string name="color_theme_light">Сырдык</string>
   <string name="color_theme_dark">Хараҥа</string>
+  <string name="color_theme_black">Хара</string>
+  <string name="color_theme_test_title">Холобур тиэкис</string>
   <string name="preference_title_color_theme">Хараҥа тиэмэ</string>
   <string name="preference_summary_color_theme">Хараҥа тиэмэни туһанарга холбоо</string>
   <string name="text_size_increase">Бичигин улаатыннар</string>
@@ -366,6 +368,10 @@
   <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; ыстатыйаҕа оҥорбут уларытыыгын &lt;em&gt;%1$s&lt;/em&gt; кыттааччы суох гыммыт.</string>
   <string name="notification_thanks_title">Эйиэхэ махтамыттар!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; кыттааччы &lt;strong&gt;%2$s&lt;/strong&gt; сирэйи тупсарыыҥ иһин Эйиэхэ махтаммыт</string>
+  <string name="notification_channel_name">Синхронизация</string>
+  <string name="notification_channel_description">Оҥоһулла турар</string>
+  <string name="notification_syncing_pause_button">Быстах тохтобул</string>
+  <string name="notification_syncing_cancel_button">Салҕаама</string>
   <string name="view_continue_reading_card_title">Салгыы ааҕыы</string>
   <string name="view_because_you_read_card_title">Тоҕо диэтэххэ ыстатыйаны аахпыккын</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -471,7 +477,7 @@
   <string name="onboarding_continue">Салгыы</string>
   <string name="onboarding_get_started">Саҕалыырга</string>
   <string name="onboarding_explore_title">Көрөргө саҥа ньымалар</string>
-  <string name="onboarding_explore_text">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
   <string name="onboarding_reading_list_sync_title">Синхроннаах ааҕыы испииһэгэ</string>
   <string name="onboarding_reading_list_sync_text">Ааҕыаххын баҕарар ыстатыйаларыҥ испииһэгин оҥорон ситимэ да суох кэлин көр.&lt;a href=\"#login\"&gt;Бикипиэдьийэҕэр киир эбэтэр бэлиэтэн&lt;/a&gt; уонна ааҕыы испииһэгин оҥоһун.</string>
   <string name="onboarding_analytics_title">Ааты эппэккэ ыытыы</string>

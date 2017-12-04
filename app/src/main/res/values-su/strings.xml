@@ -491,7 +491,7 @@
   <string name="onboarding_continue">Tuluykeun</string>
   <string name="onboarding_get_started">Mitembeyan</string>
   <string name="onboarding_explore_title">Cara anyar pikeun ngalanglang</string>
-  <string name="onboarding_explore_text">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
+  <string name="onboarding_explore_text" fuzzy="true">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
   <string name="onboarding_reading_list_sync_title">Daptar bacaan kalawan singkronisasi</string>
   <string name="onboarding_reading_list_sync_text">Jieun daptar bacaan tina artikel anu ku anjeun rék di baca engké, malah mah mun keur oflén. &lt;a href=\"#login\"&gt;Asup log atawa jieun&lt;/a&gt; akun Wikipédia anjeun supaya daptar bacaan anjeun dicadangkeun.</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
