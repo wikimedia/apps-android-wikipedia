@@ -161,6 +161,7 @@
     <string name="terms_of_use_description">Terms of use</string>
     <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
     <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
+    <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
     <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -588,6 +589,7 @@
     <string name="onboarding_reading_list_sync_text"><![CDATA[Create reading lists from articles you want to read later, even when you\'re offline. <a href="#login">Log in or create</a> your Wikipedia account to keep your reading lists backed up.]]></string>
     <string name="onboarding_analytics_title">Send anonymous data</string>
     <string name="onboarding_analytics_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
+    <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#offline">Learn more</a>]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
     <string name="onboarding_create_account_sync">Sync your reading lists</string>
     <string name="onboarding_create_account_contributions">Keep track of your contributions</string>

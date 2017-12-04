@@ -65,7 +65,9 @@ public class InitialOnboardingFragment extends OnboardingFragment {
                 FeedbackUtil.showPrivacyPolicy(getContext());
             } else if (url.equals("#about")) {
                 FeedbackUtil.showAboutWikipedia(getContext());
-            } else  {
+            } else if (url.equals("#offline")) {
+                FeedbackUtil.showOfflineReadingAndData(getContext());
+            } else {
                 handleExternalLink(getActivity(), Uri.parse(url));
             }
         }
