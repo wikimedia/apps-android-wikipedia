@@ -4,10 +4,7 @@
     android:id="@+id/base_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="12dp"
-    android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"
-    android:layout_marginStart="12dp"
+    android:layout_marginStart="27dp"
     android:background="?attr/chart_shade5"
     android:clipChildren="false"
     android:clipToPadding="false">
@@ -15,18 +12,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="1dp"
         android:layout_marginStart="1dp"
         android:background="?attr/paper_color"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:paddingBottom="12dp"
-        android:paddingEnd="3dp"
-        android:paddingRight="3dp">
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/margin" />
+        android:paddingBottom="36dp"
+        android:paddingEnd="3dp">
 
         <include
             android:id="@+id/year_layout"

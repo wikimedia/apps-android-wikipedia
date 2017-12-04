@@ -42,8 +42,16 @@ public final class DateUtil {
         return getShortDateString(date);
     }
 
+    public static String getFeedCardShortDateString(@NonNull Calendar date) {
+        return getExtraShortDateString(date.getTime());
+    }
+
     public static String getMonthOnlyDateString(@NonNull Date date) {
         return new SimpleDateFormat("MMMM d", Locale.getDefault()).format(date);
+    }
+
+    private static String getExtraShortDateString(@NonNull Date date) {
+        return new SimpleDateFormat("MMM d", Locale.getDefault()).format(date);
     }
 
     public static String getShortDateString(@NonNull Date date) {
@@ -58,6 +66,12 @@ public final class DateUtil {
 
     public static UtcDate getUtcRequestDateFor(int age) {
         return new UtcDate(age);
+    }
+
+    public static Calendar getDefaultDateFor(int age) {
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        calendar.add(Calendar.DATE, -age);
+        return calendar;
     }
 
     public static Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {

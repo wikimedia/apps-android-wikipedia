@@ -1,11 +1,14 @@
 package org.wikipedia.feed.onthisday;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +21,11 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
-import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DontInterceptTouchListener;
+import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.List;
@@ -30,7 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
+public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements ItemTouchHelperSwipeAdapter.SwipeableView {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
     @BindView(R.id.text) TextView descTextView;
     @BindView(R.id.next_event_years) TextView nextEventYearsTextView;
@@ -40,6 +44,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     @BindView(R.id.year_layout) LinearLayout yearLayout;
     @BindView(R.id.more_events_layout) LinearLayout moreEventsLayout;
     @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
+    @BindView(R.id.gradient_layout) LinearLayout gradientLayout;
+    @BindView(R.id.radio_image_view) View radio;
     private int age;
 
     public OnThisDayCardView(@NonNull Context context) {
@@ -47,6 +53,12 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
         inflate(getContext(), R.layout.view_card_on_this_day, this);
         ButterKnife.bind(this);
         initRecycler();
+        setGradientAndTextColor();
+    }
+
+    private void setGradientAndTextColor() {
+        gradientLayout.setBackground(GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(getContext(), R.attr.chart_shade5), Gravity.BOTTOM));
+        yearsInfoTextView.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.secondary_text_color));
     }
 
     private void initRecycler() {
@@ -88,6 +100,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
         public int getItemCount() {
             return pages.size();
         }
+
     }
 
     @Override
@@ -104,7 +117,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
                 .setCard(card)
                 .setCallback(getCallback());
         descTextView.setText(card.text());
-        RichTextUtil.removeUnderlinesFromLinksAndMakeBold(descTextView);
         yearTextView.setText(DateUtil.yearToStringWithEra(card.year()));
         yearsInfoTextView.setText(DateUtil.getYearDifferenceString(card.year()));
         dayTextView.setText(card.dayString());
@@ -120,13 +132,19 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     }
 
     @OnClick({R.id.view_on_this_day_click_container}) void onMoreClick() {
+        Activity host = (Activity) this.getContext();
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(host, dayTextView, getContext().getString(R.string.transition_news_item));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
-                OnThisDayActivity.INVOKE_SOURCE_CARD_BODY));
+                OnThisDayActivity.INVOKE_SOURCE_CARD_BODY), options.toBundle());
     }
 
     @OnClick({R.id.more_events_layout}) void onMoreFooterClick() {
+        Activity host = (Activity) this.getContext();
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(host, dayTextView, getContext().getString(R.string.transition_news_item));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
-                OnThisDayActivity.INVOKE_SOURCE_CARD_FOOTER));
+                OnThisDayActivity.INVOKE_SOURCE_CARD_FOOTER), options.toBundle());
     }
 
     private void setPagesRecycler(OnThisDayCard card) {

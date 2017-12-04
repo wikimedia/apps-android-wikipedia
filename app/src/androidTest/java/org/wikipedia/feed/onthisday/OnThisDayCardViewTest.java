@@ -1,6 +1,7 @@
 package org.wikipedia.feed.onthisday;
 
 import android.support.annotation.NonNull;
+import android.text.SpannableStringBuilder;
 
 import org.junit.Before;
 import org.junit.experimental.theories.Theory;
@@ -62,7 +63,7 @@ public class OnThisDayCardViewTest extends ViewTest {
         OnThisDayCard card = mock(OnThisDayCard.class);
         when(card.title()).thenReturn(str(title));
         when(card.subtitle()).thenReturn(str(subtitle));
-        when(card.text()).thenReturn(text);
+        when(card.text()).thenReturn(new SpannableStringBuilder(text));
         when(card.year()).thenReturn(year);
         return card;
     }

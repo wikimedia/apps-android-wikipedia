@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,11 +23,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.OnThisDayFunnel;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.DatePickerFragment;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.MarginItemDecoration;
 
@@ -46,7 +43,7 @@ import retrofit2.Response;
 import static android.view.View.GONE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 
-public class OnThisDayFragment extends Fragment implements DatePickerFragment.Callback {
+public class OnThisDayFragment extends Fragment {
     @BindView(R.id.day) TextView dayText;
     @BindView(R.id.day_text_view) TextView dayTextView;
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
@@ -55,14 +52,17 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
     @BindView(R.id.back_to_top_view) RelativeLayout backToTopView;
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.app_bar) AppBarLayout appBarLayout;
-    @BindView(R.id.calendar) ImageView calendar;
     @BindView(R.id.nested) NestedScrollView nestedScrollView;
     @BindView(R.id.linear_layout) LinearLayout linearLayout;
+    @BindView(R.id.space) LinearLayout space;
+    @BindView(R.id.calendar) ImageView calendar;
+    @BindView(R.id.upward_arrow) ImageView upwardArrow;
     @Nullable private OnThisDay onThisDay;
     @Nullable private WikiSite wiki;
     private Calendar date;
     private Unbinder unbinder;
     @Nullable private OnThisDayFunnel funnel;
+    public static final int PADDING1 = 24, PADDING2 = 38, PADDING3 = 23;
 
     @NonNull
     public static OnThisDayFragment newInstance(int age) {
@@ -80,71 +80,18 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         unbinder = ButterKnife.bind(this, view);
         wiki = WikipediaApp.getInstance().getWikiSite();
         int age = getActivity().getIntent().getIntExtra(AGE, 0);
-        OnThisDayFragment.this.date = DateUtil.getUtcRequestDateFor(age).baseCalendar();
-        UtcDate today = DateUtil.getUtcRequestDateFor(age);
-        requestEvents(today.month(), today.date());
+        OnThisDayFragment.this.date = DateUtil.getDefaultDateFor(age);
         setUpToolbar();
-        initEventsRecycler();
-
+        Calendar today = DateUtil.getDefaultDateFor(age);
+        requestEvents(today.get(Calendar.MONTH), today.get(Calendar.DATE));
         funnel = new OnThisDayFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
                 getActivity().getIntent().getIntExtra(OnThisDayActivity.INVOKE_SOURCE_EXTRA, 0));
         return view;
     }
 
-    private void initEventsRecycler() {
-        eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) eventsRecycler
-                .getLayoutManager();
+    private void requestEvents(int month, int date) {
 
-       /* eventsRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView,
-                                   int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                int fullyVisiblePos = linearLayoutManager.findFirstCompletelyVisibleItemPosition();
-                EventsViewHolder view = (EventsViewHolder) eventsRecycler.findViewHolderForLayoutPosition(fullyVisiblePos);
-                EventsViewHolder lastView = (EventsViewHolder) eventsRecycler.findViewHolderForLayoutPosition(fullyVisiblePos - 1);
-                EventsViewHolder nextView = (EventsViewHolder) eventsRecycler.findViewHolderForLayoutPosition(fullyVisiblePos + 1);
-
-                if (view != null) {
-                    if (fullyVisiblePos >= (onThisDay.events().size() - 2)) {
-                        backToTopView.setVisibility(View.VISIBLE);
-                        if (nextView != null) {
-                            nextView.setPadding();
-                        }
-                    } else {
-                        switch (fullyVisiblePos) {
-                            case 0:
-                                appBarLayout.setExpanded(true);
-                                break;
-                            case 1:
-                                appBarLayout.setExpanded(false);
-                                break;
-                            default:
-                                break;
-                        }
-
-                        if (lastView != null) {
-                            lastView.hidePadding();
-                            lastView.setLightView();
-
-                        }
-                        if (nextView != null) {
-                            nextView.hidePadding();
-                            nextView.setLightView();
-                        }
-                        backToTopView.setVisibility(View.GONE);
-                    }
-                    view.setDarkView();
-                }
-            }
-        });*/
-    }
-
-    private void requestEvents(String month, String date) {
-
-        new OnThisDayClient().request(wiki, month, date).enqueue(new Callback<OnThisDay>() {
+        new OnThisDayClient().request(wiki, month + 1, date).enqueue(new Callback<OnThisDay>() {
             @Override
             public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
                 if (!isAdded()) {
@@ -169,6 +116,8 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
+        dayTextView.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
+        dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -177,7 +126,10 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
                     dayTextView.setVisibility(View.VISIBLE);
                 } else if (verticalOffset == 0) {
                     // Expanded
-                    dayTextView.setVisibility(GONE);
+                    dayTextView.setVisibility(View.GONE);
+                } else {
+                    // In Transition
+                    dayTextView.setVisibility(View.GONE);
                 }
             }
         });
@@ -205,9 +157,6 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
             dayInfoTextView.setText(String.format(getString(R.string.events_count_text), "" + events.size(),
                     DateUtil.yearToStringWithEra(beginningYear), events.get(0).year()));
         }
-        dayTextView.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
-        dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
-        calendar.setVisibility(View.VISIBLE);
     }
 
     private void setUpRecycler(RecyclerView recycler) {
@@ -219,26 +168,18 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         recycler.addOnItemTouchListener(new DontInterceptTouchListener());
         recycler.setNestedScrollingEnabled(false);
         recycler.setClipToPadding(false);
-        final int padding = DimenUtil.roundedDpToPx(12);
-        recycler.setPadding(padding, 0, padding, 0);
     }
 
     private void updateRecyclerView() {
+        eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         setUpRecycler(eventsRecycler);
         if (onThisDay != null) {
             eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
             eventsRecycler.setOnFlingListener(null);
+            backToTopView.setVisibility(View.VISIBLE);
+            space.setVisibility(View.VISIBLE);
+            calendar.setVisibility(View.VISIBLE);
         }
-    }
-
-    @Override
-    public void onDatePicked(int year, int month, int day) {
-
-        eventsRecycler.setVisibility(GONE);
-        progressBar.setVisibility(View.VISIBLE);
-        date.set(year, month, day, 0, 0);
-        requestEvents("" + (month + 1), "" + day);
-
     }
 
     private class RecyclerAdapter extends RecyclerView.Adapter<EventsViewHolder> {
@@ -274,20 +215,20 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
     }
 
     private class EventsViewHolder extends RecyclerView.ViewHolder {
-        private View space;
         private TextView descTextView;
         private TextView yearTextView;
         private TextView yearsInfoTextView;
         private RecyclerView pagesRecycler;
         private WikiSite wiki;
+        private View radio;
 
         EventsViewHolder(View v, WikiSite wiki) {
             super(v);
-            space = v.findViewById(R.id.space);
             descTextView = v.findViewById(R.id.text);
             yearTextView = v.findViewById(R.id.year);
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesRecycler = v.findViewById(R.id.pages_recycler);
+            radio = v.findViewById(R.id.radio_image_view);
             this.wiki = wiki;
             setRecycler();
         }
@@ -301,10 +242,20 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
 
         public void setFields(final OnThisDay.Event event) {
             setPagesRecycler(event);
+            setPads();
             descTextView.setText(event.text());
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
-            yearsInfoTextView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape_light_gray_corner_rounded));
+        }
+
+        private void setPads() {
+            int pad1 = (int) DimenUtil.dpToPx(PADDING1);
+            int pad2 = (int) DimenUtil.dpToPx(PADDING2);
+            int pad3 = (int) DimenUtil.dpToPx(PADDING3);
+
+            descTextView.setPaddingRelative(pad1, 0, 0, 0);
+            pagesRecycler.setPaddingRelative(pad2, 0, 0, 0);
+            yearTextView.setPaddingRelative(pad3, 0, 0, 0);
         }
 
 
@@ -314,22 +265,6 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
             } else {
                 pagesRecycler.setVisibility(GONE);
             }
-        }
-
-        void setDarkView() {
-            yearsInfoTextView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape_gray_corner_rounded));
-        }
-
-        void setLightView() {
-            yearsInfoTextView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_shape_light_gray_corner_rounded));
-        }
-
-        void setPadding() {
-            space.setVisibility(View.VISIBLE);
-        }
-
-        void hidePadding() {
-            space.setVisibility(GONE);
         }
     }
 
@@ -346,10 +281,4 @@ public class OnThisDayFragment extends Fragment implements DatePickerFragment.Ca
         }
     }
 
-    @OnClick(R.id.calendar)
-    public void onCalendarClicked() {
-        DatePickerFragment newFragment = new DatePickerFragment();
-        newFragment.setCallback(OnThisDayFragment.this);
-        newFragment.show(getFragmentManager(), "date picker");
-    }
 }

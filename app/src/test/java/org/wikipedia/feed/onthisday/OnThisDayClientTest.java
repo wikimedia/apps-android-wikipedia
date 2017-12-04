@@ -22,6 +22,8 @@ import static org.mockito.Mockito.verify;
 
 public class OnThisDayClientTest extends MockWebServerTest {
     private OnThisDay onThisDay;
+    private static final int MON = 10, DAY = 5;
+
     @NonNull private OnThisDayClient client = new OnThisDayClient();
 
     @Before
@@ -70,7 +72,7 @@ public class OnThisDayClientTest extends MockWebServerTest {
     }
 
     private void request(@NonNull FeedClient.Callback cb) {
-        Call<OnThisDay> call = client.request(service(OnThisDayClient.Service.class));
+        Call<OnThisDay> call = client.request(service(OnThisDayClient.Service.class), MON, DAY);
         call.enqueue(new OnThisDayClient.CallbackAdapter(cb, null, null, 0));
     }
 }
