@@ -1,9 +1,11 @@
 package org.wikipedia.feed.onthisday;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
@@ -45,7 +47,7 @@ import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 
 public class OnThisDayFragment extends Fragment {
     @BindView(R.id.day) TextView dayText;
-    @BindView(R.id.day_text_view) TextView dayTextView;
+    @BindView(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
     @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
     @BindView(R.id.progress) ProgressBar progressBar;
@@ -116,20 +118,15 @@ public class OnThisDayFragment extends Fragment {
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
-        dayTextView.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange()) {
-                    // Collapsed
-                    dayTextView.setVisibility(View.VISIBLE);
-                } else if (verticalOffset == 0) {
-                    // Expanded
-                    dayTextView.setVisibility(View.GONE);
-                } else {
-                    // In Transition
-                    dayTextView.setVisibility(View.GONE);
+                if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
+                    collapsingToolbarLayout.setTitle("");
+                } else if (verticalOffset <= -appBarLayout.getTotalScrollRange()) {
+                    collapsingToolbarLayout.setTitle(DateUtil.getMonthOnlyDateString(date.getTime()));
                 }
             }
         });

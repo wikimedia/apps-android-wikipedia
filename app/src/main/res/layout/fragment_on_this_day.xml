@@ -14,6 +14,7 @@
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -84,21 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ToolbarTheme"
-                app:layout_collapseMode="pin">
-
-                <TextView
-                    android:id="@+id/day_text_view"
-                    style="@style/RtlAwareTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:fontFamily="serif"
-                    android:textColor="@color/base100"
-                    android:textSize="24sp"
-                    tools:text="January 1" />
-            </android.support.v7.widget.Toolbar>
+                app:layout_collapseMode="pin" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
