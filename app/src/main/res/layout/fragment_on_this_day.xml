@@ -25,7 +25,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="88dp"
+                android:layout_gravity="bottom"
                 android:fitsSystemWindows="true"
                 app:layout_collapseMode="parallax">
 
@@ -34,6 +34,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
                     android:layout_marginStart="72dp"
+                    android:paddingBottom="20dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -49,35 +50,32 @@
                         android:textStyle="normal"
                         tools:text="January 1" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/day_info_text_view"
+                        style="@style/RtlAwareTextView"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="sans-serif"
+                        android:lineSpacingExtra="6sp"
+                        android:textColor="@color/base100"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
                         android:alpha="0.5"
-                        android:orientation="horizontal">
+                        tools:text="Foo\nBar"/>
 
-                        <TextView
-                            android:id="@+id/day_info_text_view"
-                            style="@style/RtlAwareTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="10dp"
-                            android:fontFamily="sans-serif"
-                            android:lineSpacingExtra="6sp"
-                            android:textColor="@color/base100"
-                            android:textSize="14sp"
-                            android:textStyle="normal" />
-
-                        <ImageView
-                            android:id="@+id/calendar"
-                            android:layout_width="72dp"
-                            android:layout_height="80dp"
-                            android:layout_marginEnd="12dp"
-                            android:layout_marginStart="12dp"
-                            android:tint="@color/base100"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_event_black_24dp" />
-                    </LinearLayout>
                 </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/calendar"
+                    android:layout_width="84dp"
+                    android:layout_height="92dp"
+                    android:layout_marginBottom="-32dp"
+                    android:layout_gravity="bottom|end"
+                    android:tint="@color/base100"
+                    android:alpha="0.5"
+                    app:srcCompat="@drawable/ic_event_black_24dp"
+                    android:contentDescription="@null"/>
             </FrameLayout>
 
             <android.support.v7.widget.Toolbar
@@ -117,7 +115,6 @@
                 android:id="@+id/events_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginEnd="12dp"
                 android:layout_marginTop="24dp"
                 android:layout_weight="1"
                 android:clipChildren="false"
