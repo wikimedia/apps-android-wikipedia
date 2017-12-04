@@ -19,8 +19,6 @@ import org.wikipedia.settings.Prefs;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.wikipedia.util.ReleaseUtil.isPreBetaRelease;
-
 public enum FeedContentType implements EnumCode {
     NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news) {
         @Nullable
@@ -33,7 +31,7 @@ public enum FeedContentType implements EnumCode {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
-            return isEnabled() && isOnline && isPreBetaRelease() ? new OnThisDayClient() : null;
+            return isEnabled() && isOnline ? new OnThisDayClient() : null;
         }
     },
     CONTINUE_READING(2, R.string.view_continue_reading_card_title, R.string.feed_item_type_continue_reading) {
