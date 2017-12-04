@@ -106,6 +106,9 @@ public class RandomItemFragment extends Fragment {
         observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
+                if (!isAdded() || extractView == null) {
+                    return;
+                }
                 extractView.setMaxLines(extractView.getHeight() / extractView.getLineHeight());
                 extractView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
