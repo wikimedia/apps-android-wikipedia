@@ -3,6 +3,7 @@
     <attr name="main_toolbar_color" format="reference"/>
     <attr name="main_status_bar_color" format="reference"/>
     <attr name="page_status_bar_color" format="reference"/>
+    <attr name="page_expanded_status_bar_color" format="reference"/>
     <attr name="page_toolbar_color" format="reference"/>
     <attr name="page_toolbar_icon_color" format="reference"/>
     <attr name="toc_item_background" format="reference"/>

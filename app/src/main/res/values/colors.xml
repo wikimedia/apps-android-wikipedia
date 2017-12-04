@@ -23,7 +23,7 @@
     <color name="accent30">#2a4b8d</color> <!-- W AAA: Active buttons, Active links -->
     <color name="accent20">#223966</color>
     <color name="accent16">#1A3060</color> <!-- W AAA: "Midnight blue" -->
-    <color name="accent10">#101830</color>
+    <color name="accent10">#132347</color>
     <color name="red75">#FF6E6E</color> <!-- Destructive text (error messages, red links) -->
     <color name="red50">#d33</color> <!-- Foundation Red: B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
 

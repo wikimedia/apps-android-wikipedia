@@ -44,7 +44,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         this.tabsButton = tabsButton;
 
         themedIconColor = getThemedColor(toolbar.getContext(), R.attr.page_toolbar_icon_color);
-        baseStatusBarColor = ContextCompat.getColor(pageFragment.getContext(), R.color.base12);
+        baseStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_expanded_status_bar_color);
         themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_status_bar_color);
     }
 
