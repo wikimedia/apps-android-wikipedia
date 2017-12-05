@@ -16,7 +16,7 @@
         android:background="?attr/paper_color"
         android:clipChildren="false"
         android:clipToPadding="false"
-        android:paddingBottom="36dp"
+        android:paddingBottom="24dp"
         android:paddingEnd="3dp">
 
         <include
