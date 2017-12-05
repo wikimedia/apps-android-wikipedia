@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -50,6 +51,8 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     public void setFields(@NonNull RbPageSummary page) {
         selectedPage = page;
         pageItemDescTextView.setText(StringUtils.capitalize(page.getDescription()));
+        pageItemDescTextView.setVisibility(TextUtils.isEmpty(page.getDescription()) ? View.GONE : View.VISIBLE);
+        pageItemTitleTextView.setMaxLines(TextUtils.isEmpty(page.getDescription()) ? 2 : 1);
         pageItemTitleTextView.setText(StringUtil.fromHtml(StringUtils.defaultString(page.getNormalizedTitle())));
         setImage(page.getThumbnailUrl());
     }
