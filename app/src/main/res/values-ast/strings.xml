@@ -526,8 +526,7 @@
   <string name="on_this_day_card_title">Tal día como güei</string>
   <string name="more_events_text" fuzzy="true">Más socesos históricos d\'esti día</string>
   <string name="events_count_text" fuzzy="true">%1$s acontecimientos ente %2$s y %3$d</string>
-  <string name="on_this_day">Tal día como güei</string>
-  <string name="this_year">Anguaño</string>
+    <string name="this_year">Anguaño</string>
   <plurals name="diff_years">
     <item quantity="one">L\'añu pasáu</item>
     <item quantity="other">Fai %d años</item>

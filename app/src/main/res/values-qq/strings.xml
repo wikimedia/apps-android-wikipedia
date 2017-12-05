@@ -546,12 +546,10 @@
   <string name="all_trending_text">Instruction text for button leading to All trending articles on that day. \"%1$s\" represents the date string</string>
   <string name="top_on_this_day">Title for the screen with all trending links. \"%1$s\" represents the date string</string>
   <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
-  <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date in caps</string>
-  <string name="events_count_text">on this day string \nThe \"%1$s\" symbol is replaced with the number of events .Text indicating the total number of events that are being displayed.  \"%2$s\" is begining year - \"%3$d\" is ending year</string>
-  <string name="on_this_day">Text is the title for the \'On this day\' events screen</string>
+  <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date.</string>
+  <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
-  <string name="back_to_top">Text in caps, indicating the button scrolls to top</string>
-  <string name="date_picker">Description string for date picker</string>
+  <string name="back_to_top">Button label for scrolling the content to the top.</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occured one year ago.</item>
     <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>

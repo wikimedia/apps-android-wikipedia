@@ -7,7 +7,13 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import org.wikipedia.util.DimenUtil;
+
 public class HeaderMarginItemDecoration extends MarginItemDecoration {
+
+    public HeaderMarginItemDecoration(int topDp, int bottomDp) {
+        super(0, DimenUtil.roundedDpToPx(topDp), 0, DimenUtil.roundedDpToPx(bottomDp));
+    }
 
     public HeaderMarginItemDecoration(@NonNull Context context, @DimenRes int topId,
                                       @DimenRes int bottomId) {

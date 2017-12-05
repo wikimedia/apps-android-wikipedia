@@ -1,0 +1,67 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/paper_color"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="100dp"
+        android:background="?attr/chart_shade5"
+        android:layout_marginStart="27dp" />
+
+    <LinearLayout
+        android:id="@+id/back_to_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="?attr/paper_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tint="?attr/chart_shade5"
+                app:srcCompat="@drawable/drawable_12dp_rounded_corner_base70"
+                android:contentDescription="@null"/>
+
+            <ImageView
+                android:id="@+id/upward_arrow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/back_to_top"
+                android:padding="3dp"
+                android:tint="?attr/material_theme_secondary_color"
+                app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="sans-serif-medium"
+            android:textAllCaps="true"
+            android:text="@string/back_to_top"
+            android:textColor="?attr/colorAccent"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -546,11 +546,9 @@
   <string name="on_this_day_card_title">На денешен ден</string>
   <string name="more_events_text">ПОВЕЌЕ НА ОВОЈ ДЕН</string>
   <string name="events_count_text">НА ДЕНЕШЕН ДЕН \n%1$s настани од %2$s до %3$d г.</string>
-  <string name="on_this_day">На денешен ден</string>
-  <string name="this_year">Годинава</string>
+    <string name="this_year">Годинава</string>
   <string name="back_to_top">НАЈГОРЕ</string>
-  <string name="date_picker">избирач на датуми</string>
-  <plurals name="diff_years">
+    <plurals name="diff_years">
     <item quantity="one">Лани</item>
     <item quantity="other">Пред %d години</item>
   </plurals>

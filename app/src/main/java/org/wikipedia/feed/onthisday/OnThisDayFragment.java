@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,10 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
@@ -29,20 +26,20 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DontInterceptTouchListener;
+import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.MarginItemDecoration;
+import org.wikipedia.views.WikiErrorView;
 
 import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.view.View.GONE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 
 public class OnThisDayFragment extends Fragment {
@@ -50,21 +47,17 @@ public class OnThisDayFragment extends Fragment {
     @BindView(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
     @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
-    @BindView(R.id.progress) ProgressBar progressBar;
-    @BindView(R.id.back_to_top_view) RelativeLayout backToTopView;
+    @BindView(R.id.on_this_day_progress) ProgressBar progressBar;
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.app_bar) AppBarLayout appBarLayout;
-    @BindView(R.id.nested) NestedScrollView nestedScrollView;
     @BindView(R.id.linear_layout) LinearLayout linearLayout;
-    @BindView(R.id.space) LinearLayout space;
-    @BindView(R.id.calendar) ImageView calendar;
-    @BindView(R.id.upward_arrow) ImageView upwardArrow;
+    @BindView(R.id.on_this_day_error_view) WikiErrorView errorView;
+
     @Nullable private OnThisDay onThisDay;
-    @Nullable private WikiSite wiki;
     private Calendar date;
     private Unbinder unbinder;
     @Nullable private OnThisDayFunnel funnel;
-    public static final int PADDING1 = 24, PADDING2 = 38, PADDING3 = 23;
+    public static final int PADDING1 = 21, PADDING2 = 38, PADDING3 = 21;
 
     @NonNull
     public static OnThisDayFragment newInstance(int age) {
@@ -80,10 +73,17 @@ public class OnThisDayFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
         unbinder = ButterKnife.bind(this, view);
-        wiki = WikipediaApp.getInstance().getWikiSite();
         int age = getActivity().getIntent().getIntExtra(AGE, 0);
         OnThisDayFragment.this.date = DateUtil.getDefaultDateFor(age);
         setUpToolbar();
+        eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+        final int topDecorationDp = 24;
+        eventsRecycler.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
+        setUpRecycler(eventsRecycler);
+
+        errorView.setBackClickListener(v -> getActivity().finish());
+
         Calendar today = DateUtil.getDefaultDateFor(age);
         requestEvents(today.get(Calendar.MONTH), today.get(Calendar.DATE));
         funnel = new OnThisDayFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
@@ -92,26 +92,43 @@ public class OnThisDayFragment extends Fragment {
     }
 
     private void requestEvents(int month, int date) {
+        progressBar.setVisibility(View.VISIBLE);
+        eventsRecycler.setVisibility(View.GONE);
+        errorView.setVisibility(View.GONE);
 
-        new OnThisDayClient().request(wiki, month + 1, date).enqueue(new Callback<OnThisDay>() {
+        new OnThisDayClient().request(WikipediaApp.getInstance().getWikiSite(), month + 1, date).enqueue(new Callback<OnThisDay>() {
             @Override
             public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
                 if (!isAdded()) {
                     return;
                 }
+                if (response.body() == null) {
+                    setErrorState(new RuntimeException("Incorrect response format."));
+                    return;
+                }
                 onThisDay = response.body();
-                progressBar.setVisibility(GONE);
+                progressBar.setVisibility(View.GONE);
                 eventsRecycler.setVisibility(View.VISIBLE);
-                updateRecyclerView();
-                updateTextView();
+                eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), WikipediaApp.getInstance().getWikiSite()));
+                List<OnThisDay.Event> events = onThisDay.events();
+                int beginningYear = events.get(events.size() - 1).year();
+                dayInfoTextView.setText(String.format(getString(R.string.events_count_text), Integer.toString(events.size()),
+                        DateUtil.yearToStringWithEra(beginningYear), events.get(0).year()));
             }
 
             @Override
             public void onFailure(@NonNull Call<OnThisDay> call, @NonNull Throwable t) {
-                L.e(t);
+                setErrorState(t);
             }
         });
+    }
 
+    private void setErrorState(@NonNull Throwable t) {
+        L.e(t);
+        errorView.setError(t);
+        errorView.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
+        eventsRecycler.setVisibility(View.GONE);
     }
 
     private void setUpToolbar() {
@@ -120,14 +137,11 @@ public class OnThisDayFragment extends Fragment {
         getAppCompatActivity().getSupportActionBar().setTitle("");
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
-                    collapsingToolbarLayout.setTitle("");
-                } else if (verticalOffset <= -appBarLayout.getTotalScrollRange()) {
-                    collapsingToolbarLayout.setTitle(DateUtil.getMonthOnlyDateString(date.getTime()));
-                }
+        appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
+            if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
+                collapsingToolbarLayout.setTitle("");
+            } else if (verticalOffset <= -appBarLayout.getTotalScrollRange()) {
+                collapsingToolbarLayout.setTitle(DateUtil.getMonthOnlyDateString(date.getTime()));
             }
         });
     }
@@ -147,15 +161,6 @@ public class OnThisDayFragment extends Fragment {
         super.onDestroyView();
     }
 
-    private void updateTextView() {
-        if (onThisDay != null) {
-            List<OnThisDay.Event> events = onThisDay.events();
-            int beginningYear = events.get(events.size() - 1).year();
-            dayInfoTextView.setText(String.format(getString(R.string.events_count_text), "" + events.size(),
-                    DateUtil.yearToStringWithEra(beginningYear), events.get(0).year()));
-        }
-    }
-
     private void setUpRecycler(RecyclerView recycler) {
         recycler.addItemDecoration(new MarginItemDecoration(getContext(),
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
@@ -163,23 +168,13 @@ public class OnThisDayFragment extends Fragment {
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical));
         recycler.addOnItemTouchListener(new DontInterceptTouchListener());
-        recycler.setNestedScrollingEnabled(false);
+        recycler.setNestedScrollingEnabled(true);
         recycler.setClipToPadding(false);
     }
 
-    private void updateRecyclerView() {
-        eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        setUpRecycler(eventsRecycler);
-        if (onThisDay != null) {
-            eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
-            eventsRecycler.setOnFlingListener(null);
-            backToTopView.setVisibility(View.VISIBLE);
-            space.setVisibility(View.VISIBLE);
-            calendar.setVisibility(View.VISIBLE);
-        }
-    }
-
-    private class RecyclerAdapter extends RecyclerView.Adapter<EventsViewHolder> {
+    private class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+        private static final int VIEW_TYPE_ITEM = 0;
+        private static final int VIEW_TYPE_FOOTER = 1;
         private List<OnThisDay.Event> events;
         private WikiSite wiki;
 
@@ -189,26 +184,37 @@ public class OnThisDayFragment extends Fragment {
         }
 
         @Override
-        public EventsViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            View itemView = LayoutInflater.
-                    from(viewGroup.getContext()).
-                    inflate(R.layout.view_events_layout, viewGroup, false);
-            return new EventsViewHolder(itemView, wiki);
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+            if (viewType == VIEW_TYPE_FOOTER) {
+                View itemView = LayoutInflater.from(viewGroup.getContext()).
+                        inflate(R.layout.view_on_this_day_footer, viewGroup, false);
+                return new FooterViewHolder(itemView);
+            } else {
+                View itemView = LayoutInflater.from(viewGroup.getContext()).
+                        inflate(R.layout.view_events_layout, viewGroup, false);
+                return new EventsViewHolder(itemView, wiki);
+            }
         }
 
         @Override
-        public void onBindViewHolder(EventsViewHolder eventsViewHolder, int i) {
-            eventsViewHolder.setFields(events.get(i));
-            if (funnel != null) {
-                funnel.scrolledToPosition(i);
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            if (holder instanceof EventsViewHolder) {
+                ((EventsViewHolder) holder).setFields(events.get(position));
+                if (funnel != null) {
+                    funnel.scrolledToPosition(position);
+                }
             }
         }
 
         @Override
         public int getItemCount() {
-            return events.size();
+            return events.size() + 1;
         }
 
+        @Override
+        public int getItemViewType(int position) {
+            return position < events.size() ? VIEW_TYPE_ITEM : VIEW_TYPE_FOOTER;
+        }
     }
 
     private class EventsViewHolder extends RecyclerView.ViewHolder {
@@ -217,15 +223,14 @@ public class OnThisDayFragment extends Fragment {
         private TextView yearsInfoTextView;
         private RecyclerView pagesRecycler;
         private WikiSite wiki;
-        private View radio;
 
         EventsViewHolder(View v, WikiSite wiki) {
             super(v);
             descTextView = v.findViewById(R.id.text);
+            descTextView.setTextIsSelectable(true);
             yearTextView = v.findViewById(R.id.year);
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesRecycler = v.findViewById(R.id.pages_recycler);
-            radio = v.findViewById(R.id.radio_image_view);
             this.wiki = wiki;
             setRecycler();
         }
@@ -255,27 +260,23 @@ public class OnThisDayFragment extends Fragment {
             yearTextView.setPaddingRelative(pad3, 0, 0, 0);
         }
 
-
         private void setPagesRecycler(OnThisDay.Event event) {
             if (event.pages() != null) {
                 pagesRecycler.setAdapter(new OnThisDayCardView.RecyclerAdapter(event.pages(), wiki, false));
             } else {
-                pagesRecycler.setVisibility(GONE);
+                pagesRecycler.setVisibility(View.GONE);
             }
         }
     }
 
-    @OnClick(R.id.back_to_top_view)
-    public void onBackToTopTextViewClicked() {
-        if (eventsRecycler != null) {
-            eventsRecycler.post(new Runnable() {
-                @Override
-                public void run() {
-                    nestedScrollView.scrollTo(0, 0);
-                    appBarLayout.setExpanded(true);
-                }
+    private class FooterViewHolder extends RecyclerView.ViewHolder {
+        FooterViewHolder(View v) {
+            super(v);
+            View backToTopView = v.findViewById(R.id.back_to_top_view);
+            backToTopView.setOnClickListener(v1 -> {
+                appBarLayout.setExpanded(true);
+                eventsRecycler.scrollToPosition(0);
             });
         }
     }
-
 }
