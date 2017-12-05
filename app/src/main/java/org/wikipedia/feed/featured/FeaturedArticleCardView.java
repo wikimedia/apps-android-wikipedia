@@ -128,10 +128,10 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                                         : new CardAddToListListener())
                                 .onShareListener(new CardShareListener());
 
-                        if (listContainsTitle) {
-                            footerView.actionIconColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent));
-                            footerView.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent));
-                        }
+                        footerView.actionIconColor(ResourceUtil.getThemedAttributeId(getContext(),
+                                listContainsTitle ? R.attr.colorAccent : R.attr.secondary_text_color));
+                        footerView.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(),
+                                listContainsTitle ? R.attr.colorAccent : R.attr.secondary_text_color));
                     }
                 });
     }
