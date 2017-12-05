@@ -10,7 +10,6 @@ import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.continuereading.ContinueReadingClient;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
-import org.wikipedia.feed.onthisday.OnThisDayClient;
 import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
@@ -31,7 +30,7 @@ public enum FeedContentType implements EnumCode {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age, boolean isOnline) {
-            return isEnabled() && isOnline ? new OnThisDayClient() : null;
+            return isEnabled() && isOnline ? new AggregatedFeedContentClient.OnThisDayFeed(aggregatedClient) : null;
         }
     },
     CONTINUE_READING(2, R.string.view_continue_reading_card_title, R.string.feed_item_type_continue_reading) {

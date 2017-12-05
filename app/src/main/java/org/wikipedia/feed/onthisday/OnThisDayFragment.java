@@ -131,7 +131,7 @@ public class OnThisDayFragment extends Fragment {
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
 
-        new OnThisDayClient().request(WikipediaApp.getInstance().getWikiSite(), month + 1, date).enqueue(new Callback<OnThisDay>() {
+        new OnThisDayFullListClient().request(WikipediaApp.getInstance().getWikiSite(), month + 1, date).enqueue(new Callback<OnThisDay>() {
             @Override
             public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
                 if (!isAdded()) {

@@ -14,6 +14,7 @@ import org.wikipedia.util.DateUtil;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 public class OnThisDayCard extends Card {
     private int nextYear;
@@ -24,12 +25,13 @@ public class OnThisDayCard extends Card {
     private OnThisDay.Event eventShownOnCard;
     private int age;
 
-    OnThisDayCard(@NonNull OnThisDay onThisDay, @NonNull OnThisDay.Event event, int nextYear, @NonNull Calendar date, @NonNull WikiSite wiki, int age) {
+    public OnThisDayCard(@NonNull OnThisDay onThisDay, @NonNull WikiSite wiki, int age) {
         super();
         this.onThisDay = onThisDay;
-        eventShownOnCard = event;
-        this.date = date;
-        this.nextYear = nextYear;
+        int randomIndex = new Random().nextInt(onThisDay.selectedEvents().size() - 1);
+        eventShownOnCard = onThisDay.selectedEvents().get(randomIndex);
+        this.date = DateUtil.getDefaultDateFor(age);
+        this.nextYear = onThisDay.selectedEvents().get(randomIndex + 1).year();
         this.wiki = wiki;
         this.age = age;
     }

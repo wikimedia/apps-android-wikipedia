@@ -13,6 +13,8 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
+import org.wikipedia.feed.onthisday.OnThisDay;
+import org.wikipedia.feed.onthisday.OnThisDayCard;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
@@ -35,6 +37,23 @@ public class AggregatedFeedContentClient {
     @Nullable private AggregatedFeedContent aggregatedResponse;
     private int aggregatedResponseAge = -1;
 
+    public static class OnThisDayFeed extends BaseClient {
+        public OnThisDayFeed(@NonNull AggregatedFeedContentClient aggregatedClient) {
+            super(aggregatedClient);
+        }
+
+        @Override
+        void getCardFromResponse(@NonNull AggregatedFeedContent content, @NonNull WikiSite wiki,
+                                 int age, @NonNull List<Card> outCards) {
+            if (content.onthisday() != null) {
+                List<OnThisDay.Event> selectedEvents = content.onthisday();
+                OnThisDay onThisDay = new OnThisDay();
+                onThisDay.setSelected(selectedEvents);
+                OnThisDayCard card = new OnThisDayCard(onThisDay, wiki, age);
+                outCards.add(card);
+            }
+        }
+    }
     public static class InTheNews extends BaseClient {
         public InTheNews(@NonNull AggregatedFeedContentClient aggregatedClient) {
             super(aggregatedClient);

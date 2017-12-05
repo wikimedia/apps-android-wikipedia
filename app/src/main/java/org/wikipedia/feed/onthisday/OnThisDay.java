@@ -43,7 +43,7 @@ public class OnThisDay {
         return allEvents;
     }
 
-    static class Event {
+    public static class Event {
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
         @SuppressWarnings("unused") private int year;
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<RbPageSummary> pages;
@@ -72,4 +72,9 @@ public class OnThisDay {
             return pages;
         }
     }
+
+    public void setSelected(@Nullable List<Event> selected) {
+        this.selected = selected;
+    }
+
 }
