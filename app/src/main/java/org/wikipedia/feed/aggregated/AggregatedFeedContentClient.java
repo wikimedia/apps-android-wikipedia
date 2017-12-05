@@ -158,14 +158,16 @@ public class AggregatedFeedContentClient {
         public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull Callback cb) {
             this.cb = cb;
             this.age = age;
-            this.wiki = wiki;
-            if (aggregatedClient.getCurrentAge() == age && aggregatedClient.getCurrentResponse() != null) {
+            if (aggregatedClient.getCurrentAge() == age
+                    && aggregatedClient.getCurrentResponse() != null
+                    && wiki.equals(this.wiki)) {
                 List<Card> cards = new ArrayList<>();
                 getCardFromResponse(aggregatedClient.getCurrentResponse(), wiki, age, cards);
                 cb.success(cards);
             } else {
                 aggregatedClient.requestAggregated(wiki, age, this);
             }
+            this.wiki = wiki;
         }
 
         @Override
