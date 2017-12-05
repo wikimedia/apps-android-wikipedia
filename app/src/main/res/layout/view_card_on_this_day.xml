@@ -37,6 +37,7 @@
             android:maxLines="1"
             android:textColor="?attr/primary_text_color"
             android:textSize="24sp"
+            android:transitionName="@string/transition_on_this_day"
             tools:text="November 1" />
 
     </FrameLayout>

@@ -1,6 +1,9 @@
 package org.wikipedia.feed.onthisday;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +27,7 @@ import org.wikipedia.analytics.OnThisDayFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.HeaderMarginItemDecoration;
@@ -74,7 +78,7 @@ public class OnThisDayFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
         unbinder = ButterKnife.bind(this, view);
         int age = getActivity().getIntent().getIntExtra(AGE, 0);
-        OnThisDayFragment.this.date = DateUtil.getDefaultDateFor(age);
+        date = DateUtil.getDefaultDateFor(age);
         setUpToolbar();
         eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
@@ -84,11 +88,42 @@ public class OnThisDayFragment extends Fragment {
 
         errorView.setBackClickListener(v -> getActivity().finish());
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                && getActivity().getWindow().getSharedElementEnterTransition() != null
+                && savedInstanceState == null) {
+            final int animDelay = 500;
+            dayText.postDelayed(() -> {
+                if (!isAdded() || dayText == null) {
+                    return;
+                }
+                updateContents(age);
+                ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), dayText.getCurrentTextColor(), Color.WHITE);
+                colorAnimation.addUpdateListener(animator -> {
+                    if (dayText != null) {
+                        dayText.setTextColor((Integer) animator.getAnimatedValue());
+                    }
+                });
+                colorAnimation.start();
+            }, animDelay);
+        } else {
+            dayText.setTextColor(Color.WHITE);
+            updateContents(age);
+        }
+
+        eventsRecycler.setVisibility(View.GONE);
+        errorView.setVisibility(View.GONE);
+        return view;
+    }
+
+    public void onBackPressed() {
+        dayText.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.primary_text_color));
+    }
+
+    private void updateContents(int age) {
         Calendar today = DateUtil.getDefaultDateFor(age);
         requestEvents(today.get(Calendar.MONTH), today.get(Calendar.DATE));
         funnel = new OnThisDayFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
                 getActivity().getIntent().getIntExtra(OnThisDayActivity.INVOKE_SOURCE_EXTRA, 0));
-        return view;
     }
 
     private void requestEvents(int month, int date) {

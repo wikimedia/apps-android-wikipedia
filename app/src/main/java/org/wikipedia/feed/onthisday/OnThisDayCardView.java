@@ -1,8 +1,10 @@
 package org.wikipedia.feed.onthisday;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -133,13 +135,17 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     @OnClick({R.id.view_on_this_day_click_container}) void onMoreClick() {
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
-                OnThisDayActivity.INVOKE_SOURCE_CARD_BODY));
+                OnThisDayActivity.INVOKE_SOURCE_CARD_BODY), options.toBundle());
     }
 
     @OnClick({R.id.more_events_layout}) void onMoreFooterClick() {
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age,
-                OnThisDayActivity.INVOKE_SOURCE_CARD_FOOTER));
+                OnThisDayActivity.INVOKE_SOURCE_CARD_FOOTER), options.toBundle());
     }
 
     private void setPagesRecycler(OnThisDayCard card) {

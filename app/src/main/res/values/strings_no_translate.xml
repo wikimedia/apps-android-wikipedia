@@ -104,6 +104,7 @@
     <!-- Transition names -->
     <string name="transition_news_item">newsItemTransition</string>
     <string name="transition_random_activity">randomActivityTransition</string>
+    <string name="transition_on_this_day">onThisDayTransition</string>
 
     <!-- Miscellaneous -->
     <string name="text_size_percent">%d%%</string>

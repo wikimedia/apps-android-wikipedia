@@ -45,9 +45,10 @@
                         android:layout_marginBottom="4dp"
                         android:layout_marginEnd="12dp"
                         android:fontFamily="serif"
-                        android:textColor="@color/base100"
+                        android:textColor="?attr/primary_text_color"
                         android:textSize="24sp"
                         android:textStyle="normal"
+                        android:transitionName="@string/transition_on_this_day"
                         tools:text="January 1" />
 
                     <TextView
