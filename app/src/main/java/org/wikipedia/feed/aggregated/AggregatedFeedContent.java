@@ -19,12 +19,10 @@ class AggregatedFeedContent {
     @SuppressWarnings("unused") @Nullable private FeaturedImage image;
     @SuppressWarnings("unused") @Nullable private List<OnThisDay.Event> onthisday;
 
-
     @Nullable
     public List<OnThisDay.Event> onthisday() {
         return onthisday;
     }
-
 
     @Nullable
     RbPageSummary tfa() {

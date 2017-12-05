@@ -13,7 +13,6 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
-import org.wikipedia.feed.onthisday.OnThisDay;
 import org.wikipedia.feed.onthisday.OnThisDayCard;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
@@ -45,12 +44,8 @@ public class AggregatedFeedContentClient {
         @Override
         void getCardFromResponse(@NonNull AggregatedFeedContent content, @NonNull WikiSite wiki,
                                  int age, @NonNull List<Card> outCards) {
-            if (content.onthisday() != null) {
-                List<OnThisDay.Event> selectedEvents = content.onthisday();
-                OnThisDay onThisDay = new OnThisDay();
-                onThisDay.setSelected(selectedEvents);
-                OnThisDayCard card = new OnThisDayCard(onThisDay, wiki, age);
-                outCards.add(card);
+            if (content.onthisday() != null && !content.onthisday().isEmpty()) {
+                outCards.add(new OnThisDayCard(content.onthisday(), wiki, age));
             }
         }
     }

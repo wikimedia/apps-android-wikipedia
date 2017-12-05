@@ -19,25 +19,19 @@ import java.util.Random;
 public class OnThisDayCard extends Card {
     private int nextYear;
     private Calendar date;
-    private OnThisDay onThisDay;
     private FeedAdapter.Callback callback;
     private WikiSite wiki;
     private OnThisDay.Event eventShownOnCard;
     private int age;
 
-    public OnThisDayCard(@NonNull OnThisDay onThisDay, @NonNull WikiSite wiki, int age) {
+    public OnThisDayCard(@NonNull List<OnThisDay.Event> events, @NonNull WikiSite wiki, int age) {
         super();
-        this.onThisDay = onThisDay;
-        int randomIndex = new Random().nextInt(onThisDay.selectedEvents().size() - 1);
-        eventShownOnCard = onThisDay.selectedEvents().get(randomIndex);
         this.date = DateUtil.getDefaultDateFor(age);
-        this.nextYear = onThisDay.selectedEvents().get(randomIndex + 1).year();
         this.wiki = wiki;
         this.age = age;
-    }
-
-    @NonNull public OnThisDay onthisday() {
-        return onThisDay;
+        int randomIndex = new Random().nextInt(events.size() - 1);
+        eventShownOnCard = events.get(randomIndex);
+        this.nextYear = randomIndex + 1 < events.size() ? events.get(randomIndex + 1).year() : eventShownOnCard.year();
     }
 
     public FeedAdapter.Callback getCallback() {
@@ -46,10 +40,6 @@ public class OnThisDayCard extends Card {
 
     public void setCallback(FeedAdapter.Callback callback) {
         this.callback = callback;
-    }
-
-    @NonNull public List<OnThisDay.Event> events() {
-        return onThisDay.selectedEvents();
     }
 
     @Override @NonNull public CardType type() {
