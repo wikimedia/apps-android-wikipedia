@@ -13,36 +13,33 @@
         android:layout_width="match_parent"
         android:layout_height="48dp" />
 
-    <TextView
-        android:id="@+id/day"
-        style="@style/RtlAwareTextView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:ellipsize="end"
-        android:fontFamily="serif"
-        android:lineSpacingExtra="0sp"
-        android:maxLines="3"
-        android:paddingBottom="4dp"
-        android:paddingTop="12dp"
-        android:textColor="?attr/primary_text_color"
-        android:textSize="24sp"
-        tools:text="November 1" />
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/gradient_layout"
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
-        android:layout_marginTop="-10dp"
-        android:layout_marginStart="27dp"
-        android:background="?attr/chart_shade5">
+        <View
+            android:id="@+id/gradient_layout"
+            android:layout_width="1dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="32dp"
+            android:background="?attr/chart_shade5"/>
 
         <TextView
+            android:id="@+id/day"
+            style="@style/RtlAwareTextView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="1dp"
-            android:background="?attr/paper_color" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:fontFamily="serif"
+            android:maxLines="1"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="24sp"
+            tools:text="November 1" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/base_view"
@@ -65,7 +62,7 @@
             android:clickable="true"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:foreground="?attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackgroundBorderless">
 
             <include
                 android:id="@+id/year_layout"
@@ -73,79 +70,78 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:layout_below="@+id/year_layout"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="-12dp"
-
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="16dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_below="@+id/year_layout"
+                android:background="?attr/paper_color">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
-                    android:tint="?attr/paper_color"
-                    app:srcCompat="@drawable/otd_year_button_background" />
+                    android:layout_height="match_parent"
+                    android:tint="?attr/chart_shade5"
+                    android:layout_alignEnd="@id/next_event_years"
+                    android:layout_alignBottom="@id/next_event_years"
+                    app:srcCompat="@drawable/otd_year_button_background"
+                    android:contentDescription="@null"/>
 
                 <TextView
                     android:id="@+id/next_event_years"
-                    style="@style/RtlAwareTextView"
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="2dp"
-                    android:background="?attr/chart_shade5"
-                    android:fontFamily="sans-serif"
-                    android:lineSpacingExtra="4sp"
-                    android:padding="3dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="4dp"
                     android:paddingEnd="6dp"
                     android:paddingStart="6dp"
                     android:textColor="?attr/chart_shade7"
                     android:textSize="12sp"
-                    android:textStyle="normal"
-                    tools:text="1,652 years ago" />
+                    android:maxLines="1"
+                    tools:text="123 years ago" />
             </RelativeLayout>
+
         </RelativeLayout>
+
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginTop="-15dp"
+        android:layout_marginTop="-18dp"
         android:background="?attr/material_theme_border_color" />
 
     <LinearLayout
         android:id="@+id/more_events_layout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginBottom="-15dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginBottom="-18dp"
+        app:layout_constraintTop_toBottomOf="@id/view_list_card_list"
         android:background="?attr/paper_color"
-        android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
-        android:gravity="center_vertical">
+        android:clickable="true">
 
         <ImageView
-            android:id="@+id/forward_arrow"
-            android:layout_width="16dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:contentDescription="@null"
-            android:scaleType="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
             android:tint="?attr/secondary_text_color"
-            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
+            android:contentDescription="@null"/>
 
         <TextView
-            android:id="@+id/more_events"
-            style="@style/RtlAwareTextView"
-            android:layout_width="0dp"
+            android:id="@+id/view_list_card_more_text"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_marginStart="8dp"
             android:fontFamily="sans-serif-medium"
-            android:gravity="center_vertical"
-            android:paddingEnd="12dp"
-            android:paddingStart="12dp"
+            android:textAllCaps="true"
             android:text="@string/more_events_text"
             android:textColor="?attr/secondary_text_color"
-            android:textSize="14sp"
-            android:textStyle="normal" />
-    </LinearLayout>
+            android:gravity="center_vertical"/>
 
+    </LinearLayout>
 
 </LinearLayout>

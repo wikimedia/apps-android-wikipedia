@@ -546,11 +546,9 @@
   <string name="on_this_day_card_title">Heute</string>
   <string name="more_events_text">MEHR AN DIESEM TAG</string>
   <string name="events_count_text">AN DIESEM TAG\n%1$s Ereignisse von %2$s bis %3$d</string>
-  <string name="on_this_day">Heute</string>
-  <string name="this_year">Dieses Jahr</string>
+    <string name="this_year">Dieses Jahr</string>
   <string name="back_to_top">ZURÜCK NACH OBEN</string>
-  <string name="date_picker">Datumsauswahl</string>
-  <plurals name="diff_years">
+    <plurals name="diff_years">
     <item quantity="one">Letztes Jahr</item>
     <item quantity="other">Vor %d Jahren</item>
   </plurals>

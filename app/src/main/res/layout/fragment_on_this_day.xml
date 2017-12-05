@@ -51,18 +51,24 @@
                         tools:text="January 1" />
 
                     <TextView
+                        style="@style/RtlAwareTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/base100"
+                        android:textSize="14sp"
+                        android:alpha="0.5"
+                        android:textAllCaps="true"
+                        android:text="@string/on_this_day_card_title"/>
+
+                    <TextView
                         android:id="@+id/day_info_text_view"
                         style="@style/RtlAwareTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:fontFamily="sans-serif"
-                        android:lineSpacingExtra="6sp"
+                        android:layout_marginTop="2dp"
                         android:textColor="@color/base100"
                         android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:alpha="0.5"
-                        tools:text="Foo\nBar"/>
+                        android:alpha="0.5"/>
 
                 </LinearLayout>
 
@@ -89,102 +95,32 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/nested"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:id="@+id/linear_layout"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/events_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/paper_color"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:scrollbars="vertical" />
 
+        <ProgressBar
+            android:id="@+id/on_this_day_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="48dp"/>
 
-            <ProgressBar
-                android:id="@+id/progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" />
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/on_this_day_error_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/events_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="24dp"
-                android:layout_weight="1"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                android:scrollbars="vertical" />
+    </FrameLayout>
 
-            <LinearLayout
-                android:id="@+id/space"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:visibility="gone"
-                android:background="?attr/chart_shade5"
-                android:layout_marginStart="31dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="?attr/paper_color"
-                    android:layout_marginStart="1dp" />
-            </LinearLayout>
-
-            <RelativeLayout
-                android:id="@+id/back_to_top_view"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:background="?attr/paper_color"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <RelativeLayout
-                    android:id="@+id/upward_arrow_layout"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:tint="?attr/chart_shade5"
-                        app:srcCompat="@drawable/drawable_12dp_rounded_corner_base70" />
-
-                    <ImageView
-                        android:id="@+id/upward_arrow"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/back_to_top"
-                        android:background="@android:color/transparent"
-                        android:padding="3dp"
-                        android:tint="?attr/material_theme_secondary_color"
-                        app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginStart="36dp"
-                    android:layout_toEndOf="@+id/upward_arrow_layout"
-                    android:fontFamily="sans-serif-medium"
-                    android:lineSpacingExtra="10sp"
-                    android:text="@string/back_to_top"
-                    android:textColor="?attr/colorAccent"
-                    android:textSize="14sp"
-                    android:textStyle="normal"
-                    tools:text="@string/back_to_top" />
-            </RelativeLayout>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

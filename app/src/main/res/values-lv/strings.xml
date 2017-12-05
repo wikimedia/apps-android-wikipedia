@@ -220,6 +220,5 @@
   <string name="onboarding_continue">Turpināt</string>
   <string name="onboarding_got_it">Sapratu</string>
   <string name="on_this_day_card_title">Šajā dienā</string>
-  <string name="on_this_day">Šajā dienā</string>
-  <string name="this_year">Šajā gadā</string>
+    <string name="this_year">Šajā gadā</string>
 </resources>

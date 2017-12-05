@@ -324,8 +324,6 @@
   <string name="on_this_day_card_title">Αυτήν την μέρα</string>
   <string name="more_events_text">ΠΕΡΙΣΣΟΤΕΡΑ ΑΥΤΗΝ ΤΗΝ ΗΜΕΡΑ</string>
   <string name="events_count_text"> ΑΥΤΗ ΤΗΝ ΗΜΕΡΑ %1$s συμβάντα των  %2$s - %3$d</string>
-  <string name="on_this_day">Αυτήν την μέρα</string>
   <string name="this_year">Φέτος</string>
   <string name="back_to_top">ΠΙΣΩ ΣΤΗΝ ΑΡΧΗ</string>
-  <string name="date_picker">επιλογή ημερομηνίας</string>
 </resources>

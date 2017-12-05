@@ -546,11 +546,9 @@
   <string name="on_this_day_card_title">Pada hari ini</string>
   <string name="more_events_text">LEBIH BANYAK PADA HARI INI</string>
   <string name="events_count_text">PADA HARI INI\n%1$s peristiwa dari %2$s - %3$d</string>
-  <string name="on_this_day">Pada hari ini</string>
-  <string name="this_year">Tahun ini</string>
+    <string name="this_year">Tahun ini</string>
   <string name="back_to_top">KEMBALI KE ATAS</string>
-  <string name="date_picker">pemilih tarikh</string>
-  <plurals name="diff_years">
+    <plurals name="diff_years">
     <item quantity="one">Tahun lalu</item>
     <item quantity="other">%d tahun lepas</item>
   </plurals>

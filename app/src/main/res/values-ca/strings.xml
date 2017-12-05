@@ -534,8 +534,7 @@
   <string name="on_this_day_card_title">Un dia com avui</string>
   <string name="more_events_text" fuzzy="true">Més esdeveniments històrics un dia com avui</string>
   <string name="events_count_text" fuzzy="true">%1$s esdeveniments des de %2$s - %3$d</string>
-  <string name="on_this_day">Un dia com avui</string>
-  <string name="this_year">Enguany</string>
+    <string name="this_year">Enguany</string>
   <plurals name="diff_years">
     <item quantity="one">El darrer any</item>
     <item quantity="other">Fa %d anys</item>
