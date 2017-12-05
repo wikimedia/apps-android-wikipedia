@@ -2,7 +2,6 @@ package org.wikipedia.feed.onthisday;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.SpannableStringBuilder;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
@@ -11,7 +10,6 @@ import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -41,12 +39,7 @@ public class OnThisDay {
         if (holidays != null) {
             allEvents.addAll(holidays);
         }
-        Collections.sort(allEvents, new Comparator<Event>() {
-            @Override
-            public int compare(Event e1, Event e2) {
-                return Integer.compare(e2.year(), e1.year());
-            }
-        });
+        Collections.sort(allEvents, (e1, e2) -> Integer.compare(e2.year(), e1.year()));
         return allEvents;
     }
 
@@ -56,7 +49,7 @@ public class OnThisDay {
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<RbPageSummary> pages;
 
         @NonNull
-        public SpannableStringBuilder text() {
+        public CharSequence text() {
             List<String> pageTitles = new ArrayList<>();
             for (RbPageSummary page : pages) {
                 pageTitles.add((StringUtil.fromHtml(StringUtils.defaultString(page.getNormalizedTitle()))).toString());

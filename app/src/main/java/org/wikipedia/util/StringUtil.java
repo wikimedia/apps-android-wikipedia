@@ -137,18 +137,18 @@ public final class StringUtil {
         }
     }
 
-    public static SpannableStringBuilder boldenSubstrings(String text, @NonNull List<String> subStrings) {
+    @NonNull
+    public static SpannableStringBuilder boldenSubstrings(@NonNull String text, @NonNull List<String> subStrings) {
         SpannableStringBuilder sb = new SpannableStringBuilder(text);
         for (String subString : subStrings) {
-            if (text.contains(subString)) {
+            int index = text.toLowerCase().indexOf(subString.toLowerCase());
+            if (index != -1) {
                 StyleSpan b = new StyleSpan(android.graphics.Typeface.BOLD);
-                sb.setSpan(b, text.indexOf(subString), text.indexOf(subString) + subString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                sb.setSpan(b, index, index + subString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
             }
         }
         return sb;
     }
-
-
 
     private StringUtil() { }
 }

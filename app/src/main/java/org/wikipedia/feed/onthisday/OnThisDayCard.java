@@ -2,7 +2,6 @@ package org.wikipedia.feed.onthisday;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.SpannableStringBuilder;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -67,7 +66,7 @@ public class OnThisDayCard extends Card {
         return DateUtil.getMonthOnlyDateString(date.getTime());
     }
 
-    @NonNull public SpannableStringBuilder text() {
+    @NonNull public CharSequence text() {
         return eventShownOnCard.text();
     }
 
