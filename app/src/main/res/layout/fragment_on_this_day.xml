@@ -75,9 +75,9 @@
 
                 <ImageView
                     android:id="@+id/calendar"
-                    android:layout_width="84dp"
-                    android:layout_height="92dp"
-                    android:layout_marginBottom="-32dp"
+                    android:layout_width="96dp"
+                    android:layout_height="106dp"
+                    android:layout_marginBottom="-36dp"
                     android:layout_gravity="bottom|end"
                     android:tint="@color/base100"
                     android:alpha="0.5"

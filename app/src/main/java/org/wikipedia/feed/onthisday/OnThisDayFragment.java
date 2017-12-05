@@ -234,7 +234,8 @@ public class OnThisDayFragment extends Fragment {
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
             if (holder instanceof EventsViewHolder) {
-                ((EventsViewHolder) holder).setFields(events.get(position));
+                ((EventsViewHolder) holder).setFields(events.get(position),
+                        position > 0 ? events.get(position - 1) : null);
                 if (funnel != null) {
                     funnel.scrolledToPosition(position);
                 }
@@ -257,6 +258,8 @@ public class OnThisDayFragment extends Fragment {
         private TextView yearTextView;
         private TextView yearsInfoTextView;
         private RecyclerView pagesRecycler;
+        private View yearContainer;
+        private View yearSpace;
         private WikiSite wiki;
 
         EventsViewHolder(View v, WikiSite wiki) {
@@ -266,6 +269,8 @@ public class OnThisDayFragment extends Fragment {
             yearTextView = v.findViewById(R.id.year);
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesRecycler = v.findViewById(R.id.pages_recycler);
+            yearContainer = v.findViewById(R.id.years_text_container);
+            yearSpace = v.findViewById(R.id.years_text_space);
             this.wiki = wiki;
             setRecycler();
         }
@@ -277,12 +282,19 @@ public class OnThisDayFragment extends Fragment {
             }
         }
 
-        public void setFields(final OnThisDay.Event event) {
+        public void setFields(@NonNull final OnThisDay.Event event, @Nullable OnThisDay.Event prevEvent) {
             setPagesRecycler(event);
             setPads();
             descTextView.setText(event.text());
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
+            if (prevEvent != null && prevEvent.year() == event.year()) {
+                yearContainer.setVisibility(View.GONE);
+                yearSpace.setVisibility(View.GONE);
+            } else {
+                yearContainer.setVisibility(View.VISIBLE);
+                yearSpace.setVisibility(prevEvent == null ? View.GONE : View.VISIBLE);
+            }
         }
 
         private void setPads() {
