@@ -50,6 +50,10 @@ public final class DateUtil {
         return new SimpleDateFormat("MMMM d", Locale.getDefault()).format(date);
     }
 
+    public static String getMonthOnlyWithoutDayDateString(@NonNull Date date) {
+        return new SimpleDateFormat("MMMM", Locale.getDefault()).format(date);
+    }
+
     private static String getExtraShortDateString(@NonNull Date date) {
         return new SimpleDateFormat("MMM d", Locale.getDefault()).format(date);
     }
