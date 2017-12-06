@@ -194,7 +194,7 @@ public class SavedPageSyncService extends JobIntentService {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
                 e.printStackTrace();
-                if (!ThrowableUtil.isOffline(e)) {
+                if (!ThrowableUtil.isOffline(e) && !ThrowableUtil.is404(e)) {
                     // If it's anything but a transient network error, let's log it aggressively,
                     // to make sure we've fixed any other errors with saving pages.
                     L.logRemoteError(e);
