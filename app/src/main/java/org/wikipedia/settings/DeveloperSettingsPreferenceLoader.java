@@ -10,13 +10,19 @@ import android.support.v7.preference.TwoStatePreference;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.useroption.ui.UserOptionRowActivity;
 import org.wikipedia.util.log.L;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*package*/ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
     @NonNull private final Context context;
+    public static final int MAX_LISTS = 100;
 
     @NonNull private final Preference.OnPreferenceChangeListener setRestBaseManuallyChangeListener
             = new Preference.OnPreferenceChangeListener() {
@@ -87,6 +93,8 @@ import java.util.List;
         setUpCrashButton(findPreference(getCrashButtonKey()));
         setUpUserOptionButton(findPreference(getUserOptionButtonKey()));
         setUpRemoteLogButton(findPreference(R.string.preference_key_remote_log));
+        setUpAddArticles(findPreference(R.string.preference_key_add_articles));
+        setUpAddLists(findPreference(R.string.preference_key_add_reading_lists));
     }
 
 
@@ -181,6 +189,65 @@ import java.util.List;
 
     private void setUpRemoteLogButton(Preference button) {
         button.setOnPreferenceChangeListener(buildRemoteLogPreferenceChangeListener());
+    }
+
+    private void setUpAddArticles(Preference button) {
+        button.setOnPreferenceChangeListener(buildAddArticlesPreferenceChangeListener());
+    }
+
+    private Preference.OnPreferenceChangeListener buildAddArticlesPreferenceChangeListener() {
+        return new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
+                    return true;
+                }
+                String title = "Test reading list";
+                int listSize = Integer.valueOf(newValue.toString().trim());
+                createReadingList(title, listSize);
+                return true;
+            }
+        };
+    }
+
+    private void createReadingList(String title, int listSize) {
+        long now = System.currentTimeMillis();
+        final ReadingList list = ReadingList
+                .builder()
+                .key(ReadingListDaoProxy.listKey(title))
+                .title(title)
+                .mtime(now)
+                .atime(now)
+                .description(null)
+                .pages(new ArrayList<ReadingListPage>())
+                .build();
+        ReadingList.DAO.addList(list);
+        for (int i = 0; i < listSize; i++) {
+            PageTitle pageTitle = new PageTitle(title.contains("Test") ? "" + (i + 1) : "List" + title.charAt(title.length() - 1) + " Page" + (i + 1), WikipediaApp.getInstance().getWikiSite());
+            final ReadingListPage page = ReadingListDaoProxy.page(list, pageTitle);
+            ReadingList.DAO.addTitleToList(list, page, false);
+        }
+    }
+
+    private void setUpAddLists(Preference button) {
+        button.setOnPreferenceChangeListener(buildAddListsPreferenceChangeListener());
+    }
+
+    private Preference.OnPreferenceChangeListener buildAddListsPreferenceChangeListener() {
+        return new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
+                    return true;
+                }
+                int numOfLists = Integer.valueOf(newValue.toString().trim());
+                numOfLists = numOfLists > MAX_LISTS ? MAX_LISTS : Integer.valueOf(newValue.toString().trim());
+                for (int i = 1; i <= numOfLists; i++) {
+                    createReadingList("Reading list " + i, 10);
+                }
+                return true;
+            }
+        };
     }
 
     private Preference.OnPreferenceChangeListener buildRemoteLogPreferenceChangeListener() {
