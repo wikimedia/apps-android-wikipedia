@@ -292,15 +292,16 @@
         <item name="placeholderImageScaleType">centerCrop</item>
         <item name="failureImage">@drawable/checkerboard</item>
         <item name="failureImageScaleType">centerCrop</item>
+        <item name="fadeDuration">0</item>
 
         <!-- Draw translucent images on a white background. -->
         <item name="backgroundImage">@android:color/white</item>
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.Article">
-        <item name="placeholderImage">@drawable/ic_image_gray_24dp</item>
+        <item name="placeholderImage">@drawable/ic_image_gray_opaque_24dp</item>
         <item name="placeholderImageScaleType">fitCenter</item>
-        <item name="failureImage">@drawable/ic_image_gray_24dp</item>
+        <item name="failureImage">@drawable/ic_image_gray_opaque_24dp</item>
         <item name="failureImageScaleType">fitCenter</item>
     </style>
 
