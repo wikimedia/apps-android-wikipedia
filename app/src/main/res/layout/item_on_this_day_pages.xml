@@ -44,10 +44,10 @@
                 style="@style/RtlAwareTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:ellipsize="end"
                 android:textSize="12sp"
-                android:lineSpacingExtra="4sp"
+                android:lineSpacingExtra="2sp"
                 android:maxLines="2" />
         </LinearLayout>
 

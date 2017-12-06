@@ -153,6 +153,9 @@ public class OnThisDayFragment extends Fragment {
 
             @Override
             public void onFailure(@NonNull Call<OnThisDay> call, @NonNull Throwable t) {
+                if (!isAdded()) {
+                    return;
+                }
                 setErrorState(t);
             }
         });

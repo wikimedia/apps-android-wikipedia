@@ -15,7 +15,7 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/shape_circle"
         android:contentDescription="@null"
-        android:padding="3dp"
+        android:padding="4dp"
         android:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
