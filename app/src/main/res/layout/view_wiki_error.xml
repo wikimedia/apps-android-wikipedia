@@ -43,7 +43,9 @@
                     android:id="@+id/view_wiki_error_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.2"
                     android:text="@string/error_message_generic"
+                    android:textAlignment="center"
                     android:textColor="@color/base30"
                     android:textSize="16sp" />
 
