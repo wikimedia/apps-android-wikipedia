@@ -1,6 +1,7 @@
 package org.wikipedia.richtext;
 
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextPaint;
@@ -26,7 +27,9 @@ public class URLSpanBoldNoUnderline extends URLSpanNoUnderline {
 
     @Override public void updateDrawState(TextPaint paint) {
         super.updateDrawState(paint);
-        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        paint.setTypeface(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                ? Typeface.create("sans-serif-medium", Typeface.NORMAL)
+                : Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
     }
 
     @Override public String toString() {

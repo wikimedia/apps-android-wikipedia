@@ -10,6 +10,7 @@ import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -143,8 +144,10 @@ public final class StringUtil {
         for (String subString : subStrings) {
             int index = text.toLowerCase().indexOf(subString.toLowerCase());
             if (index != -1) {
-                StyleSpan b = new StyleSpan(android.graphics.Typeface.BOLD);
-                sb.setSpan(b, index, index + subString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+                sb.setSpan(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                        ? new TypefaceSpan("sans-serif-medium")
+                        : new StyleSpan(android.graphics.Typeface.BOLD),
+                        index, index + subString.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
             }
         }
         return sb;
