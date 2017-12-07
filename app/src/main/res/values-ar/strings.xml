@@ -280,6 +280,8 @@
   <string name="color_theme_select">المظهر</string>
   <string name="color_theme_light">فاتح</string>
   <string name="color_theme_dark">غامق</string>
+  <string name="color_theme_black">أسود</string>
+  <string name="color_theme_test_title">مثال للنص</string>
   <string name="preference_title_color_theme">المظهر الداكن</string>
   <string name="preference_summary_color_theme">بدّل لاستخدام المظهر التطبيق داكن اللون</string>
   <string name="text_size_percent_default">%s (افتراضي)</string>
@@ -382,13 +384,16 @@
     <item quantity="one">أمس</item>
     <item quantity="other">قبل %d أيام</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">اليوم</string>
+  <string name="view_continue_reading_card_subtitle_today">اليوم</string>
+  <string name="view_continue_reading_card_subtitle_read_date">قرأت %s</string>
   <string name="view_announcement_card_negative_action">لا شكرًا</string>
   <string name="view_offline_card_text">لا يمكن تحميل المحتوى في وضع عدم الاتصال.</string>
   <string name="view_featured_article_card_title">مقالة مختارة</string>
   <string name="view_featured_article_footer_save_button_label">احفظ</string>
   <string name="view_featured_article_footer_saved_button_label">حُفظت</string>
+  <string name="feed_configure_menu_select_all">اختر الكل</string>
   <string name="feed_item_type_on_this_day">أحداث تاريخية في هذا اليوم</string>
+  <string name="feed_item_type_featured_article">المقالة المختارة يوميًّا على ويكيبيديا</string>
   <string name="description_edit_text_hint">وصف العنوان</string>
   <string name="description_edit_save">انشر</string>
   <string name="description_edit_add_description">إضافة وصف للعنوان</string>
@@ -453,7 +458,8 @@
   <string name="on_this_day_card_title">في هذا اليوم</string>
   <string name="more_events_text" fuzzy="true">المزيد من الأحداث التاريخية في هذا اليوم</string>
   <string name="events_count_text" fuzzy="true">%1$s حدثًا من %2$s - %3$d</string>
-    <string name="this_year">هذا العام</string>
+  <string name="this_year">هذا العام</string>
+  <string name="back_to_top" fuzzy="true">عودة إلى الأعلى</string>
   <plurals name="diff_years">
     <item quantity="one">السنة الماضية</item>
     <item quantity="other">قبل %d سنة</item>

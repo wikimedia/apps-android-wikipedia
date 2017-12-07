@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_Policy/mk?uselang=mk</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
@@ -371,7 +372,7 @@
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_button_view_user">Разговарајте со корисникот</string>
   <string name="notification_talk_title">Нова порака на Википедија</string>
-  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ви остави порака на вашата страница за разговор &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; ви остави порака на вашата разговорна страница &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_reverted">Вашето уредување на статијата &lt;strong&gt;%2$s&lt;/strong&gt; е отповикано од &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Добивте благодарност!</string>
@@ -532,6 +533,7 @@
   <string name="onboarding_reading_list_sync_text">Создавајте списоци за читање од статиите што сакате да ги прочитате подоцна, дури и кога немате линија. &lt;a href=\"#login\"&gt;Најавете се или направете&lt;/a&gt; ваша сметка на Википедија за да ги запазите списоците.</string>
   <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
   <string name="onboarding_analytics_text">Помогнете ни да ја подобриме алатката со тоа што ќе добиваме информации како ја користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#offline\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>
   <string name="onboarding_create_account_sync">Усогласи списоци за читање</string>
   <string name="onboarding_create_account_contributions">Бидете во тек со вашите придонеси</string>
@@ -544,11 +546,11 @@
   <string name="all_trending_text">Сите најчитани страници на %1$s</string>
   <string name="top_on_this_day">Најчитано на %1$s</string>
   <string name="on_this_day_card_title">На денешен ден</string>
-  <string name="more_events_text">ПОВЕЌЕ НА ОВОЈ ДЕН</string>
-  <string name="events_count_text">НА ДЕНЕШЕН ДЕН \n%1$s настани од %2$s до %3$d г.</string>
-    <string name="this_year">Годинава</string>
-  <string name="back_to_top">НАЈГОРЕ</string>
-    <plurals name="diff_years">
+  <string name="more_events_text">Повеќе на овој ден</string>
+  <string name="events_count_text">%1$s настани од %2$s–%3$d</string>
+  <string name="this_year">Годинава</string>
+  <string name="back_to_top">Најгоре</string>
+  <plurals name="diff_years">
     <item quantity="one">Лани</item>
     <item quantity="other">Пред %d години</item>
   </plurals>

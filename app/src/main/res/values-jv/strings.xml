@@ -484,8 +484,8 @@
   <string name="app_shortcuts_continue_reading">Bacutaké maca</string>
   <string name="app_shortcuts_search">Golèk</string>
   <string name="on_this_day_card_title">Ing dina iki</string>
-    <string name="this_year">Taun iki</string>
-  <string name="back_to_top">BALI MENYANG NDHUWUR</string>
+  <string name="this_year">Taun iki</string>
+  <string name="back_to_top" fuzzy="true">BALI MENYANG NDHUWUR</string>
   <plurals name="diff_years">
     <item quantity="one">Taun kapungkur</item>
     <item quantity="other">%d taun kapungkur</item>

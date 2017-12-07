@@ -394,12 +394,14 @@
     <item quantity="one">Бэҕэһээ</item>
     <item quantity="other">%d хонук ынараа өттүгэр</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Бүгүн</string>
+  <string name="view_continue_reading_card_subtitle_today">бүгүн</string>
   <string name="view_announcement_card_negative_action">Суох, махтанабын</string>
   <string name="view_offline_card_text">Ситимэ суох көрдөрөр табыллыбат эбит.</string>
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>
   <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
+  <string name="feed_configure_menu_select_all">Барытын тал</string>
+  <string name="feed_configure_menu_deselect_all">Барытын бэлиэтээмэ</string>
   <string name="description_edit_text_hint">Ойуулааһын</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_add_description">Кылгас быһаарыы эбии</string>
@@ -490,7 +492,7 @@
   <string name="app_shortcuts_continue_reading">Салгыы ааҕыы</string>
   <string name="app_shortcuts_search">Бул</string>
   <string name="on_this_day_card_title">Бүгүн</string>
-    <string name="this_year">Быйыл</string>
+  <string name="this_year">Быйыл</string>
   <plurals name="diff_years">
     <item quantity="one">Былырыын</item>
     <item quantity="other">%d сыллааҕыта</item>

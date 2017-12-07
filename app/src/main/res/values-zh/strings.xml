@@ -147,7 +147,8 @@
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
   <string name="about_wikipedia_url">https://zh.m.wikipedia.org/wiki/Wikipedia:关于</string>
-  <string name="privacy_policy_url" fuzzy="true">https://m.wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_Policy</string>
+  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
   <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
@@ -532,6 +533,7 @@
   <string name="onboarding_reading_list_sync_text">创建包含您希望日后阅读条目的阅读列表，这样即便您离线也可阅读。&lt;a href=\"#login\"&gt;登录或创建&lt;/a&gt;您的维基百科账户来保持您的阅读列表备份。</string>
   <string name="onboarding_analytics_title">发送匿名数据</string>
   <string name="onboarding_analytics_text">通过让我们知道您如何使用它，帮助应用做得更好。数据收集是匿名的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">通过让我们知道您如何使用它，帮助应用做得更好。数据收集是匿名的。&lt;a href=\"#offline\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">发送使用数据</string>
   <string name="onboarding_create_account_sync">同步您的阅读列表</string>
   <string name="onboarding_create_account_contributions">保持追踪您的贡献</string>
@@ -544,11 +546,11 @@
   <string name="all_trending_text">在%1$s的所有趋势条目</string>
   <string name="top_on_this_day">%1$s上的趋势</string>
   <string name="on_this_day_card_title">历史上的今天</string>
-  <string name="more_events_text">这一天的更多事情</string>
-  <string name="events_count_text">在这一天\n%2$s~%3$d年间的%1$s次事件</string>
-    <string name="this_year">今年</string>
-  <string name="back_to_top">返回顶部</string>
-    <plurals name="diff_years">
+  <string name="more_events_text" fuzzy="true">这一天的更多事情</string>
+  <string name="events_count_text" fuzzy="true">在这一天\n%2$s~%3$d年间的%1$s次事件</string>
+  <string name="this_year">今年</string>
+  <string name="back_to_top" fuzzy="true">返回顶部</string>
+  <plurals name="diff_years">
     <item quantity="one">去年</item>
     <item quantity="other">%d年前</item>
   </plurals>

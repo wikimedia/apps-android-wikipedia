@@ -466,11 +466,11 @@
   <string name="app_shortcuts_search">Sichen</string>
   <string name="more_trending_text">Méi esou wéi dëst</string>
   <string name="on_this_day_card_title">Op dësem Dag</string>
-  <string name="more_events_text">MÉI OP DËSEM DAG</string>
-  <string name="events_count_text">OP DËSEM DAG\n%1$s Evenementer vum %2$s bis %3$d</string>
-    <string name="this_year">Dëst Joer</string>
-  <string name="back_to_top">ZRÉCK NO UEWEN</string>
-    <plurals name="diff_years">
+  <string name="more_events_text" fuzzy="true">MÉI OP DËSEM DAG</string>
+  <string name="events_count_text" fuzzy="true">OP DËSEM DAG\n%1$s Evenementer vum %2$s bis %3$d</string>
+  <string name="this_year">Dëst Joer</string>
+  <string name="back_to_top" fuzzy="true">ZRÉCK NO UEWEN</string>
+  <plurals name="diff_years">
     <item quantity="one">Lescht Joer</item>
     <item quantity="other">Viru(n) %d Joer</item>
   </plurals>

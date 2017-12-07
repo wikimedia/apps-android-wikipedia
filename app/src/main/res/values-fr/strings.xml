@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Conditions d’utilisation</string>
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/fr</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
@@ -532,6 +533,7 @@
   <string name="onboarding_reading_list_sync_text">Créer des listes de lecture avec les articles que vous voulez lire plus tard, même hors connexion. &lt;a href=\"#login\"&gt;Connectez-vous ou créez&lt;/a&gt; votre compte Wikipédia pour conserver vos listes de lecture sauvegardées.</string>
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
   <string name="onboarding_analytics_text">Aidez à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données récupérées sont anonymes. &lt;a href=\"#privacy\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Aide à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données collectées sont anonymes. &lt;a href=\"#offline\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
   <string name="onboarding_create_account_sync">Synchroniser vos listes de lecture</string>
   <string name="onboarding_create_account_contributions">Garder trace de vos contributions</string>
@@ -544,11 +546,11 @@
   <string name="all_trending_text">Tous les articles en vogue sur %1$s</string>
   <string name="top_on_this_day">En vogue sur %1$s</string>
   <string name="on_this_day_card_title">Ce jour</string>
-  <string name="more_events_text">DAVANTAGE SUR CETTE JOURNÉE</string>
-  <string name="events_count_text">CE JOUR-LÀ\n%1$s événements pour %2$s - %3$d</string>
-    <string name="this_year">Cette année</string>
-  <string name="back_to_top">RETOUR AU DÉBUT</string>
-    <plurals name="diff_years">
+  <string name="more_events_text">Davantage sur cette journée</string>
+  <string name="events_count_text">%1$s événements pour %2$s-%3$d</string>
+  <string name="this_year">Cette année</string>
+  <string name="back_to_top">Retour au début</string>
+  <plurals name="diff_years">
     <item quantity="one">Année dernière</item>
     <item quantity="other">Il y a %d ans</item>
   </plurals>

@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
   <string name="about_wikipedia_url">https://ms.m.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ms</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ms</string>
@@ -532,6 +533,7 @@
   <string name="onboarding_reading_list_sync_text">Buat senarai bacaan dari artikel yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian. &lt;a href=\"#login\"&gt;Log masuk atau buat&lt;/a&gt; akaun Wikipedia anda untuk memastikan senarai bacaan anda disokong.</string>
   <string name="onboarding_analytics_title">Hantar data tanpa nama</string>
   <string name="onboarding_analytics_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#offline\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>
   <string name="onboarding_create_account_sync">Menyegerakkan senarai bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Jejaki sumbangan anda</string>
@@ -544,11 +546,11 @@
   <string name="all_trending_text">Semua rencana tren pada %1$s</string>
   <string name="top_on_this_day">Sedang tren pada %1$s</string>
   <string name="on_this_day_card_title">Pada hari ini</string>
-  <string name="more_events_text">LEBIH BANYAK PADA HARI INI</string>
-  <string name="events_count_text">PADA HARI INI\n%1$s peristiwa dari %2$s - %3$d</string>
-    <string name="this_year">Tahun ini</string>
-  <string name="back_to_top">KEMBALI KE ATAS</string>
-    <plurals name="diff_years">
+  <string name="more_events_text">Lebih banyak pada hari ini</string>
+  <string name="events_count_text">%1$s peristiwa dari %2$s–%3$d</string>
+  <string name="this_year">Tahun ini</string>
+  <string name="back_to_top">Kembali ke atas</string>
+  <plurals name="diff_years">
     <item quantity="one">Tahun lalu</item>
     <item quantity="other">%d tahun lepas</item>
   </plurals>

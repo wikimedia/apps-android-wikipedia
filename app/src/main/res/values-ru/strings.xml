@@ -501,7 +501,7 @@
   <string name="app_shortcuts_search">Поиск</string>
   <string name="on_this_day_card_title">В этот день</string>
   <string name="events_count_text" fuzzy="true">%1$s событий за %2$s—%3$d</string>
-    <string name="this_year">Этот год</string>
+  <string name="this_year">Этот год</string>
   <plurals name="diff_years">
     <item quantity="one">В прошлом году</item>
     <item quantity="other">%d года назад</item>

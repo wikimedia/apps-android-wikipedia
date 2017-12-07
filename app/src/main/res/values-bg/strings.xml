@@ -521,7 +521,7 @@
   <string name="on_this_day_card_title">На този ден</string>
   <string name="more_events_text" fuzzy="true">Още исторически събития на този ден</string>
   <string name="events_count_text" fuzzy="true">%1$s събития от %2$s - %3$d</string>
-    <string name="this_year">Тази година</string>
+  <string name="this_year">Тази година</string>
   <plurals name="diff_years">
     <item quantity="one">Миналата година</item>
     <item quantity="other">Преди %d години</item>

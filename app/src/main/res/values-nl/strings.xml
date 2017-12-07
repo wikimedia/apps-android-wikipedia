@@ -159,7 +159,7 @@
   <string name="edit_abandon_confirm_yes">Ja</string>
   <string name="edit_abandon_confirm_no">Nee</string>
   <string name="user_blocked_from_editing_title">Geblokkeerd</string>
-  <string name="user_logged_in_blocked_from_editing">Uw gebruiker is geblokkeerd en kan deze wiki niet bewerken.</string>
+  <string name="user_logged_in_blocked_from_editing">Uw gebruikersaccount is geblokkeerd en kan deze wiki niet bewerken.</string>
   <string name="user_anon_blocked_from_editing">Uw IP-adres is geblokkeerd en kan niet bewerken.</string>
   <string name="edit_how_page_improved">Hoe heeft u de pagina verbeterd?</string>
   <string name="edit_next">Volgende</string>

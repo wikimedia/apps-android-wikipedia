@@ -544,11 +544,11 @@
   <string name="all_trending_text">Todos os artigos em tendência a %1$s</string>
   <string name="top_on_this_day">Em tendência a %1$s</string>
   <string name="on_this_day_card_title">Neste dia</string>
-  <string name="more_events_text">MAIS NESTE DIA</string>
-  <string name="events_count_text">NESTE DIA\n%1$s acontecimentos de %2$s - %3$d</string>
-    <string name="this_year">Este ano</string>
-  <string name="back_to_top">VOLTAR AO TOPO</string>
-    <plurals name="diff_years">
+  <string name="more_events_text" fuzzy="true">MAIS NESTE DIA</string>
+  <string name="events_count_text" fuzzy="true">NESTE DIA\n%1$s acontecimentos de %2$s - %3$d</string>
+  <string name="this_year">Este ano</string>
+  <string name="back_to_top" fuzzy="true">VOLTAR AO TOPO</string>
+  <plurals name="diff_years">
     <item quantity="one">No ano passado</item>
     <item quantity="other">Há %d anos</item>
   </plurals>

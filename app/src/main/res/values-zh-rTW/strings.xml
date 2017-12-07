@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">使用條款</string>
   <string name="about_wikipedia_url">https://zh.m.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
@@ -532,6 +533,7 @@
   <string name="onboarding_reading_list_sync_text">從條目建立閱讀清單可讓您於事後閱讀；即使您是在離線的狀態之下。&lt;a href=\"#login\"&gt;登入或建立&lt;/a&gt;您的維基百科帳號以維持您的閱讀清單備份。</string>
   <string name="onboarding_analytics_title">寄送匿名資料</string>
   <string name="onboarding_analytics_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#offline\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_create_account_sync">同步您的閱讀清單</string>
   <string name="onboarding_create_account_contributions">保持追蹤您的貢獻</string>
@@ -545,10 +547,10 @@
   <string name="top_on_this_day">在 %1$s 的熱門事物</string>
   <string name="on_this_day_card_title">歷史上的今天</string>
   <string name="more_events_text">更多歷史上的今天</string>
-  <string name="events_count_text">歷史上的今天\n%2$s - %3$d 年間的 %1$s 個事件</string>
-    <string name="this_year">今年</string>
+  <string name="events_count_text">%2$s - %3$d 年間的 %1$s 個事件</string>
+  <string name="this_year">今年</string>
   <string name="back_to_top">返回頂端</string>
-    <plurals name="diff_years">
+  <plurals name="diff_years">
     <item quantity="one">去年</item>
     <item quantity="other">%d 年前</item>
   </plurals>

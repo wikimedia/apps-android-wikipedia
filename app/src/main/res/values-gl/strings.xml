@@ -146,6 +146,7 @@
   <string name="about_description">Acerca da aplicación da Wikipedia</string>
   <string name="privacy_policy_description">Política de protección de datos</string>
   <string name="terms_of_use_description">Termos de uso</string>
+  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/gl</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/gl</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.gl</string>
@@ -286,6 +287,10 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Escuro</string>
+  <string name="color_theme_black">Negro</string>
+  <string name="color_theme_test_title">Texto de exemplo</string>
+  <string name="color_theme_test_text">Arrastre a barra deslizante para cambiar o tamaño do texto que se usa para ler os artigos. Para definir o tamaño do texto no resto da aplicación, cambie o tamaño de texto do sistema.</string>
+  <string name="preference_title_app_theme">Tema da aplicación</string>
   <string name="preference_title_color_theme">Tema escuro</string>
   <string name="preference_summary_color_theme">Cambiar ó tema obscuro da aplicación</string>
   <string name="text_size_increase">Aumentar o texto</string>
@@ -398,19 +403,33 @@
   <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icona de tarxeta</string>
   <string name="view_card_news_title">Actualidade</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">onte</item>
     <item quantity="other">fai %d días</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Hoxe</string>
+  <string name="view_continue_reading_card_subtitle_today">hoxe</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Lido %s</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="view_offline_card_text">Non se pode cargar contido cando non hai conexión.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Gardar</string>
   <string name="view_featured_article_footer_saved_button_label">Gardado</string>
   <string name="feed_configure_menu_title">Configurar as tarxetas</string>
-  <string name="feed_configure_activity_title" fuzzy="true">Configurar as tarxetas de exploración</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">Reinicializar ós valores por defecto</string>
+  <string name="feed_configure_activity_title">Configurar a canle</string>
+  <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
+  <string name="feed_configure_menu_select_all">Seleccionar todo</string>
+  <string name="feed_configure_menu_deselect_all">Deseleccionar todo</string>
+  <string name="feed_item_type_news">Artigos sobre eventos actuais</string>
+  <string name="feed_item_type_on_this_day">Acontecementos históricos de hoxe</string>
+  <string name="feed_item_type_continue_reading">Ligazón rápida para ler un artigo aberto nunha das súas lapelas</string>
+  <string name="feed_item_type_because_you_read">Suxestións baseadas nun artigo recentemente lido do seu historial</string>
+  <string name="feed_item_type_featured_article">Artigo destacado do día na Wikipedia</string>
+  <string name="feed_item_type_trending">Artigos máis vistos do día</string>
+  <string name="feed_item_type_featured_image">Imaxe destacada do día en Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Páxina principal de Wikipedia co contido destacado diario</string>
+  <string name="feed_item_type_randomizer">Xerar artigos aleatorios para ler</string>
+  <string name="feed_configure_onboarding_action">Personalizar</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar a súa canle Explorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora pode escoller o que desexa mostrar na súa canle, e tamén priorizar os seus tipos de contidos favoritos.</string>
   <string name="description_edit_text_hint">Descrición de título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Engadir unha descrición de título</string>
@@ -503,8 +522,12 @@
   <string name="onboarding_skip">Omitir</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Comezar</string>
+  <string name="onboarding_welcome_title">A enciclopedia libre</string>
+  <string name="onboarding_welcome_text">Wikipedia está escrita de maneira colaborativa por voluntarios e comprende máis de 40 millóns de artigos en case 300 linguas distintas. &lt;a href=\"#about\"&gt;Máis información&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Novas formas de explorar</string>
-  <string name="onboarding_explore_text" fuzzy="true">Descubrir artigos de calidade, relevantes e suxestións na lista de Explorar.</string>
+  <string name="onboarding_explore_text">Mergúllese no pozo sen fondo da Wikipedia cunha canle Explorar en constante actualización. &lt;br/&gt; &lt;b&gt;Personalice&lt;/b&gt; a canle coas súas preferencias – se quere aprender sobre acontecementos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou lanzar os dados con &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Gardar nas listas de lectura</string>
+  <string name="onboarding_save_to_reading_lists_text">Crear listas de lectura a partir dos artigos que quere ler máis tarde, mesmo cando estea sen conexión a Internet.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura sincronizadas</string>
   <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artigos que queres ler máis tarde, incluso cando esteas sen conexión. &lt;a href=\"#login\"&gt;Inicia sesión ou crea&lt;/a&gt; a túa conta de Wikipedia para mantener as túas listas de lectura sincronizadas.</string>
   <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>
@@ -513,15 +536,18 @@
   <string name="onboarding_create_account_sync">Sincronizar as listas de lectura</string>
   <string name="onboarding_create_account_contributions">Vixiar as túas contribucións</string>
   <string name="onboarding_create_account_preferences">Gardar as preferencias</string>
+  <string name="onboarding_got_it">Entendido</string>
   <string name="app_shortcuts_random">Ao chou</string>
   <string name="app_shortcuts_continue_reading">Continuar lendo</string>
   <string name="app_shortcuts_search">Procurar</string>
+  <string name="more_trending_text">Outros semellantes</string>
   <string name="all_trending_text">Tódolos artigos en tendencia do %1$s</string>
   <string name="top_on_this_day">Tendencias do %1$s</string>
   <string name="on_this_day_card_title">Un día coma hoxe</string>
-  <string name="more_events_text" fuzzy="true">Máis acontecementos históricos neste día</string>
-  <string name="events_count_text" fuzzy="true">%1$s acontecementos entre %2$s e %3$d</string>
-    <string name="this_year">Este ano</string>
+  <string name="more_events_text" fuzzy="true">MÁIS NESTE DÍA</string>
+  <string name="events_count_text" fuzzy="true">NESTE DÍA\n%1$s acontecementos de %2$s - %3$d</string>
+  <string name="this_year">Este ano</string>
+  <string name="back_to_top" fuzzy="true">VOLVER Ó PRINCIPIO</string>
   <plurals name="diff_years">
     <item quantity="one">O ano pasado</item>
     <item quantity="other">Hai %d anos</item>

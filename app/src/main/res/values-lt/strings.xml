@@ -298,4 +298,7 @@
   <string name="description_edit_success_done">Atlikta</string>
   <string name="description_edit_success_did_you_know">Ar žinote?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Pradėti redagavimą</string>
+  <string name="more_events_text">Daugiau šiandien</string>
+  <string name="events_count_text">%1$s įvykiai nuo %2$s–%3$d</string>
+  <string name="back_to_top">Į viršų</string>
 </resources>

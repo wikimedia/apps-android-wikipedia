@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
   <string name="about_wikipedia_url">https://de.m.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/de</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
@@ -532,6 +533,7 @@
   <string name="onboarding_reading_list_sync_text">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist. &lt;a href=\"#login\"&gt;Melde dich an oder erstelle&lt;/a&gt; ein Wikipedia-Benutzerkonto, damit deine Leselisten immer gesichert werden.</string>
   <string name="onboarding_analytics_title">Anonymisierte Daten senden</string>
   <string name="onboarding_analytics_text">Hilf mit, die App besser zu machen, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#privacy\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Hilf uns dabei, die App zu verbessern, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#offline\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
   <string name="onboarding_create_account_sync">Synchronisiere deine Leselisten</string>
   <string name="onboarding_create_account_contributions">Verfolge deine Beiträge</string>
@@ -544,11 +546,11 @@
   <string name="all_trending_text">Alle beliebten Artikel am %1$s</string>
   <string name="top_on_this_day">Beliebt am %1$s</string>
   <string name="on_this_day_card_title">Heute</string>
-  <string name="more_events_text">MEHR AN DIESEM TAG</string>
-  <string name="events_count_text">AN DIESEM TAG\n%1$s Ereignisse von %2$s bis %3$d</string>
-    <string name="this_year">Dieses Jahr</string>
-  <string name="back_to_top">ZURÜCK NACH OBEN</string>
-    <plurals name="diff_years">
+  <string name="more_events_text">Mehr an diesem Tag</string>
+  <string name="events_count_text">%1$s Ereignisse von %2$s bis %3$d</string>
+  <string name="this_year">Dieses Jahr</string>
+  <string name="back_to_top">Zurück nach oben</string>
+  <plurals name="diff_years">
     <item quantity="one">Letztes Jahr</item>
     <item quantity="other">Vor %d Jahren</item>
   </plurals>

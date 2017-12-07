@@ -146,6 +146,8 @@
   <string name="about_description">A Wikipédia alkalmazásról</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
+  <string name="about_wikipedia_url">https://hu.m.wikipedia.org/wiki/Wikipédia:Rólunk</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
   <string name="about_libraries_heading">Felhasznált könyvtárak</string>
@@ -284,6 +286,9 @@
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Világos</string>
   <string name="color_theme_dark">Sötét</string>
+  <string name="color_theme_black">Fekete</string>
+  <string name="color_theme_test_title">Mintaszöveg</string>
+  <string name="preference_title_app_theme">Alkalmazástéma</string>
   <string name="preference_title_color_theme">Sötét téma</string>
   <string name="preference_summary_color_theme">Váltás az alkalmazás sötét témájának használatára</string>
   <string name="text_size_increase">Betűméret növelése</string>
@@ -396,19 +401,32 @@
   <string name="most_read_list_card_title">Felkapott</string>
   <string name="view_static_card_icon_content_description">Kártyaikon</string>
   <string name="view_card_news_title">Hírek</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Tegnap</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">tegnap</item>
     <item quantity="other">%d napja</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Ma</string>
+  <string name="view_continue_reading_card_subtitle_today">ma</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Elolvasva %s</string>
   <string name="view_announcement_card_negative_action">Köszönöm, nem</string>
   <string name="view_offline_card_text">A tartalom nem tölthető be kapcsolat nélkül.</string>
   <string name="view_featured_article_card_title">Kiemelt szócikk</string>
   <string name="view_featured_article_footer_save_button_label">Mentés</string>
   <string name="view_featured_article_footer_saved_button_label">Elmentve</string>
   <string name="feed_configure_menu_title">Kártyák testreszabása</string>
-  <string name="feed_configure_activity_title" fuzzy="true">Felfedezés kártyák testreszabása</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">Alapértelmezett</string>
+  <string name="feed_configure_activity_title">A hírcsatorna testreszabása</string>
+  <string name="feed_configure_menu_reset">Alapértelmezett nézet visszaállítása</string>
+  <string name="feed_configure_menu_select_all">Összes megjelenítése</string>
+  <string name="feed_configure_menu_deselect_all">Összes elrejtése</string>
+  <string name="feed_item_type_news">Szócikkek aktuális eseményekről</string>
+  <string name="feed_item_type_on_this_day">Történelmi események ezen a napon</string>
+  <string name="feed_item_type_because_you_read">Ajánlatok egy nemrég olvasott szócikk alapján</string>
+  <string name="feed_item_type_featured_article">A Wikipédia napi kiemelt cikke</string>
+  <string name="feed_item_type_trending">A legolvasottabb szócikkek naponta</string>
+  <string name="feed_item_type_featured_image">A nap kiemelt képe a Wikimédia Commonsról</string>
+  <string name="feed_item_type_main_page">A Wikipédia kezdőlapja napi kiemelt tartalommal</string>
+  <string name="feed_item_type_randomizer">Véletlenszerűen kiválasztott szócikkek</string>
+  <string name="feed_configure_onboarding_action">Testreszabás</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Szabd testre a Felfedezés hírfolyamodat!&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Mostantól kiválaszthatod, hogy mi jelenjen meg a hírfolyamodban, és át is rendezheted azt, feljebb helyezve a kedvenc tartalomtípusaidat.</string>
   <string name="description_edit_text_hint">Cím leírása</string>
   <string name="description_edit_save">Közzététel</string>
   <string name="description_edit_add_description">Adj meg egy címleírást</string>
@@ -499,25 +517,33 @@
   <string name="onboarding_skip">Kihagy</string>
   <string name="onboarding_continue">Tovább</string>
   <string name="onboarding_get_started">Kezdés</string>
+  <string name="onboarding_welcome_title">A szabad enciklopédia</string>
+  <string name="onboarding_welcome_text">A Wikipédia önkéntesek együttműködésével készül, és több mint 40 millió szócikket tartalmaz közel 300 nyelven. &lt;a href=\"#about\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Új módok a felfedezésre</string>
-  <string name="onboarding_explore_text" fuzzy="true">Fedezzen fel kiemelt cikkeket, népszerű témákat és olvasási javaslatokat a Felfedezés csatornában.</string>
+  <string name="onboarding_explore_text">Merülj alá a Wikipédiában a folyamatosan frissülő Felfedezés hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésnek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
+  <string name="onboarding_save_to_reading_lists_title">Mentés olvasólistára</string>
+  <string name="onboarding_save_to_reading_lists_text">Készíts olvasólistákat olyan szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
   <string name="onboarding_reading_list_sync_title">Olvasási listák szinkronizálással</string>
   <string name="onboarding_reading_list_sync_text">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
   <string name="onboarding_analytics_text">Segítsen jobbá tenni az appot azáltal, hogy elmondja hogy használja. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudjon meg többet&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
   <string name="onboarding_create_account_sync">Szinkronizálja az olvasási listáit</string>
   <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>
   <string name="onboarding_create_account_preferences">Beállítások mentése</string>
+  <string name="onboarding_got_it">Értem</string>
   <string name="app_shortcuts_random">Véletlen</string>
   <string name="app_shortcuts_continue_reading">Olvasás folytatása</string>
   <string name="app_shortcuts_search">Keresés</string>
+  <string name="more_trending_text">Több ilyen</string>
   <string name="all_trending_text">Összes felkapott cikk ekkor: %1$s</string>
   <string name="top_on_this_day">Felkapott ekkor: %1$s</string>
   <string name="on_this_day_card_title">Ezen a napon</string>
-  <string name="more_events_text" fuzzy="true">Több történelmi esemény ezen a napon</string>
-  <string name="events_count_text" fuzzy="true">%1$s esemény innen: %2$s – %3$d</string>
-    <string name="this_year">Ebben az évben</string>
+  <string name="more_events_text">Több ezen a napon</string>
+  <string name="events_count_text">%1$s esemény %2$s és %3$d között</string>
+  <string name="this_year">Ebben az évben</string>
+  <string name="back_to_top">Vissza a tetejére</string>
   <plurals name="diff_years">
     <item quantity="one">Tavaly</item>
     <item quantity="other">%d éve</item>

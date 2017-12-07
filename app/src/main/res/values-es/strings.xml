@@ -287,7 +287,9 @@
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Oscuro</string>
   <string name="color_theme_black">Negro</string>
-  <string name="color_theme_test_title">Texto de ejemplo</string>
+  <string name="color_theme_test_title">Texto de muestra</string>
+  <string name="color_theme_test_text">Arrastra el control deslizante para cambiar el tamaño del texto de los artículos. Para modificar el tamaño del texto en toda la aplicación, utiliza la configuración del sistema.</string>
+  <string name="preference_title_app_theme">Tema de la aplicación</string>
   <string name="preference_title_color_theme">Tema oscuro</string>
   <string name="preference_summary_color_theme">Cambiar al tema oscuro de la aplicación</string>
   <string name="text_size_increase">Aumentar tamaño del texto</string>
@@ -516,10 +518,12 @@
   <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artículos que quieres leer más tarde, incluso cuando estés sin conexión. &lt;a href=\"#login\"&gt;Inicia sesión o crea&lt;/a&gt; tu cuenta de Wikipedia para mantener tus listas de lectura sincronizadas.</string>
   <string name="onboarding_analytics_title">Enviar datos anónimos</string>
   <string name="onboarding_analytics_text">Ayuda a mejorar la aplicación aportando información de cómo la usas. Los datos obtenidos son anónimos. &lt;a href=\"#privacy\"&gt;Leer más&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#offline\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
   <string name="onboarding_create_account_sync">Sincronizar tus listas de lectura</string>
   <string name="onboarding_create_account_contributions">Mantente al tanto de tus aportes</string>
   <string name="onboarding_create_account_preferences">Guardar tus preferencias</string>
+  <string name="onboarding_got_it">Entendido</string>
   <string name="app_shortcuts_random">Aleatorio</string>
   <string name="app_shortcuts_continue_reading">Continuar leyendo</string>
   <string name="app_shortcuts_search">Buscar</string>
@@ -527,11 +531,11 @@
   <string name="all_trending_text">Todos los artículos en tendencia del %1$s</string>
   <string name="top_on_this_day">Tendencias del %1$s</string>
   <string name="on_this_day_card_title">Un día como hoy</string>
-  <string name="more_events_text">Más acontecimientos históricos en este día</string>
-  <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
-    <string name="this_year">Este año</string>
-  <string name="back_to_top">VOLVER AL PRINCIPIO</string>
-    <plurals name="diff_years">
+  <string name="more_events_text" fuzzy="true">Más acontecimientos históricos en este día</string>
+  <string name="events_count_text" fuzzy="true">%1$s acontecimientos entre %2$s y %3$d</string>
+  <string name="this_year">Este año</string>
+  <string name="back_to_top" fuzzy="true">VOLVER AL PRINCIPIO</string>
+  <plurals name="diff_years">
     <item quantity="one">El año pasado</item>
     <item quantity="other">Hace %d años</item>
   </plurals>

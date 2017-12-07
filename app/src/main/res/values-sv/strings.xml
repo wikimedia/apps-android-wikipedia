@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Användarvillkor</string>
   <string name="about_wikipedia_url">https://sv.m.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Läsa_offline_och_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
@@ -532,6 +533,7 @@
   <string name="onboarding_reading_list_sync_text">Skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;a href=\"#login\"&gt;Logga in eller skapa&lt;/a&gt; ditt Wikipedia-konto för att säkerhetskopiera dina läslistor.</string>
   <string name="onboarding_analytics_title">Skicka anonym data</string>
   <string name="onboarding_analytics_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#offline\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
   <string name="onboarding_create_account_sync">Synkronisera dina läslistor</string>
   <string name="onboarding_create_account_contributions">Håll koll på dina bidrag</string>
@@ -544,11 +546,11 @@
   <string name="all_trending_text">Alla populära artiklar på %1$s</string>
   <string name="top_on_this_day">Populärt på %1$s</string>
   <string name="on_this_day_card_title">På denna dag</string>
-  <string name="more_events_text">MER PÅ DENNA DAG</string>
-  <string name="events_count_text">PÅ DENNA DAG\n%1$s händelser från %2$s - %3$d</string>
-    <string name="this_year">Detta år</string>
-  <string name="back_to_top">TILLBAKA TILL TOPPEN</string>
-    <plurals name="diff_years">
+  <string name="more_events_text">Mer på denna dag</string>
+  <string name="events_count_text">%1$s händelser från %2$s–%3$d</string>
+  <string name="this_year">Detta år</string>
+  <string name="back_to_top">Tillbaka till början</string>
+  <plurals name="diff_years">
     <item quantity="one">Senaste året</item>
     <item quantity="other">%d år sedan</item>
   </plurals>
