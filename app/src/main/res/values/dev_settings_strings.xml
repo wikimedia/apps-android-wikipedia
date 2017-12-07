@@ -25,4 +25,10 @@
     <string name="preferences_developer_user_option_summary">Tap here to show user options</string>
     <string name="user_option_activity_title">User options</string>
     <string name="menu_item_sync_all">Sync all</string>
+    <string name="preferences_developer_reading_list_category">Reading Lists</string>
+    <string name="preferences_developer_add_articles">Add articles</string>
+    <string name="preferences_developer_add_lists">Add reading lists</string>
+    <string name="preferences_developer_summary_configure_articles">Type the number of articles</string>
+    <string name="preferences_developer_summary_configure_reading_lists">Type the number of lists</string>
+
 </resources>
