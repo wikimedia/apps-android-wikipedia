@@ -109,7 +109,9 @@ public class RandomItemFragment extends Fragment {
                 if (!isAdded() || extractView == null) {
                     return;
                 }
-                extractView.setMaxLines(extractView.getHeight() / extractView.getLineHeight());
+                int maxLines = extractView.getHeight() / extractView.getLineHeight() - 1;
+                final int minLines = 3;
+                extractView.setMaxLines(Math.max(maxLines, minLines));
                 extractView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
