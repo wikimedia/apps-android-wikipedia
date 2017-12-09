@@ -91,7 +91,7 @@ public class RandomFragment extends Fragment {
         }
     }
 
-    @OnClick(R.id.random_back_button) void onBacklick() {
+    @OnClick(R.id.random_back_button) void onBackClick() {
         viewPagerListener.setNextPageSelectedAutomatic();
         if (randomPager.getCurrentItem() > 0) {
             randomPager.setCurrentItem(randomPager.getCurrentItem() - 1, true);

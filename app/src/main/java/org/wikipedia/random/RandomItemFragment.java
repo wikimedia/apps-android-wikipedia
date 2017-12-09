@@ -22,7 +22,6 @@ import org.wikipedia.views.GoneIfEmptyTextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import retrofit2.Call;
 
 public class RandomItemFragment extends Fragment {
@@ -32,10 +31,10 @@ public class RandomItemFragment extends Fragment {
     @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
-    private Unbinder unbinder;
 
     @Nullable private RbPageSummary summary;
     private int pagerPosition = -1;
+    private View view;
 
     @NonNull
     public static RandomItemFragment newInstance() {
@@ -50,37 +49,40 @@ public class RandomItemFragment extends Fragment {
         return pagerPosition;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_random_item, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        imageView.setLegacyVisibilityHandlingEnabled(true);
-        setContents(null);
 
-        new RandomSummaryClient().request(WikipediaApp.getInstance().getWikiSite(), new RandomSummaryClient.Callback() {
-            @Override
-            public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary) {
-                if (!isAdded()) {
-                    return;
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_random_item, container, false);
+            ButterKnife.bind(this, view);
+            imageView.setLegacyVisibilityHandlingEnabled(true);
+            setContents(null);
+
+            new RandomSummaryClient().request(WikipediaApp.getInstance().getWikiSite(), new RandomSummaryClient.Callback() {
+                @Override
+                public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary) {
+                    if (!isAdded()) {
+                        return;
+                    }
+                    setContents(pageSummary);
                 }
-                setContents(pageSummary);
-            }
 
-            @Override
-            public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
-                // TODO: show error.
-            }
-        });
+                @Override
+                public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
+                    // TODO: show error.
+                }
+            });
+        }
+
         return view;
-    }
-
-    @Override
-    public void onDestroyView() {
-        unbinder.unbind();
-        unbinder = null;
-        super.onDestroyView();
     }
 
     @OnClick(R.id.view_featured_article_card_text_container) void onClick(View v) {
