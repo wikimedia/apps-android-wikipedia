@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Condicions d’ús</string>
   <string name="about_wikipedia_url">https://ca.m.wikipedia.org/wiki/Viquipèdia:Quant_a_la_Viquipèdia</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ca</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
@@ -545,10 +546,10 @@
   <string name="all_trending_text">Tots els articles en tendència el %1$s</string>
   <string name="top_on_this_day">Tendència el %1$s</string>
   <string name="on_this_day_card_title">Un dia com avui</string>
-  <string name="more_events_text" fuzzy="true">MÉS SOBRE AQUEST DIA</string>
-  <string name="events_count_text" fuzzy="true">EN AQUEST DIA\n%1$s esdeveniments des de %2$s - %3$d</string>
+  <string name="more_events_text">Més sobre aquest dia</string>
+  <string name="events_count_text">%1$s esdeveniments des de %2$s–%3$d</string>
   <string name="this_year">Enguany</string>
-  <string name="back_to_top" fuzzy="true">TORNA A DALT</string>
+  <string name="back_to_top">Torna a dalt</string>
   <plurals name="diff_years">
     <item quantity="one">El darrer any</item>
     <item quantity="other">Fa %d anys</item>

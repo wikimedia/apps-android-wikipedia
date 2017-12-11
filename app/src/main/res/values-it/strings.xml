@@ -453,8 +453,8 @@
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
   <string name="on_this_day_card_title">In questo giorno</string>
-  <string name="more_events_text" fuzzy="true">ALTRO IN QUESTO GIORNO</string>
-  <string name="events_count_text" fuzzy="true">IN QUESTO GIORNO\n%1$s eventi dal %2$s - %3$d</string>
+  <string name="more_events_text">Altro in questo giorno</string>
+  <string name="events_count_text">%1$s eventi dal %2$s–%3$d</string>
   <string name="this_year">Questo anno</string>
   <plurals name="diff_years">
     <item quantity="one">L\'anno scorso</item>

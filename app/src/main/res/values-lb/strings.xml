@@ -389,6 +389,7 @@
   <string name="feed_configure_menu_select_all">Alles uwielen</string>
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
+  <string name="feed_configure_onboarding_action">Upassen</string>
   <string name="description_edit_text_hint">Titelbeschreiwung</string>
   <string name="description_edit_save">Verëffentlechen</string>
   <string name="description_edit_add_description">Beschreiwung vum Titel derbäisetzen</string>
@@ -466,10 +467,10 @@
   <string name="app_shortcuts_search">Sichen</string>
   <string name="more_trending_text">Méi esou wéi dëst</string>
   <string name="on_this_day_card_title">Op dësem Dag</string>
-  <string name="more_events_text" fuzzy="true">MÉI OP DËSEM DAG</string>
+  <string name="more_events_text">Méi op dësem Dag</string>
   <string name="events_count_text" fuzzy="true">OP DËSEM DAG\n%1$s Evenementer vum %2$s bis %3$d</string>
   <string name="this_year">Dëst Joer</string>
-  <string name="back_to_top" fuzzy="true">ZRÉCK NO UEWEN</string>
+  <string name="back_to_top">Zréck no uewen</string>
   <plurals name="diff_years">
     <item quantity="one">Lescht Joer</item>
     <item quantity="other">Viru(n) %d Joer</item>

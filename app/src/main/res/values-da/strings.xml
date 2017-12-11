@@ -146,7 +146,9 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Behandling af personlige oplysninger</string>
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
+  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.da</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
@@ -286,6 +288,10 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Lys</string>
   <string name="color_theme_dark">Mørk</string>
+  <string name="color_theme_black">Sort</string>
+  <string name="color_theme_test_title">Eksempeltekst</string>
+  <string name="color_theme_test_text">Træk skyderen for at ændre tekststørrelsen under læsning af artikler. For at angive tekststørrelsen i resten af programmet, skal du ændre systemets tekststørrelse.</string>
+  <string name="preference_title_app_theme">Programtema</string>
   <string name="preference_title_color_theme">Mørkt tema</string>
   <string name="preference_summary_color_theme">Skift til app\'ens mørke farvetema</string>
   <string name="text_size_increase">Øg tekststørrelse</string>
@@ -398,19 +404,33 @@
   <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">I nyhederne</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">I går</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">i går</item>
     <item quantity="other">for %d dage siden</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">I dag</string>
+  <string name="view_continue_reading_card_subtitle_today">i dag</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Læs %s</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
   <string name="view_offline_card_text">Indhold kan ikke indlæses offline.</string>
   <string name="view_featured_article_card_title">Anbefalet artikel</string>
   <string name="view_featured_article_footer_save_button_label">Gem</string>
   <string name="view_featured_article_footer_saved_button_label">Gemt</string>
   <string name="feed_configure_menu_title">Konfigurer kort</string>
-  <string name="feed_configure_activity_title" fuzzy="true">Konfigurer udforskningskort</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">Nulstil til standarderne</string>
+  <string name="feed_configure_activity_title">Tilpas nyhedskilden</string>
+  <string name="feed_configure_menu_reset">Gendan standardvisningen</string>
+  <string name="feed_configure_menu_select_all">Vælg alle</string>
+  <string name="feed_configure_menu_deselect_all">Fravælg alle</string>
+  <string name="feed_item_type_news">Artikler om aktuelle hændelser</string>
+  <string name="feed_item_type_on_this_day">Historiske hændelser på denne dag</string>
+  <string name="feed_item_type_continue_reading">Hurtig henvisning tilbage til en åben artikel i et af dine faneblade</string>
+  <string name="feed_item_type_because_you_read">Forslag baseret på en læst artikel fra din historik</string>
+  <string name="feed_item_type_featured_article">Dagens anbefalet artikel på Wikipedia</string>
+  <string name="feed_item_type_trending">Dagens mest sete artikler</string>
+  <string name="feed_item_type_featured_image">Dagens anbefalet billede fra Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Hovedside på Wikipedia med dagens anbefalet indhold</string>
+  <string name="feed_item_type_randomizer">Vis vilkårlig artikel</string>
+  <string name="feed_configure_onboarding_action">Tilpas</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas din udforskning&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises på din nyhedskilde og også prioritere dit favoritindhold.</string>
   <string name="description_edit_text_hint">Titelbeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_add_description">Tilføj titelbeskrivelse</string>
@@ -503,25 +523,33 @@
   <string name="onboarding_skip">Udelad</string>
   <string name="onboarding_continue">Fortsæt</string>
   <string name="onboarding_get_started">Kom i gang</string>
+  <string name="onboarding_welcome_title">Den frie encyklopædi</string>
+  <string name="onboarding_welcome_text">Wikipedia skrives i en fælles indsats og består af mere end 40 millioner artikler i næsten 300 forskellige sprog. &lt;a href=\"#about\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nye måder at udforske</string>
-  <string name="onboarding_explore_text" fuzzy="true">Find anbefalede artikler, trendemner og læseforslag på nyhedskilden Explore.</string>
+  <string name="onboarding_explore_text">Dyk ned i Wikipedias harehul med en konstant opdateret udforskningskilde. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; nyhedskilden til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Gem til læselister</string>
+  <string name="onboarding_save_to_reading_lists_text">Opret læselister fra artikler du ønsker at læse senere, selv når du ikke er på nettet.</string>
   <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text">Opret læselister med artikler du ønsker at læse senere, selv uden adgang til internettet. &lt;a href=\"#login\"&gt;Log ind eller opret&lt;/a&gt; din Wikipediakonto for at sikre sikkerhedskopiering af dine læselister.</string>
   <string name="onboarding_analytics_title">Send anonyme data</string>
   <string name="onboarding_analytics_text">Hjælp med at gøre app\'en bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#offline\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
   <string name="onboarding_create_account_sync">Synkroniser dine læselister</string>
   <string name="onboarding_create_account_contributions">Hold styr på dine bidrag</string>
   <string name="onboarding_create_account_preferences">Gem dine præferencer</string>
+  <string name="onboarding_got_it">O.k.</string>
   <string name="app_shortcuts_random">Vilkårlig</string>
   <string name="app_shortcuts_continue_reading">Fortsæt læsning</string>
   <string name="app_shortcuts_search">Søg</string>
+  <string name="more_trending_text">Flere som denne</string>
   <string name="all_trending_text">Alle populære artikler på %1$s</string>
   <string name="top_on_this_day">Populær på %1$s</string>
   <string name="on_this_day_card_title">På denne dag</string>
-  <string name="more_events_text" fuzzy="true">Flere historiske hændelser på denne dag</string>
-  <string name="events_count_text" fuzzy="true">%1$s hændelser fra %2$s - %3$d</string>
+  <string name="more_events_text">Mere om denne dag</string>
+  <string name="events_count_text">%1$s hændelser fra %2$s – %3$d</string>
   <string name="this_year">Dette år</string>
+  <string name="back_to_top">Tilbage til toppen</string>
   <plurals name="diff_years">
     <item quantity="one">Sidste år</item>
     <item quantity="other">%d år siden</item>
