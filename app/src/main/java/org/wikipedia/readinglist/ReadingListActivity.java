@@ -10,9 +10,10 @@ import android.support.annotation.Nullable;
 import android.view.WindowManager;
 
 import org.wikipedia.activity.SingleFragmentActivity;
+import org.wikipedia.readinglist.database.ReadingList;
 
 public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragment> {
-    protected static final String EXTRA_READING_LIST_TITLE = "readingListTitle";
+    protected static final String EXTRA_READING_LIST_ID = "readingListId";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,12 +26,11 @@ public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragm
 
     public static Intent newIntent(@NonNull Context context, @NonNull ReadingList list) {
         return new Intent(context, ReadingListActivity.class)
-                .putExtra(EXTRA_READING_LIST_TITLE, list.getTitle());
+                .putExtra(EXTRA_READING_LIST_ID, list.id());
     }
 
     @Override
     public ReadingListFragment createFragment() {
-        return ReadingListFragment
-                .newInstance(getIntent().getStringExtra(EXTRA_READING_LIST_TITLE));
+        return ReadingListFragment.newInstance(getIntent().getLongExtra(EXTRA_READING_LIST_ID, 0));
     }
 }

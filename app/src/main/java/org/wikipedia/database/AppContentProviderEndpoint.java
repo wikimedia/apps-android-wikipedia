@@ -10,8 +10,6 @@ import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
-import org.wikipedia.database.contract.ReadingListContract;
-import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.model.EnumCode;
@@ -34,28 +32,7 @@ public enum AppContentProviderEndpoint implements EnumCode {
     USER_OPTION_HTTP(301, UserOptionContract.AUTHORITY, UserOptionContract.Http.PATH,
             UserOptionContract.Http.TABLES, UserOptionContract.Http.PROJECTION),
     USER_HTTP_WITH_OPTION(302, UserOptionContract.AUTHORITY, UserOptionContract.HttpWithOption.PATH,
-            UserOptionContract.HttpWithOption.TABLES, UserOptionContract.HttpWithOption.PROJECTION),
-
-    READING_LIST_PAGE(400, ReadingListPageContract.Page.PATH, ReadingListPageContract.Page.TABLES,
-            ReadingListPageContract.Page.PROJECTION),
-    READING_LIST_PAGE_HTTP(401, ReadingListPageContract.Http.PATH,
-            ReadingListPageContract.Http.TABLES, ReadingListPageContract.Http.PROJECTION),
-    READING_LIST_PAGE_DISK(402, ReadingListPageContract.Disk.PATH,
-            ReadingListPageContract.Disk.TABLES, ReadingListPageContract.Disk.PROJECTION),
-    READING_LIST_HTTP_WITH_PAGE(403, ReadingListPageContract.HttpWithPage.PATH,
-            ReadingListPageContract.HttpWithPage.TABLES,
-            ReadingListPageContract.HttpWithPage.PROJECTION),
-    READING_LIST_DISK_WITH_PAGE(404, ReadingListPageContract.DiskWithPage.PATH,
-            ReadingListPageContract.DiskWithPage.TABLES,
-            ReadingListPageContract.DiskWithPage.PROJECTION),
-    READING_LIST_PAGE_WITH_DISK(405, ReadingListPageContract.PageWithDisk.PATH,
-            ReadingListPageContract.PageWithDisk.TABLES,
-            ReadingListPageContract.PageWithDisk.PROJECTION),
-    READING_LIST(406, ReadingListContract.List.PATH, ReadingListContract.List.TABLES,
-            ReadingListContract.List.PROJECTION),
-    READING_LIST_WITH_PAGES_AND_DISK(407, ReadingListContract.ListWithPagesAndDisk.PATH,
-            ReadingListContract.ListWithPagesAndDisk.TABLES,
-            ReadingListContract.ListWithPagesAndDisk.PROJECTION);
+            UserOptionContract.HttpWithOption.TABLES, UserOptionContract.HttpWithOption.PROJECTION);
 
     private static final EnumCodeMap<AppContentProviderEndpoint> CODE_TO_ENUM = new EnumCodeMap<>(AppContentProviderEndpoint.class);
     private static final UriMatcher URI_TO_CODE = newUriToCode();

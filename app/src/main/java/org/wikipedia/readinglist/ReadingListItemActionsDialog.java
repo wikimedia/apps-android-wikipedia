@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
-import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.ResourceUtil;
 
 public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragment {
@@ -31,9 +32,9 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         ReadingListItemActionsDialog instance = new ReadingListItemActionsDialog();
         Bundle args = new Bundle();
         args.putString("pageTitle", page.title());
-        args.putString("listTitle", list.getTitle());
-        args.putInt("pageIndex", list.getPages().indexOf(page));
-        args.putBoolean("pageOffline", page.isOffline());
+        args.putString("listTitle", list.title());
+        args.putInt("pageIndex", list.pages().indexOf(page));
+        args.putBoolean("pageOffline", page.offline());
         instance.setArguments(args);
         return instance;
     }

@@ -15,10 +15,9 @@ import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
-import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -108,32 +107,31 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private void footer(@NonNull FeaturedArticleCard card) {
         PageTitle title = new PageTitle(card.articleTitle(), card.wikiSite());
-        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(title),
-                new CallbackTask.DefaultCallback<ReadingListPage>() {
-                    @Override public void success(@Nullable ReadingListPage page) {
-                        boolean listContainsTitle = page != null;
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(title), new CallbackTask.DefaultCallback<ReadingListPage>() {
+            @Override
+            public void success(ReadingListPage page) {
+                boolean pageInList = page != null;
+                int actionIcon = pageInList
+                        ? R.drawable.ic_bookmark_white_24dp
+                        : R.drawable.ic_bookmark_border_black_24dp;
 
-                        int actionIcon = listContainsTitle
-                                ? R.drawable.ic_bookmark_white_24dp
-                                : R.drawable.ic_bookmark_border_black_24dp;
+                int actionText = pageInList
+                        ? R.string.view_featured_article_footer_saved_button_label
+                        : R.string.view_featured_article_footer_save_button_label;
 
-                        int actionText = listContainsTitle
-                                ? R.string.view_featured_article_footer_saved_button_label
-                                : R.string.view_featured_article_footer_save_button_label;
+                footerView.actionIcon(actionIcon)
+                        .actionText(actionText)
+                        .onActionListener(pageInList
+                                ? new CardBookmarkMenuListener()
+                                : new CardAddToListListener())
+                        .onShareListener(new CardShareListener());
 
-                        footerView.actionIcon(actionIcon)
-                                .actionText(actionText)
-                                .onActionListener(listContainsTitle
-                                        ? new CardBookmarkMenuListener()
-                                        : new CardAddToListListener())
-                                .onShareListener(new CardShareListener());
-
-                        footerView.actionIconColor(ResourceUtil.getThemedAttributeId(getContext(),
-                                listContainsTitle ? R.attr.colorAccent : R.attr.secondary_text_color));
-                        footerView.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(),
-                                listContainsTitle ? R.attr.colorAccent : R.attr.secondary_text_color));
-                    }
-                });
+                footerView.actionIconColor(ResourceUtil.getThemedAttributeId(getContext(),
+                        pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
+                footerView.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(),
+                        pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
+            }
+        });
     }
 
     private void image(@Nullable Uri uri) {

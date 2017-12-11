@@ -30,9 +30,10 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.onboarding.OnboardingView;
-import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
-import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
@@ -41,6 +42,7 @@ import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.TextInputDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -55,7 +57,8 @@ public class ReadingListsFragment extends Fragment {
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
 
-    private ReadingLists readingLists = new ReadingLists();
+    private List<ReadingList> readingLists = new ArrayList<>();
+
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
     private EventBusMethods eventBusMethods = new EventBusMethods();
 
@@ -91,7 +94,6 @@ public class ReadingListsFragment extends Fragment {
         readingListView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
-        updateLists();
 
         contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         return view;
@@ -129,19 +131,19 @@ public class ReadingListsFragment extends Fragment {
         super.onPrepareOptionsMenu(menu);
         MenuItem sortByNameItem = menu.findItem(R.id.menu_sort_by_name);
         MenuItem sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent);
-        int sortMode = Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC);
-        sortByNameItem.setTitle(sortMode == ReadingLists.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
-        sortByRecentItem.setTitle(sortMode == ReadingLists.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+        int sortMode = Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
+        sortByNameItem.setTitle(sortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
+        sortByRecentItem.setTitle(sortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_sort_by_name:
-                setSortMode(ReadingLists.SORT_BY_NAME_ASC, ReadingLists.SORT_BY_NAME_DESC);
+                setSortMode(ReadingList.SORT_BY_NAME_ASC, ReadingList.SORT_BY_NAME_DESC);
                 return true;
             case R.id.menu_sort_by_recent:
-                setSortMode(ReadingLists.SORT_BY_RECENT_DESC, ReadingLists.SORT_BY_RECENT_ASC);
+                setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC);
                 return true;
             case R.id.menu_search_lists:
                 ((AppCompatActivity) getActivity())
@@ -159,8 +161,8 @@ public class ReadingListsFragment extends Fragment {
             return;
         }
         if (visible) {
-            maybeShowOnboarding();
             updateLists();
+            maybeShowOnboarding();
         } else if (actionMode != null) {
             actionMode.finish();
         }
@@ -171,32 +173,16 @@ public class ReadingListsFragment extends Fragment {
     }
 
     private void updateLists(@Nullable final String searchQuery) {
-        ReadingList.DAO.queryMruLists(searchQuery,
-                new CallbackTask.DefaultCallback<List<ReadingList>>() {
-            @Override public void success(List<ReadingList> rows) {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().getAllLists(), new CallbackTask.DefaultCallback<List<ReadingList>>() {
+            @Override
+            public void success(List<ReadingList> lists) {
                 if (getActivity() == null) {
                     return;
                 }
-                readingLists.set(rows);
+                readingLists = lists;
                 sortLists();
                 updateEmptyState(searchQuery);
                 maybeDeleteListFromIntent();
-                for (ReadingList list : readingLists.get()) {
-                    updateListDetailsAsync(list);
-                }
-            }
-        });
-    }
-
-    private void updateListDetailsAsync(@NonNull ReadingList list) {
-        ReadingListPageDetailFetcher.updateInfo(list, new ReadingListPageDetailFetcher.Callback() {
-            @Override public void success() {
-                if (!isAdded()) {
-                    return;
-                }
-                adapter.notifyDataSetChanged();
-            }
-            @Override public void failure(Throwable e) {
             }
         });
     }
@@ -267,35 +253,36 @@ public class ReadingListsFragment extends Fragment {
         }
 
         @Override
-        public void onRename(@NonNull final ReadingList readingList) {
-            ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.getTitle(),
-                    readingLists.getTitlesExcept(readingList.getTitle()),
-                    new ReadingListTitleDialog.Callback() {
-                        @Override
-                        public void onSuccess(@NonNull CharSequence text) {
-                            ReadingList.DAO.renameAndSaveListInfo(readingList, text.toString());
-                            updateLists();
-                            ReadingListSynchronizer.instance().bumpRevAndSync();
-                            funnel.logModifyList(readingList, readingLists.size());
-                        }
+        public void onRename(@NonNull ReadingList readingList) {
+            List<String> existingTitles = new ArrayList<>();
+            for (ReadingList list : readingLists) {
+                existingTitles.add(list.title());
+            }
+            existingTitles.remove(readingList.title());
+            ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.title(),
+                    existingTitles, text -> {
+                        readingList.title(text.toString());
+                        ReadingListDbHelper.instance().updateList(readingList);
+
+                        updateLists();
+                        funnel.logModifyList(readingList, readingLists.size());
                     }).show();
         }
 
         @Override
-        public void onEditDescription(@NonNull final ReadingList readingList) {
+        public void onEditDescription(@NonNull ReadingList readingList) {
             TextInputDialog.newInstance(getContext(), new TextInputDialog.DefaultCallback() {
                 @Override
                 public void onShow(@NonNull TextInputDialog dialog) {
                     dialog.setHint(R.string.reading_list_description_hint);
-                    dialog.setText(readingList.getDescription());
+                    dialog.setText(readingList.description());
                 }
 
                 @Override
                 public void onSuccess(@NonNull CharSequence text) {
-                    readingList.setDescription(text.toString());
-                    ReadingList.DAO.saveListInfo(readingList);
+                    readingList.description(text.toString());
+                    ReadingListDbHelper.instance().updateList(readingList);
                     updateLists();
-                    ReadingListSynchronizer.instance().bumpRevAndSync();
                     funnel.logModifyList(readingList, readingLists.size());
                 }
             }).show();
@@ -308,26 +295,16 @@ public class ReadingListsFragment extends Fragment {
 
         @Override
         public void onSaveAllOffline(@NonNull ReadingList readingList) {
-            for (ReadingListPage page : readingList.getPages()) {
-                if (!page.isOffline()) {
-                    ReadingListData.instance().setPageOffline(page, true);
-                }
-            }
-            ReadingListSynchronizer.instance().sync();
+            ReadingListDbHelper.instance().markPagesForOffline(readingList.pages(), true);
             updateLists();
-            showMultiSelectOfflineStateChangeSnackbar(readingList.getPages(), true);
+            showMultiSelectOfflineStateChangeSnackbar(readingList.pages(), true);
         }
 
         @Override
         public void onRemoveAllOffline(@NonNull ReadingList readingList) {
-            for (ReadingListPage page : readingList.getPages()) {
-                if (page.isOffline()) {
-                    ReadingListData.instance().setPageOffline(page, false);
-                }
-            }
-            ReadingListSynchronizer.instance().sync();
+            ReadingListDbHelper.instance().markPagesForOffline(readingList.pages(), false);
             updateLists();
-            showMultiSelectOfflineStateChangeSnackbar(readingList.getPages(), false);
+            showMultiSelectOfflineStateChangeSnackbar(readingList.pages(), false);
         }
     }
 
@@ -343,15 +320,21 @@ public class ReadingListsFragment extends Fragment {
             String titleToDelete = getActivity().getIntent()
                     .getStringExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
             getActivity().getIntent().removeExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST);
-            deleteList(readingLists.get(titleToDelete));
+            for (ReadingList list : readingLists) {
+                if (list.title().equals(titleToDelete)) {
+                    deleteList(list);
+                }
+            }
         }
     }
 
     private void deleteList(@Nullable ReadingList readingList) {
         if (readingList != null) {
             showDeleteListUndoSnackbar(readingList);
-            ReadingList.DAO.removeList(readingList);
-            ReadingListSynchronizer.instance().bumpRevAndSync();
+
+            ReadingListDbHelper.instance().deleteList(readingList);
+            ReadingListDbHelper.instance().markPagesForDeletion(readingList.pages());
+
             funnel.logDeleteList(readingList, readingLists.size());
             updateLists();
         }
@@ -359,21 +342,19 @@ public class ReadingListsFragment extends Fragment {
 
     private void showDeleteListUndoSnackbar(final ReadingList readingList) {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(),
-                String.format(getString(R.string.reading_list_deleted), readingList.getTitle()),
+                String.format(getString(R.string.reading_list_deleted), readingList.title()),
                 FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ReadingList.DAO.addList(readingList);
-                ReadingListSynchronizer.instance().bumpRevAndSync();
-                updateLists();
-            }
+        snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
+
+            ReadingList newList = ReadingListDbHelper.instance().createList(readingList.title(), readingList.description());
+            ReadingListDbHelper.instance().addPagesToList(newList, readingList.pages());
+            updateLists();
         });
         snackbar.show();
     }
 
     private void setSortMode(int sortModeAsc, int sortModeDesc) {
-        int sortMode = Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC);
+        int sortMode = Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
         if (sortMode != sortModeAsc) {
             sortMode = sortModeAsc;
         } else {
@@ -385,7 +366,7 @@ public class ReadingListsFragment extends Fragment {
     }
 
     private void sortLists() {
-        readingLists.sort(Prefs.getReadingListSortMode(ReadingLists.SORT_BY_NAME_ASC));
+        ReadingList.sort(readingLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
         adapter.notifyDataSetChanged();
     }
 
@@ -416,12 +397,9 @@ public class ReadingListsFragment extends Fragment {
 
     private class EventBusMethods {
         @Subscribe public void on(ReadingListSyncEvent event) {
-            readingListView.post(new Runnable() {
-                @Override
-                public void run() {
-                    if (isAdded()) {
-                        updateLists();
-                    }
+            readingListView.post(() -> {
+                if (isAdded()) {
+                    updateLists();
                 }
             });
         }

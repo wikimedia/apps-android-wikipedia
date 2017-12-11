@@ -11,9 +11,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.ReadingList;
-import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.useroption.ui.UserOptionRowActivity;
 import org.wikipedia.util.log.L;
 
@@ -166,22 +166,13 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
     }
 
     private void createTestReadingList(String title, int listSize) {
-        long now = System.currentTimeMillis();
-        final ReadingList list = ReadingList
-                .builder()
-                .key(ReadingListDaoProxy.listKey(title))
-                .title(title)
-                .mtime(now)
-                .atime(now)
-                .description(null)
-                .pages(new ArrayList<>())
-                .build();
-        ReadingList.DAO.addList(list);
+        ReadingList list = ReadingListDbHelper.instance().createList(title, "");
+        List<ReadingListPage> pages = new ArrayList<>();
         for (int i = 0; i < listSize; i++) {
             PageTitle pageTitle = new PageTitle(title.contains("Test") ? "" + (i + 1) : "List" + title.charAt(title.length() - 1) + " Page" + (i + 1), WikipediaApp.getInstance().getWikiSite());
-            final ReadingListPage page = ReadingListDaoProxy.page(list, pageTitle);
-            ReadingList.DAO.addTitleToList(list, page, false);
+            pages.add(new ReadingListPage(pageTitle));
         }
+        ReadingListDbHelper.instance().addPagesToList(list, pages);
     }
 
     private void setUpCookies(@NonNull PreferenceCategory cat) {

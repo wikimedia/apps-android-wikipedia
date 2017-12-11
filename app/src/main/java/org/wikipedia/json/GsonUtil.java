@@ -8,10 +8,7 @@ import com.google.gson.GsonBuilder;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
-import org.wikipedia.readinglist.sync.RemoteReadingListPageTypeAdapter;
 import org.wikipedia.zero.ZeroConfig;
-
-import static org.wikipedia.readinglist.sync.RemoteReadingLists.RemoteReadingListPage;
 
 public final class GsonUtil {
     private static final String DATE_FORMAT = "MMM dd, yyyy HH:mm:ss";
@@ -22,7 +19,6 @@ public final class GsonUtil {
             .registerTypeHierarchyAdapter(Namespace.class, new NamespaceTypeAdapter().nullSafe())
             .registerTypeAdapter(WikiSite.class, new WikiSiteTypeAdapter().nullSafe())
             .registerTypeAdapter(ZeroConfig.class, new ZeroConfigTypeAdapter().nullSafe())
-            .registerTypeAdapter(RemoteReadingListPage.class, new RemoteReadingListPageTypeAdapter().nullSafe())
             .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory())
             .registerTypeAdapterFactory(new PostProcessingTypeAdapter());
 

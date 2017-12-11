@@ -37,9 +37,8 @@ import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesClient;
-import org.wikipedia.readinglist.ReadingList;
-import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
@@ -336,27 +335,26 @@ public class PageFragmentLoadState {
     }
 
     private void pageLoadCheckReadingLists(final int sequence) {
-        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(model.getTitle()),
-                new CallbackTask.Callback<ReadingListPage>() {
-                    @Override public void success(@Nullable ReadingListPage page) {
-                        if (!sequenceNumber.inSync(sequence)) {
-                            return;
-                        }
-                        model.setReadingListPage(page);
-                        fragment.updateBookmarkAndMenuOptions();
-                        pageLoadPrepareWebView();
-                    }
-
-                    @Override
-                    public void failure(Throwable caught) {
-                        if (!sequenceNumber.inSync(sequence)) {
-                            return;
-                        }
-                        L.w(caught);
-                        fragment.updateBookmarkAndMenuOptions();
-                        pageLoadPrepareWebView();
-                    }
-                });
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(model.getTitle()), new CallbackTask.Callback<ReadingListPage>() {
+            @Override
+            public void success(ReadingListPage page) {
+                if (!sequenceNumber.inSync(sequence)) {
+                    return;
+                }
+                model.setReadingListPage(page);
+                fragment.updateBookmarkAndMenuOptions();
+                pageLoadPrepareWebView();
+            }
+            @Override
+            public void failure(Throwable caught) {
+                if (!sequenceNumber.inSync(sequence)) {
+                    return;
+                }
+                L.w(caught);
+                fragment.updateBookmarkAndMenuOptions();
+                pageLoadPrepareWebView();
+            }
+        });
     }
 
     private void pageLoadPrepareWebView() {

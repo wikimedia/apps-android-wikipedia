@@ -33,7 +33,7 @@ public final class SavedPageSyncNotification extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getBooleanExtra(Constants.INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL, false)) {
             if (getInstance().isSyncPaused()) {
-                SavedPageSyncService.enqueueService(context);
+                SavedPageSyncService.enqueue();
             }
             getInstance().setSyncCanceled(true);
             getInstance().setSyncPaused(false);
@@ -41,7 +41,7 @@ public final class SavedPageSyncNotification extends BroadcastReceiver {
             getInstance().setSyncCanceled(false);
             if (getInstance().isSyncPaused()) {
                 getInstance().setSyncPaused(false);
-                SavedPageSyncService.enqueueService(context);
+                SavedPageSyncService.enqueue();
             } else {
                 getInstance().setSyncPaused(true);
             }

@@ -8,15 +8,15 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.readinglist.database.ReadingListRow;
-import org.wikipedia.readinglist.page.ReadingListPageRow;
+import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.util.log.L;
 
 public class Database extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 17;
+    private static final int DATABASE_VERSION = 18;
 
     private final DatabaseTable<?>[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
@@ -29,11 +29,8 @@ public class Database extends SQLiteOpenHelper {
             UserOptionRow.HTTP_DATABASE_TABLE,
             UserOptionRow.DATABASE_TABLE,
 
-            ReadingListPageRow.DISK_DATABASE_TABLE,
-            ReadingListPageRow.HTTP_DATABASE_TABLE,
-            ReadingListPageRow.DATABASE_TABLE,
-
-            ReadingListRow.DATABASE_TABLE
+            ReadingList.DATABASE_TABLE,
+            ReadingListPage.DATABASE_TABLE
     };
 
     public Database(Context context) {

@@ -62,11 +62,11 @@ import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.RemoveFromReadingListsDialog;
-import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.ThemeBridgeAdapter;
 import org.wikipedia.util.ActiveTimer;
@@ -759,19 +759,19 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void updateBookmarkAndMenuOptionsFromDao() {
-        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
-                new CallbackTask.DefaultCallback<ReadingListPage>() {
-                    @Override public void success(@Nullable ReadingListPage page) {
-                        if (!isAdded()) {
-                            return;
-                        }
-                        model.setReadingListPage(page);
-                        pageActionTabsCallback.updateBookmark(page != null);
-                        if (callback() != null) {
-                            callback().onPageInvalidateOptionsMenu();
-                        }
-                    }
-                });
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle()), new CallbackTask.DefaultCallback<ReadingListPage>() {
+            @Override
+            public void success(ReadingListPage page) {
+                if (!isAdded()) {
+                    return;
+                }
+                model.setReadingListPage(page);
+                pageActionTabsCallback.updateBookmark(page != null);
+                if (callback() != null) {
+                    callback().onPageInvalidateOptionsMenu();
+                }
+            }
+        });
     }
 
     public void onActionModeShown(ActionMode mode) {
@@ -841,15 +841,23 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void showRemoveFromListsDialog() {
-        new RemoveFromReadingListsDialog(model.getReadingListPage()).deleteOrShowDialog(getContext(),
-                new RemoveFromReadingListsDialog.Callback() {
-                    @Override
-                    public void onDeleted(@NonNull ReadingListPage page) {
-                        if (callback() != null) {
-                            callback().onPageRemoveFromReadingLists(getTitle());
-                        }
-                    }
-                });
+        CallbackTask.execute(() -> {
+            List<ReadingListPage> pageOccurrences = ReadingListDbHelper.instance().getAllPageOccurrences(model.getTitle());
+            return ReadingListDbHelper.instance().getListsFromPageOccurrences(pageOccurrences);
+        }, new CallbackTask.DefaultCallback<List<ReadingList>>() {
+            @Override
+            public void success(List<ReadingList> listsContainingPage) {
+                if (!isAdded()) {
+                    return;
+                }
+                new RemoveFromReadingListsDialog(listsContainingPage).deleteOrShowDialog(getContext(),
+                        page -> {
+                            if (callback() != null) {
+                                callback().onPageRemoveFromReadingLists(getTitle());
+                            }
+                        });
+            }
+        });
     }
 
     public void sharePageLink() {
@@ -935,7 +943,18 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         initPageScrollFunnel();
         bottomContentView.setPage(model.getPage());
 
-        // TODO: update this title in the db to be queued for saving by the service.
+        if (model.getReadingListPage() != null) {
+            final ReadingListPage page = model.getReadingListPage();
+            final PageTitle title = model.getTitle();
+            CallbackTask.execute(() -> {
+                if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
+                        || !TextUtils.equals(page.description(), title.getDescription())) {
+                    page.thumbUrl(title.getThumbUrl());
+                    page.description(title.getDescription());
+                    ReadingListDbHelper.instance().updatePage(page);
+                }
+            });
+        }
 
         checkAndShowSelectTextOnboarding();
     }

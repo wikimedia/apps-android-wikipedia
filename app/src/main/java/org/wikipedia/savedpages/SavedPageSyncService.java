@@ -1,6 +1,5 @@
 package org.wikipedia.savedpages;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,12 +20,8 @@ import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.readinglist.ReadingListData;
-import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.ReadingListPageRow;
-import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
-import org.wikipedia.readinglist.page.database.ReadingListPageDao;
-import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
@@ -36,8 +31,6 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -54,60 +47,60 @@ import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.SAVE_CACHE
 public class SavedPageSyncService extends JobIntentService {
     // Unique job ID for this service (do not duplicate).
     private static final int JOB_ID = 1000;
+    private static final int ENQUEUE_DELAY_MILLIS = 2000;
+    private static Runnable ENQUEUE_RUNNABLE = () -> enqueueWork(WikipediaApp.getInstance(),
+            SavedPageSyncService.class, JOB_ID, new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
 
-    @NonNull private ReadingListPageDao dao;
     @NonNull private final CacheDelegate cacheDelegate = new CacheDelegate(SAVE_CACHE);
     @NonNull private final PageImageUrlParser pageImageUrlParser
             = new PageImageUrlParser(new ImageTagParser(), new PixelDensityDescriptorParser());
     private long blockSize;
-
     private SavedPageSyncNotification savedPageSyncNotification;
 
     public SavedPageSyncService() {
-        dao = ReadingListPageDao.instance();
         blockSize = FileUtil.blockSize(cacheDelegate.diskLruCache().getDirectory());
         savedPageSyncNotification = SavedPageSyncNotification.getInstance();
     }
 
-    public static void enqueueService(@NonNull Context context) {
-        enqueueWork(context, SavedPageSyncService.class, JOB_ID,
-                new Intent(context, SavedPageSyncService.class));
+    public static void enqueue() {
+        WikipediaApp.getInstance().getMainThreadHandler().removeCallbacks(ENQUEUE_RUNNABLE);
+        WikipediaApp.getInstance().getMainThreadHandler().postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS);
     }
 
     @Override protected void onHandleWork(@NonNull Intent intent) {
-        List<ReadingListPageDiskRow> queue = new ArrayList<>();
-        Collection<ReadingListPageDiskRow> rows = dao.startDiskTransaction();
+        List<ReadingListPage> pagesToSave = ReadingListDbHelper.instance().getAllPagesToBeSaved();
+        List<ReadingListPage> pagesToUnsave = ReadingListDbHelper.instance().getAllPagesToBeUnsaved();
+        List<ReadingListPage> pagesToDelete = ReadingListDbHelper.instance().getAllPagesToBeDeleted();
 
-        for (ReadingListPageDiskRow row : rows) {
-            switch (row.status()) {
-                case UNSAVED:
-                case DELETED:
-                    deleteRow(row);
-                    break;
-                case OUTDATED:
-                    queue.add(row);
-                    break;
-                case ONLINE:
-                case SAVED:
-                    // SavedPageSyncService observes all list changes. No transaction is pending
-                    // when the row is online or saved.
-                    break;
-                default:
-                    throw new UnsupportedOperationException("Invalid disk row status: "
-                            + row.status().name());
+        try {
+            for (ReadingListPage page : pagesToDelete) {
+                deletePageContents(page);
+            }
+            for (ReadingListPage page : pagesToUnsave) {
+                deletePageContents(page);
+            }
+        } catch (Exception e) {
+            L.e("Error while deleting page: " + e.getMessage());
+        } finally {
+            if (!pagesToDelete.isEmpty()) {
+                ReadingListDbHelper.instance().purgeDeletedPages();
+            }
+            if (!pagesToUnsave.isEmpty()) {
+                ReadingListDbHelper.instance().resetUnsavedPageStatus();
             }
         }
 
-        int itemsTotal = queue.size();
+        int itemsTotal = pagesToSave.size();
         int itemsSaved = 0;
         try {
-            itemsSaved = saveNewEntries(queue);
+            itemsSaved = savePages(pagesToSave);
         } finally {
             if (savedPageSyncNotification.isSyncPaused()) {
                 savedPageSyncNotification.setNotificationPaused(getApplicationContext(), itemsTotal, itemsSaved);
             } else {
                 savedPageSyncNotification.cancelNotification(getApplicationContext());
                 savedPageSyncNotification.setSyncCanceled(false);
+                sendSyncEvent();
             }
         }
     }
@@ -118,74 +111,60 @@ public class SavedPageSyncService extends JobIntentService {
         WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
     }
 
-    private void deleteRow(@NonNull ReadingListPageDiskRow row) {
-        ReadingListPageRow dat = row.dat();
-        PageTitle pageTitle = makeTitleFrom(row);
-        if (dat != null && pageTitle != null) {
-            PageLead lead = null;
-            Call<PageLead> leadCall = reqPageLead(CacheControl.FORCE_CACHE, pageTitle);
-            try {
-                lead = leadCall.execute().body();
-            } catch (IOException ignore) { }
+    private void deletePageContents(@NonNull ReadingListPage page) {
+        PageTitle pageTitle = ReadingListPage.toPageTitle(page);
+        PageLead lead = null;
+        Call<PageLead> leadCall = reqPageLead(CacheControl.FORCE_CACHE, pageTitle);
+        try {
+            lead = leadCall.execute().body();
+        } catch (IOException ignore) { }
 
-            if (lead != null) {
-                for (String url : pageImageUrlParser.parse(lead)) {
-                    cacheDelegate.remove(saveImageReq(pageTitle.getWikiSite(), url));
-                }
-                cacheDelegate.remove(leadCall.request());
+        if (lead != null) {
+            for (String url : pageImageUrlParser.parse(lead)) {
+                cacheDelegate.remove(saveImageReq(pageTitle.getWikiSite(), url));
             }
-
-            Call<PageRemaining> sectionsCall = reqPageSections(CacheControl.FORCE_CACHE, pageTitle);
-            PageRemaining sections = null;
-            try {
-                sections = sectionsCall.execute().body();
-            } catch (IOException ignore) { }
-
-            if (sections != null) {
-                for (String url : pageImageUrlParser.parse(sections)) {
-                    cacheDelegate.remove(saveImageReq(pageTitle.getWikiSite(), url));
-                }
-                cacheDelegate.remove(sectionsCall.request());
-            }
-            ReadingListPageDao.instance().deleteIfOrphaned(dat);
+            cacheDelegate.remove(leadCall.request());
         }
-        dao.completeDiskTransaction(row);
+
+        Call<PageRemaining> sectionsCall = reqPageSections(CacheControl.FORCE_CACHE, pageTitle);
+        PageRemaining sections = null;
+        try {
+            sections = sectionsCall.execute().body();
+        } catch (IOException ignore) { }
+
+        if (sections != null) {
+            for (String url : pageImageUrlParser.parse(sections)) {
+                cacheDelegate.remove(saveImageReq(pageTitle.getWikiSite(), url));
+            }
+            cacheDelegate.remove(sectionsCall.request());
+        }
     }
 
-    private int saveNewEntries(List<ReadingListPageDiskRow> queue) {
-        sendSyncEvent();
+    private int savePages(List<ReadingListPage> queue) {
         int itemsTotal = queue.size();
         int itemsSaved = 0;
         while (!queue.isEmpty()) {
 
             // Pick off the DB row that we'll be working on...
-            ReadingListPageDiskRow tempRow = queue.remove(0);
+            ReadingListPage page = queue.remove(0);
 
             if (savedPageSyncNotification.isSyncPaused()) {
-                // fail all remaining transactions. They'll be picked up again when
-                // the service is resumed.
-                dao.failDiskTransaction(tempRow);
-                continue;
+                // Remaining transactions will be picked up again when the service is resumed.
+                break;
             } else if (savedPageSyncNotification.isSyncCanceled()) {
-                ReadingListPage tempPage = ReadingListPage.fromDiskRow(tempRow);
-                ReadingListData.instance().setPageOffline(tempPage, false);
-                continue;
+                // Mark remaining pages as online-only!
+                queue.add(page);
+                ReadingListDbHelper.instance().markPagesForOffline(queue, false);
+                break;
             }
             savedPageSyncNotification.setNotificationProgress(getApplicationContext(), itemsTotal, itemsSaved);
-
-            @Nullable PageTitle pageTitle = makeTitleFrom(tempRow);
-            if (pageTitle == null) {
-                // TODO: delete this orphaned row from Disk table, since Page item no longer exists.
-                dao.failDiskTransaction(tempRow);
-                continue;
-            }
 
             boolean success = false;
             @Nullable AggregatedResponseSize size = null;
             try {
 
                 // Lengthy operation during which the db state may change...
-                size = savePageFor(tempRow, pageTitle);
+                size = savePageFor(page);
                 success = true;
 
             } catch (InterruptedException e) {
@@ -201,36 +180,19 @@ public class SavedPageSyncService extends JobIntentService {
                 }
             }
 
-            // Query the database again, and see if this page title is still actually there,
-            // or if the page has been added to more lists.
-            @Nullable ReadingListPage page = ReadingListData.instance()
-                    .findPageInAnyList(ReadingListDaoProxy.key(pageTitle));
-            if (page == null) {
-                // The page has been deleted while we were busy!
-                continue;
-            }
-
-            // Make an updated DiskRow based on the refreshed page.
-            ReadingListPageDiskRow updatedRow = new ReadingListPageDiskRow(tempRow,
-                    ReadingListPageRow.builder()
-                            .copy(page)
-                            .logicalSize(size != null ? size.logicalSize() : 0)
-                            .physicalSize(size != null ? size.physicalSize() : 0)
-                            .build());
-
             if (success) {
-                dao.completeDiskTransaction(updatedRow);
+                page.status(ReadingListPage.STATUS_SAVED);
+                page.sizeBytes(size.logicalSize());
+                ReadingListDbHelper.instance().updatePage(page);
                 itemsSaved++;
                 sendSyncEvent();
-            } else {
-                dao.failDiskTransaction(updatedRow);
             }
         }
         return itemsSaved;
     }
 
-    @NonNull private AggregatedResponseSize savePageFor(@NonNull ReadingListPageDiskRow row,
-                                                        @NonNull PageTitle pageTitle) throws IOException, InterruptedException {
+    @NonNull private AggregatedResponseSize savePageFor(@NonNull ReadingListPage page) throws IOException, InterruptedException {
+        PageTitle pageTitle = ReadingListPage.toPageTitle(page);
         AggregatedResponseSize size = new AggregatedResponseSize(0, 0, 0);
 
         Call<PageLead> leadCall = reqPageLead(null, pageTitle);
@@ -243,10 +205,10 @@ public class SavedPageSyncService extends JobIntentService {
 
         if (!TextUtils.isEmpty(leadRsp.body().getThumbUrl())) {
             persistPageThumbnail(pageTitle, leadRsp.body().getThumbUrl());
-            row.dat().setThumbnailUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
+            page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
                     leadRsp.body().getThumbUrl()));
         }
-        row.dat().setDescription(leadRsp.body().getDescription());
+        page.description(leadRsp.body().getDescription());
 
         Set<String> imageUrls = new HashSet<>(pageImageUrlParser.parse(leadRsp.body()));
         imageUrls.addAll(pageImageUrlParser.parse(sectionsRsp.body()));
@@ -327,14 +289,12 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     private boolean isRetryable(@NonNull Throwable t) {
-        /*
-        "Retryable" in this case refers to exceptions that will be rethrown up to the
-        outer exception handler, so that the entire page can be retried on the next pass
-        of the sync service.
-        Errors that do *not* qualify for retrying include:
-        - IllegalArgumentException (thrown for any kind of malformed URL)
-        - HTTP 404 status (for nonexistent media)
-        */
+        //"Retryable" in this case refers to exceptions that will be rethrown up to the
+        //outer exception handler, so that the entire page can be retried on the next pass
+        //of the sync service.
+        //Errors that do *not* qualify for retrying include:
+        //- IllegalArgumentException (thrown for any kind of malformed URL)
+        //- HTTP 404 status (for nonexistent media)
         return !(t instanceof IllegalArgumentException
                 || ThrowableUtil.is404(t));
     }
@@ -355,15 +315,6 @@ public class SavedPageSyncService extends JobIntentService {
         long metadataSize = DiskLruCacheUtil.okHttpResponseMetadataSize(snapshot);
         long bodySize = DiskLruCacheUtil.okHttpResponseBodySize(snapshot);
         return new ResponseSize(metadataSize, bodySize);
-    }
-
-    @Nullable private PageTitle makeTitleFrom(@NonNull ReadingListPageDiskRow row) {
-        ReadingListPageRow pageRow = row.dat();
-        if (pageRow == null) {
-            return null;
-        }
-        String namespace = pageRow.namespace().toLegacyString();
-        return new PageTitle(namespace, pageRow.title(), pageRow.wikiSite());
     }
 
     @NonNull private PageClient newPageClient(@NonNull PageTitle title) {
