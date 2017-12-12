@@ -5,9 +5,6 @@
 
     <dimen name="toolbar_default_elevation">4dp</dimen>
 
-    <dimen name="edit_pencil_size">24dp</dimen>
-    <dimen name="edit_pencil_horizontal_margin">24dp</dimen>
-
     <dimen name="popup_menu_drop_down_horizontal_offset">8dp</dimen>
     <dimen name="popup_menu_drop_down_vertical_offset">-8dp</dimen>
 
