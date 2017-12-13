@@ -259,8 +259,6 @@ private static Properties loadProperties(File file) {
     return props
 }
 
-addSyncContentProviderAuthority 'useroption', 'user_option'
-
 private void addSyncContentProviderAuthority(String path, String name) {
     android.productFlavors.all { ProductFlavor flavor ->
         String authority = "${appId(flavor)}.sync.${path}"

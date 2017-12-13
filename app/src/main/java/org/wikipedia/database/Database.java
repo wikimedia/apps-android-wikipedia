@@ -11,7 +11,6 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.RecentSearch;
-import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.util.log.L;
 
 public class Database extends SQLiteOpenHelper {
@@ -23,11 +22,6 @@ public class Database extends SQLiteOpenHelper {
             PageImage.DATABASE_TABLE,
             RecentSearch.DATABASE_TABLE,
             EditSummary.DATABASE_TABLE,
-
-            // Order matters. UserOptionDatabaseTable has a dependency on
-            // UserOptionHttpDatabaseTable table when upgrading so this table must appear before it.
-            UserOptionRow.HTTP_DATABASE_TABLE,
-            UserOptionRow.DATABASE_TABLE,
 
             ReadingList.DATABASE_TABLE,
             ReadingListPage.DATABASE_TABLE

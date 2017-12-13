@@ -176,10 +176,6 @@
                 <data android:pathPrefix="/android_asset/licenses/" android:scheme="content" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".useroption.ui.UserOptionRowActivity"
-            android:theme="@style/AppTheme.ActionBar"
-            android:label="@string/user_option_activity_title" />
 
         <activity
             android:name=".feed.news.NewsActivity" />
@@ -252,13 +248,6 @@
             android:exported="false" />
 
         <provider
-            android:authorities="@string/user_option_authority"
-            android:name=".database.UserOptionContentProvider"
-            android:exported="false"
-            android:syncable="true"
-            android:label="@string/user_option_sync_label" />
-
-        <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
@@ -323,20 +312,6 @@
                 <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
             </intent-filter>
         </receiver>
-
-        <service
-            android:name=".useroption.sync.UserOptionSyncService"
-            android:exported="false">
-
-            <intent-filter>
-                <action android:name="android.content.SyncAdapter" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.content.SyncAdapter"
-                android:resource="@xml/user_option_sync_adapter" />
-
-        </service>
 
         <service
             android:name=".auth.AuthenticatorService"

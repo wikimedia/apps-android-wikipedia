@@ -17,7 +17,6 @@ import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.log.L;
 
 import java.util.Collections;
@@ -48,8 +47,6 @@ public final class AccountUtil {
         setPassword(result.getPassword());
         putUserIdForLanguage(result.getSite().languageCode(), result.getUserId());
         setGroups(result.getGroups());
-
-        UserOptionContentResolver.requestManualSync();
     }
 
     public static boolean isLoggedIn() {

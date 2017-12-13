@@ -11,7 +11,6 @@ import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.database.contract.SearchHistoryContract;
-import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 
@@ -25,14 +24,7 @@ public enum AppContentProviderEndpoint implements EnumCode {
     HISTORY_EDIT_SUMMARY(103, EditHistoryContract.Summary.PATH, EditHistoryContract.Summary.TABLES,
             EditHistoryContract.Summary.PROJECTION),
     HISTORY_SEARCH_QUERY(104, SearchHistoryContract.Query.PATH, SearchHistoryContract.Query.TABLES,
-            SearchHistoryContract.Query.PROJECTION),
-
-    USER_OPTION(300, UserOptionContract.AUTHORITY, UserOptionContract.Option.PATH,
-            UserOptionContract.Option.TABLES, UserOptionContract.Option.PROJECTION),
-    USER_OPTION_HTTP(301, UserOptionContract.AUTHORITY, UserOptionContract.Http.PATH,
-            UserOptionContract.Http.TABLES, UserOptionContract.Http.PROJECTION),
-    USER_HTTP_WITH_OPTION(302, UserOptionContract.AUTHORITY, UserOptionContract.HttpWithOption.PATH,
-            UserOptionContract.HttpWithOption.TABLES, UserOptionContract.HttpWithOption.PROJECTION);
+            SearchHistoryContract.Query.PROJECTION);
 
     private static final EnumCodeMap<AppContentProviderEndpoint> CODE_TO_ENUM = new EnumCodeMap<>(AppContentProviderEndpoint.class);
     private static final UriMatcher URI_TO_CODE = newUriToCode();

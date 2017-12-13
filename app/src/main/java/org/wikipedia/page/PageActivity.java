@@ -58,7 +58,6 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
-import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -184,8 +183,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
-
-            UserOptionContentResolver.requestManualSync();
         }
     }
 

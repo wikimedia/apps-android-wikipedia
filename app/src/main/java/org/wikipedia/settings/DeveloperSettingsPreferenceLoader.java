@@ -14,7 +14,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.useroption.ui.UserOptionRowActivity;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -92,12 +91,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preferences_developer_crash_key))
                 .setOnPreferenceClickListener(preference -> {
                     throw new TestException("User tested crash functionality.");
-                });
-
-        findPreference(context.getString(R.string.preferences_developer_user_option_key))
-                .setOnPreferenceClickListener(preference -> {
-                    context.startActivity(UserOptionRowActivity.newIntent(context));
-                    return true;
                 });
 
         findPreference(R.string.preference_key_remote_log)

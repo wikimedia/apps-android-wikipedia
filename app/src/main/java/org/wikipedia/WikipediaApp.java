@@ -47,10 +47,6 @@ import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.theme.Theme;
-import org.wikipedia.useroption.UserOption;
-import org.wikipedia.useroption.database.UserOptionDao;
-import org.wikipedia.useroption.database.UserOptionRow;
-import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -231,8 +227,6 @@ public class WikipediaApp extends Application {
         // TODO: Remove when user accounts have been migrated to AccountManager (June 2018)
         AccountUtil.migrateAccountFromSharedPrefs();
 
-        UserOptionContentResolver.registerAppSyncObserver(this);
-
         registerConnectivityReceiver();
 
         listenForNotifications();
@@ -288,10 +282,6 @@ public class WikipediaApp extends Application {
                 client = new DatabaseClient<>(this, RecentSearch.DATABASE_TABLE);
             } else if (cls.equals(EditSummary.class)) {
                 client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
-            } else if (cls.equals(UserOption.class)) {
-                client = new DatabaseClient<>(this, UserOptionRow.DATABASE_TABLE);
-            } else if (cls.equals(UserOptionRow.class)) {
-                client = new DatabaseClient<>(this, UserOptionRow.HTTP_DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }
@@ -397,7 +387,6 @@ public class WikipediaApp extends Application {
     public void logOut() {
         L.v("logging out");
         AccountUtil.removeAccount();
-        UserOptionDao.instance().clear();
         SharedPreferenceCookieManager.getInstance().clearAllCookies();
     }
 

@@ -12,13 +12,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.login.LoginActivity;
 
 public class WikimediaAuthenticator extends AbstractAccountAuthenticator {
-    private static final String[] SYNC_AUTHORITIES = {BuildConfig.USER_OPTION_AUTHORITY};
+    private static final String[] SYNC_AUTHORITIES = {};
 
     @NonNull private final Context context;
 

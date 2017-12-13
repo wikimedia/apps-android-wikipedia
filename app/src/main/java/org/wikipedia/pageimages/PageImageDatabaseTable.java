@@ -2,7 +2,6 @@ package org.wikipedia.pageimages;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
@@ -11,13 +10,11 @@ import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract.Col;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.log.L;
 
 
 // todo: network caching preserves images. Remove this class and drop table?
 public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     private static final int DB_VER_NAMESPACE_ADDED = 7;
-    private static final int DB_VER_NORMALIZED_TITLES = 8;
     private static final int DB_VER_LANG_ADDED = 10;
 
     public PageImageDatabaseTable() {
@@ -76,58 +73,5 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     @Override
     protected int getDBVersionIntroducedAt() {
         return INITIAL_DB_VERSION;
-    }
-
-    @Override
-    protected void upgradeSchema(@NonNull SQLiteDatabase db, int toVersion) {
-        switch (toVersion) {
-            case DB_VER_NORMALIZED_TITLES:
-                convertAllTitlesToUnderscores(db);
-                break;
-            case DB_VER_LANG_ADDED:
-                addLangToAllSites(db);
-                break;
-            default:
-                super.upgradeSchema(db, toVersion);
-        }
-    }
-
-    /**
-     * One-time fix for the inconsistencies in title formats all over the database. This migration will enforce
-     * all titles stored in the database to follow the "Underscore_format" instead of the "Human readable form"
-     * TODO: Delete this code after April 2016
-     *
-     * @param db Database object
-     */
-    private void convertAllTitlesToUnderscores(SQLiteDatabase db) {
-        Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
-        ContentValues values = new ContentValues();
-        while (cursor.moveToNext()) {
-            String title = Col.TITLE.val(cursor);
-            if (title.contains(" ")) {
-                values.put(Col.TITLE.getName(), title.replace(" ", "_"));
-                String id = Long.toString(Col.ID.val(cursor));
-                db.updateWithOnConflict(getTableName(), values, Col.ID.getName() + " = ?",
-                        new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
-            }
-        }
-        cursor.close();
-    }
-
-    // TODO: remove in September 2016.
-    private void addLangToAllSites(@NonNull SQLiteDatabase db) {
-        L.i("Adding language codes to " + getTableName());
-        Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
-        try {
-            while (cursor.moveToNext()) {
-                String site = Col.SITE.val(cursor);
-                ContentValues values = new ContentValues();
-                values.put(Col.LANG.getName(), site.split("\\.")[0]);
-                String id = Long.toString(Col.ID.val(cursor));
-                db.updateWithOnConflict(getTableName(), values, "_id = ?", new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
-            }
-        } finally {
-            cursor.close();
-        }
     }
 }
