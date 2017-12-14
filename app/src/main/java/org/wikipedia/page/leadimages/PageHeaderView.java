@@ -24,7 +24,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -60,6 +59,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     @BindView(R.id.view_page_subtitle_text) AppTextView subtitleText;
     @BindView(R.id.view_page_header_divider) View divider;
     @BindView(R.id.view_page_header_edit_pencil) ImageView editPencil;
+    @BindView(R.id.view_page_subtitle_container) LinearLayout subtitleContainer;
 
     @Nullable private Callback callback;
     @VisibleForTesting @NonNull CharSequence title = "";
@@ -167,13 +167,16 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         LinearLayout.LayoutParams dividerParams = (LinearLayout.LayoutParams) divider.getLayoutParams();
         dividerParams.gravity = isLangRTL(locale) ? Gravity.RIGHT : Gravity.LEFT;
         divider.setLayoutParams(dividerParams);
-        FrameLayout.LayoutParams pencilParams = (FrameLayout.LayoutParams) editPencil.getLayoutParams();
+        LinearLayout.LayoutParams pencilParams = (LinearLayout.LayoutParams) editPencil.getLayoutParams();
         pencilParams.gravity = Gravity.BOTTOM | (isLangRTL(locale) ? Gravity.LEFT : Gravity.RIGHT);
+        subtitleContainer.setLayoutDirection(isLangRTL(locale) ? LAYOUT_DIRECTION_RTL : LAYOUT_DIRECTION_LTR);
+
         int subtitlePadding = editPencil.getWidth();
         subtitleText.setPadding(isLangRTL(locale) ? subtitlePadding : 0,
                 subtitleText.getPaddingTop(),
                 isLangRTL(locale) ? 0 : subtitlePadding,
                 subtitleText.getPaddingBottom());
+
         if (TextUtils.isEmpty(subtitle)) {
             subtitleText.setCompoundDrawablesWithIntrinsicBounds(
                     isLangRTL(locale) ? 0 : R.drawable.ic_short_text,
