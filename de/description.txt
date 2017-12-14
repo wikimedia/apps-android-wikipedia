@@ -2,7 +2,7 @@ Offizielle Wikipedia-App für Android. Wikipedia ist die freie Enzyklopädie mit
 
 Funktionen:
 
-Entdecken - Die neue ‘Entdeckerseite‘ bietet empfehlenswerte und ständig aktualisierte Wikipedia-Inhalte wie gefragte Artikel‚ aktuelle Ereignisse, Lesevorschläge und vieles mehr direkt auf der Startseite an.
+Entdecken - Die neue ‘Entdeckerseite‘ präsentiert empfehlenswerte und ständig aktualisierte Wikipedia-Inhalte wie gefragte Artikel‚ aktuelle Ereignisse, Lesevorschläge und vieles mehr direkt auf der Startseite.
 
 Integrierte Sprachsuche: Einfach finden, wonach du suchst, dank einer herausragenden Suchleiste. Sprachsuche inklusive.
 
