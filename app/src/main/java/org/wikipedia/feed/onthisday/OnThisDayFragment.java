@@ -137,11 +137,11 @@ public class OnThisDayFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                if (response.body() == null) {
+                onThisDay = response.body();
+                if (onThisDay == null || onThisDay.events().isEmpty()) {
                     setErrorState(new RuntimeException("Incorrect response format."));
                     return;
                 }
-                onThisDay = response.body();
                 progressBar.setVisibility(View.GONE);
                 eventsRecycler.setVisibility(View.VISIBLE);
                 eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), WikipediaApp.getInstance().getWikiSite()));
