@@ -38,7 +38,7 @@ def computeVersionName(label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 android {
     // Keep version in sync with /project.properties
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '27.0.1'
 
     compileOptions {
@@ -54,7 +54,7 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 221
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
@@ -168,7 +168,7 @@ dependencies {
     String okHttpVersion = '3.9.1' // When updating this version, resync file copies under
                                    // app/src/main/java/okhttp3
     String retrofitVersion = '2.3.0'
-    String supportVersion = '26.0.2'
+    String supportVersion = '27.0.2'
     String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.8.1'
     String frescoVersion = '1.5.0' // When updating this version, resync file copies under
