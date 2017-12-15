@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -17,10 +18,19 @@
             android:id="@+id/random_item_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_gravity="center"
             android:layout_marginBottom="64dp"
+            android:layout_marginTop="64dp"
+            android:background="?attr/paper_color" />
+
+
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/random_item_error_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="?attr/paper_color"
-            android:layout_gravity="center"/>
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/random_item_container"
@@ -97,7 +107,5 @@
             </LinearLayout>
 
         </LinearLayout>
-
     </android.support.v7.widget.CardView>
-
 </FrameLayout>

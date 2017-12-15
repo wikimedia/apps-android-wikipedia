@@ -16,8 +16,10 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.WikiErrorView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +33,8 @@ public class RandomItemFragment extends Fragment {
     @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
+    @BindView(R.id.random_item_error_view) WikiErrorView errorView;
+
 
     @Nullable private RbPageSummary summary;
     private int pagerPosition = -1;
@@ -65,24 +69,43 @@ public class RandomItemFragment extends Fragment {
             ButterKnife.bind(this, view);
             imageView.setLegacyVisibilityHandlingEnabled(true);
             setContents(null);
-
-            new RandomSummaryClient().request(WikipediaApp.getInstance().getWikiSite(), new RandomSummaryClient.Callback() {
-                @Override
-                public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary) {
-                    if (!isAdded()) {
-                        return;
-                    }
-                    setContents(pageSummary);
-                }
-
-                @Override
-                public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
-                    // TODO: show error.
-                }
+            errorView.setBackClickListener(v -> getActivity().finish());
+            errorView.setRetryClickListener(v -> {
+                progressBar.setVisibility(View.VISIBLE);
+                getRandomPage();
             });
+            getRandomPage();
         }
-
         return view;
+    }
+
+    private void getRandomPage() {
+
+        new RandomSummaryClient().request(WikipediaApp.getInstance().getWikiSite(), new RandomSummaryClient.Callback() {
+            @Override
+            public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary) {
+                if (!isAdded()) {
+                    return;
+                }
+                setContents(pageSummary);
+            }
+
+            @Override
+            public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
+                if (!isAdded()) {
+                    return;
+                }
+                setErrorState(t);
+            }
+        });
+    }
+
+    private void setErrorState(@NonNull Throwable t) {
+        L.e(t);
+        errorView.setError(t);
+        errorView.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
+        containerView.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.view_featured_article_card_text_container) void onClick(View v) {
@@ -92,6 +115,7 @@ public class RandomItemFragment extends Fragment {
     }
 
     public void setContents(@Nullable RbPageSummary pageSummary) {
+        errorView.setVisibility(View.GONE);
         containerView.setVisibility(pageSummary == null ? View.GONE : View.VISIBLE);
         progressBar.setVisibility(pageSummary == null ? View.VISIBLE : View.GONE);
         if (summary == pageSummary) {
