@@ -50,7 +50,7 @@
                 app:backgroundTint="@android:color/white"
                 app:borderWidth="0dp"
                 app:elevation="4dp"
-                app:srcCompat="@drawable/ic_casino_accent50_24dp"
+                app:srcCompat="@drawable/animated_dice"
                 android:tint="?attr/main_toolbar_color"/>
 
             <ImageView

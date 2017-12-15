@@ -1,9 +1,11 @@
 package org.wikipedia.random;
 
 import android.content.DialogInterface;
+import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -37,7 +39,7 @@ import butterknife.Unbinder;
 
 public class RandomFragment extends Fragment {
     @BindView(R.id.random_item_pager) ViewPager randomPager;
-    @BindView(R.id.random_next_button) View nextButton;
+    @BindView(R.id.random_next_button) FloatingActionButton nextButton;
     @BindView(R.id.random_save_button) ImageView saveButton;
     @BindView(R.id.random_back_button) View backButton;
     private Unbinder unbinder;
@@ -84,6 +86,9 @@ public class RandomFragment extends Fragment {
     }
 
     @OnClick(R.id.random_next_button) void onNextClick() {
+        if (nextButton.getDrawable() instanceof Animatable) {
+            ((Animatable) nextButton.getDrawable()).start();
+        }
         viewPagerListener.setNextPageSelectedAutomatic();
         randomPager.setCurrentItem(randomPager.getCurrentItem() + 1, true);
         if (funnel != null) {
