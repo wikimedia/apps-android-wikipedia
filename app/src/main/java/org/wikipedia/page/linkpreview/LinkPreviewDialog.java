@@ -123,12 +123,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         thumbnailGallery = rootView.findViewById(R.id.link_preview_thumbnail_gallery);
 
         if (isImageDownloadEnabled()) {
-            CallbackTask.execute(new CallbackTask.Task<Map<String, ImageInfo>>() {
-                @Override public Map<String, ImageInfo> execute() throws Throwable {
-                    return client.request(pageTitle.getWikiSite(), pageTitle, true);
-
-                }
-            }, new CallbackTask.Callback<Map<String, ImageInfo>>() {
+            CallbackTask.execute(() -> client.request(pageTitle.getWikiSite(), pageTitle, true),
+                new CallbackTask.Callback<Map<String, ImageInfo>>() {
                 @Override public void success(@Nullable Map<String, ImageInfo> result) {
                     setThumbGallery(result);
                     thumbnailGallery.setGalleryViewListener(galleryViewListener);
@@ -142,14 +138,11 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         }
 
         overflowButton = rootView.findViewById(R.id.link_preview_overflow_button);
-        overflowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(getActivity(), overflowButton);
-                popupMenu.inflate(R.menu.menu_link_preview);
-                popupMenu.setOnMenuItemClickListener(menuListener);
-                popupMenu.show();
-            }
+        overflowButton.setOnClickListener((View v) -> {
+            PopupMenu popupMenu = new PopupMenu(getActivity(), overflowButton);
+            popupMenu.inflate(R.menu.menu_link_preview);
+            popupMenu.setOnMenuItemClickListener(menuListener);
+            popupMenu.show();
         });
 
         // show the progress bar while we load content...
@@ -284,7 +277,14 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
             PageSummary summary = rsp.body();
             if (summary != null && !summary.hasError()) {
-                titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
+
+                // TODO: Remove this logic once Parsoid starts supporting language variants.
+                if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
+                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
+                } else {
+                    titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
+                }
+
                 showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
             } else {
                 titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
@@ -346,12 +346,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         }
     };
 
-    private View.OnClickListener goToPageListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            goToLinkedPage();
-        }
-    };
+    private View.OnClickListener goToPageListener = (View v) -> goToLinkedPage();
 
     private void goToExternalMapsApp() {
         if (location != null) {
