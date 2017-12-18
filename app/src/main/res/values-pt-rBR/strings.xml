@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="about_wikipedia_url">https://pt.m.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Termos_de_Uso</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
@@ -176,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">Outras maneiras de como você melhorou a página</string>
   <string name="find_next">Encontrar próxima</string>
   <string name="find_previous">Encontrar anterior</string>
+  <string name="find_first_occurence">Esta é a primeira ocorrência</string>
+  <string name="find_last_occurence">Esta é a última ocorrência</string>
   <string name="abusefilter_title_warn">Isso pode ser uma edição não construtiva. Tem certeza de que deseja publicá-la?</string>
   <string name="abusefilter_title_disallow">Não pode publicar esta edição. Por favor, volte atrás e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou que esta edição contém possíveis erros. Ela pode conter uma ou mais das seguintes características:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de letras maiúsculas;&lt;br/&gt;· Entradas em branco ou com spam;&lt;br/&gt;· Imagens ou ligações externas irrelevantes; e&lt;br/&gt;· Repetição de caracteres.</string>
@@ -532,6 +535,7 @@
   <string name="onboarding_reading_list_sync_text">Crie listas de leitura de artigos que você deseja ler mais tarde, mesmo quando você está desconectado. &lt;a href=\"#login\"&gt;Faça login ou crie&lt;/a&gt; sua conta de Wikipedia para manter suas listas de leitura protegidas.</string>
   <string name="onboarding_analytics_title">Enviar dados anônimos</string>
   <string name="onboarding_analytics_text">Ajude a melhorar o aplicativo, informando-nos como você o usa. Os dados coletados são anônimos. &lt;a href=\"#privacy\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Ajude a melhorar o aplicativo, informando-nos como você o usa. Os dados coletados são anônimos. &lt;a href=\"#offline\"&gt;Learn more&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de uso</string>
   <string name="onboarding_create_account_sync">Sincronize suas listas de leitura</string>
   <string name="onboarding_create_account_contributions">Acompanhe suas contribuições</string>
@@ -544,10 +548,10 @@
   <string name="all_trending_text">Todos os artigos tendentes sobre %1$s</string>
   <string name="top_on_this_day">Tendências em %1$s</string>
   <string name="on_this_day_card_title">Neste dia</string>
-  <string name="more_events_text" fuzzy="true">MAIS SOBRE ESTE DIA</string>
-  <string name="events_count_text" fuzzy="true">NESTE DIA\n%1$s eventos de %2$s - %3$d</string>
+  <string name="more_events_text">Mais neste dia</string>
+  <string name="events_count_text">%1$s eventos de %2$s–%3$d</string>
   <string name="this_year">Este ano</string>
-  <string name="back_to_top" fuzzy="true">VOLTAR AO TOPO</string>
+  <string name="back_to_top">Voltar ao topo</string>
   <plurals name="diff_years">
     <item quantity="one">Ano passado</item>
     <item quantity="other">%d anos atrás</item>

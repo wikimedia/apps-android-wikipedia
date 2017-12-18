@@ -40,9 +40,9 @@
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="nearby_zoom_to_location">মানচিত্রে একটি অবস্থানে জুম করুন</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;ওপেনস্ট্রীটম্যাপ&lt;/a&gt; অবদানকারীগণ</string>
-  <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
+  <string name="last_updated_text">সর্বশেষ হালনাগাদ %s</string>
   <string name="talk_page_link_text">আলোচনা</string>
-  <string name="edit_history_link_text">ইতিহাস সম্পাদনা করুন</string>
+  <string name="edit_history_link_text">সম্পাদনার ইতিহাস</string>
   <string name="map_view_link_text">একটি মানচিত্রে দেখুন</string>
   <string name="language_count_link_text">অন্য %dটি ভাষায় উপলব্ধ</string>
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
@@ -406,11 +406,15 @@
   <string name="feed_configure_menu_deselect_all">সব অনির্বাচিত করুন</string>
   <string name="feed_item_type_news">চলমান ঘটনা সম্পর্কিত প্রবন্ধ সমূম</string>
   <string name="feed_item_type_on_this_day">এই দিনের ঐতিহাসিক ঘটনাবলি</string>
+  <string name="feed_item_type_continue_reading">আপনার ট্যাবগুলির মধ্যে খোলা নিবন্ধ পড়ার জন্য দ্রুত লিঙ্ক</string>
   <string name="feed_item_type_because_you_read">আপনার ইতিহাস থেকে সাম্প্রতিক পড়া নিবন্ধের উপর ভিত্তি করে পরামর্শ</string>
+  <string name="feed_item_type_featured_article">উইকিপিডিয়ায় দৈনিক নির্বাচিত নিবন্ধ</string>
   <string name="feed_item_type_trending">দৈনিক বেশী দেখা প্রবন্ধ সমূহ</string>
   <string name="feed_item_type_featured_image">উইকিমিডিয়া কমন্স থেকে প্রতিদিনের নির্বাচিত চিত্র</string>
+  <string name="feed_item_type_main_page">দৈনিক নির্বাচিত বিষয়বস্তুসহ উইকিপিডিয়ার প্রধান পাতা</string>
   <string name="feed_item_type_randomizer">পড়ার জন্য অনির্ধারিত প্রবন্ধ বের করুন</string>
   <string name="feed_configure_onboarding_action">পছন্দকরণ</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;আপনার অন্বেষণ ফিড স্বনির্ধারণ করুন&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;আপনি এখন আপনার ফিডে কি প্রদর্শন করাতে চান তা চয়ন করতে পারেন, এবং আপনার পছন্দসই বিষয়বস্তুর ধরনকে অগ্রাধিকার দিতে পারবেন।</string>
   <string name="description_edit_text_hint">শিরোনামের বিবরণ</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_add_description">শিরোনামের বিবরণ যোগ করুন</string>

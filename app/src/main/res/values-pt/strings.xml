@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">De que outras formas melhorou a página</string>
   <string name="find_next">Localizar próxima</string>
   <string name="find_previous">Localizar anterior</string>
+  <string name="find_first_occurence">Esta é a primeira ocorrência</string>
+  <string name="find_last_occurence">Esta é a última ocorrência</string>
   <string name="abusefilter_title_warn">Esta edição poderá não ser construtiva. Tem a certeza que pretende publicá-la?</string>
   <string name="abusefilter_title_disallow">Não pode publicar esta edição. Volte atrás e altere-a, por favor.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou esta edição como não sendo construtiva. Ela pode conter os seguintes erros:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de maiúsculas;&lt;br /&gt;· Esvaziamento de artigos e spam;&lt;br /&gt;· Imagens ou hiperligações externas irrelevantes;&lt;br /&gt;· Repetição de caracteres</string>
@@ -533,6 +535,7 @@
   <string name="onboarding_reading_list_sync_text">Crie listas de leitura com os artigos que pretende ler mais tarde, mesmo sem acesso à Internet. &lt;a href=\"#login\"&gt;Inicie sessão ou crie&lt;/a&gt; a sua conta na Wikipédia para manter cópias de segurança das suas listas de leitura.</string>
   <string name="onboarding_analytics_title">Enviar dados anónimos</string>
   <string name="onboarding_analytics_text">Ajude a melhorar a aplicação, mostrando-nos como a utiliza. Os dados recolhidos são anónimos. &lt;a href=\"#privacy\"&gt;Saiba mais&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Ajude a melhorar a aplicação, informando-nos como a utiliza. Os dados coletados são anónimos. &lt;a href=\"#offline\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de utilização</string>
   <string name="onboarding_create_account_sync">Sincronize as suas listas de leitura</string>
   <string name="onboarding_create_account_contributions">Mantenha registos das suas contribuições</string>
@@ -546,7 +549,7 @@
   <string name="top_on_this_day">Em tendência a %1$s</string>
   <string name="on_this_day_card_title">Neste dia</string>
   <string name="more_events_text">Mais neste dia</string>
-  <string name="events_count_text" fuzzy="true">NESTE DIA\n%1$s acontecimentos de %2$s - %3$d</string>
+  <string name="events_count_text">%1$s acontecimentos de %2$s–%3$d</string>
   <string name="this_year">Este ano</string>
   <string name="back_to_top">Voltar ao topo</string>
   <plurals name="diff_years">
