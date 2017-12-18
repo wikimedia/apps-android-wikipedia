@@ -88,6 +88,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorAccent">@color/accent75</item>
+        <item name="android:colorBackground">?attr/paper_color</item>
     </style>
 
     <style name="PopupMenuDark" parent="Widget.AppCompat.PopupMenu">

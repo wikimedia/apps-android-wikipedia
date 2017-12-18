@@ -34,32 +34,46 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
                     android:layout_marginStart="72dp"
-                    android:paddingBottom="20dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/day"
+                            style="@style/RtlAwareTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginEnd="8dp"
+                            android:fontFamily="serif"
+                            android:textColor="?attr/primary_text_color"
+                            android:textSize="24sp"
+                            android:textStyle="normal"
+                            android:transitionName="@string/transition_on_this_day"
+                            tools:text="January 1" />
+
+                        <ImageView
+                            android:id="@+id/drop_down"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:tint="@color/base100"
+                            app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/day"
                         style="@style/RtlAwareTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginEnd="12dp"
-                        android:fontFamily="serif"
-                        android:textColor="?attr/primary_text_color"
-                        android:textSize="24sp"
-                        android:textStyle="normal"
-                        android:transitionName="@string/transition_on_this_day"
-                        tools:text="January 1" />
-
-                    <TextView
-                        style="@style/RtlAwareTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/base100"
-                        android:textSize="14sp"
                         android:alpha="0.5"
+                        android:text="@string/on_this_day_card_title"
                         android:textAllCaps="true"
-                        android:text="@string/on_this_day_card_title"/>
+                        android:textColor="@color/base100"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/day_info_text_view"
@@ -67,9 +81,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
+                        android:alpha="0.5"
                         android:textColor="@color/base100"
-                        android:textSize="14sp"
-                        android:alpha="0.5"/>
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -77,20 +91,79 @@
                     android:id="@+id/calendar"
                     android:layout_width="96dp"
                     android:layout_height="106dp"
-                    android:layout_marginBottom="-36dp"
                     android:layout_gravity="bottom|end"
-                    android:tint="@color/base100"
+                    android:layout_marginBottom="-36dp"
                     android:alpha="0.5"
-                    app:srcCompat="@drawable/ic_event_black_24dp"
-                    android:contentDescription="@null"/>
+                    android:contentDescription="@null"
+                    android:tint="@color/base100"
+                    app:srcCompat="@drawable/ic_event_black_24dp" />
             </FrameLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
                 android:theme="@style/ToolbarTheme"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/toolbar_day"
+                        style="@style/RtlAwareTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.01"
+                        android:lineSpacingExtra="8sp"
+                        android:textColor="@color/base100"
+                        android:textSize="20sp"
+                        android:gravity="center_vertical"
+                        android:textStyle="normal"
+                        tools:text="January 1" />
+
+                    <ImageView
+                        android:id="@+id/drop_down_toolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tint="@color/base100"
+                        app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/indicator_layout"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="16dp"
+                    android:alpha="0.5"
+                    android:clickable="false">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="@null"
+                        android:tint="@color/base100"
+                        app:srcCompat="@drawable/ic_empty_event" />
+
+                    <TextView
+                        android:id="@+id/indicator_date"
+                        android:layout_width="12dp"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:textColor="@color/base100"
+                        android:textSize="8sp"
+                        tools:text="12" />
+                </FrameLayout>
+            </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -114,13 +187,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="48dp"/>
+            android:layout_marginTop="48dp" />
 
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/on_this_day_error_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal" />
 
     </FrameLayout>
 

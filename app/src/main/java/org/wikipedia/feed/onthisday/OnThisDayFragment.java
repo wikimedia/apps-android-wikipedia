@@ -17,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -29,6 +31,7 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.CustomDatePicker;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.MarginItemDecoration;
@@ -36,9 +39,11 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,7 +51,7 @@ import retrofit2.Response;
 
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 
-public class OnThisDayFragment extends Fragment {
+public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback{
     @BindView(R.id.day) TextView dayText;
     @BindView(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
@@ -56,12 +61,18 @@ public class OnThisDayFragment extends Fragment {
     @BindView(R.id.app_bar) AppBarLayout appBarLayout;
     @BindView(R.id.linear_layout) LinearLayout linearLayout;
     @BindView(R.id.on_this_day_error_view) WikiErrorView errorView;
+    @BindView(R.id.indicator_date) TextView indicatorDate;
+    @BindView(R.id.indicator_layout) FrameLayout indicatorLayout;
+    @BindView(R.id.toolbar_day) TextView toolbarDay;
+    @BindView(R.id.drop_down_toolbar)
+    ImageView toolbarDropDown;
 
     @Nullable private OnThisDay onThisDay;
     private Calendar date;
     private Unbinder unbinder;
     @Nullable private OnThisDayFunnel funnel;
     public static final int PADDING1 = 21, PADDING2 = 38, PADDING3 = 21;
+    public static final float HALF_ALPHA = 0.5f;
 
     @NonNull
     public static OnThisDayFragment newInstance(int age) {
@@ -131,7 +142,7 @@ public class OnThisDayFragment extends Fragment {
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
 
-        new OnThisDayFullListClient().request(WikipediaApp.getInstance().getWikiSite(), month + 1, date).enqueue(new Callback<OnThisDay>() {
+        new OnThisDayFullListClient().request(month + 1, date).enqueue(new Callback<OnThisDay>() {
             @Override
             public void onResponse(@NonNull Call<OnThisDay> call, @NonNull Response<OnThisDay> response) {
                 if (!isAdded()) {
@@ -175,11 +186,14 @@ public class OnThisDayFragment extends Fragment {
         getAppCompatActivity().getSupportActionBar().setTitle("");
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
+        indicatorDate.setText(String.format(Locale.getDefault(), "%d", date.get(Calendar.DATE)));
         appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
             if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
-                collapsingToolbarLayout.setTitle("");
+                toolbarDay.setText("");
+                toolbarDropDown.setVisibility(View.GONE);
             } else if (verticalOffset <= -appBarLayout.getTotalScrollRange()) {
-                collapsingToolbarLayout.setTitle(DateUtil.getMonthOnlyDateString(date.getTime()));
+                toolbarDay.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
+                toolbarDropDown.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -208,6 +222,35 @@ public class OnThisDayFragment extends Fragment {
         recycler.addOnItemTouchListener(new DontInterceptTouchListener());
         recycler.setNestedScrollingEnabled(true);
         recycler.setClipToPadding(false);
+    }
+
+    @Override
+    public void onDatePicked(int month, int day) {
+        eventsRecycler.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
+        if (date.get(Calendar.MONTH) != month || date.get(Calendar.DATE) != day) {
+            indicatorLayout.setAlpha(1.0f);
+            indicatorLayout.setClickable(true);
+        }
+        date.set(CustomDatePicker.LEAP_YEAR, month, day, 0, 0);
+        dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
+        appBarLayout.setExpanded(true);
+        requestEvents(month, day);
+    }
+
+    @OnClick({R.id.drop_down, R.id.day, R.id.toolbar_day, R.id.drop_down_toolbar})
+    public void onCalendarClicked() {
+        CustomDatePicker newFragment = new CustomDatePicker();
+        newFragment.setSelectedDay(date.get(Calendar.MONTH), date.get(Calendar.DATE));
+        newFragment.setCallback(OnThisDayFragment.this);
+        newFragment.show(getFragmentManager(), "date picker");
+    }
+
+    @OnClick(R.id.indicator_layout)
+    public void onIndicatorLayoutClicked() {
+        onDatePicked(Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
+        indicatorLayout.setAlpha(HALF_ALPHA);
+        indicatorLayout.setClickable(false);
     }
 
     private class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
