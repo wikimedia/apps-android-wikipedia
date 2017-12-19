@@ -57,15 +57,15 @@
   <string name="menu_save_changes">Publicar cambios</string>
   <string name="dialog_saving_in_progress">Publicando…</string>
   <string name="edit_saved_successfully">Edición guardada.</string>
-  <string name="dialog_message_edit_failed">¡Error de edición!</string>
+  <string name="dialog_message_edit_failed">Falló la edición.</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
-  <string name="dialog_message_leaving_edit">Los cambios no se han guardado aún. ¿Estás seguro de que quieres salir de esta página?</string>
-  <string name="dialog_message_leaving_edit_leave">Salir</string>
+  <string name="dialog_message_leaving_edit">Aún no se han guardado los cambios. ¿Confirmas que quieres salir de esta página?</string>
+  <string name="dialog_message_leaving_edit_leave">Abandonar</string>
   <string name="dialog_message_leaving_edit_stay">Permanecer</string>
   <string name="menu_show_toc">Sumario</string>
   <string name="search_no_results_found">No se encontraron resultados</string>
-  <string name="search_reading_list_no_results">No se encontraron resultados en \"%s\"</string>
+  <string name="search_reading_list_no_results">No se encontró ningún resultado en «%s»</string>
   <string name="search_reading_lists_no_results">No se encontraron resultados en las listas de lectura</string>
   <string name="search_history_no_results">No se encontraron resultados en el historial</string>
   <string name="edit_section_captcha_message">Para ayudar a proteger contra el spam automatizado, escribe las palabras que aparecen abajo</string>
@@ -82,17 +82,17 @@
   <string name="login_2fa_other_workflow_error_msg">¡Se requiere autenticación de dos factores! Regresa a la actividad principal e inicia sesión con tu clave de autenticación de dos factores. Luego vuelve a intentarlo.</string>
   <string name="menu_login">Acceder</string>
   <string name="login_activity_title">Acceder a Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Iniciando sesión…</string>
+  <string name="login_in_progress_dialog_message">Accediendo…</string>
   <string name="login_success_toast">Se inició la sesión correctamente.</string>
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
   <string name="history_empty_title">No hay hay artículos visitados recientemente</string>
-  <string name="history_empty_message">Consulta lo que has leido aquí</string>
+  <string name="history_empty_message">Consulta lo que has leído aquí.</string>
   <string name="search_empty_message">Busca y lee la enciclopedia libre en tu idioma</string>
   <string name="delete_selected_items">Eliminar los elementos seleccionados</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
-  <string name="login_dont_have_account">¿No está registrado?</string>
+  <string name="login_dont_have_account">¿No tienes cuenta?</string>
   <string name="login_join_wikipedia">Únete a Wikipedia</string>
   <string name="login_forgot_password">¿Olvidaste la contraseña?</string>
   <string name="create_account_already_have">¿Ya tienes una cuenta?</string>
@@ -146,11 +146,12 @@
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
   <string name="privacy_policy_description">Normativa de privacidad</string>
   <string name="terms_of_use_description">Términos de uso</string>
+  <string name="about_wikipedia_url">https://es.m.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/es</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
-  <string name="about_libraries_heading">Bibliotecas usadas</string>
+  <string name="about_libraries_heading">Bibliotecas utilizadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -167,7 +168,7 @@
   <string name="edit_how_page_improved">¿Cómo has mejorado la página?</string>
   <string name="edit_next">Siguiente</string>
   <string name="edit_done">Publicar</string>
-  <string name="edit_preview">Vista previa</string>
+  <string name="edit_preview">Previsualizar</string>
   <string name="edit_summary_tag_typo">Ortografía corregida</string>
   <string name="edit_summary_tag_grammar">Gramática corregida</string>
   <string name="edit_summary_tag_links">Enlaces añadidos</string>
@@ -175,6 +176,8 @@
   <string name="edit_summary_tag_other_hint">Otras formas en las que has mejorado la página</string>
   <string name="find_next">Buscar siguiente</string>
   <string name="find_previous">Buscar anterior</string>
+  <string name="find_first_occurence">Esta es la primera ocurrencia</string>
+  <string name="find_last_occurence">Esta es la última ocurrencia</string>
   <string name="abusefilter_title_warn">Esta parece una edición no constructiva. ¿Confirmas que quieres publicarla?</string>
   <string name="abusefilter_title_disallow">No puedes publicar esta edición. Vuelve atrás y cámbiala.</string>
   <string name="abusefilter_text_warn">Un filtro automático ha identificado esta edición como potencialmente no constructiva. Puede contener uno o más de los siguientes:&lt;br&gt;&lt;br&gt;· Escrito en mayúsculas&lt;br&gt;· Borrado de artículos o spam&lt;br&gt;· Enlaces externos o imágenes irrelevantes&lt;br&gt;· Caracteres repetidos</string>
@@ -225,7 +228,7 @@
   <string name="gallery_uploader_unknown">Cargador desconocido</string>
   <string name="menu_new_tab">Pestaña nueva</string>
   <string name="menu_close_all_tabs">Cerrar todas las pestañas</string>
-  <string name="close_all_tabs_confirm">¿Estás seguro de que quieres cerrar todas las pestañas?</string>
+  <string name="close_all_tabs_confirm">¿Confirmas que quieres cerrar todas las pestañas?</string>
   <string name="close_all_tabs_confirm_yes">Sí</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Cerrar pestaña</string>
@@ -413,10 +416,14 @@
   <string name="view_featured_article_card_title">Artículo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_featured_article_footer_saved_button_label">Guardado</string>
+  <string name="feed_configure_menu_title">Configurar tarjetas</string>
   <string name="feed_configure_activity_title">Personalizar el suministro</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Seleccionar todo</string>
+  <string name="feed_item_type_news">Artículos sobre acontecimientos recientes</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de hoy</string>
+  <string name="feed_item_type_because_you_read">Sugerencias basadas en uno de tus artículos leídos recientemente</string>
+  <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="description_edit_text_hint">Descripción de título</string>
   <string name="description_edit_save">Publicar</string>
@@ -512,8 +519,9 @@
   <string name="onboarding_welcome_title">La enciclopedia libre</string>
   <string name="onboarding_welcome_text">Wikipedia es escrita de manera colaborativa por voluntarios y comprende más de 40 millones de artículos en casi 300 lenguas distintas. &lt;a href=\"#about\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nuevas formas de explorar</string>
-  <string name="onboarding_explore_text" fuzzy="true">Descubrir artículos destacados, relevantes y sugerencias en la lista de Explorar.</string>
+  <string name="onboarding_explore_text">Piérdete en la vastedad de Wikipedia a través del suministro Explorar, siempre al día.&lt;br/&gt; &lt;b&gt;Personaliza&lt;/b&gt; el suministro en función de lo que te interesa. Aprende sobre acontecimientos históricos en &lt;b&gt;Un día como hoy&lt;/b&gt; o lanza un dado virtual mediante &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Guardar en listas de lectura</string>
+  <string name="onboarding_save_to_reading_lists_text">Crea listas de lectura con artículos que desees leer más tarde, incluso cuando no tengas conexión.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura sincronizadas</string>
   <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artículos que quieres leer más tarde, incluso cuando estés sin conexión. &lt;a href=\"#login\"&gt;Inicia sesión o crea&lt;/a&gt; tu cuenta de Wikipedia para mantener tus listas de lectura sincronizadas.</string>
   <string name="onboarding_analytics_title">Enviar datos anónimos</string>
@@ -531,10 +539,10 @@
   <string name="all_trending_text">Todos los artículos en tendencia del %1$s</string>
   <string name="top_on_this_day">Tendencias del %1$s</string>
   <string name="on_this_day_card_title">Un día como hoy</string>
-  <string name="more_events_text" fuzzy="true">Más acontecimientos históricos en este día</string>
+  <string name="more_events_text">Más acontecimientos históricos en este día</string>
   <string name="events_count_text" fuzzy="true">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="this_year">Este año</string>
-  <string name="back_to_top" fuzzy="true">VOLVER AL PRINCIPIO</string>
+  <string name="back_to_top">Volver al principio</string>
   <plurals name="diff_years">
     <item quantity="one">El año pasado</item>
     <item quantity="other">Hace %d años</item>

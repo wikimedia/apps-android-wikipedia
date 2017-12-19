@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">Cara-cara lain anda menambah baik halaman</string>
   <string name="find_next">Carian berikutnya</string>
   <string name="find_previous">Carian sebelumnya</string>
+  <string name="find_first_occurence">Ini ialah kejadian pertama</string>
+  <string name="find_last_occurence">Ini ialah kejadian terakhir</string>
   <string name="abusefilter_title_warn">Suntingan ini mungkin tidak membina. Adakah anda betul-betul mahu menerbitkannya?</string>
   <string name="abusefilter_title_disallow">Suntingan ini tidak boleh diterbitkan. Sila kembali dan suntingnya semula.</string>
   <string name="abusefilter_text_warn">Penapis automatik mendapati suntingan ini berkemungkinan adalah tidak membina. Mungkin ia ada antara yang berikut:&lt;br /&gt;&lt;br /&gt;. Menaip dalam huruf besar&lt;br /&gt;. Mengosongkan rencana atau menspam&lt;br /&gt;. Pautan luar atau imej-imej tidak berkaitan&lt;br /&gt;. Aksara berulang</string>

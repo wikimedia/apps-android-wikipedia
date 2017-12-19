@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
   <string name="find_next">查找下一个</string>
   <string name="find_previous">查找上一个</string>
+  <string name="find_first_occurence">这是首次出现</string>
+  <string name="find_last_occurence">这是最后一次出现</string>
   <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要发布它么？</string>
   <string name="abusefilter_title_disallow">您不能发布该编辑。请返回更改。</string>
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全文大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>

@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
+  <string name="find_first_occurence">Dette er den første forekomst</string>
+  <string name="find_last_occurence">Dette er den sidste forekomst</string>
   <string name="abusefilter_title_warn">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på at du ønsker at offentliggøre den?</string>
   <string name="abusefilter_title_disallow">Du kan ikke offentliggøre denne redigering. Gå venligst tilbage og ændr den.</string>
   <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>

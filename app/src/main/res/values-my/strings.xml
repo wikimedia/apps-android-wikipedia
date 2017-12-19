@@ -247,6 +247,7 @@
   <string name="view_link_preview_error_button_dismiss">ဖြုတ်ရန်</string>
   <string name="error_page_does_not_exist">ဤစာမျက်နှာ မရှိပါ</string>
   <string name="view_wiki_error_message_offline">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
+  <string name="reference_title">ရည်ညွှန်း %s</string>
   <string name="crash_report_dialog_title">စိတ်မကောင်းပါ။ နောက်ဆုံးအကြိမ်က app သည် crash ဖြစ်ခဲ့သည်။</string>
   <string name="crash_report_dialog_text">တတိယ ဝန်ဆောင်မှုလုပ်ငန်းဖြစ်သော HockeyApp သို့ app မှ ပျက်မှု အစီရင်ခံချက်အား ပေးပို့လိုပါသလား? ထိုသို့ပြုလုပ်ခြင်းဖြင့် ဝီကီမီဒီယာမှ သင့်အစီရင်ခံချက်အား ကြည့်ရှုကာ ပြင်ဆင်ပေးနိုင်ပါလိမ့်မည်။</string>
   <string name="crash_report_dialog_dont_send_button">ကျော်ရန်</string>

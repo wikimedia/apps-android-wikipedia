@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/gl</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/gl</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.gl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.gl</string>
@@ -532,6 +533,7 @@
   <string name="onboarding_reading_list_sync_text">Crear listas de lectura a partir de artigos que queres ler máis tarde, incluso cando esteas sen conexión. &lt;a href=\"#login\"&gt;Inicia sesión ou crea&lt;/a&gt; a túa conta de Wikipedia para mantener as túas listas de lectura sincronizadas.</string>
   <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>
   <string name="onboarding_analytics_text">Axuda a mellorar a aplicación achegando información de como a usas. Os datos obtidos son anónimos. &lt;a href=\"#privacy\"&gt;Ler máis&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Permita que saibamos como utiliza a aplicación para axudar a mellorala. Os datos recompilados son anónimos. &lt;a href=\"#offline\"&gt;Máis información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>
   <string name="onboarding_create_account_sync">Sincronizar as listas de lectura</string>
   <string name="onboarding_create_account_contributions">Vixiar as túas contribucións</string>
@@ -544,10 +546,10 @@
   <string name="all_trending_text">Tódolos artigos en tendencia do %1$s</string>
   <string name="top_on_this_day">Tendencias do %1$s</string>
   <string name="on_this_day_card_title">Un día coma hoxe</string>
-  <string name="more_events_text" fuzzy="true">MÁIS NESTE DÍA</string>
-  <string name="events_count_text" fuzzy="true">NESTE DÍA\n%1$s acontecementos de %2$s - %3$d</string>
+  <string name="more_events_text">Máis neste día</string>
+  <string name="events_count_text">%1$s acontecementos de %2$s - %3$d</string>
   <string name="this_year">Este ano</string>
-  <string name="back_to_top" fuzzy="true">VOLVER Ó PRINCIPIO</string>
+  <string name="back_to_top">Volver ao inicio</string>
   <plurals name="diff_years">
     <item quantity="one">O ano pasado</item>
     <item quantity="other">Hai %d anos</item>

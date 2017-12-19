@@ -29,25 +29,25 @@
   <string name="menu_text_select_define">Nustatyti</string>
   <string name="menu_text_select_share">Dalintis</string>
   <string name="menu_text_select_edit_here">Keisti čia</string>
-  <string name="nav_item_nearby">Šalia</string>
+  <string name="nav_item_nearby">Netoliese</string>
   <string name="nearby_zoom_to_location">Priartinti vietą žemėlapyje</string>
   <string name="last_updated_text">Paskutinį kartą atnaujinta %s</string>
   <string name="talk_page_link_text">Aptarimas</string>
   <string name="content_license_html" fuzzy="true">Turinys prieinamas pagal &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, jei nenurodyta kitaip</string>
-  <string name="edit_save_action_license_logged_in">Išsaugodami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamai skleisite savo indėlį po&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
+  <string name="edit_save_action_license_logged_in">Išsaugodami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
   <string name="preference_title_language">Vikipedijos kalba</string>
   <string name="preference_languages_filter_hint">Ieškoti</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
   <string name="langlinks_no_match">Nerasta kalbų, atitinkančių jūsų užklausą.</string>
   <string name="langlinks_activity_title">Kitos kalbos</string>
-  <string name="menu_save_changes">Paskelbti Pakeitimus</string>
+  <string name="menu_save_changes">Paskelbti pakeitimus</string>
   <string name="dialog_saving_in_progress">Skelbiama...</string>
   <string name="edit_saved_successfully">Redagavimas paskelbtas!</string>
-  <string name="dialog_message_edit_failed">Redaguoti nepavyko!</string>
+  <string name="dialog_message_edit_failed">Išsaugoti nepavyko!</string>
   <string name="dialog_message_edit_failed_retry">Bandyti dar kartą</string>
   <string name="dialog_message_edit_failed_cancel">Atšaukti</string>
-  <string name="dialog_message_leaving_edit">Jūsų pakeitimai dar nebuvo įrašyti. Ar tikrai norite palikti šį puslapį?</string>
+  <string name="dialog_message_leaving_edit">Jūsų pakeitimai dar neišsaugoti. Ar tikrai norite palikti šį puslapį?</string>
   <string name="dialog_message_leaving_edit_leave">Išeiti</string>
   <string name="dialog_message_leaving_edit_stay">Likti</string>
   <string name="menu_show_toc">Turinys</string>
@@ -82,7 +82,7 @@
   <string name="create_account_next">Kitas</string>
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="preferences_general_heading">Bendras</string>
-  <string name="wikipedia_app_faq">\"Wikipedia\" App DUK</string>
+  <string name="wikipedia_app_faq">Vikipedijos programėlės DUK</string>
   <string name="zero_charged_verbiage">Nemokama prieiga prie Vikipedijos nebėra aktyvi.</string>
   <string name="zero_warn_when_leaving">Įspėti paliekant „Vikipedija Zero“</string>
   <string name="zero_webpage_title">Vikipedija Zero DUK</string>

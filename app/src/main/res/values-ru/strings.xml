@@ -146,7 +146,9 @@
   <string name="about_description">О приложении «Википедия»</string>
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
+  <string name="about_wikipedia_url">https://ru.m.wikipedia.org/wiki/Википедия:Описание</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Условия_использования</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
@@ -284,6 +286,8 @@
   <string name="color_theme_select">Оформление</string>
   <string name="color_theme_light">Светлое</string>
   <string name="color_theme_dark">Тёмное</string>
+  <string name="color_theme_black">Чёрная</string>
+  <string name="preference_title_app_theme">Тема приложения</string>
   <string name="preference_title_color_theme">Тёмная тема</string>
   <string name="preference_summary_color_theme">Переключите для использования тёмной темы оформления приложения</string>
   <string name="text_size_increase">Увеличить размер шрифта</string>
@@ -368,8 +372,11 @@
   <string name="notification_thanks_title">Вас поблагодарили!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; поблагодарил вас за вашу правку на странице &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Синхронизация</string>
+  <string name="notification_channel_description">Прогресс синхронизации</string>
+  <string name="notification_syncing_title">Синхронизация %1$d статей…</string>
+  <string name="notification_syncing_description">Осталось %1$d статей</string>
   <string name="notification_syncing_pause_button">Пауза</string>
-  <string name="notification_syncing_resume_button" fuzzy="true">ПРОДОЛЖИТЬ</string>
+  <string name="notification_syncing_resume_button">Продолжить</string>
   <string name="notification_syncing_cancel_button">Отмена</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
@@ -391,10 +398,9 @@
   <string name="most_read_list_card_title">В трендах</string>
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">%d день назад</item>
-    <item quantity="few">%d дня назад</item>
-    <item quantity="other">%d дней назад</item>
+    <item quantity="other">%d дня назад</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">сегодня</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
@@ -502,6 +508,7 @@
   <string name="on_this_day_card_title">В этот день</string>
   <string name="events_count_text" fuzzy="true">%1$s событий за %2$s—%3$d</string>
   <string name="this_year">Этот год</string>
+  <string name="back_to_top">Вернуться наверх</string>
   <plurals name="diff_years">
     <item quantity="one">В прошлом году</item>
     <item quantity="other">%d года назад</item>

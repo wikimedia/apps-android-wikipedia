@@ -42,6 +42,9 @@
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; katılımcıları</string>
   <string name="last_updated_text">Son güncelleme %s</string>
   <string name="talk_page_link_text">Tartışma</string>
+  <string name="edit_history_link_text">Düzenleme geçmişi</string>
+  <string name="map_view_link_text">Haritada görüntüle</string>
+  <string name="language_count_link_text" fuzzy="true">%d farklı dilde mevcut</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
@@ -143,7 +146,9 @@
   <string name="about_description">Vikipedi uygulaması hakkında</string>
   <string name="privacy_policy_description">Gizlilik politikası</string>
   <string name="terms_of_use_description">Kullanım koşulları</string>
+  <string name="about_wikipedia_url">https://tr.m.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
@@ -200,6 +205,7 @@
   <string name="preference_title_show_images">Resimleri göster</string>
   <string name="preference_summary_show_images">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
   <string name="read_more_section">Devamı</string>
+  <string name="about_article_section">Bu madde hakkında</string>
   <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
   <string name="gallery_error_draw_failed">Resim gösterilemedi.</string>
   <string name="license_title">%s için lisans</string>
@@ -274,10 +280,14 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Açık</string>
   <string name="color_theme_dark">Koyu</string>
+  <string name="color_theme_black">Siyah</string>
+  <string name="color_theme_test_title">Örnek metin</string>
+  <string name="preference_title_app_theme">Uygulama teması</string>
   <string name="preference_title_color_theme">Koyu tema</string>
   <string name="preference_summary_color_theme">Uygulamanın koyu renk temasına geçiş yapın</string>
   <string name="text_size_increase">Metin boyutunu büyüt</string>
   <string name="text_size_decrease">Metin boyutunu küçült</string>
+  <string name="text_size_percent_default">%s (Varsayılan)</string>
   <string name="nav_item_reading_lists">Listelerim</string>
   <string name="reading_list_untitled">Başlıksız</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
@@ -370,15 +380,19 @@
   <string name="most_read_list_card_title">Gündemdekiler</string>
   <string name="view_static_card_icon_content_description">Kart simgesi</string>
   <string name="view_card_news_title">Haberlerde</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Dün</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">dün</item>
     <item quantity="other">%d gün önce</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Bugün</string>
+  <string name="view_continue_reading_card_subtitle_today">bugün</string>
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
   <string name="view_offline_card_text">İçerik çevrimdışı iken yüklenemez.</string>
   <string name="view_featured_article_card_title">Seçkin madde</string>
   <string name="view_featured_article_footer_save_button_label">Kaydet</string>
+  <string name="feed_configure_menu_select_all">Tümünü seç</string>
+  <string name="feed_item_type_news">Güncel olaylar hakkındaki maddeler</string>
+  <string name="feed_item_type_on_this_day">Tarihte bugün gerçekleşen olaylar</string>
+  <string name="feed_configure_onboarding_action">Özelleştir</string>
   <string name="description_edit_text_hint">Başlık tanımı</string>
   <string name="description_edit_save">Yayımla</string>
   <string name="description_edit_add_description">Başlık tanımı ekle</string>
@@ -424,7 +438,7 @@
   <string name="offline_my_compilations">Çevrim dışı kütüphanemi yönet</string>
   <string name="offline_compilations_title">Çevrim dışı Kütüphane</string>
   <string name="offline_compilations_search_by_name">Madde paketlerini ada göre ara</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Kütüphanemdekiler (%d)</string>
+  <string name="offline_compilations_found_count">Çevrimdışı Kütüphanemdekiler (%d)</string>
   <string name="offline_compilations_add">Çevrim dışı Kütüphane\'ye ekle</string>
   <string name="remote_compilations_title">Çevrim dışı Kütüphane</string>
   <string name="remote_compilations_description">Çevrim dışı Kütüphane ile, artık madde gruplarını internet bağlantınız olmadığında okumak için indirebilirsiniz.</string>
@@ -432,6 +446,7 @@
   <string name="offline_compilation_detail_button_download">İndir • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Sil</string>
   <string name="remote_compilation_download">İndir</string>
+  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB boş</string>
   <string name="storage_used_by_compilations">Çevrimdışı Kütüphane tarafından kullanılıyor</string>
   <string name="storage_other_apps">Diğer uygulamalar</string>

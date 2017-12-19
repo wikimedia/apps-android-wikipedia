@@ -110,11 +110,11 @@
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="zero_charged_verbiage">免費訪問維基百科功能已不再提供。</string>
-  <string name="zero_warn_when_leaving">離開 Wikipedia Zero 時提示</string>
-  <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與 Wikipedia Zero 有合作夥伴關係，並且免除存取維基百科應用程式時的資料費用，請勾選此設定以幫助您知道您正在離開維基百科並可能被收取費用。</string>
-  <string name="zero_webpage_title">Wikipedia Zero 常見問題</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">離開 Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">離開維基百科零計劃時警告</string>
+  <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與維基百科零計劃有合作夥伴關係，並且免除存取維基百科應用程式時的資料費用，請勾選此設定以幫助您知道您正在離開維基百科並可能被收取費用。</string>
+  <string name="zero_webpage_title">維基百科零計劃常見問題</string>
+  <string name="zero_wikipedia_zero_heading">維基百科零計劃</string>
+  <string name="zero_interstitial_title">離開維基百科零計劃</string>
   <string name="zero_interstitial_leave_app">可能會收資料費用。繼續前往至外部網站嗎？</string>
   <string name="zero_interstitial_continue">離開</string>
   <string name="zero_interstitial_cancel">留在這裡</string>
@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
   <string name="find_next">尋找下一筆</string>
   <string name="find_previous">尋找上一筆</string>
+  <string name="find_first_occurence">這是首次出現</string>
+  <string name="find_last_occurence">這是最後出現</string>
   <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。確定要發佈嗎？</string>
   <string name="abusefilter_title_disallow">不能發佈此編輯。請返回並修正。</string>
   <string name="abusefilter_text_warn">自動過濾器認為您的編輯缺乏建設性。 可能由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 空白的文章內容或含有垃圾訊息&lt;br /&gt;· 含有無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
@@ -268,7 +270,7 @@
   <string name="preference_summary_dim_dark_mode_images">當使用暗黑主題時減少圖片亮度</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在暗黑主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
-  <string name="preference_summary_prefer_offline_content">依載入可用在離線狀況下的條目；優先於最新版本條目來儲存資料使用量</string>
+  <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
   <string name="preference_title_enable_offline_library">啟用離線圖書館</string>
   <string name="preference_summary_enable_offline_library">存取已下載到您裝置的維基百科條目包（以 .ZIM 檔案格式顯示）能讓您處於離線狀態時仍可進行閱讀。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
@@ -464,7 +466,7 @@
   <string name="description_edit_help_tips_example2">地球第一高峰</string>
   <string name="description_edit_help_tips_example2_hint">有關聖母峰條目的標題說明</string>
   <string name="description_edit_help_more_info">更多資訊</string>
-  <string name="description_edit_help_meta_info">描述會保管在維基數據，那是維基媒體基金會計畫的另一個專案；其為自由、共同作業、多語言的二級資料庫，為維基百科及其他相類專案提供支援。</string>
+  <string name="description_edit_help_meta_info">描述會被保管在維基數據，那是維基媒體基金會計畫的另一個專案，是個自由、共同作業、多語言的二級資料庫，支援著維基百科及其他相類專案。</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者不認同而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
@@ -481,7 +483,7 @@
   <string name="offline_compilations_found_count">在我的離線圖書館（%d）</string>
   <string name="offline_compilations_add">添加至我的離線圖書館</string>
   <string name="remote_compilations_title">離線圖書館</string>
-  <string name="remote_compilations_description">透過離線圖書館；讓您可現在就下載條目包於無法使用網路情況下閱讀內容。</string>
+  <string name="remote_compilations_description">透過離線圖書館，來讓您可現在就下載條目包於無法使用網路情況下閱讀內容。</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
   <string name="offline_compilation_detail_button_download">下載 • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">移除</string>
@@ -505,9 +507,9 @@
   <string name="offline_library_title">離線圖書館</string>
   <string name="offline_library_empty_title">您的離線圖書館裡無任何事物</string>
   <string name="offline_library_empty_description">現在就挑選維基百科的條目包來下載，這可讓您事後自由存取資料。</string>
-  <string name="offline_library_empty_description_sideload">在您離線圖書館裡的「條目包」；是種事先打包好的條目集合，可在您的裝置方便儲存，這可讓您在離線時繼續閱讀。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">在您離線圖書館裡的「條目包」，是種事先打包好的條目集合，可在您的裝置方便儲存，這可讓您在離線時繼續閱讀。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">在您圖書館裡的條目包能讓您在離線時仍可繼續閱讀。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
-  <string name="offline_library_data_usage_hint">想要儲存在資料用量裡？在設定裡的「首選離線內容」來挑選出即使是在已連線狀態下；優先顯示出的離線條目。&lt;a href=\"#settings\"&gt;前往設定&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">想要儲存在資料用量裡？在設定裡的「首選離線內容」來挑選出即使是在已連線狀態下，優先顯示出的離線條目。&lt;a href=\"#settings\"&gt;前往設定&lt;/a&gt;</string>
   <string name="offline_library_empty_search">搜尋離線圖書館</string>
   <string name="offline_library_search_results_state">從您的離線圖書館來搜尋結果</string>
   <string name="offline_library_onboarding_action">了解更多</string>
@@ -519,18 +521,18 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">當您無法存取網路時，在您的離線圖書館上保持閱讀和條目搜尋。</string>
   <string name="offline_library_onboarding_store_knowledge_title">儲存更多知識</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">僅可能下載您裝置能處理的維基百科內容。離線圖書館也可在額外儲存庫上存取條目包。</string>
-  <string name="offline_library_main_page_hint_html">此主頁面提供此條目包概要內容。&lt;br /&gt;&lt;br /&gt;您也可以於您的離線圖書館裡搜尋在離線時的可用條目；來探索任何條目包內容。</string>
+  <string name="offline_library_main_page_hint_html">此主頁面提供此條目包概要內容。&lt;br /&gt;&lt;br /&gt;您也可以於您的離線圖書館裡搜尋在離線時的可用條目，來探索任何條目包內容。</string>
   <string name="onboarding_skip">略過</string>
   <string name="onboarding_continue">繼續</string>
   <string name="onboarding_get_started">入門</string>
   <string name="onboarding_welcome_title">自由的百科全書</string>
-  <string name="onboarding_welcome_text">維基百科是透過志願者們所協作編寫，並且包含超過 4000 多萬條；以將近 300 種語言所建立的條目。&lt;a href=\"#about\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="onboarding_welcome_text">維基百科是透過志願者們所協作編寫，並且包含超過 4000 多萬條，以將近 300 種語言所建立的條目。&lt;a href=\"#about\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_explore_title">探索的新方法</string>
   <string name="onboarding_explore_text">一腳跳進不斷更新探索訊息來源的維基百科兔子洞裡頭。&lt;br/&gt; &lt;b&gt;自定義&lt;/b&gt;訊息來源在您感興趣的項目 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;學習歷史事件、或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
   <string name="onboarding_save_to_reading_lists_title">儲存至閱讀清單</string>
   <string name="onboarding_save_to_reading_lists_text">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀。</string>
   <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
-  <string name="onboarding_reading_list_sync_text">從條目建立閱讀清單可讓您於事後閱讀；即使您是在離線的狀態之下。&lt;a href=\"#login\"&gt;登入或建立&lt;/a&gt;您的維基百科帳號以維持您的閱讀清單備份。</string>
+  <string name="onboarding_reading_list_sync_text">從條目建立閱讀清單可讓您於事後閱讀，即使您是在離線的狀態之下。&lt;a href=\"#login\"&gt;登入或建立&lt;/a&gt;您的維基百科帳號以維持您的閱讀清單備份。</string>
   <string name="onboarding_analytics_title">寄送匿名資料</string>
   <string name="onboarding_analytics_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#offline\"&gt;了解更多&lt;/a&gt;</string>
