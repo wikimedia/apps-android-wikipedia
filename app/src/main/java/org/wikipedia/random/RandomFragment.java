@@ -25,10 +25,9 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
-import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 
@@ -149,16 +148,15 @@ public class RandomFragment extends Fragment {
     }
 
     private void updateSaveShareButton(@NonNull PageTitle title) {
-        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(title),
-                new CallbackTask.DefaultCallback<ReadingListPage>() {
-                    @Override public void success(@Nullable ReadingListPage page) {
-                        saveButtonState = page != null;
-                        saveButton.setImageResource(saveButtonState
-                                ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
-                    }
-                });
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().findPageInAnyList(title), new CallbackTask.DefaultCallback<ReadingListPage>() {
+            @Override
+            public void success(ReadingListPage page) {
+                saveButtonState = page != null;
+                saveButton.setImageResource(saveButtonState
+                        ? R.drawable.ic_bookmark_white_24dp : R.drawable.ic_bookmark_border_white_24dp);
+            }
+        });
     }
-
 
     @Nullable private PageTitle getTopTitle() {
         FragmentManager fm = getFragmentManager();

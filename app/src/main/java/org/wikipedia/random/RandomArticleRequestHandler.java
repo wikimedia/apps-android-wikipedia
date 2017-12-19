@@ -1,14 +1,14 @@
 package org.wikipedia.random;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.offline.OfflineManager;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.page.database.ReadingListPageDao;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.log.L;
 
 import retrofit2.Call;
@@ -48,11 +48,11 @@ public final class RandomArticleRequestHandler{
     }
 
     private static void getRandomPageFromReadingLists(@NonNull final Callback cb, @NonNull final Throwable throwableIfEmpty) {
-        ReadingListPageDao.instance().randomPage(new CallbackTask.DefaultCallback<PageTitle>() {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().getRandomPage(), new CallbackTask.DefaultCallback<ReadingListPage>() {
             @Override
-            public void success(@Nullable PageTitle title) {
-                if (title != null) {
-                    cb.onSuccess(title);
+            public void success(ReadingListPage page) {
+                if (page != null) {
+                    cb.onSuccess(ReadingListPage.toPageTitle(page));
                 } else {
                     cb.onError(throwableIfEmpty);
                 }

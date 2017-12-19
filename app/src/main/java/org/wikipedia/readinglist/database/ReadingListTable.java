@@ -2,112 +2,74 @@ package org.wikipedia.readinglist.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.ReadingListContract;
-import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.database.ReadingListPageDao;
-import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
-import org.wikipedia.util.FileUtil;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadingListTable extends DatabaseTable<ReadingListRow> {
-    private static final int DB_VER_INTRODUCED = 13;
-    private static final int DB_VER_READING_LISTS_REORGANIZED = 17;
+public class ReadingListTable extends DatabaseTable<ReadingList> {
+    private static final int DB_VER_INTRODUCED = 18;
 
     public ReadingListTable() {
-        super(ReadingListContract.TABLE, ReadingListContract.List.URI);
+        super(ReadingListContract.TABLE, ReadingListContract.URI);
     }
 
-    @Override public ReadingListRow fromCursor(@NonNull Cursor cursor) {
-        return ReadingListRow
-                .builder()
-                .key(ReadingListContract.List.KEY.val(cursor))
-                .title(ReadingListContract.List.TITLE.val(cursor))
-                .mtime(ReadingListContract.List.MTIME.val(cursor))
-                .atime(ReadingListContract.List.ATIME.val(cursor))
-                .description(ReadingListContract.List.DESCRIPTION.val(cursor))
-                .build();
+    @Override public ReadingList fromCursor(@NonNull Cursor cursor) {
+        ReadingList list = new ReadingList(ReadingListContract.Col.TITLE.val(cursor),
+                ReadingListContract.Col.DESCRIPTION.val(cursor));
+        list.id(ReadingListContract.Col.ID.val(cursor));
+        list.atime(ReadingListContract.Col.ATIME.val(cursor));
+        list.mtime(ReadingListContract.Col.MTIME.val(cursor));
+        list.sizeBytes(ReadingListContract.Col.SIZEBYTES.val(cursor));
+        list.dirty(ReadingListContract.Col.DIRTY.val(cursor) != 0);
+        list.remoteId(ReadingListContract.Col.REMOTEID.val(cursor));
+        return list;
     }
 
     @NonNull @Override public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case DB_VER_INTRODUCED:
                 List<Column<?>> cols = new ArrayList<>();
-                cols.add(ReadingListContract.List.ID);
-                cols.add(ReadingListContract.List.KEY);
-                cols.add(ReadingListContract.List.TITLE);
-                cols.add(ReadingListContract.List.MTIME);
-                cols.add(ReadingListContract.List.ATIME);
-                cols.add(ReadingListContract.List.DESCRIPTION);
+                cols.add(ReadingListContract.Col.ID);
+                cols.add(ReadingListContract.Col.TITLE);
+                cols.add(ReadingListContract.Col.MTIME);
+                cols.add(ReadingListContract.Col.ATIME);
+                cols.add(ReadingListContract.Col.DESCRIPTION);
+                cols.add(ReadingListContract.Col.SIZEBYTES);
+                cols.add(ReadingListContract.Col.DIRTY);
+                cols.add(ReadingListContract.Col.REMOTEID);
                 return cols.toArray(new Column<?>[cols.size()]);
             default:
                 return super.getColumnsAdded(version);
         }
     }
 
-    @Override
-    public void upgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
-        super.upgradeSchema(db, fromVersion, toVersion);
-        if (toVersion == DB_VER_READING_LISTS_REORGANIZED) {
-            reorganizeReadingListCache();
-        }
-    }
-
-    @Override protected ContentValues toContentValues(@NonNull ReadingListRow row) {
+    @Override protected ContentValues toContentValues(@NonNull ReadingList row) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ReadingListContract.List.KEY.getName(), row.key());
-        contentValues.put(ReadingListContract.List.TITLE.getName(), row.getTitle());
-        contentValues.put(ReadingListContract.List.MTIME.getName(), row.mtime());
-        contentValues.put(ReadingListContract.List.ATIME.getName(), row.atime());
-        contentValues.put(ReadingListContract.List.DESCRIPTION.getName(), row.getDescription());
+        contentValues.put(ReadingListContract.Col.TITLE.getName(), row.title());
+        contentValues.put(ReadingListContract.Col.MTIME.getName(), row.mtime());
+        contentValues.put(ReadingListContract.Col.ATIME.getName(), row.atime());
+        contentValues.put(ReadingListContract.Col.DESCRIPTION.getName(), row.description());
+        contentValues.put(ReadingListContract.Col.SIZEBYTES.getName(), row.sizeBytes());
+        contentValues.put(ReadingListContract.Col.DIRTY.getName(), row.dirty() ? 1 : 0);
+        contentValues.put(ReadingListContract.Col.REMOTEID.getName(), row.remoteId());
         return contentValues;
     }
 
-    @Override protected String getPrimaryKeySelection(@NonNull ReadingListRow row,
+    @Override protected String getPrimaryKeySelection(@NonNull ReadingList row,
                                                       @NonNull String[] selectionArgs) {
-        return super.getPrimaryKeySelection(row, ReadingListContract.List.SELECTION);
+        return super.getPrimaryKeySelection(row, ReadingListContract.Col.SELECTION);
     }
 
-    @Override protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull ReadingListRow row) {
-        return new String[] {row.key()};
+    @Override protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull ReadingList row) {
+        return new String[] {row.title()};
     }
 
     @Override protected int getDBVersionIntroducedAt() {
         return DB_VER_INTRODUCED;
-    }
-
-    private void reorganizeReadingListCache() {
-        CallbackTask.execute(new CallbackTask.Task<Void>() {
-            @Override public Void execute() throws Throwable {
-                // Completely remove any contents from the old "savedpages" directory, since they
-                // are now useless.
-                FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), "savedpages"));
-                // Mark all reading list pages as outdated, so that they will be re-downloaded,
-                // and thus re-cached in our new style, along with the newly-added size information.
-                Cursor c = ReadingListPageDao.instance().allPages();
-                try {
-                    if (c.getCount() == 0) {
-                        return null;
-                    }
-                    while (c.moveToNext()) {
-                        ReadingListPage page = ReadingListPage.fromCursor(c);
-                        ReadingListPageDao.instance().markOutdated(page);
-                    }
-                } finally {
-                    c.close();
-                }
-                ReadingListSynchronizer.instance().syncSavedPages();
-                return null;
-            }
-        }, null);
     }
 }

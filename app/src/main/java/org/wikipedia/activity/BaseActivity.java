@@ -29,8 +29,8 @@ import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.offline.Compilation;
 import org.wikipedia.offline.OfflineManager;
-import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.recurring.RecurringTasksExecutor;
+import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -198,7 +198,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if (DeviceUtil.isOnline()) {
                 onGoOnline();
-                ReadingListSynchronizer.instance().syncSavedPages();
+                SavedPageSyncService.enqueue();
             } else {
                 onGoOffline();
             }
@@ -220,7 +220,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         @Subscribe public void on(NetworkConnectEvent event) {
-            ReadingListSynchronizer.instance().syncSavedPages();
+            SavedPageSyncService.enqueue();
         }
 
         @Subscribe public void on(ThemeChangeEvent event) {

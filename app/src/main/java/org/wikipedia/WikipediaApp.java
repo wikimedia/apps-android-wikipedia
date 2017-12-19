@@ -43,10 +43,6 @@ import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.login.UserIdClient;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.readinglist.database.ReadingListRow;
-import org.wikipedia.readinglist.page.ReadingListPageRow;
-import org.wikipedia.readinglist.page.database.ReadingListPageHttpRow;
-import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
@@ -80,6 +76,7 @@ public class WikipediaApp extends Application {
 
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
+    private Handler mainThreadHandler;
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
@@ -295,14 +292,6 @@ public class WikipediaApp extends Application {
                 client = new DatabaseClient<>(this, UserOptionRow.DATABASE_TABLE);
             } else if (cls.equals(UserOptionRow.class)) {
                 client = new DatabaseClient<>(this, UserOptionRow.HTTP_DATABASE_TABLE);
-            } else if (cls.equals(ReadingListPageRow.class)) {
-                client = new DatabaseClient<>(this, ReadingListPageRow.DATABASE_TABLE);
-            } else if (cls.equals(ReadingListPageHttpRow.class)) {
-                client = new DatabaseClient<>(this, ReadingListPageRow.HTTP_DATABASE_TABLE);
-            } else if (cls.equals(ReadingListPageDiskRow.class)) {
-                client = new DatabaseClient<>(this, ReadingListPageRow.DISK_DATABASE_TABLE);
-            } else if (cls.equals(ReadingListRow.class)) {
-                client = new DatabaseClient<>(this, ReadingListRow.DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }
@@ -382,8 +371,11 @@ public class WikipediaApp extends Application {
         }
     }
 
-    public void runOnMainThread(Runnable runnable) {
-        new Handler(getMainLooper()).post(runnable);
+    public Handler getMainThreadHandler() {
+        if (mainThreadHandler == null) {
+            mainThreadHandler = new Handler(getMainLooper());
+        }
+        return mainThreadHandler;
     }
 
     /**

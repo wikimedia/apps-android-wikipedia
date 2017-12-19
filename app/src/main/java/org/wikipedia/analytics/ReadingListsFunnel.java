@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.database.ReadingList;
 
 public class ReadingListsFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppReadingLists";
@@ -30,9 +30,9 @@ public class ReadingListsFunnel extends Funnel {
     public void logAddToList(ReadingList list, int listCount,
                              AddToReadingListDialog.InvokeSource source) {
         log(
-                "action", list.getPages().isEmpty() ? "addtonew" : "addtoexisting",
+                "action", list.pages().isEmpty() ? "addtonew" : "addtoexisting",
                 "addsource", source.code(),
-                "itemcount", list.getPages().size(),
+                "itemcount", list.pages().size(),
                 "listcount", listCount
         );
     }
@@ -40,7 +40,7 @@ public class ReadingListsFunnel extends Funnel {
     public void logModifyList(ReadingList list, int listCount) {
         log(
                 "action", "modifylist",
-                "itemcount", list.getPages().size(),
+                "itemcount", list.pages().size(),
                 "listcount", listCount
         );
     }
@@ -48,7 +48,7 @@ public class ReadingListsFunnel extends Funnel {
     public void logDeleteList(ReadingList list, int listCount) {
         log(
                 "action", "deletelist",
-                "itemcount", list.getPages().size(),
+                "itemcount", list.pages().size(),
                 "listcount", listCount
         );
     }
@@ -56,7 +56,7 @@ public class ReadingListsFunnel extends Funnel {
     public void logDeleteItem(ReadingList list, int listCount) {
         log(
                 "action", "deleteitem",
-                "itemcount", list.getPages().size(),
+                "itemcount", list.pages().size(),
                 "listcount", listCount
         );
     }

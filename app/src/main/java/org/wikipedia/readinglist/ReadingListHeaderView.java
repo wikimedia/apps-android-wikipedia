@@ -15,10 +15,13 @@ import android.widget.FrameLayout;
 import com.facebook.drawee.drawable.ScalingUtils;
 
 import org.wikipedia.R;
+import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -61,7 +64,7 @@ public class ReadingListHeaderView extends FrameLayout {
 
     public void setReadingList(@NonNull ReadingList readingList) {
         this.readingList = readingList;
-        if (readingList.getPages().isEmpty()) {
+        if (readingList.pages().isEmpty()) {
             imageContainerView.setVisibility(GONE);
             emptyView.setVisibility(VISIBLE);
         } else {
@@ -99,8 +102,17 @@ public class ReadingListHeaderView extends FrameLayout {
             return;
         }
         clearThumbnails();
-        for (int i = 0; i < readingList.getPages().size() && i < imageViews.size(); ++i) {
-            loadThumbnail(imageViews.get(i), readingList.getPages().get(i).thumbnailUrl());
+        List<String> thumbUrls = new ArrayList<>();
+        for (ReadingListPage page : readingList.pages()) {
+            if (!TextUtils.isEmpty(page.thumbUrl())) {
+                thumbUrls.add(page.thumbUrl());
+                if (thumbUrls.size() > imageViews.size()) {
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < thumbUrls.size() && i < imageViews.size(); ++i) {
+            loadThumbnail(imageViews.get(i), thumbUrls.get(i));
         }
     }
 

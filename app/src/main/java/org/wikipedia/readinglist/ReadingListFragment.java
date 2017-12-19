@@ -1,6 +1,5 @@
 package org.wikipedia.readinglist;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -41,11 +40,10 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
-import org.wikipedia.readinglist.page.database.ReadingListPageDao;
+import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
-import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
@@ -67,8 +65,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_TITLE;
-import static org.wikipedia.readinglist.ReadingLists.SORT_BY_NAME_ASC;
+import static org.wikipedia.readinglist.ReadingListActivity.EXTRA_READING_LIST_ID;
 
 public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
     @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
@@ -81,15 +78,16 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private Unbinder unbinder;
 
     @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
+
     @Nullable private ReadingList readingList;
-    @Nullable private String readingListTitle;
+    private long readingListId;
+
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
     private ReadingListItemView headerView;
     @Nullable private ActionMode actionMode;
     private AppBarListener appBarListener = new AppBarListener();
     private boolean showOverflowMenu;
 
-    @NonNull private ReadingLists readingLists = new ReadingLists();
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
     private HeaderCallback headerCallback = new HeaderCallback();
     private ItemCallback itemCallback = new ItemCallback();
@@ -101,10 +99,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private String currentSearchQuery;
 
     @NonNull
-    public static ReadingListFragment newInstance(@NonNull String listTitle) {
+    public static ReadingListFragment newInstance(long listId) {
         ReadingListFragment instance = new ReadingListFragment();
         Bundle args = new Bundle();
-        args.putString(EXTRA_READING_LIST_TITLE, listTitle);
+        args.putLong(EXTRA_READING_LIST_ID, listId);
         instance.setArguments(args);
         return instance;
     }
@@ -138,7 +136,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         headerView.setShowDescriptionEmptyHint(true);
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance);
 
-        readingListTitle = getArguments().getString(EXTRA_READING_LIST_TITLE);
+        readingListId = getArguments().getLong(EXTRA_READING_LIST_ID);
 
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
 
@@ -159,9 +157,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     @Override public void onDestroyView() {
         WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
-
-        readingList = null;
-        readingLists.set(Collections.<ReadingList>emptyList());
         recyclerView.setAdapter(null);
         appBarLayout.removeOnOffsetChangedListener(appBarListener);
         unbinder.unbind();
@@ -182,9 +177,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         super.onPrepareOptionsMenu(menu);
         MenuItem sortByNameItem = menu.findItem(R.id.menu_sort_by_name);
         MenuItem sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent);
-        int sortMode = Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
-        sortByNameItem.setTitle(sortMode == ReadingLists.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
-        sortByRecentItem.setTitle(sortMode == ReadingLists.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+        int sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC);
+        sortByNameItem.setTitle(sortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
+        sortByRecentItem.setTitle(sortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
     }
 
     @Override
@@ -194,10 +189,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 getAppCompatActivity().startSupportActionMode(searchActionModeCallback);
                 return true;
             case R.id.menu_sort_by_name:
-                setSortMode(ReadingLists.SORT_BY_NAME_ASC, ReadingLists.SORT_BY_NAME_DESC);
+                setSortMode(ReadingList.SORT_BY_NAME_ASC, ReadingList.SORT_BY_NAME_DESC);
                 return true;
             case R.id.menu_sort_by_recent:
-                setSortMode(ReadingLists.SORT_BY_RECENT_DESC, ReadingLists.SORT_BY_RECENT_ASC);
+                setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC);
                 return true;
             case R.id.menu_reading_list_rename:
                 rename();
@@ -210,12 +205,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 return true;
             case R.id.menu_reading_list_save_all_offline:
                 if (readingList != null) {
-                    saveSelectedPagesForOffline(readingList.getPages());
+                    saveSelectedPagesForOffline(readingList.pages());
                 }
                 return true;
             case R.id.menu_reading_list_remove_all_offline:
                 if (readingList != null) {
-                    removeSelectedPagesFromOffline(readingList.getPages());
+                    removeSelectedPagesFromOffline(readingList.pages());
                 }
                 return true;
             default:
@@ -231,38 +226,24 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (readingList == null) {
             return;
         }
-        emptyView.setVisibility(readingList.getPages().isEmpty() ? View.VISIBLE : View.GONE);
+        emptyView.setVisibility(readingList.pages().isEmpty() ? View.VISIBLE : View.GONE);
         headerView.setReadingList(readingList, ReadingListItemView.Description.DETAIL);
         headerImageView.setReadingList(readingList);
-        readingList.sort(Prefs.getReadingListPageSortMode(SORT_BY_NAME_ASC));
+        ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
-        updateListDetailsAsync(readingList);
-    }
-
-    private void updateListDetailsAsync(@NonNull ReadingList list) {
-        ReadingListPageDetailFetcher.updateInfo(list, new ReadingListPageDetailFetcher.Callback() {
-            @Override public void success() {
-                if (!isAdded()) {
-                    return;
-                }
-                adapter.notifyDataSetChanged();
-            }
-            @Override public void failure(Throwable e) {
-            }
-        });
     }
 
     private void updateReadingListData() {
-        ReadingList.DAO.queryMruLists(null, new CallbackTask.DefaultCallback<List<ReadingList>>() {
-            @Override public void success(List<ReadingList> lists) {
+        CallbackTask.execute(() -> ReadingListDbHelper.instance().getFullListById(readingListId), new CallbackTask.DefaultCallback<ReadingList>() {
+            @Override
+            public void success(ReadingList list) {
                 if (getActivity() == null) {
                     return;
                 }
-                readingLists.set(lists);
-                readingList = readingLists.get(readingListTitle);
+                readingList = list;
                 if (readingList != null) {
                     searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results,
-                            readingList.getTitle()));
+                            readingList.title()));
                 }
                 update();
             }
@@ -276,10 +257,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         currentSearchQuery = query;
         displayedPages.clear();
         if (TextUtils.isEmpty(query)) {
-            displayedPages.addAll(readingList.getPages());
+            displayedPages.addAll(readingList.pages());
         } else {
             query = query.toUpperCase(Locale.getDefault());
-            for (ReadingListPage page : readingList.getPages()) {
+            for (ReadingListPage page : readingList.pages()) {
                 if (page.title().toUpperCase(Locale.getDefault())
                         .contains(query.toUpperCase(Locale.getDefault()))) {
                     displayedPages.add(page);
@@ -303,7 +284,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void setSortMode(int sortModeAsc, int sortModeDesc) {
-        int sortMode = Prefs.getReadingListPageSortMode(ReadingLists.SORT_BY_NAME_ASC);
+        int sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC);
         if (sortMode != sortModeAsc) {
             sortMode = sortModeAsc;
         } else {
@@ -327,16 +308,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 : String.format(getString(R.string.reading_list_items_deleted), pages.size());
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), message,
                 FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for (ReadingListPage page : pages) {
-                    ReadingList.DAO.addTitleToList(readingList, page, true);
-                    ReadingListSynchronizer.instance().bumpRevAndSync();
-                    ReadingListPageDao.instance().markOutdated(page);
-                }
-                update();
-            }
+        snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
+            ReadingListDbHelper.instance().addPagesToList(readingList, pages);
+            readingList.pages().addAll(pages);
+            update();
         });
         snackbar.show();
     }
@@ -345,17 +320,21 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (readingList == null) {
             return;
         }
-        ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.getTitle(),
-                readingLists.getTitlesExcept(readingList.getTitle()),
-                new ReadingListTitleDialog.Callback() {
-                    @Override
-                    public void onSuccess(@NonNull CharSequence text) {
-                        readingListTitle = text.toString();
-                        ReadingList.DAO.renameAndSaveListInfo(readingList, readingListTitle);
-                        ReadingListSynchronizer.instance().bumpRevAndSync();
-                        update();
-                        funnel.logModifyList(readingList, readingLists.size());
-                    }
+
+        List<ReadingList> tempLists = ReadingListDbHelper.instance().getAllListsWithoutContents();
+        List<String> existingTitles = new ArrayList<>();
+        for (ReadingList list : tempLists) {
+            existingTitles.add(list.title());
+        }
+        existingTitles.remove(readingList.title());
+
+        ReadingListTitleDialog.readingListTitleDialog(getContext(), readingList.title(), existingTitles,
+                text -> {
+                    readingList.title(text.toString());
+                    ReadingListDbHelper.instance().updateList(readingList);
+
+                    update();
+                    funnel.logModifyList(readingList, 0);
                 }).show();
     }
 
@@ -367,16 +346,17 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             @Override
             public void onShow(@NonNull TextInputDialog dialog) {
                 dialog.setHint(R.string.reading_list_description_hint);
-                dialog.setText(readingList.getDescription());
+                dialog.setText(readingList.description());
             }
 
             @Override
             public void onSuccess(@NonNull CharSequence text) {
-                readingList.setDescription(text.toString());
-                ReadingList.DAO.saveListInfo(readingList);
-                ReadingListSynchronizer.instance().bumpRevAndSync();
+
+                readingList.description(text.toString());
+                ReadingListDbHelper.instance().updateList(readingList);
+
                 update();
-                funnel.logModifyList(readingList, readingLists.size());
+                funnel.logModifyList(readingList, 0);
             }
         }).show();
     }
@@ -400,7 +380,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (page == null) {
             return;
         }
-        page.setSelected(!page.isSelected());
+        page.selected(!page.selected());
         int selectedCount = getSelectedPageCount();
         if (selectedCount == 0) {
             finishActionMode();
@@ -413,7 +393,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private int getSelectedPageCount() {
         int selectedCount = 0;
         for (ReadingListPage page : displayedPages) {
-            if (page.isSelected()) {
+            if (page.selected()) {
                 selectedCount++;
             }
         }
@@ -424,8 +404,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (readingList == null) {
             return;
         }
-        for (ReadingListPage page : readingList.getPages()) {
-            page.setSelected(false);
+        for (ReadingListPage page : readingList.pages()) {
+            page.selected(false);
         }
         adapter.notifyDataSetChanged();
     }
@@ -437,9 +417,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             return result;
         }
         for (ReadingListPage page : displayedPages) {
-            if (page.isSelected()) {
+            if (page.selected()) {
                 result.add(page);
-                page.setSelected(false);
+                page.selected(false);
             }
         }
         return result;
@@ -448,11 +428,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private void deleteSelectedPages() {
         List<ReadingListPage> selectedPages = getSelectedPages();
         if (!selectedPages.isEmpty()) {
-            for (ReadingListPage page : selectedPages) {
-                ReadingList.DAO.removeTitleFromList(readingList, page);
-            }
-            ReadingListSynchronizer.instance().bumpRevAndSync();
-            funnel.logDeleteItem(readingList, readingLists.size());
+
+            ReadingListDbHelper.instance().markPagesForDeletion(selectedPages);
+            readingList.pages().removeAll(selectedPages);
+
+            funnel.logDeleteItem(readingList, 0);
             showDeleteItemsUndoSnackbar(readingList, selectedPages);
             update();
         }
@@ -460,12 +440,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void removeSelectedPagesFromOffline(List<ReadingListPage> selectedPages) {
         if (!selectedPages.isEmpty()) {
-            for (ReadingListPage page : selectedPages) {
-                if (page.isOffline()) {
-                    ReadingListData.instance().setPageOffline(page, false);
-                }
-            }
-            ReadingListSynchronizer.instance().sync();
+            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, false);
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, false);
             adapter.notifyDataSetChanged();
             update();
@@ -474,12 +449,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void saveSelectedPagesForOffline(List<ReadingListPage> selectedPages) {
         if (!selectedPages.isEmpty()) {
-            for (ReadingListPage page : selectedPages) {
-                if (!page.isOffline()) {
-                    ReadingListData.instance().setPageOffline(page, true);
-                }
-            }
-            ReadingListSynchronizer.instance().sync();
+            ReadingListDbHelper.instance().markPagesForOffline(selectedPages, true);
             showMultiSelectOfflineStateChangeSnackbar(selectedPages, true);
             adapter.notifyDataSetChanged();
             update();
@@ -491,7 +461,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (!selectedPages.isEmpty()) {
             List<PageTitle> titles = new ArrayList<>();
             for (ReadingListPage page : selectedPages) {
-                titles.add(ReadingListDaoProxy.pageTitle(page));
+                titles.add(ReadingListPage.toPageTitle(page));
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
                     AddToReadingListDialog.newInstance(titles,
@@ -505,28 +475,52 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             return;
         }
         showDeleteItemsUndoSnackbar(readingList, Collections.singletonList(page));
-        ReadingList.DAO.removeTitleFromList(readingList, page);
-        ReadingListSynchronizer.instance().bumpRevAndSync();
-        funnel.logDeleteItem(readingList, readingLists.size());
+        ReadingListDbHelper.instance().markPageForDeletion(page);
+        readingList.pages().remove(page);
+        funnel.logDeleteItem(readingList, 0);
         update();
     }
 
     private void delete() {
         if (readingList != null) {
             startActivity(MainActivity.newIntent(getContext())
-                    .putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, readingList.getTitle()));
+                    .putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, readingList.title()));
             getActivity().finish();
         }
     }
 
     @Override
     public void onToggleItemOffline(int pageIndex) {
-        ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
+        ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
         if (page == null) {
             return;
         }
-        if (page.isOffline()) {
-            ReadingList.DAO.anyListContainsTitleAsync(page.key(), new PageListCountCallback(page));
+        if (page.offline()) {
+            // If the page belongs to more than one list, then warn the user.
+            CallbackTask.execute(() -> {
+                List<ReadingListPage> occurrences = ReadingListDbHelper.instance().getAllPageOccurrences(ReadingListPage.toPageTitle(page));
+                return ReadingListDbHelper.instance().getListsFromPageOccurrences(occurrences);
+            }, new CallbackTask.DefaultCallback<List<ReadingList>>() {
+                @SuppressWarnings("checkstyle:magicnumber")
+                @Override public void success(List<ReadingList> lists) {
+                    if (!isAdded()) {
+                        return;
+                    }
+                    if (lists.size() > 1) {
+                        AlertDialog dialog = new AlertDialog.Builder(getContext())
+                                .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
+                                .setMessage(getConfirmToggleOfflineMessage(page, lists))
+                                .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline, (dialog1, which) -> toggleOffline(page))
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .create();
+                        dialog.show();
+                        TextView text = dialog.findViewById(android.R.id.message);
+                        text.setLineSpacing(0, 1.3f);
+                    } else {
+                        toggleOffline(page);
+                    }
+                }
+            });
         } else {
             toggleOffline(page);
         }
@@ -534,61 +528,44 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     @Override
     public void onShareItem(int pageIndex) {
-        ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
+        ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
         if (page != null) {
-            ShareUtil.shareText(getContext(), ReadingListDaoProxy.pageTitle(page));
+            ShareUtil.shareText(getContext(), ReadingListPage.toPageTitle(page));
         }
     }
 
     @Override
     public void onAddItemToOther(int pageIndex) {
-        ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
+        ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
         if (page != null) {
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    AddToReadingListDialog.newInstance(ReadingListDaoProxy.pageTitle(page),
+                    AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
                             AddToReadingListDialog.InvokeSource.READING_LIST_ACTIVITY));
         }
     }
 
     @Override
     public void onDeleteItem(int pageIndex) {
-        ReadingListPage page = readingList == null ? null : readingList.get(pageIndex);
+        ReadingListPage page = readingList == null ? null : readingList.pages().get(pageIndex);
         deleteSinglePage(page);
     }
 
     private void toggleOffline(@NonNull ReadingListPage page) {
-        ReadingListData.instance().setPageOffline(page, !page.isOffline());
+        ReadingListDbHelper.instance().markPageForOffline(page, !page.offline());
         if (getActivity() != null) {
-            FeedbackUtil.showMessage(getActivity(), page.isOffline()
+            FeedbackUtil.showMessage(getActivity(), page.offline()
                     ? getQuantityString(R.plurals.reading_list_article_offline_message, 1)
                     : getQuantityString(R.plurals.reading_list_article_not_offline_message, 1));
             adapter.notifyDataSetChanged();
-            ReadingListSynchronizer.instance().syncSavedPages();
+            update();
         }
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
-    private void showMultiListPageConfirmToggleDialog(@NonNull final ReadingListPage page) {
-        if (getActivity() == null) {
-            return;
-        }
-        AlertDialog dialog = new AlertDialog.Builder(getContext())
-                .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
-                .setMessage(getConfirmToggleOfflineMessage(page))
-                .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline,
-                        new ConfirmRemoveFromOfflineListener(page))
-                .setNegativeButton(android.R.string.cancel, null)
-                .create();
-        dialog.show();
-        TextView text = dialog.findViewById(android.R.id.message);
-        text.setLineSpacing(0, 1.3f);
-    }
-
-    @NonNull private Spanned getConfirmToggleOfflineMessage(@NonNull ReadingListPage page) {
+    @NonNull private Spanned getConfirmToggleOfflineMessage(@NonNull ReadingListPage page, @NonNull List<ReadingList> lists) {
         String result = getString(R.string.reading_list_confirm_remove_article_from_offline_message,
                 "<b>" +  page.title() + "</b>");
-        for (String key : page.listKeys()) {
-            result += "<br>&nbsp;&nbsp;<b>&#8226; " + ReadingListDaoProxy.listName(key) + "</b>";
+        for (ReadingList list : lists) {
+            result += "<br>&nbsp;&nbsp;<b>&#8226; " + list.title() + "</b>";
         }
         return StringUtil.fromHtml(result);
     }
@@ -606,7 +583,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 getAppCompatActivity().supportInvalidateOptionsMenu();
             } else if (verticalOffset <= -appBarLayout.getTotalScrollRange() && !showOverflowMenu) {
                 showOverflowMenu = true;
-                toolBarLayout.setTitle(readingList != null ? readingList.getTitle() : null);
+                toolBarLayout.setTitle(readingList != null ? readingList.title() : null);
                 getAppCompatActivity().supportInvalidateOptionsMenu();
             }
         }
@@ -618,12 +595,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
 
         @Override
-        public void onRename(@NonNull final ReadingList readingList) {
+        public void onRename(@NonNull ReadingList readingList) {
             rename();
         }
 
         @Override
-        public void onEditDescription(@NonNull final ReadingList readingList) {
+        public void onEditDescription(@NonNull ReadingList readingList) {
             editDescription();
         }
 
@@ -634,12 +611,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         @Override
         public void onSaveAllOffline(@NonNull ReadingList readingList) {
-            saveSelectedPagesForOffline(readingList.getPages());
+            saveSelectedPagesForOffline(readingList.pages());
         }
 
         @Override
         public void onRemoveAllOffline(@NonNull ReadingList readingList) {
-            removeSelectedPagesFromOffline(readingList.getPages());
+            removeSelectedPagesFromOffline(readingList.pages());
         }
     }
 
@@ -656,13 +633,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             getView().setItem(page);
             getView().setTitle(page.title());
             getView().setDescription(page.description());
-            getView().setImageUrl(page.thumbnailUrl());
-            getView().setSelected(page.isSelected());
+            getView().setImageUrl(page.thumbUrl());
+            getView().setSelected(page.selected());
             getView().setActionIcon(R.drawable.ic_more_vert_white_24dp);
             getView().setActionHint(R.string.abc_action_menu_overflow_description);
-            getView().setSecondaryActionIcon(page.isSaving()
+            getView().setSecondaryActionIcon(page.saving()
                     ? R.drawable.ic_download_started : R.drawable.ic_download_circle_gray_24dp,
-                    !page.isOffline() || page.isSaving());
+                    !page.offline() || page.saving());
             getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
         }
 
@@ -692,7 +669,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             if (type == TYPE_HEADER) {
                 return new ReadingListHeaderHolder(headerView);
             }
-            return new ReadingListPageItemHolder(new PageItemView<ReadingListPage>(getContext()));
+            return new ReadingListPageItemHolder(new PageItemView<>(getContext()));
         }
 
         @Override
@@ -728,9 +705,15 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             if (MultiSelectCallback.is(actionMode)) {
                 toggleSelectPage(page);
             } else if (page != null && readingList != null) {
-                PageTitle title = ReadingListDaoProxy.pageTitle(page);
+                PageTitle title = ReadingListPage.toPageTitle(page);
                 HistoryEntry entry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
-                ReadingList.DAO.makeListMostRecent(readingList);
+
+                page.touch();
+                CallbackTask.execute(() -> {
+                    ReadingListDbHelper.instance().updateList(readingList);
+                    ReadingListDbHelper.instance().updatePage(page);
+                });
+
                 startActivity(PageActivity.newIntentForNewTab(getContext(), entry, entry.getTitle()));
             }
         }
@@ -759,7 +742,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull View view) {
             if (page != null) {
-                if (page.isSaving()) {
+                if (page.saving()) {
                     Toast.makeText(getContext(), R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show();
                 } else {
                     toggleOffline(page);
@@ -834,30 +817,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             unselectAllPages();
             actionMode = null;
             super.onDestroyActionMode(mode);
-        }
-    }
-
-    private final class PageListCountCallback extends CallbackTask.DefaultCallback<ReadingListPage> {
-        private ReadingListPage page;
-        private PageListCountCallback(@NonNull ReadingListPage page) {
-            this.page = page;
-        }
-        @Override public void success(ReadingListPage fromDb) {
-            if (fromDb.listKeys().size() > 1) {
-                showMultiListPageConfirmToggleDialog(page);
-            } else {
-                toggleOffline(page);
-            }
-        }
-    }
-
-    private final class ConfirmRemoveFromOfflineListener implements DialogInterface.OnClickListener {
-        private ReadingListPage page;
-        private ConfirmRemoveFromOfflineListener(@NonNull ReadingListPage page) {
-            this.page = page;
-        }
-        @Override public void onClick(DialogInterface dialog, int which) {
-            toggleOffline(page);
         }
     }
 

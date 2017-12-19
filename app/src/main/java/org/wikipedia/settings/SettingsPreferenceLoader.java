@@ -12,7 +12,6 @@ import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
-import org.wikipedia.readinglist.sync.ReadingListSynchronizer;
 import org.wikipedia.theme.ThemeFittingRoomActivity;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
@@ -125,15 +124,14 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
 
     private final class SyncReadingListsListener implements Preference.OnPreferenceChangeListener {
         @Override public boolean onPreferenceChange(final Preference preference, Object newValue) {
-            final ReadingListSynchronizer synchronizer = ReadingListSynchronizer.instance();
             if (newValue == Boolean.TRUE) {
                 ((SwitchPreferenceCompat) preference).setChecked(true);
                 Prefs.setReadingListSyncEnabled(true);
-                synchronizer.sync();
+                // TODO: kick off initial sync
             } else {
                 new AlertDialog.Builder(getActivity())
                         .setMessage(R.string.reading_lists_confirm_remote_delete)
-                        .setPositiveButton(R.string.reading_lists_confirm_remote_delete_yes, new DeleteRemoteListsYesListener(preference, synchronizer))
+                        .setPositiveButton(R.string.reading_lists_confirm_remote_delete_yes, new DeleteRemoteListsYesListener(preference))
                         .setNegativeButton(R.string.reading_lists_confirm_remote_delete_no, new DeleteRemoteListsNoListener(preference))
                         .show();
             }
@@ -153,18 +151,16 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
 
     private static final class DeleteRemoteListsYesListener implements DialogInterface.OnClickListener {
         private Preference preference;
-        private ReadingListSynchronizer synchronizer;
 
-        private DeleteRemoteListsYesListener(Preference preference, ReadingListSynchronizer synchronizer) {
+        private DeleteRemoteListsYesListener(Preference preference) {
             this.preference = preference;
-            this.synchronizer = synchronizer;
         }
 
         @Override public void onClick(DialogInterface dialog, int which) {
             ((SwitchPreferenceCompat) preference).setChecked(false);
             Prefs.setReadingListSyncEnabled(false);
             Prefs.setReadingListsRemoteDeletePending(true);
-            synchronizer.sync();
+            // TODO: kick off sync
         }
     }
 
