@@ -25,6 +25,7 @@ public final class NotificationPresenter {
     private static final int REQUEST_CODE_PAGE = 0;
     private static final int REQUEST_CODE_HISTORY = 1;
     private static final int REQUEST_CODE_AGENT = 2;
+    private static final String CHANNEL_ID = "GENERAL_CHANNEL";
 
     public static void showNotification(@NonNull Context context, Notification n) {
         @StringRes int title;
@@ -46,7 +47,7 @@ public final class NotificationPresenter {
                 ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, agentUri), null,
                         context), PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
