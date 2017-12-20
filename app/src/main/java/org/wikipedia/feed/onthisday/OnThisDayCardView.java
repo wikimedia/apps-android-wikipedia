@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,9 +24,13 @@ import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
@@ -36,7 +41,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements ItemTouchHelperSwipeAdapter.SwipeableView, OnThisDayActionsDialog.Callback {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
     @BindView(R.id.text) TextView descTextView;
     @BindView(R.id.next_event_years) TextView nextEventYearsTextView;
@@ -50,6 +55,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.gradient_layout) View gradientLayout;
     @BindView(R.id.radio_image_view) View radio;
     private int age;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public OnThisDayCardView(@NonNull Context context) {
         super(context);
@@ -75,15 +81,33 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         pagesRecycler.setNestedScrollingEnabled(false);
     }
 
+    @Override
+    public void onAddPageToList(@NonNull HistoryEntry entry) {
+        bottomSheetPresenter.show(((AppCompatActivity)getContext()).getSupportFragmentManager(),
+                AddToReadingListDialog.newInstance(entry.getTitle(),
+                        AddToReadingListDialog.InvokeSource.ON_THIS_DAY_ACTIVITY));
+    }
+
+    @Override
+    public void onSharePage(@NonNull HistoryEntry entry) {
+        ShareUtil.shareText(getContext(), entry.getTitle());
+    }
+
     static class RecyclerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
         private List<RbPageSummary> pages;
         private WikiSite wiki;
         private final boolean isSingleCard;
+        private OnThisDayPagesViewHolder.ItemCallBack itemCallback;
 
         RecyclerAdapter(@NonNull List<RbPageSummary> pages, @NonNull WikiSite wiki, boolean isSingleCard) {
             this.pages = pages;
             this.wiki = wiki;
             this.isSingleCard = isSingleCard;
+        }
+
+        public RecyclerAdapter setCallback(OnThisDayPagesViewHolder.ItemCallBack itemCallBack) {
+            this.itemCallback = itemCallBack;
+            return this;
         }
 
         @Override
@@ -96,14 +120,17 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
         @Override
         public void onBindViewHolder(OnThisDayPagesViewHolder onThisDayPagesViewHolder, int i) {
-            onThisDayPagesViewHolder.setFields(pages.get(i));
+            if (itemCallback != null) {
+                onThisDayPagesViewHolder
+                        .setCallback(itemCallback)
+                        .setFields(pages.get(i));
+            }
         }
 
         @Override
         public int getItemCount() {
             return pages.size();
         }
-
     }
 
     @Override
@@ -150,9 +177,19 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     private void setPagesRecycler(OnThisDayCard card) {
         if (card.pages() != null) {
-            pagesRecycler.setAdapter(new RecyclerAdapter(card.pages(), card.wiki(), true));
+            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(card.pages(), card.wiki(), true);
+            recyclerAdapter.setCallback(new ItemCallback());
+            pagesRecycler.setAdapter(recyclerAdapter);
         } else {
             pagesRecycler.setVisibility(GONE);
+        }
+    }
+
+    class ItemCallback implements OnThisDayPagesViewHolder.ItemCallBack {
+        @Override
+        public void onActionLongClick(@NonNull HistoryEntry entry) {
+            bottomSheetPresenter.show(((AppCompatActivity)getContext()).getSupportFragmentManager(),
+                    OnThisDayActionsDialog.newInstance(entry));
         }
     }
 }

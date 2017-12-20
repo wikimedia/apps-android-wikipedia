@@ -50,6 +50,5 @@
                 android:lineSpacingExtra="2sp"
                 android:maxLines="2" />
         </LinearLayout>
-
     </LinearLayout>
 </android.support.v7.widget.CardView>

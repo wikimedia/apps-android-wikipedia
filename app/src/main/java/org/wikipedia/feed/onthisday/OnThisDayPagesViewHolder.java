@@ -26,16 +26,24 @@ import org.wikipedia.views.FaceAndColorDetectImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 import static org.wikipedia.page.PageActivity.ACTION_LOAD_IN_NEW_TAB;
 import static org.wikipedia.page.PageActivity.EXTRA_HISTORYENTRY;
 import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
 
 public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
+    public interface ItemCallBack {
+        void onActionLongClick(@NonNull HistoryEntry entry);
+    }
+
     @BindView(R.id.page_list_item_title) TextView pageItemTitleTextView;
     @BindView(R.id.page_list_item_description) TextView pageItemDescTextView;
     @BindView(R.id.page_list_item_image) FaceAndColorDetectImageView pageItemImageView;
     @BindView(R.id.parent) View parent;
+
+    @Nullable private ItemCallBack itemCallback;
+
     private WikiSite wiki;
     private RbPageSummary selectedPage;
     private final boolean isSingleCard;
@@ -61,6 +69,11 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         pageItemImageView.loadImage(url == null ? null : Uri.parse(url));
     }
 
+    @NonNull public OnThisDayPagesViewHolder setCallback(@Nullable ItemCallBack itemCallback) {
+        this.itemCallback = itemCallback;
+        return this;
+    }
+
     @OnClick(R.id.parent) void onBaseViewClicked() {
         Context context = WikipediaApp.getInstance().getApplicationContext();
         PageTitle pageTitle = new PageTitle(selectedPage.getTitle(), wiki);
@@ -72,5 +85,15 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
                 .putExtra(EXTRA_HISTORYENTRY, entry)
                 .putExtra(EXTRA_PAGETITLE, pageTitle);
         context.startActivity(intent);
+    }
+
+    @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
+        PageTitle pageTitle = new PageTitle(selectedPage.getTitle(), wiki);
+        HistoryEntry entry = new HistoryEntry(pageTitle,
+                isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+
+        itemCallback.onActionLongClick(entry);
+
+        return true;
     }
 }
