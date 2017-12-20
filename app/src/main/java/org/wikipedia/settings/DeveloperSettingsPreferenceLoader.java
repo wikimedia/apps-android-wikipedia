@@ -162,7 +162,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         ReadingList list = ReadingListDbHelper.instance().createList(title, "");
         List<ReadingListPage> pages = new ArrayList<>();
         for (int i = 0; i < listSize; i++) {
-            PageTitle pageTitle = new PageTitle(title.contains("Test") ? "" + (i + 1) : "List" + title.charAt(title.length() - 1) + " Page" + (i + 1), WikipediaApp.getInstance().getWikiSite());
+            PageTitle pageTitle = new PageTitle("" + (i + 1), WikipediaApp.getInstance().getWikiSite());
             pages.add(new ReadingListPage(pageTitle));
         }
         ReadingListDbHelper.instance().addPagesToList(list, pages);
