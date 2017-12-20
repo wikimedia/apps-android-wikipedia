@@ -29,7 +29,9 @@ public class SettingsFragment extends PreferenceLoaderFragment {
     @Override
     public void onResume() {
         super.onResume();
+        preferenceLoader.updateSyncReadingListsPrefSummary();
         getActivity().invalidateOptionsMenu();
+
     }
 
     @Override

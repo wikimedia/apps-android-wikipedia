@@ -481,7 +481,7 @@ public final class Prefs {
     }
 
     public static boolean isReadingListSyncEnabled() {
-        return getBoolean(R.string.preference_key_sync_reading_lists, true);
+        return getBoolean(R.string.preference_key_sync_reading_lists, false);
     }
 
     public static void setReadingListSyncEnabled(boolean enabled) {
@@ -680,6 +680,22 @@ public final class Prefs {
         currentSet.addAll(set);
         // TODO: constrain size?
         setString(R.string.preference_key_reading_list_pages_deleted_ids, GsonMarshaller.marshal(currentSet));
+    }
+
+    public static boolean isShowDialogPromptOptInSyncReadingListsEnabled() {
+        return getBoolean(R.string.preference_key_show_dialog_prompt_to_opt_in_sync_reading_lists, true);
+    }
+
+    public static void setShowDialogPromptOptInSyncReadingListsEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_show_dialog_prompt_to_opt_in_sync_reading_lists, enabled);
+    }
+
+    public static boolean shouldShowPromptedSyncReadingListsDialogForFirstTime() {
+        return getBoolean(R.string.preference_key_should_show_prompted_sync_reading_lists_dialog_for_first_time, true);
+    }
+
+    public static void setShouldShowPromptedSyncReadingListsDialogForFirstTime(boolean enabled) {
+        setBoolean(R.string.preference_key_should_show_prompted_sync_reading_lists_dialog_for_first_time, enabled);
     }
 
     private Prefs() { }

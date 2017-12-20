@@ -9,10 +9,14 @@ import android.support.v7.view.ActionMode;
 import android.view.View;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentToolbarActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
+import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.events.CheckSyncStatusEvent;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
+import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ResourceUtil;
 
@@ -32,6 +36,14 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             startActivity(InitialOnboardingActivity.newIntent(this));
         }
+
+        if (AccountUtil.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
+                && Prefs.shouldShowPromptedSyncReadingListsDialogForFirstTime()
+                && Prefs.isShowDialogPromptOptInSyncReadingListsEnabled()) {
+            ReadingListSyncBehaviorDialogs.promptTurnSyncOnDialog(MainActivity.this,
+                    getLayoutInflater(), true, () -> Prefs.setReadingListSyncEnabled(false));
+            Prefs.setShouldShowPromptedSyncReadingListsDialogForFirstTime(false);
+        }
     }
 
     @Override protected MainFragment createFragment() {
@@ -40,6 +52,9 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
 
     @Override
     public void onTabChanged(@NonNull NavTab tab) {
+
+        WikipediaApp.getInstance().getBus().post(new CheckSyncStatusEvent());
+
         if (tab.equals(NavTab.EXPLORE)) {
             getToolbarWordmark().setVisibility(View.VISIBLE);
             getSupportActionBar().setTitle("");

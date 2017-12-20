@@ -41,6 +41,9 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.offline.LocalCompilationsActivity;
 import org.wikipedia.offline.OfflineTutorialActivity;
 import org.wikipedia.random.RandomActivity;
+import org.wikipedia.readinglist.ReadingListCheckSetupStatusTask;
+import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
@@ -470,12 +473,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), ThrowableUtil.isOffline(t)
                     ? getString(R.string.view_wiki_error_message_offline) : t.getMessage(),
                     FeedbackUtil.LENGTH_DEFAULT);
-            snackbar.setAction(R.string.page_error_retry, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    view.getRandomPage();
-                }
-            });
+            snackbar.setAction(R.string.page_error_retry, (v) -> view.getRandomPage());
             snackbar.show();
         }
 
@@ -537,6 +535,41 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         overflowView.show(anchor, overflowCallback);
     }
 
+    private void showSyncOptionDialogWhenLogout() {
+        // if we cannot get any random page, then we don't have any article stored in the db
+        if (ReadingListDbHelper.instance().getRandomPage() != null) {
+            ReadingListCheckSetupStatusTask checkSetupStatusTask = new ReadingListCheckSetupStatusTask() {
+                @Override
+                public void onFinish(@Nullable Void result) {
+                    if (!isAdded()) {
+                        return;
+                    }
+
+                    Prefs.setReadingListsLastSyncTime(null);
+                    ReadingListSyncBehaviorDialogs.removeExistListsDialog(getActivity(), () -> logoutAndShowMessage());
+                }
+
+                @Override
+                public void onCatch(Throwable caught) {
+                    if (!isAdded()) {
+                        return;
+                    }
+
+                    logoutAndShowMessage();
+                }
+            };
+            checkSetupStatusTask.execute();
+        } else {
+            logoutAndShowMessage();
+        }
+    }
+
+    private void logoutAndShowMessage() {
+        WikipediaApp.getInstance().logOut();
+        FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
+        Prefs.setReadingListSyncEnabled(false);
+    }
+
     private class OverflowCallback implements ExploreOverflowView.Callback {
         @Override
         public void loginClick() {
@@ -566,8 +599,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void logoutClick() {
-            WikipediaApp.getInstance().logOut();
-            FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
+            showSyncOptionDialogWhenLogout();
         }
 
         @Override

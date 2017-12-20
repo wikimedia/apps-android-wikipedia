@@ -18,6 +18,7 @@ public class LoginFunnel extends Funnel {
     public static final String SOURCE_BLOCKED = "blocked";
     public static final String SOURCE_SYSTEM = "system";
     public static final String SOURCE_ONBOARDING = "onboarding";
+    public static final String SOURCE_SETTING = "setting";
 
     public LoginFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REVISION);

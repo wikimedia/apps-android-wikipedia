@@ -135,7 +135,11 @@
     <string name="create_account_account_created_toast">Account created!</string>
     <string name="preferences_heading_storage_and_syncing">Storage and syncing</string>
     <string name="preference_title_sync_reading_lists">Sync reading lists</string>
+    <string name="preference_title_sync_reading_lists_from_account">Sync reading lists for this account</string>
     <string name="preference_summary_sync_reading_lists">Allow Wikimedia to sync your reading lists when you log in</string>
+    <string name="preference_summary_sync_reading_lists_from_account">Allow Wikimedia to sync reading lists to your Wikipedia account %s</string>
+    <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remove synced reading lists from your account %s?</string>
+    <string name="preference_dialog_of_turning_off_reading_list_sync_text">This will completely delete all previously synced reading lists from remote storage. Remove all synced lists from your account %s?</string>
     <string name="preferences_privacy_settings_heading">Privacy</string>
     <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
     <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
@@ -158,6 +162,7 @@
     <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
     <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
     <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+    <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
     <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -382,6 +387,27 @@
     <string name="reading_list_already_contains_selection">The chosen list already contains all of the selected pages.</string>
     <string name="reading_list_added_articles_list_titled">Added %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
+    <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
+    <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>
+    <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel</string>
+    <string name="reading_list_preference_login_to_enable_sync_dialog_login">Log in</string>
+    <string name="reading_list_turned_sync_off_dialog_title">Reading list sync turned off</string>
+    <string name="reading_list_turned_sync_off_dialog_text">Reading list sync is off for your account, and saved articles on your logged in devices are no longer being backed up. Turn on reading list sync in Settings.</string>
+    <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+    <string name="reading_list_turned_sync_off_dialog_settings">Settings</string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_title">Turn on reading list sync?</string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_text"><![CDATA[Articles saved to reading lists can now be synced to your Wikipedia account. <a href="#faq">Learn more</a>]]></string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don’t show me this again</string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Enable syncing</string>
+    <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No thanks</string>
+    <string name="reading_list_login_option_reminder_dialog_title">Reading list articles found</string>
+    <string name="reading_list_login_option_reminder_dialog_text">There are reading list articles saved to your Wikipedia app. Would you like to keep them and merge with reading lists synced to your account?</string>
+    <string name="reading_list_login_option_reminder_dialog_yes">Yes, add them to my reading lists</string>
+    <string name="reading_list_login_option_reminder_dialog_no">No, delete articles saved on the app</string>
+    <string name="reading_list_logout_option_reminder_dialog_title">Keep saved articles on device?</string>
+    <string name="reading_list_logout_option_reminder_dialog_text">There are articles synced to your Wikipedia account. Would you like to keep them on this device after you log out?</string>
+    <string name="reading_list_logout_option_reminder_dialog_yes">Yes, keep articles on device</string>
+    <string name="reading_list_logout_option_reminder_dialog_no">No, delete articles from device</string>
     <string name="default_reading_list_name">Saved</string>
     <string name="default_reading_list_description">Default list for your saved articles</string>
     <string name="no_user_lists_title">Organize articles into lists</string>

@@ -331,6 +331,16 @@ public class ReadingListDbHelper {
         }
     }
 
+    public void resetToDefaults() {
+        List<ReadingList> lists = getAllLists();
+        for (ReadingList list : lists) {
+            if (!list.isDefault()) {
+                deleteList(list, false);
+            }
+            markPagesForDeletion(list, list.pages(), false);
+        }
+    }
+
     @Nullable
     public ReadingListPage getRandomPage() {
         SQLiteDatabase db = getReadableDatabase();

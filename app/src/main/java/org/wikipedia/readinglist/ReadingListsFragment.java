@@ -32,6 +32,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.events.CheckSyncStatusEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.onboarding.OnboardingView;
@@ -114,7 +115,10 @@ public class ReadingListsFragment extends Fragment {
         ((ViewGroup)emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
-        swipeRefreshLayout.setOnRefreshListener(ReadingListSyncAdapter::manualSyncWithRefresh);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            WikipediaApp.getInstance().getBus().post(new CheckSyncStatusEvent());
+            ReadingListSyncAdapter.manualSyncWithRefresh();
+        });
         // TODO: remove when ready.
         if (!ReleaseUtil.isPreBetaRelease()) {
             swipeRefreshLayout.setEnabled(false);
