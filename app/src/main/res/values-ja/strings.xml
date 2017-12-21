@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">利用規約</string>
   <string name="about_wikipedia_url">https://ja.m.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -269,6 +270,7 @@
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
   <string name="preference_title_enable_offline_library">オフラインライブラリを有効にする</string>
+  <string name="preference_summary_enable_offline_library">オフラインのときに読むためにデバイスにダウンロードされたWikipedia記事パック(.ZIMファイルとして表示)にアクセスします。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;詳細&lt;/a&gt;をご覧ください</string>
   <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
   <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか?　これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
   <string name="crash_report_dialog_dont_send_button">スキップ</string>
@@ -286,6 +288,9 @@
   <string name="color_theme_select">テーマ</string>
   <string name="color_theme_light">明</string>
   <string name="color_theme_dark">暗</string>
+  <string name="color_theme_black">黒</string>
+  <string name="color_theme_test_title">サンプルテキスト</string>
+  <string name="color_theme_test_text">スライダーをドラッグして記事を読むときに使用するテキストのサイズを変更します。他のアプリでテキストサイズを設定するには、システムのテキストサイズを変更します。</string>
   <string name="preference_title_app_theme">アプリのテーマ</string>
   <string name="preference_title_color_theme">ダークモード</string>
   <string name="preference_summary_color_theme">アプリの配色をダークモードにします</string>
@@ -383,6 +388,7 @@
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
   <string name="view_random_card_subtitle">ウィキペディアから記事をランダムに表示して閲覧</string>
+  <string name="view_random_card_action">サイコロを転がす</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
   <string name="view_main_page_card_subtitle">%sのメインページ</string>
@@ -409,6 +415,7 @@
   <string name="view_featured_article_card_title">秀逸な記事</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_featured_article_footer_saved_button_label">保存しました</string>
+  <string name="feed_configure_menu_title">カードの設定</string>
   <string name="feed_configure_activity_title">「探索する」カードのカスタマイズ</string>
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
   <string name="feed_configure_menu_select_all">すべて選択</string>
@@ -422,6 +429,7 @@
   <string name="feed_item_type_main_page">ウィキペディアのメインページ。今日の選り抜き記事や画像を表示</string>
   <string name="feed_item_type_randomizer">記事をおまかせ表示する</string>
   <string name="feed_configure_onboarding_action">カスタマイズ</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Exploreフィードをカスタマイズする&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;フィードに表示するコンテンツを選択して、お気に入りのタイプのコンテンツに優先順位を付けることができるようになりました。</string>
   <string name="description_edit_text_hint">編集の要約</string>
   <string name="description_edit_save">公開</string>
   <string name="description_edit_add_description">説明を追加</string>
@@ -509,10 +517,12 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">インターネットにアクセスできない場合は、オフラインライブラリ内の記事を読んで検索してください。</string>
   <string name="offline_library_onboarding_store_knowledge_title">多くの知識を蓄積する</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">デバイスが扱うことができる多くのWikipediaをダウンロードしてください。オフラインライブラリは、外部ストレージの記事パックにもアクセスできます。</string>
+  <string name="offline_library_main_page_hint_html">このメインページには、この記事パックの内容の概要が記載されています。&lt;br /&gt; &lt;br /&gt;オフライン時に利用可能な記事を検索して、オフラインライブラリの記事パックの内容を調べることもできます。</string>
   <string name="onboarding_skip">スキップ</string>
   <string name="onboarding_continue">続ける</string>
   <string name="onboarding_get_started">始めよう</string>
   <string name="onboarding_welcome_title">フリー百科事典</string>
+  <string name="onboarding_welcome_text">ウィキペディアは、ボランティアによって共同で書かれ、およそ300の異なる言語で4千万件以上の記事で構成されています。 &lt;a href=\"#about\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_explore_title">探検する新しい方法</string>
   <string name="onboarding_explore_text" fuzzy="true">特集記事、トレンドトピック、および提案を読んでみましょう。</string>
   <string name="onboarding_save_to_reading_lists_title">あとで読むリストに保存</string>
@@ -528,6 +538,7 @@
   <string name="app_shortcuts_random">おまかせ表示</string>
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>
+  <string name="more_trending_text">もっと見る</string>
   <string name="all_trending_text">%1$sに話題になった記事すべて</string>
   <string name="top_on_this_day">%1$sに話題になった記事</string>
   <string name="on_this_day_card_title">今日は何の日</string>

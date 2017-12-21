@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">Outras formas nas que mellorou a páxina</string>
   <string name="find_next">Atopar o seguinte</string>
   <string name="find_previous">Atopar o anterior</string>
+  <string name="find_first_occurence">Esta é a primeira ocorrencia</string>
+  <string name="find_last_occurence">Esta é a última ocorrencia</string>
   <string name="abusefilter_title_warn">Esta semella unha edición non construtiva. Está seguro de querer publicala?</string>
   <string name="abusefilter_title_disallow">Non pode publicar esta edición. Por favor, vaia á páxina anterior e modifíquea.</string>
   <string name="abusefilter_text_warn">Un filtro automático identificou esta edición como potencialmente non construtiva. Pode conter un ou varios dos seguintes problemas:&lt;br /&gt;&lt;br /&gt;· Está escrito todo en maiúsculas&lt;br /&gt;· É un artigo en branco ou que contén spam&lt;br /&gt;· Contén ligazóns externas ou imaxes irrelevantes&lt;br /&gt;· Contén caracteres repetidos</string>

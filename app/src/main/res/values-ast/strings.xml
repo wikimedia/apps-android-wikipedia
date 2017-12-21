@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Condiciones d\'usu</string>
   <string name="about_wikipedia_url">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -176,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">Otres maneres en qu\'ameyorasti la páxina</string>
   <string name="find_next">Alcontrar siguiente</string>
   <string name="find_previous">Alcontrar anterior</string>
+  <string name="find_first_occurence">Esta ye la primera apaición</string>
+  <string name="find_last_occurence">Esta ye la última apaición</string>
   <string name="abusefilter_title_warn">Esta pué ser una edición non constructiva. ¿Tas seguru de que quies publicala?</string>
   <string name="abusefilter_title_disallow">Nun puedes espublizar esta edición. Por favor vuelve atrás y cámbiala.</string>
   <string name="abusefilter_text_warn">Un filtru automáticu identificó esta edición como posiblemente non constructiva. Pué contener una o más de les siguientes:&lt;br /&gt;&lt;br /&gt;· Escribir too en mayúscules&lt;br /&gt;· Dexar artículos en blanco o facer spam&lt;br /&gt;· Enllaces o imaxes esternos irrelevantes&lt;br /&gt;· Caráuteres repetíos</string>
@@ -287,6 +290,10 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claru</string>
   <string name="color_theme_dark">Escuru</string>
+  <string name="color_theme_black">Prietu</string>
+  <string name="color_theme_test_title">Testu d\'amuesa</string>
+  <string name="color_theme_test_text">Abasna l\'eslizador pa camudar el tamañu del testu que s\'usa pa lleer los artículos. Pa configurar el tamañu del testu de tola aplicación, cambia\'l tamañu de testu del sistema.</string>
+  <string name="preference_title_app_theme">Tema de l\'aplicación</string>
   <string name="preference_title_color_theme">Tema escura</string>
   <string name="preference_summary_color_theme">Camudar a la tema escura de l\'aplicación</string>
   <string name="text_size_increase">Aumentar tamañu del testu</string>
@@ -417,6 +424,15 @@
   <string name="feed_configure_menu_deselect_all">Nun seleccionar nada</string>
   <string name="feed_item_type_news">Artículos d\'acontecimientos actuales</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de güei</string>
+  <string name="feed_item_type_continue_reading">Enllaz direutu pa lleer un artículu abiertu n\'otra de les llingüetes</string>
+  <string name="feed_item_type_because_you_read">Suxerencies basaes n\'unu de los artículos que lleísti apocayá</string>
+  <string name="feed_item_type_featured_article">Artículu destacáu del día na Wikipedia</string>
+  <string name="feed_item_type_trending">Artículos más vistos del día</string>
+  <string name="feed_item_type_featured_image">Imaxe destacada del día en Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Páxina principal de Wikipedia col conteníu destacáu del día</string>
+  <string name="feed_item_type_randomizer">Xenerar artículos al debalu pa lleer</string>
+  <string name="feed_configure_onboarding_action">Personalizar</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar la canal Esplorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora puedes esbillar lo que desees ver na to canal, y tamién dar prioridá a les tos tribes de conteníu favorites.</string>
   <string name="description_edit_text_hint">Descripción del títulu</string>
   <string name="description_edit_save">Espublizar</string>
   <string name="description_edit_add_description">Amestar una descripción del títulu</string>
@@ -460,6 +476,7 @@
   <string name="offline_read_permission_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa restolar sin conexón.</string>
   <string name="offline_read_permission_error">Nun se dio permisu pa lleer dende\'l preséu d\'almacenamientu.</string>
   <string name="offline_card_text">Agora tas restolando Wikipedia en mou ensin conexón con artículos de la Biblioteca ensin conexón.</string>
+  <string name="offline_card_sideloading_text">Agora tas restolando Wikipedia ensin conexón dende los paquetes d\'artículos de la Biblioteca ensin conexón.</string>
   <string name="offline_my_compilations">Alministrar la mio biblioteca ensin conexón</string>
   <string name="offline_compilations_title">Biblioteca ensin conexón</string>
   <string name="offline_compilations_search_by_name">Buscar paquetes d\'artículos pol nome</string>
@@ -508,25 +525,33 @@
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Siguir</string>
   <string name="onboarding_get_started">Primeros pasos</string>
+  <string name="onboarding_welcome_title">La enciclopedia llibre</string>
+  <string name="onboarding_welcome_text">Wikipedia escríbese de mou collaborativu por voluntarios y ta compuesta por más de 40 millones d\'artículos en casi 300 llingües distintes. &lt;a href=\"#about\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Nueves maneres d\'esplorar</string>
-  <string name="onboarding_explore_text" fuzzy="true">Descubrir artículos destacaos, tendencies d\'actualidá y suxerencies na canal Esplorar.</string>
+  <string name="onboarding_explore_text">Bucea nel universu de Wikipedia cola canal Esplorar, siempres anovándose.&lt;br&gt;&lt;b&gt;Personaliza&lt;/b&gt; la canal colo que t\'interese (por casu, conocer los acontecimientos históricos n\'&lt;b&gt;Un día como güei&lt;/b&gt;, o xugar a los daos con &lt;b&gt;Al debalu&lt;/b&gt;).</string>
+  <string name="onboarding_save_to_reading_lists_title">Guardar en llistes de llectura</string>
+  <string name="onboarding_save_to_reading_lists_text">Crea llistes de llectura colos artículos que desees lleer sero, inclusive cuando teas ensin conexón.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de llectura sincronizaes</string>
   <string name="onboarding_reading_list_sync_text">Crear llistes de llectura a partir d\'artículos que quies lleer sero, inclusive cuando teas ensin conexón. &lt;a href=\"#login\"&gt;Anicia sesión o crea&lt;/a&gt; una cuenta de Wikipedia pa tener copia de seguranza de les llistes de llectura.</string>
   <string name="onboarding_analytics_title">Unviar datos anónimos</string>
   <string name="onboarding_analytics_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos llograos son anónimos. &lt;a href=\"#privacy\"&gt;Lleer más&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos recoyíos son anónimos. &lt;a href=\"#offline\"&gt;Lleer más&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Unviar datos d\'usu</string>
   <string name="onboarding_create_account_sync">Sincronizar les llistes de llectura</string>
   <string name="onboarding_create_account_contributions">Siguir el rastru a les tos contribuciones</string>
   <string name="onboarding_create_account_preferences">Guardar les preferencies</string>
+  <string name="onboarding_got_it">Entendílo</string>
   <string name="app_shortcuts_random">Al debalu</string>
   <string name="app_shortcuts_continue_reading">Siguir lleyendo</string>
   <string name="app_shortcuts_search">Buscar</string>
+  <string name="more_trending_text">Más como esto</string>
   <string name="all_trending_text">Tolos artículos en tendencia del %1$s</string>
   <string name="top_on_this_day">Tendencies del %1$s</string>
   <string name="on_this_day_card_title">Tal día como güei</string>
-  <string name="more_events_text" fuzzy="true">Más socesos históricos d\'esti día</string>
-  <string name="events_count_text" fuzzy="true">%1$s acontecimientos ente %2$s y %3$d</string>
+  <string name="more_events_text">Más nesti día</string>
+  <string name="events_count_text">%1$s acontecimientos ente %2$s y %3$d</string>
   <string name="this_year">Anguaño</string>
+  <string name="back_to_top">Volver al entamu</string>
   <plurals name="diff_years">
     <item quantity="one">L\'añu pasáu</item>
     <item quantity="other">Fai %d años</item>
