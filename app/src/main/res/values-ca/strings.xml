@@ -361,7 +361,6 @@
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
   <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
-  <string name="reading_list_added_articles_list_untitled">S\'han afegit %d articles a la llista de lectura.</string>
   <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>

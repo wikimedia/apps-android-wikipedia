@@ -353,7 +353,6 @@
   <string name="reading_lists_confirm_remote_delete_no">नहीं</string>
   <string name="reading_list_article_save_in_progress">लेख का अधोभारण हो रहा है, और यह ऑफलाइन उपलब्ध होगा जब यह पूरा हो जाएगा।</string>
   <string name="reading_list_already_contains_selection">चुनी गयी सूची में चयनित पृष्ठ पहले से ही समाहित हैं।</string>
-  <string name="reading_list_added_articles_list_untitled">पढ़ने की सूची में %d लेख जोड़ा गया।</string>
   <string name="reading_list_added_articles_list_titled">%2$s में %1$d आलेख जोड़े गए</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>

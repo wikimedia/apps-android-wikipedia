@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.drawee.drawable.ScalingUtils;
@@ -52,6 +53,7 @@ public class ReadingListItemView extends FrameLayout {
     @BindView(R.id.item_overflow_menu)View overflowButton;
 
     @BindView(R.id.item_image_container) View imageContainer;
+    @BindView(R.id.default_list_empty_image) ImageView defaultListEmptyView;
     @BindViews({R.id.item_image_1, R.id.item_image_2, R.id.item_image_3, R.id.item_image_4}) List<SimpleDraweeView> imageViews;
 
     @Nullable private Callback callback;
@@ -127,6 +129,13 @@ public class ReadingListItemView extends FrameLayout {
     @OnClick(R.id.item_overflow_menu) void showOverflowMenu(View anchorView) {
         PopupMenu menu = new PopupMenu(getContext(), anchorView);
         menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
+
+        if (TextUtils.isEmpty(readingList.title())) {
+            MenuItem renameItem = menu.getMenu().findItem(R.id.menu_reading_list_rename);
+            renameItem.setVisible(false);
+            MenuItem deleteItem = menu.getMenu().findItem(R.id.menu_reading_list_delete);
+            deleteItem.setVisible(false);
+        }
         menu.setOnMenuItemClickListener(new OverflowMenuClickListener());
         menu.show();
     }
@@ -147,7 +156,7 @@ public class ReadingListItemView extends FrameLayout {
             return;
         }
         titleView.setText(TextUtils.isEmpty(readingList.title())
-                ? getString(R.string.reading_list_untitled)
+                ? getString(R.string.default_reading_list_name)
                 : readingList.title());
         if (TextUtils.isEmpty(readingList.description()) && showDescriptionEmptyHint) {
             descriptionView.setText(getContext().getString(R.string.reading_list_no_description));
@@ -168,6 +177,8 @@ public class ReadingListItemView extends FrameLayout {
         if (readingList == null) {
             return;
         }
+        defaultListEmptyView.setVisibility((TextUtils.isEmpty(readingList.title()) && readingList.pages().size() == 0) ? VISIBLE : GONE);
+        imageContainer.setVisibility(defaultListEmptyView.getVisibility() == VISIBLE ? GONE : VISIBLE);
         clearThumbnails();
         List<String> thumbUrls = new ArrayList<>();
         for (ReadingListPage page : readingList.pages()) {

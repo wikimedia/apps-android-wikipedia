@@ -361,7 +361,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Nein</string>
   <string name="reading_list_article_save_in_progress">Der Artikel wird derzeit heruntergeladen und wird offline verfügbar sein, wenn der Download abgeschlossen ist.</string>
   <string name="reading_list_already_contains_selection">Die ausgewählte Liste enthält bereits alle der ausgewählten Seiten.</string>
-  <string name="reading_list_added_articles_list_untitled">%d Artikel zur Leseliste hinzugefügt.</string>
   <string name="reading_list_added_articles_list_titled">%1$d Artikel zu %2$s hinzugefügt</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dieser Artikel ist jetzt offline verfügbar.</item>

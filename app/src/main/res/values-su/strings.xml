@@ -351,7 +351,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Teu</string>
   <string name="reading_list_article_save_in_progress">Artikel keur diundeur, sarta bakal nyangkaruk sacara oflén nalika geus bérés.</string>
   <string name="reading_list_already_contains_selection">Daptar nu dipilih geus aya eusian sakabéh kaca nu dipilih.</string>
-  <string name="reading_list_added_articles_list_untitled">%d artikel ditambahkeun kana daptar bacaeun.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ditambahkeun ka %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ieu artikel ayeuna bakal sayaga kalawan oflén.</item>

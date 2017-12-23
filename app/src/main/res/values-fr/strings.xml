@@ -361,7 +361,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
   <string name="reading_list_already_contains_selection">La liste choisie contient déjà toutes les pages sélectionnées.</string>
-  <string name="reading_list_added_articles_list_untitled">%d articles ajoutés à la liste de lecture.</string>
   <string name="reading_list_added_articles_list_titled">%1$d articles ajoutés à %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Cet article est désormais disponible hors connexion.</item>
