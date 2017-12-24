@@ -18,6 +18,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
@@ -54,6 +56,9 @@ public class ReadingListsFragment extends Fragment {
     @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
     @BindView(R.id.empty_container) View emptyContainer;
+    @BindView(R.id.empty_title) TextView emptyTitle;
+    @BindView(R.id.empty_image) ImageView emptyImage;
+    @BindView(R.id.empty_message) TextView emptyMessage;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
 
@@ -190,12 +195,28 @@ public class ReadingListsFragment extends Fragment {
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
-            emptyContainer.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
+            if (readingLists.size() == 1) {
+                emptyContainer.setVisibility(View.VISIBLE);
+                setUpEmptyContainer();
+            }
+            emptyContainer.setVisibility(readingLists.size() == 1 ? View.VISIBLE : View.GONE);
         } else {
             searchEmptyView.setVisibility(readingLists.isEmpty() ? View.VISIBLE : View.GONE);
             emptyContainer.setVisibility(View.GONE);
         }
         contentContainer.setVisibility(readingLists.isEmpty() ? View.GONE : View.VISIBLE);
+    }
+
+    private void setUpEmptyContainer() {
+        if (!readingLists.get(0).pages().isEmpty()) {
+            emptyTitle.setText(getString(R.string.no_user_lists_title));
+            emptyMessage.setText(getString(R.string.no_user_lists_msg));
+            emptyImage.setImageDrawable(ContextCompat.getDrawable(emptyImage.getContext(), R.drawable.ic_no_user_lists));
+        } else {
+            emptyTitle.setText(getString(R.string.reading_lists_empty));
+            emptyMessage.setText(getString(R.string.reading_lists_empty_message));
+            emptyImage.setImageDrawable(ContextCompat.getDrawable(emptyImage.getContext(), R.drawable.no_lists));
+        }
     }
 
     private class ReadingListItemHolder extends RecyclerView.ViewHolder {
