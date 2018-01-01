@@ -173,6 +173,8 @@
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>
   <string name="find_next">अगला ढूँढें</string>
   <string name="find_previous">पिछला ढूँढें</string>
+  <string name="find_first_occurence">यह पहली घटना है</string>
+  <string name="find_last_occurence">यह अंतिम घटना है</string>
   <string name="abusefilter_title_warn">यह संपादन निर्माण रहित हो सकता है। क्या आप इसे प्रकाशित करना चाहते हैं?</string>
   <string name="abusefilter_title_disallow">आप इस संपादन को प्रकाशित नहीं कर सकते। कृपया पीछे जा कर इसे बदलें।</string>
   <string name="abusefilter_text_warn">एक स्वचलित फ़िल्टर ने इस संपादन को संभवतः अरचनात्मक पाया है। इसमें एक या एक से अधिक निम्न कारण हो सकते हैं:&lt;br/&gt;&lt;br/&gt;सभी को कैपिटल लैटर में लिखना&lt;br/&gt;।लेखों को रिक्त करना या स्पैमिंग&lt;br/&gt;। अक्षरों को बार बार दोहराना।</string>

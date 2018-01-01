@@ -88,7 +88,7 @@
   <string name="toast_logout_complete">已登出</string>
   <string name="history_empty_title">沒有近期檢視的頁面</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
-  <string name="search_empty_message">以您的語言來搜尋、閱讀自由的百科全書</string>
+  <string name="search_empty_message">以您的語言來搜尋閱讀自由的百科全書</string>
   <string name="delete_selected_items">刪除所選項目</string>
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">使用者名稱</string>
@@ -131,7 +131,7 @@
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="preference_title_auto_upload_crash_reports">傳送損毀報告</string>
-  <string name="preference_summary_auto_upload_crash_reports">允許手機應用程式自動傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓我們可以更快速、更簡易的檢閱錯誤報告及修復問題。</string>
+  <string name="preference_summary_auto_upload_crash_reports">允許手機應用程式自動傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓我們可以更快速、更簡易地來檢閱錯誤報告及修復問題。</string>
   <string name="editing_error_spamblacklist">檢測到來自被封鎖網域 (%s) 的連結。請刪除它們並再試一次。</string>
   <string name="history_search_list_hint">搜尋歷史</string>
   <string name="error_can_not_process_link">無法顯示此連結</string>
@@ -266,15 +266,15 @@
   <string name="error_page_does_not_exist">此頁面不存在</string>
   <string name="view_wiki_error_message_offline">無法連接網路</string>
   <string name="reference_title">參考資料 %s</string>
-  <string name="preference_title_dim_dark_mode_images">在暗黑主題調暗圖片</string>
-  <string name="preference_summary_dim_dark_mode_images">當使用暗黑主題時減少圖片亮度</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在暗黑主題）</string>
+  <string name="preference_title_dim_dark_mode_images">在陰暗主題調暗圖片</string>
+  <string name="preference_summary_dim_dark_mode_images">當使用陰暗主題時減少圖片亮度</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
   <string name="preference_title_enable_offline_library">啟用離線圖書館</string>
   <string name="preference_summary_enable_offline_library">存取已下載到您裝置的維基百科條目包（以 .ZIM 檔案格式顯示）能讓您處於離線狀態時仍可進行閱讀。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
-  <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
+  <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體能夠檢視您的錯誤，並修正造成問題的程式臭蟲？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
   <string name="crash_report_dialog_always_send_button">必定傳送</string>
   <string name="crash_report_dialog_send_button">傳送</string>
@@ -288,14 +288,14 @@
   <string name="article_header_edit_description">編輯標題說明</string>
   <string name="article_header_edit_lead_section">編輯簡介</string>
   <string name="color_theme_select">主題</string>
-  <string name="color_theme_light">日間模式</string>
-  <string name="color_theme_dark">暗黑</string>
+  <string name="color_theme_light">明亮</string>
+  <string name="color_theme_dark">陰暗</string>
   <string name="color_theme_black">漆黑</string>
   <string name="color_theme_test_title">試樣文字</string>
   <string name="color_theme_test_text">拖拉滑標來變更使用在閱讀條目的文字大小。要設定應用程式外其餘文字大小，請變更您的系統文字大小。</string>
   <string name="preference_title_app_theme">套用主題</string>
-  <string name="preference_title_color_theme">暗黑主題</string>
-  <string name="preference_summary_color_theme">切換到使用應用程式的暗黑色彩主題</string>
+  <string name="preference_title_color_theme">陰暗主題</string>
+  <string name="preference_summary_color_theme">切換到使用應用程式的陰暗色彩主題</string>
   <string name="text_size_increase">增加文字大小</string>
   <string name="text_size_decrease">增少文字大小</string>
   <string name="text_size_percent_default">%s（預設）</string>
@@ -387,7 +387,7 @@
   <string name="notification_syncing_resume_button">繼續</string>
   <string name="notification_syncing_cancel_button">取消</string>
   <string name="view_continue_reading_card_title">繼續閱讀</string>
-  <string name="view_because_you_read_card_title">因為您讀了</string>
+  <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
   <string name="view_random_card_subtitle">快速翻閱來自維基百科的隨機條目。</string>
   <string name="view_random_card_action">擲骰產生</string>
@@ -466,7 +466,7 @@
   <string name="description_edit_help_tips_example2">地球第一高峰</string>
   <string name="description_edit_help_tips_example2_hint">有關聖母峰條目的標題說明</string>
   <string name="description_edit_help_more_info">更多資訊</string>
-  <string name="description_edit_help_meta_info">描述會被保管在維基數據，那是維基媒體基金會計畫的另一個專案，是個自由、共同作業、多語言的二級資料庫，支援著維基百科及其他相類專案。</string>
+  <string name="description_edit_help_meta_info">描述會被保管在維基數據，那是維基媒體基金會計畫的另一個專案，是個自由、共同作業，多語言的二級資料庫，支援著維基百科及其他相類專案。</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者不認同而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
@@ -528,7 +528,7 @@
   <string name="onboarding_welcome_title">自由的百科全書</string>
   <string name="onboarding_welcome_text">維基百科是透過志願者們所協作編寫，並且包含超過 4000 多萬條，以將近 300 種語言所建立的條目。&lt;a href=\"#about\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_explore_title">探索的新方法</string>
-  <string name="onboarding_explore_text">一腳跳進不斷更新探索訊息來源的維基百科兔子洞裡頭。&lt;br/&gt; &lt;b&gt;自定義&lt;/b&gt;訊息來源在您感興趣的項目 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;學習歷史事件、或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
+  <string name="onboarding_explore_text">一腳跳進不斷更新探索訊息來源的維基百科兔子洞裡頭。&lt;br/&gt; &lt;b&gt;自行定義&lt;/b&gt;訊息來源在您感興趣的項目 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;學習歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
   <string name="onboarding_save_to_reading_lists_title">儲存至閱讀清單</string>
   <string name="onboarding_save_to_reading_lists_text">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀。</string>
   <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>

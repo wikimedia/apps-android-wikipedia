@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Bruksvilkår</string>
   <string name="about_wikipedia_url">https://no.m.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.no</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.no</string>
@@ -176,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">Andre måter du kan forbedre denne siden</string>
   <string name="find_next">Finn neste</string>
   <string name="find_previous">Finn forrige</string>
+  <string name="find_first_occurence">Dette er den første forekomsten</string>
+  <string name="find_last_occurence">Dette er den siste forekomsten</string>
   <string name="abusefilter_title_warn">Dette er muligens en lite konstruktiv redigering. Er du sikker på at du vil publisere den?</string>
   <string name="abusefilter_title_disallow">Denne redigeringen kan ikke publiseres. Gå tilbake og prøv igjen.</string>
   <string name="abusefilter_text_warn">Redigeringen har blitt identifisert som potensielt destruktiv av et automatisk filter. Den kan inneholde en eller flere av følgende ting:&lt;br /&gt;&lt;br /&gt;· Hele ord skrevet med store bokstaver&lt;br /&gt;· Tømming av artikkelen eller spamming&lt;br /&gt;· Irrelevante eksterne lenker eller bilder&lt;br /&gt;· Gjentagende tegn</string>
@@ -289,6 +292,7 @@
   <string name="color_theme_dark">Mørk</string>
   <string name="color_theme_black">Svart</string>
   <string name="color_theme_test_title">Eksempeltekst</string>
+  <string name="preference_title_app_theme">Appdrakt</string>
   <string name="preference_title_color_theme">Mørkt tema</string>
   <string name="preference_summary_color_theme">Bytt til appens mørke fargetema</string>
   <string name="text_size_increase">Øk tekststørrelse</string>
@@ -415,6 +419,10 @@
   <string name="feed_configure_menu_title">Konfigurer kort</string>
   <string name="feed_configure_activity_title" fuzzy="true">Konfigurer utforskningskort</string>
   <string name="feed_configure_menu_reset" fuzzy="true">Tilbakestill til standardinnstillinger</string>
+  <string name="feed_item_type_news">Artikler om aktuelle hendelser</string>
+  <string name="feed_item_type_on_this_day">Historiske hendelser denne datoen</string>
+  <string name="feed_item_type_because_you_read">Forslag basert på nylig leste artikler i historikken din</string>
+  <string name="feed_configure_onboarding_action">Tilpass</string>
   <string name="description_edit_text_hint">Tittelbeskrivelse</string>
   <string name="description_edit_save">Publiser</string>
   <string name="description_edit_add_description">Legg til en tittelbeskrivelse</string>
@@ -507,6 +515,7 @@
   <string name="onboarding_skip">Hopp over</string>
   <string name="onboarding_continue">Fortsett</string>
   <string name="onboarding_get_started">Kom i gang</string>
+  <string name="onboarding_welcome_title">Den frie encyklopedien</string>
   <string name="onboarding_explore_title">Nye måter å utforske</string>
   <string name="onboarding_explore_text" fuzzy="true">Utforsk gode og utmerkede artikler, aktuelle temaer, og leseforslag i Utforsker.</string>
   <string name="onboarding_reading_list_sync_title">Leselister med synkronisering</string>
@@ -517,15 +526,18 @@
   <string name="onboarding_create_account_sync">Synkroniser leselistene dine</string>
   <string name="onboarding_create_account_contributions">Hold oversikt over bidragene dine</string>
   <string name="onboarding_create_account_preferences">Lagre innstillinger</string>
+  <string name="onboarding_got_it">Skjønner</string>
   <string name="app_shortcuts_random">Tilfeldig</string>
   <string name="app_shortcuts_continue_reading">Fortsett å lese</string>
   <string name="app_shortcuts_search">Søk</string>
+  <string name="more_trending_text">Mer som dette</string>
   <string name="all_trending_text">Alle populære artikler %1$s</string>
   <string name="top_on_this_day">Populært %1$s</string>
   <string name="on_this_day_card_title">På denne datoen</string>
   <string name="more_events_text" fuzzy="true">Flere historiske hendelser på denne datoen</string>
-  <string name="events_count_text" fuzzy="true">%1$s hendelser fra %2$s–%3$d</string>
+  <string name="events_count_text">%1$s hendelser fra %2$s–%3$d</string>
   <string name="this_year">Dette året</string>
+  <string name="back_to_top">Tilbake til toppen</string>
   <plurals name="diff_years">
     <item quantity="one">I fjor</item>
     <item quantity="other">For %d år siden</item>

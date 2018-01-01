@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Términos de uso</string>
   <string name="about_wikipedia_url">https://es.m.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/es</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
@@ -405,9 +406,9 @@
   <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icono de tarjeta</string>
   <string name="view_card_news_title">En las noticias</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Ayer</item>
-    <item quantity="other">Hace %d días</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ayer</item>
+    <item quantity="other">hace %d días</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">hoy</string>
   <string name="view_continue_reading_card_subtitle_read_date">Leer %s</string>
@@ -420,9 +421,14 @@
   <string name="feed_configure_activity_title">Personalizar el canal</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Seleccionar todo</string>
+  <string name="feed_configure_menu_deselect_all">Cancelar toda selección</string>
   <string name="feed_item_type_news">Artículos sobre acontecimientos recientes</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de hoy</string>
   <string name="feed_item_type_because_you_read">Sugerencias basadas en uno de tus artículos leídos recientemente</string>
+  <string name="feed_item_type_featured_article">Artículo destacado del día en Wikipedia</string>
+  <string name="feed_item_type_trending">Artículos más vistos del día</string>
+  <string name="feed_item_type_featured_image">Imagen destacada del día en Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Página principal de Wikipedia con contenido destacado diario</string>
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="description_edit_text_hint">Descripción de título</string>

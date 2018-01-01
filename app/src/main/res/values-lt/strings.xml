@@ -103,7 +103,7 @@
   <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
   <string name="preference_summary_auto_upload_crash_reports">Leisti programėlei siųsti strigčių ataskaitas į „HockeyApp“ arba trečiosios šalies paslaugų teikėjams automatiškai, todėl mes galėsime peržiūrėti jūsų klaidas ir ištaisyti jas greičiau bei lengviau.</string>
   <string name="history_search_list_hint">Paieškos istorija</string>
-  <string name="error_can_not_process_link">Neina parodyti šios nuorodos</string>
+  <string name="error_can_not_process_link">Neįmanoma parodyti šios nuorodos</string>
   <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>
   <string name="page_protected_sysop">Šis puslapis buvo visiškai apsaugotas.</string>
   <string name="page_protected_can_not_edit" fuzzy="true">Jūs neturite teisių redaguoti šį puslapį</string>
@@ -165,10 +165,10 @@
   <string name="gallery_share_error">Negalima pasidalinti vaizdu: %s</string>
   <string name="gallery_save_progress">Siunčiamas failas…</string>
   <string name="gallery_save_success">Failas išsaugotas sėkmingai.</string>
-  <string name="gallery_error_video_failed">Negalima paleisti filmuko.</string>
+  <string name="gallery_error_video_failed">Negalima paleisti vaizdo įrašo.</string>
   <string name="err_cannot_save_file">Negalima įrašyti failų</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia: %2$s</string>
-  <string name="expand_refs">Bakstelėkite plėsti</string>
+  <string name="expand_refs">Bakstelėkite norėdami išplėsti</string>
   <string name="share_snippet_button">Dalintis kaip vaizdu</string>
   <string name="share_normal_button">Dalintis kaip tekstu</string>
   <string name="snippet_share_preview_image_desc">Peržiūrėti paveikslėlį</string>
