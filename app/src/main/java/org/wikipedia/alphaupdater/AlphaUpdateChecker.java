@@ -30,6 +30,7 @@ public class AlphaUpdateChecker extends RecurringTask {
     private static final String PREFERENCE_KEY_ALPHA_COMMIT = "alpha_last_checked_commit";
     private static final String ALPHA_BUILD_APK_URL = "https://android-builds.wmflabs.org/runs/latest/wikipedia.apk";
     private static final String ALPHA_BUILD_DATA_URL = "https://android-builds.wmflabs.org/runs/latest/meta.json";
+    private static final String CHANNEL_ID = "ALPHA_UPDATE_CHECKER_CHANNEL";
     @NonNull private final Context context;
 
     public AlphaUpdateChecker(@NonNull Context context) {
@@ -72,7 +73,7 @@ public class AlphaUpdateChecker extends RecurringTask {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL));
         PendingIntent pintent = PendingIntent.getActivity(context, 0, intent, 0);
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentTitle(context.getString(R.string.alpha_update_notification_title))
                 .setContentText(context.getString(R.string.alpha_update_notification_text))
                 .setContentIntent(pintent)
