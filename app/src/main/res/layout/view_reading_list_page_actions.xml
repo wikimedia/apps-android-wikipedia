@@ -41,7 +41,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_offline_pin_black_24dp"
-            android:tint="?attr/primary_text_color"
+            android:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/reading_list_item_offline_switch"
@@ -70,7 +70,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_share_black_24dp"
-            android:tint="?attr/primary_text_color"
+            android:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:layout_width="0dp"
@@ -97,7 +97,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_bookmark_white_24dp"
-            android:tint="?attr/primary_text_color"
+            android:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:layout_width="0dp"
@@ -131,7 +131,7 @@
             android:layout_marginRight="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_delete_white_24dp"
-            android:tint="?attr/primary_text_color"
+            android:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:id="@+id/reading_list_item_remove_text"
