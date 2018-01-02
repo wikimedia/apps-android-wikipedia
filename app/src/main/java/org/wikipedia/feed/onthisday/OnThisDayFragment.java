@@ -186,7 +186,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         getAppCompatActivity().getSupportActionBar().setTitle("");
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
-        indicatorDate.setText(String.format(Locale.getDefault(), "%d", date.get(Calendar.DATE)));
+        indicatorLayout.setAlpha((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? HALF_ALPHA : 1.0f);
+        indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));
         appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
             if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
                 toolbarDay.setText("");
@@ -228,9 +229,12 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     public void onDatePicked(int month, int day) {
         eventsRecycler.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
-        if (date.get(Calendar.MONTH) != month || date.get(Calendar.DATE) != day) {
+        if (Calendar.getInstance().get(Calendar.MONTH) != month || Calendar.getInstance().get(Calendar.DATE) != day) {
             indicatorLayout.setAlpha(1.0f);
             indicatorLayout.setClickable(true);
+        } else {
+            indicatorLayout.setAlpha(HALF_ALPHA);
+            indicatorLayout.setClickable(false);
         }
         date.set(CustomDatePicker.LEAP_YEAR, month, day, 0, 0);
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
