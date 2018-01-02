@@ -26,7 +26,6 @@ public abstract class FeedCoordinatorBase {
 
     public interface FeedUpdateListener {
         void insert(Card card, int pos);
-        void swap(Card card, int pos);
         void remove(Card card, int pos);
     }
 
@@ -128,12 +127,6 @@ public abstract class FeedCoordinatorBase {
         card.onRestore();
     }
 
-    void retryFromOffline(@NonNull WikiSite wiki) {
-        // swap a progress card in where the offline card was
-        swapCard(progressCard, cards.size() - 1);
-        requestCard(wiki);
-    }
-
     protected abstract void buildScript(int age);
 
     void addPendingClient(@Nullable FeedClient client) {
@@ -209,14 +202,6 @@ public abstract class FeedCoordinatorBase {
         cards.add(position, card);
         if (updateListener != null) {
             updateListener.insert(card, position);
-        }
-    }
-
-    private void swapCard(@NonNull Card card, int position) {
-        cards.remove(cards.get(position));
-        cards.add(position, card);
-        if (updateListener != null) {
-            updateListener.swap(card, position);
         }
     }
 

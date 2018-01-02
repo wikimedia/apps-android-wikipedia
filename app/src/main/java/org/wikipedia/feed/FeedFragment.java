@@ -119,12 +119,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         feedView.addOnScrollListener(feedScrollListener);
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent));
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refresh();
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(this::refresh);
 
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
             @Override public void insert(Card card, int pos) {
@@ -132,15 +127,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     swipeRefreshLayout.setRefreshing(false);
                     if (feedView != null && feedAdapter != null) {
                         feedAdapter.notifyItemInserted(pos);
-                    }
-                }
-            }
-
-            @Override public void swap(Card card, int pos) {
-                if (isAdded()) {
-                    swipeRefreshLayout.setRefreshing(false);
-                    if (feedView != null && feedAdapter != null) {
-                        feedAdapter.notifyItemChanged(pos);
                     }
                 }
             }
@@ -327,8 +313,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onRetryFromOffline() {
-            funnel.requestMore(coordinator.getAge());
-            coordinator.retryFromOffline(app.getWikiSite());
+            refresh();
         }
 
         @Override
