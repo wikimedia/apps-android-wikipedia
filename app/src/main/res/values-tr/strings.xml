@@ -44,7 +44,7 @@
   <string name="talk_page_link_text">Tartışma</string>
   <string name="edit_history_link_text">Düzenleme geçmişi</string>
   <string name="map_view_link_text">Haritada görüntüle</string>
-  <string name="language_count_link_text" fuzzy="true">%d farklı dilde mevcut</string>
+  <string name="language_count_link_text">%d farklı dilde mevcut</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Kaydederek, &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">Sayfayı geliştirdiğiniz diğer yönler</string>
   <string name="find_next">Sonrakini bul</string>
   <string name="find_previous">Öncekini bul</string>
+  <string name="find_first_occurence">Bu, ilk olay</string>
+  <string name="find_last_occurence">Bu, son olay</string>
   <string name="abusefilter_title_warn">Bu yapıcı olmayan bir düzenleme olabilir. Yayımlamak istediğinizden emin misiniz?</string>
   <string name="abusefilter_title_disallow">Bu düzenlemeyi yayımlayamazsınız. Lütfen geri dönüp değiştirin.</string>
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>
@@ -214,7 +216,7 @@
   <string name="gallery_save_progress">Dosya indiriliyor…</string>
   <string name="gallery_save_success">Dosya başarıyla kaydedildi.</string>
   <string name="gallery_error_video_failed">Video oynatılamadı.</string>
-  <string name="gallery_save_image_write_permission_rationale">Görselleri kaydetmek için, cihaz hafızasına yazma izni gerekmektedir.</string>
+  <string name="gallery_save_image_write_permission_rationale">Görselleri kaydetmek için cihaz hafızasına yazma izni gerekmektedir.</string>
   <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia üzerinde: %2$s</string>
   <string name="expand_refs">Genişletmek için tıklayın</string>
@@ -227,7 +229,7 @@
   <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
   <string name="menu_new_tab">Yeni sekme</string>
   <string name="menu_close_all_tabs">Sekmeleri kapat</string>
-  <string name="close_all_tabs_confirm">Sekmeleri kaldırmak istediğinizden emin misiniz?</string>
+  <string name="close_all_tabs_confirm">Tüm sekmeleri kapatmak istediğinizden emin misiniz?</string>
   <string name="close_all_tabs_confirm_yes">Evet</string>
   <string name="close_all_tabs_confirm_no">Hayır</string>
   <string name="button_close_tab">Sekmeyi kapat</string>
@@ -246,11 +248,12 @@
   <string name="page_offline_notice_cannot_load_while_offline">Madde çevrimdışıyken yüklenemez.</string>
   <string name="page_offline_notice_add_to_reading_list">İpucu: Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
   <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrim dışı sürümünü okuyorsunuz.</string>
+  <string name="page_offline_notice_compilation_download_date">Bu maddeyi %1$s • %2$s sürümünden okuyorsunuz.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_show_link_previews">Bağlantı ön izlemelerini görüntüle</string>
   <string name="preference_summary_show_link_previews">Bağlantılara dokununca kısa bir ön izleme görüntülenir.</string>
-  <string name="nav_item_donate">Vikipediye Destek Ol</string>
+  <string name="nav_item_donate">Vikipedi\'ye Destek Ol</string>
   <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
   <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
   <string name="enable_location_service">Etkinleştir</string>
@@ -263,6 +266,13 @@
   <string name="error_page_does_not_exist">Bu sayfa mevcut değil</string>
   <string name="view_wiki_error_message_offline">İnternete bağlanılamıyor.</string>
   <string name="reference_title">Kaynak %s</string>
+  <string name="preference_title_dim_dark_mode_images">Koyu temada koyu renk resim</string>
+  <string name="preference_summary_dim_dark_mode_images">Koyu temayı kullanırken görüntü parlaklığını azaltın</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Görüntü karartma (Koyu tema için)</string>
+  <string name="preference_title_prefer_offline_content">Çevrimdışı içeriği tercih et</string>
+  <string name="preference_summary_prefer_offline_content">Her zaman bir maddenin son sürümünü yüklemek yerine çevrimdışı kullanılabilir maddeleri yükleyerek veri kullanımından tasarruf edin</string>
+  <string name="preference_title_enable_offline_library">Çevrimdışı Kitaplığı Etkinleştir</string>
+  <string name="preference_summary_enable_offline_library">Çevrimdışı olduğunuzda okumak üzere cihazınıza indirilebilen Wikipedia madde paketlerine (.ZIM dosyaları olarak gösterilir) erişin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Daha fazlasını bul&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
   <string name="crash_report_dialog_text">HockeyApp\'a (çökmeyi incelememizi ve sebep olan hatayı düzeltmemizi sağlayan, bir üçüncü parti servis sağlayıcısı) bir hata raporu göndermek ister misiniz?</string>
   <string name="crash_report_dialog_dont_send_button">Atla</string>
@@ -282,6 +292,7 @@
   <string name="color_theme_dark">Koyu</string>
   <string name="color_theme_black">Siyah</string>
   <string name="color_theme_test_title">Örnek metin</string>
+  <string name="color_theme_test_text">Maddeleri okurken kullanılan metnin boyutunu değiştirmek için kaydırıcıyı sürükleyin. Metin boyutunu uygulamanın geri kalanında ayarlamak için sistem metin boyutunu değiştirin.</string>
   <string name="preference_title_app_theme">Uygulama teması</string>
   <string name="preference_title_color_theme">Koyu tema</string>
   <string name="preference_summary_color_theme">Uygulamanın koyu renk temasına geçiş yapın</string>
@@ -312,6 +323,8 @@
   <string name="reading_list_menu_edit_description">Tanımı düzenle</string>
   <string name="reading_list_action_menu_remove_from_offline">Çevrim dışı erişimden sil</string>
   <string name="reading_list_action_menu_save_for_offline">Çevrim dışı erişim iiçin kaydet</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Çevrimdışı içeriğin hepsini kaldır</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Hepsini çevrimdışı olarak kaydet</string>
   <string name="reading_list_action_menu_add_to_another_list">Başka bir listeye ekle</string>
   <string name="reading_list_name_sample">Okuma listem</string>
   <string name="reading_list_name_hint">Bu listenin adı</string>
@@ -347,6 +360,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">Evet</string>
   <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrim dışı olarak erişilebilir olacak.</string>
+  <string name="reading_list_already_contains_selection">Seçilen liste zaten seçilen sayfaların tümünü içermektedir.</string>
+  <string name="reading_list_added_articles_list_untitled">Okuma listesine %d madde eklendi.</string>
+  <string name="reading_list_added_articles_list_titled">%2$s içeriğine %1$d madde eklendi</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bu maddeye artık çevrim dışı olarak erişilebilir.</item>
     <item quantity="other">Bu maddelere artık çevrim dışı olarak erişilebilir.</item>
@@ -363,12 +379,22 @@
   <string name="notification_reverted">&lt;strong&gt;%2$s&lt;/strong&gt; maddesindeki değişikliğiniz &lt;em&gt;%1$s&lt;/em&gt; tarafından geri alındı.</string>
   <string name="notification_thanks_title">Size teşekkür edildi!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;, &lt;strong&gt;%2$s&lt;/strong&gt; sayfasındaki değişikliğiniz için size teşekkür etti.</string>
+  <string name="notification_channel_name">Senkronize ediliyor</string>
+  <string name="notification_channel_description">Senkronizasyon ilerleme durumu</string>
+  <string name="notification_syncing_title">%1$d madde senkronize ediliyor...</string>
+  <string name="notification_syncing_description">Kalan madde sayısı %1$d</string>
+  <string name="notification_syncing_pause_button">Duraklat</string>
+  <string name="notification_syncing_resume_button">Devam et</string>
+  <string name="notification_syncing_cancel_button">İptal</string>
   <string name="view_continue_reading_card_title">Okumaya devam et</string>
   <string name="view_because_you_read_card_title">Okuduklarına benzer</string>
   <string name="view_random_card_title">Rastgele</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Vikipedi\'den rastgele bir madde oku</string>
+  <string name="view_random_card_subtitle">Wikipedia\'dan okumak için rasgele madde çevirin.</string>
+  <string name="view_random_card_action">Zar atın</string>
+  <string name="view_next_random_article">Başka bir rastgele madde yükle</string>
   <string name="view_main_page_card_title">Vikipedi\'de bugün</string>
   <string name="view_main_page_card_subtitle">%s tarihli anasayfa</string>
+  <string name="view_main_page_card_action">Ana sayfayı görüntüle</string>
   <string name="view_featured_image_card_title">Günün resmi</string>
   <string name="view_featured_image_card_download">İndir</string>
   <string name="menu_feed_card_dismiss">Bu kartı gizle</string>
@@ -385,14 +411,28 @@
     <item quantity="other">%d gün önce</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">bugün</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Sayfanın son görünümü %s</string>
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
   <string name="view_offline_card_text">İçerik çevrimdışı iken yüklenemez.</string>
   <string name="view_featured_article_card_title">Seçkin madde</string>
   <string name="view_featured_article_footer_save_button_label">Kaydet</string>
+  <string name="view_featured_article_footer_saved_button_label">Kaydedildi</string>
+  <string name="feed_configure_menu_title">Kartları yapılandır</string>
+  <string name="feed_configure_activity_title">Beslemeyi özelleştir</string>
+  <string name="feed_configure_menu_reset">Varsayılan görünümü geri yükle</string>
   <string name="feed_configure_menu_select_all">Tümünü seç</string>
+  <string name="feed_configure_menu_deselect_all">Hiçbirini seçme</string>
   <string name="feed_item_type_news">Güncel olaylar hakkındaki maddeler</string>
   <string name="feed_item_type_on_this_day">Tarihte bugün gerçekleşen olaylar</string>
+  <string name="feed_item_type_continue_reading">Sekmelerinizin birinde açık bir maddeyi okumak için hızlı bağlantı</string>
+  <string name="feed_item_type_because_you_read">Kısa süre önce okuduklarınıza dayanarak yapılan öneriler</string>
+  <string name="feed_item_type_featured_article">Vikipedi\'de günün seçkin maddesi</string>
+  <string name="feed_item_type_trending">Günün en çok görüntülenen maddeleri</string>
+  <string name="feed_item_type_featured_image">Wikimedia Commons\'ta günün seçkin resmi</string>
+  <string name="feed_item_type_main_page">Günün seçkin maddesi içeren Vikipedi anasayfası</string>
+  <string name="feed_item_type_randomizer">Okumak için rastgele madde oluştur</string>
   <string name="feed_configure_onboarding_action">Özelleştir</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Keşfet özet akışınızı özelleştirme&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Artık akışınızda neyin gösterileceğini seçebilir ve en sevdiğiniz içerik türlerine öncelik de verebilirsiniz.</string>
   <string name="description_edit_text_hint">Başlık tanımı</string>
   <string name="description_edit_save">Yayımla</string>
   <string name="description_edit_add_description">Başlık tanımı ekle</string>
@@ -435,6 +475,8 @@
   <string name="offline_compilation_download_device_offline">İnternet bağlantısı yok. Çevrimiçi olduğunuzdan emin olunca yeniden deneyin.</string>
   <string name="offline_read_permission_rationale">Çevrimdışı gözatma için cihazınızın belleğine erişim izni olması gerekmektedir.</string>
   <string name="offline_read_permission_error">Cihaz hafızasına erişim için izin verilmedi.</string>
+  <string name="offline_card_text">Çevrimdışı kitaplığınızdaki maddelerle çevrimdışı olarak Vikipedi\'ye göz atıyorsunuz.</string>
+  <string name="offline_card_sideloading_text">Çevrimdışı Kitaplığınızdaki madde paketlerinden Çevrimdışı Vikipedi\'ye göz atıyorsunuz.</string>
   <string name="offline_my_compilations">Çevrim dışı kütüphanemi yönet</string>
   <string name="offline_compilations_title">Çevrim dışı Kütüphane</string>
   <string name="offline_compilations_search_by_name">Madde paketlerini ada göre ara</string>
@@ -464,21 +506,54 @@
   <string name="compilation_remove_confirm">Bunu Çevrim dışı Kütphane\'den silmek istiyor musunuz?</string>
   <string name="offline_library_title">Çevrim dışı Kütüphane</string>
   <string name="offline_library_empty_title">Çevrimdışı Kütüphaneniz boş</string>
+  <string name="offline_library_empty_description">İndirmek ve daha sonra veri kullanmadan erişebilmek için bir dizi Vikipedi maddesi seçin</string>
+  <string name="offline_library_empty_description_sideload">Çevrimdışı kitaplığınızdaki \"madde paketleri\", cihazınızda rahatça depolanması için önceden paketlenmiş madde setidir; dolayısıyla çevrimdışı okumaya devam edebilirsiniz.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Daha fazlasını bul&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Kitaplığınızdaki madde paketleri çevrimdışı olduğunuzda da okunabilir durumda olacaktır. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Daha fazlasını bul&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Veri kullanımından tasarruf etmek ister misiniz? Kullanılabilir çevrimdışı maddeleri, bağlandığınızda bile önce göstermek için Ayarlar\'da \"Çevrimdışı içeriği tercih et\" seçeneğini seçin. &lt;a href=\"#settings\"&gt;Ayarlar\'a gidin&lt;/a&gt;</string>
+  <string name="offline_library_empty_search">Çevrimdışı Kitaplıkta ara</string>
+  <string name="offline_library_search_results_state">Çevrimdışı Kitaplığınızdan arama sonuçları</string>
   <string name="offline_library_onboarding_action">Daha fazlasını öğrenin</string>
+  <string name="offline_library_onboarding_text">Çevrimdışı Kütüphaneye Giriş — daha sonra çevrimdışı okumak için madde paketlerini indirin.</string>
+  <string name="offline_library_onboarding_button_done">Yapıldı</string>
+  <string name="offline_library_onboarding_build_library_title">Çevrimdışı Kitaplığınızı Oluşturun</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Veri kullanmadan sonradan Vikipedi maddelerine erişebilmek için madde paketlerini indirin.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Kesintisiz okuma</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">İnternete erişemediğinizde Çevrimdışı Kitaplığınızdaki maddeleri okumaya ve aramaya devam edin.</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Daha fazla bilgi sakla</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Cihazınızın kaldırabileceği kadar çok Vikipedi içeriği indirin. Çevrimdışı Kitaplık, harici depolama alanındaki madde paketlerine de erişebilir.</string>
+  <string name="offline_library_main_page_hint_html">Bu Ana Sayfa, bu madde paketinin içeriğine genel bir bakış sağlamaktadır.&lt;br /&gt;&lt;br /&gt;Çevrimdışıyken mevcut maddeleri arayarak Çevrimdışı Kitaplığınızdaki herhangi bir madde paketinin içeriğini de keşfedebilirsiniz.</string>
   <string name="onboarding_skip">Atla</string>
   <string name="onboarding_continue">Devam et</string>
   <string name="onboarding_get_started">Kullanmaya başla</string>
+  <string name="onboarding_welcome_title">Özgür ansiklopedi</string>
+  <string name="onboarding_welcome_text">Vikipedi, gönüllüler tarafından işbirliği içinde yazılmış ve yaklaşık 300 farklı dilde 40 milyondan fazla maddeden oluşmaktadır. &lt;a href=\"#about\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Keşfetmenin yeni yolları</string>
-  <string name="onboarding_explore_text" fuzzy="true">Keşfet bölümünde seçkin maddeleri, en popüler başlıkları ve okuma önerilerini inceleyin.</string>
+  <string name="onboarding_explore_text">Vikipedi tavşan deliğine, sürekli Keşfet akışı ile dalın. &lt;br/&gt; Akışınızı ilgileriniz göre &lt;b&gt;özelleştirin&lt;/b&gt; – &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihsel olaylar hakkında bilgi alın ya da &lt;b&gt;Rastgele&lt;/b&gt; ile zar atın.</string>
+  <string name="onboarding_save_to_reading_lists_title">Okuma listesine kaydet</string>
+  <string name="onboarding_save_to_reading_lists_text">Çevrimdışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun.</string>
   <string name="onboarding_reading_list_sync_title">Okuma listelerinin senkronizasyonu</string>
   <string name="onboarding_reading_list_sync_text">Daha sonra, çevrim dışı olsanız bile, okumak istediğiniz maddelerden okuma listeleri okuşturun. Okuma listelerinizi yedekleyip saklamak için Vikipedi hesabınızda &lt;a href=\"#login\"&gt;oturum açın veya yeni hesap oluşturun&lt;/a&gt;.</string>
   <string name="onboarding_analytics_title">Anonim veri gönder</string>
   <string name="onboarding_analytics_text">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>
   <string name="onboarding_create_account_sync">Okuma listelerinizi senkronize edin</string>
   <string name="onboarding_create_account_contributions">Katkılarınızı takip edebilin</string>
   <string name="onboarding_create_account_preferences">Tercihlerinizi kaydedin</string>
+  <string name="onboarding_got_it">Anladım</string>
   <string name="app_shortcuts_random">Rastgele</string>
   <string name="app_shortcuts_continue_reading">Okumaya devam et</string>
   <string name="app_shortcuts_search">Arama</string>
+  <string name="more_trending_text">Buna benzer daha fazla içerik</string>
+  <string name="all_trending_text">%1$s tarihindeki tüm popüler maddeler</string>
+  <string name="top_on_this_day">%1$s tarihindeki en popüler bağlantılar</string>
+  <string name="on_this_day_card_title">Tarihte bugün</string>
+  <string name="more_events_text">Bugün hakkında daha fazlası içerik</string>
+  <string name="events_count_text">%2$s–%3$d yıllarından %1$s olay</string>
+  <string name="this_year">Bu yıl</string>
+  <string name="back_to_top">Başa dön</string>
+  <plurals name="diff_years">
+    <item quantity="one">Geçen yıl</item>
+    <item quantity="other">%d yıl önce</item>
+  </plurals>
 </resources>

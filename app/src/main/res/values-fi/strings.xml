@@ -146,6 +146,7 @@
   <string name="about_description">Tietoja Wikipedia-sovelluksesta</string>
   <string name="privacy_policy_description">Tietosuojakäytäntö</string>
   <string name="terms_of_use_description">Käyttöehdot</string>
+  <string name="about_wikipedia_url">https://fi.m.wikipedia.org/wiki/Wikipedia:Tietoja</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/fi</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fi</string>
@@ -175,6 +176,8 @@
   <string name="edit_summary_tag_other_hint">Muita sivulle tehtyjä parannuksia</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
+  <string name="find_first_occurence">Tämä on ensimmäinen esiintyminen</string>
+  <string name="find_last_occurence">Tämä on viimeinen esiintyminen</string>
   <string name="abusefilter_title_warn">Tämä muokkaus on tunnistettu mahdollisesti haitalliseksi. Haluatko varmasti julkaista sen?</string>
   <string name="abusefilter_title_disallow">Et voi julkaista tätä muokkausta. Palaa takaisin ja muuta sitä.</string>
   <string name="abusefilter_text_warn">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi. Se saattaa sisältää yhden tai useampia seuraavista asioista:&lt;br /&gt;&lt;br /&gt;· Kokonaan isoilla kirjaimilla kirjoitettu teksti&lt;br /&gt;· Artikkeleiden tyhjentäminen tai mainostaminen&lt;br /&gt;· Aiheeseen liittymättömät linkit tai kuvat&lt;br /&gt;· Toistuvat merkkijonot</string>
@@ -265,6 +268,7 @@
   <string name="preference_summary_dim_dark_mode_images">Vähennä kuvien kirkkautta tummaa teemaa käytettäessä</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Kuvien himmentäminen (tummassa teemassa)</string>
   <string name="preference_title_prefer_offline_content">Suosi yhteydettömän tilan sisältöä</string>
+  <string name="preference_title_enable_offline_library">Ota käyttöön Offline-kirjasto</string>
   <string name="crash_report_dialog_title">Pahoittelut, sovellus kaatui viime kerralla</string>
   <string name="crash_report_dialog_text">Haluaisitko lähettää kaatumisilmoituksen HockeyAppiin / kolmannen osapuolen palveluntarjoajalle, jotta Wikimedia voi käydä läpi kaatumisesi ja korjata sen aiheuttaneen ongelman?</string>
   <string name="crash_report_dialog_dont_send_button">Ohita</string>
@@ -282,6 +286,9 @@
   <string name="color_theme_select">Teema</string>
   <string name="color_theme_light">Vaalea</string>
   <string name="color_theme_dark">Tumma</string>
+  <string name="color_theme_black">Musta</string>
+  <string name="color_theme_test_title">Näyteteksti</string>
+  <string name="preference_title_app_theme">Sovelluksen teema</string>
   <string name="preference_title_color_theme">Tumma teema</string>
   <string name="preference_summary_color_theme">Vaihda sovelluksen tummaan väriteemaan</string>
   <string name="text_size_increase">Pienennä tekstin kokoa</string>
@@ -309,6 +316,10 @@
   <string name="reading_list_menu_delete">Poista lista</string>
   <string name="reading_list_menu_rename">Nimeä uudelleen</string>
   <string name="reading_list_menu_edit_description">Muokkaa kuvausta</string>
+  <string name="reading_list_action_menu_remove_from_offline">Poista offlinesta</string>
+  <string name="reading_list_action_menu_save_for_offline">Tallenna offline-tilassa</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Poista kaikki offlinesta</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Tallenna kaikki offlineen</string>
   <string name="reading_list_action_menu_add_to_another_list">Lisää toiseen luetteloon</string>
   <string name="reading_list_name_sample">Oma lukuluettelo</string>
   <string name="reading_list_name_hint">Listan nimi</string>
@@ -362,14 +373,22 @@
   <string name="notification_reverted">&lt;em&gt;%1$s&lt;/em&gt; kumosi muokkauksesi artikkeliin &lt;strong&gt;%2$s&lt;/strong&gt;.</string>
   <string name="notification_thanks_title">Sinua on kiitetty tekemästäsi muokkauksesta!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; kiitti sinua muokkauksestasi sivuun &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Synkronoidaan</string>
+  <string name="notification_channel_description">Synkronoinnin edystyminen</string>
+  <string name="notification_syncing_title">Synkronoidaan %1$d artikkelia…</string>
+  <string name="notification_syncing_description">%1$d artikkelia jäljellä</string>
+  <string name="notification_syncing_pause_button">Tauko</string>
+  <string name="notification_syncing_resume_button">Jatka</string>
   <string name="notification_syncing_cancel_button">Peruuta</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Lue satunnainen artikkeli Wikipediasta</string>
+  <string name="view_random_card_subtitle">Selaa satunnaisia ​​artikkeleita luettavaksi Wikipediasta.</string>
+  <string name="view_random_card_action">Heitä noppaa</string>
   <string name="view_next_random_article">Lataa toinen satunnainen artikkeli</string>
   <string name="view_main_page_card_title">Tänään Wikipediassa</string>
   <string name="view_main_page_card_subtitle">Etusivu %s</string>
+  <string name="view_main_page_card_action">Katso etusivua</string>
   <string name="view_featured_image_card_title">Päivän kuva</string>
   <string name="view_featured_image_card_download">Lataa</string>
   <string name="menu_feed_card_dismiss">Piilota tämä kortti</string>
@@ -381,16 +400,23 @@
   <string name="most_read_list_card_title">Nousussa</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Eilen</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">eilen</item>
     <item quantity="other">%d päivää sitten</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Tänään</string>
+  <string name="view_continue_reading_card_subtitle_today">tänään</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Lue %s</string>
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
   <string name="view_offline_card_text">Sisältöä ei voida ladata offline-tilassa</string>
   <string name="view_featured_article_card_title">Suositeltu artikkeli</string>
   <string name="view_featured_article_footer_save_button_label">Tallenna</string>
   <string name="view_featured_article_footer_saved_button_label">Tallennettu</string>
+  <string name="feed_configure_menu_reset">Palauta oletusnäkymä</string>
+  <string name="feed_configure_menu_select_all">Valitse kaikki</string>
+  <string name="feed_configure_menu_deselect_all">Poista kaikki valinnat</string>
+  <string name="feed_item_type_news">Artikkelit ajankohtaisista tapahtumista</string>
+  <string name="feed_item_type_on_this_day">Tapahtumat historiassa tänä päivänä</string>
+  <string name="feed_configure_onboarding_action">Mukauta</string>
   <string name="description_edit_text_hint">Otsikkokuvaus</string>
   <string name="description_edit_save">Julkaise</string>
   <string name="description_edit_add_description">Lisää otsikkokuvaus</string>
@@ -476,18 +502,30 @@
   <string name="onboarding_skip">Ohita</string>
   <string name="onboarding_continue">Jatka</string>
   <string name="onboarding_get_started">Aloitetaan</string>
+  <string name="onboarding_welcome_title">Vapaa tietosanakirja</string>
   <string name="onboarding_explore_title">Uusia tapoja tutkia</string>
   <string name="onboarding_explore_text" fuzzy="true">Selaa suositeltuja artikkeleita, trendikkäitä aiheita ja lukuehdotuksia Tutki-syötteessä.</string>
+  <string name="onboarding_save_to_reading_lists_title">Tallenna lukuluetteloon</string>
+  <string name="onboarding_save_to_reading_lists_text">Luo lukuluetteloja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet olet offline-tilassa.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukuluettelot</string>
   <string name="onboarding_reading_list_sync_text">Luo lukuluetteloita artikkeleista, joita haluat lukea myöhemmin. Pystyt lukemaan lukuluetteloon tallentamiasi artikkeleita myös ilman internet-yhteyttä. &lt;a href=\"#login\"&gt;Kirjaudu sisään&lt;/a&gt; Wikipedia-tilillesi varmuuskopioidaksesi lukuluettelot käytettäviksi kaikilla laitteillasi.</string>
   <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>
   <string name="onboarding_analytics_text">Auta sovelluskehittäjiä tekemään sovelluksesta yhä parempi lähettämällä nimettömästi dataa tavasta, jolla käytät sovellusta. &lt;a href=\"#privacy\"&gt;Lue lisää yksityisyydestä&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#offline\"&gt;Opi lisää&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
   <string name="onboarding_create_account_sync">Synkronoi lukuluettelosi</string>
   <string name="onboarding_create_account_contributions">Seuraa tekemiäsi muokkauksia</string>
   <string name="onboarding_create_account_preferences">Tallenna asetuksesi</string>
+  <string name="onboarding_got_it">Selvä</string>
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>
+  <string name="more_trending_text">Enemmän tämänlaista</string>
   <string name="on_this_day_card_title">Tänä päivänä</string>
+  <string name="this_year">Tänä vuonna</string>
+  <string name="back_to_top">Takaisin alkuun</string>
+  <plurals name="diff_years">
+    <item quantity="one">Viime vuonna</item>
+    <item quantity="other">%d vuotta sitten</item>
+  </plurals>
 </resources>
