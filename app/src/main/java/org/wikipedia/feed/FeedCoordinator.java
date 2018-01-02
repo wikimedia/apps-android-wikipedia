@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.announcement.AnnouncementClient;
+import org.wikipedia.feed.offline.OfflineCardClient;
 import org.wikipedia.feed.offline.OfflineCompilationClient;
 import org.wikipedia.feed.onboarding.OnboardingClient;
 import org.wikipedia.feed.searchbar.SearchClient;
@@ -41,5 +42,8 @@ public class FeedCoordinator extends FeedCoordinatorBase {
         for (FeedContentType contentType : orderedContentTypes) {
             addPendingClient(contentType.newClient(aggregatedClient, age, online));
         }
+
+        conditionallyAddPendingClient(new OfflineCardClient(), age == 0 && !online);
+
     }
 }
