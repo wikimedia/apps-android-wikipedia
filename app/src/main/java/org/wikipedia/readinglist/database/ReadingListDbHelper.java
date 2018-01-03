@@ -77,6 +77,10 @@ public class ReadingListDbHelper {
 
     public void updateList(@NonNull ReadingList list) {
         SQLiteDatabase db = getWritableDatabase();
+        updateList(db, list);
+    }
+
+    public void updateList(@NonNull SQLiteDatabase db, @NonNull ReadingList list) {
         db.beginTransaction();
         try {
             // implicitly update the last-access time of the list

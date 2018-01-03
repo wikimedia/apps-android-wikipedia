@@ -35,7 +35,7 @@ public final class ReadingListTitleDialog {
                         if (StringUtils.isEmpty(title)) {
                             dialog.setError(dialog.getContext().getString(R.string.reading_list_entry_empty));
                             dialog.setPositiveButtonEnabled(false);
-                        } else if (otherTitles.contains(title)) {
+                        } else if (title.equalsIgnoreCase(context.getString(R.string.default_reading_list_name)) || otherTitles.contains(title)) {
                             dialog.setError(dialog.getContext().getString(R.string.reading_list_title_exists, title));
                             dialog.setPositiveButtonEnabled(false);
                         } else {

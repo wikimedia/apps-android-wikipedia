@@ -81,9 +81,20 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 importOldLists(db, currentLists);
             }
             createDefaultList(db, currentLists);
+            checkForUserCreatedSavedList(db, currentLists);
             // TODO: add other one-time conversions here.
         }
     }
+    private void checkForUserCreatedSavedList(SQLiteDatabase db, List<ReadingList> lists) {
+        for (ReadingList list : lists) {
+            if (list.title().equalsIgnoreCase(WikipediaApp.getInstance().getString(R.string.default_reading_list_name))) {
+                list.title(String.format(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename), list.title()));
+                ReadingListDbHelper.instance().updateList(db, list);
+            }
+        }
+    }
+
+
 
     @Override protected ContentValues toContentValues(@NonNull ReadingListPage row) {
         ContentValues contentValues = new ContentValues();
