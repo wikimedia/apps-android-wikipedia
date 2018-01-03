@@ -16,6 +16,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -903,6 +904,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Nullable private SearchFragment searchFragment() {
         return (SearchFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.activity_page_container);
+    }
+
+    @NonNull public TabLayout getTabLayout() {
+        return pageFragment.getTabLayout();
     }
 
     private class EventBusMethods {

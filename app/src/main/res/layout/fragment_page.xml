@@ -51,6 +51,12 @@
                     android:background="?android:windowBackground"
                     android:visibility="gone"/>
 
+                <android.support.design.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="bottom"
+                    android:id="@+id/fragment_page_coordinator"
+                    android:layout_height="wrap_content" />
+
                 <org.wikipedia.page.PageActionTabLayout
                     android:id="@+id/page_actions_tab_layout"
                     android:layout_width="match_parent"
