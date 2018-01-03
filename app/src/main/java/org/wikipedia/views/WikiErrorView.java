@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Space;
@@ -28,6 +29,7 @@ public class WikiErrorView extends LinearLayout {
     @BindView(R.id.view_wiki_error_footer_text) TextView footerText;
     @BindView(R.id.view_wiki_error_article_content_top_offset) Space contentTopOffset;
     @BindView(R.id.view_wiki_error_article_tab_layout_offset) Space tabLayoutOffset;
+    @BindView(R.id.view_wiki_error_footer_layout) View footerLayout;
 
     @Nullable private OnClickListener retryListener;
     @Nullable private OnClickListener backListener;
@@ -70,7 +72,10 @@ public class WikiErrorView extends LinearLayout {
         button.setText(resources.getString(errorType.buttonText()));
         button.setOnClickListener(errorType.buttonClickListener(this));
         if (errorType.hasFooterText()) {
+            footerLayout.setVisibility(VISIBLE);
             footerText.setText(resources.getString(errorType.footerText()));
+        } else {
+            footerLayout.setVisibility(GONE);
         }
     }
 
