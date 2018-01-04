@@ -29,6 +29,7 @@
         android:layout_height="48dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_list_card_list"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
