@@ -65,7 +65,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    style="@style/RtlAwareTextView"
                     tools:text="Sample section license text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/base30"/>

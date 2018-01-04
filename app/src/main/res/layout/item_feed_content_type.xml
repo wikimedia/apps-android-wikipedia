@@ -30,7 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/MaterialListTitle"
-            android:textAppearance="@style/RtlAwareTextView"
             tools:text="Lorem ipsum"/>
 
         <org.wikipedia.views.GoneIfEmptyTextView
@@ -39,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             style="@style/MaterialListSubtitle"
-            android:textAppearance="@style/RtlAwareTextView"
             tools:text="Lorem ipsum"/>
 
     </LinearLayout>

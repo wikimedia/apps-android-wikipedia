@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="@style/RtlAwareTextView"
     android:textAppearance="?android:attr/textAppearanceLarge"
     android:textColor="?attr/primary_text_color"
     android:fontFamily="serif"

@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="1"
-            style="@style/RtlAwareTextView"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"

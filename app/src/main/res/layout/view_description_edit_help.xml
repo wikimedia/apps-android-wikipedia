@@ -13,7 +13,6 @@
         android:id="@+id/view_description_edit_help_contents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/RtlAwareTextView"
         android:layout_marginTop="16dp"
         android:lineSpacingMultiplier="1.2"
         tools:text="Lorem ipsum"/>
@@ -34,7 +33,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/RtlAwareTextView"
             android:minHeight="56dp"
             android:padding="16dp"
             android:textSize="16sp"
@@ -59,7 +57,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/RtlAwareTextView"
             android:minHeight="56dp"
             android:padding="16dp"
             android:textSize="16sp"

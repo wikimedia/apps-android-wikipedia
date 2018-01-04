@@ -129,8 +129,7 @@
                 android:textSize="12sp"
                 android:text=""
                 android:textColor="?attr/secondary_text_color"
-                android:lineSpacingMultiplier="1.2"
-                style="@style/RtlAwareTextView"/>
+                android:lineSpacingMultiplier="1.2"/>
 
         </LinearLayout>
 

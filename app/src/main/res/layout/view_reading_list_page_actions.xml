@@ -16,7 +16,6 @@
         android:paddingLeft="@dimen/list_item_horizontal_padding"
         android:paddingRight="@dimen/list_item_horizontal_padding"
         android:gravity="center_vertical"
-        style="@style/RtlAwareTextView"
         android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
         android:fontFamily="sans-serif-medium"
@@ -51,7 +50,6 @@
             android:paddingLeft="@dimen/list_item_horizontal_padding"
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
-            style="@style/RtlAwareTextView"
             android:clickable="false"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
@@ -79,7 +77,6 @@
             android:paddingLeft="@dimen/list_item_horizontal_padding"
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
-            style="@style/RtlAwareTextView"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
             android:text="@string/menu_text_select_share"/>
@@ -106,7 +103,6 @@
             android:paddingLeft="@dimen/list_item_horizontal_padding"
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
-            style="@style/RtlAwareTextView"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
             android:text="@string/reading_list_add_to_other_list"/>
@@ -141,7 +137,6 @@
             android:paddingLeft="@dimen/list_item_horizontal_padding"
             android:paddingRight="@dimen/list_item_horizontal_padding"
             android:gravity="center_vertical"
-            style="@style/RtlAwareTextView"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
             tools:text="Remove from list"/>

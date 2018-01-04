@@ -16,7 +16,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/MaterialListTitle"
-            android:textAppearance="@style/RtlAwareTextView"
             android:gravity="center_vertical"
             tools:text="Sample language local name"
             />
@@ -25,7 +24,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/MaterialListSubtitle"
-            android:textAppearance="@style/RtlAwareTextView"
             android:gravity="center_vertical"
             tools:text="Sample article local name"
             />

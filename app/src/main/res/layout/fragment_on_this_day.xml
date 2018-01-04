@@ -44,7 +44,6 @@
 
                         <TextView
                             android:id="@+id/day"
-                            style="@style/RtlAwareTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -66,7 +65,6 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/RtlAwareTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:alpha="0.5"
@@ -77,7 +75,6 @@
 
                     <TextView
                         android:id="@+id/day_info_text_view"
-                        style="@style/RtlAwareTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -115,7 +112,6 @@
 
                     <TextView
                         android:id="@+id/toolbar_day"
-                        style="@style/RtlAwareTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"

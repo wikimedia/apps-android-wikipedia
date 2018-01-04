@@ -76,8 +76,7 @@
                 android:lineSpacingMultiplier="1.2"
                 android:textIsSelectable="true"
                 android:textColor="?attr/section_title_color"
-                android:background="?attr/paper_color"
-                style="@style/RtlAwareTextView"/>
+                android:background="?attr/paper_color"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/view_news_fullscreen_link_card_list"

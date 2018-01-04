@@ -13,8 +13,7 @@
         android:textSize="20sp"
         android:textColor="?attr/primary_text_color"
         android:fontFamily="sans-serif-medium"
-        android:lineSpacingMultiplier="1.2"
-        style="@style/RtlAwareTextView"/>
+        android:lineSpacingMultiplier="1.2"/>
 
     <TextView
         android:id="@+id/view_compilation_info_date_size"
@@ -23,8 +22,7 @@
         android:layout_marginBottom="12dp"
         android:textSize="12sp"
         android:textColor="?attr/material_theme_secondary_color"
-        android:lineSpacingMultiplier="1.2"
-        style="@style/RtlAwareTextView"/>
+        android:lineSpacingMultiplier="1.2"/>
 
     <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/view_compilation_info_summary"
@@ -33,7 +31,6 @@
         android:layout_marginBottom="8dp"
         android:textSize="14sp"
         android:textColor="?attr/secondary_text_color"
-        android:lineSpacingMultiplier="1.2"
-        style="@style/RtlAwareTextView"/>
+        android:lineSpacingMultiplier="1.2"/>
 
 </LinearLayout>

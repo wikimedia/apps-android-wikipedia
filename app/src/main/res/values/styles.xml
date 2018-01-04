@@ -23,6 +23,7 @@
         <item name="searchViewStyle">@style/SearchViewStyle</item>
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="android:listViewStyle">@style/ListView</item>
+        <item name="android:textViewStyle">@style/RtlAwareTextView</item>
     </style>
 
     <style name="AppTheme.Page">
@@ -166,8 +167,7 @@
         <item name="android:dividerHeight">0dp</item>
     </style>
 
-    <style name="RtlAwareTextView">
-        <item name="android:textDirection">anyRtl</item>
+    <style name="RtlAwareTextView" parent="@android:style/Widget.TextView">
         <item name="android:textAlignment">viewStart</item>
     </style>
 

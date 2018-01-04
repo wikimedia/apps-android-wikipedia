@@ -199,7 +199,6 @@
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/theme_chooser_dark_mode_dim_images_switch"
-            style="@style/RtlAwareTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
