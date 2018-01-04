@@ -2,6 +2,7 @@ package org.wikipedia.readinglist.database;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,6 +46,10 @@ public class ReadingList {
             }
         }
         return count;
+    }
+
+    public boolean isDefault() {
+        return TextUtils.isEmpty(title);
     }
 
     public long id() {

@@ -85,6 +85,7 @@ public abstract class DatabaseTable<T> {
     public void upgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
         if (fromVersion < getDBVersionIntroducedAt()) {
             createTables(db);
+            onUpgradeSchema(db, fromVersion, getDBVersionIntroducedAt());
         }
 
         for (int ver = Math.max(getDBVersionIntroducedAt(), fromVersion) + 1; ver <= toVersion; ++ver) {
@@ -101,7 +102,7 @@ public abstract class DatabaseTable<T> {
                 db.execSQL(alterTableString);
             }
 
-            upgradeSchema(db, ver);
+            onUpgradeSchema(db, ver - 1, ver);
         }
     }
 
@@ -109,7 +110,7 @@ public abstract class DatabaseTable<T> {
         return baseContentURI;
     }
 
-    protected void upgradeSchema(@NonNull SQLiteDatabase db, int toVersion) {
+    protected void onUpgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
     }
 
     private void createTables(@NonNull SQLiteDatabase db) {

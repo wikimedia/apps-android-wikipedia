@@ -130,7 +130,7 @@ public class ReadingListItemView extends FrameLayout {
         PopupMenu menu = new PopupMenu(getContext(), anchorView);
         menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
 
-        if (TextUtils.isEmpty(readingList.title())) {
+        if (readingList.isDefault()) {
             MenuItem renameItem = menu.getMenu().findItem(R.id.menu_reading_list_rename);
             renameItem.setVisible(false);
             MenuItem deleteItem = menu.getMenu().findItem(R.id.menu_reading_list_delete);
@@ -155,7 +155,7 @@ public class ReadingListItemView extends FrameLayout {
         if (readingList == null) {
             return;
         }
-        titleView.setText(TextUtils.isEmpty(readingList.title())
+        titleView.setText(readingList.isDefault()
                 ? getString(R.string.default_reading_list_name)
                 : readingList.title());
         if (TextUtils.isEmpty(readingList.description()) && showDescriptionEmptyHint) {
@@ -177,7 +177,7 @@ public class ReadingListItemView extends FrameLayout {
         if (readingList == null) {
             return;
         }
-        defaultListEmptyView.setVisibility((TextUtils.isEmpty(readingList.title()) && readingList.pages().size() == 0) ? VISIBLE : GONE);
+        defaultListEmptyView.setVisibility((readingList.isDefault() && readingList.pages().size() == 0) ? VISIBLE : GONE);
         imageContainer.setVisibility(defaultListEmptyView.getVisibility() == VISIBLE ? GONE : VISIBLE);
         clearThumbnails();
         List<String> thumbUrls = new ArrayList<>();
