@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
   <string name="reading_lists_empty">Inga läslistor ännu</string>
-  <string name="reading_lists_empty_message">Spara artiklar i läslistor så du kan läsa dem senare, även om du är offline.</string>
-  <string name="reading_lists_onboarding_intro">Skapa läslistor av artiklar du vill läsa senare, även när du inte är uppkopplad.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Spara artiklar i läslistor så du kan läsa dem senare, även om du är offline.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Skapa läslistor av artiklar du vill läsa senare, även när du inte är uppkopplad.</string>
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
   <string name="reading_lists_onboarding_example1">Platser att besöka</string>
   <string name="reading_lists_onboarding_example2">Favoritdjur</string>

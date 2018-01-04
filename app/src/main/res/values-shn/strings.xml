@@ -277,8 +277,8 @@
   <string name="reading_list_item_delete_undo">ၶိုၼ်ၶိုၼ်း</string>
   <string name="reading_list_deleted">မွတ်ႇပႅတ်ႈ %s ယဝ်ႉယဝ်ႈ။</string>
   <string name="reading_lists_empty">ဢမ်ႇပႆႇမီး သဵၼ်ႈမၢႆလူ</string>
-  <string name="reading_lists_empty_message">သိမ်းပွင်ႈလိၵ်ႈၸူး သဵၼ်ႈမၢႆလူ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈလူၶိုၼ်း ဝၢႆးလင် တေႃႈၼင်ႇ ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးသၢႆႈၼႅင်ႈၵေႃႈ တေၸၢင်ႈလူ။</string>
-  <string name="reading_lists_onboarding_intro">ၵေႃႇသၢင်ႈ သဵၼ်ႈမၢႆလူ ၵႃႈတီႈ ပွင်ႈလိၵ်ႈ ၸိူဝ်းဢၼ်ၸဝ်ႈၵဝ်ႇ ၶႂ်ႈလူၶိုၼ်းဝၢႆးလင် ႁူမ်ႈဝႃႈ ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးသၢႆၼႅင်ႈ။</string>
+  <string name="reading_lists_empty_message" fuzzy="true">သိမ်းပွင်ႈလိၵ်ႈၸူး သဵၼ်ႈမၢႆလူ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈလူၶိုၼ်း ဝၢႆးလင် တေႃႈၼင်ႇ ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးသၢႆႈၼႅင်ႈၵေႃႈ တေၸၢင်ႈလူ။</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">ၵေႃႇသၢင်ႈ သဵၼ်ႈမၢႆလူ ၵႃႈတီႈ ပွင်ႈလိၵ်ႈ ၸိူဝ်းဢၼ်ၸဝ်ႈၵဝ်ႇ ၶႂ်ႈလူၶိုၼ်းဝၢႆးလင် ႁူမ်ႈဝႃႈ ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးသၢႆၼႅင်ႈ။</string>
   <string name="reading_lists_onboarding_for_example">တူဝ်ယၢင်ႇ</string>
   <string name="reading_lists_onboarding_example1">ဢွင်ႈတီႈ တႃႇ ၶဝ်ႈတူၺ်း</string>
   <string name="reading_lists_onboarding_example2">တူဝ်သတ်း ၸိူဝ်းလႆႈၸႂ်</string>

@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">撤销</string>
   <string name="reading_list_deleted">%s已删除</string>
   <string name="reading_lists_empty">目前尚无阅读列表</string>
-  <string name="reading_lists_empty_message">保存条目至阅读列表，这样即便您日后离线了，您也可以阅读这些条目。</string>
-  <string name="reading_lists_onboarding_intro">从您希望稍后阅读的条目创建阅读列表，即便当您离线时！</string>
+  <string name="reading_lists_empty_message">添加条目到列表中以便日后阅读，即便当您离线时。</string>
+  <string name="reading_lists_onboarding_intro">添加条目到列表中以便日后阅读，即便当您离线时！</string>
   <string name="reading_lists_onboarding_for_example">例如</string>
   <string name="reading_lists_onboarding_example1">要访问的地点</string>
   <string name="reading_lists_onboarding_example2">喜爱的动物</string>

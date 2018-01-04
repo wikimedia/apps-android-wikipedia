@@ -307,8 +307,8 @@
   <string name="reading_list_item_delete_undo">پووچەڵکردنەوە</string>
   <string name="reading_list_deleted">%s ڕەشکراوە</string>
   <string name="reading_lists_empty">ھێشتا ھیچ پێڕستێکی خوێندنەوە بوونی نییە</string>
-  <string name="reading_lists_empty_message">وتارەکان پاشەکەوت بکە بۆ پێڕستەکانی خوێندنەوە، کە دەتوانیت دواتر بیان بینیت، تەنانەت کاتێک دەرھێڵیش بیت.</string>
-  <string name="reading_lists_onboarding_intro">دروستکردنی پێڕستەکانی خوێندنەوە لەو وتارانەی کە دەتەوێت دواتر بیان خوێنیتەوە، تەنانەت کاتێک دەرھێڵیش بیت!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">وتارەکان پاشەکەوت بکە بۆ پێڕستەکانی خوێندنەوە، کە دەتوانیت دواتر بیان بینیت، تەنانەت کاتێک دەرھێڵیش بیت.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">دروستکردنی پێڕستەکانی خوێندنەوە لەو وتارانەی کە دەتەوێت دواتر بیان خوێنیتەوە، تەنانەت کاتێک دەرھێڵیش بیت!</string>
   <string name="reading_lists_onboarding_for_example">بۆ نموونە</string>
   <string name="reading_lists_onboarding_example1">شوێنەکان بۆ سەردانکردن</string>
   <string name="reading_lists_onboarding_example2">ئاژەڵە دڵخوازەکان</string>

@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Desfacer</string>
   <string name="reading_list_deleted">%s desaniciada</string>
   <string name="reading_lists_empty">Entá nun hai llistes de llectura.</string>
-  <string name="reading_lists_empty_message">Guarda artículos en llistes de llectura pa poder velos sero, anque teas ensin conexón.</string>
-  <string name="reading_lists_onboarding_intro">Crea llistes de llectura colos artículos que quixeras lleer sero, ¡inclusive ensin conexón!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Guarda artículos en llistes de llectura pa poder velos sero, anque teas ensin conexón.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Crea llistes de llectura colos artículos que quixeras lleer sero, ¡inclusive ensin conexón!</string>
   <string name="reading_lists_onboarding_for_example">Por casu</string>
   <string name="reading_lists_onboarding_example1">Llugares que visitar</string>
   <string name="reading_lists_onboarding_example2">Animales favoritos</string>

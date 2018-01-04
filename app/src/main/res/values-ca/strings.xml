@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="reading_lists_empty">Encara no hi ha cap llista de lectura.</string>
-  <string name="reading_lists_empty_message">Deseu els articles a les llistes de lectura per tal de veure\'ls més endavant, fins i tot quan estigueu fora de línia.</string>
-  <string name="reading_lists_onboarding_intro">Creeu llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan estigueu fora de línia!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Deseu els articles a les llistes de lectura per tal de veure\'ls més endavant, fins i tot quan estigueu fora de línia.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Creeu llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan estigueu fora de línia!</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Llocs per visitar</string>
   <string name="reading_lists_onboarding_example2">Animals preferits</string>

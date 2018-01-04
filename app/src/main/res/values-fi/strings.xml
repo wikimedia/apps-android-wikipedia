@@ -329,8 +329,8 @@
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
   <string name="reading_lists_empty">Lukuluetteloita ei vielä ole</string>
-  <string name="reading_lists_empty_message">Tallenna artikkelit lukuluetteloiksi, jotta voit tarkastella niitä myöhemmin. Voit lukea lukuluettelossa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
-  <string name="reading_lists_onboarding_intro">Luo lukuluetteloja artikkeleista, jotka haluat lukea myöhemmin. Voit lukea niitä jopa ilman verkkoyhteyttä!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Tallenna artikkelit lukuluetteloiksi, jotta voit tarkastella niitä myöhemmin. Voit lukea lukuluettelossa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Luo lukuluetteloja artikkeleista, jotka haluat lukea myöhemmin. Voit lukea niitä jopa ilman verkkoyhteyttä!</string>
   <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
   <string name="reading_lists_onboarding_example1">Vierailemisen arvoiset paikat</string>
   <string name="reading_lists_onboarding_example2">Suosikkieläimet</string>
@@ -416,6 +416,7 @@
   <string name="feed_configure_menu_deselect_all">Poista kaikki valinnat</string>
   <string name="feed_item_type_news">Artikkelit ajankohtaisista tapahtumista</string>
   <string name="feed_item_type_on_this_day">Tapahtumat historiassa tänä päivänä</string>
+  <string name="feed_item_type_trending">Päivittäin eniten katsotut artikkelit</string>
   <string name="feed_configure_onboarding_action">Mukauta</string>
   <string name="description_edit_text_hint">Otsikkokuvaus</string>
   <string name="description_edit_save">Julkaise</string>
@@ -496,6 +497,7 @@
   <string name="offline_library_onboarding_button_done">Valmis</string>
   <string name="offline_library_onboarding_build_library_title">Rakenna yhteydettömän tilan kirjastosi</string>
   <string name="offline_library_onboarding_build_library_subtitle">Lataa Wikipedian artikkelipaketteja nyt käyttääksesi niitä myöhemmin ilman datayhteyttä.</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_title">Jatkuva lukeminen</string>
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Jatka lukemista ja artikkelien etsimistä yhteydettömän tilan kirjastossasi kun sinulla ei ole Internet-yhteyttä.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Tallenna lisää tietoa</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Lataa niin paljon Wikipediaa kuin mitä laitteesi kestää. Yhteydettömän tilan kirjasto voi myös käsitellä ulkoisella muistilla olevia artikkelipaketteja.</string>
@@ -521,7 +523,9 @@
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>
   <string name="more_trending_text">Enemmän tämänlaista</string>
+  <string name="all_trending_text">Kaikki nousevat artikkelit %1$s</string>
   <string name="on_this_day_card_title">Tänä päivänä</string>
+  <string name="more_events_text">Lisää tänä päivänä</string>
   <string name="this_year">Tänä vuonna</string>
   <string name="back_to_top">Takaisin alkuun</string>
   <plurals name="diff_years">

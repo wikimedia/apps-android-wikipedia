@@ -45,7 +45,7 @@
   <string name="edit_history_link_text">Bewerkingsgeschiedenis</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
-  <string name="edit_save_action_license_anon">Door op te slaan, gaat u akkoord met de &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, heeft u meer privacy.</string>
+  <string name="edit_save_action_license_anon">Door op te slaan gaat u akkoord met de &lt;a href=\"%1$s\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en met het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;-licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, hebt u meer privacy.</string>
   <string name="preference_title_language">Wikipediataal</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
@@ -93,8 +93,8 @@
   <string name="login_dont_have_account">Nog geen account?</string>
   <string name="login_join_wikipedia">Vervoeg Wikipedia</string>
   <string name="login_forgot_password">Wachtwoord vergeten?</string>
-  <string name="create_account_already_have">Heeft u al een account?</string>
-  <string name="create_account_activity_title">Gebruiker aanmaken</string>
+  <string name="create_account_already_have">Hebt u al een account?</string>
+  <string name="create_account_activity_title">Een account aanmaken</string>
   <string name="dialog_create_account_checking_progress">Aan het controleren</string>
   <string name="create_account_email_hint">E-mailadres (optioneel)</string>
   <string name="create_account_password_repeat_hint">Wachtwoord bevestigen</string>
@@ -162,7 +162,7 @@
   <string name="user_blocked_from_editing_title">Geblokkeerd</string>
   <string name="user_logged_in_blocked_from_editing">Uw gebruikersaccount is geblokkeerd en kan deze wiki niet bewerken.</string>
   <string name="user_anon_blocked_from_editing">Uw IP-adres is geblokkeerd en kan niet bewerken.</string>
-  <string name="edit_how_page_improved">Hoe heeft u de pagina verbeterd?</string>
+  <string name="edit_how_page_improved">Hoe hebt u de pagina verbeterd?</string>
   <string name="edit_next">Volgende</string>
   <string name="edit_done">Publiceren</string>
   <string name="edit_preview">Voorvertoning</string>
@@ -310,15 +310,15 @@
   <string name="reading_list_item_delete_undo">Ongedaan maken</string>
   <string name="reading_list_deleted">%s verwijderd</string>
   <string name="reading_lists_empty">Er zijn nog geen leeslijsten aangemaakt</string>
-  <string name="reading_lists_empty_message">Sla de artikels op in uw leeslijst zodat u ze later kunt bekijken, zelf als u offline bent.</string>
-  <string name="reading_lists_onboarding_intro">Maak leeslijsten van pagina\'s die u later wilt lezen, zelfs als u offline bent!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Sla de artikels op in uw leeslijst zodat u ze later kunt bekijken, zelf als u offline bent.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Maak leeslijsten van pagina\'s die u later wilt lezen, zelfs als u offline bent!</string>
   <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>
   <string name="reading_lists_onboarding_example1">Plaatsen om te bezoeken</string>
   <string name="reading_lists_onboarding_example2">Favoriete dieren</string>
   <string name="reading_lists_onboarding_example3">Ruimteonderzoek</string>
   <string name="reading_lists_onboarding_got_it">Begrepen</string>
   <string name="reading_list_no_description">Geen beschrijving...</string>
-  <string name="reading_list_empty">U heeft geen artikelen aan deze lijst toegevoegd.</string>
+  <string name="reading_list_empty">U hebt geen artikelen aan deze lijst toegevoegd.</string>
   <string name="reading_list_article_offline">Offline beschikbaar</string>
   <string name="reading_list_article_make_offline">Maak dit artikel offline beschikbaar</string>
   <string name="reading_list_add_to_other_list">Voeg aan een andere leeslijst toe.</string>
@@ -351,7 +351,7 @@
   <string name="notification_reverted_title">Bewerking teruggedraaid</string>
   <string name="notification_reverted">Uw bewerking van het artikel &lt;strong&gt;%2$s&lt;/strong&gt; is terug gedraaid door &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">U bent bedankt!</string>
-  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; heeft u bedankt voor de bewerking op de pagina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; heeft u bedankt voor uw bewerking op de pagina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
@@ -413,7 +413,7 @@
   <string name="description_edit_help_more_info">Meer informatie</string>
   <string name="description_edit_help_meta_info">Beschrijvingen worden bewaard en onderhouden op Wikidata, een project van de Wikimedia Foundation deze een gratis, samenwerkende, meertalig, tweede database is als ondersteuning voor Wikipedia en andere projecten.</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
-  <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan heeft, maar één van de recensenten had enige bezorgdheid. Mogelijke redenen waarom uw bewerking is hersteld, zijn onder meer:</string>
+  <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">Uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;volgregels&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">Uw bijdrage leek op een experiment of vandalisme.</string>
   <string name="description_edit_revert_history">Indien uw interesse is gewekt, bekijk dan &lt;a href=\"%1$s\"&gt;bewerk geschiedenis&lt;/a&gt;.</string>

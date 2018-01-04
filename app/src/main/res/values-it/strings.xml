@@ -309,8 +309,8 @@
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s cancellato</string>
   <string name="reading_lists_empty">Nessun elenco di lettura ancora</string>
-  <string name="reading_lists_empty_message">Salva le voci in elenchi di lettura, così puoi visualizzarle in seguito, anche quando sei offline.</string>
-  <string name="reading_lists_onboarding_intro">Crea elenchi di lettura da voci che vuoi leggere più tardi, anche quando sei offline!</string>
+  <string name="reading_lists_empty_message">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline.</string>
+  <string name="reading_lists_onboarding_intro">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline!</string>
   <string name="reading_lists_onboarding_for_example">Per esempio</string>
   <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>
   <string name="reading_lists_onboarding_example2">Animali preferiti</string>

@@ -309,8 +309,8 @@
   <string name="reading_list_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="reading_list_deleted">%s ကို ဖျက်ပြီး</string>
   <string name="reading_lists_empty">စာဖတ်စာရင်း မရှိ။</string>
-  <string name="reading_lists_empty_message">သင်ကြည့်သော ဆောင်းပါးများအား သင့်စာဖတ်စာရင်းသို့ ထည့်ပါ၊ ဆောင်းပါးအား ဖတ်ရှုနေစဉ် အောက်ခြေ toolbar ရှိ စာညှပ်ပုံအား နှိပ်ပြီး စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ။</string>
-  <string name="reading_lists_onboarding_intro">နောင်မှဖတ်ရှုလိုသည်များအား စာဖတ်စာရင်းအဖြစ် ဖန်တီးပါ။ အော့ဖ်လိုင်း ဖြစ်နေစဉ်တွင်တောင်မှ ဖတ်ရှုနိုင်ပါသည်။</string>
+  <string name="reading_lists_empty_message" fuzzy="true">သင်ကြည့်သော ဆောင်းပါးများအား သင့်စာဖတ်စာရင်းသို့ ထည့်ပါ၊ ဆောင်းပါးအား ဖတ်ရှုနေစဉ် အောက်ခြေ toolbar ရှိ စာညှပ်ပုံအား နှိပ်ပြီး စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ။</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">နောင်မှဖတ်ရှုလိုသည်များအား စာဖတ်စာရင်းအဖြစ် ဖန်တီးပါ။ အော့ဖ်လိုင်း ဖြစ်နေစဉ်တွင်တောင်မှ ဖတ်ရှုနိုင်ပါသည်။</string>
   <string name="reading_lists_onboarding_for_example">နမူနာအားဖြင့်</string>
   <string name="reading_lists_onboarding_example1">လည်ပတ်ရန် နေရာများ</string>
   <string name="reading_lists_onboarding_example2">အနှစ်သက်ဆုံး တိရစ္ဆာန်များ</string>

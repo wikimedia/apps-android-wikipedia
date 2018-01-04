@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">還原</string>
   <string name="reading_list_deleted">%s 已刪除</string>
   <string name="reading_lists_empty">尚無閱讀清單</string>
-  <string name="reading_lists_empty_message">將條目儲存至閱讀清單，讓您可稍後檢視，即使離線也可以。</string>
-  <string name="reading_lists_onboarding_intro">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀！</string>
+  <string name="reading_lists_empty_message" fuzzy="true">將條目儲存至閱讀清單，讓您可稍後檢視，即使離線也可以。</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀！</string>
   <string name="reading_lists_onboarding_for_example">舉例</string>
   <string name="reading_lists_onboarding_example1">要瀏覽的項目</string>
   <string name="reading_lists_onboarding_example2">喜愛動物</string>

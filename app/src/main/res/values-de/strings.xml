@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Rückgängig</string>
   <string name="reading_list_deleted">%s gelöscht</string>
   <string name="reading_lists_empty">Es gibt noch keine Leselisten.</string>
-  <string name="reading_lists_empty_message">Speichere Artikel in Leselisten, so dass du sie später ansehen kannst, auch wenn du offline bist.</string>
-  <string name="reading_lists_onboarding_intro">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist!</string>
+  <string name="reading_lists_empty_message">Füge Artikel einer Liste zum späteren Lesen hinzu, auch wenn du offline bist.</string>
+  <string name="reading_lists_onboarding_intro">Füge Artikel einer Liste zum späteren Lesen hinzu, auch wenn du offline bist!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispiel</string>
   <string name="reading_lists_onboarding_example1">Zu besuchende Orte</string>
   <string name="reading_lists_onboarding_example2">Lieblingstiere</string>

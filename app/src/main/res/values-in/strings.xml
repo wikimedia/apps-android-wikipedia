@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Urungkan</string>
   <string name="reading_list_deleted">%s terhapus</string>
   <string name="reading_lists_empty">Tidak ada daftar bacaan lagi</string>
-  <string name="reading_lists_empty_message">Simpan artikel ke daftar bacaan untuk dapat Anda lihat nanti, bahkan ketika Anda sedang luring.</string>
-  <string name="reading_lists_onboarding_intro">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan ketika Anda sedang luring!</string>
+  <string name="reading_lists_empty_message">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring.</string>
+  <string name="reading_lists_onboarding_intro">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
   <string name="reading_lists_onboarding_example2">Hewan kesukaan</string>

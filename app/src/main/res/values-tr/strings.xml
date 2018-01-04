@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Geri al</string>
   <string name="reading_list_deleted">%s silindi</string>
   <string name="reading_lists_empty">Henüz hiç okuma listesi yok.</string>
-  <string name="reading_lists_empty_message">Maddeleri daha sonra, çevrim dışı olsanız bile, görüntüleyebilmek için okuma listelerine kaydedin.</string>
-  <string name="reading_lists_onboarding_intro">Çevridışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Maddeleri daha sonra, çevrim dışı olsanız bile, görüntüleyebilmek için okuma listelerine kaydedin.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Çevridışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun!</string>
   <string name="reading_lists_onboarding_for_example">Örneğin</string>
   <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>
   <string name="reading_lists_onboarding_example2">En sevilen hayvanlar</string>

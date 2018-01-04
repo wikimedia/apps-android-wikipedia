@@ -331,8 +331,8 @@
   <string name="reading_list_item_delete_undo">실행 취소</string>
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>
   <string name="reading_lists_empty">아직 읽기 목록이 없습니다</string>
-  <string name="reading_lists_empty_message">오프라인 상태에서도 나중에 볼 수 있도록 글들을 읽기 목록에 저장합니다.</string>
-  <string name="reading_lists_onboarding_intro">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">오프라인 상태에서도 나중에 볼 수 있도록 글들을 읽기 목록에 저장합니다.</string>
+  <string name="reading_lists_onboarding_intro">나중에, 심지어는 오프라인 상태에서도 읽을 수 있도록 글들을 문서에 추가해보세요!</string>
   <string name="reading_lists_onboarding_for_example">예를 들어</string>
   <string name="reading_lists_onboarding_example1">방문할 장소</string>
   <string name="reading_lists_onboarding_example2">좋아하는 동물</string>

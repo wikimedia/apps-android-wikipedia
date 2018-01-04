@@ -277,8 +277,8 @@
   <string name="reading_list_item_delete_undo">Опозови</string>
   <string name="reading_list_deleted">Списак %s је избрисан</string>
   <string name="reading_lists_empty">Нема спискова за читање још увек</string>
-  <string name="reading_lists_empty_message">Спремите чланке на списак за читање тако да их можете погледати касније, чак и када се офлајн.</string>
-  <string name="reading_lists_onboarding_intro">Направите спискове за читање тако да можете да читате касније, чак и када сте офлајн!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Спремите чланке на списак за читање тако да их можете погледати касније, чак и када се офлајн.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Направите спискове за читање тако да можете да читате касније, чак и када сте офлајн!</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посету</string>
   <string name="reading_lists_onboarding_example2">Омиљене животиње</string>

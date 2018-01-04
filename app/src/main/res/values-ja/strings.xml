@@ -332,8 +332,8 @@
   <string name="reading_list_item_delete_undo">取り消す</string>
   <string name="reading_list_deleted">%s は削除されました</string>
   <string name="reading_lists_empty">あとで読むリストはありません</string>
-  <string name="reading_lists_empty_message">記事をあとで読むリストに保存することで、ネットに接続していないときでも閲覧することができます。</string>
-  <string name="reading_lists_onboarding_intro">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
+  <string name="reading_lists_empty_message" fuzzy="true">記事をあとで読むリストに保存することで、ネットに接続していないときでも閲覧することができます。</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
   <string name="reading_lists_onboarding_for_example">例えば</string>
   <string name="reading_lists_onboarding_example1">行ってみたい場所</string>
   <string name="reading_lists_onboarding_example2">好きな動物</string>

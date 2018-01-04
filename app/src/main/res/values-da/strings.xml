@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Fortryd</string>
   <string name="reading_list_deleted">%s slettet</string>
   <string name="reading_lists_empty">Ingen læselister endnu</string>
-  <string name="reading_lists_empty_message">Gem artikler til læselister, så du kan læse dem senere, selv når du er offline.</string>
-  <string name="reading_lists_onboarding_intro">Opret læselister fra artikler du ønsker at læse senere, selv når du er offline!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Gem artikler til læselister, så du kan læse dem senere, selv når du er offline.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Opret læselister fra artikler du ønsker at læse senere, selv når du er offline!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder at besøge</string>
   <string name="reading_lists_onboarding_example2">Ynglingsdyr</string>

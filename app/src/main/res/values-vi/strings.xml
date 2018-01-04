@@ -318,8 +318,8 @@
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
   <string name="reading_lists_empty">Chưa có danh sách đọc</string>
-  <string name="reading_lists_empty_message">Lưu các bài viết vào danh sách đọc để có thể xem chúng sau này, kể cả khi bạn ngoại tuyến.</string>
-  <string name="reading_lists_onboarding_intro">Tạo danh sách các bài viết bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Lưu các bài viết vào danh sách đọc để có thể xem chúng sau này, kể cả khi bạn ngoại tuyến.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Tạo danh sách các bài viết bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến.</string>
   <string name="reading_lists_onboarding_for_example">Ví dụ</string>
   <string name="reading_lists_onboarding_example1">Các địa điểm để tham quan</string>
   <string name="reading_lists_onboarding_example2">Loài vật ưa thích</string>

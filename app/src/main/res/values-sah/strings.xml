@@ -146,6 +146,7 @@
   <string name="about_description">Бикипиэдьийэ дьибилгэтин туһунан</string>
   <string name="privacy_policy_description">Бүк охсунуу</string>
   <string name="terms_of_use_description">Туһаныы сиэрэ</string>
+  <string name="about_wikipedia_url">https://sah.m.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="about_libraries_heading">Туһаныллар бибилэтиэкэлэр</string>
@@ -323,8 +324,8 @@
   <string name="reading_list_item_delete_undo">Төннөр</string>
   <string name="reading_list_deleted">%s сотуллубут</string>
   <string name="reading_lists_empty">Испииһэк оҥоһулла илик эбит</string>
-  <string name="reading_lists_empty_message">Ааҕыахтаах ыстатыйаларгын ааҕыы испииһэгэр киллэрии. Оччоҕо ыстатыйаны хойут интэриниэтэ да суох көрүөххэ сөп буолар.</string>
-  <string name="reading_lists_onboarding_intro">Кэлин интэриниэтэ да суох ааҕарга анаан ыстатыйалар испииһэктэрин оҥоһун!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Ааҕыахтаах ыстатыйаларгын ааҕыы испииһэгэр киллэрии. Оччоҕо ыстатыйаны хойут интэриниэтэ да суох көрүөххэ сөп буолар.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Кэлин интэриниэтэ да суох ааҕарга анаан ыстатыйалар испииһэктэрин оҥоһун!</string>
   <string name="reading_lists_onboarding_for_example">Холобур</string>
   <string name="reading_lists_onboarding_example1">Сылдьыллыахтаах сирдэр</string>
   <string name="reading_lists_onboarding_example2">Сөбүлүүр кыылларым</string>
@@ -371,6 +372,7 @@
   <string name="notification_channel_name">Синхронизация</string>
   <string name="notification_channel_description">Оҥоһулла турар</string>
   <string name="notification_syncing_pause_button">Быстах тохтобул</string>
+  <string name="notification_syncing_resume_button">Салгыы</string>
   <string name="notification_syncing_cancel_button">Салҕаама</string>
   <string name="view_continue_reading_card_title">Салгыы ааҕыы</string>
   <string name="view_because_you_read_card_title">Тоҕо диэтэххэ ыстатыйаны аахпыккын</string>
@@ -379,6 +381,7 @@
   <string name="view_next_random_article">Атын түбэспиччэ ыстатыйа</string>
   <string name="view_main_page_card_title">Бикипиэдьийэҕэ бүгүн</string>
   <string name="view_main_page_card_subtitle">%s сүрүн сирэйэ</string>
+  <string name="view_main_page_card_action">Сүрүн сирэйи көрүү</string>
   <string name="view_featured_image_card_title">Күннээҕи ойуу</string>
   <string name="view_featured_image_card_download">Хачайдаа</string>
   <string name="menu_feed_card_dismiss">Маны кистээ</string>

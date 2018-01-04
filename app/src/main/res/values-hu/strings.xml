@@ -329,8 +329,8 @@
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
   <string name="reading_lists_empty">Még nincsenek olvasólisták</string>
-  <string name="reading_lists_empty_message">Ments el szócikkeket olvasólistákba, hogy később, akár internetkapcsolat nélkül is elolvashasd őket.</string>
-  <string name="reading_lists_onboarding_intro">Készíts olvasólistát szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
+  <string name="reading_lists_empty_message">Adj hozzá szócikkeket egy olvasólistához későbbi elolvasáshoz, akár internetkapcsolat nélkül is.</string>
+  <string name="reading_lists_onboarding_intro">Adj hozzá szócikkeket egy olvasólistához későbbi elolvasáshoz, akár internetkapcsolat nélkül is!</string>
   <string name="reading_lists_onboarding_for_example">Például</string>
   <string name="reading_lists_onboarding_example1">Látványosságok</string>
   <string name="reading_lists_onboarding_example2">Kedvenc állatok</string>

@@ -322,8 +322,8 @@
   <string name="reading_list_item_delete_undo">Balèkaké</string>
   <string name="reading_list_deleted">%s dibusak</string>
   <string name="reading_lists_empty">Durung ana pratélan wacan</string>
-  <string name="reading_lists_empty_message">Simpen artikel nyang pratélan wacan kanggo diwaca ing tembé, sanajan ing njaban jaringan.</string>
-  <string name="reading_lists_onboarding_intro">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Simpen artikel nyang pratélan wacan kanggo diwaca ing tembé, sanajan ing njaban jaringan.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan!</string>
   <string name="reading_lists_onboarding_for_example">Tuladhané</string>
   <string name="reading_lists_onboarding_example1">Papan-papan supaya ditekani</string>
   <string name="reading_lists_onboarding_example2">Kéwan kalangenan</string>

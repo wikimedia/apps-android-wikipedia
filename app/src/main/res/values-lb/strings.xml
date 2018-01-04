@@ -309,8 +309,8 @@
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>
   <string name="reading_lists_empty">Nach keng Lieslëschten!</string>
-  <string name="reading_lists_empty_message">Späichert d\'Artikelen a Lieslëschten esou datt Dir se méi spéit kucke kënnt, esouguer da wann Dir offline sidd.</string>
-  <string name="reading_lists_onboarding_intro">Maacht eng Lieslëscht vun den Artikelen déi Dir spéider liese wëllt, esouguer wann Dir offline sidd!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Späichert d\'Artikelen a Lieslëschten esou datt Dir se méi spéit kucke kënnt, esouguer da wann Dir offline sidd.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Maacht eng Lieslëscht vun den Artikelen déi Dir spéider liese wëllt, esouguer wann Dir offline sidd!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispill</string>
   <string name="reading_lists_onboarding_example1">Plaze fir ze besichen</string>
   <string name="reading_lists_onboarding_example2">Lieblingsdéieren</string>

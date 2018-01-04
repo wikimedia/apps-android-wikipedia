@@ -333,8 +333,8 @@
   <string name="reading_list_item_delete_undo">Angre</string>
   <string name="reading_list_deleted">%s ble slettet</string>
   <string name="reading_lists_empty">Ingen leselister enda.</string>
-  <string name="reading_lists_empty_message">Spar på artikler i leselister så du kan lese dem senere, selv når du er offline.</string>
-  <string name="reading_lists_onboarding_intro">Opprett leselister med artikler du ønsker å lese på et senere tidspunkt, selv når du er uten nettilgang!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Spar på artikler i leselister så du kan lese dem senere, selv når du er offline.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Opprett leselister med artikler du ønsker å lese på et senere tidspunkt, selv når du er uten nettilgang!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder å besøke</string>
   <string name="reading_lists_onboarding_example2">Favorittdyr</string>

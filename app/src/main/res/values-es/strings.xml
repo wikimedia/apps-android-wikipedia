@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Deshacer</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="reading_lists_empty">No hay listas de lectura aún</string>
-  <string name="reading_lists_empty_message">Guarda artículos en listas de lectura para poder verlos después, incluso sin conexión.</string>
-  <string name="reading_lists_onboarding_intro">Crea listas de lectura a partir de los artículos que quieras leer más tarde, ¡incluso sin conexión!</string>
+  <string name="reading_lists_empty_message">Añade artículos a una lista para leer más tarde, incluso si no tienes conexión.</string>
+  <string name="reading_lists_onboarding_intro">Añade artículos a una lista para leer más tarde, incluso si no tienes conexión.</string>
   <string name="reading_lists_onboarding_for_example">Por ejemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
   <string name="reading_lists_onboarding_example2">Animales favoritos</string>
@@ -389,7 +389,7 @@
   <string name="view_continue_reading_card_title">Continuar leyendo</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Leer un artículo al azar de Wikipedia</string>
+  <string name="view_random_card_subtitle">Leer un artículo al azar de Wikipedia.</string>
   <string name="view_random_card_action">Lanzar el dado</string>
   <string name="view_next_random_article">Cargar otro artículo al azar</string>
   <string name="view_main_page_card_title">Hoy en Wikipedia</string>
@@ -424,6 +424,7 @@
   <string name="feed_configure_menu_deselect_all">Cancelar toda selección</string>
   <string name="feed_item_type_news">Artículos sobre acontecimientos recientes</string>
   <string name="feed_item_type_on_this_day">Acontecimientos históricos de hoy</string>
+  <string name="feed_item_type_continue_reading">Enlace rápido para leer un artículo abierto en una de tus pestañas</string>
   <string name="feed_item_type_because_you_read">Sugerencias basadas en uno de tus artículos leídos recientemente</string>
   <string name="feed_item_type_featured_article">Artículo destacado del día en Wikipedia</string>
   <string name="feed_item_type_trending">Artículos más vistos del día</string>
@@ -431,6 +432,7 @@
   <string name="feed_item_type_main_page">Página principal de Wikipedia con contenido destacado diario</string>
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el contenido de Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu feed, y también priorizar tus tipos favoritos de contenido.</string>
   <string name="description_edit_text_hint">Descripción de título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Añade descripción de título</string>
@@ -447,7 +449,7 @@
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
-  <string name="description_edit_success_article_edit_hint">También pueded editar artículos dentro de esta aplicación. Intenta corregir errores y pequeñas frases haciendo clic en el icono ^1 la próxima vez</string>
+  <string name="description_edit_success_article_edit_hint">También puedes editar artículos dentro de esta aplicación. Intenta corregir errores y pequeñas frases haciendo clic en el icono ^1 la próxima vez</string>
   <string name="description_edit_tutorial_title_descriptions">Descripciones de títulos</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Resume un artículo para ayudar a los lectores a comprender el tema en un vistazo</string>
   <string name="description_edit_tutorial_keep_it_short">Que sea breve</string>
@@ -519,6 +521,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continúa leyendo y buscando artículos dentro de tu biblioteca sin conexión cuando no tienes acceso a Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Almacena más conocimiento</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Descarga tanto Wikipedia como tu dispositivo pueda. La biblioteca sin conexión también puede acceder a paquetes de artículos en dispositivos externos.</string>
+  <string name="offline_library_main_page_hint_html">Esta Página Principal proporciona una visión general de los contenidos de este paquete de artículo.&lt;br /&gt;&lt;br /&gt;También puedes explorar los contenidos de cualquier paquete de artículo en tu Biblioteca Offline buscando artículos disponibles mientras estás sin conexión.&lt;</string>
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Empieza</string>
@@ -546,7 +549,7 @@
   <string name="top_on_this_day">Tendencias del %1$s</string>
   <string name="on_this_day_card_title">Un día como hoy</string>
   <string name="more_events_text">Más acontecimientos históricos en este día</string>
-  <string name="events_count_text" fuzzy="true">%1$s acontecimientos entre %2$s y %3$d</string>
+  <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="this_year">Este año</string>
   <string name="back_to_top">Volver al principio</string>
   <plurals name="diff_years">

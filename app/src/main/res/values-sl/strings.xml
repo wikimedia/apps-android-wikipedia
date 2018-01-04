@@ -146,8 +146,8 @@
   <string name="reading_list_item_delete_undo">Razveljavi</string>
   <string name="reading_list_deleted">Seznam %s je bil izbrisan</string>
   <string name="reading_lists_empty">Nimate še bralnih seznamov</string>
-  <string name="reading_lists_empty_message">Shranite članke v bralne sezname, da jih lahko preberete kasneje tudi brez povezave</string>
-  <string name="reading_lists_onboarding_intro">Ustvarite bralne sezname iz člankov, ki jih želite prebrati kasneje, tudi brez povezave!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Shranite članke v bralne sezname, da jih lahko preberete kasneje tudi brez povezave</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Ustvarite bralne sezname iz člankov, ki jih želite prebrati kasneje, tudi brez povezave!</string>
   <string name="reading_lists_onboarding_for_example">Na primer</string>
   <string name="reading_lists_onboarding_example2">Najljubše živali</string>
   <string name="reading_lists_onboarding_example3">Raziskovanje vesolja</string>

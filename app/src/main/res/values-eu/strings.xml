@@ -139,6 +139,8 @@
   <string name="about_app_license_heading">Lizentzia</string>
   <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
   <string name="about_activity_title">Honi buruz</string>
+  <string name="edit_abandon_confirm_yes">Bai</string>
+  <string name="edit_abandon_confirm_no">Ez</string>
   <string name="user_blocked_from_editing_title">Blokeatua</string>
   <string name="user_logged_in_blocked_from_editing">Zure erabiltzaile kontua blokeatua izan da wiki honetan editatzeko</string>
   <string name="user_anon_blocked_from_editing">Zure IP helbidea editatzeko blokeatua izan da</string>
@@ -150,6 +152,7 @@
   <string name="edit_summary_tag_grammar">Gramatika zuzenketa</string>
   <string name="edit_summary_tag_links">Gehitutako loturak</string>
   <string name="edit_summary_tag_other">Bestelakoa</string>
+  <string name="edit_summary_tag_other_hint">Orria hobetzeko beste bide batzuk</string>
   <string name="find_next">Aurkitu hurrengoa</string>
   <string name="find_previous">Aurkitu aurrekoa</string>
   <string name="dialog_page_issues">Orriaren arazoak</string>
@@ -160,6 +163,8 @@
   <string name="search_recent_header">Azken bilaketak:</string>
   <string name="button_clear_all_recent_searches">Azken bilaketak garbitu</string>
   <string name="clear_recent_searches_confirm">Ziur zaude zure azken bilaketen historia garbitu nahi duzula?</string>
+  <string name="clear_recent_searches_confirm_yes">Bai</string>
+  <string name="clear_recent_searches_confirm_no">Ez</string>
   <string name="table_infobox">Datu azkarrak</string>
   <string name="table_other">Informazio gehiago</string>
   <string name="table_close">Itxi</string>
@@ -193,6 +198,8 @@
   <string name="menu_new_tab">Fitxa berria</string>
   <string name="menu_close_all_tabs">Leiho guztiak itxi</string>
   <string name="close_all_tabs_confirm">Ziur zaude leiho guztiak itxi nahi dituzula?</string>
+  <string name="close_all_tabs_confirm_yes">Bai</string>
+  <string name="close_all_tabs_confirm_no">Ez</string>
   <string name="button_close_tab">Itxi fitxa</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
@@ -224,8 +231,11 @@
   <string name="color_theme_select">Gaia</string>
   <string name="color_theme_light">Argia</string>
   <string name="color_theme_dark">Iluna</string>
+  <string name="color_theme_black">Beltza</string>
+  <string name="color_theme_test_title">Eredu testua</string>
   <string name="preference_title_color_theme">Gai iluna</string>
   <string name="preference_summary_color_theme">Aplikazioaren kolore ilun gaira aldatu</string>
+  <string name="text_size_percent_default">%s (Lehenetsia)</string>
   <string name="nav_item_reading_lists">Nire zerrendak</string>
   <string name="reading_list_untitled">Izenbururik gabe</string>
   <string name="reading_list_save_to">Gordu irakurketa zerrendan</string>
@@ -254,7 +264,7 @@
   <string name="reading_list_item_delete_undo">Desegin</string>
   <string name="reading_list_deleted">%s ezabatua</string>
   <string name="reading_lists_empty">Irakurketa zerrendarik oraindik ez</string>
-  <string name="reading_lists_empty_message">Gorde artikuluak irakurketa zerrenda beranduago ikus ditzazun, nahiz eta offline irakurtzeko ere.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Gorde artikuluak irakurketa zerrenda beranduago ikus ditzazun, nahiz eta offline irakurtzeko ere.</string>
   <string name="reading_lists_onboarding_for_example">Adibidez</string>
   <string name="reading_lists_onboarding_example1">Bisitatu beharreko lekuak</string>
   <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
@@ -265,6 +275,8 @@
   <string name="reading_list_add_to_other_list">Gehitu beste irakurketa-zerrenda batera</string>
   <string name="reading_list_remove_from_list">Kendu %s-tik</string>
   <string name="reading_list_remove_from_lists">Kendu irakurketa-zerrendetatik</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Bai</string>
+  <string name="reading_lists_confirm_remote_delete_no">Ez</string>
   <string name="reading_list_article_save_in_progress">Artikulua jaisten ari da, bukatzean konexiorik gabe erabiltzeko prest egongo da.</string>
   <string name="reading_list_article_offline_message">{{PLURALA|bat=Artikulu hau konexiorik gabe erabiltzeko eskuragarri dago.|Artikulu hauek ez dira eskuragarriak izango konexiorik gabe.}}</string>
   <string name="reading_list_article_not_offline_message">{{PLURALA|bat=Artikulu hau ez da eskuragarri izango konexiorik gabe.|Artikulu hauek ez dira eskuragarri izango konexiorik gabe.}}</string>
@@ -272,7 +284,11 @@
   <string name="notification_button_view_user">Hitz egin erabiltzeari</string>
   <string name="notification_talk_title">Mezu berria Wikipedian</string>
   <string name="notification_thanks_title">Eskerrak eman dizkizute!</string>
+  <string name="notification_syncing_pause_button">Gelditu</string>
+  <string name="notification_syncing_resume_button">Jarraitu</string>
+  <string name="notification_syncing_cancel_button">Bertan behera utzi</string>
   <string name="view_continue_reading_card_title">Irakurtzen jarraitu</string>
+  <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>
   <string name="view_random_card_subtitle" fuzzy="true">Irakurri Wikipediako ausazko artikulu bat</string>
   <string name="view_main_page_card_title">Gaur Wikipedian</string>
@@ -292,7 +308,11 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Gaur</string>
   <string name="view_announcement_card_negative_action">Ez, eskerrik asko</string>
+  <string name="view_featured_article_footer_save_button_label">Gorde</string>
   <string name="view_featured_article_footer_saved_button_label">Gordea</string>
+  <string name="feed_configure_menu_select_all">Denak aukeratu</string>
+  <string name="feed_configure_menu_deselect_all">Desautatu guztia</string>
+  <string name="feed_configure_onboarding_action">Pertsonalizatu</string>
   <string name="description_edit_text_hint">Izenburuaren deskribapena</string>
   <string name="description_edit_save">Argitaratu</string>
   <string name="description_edit_edit_description">Aldatu deskribapena</string>

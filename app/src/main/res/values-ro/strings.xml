@@ -239,7 +239,7 @@
   <string name="reading_list_deleted">%s a fost ștearsă</string>
   <string name="reading_lists_empty" fuzzy="true">Nicio listă de lecturi pe aici.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Grupați articolele pe care le răsfoiți în liste de lecturi! Când frunzăriți un articol, atingeți pictograma „semn de carte” din partea de sus a articolului pentru a-l adăuga unei liste de lecturi.</string>
-  <string name="reading_lists_onboarding_intro">Creați liste de lecturi cu articolele pe care doriți să le citiți mai târziu, chiar dacă sunteți off-line!</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Creați liste de lecturi cu articolele pe care doriți să le citiți mai târziu, chiar dacă sunteți off-line!</string>
   <string name="reading_lists_onboarding_for_example">De exemplu</string>
   <string name="reading_lists_onboarding_example1">Locuri de vizitat</string>
   <string name="reading_lists_onboarding_example2">Animale preferate</string>

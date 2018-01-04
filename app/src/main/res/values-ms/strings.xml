@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Nyahbuat</string>
   <string name="reading_list_deleted">%s dipadamkan</string>
   <string name="reading_lists_empty">Tiada senarai bacaan lagi</string>
-  <string name="reading_lists_empty_message">Simpan rencana ke senarai bacaan supaya anda boleh melihatnya kemudian, walaupun anda berada di luar talian.</string>
-  <string name="reading_lists_onboarding_intro">Ciptakan senarai bacaan dari rencana yang ingin anda baca nanti, malah ketika anda sedang luring!</string>
+  <string name="reading_lists_empty_message">Tambah rencana ke senarai untuk dibaca kemudian, walaupun semasa anda berada di luar talian.</string>
+  <string name="reading_lists_onboarding_intro">Tambah rencana ke senarai untuk dibaca kemudian, walaupun semasa anda berada di luar talian!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
   <string name="reading_lists_onboarding_example2">Haiwan kesukaan</string>

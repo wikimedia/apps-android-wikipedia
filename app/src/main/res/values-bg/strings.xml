@@ -328,8 +328,8 @@
   <string name="reading_list_item_delete_undo">Отмяна</string>
   <string name="reading_list_deleted">%s е изтрит</string>
   <string name="reading_lists_empty">Все още няма списъци за четене</string>
-  <string name="reading_lists_empty_message">Запазете статии в списъци за четене, така че да можете да ги прегледате по-късно, дори когато нямате мрежа.</string>
-  <string name="reading_lists_onboarding_intro">Създавайте списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Запазете статии в списъци за четене, така че да можете да ги прегледате по-късно, дори когато нямате мрежа.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Създавайте списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа!</string>
   <string name="reading_lists_onboarding_for_example">Например</string>
   <string name="reading_lists_onboarding_example1">Места за посещение</string>
   <string name="reading_lists_onboarding_example2">Любими животни</string>

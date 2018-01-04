@@ -261,8 +261,8 @@
   <string name="reading_list_item_delete_undo">Ontdaan</string>
   <string name="reading_list_deleted">%s geskrap</string>
   <string name="reading_lists_empty">Nog geen leeslyste nie</string>
-  <string name="reading_lists_empty_message">Bewaar artikels in die leeslys sodat u dit later kan lees, selfs wanneer u vanlyn is.</string>
-  <string name="reading_lists_onboarding_intro">Skep ’n leeslys van artikels wat u later wil lees, selfs wanneer u vanlyn is!</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Bewaar artikels in die leeslys sodat u dit later kan lees, selfs wanneer u vanlyn is.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Skep ’n leeslys van artikels wat u later wil lees, selfs wanneer u vanlyn is!</string>
   <string name="reading_lists_onboarding_for_example">Byvoorbeeld</string>
   <string name="reading_lists_onboarding_example1">Plekke om te besoek</string>
   <string name="reading_lists_onboarding_example2">Gunstelingdiere</string>
