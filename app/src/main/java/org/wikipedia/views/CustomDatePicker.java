@@ -54,10 +54,10 @@ public class CustomDatePicker extends DialogFragment {
         setMonthString();
         setDayString();
         builder.setView(dialog)
-                .setPositiveButton(R.string.ok, (dialog, id) -> {
+                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
                     callback.onDatePicked(callbackDay.get(Calendar.MONTH), callbackDay.get(Calendar.DATE));
                 })
-                .setNegativeButton(R.string.cancel, (dialog, id) -> {
+                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
                     dialog.dismiss();
                 });
 
