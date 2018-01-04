@@ -40,6 +40,7 @@
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:fontFamily="sans-serif-medium"
+            style="@style/TextViewCentered"
             tools:text="Lorem ipsum" />
 
         <org.wikipedia.views.AppTextView
@@ -53,6 +54,7 @@
             android:textColor="@android:color/white"
             android:textColorLink="@android:color/white"
             android:lineSpacingMultiplier="1.22"
+            style="@style/TextViewCentered"
             tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
 
         <LinearLayout
@@ -93,7 +95,7 @@
             android:layout_marginBottom="16dp"
             android:layout_gravity="center|bottom"
             android:text="@string/description_edit_tutorial_promise"
-            android:textAlignment="center"
+            style="@style/TextViewCentered"
             android:textSize="12sp"
             android:textColor="@android:color/white" />
 

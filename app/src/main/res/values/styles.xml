@@ -171,6 +171,11 @@
         <item name="android:textAlignment">viewStart</item>
     </style>
 
+    <style name="TextViewCentered" parent="@android:style/Widget.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
     <style name="OverflowMenuItem" parent="@android:style/TextAppearance">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -195,6 +200,7 @@
         <item name="android:paddingRight">16dp</item>
         <item name="backgroundTint">@color/color_state_green</item>
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="App.Button.Blue">
@@ -324,6 +330,7 @@
     </style>
 
     <style name="MaterialLargePrimaryTitle">
+        <item name="android:textAlignment">center</item>
         <item name="android:textSize">20sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -331,6 +338,7 @@
     </style>
 
     <style name="MaterialMediumSecondaryCaption">
+        <item name="android:textAlignment">center</item>
         <item name="android:textSize">16sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
         <item name="android:textColor">?attr/material_theme_secondary_color</item>

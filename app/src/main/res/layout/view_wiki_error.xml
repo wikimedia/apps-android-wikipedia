@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.2"
                     android:text="@string/error_message_generic"
-                    android:textAlignment="center"
+                    style="@style/TextViewCentered"
                     android:textColor="@color/base30"
                     android:textSize="16sp" />
 
@@ -68,6 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
+                    style="@style/TextViewCentered"
                     android:lineSpacingMultiplier="1.2"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"

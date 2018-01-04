@@ -56,11 +56,10 @@
                         android:id="@+id/search_lang_button"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:gravity="center"
                         android:clickable="false"
                         android:focusable="false"
                         android:background="@drawable/lang_button_shape"
-                        style="@style/ActionModeStyle"
+                        style="@style/TextViewCentered"
                         android:textColor="@android:color/white" />
                 </FrameLayout>
 

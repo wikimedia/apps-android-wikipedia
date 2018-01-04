@@ -17,7 +17,7 @@
         android:id="@+id/custom_day"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        style="@style/TextViewCentered"
         android:textSize="12sp"
         android:fontFamily="sans-serif"
         android:textStyle="normal"
