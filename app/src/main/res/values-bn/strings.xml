@@ -345,7 +345,6 @@
   <string name="reading_list_sync_reminder_action">চালু করুন</string>
   <string name="reading_lists_confirm_remote_delete_yes">হ্যাঁ</string>
   <string name="reading_lists_confirm_remote_delete_no">না</string>
-  <string name="reading_list_added_articles_list_untitled">পড়ার তালিকায় %dটি নিবন্ধ যোগ করা হয়েছে।</string>
   <string name="reading_list_added_articles_list_titled">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">এই নিবন্ধটি এখন অফলাইনে উপলব্ধ হবে।</item>

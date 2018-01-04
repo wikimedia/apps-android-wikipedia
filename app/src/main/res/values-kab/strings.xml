@@ -350,7 +350,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Uhu</string>
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
   <string name="reading_list_already_contains_selection">Tabdart yettwafernen tegber yakan akk isebtar yettwafernen.</string>
-  <string name="reading_list_added_articles_list_untitled">%d n imagraden ttwarnan ar tebdart n tɣuri.</string>
   <string name="reading_list_added_articles_list_titled">%1$d n imagraden ttwarnan ar %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>

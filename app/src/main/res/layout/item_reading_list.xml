@@ -15,44 +15,69 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp">
 
-        <LinearLayout
-            android:id="@+id/item_image_container"
+        <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="vertical"
-            android:layout_gravity="top">
+            android:layout_height="wrap_content">
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.facebook.drawee.view.SimpleDraweeView
-                    style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                    android:id="@+id/item_image_1"
-                    android:layout_marginRight="0.5dp"
-                    android:layout_marginEnd="0.5dp"
-                    app:roundTopLeft="true"/>
-                <com.facebook.drawee.view.SimpleDraweeView
-                    style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                    android:id="@+id/item_image_2"
-                    app:roundTopRight="true"/>
-            </LinearLayout>
-            <LinearLayout
+                android:id="@+id/item_image_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0.5dp">
-                <com.facebook.drawee.view.SimpleDraweeView
-                    style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                    android:id="@+id/item_image_3"
-                    android:layout_marginRight="0.5dp"
-                    android:layout_marginEnd="0.5dp"
-                    app:roundBottomLeft="true"/>
-                <com.facebook.drawee.view.SimpleDraweeView
-                    style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
-                    android:id="@+id/item_image_4"
-                    app:roundBottomRight="true"/>
+                android:layout_gravity="top"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_image_1"
+                        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+                        android:layout_marginEnd="0.5dp"
+                        android:layout_marginRight="0.5dp"
+                        app:roundTopLeft="true" />
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_image_2"
+                        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+                        app:roundTopRight="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0.5dp">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_image_3"
+                        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+                        android:layout_marginEnd="0.5dp"
+                        android:layout_marginRight="0.5dp"
+                        app:roundBottomLeft="true" />
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_image_4"
+                        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+                        app:roundBottomRight="true" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+
+            <ImageView
+                android:id="@+id/default_list_empty_image"
+                android:layout_width="@dimen/readingListItemSize"
+                android:layout_height="@dimen/readingListItemSize"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/button_shape_add_reading_list"
+                android:contentDescription="@null"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:tint="@color/base30"
+                app:srcCompat="@drawable/ic_bookmark_gray_24dp" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -361,7 +361,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
   <string name="reading_list_already_contains_selection">A lista escollida xa contén tódalas páxinas seleccionadas.</string>
-  <string name="reading_list_added_articles_list_untitled">Engadidos %d artigos á lista de lectura.</string>
   <string name="reading_list_added_articles_list_titled">Engadidos %1$d artigos a %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>

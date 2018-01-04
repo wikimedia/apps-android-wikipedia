@@ -361,7 +361,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Tidak</string>
   <string name="reading_list_article_save_in_progress">Artikel sedang diunduh, dan akan tersedia secara luring saat selesai.</string>
   <string name="reading_list_already_contains_selection">Daftar yang dipilih sudah berisi semua halaman yang dipilih.</string>
-  <string name="reading_list_added_articles_list_untitled">%d artikel ditambahkan ke daftar bacaan.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ditambahkan ke %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>

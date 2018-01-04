@@ -1,11 +1,14 @@
 package org.wikipedia.readinglist.database;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
@@ -19,6 +22,7 @@ import java.util.Random;
 
 public class ReadingListDbHelper {
     private static ReadingListDbHelper INSTANCE;
+    private Context context = WikipediaApp.getInstance();
 
     public static ReadingListDbHelper instance() {
         if (INSTANCE == null) {
@@ -36,10 +40,31 @@ public class ReadingListDbHelper {
                 lists.add(list);
             }
         }
+        oneTimeDefaultListSyncSetUp(lists, db);
+
         for (ReadingList list : lists) {
             populateListPages(db, list);
         }
         return lists;
+    }
+
+    private void oneTimeDefaultListSyncSetUp(List<ReadingList> lists, SQLiteDatabase db) {
+        checkForDefaultListAndAddIfNeeded(lists, db);
+    }
+
+    private void checkForDefaultListAndAddIfNeeded(List<ReadingList> lists, SQLiteDatabase db) {
+        if (lists.size() == 0 || !listCollectionContainsDefault(lists)) {
+            lists.add(createList("", context.getString(R.string.default_reading_list_description)));
+        }
+    }
+
+    private boolean listCollectionContainsDefault(List<ReadingList> lists) {
+        for (ReadingList list : lists) {
+            if (TextUtils.isEmpty(list.title())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public synchronized List<ReadingList> getAllListsWithoutContents() {

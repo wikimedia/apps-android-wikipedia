@@ -355,7 +355,6 @@
   <string name="reading_lists_confirm_remote_delete_no">לא</string>
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
   <string name="reading_list_already_contains_selection">הרשימה שנבחרה כבר מכילה את כל הדפים שנבחרו.</string>
-  <string name="reading_list_added_articles_list_untitled">נוספו %d ערכים לרשימת הקריאה.</string>
   <string name="reading_list_added_articles_list_titled">נוספו %1$d ערכים לרשימה %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">הערך הזה יהיה זמין ללא חיבור לרשת.</item>

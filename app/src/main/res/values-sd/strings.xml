@@ -344,7 +344,6 @@
   <string name="reading_lists_confirm_remote_delete_no">نہ</string>
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>
   <string name="reading_list_already_contains_selection">چونڊيل فھرست اڳ ئي چونڊيل صفحا رکي ٿي.</string>
-  <string name="reading_list_added_articles_list_untitled">%d مضمون پڙھڻ جي فھرست ۾ شامل ڪيا ويا.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">ھي مضمون ھاڻي آفلائين موجود ھوندو.</item>

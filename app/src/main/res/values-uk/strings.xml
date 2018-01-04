@@ -340,7 +340,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Ні</string>
   <string name="reading_list_article_save_in_progress">Стаття завантажується, вона буде доступна в автономному режимі по завершенню.</string>
   <string name="reading_list_already_contains_selection">У списку вже є всі вибрані вами сторінки.</string>
-  <string name="reading_list_added_articles_list_untitled">Додано статей до списку — %d.</string>
   <string name="reading_list_added_articles_list_titled">Додано %1$d статей до %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ця стаття тепер буде доступна автономно.</item>

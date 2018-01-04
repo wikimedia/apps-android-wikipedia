@@ -348,7 +348,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Iya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ora</string>
   <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
-  <string name="reading_list_added_articles_list_untitled">Nambahaké artikel %d ing pratélan wewacan.</string>
   <string name="reading_list_added_articles_list_titled">Nambahaké artikel %1$d ing %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel iki saiki bakal ana nalika ing njaban jaringan.</item>

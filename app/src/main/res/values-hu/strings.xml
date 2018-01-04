@@ -356,7 +356,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>
   <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
   <string name="reading_list_already_contains_selection">A megadott lista már tartalmazza a kiválasztott oldalak mindegyikét.</string>
-  <string name="reading_list_added_articles_list_untitled">Add hozzá (%d) szócikket az olvasási listához.</string>
   <string name="reading_list_added_articles_list_titled">%1$d szócikk hozzáadva ide: %2$s</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">A szócikk mostantól kapcsolat nélkül is elérhető.</item>

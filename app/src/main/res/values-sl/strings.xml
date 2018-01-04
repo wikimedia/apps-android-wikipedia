@@ -161,7 +161,6 @@
   <string name="reading_list_sync_reminder_action">Vklopi</string>
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
-  <string name="reading_list_added_articles_list_untitled">%d člankov dodanih na bralni seznam</string>
   <string name="user_option_sync_label">Nastavitve</string>
   <string name="notification_talk_title">Novo sporočilo na Wikipediji</string>
   <string name="view_continue_reading_card_title">Nadaljuj z branjem</string>
