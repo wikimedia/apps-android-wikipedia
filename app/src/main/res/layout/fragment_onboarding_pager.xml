@@ -31,6 +31,7 @@
             <TextView
                 android:id="@+id/fragment_onboarding_skip_button"
                 style="@style/Widget.AppCompat.Button.Borderless"
+                android:textAlignment="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="0dp"
@@ -66,6 +67,7 @@
                 <TextView
                     android:id="@+id/fragment_onboarding_done_button"
                     style="@style/Widget.AppCompat.Button.Borderless"
+                    android:textAlignment="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"

@@ -154,7 +154,7 @@
                         android:layout_height="10dp"
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="8dp"
-                        android:gravity="center"
+                        style="@style/TextViewCentered"
                         android:textColor="@color/base100"
                         android:textSize="8sp"
                         tools:text="12" />

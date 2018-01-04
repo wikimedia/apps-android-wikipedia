@@ -31,7 +31,6 @@
             android:layout_marginTop="32dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:gravity="center"
             android:text="@string/search_empty_message"
             style="@style/MaterialMediumSecondaryCaption"/>
     </LinearLayout>

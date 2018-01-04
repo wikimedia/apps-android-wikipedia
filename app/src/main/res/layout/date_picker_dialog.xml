@@ -69,6 +69,7 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center"
+                style="@style/TextViewCentered"
                 android:layout_gravity="center_vertical"
                 android:text=""
                 android:textColor="?attr/primary_text_color"

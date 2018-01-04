@@ -23,6 +23,7 @@
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textColor="@color/base30"
+            android:textAlignment="center"
             android:background="?attr/selectableItemBackground"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:text="@string/button_get_directions"/>
@@ -34,6 +35,7 @@
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textColor="?attr/colorAccent"
+            android:textAlignment="center"
             android:background="?attr/selectableItemBackground"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:fontFamily="sans-serif-medium"

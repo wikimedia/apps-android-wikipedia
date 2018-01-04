@@ -87,6 +87,7 @@
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     style="@style/MaterialMediumSecondaryCaption"
+                    android:textAlignment="viewStart"
                     android:textSize="12sp"
                     android:lineSpacingExtra="4sp"
                     android:text="@string/offline_library_packs_hint"/>
@@ -99,6 +100,7 @@
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     style="@style/MaterialMediumSecondaryCaption"
+                    android:textAlignment="viewStart"
                     android:textSize="12sp"
                     android:lineSpacingExtra="4sp"
                     android:text="@string/offline_library_data_usage_hint"/>
