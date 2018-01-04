@@ -1,14 +1,11 @@
 package org.wikipedia.readinglist.database;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
@@ -22,7 +19,6 @@ import java.util.Random;
 
 public class ReadingListDbHelper {
     private static ReadingListDbHelper INSTANCE;
-    private Context context = WikipediaApp.getInstance();
 
     public static ReadingListDbHelper instance() {
         if (INSTANCE == null) {
@@ -31,7 +27,7 @@ public class ReadingListDbHelper {
         return INSTANCE;
     }
 
-    public synchronized List<ReadingList> getAllLists() {
+    public List<ReadingList> getAllLists() {
         List<ReadingList> lists = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListContract.TABLE, null, null, null, null, null, null)) {
@@ -40,34 +36,13 @@ public class ReadingListDbHelper {
                 lists.add(list);
             }
         }
-        oneTimeDefaultListSyncSetUp(lists, db);
-
         for (ReadingList list : lists) {
             populateListPages(db, list);
         }
         return lists;
     }
 
-    private void oneTimeDefaultListSyncSetUp(List<ReadingList> lists, SQLiteDatabase db) {
-        checkForDefaultListAndAddIfNeeded(lists, db);
-    }
-
-    private void checkForDefaultListAndAddIfNeeded(List<ReadingList> lists, SQLiteDatabase db) {
-        if (lists.size() == 0 || !listCollectionContainsDefault(lists)) {
-            lists.add(createList("", context.getString(R.string.default_reading_list_description)));
-        }
-    }
-
-    private boolean listCollectionContainsDefault(List<ReadingList> lists) {
-        for (ReadingList list : lists) {
-            if (TextUtils.isEmpty(list.title())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public synchronized List<ReadingList> getAllListsWithoutContents() {
+    public List<ReadingList> getAllListsWithoutContents() {
         List<ReadingList> lists = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListContract.TABLE, null, null, null, null, null, null)) {
@@ -80,13 +55,13 @@ public class ReadingListDbHelper {
     }
 
     @NonNull
-    public synchronized ReadingList createList(@NonNull String title, @Nullable String description) {
+    public ReadingList createList(@NonNull String title, @Nullable String description) {
         SQLiteDatabase db = getWritableDatabase();
         return createList(db, title, description);
     }
 
     @NonNull
-    public synchronized ReadingList createList(@NonNull SQLiteDatabase db, @NonNull String title, @Nullable String description) {
+    public ReadingList createList(@NonNull SQLiteDatabase db, @NonNull String title, @Nullable String description) {
         db.beginTransaction();
         try {
             ReadingList protoList = new ReadingList(title, description);
@@ -100,7 +75,7 @@ public class ReadingListDbHelper {
         }
     }
 
-    public synchronized void updateList(@NonNull ReadingList list) {
+    public void updateList(@NonNull ReadingList list) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -117,7 +92,7 @@ public class ReadingListDbHelper {
         }
     }
 
-    public synchronized void deleteList(@NonNull ReadingList list) {
+    public void deleteList(@NonNull ReadingList list) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -132,7 +107,7 @@ public class ReadingListDbHelper {
         }
     }
 
-    public synchronized void addPageToList(@NonNull ReadingList list, @NonNull PageTitle title) {
+    public void addPageToList(@NonNull ReadingList list, @NonNull PageTitle title) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -144,12 +119,12 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public synchronized void addPagesToList(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
+    public void addPagesToList(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
         SQLiteDatabase db = getWritableDatabase();
         addPagesToList(db, list, pages);
     }
 
-    public synchronized void addPagesToList(@NonNull SQLiteDatabase db, @NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
+    public void addPagesToList(@NonNull SQLiteDatabase db, @NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
         db.beginTransaction();
         try {
             for (ReadingListPage page : pages) {
@@ -162,7 +137,7 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public synchronized int addPagesToListIfNotExist(@NonNull ReadingList list, @NonNull List<PageTitle> titles) {
+    public int addPagesToListIfNotExist(@NonNull ReadingList list, @NonNull List<PageTitle> titles) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         int numAdded = 0;
@@ -182,7 +157,7 @@ public class ReadingListDbHelper {
         return numAdded;
     }
 
-    public synchronized void markPageForDeletion(@NonNull ReadingListPage page) {
+    public void markPageForDeletion(@NonNull ReadingListPage page) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -195,7 +170,7 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public synchronized void markPagesForDeletion(@NonNull List<ReadingListPage> pages) {
+    public void markPagesForDeletion(@NonNull List<ReadingListPage> pages) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -210,7 +185,7 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public synchronized void markPageForOffline(@NonNull ReadingListPage page, boolean offline) {
+    public void markPageForOffline(@NonNull ReadingListPage page, boolean offline) {
         if (page.offline() == offline) {
             return;
         }
@@ -226,7 +201,7 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public synchronized void markPagesForOffline(@NonNull List<ReadingListPage> pages, boolean offline) {
+    public void markPagesForOffline(@NonNull List<ReadingListPage> pages, boolean offline) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -244,7 +219,7 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public synchronized void updatePage(@NonNull ReadingListPage page) {
+    public void updatePage(@NonNull ReadingListPage page) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -279,7 +254,7 @@ public class ReadingListDbHelper {
     }
 
     @Nullable
-    public synchronized ReadingListPage getRandomPage() {
+    public ReadingListPage getRandomPage() {
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
                         ReadingListPageContract.Col.STATUS.getName() + " != ?",
@@ -294,7 +269,7 @@ public class ReadingListDbHelper {
     }
 
     @Nullable
-    public synchronized ReadingListPage findPageInAnyList(@NonNull PageTitle title) {
+    public ReadingListPage findPageInAnyList(@NonNull PageTitle title) {
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
@@ -313,13 +288,13 @@ public class ReadingListDbHelper {
         return null;
     }
 
-    public synchronized boolean pageExistsInList(@NonNull ReadingList list, @NonNull PageTitle title) {
+    public boolean pageExistsInList(@NonNull ReadingList list, @NonNull PageTitle title) {
         SQLiteDatabase db = getReadableDatabase();
         return pageExistsInList(db, list, title);
     }
 
     @NonNull
-    public synchronized List<ReadingListPage> getAllPageOccurrences(@NonNull PageTitle title) {
+    public List<ReadingListPage> getAllPageOccurrences(@NonNull PageTitle title) {
         List<ReadingListPage> pages = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
@@ -340,7 +315,7 @@ public class ReadingListDbHelper {
     }
 
     @NonNull
-    public synchronized List<ReadingList> getListsFromPageOccurrences(@NonNull List<ReadingListPage> pages) {
+    public List<ReadingList> getListsFromPageOccurrences(@NonNull List<ReadingListPage> pages) {
         List<ReadingList> lists = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         List<Long> listIds = new ArrayList<>();
@@ -369,7 +344,7 @@ public class ReadingListDbHelper {
     }
 
     @NonNull
-    public synchronized List<ReadingListPage> getAllPagesToBeSaved() {
+    public List<ReadingListPage> getAllPagesToBeSaved() {
         List<ReadingListPage> pages = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
@@ -384,7 +359,7 @@ public class ReadingListDbHelper {
         return pages;
     }
 
-    public synchronized List<ReadingListPage> getAllPagesToBeUnsaved() {
+    public List<ReadingListPage> getAllPagesToBeUnsaved() {
         List<ReadingListPage> pages = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
@@ -400,7 +375,7 @@ public class ReadingListDbHelper {
     }
 
     @NonNull
-    public synchronized List<ReadingListPage> getAllPagesToBeDeleted() {
+    public List<ReadingListPage> getAllPagesToBeDeleted() {
         List<ReadingListPage> pages = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
@@ -414,7 +389,7 @@ public class ReadingListDbHelper {
         return pages;
     }
 
-    public synchronized void resetUnsavedPageStatus() {
+    public void resetUnsavedPageStatus() {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -431,7 +406,7 @@ public class ReadingListDbHelper {
         }
     }
 
-    public synchronized void purgeDeletedPages() {
+    public void purgeDeletedPages() {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -446,7 +421,7 @@ public class ReadingListDbHelper {
     }
 
     @Nullable
-    public synchronized ReadingList getFullListById(long id) {
+    public ReadingList getFullListById(long id) {
         SQLiteDatabase db = getReadableDatabase();
         ReadingList list = null;
         try (Cursor cursor = db.query(ReadingListContract.TABLE, null,

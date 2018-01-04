@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.util.Base64;
 
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.OldReadingListContract;
@@ -72,10 +74,14 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     }
 
     @Override
-    public void upgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
-        super.upgradeSchema(db, fromVersion, toVersion);
+    public void onUpgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
         if (toVersion == DB_VER_INTRODUCED) {
-            importOldLists(db);
+            List<ReadingList> currentLists = new ArrayList<>();
+            if (fromVersion > 0) {
+                importOldLists(db, currentLists);
+            }
+            createDefaultList(db, currentLists);
+            // TODO: add other one-time conversions here.
         }
     }
 
@@ -111,10 +117,20 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         return DB_VER_INTRODUCED;
     }
 
+    private void createDefaultList(@NonNull SQLiteDatabase db, @NonNull List<ReadingList> currentLists) {
+        for (ReadingList list : currentLists) {
+            if (list.isDefault()) {
+                // Already have a default list
+                return;
+            }
+        }
+        currentLists.add(ReadingListDbHelper.instance().createList(db, "",
+                WikipediaApp.getInstance().getString(R.string.default_reading_list_description)));
+    }
+
     // TODO: Remove in Dec 2018
-    private void importOldLists(@NonNull SQLiteDatabase db) {
+    private void importOldLists(@NonNull SQLiteDatabase db, @NonNull List<ReadingList> lists) {
         try {
-            List<ReadingList> lists = new ArrayList<>();
             try (Cursor cursor = db.query(OldReadingListContract.TABLE, null, null, null, null, null, null)) {
                 while (cursor.moveToNext()) {
                     ReadingList list = new ReadingList(OldReadingListContract.Col.TITLE.val(cursor),

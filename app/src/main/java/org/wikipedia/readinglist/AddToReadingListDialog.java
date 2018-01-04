@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -218,7 +217,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     message = getString(R.string.reading_list_already_exists);
                 } else {
                     message = String.format(getString(R.string.reading_list_added_to_named),
-                            TextUtils.isEmpty(readingList.title()) ? getString(R.string.default_reading_list_name) : readingList.title());
+                            readingList.isDefault() ? getString(R.string.default_reading_list_name) : readingList.title());
                     new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
 
                     ReadingListDbHelper.instance().addPageToList(readingList, title);
@@ -244,7 +243,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 if (numAdded == 0) {
                     message = getString(R.string.reading_list_already_contains_selection);
                 } else {
-                    message = String.format(getString(R.string.reading_list_added_articles_list_titled), numAdded, TextUtils.isEmpty(readingList.title()) ? getString(R.string.default_reading_list_name) : readingList.title());
+                    message = String.format(getString(R.string.reading_list_added_articles_list_titled), numAdded,
+                            readingList.isDefault() ? getString(R.string.default_reading_list_name) : readingList.title());
                     new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
                 }
                 showViewListSnackBar(readingList, message);
