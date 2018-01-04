@@ -12,7 +12,6 @@
         android:layout_height="wrap_content" />
 
     <org.wikipedia.views.AppTextView
-        style="@style/RtlAwareTextView"
         android:id="@+id/view_page_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,7 +34,6 @@
 
         <org.wikipedia.views.AppTextView
             android:id="@+id/view_page_subtitle_text"
-            style="@style/RtlAwareTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

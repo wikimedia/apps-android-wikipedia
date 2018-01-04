@@ -31,7 +31,6 @@
             android:paddingRight="16dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            style="@style/RtlAwareTextView"
             android:background="#4c000000"
             android:textColor="@android:color/white"
             tools:text="Description of featured image here"

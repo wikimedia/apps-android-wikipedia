@@ -49,12 +49,10 @@
                     android:ellipsize="end"
                     android:textColor="@android:color/white"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/description_edit_edit_description"
-                    style="@style/RtlAwareTextView"/>
+                    android:text="@string/description_edit_edit_description"/>
 
                 <TextView
                     android:id="@+id/view_description_edit_page_title"
-                    style="@style/RtlAwareTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
@@ -121,7 +119,6 @@
                 app:counterMaxLength="@integer/description_max_chars"
                 app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
                 <org.wikipedia.views.PlainPasteEditText
-                    style="@style/RtlAwareTextView"
                     android:id="@+id/view_description_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -168,7 +165,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"
                 android:linksClickable="true"
                 android:textAppearance="?android:attr/textAppearanceSmall"

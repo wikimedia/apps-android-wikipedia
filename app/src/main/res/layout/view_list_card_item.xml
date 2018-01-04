@@ -36,7 +36,6 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 style="@style/MaterialListTitle"
-                android:textAppearance="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
 
             <org.wikipedia.views.GoneIfEmptyTextView
@@ -47,7 +46,6 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 style="@style/MaterialListSubtitle"
-                android:textAppearance="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
         </LinearLayout>
 

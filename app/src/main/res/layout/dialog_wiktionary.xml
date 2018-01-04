@@ -39,7 +39,6 @@
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
                     android:gravity="center_vertical"
-                    style="@style/RtlAwareTextView"
                     android:textColor="?attr/primary_text_color"
                     android:textSize="20sp"
                     android:maxLines="1"
