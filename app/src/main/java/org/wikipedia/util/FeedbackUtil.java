@@ -117,12 +117,13 @@ public final class FeedbackUtil {
     }
 
     private static void adjustLayoutParamsIfRequired(Snackbar snackbar, Activity activity) {
-        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) snackbar.getView().getLayoutParams();
         if (activity instanceof PageActivity) {
+            // TODO: move getLayoutParams() out of this logic if there has more special cases
+            CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) snackbar.getView().getLayoutParams();
             int tabLayoutHeight = ((PageActivity) activity).getTabLayout().getHeight();
             params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, params.bottomMargin + tabLayoutHeight);
+            snackbar.getView().setLayoutParams(params);
         }
-        snackbar.getView().setLayoutParams(params);
     }
 
     private static void showToolbarButtonToast(View view) {
