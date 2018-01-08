@@ -17,6 +17,7 @@ import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -35,7 +36,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
 
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
-    private static final String HEADER_CONTENT_ENCODING = "content-encoding";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
 
     @NonNull public abstract WikiSite getWikiSite();
@@ -48,9 +48,11 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
 
         try {
             Response rsp = request(url);
-            return new WebResourceResponse(rsp.header(HEADER_CONTENT_TYPE),
-                    rsp.header(HEADER_CONTENT_ENCODING), getInputStream(rsp));
-        } catch (IOException e) {
+            // noinspection ConstantConditions
+            return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
+                    rsp.body().contentType().charset(Charset.defaultCharset()).name(),
+                    getInputStream(rsp));
+        } catch (Exception e) {
             L.e(e);
         }
         return null;
@@ -65,12 +67,14 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
 
         try {
             Response rsp = request(request.getUrl().toString());
-            return new WebResourceResponse(rsp.header(HEADER_CONTENT_TYPE),
-                    rsp.header(HEADER_CONTENT_ENCODING), rsp.code(),
+            // noinspection ConstantConditions
+            return new WebResourceResponse(rsp.body().contentType().type() + "/" + rsp.body().contentType().subtype(),
+                    rsp.body().contentType().charset(Charset.defaultCharset()).name(),
+                    rsp.code(),
                     StringUtils.defaultIfBlank(rsp.message(), "Unknown error"),
                     toMap(rsp.headers()),
                     getInputStream(rsp));
-        } catch (IOException e) {
+        } catch (Exception e) {
             L.e(e);
         }
         return null;
