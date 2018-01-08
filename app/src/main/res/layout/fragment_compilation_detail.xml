@@ -82,7 +82,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 style="@style/App.Button.TransparentBlue"
-                android:text="@string/offline_compilation_detail_button_download"/>
+                android:text="@string/offline_compilation_detail_button_download_v2"/>
 
             <!-- Compilation download controls for when download is in progress -->
             <org.wikipedia.offline.CompilationDownloadControlView

@@ -23,7 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static org.wikipedia.util.FileUtil.bytesToGB;
+import static org.wikipedia.util.FileUtil.bytesToUserVisibleUnit;
 
 public class CompilationDownloadControlView extends LinearLayout {
     @BindView(R.id.compilation_download_widget_progress_text) TextView progressText;
@@ -81,8 +81,8 @@ public class CompilationDownloadControlView extends LinearLayout {
             progressBar.setIndeterminate(true);
             timeRemainingText.setVisibility(GONE);
         }
-        progressText.setText(getString(R.string.offline_compilation_download_progress_text,
-                bytesToGB(item.bytesDownloaded()), bytesToGB(item.bytesTotal())));
+        progressText.setText(getString(R.string.offline_compilation_download_progress_text_v2,
+                bytesToUserVisibleUnit(getContext(), item.bytesDownloaded()), bytesToUserVisibleUnit(getContext(), item.bytesTotal())));
         long bytesPerMin = item.bytesPerSec() * TimeUnit.MINUTES.toSeconds(1);
         if (bytesPerMin >= 0) {
             long minsRemaining = (item.bytesTotal() - item.bytesDownloaded()) / bytesPerMin;

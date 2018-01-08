@@ -36,7 +36,7 @@ import butterknife.Unbinder;
 
 import static org.wikipedia.offline.CompilationDetailActivity.EXTRA_COMPILATION;
 import static org.wikipedia.util.DateUtil.getShortDateString;
-import static org.wikipedia.util.FileUtil.bytesToGB;
+import static org.wikipedia.util.FileUtil.bytesToUserVisibleUnit;
 
 public class CompilationDetailFragment extends DownloadObserverFragment {
     @BindView(R.id.compilation_detail_toolbar) Toolbar toolbar;
@@ -81,12 +81,12 @@ public class CompilationDetailFragment extends DownloadObserverFragment {
         gradientView.setBackground(GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP));
         imageView.loadImage(compilation.featureImageUri());
         nameView.setText(compilation.name());
-        dateSizeView.setText(String.format(getString(R.string.offline_compilation_detail_date_size),
-                getShortDateString(compilation.date()), bytesToGB(compilation.size())));
+        dateSizeView.setText(getString(R.string.offline_compilation_detail_date_size_v2,
+                getShortDateString(compilation.date()), bytesToUserVisibleUnit(getContext(), compilation.size())));
         summaryView.setText(compilation.summary());
         descriptionView.setText(compilation.description());
-        downloadButton.setText(String.format(getString(R.string.offline_compilation_detail_button_download),
-                bytesToGB(compilation.size())));
+        downloadButton.setText(getString(R.string.offline_compilation_detail_button_download_v2,
+                bytesToUserVisibleUnit(getContext(), compilation.size())));
 
         controls.setCallback(new CompilationDownloadControlView.Callback() {
             @Override

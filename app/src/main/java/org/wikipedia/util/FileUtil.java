@@ -1,8 +1,11 @@
 package org.wikipedia.util;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.StatFs;
 import android.support.annotation.NonNull;
+
+import org.wikipedia.R;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -95,6 +98,18 @@ public final class FileUtil {
 
     public static float bytesToGB(long bytes) {
         return (float) bytes / KILOBYTE / KILOBYTE / KILOBYTE;
+    }
+
+    public static float bytesToMB(long bytes) {
+        return (float) bytes / KILOBYTE / KILOBYTE;
+    }
+
+    public static String bytesToUserVisibleUnit(Context context, long bytes) {
+        float sizeInGB = bytesToGB(bytes);
+        if (sizeInGB >= 1.0) {
+            return context.getString(R.string.size_gb, sizeInGB);
+        }
+        return context.getString(R.string.size_mb, bytesToMB(bytes));
     }
 
     private FileUtil() { }

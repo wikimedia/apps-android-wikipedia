@@ -18,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static org.wikipedia.util.FileUtil.bytesToGB;
+import static org.wikipedia.util.FileUtil.bytesToUserVisibleUnit;
 
 public class DiskUsageView extends LinearLayout {
     @BindView(R.id.view_disk_usage_size_text) TextView sizeText;
@@ -51,13 +52,14 @@ public class DiskUsageView extends LinearLayout {
 
     public void update(long usedBytes) {
         File path = Environment.getDataDirectory();
-        float availableGB = bytesToGB(path.getFreeSpace());
+        long availableBytes = path.getFreeSpace();
+        float availableGB = bytesToGB(availableBytes);
         float otherGB = bytesToGB(path.getTotalSpace());
         float usedGB = bytesToGB(usedBytes);
         otherGB -= usedGB;
 
-        sizeText.setText(getResources().getString(R.string.storage_size, usedGB));
-        usageFreeText.setText(getResources().getString(R.string.storage_size_free, availableGB));
+        sizeText.setText(bytesToUserVisibleUnit(getContext(), usedBytes));
+        usageFreeText.setText(getResources().getString(R.string.storage_size_free_v2, bytesToUserVisibleUnit(getContext(), availableBytes)));
 
         setUsageBarWeight(usedBar, usedGB);
         usedSeparator.setVisibility(usedGB > 0f ? VISIBLE : GONE);
