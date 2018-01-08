@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">還原</string>
   <string name="reading_list_deleted">%s 已刪除</string>
   <string name="reading_lists_empty">尚無閱讀清單</string>
-  <string name="reading_lists_empty_message" fuzzy="true">將條目儲存至閱讀清單，讓您可稍後檢視，即使離線也可以。</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀！</string>
+  <string name="reading_lists_empty_message">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可使用。</string>
+  <string name="reading_lists_onboarding_intro">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可閱讀！</string>
   <string name="reading_lists_onboarding_for_example">舉例</string>
   <string name="reading_lists_onboarding_example1">要瀏覽的項目</string>
   <string name="reading_lists_onboarding_example2">喜愛動物</string>
@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
   <string name="reading_list_already_contains_selection">挑選清單已包含所有已選頁面。</string>
   <string name="reading_list_added_articles_list_titled">已添加 %1$d 個條目至%2$s</string>
+  <string name="default_reading_list_name">已儲存</string>
+  <string name="default_reading_list_description">您的已儲存條目之預設清單</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">此條目現可離線閱讀。</item>
     <item quantity="other">這些條目現可離線閱讀。</item>

@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">Другие способы, которыми вы улучшили страницу</string>
   <string name="find_next">Найти далее</string>
   <string name="find_previous">Найти ранее</string>
+  <string name="find_first_occurence">Это первое совпадение</string>
+  <string name="find_last_occurence">Это последнее совпадение</string>
   <string name="abusefilter_title_warn">Эта правка может быть деструктивной. Вы уверены, что хотите сохранить её?</string>
   <string name="abusefilter_title_disallow">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
   <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>
@@ -269,6 +271,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений (в Тёмной теме)</string>
   <string name="preference_title_prefer_offline_content">Предпочитать оффлайн</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, загружая статьи, которые доступны офлайн, вместо того, чтоб всегда загружают последнюю версию статьи</string>
+  <string name="preference_title_enable_offline_library">Включить Библиотеку Оффлайн</string>
+  <string name="preference_summary_enable_offline_library">Получите доступ к наборам статьей (показаны как .ZIM файлы), которые были загружены на ваше устройство для того чтобы вы могли читать, когда вы оффлайн. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Find out more&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
   <string name="crash_report_dialog_text">Вы хотите отправить отчёт об ошибке в HockeyApp / сторонний сервис-провайдер, чтобы в Викимедиа могли просмотреть информацию об аварии и исправить ошибку, вызвавшую её?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустить</string>
@@ -287,6 +291,8 @@
   <string name="color_theme_light">Светлое</string>
   <string name="color_theme_dark">Тёмное</string>
   <string name="color_theme_black">Чёрная</string>
+  <string name="color_theme_test_title">Пример текста</string>
+  <string name="color_theme_test_text">Двигайте слайдер для изменения размера текста, который используется при чтении статьей. Для установки размера текста во всем приложении, измените размер текста вашей системы.</string>
   <string name="preference_title_app_theme">Тема приложения</string>
   <string name="preference_title_color_theme">Тёмная тема</string>
   <string name="preference_summary_color_theme">Переключите для использования тёмной темы оформления приложения</string>
@@ -328,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Отменить</string>
   <string name="reading_list_deleted">%s удалено</string>
   <string name="reading_lists_empty">Ещё нет списков для чтения</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Сохранить статьи в списки для чтения. Вы сможете просмотреть статьи позже, даже в офлайне.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Создайте списки для чтения из статей, которые вы хотели бы прочитать позже, даже если вы не подключены к интернету!</string>
+  <string name="reading_lists_empty_message">Добавить статьи в лист для чтения позже, даже когда вы оффлайн.</string>
+  <string name="reading_lists_onboarding_intro">Добавьте статьи в список для чтения позже, даже если вы оффлайн!</string>
   <string name="reading_lists_onboarding_for_example">Например</string>
   <string name="reading_lists_onboarding_example1">Места для посещения</string>
   <string name="reading_lists_onboarding_example2">Любимые животные</string>
@@ -355,6 +361,9 @@
   <string name="reading_lists_confirm_remote_delete_no">Нет</string>
   <string name="reading_list_article_save_in_progress">Страница скачивается. По завершению загрузки она будет доступна в офлайне.</string>
   <string name="reading_list_already_contains_selection">Указанный список уже содержит все выбранные страницы.</string>
+  <string name="reading_list_added_articles_list_titled">Добавлены %1$d статьей в %2$s</string>
+  <string name="default_reading_list_name">Сохранено</string>
+  <string name="default_reading_list_description">Стандартный лист для ваших сохраненных статьей</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>
     <item quantity="other">Эти статьи теперь будут доступны в офлайн-режиме.</item>
@@ -381,7 +390,7 @@
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
   <string name="view_random_card_title">Рандомизатор</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Читать случайную статью из Википедии</string>
+  <string name="view_random_card_subtitle">Полистайте случайные статьи для чтения из википедии.</string>
   <string name="view_random_card_action">Бросить кости</string>
   <string name="view_next_random_article">Загрузить другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
@@ -403,15 +412,22 @@
     <item quantity="other">%d дня назад</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">сегодня</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Прочитать %s</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="view_offline_card_text">Содержимое не может быть загружено в офлайн-режиме.</string>
   <string name="view_featured_article_card_title">Избранная статья</string>
   <string name="view_featured_article_footer_save_button_label">Сохранить</string>
   <string name="view_featured_article_footer_saved_button_label">Сохранено</string>
+  <string name="feed_configure_menu_title">Настроить карточки</string>
+  <string name="feed_configure_activity_title">Кастомизировать фид</string>
   <string name="feed_configure_menu_reset">Восстановить фильтры по умолчанию</string>
   <string name="feed_configure_menu_select_all">Выбрать все</string>
   <string name="feed_configure_menu_deselect_all">Отменить Выбор Всех</string>
+  <string name="feed_item_type_news">Статьи о текущих событиях</string>
   <string name="feed_item_type_on_this_day">Исторические события в этот день</string>
+  <string name="feed_item_type_because_you_read">Предложения, основанные на недавно прочтенных статьей из вашей истории</string>
+  <string name="feed_item_type_featured_article">Популярные статьи на википедии</string>
+  <string name="feed_item_type_trending">Самые просматриваемые статьи за этот день</string>
   <string name="feed_item_type_randomizer">Сгенерировать случайные статьи для чтения</string>
   <string name="feed_configure_onboarding_action">Настроить</string>
   <string name="description_edit_text_hint">Описание</string>
@@ -483,6 +499,7 @@
   <string name="compilation_remove">Удалить</string>
   <string name="offline_library_title">Офлайн-библиотека</string>
   <string name="offline_library_empty_title">В вашей Офлайн-библиотеке ничего нет</string>
+  <string name="offline_library_search_results_state">Результаты поиска в Ваше Оффлайн Библиотеке</string>
   <string name="offline_library_onboarding_action">Узнайте больше</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Создайте свою Офлайн-библиотеку</string>

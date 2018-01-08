@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
   <string name="reading_lists_empty">Inga läslistor ännu</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Spara artiklar i läslistor så du kan läsa dem senare, även om du är offline.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Skapa läslistor av artiklar du vill läsa senare, även när du inte är uppkopplad.</string>
+  <string name="reading_lists_empty_message">Lägg till artiklar i en lista att läsa senare, även när du är offline.</string>
+  <string name="reading_lists_onboarding_intro">Lägg till artiklar i en lista för att läsa senare, även när du är offline.</string>
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
   <string name="reading_lists_onboarding_example1">Platser att besöka</string>
   <string name="reading_lists_onboarding_example2">Favoritdjur</string>
@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
   <string name="reading_list_already_contains_selection">Den valda listan innehåller redan alla markerade sidor.</string>
   <string name="reading_list_added_articles_list_titled">Lade till %1$d artiklar i %2$s</string>
+  <string name="default_reading_list_name">Sparades</string>
+  <string name="default_reading_list_description">Standardlista för dina sparade artiklar</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denna artikel kommer nu vara tillgänglig offline.</item>
     <item quantity="other">Dessa artiklar kommer nu vara tillgängliga offline.</item>
@@ -529,7 +531,7 @@
   <string name="onboarding_explore_title">Nya sätt att utforska</string>
   <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – såvida det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen med &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Spara till läslistor</string>
-  <string name="onboarding_save_to_reading_lists_text">Skapa läslistor av artiklar du vill läsa senare, även när du inte är uppkopplad.</string>
+  <string name="onboarding_save_to_reading_lists_text">Skapa läslistor av artiklar du vill läsa senare, även när du är offline.</string>
   <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>
   <string name="onboarding_reading_list_sync_text">Skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;a href=\"#login\"&gt;Logga in eller skapa&lt;/a&gt; ditt Wikipedia-konto för att säkerhetskopiera dina läslistor.</string>
   <string name="onboarding_analytics_title">Skicka anonym data</string>

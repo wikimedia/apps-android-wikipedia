@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s apagado</string>
   <string name="reading_lists_empty">Nenhuma lista de leitura ainda</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Salve os artigos nas listas de leitura para que você possa visualizá-los mais tarde, mesmo quando estiver offline.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Crie listas de leitura de artigos que deseja ler mais tarde, mesmo quando você estiver offline!</string>
+  <string name="reading_lists_empty_message">Adicione itens à lista para ler, mesmo quando você está desconectado.</string>
+  <string name="reading_lists_onboarding_intro">Adicione artigos a uma lista para ler mais tarde, mesmo quando você está desconectado!</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares para visitar</string>
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">O artigo está sendo baixado, e estará disponível offline quando completo.</string>
   <string name="reading_list_already_contains_selection">A lista escolhida já contém todas as páginas selecionadas.</string>
   <string name="reading_list_added_articles_list_titled">Adicionado %1$d artigos para %2$s</string>
+  <string name="default_reading_list_name">Salvo</string>
+  <string name="default_reading_list_description">Lista padrão para seus artigos salvos</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível off-line.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis off-line.</item>

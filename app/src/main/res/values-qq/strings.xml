@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">Message shown when the article is in the process of being downloaded, and is not yet available for offline access.</string>
   <string name="reading_list_already_contains_selection">Message shown to the user when the user tries to add pages to a reading list but the list already contains all of the chosen pages.</string>
   <string name="reading_list_added_articles_list_titled">Message shown when the user adds articles to a named reading list.  The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
+  <string name="default_reading_list_name">Title for default list</string>
+  <string name="default_reading_list_description">Short description of the default reading list where articles are saved.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Message shown when a single reading list article is made available for offline use.</item>
     <item quantity="other">Message shown when more than one reading list article is made available for offline use.</item>
@@ -551,8 +553,6 @@
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
   <string name="back_to_top">Button label for scrolling the content to the top.</string>
-  <string name="default_reading_list_name">Title for default list</string>
-  <string name="default_reading_list_description">Short description of the default reading list where articles are saved.</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occured one year ago.</item>
     <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>

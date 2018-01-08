@@ -329,6 +329,8 @@
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sì</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
+  <string name="default_reading_list_name">Salvato</string>
+  <string name="default_reading_list_description">Elenco predefinito per le tue voci salvate</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Questa voce ora è disponibile non in linea.</item>
     <item quantity="other">Queste voci ora sono disponibili non in linea.</item>

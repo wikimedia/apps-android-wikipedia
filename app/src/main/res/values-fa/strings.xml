@@ -146,7 +146,9 @@
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
+  <string name="about_wikipedia_url">https://fa.m.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -175,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">راه‌های دیگر برای بهبود صفحه</string>
   <string name="find_next">یافتن بعدی</string>
   <string name="find_previous">یافتن قبلی</string>
+  <string name="find_first_occurence">این نخستین مورد می باشد</string>
+  <string name="find_last_occurence">این آخرین مورد است</string>
   <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید منتشرش کنید؟</string>
   <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را منتشر کنید. لطفاً بازگردید و تغییرش دهید.</string>
   <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
@@ -286,6 +290,9 @@
   <string name="color_theme_select">پوسته</string>
   <string name="color_theme_light">روشن</string>
   <string name="color_theme_dark">تیره</string>
+  <string name="color_theme_black">سیاه</string>
+  <string name="color_theme_test_title">نمونه متن</string>
+  <string name="preference_title_app_theme">تِم برنامه</string>
   <string name="preference_title_color_theme">سبک تیره</string>
   <string name="preference_summary_color_theme">سویچ به سبک با رنگ تیره</string>
   <string name="text_size_increase">افزایش اندازه متن</string>
@@ -326,8 +333,8 @@
   <string name="reading_list_item_delete_undo">واگردانی</string>
   <string name="reading_list_deleted">%s حذف شد</string>
   <string name="reading_lists_empty">هنوز فهرست مطالعه‌ای وجود ندارد.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">ذخیره مقاله در فهرست خواندن تا بتوانید آنها را بعدا مطالعه کنید، حتی زمانی که برخط نیستید.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">درست کردن فهرست مطالعه برای مطالعه در زمانی دیگر حتی زمانی که به اینترنت دسترسی ندارید!</string>
+  <string name="reading_lists_empty_message">مقاله را به لیستی افزوده تا آن را در آینده، همچنین هنگامی که آفلاین هستید، مطالعه نمائید.</string>
+  <string name="reading_lists_onboarding_intro">افزودن مقاله ها به لیست، برای مطالعه در آینده، همچنین هنگامی که آفلاین هستید!</string>
   <string name="reading_lists_onboarding_for_example">برای مثال</string>
   <string name="reading_lists_onboarding_example1">مکان برای مشاهده</string>
   <string name="reading_lists_onboarding_example2">حیوانات مورد علاقه</string>
@@ -354,6 +361,8 @@
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
   <string name="reading_list_already_contains_selection">فهرست انتخاب‌شده همیشه شامل همهٔ صفحات انتخاب‌شده‌ است.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مقاله به %2$s اضافه شد</string>
+  <string name="default_reading_list_name">ذخیره</string>
+  <string name="default_reading_list_description">لیست پیش فرض برای ذخیره مقاله ها</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">اکنون در حالت آفلاین مقاله در دسترس است.</item>
     <item quantity="other">اکنون در حالت آفلاین این مقالات در دسترس هستند.</item>
@@ -370,13 +379,18 @@
   <string name="notification_reverted">ویرایش شما در مقالۀ &lt;strong&gt;%2$s&lt;/strong&gt; توسط &lt;em&gt;%1$s&lt;/em&gt; واگرداندی شد.</string>
   <string name="notification_thanks_title">از شما تشکر شده‌است!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ممنون از ویرایش شما در صفحۀ &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">همگام سازی</string>
+  <string name="notification_channel_description">پیشرفت همگام سازی</string>
+  <string name="notification_syncing_title">همگام سازی %1$d مقاله ها...</string>
+  <string name="notification_syncing_description">%1$d مقاله ها باقی مانده اند</string>
   <string name="notification_syncing_pause_button">مکث</string>
   <string name="notification_syncing_resume_button">ادامه</string>
-  <string name="notification_syncing_cancel_button" fuzzy="true">لغو</string>
+  <string name="notification_syncing_cancel_button">کَنسِل</string>
   <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>
   <string name="view_random_card_subtitle" fuzzy="true">خواندن مقاله‌ای تصادفی از ویکی‌پدیا</string>
+  <string name="view_random_card_action">تاس را بیندازید</string>
   <string name="view_next_random_article">بارگیری مقالهٔ تصادفی دیگر</string>
   <string name="view_main_page_card_title">امروز در ویکی‌پدیا</string>
   <string name="view_main_page_card_subtitle">صفحه اصلی در%s</string>
@@ -397,6 +411,7 @@
     <item quantity="other">%d روز پیش</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">امروز</string>
+  <string name="view_continue_reading_card_subtitle_read_date">%s را بخوانید</string>
   <string name="view_announcement_card_negative_action">نه ممنون</string>
   <string name="view_offline_card_text">محتوی در زمان آفلاین در دسترس نیست.</string>
   <string name="view_featured_article_card_title">مقاله برگزیده</string>
@@ -405,6 +420,9 @@
   <string name="feed_configure_menu_title">کارت‌های تنظیم</string>
   <string name="feed_configure_activity_title" fuzzy="true">برگه‌های تنظیم کاوش</string>
   <string name="feed_configure_menu_reset" fuzzy="true">بازگردانی به پیش‌فرض</string>
+  <string name="feed_configure_menu_select_all">همه را انتخاب کنید</string>
+  <string name="feed_configure_menu_deselect_all">از گزینش خارج کردن همه‌</string>
+  <string name="feed_item_type_news">مقاله های مربوط به مسائل روز</string>
   <string name="description_edit_text_hint">توضیحات عنوان</string>
   <string name="description_edit_save">منتشر</string>
   <string name="description_edit_add_description">افزودن توضیحات عنوان</string>
@@ -496,12 +514,17 @@
   <string name="onboarding_skip">رها کردن</string>
   <string name="onboarding_continue">ادامه</string>
   <string name="onboarding_get_started">شروع شد</string>
+  <string name="onboarding_welcome_title">دانشنامه آزاد</string>
+  <string name="onboarding_welcome_text">ویکیپدیا با همکاری داوطلبان نوشه شده و شامل بیش از ۴۰ میلیون مقاله نزدیک بر ۳۰۰ زبان گوناگون می باشد. &lt;a href=\"#about\"&gt;Learn more&lt;/a&gt;</string>
   <string name="onboarding_explore_title">روش‌های جدید برای کاوش</string>
   <string name="onboarding_explore_text" fuzzy="true">کاوش خصوصیات مقالات، رتبه موضوعات و خواندن پیشنهادها در بازخورد کاوش.</string>
+  <string name="onboarding_save_to_reading_lists_title">افزودن به لیست خواندنیها</string>
+  <string name="onboarding_save_to_reading_lists_text">تهیه لیست خواندنیها برای مقاله هایی که مایلید در آینده مطالعه نمائید، همچنین هنگامی که آفلاین هستید.</string>
   <string name="onboarding_reading_list_sync_title">مطالعهٔ فهرست با همسان‌سازی</string>
   <string name="onboarding_reading_list_sync_text">ایجاد فهرست‌های مطالعه از مقالاتی که شما قصد مطالعهٔ آنها را برای بعدا دارید، با وجودی که آفلاین هستید &lt;a href=\"#login\"&gt;به سامانه وارد شوید&lt;/a&gt; یا حساب کاربری ویکی‌پدیا ایجاد کنید تا از فهرست‌های خواند پشتیبانی داشته باشید.</string>
   <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
   <string name="onboarding_analytics_text">برای بهتر شدن کیفیت اپلیکیشن به ما اجازه دهید تا ببنیم چگونه از اپلیکیشن استفاده می‌کنید. داده‌ها به صورت ناشناس جمع‌آوری می‌شوند. &lt;a href=\"#privacy\"&gt;برای مطالعهٔ بیشتر&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع آوری داده ها بصورت ناشناس انجام می گیرد. &lt;a href=\"#offline\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ارسال داده مصرفی</string>
   <string name="onboarding_create_account_sync">همسازسازی فهرست‌های مطالعه شما</string>
   <string name="onboarding_create_account_contributions">پیگیری ویرایش‌هایتان</string>
@@ -509,12 +532,14 @@
   <string name="app_shortcuts_random">تصادفی</string>
   <string name="app_shortcuts_continue_reading">ادامه دادن به خواندن</string>
   <string name="app_shortcuts_search">جستجو</string>
+  <string name="more_trending_text">مقاله های بیشتر</string>
   <string name="all_trending_text">همهٔ مقالات پربیننده در %1$s</string>
   <string name="top_on_this_day">بالاترین در %1$s</string>
   <string name="on_this_day_card_title">در این روز</string>
-  <string name="more_events_text" fuzzy="true">وقایع تاریخی بیشتر برای این روز</string>
-  <string name="events_count_text" fuzzy="true">%1$s رویداد از %2$s - %3$d</string>
+  <string name="more_events_text">رویدادهای تاریخی بیشتر برای این روز</string>
+  <string name="events_count_text">%1$s رویداد از %2$s تا %3$d</string>
   <string name="this_year">امسال</string>
+  <string name="back_to_top">برگشت به بالا</string>
   <plurals name="diff_years">
     <item quantity="one">سال پیش</item>
     <item quantity="other">%d سال پیش</item>

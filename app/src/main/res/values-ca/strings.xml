@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="reading_lists_empty">Encara no hi ha cap llista de lectura.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Deseu els articles a les llistes de lectura per tal de veure\'ls més endavant, fins i tot quan estigueu fora de línia.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Creeu llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan estigueu fora de línia!</string>
+  <string name="reading_lists_empty_message">Afegeix articles a una llista per llegir més endavant, fins i tot quan estigueu fora de línia.</string>
+  <string name="reading_lists_onboarding_intro">Afegeix articles a una llista per llegir més endavant, fins i tot quan estigueu fora de línia!</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Llocs per visitar</string>
   <string name="reading_lists_onboarding_example2">Animals preferits</string>
@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
   <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
   <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
+  <string name="default_reading_list_name">Desats</string>
+  <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
     <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>
