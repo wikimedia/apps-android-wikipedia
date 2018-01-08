@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">条目已开始下载，并将在完成时离线可用。</string>
   <string name="reading_list_already_contains_selection">选择的列表已包含所有选择的页面。</string>
   <string name="reading_list_added_articles_list_titled">已添加%1$d个条目至%2$s</string>
+  <string name="default_reading_list_name">已保存</string>
+  <string name="default_reading_list_description">用于您的已保存条目的默认列表</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">该条目现在可以离线使用。</item>
     <item quantity="other">这些条目现在可以离线使用。</item>

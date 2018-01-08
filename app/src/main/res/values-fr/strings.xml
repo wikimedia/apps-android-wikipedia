@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
   <string name="reading_list_already_contains_selection">La liste choisie contient déjà toutes les pages sélectionnées.</string>
   <string name="reading_list_added_articles_list_titled">%1$d articles ajoutés à %2$s</string>
+  <string name="default_reading_list_name">Enregistré</string>
+  <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Cet article est désormais disponible hors connexion.</item>
     <item quantity="other">Ces articles sont désormais disponibles hors connexion.</item>
@@ -445,7 +447,7 @@
   <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier des descriptions ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
   <string name="description_edit_license_notice">En modifiant la description du titre, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Description publiée !</string>
-  <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleur pour tout le monde</string>
+  <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
   <string name="description_edit_success_article_edit_hint">Vous pouvez aussi modifier des articles dans cette application. Essayez de corriger des fautes et de petites phrases en cliquant sur l’icône ^1 la prochaine fois</string>

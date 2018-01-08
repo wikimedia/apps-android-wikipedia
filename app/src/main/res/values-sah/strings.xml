@@ -352,6 +352,8 @@
   <string name="reading_list_article_save_in_progress">Сирэй хачайданан бүттэҕинэ ситимэ да суох көрүөххэ сөп буолуо.</string>
   <string name="reading_list_already_contains_selection">Талбыт ыстатыйаҥ испииһэккэ хайыы-үйэ баар эбит.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ыстатыйаны манна киллэр: %2$s</string>
+  <string name="default_reading_list_name">Бигэргэннэ</string>
+  <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Бу ыстатыйаны ситимэ суох ааҕыахха сөп буолла.</item>
     <item quantity="other">Ыстатыйалары ситимэ суох ааҕыахха сөп буолла.</item>
@@ -370,13 +372,16 @@
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; кыттааччы &lt;strong&gt;%2$s&lt;/strong&gt; сирэйи тупсарыыҥ иһин Эйиэхэ махтаммыт</string>
   <string name="notification_channel_name">Синхронизация</string>
   <string name="notification_channel_description">Оҥоһулла турар</string>
+  <string name="notification_syncing_title">%1$d ыстатыйа синхроннанна…</string>
+  <string name="notification_syncing_description">%1$d ыстатыйа хаалла</string>
   <string name="notification_syncing_pause_button">Быстах тохтобул</string>
   <string name="notification_syncing_resume_button">Салгыы</string>
   <string name="notification_syncing_cancel_button">Салҕаама</string>
   <string name="view_continue_reading_card_title">Салгыы ааҕыы</string>
   <string name="view_because_you_read_card_title">Тоҕо диэтэххэ ыстатыйаны аахпыккын</string>
   <string name="view_random_card_title">Рандомизатор</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Бикипиэдьийэттэн түбэспиччэ ыстатыйаны ааҕыы</string>
+  <string name="view_random_card_subtitle">Бикипиэдьийэттэн түбэспиччэ ыстатыйаны ааҕыы.</string>
+  <string name="view_random_card_action">Хараххын симэн баран</string>
   <string name="view_next_random_article">Атын түбэспиччэ ыстатыйа</string>
   <string name="view_main_page_card_title">Бикипиэдьийэҕэ бүгүн</string>
   <string name="view_main_page_card_subtitle">%s сүрүн сирэйэ</string>
@@ -392,18 +397,23 @@
   <string name="most_read_list_card_title">Трендэ</string>
   <string name="view_static_card_icon_content_description">Карточка иконката</string>
   <string name="view_card_news_title">Сонуннарга</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Бэҕэһээ</item>
     <item quantity="other">%d хонук ынараа өттүгэр</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">бүгүн</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Аах %s</string>
   <string name="view_announcement_card_negative_action">Суох, махтанабын</string>
   <string name="view_offline_card_text">Ситимэ суох көрдөрөр табыллыбат эбит.</string>
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>
   <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
+  <string name="feed_configure_menu_title">Нарылаа</string>
+  <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
   <string name="feed_configure_menu_select_all">Барытын тал</string>
   <string name="feed_configure_menu_deselect_all">Барытын бэлиэтээмэ</string>
+  <string name="feed_item_type_news">Бүгүн буола турар туһунан</string>
+  <string name="feed_item_type_on_this_day">Устуоруйаҕа бүгүн буолбут</string>
   <string name="description_edit_text_hint">Ойуулааһын</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_add_description">Кылгас быһаарыы эбии</string>
@@ -490,10 +500,12 @@
   <string name="onboarding_create_account_sync">Ааҕыы испииһэгин хардары-таары тэҥнээһин (синхроннааһын)</string>
   <string name="onboarding_create_account_contributions">Суруйбуккун кэтээн көрүү</string>
   <string name="onboarding_create_account_preferences">Бэйэ туруорууларын бигэргэтии</string>
+  <string name="onboarding_got_it">Бу өйдөнөр</string>
   <string name="app_shortcuts_random">Түбэспиччэ</string>
   <string name="app_shortcuts_continue_reading">Салгыы ааҕыы</string>
   <string name="app_shortcuts_search">Бул</string>
   <string name="on_this_day_card_title">Бүгүн</string>
+  <string name="more_events_text">Эбии бу күн</string>
   <string name="this_year">Быйыл</string>
   <plurals name="diff_years">
     <item quantity="one">Былырыын</item>

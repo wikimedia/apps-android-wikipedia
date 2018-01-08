@@ -147,6 +147,7 @@
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
   <string name="about_wikipedia_url">https://bg.m.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
@@ -174,6 +175,8 @@
   <string name="edit_summary_tag_other_hint">Други начини, по които подобрихте страницата</string>
   <string name="find_next">Намиране на следващото</string>
   <string name="find_previous">Намиране на предходното</string>
+  <string name="find_first_occurence">Това е първото срещане</string>
+  <string name="find_last_occurence">Това е последното срещане</string>
   <string name="abusefilter_title_warn">Тази редакция може да не е конструктивна. Сигурни ли сте, че искате да я публикувате?</string>
   <string name="abusefilter_title_disallow">Не може да публикувате тази редакция. Моля, върнете се и я променете.</string>
   <string name="abusefilter_text_warn">Автоматичен филтър установи, че тази редакция потенциално не е конструктивна. Може да съдържа едно или повече от следните:&lt;br /&gt;&lt;br /&gt;· Писане само с главни букви&lt;br /&gt;· Изпразване на страница или спам&lt;br /&gt;· Неуместни външни препратки или изображения&lt;br /&gt;· Повтарящи се символи</string>
@@ -356,6 +359,8 @@
   <string name="reading_list_article_save_in_progress">Статията се изтегля и ще бъде налична офлайн, когато е готова.</string>
   <string name="reading_list_already_contains_selection">Избраният списък вече съдържа всичките избрани страници.</string>
   <string name="reading_list_added_articles_list_titled">Добавени %1$d статии в %2$s</string>
+  <string name="default_reading_list_name">Съхранено</string>
+  <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Тази статия вече е налична офлайн.</item>
     <item quantity="other">Тези статии вече са налични офлайн.</item>
@@ -505,6 +510,7 @@
   <string name="onboarding_welcome_title">Свободната енциклопедия</string>
   <string name="onboarding_explore_title">Нови начини за откриване</string>
   <string name="onboarding_explore_text" fuzzy="true">Открийте избрани статии, най-четени теми и предложения за четене в лентата за Откриване.</string>
+  <string name="onboarding_save_to_reading_lists_title">Запазване в списъци за четене</string>
   <string name="onboarding_reading_list_sync_title">Списъци за четене със синхронизация</string>
   <string name="onboarding_reading_list_sync_text">Създавайте списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа. &lt;a href=\"#login\"&gt;Влезте или създайте&lt;/a&gt; сметка в Уикипедия, за да запазите списъците си за четене.</string>
   <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
@@ -517,10 +523,14 @@
   <string name="app_shortcuts_random">Случайна</string>
   <string name="app_shortcuts_continue_reading">Продължаване с четенето</string>
   <string name="app_shortcuts_search">Търсене</string>
+  <string name="more_trending_text">Повече такива</string>
+  <string name="all_trending_text">Всички най-четени статии на %1$s</string>
+  <string name="top_on_this_day">Най-четено на %1$s</string>
   <string name="on_this_day_card_title">На този ден</string>
   <string name="more_events_text">Още на този ден</string>
   <string name="events_count_text">%1$s събития от %2$s-%3$d</string>
   <string name="this_year">Тази година</string>
+  <string name="back_to_top">Връщане в началото</string>
   <plurals name="diff_years">
     <item quantity="one">Миналата година</item>
     <item quantity="other">Преди %d години</item>

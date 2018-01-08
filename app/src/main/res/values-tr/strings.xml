@@ -13,11 +13,11 @@
   <string name="page_error_retry">Tekrar dene</string>
   <string name="page_error_back_to_main">Geri git</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
-  <string name="history_item_deleted">%s,tarayıcı geçmişinden silindi.</string>
+  <string name="history_item_deleted">%s, tarayıcı geçmişinden silindi.</string>
   <string name="history_items_deleted">%d madde geçmişten silindi</string>
   <string name="history_item_delete_undo">Geri al</string>
   <string name="dialog_title_clear_history">Göz atma geçmişini temizle</string>
-  <string name="dialog_message_clear_history">Bu, tüm tarama geçmişinizi silecek ve açık bütün sekmeleri kapatacak. Emin misiniz?</string>
+  <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
   <string name="dialog_message_clear_history_no">Hayır</string>
   <string name="nav_item_saved_pages">Kaydedilen sayfalar</string>
@@ -38,7 +38,7 @@
   <string name="menu_text_select_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burayı düzenle</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
-  <string name="nearby_zoom_to_location">Harita üzerinde bir yere yakınlaştır</string>
+  <string name="nearby_zoom_to_location">Harita üzerindeki bir konumu yakınlaştır</string>
   <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; katılımcıları</string>
   <string name="last_updated_text">Son güncelleme %s</string>
   <string name="talk_page_link_text">Tartışma</string>
@@ -68,10 +68,10 @@
   <string name="search_reading_list_no_results">\"%s\" içinde sonuç bulunamadı</string>
   <string name="search_reading_lists_no_results">Okuma listelerinde sonuç bulunamadı</string>
   <string name="search_history_no_results">Geçmişte sonuç bulunamadı</string>
-  <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için, aşağıda görünen kelimeleri yazınız.</string>
+  <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için aşağıda görünen kelimeleri yazınız.</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
-  <string name="title_captcha">Captcha\'yı gir</string>
-  <string name="edit_section_captcha_reload">CAPTCHA\'yı yenilemek için üzerine dokunun</string>
+  <string name="title_captcha">CAPTCHA\'yı girin</string>
+  <string name="edit_section_captcha_reload">Güvenlik kodunu yenilemek için üzerine dokunun</string>
   <string name="edit_saved_page_refresh">Kaydedilen bu sayfa güncel olmayabilir ve düzenleme yapılabilmesi için yenilenmesi gereklidir. Sayfayı yenilemek ister misiniz?</string>
   <string name="edit_saved_page_refresh_yes">Evet</string>
   <string name="edit_saved_page_refresh_no">Hayır</string>
@@ -123,15 +123,15 @@
   <string name="zero_learn_more_dismiss">Kapat</string>
   <string name="edit_preview_fetching_dialog_message">Ön izleme getiriliyor…</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
-  <string name="create_account_account_created_toast">Hesap yaratıldı!</string>
+  <string name="create_account_account_created_toast">Hesap oluşturuldu!</string>
   <string name="preferences_heading_storage_and_syncing">Depolama ve senkronizasyon</string>
   <string name="preference_title_sync_reading_lists">Okuma listelerini senkronize et</string>
   <string name="preference_summary_sync_reading_lists">Oturum açtığınızda okuma listelerinizin senkronize edilmesi için Wikimedia\'ya izin verin</string>
   <string name="preferences_privacy_settings_heading">Gizlilik</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
-  <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
-  <string name="preference_title_auto_upload_crash_reports">Hata bildirimi gönder</string>
-  <string name="preference_summary_auto_upload_crash_reports">Uygulamanın, HockeyApp\'a (otomatik olarak çökmeleri incelememizi, hataları daha hızlı ve kolayca düzeltmemizi sağlayan, bir üçüncü parti servis sağlayıcısı) hata raporlarını göndermesine izin ver.</string>
+  <string name="preference_summary_eventlogging_opt_in">Uygulamayı daha iyi hale getirmek için uygulamanın nasıl kullanıldığı hakkında bilgi toplaması için Wikimedia\'ya izin ver</string>
+  <string name="preference_title_auto_upload_crash_reports">Çökme raporlarını gönderin</string>
+  <string name="preference_summary_auto_upload_crash_reports">Çökme raporlarının HockeyApp\'a (otomatik olarak çökmeleri incelememizi, hataları daha hızlı ve kolayca düzeltmemizi sağlayan bir üçüncü parti servis sağlayıcısı) gönderilmesi için uygulamaya izin ver.</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
   <string name="history_search_list_hint">Arama geçmişi</string>
   <string name="error_can_not_process_link">Bu bağlantı görüntülenemedi</string>
@@ -334,21 +334,21 @@
   <string name="reading_list_item_delete_undo">Geri al</string>
   <string name="reading_list_deleted">%s silindi</string>
   <string name="reading_lists_empty">Henüz hiç okuma listesi yok.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Maddeleri daha sonra, çevrim dışı olsanız bile, görüntüleyebilmek için okuma listelerine kaydedin.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Çevridışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun!</string>
+  <string name="reading_lists_empty_message">Çevrimdışı olsanız bile daha sonra okumak için listenize maddeler ekleyin.</string>
+  <string name="reading_lists_onboarding_intro">Çevrimdışı olduğunuzda bile daha sonra okumak için bir listeye madde ekleyin!</string>
   <string name="reading_lists_onboarding_for_example">Örneğin</string>
   <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>
   <string name="reading_lists_onboarding_example2">En sevilen hayvanlar</string>
   <string name="reading_lists_onboarding_example3">Uzayın keşfi</string>
   <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="reading_list_no_description">Tanımlama yok...</string>
-  <string name="reading_list_empty">Bu listeye eklediğiniz hiç madde yok.</string>
-  <string name="reading_list_article_offline">Çevrim dışı olarak erişilebilir</string>
+  <string name="reading_list_empty">Bu listeye henüz bir madde eklemediniz.</string>
+  <string name="reading_list_article_offline">Çevrimdışı olarak erişilebilir</string>
   <string name="reading_list_article_make_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yap</string>
   <string name="reading_list_add_to_other_list">Başka bir okuma listesine ekle</string>
   <string name="reading_list_remove_from_list">%s listesinden sil</string>
   <string name="reading_list_remove_from_lists">Okuma listelerinden sil</string>
-  <string name="reading_list_confirm_remove_article_from_offline">Çevrim dışı erişimden sil</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Çevrimdışı erişimden sil</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Madde birden çok listede yer alıyor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artık şu listelerde çevrim dışı erişilebilir olmayacak:</string>
   <string name="reading_list_sync_reminder_title">Okuma listesi senkronizasyonu kapatıldı</string>
@@ -361,8 +361,9 @@
   <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrim dışı olarak erişilebilir olacak.</string>
   <string name="reading_list_already_contains_selection">Seçilen liste zaten seçilen sayfaların tümünü içermektedir.</string>
-  <string name="reading_list_added_articles_list_untitled">Okuma listesine %d madde eklendi.</string>
   <string name="reading_list_added_articles_list_titled">%2$s içeriğine %1$d madde eklendi</string>
+  <string name="default_reading_list_name">Kaydedildi</string>
+  <string name="default_reading_list_description">Kaydedilen maddeleriniz için varsayılan liste</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bu maddeye artık çevrim dışı olarak erişilebilir.</item>
     <item quantity="other">Bu maddelere artık çevrim dışı olarak erişilebilir.</item>

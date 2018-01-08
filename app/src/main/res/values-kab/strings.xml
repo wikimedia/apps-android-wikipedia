@@ -146,6 +146,8 @@
   <string name="about_description">Ɣef usnas Wikipedia</string>
   <string name="privacy_policy_description">Tasertit n tbaḍnit</string>
   <string name="terms_of_use_description">Tiwtilin n useqdec</string>
+  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Timkaṛḍiyin yettwasqedcen</string>
@@ -173,6 +175,8 @@
   <string name="edit_summary_tag_other_hint">Iberdan-nniḍen n usnerni n usebter</string>
   <string name="find_next">Nadi ar zdat</string>
   <string name="find_previous">Nadi ar deffir</string>
+  <string name="find_first_occurence">Tagi d timeḍriwt tamezwarut</string>
+  <string name="find_last_occurence">Tagi d timeḍriwt taneggarut</string>
   <string name="abusefilter_title_warn">Ahat yezmer ad yili d asnifel ur nemɛin ara. Tebɣiḍ ad tessuffɣeḍ?</string>
   <string name="abusefilter_title_disallow">Ur tezmireḍ ara ad tessuffɣeḍ taẓrigt-agi. Ma ulac aɣilif, uɣal ar deffir sakin beddel-it.</string>
   <string name="abusefilter_text_warn">Imzizdig awurman yufa-d asnifel-agi d ayen ur yelhin ara. Yezmer d akken yegber kra  n iferdisen-agi::&lt;br /&gt;&lt;br /&gt;. Tira s usekkil ameqqran &lt;br /&gt;. Beṭṭu n imagraden neɣ n ispamen &lt;br /&gt;. Iseɣwan neɣ tugniwin tizɣarayin ur ilaqen ara&lt;br /&gt;.  Tulsa n uisekkilen</string>

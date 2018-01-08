@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">El artículo se está descargado y estará disponible sin conexión cuándo haya completado.</string>
   <string name="reading_list_already_contains_selection">La lista elegida ya contiene todas las páginas seleccionadas.</string>
   <string name="reading_list_added_articles_list_titled">Se añadieron %1$d artículos a %2$s</string>
+  <string name="default_reading_list_name">Guardados</string>
+  <string name="default_reading_list_description">Lista predeterminada de artículos guardados</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artículo ahora estará disponible sin conexión.</item>
     <item quantity="other">Estos artículos ahora estarán disponibles sin conexión.</item>
@@ -431,7 +433,7 @@
   <string name="feed_item_type_main_page">Página principal de Wikipedia con contenido destacado diario</string>
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el contenido de Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu feed, y también priorizar tus tipos favoritos de contenido.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personaliza el canal Explorar&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Ahora puedes escoger qué mostrar en tu suministro y priorizar tus tipos de contenido preferidos.</string>
   <string name="description_edit_text_hint">Descripción de título</string>
   <string name="description_edit_save">Publicar</string>
   <string name="description_edit_add_description">Añade descripción de título</string>
@@ -520,7 +522,7 @@
   <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Continúa leyendo y buscando artículos dentro de tu biblioteca sin conexión cuando no tienes acceso a Internet.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Almacena más conocimiento</string>
   <string name="offline_library_onboarding_store_knowledge_subtitle">Descarga tanto Wikipedia como tu dispositivo pueda. La biblioteca sin conexión también puede acceder a paquetes de artículos en dispositivos externos.</string>
-  <string name="offline_library_main_page_hint_html">Esta Página Principal proporciona una visión general de los contenidos de este paquete de artículo.&lt;br /&gt;&lt;br /&gt;También puedes explorar los contenidos de cualquier paquete de artículo en tu Biblioteca Offline buscando artículos disponibles mientras estás sin conexión.&lt;</string>
+  <string name="offline_library_main_page_hint_html">Esta página principal proporciona un resumen de los contenidos de este paquete de artículos.&lt;br /&gt;&lt;br /&gt;También puedes explorar los contenidos de cualquier paquete de tu biblioteca sin conexión buscando los artículos disponibles mientras no tengas conexión.</string>
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Continuar</string>
   <string name="onboarding_get_started">Empieza</string>

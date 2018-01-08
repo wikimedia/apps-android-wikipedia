@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Desfacer</string>
   <string name="reading_list_deleted">%s desaniciada</string>
   <string name="reading_lists_empty">Entá nun hai llistes de llectura.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Guarda artículos en llistes de llectura pa poder velos sero, anque teas ensin conexón.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Crea llistes de llectura colos artículos que quixeras lleer sero, ¡inclusive ensin conexón!</string>
+  <string name="reading_lists_empty_message">Añade artículos a una llista pa lleelos sero, anque teas ensin conexón.</string>
+  <string name="reading_lists_onboarding_intro">Añade artículos a una llista pa lleelos sero, ¡inclusive anque teas ensin conexón!</string>
   <string name="reading_lists_onboarding_for_example">Por casu</string>
   <string name="reading_lists_onboarding_example1">Llugares que visitar</string>
   <string name="reading_lists_onboarding_example2">Animales favoritos</string>
@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">L\'artículu ta descargándose, y tará disponible sin conexón cuando se complete.</string>
   <string name="reading_list_already_contains_selection">La llista escoyida yá contien toles páxines seleicionaes.</string>
   <string name="reading_list_added_articles_list_titled">Añadiéronse %1$d artículos a %2$s</string>
+  <string name="default_reading_list_name">Guardaos</string>
+  <string name="default_reading_list_description">Llista predeterminada pa los artículos guardaos</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Esti artículu agora tará disponible sin conexón.</item>
     <item quantity="other">Estos artículos agora tarán disponibles sin conexón.</item>

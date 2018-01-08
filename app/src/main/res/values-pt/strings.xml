@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="reading_lists_empty">Ainda não existem listas de leitura</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Guarde os artigos em listas de leitura para poder consultá-los mais tarde, mesmo quando estiver sem acesso à Internet.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Crie listas de leitura a partir dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet!</string>
+  <string name="reading_lists_empty_message">Acrescente os artigos a uma lista que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet.</string>
+  <string name="reading_lists_onboarding_intro">Acrescente os artigos a uma lista que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet!</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares a visitar</string>
   <string name="reading_lists_onboarding_example2">Animais preferidos</string>
@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">O artigo está a ser descarregado e depois ficará disponível sem acesso à Internet.</string>
   <string name="reading_list_already_contains_selection">A lista escolhida já contém todas as páginas selecionadas.</string>
   <string name="reading_list_added_articles_list_titled">Foram adicionados %1$d artigos a %2$s</string>
+  <string name="default_reading_list_name">Guardados</string>
+  <string name="default_reading_list_description">Lista padrão para os seus artigos guardados</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis sem acesso à Internet.</item>

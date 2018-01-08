@@ -287,8 +287,8 @@
   <string name="reading_list_item_delete_undo">Zpět</string>
   <string name="reading_list_deleted">Seznam %s smazán</string>
   <string name="reading_lists_empty">Zatím žádné seznamy ke čtení</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Ukládejte články do seznamů k přečtení, abyste je {{GENDER:|mohl|mohla|mohl(a)}} číst později, i když nejste {{GENDER:|připojený|připojená|připojený/á}}.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Vytvářejte si seznamy k přečtení z článků, které si chcete přečíst později, třeba až budete offline!</string>
+  <string name="reading_lists_empty_message">Přidávejte články do seznamů k přečtení později, i když nejste připojeni.</string>
+  <string name="reading_lists_onboarding_intro">Přidávejte články do seznamů k přečtení později, i když nejste připojeni!</string>
   <string name="reading_lists_onboarding_for_example">Například</string>
   <string name="reading_lists_onboarding_example1">Místa k navštívení</string>
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>

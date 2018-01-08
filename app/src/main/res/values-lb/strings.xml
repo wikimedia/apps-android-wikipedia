@@ -309,8 +309,8 @@
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>
   <string name="reading_lists_empty">Nach keng Lieslëschten!</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Späichert d\'Artikelen a Lieslëschten esou datt Dir se méi spéit kucke kënnt, esouguer da wann Dir offline sidd.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Maacht eng Lieslëscht vun den Artikelen déi Dir spéider liese wëllt, esouguer wann Dir offline sidd!</string>
+  <string name="reading_lists_empty_message">Setzt Artikelen op eng Lëscht derbäi fir se spéider ze liesen, esouguer da wann Dir offline sidd.</string>
+  <string name="reading_lists_onboarding_intro">Setzt Artikelen op eng Lëscht derbäi fir spéider ze liesen, esouguer wann Dir offline sidd!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispill</string>
   <string name="reading_lists_onboarding_example1">Plaze fir ze besichen</string>
   <string name="reading_lists_onboarding_example2">Lieblingsdéieren</string>
@@ -334,6 +334,8 @@
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
   <string name="reading_list_already_contains_selection">An der erausgesichter Lëscht si schonn all déi erausgesicht Säiten.</string>
   <string name="reading_list_added_articles_list_titled">%1$d Artikel op %2$s dobäigesat</string>
+  <string name="default_reading_list_name">Gespäichert</string>
+  <string name="default_reading_list_description">Standard-Lëscht fir Är gespäichert Artikelen</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dësen Artikel ass elo offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn elo offline disponibel.</item>

@@ -334,8 +334,8 @@
   <string name="reading_list_item_delete_undo">Откажи</string>
   <string name="reading_list_deleted">%s е избришана</string>
   <string name="reading_lists_empty">Засега нема списоци за читање</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Зачувувајте ги статиите во списоци за читање, за да можете да им се навратите подоцна, дури и кога немате линија.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Правете списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
+  <string name="reading_lists_empty_message">Додај статии во список за читање подоцна, дури и кога немате линија.</string>
+  <string name="reading_lists_onboarding_intro">Додај статии во список за читање подоцна, дури и кога не сте на линија.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посета</string>
   <string name="reading_lists_onboarding_example2">Омилени животни</string>
@@ -362,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
   <string name="reading_list_already_contains_selection">Избраниот список веќе ги содржи сите одбрани страници.</string>
   <string name="reading_list_added_articles_list_titled">Додадени %1$d статии во %2$s</string>
+  <string name="default_reading_list_name">Зачувано</string>
+  <string name="default_reading_list_description">Стандарден список за вашите зачувани статии</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
     <item quantity="other">Статииве сега ќе бидат достапни вонмрежно.</item>
