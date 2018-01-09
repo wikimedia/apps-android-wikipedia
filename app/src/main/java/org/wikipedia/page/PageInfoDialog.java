@@ -41,23 +41,15 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         disambigHeading.setText(getStringForArticleLanguage(pageInfo.getTitle(), R.string.page_similar_titles));
         issuesHeading.setText(getStringForArticleLanguage(pageInfo.getTitle(), R.string.dialog_page_issues));
 
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+        closeButton.setOnClickListener((View v) -> dismiss());
 
         issuesList.setAdapter(new IssuesListAdapter(fragment.getActivity(), pageInfo.getContentIssues()));
         disambigList.setAdapter(new DisambigListAdapter(fragment.getActivity(), pageInfo.getSimilarTitles()));
-        disambigList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle title = ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_DISAMBIG);
-                dismiss();
-                fragment.loadPage(title, historyEntry);
-            }
+        disambigList.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
+            PageTitle title = ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_DISAMBIG);
+            dismiss();
+            fragment.loadPage(title, historyEntry);
         });
 
         if (fragment.callback() != null) {
@@ -68,23 +60,13 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         }
 
         if (pageInfo.getSimilarTitles().length > 0) {
-            disambigHeading.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showDisambig();
-                }
-            });
+            disambigHeading.setOnClickListener((v) -> showDisambig());
         } else {
             disambigHeading.setVisibility(View.GONE);
             separatorHeading.setVisibility(View.GONE);
         }
         if (pageInfo.getContentIssues().length > 0) {
-            issuesHeading.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showIssues();
-                }
-            });
+            issuesHeading.setOnClickListener((v) -> showIssues());
         } else {
             issuesHeading.setVisibility(View.GONE);
             separatorHeading.setVisibility(View.GONE);

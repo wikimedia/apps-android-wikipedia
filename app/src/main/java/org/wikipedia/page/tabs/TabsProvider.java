@@ -1,6 +1,5 @@
 package org.wikipedia.page.tabs;
 
-import android.content.DialogInterface;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -82,20 +81,14 @@ public class TabsProvider {
         tabListAdapter = new TabListAdapter(fragment.getActivity().getLayoutInflater());
         tabListView.setAdapter(tabListAdapter);
 
-        tabContainerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isActionModeDismissedIndirectly = true;
-                providerListener.onCancelTabView();
-            }
+        tabContainerView.setOnClickListener((v) -> {
+            isActionModeDismissedIndirectly = true;
+            providerListener.onCancelTabView();
         });
 
-        tabListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                isActionModeDismissedIndirectly = true;
-                providerListener.onTabSelected(position);
-            }
+        tabListView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
+            isActionModeDismissedIndirectly = true;
+            providerListener.onTabSelected(position);
         });
 
     }
@@ -179,12 +172,7 @@ public class TabsProvider {
                 case R.id.menu_close_all_tabs:
                     AlertDialog.Builder alert = new AlertDialog.Builder(fragment.getContext());
                     alert.setMessage(R.string.close_all_tabs_confirm);
-                    alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            providerListener.onCloseAllTabs();
-                        }
-                    });
+                    alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, id) -> providerListener.onCloseAllTabs());
                     alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
                     alert.create().show();
                     return true;
@@ -226,12 +214,9 @@ public class TabsProvider {
 
             @Override
             public void run() {
-                tabContainerView.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        isActionModeDismissedIndirectly = true;
-                        exitTabMode();
-                    }
+                tabContainerView.postDelayed(() -> {
+                    isActionModeDismissedIndirectly = true;
+                    exitTabMode();
                 }, animDelay);
             }
         });
@@ -375,12 +360,9 @@ public class TabsProvider {
 
         private void invalidateTabListViewAnimation() {
             // Post the layout for update and animation _after_ the current layout is applied.
-            tabListView.post(new Runnable() {
-                @Override
-                public void run() {
-                    setTabListViewLayoutParams();
-                    ViewUtil.setAnimationMatrix(tabListView, loadTabListViewAnimation());
-                }
+            tabListView.post(() -> {
+                setTabListViewLayoutParams();
+                ViewUtil.setAnimationMatrix(tabListView, loadTabListViewAnimation());
             });
         }
     }

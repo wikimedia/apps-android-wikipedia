@@ -1,10 +1,8 @@
 package org.wikipedia.page.leadimages;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.PointF;
 import android.net.Uri;
-import android.os.Build;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -36,12 +34,6 @@ public class PageHeaderImageView extends FrameLayout {
 
     public PageHeaderImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public PageHeaderImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
 

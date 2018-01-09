@@ -69,33 +69,30 @@ class ToCHandler {
         ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, getContentTopOffsetPx(fragment.getContext()), 0, 0);
         this.tocProgress = slidingPane.findViewById(R.id.page_toc_in_progress);
 
-        bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                int sectionID = messagePayload.optInt("sectionID");
-                L.d("current section is " + sectionID);
-                if (tocList.getAdapter() == null) {
-                    return;
-                }
-                int itemToSelect = 0;
-                if (sectionID == ABOUT_SECTION_ID) {
-                    itemToSelect = tocList.getAdapter().getCount() - 1;
-                } else {
-                    // Find the list item that corresponds to the returned sectionID.
-                    // Start with index 1 of the list adapter, since index 0 is the header view,
-                    // and won't have a Section object associated with it.
-                    // The lead section (id 0) will automatically fall through the loop.
-                    for (int i = 1; i < tocList.getAdapter().getCount() - 1; i++) {
-                        if (((Section) tocList.getAdapter().getItem(i)).getId() <= sectionID) {
-                            itemToSelect = i;
-                        } else {
-                            break;
-                        }
+        bridge.addListener("currentSectionResponse", (String messageType, JSONObject messagePayload) -> {
+            int sectionID = messagePayload.optInt("sectionID");
+            L.d("current section is " + sectionID);
+            if (tocList.getAdapter() == null) {
+                return;
+            }
+            int itemToSelect = 0;
+            if (sectionID == ABOUT_SECTION_ID) {
+                itemToSelect = tocList.getAdapter().getCount() - 1;
+            } else {
+                // Find the list item that corresponds to the returned sectionID.
+                // Start with index 1 of the list adapter, since index 0 is the header view,
+                // and won't have a Section object associated with it.
+                // The lead section (id 0) will automatically fall through the loop.
+                for (int i = 1; i < tocList.getAdapter().getCount() - 1; i++) {
+                    if (((Section) tocList.getAdapter().getItem(i)).getId() <= sectionID) {
+                        itemToSelect = i;
+                    } else {
+                        break;
                     }
                 }
-                tocList.setItemChecked(itemToSelect, true);
-                tocList.smoothScrollToPosition(itemToSelect);
             }
+            tocList.setItemChecked(itemToSelect, true);
+            tocList.smoothScrollToPosition(itemToSelect);
         });
 
         headerView = (TextView) LayoutInflater.from(tocList.getContext()).inflate(R.layout.header_toc_list, null, false);
@@ -131,27 +128,21 @@ class ToCHandler {
         tocList.setVisibility(View.VISIBLE);
 
         headerView.setText(StringUtil.fromHtml(page.getDisplayTitle()));
-        headerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scrollToSection(page.getSections().get(0));
-                wasClicked = true;
-                funnel.logClick(0, page.getTitle().getDisplayText());
-                hide();
-            }
+        headerView.setOnClickListener((v) -> {
+            scrollToSection(page.getSections().get(0));
+            wasClicked = true;
+            funnel.logClick(0, page.getTitle().getDisplayText());
+            hide();
         });
 
         tocList.setAdapter(new ToCAdapter(page));
         setConditionalLayoutDirection(tocList, wiki.languageCode());
-        tocList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Section section = (Section) parent.getAdapter().getItem(position);
-                scrollToSection(section);
-                wasClicked = true;
-                funnel.logClick(position, section.getHeading());
-                hide();
-            }
+        tocList.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
+            Section section = (Section) parent.getAdapter().getItem(position);
+            scrollToSection(section);
+            wasClicked = true;
+            funnel.logClick(position, section.getHeading());
+            hide();
         });
 
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,

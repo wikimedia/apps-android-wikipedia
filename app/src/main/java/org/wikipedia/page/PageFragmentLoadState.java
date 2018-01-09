@@ -222,12 +222,9 @@ public class PageFragmentLoadState {
     }
 
     public void layoutLeadImage() {
-        leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
-            @Override
-            public void onLayoutComplete(int sequence) {
-                if (fragment.isAdded()) {
-                    fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                }
+        leadImagesHandler.beginLayout((sequence) -> {
+            if (fragment.isAdded()) {
+                fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
             }
         }, sequenceNumber.get());
     }
@@ -322,14 +319,11 @@ public class PageFragmentLoadState {
                 fragment.onPageLoadComplete();
             }
         });
-        bridge.addListener("pageInfo", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String message, JSONObject payload) {
-                if (fragment.isAdded()) {
-                    PageInfo pageInfo = PageInfoUnmarshaller.unmarshal(model.getTitle(),
-                            model.getTitle().getWikiSite(), payload);
-                    fragment.updatePageInfo(pageInfo);
-                }
+        bridge.addListener("pageInfo", (String message, JSONObject payload) -> {
+            if (fragment.isAdded()) {
+                PageInfo pageInfo = PageInfoUnmarshaller.unmarshal(model.getTitle(),
+                        model.getTitle().getWikiSite(), payload);
+                fragment.updatePageInfo(pageInfo);
             }
         });
     }
@@ -379,12 +373,7 @@ public class PageFragmentLoadState {
         if (Prefs.preferOfflineContent() && OfflineManager.instance().titleExists(model.getTitle().getDisplayText())) {
             pageLoadFromCompilation();
         } else {
-            pageLoadFromNetwork(new ErrorCallback() {
-                @Override
-                public void call(final Throwable networkError) {
-                    fragment.onPageLoadError(networkError);
-                }
-            });
+            pageLoadFromNetwork((final Throwable networkError) -> fragment.onPageLoadError(networkError));
         }
     }
 
@@ -441,15 +430,12 @@ public class PageFragmentLoadState {
         model.setPage(page);
         editHandler.setPage(model.getPage());
 
-        leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
-            @Override
-            public void onLayoutComplete(int sequence) {
-                if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
-                    return;
-                }
-                fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                loadContentsFromCompilation();
+        leadImagesHandler.beginLayout((sequence) -> {
+            if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
+                return;
             }
+            fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+            loadContentsFromCompilation();
         }, sequenceNumber.get());
 
         if (webView.getVisibility() != View.VISIBLE) {
@@ -700,15 +686,12 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
-        layoutLeadImage(new Runnable() {
-            @Override
-            public void run() {
-                if (!fragment.isAdded()) {
-                    return;
-                }
-                fragment.callback().onPageInvalidateOptionsMenu();
-                pageLoadRemainingSections(sequenceNumber.get());
+        layoutLeadImage(() -> {
+            if (!fragment.isAdded()) {
+                return;
             }
+            fragment.callback().onPageInvalidateOptionsMenu();
+            pageLoadRemainingSections(sequenceNumber.get());
         });
 
         // Update our history entry, in case the Title was changed (i.e. normalized)

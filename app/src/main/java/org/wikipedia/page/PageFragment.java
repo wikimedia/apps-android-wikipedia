@@ -171,12 +171,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private WikipediaApp app;
 
     @NonNull
-    private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
-        @Override
-        public void onRefresh() {
-            refreshPage();
-        }
-    };
+    private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = () -> refreshPage();
 
     @NonNull
     private final TabLayout.OnTabSelectedListener pageActionTabListener
@@ -375,22 +370,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             ThemeBridgeAdapter.setTheme(bridge);
         }
 
-        errorView.setRetryClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                refreshPage();
-            }
-        });
-        errorView.setBackClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean back = onBackPressed();
+        errorView.setRetryClickListener((v) -> refreshPage());
+        errorView.setBackClickListener((v) -> {
+            boolean back = onBackPressed();
 
-                // Needed if we're coming from another activity or fragment
-                if (!back && callback() != null) {
-                    // noinspection ConstantConditions
-                    callback().onPageLoadErrorBackPressed();
-                }
+            // Needed if we're coming from another activity or fragment
+            if (!back && callback() != null) {
+                // noinspection ConstantConditions
+                callback().onPageLoadErrorBackPressed();
             }
         });
 
@@ -455,20 +442,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void initWebViewListeners() {
-        webView.addOnUpOrCancelMotionEventListener(new ObservableWebView.OnUpOrCancelMotionEventListener() {
-            @Override
-            public void onUpOrCancelMotionEvent() {
-                // update our session, since it's possible for the user to remain on the page for
-                // a long time, and we wouldn't want the session to time out.
-                app.getSessionFunnel().touchSession();
-            }
+        webView.addOnUpOrCancelMotionEventListener(() -> {
+            // update our session, since it's possible for the user to remain on the page for
+            // a long time, and we wouldn't want the session to time out.
+            app.getSessionFunnel().touchSession();
         });
-        webView.addOnScrollChangeListener(new ObservableWebView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
-                if (pageScrollFunnel != null) {
-                    pageScrollFunnel.onPageScrolled(oldScrollY, scrollY, isHumanScroll);
-                }
+        webView.addOnScrollChangeListener((int oldScrollY, int scrollY, boolean isHumanScroll) -> {
+            if (pageScrollFunnel != null) {
+                pageScrollFunnel.onPageScrolled(oldScrollY, scrollY, isHumanScroll);
             }
         });
         webView.setWebViewClient(new OkHttpWebViewClient() {
@@ -1181,55 +1162,49 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         StringUtils.defaultString(refLinkText)));
             }
         });
-        bridge.addListener("ipaSpan", new CommunicationBridge.JSEventListener() {
-            @Override public void onMessage(String messageType, JSONObject messagePayload) {
-                try {
-                    String text = messagePayload.getString("contents");
-                    final int textSize = 30;
-                    TextView textView = new TextView(getActivity());
-                    textView.setGravity(Gravity.CENTER);
-                    textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
-                    textView.setText(StringUtil.fromHtml(text));
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setView(textView);
-                    builder.show();
-                } catch (JSONException e) {
-                    L.logRemoteErrorIfProd(e);
-                }
+        bridge.addListener("ipaSpan", (String messageType, JSONObject messagePayload) -> {
+            try {
+                String text = messagePayload.getString("contents");
+                final int textSize = 30;
+                TextView textView = new TextView(getActivity());
+                textView.setGravity(Gravity.CENTER);
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+                textView.setText(StringUtil.fromHtml(text));
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setView(textView);
+                builder.show();
+            } catch (JSONException e) {
+                L.logRemoteErrorIfProd(e);
             }
         });
-        bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {
-            @Override public void onMessage(String messageType, JSONObject messagePayload) {
-                try {
-                    String href = decodeURL(messagePayload.getString("href"));
-                    if (href.startsWith("/wiki/")) {
-                        String filename = UriUtil.removeInternalLinkPrefix(href);
-                        WikiSite wiki = model.getTitle().getWikiSite();
-                        getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                                model.getTitleOriginal(), filename, wiki,
-                                GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                                Constants.ACTIVITY_REQUEST_GALLERY);
-                    } else {
-                        linkHandler.onUrlClick(href, messagePayload.optString("title"));
-                    }
-                } catch (JSONException e) {
-                    L.logRemoteErrorIfProd(e);
-                }
-            }
-        });
-        bridge.addListener("mediaClicked", new CommunicationBridge.JSEventListener() {
-            @Override public void onMessage(String messageType, JSONObject messagePayload) {
-                try {
-                    String href = decodeURL(messagePayload.getString("href"));
-                    String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
+        bridge.addListener("imageClicked", (String messageType, JSONObject messagePayload) -> {
+            try {
+                String href = decodeURL(messagePayload.getString("href"));
+                if (href.startsWith("/wiki/")) {
+                    String filename = UriUtil.removeInternalLinkPrefix(href);
                     WikiSite wiki = model.getTitle().getWikiSite();
                     getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
                             model.getTitleOriginal(), filename, wiki,
                             GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                             Constants.ACTIVITY_REQUEST_GALLERY);
-                } catch (JSONException e) {
-                    L.logRemoteErrorIfProd(e);
+                } else {
+                    linkHandler.onUrlClick(href, messagePayload.optString("title"));
                 }
+            } catch (JSONException e) {
+                L.logRemoteErrorIfProd(e);
+            }
+        });
+        bridge.addListener("mediaClicked", (String messageType, JSONObject messagePayload) -> {
+            try {
+                String href = decodeURL(messagePayload.getString("href"));
+                String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
+                WikiSite wiki = model.getTitle().getWikiSite();
+                getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
+                        model.getTitleOriginal(), filename, wiki,
+                        GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                        Constants.ACTIVITY_REQUEST_GALLERY);
+            } catch (JSONException e) {
+                L.logRemoteErrorIfProd(e);
             }
         });
     }
@@ -1266,10 +1241,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             tabsProvider.invalidate();
         }
         return false;
-    }
-
-    public LinkHandler getLinkHandler() {
-        return linkHandler;
     }
 
     public void updatePageInfo(@Nullable PageInfo pageInfo) {

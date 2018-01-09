@@ -32,12 +32,7 @@ public class ExclusiveBottomSheetPresenter {
     public void show(@NonNull FragmentManager manager, @NonNull Dialog dialog) {
         dismiss(manager);
         currentDialog = dialog;
-        currentDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-                currentDialog = null;
-            }
-        });
+        currentDialog.setOnDismissListener((dialogInterface) -> currentDialog = null);
         currentDialog.show();
     }
 
