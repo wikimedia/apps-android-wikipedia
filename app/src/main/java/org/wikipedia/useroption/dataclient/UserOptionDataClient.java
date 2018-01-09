@@ -42,7 +42,7 @@ public class UserOptionDataClient {
     public void get(@NonNull final UserInfoCallback callback) {
         // Get a CSRF token, even though we won't use it, to ensure that the user is properly
         // logged in. Otherwise, we might receive user-options for an anonymous IP "user".
-        new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
+        new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
                 service.get().enqueue(new Callback<MwQueryResponse>() {
@@ -64,7 +64,7 @@ public class UserOptionDataClient {
     }
 
     public void post(@NonNull final UserOption option, @Nullable final UserOptionPostCallback callback) {
-        new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
+        new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
                 service.post(token, option.key(), option.val()).enqueue(new Callback<PostResponse>() {
@@ -90,7 +90,7 @@ public class UserOptionDataClient {
     }
 
     public void delete(@NonNull final String key, @Nullable final UserOptionPostCallback callback) {
-        new CsrfTokenClient(wiki, app().getWikiSite()).request(new TokenCallback() {
+        new CsrfTokenClient(wiki, app().getWikiSite()).request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
                 service.delete(token, key).enqueue(new Callback<PostResponse>() {
@@ -117,22 +117,6 @@ public class UserOptionDataClient {
 
     private static WikipediaApp app() {
         return WikipediaApp.getInstance();
-    }
-
-    private class TokenCallback implements CsrfTokenClient.Callback {
-        @Override
-        public void success(@NonNull String token) {
-        }
-
-        @Override
-        public void failure(@NonNull Throwable caught) {
-            L.e(caught);
-        }
-
-        @Override
-        public void twoFactorPrompt() {
-            // TODO: warn the user that they need to re-login with 2FA.
-        }
     }
 
     // todo: rename service
