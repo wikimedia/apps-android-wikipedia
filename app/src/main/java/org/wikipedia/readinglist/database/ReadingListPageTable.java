@@ -133,10 +133,9 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         try {
             try (Cursor cursor = db.query(OldReadingListContract.TABLE, null, null, null, null, null, null)) {
                 while (cursor.moveToNext()) {
-                    ReadingList list = new ReadingList(OldReadingListContract.Col.TITLE.val(cursor),
+                    ReadingList list = ReadingListDbHelper.instance().createList(db,
+                            OldReadingListContract.Col.TITLE.val(cursor),
                             OldReadingListContract.Col.DESCRIPTION.val(cursor));
-                    list.atime(OldReadingListContract.Col.ATIME.val(cursor));
-                    list.mtime(OldReadingListContract.Col.MTIME.val(cursor));
                     lists.add(list);
                 }
             }
@@ -182,8 +181,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                     }
                 }
                 for (ReadingList list : lists) {
-                    ReadingList tempList = ReadingListDbHelper.instance().createList(db, list.title(), list.description());
-                    ReadingListDbHelper.instance().addPagesToList(db, tempList, list.pages());
+                    ReadingListDbHelper.instance().addPagesToList(db, list, list.pages());
                 }
             }
 
