@@ -435,27 +435,24 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        tabsContainerView.post(new Runnable() {
-            @Override
-            public void run() {
-                if (!pageFragment.isAdded()) {
-                    return;
-                }
-                // Close the link preview, if one is open.
-                hideLinkPreview();
-
-                pageFragment.closeFindInPage();
-                if (position == TabPosition.CURRENT_TAB) {
-                    pageFragment.loadPage(title, entry, true);
-                } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
-                    pageFragment.openInNewBackgroundTabFromMenu(title, entry);
-                } else if (position == TabPosition.EXISTING_TAB) {
-                    pageFragment.openFromExistingTab(title, entry);
-                } else {
-                    pageFragment.openInNewForegroundTabFromMenu(title, entry);
-                }
-                app.getSessionFunnel().pageViewed(entry);
+        tabsContainerView.post(() -> {
+            if (!pageFragment.isAdded()) {
+                return;
             }
+            // Close the link preview, if one is open.
+            hideLinkPreview();
+
+            pageFragment.closeFindInPage();
+            if (position == TabPosition.CURRENT_TAB) {
+                pageFragment.loadPage(title, entry, true);
+            } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
+                pageFragment.openInNewBackgroundTabFromMenu(title, entry);
+            } else if (position == TabPosition.EXISTING_TAB) {
+                pageFragment.openFromExistingTab(title, entry);
+            } else {
+                pageFragment.openInNewForegroundTabFromMenu(title, entry);
+            }
+            app.getSessionFunnel().pageViewed(entry);
         });
     }
 
@@ -755,12 +752,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     private void handleLangLinkOrPageResult(final Intent data) {
-        tabsContainerView.post(new Runnable() {
-            @Override
-            public void run() {
-                handleIntent(data);
-            }
-        });
+        tabsContainerView.post(() -> handleIntent(data));
     }
 
     @Override
@@ -844,12 +836,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
      */
     private void loadNewLanguageMainPage() {
         Handler uiThread = new Handler(Looper.getMainLooper());
-        uiThread.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadMainPageInForegroundTab();
-                updateFeaturedPageWidget();
-            }
+        uiThread.postDelayed(() -> {
+            loadMainPageInForegroundTab();
+            updateFeaturedPageWidget();
         }, DateUtils.SECOND_IN_MILLIS);
     }
 

@@ -240,14 +240,8 @@ public class LeadImagesHandler {
 
     private void initArticleHeaderView() {
         pageHeaderView.setOnImageLoadListener(new ImageLoadListener());
-        pageHeaderView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            @SuppressWarnings("checkstyle:parameternumber")
-            public void onLayoutChange(View v, int left, int top, int right, int bottom,
-                                       int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                setWebViewPaddingTop();
-            }
-        });
+        pageHeaderView.addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
+                                       int oldLeft, int oldTop, int oldRight, int oldBottom) -> setWebViewPaddingTop());
         pageHeaderView.setCallback(new PageHeaderView.Callback() {
             @Override
             public void onImageClicked() {
@@ -293,12 +287,8 @@ public class LeadImagesHandler {
         if (!AccountUtil.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= parentFragment.getResources().getInteger(R.integer.description_max_anon_edits)) {
             new AlertDialog.Builder(parentFragment.getContext())
                     .setMessage(R.string.description_edit_anon_limit)
-                    .setPositiveButton(R.string.menu_login, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            parentFragment.startActivity(LoginActivity.newIntent(parentFragment.getContext(), LoginFunnel.SOURCE_EDIT));
-                        }
-                    })
+                    .setPositiveButton(R.string.menu_login, (DialogInterface dialogInterface, int i) ->
+                            parentFragment.startActivity(LoginActivity.newIntent(parentFragment.getContext(), LoginFunnel.SOURCE_EDIT)))
                     .setNegativeButton(android.R.string.cancel, null)
                     .show();
         } else {
@@ -339,15 +329,12 @@ public class LeadImagesHandler {
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
         @Override
         public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
-            pageHeaderView.post(new Runnable() {
-                @Override
-                public void run() {
-                    if (isFragmentAdded()) {
-                        if (faceLocation != null) {
-                            pageHeaderView.setImageFocus(faceLocation);
-                        }
-                        startKenBurnsAnimation();
+            pageHeaderView.post(() -> {
+                if (isFragmentAdded()) {
+                    if (faceLocation != null) {
+                        pageHeaderView.setImageFocus(faceLocation);
                     }
+                    startKenBurnsAnimation();
                 }
             });
         }

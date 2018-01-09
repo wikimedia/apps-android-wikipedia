@@ -6,7 +6,6 @@ import android.text.TextUtils;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 
 import java.text.BreakIterator;
@@ -31,13 +30,6 @@ public class LinkPreviewContents {
         title = new PageTitle(pageSummary.getTitle(), wiki);
         extract = makeStringFromSentences(getSentences(removeParens(pageSummary.getExtract()), title.getWikiSite()), EXTRACT_MAX_SENTENCES);
         title.setThumbUrl(pageSummary.getThumbnailUrl());
-    }
-
-    public LinkPreviewContents(@NonNull Page page) {
-        title = page.getTitle();
-        PageExtract pageExtract = new PageExtract(page);
-        // Follow the same logic as if the computed string was retrieved from the API
-        extract = makeStringFromSentences(getSentences(removeParens(pageExtract.getText()), title.getWikiSite()), EXTRACT_MAX_SENTENCES);
     }
 
     /**

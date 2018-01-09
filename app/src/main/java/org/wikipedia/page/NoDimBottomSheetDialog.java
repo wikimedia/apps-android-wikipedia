@@ -37,13 +37,10 @@ public class NoDimBottomSheetDialog extends BottomSheetDialog {
         https://code.google.com/p/android/issues/detail?id=202174
         TODO: remove when this is improved in the library.
         */
-        getWindow().getDecorView().post(new Runnable() {
-            @Override
-            public void run() {
-                FrameLayout bottomSheet = getWindow().getDecorView().findViewById(android.support.design.R.id.design_bottom_sheet);
-                BottomSheetBehavior<?> behavior = BottomSheetBehavior.from(bottomSheet);
-                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }
+        getWindow().getDecorView().post(() -> {
+            FrameLayout bottomSheet = getWindow().getDecorView().findViewById(android.support.design.R.id.design_bottom_sheet);
+            BottomSheetBehavior<?> behavior = BottomSheetBehavior.from(bottomSheet);
+            behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         });
     }
 }

@@ -127,28 +127,21 @@ public class BottomContentView extends LinearLayoutOverWebView
                     contextMenuListener);
         }
 
-        addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            @SuppressWarnings("checkstyle:parameternumber")
-            public void onLayoutChange(View v, int left, int top, int right, int bottom,
-                                       int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                if (prevLayoutHeight == getHeight()) {
-                    return;
-                }
-                prevLayoutHeight = getHeight();
-                padWebView();
+        addOnLayoutChangeListener((View v, int left, int top, int right, int bottom,
+                                       int oldLeft, int oldTop, int oldRight, int oldBottom) -> {
+            if (prevLayoutHeight == getHeight()) {
+                return;
             }
+            prevLayoutHeight = getHeight();
+            padWebView();
         });
 
         readMoreList.setAdapter(readMoreAdapter);
-        readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle title = readMoreAdapter.getItem(position).getPageTitle();
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                parentFragment.loadPage(title, historyEntry);
-                funnel.logSuggestionClicked(page.getTitle(), readMoreItems.getResults(), position);
-            }
+        readMoreList.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
+            PageTitle title = readMoreAdapter.getItem(position).getPageTitle();
+            HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+            parentFragment.loadPage(title, historyEntry);
+            funnel.logSuggestionClicked(page.getTitle(), readMoreItems.getResults(), position);
         });
 
         // hide ourselves by default

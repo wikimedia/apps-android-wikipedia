@@ -1,7 +1,6 @@
 package org.wikipedia.page.shareafact;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -72,24 +71,21 @@ public class ShareHandler {
         this.fragment = fragment;
         this.bridge = bridge;
 
-        bridge.addListener("onGetTextSelection", new CommunicationBridge.JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                String purpose = messagePayload.optString(PAYLOAD_PURPOSE_KEY, "");
-                String text = messagePayload.optString(PAYLOAD_TEXT_KEY, "");
-                switch (purpose) {
-                    case PAYLOAD_PURPOSE_SHARE:
-                        onSharePayload(text);
-                        break;
-                    case PAYLOAD_PURPOSE_DEFINE:
-                        onDefinePayload(text);
-                        break;
-                    case PAYLOAD_PURPOSE_EDIT_HERE:
-                        onEditHerePayload(messagePayload.optInt("sectionID", 0), text);
-                        break;
-                    default:
-                        L.d("Unknown purpose=" + purpose);
-                }
+        bridge.addListener("onGetTextSelection", (String messageType, JSONObject messagePayload) -> {
+            String purpose = messagePayload.optString(PAYLOAD_PURPOSE_KEY, "");
+            String text = messagePayload.optString(PAYLOAD_TEXT_KEY, "");
+            switch (purpose) {
+                case PAYLOAD_PURPOSE_SHARE:
+                    onSharePayload(text);
+                    break;
+                case PAYLOAD_PURPOSE_DEFINE:
+                    onDefinePayload(text);
+                    break;
+                case PAYLOAD_PURPOSE_EDIT_HERE:
+                    onEditHerePayload(messagePayload.optInt("sectionID", 0), text);
+                    break;
+                default:
+                    L.d("Unknown purpose=" + purpose);
             }
         });
     }
@@ -177,14 +173,11 @@ public class ShareHandler {
         // Provide our own listeners for the copy, define, and share buttons.
         shareItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_SHARE));
         MenuItem copyItem = menu.findItem(R.id.menu_text_select_copy);
-        copyItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                fragment.getWebView().copyToClipboard();
-                showCopySnackbar();
-                leaveActionMode();
-                return true;
-            }
+        copyItem.setOnMenuItemClickListener((MenuItem menuItem) -> {
+            fragment.getWebView().copyToClipboard();
+            showCopySnackbar();
+            leaveActionMode();
+            return true;
         });
         MenuItem defineItem = menu.findItem(R.id.menu_text_select_define);
         if (shouldEnableWiktionaryDialog()) {
@@ -210,13 +203,10 @@ public class ShareHandler {
     }
 
     private void postShowShareToolTip(final MenuItem shareItem) {
-        fragment.getView().post(new Runnable() {
-            @Override
-            public void run() {
-                View shareItemView = ActivityUtil.getMenuItemView(fragment.getActivity(), shareItem);
-                if (shareItemView != null) {
-                    showShareToolTip(shareItemView);
-                }
+        fragment.getView().post(() -> {
+            View shareItemView = ActivityUtil.getMenuItemView(fragment.getActivity(), shareItem);
+            if (shareItemView != null) {
+                showShareToolTip(shareItemView);
             }
         });
     }
@@ -287,40 +277,26 @@ public class ShareHandler {
             ImageView previewImage = rootView.findViewById(R.id.preview_img);
             previewImage.setImageBitmap(resultBitmap);
             rootView.findViewById(R.id.close_button)
-                    .setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dismiss();
-                        }
-                    });
+                    .setOnClickListener((v) -> dismiss());
             rootView.findViewById(R.id.share_as_image_button)
-                    .setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String introText = context.getString(R.string.snippet_share_intro,
-                                    title.getDisplayText(),
-                                    UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_image));
-                            ShareUtil.shareImage(context, resultBitmap, title.getDisplayText(),
-                                    title.getDisplayText(), introText);
-                            funnel.logShareIntent(selectedText, ShareMode.image);
-                            completed = true;
-                        }
+                    .setOnClickListener((v) -> {
+                        String introText = context.getString(R.string.snippet_share_intro,
+                                title.getDisplayText(),
+                                UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_image));
+                        ShareUtil.shareImage(context, resultBitmap, title.getDisplayText(),
+                                title.getDisplayText(), introText);
+                        funnel.logShareIntent(selectedText, ShareMode.image);
+                        completed = true;
                     });
             rootView.findViewById(R.id.share_as_text_button)
-                    .setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            shareAsText(context, title, selectedText, funnel);
-                            completed = true;
-                        }
+                    .setOnClickListener((v) -> {
+                        shareAsText(context, title, selectedText, funnel);
+                        completed = true;
                     });
-            setOnDismissListener(new OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    resultBitmap.recycle();
-                    if (!completed) {
-                        funnel.logAbandoned(title.getDisplayText());
-                    }
+            setOnDismissListener((dialog) -> {
+                resultBitmap.recycle();
+                if (!completed) {
+                    funnel.logAbandoned(title.getDisplayText());
                 }
             });
             startExpanded();
