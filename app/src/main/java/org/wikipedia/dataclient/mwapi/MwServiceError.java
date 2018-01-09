@@ -19,12 +19,12 @@ public class MwServiceError extends BaseModel implements ServiceError {
     @SuppressWarnings("unused") @Nullable private String docref;
     @SuppressWarnings("unused") @NonNull private List<Message> messages = Collections.emptyList();
 
-    @Override @Nullable public String getTitle() {
-        return code;
+    @Override @NonNull public String getTitle() {
+        return StringUtils.defaultString(code);
     }
 
-    @Override @Nullable public String getDetails() {
-        return info;
+    @Override @NonNull public String getDetails() {
+        return StringUtils.defaultString(info);
     }
 
     @Nullable public String getDocRef() {
