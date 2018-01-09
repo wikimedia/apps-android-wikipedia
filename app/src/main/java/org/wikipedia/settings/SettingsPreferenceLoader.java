@@ -45,6 +45,14 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(R.string.preference_key_sync_reading_lists)
                 .setOnPreferenceChangeListener(new SyncReadingListsListener());
 
+        Preference eventLoggingOptInPref = findPreference(R.string.preference_key_eventlogging_opt_in);
+        eventLoggingOptInPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if (!((boolean) newValue)) {
+                Prefs.setAppInstallId(null);
+            }
+            return true;
+        });
+
         Preference offlineLibPref = findPreference(R.string.preference_key_enable_offline_library);
         offlineLibPref.setOnPreferenceChangeListener(new OfflineLibraryEnableListener());
         offlineLibPref.setSummary(StringUtil.fromHtml(getPreferenceHost().getString(R.string.preference_summary_enable_offline_library)));
