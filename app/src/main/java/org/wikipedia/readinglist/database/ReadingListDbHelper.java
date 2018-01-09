@@ -257,8 +257,8 @@ public class ReadingListDbHelper {
     public ReadingListPage getRandomPage() {
         SQLiteDatabase db = getReadableDatabase();
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
-                        ReadingListPageContract.Col.STATUS.getName() + " != ?",
-                new String[]{Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
+                        ReadingListPageContract.Col.STATUS.getName() + " = ?",
+                new String[]{Integer.toString(ReadingListPage.STATUS_SAVED)},
                 null, null, null)) {
             if (cursor.moveToFirst()) {
                 cursor.move(new Random().nextInt(cursor.getCount()));
