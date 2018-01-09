@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.restbase;
 
 import android.support.annotation.NonNull;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.model.BaseModel;
@@ -21,12 +22,14 @@ public class RbServiceError extends BaseModel implements ServiceError {
     }
 
     @Override
+    @NonNull
     public String getTitle() {
-        return title;
+        return StringUtils.defaultString(title);
     }
 
     @Override
+    @NonNull
     public String getDetails() {
-        return detail;
+        return StringUtils.defaultString(detail);
     }
 }
