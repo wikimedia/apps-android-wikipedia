@@ -389,6 +389,8 @@
     <string name="reading_list_added_articles_list_titled">Added %1$d articles to %2$s</string>
     <string name="default_reading_list_name">Saved</string>
     <string name="default_reading_list_description">Default list for your saved articles</string>
+    <string name="no_user_lists_title">Organize articles into lists</string>
+    <string name="no_user_lists_msg">Create lists for places to travel to, favorite topics, and much more</string>
     <plurals name="reading_list_article_offline_message">
         <item quantity="one">This article will now be available offline.</item>
         <item quantity="other">These articles will now be available offline.</item>
