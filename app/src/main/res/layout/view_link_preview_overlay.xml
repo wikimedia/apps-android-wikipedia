@@ -23,9 +23,8 @@
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textColor="@color/base30"
-            android:textAlignment="center"
             android:background="?attr/selectableItemBackground"
-            style="@style/Widget.AppCompat.Button.Borderless"
+            style="@style/TransparentButton"
             android:text="@string/button_get_directions"/>
         <TextView
             android:id="@+id/link_preview_primary_button"
@@ -35,9 +34,8 @@
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:textColor="?attr/colorAccent"
-            android:textAlignment="center"
             android:background="?attr/selectableItemBackground"
-            style="@style/Widget.AppCompat.Button.Borderless"
+            style="@style/TransparentButton"
             android:fontFamily="sans-serif-medium"
             android:text="@string/button_continue_to_article"/>
 

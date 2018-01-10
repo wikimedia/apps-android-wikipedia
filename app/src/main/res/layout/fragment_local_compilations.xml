@@ -67,7 +67,7 @@
                         <!-- Unhide when ready to allow downloading of packs. -->
                         <TextView
                             android:id="@+id/compilations_add_button"
-                            style="@style/Widget.AppCompat.Button.Borderless"
+                            style="@style/TransparentButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="4dp"
