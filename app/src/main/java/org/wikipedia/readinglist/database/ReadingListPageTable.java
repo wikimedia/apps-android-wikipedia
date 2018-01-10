@@ -77,24 +77,14 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     public void onUpgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
         if (toVersion == DB_VER_INTRODUCED) {
             List<ReadingList> currentLists = new ArrayList<>();
+            createDefaultList(db, currentLists);
             if (fromVersion > 0) {
                 importOldLists(db, currentLists);
             }
-            createDefaultList(db, currentLists);
-            checkForUserCreatedSavedList(db, currentLists);
+            renameListsWithIdenticalNameAsDefault(db, currentLists);
             // TODO: add other one-time conversions here.
         }
     }
-    private void checkForUserCreatedSavedList(SQLiteDatabase db, List<ReadingList> lists) {
-        for (ReadingList list : lists) {
-            if (list.title().equalsIgnoreCase(WikipediaApp.getInstance().getString(R.string.default_reading_list_name))) {
-                list.title(String.format(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename), list.title()));
-                ReadingListDbHelper.instance().updateList(db, list);
-            }
-        }
-    }
-
-
 
     @Override protected ContentValues toContentValues(@NonNull ReadingListPage row) {
         ContentValues contentValues = new ContentValues();
@@ -137,6 +127,15 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         }
         currentLists.add(ReadingListDbHelper.instance().createList(db, "",
                 WikipediaApp.getInstance().getString(R.string.default_reading_list_description)));
+    }
+
+    private void renameListsWithIdenticalNameAsDefault(SQLiteDatabase db, List<ReadingList> lists) {
+        for (ReadingList list : lists) {
+            if (list.title().equalsIgnoreCase(WikipediaApp.getInstance().getString(R.string.default_reading_list_name))) {
+                list.title(String.format(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename), list.title()));
+                ReadingListDbHelper.instance().updateList(db, list);
+            }
+        }
     }
 
     // TODO: Remove in Dec 2018

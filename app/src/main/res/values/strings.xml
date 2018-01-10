@@ -391,7 +391,7 @@
     <string name="default_reading_list_description">Default list for your saved articles</string>
     <string name="no_user_lists_title">Organize articles into lists</string>
     <string name="no_user_lists_msg">Create lists for places to travel to, favorite topics, and much more</string>
-    <string name="reading_list_saved_list_rename">%1$s_[user created]</string>
+    <string name="reading_list_saved_list_rename">%1$s (user created)</string>
     <plurals name="reading_list_article_offline_message">
         <item quantity="one">This article will now be available offline.</item>
         <item quantity="other">These articles will now be available offline.</item>
