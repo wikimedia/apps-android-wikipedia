@@ -78,7 +78,7 @@ public final class NotificationClient {
 
     public void markRead(List<Notification> notifications) {
         final String idListStr = TextUtils.join("|", notifications);
-        editTokenClient.request(new CsrfTokenClient.Callback() {
+        editTokenClient.request(new CsrfTokenClient.DefaultCallback() {
             @Override
             public void success(@NonNull String token) {
                 requestMarkRead(service, token, idListStr).enqueue(new retrofit2.Callback<MwQueryResponse>() {
@@ -92,16 +92,6 @@ public final class NotificationClient {
                         L.e(t);
                     }
                 });
-            }
-
-            @Override
-            public void failure(@NonNull Throwable t) {
-                L.e(t);
-            }
-
-            @Override
-            public void twoFactorPrompt() {
-                // TODO: warn user.
             }
         });
     }
