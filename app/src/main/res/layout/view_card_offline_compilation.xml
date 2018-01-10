@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        style="@style/Widget.AppCompat.Button.Borderless"
+        style="@style/TransparentButton"
         android:textColor="@android:color/white"
         android:text="@string/offline_my_compilations"/>
 

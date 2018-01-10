@@ -100,7 +100,7 @@
 
     <TextView
         android:id="@+id/create_account_login_button"
-        style="@style/Widget.AppCompat.Button.Borderless"
+        style="@style/TransparentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
