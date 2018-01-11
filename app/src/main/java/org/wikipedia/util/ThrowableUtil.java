@@ -22,7 +22,7 @@ public final class ThrowableUtil {
 
     // TODO: replace with Apache Commons Lang ExceptionUtils.
     @NonNull
-    public static Throwable getInnermostThrowable(@NonNull Throwable e) {
+    private static Throwable getInnermostThrowable(@NonNull Throwable e) {
         Throwable t = e;
         while (t.getCause() != null) {
             t = t.getCause();
@@ -31,7 +31,7 @@ public final class ThrowableUtil {
     }
 
     // TODO: replace with Apache Commons Lang ExceptionUtils.
-    public static boolean throwableContainsException(@NonNull Throwable e, Class<?> exClass) {
+    private static boolean throwableContainsException(@NonNull Throwable e, Class<?> exClass) {
         Throwable t = e;
         while (t != null) {
             if (t.getClass().equals(exClass)) {
