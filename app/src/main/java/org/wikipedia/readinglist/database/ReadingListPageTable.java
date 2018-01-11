@@ -25,7 +25,6 @@ import java.util.Set;
 public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private static final int DB_VER_INTRODUCED = 18;
     private static final int MAX_ARTICLE_LIMIT = 1000;
-    private boolean userLargeListsMessageShown = false;
 
     public ReadingListPageTable() {
         super(ReadingListPageContract.TABLE, ReadingListPageContract.URI);
@@ -152,6 +151,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                     lists.add(list);
                 }
             }
+            boolean shouldShowLargeSplitMessage = false;
             try (Cursor cursor = db.rawQuery("SELECT * FROM " + OldReadingListPageContract.TABLE_PAGE
                     + " JOIN " + OldReadingListPageContract.TABLE_DISK + " ON ("
                     + OldReadingListPageContract.Col.KEY.qualifiedName() + " = "
@@ -187,22 +187,45 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                         page.offline(true);
                         page.status(ReadingListPage.STATUS_SAVED);
                     }
+                    ReadingList origList = null;
                     for (ReadingList list : lists) {
                         if (listKeys.contains(getListKey(list.title()))) {
-                            list.pages().add(page);
+                            origList = list;
+                            break;
                         }
                     }
-                }
-
-                for (ReadingList list : lists) {
-                    if (list.pages().size() > MAX_ARTICLE_LIMIT) {
-                        spiltLargeList(db, list, lists);
+                    if (origList == null) {
+                        continue;
                     }
+
+                    int splitListIndex = 0;
+                    ReadingList newList = origList;
+                    while (newList.pages().size() >= MAX_ARTICLE_LIMIT) {
+                        shouldShowLargeSplitMessage = true;
+                        newList = null;
+                        String newListName = origList.title() + " (" + Integer.toString(++splitListIndex) + ")";
+                        for (ReadingList list : lists) {
+                            if (list.title().equals(newListName)) {
+                                newList = list;
+                                break;
+                            }
+                        }
+                        if (newList == null) {
+                            newList = ReadingListDbHelper.instance().createList(db, newListName, origList.description());
+                            lists.add(newList);
+                        }
+                    }
+
+                    newList.pages().add(page);
                 }
 
                 for (ReadingList list : lists) {
                     ReadingListDbHelper.instance().addPagesToList(db, list, list.pages());
                 }
+            }
+
+            if (shouldShowLargeSplitMessage) {
+                WikipediaApp.getInstance().getBus().post(new SplitLargeListsEvent());
             }
 
             db.execSQL("DROP TABLE IF EXISTS " + OldReadingListContract.TABLE);
@@ -217,25 +240,5 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
 
     @NonNull private static String getListKey(@NonNull String title) {
         return Base64.encodeToString(title.getBytes(), Base64.NO_WRAP);
-    }
-
-    private void spiltLargeList(SQLiteDatabase db, ReadingList readingList, List<ReadingList> lists) {
-        if (!userLargeListsMessageShown) {
-            WikipediaApp.getInstance().getBus().post(new SplitLargeListsEvent());
-            userLargeListsMessageShown = true;
-        }
-        int index = readingList.title().split("_").length == 1 ? 1 : Integer.valueOf(readingList.title().split("_")[1]) + 1;
-        List<ReadingListPage> toBeAddedList = new ArrayList<>();
-        if (readingList.pages().size() <= MAX_ARTICLE_LIMIT) {
-            return;
-        }
-        for (int j = MAX_ARTICLE_LIMIT; j < readingList.pages().size(); j++) {
-            toBeAddedList.add(readingList.pages().get(j));
-        }
-        readingList.pages().removeAll(toBeAddedList);
-        ReadingList newList = ReadingListDbHelper.instance().createList(db, String.format(WikipediaApp.getInstance().getString(R.string.split_list_name), readingList.title().split("_")[0], index), readingList.description());
-        newList.pages().addAll(toBeAddedList);
-        lists.add(newList);
-        spiltLargeList(db, newList, lists);
     }
 }

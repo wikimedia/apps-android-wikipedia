@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +26,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.CrashReportActivity;
 import org.wikipedia.events.NetworkConnectEvent;
+import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.offline.Compilation;
@@ -225,6 +227,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         @Subscribe public void on(ThemeChangeEvent event) {
             recreate();
+        }
+
+        @Subscribe public void on(SplitLargeListsEvent event) {
+            new AlertDialog.Builder(BaseActivity.this)
+                    .setMessage(R.string.split_reading_list_message)
+                    .setPositiveButton(R.string.ok, null)
+                    .show();
         }
     }
 
