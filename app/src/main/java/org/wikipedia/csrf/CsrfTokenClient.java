@@ -28,6 +28,7 @@ import retrofit2.http.GET;
 public class CsrfTokenClient {
     static final String ANON_TOKEN = "+\\";
     private static final int MAX_RETRIES = 1;
+    private static final int MAX_RETRIES_OF_LOGIN_BLOCKING = 2;
     @NonNull private final WikiCachedService<Service> cachedService = new MwCachedService<>(Service.class);
     @NonNull private final WikiSite csrfWikiSite;
     @NonNull private final WikiSite loginWikiSite;
@@ -94,11 +95,9 @@ public class CsrfTokenClient {
 
             SharedPreferenceCookieManager.getInstance().clearAllCookies();
 
-            login(AccountUtil.getUserName(), AccountUtil.getPassword(), new RetryCallback() {
-                @Override public void retry() {
-                    L.i("retrying...");
-                    request(callback);
-                }
+            login(AccountUtil.getUserName(), AccountUtil.getPassword(), () -> {
+                L.i("retrying...");
+                request(callback);
             }, callback);
         } else {
             callback.failure(caught);
@@ -136,7 +135,7 @@ public class CsrfTokenClient {
         String token = "";
         Service service = cachedService.service(csrfWikiSite);
 
-        for (int retry = 0; retry < 2; retry++) {
+        for (int retry = 0; retry < MAX_RETRIES_OF_LOGIN_BLOCKING; retry++) {
             try {
                 if (retry > 0) {
                     // Log in explicitly
