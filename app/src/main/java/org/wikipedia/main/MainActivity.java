@@ -1,16 +1,22 @@
 package org.wikipedia.main;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.view.ActionMode;
 import android.view.View;
 
+import com.squareup.otto.Subscribe;
+
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentToolbarActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
+import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.settings.Prefs;
@@ -23,6 +29,8 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         return new Intent(context, MainActivity.class);
     }
 
+    private EventBusMethods busMethods;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +40,14 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             startActivity(InitialOnboardingActivity.newIntent(this));
         }
+        busMethods = new EventBusMethods();
+        registerBus();
+    }
+
+    @Override
+    public void onDestroy() {
+        unregisterBus();
+        super.onDestroy();
     }
 
     @Override protected MainFragment createFragment() {
@@ -116,5 +132,30 @@ public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
             return;
         }
         finish();
+    }
+
+    private void registerBus() {
+        WikipediaApp.getInstance().getBus().register(busMethods);
+    }
+
+    private void unregisterBus() {
+        if (WikipediaApp.getInstance().getBus() != null) {
+            WikipediaApp.getInstance().getBus().unregister(busMethods);
+        }
+    }
+
+    private class EventBusMethods {
+        @Subscribe
+        public void on(SplitLargeListsEvent event) {
+            showLargeListSplitMessage();
+        }
+    }
+
+    private void showLargeListSplitMessage() {
+        new AlertDialog.Builder(this)
+                .setMessage(R.string.split_reading_list_message)
+                .setPositiveButton(R.string.ok,
+                        (DialogInterface dialogInterface, int i) -> dialogInterface.dismiss())
+                .show();
     }
 }
