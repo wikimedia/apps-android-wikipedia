@@ -488,10 +488,10 @@
   <string name="offline_compilations_add">Button text for adding an offline article pack to the Offline Library.</string>
   <string name="remote_compilations_title">Title shown on the toolbar of the activity that shows all downloadable article packs.</string>
   <string name="remote_compilations_description">{{Doc-mobileapp-internet}}\nShort description of the Offline Library.</string>
-  <string name="size_gb">Label for showing size in GB. The %.2f is replaced by the number in gigabytes(GB)</string>
-  <string name="size_mb">Label for showing size in MB. The %.2f is replaced by the number in megabytesbytes(MB)</string>
   <string name="offline_compilation_detail_date_size">Information about the date and size of an article pack. The %1$s and %2$.2f symbols will be replaced with the date and size. Only the \"GB\" unit needs to be translated (see storage_size_gb).</string>
   <string name="offline_compilation_detail_date_size_v2">Information about the date and size of an article pack. The %1$s and %2$s symbols will be replaced with the date and size.</string>
+  <string name="size_gb">Label for showing size in GB. The %.2f is replaced by the number in gigabytes(GB)</string>
+  <string name="size_mb">Label for showing size in MB. The %.2f is replaced by the number in megabytes (MB)</string>
   <string name="offline_compilation_detail_button_download">Label for a button for downloading an offline article pack. The %.2f symbol is replaced with the article pack size, in gigabytes (GB).</string>
   <string name="offline_compilation_detail_button_download_v2">Label for a button for downloading an offline article pack. The %s symbol is replaced with the article pack size, in either megabytes (MB) or gigabytes (GB).</string>
   <string name="offline_compilation_detail_button_remove">Label for a button for removing an offline article pack from storage on the user\'s device.</string>

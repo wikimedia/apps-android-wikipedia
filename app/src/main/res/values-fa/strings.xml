@@ -477,7 +477,6 @@
   <string name="offline_compilation_detail_button_download">بارگیری • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">حذف</string>
   <string name="remote_compilation_download">بارگیری</string>
-  <string name="storage_size">%.2f گیگابایت</string>
   <string name="storage_size_free">%.2f گیگابایت فضای خالی</string>
   <string name="storage_used_by_compilations">توسط کتابخانهٔ آفلاین استفاده شده</string>
   <string name="storage_other_apps">سایر نرم‌افزارها</string>

@@ -452,7 +452,6 @@
   <string name="offline_compilation_detail_button_download">Undeur • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Pupus</string>
   <string name="remote_compilation_download">Undeur</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB kosong</string>
   <string name="storage_used_by_compilations">dipaké ku Pabukon Wikipédia</string>
   <string name="storage_other_apps">Aplikasi lianna</string>

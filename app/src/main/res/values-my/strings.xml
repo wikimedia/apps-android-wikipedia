@@ -400,7 +400,6 @@
   <string name="offline_compilation_detail_button_download">%.2f ဂစ်ဂါဘိုက် ဒေါင်းလုပ်လုပ်ခြင်း</string>
   <string name="offline_compilation_detail_button_remove">ဖယ်ရှားရန်</string>
   <string name="remote_compilation_download">ဒေါင်းလုပ်ယူရန်</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f ဂစ်ဂါဘိုက် အခမဲ့</string>
   <string name="compilation_download_cancel_confirm_yes">လုပ်မည်</string>
   <string name="compilation_download_cancel_confirm_no">မလုပ်ပါ</string>

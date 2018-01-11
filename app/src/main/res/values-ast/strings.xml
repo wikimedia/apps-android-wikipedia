@@ -489,7 +489,6 @@
   <string name="offline_compilation_detail_button_download">Descargar • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Desaniciar</string>
   <string name="remote_compilation_download">Descargar</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB llibres</string>
   <string name="storage_used_by_compilations">usaos por Biblioteca sin conexón</string>
   <string name="storage_other_apps">Otres aplicaciones</string>

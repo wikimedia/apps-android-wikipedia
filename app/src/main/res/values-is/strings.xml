@@ -81,8 +81,8 @@
   <string name="login_success_toast">Sending tókst!</string>
   <string name="preference_title_logout">Skrá út</string>
   <string name="toast_logout_complete">Skráður út</string>
-  <string name="history_empty_title" fuzzy="true">Engar nýlegar síður hér!</string>
-  <string name="history_empty_message" fuzzy="true">Líklega eyddirðu þeim öllum. Næst þegar þú ferð á síðu, geturðu komist til baka á hana hér.</string>
+  <string name="history_empty_title">Engar nýlega lesnar greinar</string>
+  <string name="history_empty_message">Haltu utan um það sem þú hefur verið að lesa hérna.</string>
   <string name="delete_selected_items">Eyða völdum atriðum</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Notandanafn</string>
@@ -167,7 +167,7 @@
   <string name="edit_summary_tag_other_hint">Aðrar leiðir sem þú notaðir til að bæta síðuna</string>
   <string name="find_next">Finna næsta</string>
   <string name="find_previous">Finna fyrra</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Þetta lítur ekki út fyrir að vera uppbyggileg breyting, ert þú viss um að þú viljir vista hana?</string>
+  <string name="abusefilter_title_warn">Þetta lítur ekki út fyrir að vera uppbyggileg breyting, ert þú viss um að þú viljir birta hana?</string>
   <string name="abusefilter_title_disallow">Þú getur ekki gefið út þessa breytingu. Farðu til baka og breyttu henni.</string>
   <string name="abusefilter_text_warn">Sjálfvirk sía hefur greint þessa breytingu sem mögulega eyðileggjandi. Hún gæti innihaldið eitt af eftirtöldu:&lt;br /&gt;&lt;br /&gt;· Eintómir hástafir&lt;br /&gt;· Tæming greina eða þvaður&lt;br /&gt;· Óviðeigandi ytri tenglar eða myndir&lt;br /&gt;· Endurteknir stafir</string>
   <string name="abusefilter_text_disallow">Sjálfvirk sía hefur greint þessa breytingu sem eyðileggjandi eða sem tilraun til skemmdarverks. &lt;br /&gt;&lt;br /&gt;Wikipedia er alfræðirit og því tilheyrir aðeins hlutlaust og markvert efni.</string>
@@ -204,7 +204,7 @@
   <string name="gallery_save_progress">Sæki skrá…</string>
   <string name="gallery_save_success">Tókst að vista skrána.</string>
   <string name="gallery_error_video_failed">Tókst ekki að spila myndskeiðið.</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Til að vista myndir er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins. Reyndu aftur og gefðu umbeðna heimild.</string>
+  <string name="gallery_save_image_write_permission_rationale">Til að vista myndir er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins.</string>
   <string name="err_cannot_save_file">Gat ekki vistað skrá</string>
   <string name="snippet_share_intro">\"%1$s\" á @Wikipedia: %2$s</string>
   <string name="expand_refs">Banka til að stækka</string>
@@ -221,7 +221,7 @@
   <string name="close_all_tabs_confirm_yes">Já</string>
   <string name="close_all_tabs_confirm_no">Nei</string>
   <string name="button_close_tab">Loka flipa</string>
-  <string name="tool_tip_select_text" fuzzy="true">Ýttu og haltu einhversstaðar í textanum til að ljóma hann svo hægt sé að afrita og deila.</string>
+  <string name="tool_tip_select_text">Ýttu og haltu einhversstaðar í textanum til að velja hann svo hægt sé að afrita og deila.</string>
   <string name="tool_tip_share">Þegar áhugavert atriði hefur verið ljómað, prófaðu að deila því á uppáhalds-netinu þínu!</string>
   <string name="page_view_in_browser">Opna síðu í vafra</string>
   <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>

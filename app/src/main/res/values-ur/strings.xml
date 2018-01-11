@@ -448,7 +448,6 @@
   <string name="offline_compilation_detail_button_download">ڈاؤنلوڈ • %.2f جی بی</string>
   <string name="offline_compilation_detail_button_remove">حذف کریں</string>
   <string name="remote_compilation_download">ڈاؤن لوڈ</string>
-  <string name="storage_size">%.2f جی بی</string>
   <string name="storage_size_free">%.2f جی بی خالی</string>
   <string name="storage_used_by_compilations">آف لائن کتب خانے کے زیر استعمال</string>
   <string name="storage_other_apps">دیگر اطلاقیے</string>

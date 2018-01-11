@@ -454,7 +454,6 @@
   <string name="offline_compilation_detail_button_download">הורדה • %.2f ג\"ב</string>
   <string name="offline_compilation_detail_button_remove">הסרה</string>
   <string name="remote_compilation_download">הורדה</string>
-  <string name="storage_size">%.2f ג\"ב</string>
   <string name="storage_size_free">%.2f ג\"ב פנויים</string>
   <string name="storage_used_by_compilations">בשימוש ספרייה לא מקוונת</string>
   <string name="storage_other_apps">אפליקציות אחרות</string>

@@ -481,7 +481,6 @@
   <string name="offline_compilation_detail_button_download">Letöltés • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Eltávolítás</string>
   <string name="remote_compilation_download">Letöltés</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB szabad</string>
   <string name="storage_used_by_compilations">a kapcsolat nélküli könyvtár használja</string>
   <string name="storage_other_apps">Más alkalmazások</string>

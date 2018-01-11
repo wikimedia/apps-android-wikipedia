@@ -433,7 +433,6 @@
   <string name="description_edit_revert_history">إن كنت مهتما، طالع &lt;a href=\"%1$s\"&gt;تاريخ التعديل&lt;/a&gt;.</string>
   <string name="offline_compilation_detail_button_remove">أزل</string>
   <string name="remote_compilation_download">نزّل</string>
-  <string name="storage_size">%.2f جيجا بايت</string>
   <string name="storage_size_free">%.2f جيجا بايت متاحة</string>
   <string name="compilation_download_cancel_confirm_yes">نعم</string>
   <string name="compilation_download_cancel_confirm_no">لا</string>

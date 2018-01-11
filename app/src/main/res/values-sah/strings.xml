@@ -459,14 +459,13 @@
   <string name="offline_card_text">Бикипиэдьийэни ситимэ суох эрэсиимҥэ Офлайн бибилэтиэкэҕин көрө олороҕун.</string>
   <string name="offline_my_compilations">Офлайн-бибилэтиэкэбин дьаһайыы</string>
   <string name="offline_compilations_title">Офлайн-бибилэтиэкэ</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Бэйэм бибилэтиэкэбэр (%d)</string>
+  <string name="offline_compilations_found_count">Офлайн бибилэтиэкэбэр (%d)</string>
   <string name="offline_compilations_add">Бэйэм офлайн-бибилэтиэкэбэр эп</string>
   <string name="remote_compilations_title">Офлайн-бибилэтиэкэ</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Гб</string>
   <string name="offline_compilation_detail_button_download">Хачайдаа • %.2f Гб</string>
   <string name="offline_compilation_detail_button_remove">Сот</string>
   <string name="remote_compilation_download">Хачайдааһын</string>
-  <string name="storage_size">%.2f Гб</string>
   <string name="storage_size_free">%.2f ГБ босхо</string>
   <string name="storage_used_by_compilations">Офлайн-бибилэтиэкэ туһанар</string>
   <string name="storage_other_apps">Атын бырагыраамалар</string>
@@ -490,6 +489,7 @@
   <string name="onboarding_skip">Аһар</string>
   <string name="onboarding_continue">Салгыы</string>
   <string name="onboarding_get_started">Саҕалыырга</string>
+  <string name="onboarding_welcome_title">Аһаҕас энциклопедия</string>
   <string name="onboarding_explore_title">Көрөргө саҥа ньымалар</string>
   <string name="onboarding_explore_text" fuzzy="true">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
   <string name="onboarding_reading_list_sync_title">Синхроннаах ааҕыы испииһэгэ</string>

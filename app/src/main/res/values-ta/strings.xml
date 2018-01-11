@@ -375,7 +375,6 @@
   <string name="remote_compilations_title">அணை நிலை நூலகம்</string>
   <string name="offline_compilation_detail_button_remove">நீக்குக</string>
   <string name="remote_compilation_download">பதிவிறக்குக</string>
-  <string name="storage_size">%.2f ஜிபி</string>
   <string name="storage_size_free">%.2f ஜிபி இலவசம்</string>
   <string name="storage_used_by_compilations">அணை நிலை நூலகத்தால் பயன்படுத்தப்படுகிறது</string>
   <string name="storage_other_apps">மற்ற செயலிகள்</string>

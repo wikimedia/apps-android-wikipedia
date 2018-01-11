@@ -465,7 +465,6 @@
   <string name="offline_compilation_detail_button_download">डाउनलोड · %.2f जीबी</string>
   <string name="offline_compilation_detail_button_remove">निकालें</string>
   <string name="remote_compilation_download">डाउनलोड</string>
-  <string name="storage_size">%.2f जीबी</string>
   <string name="storage_size_free">%.2f जीबी खाली</string>
   <string name="storage_used_by_compilations">ऑफलाइन लाइब्रेरी द्वारा प्रयोग में</string>
   <string name="storage_other_apps">अन्य एप्लीकेशन्स</string>

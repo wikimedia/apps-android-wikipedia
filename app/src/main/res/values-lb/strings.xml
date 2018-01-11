@@ -336,6 +336,8 @@
   <string name="reading_list_added_articles_list_titled">%1$d Artikel op %2$s dobäigesat</string>
   <string name="default_reading_list_name">Gespäichert</string>
   <string name="default_reading_list_description">Standard-Lëscht fir Är gespäichert Artikelen</string>
+  <string name="no_user_lists_title">Artikelen a Lëschten organiséieren</string>
+  <string name="reading_list_saved_list_rename" fuzzy="true">%1$s_[vum Benotzer gemaach]</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dësen Artikel ass elo offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn elo offline disponibel.</item>
@@ -431,14 +433,19 @@
   <string name="offline_compilations_title">Offline-Bibliothéik</string>
   <string name="offline_compilations_found_count">A menger Offline Bibliothéik (%d)</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
   <string name="offline_compilation_detail_button_download">Eroflueden • %.2f GB</string>
+  <string name="offline_compilation_detail_button_download_v2">Eroflueden •%s</string>
   <string name="offline_compilation_detail_button_remove">Ewechhuelen</string>
   <string name="remote_compilation_download">Eroflueden</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB fräi</string>
+  <string name="storage_size_free_v2">%s fräi</string>
   <string name="storage_used_by_compilations">vun der Offline-Bibliothéik benotzt</string>
   <string name="storage_other_apps">Aner Programmen</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB vu(n) %2$.2f GB</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">Nach eng Minutt</item>
     <item quantity="other">Nach %d Minutten</item>

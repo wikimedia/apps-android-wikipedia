@@ -177,6 +177,8 @@
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
+  <string name="find_first_occurence">これが1件目です</string>
+  <string name="find_last_occurence">これが最後です</string>
   <string name="abusefilter_title_warn">これは建設的な編集ではないようです。それでも公開しますか？</string>
   <string name="abusefilter_title_disallow">この編集は公開できません。戻って修正してください。</string>
   <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;・すべて大文字で書かれている&lt;br /&gt;・記事が白紙化されている、もしくはスパムである&lt;br /&gt;・関係のない外部リンクや画像が挿入されている&lt;br /&gt;・一定の文字が繰り返されている</string>
@@ -266,7 +268,7 @@
   <string name="reference_title">%s 参照</string>
   <string name="preference_title_dim_dark_mode_images">ダークモードのときに画像を暗くする</string>
   <string name="preference_summary_dim_dark_mode_images">ダークモードのときに画像の明るさを下げる</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">画像を暗くする（ダークモードで)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
   <string name="preference_title_enable_offline_library">オフラインライブラリを有効にする</string>
@@ -332,8 +334,8 @@
   <string name="reading_list_item_delete_undo">取り消す</string>
   <string name="reading_list_deleted">%s は削除されました</string>
   <string name="reading_lists_empty">あとで読むリストはありません</string>
-  <string name="reading_lists_empty_message" fuzzy="true">記事をあとで読むリストに保存することで、ネットに接続していないときでも閲覧することができます。</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
+  <string name="reading_lists_empty_message">記事をリーディングリストに追加すると、ネットに接続していないときでも読むことができます。</string>
+  <string name="reading_lists_onboarding_intro">記事を「あとで読む」リストに追加しましょう。オフラインでも読めます！</string>
   <string name="reading_lists_onboarding_for_example">例えば</string>
   <string name="reading_lists_onboarding_example1">行ってみたい場所</string>
   <string name="reading_lists_onboarding_example2">好きな動物</string>
@@ -360,6 +362,8 @@
   <string name="reading_list_article_save_in_progress">記事がダウンロードされ、完了したら記事をオフラインで利用できるようになります。</string>
   <string name="reading_list_already_contains_selection">選択したリストには、すでに選択したすべてのページが含まれています。</string>
   <string name="reading_list_added_articles_list_titled">%1$dに%2$sを追加しました</string>
+  <string name="default_reading_list_name">保存済み</string>
+  <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">この記事は現在オフラインで利用できるようになります。</item>
     <item quantity="other">これらの記事はオフラインで利用できるようになります。</item>
@@ -421,6 +425,7 @@
   <string name="feed_configure_menu_deselect_all">すべての選択を解除</string>
   <string name="feed_item_type_news">最近の出来事の記事</string>
   <string name="feed_item_type_on_this_day">過去に起こったこの日の出来事</string>
+  <string name="feed_item_type_continue_reading">タブのどれかで開いたページを読むクイックリンク</string>
   <string name="feed_item_type_because_you_read">最近の閲覧履歴からお勧めの記事</string>
   <string name="feed_item_type_featured_article">ウィキペディアの今日の秀逸な記事</string>
   <string name="feed_item_type_trending">今日の最も閲覧された記事</string>
@@ -483,7 +488,6 @@
   <string name="offline_compilation_detail_button_download">%.2fGB ・ ダウンロード</string>
   <string name="offline_compilation_detail_button_remove">削除する</string>
   <string name="remote_compilation_download">ダウンロード</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free"> %.2f GBの空き</string>
   <string name="storage_used_by_compilations">オフラインライブラリで使用している</string>
   <string name="storage_other_apps">他のアプリケーション</string>
@@ -522,18 +526,20 @@
   <string name="onboarding_get_started">始めよう</string>
   <string name="onboarding_welcome_title">フリー百科事典</string>
   <string name="onboarding_welcome_text">ウィキペディアは、ボランティアによって共同で書かれ、およそ300の異なる言語で4千万件以上の記事で構成されています。 &lt;a href=\"#about\"&gt;詳細&lt;/a&gt;</string>
-  <string name="onboarding_explore_title">探検する新しい方法</string>
-  <string name="onboarding_explore_text" fuzzy="true">特集記事、トレンドトピック、および提案を読んでみましょう。</string>
+  <string name="onboarding_explore_title">新ツールで探検しよう</string>
+  <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_save_to_reading_lists_title">あとで読むリストに保存</string>
   <string name="onboarding_save_to_reading_lists_text">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます。</string>
   <string name="onboarding_reading_list_sync_title">同期したリストを読む</string>
   <string name="onboarding_reading_list_sync_text">あなたがオフラインでも、後で読む記事からリーディングリストを作成します。リーディングリストをバックアップしておくために、ウィキペディアアカウントを&lt;a href=\"#login\"&gt;ログインまたは作成&lt;/a&gt;してください。</string>
   <string name="onboarding_analytics_title">匿名データを送信</string>
-  <string name="onboarding_analytics_text">アプリの使い方を教えてください。収集されるデータは匿名です。 &lt;a href=\"#privacy\"&gt;詳細&lt;/a&gt;</string>
+  <string name="onboarding_analytics_text">アプリ改善のため、使用状況の収集にご協力ください。データは匿名で収集されます。 &lt;a href=\"#privacy\"&gt;詳細&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#offline\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_create_account_sync">あなたのリーディングリストを同期させる</string>
   <string name="onboarding_create_account_contributions">貢献を追跡して見てください</string>
   <string name="onboarding_create_account_preferences">設定を保存する</string>
+  <string name="onboarding_got_it">了解!</string>
   <string name="app_shortcuts_random">おまかせ表示</string>
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>

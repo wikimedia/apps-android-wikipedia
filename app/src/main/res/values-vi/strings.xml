@@ -443,7 +443,6 @@
   <string name="offline_compilation_detail_button_download">Tải về • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Xóa</string>
   <string name="remote_compilation_download">Tải về</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2fGB trống</string>
   <string name="storage_used_by_compilations">được sử dụng bởi Thư viện Ngoại tuyến</string>
   <string name="storage_other_apps">Ứng dụng khác</string>

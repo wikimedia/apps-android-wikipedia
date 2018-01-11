@@ -419,7 +419,6 @@
   <string name="offline_compilation_detail_button_download">Preuzmi • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">Ukloni</string>
   <string name="remote_compilation_download">Preuzmi</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">slobodno %.2f GB</string>
   <string name="storage_used_by_compilations">upotrebljava vanmrežna biblioteka</string>
   <string name="storage_other_apps">Druge aplikacije</string>

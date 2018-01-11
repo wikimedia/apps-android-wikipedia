@@ -415,7 +415,7 @@
   <string name="view_featured_article_footer_save_button_label">저장</string>
   <string name="view_featured_article_footer_saved_button_label">저장됨</string>
   <string name="feed_configure_activity_title">피드 사용자 지정</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">기본값으로 초기화</string>
+  <string name="feed_configure_menu_reset">기본값으로 복구</string>
   <string name="feed_configure_menu_select_all">모두 선택</string>
   <string name="feed_configure_menu_deselect_all">모두 선택하지 않음</string>
   <string name="feed_item_type_news">요즘 화제에 관한 글</string>
@@ -484,7 +484,6 @@
   <string name="offline_compilation_detail_button_download">다운로드 • %.2f GB</string>
   <string name="offline_compilation_detail_button_remove">제거</string>
   <string name="remote_compilation_download">다운로드</string>
-  <string name="storage_size">%.2f GB</string>
   <string name="storage_size_free">%.2f GB 남음</string>
   <string name="storage_used_by_compilations">(오프라인 라이브러리가 사용 중)</string>
   <string name="storage_other_apps">다른 애플리케이션</string>

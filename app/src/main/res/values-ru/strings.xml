@@ -475,14 +475,13 @@
   <string name="offline_card_text">Сейчас вы просматриваете Википедию в офлайн-режиме со статьями в вашей Офлайн-библиотеке.</string>
   <string name="offline_my_compilations">Управление моей офлайн-библиотекой</string>
   <string name="offline_compilations_title">Офлайн-библиотека</string>
-  <string name="offline_compilations_found_count" fuzzy="true">В моей библиотеке (%d)</string>
+  <string name="offline_compilations_found_count">В моей офлайн-библиотеке (%d)</string>
   <string name="offline_compilations_add">Добавить в мою оффлайн библиотеку</string>
   <string name="remote_compilations_title">Офлайн-библиотека</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Гб</string>
   <string name="offline_compilation_detail_button_download">Скачать • %.2f Гб</string>
   <string name="offline_compilation_detail_button_remove">Удалить</string>
   <string name="remote_compilation_download">Скачать</string>
-  <string name="storage_size">%.2f Гб</string>
   <string name="storage_size_free">%.2f ГБ свободно</string>
   <string name="storage_used_by_compilations">используется Оффлайн-библиотекой</string>
   <string name="storage_other_apps">Другие приложения</string>

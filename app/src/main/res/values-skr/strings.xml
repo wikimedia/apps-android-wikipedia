@@ -225,11 +225,13 @@
   <string name="offline_compilations_title">آف لائن لائبریری</string>
   <string name="remote_compilations_title">آف لائن لائبریری</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f جی بی</string>
+  <string name="size_mb">%.2f ایم بی</string>
   <string name="offline_compilation_detail_button_download">ڈاؤنلوڈ • %.2f جی بی</string>
+  <string name="offline_compilation_detail_button_download_v2">ڈاؤن لوڈ •%s</string>
   <string name="offline_compilation_detail_button_remove">مٹاؤ</string>
   <string name="remote_compilation_download">ڈاؤن لوڈ ، لہاوݨ</string>
-  <string name="storage_size">%.2f جی بی</string>
   <string name="storage_size_free">%.2f جی بی مفت</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <string name="compilation_download_widget_button_cancel_hint">ڈاؤن لوڈ منسوخ کرو</string>
   <string name="compilation_download_cancel_confirm_yes">جیا</string>
   <string name="compilation_download_cancel_confirm_no">کو</string>

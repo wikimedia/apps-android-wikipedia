@@ -364,6 +364,8 @@
   <string name="reading_list_added_articles_list_titled">%1$d articles ajoutés à %2$s</string>
   <string name="default_reading_list_name">Enregistré</string>
   <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
+  <string name="no_user_lists_title">Ranger des articles dans des listes</string>
+  <string name="no_user_lists_msg">Créer des listes d\'endroits à visiter, des sujets favoris et beaucoup plus</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Cet article est désormais disponible hors connexion.</item>
     <item quantity="other">Ces articles sont désormais disponibles hors connexion.</item>
@@ -487,13 +489,15 @@
   <string name="remote_compilations_description">Avec la bibliothèque hors connexion, vous pouvez maintenant télécharger des paquets d’articles pour les lire quand vous n’aurez pas de connexion internet disponible.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Gio</string>
   <string name="offline_compilation_detail_button_download">Télécharger • %.2f Gio</string>
+  <string name="offline_compilation_detail_button_download_v2">Téléchargé • %s</string>
   <string name="offline_compilation_detail_button_remove">Supprimer</string>
   <string name="remote_compilation_download">Télécharger</string>
-  <string name="storage_size">%.2f Gio</string>
   <string name="storage_size_free">%.2f Go libres</string>
+  <string name="storage_size_free_v2">%s dispponible</string>
   <string name="storage_used_by_compilations">utilisé par la Bibliothèque hors connexion</string>
   <string name="storage_other_apps">Autres applications</string>
   <string name="offline_compilation_download_progress_text">%1$.2f Go / %2$.2f Go</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 minute restante</item>
     <item quantity="other">%d minutes restantes</item>
