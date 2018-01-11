@@ -131,14 +131,6 @@ public final class DimenUtil {
         return (int) (getDisplayHeightPx() * articleHeaderViewScreenHeightRatio());
     }
 
-    public static int newsFeatureImageHeightForDevice() {
-        return (int) (getDisplayHeightPx() * newsFeatureImageScreenHeightRatio());
-    }
-
-    private static float newsFeatureImageScreenHeightRatio() {
-        return DimenUtil.getFloat(R.dimen.newsFeatureImageScreenHeightRatio);
-    }
-
     private static float articleHeaderViewScreenHeightRatio() {
         return DimenUtil.getFloat(R.dimen.articleHeaderViewScreenHeightRatio);
     }

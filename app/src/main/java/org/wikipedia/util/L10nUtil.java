@@ -225,6 +225,7 @@ public final class L10nUtil {
         }
     }
 
+    // TODO: remove this if we can get correct language counts from server
     public static int getUpdatedLanguageCountIfNeeded(String getLanguageCode, int originalLanguageCount) {
 
         int updatedLanguageCount = originalLanguageCount;
