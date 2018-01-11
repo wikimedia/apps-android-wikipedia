@@ -109,6 +109,10 @@ public class ReadingListsFragment extends Fragment {
 
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(ReadingListSyncAdapter::manualSyncWithRefresh);
+        // TODO: remove when ready.
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            swipeRefreshLayout.setEnabled(false);
+        }
         return view;
     }
 
