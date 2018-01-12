@@ -1,11 +1,9 @@
 package org.wikipedia.onboarding;
 
 import android.content.Context;
-import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -49,10 +47,6 @@ public class OnboardingView extends LinearLayout {
 
     public void setPositiveAction(@StringRes int id) {
         actionViewPositive.setText(id);
-    }
-
-    public void setPositiveTextColor(@ColorRes int id) {
-        actionViewPositive.setTextColor(ContextCompat.getColor(getContext(), id));
     }
 
     public void setNegativeAction(@StringRes int id) {
