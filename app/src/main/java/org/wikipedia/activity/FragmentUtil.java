@@ -10,9 +10,14 @@ public final class FragmentUtil {
             //noinspection unchecked
             return (T) fragment.getTargetFragment();
         }
-        if (callback.isInstance(fragment.getParentFragment())) {
-            //noinspection unchecked
-            return (T) fragment.getParentFragment();
+        if (fragment.getParentFragment() != null) {
+            if (callback.isInstance(fragment.getParentFragment())) {
+                //noinspection unchecked
+                return (T) fragment.getParentFragment();
+            } else if (callback.isInstance(fragment.getParentFragment().getParentFragment())) {
+                //noinspection unchecked
+                return (T) fragment.getParentFragment().getParentFragment();
+            }
         }
         if (callback.isInstance(fragment.getActivity())) {
             //noinspection unchecked

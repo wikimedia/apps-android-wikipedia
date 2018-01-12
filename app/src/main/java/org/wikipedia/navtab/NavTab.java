@@ -10,7 +10,7 @@ import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
-import org.wikipedia.nearby.NearbyFragment;
+import org.wikipedia.nearby.NearbyLazyLoadFragment;
 import org.wikipedia.readinglist.ReadingListsFragment;
 
 public enum NavTab implements EnumCode {
@@ -31,7 +31,7 @@ public enum NavTab implements EnumCode {
     },
     NEARBY(R.string.nav_item_nearby, R.drawable.ic_explore_black_24dp) {
         @NonNull @Override public Fragment newInstance() {
-            return NearbyFragment.newInstance();
+            return NearbyLazyLoadFragment.newInstance();
         }
     };
 
