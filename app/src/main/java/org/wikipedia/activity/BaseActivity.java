@@ -232,7 +232,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         @Subscribe public void on(SplitLargeListsEvent event) {
             new AlertDialog.Builder(BaseActivity.this)
                     .setMessage(R.string.split_reading_list_message)
-                    .setPositiveButton(R.string.ok, null)
+                    .setPositiveButton(android.R.string.ok, null)
                     .show();
         }
     }
