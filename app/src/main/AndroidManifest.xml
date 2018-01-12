@@ -228,7 +228,8 @@
             android:name=".feed.mostread.MostReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
-        <activity android:name=".feed.onthisday.OnThisDayActivity" />
+        <activity android:name=".feed.onthisday.OnThisDayActivity"
+            android:configChanges="orientation|screenSize"/>
 
         <activity android:name=".feed.configure.ConfigureActivity"
             android:label="@string/feed_configure_activity_title"

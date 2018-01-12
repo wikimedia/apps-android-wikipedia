@@ -16,7 +16,7 @@
         android:layout_width="1dp"
         android:layout_height="20dp" />
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/years_text_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             android:textSize="12sp"
             android:maxLines="1"
             tools:text="123 years ago" />
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/year_layout"
