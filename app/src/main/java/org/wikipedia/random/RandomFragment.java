@@ -66,6 +66,9 @@ public class RandomFragment extends Fragment {
         randomPager.addOnPageChangeListener(viewPagerListener);
 
         updateBackButton(0);
+        if (savedInstanceState != null && randomPager.getCurrentItem() == 0 && getTopTitle() != null) {
+            updateSaveShareButton(getTopTitle());
+        }
 
         funnel = new RandomizerFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
                 getActivity().getIntent().getIntExtra(RandomActivity.INVOKE_SOURCE_EXTRA, 0));
