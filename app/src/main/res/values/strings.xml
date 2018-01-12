@@ -392,8 +392,7 @@
     <string name="no_user_lists_title">Organize articles into lists</string>
     <string name="no_user_lists_msg">Create lists for places to travel to, favorite topics, and much more</string>
     <string name="reading_list_saved_list_rename">%1$s (user created)</string>
-    <string name="split_list_name">%1$s_%2$d</string>
-    <string name="split_reading_list_message">There is a limit of 1000 articles per synced reading list. Existing lists with more than this limit have been split into multiple lists.</string>
+    <string name="split_reading_list_message">There is a limit of 1000 articles per reading list. Existing lists with more than this limit have been split into multiple lists.</string>
     <plurals name="reading_list_article_offline_message">
         <item quantity="one">This article will now be available offline.</item>
         <item quantity="other">These articles will now be available offline.</item>
