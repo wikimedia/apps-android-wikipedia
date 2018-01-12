@@ -49,6 +49,8 @@ public final class Constants {
     public static final int PREFERRED_THUMB_SIZE = 320;
 
     public static final int MAX_TABS = 100;
+    public static final int MAX_READING_LIST_ARTICLE_LIMIT = 1000;
+    public static final int MAX_READING_LISTS_LIMIT = 100;
 
     private Constants() { }
 }

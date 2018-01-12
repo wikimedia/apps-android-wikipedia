@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.util.Base64;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
@@ -24,7 +25,6 @@ import java.util.Set;
 
 public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private static final int DB_VER_INTRODUCED = 18;
-    private static final int MAX_ARTICLE_LIMIT = 1000;
 
     public ReadingListPageTable() {
         super(ReadingListPageContract.TABLE, ReadingListPageContract.URI);
@@ -200,7 +200,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
 
                     int splitListIndex = 0;
                     ReadingList newList = origList;
-                    while (newList.pages().size() >= MAX_ARTICLE_LIMIT) {
+                    while (newList.pages().size() >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
                         shouldShowLargeSplitMessage = true;
                         newList = null;
                         String newListName = origList.title() + " (" + Integer.toString(++splitListIndex) + ")";

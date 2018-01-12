@@ -97,6 +97,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
     private String currentSearchQuery;
+    private boolean messageShown = false;
 
     @NonNull
     public static ReadingListFragment newInstance(long listId) {
@@ -231,6 +232,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         headerImageView.setReadingList(readingList);
         ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
+        if (!messageShown && readingList.pages().size() >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
+            String message = String.format(getString(R.string.reading_list_article_limit_message), readingList.isDefault() ? getString(R.string.default_reading_list_name) : readingList.title());
+            FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
+            messageShown = true;
+        }
     }
 
     private void updateReadingListData() {

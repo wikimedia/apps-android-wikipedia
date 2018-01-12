@@ -198,11 +198,19 @@ public class ReadingListsFragment extends Fragment {
                 }
                 swipeRefreshLayout.setRefreshing(false);
                 readingLists = lists;
+                showMessage();
                 sortLists();
                 updateEmptyState(searchQuery);
                 maybeDeleteListFromIntent();
             }
         });
+    }
+
+    private void showMessage() {
+        if (getUserVisibleHint() && readingLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
+            String message = getString(R.string.reading_lists_limit_message);
+            FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
+        }
     }
 
     private void updateEmptyState(@Nullable String searchQuery) {
