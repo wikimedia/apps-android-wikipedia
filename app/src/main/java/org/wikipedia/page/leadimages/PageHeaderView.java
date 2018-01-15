@@ -274,7 +274,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
             subtitleText.setText(subtitleSpanned());
             subtitleText.setVisibility(VISIBLE);
         } else {
-            subtitleText.setVisibility(GONE);
+            subtitleText.setVisibility(INVISIBLE);
         }
     }
 
