@@ -148,6 +148,7 @@
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="about_wikipedia_url">https://fi.m.wikipedia.org/wiki/Wikipedia:Tietoja</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/fi</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
@@ -356,6 +357,11 @@
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
   <string name="reading_list_already_contains_selection">Valittu luettelo sisältää jo kaikki valitut sivut.</string>
   <string name="reading_list_added_articles_list_titled">Lisättiin %1$d artikkelia luetteloon %2$s</string>
+  <string name="default_reading_list_name">Tallennettu</string>
+  <string name="default_reading_list_description">Oletuslista tallennetuille artikkeleillesi</string>
+  <string name="no_user_lists_title">Järjestä artikkelit luetteloihin</string>
+  <string name="no_user_lists_msg">Luo luetteloita matkakohteista, suosikkiaiheista ja paljon muuta</string>
+  <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tämä artikkeli on nyt saatavilla offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit ovat nyt saatavilla offline-tilassa.</item>
@@ -410,12 +416,14 @@
   <string name="view_featured_article_card_title">Suositeltu artikkeli</string>
   <string name="view_featured_article_footer_save_button_label">Tallenna</string>
   <string name="view_featured_article_footer_saved_button_label">Tallennettu</string>
+  <string name="feed_configure_activity_title">Mukauta syötettä</string>
   <string name="feed_configure_menu_reset">Palauta oletusnäkymä</string>
   <string name="feed_configure_menu_select_all">Valitse kaikki</string>
   <string name="feed_configure_menu_deselect_all">Poista kaikki valinnat</string>
   <string name="feed_item_type_news">Artikkelit ajankohtaisista tapahtumista</string>
   <string name="feed_item_type_on_this_day">Tapahtumat historiassa tänä päivänä</string>
   <string name="feed_item_type_trending">Päivittäin eniten katsotut artikkelit</string>
+  <string name="feed_item_type_randomizer">Tuota satunnaisia ​​artikkeleita luettavaksi</string>
   <string name="feed_configure_onboarding_action">Mukauta</string>
   <string name="description_edit_text_hint">Otsikkokuvaus</string>
   <string name="description_edit_save">Julkaise</string>
@@ -467,13 +475,19 @@
   <string name="remote_compilations_title">Yhteydettömän tilan kirjasto</string>
   <string name="remote_compilations_description">Yhteydettömän tilan kirjaston avulla voit ladata artikkelipaketteja voidaksesi lukea niitä myöhemmin ilman Internet-yhteyttä.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Gt</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f Gt</string>
+  <string name="size_mb">%.2f Mt</string>
   <string name="offline_compilation_detail_button_download">Lataa • %.2f Gt</string>
+  <string name="offline_compilation_detail_button_download_v2">Lataa • %s</string>
   <string name="offline_compilation_detail_button_remove">Poista</string>
   <string name="remote_compilation_download">Lataa</string>
   <string name="storage_size_free">%.2f Gt vapaana</string>
+  <string name="storage_size_free_v2">%s vapaana</string>
   <string name="storage_used_by_compilations">Yhteydettömän tilan kirjaston käyttämä</string>
   <string name="storage_other_apps">Muut sovellukset</string>
   <string name="offline_compilation_download_progress_text">%1$.2f Gt / %2$.2f Gt</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 minuutti jäljellä</item>
     <item quantity="other"> %d minuuttia jäljellä</item>

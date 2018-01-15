@@ -427,6 +427,7 @@
   <string name="remote_compilations_title">Levraoueg ezlinenn</string>
   <string name="remote_compilations_description">Gant al levraoueg enlinenn e c\'hallit bremañ pellgargañ pakadoù pennadoù evit lenn anezho pa ne c\'hallit ket kevreañ ouzh ar Genrouedad.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Go</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <string name="offline_compilation_detail_button_download">Pellgargañ • %.2f Go</string>

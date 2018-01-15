@@ -366,6 +366,7 @@
   <string name="default_reading_list_description">Lista predeterminada de artículos guardados</string>
   <string name="no_user_lists_title">Organiza artículos en listas</string>
   <string name="no_user_lists_msg">Crea listas de sitios para viajar, temas favoritos y mucho más</string>
+  <string name="reading_list_saved_list_rename">%1$s (creado por el usuario)</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artículo ahora estará disponible sin conexión.</item>
     <item quantity="other">Estos artículos ahora estarán disponibles sin conexión.</item>

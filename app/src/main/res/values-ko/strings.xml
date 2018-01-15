@@ -360,6 +360,7 @@
   <string name="reading_list_already_contains_selection">선택된 목록은 선택된 모든 문서를 이미 포함하고 있습니다.</string>
   <string name="reading_list_added_articles_list_titled">%1$d개의 문서가 %2$s에 추가되었습니다</string>
   <string name="default_reading_list_name">저장됨</string>
+  <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
     <item quantity="other">이 글들은 이제 오프라인에서 읽을 수 있습니다.</item>
@@ -481,13 +482,19 @@
   <string name="remote_compilations_title">오프라인 라이브러리</string>
   <string name="remote_compilations_description">인터넷 접속이 불가능할 때 문서를 읽을 수 있도록 오프라인 라이브러리를 사용하여 지금 문서 꾸러미들을 다운로드할 수 있습니다.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
   <string name="offline_compilation_detail_button_download">다운로드 • %.2f GB</string>
+  <string name="offline_compilation_detail_button_download_v2">다운로드 • %s</string>
   <string name="offline_compilation_detail_button_remove">제거</string>
   <string name="remote_compilation_download">다운로드</string>
   <string name="storage_size_free">%.2f GB 남음</string>
+  <string name="storage_size_free_v2">%s 남음</string>
   <string name="storage_used_by_compilations">(오프라인 라이브러리가 사용 중)</string>
   <string name="storage_other_apps">다른 애플리케이션</string>
   <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1분 남음</item>
     <item quantity="other">%d분 남음</item>

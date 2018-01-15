@@ -6,6 +6,7 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_search_history">Bilatu historia</string>
+  <string name="search_hint_search_my_lists">Nire zerrendetan bilatu</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="page_error_retry">Saiatu berriro</string>
@@ -218,7 +219,9 @@
   <string name="location_service_disabled">Kokapen zerbitzuak desgaituak daude.</string>
   <string name="enable_location_service">Gaitu</string>
   <string name="location_permissions_enable_prompt">Gaitu kokapen baimenak zure gertukoak ikusteko.</string>
+  <string name="error_message_generic">Errore bat gertatu da</string>
   <string name="view_link_preview_error_button_dismiss">Utzi</string>
+  <string name="error_page_does_not_exist">Orri hori ez da existitzen</string>
   <string name="view_wiki_error_message_offline">Ezin izan da Internetera konektatu</string>
   <string name="reference_title">Erreferentzia %s</string>
   <string name="crash_report_dialog_dont_send_button">Utzi</string>
@@ -281,6 +284,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Bai</string>
   <string name="reading_lists_confirm_remote_delete_no">Ez</string>
   <string name="reading_list_article_save_in_progress">Artikulua jaisten ari da, bukatzean konexiorik gabe erabiltzeko prest egongo da.</string>
+  <string name="reading_list_saved_list_rename">%1$s (erabiltzailea sortua)</string>
   <string name="reading_list_article_offline_message">{{PLURALA|bat=Artikulu hau konexiorik gabe erabiltzeko eskuragarri dago.|Artikulu hauek ez dira eskuragarriak izango konexiorik gabe.}}</string>
   <string name="reading_list_article_not_offline_message">{{PLURALA|bat=Artikulu hau ez da eskuragarri izango konexiorik gabe.|Artikulu hauek ez dira eskuragarri izango konexiorik gabe.}}</string>
   <string name="user_option_sync_label">Hobespenak</string>
@@ -305,11 +309,11 @@
   <string name="most_read_list_card_title">Azken aldian gorantz</string>
   <string name="view_static_card_icon_content_description">Txartel ikonoa</string>
   <string name="view_card_news_title">Albistetan</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Atzo</item>
     <item quantity="other">Orain dela %d egun</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Gaur</string>
+  <string name="view_continue_reading_card_subtitle_today">gaur</string>
   <string name="view_announcement_card_negative_action">Ez, eskerrik asko</string>
   <string name="view_featured_article_footer_save_button_label">Gorde</string>
   <string name="view_featured_article_footer_saved_button_label">Gordea</string>

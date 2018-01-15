@@ -367,6 +367,7 @@
   <string name="no_user_lists_title">Atur artikel ke dalam daftar</string>
   <string name="no_user_lists_msg">Buat daftar untuk tempat yang ingin dikunjungi, topik favorit, dan banyak lagi</string>
   <string name="reading_list_saved_list_rename">%1$s (dibuat pengguna)</string>
+  <string name="split_reading_list_message">Ada batas 1000 artikel per daftar bacaan. Daftar yang ada dengan lebih dari batas ini telah dipecah menjadi beberapa daftar.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini sekarang akan tersedia secara luring.</item>

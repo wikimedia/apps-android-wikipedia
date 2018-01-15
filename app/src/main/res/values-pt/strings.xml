@@ -366,7 +366,8 @@
   <string name="default_reading_list_description">Lista padrão para os seus artigos guardados</string>
   <string name="no_user_lists_title">Organizar artigos na forma de listas</string>
   <string name="no_user_lists_msg">Criar listas de locais para viajar, tópicos favoritos, e muito mais</string>
-  <string name="reading_list_saved_list_rename" fuzzy="true">%1$s_[criada pelo utilizador]</string>
+  <string name="reading_list_saved_list_rename">%1$s (criada pelo utilizador)</string>
+  <string name="split_reading_list_message">Há um limite de 1000 artigos por cada lista de leitura. As listas existentes com um valor acima deste limite foram divididas em várias listas.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Este artigo agora estará disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos agora estarão disponíveis sem acesso à Internet.</item>
