@@ -241,7 +241,7 @@
   <string name="format_error_server_message">Съобщение: „%s“</string>
   <string name="address_copied">Адресът е копиран в клипборда</string>
   <string name="text_copied">Текстът е копиран в клипборда</string>
-  <string name="button_continue_to_article">Прочитане на статия</string>
+  <string name="button_continue_to_article">Прочитане на статията</string>
   <string name="button_add_to_reading_list">Добавяне към списъка за четене</string>
   <string name="page_offline_notice_cannot_load_while_offline">Статията не може да бъде заредена в офлайн режим.</string>
   <string name="page_offline_notice_add_to_reading_list">Съвет: Добавете статията към списък за четене и тя ще бъде изтеглена щом се свържете към Интернет.</string>
@@ -270,6 +270,7 @@
   <string name="preference_title_prefer_offline_content">Предпочитане на офлайн съдържание</string>
   <string name="preference_summary_prefer_offline_content">Пестете мобилни данни, като зареждате статии, които са налични в офлайн режим, вместо да зареждате последната им версия.</string>
   <string name="preference_title_enable_offline_library">Включване на офлайн библиотека</string>
+  <string name="preference_summary_enable_offline_library">Достъп до пакети със статии от Уикипедия (показани като .ZIM файлове), които са били изтеглени на устройството Ви за четене, когато нямате мрежа. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">За съжаление, приложението се срина последния път</string>
   <string name="crash_report_dialog_text">Желаете ли да изпратите доклад за срива на HockeyApp / услуга на трети страни, така че Уикимедия да разгледа срива и да оправи бъга, който го е причинил?</string>
   <string name="crash_report_dialog_dont_send_button">Пропускане</string>
@@ -331,8 +332,8 @@
   <string name="reading_list_item_delete_undo">Отмяна</string>
   <string name="reading_list_deleted">%s е изтрит</string>
   <string name="reading_lists_empty">Все още няма списъци за четене</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Запазете статии в списъци за четене, така че да можете да ги прегледате по-късно, дори когато нямате мрежа.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Създавайте списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа!</string>
+  <string name="reading_lists_empty_message">Добавяйте статии в списъци за четене по-късно, дори когато нямате мрежа.</string>
+  <string name="reading_lists_onboarding_intro">Добавяйте статии към списък за четене по-късно, дори когато нямате Интернет!</string>
   <string name="reading_lists_onboarding_for_example">Например</string>
   <string name="reading_lists_onboarding_example1">Места за посещение</string>
   <string name="reading_lists_onboarding_example2">Любими животни</string>
@@ -362,6 +363,9 @@
   <string name="default_reading_list_name">Съхранено</string>
   <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <string name="no_user_lists_title">Организирайте статии в списъци</string>
+  <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>
+  <string name="reading_list_saved_list_rename">%1$s (направен от потребител)</string>
+  <string name="split_reading_list_message">Има ограничение от 1000 статии за списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Тази статия вече е налична офлайн.</item>
     <item quantity="other">Тези статии вече са налични офлайн.</item>
@@ -420,6 +424,7 @@
   <string name="feed_configure_activity_title">Персонализиране на хранилката</string>
   <string name="feed_configure_menu_reset">Нулиране на изгледа по подразбиране</string>
   <string name="feed_configure_menu_select_all">Избиране на всички</string>
+  <string name="feed_configure_menu_deselect_all">Анулиране на всички избрани</string>
   <string name="feed_item_type_news">Статии за текущи събития</string>
   <string name="feed_item_type_on_this_day">Събития в историята на този ден</string>
   <string name="feed_item_type_continue_reading">Бърза връзка обратно към четене на отворена статия в един от разделите Ви</string>
@@ -430,6 +435,7 @@
   <string name="feed_item_type_main_page">Начална страница на Уикипедия с дневно избрано съдържание</string>
   <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
   <string name="feed_configure_onboarding_action">Персонализиране</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Персонализирайте вашата хранилка за откриване&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Сега можете да изберете какво да се показва във Вашата хранилка, както и да давате приоритет на любимия си вид съдържание.</string>
   <string name="description_edit_text_hint">Описание на заглавието</string>
   <string name="description_edit_save">Публикуване</string>
   <string name="description_edit_add_description">Добавяне на описание на заглавието</string>
@@ -469,7 +475,9 @@
   <string name="description_edit_revert_reason2">вашият принос изглеждаше като експеримент или вандализъм.</string>
   <string name="description_edit_revert_history">Ако се интересувате, прегледайте &lt;a href=\"%1$s\"&gt;историята на редакциите&lt;/a&gt;.</string>
   <string name="offline_compilation_download_device_offline">Няма връзка с Интернет. Уверете се, че сте свързани, след което опитайте отново.</string>
+  <string name="offline_read_permission_rationale">Нужно е разрешение за достъп на съхранението на устройството Ви за офлайн разглеждане.</string>
   <string name="offline_read_permission_error">Не е позволено четенето от съхранението на устройството.</string>
+  <string name="offline_card_text">В момента разглеждате Уикипедия в офлайн режим със статии от Вашата Офлайн библиотека.</string>
   <string name="offline_card_sideloading_text">В момента разглеждате офлайн Уикипедия от пакети статии във Вашата офлайн библиотека.</string>
   <string name="offline_my_compilations">Управление на моята офлайн библиотека</string>
   <string name="offline_compilations_title">Офлайн библиотека</string>
@@ -506,24 +514,35 @@
   <string name="offline_library_title">Офлайн библиотека</string>
   <string name="offline_library_empty_title">Няма нищо във вашата офлайн библиотека</string>
   <string name="offline_library_empty_description">Избиране на пакет със статии от Уикипедия за изтегляне сега, така че да могат да се четат по-късно без мобилни данни.</string>
+  <string name="offline_library_empty_description_sideload">„Пакети със статии“ във Вашата Офлайн библиотека са предварително пакетирани комплекти от статии за удобно съхранение на устройството Ви, така че да можете да продължите да четете, когато нямате мрежа.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Пакетите от статии в библиотеката Ви остават налични за четене, дори когато нямате връзка с Интернет. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Искате ли да спестите мобилни данни? Изберете „Предпочитане на офлайн съдържание“ в Настройки, за да се показват първо наличните офлайн статии, дори когато имате мрежа. &lt;a href=\"#settings\"&gt;Отиване в Настройки&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Търсене в офлайн библиотеката</string>
+  <string name="offline_library_search_results_state">Резултати от търсенето от Офлайн библиотеката Ви</string>
   <string name="offline_library_onboarding_action">Научете повече</string>
+  <string name="offline_library_onboarding_text">Представяме Офлайн библиотека - изтеглете пакети от статии сега, които да четете по-късно без Интернет.</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
+  <string name="offline_library_onboarding_build_library_title">Направете Вашата Офлайн библиотека</string>
   <string name="offline_library_onboarding_build_library_subtitle">Изтегляне на пакет със статии от Уикипедия сега, така че да могат да се четат по-късно без мобилни данни.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Четене без прекъсване</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Продължавайте да четете и да търсите статии във Вашата Офлайн библиотека, когато нямате връзка с Интернет.</string>
   <string name="offline_library_onboarding_store_knowledge_title">Складиране на повече знание</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Изтеглете толкова статии от Уикипедия, с колкото може да се справи Вашето устройство. Офлайн библиотеката също може да има достъп до пакети от статии на външен носител.</string>
+  <string name="offline_library_main_page_hint_html">Началната страница предоставя общ преглед на съдържанието на този пакет от статии.&lt;br /&gt;&lt;br /&gt;Може също да откривате съдържание в кой да е пакет от статии в Офлайн библиотеката ви, като търсите за налични статии, когато сте без интернет връзка.</string>
   <string name="onboarding_skip">Пропускане</string>
   <string name="onboarding_continue">Продължаване</string>
   <string name="onboarding_get_started">Започване</string>
   <string name="onboarding_welcome_title">Свободната енциклопедия</string>
+  <string name="onboarding_welcome_text">Уикипедия се пише в сътрудничество от доброволци и е съставена от над 40 милиона статии на почти 300 езика. &lt;a href=\"#about\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Нови начини за откриване</string>
-  <string name="onboarding_explore_text" fuzzy="true">Открийте избрани статии, най-четени теми и предложения за четене в лентата за Откриване.</string>
+  <string name="onboarding_explore_text">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Запазване в списъци за четене</string>
   <string name="onboarding_save_to_reading_lists_text">Създавайте списъци за четене от статии, които искате да прочетете по-късно, дори когато сте офлайн.</string>
   <string name="onboarding_reading_list_sync_title">Списъци за четене със синхронизация</string>
   <string name="onboarding_reading_list_sync_text">Създавайте списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа. &lt;a href=\"#login\"&gt;Влезте или създайте&lt;/a&gt; сметка в Уикипедия, за да запазите списъците си за четене.</string>
   <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
   <string name="onboarding_analytics_text">Помогнете ни да направим приложението по-добро, като ни уведомявате как го ползвате. Събираните данни са анонимни. &lt;a href=\"#privacy\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Помогнете ни да направим приложението по-добро, като ни уведомявате как го използвате. Събираните данни са анонимни. &lt;a href=\"#offline\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
   <string name="onboarding_create_account_sync">Синхронизация на списъците Ви за четене</string>
   <string name="onboarding_create_account_contributions">Бъдете в течение с приносите си</string>

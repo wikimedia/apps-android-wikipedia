@@ -367,6 +367,7 @@
   <string name="no_user_lists_title">组织条目至列表中</string>
   <string name="no_user_lists_msg">创建想前往旅行的地点、感兴趣的话题及更多事物的列表</string>
   <string name="reading_list_saved_list_rename">%1$s（用户创建）</string>
+  <string name="split_reading_list_message">每个阅读列表限制1000个条目。超过此限制的现有列表需要拆分为多个列表。</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">该条目现在可以离线使用。</item>
     <item quantity="other">这些条目现在可以离线使用。</item>

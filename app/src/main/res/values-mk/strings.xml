@@ -367,6 +367,7 @@
   <string name="no_user_lists_title">Организирајте статии во списоци</string>
   <string name="no_user_lists_msg">Направете списоци за места што сакате да ги посетите, ваши омилени теми и многу друго</string>
   <string name="reading_list_saved_list_rename">%1$s (направена од корисник)</string>
+  <string name="split_reading_list_message">Секој список на читање прима највеќе 1000 статии. Постоечките списоци со повеќе статии се разделени.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Статијава сега ќе биде достапна вонмрежно.</item>
     <item quantity="other">Статииве сега ќе бидат достапни вонмрежно.</item>

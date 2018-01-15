@@ -366,7 +366,7 @@
   <string name="default_reading_list_description">Lista por defecto dos seus artigos gardados</string>
   <string name="no_user_lists_title">Organizar os artigos no formato de listas</string>
   <string name="no_user_lists_msg">Crear as listas dos locais para viaxar, temas favoritos, e moito máis</string>
-  <string name="reading_list_saved_list_rename" fuzzy="true">%1$s_[creada polo usuario]</string>
+  <string name="reading_list_saved_list_rename">%1$s (creada polo usuario)</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
     <item quantity="other">Agora estes artigos estarán dispoñibles sen conexión.</item>

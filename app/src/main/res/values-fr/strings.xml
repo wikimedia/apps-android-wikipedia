@@ -366,6 +366,8 @@
   <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
   <string name="no_user_lists_title">Ranger des articles dans des listes</string>
   <string name="no_user_lists_msg">Créer des listes d\'endroits à visiter, des sujets favoris et beaucoup plus</string>
+  <string name="reading_list_saved_list_rename">%1$s (créé par l\'utilisateur)</string>
+  <string name="split_reading_list_message">La limite en nombre d\'articles pour une liste de lecture est de 1000. Les listes existantes qui en possèdent plus ont été coupées en listes multiples.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Cet article est désormais disponible hors connexion.</item>
     <item quantity="other">Ces articles sont désormais disponibles hors connexion.</item>
@@ -488,6 +490,9 @@
   <string name="remote_compilations_title">Bibliothèque hors connexion</string>
   <string name="remote_compilations_description">Avec la bibliothèque hors connexion, vous pouvez maintenant télécharger des paquets d’articles pour les lire quand vous n’aurez pas de connexion internet disponible.</string>
   <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Gio</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
   <string name="offline_compilation_detail_button_download">Télécharger • %.2f Gio</string>
   <string name="offline_compilation_detail_button_download_v2">Téléchargé • %s</string>
   <string name="offline_compilation_detail_button_remove">Supprimer</string>

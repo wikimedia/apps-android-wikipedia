@@ -366,7 +366,8 @@
   <string name="default_reading_list_description">您的已儲存條目之預設清單</string>
   <string name="no_user_lists_title">組織條目至清單</string>
   <string name="no_user_lists_msg">建立想要去旅行的地點、喜愛的主題，以及更多其它事物的清單</string>
-  <string name="reading_list_saved_list_rename" fuzzy="true">%1$s_[使用者已建立]</string>
+  <string name="reading_list_saved_list_rename">%1$s（使用者已建立）</string>
+  <string name="split_reading_list_message">在各閱讀清單裡含有 1000 個條目的上限限制。現有清單在超過此限制時，會被拆分成多個清單。</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">此條目現可離線閱讀。</item>
     <item quantity="other">這些條目現可離線閱讀。</item>

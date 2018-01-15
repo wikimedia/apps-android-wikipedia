@@ -123,6 +123,8 @@
   <string name="edit_preview_fetching_dialog_message">Учитавам преглед…</string>
   <string name="send_feedback">Пошаљи повратну информацију</string>
   <string name="create_account_account_created_toast">Налог је отворен!</string>
+  <string name="preferences_heading_storage_and_syncing">Складиште и синхронизација</string>
+  <string name="preference_title_sync_reading_lists">Синхронизујте списак за читање</string>
   <string name="preferences_privacy_settings_heading">Приватност</string>
   <string name="preference_title_eventlogging_opt_in">Шаљи извештаје о употреби</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволите Викимедији да прикупља информације о томе како користите апликацију у циљу њеног побољшања</string>
@@ -253,6 +255,7 @@
   <string name="view_link_preview_error_button_dismiss">Одбаци</string>
   <string name="error_page_does_not_exist">Ова страница не постоји</string>
   <string name="view_wiki_error_message_offline">Не могу да се повежем на интернет</string>
+  <string name="reference_title">Референца %s</string>
   <string name="crash_report_dialog_title">Апликација је отказала прошли пут</string>
   <string name="crash_report_dialog_text">Да ли бисте желели да пошаљете извештај о квару HockeyApp-у / сервису треће стране тако да Викимедија може да испита ваш случај и поправи баг који га је узроковао?</string>
   <string name="crash_report_dialog_dont_send_button">Прескочи</string>
@@ -272,6 +275,11 @@
   <string name="color_theme_dark">Тамна</string>
   <string name="color_theme_black">Црна</string>
   <string name="color_theme_test_title">Пример текста</string>
+  <string name="preference_title_app_theme">Апликациона тема</string>
+  <string name="preference_title_color_theme">Тамна тема</string>
+  <string name="text_size_increase">Повећај величину текста</string>
+  <string name="text_size_decrease">Смањи величину текста</string>
+  <string name="text_size_percent_default">%s (подразумевано)</string>
   <string name="nav_item_reading_lists">Моји спискови</string>
   <string name="reading_list_untitled">Без наслова</string>
   <string name="reading_list_save_to">Сачувај на списак за читање</string>
@@ -290,6 +298,7 @@
   <string name="reading_list_menu_delete">Избриши списак</string>
   <string name="reading_list_menu_rename">Преименуј</string>
   <string name="reading_list_menu_edit_description">Уреди опис</string>
+  <string name="reading_list_action_menu_add_to_another_list">Додај у другу листу</string>
   <string name="reading_list_name_sample">Мој списак за читање</string>
   <string name="reading_list_name_hint">Име овог списка</string>
   <string name="reading_list_description_hint">Опис (необавезно)</string>
@@ -303,7 +312,7 @@
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посету</string>
   <string name="reading_lists_onboarding_example2">Омиљене животиње</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Свемир!</string>
+  <string name="reading_lists_onboarding_example3">Истраживање свемира</string>
   <string name="reading_lists_onboarding_got_it">Разумем</string>
   <string name="reading_list_no_description">Нема описа...</string>
   <string name="reading_list_empty">Немате чланака додатих на овај списак.</string>
@@ -316,11 +325,18 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Чланак се појављује на више спискова</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s више неће да буде доступна офлајн за све спискове за читање:</string>
   <string name="reading_list_sync_reminder_action">Укључи</string>
+  <string name="reading_list_login_reminder_title">Синхронизујте списак за читање</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="default_reading_list_name">Сачувано</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">Овај чланак ће сада да буде доступан офлајн.</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">Овај чланак више неће да буде доступан офлајн.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Овај чланак ће бити доступан офлајн.</item>
+    <item quantity="other">Ови чланаци ће бити доступни офлајн.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">Овај чланак више неће бити доступан офлајн.</item>
+    <item quantity="other">Ови чланци више неће бити доступни офлајн.</item>
+  </plurals>
   <string name="user_option_sync_label">Подешавања</string>
   <string name="notification_button_view_user">Разговарај са корисником</string>
   <string name="notification_talk_title">Нова порука на Википедији</string>
@@ -329,13 +345,15 @@
   <string name="notification_reverted">Вашу измену на чланку &lt;strong&gt;%2$s&lt;/strong&gt; поништио је &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Неко Вам се захвалио!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; Вам се захвалио/ла за Вашу измену на страници &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Синхронизација</string>
+  <string name="notification_channel_description">Процес синхронизације</string>
   <string name="notification_syncing_pause_button">Паузирај</string>
   <string name="notification_syncing_resume_button">Настави</string>
   <string name="notification_syncing_cancel_button">Откажи</string>
   <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
   <string name="view_random_card_title">Случајан чланак</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Прочитајте случајан чланак с Википедије</string>
+  <string name="view_random_card_subtitle">Прелистајте случајне чланке с Википедије.</string>
   <string name="view_main_page_card_title">Данас на Википедији</string>
   <string name="view_main_page_card_subtitle">Главна страна на датум %s</string>
   <string name="view_main_page_card_action">Главна страна</string>
@@ -350,17 +368,19 @@
   <string name="most_read_list_card_title">Актуелно</string>
   <string name="view_static_card_icon_content_description">Икона картице</string>
   <string name="view_card_news_title">Вести</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Јуче</item>
     <item quantity="other">Пре %d дана</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Данас</string>
+  <string name="view_continue_reading_card_subtitle_today">данас</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Прочитај %s</string>
   <string name="view_announcement_card_negative_action">Не, хвала</string>
   <string name="view_offline_card_text">Садржај се не може учитати када сте офлајн.</string>
   <string name="view_featured_article_card_title">Сјајан чланак</string>
   <string name="view_featured_article_footer_save_button_label">Сачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Сачувано</string>
   <string name="feed_configure_menu_select_all">Изабери све</string>
+  <string name="feed_configure_onboarding_action">Прилагоди</string>
   <string name="description_edit_text_hint">Опис наслова</string>
   <string name="description_edit_save">Објави</string>
   <string name="description_edit_add_description">Додај опис наслова</string>
@@ -399,7 +419,7 @@
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;</string>
   <string name="description_edit_revert_reason2">ваша измена је изгледала као експеримент или вандализам</string>
   <string name="description_edit_revert_history">Ако сте заинтересовани, погледајте &lt;a href=\"%1$s\"&gt;историју уређивања&lt;/a&gt;.</string>
-  <string name="remote_compilations_title" fuzzy="true">Све збирке</string>
+  <string name="remote_compilations_title">Офлајн библиотека</string>
   <string name="offline_compilation_detail_button_remove">Уклони</string>
   <string name="remote_compilation_download">Преузми</string>
   <string name="storage_other_apps">Друге апликације</string>
@@ -408,9 +428,27 @@
   <string name="compilation_download_cancel_confirm_no">Не</string>
   <string name="compilation_share">Дели</string>
   <string name="compilation_remove">Уклони</string>
+  <string name="offline_library_title">Офлајн библиотека</string>
+  <string name="offline_library_empty_search">Претражите офлајн библиотеку</string>
+  <string name="offline_library_onboarding_action">Сазнајте више</string>
   <string name="offline_library_onboarding_button_done">Готово</string>
+  <string name="offline_library_onboarding_build_library_title">Изградите Вашу офлајн библиотеку</string>
   <string name="onboarding_skip">Прескочи</string>
   <string name="onboarding_continue">Настави</string>
+  <string name="onboarding_get_started">Почните!</string>
+  <string name="onboarding_welcome_title">Слободна енциклопедија</string>
+  <string name="onboarding_explore_title">Нови начини истраживања</string>
+  <string name="onboarding_save_to_reading_lists_title">Сачувајте на списак за читање</string>
+  <string name="onboarding_analytics_title">Пошаљи анонимне податке</string>
+  <string name="onboarding_create_account_sync">Синхронизујте Ваш списак за читање</string>
+  <string name="onboarding_create_account_preferences">Сачувајте Ваша подешавања</string>
+  <string name="onboarding_got_it">Разумем!</string>
+  <string name="app_shortcuts_random">Случајна</string>
+  <string name="app_shortcuts_continue_reading">Настави читање</string>
+  <string name="app_shortcuts_search">Претрага</string>
+  <string name="more_trending_text">Више попут овога</string>
   <string name="on_this_day_card_title">На данашњи дан</string>
+  <string name="more_events_text">Више на овај дан</string>
+  <string name="this_year">Ове године</string>
   <string name="back_to_top">Назад на врх</string>
 </resources>

@@ -366,6 +366,8 @@
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
   <string name="no_user_lists_msg">Crear llistes per llocs on viatjar, temes favorits, i molt més</string>
+  <string name="reading_list_saved_list_rename">%1$s (creat per l’usuari)</string>
+  <string name="split_reading_list_message">Hi ha un límit de fins a 1000 articles per llista de lectura. Les llistes de lectura anteriors que tenien més articles que aquest límit s\'han partit en diferents llistes.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Aquest article estarà disponible fora de línia a partir d\'ara.</item>
     <item quantity="other">Aquests articles estaran disponibles fora de línia a partir d\'ara.</item>
@@ -536,7 +538,7 @@
   <string name="onboarding_welcome_title">L’enciclopèdia lliure</string>
   <string name="onboarding_welcome_text">La Viquipèdia s\'escriu de forma col·laborativa per voluntaris i consisteix en més de 40 milions d\'articles en gairebé 300 llengües diferents. &lt;a href=\"#about\"&gt;Aprèn més&lt;/a&gt;</string>
   <string name="onboarding_explore_title">Noves formes d\'explorar</string>
-  <string name="onboarding_explore_text">Capbussat a l\'univers de la Viquipèdia amb el canal Explora actualitzat contínuament. &lt;br/&gt;&lt;b&gt;Personalitza&lt;/b&gt; el canal amb els teus interessos, llegeix sobre els esdeveniments històrics de &lt;b&gt;Tal dia com avui&lt;/b&gt; o juga als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Capbussat a l\'univers de la Viquipèdia amb el canal Exploreu actualitzat contínuament. &lt;br/&gt;&lt;b&gt;Personalitza&lt;/b&gt; el canal amb els teus interessos, llegeix sobre els esdeveniments històrics de &lt;b&gt;Un dia com avui&lt;/b&gt; o juga als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Afegeix a la llista de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea llistes de lectures a partir d\'articles que vulguis llegir en un altre moment, encara que estiguis fora de línia.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>

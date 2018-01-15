@@ -367,6 +367,7 @@
   <string name="no_user_lists_title">Atur rencana ke dalam senarai</string>
   <string name="no_user_lists_msg">Buat senarai tempat untuk pergi ke, topik kegemaran, dan banyak lagi</string>
   <string name="reading_list_saved_list_rename">%1$s (dicipta pengguna)</string>
+  <string name="split_reading_list_message">Terdapat had 1000 rencana setiap senarai bacaan. Senarai sedia ada dengan lebih daripada had ini telah dibahagikan kepada beberapa senarai.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Rencana ini kini boleh didapati di luar talian.</item>
     <item quantity="other">Rencana-rencana ini kini boleh didapati di luar talian.</item>
