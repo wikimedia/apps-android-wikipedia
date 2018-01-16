@@ -57,10 +57,6 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         Preference offlineLibPref = findPreference(R.string.preference_key_enable_offline_library);
         offlineLibPref.setOnPreferenceChangeListener(new OfflineLibraryEnableListener());
         offlineLibPref.setSummary(StringUtil.fromHtml(getPreferenceHost().getString(R.string.preference_summary_enable_offline_library)));
-        // TODO: remove when offline library sideloading is ready to go.
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            offlineLibPref.setVisible(false);
-        }
 
         loadPreferences(R.xml.preferences_about);
 
