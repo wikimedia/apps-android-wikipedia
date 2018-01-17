@@ -11,8 +11,7 @@
   <string name="page_error_back_to_main">Հետ գնալ</string>
   <string name="menu_clear_all_history">Մաքրել պատմությունը</string>
   <string name="dialog_title_clear_history">Մաքրել հիշապահեստը</string>
-  <string name="nav_item_saved_pages">Պահպանված էջեր</string>
-  <string name="share_via">Կիսվել…</string>
+    <string name="share_via">Կիսվել…</string>
   <string name="menu_page_show_tabs">Ցուցադրել աղյուսակները</string>
   <string name="menu_page_other_languages">Փոխել լեզուն</string>
   <string name="menu_page_find_in_page">Գտնել էջում</string>

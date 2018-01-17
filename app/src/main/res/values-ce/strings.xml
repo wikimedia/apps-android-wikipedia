@@ -9,8 +9,7 @@
   <string name="page_error_retry">ЮхагӀорта</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
   <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
-  <string name="nav_item_saved_pages">Ӏалашйина агӀонаш</string>
-  <string name="menu_page_other_languages" fuzzy="true">Кхин меттанаш</string>
+    <string name="menu_page_other_languages" fuzzy="true">Кхин меттанаш</string>
   <string name="menu_page_font_and_theme">Кечяр а, шрифт а хийцар</string>
   <string name="menu_page_share" fuzzy="true">Екха</string>
   <string name="menu_long_press_open_page" fuzzy="true">Хьажорг схьаелла</string>

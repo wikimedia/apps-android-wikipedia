@@ -41,15 +41,9 @@
     <!-- Default font size of the Wikidata description for the page -->
     <dimen name="descriptionTextSize">14sp</dimen>
 
-    <!-- Default screen height ratio for news feature image -->
-    <item type="dimen" format="float" name="newsFeatureImageScreenHeightRatio">0.3</item>
-
     <dimen name="content_margin">@dimen/activity_horizontal_margin</dimen>
 
     <dimen name="drawer_drag_margin">16dp</dimen>
-
-    <!-- Tool tips -->
-    <dimen name="tool_tip_max_width">250dp</dimen>
 
     <!-- Default maximum width of bottom sheets. -->
     <dimen name="bottomSheetMaxWidth">480dp</dimen>

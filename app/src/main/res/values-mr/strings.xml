@@ -15,8 +15,7 @@
   <string name="dialog_message_clear_history">याने आपला न्याहाळकाचा इतिहास वगळल्या जाईल व चालू असलेल्या सर्व कळी बंद होतील. आपण ते नक्की करता काय?</string>
   <string name="dialog_message_clear_history_yes">होय</string>
   <string name="dialog_message_clear_history_no">नाही</string>
-  <string name="nav_item_saved_pages">साठवलेली पाने</string>
-  <string name="share_via">याद्वारे वाटप करा</string>
+    <string name="share_via">याद्वारे वाटप करा</string>
   <string name="search_redirect_from">%s पासून पुनिर्देशित</string>
   <string name="menu_page_show_tabs">कळी दाखवा</string>
   <string name="menu_page_other_languages">भाषा बदला</string>
@@ -60,10 +59,7 @@
   <string name="edit_section_captcha_hint">वरील शब्दांची पुनरावृत्ती करा</string>
   <string name="title_captcha">कॅपचा टाका</string>
   <string name="edit_section_captcha_reload">कॅपचाचे पुनर्भारण करण्यास टिचका</string>
-  <string name="edit_saved_page_refresh">जतन केलेले पान हे जूने असु शकते व त्यास, संपादन-सक्षम करण्यास, तरोताजे(रिफ्रेश)करणे आवश्यक आहे.आपणास तसे करावयाचे आहे?</string>
-  <string name="edit_saved_page_refresh_yes">होय</string>
-  <string name="edit_saved_page_refresh_no">नाही</string>
-  <string name="nav_item_login">विकिपीडियात सनोंद-प्रवेश करा</string>
+    <string name="nav_item_login">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_username_hint">सदस्यनाव</string>
   <string name="login_password_hint">परवलीचा शब्द</string>
   <string name="menu_login">सनोंद-प्रवेश करा</string>
@@ -236,8 +232,7 @@
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
   <string name="reading_list_create_new">नवीन तयार करा</string>
   <string name="reading_list_added_to_named">%s ला जोडले.</string>
-  <string name="reading_list_added_to_unnamed">वाचन यादीत जोडले.</string>
-  <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
+    <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
   <string name="reading_list_added_view_button">यादी बघा</string>
   <string name="reading_list_sort">निवडा</string>
   <string name="reading_list_sort_by_name">नावानुसार निवडा</string>
@@ -273,8 +268,7 @@
   <string name="menu_feed_card_dismissed">पत्ता लपला आहे.</string>
   <string name="menu_feed_overflow_label">अधिक पर्याय</string>
   <string name="feed">शोध करा</string>
-  <string name="view_card_footer_button">अधिक बघा</string>
-  <string name="view_card_news_title">बातम्यांमध्ये</string>
+    <string name="view_card_news_title">बातम्यांमध्ये</string>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">आज</string>
   <string name="view_announcement_card_negative_action">नाही धन्यवाद</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>

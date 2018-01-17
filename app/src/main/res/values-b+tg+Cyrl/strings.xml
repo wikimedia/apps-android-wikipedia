@@ -10,8 +10,7 @@
   <string name="menu_clear_all_history">Тозакунии таърих</string>
   <string name="dialog_title_clear_history">Тозакунии таърихи мурур</string>
   <string name="dialog_message_clear_history">Ин амал ҳамаи таърихи мурурро тоза мекунад ва саҳифаҳои дар ҳоли ҳозир бозро мепӯшад. Оё шумо мутмаинед?</string>
-  <string name="nav_item_saved_pages">Саҳифаҳои захирашуда</string>
-  <string name="share_via">Бо ҳам дидан тавассути</string>
+    <string name="share_via">Бо ҳам дидан тавассути</string>
   <string name="menu_page_show_tabs">Намоиши баргаҳо</string>
   <string name="menu_page_other_languages">Тағйири забон</string>
   <string name="menu_page_find_in_page">Ёфтан дар саҳифа</string>

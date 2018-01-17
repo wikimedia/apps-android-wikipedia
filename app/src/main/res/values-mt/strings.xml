@@ -9,8 +9,7 @@
   <string name="page_error_retry">Erġa\' pprova</string>
   <string name="menu_clear_all_history">Ħassar il-kronoloġija</string>
   <string name="dialog_title_clear_history" fuzzy="true">Trid tħassar il-kronoloġija tan-navigazzjoni?</string>
-  <string name="nav_item_saved_pages">Paġni ssejvjati</string>
-  <string name="share_via">Aqsam permezz…</string>
+    <string name="share_via">Aqsam permezz…</string>
   <string name="menu_page_other_languages" fuzzy="true">Aqra f\'lingwa oħra</string>
   <string name="menu_page_find_in_page">Sib fil-paġna</string>
   <string name="menu_page_share" fuzzy="true">Aqsam</string>

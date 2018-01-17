@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">Hierdoor wordt uw volledige browsergeschiedenis gewist en worden alle huidige open tabbladen gesloten. Weet u het zeker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nee</string>
-  <string name="nav_item_saved_pages">Opgeslagen pagina\'s</string>
-  <string name="share_via">Delen via</string>
+    <string name="share_via">Delen via</string>
   <string name="search_redirect_from">Doorverwezen vanaf %s</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
@@ -70,10 +69,7 @@
   <string name="edit_section_captcha_hint">Herhaal de bovenstaande woorden</string>
   <string name="title_captcha">Voer CAPTCHA in</string>
   <string name="edit_section_captcha_reload">Klik om opnieuw te laden</string>
-  <string name="edit_saved_page_refresh">Deze opgeslagen pagina is mogelijk verouderd, en moet vernieuwd worden voordat bewerken mogelijk is. Wilt u de pagina vernieuwen?</string>
-  <string name="edit_saved_page_refresh_yes">Ja</string>
-  <string name="edit_saved_page_refresh_no">Nee</string>
-  <string name="nav_item_login">Aanmelden bij Wikipedia</string>
+    <string name="nav_item_login">Aanmelden bij Wikipedia</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wachtwoord</string>
   <string name="login_2fa_hint">Tweetrapsauthenticatie Code</string>
@@ -275,8 +271,7 @@
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Licht</string>
   <string name="color_theme_dark">Donker</string>
-  <string name="preference_title_color_theme">Duister thema</string>
-  <string name="preference_summary_color_theme">Verander om de applicatie zijn donkere thema te gebruiken.</string>
+    <string name="preference_summary_color_theme">Verander om de applicatie zijn donkere thema te gebruiken.</string>
   <string name="nav_item_reading_lists">Mijn lijsten</string>
   <string name="reading_list_untitled">Naamloos</string>
   <string name="reading_list_save_to">Opslaan in leeslijst</string>
@@ -284,8 +279,7 @@
   <string name="reading_list_title_exists">Leeslijst “%s” bestaan reeds.</string>
   <string name="reading_list_entry_empty">Gelieve een titel op te geven.</string>
   <string name="reading_list_added_to_named">Toegevoegd aan %s.</string>
-  <string name="reading_list_added_to_unnamed">Toegevoegd aan leeslijst.</string>
-  <string name="reading_list_already_exists">Deze pagina staat al in die lijst.</string>
+    <string name="reading_list_already_exists">Deze pagina staat al in die lijst.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
   <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 artikel, %1$.2f MiB</string>
   <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d artikels, %2$.2f MiB</string>
@@ -365,8 +359,7 @@
   <string name="menu_feed_overflow_label">Meer opties</string>
   <string name="feed_featured_image_share_subject">Uitgelichte afbeelding uit Wikimedia Commons</string>
   <string name="feed">Verkennen</string>
-  <string name="view_card_footer_button">Meer zien</string>
-  <string name="most_read_list_card_title">Populair</string>
+    <string name="most_read_list_card_title">Populair</string>
   <string name="view_static_card_icon_content_description">Kaartpictogram</string>
   <string name="view_card_news_title">Actueel</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -418,20 +411,15 @@
   <string name="description_edit_revert_reason2">Uw bijdrage leek op een experiment of vandalisme.</string>
   <string name="description_edit_revert_history">Indien uw interesse is gewekt, bekijk dan &lt;a href=\"%1$s\"&gt;bewerk geschiedenis&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale" fuzzy="true">Er is toestemming vereist om naar de opslagmedia op uw apparaat te mogen schrijven. Probeer het nogmaals, en geef vereiste toestemming.</string>
-  <string name="offline_card_text" fuzzy="true">U bent momenteel Wikipedia offline aan het bekijken. Hou er rekening mee dat de offline artikels niet helemaal up to date zijn met de online versie.</string>
-  <string name="offline_my_compilations" fuzzy="true">Mijn aanpassingen</string>
-  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
-  <string name="compilation_download_widget_button_cancel_hint">Annuleer download</string>
+    <string name="offline_my_compilations" fuzzy="true">Mijn aanpassingen</string>
+    <string name="compilation_download_widget_button_cancel_hint">Annuleer download</string>
   <string name="onboarding_skip">Overslaan</string>
   <string name="onboarding_continue">Doorgaan</string>
   <string name="onboarding_get_started">Aan de slag</string>
   <string name="onboarding_explore_title">Nieuwe manieren om te ontdekken</string>
   <string name="onboarding_explore_text" fuzzy="true">Ontdek populaire artikelen, populaire onderwerpen en lees-suggesties op de ontdekking-feed.</string>
-  <string name="onboarding_reading_list_sync_title">Leeslijsten met synchronisatie</string>
-  <string name="onboarding_reading_list_sync_text">Maak leeslijsten aan van artikels dat u later wenst te lezen wanneer u offline bent. &lt;a href=\"#login\"&gt;Log in of maak aan&lt;/a&gt; uw Wikipedia-account om uw leeslijsten op te slaan in een backup.</string>
-  <string name="onboarding_analytics_title">Verstuur data anoniem</string>
-  <string name="onboarding_analytics_text">Help met de applicatie te verbeteren door ons te laten weten hoe u het gebruikt. Data blijft anoniem. &lt;a href=\"#privacy\"&gt;Leer meer&lt;/a&gt;</string>
-  <string name="onboarding_analytics_switch_title">Verzend uw gebruikersdata</string>
+    <string name="onboarding_analytics_title">Verstuur data anoniem</string>
+    <string name="onboarding_analytics_switch_title">Verzend uw gebruikersdata</string>
   <string name="onboarding_create_account_sync">Synchroniseer uw leeslijsten</string>
   <string name="onboarding_create_account_contributions">Blijf op de hoogte van uw bijdragen</string>
   <string name="onboarding_create_account_preferences">Sla uw voorkeuren op</string>

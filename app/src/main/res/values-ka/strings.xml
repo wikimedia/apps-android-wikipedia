@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ხართ?</string>
   <string name="dialog_message_clear_history_yes">დიახ</string>
   <string name="dialog_message_clear_history_no">არა</string>
-  <string name="nav_item_saved_pages">შენახული გვერდები</string>
-  <string name="share_via">გაზიარების სახე</string>
+    <string name="share_via">გაზიარების სახე</string>
   <string name="search_redirect_from">გადამისამართებულია %s-დან</string>
   <string name="menu_page_show_tabs">ჩანართების ჩვენება</string>
   <string name="menu_page_other_languages">ენის შეცვლა</string>
@@ -68,10 +67,7 @@
   <string name="edit_section_captcha_hint">გაიმეორეთ ზემოთ მოცემული სიტყვები</string>
   <string name="title_captcha">შეიყვანეთ CAPTCHA</string>
   <string name="edit_section_captcha_reload">დააჭირეთ CAPTCHA-ს გადასატვირთად</string>
-  <string name="edit_saved_page_refresh">შენახული გვერდი შესაძლოა ვადაგასულია და საჭიროა მისი განახლება. გსურთ განახლება?</string>
-  <string name="edit_saved_page_refresh_yes">დიახ</string>
-  <string name="edit_saved_page_refresh_no">არა</string>
-  <string name="nav_item_login">ვიკიპედიაში შესვლა</string>
+    <string name="nav_item_login">ვიკიპედიაში შესვლა</string>
   <string name="login_username_hint">მომხმარებლის სახელი</string>
   <string name="login_password_hint">პაროლი</string>
   <string name="login_2fa_hint">ორფაქტორიანი ავთენტიფიკაციის კოდი</string>
@@ -237,9 +233,7 @@
   <string name="error_page_does_not_exist">ეს გვერდი არ არსებობს.</string>
   <string name="view_wiki_error_message_offline">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="reference_title">სქოლიო %s</string>
-  <string name="preference_title_dim_dark_mode_images">ბნელი სურათი მუქ თემაში</string>
-  <string name="preference_summary_dim_dark_mode_images">სიკაშკაშის შემცირება მუქი თემის გამოყენებისას</string>
-  <string name="crash_report_dialog_title">უკაცრავად, უკანასკნელად აპლიკაციამ არ უმუშავა</string>
+    <string name="crash_report_dialog_title">უკაცრავად, უკანასკნელად აპლიკაციამ არ უმუშავა</string>
   <string name="crash_report_dialog_text">გსურთ პრობლემის ანგარიშის სერვის-პროვაიდერ HockeyApp-სთვის გაგზავნა? ვიკიმედია შეეცდება განიხილოს თქვენი ანგარიში და გამოასწოროს ის.</string>
   <string name="crash_report_dialog_dont_send_button">გამოტოვება</string>
   <string name="crash_report_dialog_always_send_button">ყოველთვის გაგზავნა</string>
@@ -256,15 +250,13 @@
   <string name="color_theme_select">თემა</string>
   <string name="color_theme_light">ნათელი</string>
   <string name="color_theme_dark">ბნელი</string>
-  <string name="preference_title_color_theme">მუქი თემა</string>
-  <string name="nav_item_reading_lists">ჩემი სიები</string>
+    <string name="nav_item_reading_lists">ჩემი სიები</string>
   <string name="reading_list_untitled">უსათაურო</string>
   <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>
   <string name="reading_list_create_new">ახლის შექმნა</string>
   <string name="reading_list_entry_empty">გთხოვთ, შეიყვანოთ სათაური.</string>
   <string name="reading_list_added_to_named">დაემატა %s-ში.</string>
-  <string name="reading_list_added_to_unnamed">დაემატა საკითხავ სიაში.</string>
-  <string name="reading_list_already_exists">ეს სტატია უკვე ამ სიაშია.</string>
+    <string name="reading_list_already_exists">ეს სტატია უკვე ამ სიაშია.</string>
   <string name="reading_list_added_view_button">სიის ხილვა</string>
   <string name="reading_list_sort">სორტირება</string>
   <string name="reading_list_sort_by_name">დალაგება სახელის მიხედვით</string>
@@ -306,8 +298,7 @@
   <string name="menu_feed_overflow_label">მეტი პარამეტრები</string>
   <string name="feed_featured_image_share_subject">ვიკისაწყობის რჩეული სურათი</string>
   <string name="feed">კვლევა</string>
-  <string name="view_card_footer_button">იხილეთ მეტი</string>
-  <string name="view_static_card_icon_content_description">ბარათის ხატულა</string>
+    <string name="view_static_card_icon_content_description">ბარათის ხატულა</string>
   <string name="view_card_news_title">სიახლეებში</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">გუშინ</item>

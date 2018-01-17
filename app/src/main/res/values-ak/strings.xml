@@ -7,8 +7,7 @@
   <string name="page_error_retry">Yɛ bio</string>
   <string name="menu_clear_all_history">Pepa nea woayɛ atwam</string>
   <string name="dialog_title_clear_history" fuzzy="true">Popa browsing a atwam</string>
-  <string name="nav_item_saved_pages">Nkrataa a wode asie</string>
-  <string name="share_via">Kyekyɛ denam</string>
+    <string name="share_via">Kyekyɛ denam</string>
   <string name="menu_page_other_languages" fuzzy="true">Kan wɔ kasa ahorow mu</string>
   <string name="menu_page_find_in_page">Hwehwɛ wɔ krataa yi mu</string>
   <string name="menu_page_share" fuzzy="true">Kyekyɛ</string>
@@ -31,8 +30,7 @@
   <string name="edit_section_captcha_hint">San kyerɛw ɛsoro hɔ nsɛm</string>
   <string name="title_captcha">Kyerɛw CAPTCHA</string>
   <string name="edit_section_captcha_reload">Mia CAPTCHA no so na ɛnsesa</string>
-  <string name="edit_saved_page_refresh">Saa krataa yi, ɛte sɛ nea atwam, ma enti ɛsɛ sɛ wosan bue bio. Wopɛ sɛ wobue bio anaa?</string>
-  <string name="nav_item_login" fuzzy="true">Kɔ mu</string>
+    <string name="nav_item_login" fuzzy="true">Kɔ mu</string>
   <string name="login_username_hint">Username</string>
   <string name="login_password_hint">Password</string>
   <string name="menu_login">Kɔ mu</string>

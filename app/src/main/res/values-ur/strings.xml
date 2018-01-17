@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">یہ آپ کی براؤزنگ کا تمام تاریخچہ مٹا دے گا اور کھلے ہوئے تمام ٹیب بند کر دے گا۔ کیا آپ واقعی ایسا کرنا چاہتے ہیں؟</string>
   <string name="dialog_message_clear_history_yes">ہاں</string>
   <string name="dialog_message_clear_history_no">نہیں</string>
-  <string name="nav_item_saved_pages">محفوظ صفحات</string>
-  <string name="share_via">ارسال بذریعہ</string>
+    <string name="share_via">ارسال بذریعہ</string>
   <string name="search_redirect_from">%s سے رجوع مکرر</string>
   <string name="menu_page_show_tabs">ٹیب دکھائیں</string>
   <string name="menu_page_other_languages">زبان تبدیل کریں</string>
@@ -72,10 +71,7 @@
   <string name="edit_section_captcha_hint">اوپر والے الفاظ دہرائیں</string>
   <string name="title_captcha">کیپچا درج کریں</string>
   <string name="edit_section_captcha_reload">نئے کیپچا کے لیے تھپتپائیں</string>
-  <string name="edit_saved_page_refresh">یہ محفوظ صفحہ از کار رفتہ ہوسکتا ہے، اس میں ترمیم کرنے سے پہلے اسے تازہ کرنے کی ضرورت ہے۔ کیا آپ اس صفحے کو تازہ کرنا چاہتے ہیں؟</string>
-  <string name="edit_saved_page_refresh_yes">ہاں</string>
-  <string name="edit_saved_page_refresh_no">نہیں</string>
-  <string name="nav_item_login">ویکیپیڈیا میں داخل ہوں</string>
+    <string name="nav_item_login">ویکیپیڈیا میں داخل ہوں</string>
   <string name="login_username_hint">صارف نام</string>
   <string name="login_password_hint">پاس ورڈ</string>
   <string name="login_2fa_hint">دوہری تصدیق کا کوڈ</string>
@@ -260,9 +256,7 @@
   <string name="error_page_does_not_exist">یہ صفحہ موجود نہیں ہے</string>
   <string name="view_wiki_error_message_offline">انٹرنیٹ سے رابطہ نہیں ہو سکا</string>
   <string name="reference_title">حوالہ %s</string>
-  <string name="preference_title_dim_dark_mode_images">تاریک پوشاک میں تصویروں کو مدھم کریں</string>
-  <string name="preference_summary_dim_dark_mode_images">تاریک پوشاک کے استعمال کے دوران میں تصویروں کی چمک کو کم کریں</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">مدھم تصویر (تاریک پوشاک میں)</string>
+    <string name="theme_chooser_dialog_image_dimming_switch_label">مدھم تصویر (تاریک پوشاک میں)</string>
   <string name="preference_title_prefer_offline_content">آف لائن مواد کو ترجیح دیں</string>
   <string name="preference_summary_prefer_offline_content">کسی مضمون کے تازہ ترین نسخے کو ہمیشہ لوڈ کرنے کی بجائے آف لائن دستیاب مضامین کو لوڈ کرکے ڈیٹا استعمال کو بچائیں</string>
   <string name="preference_title_enable_offline_library">آف لائن کتب خانہ بحال کریں</string>
@@ -283,8 +277,7 @@
   <string name="color_theme_select">مرکزی خیال</string>
   <string name="color_theme_light">ہلکا</string>
   <string name="color_theme_dark">گہرا</string>
-  <string name="preference_title_color_theme">تاریک پوشاک</string>
-  <string name="preference_summary_color_theme">اطلاقیے کو تاریک پوشاک پہنائیں</string>
+    <string name="preference_summary_color_theme">اطلاقیے کو تاریک پوشاک پہنائیں</string>
   <string name="text_size_increase">متن کا حجم بڑھائیں</string>
   <string name="text_size_decrease">متن کا حجم گھٹائیں</string>
   <string name="nav_item_reading_lists">مطالعہ کی فہرستیں</string>
@@ -294,8 +287,7 @@
   <string name="reading_list_title_exists">«%s» کے عنوان سے فہرست مطالعہ موجود ہے۔</string>
   <string name="reading_list_entry_empty">براہ کرم عنوان درج کریں۔</string>
   <string name="reading_list_added_to_named">%s میں شامل کیا گیا۔</string>
-  <string name="reading_list_added_to_unnamed">فہرست مطالعہ میں شامل کیا گیا۔</string>
-  <string name="reading_list_already_exists">یہ مضمون پہلے سے ہی ‫اُس‬ فہرست ميں ہے۔</string>
+    <string name="reading_list_already_exists">یہ مضمون پہلے سے ہی ‫اُس‬ فہرست ميں ہے۔</string>
   <string name="reading_list_added_view_button">فہرست دیکھیں</string>
   <string name="format_reading_list_statistical_summary_singular">ایک مضمون، %1$.2f ایم بی</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مضمون، %2$.2f ایم بی</string>
@@ -389,8 +381,7 @@
   <string name="menu_feed_overflow_label">مزید اختیارات</string>
   <string name="feed_featured_image_share_subject">ویکیمیڈیا کامنز کی منتخب تصویر</string>
   <string name="feed">اکتشاف</string>
-  <string name="view_card_footer_button">مزید دیکھیے</string>
-  <string name="most_read_list_card_title">مقبول صفحات</string>
+    <string name="most_read_list_card_title">مقبول صفحات</string>
   <string name="view_static_card_icon_content_description">کارڈ آئیکون</string>
   <string name="view_card_news_title">خبروں میں</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -404,8 +395,7 @@
   <string name="view_featured_article_card_title">منتخب مضمون</string>
   <string name="view_featured_article_footer_save_button_label">محفوظ کریں</string>
   <string name="view_featured_article_footer_saved_button_label">محفوظ ہوگیا</string>
-  <string name="feed_configure_menu_title">کارڈز کو خاص ہیئت دیں</string>
-  <string name="feed_configure_activity_title" fuzzy="true">ایکسپلور کارڈز کو خاص ہیئت دیں</string>
+    <string name="feed_configure_activity_title" fuzzy="true">ایکسپلور کارڈز کو خاص ہیئت دیں</string>
   <string name="description_edit_text_hint">عنوان کی وضاحت</string>
   <string name="description_edit_save">شائع کریں</string>
   <string name="description_edit_add_description">عنوان کی وضاحت درج کریں</string>
@@ -436,23 +426,18 @@
   <string name="description_edit_help_tips_example2_hint">ماؤنٹ ایورسٹ کے مضمون کے عنوان کی وضاحت</string>
   <string name="description_edit_help_more_info">مزید معلومات</string>
   <string name="description_edit_revert_subtitle">ویکیپیڈیا میں ترمیم کا شکریہ!</string>
-  <string name="offline_card_text">اب آپ ویکیپیڈیا کو آفلائن اپنی آفلائن لائبریری کے مضامین کے ذریعے دیکھ رہے ہیں۔</string>
-  <string name="offline_card_sideloading_text">آپ اب آف لائن کتب خانے سے مضامین کے پیکس کو آف لائن ویکیپیڈیا پر دیکھ رہے ہیں۔</string>
+    <string name="offline_card_sideloading_text">آپ اب آف لائن کتب خانے سے مضامین کے پیکس کو آف لائن ویکیپیڈیا پر دیکھ رہے ہیں۔</string>
   <string name="offline_my_compilations">میری آفلائن لائبریری کا انتظام کیجیے</string>
   <string name="offline_compilations_title">آفلائن لائبریزی</string>
   <string name="offline_compilations_found_count">میری آف لائن لائبریری میں (%d)</string>
   <string name="offline_compilations_add">میری آفلائن لائبریری سے جوڑیے</string>
   <string name="remote_compilations_title">آفلائن لائبریری</string>
   <string name="remote_compilations_description">آفلائن لائبریری کے ساتھ آپ مضامین کے پیکوں کو بعد میں آفلائن پڑھنے کے لیے ڈاؤنلوڈ کرسکتے ہیں جب انٹرنیٹ رابطہ موجود نہ ہو۔</string>
-  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f جی بی</string>
-  <string name="offline_compilation_detail_button_download">ڈاؤنلوڈ • %.2f جی بی</string>
-  <string name="offline_compilation_detail_button_remove">حذف کریں</string>
+    <string name="offline_compilation_detail_button_remove">حذف کریں</string>
   <string name="remote_compilation_download">ڈاؤن لوڈ</string>
-  <string name="storage_size_free">%.2f جی بی خالی</string>
-  <string name="storage_used_by_compilations">آف لائن کتب خانے کے زیر استعمال</string>
+    <string name="storage_used_by_compilations">آف لائن کتب خانے کے زیر استعمال</string>
   <string name="storage_other_apps">دیگر اطلاقیے</string>
-  <string name="offline_compilation_download_progress_text">%1$.2f جی بی / %2$.2f جی بی</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">ایک منٹ باقی ہے</item>
     <item quantity="other">%d منٹ باقی ہیں</item>
   </plurals>
@@ -465,12 +450,9 @@
   <string name="compilation_remove_confirm">کیا آپ اسے اپنی آفلائن لائبریری سے ہٹانا چاہتے ہیں؟</string>
   <string name="offline_library_title">آف لائن کتب خانہ</string>
   <string name="offline_library_empty_title">آپ کے آف لائن کتب خانے میں کچھ بھی نہیں ہے</string>
-  <string name="offline_library_empty_description">بعد میں ڈیٹا کے بغیر رسائی کے لیے ویکیپیڈیا مضامین کا مجموعہ ڈاؤنلوڈ کرنے کے لیے منتخب کریں۔</string>
-  <string name="offline_library_empty_search">آف لائن کتب خانے میں تلاش کریں</string>
+    <string name="offline_library_empty_search">آف لائن کتب خانے میں تلاش کریں</string>
   <string name="offline_library_search_results_state">آپ کی آفلائن لائبریری سے نتائج ڈھوندیے</string>
-  <string name="offline_library_onboarding_action">مزید جانیے</string>
-  <string name="offline_library_onboarding_text">متعارف ہو رہی ہے آفلائن لائبریری — مضامین کے پیکوں کو بعد میں آفلائن پڑھنے کے لیے ڈاؤنلوڈ کیجیے۔</string>
-  <string name="offline_library_onboarding_button_done">مکمل</string>
+    <string name="offline_library_onboarding_button_done">مکمل</string>
   <string name="offline_library_onboarding_build_library_title">اپنا آف لائن کتب خانہ بنائیں</string>
   <string name="offline_library_onboarding_build_library_subtitle">بعد میں ڈیٹا کے بغیر رسائی کے لیے ویکیپیڈیا مضامین کے مجموعے کو ابھی ڈاؤنلوڈ کریں۔</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">بے روک ٹوک مطالعہ</string>
@@ -480,8 +462,7 @@
   <string name="onboarding_get_started">شروع کریں</string>
   <string name="onboarding_explore_title">اکتشاف کی نئی راہیں</string>
   <string name="onboarding_explore_text" fuzzy="true">اکتشاف فیڈ میں منتخب مضامین، مقبول عام موضوعات اور مطالعے کی تجویزیں دیکھیں۔</string>
-  <string name="onboarding_reading_list_sync_title">مطالعاتی فہرستیں مع مطابقت پزیری</string>
-  <string name="onboarding_analytics_title">گمنام ڈیٹا بھیجیں</string>
+    <string name="onboarding_analytics_title">گمنام ڈیٹا بھیجیں</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>
   <string name="onboarding_create_account_sync">مطالعہ کی فہرستوں کو باہم مطابق کریں</string>
   <string name="onboarding_create_account_contributions">اپنی شراکتوں پر نظر رکھیں</string>

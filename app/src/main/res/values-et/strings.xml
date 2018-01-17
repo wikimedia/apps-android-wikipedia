@@ -8,8 +8,7 @@
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
   <string name="dialog_title_clear_history" fuzzy="true">Kustuta sirvimise ajalugu?</string>
-  <string name="nav_item_saved_pages">Salvestatud leheküljed</string>
-  <string name="share_via">Vali jagamisviis:</string>
+    <string name="share_via">Vali jagamisviis:</string>
   <string name="menu_page_other_languages" fuzzy="true">Loe teistes keeltes</string>
   <string name="menu_page_find_in_page">Otsi lehelt</string>
   <string name="menu_page_share">Jaga linki</string>
@@ -32,8 +31,7 @@
   <string name="edit_section_captcha_hint">Palun korda ülaltoodud sõnu!</string>
   <string name="title_captcha">Sisesta robotilõksu (CAPTCHA) kuvatud tekst!</string>
   <string name="edit_section_captcha_reload">Puuduta robotilõksu (CAPTCHA) selle uuesti laadimiseks!</string>
-  <string name="edit_saved_page_refresh">See salvestatud lehekülg võib olla aegunud ja et seda saaks muuta, tuleb lehekülge uuendada. Kas soovid lehekülge uuendada?</string>
-  <string name="nav_item_login" fuzzy="true">Logi sisse</string>
+    <string name="nav_item_login" fuzzy="true">Logi sisse</string>
   <string name="login_username_hint">Kasutajanimi</string>
   <string name="login_password_hint">Parool</string>
   <string name="menu_login">Logi sisse</string>

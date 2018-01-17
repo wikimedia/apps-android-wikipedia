@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
   <string name="dialog_message_clear_history_yes">نعم</string>
   <string name="dialog_message_clear_history_no">لا</string>
-  <string name="nav_item_saved_pages">الصفحات المحفوظة</string>
-  <string name="share_via">مشاركة عبر</string>
+    <string name="share_via">مشاركة عبر</string>
   <string name="search_redirect_from">محول من %s</string>
   <string name="menu_page_show_tabs">أظهر الألسنة</string>
   <string name="menu_page_other_languages">اقرأ بلغات أخرى</string>
@@ -72,10 +71,7 @@
   <string name="edit_section_captcha_hint">كرر الكلمات من فوق</string>
   <string name="title_captcha">أدخل كلمة التحقق</string>
   <string name="edit_section_captcha_reload">انقر على كلمة التحقق لإعادة التحميل</string>
-  <string name="edit_saved_page_refresh">قد تكون هذه الصفحة المحفوظة غير محدثة، ويجب تحديثها لتتمكن من تعديلها. هل تود تحديثها؟</string>
-  <string name="edit_saved_page_refresh_yes">نعم</string>
-  <string name="edit_saved_page_refresh_no">لا</string>
-  <string name="nav_item_login">تسجيل الدخول إلى ويكيبيديا</string>
+    <string name="nav_item_login">تسجيل الدخول إلى ويكيبيديا</string>
   <string name="login_username_hint">اسم المستخدم</string>
   <string name="login_password_hint">كلمة السر</string>
   <string name="login_2fa_hint">رمز التحقق بخطوتين</string>
@@ -260,9 +256,7 @@
   <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
   <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
   <string name="reference_title">مراجع %s</string>
-  <string name="preference_title_dim_dark_mode_images">صور خافتة في المظهر الداكن</string>
-  <string name="preference_summary_dim_dark_mode_images">تقليل سطوع الصور حين استخدام المظهر الداكن</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
+    <string name="theme_chooser_dialog_image_dimming_switch_label">تخفيت الصور (في المظهر الداكن)</string>
   <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
   <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعة العطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
   <string name="crash_report_dialog_dont_send_button">تجاوز</string>
@@ -282,8 +276,7 @@
   <string name="color_theme_dark">غامق</string>
   <string name="color_theme_black">أسود</string>
   <string name="color_theme_test_title">مثال للنص</string>
-  <string name="preference_title_color_theme">المظهر الداكن</string>
-  <string name="preference_summary_color_theme">بدّل لاستخدام المظهر التطبيق داكن اللون</string>
+    <string name="preference_summary_color_theme">بدّل لاستخدام المظهر التطبيق داكن اللون</string>
   <string name="text_size_percent_default">%s (افتراضي)</string>
   <string name="nav_item_reading_lists">قوائمي</string>
   <string name="reading_list_untitled">غير معنونة</string>
@@ -292,8 +285,7 @@
   <string name="reading_list_title_exists">قائمة القراءة \"%s\" موجودة فعلًا.</string>
   <string name="reading_list_entry_empty">فضلًا أدخل عنوانًا.</string>
   <string name="reading_list_added_to_named">أضيفت إلى %s.</string>
-  <string name="reading_list_added_to_unnamed">أضيفتت إلى قائمة القراءة</string>
-  <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
+    <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجا بايت</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مقالة/مقالات، %2$.2f ميجا بايت</string>
@@ -376,8 +368,7 @@
   <string name="menu_feed_overflow_label">خيارات أخرى</string>
   <string name="feed_featured_image_share_subject">صورة مختارة من ويكيميديا كومنز</string>
   <string name="feed">استكشف</string>
-  <string name="view_card_footer_button">طالع المزيد</string>
-  <string name="most_read_list_card_title">الأكثر زيارة</string>
+    <string name="most_read_list_card_title">الأكثر زيارة</string>
   <string name="view_static_card_icon_content_description">أيقونة بطاقة</string>
   <string name="view_card_news_title">في الأخبار</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -433,27 +424,22 @@
   <string name="description_edit_revert_history">إن كنت مهتما، طالع &lt;a href=\"%1$s\"&gt;تاريخ التعديل&lt;/a&gt;.</string>
   <string name="offline_compilation_detail_button_remove">أزل</string>
   <string name="remote_compilation_download">نزّل</string>
-  <string name="storage_size_free">%.2f جيجا بايت متاحة</string>
-  <string name="compilation_download_cancel_confirm_yes">نعم</string>
+    <string name="compilation_download_cancel_confirm_yes">نعم</string>
   <string name="compilation_download_cancel_confirm_no">لا</string>
   <string name="onboarding_skip">تجاوز</string>
   <string name="onboarding_continue">استمر</string>
   <string name="onboarding_get_started">ابدأ</string>
   <string name="onboarding_explore_title">طريقة جديدة للاستكشاف</string>
   <string name="onboarding_explore_text" fuzzy="true">اكتشف المقالات المختارة، والمواضيع الشائعة، واقتراحات القراءة في خلاصات \"استكشف\".</string>
-  <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
-  <string name="onboarding_reading_list_sync_text">أنشئ قوائم قراءة من المقالات التي تُريد قراءتها لاحقًا، حتى في وضع عدم الاتصال. &lt;a href=\"#login\"&gt;أنشئ حسابًا أو سجل دخولك&lt;/a&gt; لحسابك في ويكيبيديا لإبقاء قوائم قراءتك منسوخةً احتياطيا.</string>
-  <string name="onboarding_analytics_title">إرسال بيانات مجهولة المصدر</string>
-  <string name="onboarding_analytics_text">ساعد في جعل التطبيق أفضل بالسماح لنا بمعرفة طريقة استخدامك له. البيانات التي ستُجمع ستكون مجهولةً. &lt;a href=\"#privacy\"&gt;اعرف المزيد&lt;/a&gt;</string>
-  <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>
+    <string name="onboarding_analytics_title">إرسال بيانات مجهولة المصدر</string>
+    <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>
   <string name="onboarding_create_account_sync">زامن قوائم قراءاتك</string>
   <string name="onboarding_create_account_contributions">تتبع مساهماتك</string>
   <string name="onboarding_create_account_preferences">احفظ تفضيلاتك</string>
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
-  <string name="all_trending_text">المقالات الأكثر زيارةً في %1$s</string>
-  <string name="top_on_this_day">الأكثر زيارةً في %1$s</string>
+    <string name="top_on_this_day">الأكثر زيارةً في %1$s</string>
   <string name="on_this_day_card_title">في هذا اليوم</string>
   <string name="more_events_text" fuzzy="true">المزيد من الأحداث التاريخية في هذا اليوم</string>
   <string name="events_count_text" fuzzy="true">%1$s حدثًا من %2$s - %3$d</string>

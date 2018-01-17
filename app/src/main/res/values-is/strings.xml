@@ -18,8 +18,7 @@
   <string name="dialog_message_clear_history">Þetta mun eyða öllum ferli vafurs þíns um vefinn og loka öllum opnum flipum. Ertu alveg viss?</string>
   <string name="dialog_message_clear_history_yes">Já</string>
   <string name="dialog_message_clear_history_no">Nei</string>
-  <string name="nav_item_saved_pages">Vistaðar síður</string>
-  <string name="share_via">Deila með</string>
+    <string name="share_via">Deila með</string>
   <string name="search_redirect_from">Endurbeint frá %s</string>
   <string name="menu_page_show_tabs">Birta flipa</string>
   <string name="menu_page_other_languages">Breyta tungumáli</string>
@@ -68,10 +67,7 @@
   <string name="edit_section_captcha_hint">Endurtaktu orðin að ofan</string>
   <string name="title_captcha">Settu inn CAPTCHA</string>
   <string name="edit_section_captcha_reload">Banka á CAPTCHA til að endurhlaða</string>
-  <string name="edit_saved_page_refresh">Þessi vistaða síða gæti verið úreld og þyrfti að endurlesa hana svo að breytingar verði virkar. Viltu uppfæra síðuna ?</string>
-  <string name="edit_saved_page_refresh_yes">Já</string>
-  <string name="edit_saved_page_refresh_no">Nei</string>
-  <string name="nav_item_login">Skrá inn á Wikipedia</string>
+    <string name="nav_item_login">Skrá inn á Wikipedia</string>
   <string name="login_username_hint">Notandanafn</string>
   <string name="login_password_hint">Lykilorð</string>
   <string name="login_2fa_hint">Tveggja-þrepa auðkenningarkóði</string>
@@ -262,8 +258,7 @@
   <string name="color_theme_select">Þema</string>
   <string name="color_theme_light">Ljóst</string>
   <string name="color_theme_dark">Dökkt</string>
-  <string name="preference_title_color_theme">Dökkt skinn</string>
-  <string name="text_size_increase">Stækka texta</string>
+    <string name="text_size_increase">Stækka texta</string>
   <string name="text_size_decrease">Minnka texta</string>
   <string name="text_size_percent_default">%s (sjálfgefið)</string>
   <string name="nav_item_reading_lists">Mínir listar</string>

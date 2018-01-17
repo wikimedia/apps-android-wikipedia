@@ -9,8 +9,7 @@
   <string name="page_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="menu_clear_all_history">ඉතිහාසය ඉවත් කරන්න</string>
   <string name="dialog_title_clear_history" fuzzy="true">පිරික්සුම් ඉතිහාසය මකන්න?</string>
-  <string name="nav_item_saved_pages">සුරක්ෂිත පිටු</string>
-  <string name="share_via">මගින් හුවමාරු කරන්න</string>
+    <string name="share_via">මගින් හුවමාරු කරන්න</string>
   <string name="menu_page_show_tabs">ටැබ් පෙන්වන්න</string>
   <string name="menu_page_other_languages" fuzzy="true">වෙනත් භාෂාවලින් කියවන්න</string>
   <string name="menu_page_find_in_page">පිටුවෙහි සොයන්න</string>

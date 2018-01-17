@@ -12,8 +12,7 @@
   <string name="menu_clear_all_history">Malplenigi historion</string>
   <string name="dialog_title_clear_history">Malplenigi la retuman historion</string>
   <string name="dialog_message_clear_history">Tio ĉi forigos vian tutan krozan historion kaj fermos ĉiun nuntempe malfermitan langeton. Ĉu vi certas?</string>
-  <string name="nav_item_saved_pages">Konservitaj paĝoj</string>
-  <string name="share_via">Kundividi per</string>
+    <string name="share_via">Kundividi per</string>
   <string name="search_redirect_from">Alidirektita el %s</string>
   <string name="menu_page_show_tabs">Montri langetojn</string>
   <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
@@ -57,8 +56,7 @@
   <string name="edit_section_captcha_hint">Ripetu la suprajn vortojn</string>
   <string name="title_captcha">Enigu CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tuŝu la CAPTCHA-n por reprovi</string>
-  <string name="edit_saved_page_refresh">Ĉi tiu konservita paĝo eble estas ne ĝisdatigita, kaj ĝisdatigendas por ebligi la modifadon. Ĉu vi volas ĝisdatigi ĝin nun?</string>
-  <string name="nav_item_login">Ensaluti en Vikipedion</string>
+    <string name="nav_item_login">Ensaluti en Vikipedion</string>
   <string name="login_username_hint">Uzantnomo</string>
   <string name="login_password_hint">Pasvorto</string>
   <string name="menu_login">Ensaluti</string>
@@ -207,8 +205,7 @@
   <string name="menu_feed_card_dismiss">Kaŝu la karton</string>
   <string name="menu_feed_card_dismissed">Karto kaŝita.</string>
   <string name="feed">Esploru</string>
-  <string name="view_card_footer_button">Vidi pli</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">hieraŭ</item>
     <item quantity="other">antaŭ %d tagoj</item>
   </plurals>

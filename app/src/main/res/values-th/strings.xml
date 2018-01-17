@@ -18,8 +18,7 @@
   <string name="history_item_delete_undo">เลิกทำ</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
   <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมด และปิดหน้าต่างปัจจุบัน คุณแน่ใจหรือไม่?</string>
-  <string name="nav_item_saved_pages">หน้าที่บันทึกไว้</string>
-  <string name="share_via">แบ่งปันผ่าน</string>
+    <string name="share_via">แบ่งปันผ่าน</string>
   <string name="search_redirect_from">เปลี่ยนทางจาก %s</string>
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
@@ -63,8 +62,7 @@
   <string name="edit_section_captcha_hint">ทวนคำอีกครั้งจากด้านบน</string>
   <string name="title_captcha">กรอก CAPTCHA</string>
   <string name="edit_section_captcha_reload">แตะ CAPTCHA เพื่อโหลดใหม่</string>
-  <string name="edit_saved_page_refresh">หน้าที่บันทึกไว้นี้อาจล้าสมัย และต้องรีเฟรชหากเปิดใช้งานการแก้ไข คุณต้องการรีเฟรชหน้าหรือไม่</string>
-  <string name="nav_item_login">ล็อกอิน</string>
+    <string name="nav_item_login">ล็อกอิน</string>
   <string name="login_username_hint">ชื่อผู้ใช้</string>
   <string name="login_password_hint">รหัสผ่าน</string>
   <string name="menu_login">ล็อกอิน</string>
@@ -171,8 +169,7 @@
   <string name="reading_list_create_new">สร้างใหม่</string>
   <string name="reading_list_title_exists">รายการอ่าน \"%s\" มีอยู่แล้ว</string>
   <string name="reading_list_added_to_named">เพิ่มไปยัง%s</string>
-  <string name="reading_list_added_to_unnamed">เพิ่มในรายการอ่าน</string>
-  <string name="reading_list_already_exists">บทความนี้มีอยู่ในรายการอยู่แล้ว</string>
+    <string name="reading_list_already_exists">บทความนี้มีอยู่ในรายการอยู่แล้ว</string>
   <string name="reading_list_added_view_button">ดูรายการ</string>
   <string name="reading_list_sort">เรียงลำดับ</string>
   <string name="reading_list_sort_by_name">เรียงตามชื่อ</string>

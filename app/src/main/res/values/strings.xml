@@ -24,7 +24,6 @@
     <string name="dialog_message_clear_history">This will delete all of your browsing history, and close any currently open tabs. Are you sure?</string>
     <string name="dialog_message_clear_history_yes">Yes</string>
     <string name="dialog_message_clear_history_no">No</string>
-    <string name="nav_item_saved_pages">Saved pages</string>
     <string name="share_via">Share via</string>
     <string name="search_redirect_from">Redirected from %s</string>
 
@@ -85,9 +84,6 @@
     <string name="edit_section_captcha_hint">Repeat words from above</string>
     <string name="title_captcha">Enter CAPTCHA</string>
     <string name="edit_section_captcha_reload">Tap CAPTCHA to reload</string>
-    <string name="edit_saved_page_refresh">This saved page may be out of date, and must be refreshed for editing to be enabled. Would you like to refresh the page?</string>
-    <string name="edit_saved_page_refresh_yes">Yes</string>
-    <string name="edit_saved_page_refresh_no">No</string>
     <string name="nav_item_login">Log in to Wikipedia</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
@@ -280,8 +276,6 @@
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
     <string name="reference_title">Reference %s</string>
-    <string name="preference_title_dim_dark_mode_images">Dim images in dark theme</string>
-    <string name="preference_summary_dim_dark_mode_images">Reduce the brightness of images when using the dark theme</string>
     <string name="theme_chooser_dialog_image_dimming_switch_label">Image dimming (in Dark theme)</string>
     <string name="preference_title_prefer_offline_content">Prefer offline content</string>
     <string name="preference_summary_prefer_offline_content">Save data usage by loading articles that are available offline rather than always loading the latest version of an article</string>
@@ -316,7 +310,6 @@
     <string name="color_theme_test_title">Sample text</string>
     <string name="color_theme_test_text">Drag the slider to change the size of the text that is used when reading articles. To set the text size throughout the rest of the app, change your system text size.</string>
     <string name="preference_title_app_theme">App theme</string>
-    <string name="preference_title_color_theme">Dark theme</string>
     <string name="preference_summary_color_theme">Switch to using the app\'s dark color theme</string>
     <string name="text_size_increase">Increase text size</string>
     <string name="text_size_decrease">Decrease text size</string>
@@ -331,7 +324,6 @@
     <string name="reading_list_title_exists">Reading list \"%s\" already exists.</string>
     <string name="reading_list_entry_empty">Please enter a title.</string>
     <string name="reading_list_added_to_named">Added to %s.</string>
-    <string name="reading_list_added_to_unnamed">Added to reading list.</string>
     <string name="reading_list_already_exists">This article is already in that list.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
@@ -444,7 +436,6 @@
 
     <string name="feed_featured_image_share_subject">Featured image from Wikimedia Commons</string>
     <string name="feed">Explore</string>
-    <string name="view_card_footer_button">See more</string>
     <string name="most_read_list_card_title">Trending</string>
     <string name="view_static_card_icon_content_description">Card icon</string>
     <string name="view_card_news_title">In the news</string>
@@ -459,7 +450,6 @@
     <string name="view_featured_article_card_title">Featured article</string>
     <string name="view_featured_article_footer_save_button_label">Save</string>
     <string name="view_featured_article_footer_saved_button_label">Saved</string>
-    <string name="feed_configure_menu_title">Configure cards</string>
     <string name="feed_configure_activity_title">Customize the feed</string>
     <string name="feed_configure_menu_reset">Restore default view</string>
     <string name="feed_configure_menu_select_all">Select all</string>
@@ -535,7 +525,6 @@
     <string name="offline_compilation_download_device_offline">No internet connection. Make sure you\'re back online, then try again.</string>
     <string name="offline_read_permission_rationale">Permission to access storage on your device is required for offline browsing.</string>
     <string name="offline_read_permission_error">Permission not granted to read from device storage.</string>
-    <string name="offline_card_text">You are now browsing Wikipedia offline with articles in your Offline Library.</string>
     <string name="offline_card_sideloading_text">You are now browsing Wikipedia offline from article packs in your Offline Library.</string>
     <string name="offline_my_compilations">Manage my offline library</string>
     <string name="offline_compilations_title">Offline Library</string>
@@ -544,19 +533,15 @@
     <string name="offline_compilations_add">Add to my Offline Library</string>
     <string name="remote_compilations_title">Offline Library</string>
     <string name="remote_compilations_description">With the Offline Library, you can now download packs of articles for reading when you have no internet connection available.</string>
-    <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
     <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
     <string name="size_gb">%.2f GB</string>
     <string name="size_mb">%.2f MB</string>
-    <string name="offline_compilation_detail_button_download">Download • %.2f GB</string>
     <string name="offline_compilation_detail_button_download_v2">Download • %s</string>
     <string name="offline_compilation_detail_button_remove">Remove</string>
     <string name="remote_compilation_download">Download</string>
-    <string name="storage_size_free">%.2f GB free</string>
     <string name="storage_size_free_v2">%s free</string>
     <string name="storage_used_by_compilations">used by Offline Library</string>
     <string name="storage_other_apps">Other applications</string>
-    <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
     <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
     <plurals name="offline_compilation_download_time_remaining">
         <item quantity="one">1 min left</item>
@@ -571,14 +556,11 @@
     <string name="compilation_remove_confirm">Do you want to remove this from your Offline Library?</string>
     <string name="offline_library_title">Offline Library</string>
     <string name="offline_library_empty_title">Nothing in your Offline Library</string>
-    <string name="offline_library_empty_description">Choose a pack of Wikipedia articles to download now, for data-free access later.</string>
     <string name="offline_library_empty_description_sideload"><![CDATA[“Article packs” in your Offline library are pre-packaged sets of articles for convenient storage on your device, so you can continue reading when offline.<br /><a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support">Find out more</a>]]></string>
     <string name="offline_library_packs_hint"><![CDATA[Article packs in your library remain available for reading when you are offline. <a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support">Find out more</a>]]></string>
     <string name="offline_library_data_usage_hint"><![CDATA[Want to save on data usage? Choose to “Prefer offline content” in Settings to show available offline articles first, even when you have connectivity. <a href="#settings">Go to Settings</a>]]></string>
     <string name="offline_library_empty_search">Search Offline Library</string>
     <string name="offline_library_search_results_state">Search results from your Offline Library</string>
-    <string name="offline_library_onboarding_action">Find out more</string>
-    <string name="offline_library_onboarding_text">Introducing Offline Library — download article packs now for offline reading later.</string>
     <string name="offline_library_onboarding_button_done">Done</string>
     <string name="offline_library_onboarding_build_library_title">Build your Offline Library</string>
     <string name="offline_library_onboarding_build_library_subtitle">Download Wikipedia article packs now for data-free access later.</string>
@@ -599,10 +581,7 @@
     <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_save_to_reading_lists_title">Save to reading lists</string>
     <string name="onboarding_save_to_reading_lists_text">Create reading lists from articles you want to read later, even when you’re offline.</string>
-    <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
-    <string name="onboarding_reading_list_sync_text"><![CDATA[Create reading lists from articles you want to read later, even when you\'re offline. <a href="#login">Log in or create</a> your Wikipedia account to keep your reading lists backed up.]]></string>
     <string name="onboarding_analytics_title">Send anonymous data</string>
-    <string name="onboarding_analytics_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
     <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#offline">Learn more</a>]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
     <string name="onboarding_create_account_sync">Sync your reading lists</string>
@@ -616,7 +595,6 @@
     <string name="app_shortcuts_continue_reading">Continue reading</string>
     <string name="app_shortcuts_search">Search</string>
     <string name="more_trending_text">More like this</string>
-    <string name="all_trending_text">All trending articles on %1$s</string>
     <string name="top_on_this_day">Trending on %1$s</string>
     <!-- /App Shortcuts -->
 

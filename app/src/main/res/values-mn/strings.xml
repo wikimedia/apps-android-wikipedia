@@ -9,8 +9,7 @@
   <string name="page_error_retry">Дахин оролд</string>
   <string name="menu_clear_all_history">Түүх арилгах</string>
   <string name="dialog_title_clear_history">Хөтчид хадгалагдсан түүхийг устгах</string>
-  <string name="nav_item_saved_pages">Хадгалсан хуудсууд</string>
-  <string name="menu_page_share">Хуваалцах</string>
+    <string name="menu_page_share">Хуваалцах</string>
   <string name="share_via">Хуваалцахдаа</string>
   <string name="preference_languages_filter_hint">Хайлт</string>
   <string name="langlinks_filter_hint">Хайлт</string>

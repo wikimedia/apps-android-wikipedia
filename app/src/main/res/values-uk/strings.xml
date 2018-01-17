@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
   <string name="dialog_message_clear_history_no">Ні</string>
-  <string name="nav_item_saved_pages">Збережені сторінки</string>
-  <string name="share_via">Поділитися через</string>
+    <string name="share_via">Поділитися через</string>
   <string name="search_redirect_from">Перенаправлено з %s</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
   <string name="menu_page_other_languages">Змінити мову</string>
@@ -69,10 +68,7 @@
   <string name="edit_section_captcha_hint">Повторіть слова зверху</string>
   <string name="title_captcha">Введіть символи із малюнку</string>
   <string name="edit_section_captcha_reload">Натисніть малюнок для оновлення</string>
-  <string name="edit_saved_page_refresh">Ця збережена сторінка може бути застарілою і повинна бути оновленою для ввімкнення можливості редагування. Чи бажаєте Ви оновити цю сторінку?</string>
-  <string name="edit_saved_page_refresh_yes">Так</string>
-  <string name="edit_saved_page_refresh_no">Ні</string>
-  <string name="nav_item_login">Увійти у Вікіпедію</string>
+    <string name="nav_item_login">Увійти у Вікіпедію</string>
   <string name="login_username_hint">Ім\'я користувача</string>
   <string name="login_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двофакторної автентифікації</string>
@@ -258,9 +254,7 @@
   <string name="error_page_does_not_exist">Ця сторінка не існує</string>
   <string name="view_wiki_error_message_offline">Не вдається підключитися до інтернету.</string>
   <string name="reference_title">Виноски %s</string>
-  <string name="preference_title_dim_dark_mode_images">Темніші зображення для темних шаблонів</string>
-  <string name="preference_summary_dim_dark_mode_images">Зменшення яскравості зображень при використанні темного оформлення додатку</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
+    <string name="theme_chooser_dialog_image_dimming_switch_label">Затінювання зображень</string>
   <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>
   <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустити</string>
@@ -278,8 +272,7 @@
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Світла</string>
   <string name="color_theme_dark">Темна</string>
-  <string name="preference_title_color_theme">Темний шаблон</string>
-  <string name="preference_summary_color_theme">Перейти до використання темного шаблону програми</string>
+    <string name="preference_summary_color_theme">Перейти до використання темного шаблону програми</string>
   <string name="nav_item_reading_lists">Мої списки</string>
   <string name="reading_list_untitled">Без назви</string>
   <string name="reading_list_save_to">Зберегти в список для читання</string>
@@ -287,8 +280,7 @@
   <string name="reading_list_title_exists">Список для читання «%s» вже існує.</string>
   <string name="reading_list_entry_empty">Будь ласка, введіть назву.</string>
   <string name="reading_list_added_to_named">Додано до %s.</string>
-  <string name="reading_list_added_to_unnamed">Додано в список читання.</string>
-  <string name="reading_list_already_exists">Ця стаття вже знаходиться у цьому списку.</string>
+    <string name="reading_list_already_exists">Ця стаття вже знаходиться у цьому списку.</string>
   <string name="reading_list_added_view_button">Перегляд списку</string>
   <string name="format_reading_list_statistical_summary_singular">1 стаття, %1$.2f Mб</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статті, %2$.2f Mб</string>
@@ -370,8 +362,7 @@
   <string name="menu_feed_overflow_label">Більше налаштувань</string>
   <string name="feed_featured_image_share_subject">Вибране зображення з Вікісховища</string>
   <string name="feed">Дослідити</string>
-  <string name="view_card_footer_button">Дивіться більше</string>
-  <string name="most_read_list_card_title">Популярне</string>
+    <string name="most_read_list_card_title">Популярне</string>
   <string name="view_static_card_icon_content_description">Значок картки</string>
   <string name="view_card_news_title">У новинах</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -427,23 +418,18 @@
   <string name="offline_compilation_download_device_offline">Відсутнє з\'єднання з Інтернет. Переконайтеся, що ви знову в мережі та спробуйте ще раз.</string>
   <string name="offline_read_permission_rationale">Для перегляду в автономному режимі потрібен дозвіл на доступ до пам\'яті на вашому пристрої.</string>
   <string name="offline_read_permission_error">Дозвіл не надано для читання з пристрою зберігання.</string>
-  <string name="offline_card_text">Ви зараз переглядаєте Вікіпедію без мережі з статтями у вашій «Автономній бібліотеці».</string>
-  <string name="offline_my_compilations">Керування автономною бібліотекою</string>
+    <string name="offline_my_compilations">Керування автономною бібліотекою</string>
   <string name="offline_compilations_title">Автономна бібліотека</string>
   <string name="offline_compilations_search_by_name">Шукати добірки статтей за назвою</string>
   <string name="offline_compilations_found_count" fuzzy="true">У моїй бібліотеці (%d)</string>
   <string name="offline_compilations_add">Додати в автономну бібліотеку</string>
   <string name="remote_compilations_title">Автономна бібліотека</string>
   <string name="remote_compilations_description">З автономною бібліотекою ви можете завантажувати добірки статей для читання на випадок відсутнього доступу до мережі.</string>
-  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f ГБ</string>
-  <string name="offline_compilation_detail_button_download">Завантажити • %.2f ГБ</string>
-  <string name="offline_compilation_detail_button_remove">Вилучити</string>
+    <string name="offline_compilation_detail_button_remove">Вилучити</string>
   <string name="remote_compilation_download">Завантажити</string>
-  <string name="storage_size_free">%.2f ГБ вільно</string>
-  <string name="storage_used_by_compilations" fuzzy="true">використовується Вікіпедією</string>
+    <string name="storage_used_by_compilations" fuzzy="true">використовується Вікіпедією</string>
   <string name="storage_other_apps">Інші додатки</string>
-  <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 хвилина залишилась</item>
     <item quantity="other">%d хвилин залишилось</item>
   </plurals>
@@ -456,12 +442,9 @@
   <string name="compilation_remove_confirm">Хочете це вилучити з автономної бібліотеки?</string>
   <string name="offline_library_title">Автономна бібліотека</string>
   <string name="offline_library_empty_title">Автономна бібліотека порожня</string>
-  <string name="offline_library_empty_description">Оберіть та завантажте добірку статей Вікіпедії зараз, заощадьте трафік потім.</string>
-  <string name="offline_library_empty_search">Пошук в автономній бібліотеці</string>
+    <string name="offline_library_empty_search">Пошук в автономній бібліотеці</string>
   <string name="offline_library_search_results_state">Результати з автономної бібліотеки</string>
-  <string name="offline_library_onboarding_action">Дізнатися більше</string>
-  <string name="offline_library_onboarding_text">Представляємо «Автономну бібліотеку» — завантажте добірки статей зараз, для автономного читання пізніше.</string>
-  <string name="offline_library_onboarding_button_done">Готово</string>
+    <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Організувати «Автономну бібліотеку»</string>
   <string name="offline_library_onboarding_build_library_subtitle">Завантажте добірки статей Вікіпедії для доступу без мережі пізніше.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Безтурботне читання</string>
@@ -473,11 +456,8 @@
   <string name="onboarding_get_started">Розпочати</string>
   <string name="onboarding_explore_title">Пізнаємо по-новому</string>
   <string name="onboarding_explore_text" fuzzy="true">Відкрийте для себе обрані статті, популярні теми та поради щодо читання в каналі перегляду.</string>
-  <string name="onboarding_reading_list_sync_title">Синхронізовані списки читання</string>
-  <string name="onboarding_reading_list_sync_text">Створіть список читання з статей, які ви хочете читати пізніше, навіть коли ви знаходитесь не в мережі. &lt;a href=\"#login\"&gt;Увійдіть або створіть&lt;/a&gt; ваш обліковий запис у Вікіпедії, щоб підтримувати резервнe копію списків читання.</string>
-  <string name="onboarding_analytics_title">Надіслати анонімні дані</string>
-  <string name="onboarding_analytics_text">Допоможіть нам покращити додаток, повідомляючи, як ви його використовуєте. Зібрані дані анонімні. &lt;a href=\"#privacy\"&gt;Дізнатись більше&lt;/a&gt;</string>
-  <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
+    <string name="onboarding_analytics_title">Надіслати анонімні дані</string>
+    <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
   <string name="onboarding_create_account_sync">Синхронізовувати списки читання</string>
   <string name="onboarding_create_account_contributions">Слідкувати за своїм внеском</string>
   <string name="onboarding_create_account_preferences">Зберігати налаштування</string>

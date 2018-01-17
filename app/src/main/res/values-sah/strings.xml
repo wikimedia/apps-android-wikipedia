@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">Урут сылдьыбытыҥ устуоруйата сотуллуо уонна аһаҕас кыбытыктар сабыллыахтара. Салгыыгын дуо?</string>
   <string name="dialog_message_clear_history_yes">Сөп</string>
   <string name="dialog_message_clear_history_no">Суох</string>
-  <string name="nav_item_saved_pages">Бигэргэтиллибит сирэйдэр</string>
-  <string name="share_via">Бу нөҥүө тарҕат</string>
+    <string name="share_via">Бу нөҥүө тарҕат</string>
   <string name="search_redirect_from">Мантан көстө %s</string>
   <string name="menu_page_show_tabs">Кыбытыктары көрдөр</string>
   <string name="menu_page_other_languages">Атын тылынан</string>
@@ -72,10 +71,7 @@
   <string name="edit_section_captcha_hint">Үөһэ көстөр тыллары хатылаа</string>
   <string name="title_captcha">Капчаны киллэр</string>
   <string name="edit_section_captcha_reload">Капчаны таарыйан саҥардан биэриэххин сөп</string>
-  <string name="edit_saved_page_refresh">Бу бигэргэммит сирэй эргэрбит буолуон сөп эбит, онон уларытары хааччыйар курдук саҥардыллыахтаах. Билигин саҥардаҕын дуо?</string>
-  <string name="edit_saved_page_refresh_yes">Сөп</string>
-  <string name="edit_saved_page_refresh_no">Суох</string>
-  <string name="nav_item_login">Бикипиэдьийэҕэ киирии</string>
+    <string name="nav_item_login">Бикипиэдьийэҕэ киирии</string>
   <string name="login_username_hint">Бэлиэ-аат</string>
   <string name="login_password_hint">Аһарык</string>
   <string name="login_2fa_hint">Икки суол тургутуулаах куод</string>
@@ -261,9 +257,7 @@
   <string name="error_page_does_not_exist">Маннык сирэй суох эбит</string>
   <string name="view_wiki_error_message_offline">Интэриниэккэ холбонор сатаммата</string>
   <string name="reference_title">Быһаарыы %s</string>
-  <string name="preference_title_dim_dark_mode_images">Хараҥа тиэмэҕэ ойуулары наһаа сырдык гыныма</string>
-  <string name="preference_summary_dim_dark_mode_images">Хараҥа тиэмэҕэ ойуу сырдыгын кыччатыы</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Ойууну хараҥардыы (Хараҥа тиэмэҕэ)</string>
+    <string name="theme_chooser_dialog_image_dimming_switch_label">Ойууну хараҥардыы (Хараҥа тиэмэҕэ)</string>
   <string name="preference_title_prefer_offline_content">Ситимэ суоҕу талар буол</string>
   <string name="preference_summary_prefer_offline_content">Ыстатыйа тиһэх барылын буолбакка, урут хачайдаммыты көрөдөрөн трафигы кэмчилиир</string>
   <string name="crash_report_dialog_title">Хомойуох иһин, ааспыкка дьибилгэт моһуогура сылдьыбыт</string>
@@ -285,8 +279,7 @@
   <string name="color_theme_dark">Хараҥа</string>
   <string name="color_theme_black">Хара</string>
   <string name="color_theme_test_title">Холобур тиэкис</string>
-  <string name="preference_title_color_theme">Хараҥа тиэмэ</string>
-  <string name="preference_summary_color_theme">Хараҥа тиэмэни туһанарга холбоо</string>
+    <string name="preference_summary_color_theme">Хараҥа тиэмэни туһанарга холбоо</string>
   <string name="text_size_increase">Бичигин улаатыннар</string>
   <string name="text_size_decrease">Бичигин кыччат</string>
   <string name="text_size_percent_default">%s (анаан эппэтэххэ)</string>
@@ -297,8 +290,7 @@
   <string name="reading_list_title_exists">Аҕыы испииһэгэ «%s» хайыы-үйэ баар эбит.</string>
   <string name="reading_list_entry_empty">Аатын суруй дуу.</string>
   <string name="reading_list_added_to_named">Манна %s эбилиннэ.</string>
-  <string name="reading_list_added_to_unnamed">Угулунна.</string>
-  <string name="reading_list_already_exists">Бу ыстатыйа урут угуллубут эбит.</string>
+    <string name="reading_list_already_exists">Бу ыстатыйа урут угуллубут эбит.</string>
   <string name="reading_list_added_view_button">Тиһилиги көрүү</string>
   <string name="format_reading_list_statistical_summary_singular">1 ыстатыйа %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ыстатыйа, %2$.2f MB</string>
@@ -394,8 +386,7 @@
   <string name="menu_feed_overflow_label">Эбии туруоруулар</string>
   <string name="feed_featured_image_share_subject">Биики ыскылаатын уһулуччу үчүгэй ойуулара</string>
   <string name="feed">Чинчий</string>
-  <string name="view_card_footer_button">Эбии көр</string>
-  <string name="most_read_list_card_title">Трендэ</string>
+    <string name="most_read_list_card_title">Трендэ</string>
   <string name="view_static_card_icon_content_description">Карточка иконката</string>
   <string name="view_card_news_title">Сонуннарга</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -409,8 +400,7 @@
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>
   <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
-  <string name="feed_configure_menu_title">Нарылаа</string>
-  <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
+    <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
   <string name="feed_configure_menu_select_all">Барытын тал</string>
   <string name="feed_configure_menu_deselect_all">Барытын бэлиэтээмэ</string>
   <string name="feed_item_type_news">Бүгүн буола турар туһунан</string>
@@ -457,21 +447,16 @@
   <string name="offline_compilation_download_device_offline">Ситим суох. Ситимҥин тургутан баран хатылаан көрөөр.</string>
   <string name="offline_read_permission_rationale">Ситимэ суох көрөр эрэсиими туттарга тэрилиҥ долоҕойугар угары көҥүллүөхтээххин.</string>
   <string name="offline_read_permission_error">Тэрилиҥ долоҕойугар угар көҥүллэнэ илик эбит.</string>
-  <string name="offline_card_text">Бикипиэдьийэни ситимэ суох эрэсиимҥэ Офлайн бибилэтиэкэҕин көрө олороҕун.</string>
-  <string name="offline_my_compilations">Офлайн-бибилэтиэкэбин дьаһайыы</string>
+    <string name="offline_my_compilations">Офлайн-бибилэтиэкэбин дьаһайыы</string>
   <string name="offline_compilations_title">Офлайн-бибилэтиэкэ</string>
   <string name="offline_compilations_found_count">Офлайн бибилэтиэкэбэр (%d)</string>
   <string name="offline_compilations_add">Бэйэм офлайн-бибилэтиэкэбэр эп</string>
   <string name="remote_compilations_title">Офлайн-бибилэтиэкэ</string>
-  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f Гб</string>
-  <string name="offline_compilation_detail_button_download">Хачайдаа • %.2f Гб</string>
-  <string name="offline_compilation_detail_button_remove">Сот</string>
+    <string name="offline_compilation_detail_button_remove">Сот</string>
   <string name="remote_compilation_download">Хачайдааһын</string>
-  <string name="storage_size_free">%.2f ГБ босхо</string>
-  <string name="storage_used_by_compilations">Офлайн-бибилэтиэкэ туһанар</string>
+    <string name="storage_used_by_compilations">Офлайн-бибилэтиэкэ туһанар</string>
   <string name="storage_other_apps">Атын бырагыраамалар</string>
-  <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 мүн. хаалла</item>
     <item quantity="other">%d мүн. хаалла</item>
   </plurals>
@@ -483,8 +468,7 @@
   <string name="compilation_remove">Сот</string>
   <string name="offline_library_title">Офлайн-бибилэтиэкэ</string>
   <string name="offline_library_empty_title">Афлайн-бибилэтиэкэҕэр туох да суох эбит</string>
-  <string name="offline_library_onboarding_action">Эбии</string>
-  <string name="offline_library_onboarding_button_done">Оҥоһулунна</string>
+    <string name="offline_library_onboarding_button_done">Оҥоһулунна</string>
   <string name="offline_library_onboarding_build_library_title">Тус бэйэҕэр офлайн-бибилэтиэкэтэ оҥоһун</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Быспакка ааҕыы</string>
   <string name="onboarding_skip">Аһар</string>
@@ -493,11 +477,8 @@
   <string name="onboarding_welcome_title">Аһаҕас энциклопедия</string>
   <string name="onboarding_explore_title">Көрөргө саҥа ньымалар</string>
   <string name="onboarding_explore_text" fuzzy="true">Explore лиэнтэҕэ талба ыстатыйалары, араас тиэмэлэри уонна биллэриилэри көрө олор.</string>
-  <string name="onboarding_reading_list_sync_title">Синхроннаах ааҕыы испииһэгэ</string>
-  <string name="onboarding_reading_list_sync_text">Ааҕыаххын баҕарар ыстатыйаларыҥ испииһэгин оҥорон ситимэ да суох кэлин көр.&lt;a href=\"#login\"&gt;Бикипиэдьийэҕэр киир эбэтэр бэлиэтэн&lt;/a&gt; уонна ааҕыы испииһэгин оҥоһун.</string>
-  <string name="onboarding_analytics_title">Ааты эппэккэ ыытыы</string>
-  <string name="onboarding_analytics_text">Бу тэрили хайдах туттарыҥ туһунан биһиэхэ ыытары көҥүллээн, тупсарарга көмөлөс. Хомуллубут сибидиэнньэҕэ аатыҥ көстүбэт. &lt;a href=\"#privacy\"&gt;Сиһилии&lt;/a&gt;</string>
-  <string name="onboarding_analytics_switch_title">Ыытарга</string>
+    <string name="onboarding_analytics_title">Ааты эппэккэ ыытыы</string>
+    <string name="onboarding_analytics_switch_title">Ыытарга</string>
   <string name="onboarding_create_account_sync">Ааҕыы испииһэгин хардары-таары тэҥнээһин (синхроннааһын)</string>
   <string name="onboarding_create_account_contributions">Суруйбуккун кэтээн көрүү</string>
   <string name="onboarding_create_account_preferences">Бэйэ туруорууларын бигэргэтии</string>

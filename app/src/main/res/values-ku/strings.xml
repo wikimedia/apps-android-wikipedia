@@ -11,8 +11,7 @@
   <string name="page_error_back_to_main">Vegere</string>
   <string name="menu_clear_all_history">Dîrokê paqij bike</string>
   <string name="dialog_title_clear_history">Dîroka lêgerînê jê bibe</string>
-  <string name="nav_item_saved_pages">Rûpelên tomarkirî</string>
-  <string name="share_via">Bi awayê $ parve bike</string>
+    <string name="share_via">Bi awayê $ parve bike</string>
   <string name="menu_page_show_tabs">Hilpêkînan nîşan bide</string>
   <string name="menu_page_other_languages">Ziman biguherîne</string>
   <string name="menu_page_find_in_page">Di nav rûpelê de bibîne</string>

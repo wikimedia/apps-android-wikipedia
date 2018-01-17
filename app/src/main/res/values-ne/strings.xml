@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">यसले तपाईँको सबै हेरेको इतिहास मेटाउने छ,हाल खुल्ला सबै ट्याबहरू बन्द हुनेछन्। निश्चित हुनुहुन्छ ?</string>
   <string name="dialog_message_clear_history_yes">हो</string>
   <string name="dialog_message_clear_history_no">होइन</string>
-  <string name="nav_item_saved_pages">सुरक्षित गरिएका पृष्ठहरू</string>
-  <string name="share_via">यसमार्फत् आदान-प्रदान गर्नुहोस्</string>
+    <string name="share_via">यसमार्फत् आदान-प्रदान गर्नुहोस्</string>
   <string name="search_redirect_from">%s बाट पुनः निर्देशित भएको</string>
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
@@ -70,10 +69,7 @@
   <string name="edit_section_captcha_hint">माथिका शब्दहरू दोहोर्‍याएर प्रविष्ट गर्नुहोस्</string>
   <string name="title_captcha">CAPTCHA प्रविष्ट गर्नुहोस्</string>
   <string name="edit_section_captcha_reload">पुनः लोड गर्न CAPTCHA मा ट्याप गर्नुहोस्</string>
-  <string name="edit_saved_page_refresh">सुरक्षित गरिएको यो पृष्ठ निकै पुरानो हुनसक्छ र यसको सम्पादन सक्रिय गर्न यसलार्इ अनिवार्य रूपमा पुनः ताजा गर्नुपर्छ। तपार्इ यो पृष्ठलार्इ पुनः ताजा गर्न चाहनुहुन्छ?</string>
-  <string name="edit_saved_page_refresh_yes">हो</string>
-  <string name="edit_saved_page_refresh_no">होइन</string>
-  <string name="nav_item_login">विकिपिडियामा लग इन गर्नुहोस्</string>
+    <string name="nav_item_login">विकिपिडियामा लग इन गर्नुहोस्</string>
   <string name="login_username_hint">प्रयोगकर्ताको नाम</string>
   <string name="login_password_hint">पासवर्ड</string>
   <string name="menu_login">लग इन</string>
@@ -259,8 +255,7 @@
   <string name="reading_list_create_new">नयाँ सिर्जना गर्नुहोस्</string>
   <string name="reading_list_entry_empty">कृपया कुनै शीर्षक प्रविष्ट गर्नुहोस्।</string>
   <string name="reading_list_added_to_named">%s मा थप गरियो।</string>
-  <string name="reading_list_added_to_unnamed">अध्ययन सूचीमा थप गरियो।</string>
-  <string name="reading_list_already_exists">यो लेख पहिलेदेखि नै त्यो सूचीमा छ।</string>
+    <string name="reading_list_already_exists">यो लेख पहिलेदेखि नै त्यो सूचीमा छ।</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
   <string name="reading_list_sort">श्रेणीबद्ध गर्नुहोस्</string>
   <string name="reading_list_sort_by_name">नाम अनुसार श्रेणीबद्ध गर्नुहोस्</string>
@@ -310,8 +305,7 @@
   <string name="menu_feed_overflow_label">थप विकल्पहरू</string>
   <string name="feed_featured_image_share_subject">विकिमिडिया कमन्सको प्रमुख छवि</string>
   <string name="feed">अन्वेषण</string>
-  <string name="view_card_footer_button">थप हेर्नुहोस्</string>
-  <string name="most_read_list_card_title">प्रचलनमा रहेका</string>
+    <string name="most_read_list_card_title">प्रचलनमा रहेका</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकन</string>
   <string name="view_card_news_title">समाचारमा</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -337,9 +331,7 @@
   <string name="description_edit_help_more_info">थप जानकारी</string>
   <string name="offline_compilations_title">अफलाइन पुस्तकालय</string>
   <string name="remote_compilations_title">अफलाइन पुस्तकालय</string>
-  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f जीबी</string>
-  <string name="offline_compilation_detail_button_download">डाउनलोड • %.2f जीबी</string>
-  <string name="offline_compilation_detail_button_remove">हटाउनुहोस्</string>
+    <string name="offline_compilation_detail_button_remove">हटाउनुहोस्</string>
   <string name="remote_compilation_download">डाउनलोड गर्नुहोस्</string>
   <string name="compilation_download_cancel_confirm_yes">हो</string>
   <string name="compilation_download_cancel_confirm_no">होइन</string>

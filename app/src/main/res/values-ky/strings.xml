@@ -9,8 +9,7 @@
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
   <string name="dialog_title_clear_history" fuzzy="true">Тарыхты өчүрүү керекпи?</string>
-  <string name="nav_item_saved_pages">Сакталган барактар</string>
-  <string name="share_via">аркылуу бөлүшүү</string>
+    <string name="share_via">аркылуу бөлүшүү</string>
   <string name="menu_page_other_languages" fuzzy="true">Башка тилдерде окуу</string>
   <string name="menu_page_find_in_page">Бул барактан табуу</string>
   <string name="menu_page_font_and_theme">Жазуу түрүн жана жасалганы өзгөртүү</string>
@@ -37,8 +36,7 @@
   <string name="edit_section_captcha_hint">Жогоруда көрсөтүлгөн сөздөрдү кайталаңыз</string>
   <string name="title_captcha">CAPTCHA\'ны териңиз</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'ны жаңылоо үчүн, аны басып коюңуз</string>
-  <string name="edit_saved_page_refresh">Бул сакталган барак эскирген болушу мүмкүн жана оңдоо мүмкүнчүлүгү үчүн жаңыланышы абзел. Сиз баракты жаңылоону каалайсызбы?</string>
-  <string name="nav_item_login" fuzzy="true">Кирүү</string>
+    <string name="nav_item_login" fuzzy="true">Кирүү</string>
   <string name="login_username_hint">Колдонуучу аты</string>
   <string name="login_password_hint">Сырсөз</string>
   <string name="menu_login">Кирүү</string>

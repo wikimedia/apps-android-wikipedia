@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
   <string name="dialog_message_clear_history_yes">Igen</string>
   <string name="dialog_message_clear_history_no">Nem</string>
-  <string name="nav_item_saved_pages">Elmentett lapok</string>
-  <string name="share_via">Megosztás ezzel:</string>
+    <string name="share_via">Megosztás ezzel:</string>
   <string name="search_redirect_from">%s szócikkből átirányítva</string>
   <string name="menu_page_show_tabs">Fülek megjelenítése</string>
   <string name="menu_page_other_languages">Nyelvváltás</string>
@@ -72,10 +71,7 @@
   <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
   <string name="edit_section_captcha_reload">Érintsd meg a CAPTCHA-t az újratöltéshez</string>
-  <string name="edit_saved_page_refresh">Ez a mentett lap elavult lehet, és frissíteni kell, hogy szerkeszthető legyen. Szeretnéd frissíteni a lapot?</string>
-  <string name="edit_saved_page_refresh_yes">Igen</string>
-  <string name="edit_saved_page_refresh_no">Nem</string>
-  <string name="nav_item_login">Bejelentkezés a Wikipédiába</string>
+    <string name="nav_item_login">Bejelentkezés a Wikipédiába</string>
   <string name="login_username_hint">Szerkesztőnév</string>
   <string name="login_password_hint">Jelszó</string>
   <string name="login_2fa_hint">Kétlépcsős azonosítás kódja</string>
@@ -262,9 +258,7 @@
   <string name="error_page_does_not_exist">Ez a lap nem létezik</string>
   <string name="view_wiki_error_message_offline">Nem sikerült csatlakozni az internethez</string>
   <string name="reference_title">Hivatkozás: %s</string>
-  <string name="preference_title_dim_dark_mode_images">Képek sötétítése a sötét témában</string>
-  <string name="preference_summary_dim_dark_mode_images">A képek fényerejének csökkentése a sötét téma használatakor</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Képsötétítés (Sötét téma esetén)</string>
+    <string name="theme_chooser_dialog_image_dimming_switch_label">Képsötétítés (Sötét téma esetén)</string>
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
   <string name="preference_title_enable_offline_library">Offline könyvtár engedélyezése</string>
@@ -289,8 +283,7 @@
   <string name="color_theme_black">Fekete</string>
   <string name="color_theme_test_title">Mintaszöveg</string>
   <string name="preference_title_app_theme">Alkalmazástéma</string>
-  <string name="preference_title_color_theme">Sötét téma</string>
-  <string name="preference_summary_color_theme">Váltás az alkalmazás sötét témájának használatára</string>
+    <string name="preference_summary_color_theme">Váltás az alkalmazás sötét témájának használatára</string>
   <string name="text_size_increase">Betűméret növelése</string>
   <string name="text_size_decrease">Betűméret csökkentése</string>
   <string name="text_size_percent_default">%s (alapértelmezett)</string>
@@ -301,8 +294,7 @@
   <string name="reading_list_title_exists">A(z) „%s” olvasólista már létezik.</string>
   <string name="reading_list_entry_empty">Add meg a címet!</string>
   <string name="reading_list_added_to_named">Hozzáadva a(z) %s olvasólistához.</string>
-  <string name="reading_list_added_to_unnamed">Hozzáadva az olvasólistához.</string>
-  <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
+    <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
   <string name="format_reading_list_statistical_summary_singular">1 cikk, %1$.2f megabyte</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d szócikk, %2$.2f megabyte</string>
@@ -396,8 +388,7 @@
   <string name="menu_feed_overflow_label">További opciók</string>
   <string name="feed_featured_image_share_subject">Kiemelt kép a Wikimédia Commonsból</string>
   <string name="feed">Felfedezés</string>
-  <string name="view_card_footer_button">Több</string>
-  <string name="most_read_list_card_title">Felkapott</string>
+    <string name="most_read_list_card_title">Felkapott</string>
   <string name="view_static_card_icon_content_description">Kártyaikon</string>
   <string name="view_card_news_title">Hírek</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -411,8 +402,7 @@
   <string name="view_featured_article_card_title">Kiemelt szócikk</string>
   <string name="view_featured_article_footer_save_button_label">Mentés</string>
   <string name="view_featured_article_footer_saved_button_label">Elmentve</string>
-  <string name="feed_configure_menu_title">Kártyák testreszabása</string>
-  <string name="feed_configure_activity_title">A hírcsatorna testreszabása</string>
+    <string name="feed_configure_activity_title">A hírcsatorna testreszabása</string>
   <string name="feed_configure_menu_reset">Alapértelmezett nézet visszaállítása</string>
   <string name="feed_configure_menu_select_all">Összes megjelenítése</string>
   <string name="feed_configure_menu_deselect_all">Összes elrejtése</string>
@@ -468,8 +458,7 @@
   <string name="offline_compilation_download_device_offline">Nincs internet. Kapcsold be, vagy vidd a mobilt máshova és próbáld újra, ha van kapcsolat.</string>
   <string name="offline_read_permission_rationale">A kapcsolat nélküli böngészéshez szükséges a hozzáférés az eszköz háttértárához.</string>
   <string name="offline_read_permission_error">Nincs engedély adva az eszköz háttértárához.</string>
-  <string name="offline_card_text">Most már kapcsolat nélkül böngészi a Wikipédiát, a kapcsolat nélküli könyvtárában lévő cikkekkel.</string>
-  <string name="offline_card_sideloading_text">Most már kapcsolat nélkül böngészed a Wikipédiát, az offline könyvtáradban lévő szócikkcsomagokból.</string>
+    <string name="offline_card_sideloading_text">Most már kapcsolat nélkül böngészed a Wikipédiát, az offline könyvtáradban lévő szócikkcsomagokból.</string>
   <string name="offline_my_compilations">Offline könyvtár rendezése.</string>
   <string name="offline_compilations_title">Offline könyvtár</string>
   <string name="offline_compilations_search_by_name">Cikkcsomagok keresése név szerint</string>
@@ -477,15 +466,11 @@
   <string name="offline_compilations_add">Hozzáadás a kapcsolat nélküli könyvtárhoz</string>
   <string name="remote_compilations_title">Offline könyvtár</string>
   <string name="remote_compilations_description">A kapcsolati nélküli könyvtárral cikkcsomagokat tölthetsz le, hogy akkor is el tudd azokat olvasni, ha nem érhető el internetkapcsolat.</string>
-  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Letöltés • %.2f GB</string>
-  <string name="offline_compilation_detail_button_remove">Eltávolítás</string>
+    <string name="offline_compilation_detail_button_remove">Eltávolítás</string>
   <string name="remote_compilation_download">Letöltés</string>
-  <string name="storage_size_free">%.2f GB szabad</string>
-  <string name="storage_used_by_compilations">a kapcsolat nélküli könyvtár használja</string>
+    <string name="storage_used_by_compilations">a kapcsolat nélküli könyvtár használja</string>
   <string name="storage_other_apps">Más alkalmazások</string>
-  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">még 1 perc</item>
     <item quantity="other">még %d perc</item>
   </plurals>
@@ -498,14 +483,11 @@
   <string name="compilation_remove_confirm">Eltávolítod az Offline könyvtárból?</string>
   <string name="offline_library_title">Offline könyvtár</string>
   <string name="offline_library_empty_title">Nincs semmi az Offline könyvtáradban</string>
-  <string name="offline_library_empty_description">Válassz ki letöltésre egy Wikipédia cikkcsomagot, a későbbi adatkapcsolat nélküli hozzáféréshez.</string>
-  <string name="offline_library_packs_hint">A könyvtáradban lévő szócikkcsomagok akkor is olvashatók, ha nem kapcsolódsz az internethez. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;További információk&lt;/a&gt;</string>
+    <string name="offline_library_packs_hint">A könyvtáradban lévő szócikkcsomagok akkor is olvashatók, ha nem kapcsolódsz az internethez. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;További információk&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Szeretnél spórolni az adatkereteddel? Válaszd a „Kapcsolat nélküli tartalom előnyben részesítése” opciót a beállítások között, hogy a kapcsolat nélkül elérhető szócikkeket akkor se az internetről nyissa meg az alkalmazás, ha van kapcsolat. &lt;a href=\"#settings\"&gt;Irány a beállítások&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Keresés a kapcsolat nélküli könyvtárban</string>
   <string name="offline_library_search_results_state">Keresési találatok a kapcsolat nélküli könyvtárból</string>
-  <string name="offline_library_onboarding_action">Tudj meg többet</string>
-  <string name="offline_library_onboarding_text">Megjelent az offline könyvtár – töltsön le cikkcsomagokat későbbi offline olvasásra.</string>
-  <string name="offline_library_onboarding_button_done">Kész</string>
+    <string name="offline_library_onboarding_button_done">Kész</string>
   <string name="offline_library_onboarding_build_library_title">Építse fel a saját offline könyvtárát</string>
   <string name="offline_library_onboarding_build_library_subtitle">Töltsön le Wikipédia cikkcsomagokat a későbbi adatkapcsolat mentes elérésért.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Megszakítás nélküli olvasás</string>
@@ -521,11 +503,8 @@
   <string name="onboarding_explore_text">Merülj alá a Wikipédiában a folyamatosan frissülő Felfedezés hírfolyammal!&lt;br /&gt; &lt;b&gt;Szabd testre&lt;/b&gt; a hírfolyamot az érdeklődésnek megfelelően – izgassanak bár az &lt;b&gt;Ezen a napon&lt;/b&gt; történt események, vagy ami épp &lt;b&gt;Találomra&lt;/b&gt; jön.</string>
   <string name="onboarding_save_to_reading_lists_title">Mentés olvasólistára</string>
   <string name="onboarding_save_to_reading_lists_text">Készíts olvasólistákat olyan szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
-  <string name="onboarding_reading_list_sync_title">Olvasási listák szinkronizálással</string>
-  <string name="onboarding_reading_list_sync_text">Olvasási listákat hozhatsz létre olyan szócikkekből, amiket később akarsz elolvasni, amikor offline vagy például. &lt;a href=\"#login\"&gt;Jelentkezz be vagy hozz létre&lt;/a&gt; saját fiókot a Wikipédián, így az olvasási listáid szinkronizálva, azaz mentve lesznek.</string>
-  <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
-  <string name="onboarding_analytics_text">Segítsen jobbá tenni az appot azáltal, hogy elmondja hogy használja. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudjon meg többet&lt;/a&gt;</string>
-  <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
+    <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
+    <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok anonimak. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
   <string name="onboarding_create_account_sync">Szinkronizálja az olvasási listáit</string>
   <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>
@@ -535,8 +514,7 @@
   <string name="app_shortcuts_continue_reading">Olvasás folytatása</string>
   <string name="app_shortcuts_search">Keresés</string>
   <string name="more_trending_text">Több ilyen</string>
-  <string name="all_trending_text">Összes felkapott cikk ekkor: %1$s</string>
-  <string name="top_on_this_day">Felkapott ekkor: %1$s</string>
+    <string name="top_on_this_day">Felkapott ekkor: %1$s</string>
   <string name="on_this_day_card_title">Ezen a napon</string>
   <string name="more_events_text">Több ezen a napon</string>
   <string name="events_count_text">%1$s esemény %2$s és %3$d között</string>
