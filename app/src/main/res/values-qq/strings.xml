@@ -368,6 +368,8 @@
   <string name="no_user_lists_msg">Text explaining the advantages of creating reading lists, to users</string>
   <string name="reading_list_saved_list_rename">\"%1$s\" _[string indicating that the list was created by user]</string>
   <string name="split_reading_list_message">Message shown to users with large reading lists, informing them that this update will enforce an upper limit of 1000 articles per list and hence will be splitting already existing lists that contain more than 1000 articles</string>
+  <string name="reading_list_article_limit_message">Message shown to the users when the limit for maimum number of articles in a list is reached, informing them that they will not be able to add anymore to that list, named \"%s\" </string>
+  <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Message shown when a single reading list article is made available for offline use.</item>
     <item quantity="other">Message shown when more than one reading list article is made available for offline use.</item>
