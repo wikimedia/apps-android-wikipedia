@@ -153,6 +153,12 @@ android {
         exclude 'META-INF/maven/com.google.guava/guava/pom.xml'
         exclude 'META-INF/maven/com.google.guava/guava/pom.properties'
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 apply from: '../gradle/src/test.gradle'
@@ -223,7 +229,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     testImplementation mockitoCore
-    testImplementation 'org.robolectric:robolectric:3.3.2'
+    testImplementation 'org.robolectric:robolectric:3.6.1'
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
     androidTestImplementation mockitoCore

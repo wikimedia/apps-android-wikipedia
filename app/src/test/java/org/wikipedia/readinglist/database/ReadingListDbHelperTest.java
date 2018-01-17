@@ -3,18 +3,26 @@ package org.wikipedia.readinglist.database;
 import junit.framework.Assert;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.test.TestRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
+@Config(application = WikipediaApp.class)
 public class ReadingListDbHelperTest {
-    private ReadingListDbHelper readingListDbHelper = ReadingListDbHelper.instance();
+    private ReadingListDbHelper readingListDbHelper;
+
+    @Before
+    public void setup() {
+        readingListDbHelper = ReadingListDbHelper.instance();
+    }
 
     @Test
     public void testGetAllListsForFullList() {
@@ -192,6 +200,7 @@ public class ReadingListDbHelperTest {
         readingListDbHelper.markPagesForDeletion(list2, pages);
         Assert.assertTrue(numOfPages != 0);
     }
+
 
     public boolean hasTitle(List<ReadingList> lists, String title) {
         List<String> titles = new ArrayList<>();
