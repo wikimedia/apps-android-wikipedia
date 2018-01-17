@@ -104,10 +104,11 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+                <!-- the following lines are merged
+                     https://developer.android.com/training/app-links/deep-linking.html
+                     so http and https apply to all prefixes-->
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
-                <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="https" />
-                <data android:host="*.wikipedia.org" android:pathPrefix="/zh" android:pathPattern="-.*/" android:scheme="http" />
-                <data android:host="*.wikipedia.org" android:pathPrefix="/zh" android:pathPattern="-.*/" android:scheme="https" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/zh-.*" android:scheme="https" />
             </intent-filter>
             <intent-filter>
                 <action android:name="org.wikipedia.app_shortcut" />
