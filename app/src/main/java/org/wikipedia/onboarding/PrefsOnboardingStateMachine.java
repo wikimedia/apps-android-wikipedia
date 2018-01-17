@@ -65,11 +65,6 @@ public final class PrefsOnboardingStateMachine implements OnboardingStateMachine
     }
 
     @Override
-    public boolean isDescriptionEditTutorialEnabled() {
-        return Prefs.isDescriptionEditTutorialEnabled();
-    }
-
-    @Override
     public void setDescriptionEditTutorial() {
         Prefs.setDescriptionEditTutorialEnabled(false);
     }
