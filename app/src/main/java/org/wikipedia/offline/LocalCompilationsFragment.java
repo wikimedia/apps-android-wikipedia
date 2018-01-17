@@ -1,8 +1,6 @@
 package org.wikipedia.offline;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,14 +11,15 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.OfflineLibraryFunnel;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.settings.SettingsActivity;
@@ -35,6 +34,7 @@ import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.WikiErrorView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +65,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     private CompilationItemAdapter adapter = new CompilationItemAdapter();
     private ItemCallback itemCallback = new ItemCallback();
     private CompilationClientCallback compilationClientCallback = new CompilationClientCallback();
+    private OfflineLibraryFunnel funnel;
 
     @NonNull private List<Compilation> displayedItems = new ArrayList<>();
 
@@ -89,12 +90,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
 
-        errorView.setBackClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().finish();
-            }
-        });
+        errorView.setBackClickListener(v -> getActivity().finish());
 
         emptyDescription.setMovementMethod(LinkMovementMethod.getInstance());
         emptyDescription.setText(StringUtil.fromHtml(getString(R.string.offline_library_empty_description_sideload)));
@@ -102,16 +98,15 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
         packsHint.setMovementMethod(LinkMovementMethod.getInstance());
         packsHint.setText(StringUtil.fromHtml(getString(R.string.offline_library_packs_hint)));
         RichTextUtil.removeUnderlinesFromLinks(packsHint);
-        dataUsageHint.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
-            @Override
-            public void onUrlClick(@NonNull String url, @Nullable String titleString) {
-                if (url.equals(UriUtil.LOCAL_URL_SETTINGS)) {
-                    startActivity(SettingsActivity.newIntent(getContext()));
-                }
+        dataUsageHint.setMovementMethod(new LinkMovementMethodExt((url, titleString) -> {
+            if (url.equals(UriUtil.LOCAL_URL_SETTINGS)) {
+                startActivity(SettingsActivity.newIntent(getContext()));
             }
         }));
         dataUsageHint.setText(StringUtil.fromHtml(getString(R.string.offline_library_data_usage_hint)));
         RichTextUtil.removeUnderlinesFromLinks(dataUsageHint);
+
+        funnel = new OfflineLibraryFunnel(WikipediaApp.getInstance(), 0);
         return view;
     }
 
@@ -130,6 +125,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
 
     @Override
     public void onDestroyView() {
+        funnel.done(OfflineManager.instance().compilations());
         recyclerView.setAdapter(null);
         unbinder.unbind();
         unbinder = null;
@@ -159,12 +155,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     }
 
     private void postBeginUpdate() {
-        listContainer.post(new Runnable() {
-            @Override
-            public void run() {
-                beginUpdate();
-            }
-        });
+        listContainer.post(this::beginUpdate);
     }
 
     private void beginUpdate() {
@@ -221,12 +212,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
                     DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.activity_horizontal_margin)),
                     DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.list_item_footer_padding)));
             controlView.setBackgroundColor(ResourceUtil.getThemedColor(getContext(), android.R.attr.colorBackground));
-            controlView.setCallback(new CompilationDownloadControlView.Callback() {
-                @Override
-                public void onCancel() {
-                    getDownloadObserver().remove(compilation);
-                }
-            });
+            controlView.setCallback(() -> getDownloadObserver().remove(compilation));
         }
 
         void bindItem(Compilation compilation) {
@@ -272,7 +258,7 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int type) {
-            return new CompilationItemHolder(new PageItemView<Compilation>(getContext()));
+            return new CompilationItemHolder(new PageItemView<>(getContext()));
         }
 
         @Override
@@ -324,19 +310,16 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     private void showCompilationOverflowMenu(@NonNull final Compilation compilation, @NonNull View anchorView) {
         PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView);
         menu.getMenuInflater().inflate(R.menu.menu_local_compilation_item, menu.getMenu());
-        menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.menu_compilation_share:
-                        share(compilation);
-                        return false;
-                    case R.id.menu_compilation_remove:
-                        remove(compilation);
-                        return false;
-                    default:
-                        return false;
-                }
+        menu.setOnMenuItemClickListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.menu_compilation_share:
+                    share(compilation);
+                    return false;
+                case R.id.menu_compilation_remove:
+                    remove(compilation);
+                    return false;
+                default:
+                    return false;
             }
         });
         menu.show();
@@ -345,18 +328,14 @@ public class LocalCompilationsFragment extends DownloadObserverFragment {
     private void share(@NonNull Compilation compilation) {
         Intent intent = ShareCompat.IntentBuilder.from(getActivity())
                 .setType("*/*")
-                .setStream(Uri.parse("file://" + compilation.path()))
+                .setStream(ShareUtil.getUriFromFile(getContext(), new File(compilation.path())))
                 .getIntent();
         startActivity(ShareUtil.createChooserIntent(intent, getString(R.string.share_via), getContext()));
+        funnel.share();
     }
 
     private void remove(@NonNull final Compilation compilation) {
-        getDownloadObserver().removeWithConfirmation(getActivity(), compilation, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                beginUpdate();
-            }
-        });
+        getDownloadObserver().removeWithConfirmation(getActivity(), compilation, (dialog, which) -> beginUpdate());
     }
 
     private class CompilationClientCallback implements CompilationClient.Callback {

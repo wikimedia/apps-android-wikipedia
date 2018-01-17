@@ -69,7 +69,7 @@ public final class ShareUtil {
             @Override
             public Uri performTask() throws Throwable {
                 File processedBitmap = processBitmapForSharing(context, bmp, imageFileName);
-                return getUri(context, processedBitmap);
+                return getUriFromFile(context, processedBitmap);
             }
 
             @Override
@@ -100,10 +100,10 @@ public final class ShareUtil {
     }
 
 
-    private static Uri getUri(Context context, File processedBitmap) {
+    public static Uri getUriFromFile(@NonNull Context context, @NonNull File file) {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                ? FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, processedBitmap)
-                : Uri.parse(FILE_PREFIX + processedBitmap.getAbsolutePath());
+                ? FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, file)
+                : Uri.parse(FILE_PREFIX + file.getAbsolutePath());
     }
 
     private static File processBitmapForSharing(final Context context, final Bitmap bmp,
