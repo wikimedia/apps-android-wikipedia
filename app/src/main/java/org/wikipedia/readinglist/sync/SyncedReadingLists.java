@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.json.annotations.Required;
 
+import java.text.Normalizer;
 import java.util.List;
 
 public class SyncedReadingLists {
@@ -48,8 +49,8 @@ public class SyncedReadingLists {
         public RemoteReadingList() { }
 
         public RemoteReadingList(@NonNull String name, @Nullable String description) {
-            this.name = name;
-            this.description = description;
+            this.name = Normalizer.normalize(name, Normalizer.Form.NFC);
+            this.description = Normalizer.normalize(description, Normalizer.Form.NFC);
         }
 
         public long id() {
@@ -57,11 +58,11 @@ public class SyncedReadingLists {
         }
 
         @NonNull public String name() {
-            return name;
+            return Normalizer.normalize(name, Normalizer.Form.NFC);
         }
 
         @NonNull public String description() {
-            return StringUtils.defaultString(description);
+            return Normalizer.normalize(StringUtils.defaultString(description), Normalizer.Form.NFC);
         }
 
         public boolean isDefault() {
@@ -90,8 +91,8 @@ public class SyncedReadingLists {
         public RemoteReadingListEntry() { }
 
         public RemoteReadingListEntry(@NonNull String project, @NonNull String title) {
-            this.project = project;
-            this.title = title;
+            this.project = Normalizer.normalize(project, Normalizer.Form.NFC);
+            this.title = Normalizer.normalize(title, Normalizer.Form.NFC);
         }
 
         public long id() {
@@ -103,11 +104,11 @@ public class SyncedReadingLists {
         }
 
         @NonNull public String project() {
-            return project;
+            return Normalizer.normalize(title, Normalizer.Form.NFC);
         }
 
         @NonNull public String title() {
-            return title;
+            return Normalizer.normalize(title, Normalizer.Form.NFC);
         }
 
         @NonNull public String updatedDate() {
