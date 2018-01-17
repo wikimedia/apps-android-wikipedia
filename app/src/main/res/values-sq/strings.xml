@@ -11,8 +11,7 @@
   <string name="menu_clear_all_history">Fshij historikun?</string>
   <string name="dialog_title_clear_history">Pastro historikun e shfletimit</string>
   <string name="dialog_message_clear_history">Ky veprim do të fshijë gjithë historikun e kërkimit dhe do të mbyllë çdo skedë të hapur. Jeni të sigurt?</string>
-  <string name="nav_item_saved_pages">Faqet e ruajtura</string>
-  <string name="share_via">Shpërndaj nëpërmjet</string>
+    <string name="share_via">Shpërndaj nëpërmjet</string>
   <string name="search_redirect_from">Përcjellë nga %s</string>
   <string name="menu_page_show_tabs">Trego skedat</string>
   <string name="menu_page_other_languages">Ndrysho gjuhën</string>

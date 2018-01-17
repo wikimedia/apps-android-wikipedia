@@ -9,8 +9,7 @@
   <string name="menu_clear_all_history">Rudda søguyvirlitið</string>
   <string name="dialog_title_clear_history" fuzzy="true">Rudda brovsarasøguna?</string>
   <string name="dialog_message_clear_history" fuzzy="true">Ert tú vís/ur í at tú ynskir at tøma alt søguyvirlitið.</string>
-  <string name="nav_item_saved_pages">Goymdar síður</string>
-  <string name="share_via">Deil via</string>
+    <string name="share_via">Deil via</string>
   <string name="menu_page_other_languages" fuzzy="true">Les á øðrum málum</string>
   <string name="menu_page_share" fuzzy="true">Deil</string>
   <string name="nav_item_nearby">Nærindis</string>
@@ -33,8 +32,7 @@
   <string name="edit_section_captcha_hint">Endurtak orðini omanfyri</string>
   <string name="title_captcha">Skriva hetta captcha</string>
   <string name="edit_section_captcha_reload">Trýst á CAPTCHA fyri at dagføra</string>
-  <string name="edit_saved_page_refresh">Henda síðan kann vera ikki-dagførd, og hevur tørv á at blíva uppfríska fyri at rætting kann gerast virki. Ynskir tú at uppfríska síðuna?</string>
-  <string name="nav_item_login" fuzzy="true">Rita inn</string>
+    <string name="nav_item_login" fuzzy="true">Rita inn</string>
   <string name="login_username_hint">Brúkaranavn</string>
   <string name="login_password_hint">Loyniorð</string>
   <string name="menu_login">Rita inn</string>

@@ -9,8 +9,7 @@
   <string name="page_error_retry">Qayta urinib koʻrish</string>
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalash</string>
   <string name="dialog_title_clear_history" fuzzy="true">Ko\'rish tarixini o\'chirasizmi?</string>
-  <string name="nav_item_saved_pages">Saqlangan sahifalar</string>
-  <string name="share_via">Orqali bo\'lishish</string>
+    <string name="share_via">Orqali bo\'lishish</string>
   <string name="menu_page_other_languages" fuzzy="true">Boshqa tillarda o\'qish</string>
   <string name="menu_page_find_in_page">Sahifadan topish</string>
   <string name="menu_page_font_and_theme">Shrift va mavzu</string>

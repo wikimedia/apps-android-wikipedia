@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">Tumindak iki bakal mbusak kabèh sajarah golèkané panjenengan lan nutup kabèh tab sing isih kabukak. Panjenengan yakin?</string>
   <string name="dialog_message_clear_history_yes">Iya</string>
   <string name="dialog_message_clear_history_no">Ora</string>
-  <string name="nav_item_saved_pages">Kaca sinimpen</string>
-  <string name="share_via">Dum lumantar</string>
+    <string name="share_via">Dum lumantar</string>
   <string name="search_redirect_from">Dilih saka %s</string>
   <string name="menu_page_show_tabs">Tuduhaké tab</string>
   <string name="menu_page_other_languages">Salin basa</string>
@@ -72,10 +71,7 @@
   <string name="edit_section_captcha_hint">Balènana tembung-tembung ing ndhuwur</string>
   <string name="title_captcha">Isinen CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dudul CAPTCHA saperlu ngambali ngamot</string>
-  <string name="edit_saved_page_refresh">Kaca sing sinimpen iki wis kadaluwarsa lan kudu dianyari murih bisané dibesut. Kepiyé yèn kaca iki dianyari?</string>
-  <string name="edit_saved_page_refresh_yes">Iya</string>
-  <string name="edit_saved_page_refresh_no">Ora</string>
-  <string name="nav_item_login">Mlebu log Wikipédia</string>
+    <string name="nav_item_login">Mlebu log Wikipédia</string>
   <string name="login_username_hint">Jeneng panganggo</string>
   <string name="login_password_hint">Tembung wadi</string>
   <string name="login_2fa_hint">Kodhe Otèntifikasi Rong-Faktor</string>
@@ -263,8 +259,7 @@
   <string name="error_page_does_not_exist">Kaca iki ora ana.</string>
   <string name="view_wiki_error_message_offline">Ora bisa nggayut Internèt.</string>
   <string name="reference_title">Rujukan %s</string>
-  <string name="preference_summary_dim_dark_mode_images">Suda pepadhangé gambar nalika nganggo cakrik peteng</string>
-  <string name="preference_title_enable_offline_library">Urubaké Pabukon Oflèn</string>
+    <string name="preference_title_enable_offline_library">Urubaké Pabukon Oflèn</string>
   <string name="crash_report_dialog_title">Ngapunten, aplikasi mandeg dhéwé</string>
   <string name="crash_report_dialog_text">Punapa panjenengan kersa ngirim laporan kacilakan kanggo HockeyApp / panyedhiya layanan pihak katelu supaya Wikimedia bisa maneh kacilakan lan ndandani bug sing nyebabake?</string>
   <string name="crash_report_dialog_dont_send_button">Langkahi</string>
@@ -282,8 +277,7 @@
   <string name="color_theme_select">Irah-irahan</string>
   <string name="color_theme_light">Padhang</string>
   <string name="color_theme_dark">Peteng</string>
-  <string name="preference_title_color_theme">Ules peteng</string>
-  <string name="preference_summary_color_theme">Salin ules werna peteng tumrapé aplikasi</string>
+    <string name="preference_summary_color_theme">Salin ules werna peteng tumrapé aplikasi</string>
   <string name="text_size_increase">Undhakaké ukurané tulisan</string>
   <string name="text_size_decrease">Udhunaké ukurané tulisan</string>
   <string name="text_size_percent_default">%s (Gawan)</string>
@@ -294,8 +288,7 @@
   <string name="reading_list_title_exists">Pratélan wacan \"%s\" wis ana.</string>
   <string name="reading_list_entry_empty">Mangga isinen sesirah.</string>
   <string name="reading_list_added_to_named">Ditambahaké menyang %s.</string>
-  <string name="reading_list_added_to_unnamed">Ditambahaké menyang pratélan wacan.</string>
-  <string name="reading_list_already_exists">Artikel iki wis ana ing pratélan iku.</string>
+    <string name="reading_list_already_exists">Artikel iki wis ana ing pratélan iku.</string>
   <string name="reading_list_added_view_button">Deleng pratélan</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
@@ -379,8 +372,7 @@
   <string name="menu_feed_overflow_label">Opsi liyané</string>
   <string name="feed_featured_image_share_subject">Gambar pilihan saka Wikimedia Commons</string>
   <string name="feed">Dlajah</string>
-  <string name="view_card_footer_button">Deleng liyané</string>
-  <string name="most_read_list_card_title">Lagi mumbul</string>
+    <string name="most_read_list_card_title">Lagi mumbul</string>
   <string name="view_static_card_icon_content_description">Ikon kertu</string>
   <string name="view_card_news_title">Lagi dadi warta</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -435,23 +427,18 @@
   <string name="description_edit_revert_history">Yèn panjenengan ngrenani, delengen &lt;a href=\"%1$s\"&gt;sajarahé besutan&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan.</string>
   <string name="offline_read_permission_error">Ora antuk palilah saperlu maca saka panyimpenané piranti.</string>
-  <string name="offline_card_text">Panjenengan pinuju ngluru Wikipédia kanthi oflèn mawa artikel ing Pabukon Oflèn.</string>
-  <string name="offline_my_compilations">Tata pabukon oflèné panjenengan</string>
+    <string name="offline_my_compilations">Tata pabukon oflèné panjenengan</string>
   <string name="offline_compilations_title">Pabukon Oflèn</string>
   <string name="offline_compilations_search_by_name">Golèk pakèt artikel miturut jenengé</string>
   <string name="offline_compilations_found_count" fuzzy="true">Ing pabukonku (%d)</string>
   <string name="offline_compilations_add">Tambah ing Pabukon Oflènku</string>
   <string name="remote_compilations_title">Pabukon Oflèn</string>
   <string name="remote_compilations_description">Nganggo Pabukon Oflèn, panjenengan saiki bisa ngundhuh pakèt artikel kanggo diwaca nalika panjenengan lagi ora duwé sambungan internèt.</string>
-  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download">Undhuh • %.2f GB</string>
-  <string name="offline_compilation_detail_button_remove">Buwang</string>
+    <string name="offline_compilation_detail_button_remove">Buwang</string>
   <string name="remote_compilation_download">Undhuh</string>
-  <string name="storage_size_free">%.2f GB kosong</string>
-  <string name="storage_used_by_compilations" fuzzy="true">dienggo déning Wikipédia</string>
+    <string name="storage_used_by_compilations" fuzzy="true">dienggo déning Wikipédia</string>
   <string name="storage_other_apps">Aplikasi liyané</string>
-  <string name="offline_compilation_download_progress_text">%1$.2f GB / %2$.2f GB</string>
-  <plurals name="offline_compilation_download_time_remaining">
+    <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">kari 1 menit</item>
     <item quantity="other">kari %d menit</item>
   </plurals>
@@ -469,11 +456,8 @@
   <string name="onboarding_explore_text" fuzzy="true">Golèk artikel pilihan, rembug mumbul, lan saran wacan ing lebon Djalah.</string>
   <string name="onboarding_save_to_reading_lists_title">Simpen menyang pratélan wacan</string>
   <string name="onboarding_save_to_reading_lists_text">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan.</string>
-  <string name="onboarding_reading_list_sync_title">Pratélan wacan mawa sinkronisasi</string>
-  <string name="onboarding_reading_list_sync_text">Gawé pratélan wacan saka artikel sing arep panjenengan waca ing tembé, masiya ing njaban jaringan. &lt;a href=\"#login\"&gt;Mlebua log utawa gawéa&lt;/a&gt; akun Wikipédiané panjenengan supaya pratélan wacané panjenengan bisa disèrepaké.</string>
-  <string name="onboarding_analytics_title">Kirim dhata anonim</string>
-  <string name="onboarding_analytics_text">Éwangi murih beciké aplikasi iki kanthi ngandhani awak dhéwé olèhé panjenengan nganggo aplikasi iki. Pangumpulé dhata kanthi anonim. &lt;a href=\"#privacy\"&gt;Sinaoni candhaké&lt;/a&gt;</string>
-  <string name="onboarding_analytics_switch_title">Kirim dhata pangguna</string>
+    <string name="onboarding_analytics_title">Kirim dhata anonim</string>
+    <string name="onboarding_analytics_switch_title">Kirim dhata pangguna</string>
   <string name="onboarding_create_account_sync">Sinkronaké pratélan wacané panjenengan</string>
   <string name="onboarding_create_account_contributions">Lacak pisumbangé panjenengan</string>
   <string name="onboarding_create_account_preferences">Simpen pilalané panjenengan</string>

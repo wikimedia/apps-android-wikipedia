@@ -9,8 +9,7 @@
   <string name="page_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="menu_clear_all_history">ઇતિહાસ હટાવો</string>
   <string name="dialog_title_clear_history" fuzzy="true">બ્રાઉઝિંગનો ઇતિહાસ હટાવશો?</string>
-  <string name="nav_item_saved_pages">સાચવેલા પાનાઓ</string>
-  <string name="share_via">આના માધ્યમથી વહેંચો</string>
+    <string name="share_via">આના માધ્યમથી વહેંચો</string>
   <string name="menu_page_other_languages" fuzzy="true">અન્ય ભાષાઓમાં વાંચો</string>
   <string name="menu_page_find_in_page">પાનામાં શોધો</string>
   <string name="menu_page_share" fuzzy="true">વહેંચો</string>

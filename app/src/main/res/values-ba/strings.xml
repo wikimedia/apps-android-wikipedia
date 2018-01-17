@@ -12,8 +12,7 @@
   <string name="menu_clear_all_history">Тарихты юйыу</string>
   <string name="dialog_title_clear_history">Тарихты таҙартырға</string>
   <string name="dialog_message_clear_history">Ҡараған биттәр тарихы һәм ҡушымталар юйыласаҡ. Дауам итергәме?</string>
-  <string name="nav_item_saved_pages">Һаҡланған биттәр</string>
-  <string name="share_via">Уртаҡлашырға</string>
+    <string name="share_via">Уртаҡлашырға</string>
   <string name="search_redirect_from">%s битенән йүнәлтелде</string>
   <string name="menu_page_show_tabs">Ҡушымтаны күрһәтергә</string>
   <string name="menu_page_other_languages">Телде һайларға</string>
@@ -57,8 +56,7 @@
   <string name="edit_section_captcha_hint">Өҫтәге һүҙҙе ҡабатлағыҙ</string>
   <string name="title_captcha">CAPTCHA-ны индерегеҙ</string>
   <string name="edit_section_captcha_reload">Яңыртыу өсөн CAPTCHA-ға тейеп алығыҙ</string>
-  <string name="edit_saved_page_refresh">Был һаҡланған бит иҫке булыуы мөмкин, шуға мөхәррирләр өсөн яңыртылырға тейеш. Битте яңыртырға теләйһегеҙме?</string>
-  <string name="nav_item_login">Википедияға керергә</string>
+    <string name="nav_item_login">Википедияға керергә</string>
   <string name="login_username_hint">Ҡулланыусы исеме</string>
   <string name="login_password_hint">Серһүҙ</string>
   <string name="menu_login">Танылыу</string>
@@ -222,8 +220,7 @@
   <string name="reading_list_save_to">Уҡыу исемлегенә һаҡларға</string>
   <string name="reading_list_create_new">Яңыны төҙөргә</string>
   <string name="reading_list_added_to_named">%s өҫтәлде.</string>
-  <string name="reading_list_added_to_unnamed">Уҡыу исемлегенә өҫтәлде.</string>
-  <string name="reading_list_already_exists">Был исемлектә мәҡәлә бар инде.</string>
+    <string name="reading_list_already_exists">Был исемлектә мәҡәлә бар инде.</string>
   <string name="reading_list_added_view_button">Исемлекте ҡарау</string>
   <string name="reading_list_sort">Сортҡа айырыу</string>
   <string name="reading_list_sort_by_name">Исем буйынса айырыу</string>

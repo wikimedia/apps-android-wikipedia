@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">Биће уклоњена сва историја прегледања и затворене све отворене картице. Наставити?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
-  <string name="nav_item_saved_pages">Сачуване странице</string>
-  <string name="share_via">Делите помоћу апликације…</string>
+    <string name="share_via">Делите помоћу апликације…</string>
   <string name="search_redirect_from">Преусмерено са %s</string>
   <string name="menu_page_show_tabs">Прикажи картице</string>
   <string name="menu_page_other_languages">Промени језик</string>
@@ -71,10 +70,7 @@
   <string name="edit_section_captcha_hint">Поновите речи изнад</string>
   <string name="title_captcha">Унесите одговор са слике</string>
   <string name="edit_section_captcha_reload">Додирните слику за освежавање</string>
-  <string name="edit_saved_page_refresh">Сачувана страница је можда застарела, зато мора бити освежена како би се омогућило уређивање. Желите ли да освежите страницу?</string>
-  <string name="edit_saved_page_refresh_yes">Да</string>
-  <string name="edit_saved_page_refresh_no">Не</string>
-  <string name="nav_item_login">Пријава на Википедију</string>
+    <string name="nav_item_login">Пријава на Википедију</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
   <string name="login_2fa_hint">Двофакторски код за аутентификацију</string>
@@ -276,8 +272,7 @@
   <string name="color_theme_black">Црна</string>
   <string name="color_theme_test_title">Пример текста</string>
   <string name="preference_title_app_theme">Апликациона тема</string>
-  <string name="preference_title_color_theme">Тамна тема</string>
-  <string name="text_size_increase">Повећај величину текста</string>
+    <string name="text_size_increase">Повећај величину текста</string>
   <string name="text_size_decrease">Смањи величину текста</string>
   <string name="text_size_percent_default">%s (подразумевано)</string>
   <string name="nav_item_reading_lists">Моји спискови</string>
@@ -287,8 +282,7 @@
   <string name="reading_list_title_exists">Списак за читање „%s” већ постоји.</string>
   <string name="reading_list_entry_empty">Унесите наслов.</string>
   <string name="reading_list_added_to_named">Додато на списак %s.</string>
-  <string name="reading_list_added_to_unnamed">Додато на списак за читање.</string>
-  <string name="reading_list_already_exists">Чланак се већ налази на том списку.</string>
+    <string name="reading_list_already_exists">Чланак се већ налази на том списку.</string>
   <string name="reading_list_added_view_button">Погледај списак</string>
   <string name="reading_list_sort">Сортирај</string>
   <string name="reading_list_sort_by_name">Сортирај по имену</string>
@@ -364,8 +358,7 @@
   <string name="menu_feed_overflow_label">Више опција</string>
   <string name="feed_featured_image_share_subject">Изабрана слика са Оставе</string>
   <string name="feed">Истражи</string>
-  <string name="view_card_footer_button">Види још</string>
-  <string name="most_read_list_card_title">Актуелно</string>
+    <string name="most_read_list_card_title">Актуелно</string>
   <string name="view_static_card_icon_content_description">Икона картице</string>
   <string name="view_card_news_title">Вести</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -430,8 +423,7 @@
   <string name="compilation_remove">Уклони</string>
   <string name="offline_library_title">Офлајн библиотека</string>
   <string name="offline_library_empty_search">Претражите офлајн библиотеку</string>
-  <string name="offline_library_onboarding_action">Сазнајте више</string>
-  <string name="offline_library_onboarding_button_done">Готово</string>
+    <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Изградите Вашу офлајн библиотеку</string>
   <string name="onboarding_skip">Прескочи</string>
   <string name="onboarding_continue">Настави</string>

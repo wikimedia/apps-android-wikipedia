@@ -9,8 +9,7 @@
   <string name="page_error_retry">Assaya arta</string>
   <string name="menu_clear_all_history">Klerhe an istori</string>
   <string name="dialog_title_clear_history" fuzzy="true">Klerhe an istori peuri?</string>
-  <string name="nav_item_saved_pages">Folennow gwithys</string>
-  <string name="share_via">Kevranna dre</string>
+    <string name="share_via">Kevranna dre</string>
   <string name="menu_page_other_languages" fuzzy="true">Redya yn yethow erel</string>
   <string name="menu_page_find_in_page">Hwilas y\'n folen</string>
   <string name="menu_page_font_and_theme">Font ha thema</string>
@@ -41,8 +40,7 @@
   <string name="edit_section_captcha_hint">Skrifewgh arta an geryow a-ugh</string>
   <string name="title_captcha">Entrewgh an CAPTCHA</string>
   <string name="edit_section_captcha_reload">Gweskewgh an CAPTCHA rag y dhaskarga</string>
-  <string name="edit_saved_page_refresh">An folen withys ma a alsa bos re goth, ha res yw hy daskarga rag diallosegi chanjya. Eus hwans dhywgh daskarga an folen?</string>
-  <string name="nav_item_login" fuzzy="true">Omgelmi</string>
+    <string name="nav_item_login" fuzzy="true">Omgelmi</string>
   <string name="login_username_hint">Hanow devnydhyer</string>
   <string name="login_password_hint">Ger tremena</string>
   <string name="menu_login">Omgelmi</string>

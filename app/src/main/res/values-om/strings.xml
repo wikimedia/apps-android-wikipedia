@@ -8,8 +8,7 @@
   <string name="page_error_retry">Lammata yaali</string>
   <string name="page_error_back_to_main">Duubatti deebi\'i</string>
   <string name="menu_clear_all_history">Seenaa balleessi</string>
-  <string name="nav_item_saved_pages">Fuula olkaayi</string>
-  <string name="menu_page_share" fuzzy="true">Hiri</string>
+    <string name="menu_page_share" fuzzy="true">Hiri</string>
   <string name="nav_item_nearby">Dhihoo</string>
   <string name="preference_languages_filter_hint">Barbaadi</string>
   <string name="langlinks_filter_hint">Barbaadi</string>

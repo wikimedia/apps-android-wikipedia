@@ -8,8 +8,7 @@
   <string name="page_error_retry">Такрар гьабизе.</string>
   <string name="menu_clear_all_history">Тарих бацӀцӀине</string>
   <string name="dialog_title_clear_history">Тарих бацӀцӀилищ?</string>
-  <string name="nav_item_saved_pages">ЦIунарал гьумерал</string>
-  <string name="share_via">Сундалъун рехселе?</string>
+    <string name="share_via">Сундалъун рехселе?</string>
   <string name="menu_page_other_languages">Цоги мацӀалда цӀализе</string>
   <string name="menu_page_share" fuzzy="true">Рехсезе</string>
   <string name="menu_page_find_in_page">Гьумералда батизе</string>

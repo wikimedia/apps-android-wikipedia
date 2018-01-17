@@ -10,8 +10,7 @@
   <string name="menu_clear_all_history">ជម្រះ​ប្រវត្តិ</string>
   <string name="dialog_title_clear_history" fuzzy="true">ជម្រះ​ប្រវត្តិរាវរកអ៊ីនធើណិត?</string>
   <string name="dialog_message_clear_history" fuzzy="true">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ប្រវត្តិ​ទាំង​អស់ មែន​ទេ?</string>
-  <string name="nav_item_saved_pages">ទំព័រដែលបានរក្សាទុក</string>
-  <string name="share_via">ចែក​រំលែក​តាម…</string>
+    <string name="share_via">ចែក​រំលែក​តាម…</string>
   <string name="menu_page_other_languages" fuzzy="true">អានជាភាសា​ដទៃ​ទៀត</string>
   <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
   <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>

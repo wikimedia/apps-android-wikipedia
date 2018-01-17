@@ -9,8 +9,7 @@
   <string name="page_error_retry">Jaribu tena</string>
   <string name="menu_clear_all_history">Futa historia</string>
   <string name="dialog_title_clear_history" fuzzy="true">Futa historia ya kuvijari?</string>
-  <string name="nav_item_saved_pages">Kurasa zilizohifadhiwa</string>
-  <string name="share_via">Shiriki kupitia</string>
+    <string name="share_via">Shiriki kupitia</string>
   <string name="menu_page_other_languages" fuzzy="true">Soma katika lugha zingine</string>
   <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
   <string name="menu_page_share" fuzzy="true">Gawa</string>

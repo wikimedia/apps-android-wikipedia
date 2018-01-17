@@ -12,8 +12,7 @@
   <string name="menu_clear_all_history">Curăță istoricul</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
-  <string name="nav_item_saved_pages">Pagini salvate</string>
-  <string name="share_via">Distribuire prin</string>
+    <string name="share_via">Distribuire prin</string>
   <string name="search_redirect_from">Redirecționat de la %s</string>
   <string name="menu_page_show_tabs">Arată filele</string>
   <string name="menu_page_other_languages">Schimbă limba</string>
@@ -57,8 +56,7 @@
   <string name="edit_section_captcha_hint">Repetați cuvintele de mai sus</string>
   <string name="title_captcha">Introducere captcha</string>
   <string name="edit_section_captcha_reload">Atingeți captcha pentru a reîncărca</string>
-  <string name="edit_saved_page_refresh">Această pagină salvată ar putea fi neactualizată și trebuie reîncărcată pentru a activa modificarea sa. Doriți să reîncărcați pagina?</string>
-  <string name="nav_item_login">Autentificare la Wikipedia</string>
+    <string name="nav_item_login">Autentificare la Wikipedia</string>
   <string name="login_username_hint">Nume de utilizator</string>
   <string name="login_password_hint">Parolă</string>
   <string name="menu_login">Autentificare</string>
@@ -222,8 +220,7 @@
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>
   <string name="reading_list_create_new">Creează una nouă</string>
   <string name="reading_list_added_to_named">Adăugat în %s.</string>
-  <string name="reading_list_added_to_unnamed">Adăugat în lista de lecturi.</string>
-  <string name="reading_list_already_exists">Acest articol se află deja în acea listă.</string>
+    <string name="reading_list_already_exists">Acest articol se află deja în acea listă.</string>
   <string name="reading_list_added_view_button">Vezi lista</string>
   <string name="reading_list_sort">Sortare</string>
   <string name="reading_list_sort_by_name">Sortare după titlu</string>
@@ -258,8 +255,7 @@
   <string name="menu_feed_card_dismissed">Card ascuns.</string>
   <string name="feed_featured_image_share_subject">Imagini de calitate de la Wikimedia Commons</string>
   <string name="feed">Explorare</string>
-  <string name="view_card_footer_button">Vezi mai multe</string>
-  <string name="most_read_list_card_title">În tendințe</string>
+    <string name="most_read_list_card_title">În tendințe</string>
   <string name="view_static_card_icon_content_description">Pictograma cardului</string>
   <string name="view_card_news_title">De actualitate</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">

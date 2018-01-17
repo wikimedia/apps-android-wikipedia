@@ -12,8 +12,7 @@
   <string name="history_item_delete_undo">Atsaukt</string>
   <string name="dialog_title_clear_history">Dzēst pārlūkošanas vēsturi</string>
   <string name="dialog_message_clear_history" fuzzy="true">Vai tiešām vēlaties notīrīt visu vēsturi?</string>
-  <string name="nav_item_saved_pages">Saglabātās lapas</string>
-  <string name="share_via">Dalīties, izmantojot</string>
+    <string name="share_via">Dalīties, izmantojot</string>
   <string name="search_redirect_from">Pāradresēts no %s</string>
   <string name="menu_page_show_tabs">Rādīt cilnes</string>
   <string name="menu_page_other_languages">Mainīt valodu</string>
@@ -193,8 +192,7 @@
   <string name="menu_feed_card_dismiss" fuzzy="true">Paslēpt šo ierosinājumu</string>
   <string name="menu_feed_card_dismissed" fuzzy="true">Ieteikums slēpts.</string>
   <string name="menu_feed_overflow_label">Vairāk iespēju</string>
-  <string name="view_card_footer_button">Skatīt vairāk</string>
-  <string name="view_card_news_title">Ziņās</string>
+    <string name="view_card_news_title">Ziņās</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">Vakardien</item>
     <item quantity="other">Pirms %d dienām</item>

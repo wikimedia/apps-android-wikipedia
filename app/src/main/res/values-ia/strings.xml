@@ -12,8 +12,7 @@
   <string name="menu_clear_all_history">Rader historia</string>
   <string name="dialog_title_clear_history">Rader historia de navigation</string>
   <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
-  <string name="nav_item_saved_pages">Paginas salveguardate</string>
-  <string name="share_via">Divider via</string>
+    <string name="share_via">Divider via</string>
   <string name="menu_page_show_tabs">Monstrar schedas</string>
   <string name="menu_page_other_languages">Cambiar de lingua</string>
   <string name="menu_page_find_in_page">Cercar in pagina</string>
@@ -55,8 +54,7 @@
   <string name="edit_section_captcha_hint">Repete le parolas de supra</string>
   <string name="title_captcha">Scribe le CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tocca CAPTCHA pro recargar</string>
-  <string name="edit_saved_page_refresh">Iste pagina salveguardate pote esser obsolete e debe esser refrescate pro permitter su modification. Vole tu refrescar le pagina?</string>
-  <string name="nav_item_login">Aperir session in Wikipedia</string>
+    <string name="nav_item_login">Aperir session in Wikipedia</string>
   <string name="login_username_hint">Nomine de usator</string>
   <string name="login_password_hint">Contrasigno</string>
   <string name="menu_login">Aperir session</string>

@@ -12,8 +12,7 @@
   <string name="menu_clear_all_history">इतिहासः मार्ज्यताम्</string>
   <string name="dialog_title_clear_history">अन्वेषणस्य इतिहासः अपाकर्तव्यो वा</string>
   <string name="dialog_message_clear_history">एतत् भवतः/भवत्याः विचरणेतिहासं (search history) अपाकरिष्यति, एतत् सर्वान् टैब् पिदधास्यति । किम् एवम् इच्छति ?</string>
-  <string name="nav_item_saved_pages">रक्षितपृष्ठानि</string>
-  <string name="share_via">द्वारा वितरतु</string>
+    <string name="share_via">द्वारा वितरतु</string>
   <string name="search_redirect_from">(%s इत्यस्मात् पुनर्निर्दिष्टम्)</string>
   <string name="menu_page_show_tabs">प्लवनानि दृश्यताम्</string>
   <string name="menu_page_other_languages">भाषा परिवर्त्यताम्</string>
@@ -56,8 +55,7 @@
   <string name="edit_section_captcha_hint">उपरिनिर्दिष्टाः शब्दाः पुनः लिख्यताम्</string>
   <string name="title_captcha">संभेपूस्वसाट्यूप (CAPTCHA) लिख्यताम्</string>
   <string name="edit_section_captcha_reload">संभेपूस्वसाट्यूप (CAPTCHA) परिवर्तयितुं नुद्यताम्</string>
-  <string name="edit_saved_page_refresh">संरक्षितमिदं पृष्ठं कदाचित् अप्रचलितम् अभवत् । सम्पादनाय एतत् पृष्ठं प्रचलनयोग्यं करणीयम् । किं भवान्/भवती पृष्ठमिदं नवीकर्तुम् इच्छति ?</string>
-  <string name="nav_item_login">विकिपीडिया-जालं प्रविश्यताम्</string>
+    <string name="nav_item_login">विकिपीडिया-जालं प्रविश्यताम्</string>
   <string name="login_username_hint">सदस्यनाम</string>
   <string name="login_password_hint">कूटशब्दः</string>
   <string name="menu_login">प्रविश्यताम्</string>

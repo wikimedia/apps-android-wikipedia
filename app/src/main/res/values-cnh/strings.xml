@@ -9,8 +9,7 @@
   <string name="page_error_retry">Tuah than</string>
   <string name="menu_clear_all_history">Cakhumh hloh ding</string>
   <string name="dialog_title_clear_history" fuzzy="true">Na kawlnak pawl na hlo lai maw?</string>
-  <string name="nav_item_saved_pages">Khonmi cahmai</string>
-  <string name="share_via">in hrawmh</string>
+    <string name="share_via">in hrawmh</string>
   <string name="nav_item_nearby">Pawngkam</string>
   <string name="last_updated_text">Hnubik tharchuah %s</string>
   <string name="content_license_html" fuzzy="true">Hi kong hi an chim lo asicun &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ah zoh khawh a si.</string>
@@ -37,8 +36,7 @@
   <string name="edit_section_captcha_hint">Acunglei biafang hi nawlh hna</string>
   <string name="title_captcha">CAPTCHA tialnak</string>
   <string name="edit_section_captcha_reload">CAPTCHA kha hmet than</string>
-  <string name="edit_saved_page_refresh">Hi cahmai hi na remh hlanah tharchuah a hau men lai. Na vun tuah lai maw?</string>
-  <string name="nav_item_login" fuzzy="true">Luhnak</string>
+    <string name="nav_item_login" fuzzy="true">Luhnak</string>
   <string name="login_username_hint">Na Min</string>
   <string name="login_password_hint">Biathup</string>
   <string name="menu_login">Lutnak</string>

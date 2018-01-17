@@ -20,8 +20,7 @@
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
-  <string name="nav_item_saved_pages">Зачувани страници</string>
-  <string name="share_via">Сподели преку</string>
+    <string name="share_via">Сподели преку</string>
   <string name="search_redirect_from">Пренасочено од %s</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
@@ -72,10 +71,7 @@
   <string name="edit_section_captcha_hint">Повторете ги гореприкажаните зборови</string>
   <string name="title_captcha">Внесете го одговорот на сликичката</string>
   <string name="edit_section_captcha_reload">Допрете за да ја превчитате сликичката</string>
-  <string name="edit_saved_page_refresh">Зачуваната страница може да е застарена и мора да се превчита за да се овозможи уредувањето. Дали сакате да ја превчитате?</string>
-  <string name="edit_saved_page_refresh_yes">Да</string>
-  <string name="edit_saved_page_refresh_no">Не</string>
-  <string name="nav_item_login">Најава на Википедија</string>
+    <string name="nav_item_login">Најава на Википедија</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
   <string name="login_2fa_hint">Код за двочинителска заверка</string>
@@ -266,9 +262,7 @@
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
   <string name="reference_title">Навод %s</string>
-  <string name="preference_title_dim_dark_mode_images">Пригушени слики во темниот изглед</string>
-  <string name="preference_summary_dim_dark_mode_images">Намалување на светлоста на сликите при употреба на темниот изглед</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
+    <string name="theme_chooser_dialog_image_dimming_switch_label">Пригушување на слики (во Темен изглед)</string>
   <string name="preference_title_prefer_offline_content">Претпочитај вонмрежни</string>
   <string name="preference_summary_prefer_offline_content">Заштедете вчитувајќи статии достапни вонмрежно место секогаш да се вчитува најновата верзија на статијата</string>
   <string name="preference_title_enable_offline_library">Овозможи Вонмрежна библиотека</string>
@@ -294,8 +288,7 @@
   <string name="color_theme_test_title">Примерен текст</string>
   <string name="color_theme_test_text">Повлечете го лизгачот за да ја измените големината на текстот во статиите што ги читате. За да зададете големина на фонтот во целиот прилог, сменете го во системските поставки за фонт.</string>
   <string name="preference_title_app_theme">Изглед на прилогот</string>
-  <string name="preference_title_color_theme">Темен изглед</string>
-  <string name="preference_summary_color_theme">Префрлете се на темниот изглед на прилогот</string>
+    <string name="preference_summary_color_theme">Префрлете се на темниот изглед на прилогот</string>
   <string name="text_size_increase">Зголеми текст</string>
   <string name="text_size_decrease">Намали текст</string>
   <string name="text_size_percent_default">%s (по основно)</string>
@@ -306,8 +299,7 @@
   <string name="reading_list_title_exists">Списокот за читање „%s“ веќе постои.</string>
   <string name="reading_list_entry_empty">Внесете наслов.</string>
   <string name="reading_list_added_to_named">Додадено во %s.</string>
-  <string name="reading_list_added_to_unnamed">Додадено во списокот за читање.</string>
-  <string name="reading_list_already_exists">Статијава веќе стои на тој список.</string>
+    <string name="reading_list_already_exists">Статијава веќе стои на тој список.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
   <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МБ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МБ</string>
@@ -407,8 +399,7 @@
   <string name="menu_feed_overflow_label">Повеќе можности</string>
   <string name="feed_featured_image_share_subject">Избрана слика од Ризницата</string>
   <string name="feed">Истражете</string>
-  <string name="view_card_footer_button">Поврзано</string>
-  <string name="most_read_list_card_title">Најчитани</string>
+    <string name="most_read_list_card_title">Најчитани</string>
   <string name="view_static_card_icon_content_description">Икона за картичка</string>
   <string name="view_card_news_title">Вести</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -422,8 +413,7 @@
   <string name="view_featured_article_card_title">Избрана статија</string>
   <string name="view_featured_article_footer_save_button_label">Зачувај</string>
   <string name="view_featured_article_footer_saved_button_label">Зачувано</string>
-  <string name="feed_configure_menu_title">Постави картички</string>
-  <string name="feed_configure_activity_title">Прилагоди го доводот</string>
+    <string name="feed_configure_activity_title">Прилагоди го доводот</string>
   <string name="feed_configure_menu_reset">Поврати основен изглед</string>
   <string name="feed_configure_menu_select_all">Избери сè</string>
   <string name="feed_configure_menu_deselect_all">Поништи избрано</string>
@@ -480,8 +470,7 @@
   <string name="offline_compilation_download_device_offline">Не сте поврзани со семрежјето. Навратете се кога ќе добиете линија.</string>
   <string name="offline_read_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да можете да прелистувате вонмрежно.</string>
   <string name="offline_read_permission_error">Прилогот не доби дозвола за читање од складот на уредот.</string>
-  <string name="offline_card_text">Сега ја прелистувате Википедија вонмрежно со статии од вашата вонмрежна библиотека.</string>
-  <string name="offline_card_sideloading_text">Сега ја прелистувате Википедија вонмрежно со пакети статии од вашата вонмрежна библиотека.</string>
+    <string name="offline_card_sideloading_text">Сега ја прелистувате Википедија вонмрежно со пакети статии од вашата вонмрежна библиотека.</string>
   <string name="offline_my_compilations">Раковод. со мојата вонмрежна библиотека</string>
   <string name="offline_compilations_title">Вонмрежна библиотека</string>
   <string name="offline_compilations_search_by_name">Пребарај пакети од статии по име</string>
@@ -489,20 +478,16 @@
   <string name="offline_compilations_add">Додај во вонмрежната библиотека</string>
   <string name="remote_compilations_title">Вонмрежна библиотека</string>
   <string name="remote_compilations_description">Со вонмрежната библиотека, можете да преземате пакети од статии за читање кога немате линија.</string>
-  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f ГБ</string>
-  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+    <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
-  <string name="offline_compilation_detail_button_download">Преземи • %.2f ГБ</string>
-  <string name="offline_compilation_detail_button_download_v2">Преземи • %s</string>
+    <string name="offline_compilation_detail_button_download_v2">Преземи • %s</string>
   <string name="offline_compilation_detail_button_remove">Отстрани</string>
   <string name="remote_compilation_download">Преземи</string>
-  <string name="storage_size_free">слободни %.2f ГБ</string>
-  <string name="storage_size_free_v2">%s слоб. простор</string>
+    <string name="storage_size_free_v2">%s слоб. простор</string>
   <string name="storage_used_by_compilations">се користат од Вонмрежната библиотека</string>
   <string name="storage_other_apps">Други прилози</string>
-  <string name="offline_compilation_download_progress_text">%1$.2f ГБ / %2$.2f ГБ</string>
-  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+    <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">Преостанува една минута</item>
     <item quantity="other">Преостануваат %d минути</item>
@@ -516,15 +501,12 @@
   <string name="compilation_remove_confirm">Дали сакате да го отстраните овој пакет од статии од вашата вонмрежна библиотека?</string>
   <string name="offline_library_title">Вонмрежна библиотека</string>
   <string name="offline_library_empty_title">Немате ништо во Вонмрежната библиотека</string>
-  <string name="offline_library_empty_description">Изберете пакет статии од Википедија што ќе ги преземете сега за да ги читате подоцна без линија.</string>
-  <string name="offline_library_empty_description_sideload">„Пакети со статии“ во вашата Вонмрежна библиотека се претходно спакувани збирови од статии за згодно складирање на вашиот уред, за да можете да продолжите со читање кога немате линија.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+    <string name="offline_library_empty_description_sideload">„Пакети со статии“ во вашата Вонмрежна библиотека се претходно спакувани збирови од статии за згодно складирање на вашиот уред, за да можете да продолжите со читање кога немате линија.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">Пакетите со статии остануваат достапни за читање и кога немате линија. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Сакате да заштедите? Изберете „Претпочитај вонмрежни“ во поставките за прво да ви се прикажуваат достапни вонмрежни статии, дури и кога имате линија. &lt;a href=\"#settings\"&gt;Одете на поставките&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Пребарај по вонмрежната библиотека</string>
   <string name="offline_library_search_results_state">Исходот од пребарувањето на вашата вонмрежна библиотека</string>
-  <string name="offline_library_onboarding_action">Дознајте повеќе</string>
-  <string name="offline_library_onboarding_text">Ви ја претставуваме Вонмрежната библиотека — преземете пакети од статии за вонмрежно читање подоцна.</string>
-  <string name="offline_library_onboarding_button_done">Готово</string>
+    <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Направете ваша семрежна библиотека</string>
   <string name="offline_library_onboarding_build_library_subtitle">Преземете пакети од википедиски статии сега за да ги читате подоцна без да трошите од семрежниот промет</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Непрекинато читање</string>
@@ -541,11 +523,8 @@
   <string name="onboarding_explore_text">Нурнете се длабоко во Википедија со постојано подновениот тековник „Истражи“.&lt;br/&gt; &lt;b&gt;Прилагодете&lt;/b&gt; го тековниот според вашите интереси — дознајте за историските настани кои се случиле &lt;b&gt;На денешен ден&lt;/b&gt; или пробајте си ја среќата со &lt;b&gt;Случајна&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Зачувување во списоци за читање</string>
   <string name="onboarding_save_to_reading_lists_text">Правете списоци за читање од статиите што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
-  <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
-  <string name="onboarding_reading_list_sync_text">Создавајте списоци за читање од статиите што сакате да ги прочитате подоцна, дури и кога немате линија. &lt;a href=\"#login\"&gt;Најавете се или направете&lt;/a&gt; ваша сметка на Википедија за да ги запазите списоците.</string>
-  <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
-  <string name="onboarding_analytics_text">Помогнете ни да ја подобриме алатката со тоа што ќе добиваме информации како ја користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
-  <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#offline\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+    <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
+    <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#offline\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>
   <string name="onboarding_create_account_sync">Усогласи списоци за читање</string>
   <string name="onboarding_create_account_contributions">Бидете во тек со вашите придонеси</string>
@@ -555,8 +534,7 @@
   <string name="app_shortcuts_continue_reading">Продолжете со читање</string>
   <string name="app_shortcuts_search">Пребарај</string>
   <string name="more_trending_text">Повеќе вакви</string>
-  <string name="all_trending_text">Сите најчитани страници на %1$s</string>
-  <string name="top_on_this_day">Најчитано на %1$s</string>
+    <string name="top_on_this_day">Најчитано на %1$s</string>
   <string name="on_this_day_card_title">На денешен ден</string>
   <string name="more_events_text">Повеќе на овој ден</string>
   <string name="events_count_text">%1$s настани од %2$s–%3$d</string>

@@ -8,8 +8,7 @@
   <string name="page_error_retry">Қайталау</string>
   <string name="menu_clear_all_history">Тарихын тазалау</string>
   <string name="dialog_title_clear_history" fuzzy="true">Шолу тарихын тазалайсыз ба?</string>
-  <string name="nav_item_saved_pages">Сақталынған беттер</string>
-  <string name="share_via">Арқылы бөлісу:</string>
+    <string name="share_via">Арқылы бөлісу:</string>
   <string name="nav_item_nearby">Жақын жерлер</string>
   <string name="last_updated_text">Соңғы жаңартылуы: %s</string>
   <string name="content_license_html">Мазмұн &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (егер өзгеше көрсетілмесе)</string>
@@ -35,9 +34,7 @@
   <string name="edit_section_captcha_message">Автоматтандырылған спамнан қорғану үшін, төменде көрсетілген сөздерді енгізіңіз</string>
   <string name="edit_section_captcha_hint">Жоғарыдағы сөздерді қайталаңыз</string>
   <string name="title_captcha">CAPTCHA-ны енгізіңіз</string>
-  <string name="edit_saved_page_refresh">Бұл сақталған бет ескірген және өңдеуді іске қосу үшін жаңалау керек.
-Беті жаңалағыңыз келе ме?</string>
-  <string name="nav_item_login" fuzzy="true">Кіру</string>
+    <string name="nav_item_login" fuzzy="true">Кіру</string>
   <string name="login_username_hint">Қатысушы есімі</string>
   <string name="login_password_hint">Құпия сөз</string>
   <string name="menu_login">Кіру</string>

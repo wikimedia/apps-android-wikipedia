@@ -288,14 +288,6 @@
         <item name="android:maxLength">11</item>
     </style>
 
-    <style name="HexIntPreference" parent="IntPreference">
-        <item name="android:inputType">textVisiblePassword</item>
-        <item name="android:digits">0123456789abcdef</item>
-        <item name="radix">16</item>
-        <item name="summaryFormat">%08x</item>
-        <item name="android:maxLength">8</item>
-    </style>
-
     <style name="SimpleDraweeViewPlaceholder">
         <item name="actualImageScaleType">centerCrop</item>
         <item name="placeholderImage">@drawable/checkerboard</item>

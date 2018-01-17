@@ -12,8 +12,7 @@
   <string name="menu_clear_all_history">Pyhki histourii</string>
   <string name="dialog_title_clear_history">Pyhkie histourii?</string>
   <string name="dialog_message_clear_history">Tämä hävittäy kai livuanduhistourien da salbuau avvoi olijat välilehtet. Oletgo varmu?</string>
-  <string name="nav_item_saved_pages">Tallendetut sivut</string>
-  <string name="share_via">Jagua</string>
+    <string name="share_via">Jagua</string>
   <string name="search_redirect_from">Siirretty sivus \"%s\"</string>
   <string name="menu_page_show_tabs">Ozuta liittehet</string>
   <string name="menu_page_other_languages">Luve toizil kielil</string>
@@ -55,8 +54,7 @@
   <string name="edit_section_captcha_hint">Kirjuta uvvessah ylembä olijat sanat</string>
   <string name="title_captcha">Kirjuta CAPTCHA</string>
   <string name="edit_section_captcha_reload">Ladua uuzi CAPTCHA painamal</string>
-  <string name="edit_saved_page_refresh">Tämä tallendettu sivu voibi olla jo vahnu, sendäh se pidäy päivittiä, gu sidä vois kohendella. Tahtotgo päivittiä sivun?</string>
-  <string name="nav_item_login">Kirjuttai Wikipedieh</string>
+    <string name="nav_item_login">Kirjuttai Wikipedieh</string>
   <string name="login_username_hint">Käyttäinimi</string>
   <string name="login_password_hint">Salasana</string>
   <string name="menu_login">Kirjuttai</string>

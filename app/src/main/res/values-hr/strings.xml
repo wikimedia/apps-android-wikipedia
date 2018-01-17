@@ -12,8 +12,7 @@
   <string name="menu_clear_all_history">Očisti povijest</string>
   <string name="dialog_title_clear_history">Izbriši povijest</string>
   <string name="dialog_message_clear_history">Izbrisat ćete povijest i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
-  <string name="nav_item_saved_pages">Spremljene stranice</string>
-  <string name="share_via">Podijeliti putem</string>
+    <string name="share_via">Podijeliti putem</string>
   <string name="search_redirect_from">Preusmjereno sa %s</string>
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promijeni jezik</string>
@@ -57,8 +56,7 @@
   <string name="edit_section_captcha_hint">Ponovite riječi iznad</string>
   <string name="title_captcha">Unesite CAPTCHA</string>
   <string name="edit_section_captcha_reload">Za ponovno učitavanje dodirnite CAPTCHA</string>
-  <string name="edit_saved_page_refresh">Ova stranica može biti zastarjela i mora biti osvježena kako bi uređivanje bilo omogućeno. Želite li osvježiti stranicu?</string>
-  <string name="nav_item_login">Prijavite se na Wikipediju</string>
+    <string name="nav_item_login">Prijavite se na Wikipediju</string>
   <string name="login_username_hint">Suradničko ime</string>
   <string name="login_password_hint">Zaporka</string>
   <string name="menu_login">Prijavite se</string>
@@ -221,8 +219,7 @@
   <string name="reading_list_save_to">Dodaj na popis za čitanje</string>
   <string name="reading_list_create_new">Stvori novi</string>
   <string name="reading_list_added_to_named">Dodano u %s.</string>
-  <string name="reading_list_added_to_unnamed">Dodano na popis za čitanje.</string>
-  <string name="reading_list_already_exists">Ovaj članak već postoji na popisu.</string>
+    <string name="reading_list_already_exists">Ovaj članak već postoji na popisu.</string>
   <string name="reading_list_added_view_button">Prikaz popisa</string>
   <string name="reading_list_sort">Poredaj</string>
   <string name="reading_list_sort_by_name">Poredaj po nazivu</string>
@@ -255,8 +252,7 @@
   <string name="menu_feed_card_dismissed">Kartica je skrivena.</string>
   <string name="menu_feed_overflow_label">Više mogućnosti</string>
   <string name="feed">Istražite</string>
-  <string name="view_card_footer_button">Pročitajte više</string>
-  <string name="most_read_list_card_title">U trendu</string>
+    <string name="most_read_list_card_title">U trendu</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">U novostima</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -264,7 +260,5 @@
     <item quantity="other">prije %d dana</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">danas</string>
-  <string name="offline_compilation_detail_date_size">%1$s • %2$.2f GB</string>
-  <string name="offline_compilation_detail_button_download" fuzzy="true">Preuzimanje · %.2f GB</string>
-  <string name="offline_compilation_detail_button_remove">Ukloni</string>
+    <string name="offline_compilation_detail_button_remove">Ukloni</string>
 </resources>

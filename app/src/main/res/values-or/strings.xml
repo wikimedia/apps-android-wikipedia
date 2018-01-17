@@ -12,8 +12,7 @@
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="dialog_title_clear_history">ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="dialog_message_clear_history">ଏହା ଆପଣଙ୍କର ସମସ୍ତ ବ୍ରାଉଜିଂ ଇତିହାସ ଲିଭାଇଦେବ ଓ ଏବେ ଖୋଲାଥିବା ଟ୍ୟାବସବୁ ବନ୍ଦ କରିଦେବ । ନିଶ୍ଚିତ ତ?</string>
-  <string name="nav_item_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
-  <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
+    <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
   <string name="search_redirect_from">%s ରୁ ଲେଉଟିଆସିଛି</string>
   <string name="menu_page_show_tabs">ଟ୍ୟାବସବୁ ଦେଖାନ୍ତୁ</string>
   <string name="menu_page_other_languages">ଭାଷା ବଦଳାଇବେ</string>
@@ -55,8 +54,7 @@
   <string name="edit_section_captcha_hint">ଉପର ଶବ୍ଦ ଦେଖି ଆଉଥରେ ଭରନ୍ତୁ</string>
   <string name="title_captcha">CAPTCHA ଭରନ୍ତୁ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ଆଉଥରେ ଭରିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ</string>
-  <string name="edit_saved_page_refresh">ଏହି ସାଇତା ପୃଷ୍ଠାଟି ହୁଏତ ପୁରୁଣା ଏବଂ ସମ୍ପାଦନା ସଚଳ କରିବା ପାଇଁ ରିଫ୍ରେସ କରିବାକୁ ପଡ଼ିବ । ଏହି ପୃଷ୍ଠାଟିକୁ ରିଫ୍ରେସ କରିବେ?</string>
-  <string name="nav_item_login">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
+    <string name="nav_item_login">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
   <string name="login_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="login_password_hint">ପାସୱାର୍ଡ଼</string>
   <string name="menu_login">ଲଗଇନ</string>
@@ -155,8 +153,7 @@
   <string name="menu_feed_card_dismissed">ଆପଣଙ୍କ କାର୍ଡ ଲୁଚାଗଲା</string>
   <string name="feed_featured_image_share_subject">ଉଇକିମିଡିଆ କମନ୍ସ ରୁ ବଛା ଛବି</string>
   <string name="feed">ଅଧିକ ଦେଖନ୍ତୁ</string>
-  <string name="view_card_footer_button">ଅଧିକା ଦେଖନ୍ତୁ</string>
-  <string name="most_read_list_card_title">ଅଧିକ ବ୍ୟବହୃତ</string>
+    <string name="most_read_list_card_title">ଅଧିକ ବ୍ୟବହୃତ</string>
   <string name="view_static_card_icon_content_description">କାର୍ଡ ଆଇକନ</string>
   <string name="view_card_news_title">ଖବରରେ</string>
 </resources>
