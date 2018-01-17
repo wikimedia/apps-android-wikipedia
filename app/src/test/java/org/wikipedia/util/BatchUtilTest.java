@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.test.TestRunner;
 import org.wikipedia.testlib.TestLatch;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.List;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-@RunWith(TestRunner.class) public class BatchUtilTest {
+@RunWith(RobolectricTestRunner.class) public class BatchUtilTest {
     private ArrayList<PageTitle> titles;
     private static final int TOTAL = 120;
 

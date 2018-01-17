@@ -1,20 +1,18 @@
 package org.wikipedia.language;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.test.TestRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class LangLinksActivityTest{
 
     @Test public void testAddChineseEntriesForTraditionalChinese() throws Throwable {

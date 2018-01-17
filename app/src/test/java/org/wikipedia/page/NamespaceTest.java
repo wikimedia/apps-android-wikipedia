@@ -4,8 +4,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.test.TestRunner;
 
 import java.util.Locale;
 
@@ -18,7 +18,7 @@ import static org.wikipedia.page.Namespace.MEDIA;
 import static org.wikipedia.page.Namespace.SPECIAL;
 import static org.wikipedia.page.Namespace.TALK;
 
-@RunWith(TestRunner.class) public class NamespaceTest {
+@RunWith(RobolectricTestRunner.class) public class NamespaceTest {
     private static Locale PREV_DEFAULT_LOCALE;
 
     @BeforeClass public static void setUp() {

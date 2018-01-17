@@ -9,10 +9,10 @@ import com.google.gson.annotations.SerializedName;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.Constants;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
-import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertThat;
 import static org.wikipedia.json.GsonMarshaller.marshal;
 import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class RequiredFieldsCheckOnReadTypeAdapterFactoryTest {
     private final Gson gson = GsonUtil.getDefaultGsonBuilder().serializeNulls().create();
 

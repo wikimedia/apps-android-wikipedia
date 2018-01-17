@@ -5,8 +5,8 @@ import android.net.Uri;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.feed.mostread.MostReadArticlesTest;
-import org.wikipedia.test.TestRunner;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 @SuppressWarnings("checkstyle:magicnumber")
 public class RbPageSummaryTest {
     private List<RbPageSummary> subjects;

@@ -2,14 +2,14 @@ package org.wikipedia.media;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.TestRunner;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.wikipedia.Constants.PREFERRED_THUMB_SIZE;
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class ImageUrlTest {
     private String url1024 = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Istanbul_Airport_Turkish-Airlines_2013-11-18.JPG/1024px-Istanbul_Airport_Turkish-Airlines_2013-11-18.JPG";
     private String url320 = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Istanbul_Airport_Turkish-Airlines_2013-11-18.JPG/320px-Istanbul_Airport_Turkish-Airlines_2013-11-18.JPG";

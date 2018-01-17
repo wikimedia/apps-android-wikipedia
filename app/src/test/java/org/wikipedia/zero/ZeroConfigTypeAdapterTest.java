@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.TestFileUtil;
-import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
 @SuppressWarnings("checkstyle:magicnumber")
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class ZeroConfigTypeAdapterTest {
     private static final int CYAN = -16711681;
     private static final int WHITE = -1;

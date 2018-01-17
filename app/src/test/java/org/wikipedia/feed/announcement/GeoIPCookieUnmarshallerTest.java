@@ -2,14 +2,14 @@ package org.wikipedia.feed.announcement;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.TestRunner;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class GeoIPCookieUnmarshallerTest {
 
     private static final double LATITUDE = 37.33;

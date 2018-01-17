@@ -2,12 +2,12 @@ package org.wikipedia.dataclient.okhttp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.TestRunner;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(TestRunner.class) public class CacheControlUtilTest {
+@RunWith(RobolectricTestRunner.class) public class CacheControlUtilTest {
     @Test public void testReplaceMaxStale() {
         assertThat(CacheControlUtil.replaceMaxStale("no-cache, max-stale=1, max-age=2, max-stale=3",
                 10), is("no-cache, max-age=2, max-stale=10"));

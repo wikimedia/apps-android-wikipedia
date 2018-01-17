@@ -2,12 +2,12 @@ package org.wikipedia.page;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.TestRunner;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(TestRunner.class) public class SectionTest {
+@RunWith(RobolectricTestRunner.class) public class SectionTest {
     @Test public void testSectionLead() {
         // Section 0 is the lead
         Section section = new Section(0, 0, "Heading", "Heading", "Content");

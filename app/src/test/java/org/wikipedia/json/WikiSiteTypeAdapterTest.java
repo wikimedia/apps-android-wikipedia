@@ -2,8 +2,8 @@ package org.wikipedia.json;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.wikipedia.json.GsonMarshaller.marshal;
 import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
-@RunWith(TestRunner.class) public class WikiSiteTypeAdapterTest {
+@RunWith(RobolectricTestRunner.class) public class WikiSiteTypeAdapterTest {
     @Test public void testWriteRead() {
         WikiSite wiki = WikiSite.forLanguageCode("test");
         assertThat(unmarshal(WikiSite.class, marshal(wiki)), is(wiki));

@@ -2,10 +2,10 @@ package org.wikipedia.search;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.test.TestRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-@RunWith(TestRunner.class) public class SearchResultsFilterTest {
+@RunWith(RobolectricTestRunner.class) public class SearchResultsFilterTest {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("test");
 
     @Test public void testFilterNoResults() {

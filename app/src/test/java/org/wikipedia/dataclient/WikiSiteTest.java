@@ -2,17 +2,17 @@ package org.wikipedia.dataclient;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.TestParcelUtil;
-import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
-@RunWith(TestRunner.class) public class WikiSiteTest {
+@RunWith(RobolectricTestRunner.class) public class WikiSiteTest {
     @Test public void testSupportedAuthority() {
         assertThat(WikiSite.supportedAuthority("fr.wikipedia.org"), is(true));
         assertThat(WikiSite.supportedAuthority("fr.m.wikipedia.org"), is(true));

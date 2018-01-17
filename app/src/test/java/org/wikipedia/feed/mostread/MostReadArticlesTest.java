@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.TestFileUtil;
-import org.wikipedia.test.TestRunner;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,7 +17,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 @SuppressWarnings("checkstyle:magicnumber")
 public class MostReadArticlesTest {
     @NonNull public static MostReadArticles unmarshal(@NonNull String filename) throws Throwable {

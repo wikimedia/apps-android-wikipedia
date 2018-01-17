@@ -3,13 +3,14 @@ package org.wikipedia.test;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.pageimages.PageImage;
 
-@RunWith(TestRunner.class) public class ParcelableTest {
+@RunWith(RobolectricTestRunner.class) public class ParcelableTest {
     @Test public void testPageTitle() throws Throwable {
         PageTitle title = new PageTitle(null, "Test", WikiSite.forLanguageCode("en"));
         TestParcelUtil.test(title);

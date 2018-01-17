@@ -9,7 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.TestRunner;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
@@ -37,7 +37,7 @@ import static org.junit.Assert.fail;
  *
  * TODO: check content_license_html is valid HTML
  */
-@RunWith(TestRunner.class) @SuppressWarnings("checkstyle:magicnumber")
+@RunWith(RobolectricTestRunner.class) @SuppressWarnings("checkstyle:magicnumber")
 public class TranslationTests {
     private static File RES_BASE = new File("src/main/res/");
 
