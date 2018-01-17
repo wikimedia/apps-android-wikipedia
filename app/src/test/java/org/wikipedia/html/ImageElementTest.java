@@ -2,7 +2,7 @@ package org.wikipedia.html;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.TestRunner;
+import org.robolectric.RobolectricTestRunner;
 
 import java.util.Collections;
 import java.util.Map;
@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
-@RunWith(TestRunner.class) public class ImageElementTest {
+@RunWith(RobolectricTestRunner.class) public class ImageElementTest {
     @Test public void testSrcDefaultEmptySrcSet() {
         String src = "src";
         @SuppressWarnings("unchecked") Map<PixelDensityDescriptor, String> srcSet = Collections.emptyMap();

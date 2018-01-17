@@ -2,15 +2,15 @@ package org.wikipedia.dataclient.okhttp.cache;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.Constants;
-import org.wikipedia.test.TestRunner;
 
 import okhttp3.Request;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(TestRunner.class) public class CacheDelegateStrategyTest {
+@RunWith(RobolectricTestRunner.class) public class CacheDelegateStrategyTest {
     @Test public void testIsCacheableTrue() {
         Request req = new Request.Builder()
                 .url(Constants.WIKIPEDIA_URL)

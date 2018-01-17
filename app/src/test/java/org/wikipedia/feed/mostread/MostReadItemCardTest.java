@@ -3,10 +3,10 @@ package org.wikipedia.feed.mostread;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.TestFileUtil;
-import org.wikipedia.test.TestRunner;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
 
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class MostReadItemCardTest {
     private static WikiSite TEST = WikiSite.forLanguageCode("test");
     private MostReadArticles content;

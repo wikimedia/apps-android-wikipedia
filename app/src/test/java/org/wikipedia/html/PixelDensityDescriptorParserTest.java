@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.TestRunner;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(TestRunner.class) public class PixelDensityDescriptorParserTest {
+@RunWith(RobolectricTestRunner.class) public class PixelDensityDescriptorParserTest {
     @NonNull private final PixelDensityDescriptorParser subject = new PixelDensityDescriptorParser();
 
     @Test(expected = ParseException.class) public void testParseEmpty() {

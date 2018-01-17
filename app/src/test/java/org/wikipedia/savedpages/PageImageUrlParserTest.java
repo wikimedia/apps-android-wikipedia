@@ -4,11 +4,11 @@ import android.support.annotation.NonNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.PixelDensityDescriptorParser;
 import org.wikipedia.page.Section;
-import org.wikipedia.test.TestRunner;
 
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +20,7 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RunWith(TestRunner.class) public class PageImageUrlParserTest {
+@RunWith(RobolectricTestRunner.class) public class PageImageUrlParserTest {
     @NonNull private final PageImageUrlParser subject = new PageImageUrlParser(new ImageTagParser(),
             new PixelDensityDescriptorParser());
 

@@ -5,10 +5,10 @@ import android.support.annotation.NonNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
 import org.wikipedia.dataclient.page.PageClient;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.test.TestRunner;
 import org.wikipedia.testlib.TestLatch;
 
 import okhttp3.CacheControl;
@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
 import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
-@RunWith(TestRunner.class) public class MwMobileViewPageLeadTest extends BasePageLeadTest {
+@RunWith(RobolectricTestRunner.class) public class MwMobileViewPageLeadTest extends BasePageLeadTest {
     private PageClient subject;
 
     @Before public void setUp() throws Throwable {

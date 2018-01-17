@@ -2,15 +2,15 @@ package org.wikipedia.dataclient.okhttp.util;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.test.TestRunner;
 
 import okhttp3.HttpUrl;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@RunWith(TestRunner.class) public class HttpUrlUtilTest {
+@RunWith(RobolectricTestRunner.class) public class HttpUrlUtilTest {
     @Test public void testIsRestBaseProd() {
         HttpUrl url = HttpUrl.parse("https://test.wikipedia.org/api/rest_v1/");
         assertThat(HttpUrlUtil.isRestBase(url), is(true));

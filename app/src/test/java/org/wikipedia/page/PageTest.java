@@ -3,9 +3,9 @@ package org.wikipedia.page;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.BasePageLeadTest;
-import org.wikipedia.test.TestRunner;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /** Unit tests for Page. */
-@RunWith(TestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 public class PageTest {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 

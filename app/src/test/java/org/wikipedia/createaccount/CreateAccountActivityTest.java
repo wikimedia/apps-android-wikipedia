@@ -2,14 +2,14 @@ package org.wikipedia.createaccount;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.TestRunner;
+import org.robolectric.RobolectricTestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.wikipedia.createaccount.CreateAccountActivity.ValidateResult;
 import static org.wikipedia.createaccount.CreateAccountActivity.validateInput;
 
-@RunWith(TestRunner.class) public class CreateAccountActivityTest {
+@RunWith(RobolectricTestRunner.class) public class CreateAccountActivityTest {
 
     @Test public void testValidateInputSuccess() throws Throwable {
         assertThat(validateInput("user", "password", "password",  ""),

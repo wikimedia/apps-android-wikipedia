@@ -2,9 +2,9 @@ package org.wikipedia.page;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.staticdata.MainPageNameData;
-import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RunWith(TestRunner.class) public class PageTitleTest {
+@RunWith(RobolectricTestRunner.class) public class PageTitleTest {
     @Test public void testEquals() throws Throwable {
         assertThat(new PageTitle(null, "India", WikiSite.forLanguageCode("en")).equals(new PageTitle(null, "India", WikiSite.forLanguageCode("en"))), is(true));
         assertThat(new PageTitle("Talk", "India",  WikiSite.forLanguageCode("en")).equals(new PageTitle("Talk", "India", WikiSite.forLanguageCode("en"))), is(true));

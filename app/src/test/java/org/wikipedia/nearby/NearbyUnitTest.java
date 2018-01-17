@@ -7,8 +7,8 @@ import android.support.annotation.StringRes;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
-import org.wikipedia.test.TestRunner;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.is;
 /**
  * Unit tests for Nearby related classes. Probably should refactor this into a model class.
  */
-@SuppressWarnings("checkstyle:magicnumber") @RunWith(TestRunner.class)
+@SuppressWarnings("checkstyle:magicnumber") @RunWith(RobolectricTestRunner.class)
 public class NearbyUnitTest {
     /** dist(origin, point a) */
     private static final int A = 111_319;
