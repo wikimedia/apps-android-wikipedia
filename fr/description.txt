@@ -2,6 +2,10 @@ Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie
 
 Fonctionnalités :
 
+Explorez les flux - Le nouveau flux "Explorer" propose des recommandations et une mise à jour constante du contenu Wikipédia directement sur l'écran d'accueil, y compris des articles sur les tendances, des actualités, des suggestions de lecture et plus encore.
+
+Traduit avec www.DeepL.com/Translator
+
 Recherche par la voix intégrée - Trouvez facilement ce que vous cherchez avec une grande barre de recherche en haut de l'application, incluant l'activation de la recherche vocale sur votre appareil.
 
 Proche - Apprenez plus sur ce qu'il y a autour de vous en sélectionnant des points sur une carte interactive pour voir les articles associés à votre position actuelle et proche.
@@ -34,5 +38,4 @@ Conditions d'utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
 À propos de la Fondation Wikimédia
 
-La Fondation Wikimédia est une organisation non-lucrative qui supporte Wikipédia et les autres projets Wikimédia. La Fondation Wikimédia est une organisation de bienfaisance dont les fonds sont basés principalement sur les dons. Pour plus d'informations, veuillez visiter notre site web : https://wikimediafoundation.org/wiki/Home.
-
+La Fondation Wikimédia est une organisation non-lucrative qui supporte Wikipédia et les autres projets Wikimédia. La Fondation Wikimédia est une organisation de bienfaisance dont les fonds sont basés principalement sur les dons. Pour plus d'informations, veuillez visiter notre site web : https://wikimediafound
