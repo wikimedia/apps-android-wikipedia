@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +45,13 @@ public class RandomFragment extends Fragment {
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private boolean saveButtonState;
+    private SparseBooleanArray loadSatusMap = new SparseBooleanArray();
     private ViewPagerListener viewPagerListener = new ViewPagerListener();
     @Nullable private RandomizerFunnel funnel;
+
+    interface Callback {
+        void onChildLoaded();
+    }
 
     @NonNull
     public static RandomFragment newInstance() {
@@ -65,6 +71,7 @@ public class RandomFragment extends Fragment {
         randomPager.setPageTransformer(true, new RandomPagerTransformer());
         randomPager.addOnPageChangeListener(viewPagerListener);
 
+        enableSaveShareButton(false);
         updateBackButton(0);
         if (savedInstanceState != null && randomPager.getCurrentItem() == 0 && getTopTitle() != null) {
             updateSaveShareButton(getTopTitle());
@@ -161,6 +168,12 @@ public class RandomFragment extends Fragment {
         });
     }
 
+    @SuppressWarnings("magicnumber")
+    public void enableSaveShareButton(boolean enable) {
+        saveButton.setClickable(enable);
+        saveButton.setAlpha(enable ? 1f : 0.5f);
+    }
+
     @Nullable private PageTitle getTopTitle() {
         FragmentManager fm = getFragmentManager();
         for (Fragment f : fm.getFragments()) {
@@ -172,7 +185,8 @@ public class RandomFragment extends Fragment {
         return null;
     }
 
-    private class RandomItemAdapter extends FragmentPagerAdapter {
+    private class RandomItemAdapter extends FragmentPagerAdapter{
+
         RandomItemAdapter(AppCompatActivity activity) {
             super(activity.getSupportFragmentManager());
         }
@@ -184,8 +198,17 @@ public class RandomFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
+
+            loadSatusMap.append(position, false);
             RandomItemFragment f = RandomItemFragment.newInstance();
             f.setPagerPosition(position);
+            f.setCallback(() -> {
+                if (randomPager != null && randomPager.getCurrentItem() == position) {
+                    enableSaveShareButton(f.isLoadComplete());
+                }
+                loadSatusMap.append(position, f.isLoadComplete());
+            });
+
             return f;
         }
     }
@@ -247,6 +270,8 @@ public class RandomFragment extends Fragment {
             }
             nextPageSelectedAutomatic = false;
             prevPosition = position;
+
+            enableSaveShareButton(loadSatusMap.get(position));
         }
 
         @Override

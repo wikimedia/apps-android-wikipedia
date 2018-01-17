@@ -39,10 +39,16 @@ public class RandomItemFragment extends Fragment {
     @Nullable private RbPageSummary summary;
     private int pagerPosition = -1;
     private View view;
+    private boolean loadComplete;
+    private RandomFragment.Callback callback;
 
     @NonNull
     public static RandomItemFragment newInstance() {
         return new RandomItemFragment();
+    }
+
+    public void setCallback(RandomFragment.Callback cb) {
+        callback = cb;
     }
 
     public void setPagerPosition(int position) {
@@ -51,6 +57,10 @@ public class RandomItemFragment extends Fragment {
 
     public int getPagerPosition() {
         return pagerPosition;
+    }
+
+    public boolean isLoadComplete() {
+        return loadComplete;
     }
 
     @Override
@@ -80,10 +90,13 @@ public class RandomItemFragment extends Fragment {
     }
 
     private void getRandomPage() {
-
         new RandomSummaryClient().request(WikipediaApp.getInstance().getWikiSite(), new RandomSummaryClient.Callback() {
             @Override
             public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary) {
+
+                loadComplete = true;
+                callback.onChildLoaded();
+
                 if (!isAdded()) {
                     return;
                 }
