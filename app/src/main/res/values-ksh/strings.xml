@@ -12,7 +12,7 @@
   <string name="menu_clear_all_history">Leß met de belohrte Sigge läddesch maache</string>
   <string name="dialog_title_clear_history">De Verjangeheid vum Bläddere fott schmiiße</string>
   <string name="dialog_message_clear_history">Dat schmiiß all de faßjehalldde Verjangeheid vum Brause fott un mäht alle Rigger un Ongerfinster zoh. Wells De dat verhaftesch han?</string>
-    <string name="share_via">Bikanntmaache övver</string>
+  <string name="share_via">Bikanntmaache övver</string>
   <string name="search_redirect_from">Ömjeleijt vun %s</string>
   <string name="menu_page_show_tabs">Rigger aanzeije</string>
   <string name="menu_page_other_languages">Anndere Schprohch</string>
@@ -53,7 +53,7 @@
   <string name="edit_section_captcha_hint">Norr_ens di Wööter vun bovve</string>
   <string name="title_captcha">Jivv dat KAPTSCHA en</string>
   <string name="edit_section_captcha_reload">Kleck KAPTSCHA zo neu Lahde</string>
-    <string name="nav_item_login">Enlogge op de Wikkipehdija</string>
+  <string name="nav_item_login">Enlogge op de Wikkipehdija</string>
   <string name="login_username_hint">Metmaacher_Nahme</string>
   <string name="login_password_hint">Et Paßwoot</string>
   <string name="menu_login">Enlogge</string>
@@ -191,7 +191,7 @@
   <string name="reading_list_save_to">Donn op ming Leß zom Lässe</string>
   <string name="reading_list_create_new">Maach en neue Leß op</string>
   <string name="reading_list_added_to_named">Op di Leß %s jedonn.</string>
-    <string name="reading_list_already_exists">Dat heh es ald en dä Leß.</string>
+  <string name="reading_list_already_exists">Dat heh es ald en dä Leß.</string>
   <string name="reading_list_added_view_button">De Leß belohre</string>
   <string name="reading_list_sort">Zottehre</string>
   <string name="reading_list_sort_by_name">Nohm Nahme</string>
@@ -218,7 +218,7 @@
   <string name="view_featured_image_card_title">Et Beld vum Daach</string>
   <string name="view_featured_image_card_download">Eronger lahde</string>
   <string name="feed">Ußfochsche</string>
-    <string name="view_card_news_title">En de Präß</string>
+  <string name="view_card_news_title">En de Präß</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">jäßtere</item>
     <item quantity="other">vör %d Dähsch</item>

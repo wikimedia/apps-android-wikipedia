@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">Ieu bakal mupus sakumna jujutan sungsian anjeun, sarta nutup tab nu kiwari kabuka kénéh. Yakin ieu téh?</string>
   <string name="dialog_message_clear_history_yes">Nya</string>
   <string name="dialog_message_clear_history_no">Teu</string>
-    <string name="share_via">Bagikeun liwat</string>
+  <string name="share_via">Bagikeun liwat</string>
   <string name="search_redirect_from">Dipindahkeun ti %s</string>
   <string name="menu_page_show_tabs">Témbongkeun tab</string>
   <string name="menu_page_other_languages">Robah basa</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">Ulang deui kecap ti luhur</string>
   <string name="title_captcha">Asupkeun CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toél CAPTCHA pikeun muat ulang</string>
-    <string name="nav_item_login">Asup log ka Wikipédia</string>
+  <string name="nav_item_login">Asup log ka Wikipédia</string>
   <string name="login_username_hint">Sandiasma</string>
   <string name="login_password_hint">Kecap sandi</string>
   <string name="login_2fa_hint">Kodeu auténtikasi dua faktor</string>
@@ -256,7 +256,7 @@
   <string name="error_page_does_not_exist">Ieu kaca geus euweuh</string>
   <string name="view_wiki_error_message_offline">Teu bisa nyambungkeun kana internét</string>
   <string name="reference_title">Rujukan %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">Pamoékan gambar (dina téma Poék)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Pamoékan gambar (dina téma Poék)</string>
   <string name="preference_title_prefer_offline_content">Resep kénéh kontén oflén</string>
   <string name="preference_summary_prefer_offline_content">Ngirit pamakéan data ku cara muat artikel nu sayaga sacara oflén tinimbang muat vérsi anyar artikel</string>
   <string name="preference_title_enable_offline_library">Hurungkeun Pabukon Oflén</string>
@@ -278,7 +278,7 @@
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Caang</string>
   <string name="color_theme_dark">Poék</string>
-    <string name="preference_summary_color_theme">Alihkeun maké téma aplikasi nu warna poék</string>
+  <string name="preference_summary_color_theme">Alihkeun maké téma aplikasi nu warna poék</string>
   <string name="text_size_increase">Gedéan ukuran téks</string>
   <string name="text_size_decrease">Leutikan ukuran téks</string>
   <string name="text_size_percent_default">%s (Baku)</string>
@@ -289,7 +289,7 @@
   <string name="reading_list_title_exists">Daptar bacaan \"%s\" geus aya.</string>
   <string name="reading_list_entry_empty">Pék asupan judul.</string>
   <string name="reading_list_added_to_named">Ditambahkeun kana %s.</string>
-    <string name="reading_list_already_exists">Ieu artikel geus aya na daptar tadi.</string>
+  <string name="reading_list_already_exists">Ieu artikel geus aya na daptar tadi.</string>
   <string name="reading_list_added_view_button">Tempo daptar</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
@@ -374,7 +374,7 @@
   <string name="menu_feed_overflow_label">Pilihan lianna</string>
   <string name="feed_featured_image_share_subject">Gambar petingan tina Wikimedia Commons</string>
   <string name="feed">Langlang</string>
-    <string name="most_read_list_card_title">Keur ngetrén</string>
+  <string name="most_read_list_card_title">Keur ngetrén</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Dina warta</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -387,7 +387,7 @@
   <string name="view_featured_article_card_title">Artikel petingan</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
-    <string name="feed_configure_activity_title" fuzzy="true">Konfigurasikeun kartu Langlangan</string>
+  <string name="feed_configure_activity_title" fuzzy="true">Konfigurasikeun kartu Langlangan</string>
   <string name="feed_configure_menu_reset" fuzzy="true">Balikkeun kana setélan buhun</string>
   <string name="description_edit_text_hint">\nPedaran judul</string>
   <string name="description_edit_save">Medalkeun</string>
@@ -430,18 +430,18 @@
   <string name="offline_compilation_download_device_offline">Taya konéksi internét. Pastikeun anjeun keur onlén, tuluy cobaan deui.</string>
   <string name="offline_read_permission_rationale">Idin pikeun ngaksés panyimpenan dina parangkat anjeun diperlukeun pikeun langlangan oflén.</string>
   <string name="offline_read_permission_error">Idin teu dibéré pikeun maca tina panyimpenan parangkat.</string>
-    <string name="offline_my_compilations">Kokola pabukon oflén kuring</string>
+  <string name="offline_my_compilations">Kokola pabukon oflén kuring</string>
   <string name="offline_compilations_title">Pabukon Oflén</string>
   <string name="offline_compilations_search_by_name">Paluruh pakét artikel dumasar ngaran</string>
   <string name="offline_compilations_found_count">Dina Pabukon Oflén kuring (%d)</string>
   <string name="offline_compilations_add">Tambah kana Pabukon Oflén kuring</string>
   <string name="remote_compilations_title">Pabukon Oflén</string>
   <string name="remote_compilations_description">Ku Pabukon Oflén, anjeun ayeuna bisa ngundeur pakét artikel jang bacaeun mun anjeun keur teu boga konéksi internét.</string>
-    <string name="offline_compilation_detail_button_remove">Pupus</string>
+  <string name="offline_compilation_detail_button_remove">Pupus</string>
   <string name="remote_compilation_download">Undeur</string>
-    <string name="storage_used_by_compilations">dipaké ku Pabukon Wikipédia</string>
+  <string name="storage_used_by_compilations">dipaké ku Pabukon Wikipédia</string>
   <string name="storage_other_apps">Aplikasi lianna</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 menit deui</item>
     <item quantity="other">%d menit deui</item>
   </plurals>
@@ -454,12 +454,12 @@
   <string name="compilation_remove_confirm">Anjeun yakin rék mupus ieu tina Pabukon Oflén?</string>
   <string name="offline_library_title">Pabukon Oflén</string>
   <string name="offline_library_empty_title">Taya nanaon di Pabukon Oflén anjeun mah</string>
-    <string name="offline_library_empty_description_sideload">“Pakét artikel” di Pabukon oflén anjeun mangrupa kumpulan artikel nu geus dibuntel saméméhna pikeun panyimpenan nu babari dipakéna dina pakakas anjeun, sangkan anjeun bisa terus maca nalika oflén.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Teuleuman leuwih jero&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">“Pakét artikel” di Pabukon oflén anjeun mangrupa kumpulan artikel nu geus dibuntel saméméhna pikeun panyimpenan nu babari dipakéna dina pakakas anjeun, sangkan anjeun bisa terus maca nalika oflén.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Teuleuman leuwih jero&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">Pakét artikel di pabukon anjeun tetep nyangkaruk jang bacaeun mangsa keur oflén. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Teuleuman leuwih jero&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Hayang ngahémat pamakéan data? Pilih opsi “Pidangkeun kontén oflén heula” di Pangaturan pikeun némbongkeun artikel vérsi oflén nu sayaga heula, malah mah keur anjeun mibanda sambungan ogé. &lt;a href=\"#settings\"&gt;Miang ka Pangaturan&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Paluruh Pabukon Oflén</string>
   <string name="offline_library_search_results_state">Hasil pamaluruhan tina pabukon oflén anjeun</string>
-    <string name="offline_library_onboarding_button_done">Anggeus</string>
+  <string name="offline_library_onboarding_button_done">Anggeus</string>
   <string name="offline_library_onboarding_build_library_title">Wangun Pabukon Oflén anjeun</string>
   <string name="offline_library_onboarding_build_library_subtitle">Undeur pakét artikel Wikipédia kiwari pikeun aksés bébas data engké.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Maca tanpa kaganggu</string>
@@ -472,17 +472,18 @@
   <string name="onboarding_get_started">Mitembeyan</string>
   <string name="onboarding_explore_title">Cara anyar pikeun ngalanglang</string>
   <string name="onboarding_explore_text" fuzzy="true">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
-    <string name="onboarding_analytics_title">Kirim data anonim</string>
-    <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
+  <string name="onboarding_analytics_title">Kirim data anonim</string>
+  <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
   <string name="onboarding_create_account_sync">Singkronkeun daptar bacaan anjeun</string>
   <string name="onboarding_create_account_contributions">Catet kontribusi anjeun</string>
   <string name="onboarding_create_account_preferences">Simpen préferénsi anjeun</string>
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>
   <string name="app_shortcuts_search">Paluruh</string>
-    <string name="top_on_this_day">Keur trén dina %1$s</string>
+  <string name="top_on_this_day">Keur trén dina %1$s</string>
   <string name="on_this_day_card_title">Dina poé ieu</string>
   <string name="more_events_text" fuzzy="true">Kajadian sajarah lianna dina poé ieu</string>
   <string name="events_count_text" fuzzy="true">%1$s kajadian ti %2$s - %3$d</string>
   <string name="this_year">Taun ieu</string>
+  <string name="diff_years">{{PLURAL|one=Taun kamari|%d ka tukang}</string>
 </resources>

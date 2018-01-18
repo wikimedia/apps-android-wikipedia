@@ -12,7 +12,7 @@
   <string name="menu_clear_all_history">گئچمیشی سیل</string>
   <string name="dialog_title_clear_history">آختاریش گئچمیشینی سیل</string>
   <string name="dialog_message_clear_history">بۇ براوزرینیزین گئچمیشینی سیلیب، بۆتون آچیق تبلری باغلایاجاق. آرخایین‌می‌سینیز؟</string>
-    <string name="share_via">بۇنونلا پایلاش...</string>
+  <string name="share_via">بۇنونلا پایلاش...</string>
   <string name="search_redirect_from">%s -دن يوْل‌لاندیریلمیش</string>
   <string name="menu_page_show_tabs">تبلری گؤستر</string>
   <string name="menu_page_other_languages">دیلی دَییشدیر</string>
@@ -149,4 +149,6 @@
   <string name="reading_lists_onboarding_example3" fuzzy="true">فضا!</string>
   <string name="reading_lists_onboarding_got_it">آنلادیم</string>
   <string name="user_option_sync_label">ترجیحلر</string>
+  <string name="view_featured_article_card_title">سئچیلمیش مقاله</string>
+  <string name="view_featured_article_footer_save_button_label">ذخیره ائت</string>
 </resources>

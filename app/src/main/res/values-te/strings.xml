@@ -12,7 +12,7 @@
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
   <string name="dialog_title_clear_history" fuzzy="true">విహరణ చరిత్రను తుడిచివెయ్యాలా?</string>
   <string name="dialog_message_clear_history" fuzzy="true">మీరు నిజంగానే చరిత్రనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
-    <string name="share_via">ఈ విధానం ద్వారా పంచుకోండి</string>
+  <string name="share_via">ఈ విధానం ద్వారా పంచుకోండి</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను ఎంచుకోండి</string>
   <string name="menu_page_find_in_page">పుటలో వెతకండి</string>
@@ -50,7 +50,7 @@
   <string name="edit_section_captcha_hint">పైన నుండి పదాలు పునరావృతం చేయండి</string>
   <string name="title_captcha">కాప్చాని నమొదు చెయ్యండి</string>
   <string name="edit_section_captcha_reload">మళ్లీ లోడ్ చేయడానికి కాప్చాని నొక్కండి</string>
-    <string name="nav_item_login">వికీపీడియాలోకి లాగినవండి</string>
+  <string name="nav_item_login">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="menu_login">లాగినవండి</string>
@@ -197,7 +197,7 @@
   <string name="reading_list_no_description">వివరణ లేదు…</string>
   <string name="user_option_sync_label">అభిరుచులు</string>
   <string name="menu_feed_overflow_label">మరిన్ని ఎంపికలు</string>
-    <string name="view_card_news_title">వార్తల్లో</string>
+  <string name="view_card_news_title">వార్తల్లో</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">నిన్న</item>
     <item quantity="other">%d రోజుల క్రితం</item>

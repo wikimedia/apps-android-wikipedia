@@ -18,7 +18,7 @@
   <string name="history_item_delete_undo">पहिले नियर करीं</string>
   <string name="dialog_title_clear_history">ब्राउजिंग इतिहास साफ करीं</string>
   <string name="dialog_message_clear_history">ई आपके सगरी ब्राउजिंग इतिहास साफ करी, आ कौनों वर्तमान खुलल टैब भी बंद कर दी। निश्चित बानी?</string>
-    <string name="share_via">साझा करीं</string>
+  <string name="share_via">साझा करीं</string>
   <string name="search_redirect_from">%s से अनुप्रेषित</string>
   <string name="menu_page_show_tabs">टैब देखावल जाय</string>
   <string name="menu_page_other_languages">भासा बदलीं</string>
@@ -66,7 +66,7 @@
   <string name="edit_section_captcha_hint">ऊपर के शब्द के दोबारा डालीं</string>
   <string name="title_captcha">कैप्चा डालीं</string>
   <string name="edit_section_captcha_reload">कैप्चा के दोबारा लोड करे खातिर टैप करीं</string>
-    <string name="nav_item_login">विकिपीडिया पर खाता में प्रवेश करीं</string>
+  <string name="nav_item_login">विकिपीडिया पर खाता में प्रवेश करीं</string>
   <string name="login_username_hint">प्रयोगकर्तानाँव</string>
   <string name="login_password_hint">गुप्तशब्द (पासवर्ड)</string>
   <string name="login_2fa_hint">टू-फैक्टर ऑथेन्टिकेशन कोड</string>
@@ -196,10 +196,10 @@
   <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
   <string name="gallery_uploader_unknown">अनजान अपलोडर</string>
   <string name="remote_compilations_description" fuzzy="true">ऑफलाइन कंपाइलेशन, लेख सभ के अइसन बंडल हवे जे एगो सिंगल फाइल के रूप में राउर मोबाइलयंत्र में डाउनलोड कइल जा सके ला, जवना से कि आप ऑफलाइन रहले पर भी ब्राउजिंग क सकीं।</string>
-    <string name="offline_compilation_detail_button_remove">हटाईं</string>
+  <string name="offline_compilation_detail_button_remove">हटाईं</string>
   <string name="remote_compilation_download">डाउनलोड</string>
-    <string name="storage_used_by_compilations" fuzzy="true">विकिपीडिया द्वारा इस्तेमाल में</string>
+  <string name="storage_used_by_compilations" fuzzy="true">विकिपीडिया द्वारा इस्तेमाल में</string>
   <string name="storage_other_apps">अन्य एप्लीकेशन</string>
-    <string name="onboarding_create_account_contributions">आपन योगदान के निगरानी रखीं</string>
+  <string name="onboarding_create_account_contributions">आपन योगदान के निगरानी रखीं</string>
   <string name="onboarding_create_account_preferences">आपन पसंदसेटिंग सहेजीं</string>
 </resources>

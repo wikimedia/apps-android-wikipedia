@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené karty. Jste si jisti?</string>
   <string name="dialog_message_clear_history_yes">Ano</string>
   <string name="dialog_message_clear_history_no">Ne</string>
-    <string name="share_via">Sdílet přes</string>
+  <string name="share_via">Sdílet přes</string>
   <string name="search_redirect_from">Přesměrováno z %s</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
   <string name="menu_page_other_languages">Změnit jazyk</string>
@@ -68,7 +68,7 @@
   <string name="edit_section_captcha_hint">Zopakujte výše uvedená slova</string>
   <string name="title_captcha">Zadejte captcha</string>
   <string name="edit_section_captcha_reload">Klepnutím načtete captcha znovu</string>
-    <string name="nav_item_login">Přihlásit se do Wikipedie</string>
+  <string name="nav_item_login">Přihlásit se do Wikipedie</string>
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="menu_login">Přihlásit se</string>
@@ -265,7 +265,7 @@
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>
   <string name="reading_list_added_to_named">Přidáno do %s.</string>
-    <string name="reading_list_already_exists">Tento článek už v tomto seznamu je.</string>
+  <string name="reading_list_already_exists">Tento článek už v tomto seznamu je.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
   <string name="reading_list_sort">Seřadit</string>
   <string name="reading_list_sort_by_name">Seřadit podle názvu</string>
@@ -313,7 +313,7 @@
   <string name="menu_feed_overflow_label">Více možností</string>
   <string name="feed_featured_image_share_subject">Dobrý obrázek z Wikimedia Commons</string>
   <string name="feed">Prozkoumat</string>
-    <string name="most_read_list_card_title">Populární</string>
+  <string name="most_read_list_card_title">Populární</string>
   <string name="view_static_card_icon_content_description">Ikona záložky</string>
   <string name="view_card_news_title">Ve zprávách</string>
   <plurals name="view_continue_reading_card_subtitle">

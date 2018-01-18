@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか？</string>
   <string name="dialog_message_clear_history_yes">はい</string>
   <string name="dialog_message_clear_history_no">いいえ</string>
-    <string name="share_via">共有する</string>
+  <string name="share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>
-    <string name="nav_item_login">ウィキペディアにログイン</string>
+  <string name="nav_item_login">ウィキペディアにログイン</string>
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
   <string name="login_2fa_hint">2段階認証コード</string>
@@ -262,7 +262,7 @@
   <string name="error_page_does_not_exist">このページは存在しません</string>
   <string name="view_wiki_error_message_offline">インターネットに接続できません</string>
   <string name="reference_title">%s 参照</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">(ダークモードの際に)画像を暗くする</string>
   <string name="preference_title_prefer_offline_content">オフラインコンテンツを優先</string>
   <string name="preference_summary_prefer_offline_content">常に最新バージョンの記事を読み込むのではなく、オフラインで利用できる記事を読み込んでデータ量を節約する</string>
   <string name="preference_title_enable_offline_library">オフラインライブラリを有効にする</string>
@@ -288,7 +288,7 @@
   <string name="color_theme_test_title">サンプルテキスト</string>
   <string name="color_theme_test_text">スライダーをドラッグして記事を読むときに使用するテキストのサイズを変更します。他のアプリでテキストサイズを設定するには、システムのテキストサイズを変更します。</string>
   <string name="preference_title_app_theme">アプリのテーマ</string>
-    <string name="preference_summary_color_theme">アプリの配色をダークモードにします</string>
+  <string name="preference_summary_color_theme">アプリの配色をダークモードにします</string>
   <string name="text_size_increase">テキストサイズを拡大します</string>
   <string name="text_size_decrease">テキストサイズを縮小します</string>
   <string name="text_size_percent_default">%s (既定)</string>
@@ -299,7 +299,7 @@
   <string name="reading_list_title_exists">\'\'%s\'\'という名前のあとで読むリストはすでにあります。</string>
   <string name="reading_list_entry_empty">タイトルを入力してください</string>
   <string name="reading_list_added_to_named">%s に追加しました</string>
-    <string name="reading_list_already_exists">この記事は既にリストにあります</string>
+  <string name="reading_list_already_exists">この記事は既にリストにあります</string>
   <string name="reading_list_added_view_button">リストを表示</string>
   <string name="format_reading_list_statistical_summary_singular">1件の記事、%1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d記事、%2$.2f MB</string>
@@ -373,9 +373,9 @@
   <string name="notification_thanks_title">感謝されました！</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; が &lt;strong&gt;%2$s&lt;/strong&gt; でのあなたの編集に感謝を示しました。</string>
   <string name="notification_channel_name">同期中</string>
-  <string name="notification_channel_description">同期の進行</string>
-  <string name="notification_syncing_title">記事%1$d件を同期中…</string>
-  <string name="notification_syncing_description">残り%1$d件の記事</string>
+  <string name="notification_channel_description" fuzzy="true">同期の進行</string>
+  <string name="notification_syncing_title" fuzzy="true">記事%1$d件を同期中…</string>
+  <string name="notification_syncing_description" fuzzy="true">残り%1$d件の記事</string>
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
   <string name="notification_syncing_cancel_button">中止</string>
@@ -395,7 +395,7 @@
   <string name="menu_feed_overflow_label">その他の操作</string>
   <string name="feed_featured_image_share_subject">ウィキメディア・コモンズの注目の画像</string>
   <string name="feed">探索する</string>
-    <string name="most_read_list_card_title">トレンド</string>
+  <string name="most_read_list_card_title">トレンド</string>
   <string name="view_static_card_icon_content_description">カードアイコン</string>
   <string name="view_card_news_title">新着情報</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -409,7 +409,7 @@
   <string name="view_featured_article_card_title">秀逸な記事</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_featured_article_footer_saved_button_label">保存しました</string>
-    <string name="feed_configure_activity_title">「探索する」カードのカスタマイズ</string>
+  <string name="feed_configure_activity_title">「探索する」カードのカスタマイズ</string>
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
   <string name="feed_configure_menu_select_all">すべて選択</string>
   <string name="feed_configure_menu_deselect_all">すべての選択を解除</string>
@@ -465,7 +465,7 @@
   <string name="offline_compilation_download_device_offline">インターネットに接続できません。オンラインに戻ったことを確認してから、もう一度お試しください。</string>
   <string name="offline_read_permission_rationale">オフラインブラウズには、端末のストレージにアクセスする権限が必要です。</string>
   <string name="offline_read_permission_error">デバイスストレージから読み取ることが許可されていません。</string>
-    <string name="offline_card_sideloading_text">オフラインライブラリの記事でウィキペディアをオフラインで閲覧しています。</string>
+  <string name="offline_card_sideloading_text">オフラインライブラリの記事でウィキペディアをオフラインで閲覧しています。</string>
   <string name="offline_my_compilations">オフラインライブラリを管理する</string>
   <string name="offline_compilations_title">オフラインライブラリ</string>
   <string name="offline_compilations_search_by_name">記事パックを名前で検索する</string>
@@ -473,11 +473,16 @@
   <string name="offline_compilations_add">マイオフラインライブラリに追加</string>
   <string name="remote_compilations_title">オフラインライブラリ</string>
   <string name="remote_compilations_description">オフラインライブラリを使用すると、インターネットに接続できないときに、記事のパックをダウンロードして読むことができます。</string>
-    <string name="offline_compilation_detail_button_remove">削除する</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2">ダウンロード • %s</string>
+  <string name="offline_compilation_detail_button_remove">削除する</string>
   <string name="remote_compilation_download">ダウンロード</string>
-    <string name="storage_used_by_compilations">オフラインライブラリで使用している</string>
+  <string name="storage_used_by_compilations">オフラインライブラリで使用している</string>
   <string name="storage_other_apps">他のアプリケーション</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">あと1分</item>
     <item quantity="other">あと%d分</item>
   </plurals>
@@ -490,12 +495,12 @@
   <string name="compilation_remove_confirm">オフラインライブラリから削除しますか？</string>
   <string name="offline_library_title">オフラインライブラリ</string>
   <string name="offline_library_empty_title">オフラインライブラリには何もありません</string>
-    <string name="offline_library_empty_description_sideload">オフラインライブラリ内の「記事パック」は、デバイスの内部ストレージで利用可能な、あらかじめ記事をまとめたものです。オフラインでも記事を読み続けられます。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;さらに詳しく&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">オフラインライブラリ内の「記事パック」は、デバイスの内部ストレージで利用可能な、あらかじめ記事をまとめたものです。オフラインでも記事を読み続けられます。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;さらに詳しく&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">ライブラリ内の記事パックはオフラインでも続けて読むことができます。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;さらに詳しく&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">データ使用量を抑えませんか？　設定で「オフラインコンテンツを優先」を選択すると、データ通信が可能な場合であっても、オフラインの記事を優先的に表示するようになります。 &lt;a href=\"#settings\"&gt;設定へ&lt;/a&gt;</string>
   <string name="offline_library_empty_search">オフラインライブラリを検索</string>
   <string name="offline_library_search_results_state">オフラインライブラリの検索結果</string>
-    <string name="offline_library_onboarding_button_done">完了</string>
+  <string name="offline_library_onboarding_button_done">完了</string>
   <string name="offline_library_onboarding_build_library_title">オフラインライブラリを構築する</string>
   <string name="offline_library_onboarding_build_library_subtitle">後でWikipediaの記事パックをダウンロードして、後でデータフリーにすることができます。</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">途切れない読書</string>
@@ -512,8 +517,8 @@
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_save_to_reading_lists_title">あとで読むリストに保存</string>
   <string name="onboarding_save_to_reading_lists_text">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます。</string>
-    <string name="onboarding_analytics_title">匿名データを送信</string>
-    <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#offline\"&gt;詳細&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">匿名データを送信</string>
+  <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#offline\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_create_account_sync">あなたのリーディングリストを同期させる</string>
   <string name="onboarding_create_account_contributions">貢献を追跡して見てください</string>
@@ -523,7 +528,7 @@
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>
   <string name="more_trending_text">もっと見る</string>
-    <string name="top_on_this_day">%1$sに話題になった記事</string>
+  <string name="top_on_this_day">%1$sに話題になった記事</string>
   <string name="on_this_day_card_title">今日は何の日</string>
   <string name="more_events_text">この日に起こったその他の出来事</string>
   <string name="events_count_text">%2$sから%3$dまでに起こった%1$s件の出来事</string>

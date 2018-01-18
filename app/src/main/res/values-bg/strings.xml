@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">Това ще изтрие цялата история на сърфиране и ще затвори всички отворени раздели. Сигурни ли сте?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
   <string name="dialog_message_clear_history_no">Не</string>
-    <string name="share_via">Споделяне чрез</string>
+  <string name="share_via">Споделяне чрез</string>
   <string name="search_redirect_from">Пренасочено от %s</string>
   <string name="menu_page_show_tabs">Показване на раздели</string>
   <string name="menu_page_other_languages">Промяна на езика</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">Напишете горепоказаните думи</string>
   <string name="title_captcha">Въведете знаците от картинката</string>
   <string name="edit_section_captcha_reload">Докоснете CAPTCHA за презареждане</string>
-    <string name="nav_item_login">Влизане в Уикипедия</string>
+  <string name="nav_item_login">Влизане в Уикипедия</string>
   <string name="login_username_hint">Потребителско име</string>
   <string name="login_password_hint">Парола</string>
   <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
@@ -260,7 +260,7 @@
   <string name="error_page_does_not_exist">Тази страница не съществува</string>
   <string name="view_wiki_error_message_offline">Няма връзка с интернет</string>
   <string name="reference_title">Източник %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Избледняване на изображенията (в Тъмен облик)</string>
   <string name="preference_title_prefer_offline_content">Предпочитане на офлайн съдържание</string>
   <string name="preference_summary_prefer_offline_content">Пестете мобилни данни, като зареждате статии, които са налични в офлайн режим, вместо да зареждате последната им версия.</string>
   <string name="preference_title_enable_offline_library">Включване на офлайн библиотека</string>
@@ -286,7 +286,7 @@
   <string name="color_theme_test_title">Примерен текст</string>
   <string name="color_theme_test_text">Преместете плъзгача, за да промените размера на текста, който се използва за четене на статии. За да настроите размера на текста в другите части на приложението, променете системния размер на текста.</string>
   <string name="preference_title_app_theme">Тема на приложението</string>
-    <string name="preference_summary_color_theme">Превключване към тъмния облик на приложението</string>
+  <string name="preference_summary_color_theme">Превключване към тъмния облик на приложението</string>
   <string name="text_size_increase">Увеличаване на размера на текста</string>
   <string name="text_size_decrease">Намаляване на размера на текста</string>
   <string name="text_size_percent_default">%s (по подразбиране)</string>
@@ -297,7 +297,7 @@
   <string name="reading_list_title_exists">Списъкът за четене „%s“ вече съществува.</string>
   <string name="reading_list_entry_empty">Моля, въведете заглавие.</string>
   <string name="reading_list_added_to_named">Добавено в %s.</string>
-    <string name="reading_list_already_exists">Статията вече присъства в този списък.</string>
+  <string name="reading_list_already_exists">Статията вече присъства в този списък.</string>
   <string name="reading_list_added_view_button">Преглед на списъка</string>
   <string name="format_reading_list_statistical_summary_singular">1 статия, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f MB</string>
@@ -358,6 +358,8 @@
   <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>
   <string name="reading_list_saved_list_rename">%1$s (направен от потребител)</string>
   <string name="split_reading_list_message">Има ограничение от 1000 статии за списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
+  <string name="reading_list_article_limit_message">Не може да бъде добавено към този списък. Достигнали сте ограничението от 1000 статии на списък за „%s“.</string>
+  <string name="reading_lists_limit_message">Не може да бъде създаден друг лист. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Тази статия вече е налична офлайн.</item>
     <item quantity="other">Тези статии вече са налични офлайн.</item>
@@ -375,8 +377,8 @@
   <string name="notification_thanks_title">Получихте благодарност!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; Ви благодари за редакцията Ви на &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Синхронизиране</string>
-  <string name="notification_channel_description">Напредък на синхронизирането</string>
-  <string name="notification_syncing_title">Синхронизиране на %1$d статии...</string>
+  <string name="notification_channel_description">Напредък на изтеглянето</string>
+  <string name="notification_syncing_title">Изтегляне на %1$d статии...</string>
   <string name="notification_syncing_description">остават %1$d статии</string>
   <string name="notification_syncing_pause_button">Пауза</string>
   <string name="notification_syncing_resume_button">Продължаване</string>
@@ -397,7 +399,7 @@
   <string name="menu_feed_overflow_label">Допълнителни опции</string>
   <string name="feed_featured_image_share_subject">Избрана картинка от Общомедия</string>
   <string name="feed">Откриване</string>
-    <string name="most_read_list_card_title">Най-четено</string>
+  <string name="most_read_list_card_title">Най-четено</string>
   <string name="view_static_card_icon_content_description">Икона за карта</string>
   <string name="view_card_news_title">В новините</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -411,7 +413,7 @@
   <string name="view_featured_article_card_title">Избрана статия</string>
   <string name="view_featured_article_footer_save_button_label">Съхраняване</string>
   <string name="view_featured_article_footer_saved_button_label">Съхранено</string>
-    <string name="feed_configure_activity_title">Персонализиране на хранилката</string>
+  <string name="feed_configure_activity_title">Персонализиране на хранилката</string>
   <string name="feed_configure_menu_reset">Нулиране на изгледа по подразбиране</string>
   <string name="feed_configure_menu_select_all">Избиране на всички</string>
   <string name="feed_configure_menu_deselect_all">Анулиране на всички избрани</string>
@@ -467,7 +469,7 @@
   <string name="offline_compilation_download_device_offline">Няма връзка с Интернет. Уверете се, че сте свързани, след което опитайте отново.</string>
   <string name="offline_read_permission_rationale">Нужно е разрешение за достъп на съхранението на устройството Ви за офлайн разглеждане.</string>
   <string name="offline_read_permission_error">Не е позволено четенето от съхранението на устройството.</string>
-    <string name="offline_card_sideloading_text">В момента разглеждате офлайн Уикипедия от пакети статии във Вашата офлайн библиотека.</string>
+  <string name="offline_card_sideloading_text">В момента разглеждате офлайн Уикипедия от пакети статии във Вашата офлайн библиотека.</string>
   <string name="offline_my_compilations">Управление на моята офлайн библиотека</string>
   <string name="offline_compilations_title">Офлайн библиотека</string>
   <string name="offline_compilations_search_by_name">Търсене на пакет от статии по име</string>
@@ -475,16 +477,16 @@
   <string name="offline_compilations_add">Добавяне към моята офлайн библиотека</string>
   <string name="remote_compilations_title">Офлайн библиотека</string>
   <string name="remote_compilations_description">С Офлайн библиотеката можете да изтеглите пакети от статии за четене, когато нямате налична връзка с интернет.</string>
-    <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <string name="offline_compilation_detail_button_download_v2">Изтегляне • %s</string>
+  <string name="offline_compilation_detail_button_download_v2">Изтегляне • %s</string>
   <string name="offline_compilation_detail_button_remove">Премахване</string>
   <string name="remote_compilation_download">Изтегляне</string>
-    <string name="storage_size_free_v2">%s свободно</string>
+  <string name="storage_size_free_v2">%s свободно</string>
   <string name="storage_used_by_compilations">използвани от Офлайн библиотека</string>
   <string name="storage_other_apps">Други приложения</string>
-    <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">остава 1 минута</item>
     <item quantity="other">остават %d минути</item>
@@ -498,12 +500,12 @@
   <string name="compilation_remove_confirm">Искате ли да премахнете това от вашата Офлайн библиотека?</string>
   <string name="offline_library_title">Офлайн библиотека</string>
   <string name="offline_library_empty_title">Няма нищо във вашата офлайн библиотека</string>
-    <string name="offline_library_empty_description_sideload">„Пакети със статии“ във Вашата Офлайн библиотека са предварително пакетирани комплекти от статии за удобно съхранение на устройството Ви, така че да можете да продължите да четете, когато нямате мрежа.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">„Пакети със статии“ във Вашата Офлайн библиотека са предварително пакетирани комплекти от статии за удобно съхранение на устройството Ви, така че да можете да продължите да четете, когато нямате мрежа.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">Пакетите от статии в библиотеката Ви остават налични за четене, дори когато нямате връзка с Интернет. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Искате ли да спестите мобилни данни? Изберете „Предпочитане на офлайн съдържание“ в Настройки, за да се показват първо наличните офлайн статии, дори когато имате мрежа. &lt;a href=\"#settings\"&gt;Отиване в Настройки&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Търсене в офлайн библиотеката</string>
   <string name="offline_library_search_results_state">Резултати от търсенето от Офлайн библиотеката Ви</string>
-    <string name="offline_library_onboarding_button_done">Готово</string>
+  <string name="offline_library_onboarding_button_done">Готово</string>
   <string name="offline_library_onboarding_build_library_title">Направете Вашата Офлайн библиотека</string>
   <string name="offline_library_onboarding_build_library_subtitle">Изтегляне на пакет със статии от Уикипедия сега, така че да могат да се четат по-късно без мобилни данни.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Четене без прекъсване</string>
@@ -520,8 +522,8 @@
   <string name="onboarding_explore_text">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Запазване в списъци за четене</string>
   <string name="onboarding_save_to_reading_lists_text">Създавайте списъци за четене от статии, които искате да прочетете по-късно, дори когато сте офлайн.</string>
-    <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
-    <string name="onboarding_analytics_offline_text">Помогнете ни да направим приложението по-добро, като ни уведомявате как го използвате. Събираните данни са анонимни. &lt;a href=\"#offline\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
+  <string name="onboarding_analytics_offline_text">Помогнете ни да направим приложението по-добро, като ни уведомявате как го използвате. Събираните данни са анонимни. &lt;a href=\"#offline\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
   <string name="onboarding_create_account_sync">Синхронизация на списъците Ви за четене</string>
   <string name="onboarding_create_account_contributions">Бъдете в течение с приносите си</string>
@@ -531,7 +533,7 @@
   <string name="app_shortcuts_continue_reading">Продължаване с четенето</string>
   <string name="app_shortcuts_search">Търсене</string>
   <string name="more_trending_text">Повече такива</string>
-    <string name="top_on_this_day">Най-четено на %1$s</string>
+  <string name="top_on_this_day">Най-четено на %1$s</string>
   <string name="on_this_day_card_title">На този ден</string>
   <string name="more_events_text">Още на този ден</string>
   <string name="events_count_text">%1$s събития от %2$s-%3$d</string>

@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
   <string name="dialog_message_clear_history_no">Nej</string>
-    <string name="share_via">Dela via</string>
+  <string name="share_via">Dela via</string>
   <string name="search_redirect_from">Omdirigerad från %s</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">Upprepa orden ovan</string>
   <string name="title_captcha">Ange captcha</string>
   <string name="edit_section_captcha_reload">Tryck på captcha för att uppdatera</string>
-    <string name="nav_item_login">Logga in på Wikipedia</string>
+  <string name="nav_item_login">Logga in på Wikipedia</string>
   <string name="login_username_hint">Användarnamn</string>
   <string name="login_password_hint">Lösenord</string>
   <string name="login_2fa_hint">Tvåstegsverifieringskod</string>
@@ -262,7 +262,7 @@
   <string name="error_page_does_not_exist">Denna sida finns inte</string>
   <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
   <string name="reference_title">Referens %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Mörkläggning av bilder (i mörkt tema)</string>
   <string name="preference_title_prefer_offline_content">Visa offlineinnehåll om möjligt</string>
   <string name="preference_summary_prefer_offline_content">Spara dataanvändning genom att läsa in artiklar som är tillgängliga offline istället för att alltid läsa in den senaste versionen av en artikel</string>
   <string name="preference_title_enable_offline_library">Aktivera offlinebiblioteket</string>
@@ -288,7 +288,7 @@
   <string name="color_theme_test_title">Exempeltext</string>
   <string name="color_theme_test_text">Dra i reglaget för att ändra textstorleken som används när du läser artiklar. För att ändra textstorleken i resten av appen måste du ändra textstorleken för ditt system.</string>
   <string name="preference_title_app_theme">Apptema</string>
-    <string name="preference_summary_color_theme">Byt till appens mörka färgtema</string>
+  <string name="preference_summary_color_theme">Byt till appens mörka färgtema</string>
   <string name="text_size_increase">Öka textstorlek</string>
   <string name="text_size_decrease">Minska textstorlek</string>
   <string name="text_size_percent_default">%s (Standard)</string>
@@ -299,7 +299,7 @@
   <string name="reading_list_title_exists">Läslistan \"%s\" finns redan.</string>
   <string name="reading_list_entry_empty">Ange en titel.</string>
   <string name="reading_list_added_to_named">Lades till i %s.</string>
-    <string name="reading_list_already_exists">Denna artikel är redan i den listan.</string>
+  <string name="reading_list_already_exists">Denna artikel är redan i den listan.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MiB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar, %2$.2f MB</string>
@@ -359,6 +359,9 @@
   <string name="no_user_lists_title">Organisera artiklar till listor</string>
   <string name="no_user_lists_msg">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>
   <string name="reading_list_saved_list_rename">%1$s (skapad av användare)</string>
+  <string name="split_reading_list_message">Det finns en gräns på 1000 artiklar per läslista. Befintliga listor med fler än denna gräns har delats upp i flera listor.</string>
+  <string name="reading_list_article_limit_message">Kan inte lägga till i denna lista. Du har nått gränsen på 1 000 artiklar per lista för \"%s\".</string>
+  <string name="reading_lists_limit_message">Kan inte skapa en till lista. Du har nått gränsen på 100 läslistor per konto.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denna artikel kommer nu vara tillgänglig offline.</item>
     <item quantity="other">Dessa artiklar kommer nu vara tillgängliga offline.</item>
@@ -376,8 +379,8 @@
   <string name="notification_thanks_title">Du har tackats!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; tackade dig för din redigering på sidan &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Synkroniserar</string>
-  <string name="notification_channel_description">Synkroniseringsförlopp</string>
-  <string name="notification_syncing_title">Synkroniserar %1$d artiklar…</string>
+  <string name="notification_channel_description">Nedladdningsförlopp</string>
+  <string name="notification_syncing_title">Laddar ned %1$d artiklar…</string>
   <string name="notification_syncing_description">%1$d artiklar kvar</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Återuppta</string>
@@ -398,7 +401,7 @@
   <string name="menu_feed_overflow_label">Fler alternativ</string>
   <string name="feed_featured_image_share_subject">Utmärkt bild från Wikimedia Commons</string>
   <string name="feed">Utforska</string>
-    <string name="most_read_list_card_title">Populärt</string>
+  <string name="most_read_list_card_title">Populärt</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">På nyheterna</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -412,7 +415,7 @@
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
   <string name="view_featured_article_footer_save_button_label">Spara</string>
   <string name="view_featured_article_footer_saved_button_label">Sparades</string>
-    <string name="feed_configure_activity_title">Anpassa flödet</string>
+  <string name="feed_configure_activity_title">Anpassa flödet</string>
   <string name="feed_configure_menu_reset">Återställ standardvyn</string>
   <string name="feed_configure_menu_select_all">Markera alla</string>
   <string name="feed_configure_menu_deselect_all">Avmarkera alla</string>
@@ -469,7 +472,7 @@
   <string name="offline_compilation_download_device_offline">Ingen Internetanslutning. Se till att du är online igen och försök sedan igen.</string>
   <string name="offline_read_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att läsa artiklar offline.</string>
   <string name="offline_read_permission_error">Behörighet för att läsa från enhetslagringen krävs.</string>
-    <string name="offline_card_sideloading_text">Du läser nu Wikipedia offline från artiklar i ditt offlinebibliotek.</string>
+  <string name="offline_card_sideloading_text">Du läser nu Wikipedia offline från artiklar i ditt offlinebibliotek.</string>
   <string name="offline_my_compilations">Hantera mitt offlinebibliotek</string>
   <string name="offline_compilations_title">Offlinebibliotek</string>
   <string name="offline_compilations_search_by_name">Sök artikelpaket efter namn</string>
@@ -477,16 +480,16 @@
   <string name="offline_compilations_add">Lägg till i mitt offlinebibliotek</string>
   <string name="remote_compilations_title">Offlinebibliotek</string>
   <string name="remote_compilations_description">Med offlinebiblioteket kan du ladda ned artikelpaket för att läsa när du inte har någon tillgänglig Internetanslutning.</string>
-    <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <string name="offline_compilation_detail_button_download_v2">Ladda ned • %s</string>
+  <string name="offline_compilation_detail_button_download_v2">Ladda ned • %s</string>
   <string name="offline_compilation_detail_button_remove">Ta bort</string>
   <string name="remote_compilation_download">Ladda ner</string>
-    <string name="storage_size_free_v2">%s ledigt</string>
+  <string name="storage_size_free_v2">%s ledigt</string>
   <string name="storage_used_by_compilations">används av offlinebiblioteket</string>
   <string name="storage_other_apps">Andra applikationer</string>
-    <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 min kvar</item>
     <item quantity="other">%d min kvar</item>
@@ -500,12 +503,12 @@
   <string name="compilation_remove_confirm">Vill du ta bort detta från ditt offlinebibliotek?</string>
   <string name="offline_library_title">Offlinebibliotek</string>
   <string name="offline_library_empty_title">Ingenting i ditt offlinebibliotek</string>
-    <string name="offline_library_empty_description_sideload">“Artikelpaket” i ditt offlinebibliotek är förhandspaketerade uppsättningar med artiklar som lagras på din enhet, så du kan fortsätta läsa när du är offline.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">“Artikelpaket” i ditt offlinebibliotek är förhandspaketerade uppsättningar med artiklar som lagras på din enhet, så du kan fortsätta läsa när du är offline.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">Artikelpaket i ditt bibliotek är fortfarande tillgängliga när du är offline. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Vill du spara dataanvändning? Markera \"Visa offlineinnehåll om möjligt\" i inställningarna för att visa tillgängliga offlineartiklar först, även när du har Internetanslutning. &lt;a href=\"#settings\"&gt;Gå till inställningar&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Sök i offlinebiblioteket</string>
   <string name="offline_library_search_results_state">Sökresultat från ditt offlinebibliotek</string>
-    <string name="offline_library_onboarding_button_done">Klar</string>
+  <string name="offline_library_onboarding_button_done">Klar</string>
   <string name="offline_library_onboarding_build_library_title">Bygg ditt offlinebibliotek</string>
   <string name="offline_library_onboarding_build_library_subtitle">Ladda ned artikelpaket från Wikipedia nu för datafri åtkomst senare.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Läsning utan avbrott</string>
@@ -522,8 +525,8 @@
   <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskningsflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – såvida det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen med &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Spara till läslistor</string>
   <string name="onboarding_save_to_reading_lists_text">Skapa läslistor av artiklar du vill läsa senare, även när du är offline.</string>
-    <string name="onboarding_analytics_title">Skicka anonym data</string>
-    <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#offline\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">Skicka anonym data</string>
+  <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#offline\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
   <string name="onboarding_create_account_sync">Synkronisera dina läslistor</string>
   <string name="onboarding_create_account_contributions">Håll koll på dina bidrag</string>
@@ -533,7 +536,7 @@
   <string name="app_shortcuts_continue_reading">Fortsätt läsa</string>
   <string name="app_shortcuts_search">Sök</string>
   <string name="more_trending_text">Fler som detta</string>
-    <string name="top_on_this_day">Populärt på %1$s</string>
+  <string name="top_on_this_day">Populärt på %1$s</string>
   <string name="on_this_day_card_title">På denna dag</string>
   <string name="more_events_text">Mer på denna dag</string>
   <string name="events_count_text">%1$s händelser från %2$s–%3$d</string>

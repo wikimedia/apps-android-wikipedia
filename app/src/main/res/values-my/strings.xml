@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">သင်၏ အသုံးပြုမှတ်တမ်းများ အားလုံးကို ဖျက်ပြီး လက်ရှိဖွင့်ထားသမျှကို ပိတ်ပါမည်။ သင်သေချာပြီလား?</string>
   <string name="dialog_message_clear_history_yes">လုပ်မည်</string>
   <string name="dialog_message_clear_history_no">မလုပ်ပါ</string>
-    <string name="share_via">မှမျှဝေ</string>
+  <string name="share_via">မှမျှဝေ</string>
   <string name="search_redirect_from">%s မှ ပြန်ညွှန်းထားသည်</string>
   <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
   <string name="title_captcha">CAPTCHA ဖြည့်ပါ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ကိုထိပြီးအသစ်ထပ်ယူပါ</string>
-    <string name="nav_item_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
+  <string name="nav_item_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
   <string name="login_username_hint">အသုံးပြုသူအမည်</string>
   <string name="login_password_hint">စကားဝှက်</string>
   <string name="menu_login">အကောင့်ဝင်ရန်</string>
@@ -278,7 +278,7 @@
   <string name="reading_list_title_exists">ဖတ်ရှုရန်စာရင်းတွင် \"%s\" ရှိပြီးသားဖြစ်သည်။</string>
   <string name="reading_list_entry_empty">ခေါင်းစဉ်တစ်ခု ရိုက်ထည့်ပါ</string>
   <string name="reading_list_added_to_named">%s သို့ ပေါင်းထည့်ပြီး။</string>
-    <string name="reading_list_already_exists">ထိုစာရင်းထဲတွင် ဤဆောင်းပါး ရှိနှင့်ပြီး ဖြစ်သည်။</string>
+  <string name="reading_list_already_exists">ထိုစာရင်းထဲတွင် ဤဆောင်းပါး ရှိနှင့်ပြီး ဖြစ်သည်။</string>
   <string name="reading_list_added_view_button">စာရင်းအား ကြည့်ရန်</string>
   <string name="format_reading_list_statistical_summary_singular">ဆောင်းပါး ၁ ခု၊ %1$.2f မက်ဂါဘိုက်</string>
   <string name="format_reading_list_statistical_summary_plural">ဆောင်းပါး %1$d ခု၊ %2$.2f မက်ဂါဘိုက်</string>
@@ -342,7 +342,7 @@
   <string name="menu_feed_overflow_label">နောက်ထပ် ရွေးချယ်စရာများ</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons မှ အထူးဓာတ်ပုံ</string>
   <string name="feed">ရှာဖွေစူးစမ်းပါ</string>
-    <string name="most_read_list_card_title">ရေပန်းစားမှု</string>
+  <string name="most_read_list_card_title">ရေပန်းစားမှု</string>
   <string name="view_static_card_icon_content_description">ကဒ်ပုံ</string>
   <string name="view_card_news_title">သတင်းထဲတွင်</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -390,13 +390,13 @@
   <string name="description_edit_help_tips_example2">ကမ္ဘာ့အမြင့်ဆုံးတောင်</string>
   <string name="description_edit_help_more_info">သတင်းအချက်အလက် ပို၍</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
-    <string name="offline_compilation_detail_button_remove">ဖယ်ရှားရန်</string>
+  <string name="offline_compilation_detail_button_remove">ဖယ်ရှားရန်</string>
   <string name="remote_compilation_download">ဒေါင်းလုပ်ယူရန်</string>
-    <string name="compilation_download_cancel_confirm_yes">လုပ်မည်</string>
+  <string name="compilation_download_cancel_confirm_yes">လုပ်မည်</string>
   <string name="compilation_download_cancel_confirm_no">မလုပ်ပါ</string>
   <string name="compilation_share">မျှဝေ</string>
   <string name="compilation_remove">ဖယ်ရှားရန်</string>
-    <string name="offline_library_onboarding_button_done">ပြီးပြီ</string>
+  <string name="offline_library_onboarding_button_done">ပြီးပြီ</string>
   <string name="onboarding_skip">ကျော်ရန်</string>
   <string name="onboarding_continue">ဆက်လက်</string>
   <string name="onboarding_get_started">စတင်ပါ</string>

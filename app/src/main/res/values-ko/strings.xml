@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>
   <string name="dialog_message_clear_history_no">아니오</string>
-    <string name="share_via">다음을 통해 공유</string>
+  <string name="share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">위의 낱말을 한 번 더 입력하세요</string>
   <string name="title_captcha">캡차를 입력하세요</string>
   <string name="edit_section_captcha_reload">새로 고치려면 캡차를 누르세요</string>
-    <string name="nav_item_login">위키백과에 로그인</string>
+  <string name="nav_item_login">위키백과에 로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
   <string name="login_2fa_hint">2요소 인증 코드</string>
@@ -260,7 +260,7 @@
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
   <string name="reference_title">각주 %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">이미지 어둡게 하기 (어두운 테마에서)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">이미지 어둡게 하기 (어두운 테마에서)</string>
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
   <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용 절약</string>
   <string name="preference_title_enable_offline_library">오프라인 라이브러리 사용</string>
@@ -285,7 +285,7 @@
   <string name="color_theme_test_title">샘플 텍스트</string>
   <string name="color_theme_test_text">글을 읽을 때 사용되는 텍스트의 크기를 변경하려면 슬라이더를 드래그하십시오. 앱의 나머지 부분의 텍스트 크기를 설정하려면 시스템 텍스트 크기를 변경하십시오.</string>
   <string name="preference_title_app_theme">앱 테마</string>
-    <string name="preference_summary_color_theme">앱의 어두운 색 테마로 전환</string>
+  <string name="preference_summary_color_theme">앱의 어두운 색 테마로 전환</string>
   <string name="text_size_increase">텍스트 크기 늘리기</string>
   <string name="text_size_decrease">텍스트 크기 줄이기</string>
   <string name="text_size_percent_default">%s (기본값)</string>
@@ -296,7 +296,7 @@
   <string name="reading_list_title_exists">\"%s\" 읽기 목록이 이미 존재합니다.</string>
   <string name="reading_list_entry_empty">제목을 입력하세요.</string>
   <string name="reading_list_added_to_named">%s에 추가했습니다.</string>
-    <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
+  <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
   <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MB</string>
@@ -352,7 +352,9 @@
   <string name="reading_list_already_contains_selection">선택된 목록은 선택된 모든 문서를 이미 포함하고 있습니다.</string>
   <string name="reading_list_added_articles_list_titled">%1$d개의 문서가 %2$s에 추가되었습니다</string>
   <string name="default_reading_list_name">저장됨</string>
+  <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
   <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
+  <string name="split_reading_list_message">읽기 목록 하나 당 문서 1000개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
     <item quantity="other">이 글들은 이제 오프라인에서 읽을 수 있습니다.</item>
@@ -370,9 +372,9 @@
   <string name="notification_thanks_title">당신은 감사를 받았습니다!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;님이 &lt;strong&gt;%2$s&lt;/strong&gt; 문서에서 당신의 편집에 감사를 표했습니다</string>
   <string name="notification_channel_name">동기화 중</string>
-  <string name="notification_channel_description">동기화 진척도</string>
-  <string name="notification_syncing_title">문서 %1$d개를 동기화하고 있습니다...</string>
-  <string name="notification_syncing_description">%1$d개 문서 남음</string>
+  <string name="notification_channel_description" fuzzy="true">동기화 진척도</string>
+  <string name="notification_syncing_title" fuzzy="true">문서 %1$d개를 동기화하고 있습니다...</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d개 문서 남음</string>
   <string name="notification_syncing_pause_button">일시 정지</string>
   <string name="notification_syncing_resume_button">재개</string>
   <string name="notification_syncing_cancel_button">취소</string>
@@ -392,7 +394,7 @@
   <string name="menu_feed_overflow_label">옵션 더 보기</string>
   <string name="feed_featured_image_share_subject">위키미디어 공용의 알찬 그림</string>
   <string name="feed">탐색</string>
-    <string name="most_read_list_card_title">유행</string>
+  <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -463,7 +465,7 @@
   <string name="offline_compilation_download_device_offline">인터넷이 연결되지 않았습니다. 온라인 상태로 복귀한 다음 다시 시도하십시오.</string>
   <string name="offline_read_permission_rationale">장치에서 저장소의 접근 권한은 오프라인 탐색에 필요합니다.</string>
   <string name="offline_read_permission_error">기억 장치로부터 읽을 권한이 부여되지 않았습니다.</string>
-    <string name="offline_card_sideloading_text">지금 오프라인 라이브러리의 문서 묶음을 오프라인 상태에서 둘러보고 있습니다.</string>
+  <string name="offline_card_sideloading_text">지금 오프라인 라이브러리의 문서 묶음을 오프라인 상태에서 둘러보고 있습니다.</string>
   <string name="offline_my_compilations">내 오프라인 라이브러리 관리</string>
   <string name="offline_compilations_title">오프라인 라이브러리</string>
   <string name="offline_compilations_search_by_name">이름으로 문서 꾸러미 찾기</string>
@@ -471,16 +473,16 @@
   <string name="offline_compilations_add">내 오프라인 라이브러리에 추가</string>
   <string name="remote_compilations_title">오프라인 라이브러리</string>
   <string name="remote_compilations_description">인터넷 접속이 불가능할 때 문서를 읽을 수 있도록 오프라인 라이브러리를 사용하여 지금 문서 꾸러미들을 다운로드할 수 있습니다.</string>
-    <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <string name="offline_compilation_detail_button_download_v2">다운로드 • %s</string>
+  <string name="offline_compilation_detail_button_download_v2">다운로드 • %s</string>
   <string name="offline_compilation_detail_button_remove">제거</string>
   <string name="remote_compilation_download">다운로드</string>
-    <string name="storage_size_free_v2">%s 남음</string>
+  <string name="storage_size_free_v2">%s 남음</string>
   <string name="storage_used_by_compilations">(오프라인 라이브러리가 사용 중)</string>
   <string name="storage_other_apps">다른 애플리케이션</string>
-    <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1분 남음</item>
     <item quantity="other">%d분 남음</item>
@@ -494,9 +496,10 @@
   <string name="compilation_remove_confirm">오프라인 라이브러리에서 이 항목을 제거하시겠습니까?</string>
   <string name="offline_library_title">오프라인 라이브러리</string>
   <string name="offline_library_empty_title">오프라인 라이브러리에 아무 것도 없습니다</string>
-    <string name="offline_library_empty_search">오프라인 라이브러리 검색</string>
+  <string name="offline_library_data_usage_hint">데이터 사용을 절약하고 싶으신가요? 설정에서 \"오프라인 콘텐츠\n선호\"를 선택하면 인터넷에 연결되어 있더라도 가능하면 오프라인 문서를 우선 보여줍니다. &lt;a href=\"#settings\"&gt;설정으로 이동&lt;/a&gt;</string>
+  <string name="offline_library_empty_search">오프라인 라이브러리 검색</string>
   <string name="offline_library_search_results_state">오프라인 라이브러리의 검색 결과</string>
-    <string name="offline_library_onboarding_button_done">완료</string>
+  <string name="offline_library_onboarding_button_done">완료</string>
   <string name="offline_library_onboarding_build_library_title">오프라인 라이브러리 만들기</string>
   <string name="offline_library_onboarding_build_library_subtitle">추후 데이터 무제한 접근을 위해 지금 위키백과 문서를 다운로드합니다.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">중단 없이 읽기</string>
@@ -512,8 +515,8 @@
   <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요. &lt;br/&gt; 피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, &lt;b&gt;임의 문서로&lt;/b&gt; 주사위를 던지는 것이든요.</string>
   <string name="onboarding_save_to_reading_lists_title">읽기 목록에 저장</string>
   <string name="onboarding_save_to_reading_lists_text">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
-    <string name="onboarding_analytics_title">익명 데이터 보내기</string>
-    <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#offline\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">익명 데이터 보내기</string>
+  <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#offline\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>
   <string name="onboarding_create_account_sync">읽기 목록 동기화</string>
   <string name="onboarding_create_account_contributions">내 기여를 추적합니다</string>
@@ -523,7 +526,7 @@
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
   <string name="more_trending_text">유사한 다른 글</string>
-    <string name="top_on_this_day">%1$s의 유행</string>
+  <string name="top_on_this_day">%1$s의 유행</string>
   <string name="on_this_day_card_title">오늘의 역사</string>
   <string name="more_events_text">이 날에 있었던 더 많은 사건</string>
   <string name="events_count_text">%2$s~%3$d년 사이의 이벤트 %1$s개</string>

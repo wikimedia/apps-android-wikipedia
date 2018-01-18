@@ -9,7 +9,7 @@
   <string name="page_error_retry">Tuah than</string>
   <string name="menu_clear_all_history">Cakhumh hloh ding</string>
   <string name="dialog_title_clear_history" fuzzy="true">Na kawlnak pawl na hlo lai maw?</string>
-    <string name="share_via">in hrawmh</string>
+  <string name="share_via">in hrawmh</string>
   <string name="nav_item_nearby">Pawngkam</string>
   <string name="last_updated_text">Hnubik tharchuah %s</string>
   <string name="content_license_html" fuzzy="true">Hi kong hi an chim lo asicun &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ah zoh khawh a si.</string>
@@ -36,7 +36,7 @@
   <string name="edit_section_captcha_hint">Acunglei biafang hi nawlh hna</string>
   <string name="title_captcha">CAPTCHA tialnak</string>
   <string name="edit_section_captcha_reload">CAPTCHA kha hmet than</string>
-    <string name="nav_item_login" fuzzy="true">Luhnak</string>
+  <string name="nav_item_login" fuzzy="true">Luhnak</string>
   <string name="login_username_hint">Na Min</string>
   <string name="login_password_hint">Biathup</string>
   <string name="menu_login">Lutnak</string>
@@ -153,7 +153,7 @@
   <string name="gallery_uploader_unknown">Atartu hngalh a si lo</string>
   <string name="menu_new_tab">Adang in hung</string>
   <string name="button_close_tab">Khar ding</string>
-  <string name="tool_tip_select_text">Hrawmh ding le tlen ding ah cafang lak ah nampiak law, thim hna.</string>
+  <string name="tool_tip_select_text" fuzzy="true">Hrawmh ding le tlen ding ah cafang lak ah nampiak law, thim hna.</string>
   <string name="tool_tip_share">Na thim khawh asicun, na duhnak paoh ah hrawmh!</string>
   <string name="page_view_in_browser">Cahmai browser ah zoh ding</string>
   <string name="tool_tip_toc_button">Cabia Cazin pawl zoh dingah hika hi hmet law, asiloah hmaipi in orhlei ah thawn.</string>

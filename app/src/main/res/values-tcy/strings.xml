@@ -18,7 +18,7 @@
   <string name="history_item_delete_undo">ದುಂಬುದಲೆಕೊ ಮಲ್ಪು</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸ್ ಮಲ್ತಿ ಇತಿಹಾಸೊನ್ ಮಾಜಾಲೆ</string>
   <string name="dialog_message_clear_history">ಉಂದು ಈರ್ ಬ್ರೌಸ್ ಮಲ್ತಿನ ಮಾಂತಾ ಇತಿಹಾಸೊನ್ ಮಾಜಪುಂಡು, ಇತ್ತೆ ತೂಪುನ ಟ್ಯಾಬ್‌ನ್ಲಾ ಉಂತಾಪುಂಡು. ಈರ್ ಒಪ್ಪುವರಾ?</string>
-    <string name="share_via">ನೆನ್ನೊಟ್ಟುಗೂ ಪಟ್ಟೊನ್ಲೆ</string>
+  <string name="share_via">ನೆನ್ನೊಟ್ಟುಗೂ ಪಟ್ಟೊನ್ಲೆ</string>
   <string name="search_redirect_from">%s ರ್ದ್ ಪಿರ ನಿರ್ದೇಸನೊ</string>
   <string name="menu_page_show_tabs">ಟ್ಯಾಬ್ ನು ತೊಜಾಲೆ</string>
   <string name="menu_page_other_languages">ಬಾಸೆನ್ ಬದಲ್ ಮಾನ್ಪಿ</string>
@@ -66,7 +66,7 @@
   <string name="edit_section_captcha_hint">ಮಿತ್ತ ಪದೊನ್ ಮುಲ್ಪ ಬರೆಲೆ</string>
   <string name="title_captcha">CAPTCHAನ್ ಬರೆಲೆ</string>
   <string name="edit_section_captcha_reload">ಕುಡ ಲೋಡ್ ಮಲ್ಪೆರೆ CAPTCHA ನ್ ಒತ್ತುಲೆ</string>
-    <string name="nav_item_login">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
+  <string name="nav_item_login">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
   <string name="login_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
   <string name="login_password_hint">ಪ್ರವೇಶ ಪದೊ</string>
   <string name="menu_login">ಲಾಗಿನ್ ಆಲೆ</string>
@@ -186,7 +186,7 @@
   <string name="reading_list_save_to">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
   <string name="reading_list_create_new">ಪೊಸತ್ ಮಾನ್ಪುಲೇ</string>
   <string name="reading_list_added_to_named">ನೆಕ್ ಸೇರ್ಸತುಂಡು %s</string>
-    <string name="reading_list_already_exists">ಲೇಕನೋ ಈ ಲಿಸ್ಟ್ ಡ್ ದುಂಬೆ ಉಂಡು</string>
+  <string name="reading_list_already_exists">ಲೇಕನೋ ಈ ಲಿಸ್ಟ್ ಡ್ ದುಂಬೆ ಉಂಡು</string>
   <string name="reading_list_added_view_button">ಪಟ್ಟಿ ತುಲೇ</string>
   <string name="reading_list_sort">ಅಜಪುಲೇ</string>
   <string name="reading_list_sort_by_name">ಪುದರ್ತ ತರೋ</string>
@@ -216,7 +216,7 @@
   <string name="menu_feed_card_dismiss">ಈ ಅಭಿಪ್ರಾಯೊನು ದೆಂಗಾಲೆ</string>
   <string name="menu_feed_card_dismissed">ಅಭಿಪ್ರಾಯೊ ದೆಂಗಾಲೆ</string>
   <string name="menu_feed_overflow_label">ನಾನಾತ್ ಆಯ್ಕೆಲೂ</string>
-    <string name="view_continue_reading_card_subtitle_today" fuzzy="true">ಇನಿ</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">ಇನಿ</string>
   <string name="view_announcement_card_negative_action">ಬೊಡ್ಚಿ ಸೊಲ್ಮೆಲೋ</string>
   <string name="description_edit_save">ಪ್ರಕಟ ಮಾನ್ಪುಲೆ</string>
   <string name="description_edit_add_description">ಕಿನ್ಯ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>

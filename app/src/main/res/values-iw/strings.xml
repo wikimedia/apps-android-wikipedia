@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
   <string name="dialog_message_clear_history_no">לא</string>
-    <string name="share_via">שיתוף באמצעות</string>
+  <string name="share_via">שיתוף באמצעות</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">נא לחזור על המילים לעיל</string>
   <string name="title_captcha">נא להזין קוד אימות אנוש</string>
   <string name="edit_section_captcha_reload">יש ללחוץ על תמונת האימות לשם רענון</string>
-    <string name="nav_item_login">כניסה לחשבון בוויקיפדיה</string>
+  <string name="nav_item_login">כניסה לחשבון בוויקיפדיה</string>
   <string name="login_username_hint">שם משתמש</string>
   <string name="login_password_hint">ססמה</string>
   <string name="login_2fa_hint">קוד אימות דו־שלבי</string>
@@ -259,7 +259,7 @@
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
   <string name="reference_title">הערת שוליים %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">עמעום תמונות (בערכת נושא חשוכה)</string>
   <string name="preference_title_prefer_offline_content">העדפת תוכן לא מקוון</string>
   <string name="preference_summary_prefer_offline_content">לחסוך בשימוש בנתונים על־ידי טעינת ערכים שזמינים לקריאה במצב לא מקוון במקום טעינת הגרסה האחרונה של הערך</string>
   <string name="preference_title_enable_offline_library">הפעלת הספרייה הלא מקוונת</string>
@@ -282,7 +282,7 @@
   <string name="color_theme_dark">כהה</string>
   <string name="color_theme_black">שחור</string>
   <string name="color_theme_test_title">טקסט לדוגמה</string>
-    <string name="preference_summary_color_theme">מעבר לשימוש בערכת צבעים כהים של היישום</string>
+  <string name="preference_summary_color_theme">מעבר לשימוש בערכת צבעים כהים של היישום</string>
   <string name="text_size_increase">הגדלת הטקסט</string>
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
@@ -293,7 +293,7 @@
   <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
   <string name="reading_list_entry_empty">נא להזין כותרת.</string>
   <string name="reading_list_added_to_named">נוסף לרשימה %s.</string>
-    <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
+  <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
@@ -378,7 +378,7 @@
   <string name="menu_feed_overflow_label">אפשרויות נוספות</string>
   <string name="feed_featured_image_share_subject">תמונה מומלצת מוויקישיתוף</string>
   <string name="feed">לחקור</string>
-    <string name="most_read_list_card_title">נושאים חמים</string>
+  <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -433,18 +433,18 @@
   <string name="offline_compilation_download_device_offline">אין חיבור אינטרנט. נא לוודא שיש חיבור לרשת ולנסות שוב.</string>
   <string name="offline_read_permission_rationale">ההרשאה לגשת לאחסון במכשיר שלך נחוצה בשביל דפדוף ללא חיבור לרשת.</string>
   <string name="offline_read_permission_error">לא ניתנה הרשאה לקרוא מאחסון המכשיר.</string>
-    <string name="offline_my_compilations">ניהול הספרייה הלא מקוונת שלי</string>
+  <string name="offline_my_compilations">ניהול הספרייה הלא מקוונת שלי</string>
   <string name="offline_compilations_title">ספרייה לא מקוונת</string>
   <string name="offline_compilations_search_by_name">חיפוש חבילות ערכים לפי שם</string>
   <string name="offline_compilations_found_count">בספרייה הלא מקוונת שלי (%d)</string>
   <string name="offline_compilations_add">הוספה לספרייה הלא מקוונת שלי</string>
   <string name="remote_compilations_title">ספרייה לא מקוונת</string>
   <string name="remote_compilations_description">עם הספרייה הלא מקוונת, אפשר להוריד חבילות של ערכים לקריאה כשאין לכם חיבור לאינטרנט.</string>
-    <string name="offline_compilation_detail_button_remove">הסרה</string>
+  <string name="offline_compilation_detail_button_remove">הסרה</string>
   <string name="remote_compilation_download">הורדה</string>
-    <string name="storage_used_by_compilations">בשימוש ספרייה לא מקוונת</string>
+  <string name="storage_used_by_compilations">בשימוש ספרייה לא מקוונת</string>
   <string name="storage_other_apps">אפליקציות אחרות</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">נשארה דקה</item>
     <item quantity="other">נשארו %d דקות</item>
   </plurals>
@@ -457,9 +457,9 @@
   <string name="compilation_remove_confirm">האם למחוק את זה מהספרייה הלא מקוונת שלכם?</string>
   <string name="offline_library_title">ספרייה לא מקוונת</string>
   <string name="offline_library_empty_title">אין שום דבר בספרייה הלא מקוונת שלך</string>
-    <string name="offline_library_empty_search">חיפוש בספרייה הלא מקוונת</string>
+  <string name="offline_library_empty_search">חיפוש בספרייה הלא מקוונת</string>
   <string name="offline_library_search_results_state">תוצאות חיפוש מהספרייה הלא מקוונת שלכם</string>
-    <string name="offline_library_onboarding_button_done">סיום</string>
+  <string name="offline_library_onboarding_button_done">סיום</string>
   <string name="offline_library_onboarding_build_library_title">בניית הספרייה הבלתי־מקוונת שלך</string>
   <string name="offline_library_onboarding_build_library_subtitle">אפשר להוריד חבילות ערכים של ויקיפדיה לקריאה ללא חיבור נתונים אחר־כך.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">קריאה בלי הפרעות</string>
@@ -471,15 +471,15 @@
   <string name="onboarding_get_started">להתחיל</string>
   <string name="onboarding_explore_title">דרכים חדשות לחקור</string>
   <string name="onboarding_explore_text" fuzzy="true">לגלות ערכים מומלצים, נושאים חמים, והצעות לקריאה בהזנת \"לחקור\".</string>
-    <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
-    <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
+  <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
+  <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
   <string name="onboarding_create_account_sync">סנכרון רשימות הקריאה שלכם</string>
   <string name="onboarding_create_account_contributions">מעקב אחר התרומות שלך</string>
   <string name="onboarding_create_account_preferences">שמירת העדפות</string>
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
-    <string name="top_on_this_day">מובילים ב{{GRAMMAR:תחילית|%1$s}}</string>
+  <string name="top_on_this_day">מובילים ב{{GRAMMAR:תחילית|%1$s}}</string>
   <string name="on_this_day_card_title">ביום הזה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ{{GRAMMAR:תחילית|%2$s}}–%3$d</string>

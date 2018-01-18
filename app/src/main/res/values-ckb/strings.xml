@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">ئەمە ھەموو مێژووی کردنەوەکانت دەسڕێتەوە، و ھەموو تابە کراوەکانی ئێستات دادەخات. تۆ دڵنیای؟</string>
   <string name="dialog_message_clear_history_yes">بەڵێ</string>
   <string name="dialog_message_clear_history_no">نەخێر</string>
-    <string name="share_via">ھاوبەشکردن لەڕێی</string>
+  <string name="share_via">ھاوبەشکردن لەڕێی</string>
   <string name="search_redirect_from">ڕەوانەکراوە لە %s</string>
   <string name="menu_page_show_tabs">نیشاندانی تابەکان</string>
   <string name="menu_page_other_languages">گۆڕینی زمان</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">وشەکانی سەرەوە دووپات بکەرەوە</string>
   <string name="title_captcha">CAPTCHA تۆماربکە</string>
   <string name="edit_section_captcha_reload">کرتە لەسەر CAPTCHA بکە بۆ نوێکردنەوە</string>
-    <string name="nav_item_login">چوونە ناوەوە بۆ ویکیپیدیا</string>
+  <string name="nav_item_login">چوونە ناوەوە بۆ ویکیپیدیا</string>
   <string name="login_username_hint">ناوی بەکارھێنەر</string>
   <string name="login_password_hint">تێپەڕوشە</string>
   <string name="login_2fa_hint">کۆدی دڵنیاکردنەوەی دوو-فاکتەر</string>
@@ -271,7 +271,7 @@
   <string name="color_theme_select">ڕووکار</string>
   <string name="color_theme_light">سووك</string>
   <string name="color_theme_dark">تاریک</string>
-    <string name="preference_summary_color_theme">گۆڕین بۆ بەکارھێنانی ڕووکەشی تاریک</string>
+  <string name="preference_summary_color_theme">گۆڕین بۆ بەکارھێنانی ڕووکەشی تاریک</string>
   <string name="nav_item_reading_lists">پێڕستەکانم</string>
   <string name="reading_list_untitled">بێسەرناو</string>
   <string name="reading_list_save_to">پاشەکەوتکردن بۆ پێڕستی خوێندنەوە</string>
@@ -279,7 +279,7 @@
   <string name="reading_list_title_exists">پێڕستی خوێندنەوە \"%s\" ھەر ھەبووە.</string>
   <string name="reading_list_entry_empty">تکایە سەرناوێک بنووسە.</string>
   <string name="reading_list_added_to_named">زیادکرا بۆ %s.</string>
-    <string name="reading_list_already_exists">ئەم وتارە ھەر لەنێو ئەو پێڕستە بووە.</string>
+  <string name="reading_list_already_exists">ئەم وتارە ھەر لەنێو ئەو پێڕستە بووە.</string>
   <string name="reading_list_added_view_button">پێڕستی بینین</string>
   <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 وتار، %1$.2f MiB</string>
   <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d وتار، %2$.2f MiB</string>
@@ -325,7 +325,9 @@
   <string name="reading_lists_confirm_remote_delete_yes">بەڵێ</string>
   <string name="reading_lists_confirm_remote_delete_no">نەخێر</string>
   <string name="reading_list_article_save_in_progress">وتارەکە خەریکە دادەگیرێت. کاتێک داگرتنەکە تەواو بوو، بۆ خوێندنەوەی بێ ئینتەرنێت بەردەست دەبێت.</string>
-    <string name="user_option_sync_label">ھەڵبژاردەکان</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
+  <string name="user_option_sync_label">ھەڵبژاردەکان</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; پەیامێکی جێھێشت لە پەڕەی لێدوانەکەت &lt;strong&gt;%2$s&lt;/strong&gt;</string>
@@ -350,7 +352,7 @@
   <string name="menu_feed_overflow_label">بژاردەکانی تر</string>
   <string name="feed_featured_image_share_subject">وێنەی ھەڵبژێردراو لە ویکیمیدیا کۆمنز</string>
   <string name="feed">تێگەڕان</string>
-    <string name="most_read_list_card_title">گەرماوگەرم</string>
+  <string name="most_read_list_card_title">گەرماوگەرم</string>
   <string name="view_static_card_icon_content_description">نیشانەی کارت</string>
   <string name="view_card_news_title">لە ھەواڵەکان</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -409,14 +411,14 @@
   <string name="compilation_download_cancel_confirm_no">نەخێر</string>
   <string name="compilation_share">ھاوبەشکردن</string>
   <string name="compilation_remove">لابردن</string>
-    <string name="offline_library_onboarding_button_done">کرا</string>
+  <string name="offline_library_onboarding_button_done">کرا</string>
   <string name="onboarding_skip">پەڕاندن</string>
   <string name="onboarding_continue">بەردەوامبوون</string>
   <string name="onboarding_get_started">دەست پێ بکە</string>
   <string name="onboarding_welcome_title">ئینسایکڵۆپیدیای ئازاد</string>
   <string name="onboarding_explore_title">شێوازی نوێ بۆ دۆزینەوە</string>
   <string name="onboarding_analytics_title">داتای نەناسراوە بنێرە</string>
-    <string name="onboarding_analytics_switch_title">داتای بەکارھێنان بنێرە</string>
+  <string name="onboarding_analytics_switch_title">داتای بەکارھێنان بنێرە</string>
   <string name="onboarding_create_account_preferences">ھەڵبژاردنەکانت پاشەکەوت بکە</string>
   <string name="onboarding_got_it">تێگەیشتم</string>
   <string name="app_shortcuts_random">ھەڕەمەکی</string>

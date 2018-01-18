@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
   <string name="dialog_message_clear_history_yes">بله</string>
   <string name="dialog_message_clear_history_no">خیر</string>
-    <string name="share_via">اشتراک از طریق</string>
+  <string name="share_via">اشتراک از طریق</string>
   <string name="search_redirect_from">تغییرمسیر از %s</string>
   <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
   <string name="menu_page_other_languages">تغییر زبان</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">تکرار کلمات بالا</string>
   <string name="title_captcha">کپچا را وارد کنید</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
-    <string name="nav_item_login">ورود به ویکی‌پدیا</string>
+  <string name="nav_item_login">ورود به ویکی‌پدیا</string>
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">گذرواژه</string>
   <string name="login_2fa_hint">کد اعتبارسنجی دومرحله‌ای</string>
@@ -262,7 +262,7 @@
   <string name="error_page_does_not_exist">این صفحه وجود ندارد</string>
   <string name="view_wiki_error_message_offline">امکان اتصال به اینترنت وجود ندارد</string>
   <string name="reference_title">منابع %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">گم نورکردن تصویر (در حالت تیره)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">گم نورکردن تصویر (در حالت تیره)</string>
   <string name="preference_title_prefer_offline_content">محتوای آفلاین را ترجیح بده</string>
   <string name="preference_summary_prefer_offline_content">با نشان دادن محتوای آفلاین به جای گرفتن آخرین نسخه می‌توانید در مصرف داده صرفه‌جویی کنید</string>
   <string name="preference_title_enable_offline_library">فعال کردن کتابخانهٔ آفلاین</string>
@@ -287,7 +287,7 @@
   <string name="color_theme_black">سیاه</string>
   <string name="color_theme_test_title">نمونه متن</string>
   <string name="preference_title_app_theme">تِم برنامه</string>
-    <string name="preference_summary_color_theme">سویچ به سبک با رنگ تیره</string>
+  <string name="preference_summary_color_theme">سویچ به سبک با رنگ تیره</string>
   <string name="text_size_increase">افزایش اندازه متن</string>
   <string name="text_size_decrease">کاهش اندازه متن</string>
   <string name="text_size_percent_default">%s (پیش‌فرض)</string>
@@ -298,7 +298,7 @@
   <string name="reading_list_title_exists">فهرست خواندن «%s» موجود است.</string>
   <string name="reading_list_entry_empty">لطفاً عنوانی وارد کنید.</string>
   <string name="reading_list_added_to_named">به %s افزوده شد</string>
-    <string name="reading_list_already_exists">این مقاله در فهرست مطالعه موجود است.</string>
+  <string name="reading_list_already_exists">این مقاله در فهرست مطالعه موجود است.</string>
   <string name="reading_list_added_view_button">مشاهدهٔ فهرست</string>
   <string name="format_reading_list_statistical_summary_singular">۱ مقاله، %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مقاله، %2$.2f مگابایت</string>
@@ -372,9 +372,9 @@
   <string name="notification_thanks_title">از شما تشکر شده‌است!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ممنون از ویرایش شما در صفحۀ &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">همگام سازی</string>
-  <string name="notification_channel_description">پیشرفت همگام سازی</string>
-  <string name="notification_syncing_title">همگام سازی %1$d مقاله ها...</string>
-  <string name="notification_syncing_description">%1$d مقاله ها باقی مانده اند</string>
+  <string name="notification_channel_description" fuzzy="true">پیشرفت همگام سازی</string>
+  <string name="notification_syncing_title" fuzzy="true">همگام سازی %1$d مقاله ها...</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d مقاله ها باقی مانده اند</string>
   <string name="notification_syncing_pause_button">مکث</string>
   <string name="notification_syncing_resume_button">ادامه</string>
   <string name="notification_syncing_cancel_button">کَنسِل</string>
@@ -394,7 +394,7 @@
   <string name="menu_feed_overflow_label">گزینه‌های بیشتر</string>
   <string name="feed_featured_image_share_subject">تصویر برگزیده ویکی‌انبار</string>
   <string name="feed">مرور</string>
-    <string name="most_read_list_card_title">گریش‌ها</string>
+  <string name="most_read_list_card_title">گریش‌ها</string>
   <string name="view_static_card_icon_content_description">آیکون کارت</string>
   <string name="view_card_news_title">در اخبار</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -408,7 +408,7 @@
   <string name="view_featured_article_card_title">مقاله برگزیده</string>
   <string name="view_featured_article_footer_save_button_label">ذخیره</string>
   <string name="view_featured_article_footer_saved_button_label">ذخیره شد</string>
-    <string name="feed_configure_activity_title" fuzzy="true">برگه‌های تنظیم کاوش</string>
+  <string name="feed_configure_activity_title" fuzzy="true">برگه‌های تنظیم کاوش</string>
   <string name="feed_configure_menu_reset" fuzzy="true">بازگردانی به پیش‌فرض</string>
   <string name="feed_configure_menu_select_all">همه را انتخاب کنید</string>
   <string name="feed_configure_menu_deselect_all">از گزینش خارج کردن همه‌</string>
@@ -455,18 +455,18 @@
   <string name="offline_compilation_download_device_offline">ارتباط اینترنتی موجود نیست. مطمئن شوید که آنلاین هستید و دوباره بازگردید.</string>
   <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="offline_read_permission_error">اجازه برای خواندن از حافظه دستگاه داده‌نشد.</string>
-    <string name="offline_my_compilations">مدیریت کتابخانهٔ آفلاین</string>
+  <string name="offline_my_compilations">مدیریت کتابخانهٔ آفلاین</string>
   <string name="offline_compilations_title">کتابخانه آفلاین</string>
   <string name="offline_compilations_search_by_name">جستجوی بسته مقاله‌ها بر پایهٔ نام</string>
   <string name="offline_compilations_found_count">در کتابخانهٔ آفلاین من (%d)</string>
   <string name="offline_compilations_add">افزودن به کتابخانهٔ آفلاین من</string>
   <string name="remote_compilations_title">کتابخانهٔ آفلاین</string>
   <string name="remote_compilations_description">به کمک کتابخانهٔ آفلاین، برای مواقعی که به اینترنت دسترسی ندارید می‌توانید بسته‌هایی از مقالات برای خواندن دانلود کنید.</string>
-    <string name="offline_compilation_detail_button_remove">حذف</string>
+  <string name="offline_compilation_detail_button_remove">حذف</string>
   <string name="remote_compilation_download">بارگیری</string>
-    <string name="storage_used_by_compilations">توسط کتابخانهٔ آفلاین استفاده شده</string>
+  <string name="storage_used_by_compilations">توسط کتابخانهٔ آفلاین استفاده شده</string>
   <string name="storage_other_apps">سایر نرم‌افزارها</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">۱ دقیقه مانده</item>
     <item quantity="other">%d دقیقه مانده</item>
   </plurals>
@@ -479,12 +479,12 @@
   <string name="compilation_remove_confirm">آیا مطمئن هستید که می‌خواهید این بسته مقاله را از کتابخانهٔ آفلاینتان حذف کنید؟</string>
   <string name="offline_library_title">کتابخانه آفلاین</string>
   <string name="offline_library_empty_title">چیزی در کتابخانه آفلاین شما وجود ندارد</string>
-    <string name="offline_library_empty_description_sideload">«بستهٔ مقالات» در کتابخانهٔ آفلاین که برای ذخیره در دستگاه شما بسته‌بندی شده‌است که می‌توانید مقالات را به صورت آفلاین مطالعه کنید.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;موارد بیشتر&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">«بستهٔ مقالات» در کتابخانهٔ آفلاین که برای ذخیره در دستگاه شما بسته‌بندی شده‌است که می‌توانید مقالات را به صورت آفلاین مطالعه کنید.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;موارد بیشتر&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">بسته مقالات باقی‌مانده در کتابخانهٔ شما برای زمانی که قصد مطالعهٔ آفلاین دارید.&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;موارد بیشتر&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">آیا قصد دارید از اینترنت موبایلتان برای ذخیره استفاده کنید؟ گزینهٔ «ترجیح می‌دهم از محتویا آفلاین استفاده کنم» را در تنظیمات انتخاب کنید تا مقالات آفلاین را ابتدا نمایش دهد حتی در زمانی که به اینترنت وصل هستید.&lt;a href=\"#settings\"&gt;رفتن به تنظیمات&lt;/a&gt;</string>
   <string name="offline_library_empty_search">جستجو در کتابخانه آفلاین</string>
   <string name="offline_library_search_results_state">نمایش نتایج از کتابخانه آفلاین</string>
-    <string name="offline_library_onboarding_button_done">انجام شد</string>
+  <string name="offline_library_onboarding_button_done">انجام شد</string>
   <string name="offline_library_onboarding_build_library_title">کتابخانه آفلاینتان را بسازید</string>
   <string name="offline_library_onboarding_build_library_subtitle">دانلود بسته مقاله ویکی‌پدیا برای دسترسی بدون نیاز به دانلود برای بعداً.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">مطالعه بدون مزاحمت</string>
@@ -501,8 +501,8 @@
   <string name="onboarding_explore_text" fuzzy="true">کاوش خصوصیات مقالات، رتبه موضوعات و خواندن پیشنهادها در بازخورد کاوش.</string>
   <string name="onboarding_save_to_reading_lists_title">افزودن به لیست خواندنیها</string>
   <string name="onboarding_save_to_reading_lists_text">تهیه لیست خواندنیها برای مقاله هایی که مایلید در آینده مطالعه نمائید، همچنین هنگامی که آفلاین هستید.</string>
-    <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
-    <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع آوری داده ها بصورت ناشناس انجام می گیرد. &lt;a href=\"#offline\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
+  <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع آوری داده ها بصورت ناشناس انجام می گیرد. &lt;a href=\"#offline\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ارسال داده مصرفی</string>
   <string name="onboarding_create_account_sync">همسازسازی فهرست‌های مطالعه شما</string>
   <string name="onboarding_create_account_contributions">پیگیری ویرایش‌هایتان</string>
@@ -511,7 +511,7 @@
   <string name="app_shortcuts_continue_reading">ادامه دادن به خواندن</string>
   <string name="app_shortcuts_search">جستجو</string>
   <string name="more_trending_text">مقاله های بیشتر</string>
-    <string name="top_on_this_day">بالاترین در %1$s</string>
+  <string name="top_on_this_day">بالاترین در %1$s</string>
   <string name="on_this_day_card_title">در این روز</string>
   <string name="more_events_text">رویدادهای تاریخی بیشتر برای این روز</string>
   <string name="events_count_text">%1$s رویداد از %2$s تا %3$d</string>

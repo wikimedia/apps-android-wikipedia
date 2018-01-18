@@ -18,7 +18,7 @@
   <string name="history_item_delete_undo">Ontdaan</string>
   <string name="dialog_title_clear_history">Wis blaaigeskiedenis</string>
   <string name="dialog_message_clear_history">Die sal al u blaaigeskiedenis wis en enige oop oortjies sluit. Is u seker?</string>
-    <string name="share_via">Deel deur</string>
+  <string name="share_via">Deel deur</string>
   <string name="search_redirect_from">Aangestuur vanaf %s</string>
   <string name="menu_page_show_tabs">Vertoon oortjies</string>
   <string name="menu_page_other_languages">Verander taal</string>
@@ -65,7 +65,7 @@
   <string name="edit_section_captcha_hint">Herhaal woorde van hierbo</string>
   <string name="title_captcha">Voer CAPTCHA in</string>
   <string name="edit_section_captcha_reload">Kliek CAPTCHA om te herlaai</string>
-    <string name="nav_item_login">Meld aan by Wikipedia</string>
+  <string name="nav_item_login">Meld aan by Wikipedia</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wagwoord</string>
   <string name="menu_login">Meld aan</string>
@@ -241,7 +241,7 @@
   <string name="reading_list_title_exists">Leeslys “%s” bestaan reeds.</string>
   <string name="reading_list_entry_empty">Voer asb. ’n titel in.</string>
   <string name="reading_list_added_to_named">Tot %s toegevoeg.</string>
-    <string name="reading_list_already_exists">Hierdie artikel is reeds in daardie lys.</string>
+  <string name="reading_list_already_exists">Hierdie artikel is reeds in daardie lys.</string>
   <string name="reading_list_added_view_button">Bekyk lys</string>
   <string name="reading_list_sort">Sorteer</string>
   <string name="reading_list_sort_by_name">Sorteer volgens naam</string>

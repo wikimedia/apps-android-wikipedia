@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penjelajahan Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Tidak</string>
-    <string name="share_via">Bagikan lewat</string>
+  <string name="share_via">Bagikan lewat</string>
   <string name="search_redirect_from">Dialihkan dari %s</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
   <string name="menu_page_other_languages">Ubah bahasa</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">Ulangi kata-kata dari atas</string>
   <string name="title_captcha">Masukkan CAPTCHA</string>
   <string name="edit_section_captcha_reload">Ketuk CAPTCHA untuk memuat ulang</string>
-    <string name="nav_item_login">Masuk log ke Wikipedia</string>
+  <string name="nav_item_login">Masuk log ke Wikipedia</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="login_2fa_hint">Kode Otentikasi Dua Faktor</string>
@@ -262,7 +262,7 @@
   <string name="error_page_does_not_exist">Halaman ini tidak ada</string>
   <string name="view_wiki_error_message_offline">Tidak dapat terhubung ke internet</string>
   <string name="reference_title">Referensi %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">Peredupan gambar (dalam tema Gelap)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Peredupan gambar (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Tampilkan konten luring dahulu</string>
   <string name="preference_summary_prefer_offline_content">Menghemat penggunaan data dengan memuat artikel yang tersedia secara luring daripada selalu memuat versi terbaru artikel</string>
   <string name="preference_title_enable_offline_library">Aktifkan Perpustakaan Luring</string>
@@ -288,7 +288,7 @@
   <string name="color_theme_test_title">Contoh teks</string>
   <string name="color_theme_test_text">Seret penggeser untuk mengubah ukuran teks yang digunakan saat membaca artikel. Untuk mengatur ukuran teks di seluruh aplikasi lainnya, ubah ukuran teks sistem Anda.</string>
   <string name="preference_title_app_theme">Tema aplikasi</string>
-    <string name="preference_summary_color_theme">Beralih menggunakan tema warna gelap aplikasi</string>
+  <string name="preference_summary_color_theme">Beralih menggunakan tema warna gelap aplikasi</string>
   <string name="text_size_increase">Tingkatkan ukuran teks</string>
   <string name="text_size_decrease">Kurangi ukuran teks</string>
   <string name="text_size_percent_default">%s (Baku)</string>
@@ -299,7 +299,7 @@
   <string name="reading_list_title_exists">Daftar bacaan \"%s\" sudah ada.</string>
   <string name="reading_list_entry_empty">Silakan masukkan judul.</string>
   <string name="reading_list_added_to_named">Ditambahkan ke %s.</string>
-    <string name="reading_list_already_exists">Artikel ini sudah ada dalam daftar itu.</string>
+  <string name="reading_list_already_exists">Artikel ini sudah ada dalam daftar itu.</string>
   <string name="reading_list_added_view_button">Lihat daftar</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
@@ -377,9 +377,9 @@
   <string name="notification_thanks_title">Anda telah menerima ucapan terima kasih!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; berterima kasih untuk suntingan Anda pada halaman &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Menyinkronkan</string>
-  <string name="notification_channel_description">Kemajuan sinkronisasi</string>
-  <string name="notification_syncing_title">Menyinkronkan %1$d artikel...</string>
-  <string name="notification_syncing_description">%1$d artikel tersisa</string>
+  <string name="notification_channel_description" fuzzy="true">Kemajuan sinkronisasi</string>
+  <string name="notification_syncing_title" fuzzy="true">Menyinkronkan %1$d artikel...</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d artikel tersisa</string>
   <string name="notification_syncing_pause_button">Jeda</string>
   <string name="notification_syncing_resume_button">Lanjutkan</string>
   <string name="notification_syncing_cancel_button">Batal</string>
@@ -399,7 +399,7 @@
   <string name="menu_feed_overflow_label">Opsi lainnya</string>
   <string name="feed_featured_image_share_subject">Gambar pilihan dari Wikimedia Commons</string>
   <string name="feed">Jelajahi</string>
-    <string name="most_read_list_card_title">Sedang tren</string>
+  <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Peristiwa terkini</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -413,7 +413,7 @@
   <string name="view_featured_article_card_title">Artikel pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
   <string name="view_featured_article_footer_saved_button_label">Tersimpan</string>
-    <string name="feed_configure_activity_title">Sesuaikan umpan</string>
+  <string name="feed_configure_activity_title">Sesuaikan umpan</string>
   <string name="feed_configure_menu_reset">Pulihkan tampilan baku</string>
   <string name="feed_configure_menu_select_all">Pilih semua</string>
   <string name="feed_configure_menu_deselect_all">Tidak pilih semua</string>
@@ -470,7 +470,7 @@
   <string name="offline_compilation_download_device_offline">Tidak ada koneksi internet. Pastikan Anda kembali daring, lalu coba lagi.</string>
   <string name="offline_read_permission_rationale">Izin untuk mengakses penyimpanan pada perangkat Anda diperlukan untuk penjelajahan luring.</string>
   <string name="offline_read_permission_error">Izin tidak diberikan untuk baca dari penyimpanan perangkat.</string>
-    <string name="offline_card_sideloading_text">Anda sekarang menjelajahi Wikipedia secara luring dari paket artikel di Perpustakaan Luring Anda.</string>
+  <string name="offline_card_sideloading_text">Anda sekarang menjelajahi Wikipedia secara luring dari paket artikel di Perpustakaan Luring Anda.</string>
   <string name="offline_my_compilations">Kelola perpustakaan luring saya</string>
   <string name="offline_compilations_title">Perpustakaan Luring</string>
   <string name="offline_compilations_search_by_name">Cari paket artikel menurut nama</string>
@@ -478,16 +478,16 @@
   <string name="offline_compilations_add">Tambah ke Perpustakaan Luring saya</string>
   <string name="remote_compilations_title">Perpustakaan Luring</string>
   <string name="remote_compilations_description">Dengan Perpustakaan Luring, Anda sekarang dapat mengunduh paket artikel untuk dibaca bila Anda tidak memiliki koneksi internet.</string>
-    <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <string name="offline_compilation_detail_button_download_v2">Unduh • %s</string>
+  <string name="offline_compilation_detail_button_download_v2">Unduh • %s</string>
   <string name="offline_compilation_detail_button_remove">Hapus</string>
   <string name="remote_compilation_download">Unduh</string>
-    <string name="storage_size_free_v2">Tersedia %s</string>
+  <string name="storage_size_free_v2">Tersedia %s</string>
   <string name="storage_used_by_compilations">digunakan oleh Perpustakaan Luring</string>
   <string name="storage_other_apps">Aplikasi lainnya</string>
-    <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 menit lagi</item>
     <item quantity="other">%d menit lagi</item>
@@ -501,12 +501,12 @@
   <string name="compilation_remove_confirm">Apakah Anda ingin menghapus ini dari Perpustakaan Luring Anda?</string>
   <string name="offline_library_title">Perpustakaan Luring</string>
   <string name="offline_library_empty_title">Tidak ada apa-apa di perpustakaan luring Anda</string>
-    <string name="offline_library_empty_description_sideload">“Paket artikel” di Perpustakaan luring Anda adalah kumpulan artikel yang telah dikemas sebelumnya untuk penyimpanan yang mudah digunakan pada perangkat Anda, sehingga Anda dapat terus membaca saat luring.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Cari tahu lebih lanjut&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">“Paket artikel” di Perpustakaan luring Anda adalah kumpulan artikel yang telah dikemas sebelumnya untuk penyimpanan yang mudah digunakan pada perangkat Anda, sehingga Anda dapat terus membaca saat luring.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Cari tahu lebih lanjut&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">Paket artikel di perpustakaan Anda tetap tersedia untuk dibaca saat Anda sedang luring. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Cari tahu lebih lanjut&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">Ingin menghemat penggunaan data? Pilih opsi “Tampilkan konten luring dahulu” di Pengaturan untuk menampilkan artikel versi luring yang tersedia terlebih dahulu, bahkan saat Anda memiliki sambungan. &lt;a href=\"#settings\"&gt;Pergi ke Pengaturan&lt;/a&gt;</string>
   <string name="offline_library_empty_search">Cari Perpustakaan Luring</string>
   <string name="offline_library_search_results_state">Hasil pencarian dari Perpustakaan Luring Anda</string>
-    <string name="offline_library_onboarding_button_done">Selesai</string>
+  <string name="offline_library_onboarding_button_done">Selesai</string>
   <string name="offline_library_onboarding_build_library_title">Bangun Perpustakaan Luring Anda</string>
   <string name="offline_library_onboarding_build_library_subtitle">Unduh paket artikel Wikipedia sekarang untuk akses bebas data nanti.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Membaca tanpa terganggu</string>
@@ -523,8 +523,8 @@
   <string name="onboarding_explore_text">Menyelam menyusuri lubang kelinci Wikipedia dengan umpan Jelajahi yang terus diperbarui. &lt;br/&gt; &lt;b&gt;Sesuaikan&lt;/b&gt; umpan untuk minat Anda – apakah itu mempelajari tentang peristiwa bersejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau melempar dadu dengan &lt;b&gt;Sembarang&lt;/b&gt;.</string>
   <string name="onboarding_save_to_reading_lists_title">Simpan ke daftar bacaan</string>
   <string name="onboarding_save_to_reading_lists_text">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan saat Anda sedang luring.</string>
-    <string name="onboarding_analytics_title">Kirim data anonim</string>
-    <string name="onboarding_analytics_offline_text">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan adalah anonim. &lt;a href=\"#offline\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">Kirim data anonim</string>
+  <string name="onboarding_analytics_offline_text">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan adalah anonim. &lt;a href=\"#offline\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data penggunaan</string>
   <string name="onboarding_create_account_sync">Sinkronkan daftar bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Catat kontribusi Anda</string>
@@ -534,7 +534,7 @@
   <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
   <string name="more_trending_text">Lainnya seperti ini</string>
-    <string name="top_on_this_day">Sedang tren pada %1$s</string>
+  <string name="top_on_this_day">Sedang tren pada %1$s</string>
   <string name="on_this_day_card_title">Hari ini dalam sejarah</string>
   <string name="more_events_text">Lainnya pada hari ini</string>
   <string name="events_count_text">%1$s peristiwa dari %2$s–%3$d</string>
