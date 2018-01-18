@@ -23,6 +23,7 @@ import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.text.ParseException;
@@ -239,7 +240,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                     if (list.remoteId() == remoteList.id()) {
                         localList = list;
                         break;
-                    } else if (list.title().equals(remoteList.name())) {
+                    } else if (StringUtil.normalizedEquals(list.title(), remoteList.name())) {
                         list.remoteId(remoteList.id());
                         upsertNeeded = true;
                         localList = list;
@@ -265,11 +266,11 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                     allLocalLists.add(localList);
                     upsertNeeded = true;
                 } else {
-                    if (!localList.isDefault() && !localList.title().equals(remoteList.name())) {
+                    if (!localList.isDefault() && !StringUtil.normalizedEquals(localList.title(), remoteList.name())) {
                         localList.title(remoteList.name());
                         upsertNeeded = true;
                     }
-                    if (!localList.isDefault() && !TextUtils.equals(localList.description(), remoteList.description())) {
+                    if (!localList.isDefault() && !StringUtil.normalizedEquals(localList.description(), remoteList.description())) {
                         localList.description(remoteList.description());
                         upsertNeeded = true;
                     }

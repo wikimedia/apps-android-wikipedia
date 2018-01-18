@@ -320,7 +320,7 @@ public class PageTitle implements Parcelable {
 
         PageTitle other = (PageTitle)o;
         // Not using namespace directly since that can be null
-        return other.getPrefixedText().equals(getPrefixedText()) && other.wiki.equals(wiki);
+        return StringUtil.normalizedEquals(other.getPrefixedText(), getPrefixedText()) && other.wiki.equals(wiki);
     }
 
     @Override public int hashCode() {
