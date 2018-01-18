@@ -290,7 +290,6 @@
   <string name="reading_list_no_description">აღწერა არ არის...</string>
   <string name="reading_list_remove_from_list">%s-დან წაშლა</string>
   <string name="reading_list_remove_from_lists">საკითხავი სიიდან ამოღება</string>
-  <string name="reading_list_sync_reminder_action">ჩართვა</string>
   <string name="reading_lists_confirm_remote_delete_yes">დიახ</string>
   <string name="reading_lists_confirm_remote_delete_no">არა</string>
   <string name="reading_list_delete_confirm" fuzzy="true">დარწმუნებული ხართ, რომ გსურთ წასაკითხთა ამ %s სიის წაშლა?</string>

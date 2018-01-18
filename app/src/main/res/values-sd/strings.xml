@@ -332,7 +332,6 @@
   <string name="reading_list_confirm_remove_article_from_offline">آفلائين مان ھٽايو</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">مضمون ڪيترين ئي فھرستن ۾ ظاھر ٿئي ٿو</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ڪنھن بہ پڙھڻ جي فھرستن لاءِ وڌيڪ آفلائين موجود نہ ھوندو:</string>
-  <string name="reading_list_sync_reminder_action">ھلايو</string>
   <string name="reading_lists_confirm_remote_delete_yes">ھا</string>
   <string name="reading_lists_confirm_remote_delete_no">نہ</string>
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>

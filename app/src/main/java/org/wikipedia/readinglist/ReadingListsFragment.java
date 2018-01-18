@@ -44,6 +44,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.SearchEmptyView;
@@ -500,9 +501,9 @@ public class ReadingListsFragment extends Fragment {
                 && ReleaseUtil.isPreBetaRelease()) {
             OnboardingView onboardingView = new OnboardingView(getContext());
             onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
-            onboardingView.setTitle(R.string.reading_list_sync_reminder_title);
-            onboardingView.setText(R.string.reading_list_sync_reminder_text);
-            onboardingView.setPositiveAction(R.string.reading_list_sync_reminder_action);
+            onboardingView.setTitle(R.string.reading_lists_sync_reminder_title);
+            onboardingView.setText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)));
+            onboardingView.setPositiveAction(R.string.reading_lists_sync_reminder_action);
             onboardingContainer.addView(onboardingView);
             onboardingView.setCallback(new SyncReminderOnboardingCallback());
 
@@ -511,7 +512,7 @@ public class ReadingListsFragment extends Fragment {
             OnboardingView onboardingView = new OnboardingView(getContext());
             onboardingView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
             onboardingView.setTitle(R.string.reading_list_login_reminder_title);
-            onboardingView.setText(R.string.reading_list_login_reminder_text);
+            onboardingView.setText(R.string.reading_lists_login_reminder_text);
             onboardingView.setNegativeAction(R.string.reading_lists_onboarding_got_it);
             onboardingView.setPositiveAction(R.string.menu_login);
             onboardingContainer.addView(onboardingView);

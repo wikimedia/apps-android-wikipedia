@@ -345,11 +345,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">从离线内容中移除</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">出现在多个列表中的条目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s将不再用于所有阅读列表中的离线内容：</string>
-  <string name="reading_list_sync_reminder_title">阅读列表同步已关闭</string>
-  <string name="reading_list_sync_reminder_text">如果您在应用设置中允许同步的话，您的阅读列表就可以同步到您的维基百科账户。</string>
-  <string name="reading_list_sync_reminder_action">打开</string>
   <string name="reading_list_login_reminder_title">同步阅读列表</string>
-  <string name="reading_list_login_reminder_text">您的阅读列表现已保存到您的维基百科账户。只要登录您的账户，您的阅读列表就会自动同步。</string>
   <string name="reading_lists_confirm_remote_delete">这将从外部存储中删除任何之前同步的阅读列表。继续么？</string>
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>

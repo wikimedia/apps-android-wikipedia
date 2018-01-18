@@ -337,11 +337,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">оффлайн эрэhиимин сотторуу</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Ыстатыйа хас да5аны испиhиэккэ кестер</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s офлайн-эрэсиимҥэ аны көстүө суоҕа:</string>
-  <string name="reading_list_sync_reminder_title">Ааҕар испиhиэк мэнэйдэhиитэ араҕыста</string>
-  <string name="reading_list_sync_reminder_text">Эhиги ааҕар испиhиэккитин приложения туруоруутугар көҥүл биэрдэххитинэ бикипиэдьийэҕэ баар бэлиэтэммит ааккыт мэнэйдэhиэн сөп</string>
-  <string name="reading_list_sync_reminder_action">холбоо</string>
   <string name="reading_list_login_reminder_title">Мэнэйдэhии испиhиэгэ</string>
-  <string name="reading_list_login_reminder_text">Эhиги аа5ар испиhиэккит Бикипиэдьийэ5э учуоттууп суруккутугар хаалар. Учуоттуур суруккар киир уонна эьиги аа5ар испиьиэккит мэнэйдэьиниэ</string>
   <string name="reading_lists_confirm_remote_delete">Бу эрдэ мэнэйдэһиллибит ааҕар испиһиэккин сотторон кэбиһиэ. Салгыыгын дуо?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Сөп</string>
   <string name="reading_lists_confirm_remote_delete_no">Суох</string>

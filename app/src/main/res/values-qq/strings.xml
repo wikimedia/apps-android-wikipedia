@@ -345,11 +345,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Label for a dialog button confirming that the user wants to remove the selected list from offline availability for all reading lists.</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Title for a dialog warning the user that the page the user has selected to remove from offline availability appears in multiple lists.</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Message for a dialog warning the user that the page the user has selected to remove from offline availability appears in multiple lists.  The names of the lists appear below.  The \"%s\" symbol is the title of the page of the user selected to remove.</string>
-  <string name="reading_list_sync_reminder_title">Title for a tutorial card that reminds the user that their reading lists can be synchronized.</string>
-  <string name="reading_list_sync_reminder_text">Text for a tutorial card that reminds the user that their reading lists can be synchronized.</string>
-  <string name="reading_list_sync_reminder_action">Button text for turning on synchronizing of reading lists.</string>
   <string name="reading_list_login_reminder_title">Title for a tutorial card that reminds the user that logging in will enable syncing of reading lists.</string>
-  <string name="reading_list_login_reminder_text">Text for a tutorial card that reminds the user that logging in will enable syncing of reading lists.</string>
   <string name="reading_lists_confirm_remote_delete">Warning message shown to a user to confirm that remotely stored reading list data used for syncing across devices should be deleted.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Affirmative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|Yes}}</string>
   <string name="reading_lists_confirm_remote_delete_no">Negative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|No}}</string>
@@ -545,6 +541,11 @@
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
   <string name="back_to_top">Button label for scrolling the content to the top.</string>
+  <string name="feed_reading_lists_sync_onboarding_text">User education message suggesting the users to log in to reap the benefits of synced reading lists</string>
+  <string name="reading_lists_sync_reminder_action">Button text for turning on synchronizing of reading lists.</string>
+  <string name="reading_lists_sync_reminder_title">Title for a tutorial card that reminds the user that their reading lists can be synchronized.</string>
+  <string name="reading_lists_sync_reminder_text">Text for a tutorial card that reminds the user that their reading lists can be synchronized, with a link to the synced reading lists FAQ page that explains the procedure in detail.</string>
+  <string name="reading_lists_login_reminder_text">Text for a tutorial card that reminds the user that logging in will enable syncing of reading lists.</string>
   <plurals name="diff_years">
     <item quantity="one">Text indicating that the event occured one year ago.</item>
     <item quantity="other">Text indicating that the event occured two or more years ago.\"%d\" is the number of years.</item>

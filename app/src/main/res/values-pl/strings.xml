@@ -290,7 +290,6 @@
   <string name="reading_list_no_description">Brak opisu...</string>
   <string name="reading_list_empty">Na tej liście nie ma dodanych artykułów.</string>
   <string name="reading_list_remove_from_list">Usuń z %s</string>
-  <string name="reading_list_sync_reminder_action">Włącz</string>
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_added_articles_list_titled">Dodano %1$d artykułów do %2$s</string>

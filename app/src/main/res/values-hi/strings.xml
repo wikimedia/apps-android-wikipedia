@@ -335,11 +335,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">ऑफलाइन से हटायें</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">लेख एक से अधिक सूचियों में है</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s सभी ऑफलाइन पढ़ने वाली सूचियों में आगे उपलब्ध नहीं होगा:</string>
-  <string name="reading_list_sync_reminder_title">पढ़ने वाली सूची का सिंक बंद है</string>
-  <string name="reading_list_sync_reminder_text">अगर आप ऍप सेटिंग्स में सिंक चालू कर दें तो आपकी पठन सूचियां विकिपीडिया अकाउंट से सिंक की जा सकेंगी</string>
-  <string name="reading_list_sync_reminder_action">चालू करें</string>
   <string name="reading_list_login_reminder_title">\nअपनी पठन सूचियों को सिंक करें</string>
-  <string name="reading_list_login_reminder_text">अब आपकी पठन सूचियॉँ आपके विकिपीडिया अकाउंट पर सहेजी जा सकती हैं। बस अपने अकाउंट पर लोग-इन करिये और आपकी पठन सूचियां स्वतः ही सिंक हो जाएँगी।</string>
   <string name="reading_lists_confirm_remote_delete">इससे आपकी, दूरस्थ स्टोरेज पर, पुरानी सिंक की हुयी सूचियाँ नष्ट हो जाएँगी। आगे बढ़ें?</string>
   <string name="reading_lists_confirm_remote_delete_yes">हाँ</string>
   <string name="reading_lists_confirm_remote_delete_no">नहीं</string>

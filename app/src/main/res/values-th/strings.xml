@@ -209,7 +209,6 @@
   <string name="reading_list_add_to_other_list">เพิ่มลงในรายการอ่านอื่น</string>
   <string name="reading_list_remove_from_lists">ลบออกจากรายการอ่าน</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s จะไม่พร้อมใช้งานแบบออฟไลน์อีกต่อไปสำหรับรายการอ่านทั้งหมด:</string>
-  <string name="reading_list_sync_reminder_text">คุณสามารถซิงค์รายการอ่านของคุณกับบัญชีวิกิพีเดียของคุณได้ ถ้าคุณเปิดใช้การซิงค์ในการตั้งค่าแอป</string>
   <string name="reading_list_login_reminder_title">ซิงค์รายการอ่าน</string>
   <string name="reading_list_delete_confirm" fuzzy="true">คุณแน่ใจว่าต้องการลบรายการอ่าน%sนี้หรือไม่</string>
   <string name="view_continue_reading_card_title">อ่านต่อ</string>

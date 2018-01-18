@@ -318,7 +318,6 @@
   <string name="reading_list_confirm_remove_article_from_offline">Уклони са офлајна</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Чланак се појављује на више спискова</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s више неће да буде доступна офлајн за све спискове за читање:</string>
-  <string name="reading_list_sync_reminder_action">Укључи</string>
   <string name="reading_list_login_reminder_title">Синхронизујте списак за читање</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>

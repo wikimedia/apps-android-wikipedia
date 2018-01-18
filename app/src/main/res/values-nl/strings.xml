@@ -321,11 +321,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Verwijder uit offline</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel komt naar voren in verschillende lijsten</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s zal niet beschikbaar zijn offline voor alle leeslijsten:</string>
-  <string name="reading_list_sync_reminder_title">Leeslijst synchroniseren is uitgezet</string>
-  <string name="reading_list_sync_reminder_text">Uw leeslijst kan gesynchroniseerd worden naar uw Wikipedia-account als u synchronisatie toestaat in de applicatie-instellingen.</string>
-  <string name="reading_list_sync_reminder_action">Zet aan</string>
   <string name="reading_list_login_reminder_title">Synchroniseer de leeslijsten</string>
-  <string name="reading_list_login_reminder_text">Uw leeslijsten zijn nu opgeslagen in uw Wikipedia-profiel. Log in op uw profiel, en uw leeslijsten zullen automatisch gesynchroniseerd worden.</string>
   <string name="reading_lists_confirm_remote_delete">Dit zal alle voorgaande gesynchroniseerde leeslijsten verwijderen van uw apparaat. Doorgaan?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nee</string>

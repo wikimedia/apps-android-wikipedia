@@ -336,11 +336,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Видалено з автономного списку</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Стаття входить до декількох списків</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s тепер не буде доступна автономно для всіх списків:</string>
-  <string name="reading_list_sync_reminder_title">Синхронізація списку читання вимкнена</string>
-  <string name="reading_list_sync_reminder_text">Ваші списки читання можуть бути синхронізовані з вашим обліковим записом у Вікіпеді, що можна налаштувати в додатку</string>
-  <string name="reading_list_sync_reminder_action">Увімкнути</string>
   <string name="reading_list_login_reminder_title">Синхронізовувати списки читання</string>
-  <string name="reading_list_login_reminder_text">Ваші списки читання тепер можуть бути збережені у вашому обліковому записі Вікіпедії. Просто увійдіть до свого облікового запису, і ваші списки читання будуть синхронізовані автоматично.</string>
   <string name="reading_lists_confirm_remote_delete">Це видалить всі попередньо синхронізовані списки читання з віддаленого сховища. Продовжуємо?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Так</string>
   <string name="reading_lists_confirm_remote_delete_no">Ні</string>

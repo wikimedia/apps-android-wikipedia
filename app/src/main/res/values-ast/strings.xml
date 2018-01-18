@@ -345,11 +345,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar de les llistes sin conexón</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">L\'artículu apaez en delles llistes</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s yá nun tará disponible sin conexón pa nenguna llista de llectura:</string>
-  <string name="reading_list_sync_reminder_title">Ta desactivada la sincronización de llistes de llectura</string>
-  <string name="reading_list_sync_reminder_text">Les llistes de llectura de la to cuenta de Wikipedia pueden sincronizase si lo permites na configuración de l\'aplicación.</string>
-  <string name="reading_list_sync_reminder_action">Activar</string>
   <string name="reading_list_login_reminder_title">Sincronizar llistes de llectura</string>
-  <string name="reading_list_login_reminder_text">Agora les tos llistes de llectura pueden guardase na cuenta de Wikipedia. Sólo anicia sesión cola to cuenta, y les llistes de llectura van sincronizase automáticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Esto desaniciará del almacenamientu remotu cualquier llista de llectura sincronizada con anterioidá. ¿Siguir?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>

@@ -338,11 +338,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Eltávolítás a kapcsolat nélküliből</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">A szócikk több listán is rajta van</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
-  <string name="reading_list_sync_reminder_title">Olvasási lista szinkronizálás kikapcsolva</string>
-  <string name="reading_list_sync_reminder_text">Olvasási listáidat szinkronizálhatod, ha bejelentkezel a Wikipédiába</string>
-  <string name="reading_list_sync_reminder_action">Bekapcsol</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
-  <string name="reading_list_login_reminder_text">Az olvasólistád most már lementhető a Wikipédia fiókodba. Csak jelentkezz be a fiókodba, és az olvasólistáid automatikusan szinkronizálva lesznek.</string>
   <string name="reading_lists_confirm_remote_delete">Ez törli az összes korábban szinkronizált olvasólistát a távoli tárolóból. Folytatod?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>

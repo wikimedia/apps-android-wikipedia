@@ -343,11 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">حذف از آفلاین</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">مقاله در چندین فهرست دیده می‌شود</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s دیگر به صورت آفلاین برای همهٔ فهرست‌های خواند موجود نیست:</string>
-  <string name="reading_list_sync_reminder_title">همساز‌سازی فهرست مطالعه خاموش شده‌است</string>
-  <string name="reading_list_sync_reminder_text">اگر در تنظیمات به اپلیکیشن اجازه داده‌شود، امکان همساز‌سازی فهرست مقاله‌هایی که در ویکی‌پدیا مطالعه کردید وجود دارد.</string>
-  <string name="reading_list_sync_reminder_action">روشن کردن</string>
   <string name="reading_list_login_reminder_title">همسازسازی فهرست‌های مطالعه</string>
-  <string name="reading_list_login_reminder_text">فهرست مطالعهٔ شما ممکن است در حساب کاربری شما در ویکی‌پدیا ذخیره شده باشد. با وارد شدن به حساب کاربریتان به راحتی می‌توانید آن را به صورت خودکار همساز کنید.</string>
   <string name="reading_lists_confirm_remote_delete">اینکار فهرست‌های مطالعه‌ای که همساز کردید را حذف می‌کند. انجام شود؟</string>
   <string name="reading_lists_confirm_remote_delete_yes">بله</string>
   <string name="reading_lists_confirm_remote_delete_no">خیر</string>

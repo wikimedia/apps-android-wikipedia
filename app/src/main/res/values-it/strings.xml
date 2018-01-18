@@ -318,8 +318,6 @@
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dall\'elenco di lettura</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Voce appare in più elenchi</string>
-  <string name="reading_list_sync_reminder_title">La sincronizzazione degli elenchi di lettura è disattivata</string>
-  <string name="reading_list_sync_reminder_action">Attiva</string>
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sì</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>

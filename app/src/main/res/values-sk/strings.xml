@@ -335,11 +335,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Odstrániť článok z offline úložiska</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Článok je vo viacerých zoznamoch</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ďalej nebude dostupný offline pre všetky zoznamy na prečítanie:</string>
-  <string name="reading_list_sync_reminder_title">Synchronizácia zoznamov na prečítanie je vypnutá</string>
-  <string name="reading_list_sync_reminder_text">Svoje zoznamy na prečítanie môžete zosynchronizovať s Vaším účtom na Wikipédii, ak v nastaveniach aplikácie povolíte synchronizovanie.</string>
-  <string name="reading_list_sync_reminder_action">Zapnúť</string>
   <string name="reading_list_login_reminder_title">Synchronizovať zoznamy na prečítanie</string>
-  <string name="reading_list_login_reminder_text">Vaše zoznamy na prečítanie môžu byť uložené vo Vašom účte na Wikipédii. Jednoducho sa prihláste a Vaše zoznamy budú zosynchronizované automaticky.</string>
   <string name="reading_lists_confirm_remote_delete">Takto sa zo vzdialeného úložiska zmažú akékoľvek predtým zosynchronizované zoznamy na prečítanie. Pokračovať?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>

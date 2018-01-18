@@ -343,11 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Fjarlægja úr ónettengdum aðgangi</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Greinin er á mörgum listum</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s verður ekki lengur tiltækt án nettengingar úr öllum leslistum:</string>
-  <string name="reading_list_sync_reminder_title">Slökkt er á samstillingu leslista</string>
-  <string name="reading_list_sync_reminder_text">Hægt er að samstilla leslistana þína við Wikipedia-aðganginn þinn ef þú leyfir samstillingu í stillingum forritsins.</string>
-  <string name="reading_list_sync_reminder_action">Kveikja á</string>
   <string name="reading_list_login_reminder_title">Samstilla leslista</string>
-  <string name="reading_list_login_reminder_text">Leslistarnir þínir gætu núna verið vistaðir á Wikipedia-aðganginn þinn. Skráðu þig einfaldlega inn á aðganginn þinn og þá verða leslistarnir þínir samstilltir sjálfkrafa.</string>
   <string name="reading_lists_confirm_remote_delete">Þetta mun eyða öllum áður samstilltum leslistum af fjartengdu gagnageymslunni. Halda áfram?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Já</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>

@@ -331,11 +331,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">آف لائن سے حذف کریں</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">مضمون متعدد فہرستوں میں دکھائی دے رہا ہے</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s آئندہ مطالعہ کی تمام فہرستوں میں آن لائن دستیاب نہیں ہوگا:</string>
-  <string name="reading_list_sync_reminder_title">فہرست مطالعہ کی مطابقت پزیری بند ہے</string>
-  <string name="reading_list_sync_reminder_text">اگر اطلاقیہ کی ترتیبات میں آپ مطابقت پزیری کی اجازت دیتے ہیں تو مطالعہ کی تمام فہرستوں کو آپ کے ویکیپیڈیا کھاتے سے مطابق کیا جا سکتا ہے۔</string>
-  <string name="reading_list_sync_reminder_action">فعال کریں</string>
   <string name="reading_list_login_reminder_title">مطالعہ کی فہرستوں کو باہم مطابق کریں</string>
-  <string name="reading_list_login_reminder_text">اب آپ کی مطالعاتی فہرستوں کو آپ کے ویکیپیڈیا کھاتے میں محفوظ کیا جا سکتا ہے۔ بس اپنے کھاتے میں داخل ہوں، آپ کی تمام مطالعاتی فہرستیں مطابق ہو جائیں گی۔</string>
   <string name="reading_lists_confirm_remote_delete">اس سے سابقہ مطابقت پزیر مطالعاتی فہرستیں حذف ہو جائیں گے۔ ٹھیک؟</string>
   <string name="reading_lists_confirm_remote_delete_yes">ہاں</string>
   <string name="reading_lists_confirm_remote_delete_no">نہیں</string>

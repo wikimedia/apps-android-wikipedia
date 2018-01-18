@@ -333,11 +333,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Hapus tina oflén</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel bijil dina sawatara daptar</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s teu nyangkaruk deui sacara oflén pikeun sakumna daptar bacaan:</string>
-  <string name="reading_list_sync_reminder_title">Singkronisasi daptar bacaan dipareuman</string>
-  <string name="reading_list_sync_reminder_text">Daptar bacaan anjeun bisa disingkronkeun kana akun Wikipédia anjeun mun anjeun ngawidian singkronisasi di pangaturan aplikasi.</string>
-  <string name="reading_list_sync_reminder_action">Hurungkeun</string>
   <string name="reading_list_login_reminder_title">Singkronkeun daptar bacaan</string>
-  <string name="reading_list_login_reminder_text">Daptar bacaan anjeun kiwari bisa disimpen kana akun Wikipédia anjeun. Cukup asup log kana akun anjeun, mangka daptar bacaan anjeun bakal disingkronkeun kalawan otomatis.</string>
   <string name="reading_lists_confirm_remote_delete">Ieu bakal ngahapus daptar bacaan nu disingkronkeun saméméhna tina panyimpenan jarak jauh. Tuluykeun?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Nya</string>
   <string name="reading_lists_confirm_remote_delete_no">Teu</string>

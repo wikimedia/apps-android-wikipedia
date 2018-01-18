@@ -343,11 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">オフラインから削除</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">複数のリストに記事が表示されます</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">すべての閲覧リストに対して、%sはオフラインで利用できなくなります：</string>
-  <string name="reading_list_sync_reminder_title">リストの同期の読み取りがオフになっています</string>
-  <string name="reading_list_sync_reminder_text">あなたのリーディングリストは、あなたのウィキペディアアカウントに同期させることができます。</string>
-  <string name="reading_list_sync_reminder_action">常にオン</string>
   <string name="reading_list_login_reminder_title">リーディングリストを同期する</string>
-  <string name="reading_list_login_reminder_text">あなたのリーディングリストはあなたのウィキペディアアカウントに保存されるようになりました。あなたのアカウントにログインするだけで、リーディングリストは自動的に同期されます。</string>
   <string name="reading_lists_confirm_remote_delete">これにより、以前に同期されたすべてのリーディングリストがリモートストレージから削除されます。続行しますか？</string>
   <string name="reading_lists_confirm_remote_delete_yes">はい</string>
   <string name="reading_lists_confirm_remote_delete_no">いいえ</string>

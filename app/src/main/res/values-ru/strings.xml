@@ -345,11 +345,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Удалить из офлайн-режима</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">статья появляется в многочисленных списках</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s больше не будет доступна в офлайн-режиме во всех списках для чтения:</string>
-  <string name="reading_list_sync_reminder_title">Синхронизация списков для чтения выключена</string>
-  <string name="reading_list_sync_reminder_text">Ваши списки для чтения могут синхронизироваться с учётной записью в Википедии, если вы разрешите синхронизацию в настройках приложения.</string>
-  <string name="reading_list_sync_reminder_action">Включить</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
-  <string name="reading_list_login_reminder_text">Теперь ваши списки для чтения могут быть сохранены в вашу учётную запись Википедии. Просто войдите в свою учётную запись, и ваши списки будут синхронизированы автоматически.</string>
   <string name="reading_lists_confirm_remote_delete">Это удалит все ранее синхронизированные списки для чтения из удалённого хранилища. Продолжить?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Нет</string>

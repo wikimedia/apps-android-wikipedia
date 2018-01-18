@@ -316,7 +316,6 @@
   <string name="reading_list_add_to_other_list">အခြားသော ဖတ်ရှုမည့်စာရင်းတွင် ထည့်သွင်းရန်။</string>
   <string name="reading_list_remove_from_list">%s မှ ဖယ်ထုတ်ရန်။</string>
   <string name="reading_list_remove_from_lists">ဖတ်ရှုစာရင်းမှ ဖယ်ထုတ်ရန်</string>
-  <string name="reading_list_sync_reminder_action">ဖွင့်ပါ။</string>
   <string name="reading_lists_confirm_remote_delete_yes">လုပ်မည်။</string>
   <string name="reading_lists_confirm_remote_delete_no">မလုပ်ပါ။</string>
   <string name="reading_list_delete_confirm" fuzzy="true">ဤစာဖတ်စာရင်းအား ဖျက်ရန် သေချာပါသလား%s?</string>

@@ -343,11 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Премахване от офлайн достъп</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Статията се намира в няколко списъка</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s повече няма да е налична офлайн за всички списъци за четене:</string>
-  <string name="reading_list_sync_reminder_title">Синхронизацията на списъците за четене е изключена</string>
-  <string name="reading_list_sync_reminder_text">Вашите списъци за четене могат да бъдат синхронизирани с вашата сметка в Уикипедия, ако позволите синхронизацията в настройките на приложението.</string>
-  <string name="reading_list_sync_reminder_action">Включване</string>
   <string name="reading_list_login_reminder_title">Синхронизация на списъците за четене</string>
-  <string name="reading_list_login_reminder_text">Вашите списъци за четене могат да бъдат запазвани във вашата сметка в Уикипедия. Влезте в сметката си и вашите списъци за четене ще бъдат синхронизирани автоматично.</string>
   <string name="reading_lists_confirm_remote_delete">Това ще изтрие всички предишно синхронизирани списъци за четене от дистанционното съхранение. Продължаване?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>

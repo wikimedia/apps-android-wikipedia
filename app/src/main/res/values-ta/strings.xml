@@ -295,7 +295,6 @@
   <string name="reading_list_remove_from_lists">படிப்பு பட்டியல்களில் இருந்து நீக்குக</string>
   <string name="reading_list_confirm_remove_article_from_offline">அணைநிலையிருந்து நீக்குக</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">கட்டுரை பல பட்டியலில் காணப்படுகிறது</string>
-  <string name="reading_list_sync_reminder_action">இயக்கு</string>
   <string name="reading_list_login_reminder_title">படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்க</string>
   <string name="reading_lists_confirm_remote_delete_yes">ஆம்</string>
   <string name="reading_lists_confirm_remote_delete_no">இல்லை</string>

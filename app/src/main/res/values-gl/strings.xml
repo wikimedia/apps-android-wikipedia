@@ -343,11 +343,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Quitar das listas sen conexión</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">O artigo aparece en varias listas</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s xa non estará dispoñible sen conexión en ningunha lista de lectura:</string>
-  <string name="reading_list_sync_reminder_title">A sincronización das listas de lectura está desactivada</string>
-  <string name="reading_list_sync_reminder_text">As súas listas de lectura poden ser sincronizadas coa súa conta de Wikipedia se permite a sincronización nos parámetros da aplicación.</string>
-  <string name="reading_list_sync_reminder_action">Activar</string>
   <string name="reading_list_login_reminder_title">Sincronizar as listas de lectura</string>
-  <string name="reading_list_login_reminder_text">As súas listas de lectura agora poden ser gardadas na súa conta de Wikipedia. Simplemente conéctese á súa conta, e as súas listas de lectura serán sincronizadas automaticamente.</string>
   <string name="reading_lists_confirm_remote_delete">Isto eliminará calquera lista de lectura previamente sincronizada do almacenamento remoto. Proceder?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Si</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
