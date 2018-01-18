@@ -89,12 +89,11 @@ public class RandomItemFragment extends Fragment {
             @Override
             public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull RbPageSummary pageSummary) {
                 loadComplete = true;
-                parent().onChildLoaded();
-
                 if (!isAdded()) {
                     return;
                 }
                 setContents(pageSummary);
+                parent().onChildLoaded();
             }
 
             @Override
