@@ -69,7 +69,7 @@ public class RandomItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        if (view == null) {
+        if (view == null || !containsData()) {
             view = inflater.inflate(R.layout.fragment_random_item, container, false);
             ButterKnife.bind(this, view);
             imageView.setLegacyVisibilityHandlingEnabled(true);
@@ -82,6 +82,10 @@ public class RandomItemFragment extends Fragment {
             getRandomPage();
         }
         return view;
+    }
+
+    private boolean containsData() {
+        return !(TextUtils.isEmpty(articleTitleView.getText().toString()) || TextUtils.isEmpty(extractView.getText().toString()));
     }
 
     private void getRandomPage() {
