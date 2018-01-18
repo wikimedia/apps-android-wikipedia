@@ -104,7 +104,7 @@ public class SyncedReadingLists {
         }
 
         @NonNull public String project() {
-            return Normalizer.normalize(title, Normalizer.Form.NFC);
+            return Normalizer.normalize(project, Normalizer.Form.NFC);
         }
 
         @NonNull public String title() {
