@@ -20,11 +20,11 @@
   <string name="dialog_message_clear_history">Týmto sa odstráni vaša história prehliadania a zavrú sa všetky otvorené karty. Naozaj chcete vymazať celú históriu?</string>
   <string name="dialog_message_clear_history_yes">Áno</string>
   <string name="dialog_message_clear_history_no">Nie</string>
-    <string name="share_via">Zdieľať cez</string>
+  <string name="share_via">Zdieľať cez</string>
   <string name="search_redirect_from">Presmerované z %s</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
   <string name="menu_page_other_languages">Zmeniť jazyk</string>
-  <string name="menu_page_find_in_page">Nájsť</string>
+  <string name="menu_page_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_content_issues">Problémy s obsahom</string>
   <string name="menu_page_font_and_theme">Písmo a vzhľad</string>
   <string name="menu_page_add_to_list">Pridať do zoznamu na prečítanie</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">Zadajte text z obrázku vyššie</string>
   <string name="title_captcha">Zadajte text</string>
   <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>
-    <string name="nav_item_login">Prihlásiť sa</string>
+  <string name="nav_item_login">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="login_2fa_hint">Kód pre dvojstupňové overenie</string>
@@ -261,7 +261,7 @@
   <string name="error_page_does_not_exist">Táto stránka neexistuje</string>
   <string name="view_wiki_error_message_offline">Nebolo možné pripojiť sa na internet</string>
   <string name="reference_title">Referencia %s</string>
-    <string name="preference_title_enable_offline_library">Aktivovať Offline knižnicu</string>
+  <string name="preference_title_enable_offline_library">Aktivovať offline knižnicu</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_text">Chcete odoslať správu o zlyhaní HockeyApp? Wikimedia tak bude môcť toto zlyhanie preskúmať a opraviť chybu, ktorá toto zlyhanie spôsobila. HockeyApp je poskytovateľ služieb (tretia strana).</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
@@ -282,7 +282,7 @@
   <string name="color_theme_black">Čierna</string>
   <string name="color_theme_test_title">Vzorový text</string>
   <string name="preference_title_app_theme">Téma vzhľadu aplikácie</string>
-    <string name="preference_summary_color_theme">Prejdite na tmavú tému vzhľadu</string>
+  <string name="preference_summary_color_theme">Prejdite na tmavú tému vzhľadu</string>
   <string name="text_size_increase">Zväčšiť veľkosť textu</string>
   <string name="text_size_decrease">Zmenšiť veľkosť textu</string>
   <string name="text_size_percent_default">%s (predvolená hodnota)</string>
@@ -293,7 +293,7 @@
   <string name="reading_list_title_exists">Zoznam na prečítanie s názvom \"%s\" už existuje.</string>
   <string name="reading_list_entry_empty">Prosím, zadajte názov.</string>
   <string name="reading_list_added_to_named">Článok bol pridaný do zoznamu %s</string>
-    <string name="reading_list_already_exists">Tento článok sa už v zozname na prečítanie nachádza.</string>
+  <string name="reading_list_already_exists">Tento článok sa už v zozname na prečítanie nachádza.</string>
   <string name="reading_list_added_view_button">Zobraziť zoznam</string>
   <string name="format_reading_list_statistical_summary_singular">1 článok, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d článkov, %2$.2f MB</string>
@@ -362,9 +362,9 @@
   <string name="notification_thanks_title">Niekto vám poďakoval!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vám poďakoval za vašu úpravu stránky &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Synchronizovanie</string>
-  <string name="notification_channel_description">Stav synchronizácie</string>
-  <string name="notification_syncing_title">Synchronizuje sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
-  <string name="notification_syncing_description">Ostáva %1$d {{PLURAL:%1$d|článok|články|článkov}}</string>
+  <string name="notification_channel_description" fuzzy="true">Stav synchronizácie</string>
+  <string name="notification_syncing_title" fuzzy="true">Synchronizuje sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
+  <string name="notification_syncing_description" fuzzy="true">Ostáva %1$d {{PLURAL:%1$d|článok|články|článkov}}</string>
   <string name="notification_syncing_pause_button">Pozastaviť</string>
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
@@ -384,7 +384,7 @@
   <string name="menu_feed_overflow_label">Ďalšie nastavenia</string>
   <string name="feed_featured_image_share_subject">Odporúčaný obrázok z Wikimedia Commons</string>
   <string name="feed">Preskúmať</string>
-    <string name="most_read_list_card_title">Trendy</string>
+  <string name="most_read_list_card_title">Trendy</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">Správy</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -397,7 +397,7 @@
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
   <string name="view_featured_article_footer_save_button_label">Uložiť</string>
   <string name="view_featured_article_footer_saved_button_label">Uložené</string>
-  <string name="feed_item_type_on_this_day">Historické udalosti, ktoré sa stali v tento deň</string>
+  <string name="feed_item_type_on_this_day">Historické udalosti v tento deň</string>
   <string name="feed_configure_onboarding_action">Prispôsobiť</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_save">Uverejniť</string>
@@ -440,17 +440,17 @@
   <string name="description_edit_revert_history">Viac sa môžete dozvedieť v &lt;a href=\"%1$s\"&gt;histórii úprav stránky&lt;/a&gt;.</string>
   <string name="offline_read_permission_rationale">Je požadované povolenie na prístup k úložisku vo Vašom zariadení pre používanie bez pripojenia k internetu.</string>
   <string name="offline_read_permission_error">Povolenie z úložiska v zariadení neudelené.</string>
-    <string name="offline_my_compilations">Spravovať moju offline knižnicu</string>
+  <string name="offline_my_compilations">Spravovať moju offline knižnicu</string>
   <string name="offline_compilations_title">Offline knižnica</string>
   <string name="offline_compilations_found_count">V mojej offline knižnici (%d)</string>
   <string name="offline_compilations_add">Pridať do offline knižnice</string>
   <string name="remote_compilations_title">Offline knižnica</string>
   <string name="remote_compilations_description">Do offline knižnice môžete stiahnuť skupiny článkov, aby ste ich mohli čítať aj bez pripojenia k internetu.</string>
-    <string name="offline_compilation_detail_button_remove">Odstrániť</string>
+  <string name="offline_compilation_detail_button_remove">Odstrániť</string>
   <string name="remote_compilation_download">Download</string>
-    <string name="storage_used_by_compilations">použitých offline knižnicou</string>
+  <string name="storage_used_by_compilations">použitých offline knižnicou</string>
   <string name="storage_other_apps">Ostatné aplikácie</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">Ostáva 1 minúta</item>
     <item quantity="other">Ostávajú %d minúty</item>
   </plurals>
@@ -463,9 +463,9 @@
   <string name="compilation_remove_confirm">Chcete to odstrániť z Vašej offline knižnice?</string>
   <string name="offline_library_title">Offline knižnica</string>
   <string name="offline_library_empty_title">Vaša Offline knižnica je prázdna</string>
-    <string name="offline_library_empty_search">Prehľadávať Offline knižnicu</string>
+  <string name="offline_library_empty_search">Prehľadávať Offline knižnicu</string>
   <string name="offline_library_search_results_state">Výsledky vyhľadávania v offline knižnici</string>
-    <string name="offline_library_onboarding_button_done">Hotovo</string>
+  <string name="offline_library_onboarding_button_done">Hotovo</string>
   <string name="offline_library_onboarding_build_library_title">Vytvorte si svoju offline knižnicu</string>
   <string name="offline_library_onboarding_build_library_subtitle">Stiahnite si článok Wikipédie, aby ste k nemu mohli neskôr opätovne pristupovať bez ďalšieho použitia dát.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Nerušené čítanie</string>
@@ -479,8 +479,8 @@
   <string name="onboarding_explore_title">Nové možnosti pre objavovanie</string>
   <string name="onboarding_explore_text" fuzzy="true">Objavte odporúčané články, často vyhľadávané témy a odporúčania k čítaniu článkov.</string>
   <string name="onboarding_save_to_reading_lists_title">Uložiť do zoznamov na prečítanie</string>
-    <string name="onboarding_analytics_title">Odosielať anonymné údaje</string>
-    <string name="onboarding_analytics_switch_title">Posielať informácie o používaní</string>
+  <string name="onboarding_analytics_title">Odosielať anonymné údaje</string>
+  <string name="onboarding_analytics_switch_title">Posielať informácie o používaní</string>
   <string name="onboarding_create_account_sync">Synchronizovať Vaše zoznamy na prečítanie</string>
   <string name="onboarding_create_account_contributions">Majte prehľad o svojich úpravách</string>
   <string name="onboarding_create_account_preferences">Uložte svoje nastavenia</string>
@@ -488,7 +488,7 @@
   <string name="app_shortcuts_random">Náhodný článok</string>
   <string name="app_shortcuts_continue_reading">Pokračovať v čítaní</string>
   <string name="more_trending_text">Podobné články</string>
-    <string name="top_on_this_day">Najtrendovejšie články dňa %1$s</string>
+  <string name="top_on_this_day">Najtrendovejšie články dňa %1$s</string>
   <string name="on_this_day_card_title">V tento deň</string>
   <string name="more_events_text">Viac udalostí z tohto dňa</string>
   <string name="events_count_text">%1$s udalostí od roku %2$s do roku %3$d</string>

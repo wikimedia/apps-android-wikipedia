@@ -15,7 +15,7 @@
   <string name="menu_clear_all_history">Clirio\'r hanes</string>
   <string name="dialog_title_clear_history">Clirio hanes y pori?</string>
   <string name="dialog_message_clear_history">Ydych chi\'n siwr eich bod am glirio\'r hanes?</string>
-    <string name="share_via">Rhannu drwy</string>
+  <string name="share_via">Rhannu drwy</string>
   <string name="search_redirect_from">Ailgyfeiriad o %s</string>
   <string name="menu_page_show_tabs">Dangos y tabiau</string>
   <string name="menu_page_other_languages">Efallai y dylid uwchraddio\'r cyfieithiad hwn</string>
@@ -62,7 +62,7 @@
   <string name="edit_section_captcha_hint">Ailadrodd geiriau oddi uchod</string>
   <string name="title_captcha">Teipiwch y captcha</string>
   <string name="edit_section_captcha_reload">Tapiwch captcha i ail-lwytho</string>
-    <string name="nav_item_login">Mewngofnodwch i Wicipedia</string>
+  <string name="nav_item_login">Mewngofnodwch i Wicipedia</string>
   <string name="login_username_hint">Enw defnyddiwr</string>
   <string name="login_password_hint">Cyfrinair</string>
   <string name="login_2fa_hint">Cod dilysu 2-ffactor</string>
@@ -231,7 +231,7 @@
   <string name="reading_list_title_exists">Mae \"%s\" yn bodoli\'n barod</string>
   <string name="reading_list_entry_empty">Rhowch deitl.</string>
   <string name="reading_list_added_to_named">Ychwanegwyd at %s.</string>
-    <string name="reading_list_already_exists">Mae\'r erthygl hon ar y rhestr yn barod.</string>
+  <string name="reading_list_already_exists">Mae\'r erthygl hon ar y rhestr yn barod.</string>
   <string name="reading_list_added_view_button">Gweld y rhestr</string>
   <string name="reading_list_sort">Didioli (sortio)</string>
   <string name="reading_list_sort_by_name">Sortio yn ôl yr enw</string>
@@ -250,7 +250,7 @@
   <string name="menu_feed_card_dismissed">Cuddiwyd.</string>
   <string name="menu_feed_overflow_label">Rhagor o opsiynau</string>
   <string name="feed_featured_image_share_subject">Lluniau dethol o Gomin Wicimedia</string>
-    <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Heddiw</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Heddiw</string>
   <string name="view_announcement_card_negative_action">Dim diolch</string>
   <string name="description_edit_help_about_wikidata">Ynglŷn â Wicidata</string>
 </resources>

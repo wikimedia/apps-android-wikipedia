@@ -18,7 +18,7 @@
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
   <string name="dialog_message_clear_history_yes">Bai</string>
   <string name="dialog_message_clear_history_no">Ez</string>
-    <string name="share_via">Partekatu honela</string>
+  <string name="share_via">Partekatu honela</string>
   <string name="search_redirect_from">%s horretatik birzuzenduta</string>
   <string name="menu_page_show_tabs">Fitxak erakutsi</string>
   <string name="menu_page_other_languages">Hizkuntza aldatu</string>
@@ -66,7 +66,7 @@
   <string name="edit_section_captcha_hint">Goiko hitzak errepikatu</string>
   <string name="title_captcha">Sartu CAPTCHA</string>
   <string name="edit_section_captcha_reload">CAPTCHA sakatu eguneratu</string>
-    <string name="nav_item_login">Saioa hasi Wikipedian</string>
+  <string name="nav_item_login">Saioa hasi Wikipedian</string>
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
   <string name="login_2fa_hint">Bi-faktoreko Autentikatze Kodea</string>
@@ -235,7 +235,7 @@
   <string name="color_theme_dark">Iluna</string>
   <string name="color_theme_black">Beltza</string>
   <string name="color_theme_test_title">Eredu testua</string>
-    <string name="preference_summary_color_theme">Aplikazioaren kolore ilun gaira aldatu</string>
+  <string name="preference_summary_color_theme">Aplikazioaren kolore ilun gaira aldatu</string>
   <string name="text_size_percent_default">%s (Lehenetsia)</string>
   <string name="nav_item_reading_lists">Nire zerrendak</string>
   <string name="reading_list_untitled">Izenbururik gabe</string>
@@ -244,7 +244,7 @@
   <string name="reading_list_title_exists">\"%s\" dagoeneko irakurketa zerrendan dago.</string>
   <string name="reading_list_entry_empty">Sartu izenburu bat, mesedez.</string>
   <string name="reading_list_added_to_named">%s(e)ra gehitu da.</string>
-    <string name="reading_list_already_exists">Artikulu hau jadanik zerrendan dago.</string>
+  <string name="reading_list_already_exists">Artikulu hau jadanik zerrendan dago.</string>
   <string name="reading_list_added_view_button">Ikusi zerrenda</string>
   <string name="reading_list_sort">Sailkatu</string>
   <string name="reading_list_sort_by_name">Sailkatu izenaren arabera</string>
@@ -279,7 +279,9 @@
   <string name="reading_lists_confirm_remote_delete_no">Ez</string>
   <string name="reading_list_article_save_in_progress">Artikulua jaisten ari da, bukatzean konexiorik gabe erabiltzeko prest egongo da.</string>
   <string name="reading_list_saved_list_rename">%1$s (erabiltzailea sortua)</string>
-    <string name="user_option_sync_label">Hobespenak</string>
+  <string name="reading_list_article_offline_message">{{PLURALA|bat=Artikulu hau konexiorik gabe erabiltzeko eskuragarri dago.|Artikulu hauek ez dira eskuragarriak izango konexiorik gabe.}}</string>
+  <string name="reading_list_article_not_offline_message">{{PLURALA|bat=Artikulu hau ez da eskuragarri izango konexiorik gabe.|Artikulu hauek ez dira eskuragarri izango konexiorik gabe.}}</string>
+  <string name="user_option_sync_label">Hobespenak</string>
   <string name="notification_button_view_user">Hitz egin erabiltzeari</string>
   <string name="notification_talk_title">Mezu berria Wikipedian</string>
   <string name="notification_thanks_title">Eskerrak eman dizkizute!</string>
@@ -297,7 +299,7 @@
   <string name="menu_feed_card_dismiss">Txartel hau ezkutatu</string>
   <string name="menu_feed_overflow_label">Aukera gehiago</string>
   <string name="feed">Esploratu</string>
-    <string name="most_read_list_card_title">Azken aldian gorantz</string>
+  <string name="most_read_list_card_title">Azken aldian gorantz</string>
   <string name="view_static_card_icon_content_description">Txartel ikonoa</string>
   <string name="view_card_news_title">Albistetan</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -332,27 +334,27 @@
   <string name="description_edit_revert_subtitle">Eskerrik asko Wikipedia aldatzeagatik!</string>
   <string name="offline_read_permission_rationale" fuzzy="true">Zeure gailuko memorian konexiorik gabe sartzeko baimena. Saiatu berriro eta eman eskatutako baimena, mesedez.</string>
   <string name="offline_read_permission_error">Ez daukazu baimenik gailuaren memoriatik irakurtzeko.</string>
-    <string name="offline_my_compilations" fuzzy="true">Nire bildumak</string>
+  <string name="offline_my_compilations" fuzzy="true">Nire bildumak</string>
   <string name="offline_compilations_title" fuzzy="true">Konexiorik gabeko bilduma</string>
   <string name="offline_compilations_search_by_name" fuzzy="true">Bildumak bilatu izenaren bidez</string>
   <string name="offline_compilations_found_count" fuzzy="true">Nire bildumak (%d)</string>
   <string name="offline_compilations_add" fuzzy="true">Konexiorik gabeko bilduma gehitu</string>
   <string name="remote_compilations_title" fuzzy="true">Bilduma guztiak</string>
-    <string name="offline_compilation_detail_button_remove">Kendu</string>
-    <string name="storage_used_by_compilations" fuzzy="true">Wikipediak erabilia</string>
+  <string name="offline_compilation_detail_button_remove">Kendu</string>
+  <string name="storage_used_by_compilations" fuzzy="true">Wikipediak erabilia</string>
   <string name="storage_other_apps">Beste aplikazioak</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 min left</item>
     <item quantity="other">%d mins left</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Deskarga deuseztatu</string>
-    <string name="onboarding_skip">Utzi</string>
+  <string name="onboarding_skip">Utzi</string>
   <string name="onboarding_continue">Jarraitu</string>
   <string name="onboarding_get_started">Has zaitez!</string>
   <string name="onboarding_explore_title">Exploratzeko era berriak</string>
   <string name="onboarding_explore_text" fuzzy="true">Artikulua aipagarriak edo modan dauden gaiak aurkitu eta irakurketa iradokizunak Exploren.</string>
-    <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
-    <string name="onboarding_analytics_switch_title">Erabilitako data bidali</string>
+  <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
+  <string name="onboarding_analytics_switch_title">Erabilitako data bidali</string>
   <string name="onboarding_create_account_sync">Zure irakurketa zerrendak sinkronizatu</string>
   <string name="onboarding_create_account_contributions">Zure ekarpenen berri jaso</string>
   <string name="onboarding_create_account_preferences">Zure lehentasunak gorde</string>

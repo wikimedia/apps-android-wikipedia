@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">To eliminos komplete la listo di pagini vizitita de vua retnavigilo, e klozos omna pagini apertita. Ka tu deziras facar to?</string>
   <string name="dialog_message_clear_history_yes">Yes</string>
   <string name="dialog_message_clear_history_no">No</string>
-    <string name="share_via">Difuzar en</string>
+  <string name="share_via">Difuzar en</string>
   <string name="search_redirect_from">(Ridirektita de %s)</string>
   <string name="menu_page_show_tabs">Montrar etiketi</string>
   <string name="menu_page_other_languages">Chanjar linguo</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">Kopiez la vorti lektebla adsupre</string>
   <string name="title_captcha">Skribez per CAPTCHA</string>
   <string name="edit_section_captcha_reload">Frapez CAPTCHA por richarjar</string>
-    <string name="nav_item_login">Enirar Wikipedio</string>
+  <string name="nav_item_login">Enirar Wikipedio</string>
   <string name="login_username_hint">Uzeronomo</string>
   <string name="login_password_hint">Pasovorto</string>
   <string name="login_2fa_hint">Two-Factor Authentication Code</string>
@@ -232,7 +232,7 @@
   <string name="color_theme_select">Temo</string>
   <string name="color_theme_light">Koloro klara</string>
   <string name="color_theme_dark">Koloro obskura</string>
-    <string name="preference_summary_color_theme">Chanjar a la obskura temo dil aplo</string>
+  <string name="preference_summary_color_theme">Chanjar a la obskura temo dil aplo</string>
   <string name="text_size_percent_default">%s (Default)</string>
   <string name="nav_item_reading_lists">Mea listi</string>
   <string name="reading_list_untitled">Ne titulizita</string>
@@ -241,7 +241,7 @@
   <string name="reading_list_title_exists">Lektebla listo \"%s\" ja existas.</string>
   <string name="reading_list_entry_empty">Voluntez skribar titulo.</string>
   <string name="reading_list_added_to_named">Adjuntita a(d) %s.</string>
-    <string name="reading_list_already_exists">Ica artiklo ja esas en ta listo.</string>
+  <string name="reading_list_already_exists">Ica artiklo ja esas en ta listo.</string>
   <string name="reading_list_added_view_button">Vidar listo</string>
   <string name="format_reading_list_statistical_summary_singular">1 artiklo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikli, %2$.2f MB</string>

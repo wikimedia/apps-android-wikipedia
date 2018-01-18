@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
   <string name="dialog_message_clear_history_no">否</string>
-    <string name="share_via">分享透過</string>
+  <string name="share_via">分享透過</string>
   <string name="search_redirect_from">重新導向自 %s</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">變更語言</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">請重複輸入上面的文字</string>
   <string name="title_captcha">輸入驗證碼</string>
   <string name="edit_section_captcha_reload">輕觸驗證碼以重新載入</string>
-    <string name="nav_item_login">登入維基百科</string>
+  <string name="nav_item_login">登入維基百科</string>
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="login_2fa_hint">雙因素認證代碼</string>
@@ -262,7 +262,7 @@
   <string name="error_page_does_not_exist">此頁面不存在</string>
   <string name="view_wiki_error_message_offline">無法連接網路</string>
   <string name="reference_title">參考資料 %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗主題）</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
   <string name="preference_title_enable_offline_library">啟用離線圖書館</string>
@@ -288,7 +288,7 @@
   <string name="color_theme_test_title">試樣文字</string>
   <string name="color_theme_test_text">拖拉滑標來變更使用在閱讀條目的文字大小。要設定應用程式外其餘文字大小，請變更您的系統文字大小。</string>
   <string name="preference_title_app_theme">套用主題</string>
-    <string name="preference_summary_color_theme">切換到使用應用程式的陰暗色彩主題</string>
+  <string name="preference_summary_color_theme">切換到使用應用程式的陰暗色彩主題</string>
   <string name="text_size_increase">增加文字大小</string>
   <string name="text_size_decrease">增少文字大小</string>
   <string name="text_size_percent_default">%s（預設）</string>
@@ -299,7 +299,7 @@
   <string name="reading_list_title_exists">已有名為「%s」的閱讀清單。</string>
   <string name="reading_list_entry_empty">請輸入標題。</string>
   <string name="reading_list_added_to_named">已新增至 %s。</string>
-    <string name="reading_list_already_exists">這個條目已經在清單之中。</string>
+  <string name="reading_list_already_exists">這個條目已經在清單之中。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
   <string name="format_reading_list_statistical_summary_singular">1 個條目，%1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d 個條目，%2$.2f MB</string>
@@ -360,6 +360,8 @@
   <string name="no_user_lists_msg">建立想要去旅行的地點、喜愛的主題，以及更多其它事物的清單</string>
   <string name="reading_list_saved_list_rename">%1$s（使用者已建立）</string>
   <string name="split_reading_list_message">在各閱讀清單裡含有 1000 個條目的上限限制。現有清單在超過此限制時，會被拆分成多個清單。</string>
+  <string name="reading_list_article_limit_message">無法添加至此清單。您已達到在「%s」方面各清單的最多 1000 個條目上限。</string>
+  <string name="reading_lists_limit_message">無法建立其它清單。您已達到各使用者的最多 100 個閱讀清單上限。</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">此條目現可離線閱讀。</item>
     <item quantity="other">這些條目現可離線閱讀。</item>
@@ -377,8 +379,8 @@
   <string name="notification_thanks_title">有人對您表示感謝！</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;感謝您在&lt;strong&gt;%2$s&lt;/strong&gt;頁面作出的編輯</string>
   <string name="notification_channel_name">同步</string>
-  <string name="notification_channel_description">同步進程</string>
-  <string name="notification_syncing_title">同步 %1$d 個條目…</string>
+  <string name="notification_channel_description">下載進程</string>
+  <string name="notification_syncing_title">下載 %1$d 個條目…</string>
   <string name="notification_syncing_description">剩下 %1$d 個條目</string>
   <string name="notification_syncing_pause_button">暫停</string>
   <string name="notification_syncing_resume_button">繼續</string>
@@ -399,7 +401,7 @@
   <string name="menu_feed_overflow_label">更多選項</string>
   <string name="feed_featured_image_share_subject">來自維基共享資源的特色圖片</string>
   <string name="feed">探索</string>
-    <string name="most_read_list_card_title">趨勢</string>
+  <string name="most_read_list_card_title">趨勢</string>
   <string name="view_static_card_icon_content_description">卡片圖示</string>
   <string name="view_card_news_title">新聞動態</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -413,7 +415,7 @@
   <string name="view_featured_article_card_title">典範條目</string>
   <string name="view_featured_article_footer_save_button_label">儲存</string>
   <string name="view_featured_article_footer_saved_button_label">已儲存</string>
-    <string name="feed_configure_activity_title">設置訊息來源</string>
+  <string name="feed_configure_activity_title">設置訊息來源</string>
   <string name="feed_configure_menu_reset">重新設定預設檢視</string>
   <string name="feed_configure_menu_select_all">選擇全部</string>
   <string name="feed_configure_menu_deselect_all">取消全選</string>
@@ -470,7 +472,7 @@
   <string name="offline_compilation_download_device_offline">網路無法連接。請確定您有重新上線並再重試一次。</string>
   <string name="offline_read_permission_rationale">需要可在您裝置上儲存庫的權限才能離線瀏覽。</string>
   <string name="offline_read_permission_error">未授予從裝置儲存庫讀取的權限。</string>
-    <string name="offline_card_sideloading_text">您正在您的離線圖書館瀏覽來自於條目包的離線維基百科。</string>
+  <string name="offline_card_sideloading_text">您正在您的離線圖書館瀏覽來自於條目包的離線維基百科。</string>
   <string name="offline_my_compilations">管理我的離線圖書館</string>
   <string name="offline_compilations_title">離線圖書館</string>
   <string name="offline_compilations_search_by_name">依條目包來搜尋匯編</string>
@@ -478,16 +480,16 @@
   <string name="offline_compilations_add">添加至我的離線圖書館</string>
   <string name="remote_compilations_title">離線圖書館</string>
   <string name="remote_compilations_description">透過離線圖書館，來讓您可現在就下載條目包於無法使用網路情況下閱讀內容。</string>
-    <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <string name="offline_compilation_detail_button_download_v2">下載 • %s</string>
+  <string name="offline_compilation_detail_button_download_v2">下載 • %s</string>
   <string name="offline_compilation_detail_button_remove">移除</string>
   <string name="remote_compilation_download">下載</string>
-    <string name="storage_size_free_v2">剩餘 %s</string>
+  <string name="storage_size_free_v2">剩餘 %s</string>
   <string name="storage_used_by_compilations">由離線圖書館使用</string>
   <string name="storage_other_apps">其他應用程式</string>
-    <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">剩下 1 分鐘</item>
     <item quantity="other">剩下 %d 分鐘</item>
@@ -501,12 +503,12 @@
   <string name="compilation_remove_confirm">您要從您的離線圖書館移除此？</string>
   <string name="offline_library_title">離線圖書館</string>
   <string name="offline_library_empty_title">您的離線圖書館裡無任何事物</string>
-    <string name="offline_library_empty_description_sideload">在您離線圖書館裡的「條目包」，是種事先打包好的條目集合，可在您的裝置方便儲存，這可讓您在離線時繼續閱讀。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">在您離線圖書館裡的「條目包」，是種事先打包好的條目集合，可在您的裝置方便儲存，這可讓您在離線時繼續閱讀。&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">在您圖書館裡的條目包能讓您在離線時仍可繼續閱讀。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;了解更多&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">想要儲存在資料用量裡？在設定裡的「首選離線內容」來挑選出即使是在已連線狀態下，優先顯示出的離線條目。&lt;a href=\"#settings\"&gt;前往設定&lt;/a&gt;</string>
   <string name="offline_library_empty_search">搜尋離線圖書館</string>
   <string name="offline_library_search_results_state">從您的離線圖書館來搜尋結果</string>
-    <string name="offline_library_onboarding_button_done">完成</string>
+  <string name="offline_library_onboarding_button_done">完成</string>
   <string name="offline_library_onboarding_build_library_title">打造您的離線圖書館</string>
   <string name="offline_library_onboarding_build_library_subtitle">現在就下載維基百科條目包，讓事後可免去存取資料。</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">不間斷閱讀</string>
@@ -523,8 +525,8 @@
   <string name="onboarding_explore_text">一腳跳進不斷更新探索訊息來源的維基百科兔子洞裡頭。&lt;br/&gt; &lt;b&gt;自行定義&lt;/b&gt;訊息來源在您感興趣的項目 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;學習歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
   <string name="onboarding_save_to_reading_lists_title">儲存至閱讀清單</string>
   <string name="onboarding_save_to_reading_lists_text">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀。</string>
-    <string name="onboarding_analytics_title">寄送匿名資料</string>
-    <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#offline\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">寄送匿名資料</string>
+  <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#offline\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_create_account_sync">同步您的閱讀清單</string>
   <string name="onboarding_create_account_contributions">保持追蹤您的貢獻</string>
@@ -534,7 +536,7 @@
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
   <string name="more_trending_text">更多相似內容</string>
-    <string name="top_on_this_day">在 %1$s 的熱門事物</string>
+  <string name="top_on_this_day">在 %1$s 的熱門事物</string>
   <string name="on_this_day_card_title">歷史上的今天</string>
   <string name="more_events_text">更多歷史上的今天</string>
   <string name="events_count_text">%2$s - %3$d 年間的 %1$s 個事件</string>

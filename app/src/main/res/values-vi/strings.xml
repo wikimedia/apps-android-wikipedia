@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
   <string name="dialog_message_clear_history_yes">Có</string>
   <string name="dialog_message_clear_history_no">Không</string>
-    <string name="share_via">Chia sẻ qua</string>
+  <string name="share_via">Chia sẻ qua</string>
   <string name="search_redirect_from">Đổi hướng từ %s</string>
   <string name="menu_page_show_tabs">Hiển thị tab</string>
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
@@ -68,7 +68,7 @@
   <string name="edit_section_captcha_hint">Lặp lại các từ bên trên</string>
   <string name="title_captcha">Nhập CAPTCHA</string>
   <string name="edit_section_captcha_reload">Chạm vào CAPTCHA để tải lại</string>
-    <string name="nav_item_login">Đăng nhập vào Wikipedia</string>
+  <string name="nav_item_login">Đăng nhập vào Wikipedia</string>
   <string name="login_username_hint">Tên người dùng</string>
   <string name="login_password_hint">Mật khẩu</string>
   <string name="login_2fa_hint">Mã Xác thực dùng Hai Nhân tố</string>
@@ -254,7 +254,7 @@
   <string name="error_page_does_not_exist">Trang này không tồn tại</string>
   <string name="view_wiki_error_message_offline">Không thể kết nối với Internet</string>
   <string name="reference_title">Chú thích %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">Hình ảnh mờ (trong giao diện Tối)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Hình ảnh mờ (trong giao diện Tối)</string>
   <string name="preference_title_prefer_offline_content">Tải nội dung ngoại tuyến nếu có thể</string>
   <string name="preference_summary_prefer_offline_content">Tiết kiệm dữ liệu bằng cách tải các bài viết có sẵn ngoại tuyến thay vì luôn tải phiên bản mới nhất của bài viết</string>
   <string name="crash_report_dialog_title">Rất tiếc, ứng dụng gặp sự cố lần trước</string>
@@ -274,7 +274,7 @@
   <string name="color_theme_select">Thiết kế</string>
   <string name="color_theme_light">Sáng</string>
   <string name="color_theme_dark">Tối</string>
-    <string name="preference_summary_color_theme">Đổi qua giao diện tối của ứng dụng</string>
+  <string name="preference_summary_color_theme">Đổi qua giao diện tối của ứng dụng</string>
   <string name="text_size_increase">Tăng kích thước văn bản</string>
   <string name="text_size_decrease">Giảm kích thước văn bản</string>
   <string name="text_size_percent_default">%s (Mặc định)</string>
@@ -285,7 +285,7 @@
   <string name="reading_list_title_exists">Danh sách đọc “%s” đã tồn tại.</string>
   <string name="reading_list_entry_empty">Vui lòng nhập đầu đề.</string>
   <string name="reading_list_added_to_named">Đã thêm vào %s.</string>
-    <string name="reading_list_already_exists">Bài này đã có trong danh sách đó.</string>
+  <string name="reading_list_already_exists">Bài này đã có trong danh sách đó.</string>
   <string name="reading_list_added_view_button">Xem danh sách</string>
   <string name="format_reading_list_statistical_summary_singular">1 bài, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d bài, %2$.2f MB</string>
@@ -367,7 +367,7 @@
   <string name="menu_feed_overflow_label">Thêm tùy chọn</string>
   <string name="feed_featured_image_share_subject">Hình ảnh chọn lọc từ Wikimedia Commons</string>
   <string name="feed">Thám hiểm</string>
-    <string name="most_read_list_card_title">Xu hướng</string>
+  <string name="most_read_list_card_title">Xu hướng</string>
   <string name="view_static_card_icon_content_description">Hình tượng thẻ</string>
   <string name="view_card_news_title">Tin tức</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -422,18 +422,19 @@
   <string name="offline_compilation_download_device_offline">Không thể kết nối với Internet. Hãy chắc chắn kết nối lại và thử lại.</string>
   <string name="offline_read_permission_rationale">Cần có quyền truy cập lưu trữ trên thiết bị của bạn để duyệt ngoại tuyến.</string>
   <string name="offline_read_permission_error">Chưa cấp quyền đọc thiết bị lưu trữ.</string>
-    <string name="offline_my_compilations">Quản lý thư viện ngoại tuyến</string>
+  <string name="offline_my_compilations">Quản lý thư viện ngoại tuyến</string>
   <string name="offline_compilations_title">Thư viện Ngoại tuyến</string>
   <string name="offline_compilations_search_by_name">Tìm gói bài theo tên</string>
   <string name="offline_compilations_found_count" fuzzy="true">Trong thư viện của tôi (%d)</string>
   <string name="offline_compilations_add">Thêm vào Thư viện Ngoại tuyến</string>
   <string name="remote_compilations_title">Thư viện Ngoại tuyến</string>
   <string name="remote_compilations_description">Với Thư viện Ngoại tuyến, bạn có thể tải về các gói bài để đọc khi nào mất kết nối Internet.</string>
-    <string name="offline_compilation_detail_button_remove">Xóa</string>
+  <string name="offline_compilation_detail_button_remove">Xóa</string>
   <string name="remote_compilation_download">Tải về</string>
-    <string name="storage_used_by_compilations">được sử dụng bởi Thư viện Ngoại tuyến</string>
+  <string name="storage_used_by_compilations">được sử dụng bởi Thư viện Ngoại tuyến</string>
   <string name="storage_other_apps">Ứng dụng khác</string>
-    <string name="compilation_download_widget_button_cancel_hint">Hủy bỏ tải về</string>
+  <string name="offline_compilation_download_time_remaining">còn %d phút</string>
+  <string name="compilation_download_widget_button_cancel_hint">Hủy bỏ tải về</string>
   <string name="compilation_download_cancel_confirm">Bạn có chắc chắn muốn hủy bỏ tải về gói bài này?</string>
   <string name="compilation_download_cancel_confirm_yes">Có</string>
   <string name="compilation_download_cancel_confirm_no">Không</string>
@@ -442,9 +443,9 @@
   <string name="compilation_remove_confirm">Bạn có chắc chắn muốn xóa gói bài này khỏi Thư viện Ngoại tuyến của bạn?</string>
   <string name="offline_library_title">Thư viện Ngoại tuyến</string>
   <string name="offline_library_empty_title">Không có gì trong Thư viện Ngoại tuyến</string>
-    <string name="offline_library_empty_search">Tìm kiếm trong Thư viện Ngoại tuyến</string>
+  <string name="offline_library_empty_search">Tìm kiếm trong Thư viện Ngoại tuyến</string>
   <string name="offline_library_search_results_state">Kết quả tìm kiếm từ Thư viện Ngoại tuyến</string>
-    <string name="offline_library_onboarding_button_done">Xong</string>
+  <string name="offline_library_onboarding_button_done">Xong</string>
   <string name="offline_library_onboarding_build_library_title">Xây dựng Thư viện Ngoại tuyến của bạn</string>
   <string name="offline_library_onboarding_build_library_subtitle">Tải về các gói bài Wikipedia bây giờ để truy cập miễn phí sau.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Không bị đứt quãng khi đọc</string>
@@ -456,8 +457,8 @@
   <string name="onboarding_get_started">Bắt đầu</string>
   <string name="onboarding_explore_title">Cách thám hiểm mới</string>
   <string name="onboarding_explore_text" fuzzy="true">Khám phá các bài viết chọn lọc, đề tài thịnh hành, và gợi ý đọc bài trong nguồn cấp Thám hiểm.</string>
-    <string name="onboarding_analytics_title">Gửi dữ liệu vô danh</string>
-    <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>
+  <string name="onboarding_analytics_title">Gửi dữ liệu vô danh</string>
+  <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>
   <string name="onboarding_create_account_sync">Đồng bộ hóa các danh sách đọc</string>
   <string name="onboarding_create_account_contributions">Theo dõi các đóng góp của bạn</string>
   <string name="onboarding_create_account_preferences">Lưu tùy chọn của bạn</string>

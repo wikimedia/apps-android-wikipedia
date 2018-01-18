@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करना चाहेंगे?</string>
   <string name="dialog_message_clear_history_yes">हाँ</string>
   <string name="dialog_message_clear_history_no">नहीं</string>
-    <string name="share_via">के माध्यम से साझा करें</string>
+  <string name="share_via">के माध्यम से साझा करें</string>
   <string name="search_redirect_from">%s से अनुप्रेषित</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">ऊपर से शब्दों को दोहराएँ।</string>
   <string name="title_captcha">कैप्चा डालें</string>
   <string name="edit_section_captcha_reload">रीलोड करने के लिए कैप्चा दबाएं</string>
-    <string name="nav_item_login">विकिपीडिया में लॉग इन करें</string>
+  <string name="nav_item_login">विकिपीडिया में लॉग इन करें</string>
   <string name="login_username_hint">सदस्यनाम</string>
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
   <string name="login_2fa_hint">द्विस्तरीय प्रमाणीकरण कोड</string>
@@ -258,7 +258,7 @@
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
   <string name="reference_title">सन्दर्भ %s</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">कम चित्र चमक (डार्क थीम में)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">कम चित्र चमक (डार्क थीम में)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन प्रकरण को प्राथमिकता</string>
   <string name="preference_summary_prefer_offline_content">किसी आलेख के नवीनतम संस्करण को हमेशा लोड करने के बजाय ऑफ़लाइन उपलब्ध लेखों को लोड करके डेटा उपयोग को बचाएं</string>
   <string name="preference_title_enable_offline_library">ऑफ़लाइन लाइब्रेरी इनेबल करें</string>
@@ -280,7 +280,7 @@
   <string name="color_theme_select">विषय</string>
   <string name="color_theme_light">हल्का</string>
   <string name="color_theme_dark">गहरा</string>
-    <string name="preference_summary_color_theme">एप को डार्क थीम में परिवर्तित करें</string>
+  <string name="preference_summary_color_theme">एप को डार्क थीम में परिवर्तित करें</string>
   <string name="text_size_increase">टेक्स्ट साइज़ बढ़ाएं</string>
   <string name="text_size_decrease">टेक्स्ट साइज़ घटाएं</string>
   <string name="text_size_percent_default">%s (डिफ़ॉल्ट)</string>
@@ -291,7 +291,7 @@
   <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>
   <string name="reading_list_entry_empty">कृपया शीर्षक डालें।</string>
   <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
-    <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
+  <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
   <string name="reading_list_added_view_button">सूची देखें</string>
   <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f मेगाबाइट</string>
@@ -363,9 +363,9 @@
   <string name="notification_thanks_title">आपको धन्यवाद दिया गया है!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ने आपको &lt;strong&gt;%2$s&lt;strong&gt; पन्ने पर आपके संपादन के लिए धन्यवाद दिया है</string>
   <string name="notification_channel_name">सिंक हो रहा है</string>
-  <string name="notification_channel_description">सिंकिंग प्रगति</string>
-  <string name="notification_syncing_title">%1$d लेख सिंक किये जा रहे हैं...</string>
-  <string name="notification_syncing_description">%1$d लेख बचे</string>
+  <string name="notification_channel_description" fuzzy="true">सिंकिंग प्रगति</string>
+  <string name="notification_syncing_title" fuzzy="true">%1$d लेख सिंक किये जा रहे हैं...</string>
+  <string name="notification_syncing_description" fuzzy="true">%1$d लेख बचे</string>
   <string name="notification_syncing_pause_button" fuzzy="true">पॉज़ करें</string>
   <string name="notification_syncing_resume_button" fuzzy="true">रिज्यूम करें</string>
   <string name="notification_syncing_cancel_button" fuzzy="true">रद्द करें</string>
@@ -385,7 +385,7 @@
   <string name="menu_feed_overflow_label">अधिक विकल्प</string>
   <string name="feed_featured_image_share_subject">विकिपीडिया कॉमन्स से निर्वाचित चित्र</string>
   <string name="feed">खोज करें</string>
-    <string name="most_read_list_card_title">रुझानों में</string>
+  <string name="most_read_list_card_title">रुझानों में</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकॉन</string>
   <string name="view_card_news_title">समाचारों में</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -398,7 +398,7 @@
   <string name="view_featured_article_card_title">प्रधान लेख</string>
   <string name="view_featured_article_footer_save_button_label">सहेजें</string>
   <string name="view_featured_article_footer_saved_button_label">सहेजा गया</string>
-    <string name="feed_configure_activity_title" fuzzy="true">एक्स्प्लोर कार्ड्स को कॉन्फ़िगर करें</string>
+  <string name="feed_configure_activity_title" fuzzy="true">एक्स्प्लोर कार्ड्स को कॉन्फ़िगर करें</string>
   <string name="feed_configure_menu_reset" fuzzy="true">डिफ़ॉल्ट पर रिसेट करें</string>
   <string name="description_edit_text_hint">शीर्षक विवरण</string>
   <string name="description_edit_save">प्रकाशित करें</string>
@@ -442,7 +442,7 @@
   <string name="offline_compilation_download_device_offline">कोई इंटरनेट संपर्क नहीं। सुनिश्चित करें कि आप ऑनलाइन वापस आ गए हैं, फिर पुनः प्रयास करें।</string>
   <string name="offline_read_permission_rationale">ऑफ़लाइन विचरण के लिए आपके यंत्र पर संग्रहण का उपयोग करने की अनुमति आवश्यक है।</string>
   <string name="offline_read_permission_error">यंत्र के भंडारण से पढ़ने की अनुमति प्रदान नहीं की गई।</string>
-    <string name="offline_card_sideloading_text">आप अब अपनी ऑफलाइन लाइब्रेरी में उपलब्ध लेख पैक्स से विकिपीडिया ऑफलाइन ब्राउज़ कर रहे हैं।</string>
+  <string name="offline_card_sideloading_text">आप अब अपनी ऑफलाइन लाइब्रेरी में उपलब्ध लेख पैक्स से विकिपीडिया ऑफलाइन ब्राउज़ कर रहे हैं।</string>
   <string name="offline_my_compilations">अपनी ऑफलाइन पुस्तकालय को प्रबंधित करें</string>
   <string name="offline_compilations_title">ऑफलाइन लाइब्रेरी</string>
   <string name="offline_compilations_search_by_name">लेख पैक्स को नाम द्वारा ढूंढें</string>
@@ -450,11 +450,11 @@
   <string name="offline_compilations_add">मेरे ऑफलाइन पुस्तकालय से जोङें</string>
   <string name="remote_compilations_title">ऑफलाइन पुस्तकालय</string>
   <string name="remote_compilations_description">ऑफ़लाइन पुस्तकालय के साथ, अब आप पढ़ने के लिए लेखों का पैक डाउनलोड कर सकते हैं जब आपके पास कोई इंटरनेट कनेक्शन उपलब्ध न हो।</string>
-    <string name="offline_compilation_detail_button_remove">निकालें</string>
+  <string name="offline_compilation_detail_button_remove">निकालें</string>
   <string name="remote_compilation_download">डाउनलोड</string>
-    <string name="storage_used_by_compilations">ऑफलाइन लाइब्रेरी द्वारा प्रयोग में</string>
+  <string name="storage_used_by_compilations">ऑफलाइन लाइब्रेरी द्वारा प्रयोग में</string>
   <string name="storage_other_apps">अन्य एप्लीकेशन्स</string>
-    <plurals name="offline_compilation_download_time_remaining">
+  <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 मिनट बाकी</item>
     <item quantity="other">%d मिनट बाकी</item>
   </plurals>
@@ -467,12 +467,12 @@
   <string name="compilation_remove_confirm">क्या आप इसे अपनी ऑफलाइन लाइब्रेरी से हटाना चाहते हैं?</string>
   <string name="offline_library_title">ऑफलाइन लाइब्रेरी</string>
   <string name="offline_library_empty_title">आपके ऑफलाइन लाइब्रेरी में कुछ भी नहीं है</string>
-    <string name="offline_library_empty_description_sideload">\"लेख पैक\" आपकी ऑफलाइन लाइब्रेरी में सहेजने की सहजता हेतु पहले से पैक किये गए लेखों के सेट हैं, ताकी आप ऑफलाइन होने पर भी पढ़ना जारी रखें। &lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;अधिक जानें&lt;/a&gt;</string>
+  <string name="offline_library_empty_description_sideload">\"लेख पैक\" आपकी ऑफलाइन लाइब्रेरी में सहेजने की सहजता हेतु पहले से पैक किये गए लेखों के सेट हैं, ताकी आप ऑफलाइन होने पर भी पढ़ना जारी रखें। &lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;अधिक जानें&lt;/a&gt;</string>
   <string name="offline_library_packs_hint">आपकी लाइब्रेरी के लेख पैक ऑफलाइन होने पर भी पढ़ने के लिए उपलब्ध रहते हैं। &lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;अधिक जानें&lt;/a&gt;</string>
   <string name="offline_library_data_usage_hint">डाटा यूसेज पर बचाना चाहते हैं? कनेक्टिविटी होने पर भी ऑफलाइन लेखों को पहले दिखाने के लिए \"ऑफलाइन कंटेंट वरीयता\" सेटिंग्स में जाके चुने। &lt;a href=\"#settings\"&gt;सेटिंग्स में जाएँ&lt;/a&gt;</string>
   <string name="offline_library_empty_search">ऑफलाइन लाइब्रेरी ढूंढें</string>
   <string name="offline_library_search_results_state">अपने ऑफलाइन पुस्तकालय से परिणाम ढूंढें</string>
-    <string name="offline_library_onboarding_button_done">पूर्ण हुआ</string>
+  <string name="offline_library_onboarding_button_done">पूर्ण हुआ</string>
   <string name="offline_library_onboarding_build_library_title">अपनी ऑफ़लाइन लाइब्रेरी का निर्माण करें</string>
   <string name="offline_library_onboarding_build_library_subtitle">बाद में डेटा-फ्री एक्सेस हेतु विकिपीडिया लेख पैक्स को अभी डाऊनलोड करें।</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">बाधा रहित पढ़ाई</string>
@@ -485,15 +485,15 @@
   <string name="onboarding_get_started">शुरू करें</string>
   <string name="onboarding_explore_title">अन्वेषण के नए तरीके</string>
   <string name="onboarding_explore_text" fuzzy="true">अन्वेषण प्रदाय पर विशेष रुप से प्रदर्शित लेख, रुझान वाले विषयों की खोज और सुझावों को ढूंढें।</string>
-    <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
-    <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
+  <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
+  <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
   <string name="onboarding_create_account_sync">\nअपनी पठन सूचियों को सिंक करें</string>
   <string name="onboarding_create_account_contributions">अपने योगदान पर नज़र रखें</string>
   <string name="onboarding_create_account_preferences">अपनी पसंद रक्षित करें</string>
   <string name="app_shortcuts_random">यादृच्छिक</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>
-    <string name="top_on_this_day">%1$s पर ट्रेंडिंग</string>
+  <string name="top_on_this_day">%1$s पर ट्रेंडिंग</string>
   <string name="on_this_day_card_title">इस दिन</string>
   <string name="more_events_text" fuzzy="true">इस दिन पर अन्य ऐतिहासिक घटनाएं</string>
   <string name="events_count_text" fuzzy="true">%1$s घटनाक्रम %2$s से  - %3$d तक</string>

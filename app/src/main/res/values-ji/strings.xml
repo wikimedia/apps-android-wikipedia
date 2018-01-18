@@ -18,7 +18,7 @@
   <string name="dialog_message_clear_history">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
   <string name="dialog_message_clear_history_yes">יא</string>
   <string name="dialog_message_clear_history_no">ניין</string>
-    <string name="share_via">טיילן דורך</string>
+  <string name="share_via">טיילן דורך</string>
   <string name="search_redirect_from">אַריבערגעפֿירט פון %s</string>
   <string name="menu_page_show_tabs">ווײַזן טאבן</string>
   <string name="menu_page_other_languages">ענדערן שפראך</string>
@@ -62,7 +62,7 @@
   <string name="search_no_results_found">נישט געטראפן קיין רעזולטאטן</string>
   <string name="edit_section_captcha_hint">איבערחזרן ווערטער פון אויבן</string>
   <string name="title_captcha">אײַנגעבן קאפטשא</string>
-    <string name="nav_item_login">ארײַנלאגירן צו וויקיפעדיע</string>
+  <string name="nav_item_login">ארײַנלאגירן צו וויקיפעדיע</string>
   <string name="login_username_hint">באַניצער נאָמען</string>
   <string name="login_password_hint">פאַסווארט</string>
   <string name="menu_login">אַרײַנלאגירן</string>

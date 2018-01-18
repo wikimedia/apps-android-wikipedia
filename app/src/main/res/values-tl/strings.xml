@@ -7,9 +7,10 @@
   <string name="nav_item_history">Kasaysayan</string>
   <string name="error_network_error" fuzzy="true">Walang koneksyon sa talalambatan (network) :\'(</string>
   <string name="page_error_retry">Subukan muli</string>
+  <string name="page_error_back_to_main">Bumalik</string>
   <string name="menu_clear_all_history">Burahin ang kasaysayan</string>
   <string name="dialog_title_clear_history" fuzzy="true">Burahin ang kasaysayan ng pagbabasa?</string>
-    <string name="share_via">Ibahagi sa pamamagitan ng</string>
+  <string name="share_via">Ibahagi sa pamamagitan ng</string>
   <string name="menu_page_show_tabs">Ipakita ang mga talahanayan (tabs)</string>
   <string name="menu_page_other_languages" fuzzy="true">Basahin sa ibang wika</string>
   <string name="menu_page_find_in_page">Hanapin sa pahina</string>
@@ -43,7 +44,7 @@
   <string name="edit_section_captcha_hint">Ulitin ang mga salita mula sa itaas</string>
   <string name="title_captcha">Pakipasok ang CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tapikin ang CAPTCHA upang kargahin muli</string>
-    <string name="nav_item_login" fuzzy="true">Lumagda (login)</string>
+  <string name="nav_item_login">Lumagda (login) sa Wikipedia</string>
   <string name="login_username_hint">Pangalan ng tagagamit</string>
   <string name="login_password_hint">Hudyat (password)</string>
   <string name="menu_login">Lumagda (login)</string>
@@ -67,7 +68,7 @@
   <string name="create_account_button">Lumikha ng akawnt</string>
   <string name="preferences_general_heading">Pangkalahatan</string>
   <string name="wikipedia_app_faq">Mga madalas itanong (FAQ) ng Wikipedia App</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Nakasara ang Wikipedia Zero</string>
+  <string name="zero_charged_verbiage">Ang libreng pag-access sa Wikipedia ay hindi na aktibo.</string>
   <string name="zero_warn_when_leaving">Bigyang-babala kapag lilisanin ang Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Kapag nag-urong ang iyong mobile operator ng singil sa data access para sa Wikipedia app sa pamamagitan ng isang pakikipag-korporasyon ng Wikipedia Zero, sa pag-iwan ng kaayusang ito na naka-tsek ay tinutulungang ipaalam sa iyo kapag lilisanin ang Wikipedia app at maaaring masingil.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ (Mga Madalas Itanong)</string>
@@ -77,7 +78,7 @@
   <string name="zero_interstitial_continue">Umalis</string>
   <string name="zero_interstitial_cancel">Manatili dito</string>
   <string name="zero_learn_more" fuzzy="true">Walang bayad sa paggamit ng Wikipedia app na ito</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Magbasa pa</string>
+  <string name="zero_learn_more_learn_more">Matuto pa</string>
   <string name="zero_learn_more_dismiss">Ipagwalang-bahala</string>
   <string name="edit_preview_fetching_dialog_message">Kinukuha ang paunang tingin</string>
   <string name="send_feedback">Magpadala ng tugon sa app</string>
@@ -99,7 +100,7 @@
   <string name="terms_of_use_description">Mga tuntunin sa paggamit</string>
   <string name="about_libraries_heading" fuzzy="true">mga aklatang ginamit</string>
   <string name="about_contributors_heading" fuzzy="true">Mga tagapag-ambag</string>
-  <string name="about_translators_heading" fuzzy="true">Mga tagapag-salinwika</string>
+  <string name="about_translators_heading">Mga tagapagsalinwika</string>
   <string name="about_translators_translatewiki">Isinalinwika ang appa na ito ng mga boluntaryong tagapag-salinwika sa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf" fuzzy="true">Produkto ng &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Patungkol</string>
@@ -160,7 +161,11 @@
   <string name="menu_new_tab">Bagong talahanayan (tab)</string>
   <string name="button_close_tab">Isara ang talahanayan (tab)</string>
   <string name="button_continue_to_article">Basahin ang artikulo</string>
+  <string name="page_offline_notice_compilation_download_date" fuzzy="true">Ang artikulo na iyong binabasa ay galing sa pinagsama-samang %1$s noong ika %2$s.</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Linaw</string>
   <string name="color_theme_dark">Dilim</string>
+  <string name="reading_list_action_menu_save_for_offline">Gamitin mo ito, Kapag nag-offline</string>
+  <string name="offline_my_compilations" fuzzy="true">Ang aking mga pinagpilian</string>
+  <string name="offline_compilations_found_count">Sa loob ng aking \'Offline Library\' (%d)</string>
 </resources>

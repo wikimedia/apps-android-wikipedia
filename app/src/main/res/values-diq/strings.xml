@@ -10,9 +10,12 @@
   <string name="page_error_retry">Fına</string>
   <string name="page_error_back_to_main">Peyser şo</string>
   <string name="menu_clear_all_history">verore cı besterne</string>
+  <string name="history_item_delete_undo">Peyser biya</string>
   <string name="dialog_title_clear_history">verore cı besterne</string>
   <string name="dialog_message_clear_history">No,verorê perer hemın do besterno u akerda taba hemın racıno.  Şıma xo emeli?</string>
-    <string name="share_via">Vıla da</string>
+  <string name="dialog_message_clear_history_yes">Eya</string>
+  <string name="dialog_message_clear_history_no">Nê</string>
+  <string name="share_via">Vıla da</string>
   <string name="search_redirect_from">%s ra kırışı yê</string>
   <string name="menu_page_show_tabs">Taban basne</string>
   <string name="menu_page_other_languages">Zıwani bıvurn</string>
@@ -98,6 +101,8 @@
   <string name="about_translators_heading">Açarnayoği</string>
   <string name="about_app_license_heading">Lisans</string>
   <string name="about_activity_title">Heqa</string>
+  <string name="edit_abandon_confirm_yes">Eya</string>
+  <string name="edit_abandon_confirm_no">Nê</string>
   <string name="user_blocked_from_editing_title">Kılit biyo</string>
   <string name="edit_next">Bahdoyên</string>
   <string name="edit_done" fuzzy="true">Qeyd ke</string>
@@ -114,6 +119,8 @@
   <string name="search_did_you_mean">To ker kı vacê %s?</string>
   <string name="search_recent_header">Cıgeyrışo peyên:</string>
   <string name="button_clear_all_recent_searches">Cıgeyrışanê peyênan pak kı</string>
+  <string name="clear_recent_searches_confirm_yes">Eya</string>
+  <string name="clear_recent_searches_confirm_no">Nê</string>
   <string name="table_infobox">Pratik zanage</string>
   <string name="table_other">Vêşi zanage</string>
   <string name="table_close">Racın</string>
@@ -127,6 +134,8 @@
   <string name="preference_title_show_images">Resiman bıasne</string>
   <string name="snippet_share_intro">\"%1$s\" dı @Wikipedia: %2$s</string>
   <string name="menu_new_tab">Taba newi</string>
+  <string name="close_all_tabs_confirm_yes">Eya</string>
+  <string name="close_all_tabs_confirm_no">Nê</string>
   <string name="enable_location_service">Aktif ke</string>
   <string name="crash_report_dialog_dont_send_button">Ser çek</string>
   <string name="crash_report_dialog_always_send_button">Tım bırış</string>
@@ -138,28 +147,35 @@
   <string name="color_theme_dark">Çığ</string>
   <string name="reading_list_create_new">Newe bıvıraz</string>
   <string name="reading_list_added_to_named">Debya %s tede</string>
-    <string name="reading_list_added_view_button">Listi Bıvin</string>
+  <string name="reading_list_added_view_button">Listi Bıvin</string>
   <string name="reading_list_sort">Ratın</string>
   <string name="reading_list_sort_by_name">Gorey nami ratın</string>
   <string name="reading_list_sort_by_name_desc">Gorey nami ratın (çep ra)</string>
   <string name="reading_list_sort_by_recent">Peyên rasayışi ra ratın</string>
+  <string name="reading_list_item_delete_undo">Peyser biya</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
+  <string name="reading_lists_confirm_remote_delete_no">Nê</string>
   <string name="view_featured_image_card_download">Ron</string>
   <string name="menu_feed_card_dismiss">Na qert bınımn</string>
   <string name="menu_feed_card_dismissed">Qert nımneyê</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons ra bestıyayeyê resim</string>
   <string name="feed">Keşf ke</string>
-    <string name="most_read_list_card_title">Populer</string>
+  <string name="most_read_list_card_title">Populer</string>
   <string name="view_static_card_icon_content_description">İkonê qerter</string>
   <string name="view_card_news_title">Xeberan dı</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">vızêr</item>
     <item quantity="other">%d roca veror</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Ewro</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Ewro</string>
   <string name="view_announcement_card_negative_action">Nê, teşekur</string>
   <string name="description_edit_text_hint" fuzzy="true">Yew şınasnayış bınusê</string>
   <string name="description_edit_save" fuzzy="true">Qeyd kerê</string>
   <string name="description_edit_add_description" fuzzy="true">Şınasnayış cı ke</string>
+  <string name="description_edit_cancel_hint">Bıtexelne</string>
   <string name="description_edit_success_done">Temam</string>
   <string name="description_edit_success_did_you_know">Tı zanê?</string>
+  <string name="compilation_download_cancel_confirm_yes">Eya</string>
+  <string name="compilation_download_cancel_confirm_no">Nê</string>
+  <string name="compilation_share">Vıla ke</string>
 </resources>

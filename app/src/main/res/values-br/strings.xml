@@ -20,7 +20,7 @@
   <string name="dialog_message_clear_history">An dra-se a zilamo istor ar merdeiñ hag a serro an holl ivinelloù zo digor bremañ. Ha suc\'h oc\'h ?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
   <string name="dialog_message_clear_history_no">Ket</string>
-    <string name="share_via">Rannañ dre</string>
+  <string name="share_via">Rannañ dre</string>
   <string name="search_redirect_from">Adkaset eus %s</string>
   <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
   <string name="menu_page_other_languages">Cheñch yezh</string>
@@ -68,7 +68,7 @@
   <string name="edit_section_captcha_hint">Advizskrivañ ar gerioù amañ a-us</string>
   <string name="title_captcha">Ebarzhiñ ar c\'haptcha</string>
   <string name="edit_section_captcha_reload">Bizskrivañ ar c\'haptcha evit pellgargañ</string>
-    <string name="nav_item_login">Kevreañ ouzh Wikipedia</string>
+  <string name="nav_item_login">Kevreañ ouzh Wikipedia</string>
   <string name="login_username_hint">Anv implijer</string>
   <string name="login_password_hint">Ger-tremen</string>
   <string name="login_2fa_hint">Kod gwiriañ dezhañ daou faktor</string>
@@ -253,7 +253,7 @@
   <string name="error_page_does_not_exist">N\'eus ket eus ar bajenn-mañ.</string>
   <string name="view_wiki_error_message_offline">N\'haller ket kevreañ ouzh ar Genrouedad</string>
   <string name="reference_title">Daveenn %s$1</string>
-    <string name="theme_chooser_dialog_image_dimming_switch_label">Teñvalaat ar skeudenn (en tem Teñval)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Teñvalaat ar skeudenn (en tem Teñval)</string>
   <string name="crash_report_dialog_title">Hon digarezit, c\'hwitet eo an arload ar wech diwezhañ</string>
   <string name="crash_report_dialog_text">Ha c\'hoant ho peus da gas un danevell implij da HockeyApp - ur pourchaser servijoù tredeour - abalamour ma c\'hallo Wikimedia kompren war ho tarvoud ha reizhañ an draen degaset gantañ ?</string>
   <string name="crash_report_dialog_dont_send_button">Lezel a-gostez</string>
@@ -271,7 +271,7 @@
   <string name="color_theme_select">Tem</string>
   <string name="color_theme_light">Sklaer</string>
   <string name="color_theme_dark">Teñval</string>
-    <string name="preference_summary_color_theme">Lezel a-gostez evit implijout tem teñval kenañ an arload</string>
+  <string name="preference_summary_color_theme">Lezel a-gostez evit implijout tem teñval kenañ an arload</string>
   <string name="nav_item_reading_lists">Ma rolloù</string>
   <string name="reading_list_untitled">Hep titl</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
@@ -279,7 +279,7 @@
   <string name="reading_list_title_exists">Ar roll lenn «%s» zo anezhañ dija.</string>
   <string name="reading_list_entry_empty">Merkit un titl.</string>
   <string name="reading_list_added_to_named">Ouzhpennet da%s</string>
-    <string name="reading_list_already_exists">Ar pennad-mañ zo er roll-se dija.</string>
+  <string name="reading_list_already_exists">Ar pennad-mañ zo er roll-se dija.</string>
   <string name="reading_list_added_view_button">Diskwel ar roll</string>
   <string name="format_reading_list_statistical_summary_singular">1 pennad, %1$.2f Mo</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d pennadoù, %2$.2f Mo</string>
@@ -332,7 +332,8 @@
   <string name="reading_list_already_contains_selection">Er roll emañ an holl bajennoù dibabet dija.</string>
   <string name="reading_list_added_articles_list_titled">%1$d pennad ouzhpennet da %2$s</string>
   <string name="default_reading_list_name">Enrollet</string>
-    <plurals name="reading_list_article_not_offline_message">
+  <string name="reading_list_article_offline_message">{[PLURAL|one=Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken|Gallout a reot gwelet ar pennadoù-mañ ezlinenn hiviziken.</string>
+  <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Ne c\'hallor ket gwelet ar pennadoù-mañ ezlinenn pelloc\'h</item>
     <item quantity="other">e c\'hallor ket gwelet ar pennad-mañ ezlinenn pelloc\'h.</item>
   </plurals>
@@ -357,7 +358,7 @@
   <string name="menu_feed_overflow_label">Muioc\'h a zibarzhioù</string>
   <string name="feed_featured_image_share_subject">Skeudenn dibabet e Wikimedia Commons</string>
   <string name="feed">Ergerzhet</string>
-    <string name="most_read_list_card_title">Gizioù ar mare</string>
+  <string name="most_read_list_card_title">Gizioù ar mare</string>
   <string name="view_static_card_icon_content_description">Arlun ar gartenn</string>
   <string name="view_card_news_title">Er C\'heleier</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -416,16 +417,16 @@
   <string name="offline_compilations_add">Ouzhpennañ da\'m levraoueg ezlinenn</string>
   <string name="remote_compilations_title">Levraoueg ezlinenn</string>
   <string name="remote_compilations_description">Gant al levraoueg enlinenn e c\'hallit bremañ pellgargañ pakadoù pennadoù evit lenn anezho pa ne c\'hallit ket kevreañ ouzh ar Genrouedad.</string>
-    <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
-    <string name="offline_compilation_detail_button_download_v2">Pellkarget • %s</string>
+  <string name="offline_compilation_detail_button_download_v2">Pellkarget • %s</string>
   <string name="offline_compilation_detail_button_remove">Dilemel</string>
   <string name="remote_compilation_download">Pellgargañ</string>
-    <string name="storage_size_free_v2">%s dieub</string>
+  <string name="storage_size_free_v2">%s dieub</string>
   <string name="storage_used_by_compilations" fuzzy="true">implijet gant Wikipedia</string>
   <string name="storage_other_apps">Arloadoù all</string>
-    <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">1 vunutenn a chom</item>
     <item quantity="other">%d munutenn a chom</item>
@@ -439,15 +440,15 @@
   <string name="compilation_remove_confirm">Ha c\'hoant ho peus da zilemel an dra-se eus ho levraoueg ezlinenn ?</string>
   <string name="offline_library_title">Levraoueg ezlinenn</string>
   <string name="offline_library_empty_title">N\'eus netra en ho levraoueg ezlinenn</string>
-    <string name="offline_library_empty_search">Klask el levraoueg ezlinenn</string>
+  <string name="offline_library_empty_search">Klask el levraoueg ezlinenn</string>
   <string name="offline_library_search_results_state">Klask an disoc\'hoù en ho levraoueg ezlinenn</string>
-    <string name="offline_library_onboarding_button_done">Graet</string>
+  <string name="offline_library_onboarding_button_done">Graet</string>
   <string name="offline_library_onboarding_build_library_title">Sevel ho levraoueg ezlinenn</string>
   <string name="onboarding_skip">Lezel a-gostez</string>
   <string name="onboarding_continue">Kenderc\'hel</string>
   <string name="onboarding_explore_title">Doareoù ergerzhet nevez</string>
-    <string name="onboarding_analytics_title">Kas roadennoù dizanv</string>
-    <string name="onboarding_analytics_switch_title">Kas ar roadennoù implijout</string>
+  <string name="onboarding_analytics_title">Kas roadennoù dizanv</string>
+  <string name="onboarding_analytics_switch_title">Kas ar roadennoù implijout</string>
   <string name="onboarding_create_account_sync">Sinkronelaat ho rolloù lenn</string>
   <string name="onboarding_create_account_contributions">Mirout roudoù eus ho tegasadennoù</string>
   <string name="onboarding_create_account_preferences">Enrollañ ho penndibaboù</string>

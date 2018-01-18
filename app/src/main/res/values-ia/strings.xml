@@ -12,7 +12,7 @@
   <string name="menu_clear_all_history">Rader historia</string>
   <string name="dialog_title_clear_history">Rader historia de navigation</string>
   <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
-    <string name="share_via">Divider via</string>
+  <string name="share_via">Divider via</string>
   <string name="menu_page_show_tabs">Monstrar schedas</string>
   <string name="menu_page_other_languages">Cambiar de lingua</string>
   <string name="menu_page_find_in_page">Cercar in pagina</string>
@@ -54,7 +54,7 @@
   <string name="edit_section_captcha_hint">Repete le parolas de supra</string>
   <string name="title_captcha">Scribe le CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tocca CAPTCHA pro recargar</string>
-    <string name="nav_item_login">Aperir session in Wikipedia</string>
+  <string name="nav_item_login">Aperir session in Wikipedia</string>
   <string name="login_username_hint">Nomine de usator</string>
   <string name="login_password_hint">Contrasigno</string>
   <string name="menu_login">Aperir session</string>
@@ -113,9 +113,6 @@
   <string name="dialog_page_issues">Problemas con le pagina</string>
   <string name="button_page_issues">Problemas con le pagina</string>
   <string name="text_size_select">Dimension del litteras</string>
-  <string name="color_theme_select">Thema</string>
-  <string name="color_theme_light">Clar</string>
-  <string name="color_theme_dark">Obscur</string>
   <string name="page_similar_titles">Paginas simile</string>
   <string name="search_did_you_mean">Forsan cercava tu: \"%s\"?</string>
   <string name="search_recent_header">Recercas recente:</string>
@@ -144,4 +141,10 @@
   <string name="cc_logo">Licentia Creative Commons</string>
   <string name="captcha_image">Imagine CAPTCHA</string>
   <string name="page_view_in_browser">Vider le pagina in le navigator</string>
+  <string name="color_theme_select">Thema</string>
+  <string name="color_theme_light">Clar</string>
+  <string name="color_theme_dark">Obscur</string>
+  <string name="more_events_text">Plus sur iste die</string>
+  <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
+  <string name="back_to_top">Retro al initio</string>
 </resources>

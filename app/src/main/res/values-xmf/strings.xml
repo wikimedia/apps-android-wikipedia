@@ -18,7 +18,7 @@
   <string name="history_item_delete_undo">გოუქვაფა</string>
   <string name="dialog_title_clear_history">მიშნაველი სტატიეფიშ ისტორიაშ ლასუა</string>
   <string name="dialog_message_clear_history">თენა დოლასუნს თქვან გორუაშ ისტორიას დო დოკილანს გონწყუმილჷ ხასჷლეფს. დობლასათო?</string>
-    <string name="share_via">გობჟინაფაშ საშუალება</string>
+  <string name="share_via">გობჟინაფაშ საშუალება</string>
   <string name="search_redirect_from">გინოწურაფილი რე %s-შე</string>
   <string name="menu_page_other_languages">ნინაშ თირუა</string>
   <string name="menu_page_find_in_page">ხასჷლას გორუა</string>
@@ -63,7 +63,7 @@
   <string name="edit_section_captcha_hint">გამაჟირით ჟილე მოჩამილი ზიტყვეფი</string>
   <string name="title_captcha">გემშიონით CAPTCHA</string>
   <string name="edit_section_captcha_reload">ქეგუნჭირით CAPTCHA-შ გჷნახარგალო</string>
-    <string name="nav_item_login">ვიკიპედიაშა მიშულა</string>
+  <string name="nav_item_login">ვიკიპედიაშა მიშულა</string>
   <string name="login_username_hint">მახვარებუშ ჯოხო</string>
   <string name="login_password_hint">პაროლი</string>
   <string name="login_2fa_hint">ჟირფაქტორიანი ავთენტიფიკაციაშ კოდი</string>

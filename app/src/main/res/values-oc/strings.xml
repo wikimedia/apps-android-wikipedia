@@ -18,7 +18,7 @@
   <string name="dialog_message_clear_history">Aquò suprimirà tot l’istoric de navigacion, e tamparà totes los onglets dobèrts actualament. Sètz segur ?</string>
   <string name="dialog_message_clear_history_yes">Òc</string>
   <string name="dialog_message_clear_history_no">Non</string>
-    <string name="share_via">Partejar via</string>
+  <string name="share_via">Partejar via</string>
   <string name="search_redirect_from">Redirigit dempuèi %s</string>
   <string name="menu_page_show_tabs">Afichar los onglets</string>
   <string name="menu_page_other_languages">Cambiar de lenga</string>
@@ -61,7 +61,7 @@
   <string name="edit_section_captcha_hint">Repetir los mots çaisús</string>
   <string name="title_captcha">Entrar lo captcha</string>
   <string name="edit_section_captcha_reload">Picar lo captcha per recargar</string>
-    <string name="nav_item_login">Connexion a Wikipèdia</string>
+  <string name="nav_item_login">Connexion a Wikipèdia</string>
   <string name="login_username_hint">Nom d\'utilizaire</string>
   <string name="login_password_hint">Senhal</string>
   <string name="login_2fa_hint">Còdi d\'autenticación de dos factors</string>
@@ -220,7 +220,7 @@
   <string name="reading_list_title_exists">La lista de lectura «%s» existís ja.</string>
   <string name="reading_list_entry_empty">Entratz un títol.</string>
   <string name="reading_list_added_to_named">Apondut a %s.</string>
-    <string name="reading_list_already_exists">Aqueste article fa ja partida d\'aquesta lista.</string>
+  <string name="reading_list_already_exists">Aqueste article fa ja partida d\'aquesta lista.</string>
   <string name="reading_list_added_view_button">Afichar la lista</string>
   <string name="reading_list_sort">Triar</string>
   <string name="reading_list_sort_by_name">Triar per nom</string>
@@ -260,7 +260,7 @@
   <string name="menu_feed_overflow_label">Mai d\'opcions</string>
   <string name="feed_featured_image_share_subject">Imatge destacat de Wikimedia Commons</string>
   <string name="feed">Explorar</string>
-    <string name="most_read_list_card_title">Tendéncia</string>
+  <string name="most_read_list_card_title">Tendéncia</string>
   <string name="view_static_card_icon_content_description">Icòna de la carta</string>
   <string name="view_card_news_title">Dins l’actualitat</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">

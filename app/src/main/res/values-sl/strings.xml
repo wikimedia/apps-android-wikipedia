@@ -18,7 +18,7 @@
   <string name="dialog_message_clear_history">To bo izbrisalo vso zgodovino brskanja in zaprlo vse trenutno odprte zavihke. Ste prepričani?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
   <string name="dialog_message_clear_history_no">Ne</string>
-    <string name="share_via">Deli z</string>
+  <string name="share_via">Deli z</string>
   <string name="search_redirect_from">Preusmerjeno iz %s</string>
   <string name="menu_page_show_tabs">Pokaži zavihke</string>
   <string name="menu_page_other_languages">Spremeni jezik</string>
@@ -56,7 +56,7 @@
   <string name="menu_show_toc">Kazalo vsebine</string>
   <string name="search_no_results_found">Ni rezultatov</string>
   <string name="search_reading_list_no_results">Ni rezultatov v \"%s\"</string>
-    <string name="nav_item_login">Prijava v Wikipedijo</string>
+  <string name="nav_item_login">Prijava v Wikipedijo</string>
   <string name="login_username_hint">Uporabniško ime</string>
   <string name="login_password_hint">Geslo</string>
   <string name="login_2fa_hint">Koda za dvostopenjsko prijavo</string>
@@ -131,7 +131,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Svetlo</string>
   <string name="color_theme_dark">Temno</string>
-    <string name="reading_list_create_new">Ustvari novo</string>
+  <string name="reading_list_create_new">Ustvari novo</string>
   <string name="reading_list_menu_rename">Preimenuj</string>
   <string name="reading_list_menu_edit_description">Uredi opis</string>
   <string name="reading_list_name_sample">Moj bralni seznam</string>
@@ -176,9 +176,9 @@
   <string name="description_edit_help_tips_examples">Na primer:</string>
   <string name="description_edit_help_tips_example2">najvišja gora na Zemlji</string>
   <string name="description_edit_help_more_info">Več informacij</string>
-    <string name="offline_compilation_detail_button_remove">Odstrani</string>
+  <string name="offline_compilation_detail_button_remove">Odstrani</string>
   <string name="remote_compilation_download">Prenesi</string>
-    <string name="compilation_download_widget_button_cancel_hint">Prekliči prenos</string>
+  <string name="compilation_download_widget_button_cancel_hint">Prekliči prenos</string>
   <string name="compilation_download_cancel_confirm_yes">Da</string>
   <string name="compilation_download_cancel_confirm_no">Ne</string>
   <string name="compilation_share">Deli</string>
