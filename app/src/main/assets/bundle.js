@@ -797,7 +797,7 @@ var transformer = require("../transformer");
 
 transformer.register( "hideImages", function( content ) {
     var minImageSize = 64;
-    var images = content.querySelectorAll( 'img' );
+    var images = content.querySelectorAll( 'img:not(.mwe-math-fallback-image-inline)' );
     for (var i = 0; i < images.length; i++) {
         var img = images[i];
         if (img.width < minImageSize && img.height < minImageSize) {
@@ -1222,22 +1222,20 @@ var elementUtilities = {
 var CONSTRAINT = {
   IMAGE_PRESUMES_WHITE_BACKGROUND: 'pagelib_theme_image_presumes_white_background',
   DIV_DO_NOT_APPLY_BASELINE: 'pagelib_theme_div_do_not_apply_baseline'
-};
 
-// Theme to CSS classes.
-var THEME = {
+  // Theme to CSS classes.
+};var THEME = {
   DEFAULT: 'pagelib_theme_default',
   DARK: 'pagelib_theme_dark',
   SEPIA: 'pagelib_theme_sepia',
   BLACK: 'pagelib_theme_black'
-};
 
-/**
- * @param {!Document} document
- * @param {!string} theme
- * @return {void}
- */
-var setTheme = function setTheme(document, theme) {
+  /**
+   * @param {!Document} document
+   * @param {!string} theme
+   * @return {void}
+   */
+};var setTheme = function setTheme(document, theme) {
   var html = document.querySelector('html');
 
   // Set the new theme.
@@ -1605,17 +1603,102 @@ var CollapseTable = {
   }
 };
 
-var COMPATIBILITY = {
-  FILTER: 'pagelib_compatibility_filter'
+/**
+ * Extracts array of page issues from element
+ * @param {!Document} document
+ * @param {?Element} element
+ * @return {!Array.<string>} Return empty array if nothing is extracted
+ */
+var collectPageIssues = function collectPageIssues(document, element) {
+  if (!element) {
+    return [];
+  }
+  var tables = Polyfill.querySelectorAll(element, 'table.ambox:not(.ambox-multiple_issues):not(.ambox-notice)');
+  // Get the tables into a fragment so we can remove some elements without triggering a layout
+  var fragment = document.createDocumentFragment();
+  var cloneTableIntoFragment = function cloneTableIntoFragment(table) {
+    return fragment.appendChild(table.cloneNode(true));
+  }; // eslint-disable-line require-jsdoc
+  tables.forEach(cloneTableIntoFragment);
+  // Remove some elements we don't want when "textContent" or "innerHTML" are used
+  Polyfill.querySelectorAll(fragment, '.hide-when-compact, .collapsed').forEach(function (el) {
+    return el.remove();
+  });
+  return Polyfill.querySelectorAll(fragment, 'td[class*=mbox-text] > *[class*=mbox-text]');
 };
 
 /**
+ * Extracts array of page issues HTML from element
  * @param {!Document} document
- * @param {!Array.<string>} properties
- * @param {!string} value
- * @return {void}
+ * @param {?Element} element
+ * @return {!Array.<string>} Return empty array if nothing is extracted
  */
-var isStyleSupported = function isStyleSupported(document, properties, value) {
+var collectPageIssuesHTML = function collectPageIssuesHTML(document, element) {
+  return collectPageIssues(document, element).map(function (el) {
+    return el.innerHTML;
+  });
+};
+
+/**
+ * Extracts array of page issues text from element
+ * @param {!Document} document
+ * @param {?Element} element
+ * @return {!Array.<string>} Return empty array if nothing is extracted
+ */
+var collectPageIssuesText = function collectPageIssuesText(document, element) {
+  return collectPageIssues(document, element).map(function (el) {
+    return el.textContent.trim();
+  });
+};
+
+/**
+ * Extracts array of disambiguation titles from an element
+ * @param {?Element} element
+ * @return {!Array.<string>} Return empty array if nothing is extracted
+ */
+var collectDisambiguationTitles = function collectDisambiguationTitles(element) {
+  if (!element) {
+    return [];
+  }
+  return Polyfill.querySelectorAll(element, 'div.hatnote a[href]:not([href=""]):not([redlink="1"])').map(function (el) {
+    return el.href;
+  });
+};
+
+/**
+ * Extracts array of disambiguation items html from an element
+ * @param {?Element} element
+ * @return {!Array.<string>} Return empty array if nothing is extracted
+ */
+var collectDisambiguationHTML = function collectDisambiguationHTML(element) {
+  if (!element) {
+    return [];
+  }
+  return Polyfill.querySelectorAll(element, 'div.hatnote').map(function (el) {
+    return el.innerHTML;
+  });
+};
+
+var CollectionUtilities = {
+  collectDisambiguationTitles: collectDisambiguationTitles,
+  collectDisambiguationHTML: collectDisambiguationHTML,
+  collectPageIssuesHTML: collectPageIssuesHTML,
+  collectPageIssuesText: collectPageIssuesText,
+  test: {
+    collectPageIssues: collectPageIssues
+  }
+};
+
+var COMPATIBILITY = {
+  FILTER: 'pagelib_compatibility_filter'
+
+  /**
+   * @param {!Document} document
+   * @param {!Array.<string>} properties
+   * @param {!string} value
+   * @return {void}
+   */
+};var isStyleSupported = function isStyleSupported(document, properties, value) {
   var element = document.createElement('span');
   return properties.some(function (property) {
     element.style[property] = value;
@@ -2003,12 +2086,6 @@ var FooterLegal = {
 };
 
 /**
- * @typedef {function} FooterMenuItemPayloadExtractor
- * @param {!Document} document
- * @return {!Array.<string>} Important - should return empty array if no payload strings.
- */
-
-/**
  * @typedef {function} FooterMenuItemClickCallback
  * @param {!Array.<string>} payload Important - should return empty array if no payload strings.
  * @return {void}
@@ -2017,39 +2094,6 @@ var FooterLegal = {
 /**
  * @typedef {number} MenuItemType
  */
-
-// eslint-disable-next-line valid-jsdoc
-/**
- * Extracts array of no-html page issues strings from document.
- * @type {FooterMenuItemPayloadExtractor}
- */
-var pageIssuesStringsArray = function pageIssuesStringsArray(document) {
-  var tables = Polyfill.querySelectorAll(document, 'div#content_block_0 table.ambox:not(.ambox-multiple_issues):not(.ambox-notice)');
-  // Get the tables into a fragment so we can remove some elements without triggering a layout
-  var fragment = document.createDocumentFragment();
-  for (var i = 0; i < tables.length; i++) {
-    fragment.appendChild(tables[i].cloneNode(true));
-  }
-  // Remove some element so their text doesn't appear when we use "innerText"
-  Polyfill.querySelectorAll(fragment, '.hide-when-compact, .collapsed').forEach(function (el) {
-    return el.remove();
-  });
-  // Get the innerText
-  return Polyfill.querySelectorAll(fragment, 'td[class$=mbox-text]').map(function (el) {
-    return el.innerText;
-  });
-};
-
-// eslint-disable-next-line valid-jsdoc
-/**
- * Extracts array of disambiguation page urls from document.
- * @type {FooterMenuItemPayloadExtractor}
- */
-var disambiguationTitlesArray = function disambiguationTitlesArray(document) {
-  return Polyfill.querySelectorAll(document, 'div#content_block_0 div.hatnote a[href]:not([href=""]):not([redlink="1"])').map(function (el) {
-    return el.href;
-  });
-};
 
 /**
  * Type representing kinds of menu items.
@@ -2062,12 +2106,11 @@ var MenuItemType = {
   disambiguation: 4,
   coordinate: 5,
   talkPage: 6
+
+  /**
+   * Menu item model.
+   */
 };
-
-/**
- * Menu item model.
- */
-
 var MenuItem = function () {
   /**
    * MenuItem constructor.
@@ -2115,8 +2158,16 @@ var MenuItem = function () {
     }
 
     /**
+     * Extracts array of page issues, disambiguation titles, etc from element.
+     * @typedef {function} PayloadExtractor
+     * @param {!Document} document
+     * @param {?Element} element
+     * @return {!Array.<string>} Return empty array if nothing is extracted
+     */
+
+    /**
      * Returns reference to function for extracting payload when this menu item is tapped.
-     * @return {?FooterMenuItemPayloadExtractor}
+     * @return {?PayloadExtractor}
      */
 
   }, {
@@ -2124,9 +2175,12 @@ var MenuItem = function () {
     value: function payloadExtractor() {
       switch (this.itemType) {
         case MenuItemType.pageIssues:
-          return pageIssuesStringsArray;
+          return CollectionUtilities.collectPageIssuesText;
         case MenuItemType.disambiguation:
-          return disambiguationTitlesArray;
+          // Adapt 'collectDisambiguationTitles' method signature to conform to PayloadExtractor type.
+          return function (_, element) {
+            return CollectionUtilities.collectDisambiguationTitles(element);
+          };
         default:
           return undefined;
       }
@@ -2204,7 +2258,7 @@ var maybeAddItem = function maybeAddItem(title, subtitle, itemType, containerID,
   // Items are not added if they have a payload extractor which fails to extract anything.
   var extractor = item.payloadExtractor();
   if (extractor) {
-    item.payload = extractor(document);
+    item.payload = extractor(document, document.querySelector('div#content_block_0'));
     if (item.payload.length === 0) {
       return;
     }
@@ -2516,6 +2570,7 @@ var updateSaveButtonBookmarkIcon = function updateSaveButtonBookmarkIcon(button,
 
 /**
  * Updates save button text and bookmark icon for saved state.
+ * Safe to call even for titles for which there is not currently a 'Read more' item.
  * @param {!string} title
  * @param {!string} text
  * @param {!boolean} isSaved
@@ -2524,6 +2579,9 @@ var updateSaveButtonBookmarkIcon = function updateSaveButtonBookmarkIcon(button,
 */
 var updateSaveButtonForTitle = function updateSaveButtonForTitle(title, text, isSaved, document) {
   var saveButton = document.getElementById('' + SAVE_BUTTON_ID_PREFIX + encodeURI(title));
+  if (!saveButton) {
+    return;
+  }
   saveButton.innerText = text;
   saveButton.title = text;
   updateSaveButtonBookmarkIcon(saveButton, isSaved);
@@ -2816,7 +2874,7 @@ var IMAGE_LOADED_CLASS = 'pagelib_lazy_load_image_loaded'; // Download completed
 // Attributes copied from images to placeholders via data-* attributes for later restoration. The
 // image's classes and dimensions are also set on the placeholder.
 // The 3 data-* items are used by iOS.
-var COPY_ATTRIBUTES = ['class', 'style', 'src', 'srcset', 'width', 'height', 'alt', 'data-file-width', 'data-file-height', 'data-image-gallery'];
+var COPY_ATTRIBUTES = ['class', 'style', 'src', 'srcset', 'width', 'height', 'alt', 'usemap', 'data-file-width', 'data-file-height', 'data-image-gallery'];
 
 // Small images, especially icons, are quickly downloaded and may appear in many places. Lazily
 // loading these images degrades the experience with little gain. Always eagerly load these images.
@@ -2826,15 +2884,15 @@ var UNIT_TO_MINIMUM_LAZY_LOAD_SIZE = {
   px: 50, // https://phabricator.wikimedia.org/diffusion/EMFR/browse/master/includes/MobileFormatter.php;c89f371ea9e789d7e1a827ddfec7c8028a549c12$22
   ex: 10, // ''
   em: 5 // 1ex ≈ .5em; https://developer.mozilla.org/en-US/docs/Web/CSS/length#Units
-};
 
-/**
- * Replace an image with a placeholder.
- * @param {!Document} document
- * @param {!HTMLImageElement} image The image to be replaced.
- * @return {!HTMLSpanElement} The placeholder replacing image.
- */
-var convertImageToPlaceholder = function convertImageToPlaceholder(document, image) {
+
+  /**
+   * Replace an image with a placeholder.
+   * @param {!Document} document
+   * @param {!HTMLImageElement} image The image to be replaced.
+   * @return {!HTMLSpanElement} The placeholder replacing image.
+   */
+};var convertImageToPlaceholder = function convertImageToPlaceholder(document, image) {
   // There are a number of possible implementations for placeholders including:
   //
   // - [MobileFrontend] Replace the original image with a span and replace the span with a new
@@ -3127,14 +3185,14 @@ var _class$1 = function () {
   return _class;
 }();
 
-var CLASS$2 = { ANDROID: 'pagelib_platform_android', IOS: 'pagelib_platform_ios' };
+var CLASS$2 = { ANDROID: 'pagelib_platform_android', IOS: 'pagelib_platform_ios'
 
-// Regular expressions from https://phabricator.wikimedia.org/diffusion/EMFR/browse/master/resources/mobile.startup/browser.js;c89f371ea9e789d7e1a827ddfec7c8028a549c12.
-/**
- * @param {!Window} window
- * @return {!boolean} true if the user agent is Android, false otherwise.
- */
-var isAndroid = function isAndroid(window) {
+  // Regular expressions from https://phabricator.wikimedia.org/diffusion/EMFR/browse/master/resources/mobile.startup/browser.js;c89f371ea9e789d7e1a827ddfec7c8028a549c12.
+  /**
+   * @param {!Window} window
+   * @return {!boolean} true if the user agent is Android, false otherwise.
+   */
+};var isAndroid = function isAndroid(window) {
   return (/android/i.test(window.navigator.userAgent)
   );
 };
@@ -3244,8 +3302,8 @@ var RedLinks = {
 var ancestorsToWiden = function ancestorsToWiden(element) {
   var widenThese = [];
   var el = element;
-  while (el.parentNode) {
-    el = el.parentNode;
+  while (el.parentElement) {
+    el = el.parentElement;
     // No need to walk above 'content_block'.
     if (el.classList.contains('content_block')) {
       break;
@@ -3289,15 +3347,14 @@ var styleWideningKeysAndValues = {
   height: 'auto',
   maxWidth: '100%',
   float: 'none'
-};
 
-/**
- * Perform widening on an element. Certain style properties are updated, but only if existing values
- * for these properties already exist.
- * @param  {!HTMLElement} element
- * @return {void}
- */
-var widenElementByUpdatingExistingStyles = function widenElementByUpdatingExistingStyles(element) {
+  /**
+   * Perform widening on an element. Certain style properties are updated, but only if existing values
+   * for these properties already exist.
+   * @param  {!HTMLElement} element
+   * @return {void}
+   */
+};var widenElementByUpdatingExistingStyles = function widenElementByUpdatingExistingStyles(element) {
   Object.keys(styleWideningKeysAndValues).forEach(function (key) {
     return updateExistingStyleValue(element.style, key, styleWideningKeysAndValues[key]);
   });
@@ -3417,6 +3474,7 @@ var WidenImage = {
 var pagelib$1 = {
   // todo: rename CollapseTableTransform.
   CollapseTable: CollapseTable,
+  CollectionUtilities: CollectionUtilities,
   CompatibilityTransform: CompatibilityTransform,
   DimImagesTransform: DimImagesTransform,
   EditTransform: EditTransform,
