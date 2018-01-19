@@ -135,7 +135,7 @@ public class ReadingListItemView extends FrameLayout {
             menu.getMenu().findItem(R.id.menu_reading_list_edit_description).setVisible(false);
             menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
         }
-        menu.setOnMenuItemClickListener(new OverflowMenuClickListener());
+        menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
         menu.show();
     }
 
@@ -233,35 +233,41 @@ public class ReadingListItemView extends FrameLayout {
     }
 
     private class OverflowMenuClickListener implements PopupMenu.OnMenuItemClickListener {
+        @Nullable private ReadingList list;
+
+        OverflowMenuClickListener(@Nullable ReadingList list) {
+            this.list = list;
+        }
+
         @Override public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_reading_list_rename:
-                    if (callback != null && readingList != null) {
-                        callback.onRename(readingList);
+                    if (callback != null && list != null) {
+                        callback.onRename(list);
                         return true;
                     }
                     break;
                 case R.id.menu_reading_list_edit_description:
-                    if (callback != null && readingList != null) {
-                        callback.onEditDescription(readingList);
+                    if (callback != null && list != null) {
+                        callback.onEditDescription(list);
                         return true;
                     }
                     break;
                 case R.id.menu_reading_list_delete:
-                    if (callback != null && readingList != null) {
-                        callback.onDelete(readingList);
+                    if (callback != null && list != null) {
+                        callback.onDelete(list);
                         return true;
                     }
                     break;
                 case R.id.menu_reading_list_save_all_offline:
-                    if (callback != null && readingList != null) {
-                        callback.onSaveAllOffline(readingList);
+                    if (callback != null && list != null) {
+                        callback.onSaveAllOffline(list);
                         return true;
                     }
                     break;
                 case R.id.menu_reading_list_remove_all_offline:
-                    if (callback != null && readingList != null) {
-                        callback.onRemoveAllOffline(readingList);
+                    if (callback != null && list != null) {
+                        callback.onRemoveAllOffline(list);
                         return true;
                     }
                     break;
