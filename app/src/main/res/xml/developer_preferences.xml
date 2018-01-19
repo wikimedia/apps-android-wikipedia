@@ -213,6 +213,18 @@
             android:key="@string/preference_key_add_reading_lists"
             android:title="@string/preferences_developer_add_lists" />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:dialogMessage="@string/preferences_developer_summary_configure_reading_lists"
+            android:key="@string/preference_key_delete_reading_lists"
+            android:title="@string/preferences_developer_delete_lists" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:dialogMessage="@string/preferences_developer_summary_configure_reading_lists"
+            android:key="@string/preference_key_delete_test_reading_lists"
+            android:title="@string/preferences_developer_test_delete_lists" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

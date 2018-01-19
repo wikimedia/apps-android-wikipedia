@@ -71,6 +71,8 @@
     <string name="preference_key_feed_customize_onboarding_card_enabled">feedCustomizeOnboardingCardEnabled</string>
     <string name="preference_key_add_articles">addArticles</string>
     <string name="preference_key_add_reading_lists">addReadingLists</string>
+    <string name="preference_key_delete_reading_lists">deleteReadingLists</string>
+    <string name="preference_key_delete_test_reading_lists">deleteTestReadingLists</string>
     <string name="preference_key_reading_lists_last_sync_time">readingListsLastSyncTime</string>
     <string name="preference_key_reading_lists_deleted_ids">readingListsDeletedIds</string>
     <string name="preference_key_reading_list_pages_deleted_ids">readingListPagesDeletedIds</string>

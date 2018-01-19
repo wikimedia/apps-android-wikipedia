@@ -26,6 +26,8 @@
     <string name="preferences_developer_reading_list_category">Reading Lists</string>
     <string name="preferences_developer_add_articles">Add articles</string>
     <string name="preferences_developer_add_lists">Add reading lists</string>
+    <string name="preferences_developer_delete_lists">Delete reading lists</string>
+    <string name="preferences_developer_test_delete_lists">Delete Test reading lists</string>
     <string name="preferences_developer_summary_configure_articles">Type the number of articles</string>
     <string name="preferences_developer_summary_configure_reading_lists">Type the number of lists</string>
 
