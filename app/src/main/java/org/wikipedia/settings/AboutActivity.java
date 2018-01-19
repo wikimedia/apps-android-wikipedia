@@ -1,12 +1,13 @@
 package org.wikipedia.settings;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.wikipedia.BuildConfig;
@@ -18,14 +19,11 @@ import org.wikipedia.util.StringUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static org.wikipedia.util.DeviceUtil.mailAppExists;
 
 public class AboutActivity extends BaseActivity {
-    private static final String KEY_SCROLL_X = "KEY_SCROLL_X";
-    private static final String KEY_SCROLL_Y = "KEY_SCROLL_Y";
-
-    private ScrollView mScrollView;
     @BindView(R.id.about_translators) TextView translatorsTextView;
     @BindView(R.id.activity_about_libraries) TextView librariesTextView;
     @BindView(R.id.about_app_license) TextView appLicenseTextView;
@@ -38,7 +36,6 @@ public class AboutActivity extends BaseActivity {
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
 
-        mScrollView = findViewById(R.id.about_scrollview);
         translatorsTextView.setText(StringUtil.fromHtml(getString(R.string.about_translators_translatewiki)));
         RichTextUtil.removeUnderlinesFromLinks(translatorsTextView);
         wmfTextView.setText(StringUtil.fromHtml(getString(R.string.about_wmf)));
@@ -46,13 +43,6 @@ public class AboutActivity extends BaseActivity {
         appLicenseTextView.setText(StringUtil.fromHtml(getString(R.string.about_app_license)));
         RichTextUtil.removeUnderlinesFromLinks(appLicenseTextView);
         ((TextView) findViewById(R.id.about_version_text)).setText(BuildConfig.VERSION_NAME);
-        feedbackTextView.setText(StringUtil.fromHtml(
-                "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "
-                + BuildConfig.VERSION_NAME
-                + " Feedback\">"
-                + getString(R.string.send_feedback)
-                + "</a>"));
-        RichTextUtil.removeUnderlinesFromLinks(feedbackTextView);
         RichTextUtil.removeUnderlinesFromLinks(librariesTextView);
 
         findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener());
@@ -62,27 +52,15 @@ public class AboutActivity extends BaseActivity {
             feedbackTextView.setVisibility(View.GONE);
         }
 
-        makeEverythingClickable((ViewGroup) findViewById(R.id.about_container));
+        makeEverythingClickable(findViewById(R.id.about_container));
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putInt(KEY_SCROLL_X, mScrollView.getScrollX());
-        outState.putInt(KEY_SCROLL_Y, mScrollView.getScrollY());
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        final int x = savedInstanceState.getInt(KEY_SCROLL_X);
-        final int y = savedInstanceState.getInt(KEY_SCROLL_Y);
-        mScrollView.post(new Runnable() {
-            @Override
-            public void run() {
-                mScrollView.scrollTo(x, y);
-            }
-        });
+    @OnClick(R.id.send_feedback_text) void onSendFeedbackClick(View v) {
+        Intent intent = new Intent()
+                .setAction(Intent.ACTION_SENDTO)
+                .setData(Uri.parse("mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "
+                        + BuildConfig.VERSION_NAME + " Feedback"));
+        startActivity(intent);
     }
 
     private void makeEverythingClickable(ViewGroup vg) {
