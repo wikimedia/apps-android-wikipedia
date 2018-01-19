@@ -14,6 +14,8 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import org.wikipedia.R;
+
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public class FaceAndColorDetectImageView extends SimpleDraweeView {
@@ -64,18 +66,16 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
     private class DefaultListener implements OnImageLoadListener {
         @Override
         public void onImageLoaded(int bmpHeight, @Nullable final PointF faceLocation, @ColorInt int mainColor) {
-            post(new Runnable() {
-                @Override
-                public void run() {
-                    if (faceLocation != null) {
-                        getHierarchy().setActualImageFocusPoint(faceLocation);
-                    }
+            post(() -> {
+                if (faceLocation != null) {
+                    getHierarchy().setActualImageFocusPoint(faceLocation);
                 }
             });
         }
 
         @Override
         public void onImageFailed() {
+            post(() -> setActualImageResource(R.drawable.lead_default));
         }
     }
 }
