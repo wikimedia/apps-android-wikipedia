@@ -127,8 +127,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 return;
             }
         }
-        currentLists.add(ReadingListDbHelper.instance().createList(db, "",
-                WikipediaApp.getInstance().getString(R.string.default_reading_list_description)));
+        currentLists.add(ReadingListDbHelper.instance().createDefaultList(db));
     }
 
     private void renameListsWithIdenticalNameAsDefault(SQLiteDatabase db, List<ReadingList> lists) {

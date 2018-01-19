@@ -48,6 +48,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.MultiSelectActionModeCallback;
@@ -325,6 +326,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private void rename() {
         if (readingList == null) {
             return;
+        } else if (readingList.isDefault()) {
+            L.w("Attempted to rename default list.");
+            return;
         }
 
         List<ReadingList> tempLists = ReadingListDbHelper.instance().getAllListsWithoutContents();
@@ -346,6 +350,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private void editDescription() {
         if (readingList == null) {
+            return;
+        } else if (readingList.isDefault()) {
+            L.w("Attempted to edit description of default list.");
             return;
         }
         TextInputDialog.newInstance(getContext(), new TextInputDialog.DefaultCallback() {

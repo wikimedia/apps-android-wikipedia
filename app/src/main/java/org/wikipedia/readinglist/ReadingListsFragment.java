@@ -42,6 +42,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.TextInputDialog;
@@ -296,6 +297,10 @@ public class ReadingListsFragment extends Fragment {
 
         @Override
         public void onRename(@NonNull ReadingList readingList) {
+            if (readingList.isDefault()) {
+                L.w("Attempted to rename default list.");
+                return;
+            }
             List<String> existingTitles = new ArrayList<>();
             for (ReadingList list : readingLists) {
                 existingTitles.add(list.title());
@@ -315,6 +320,10 @@ public class ReadingListsFragment extends Fragment {
 
         @Override
         public void onEditDescription(@NonNull ReadingList readingList) {
+            if (readingList.isDefault()) {
+                L.w("Attempted to edit description of default list.");
+                return;
+            }
             TextInputDialog.newInstance(getContext(), new TextInputDialog.DefaultCallback() {
                 @Override
                 public void onShow(@NonNull TextInputDialog dialog) {
@@ -376,6 +385,11 @@ public class ReadingListsFragment extends Fragment {
 
     private void deleteList(@Nullable ReadingList readingList) {
         if (readingList != null) {
+            if (readingList.isDefault()) {
+                L.w("Attempted to delete default list.");
+                return;
+            }
+
             showDeleteListUndoSnackbar(readingList);
 
             ReadingListDbHelper.instance().deleteList(readingList);

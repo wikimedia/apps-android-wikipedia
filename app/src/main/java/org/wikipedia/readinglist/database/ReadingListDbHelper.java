@@ -5,7 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
@@ -72,12 +74,15 @@ public class ReadingListDbHelper {
 
     @NonNull
     public ReadingList createList(@NonNull String title, @Nullable String description) {
-        SQLiteDatabase db = getWritableDatabase();
-        return createList(db, title, description);
+        if (TextUtils.isEmpty(title)) {
+            L.w("Attempted to create list with empty title (default).");
+            return getDefaultList();
+        }
+        return createList(getWritableDatabase(), title, description);
     }
 
     @NonNull
-    public ReadingList createList(@NonNull SQLiteDatabase db, @NonNull String title, @Nullable String description) {
+    ReadingList createList(@NonNull SQLiteDatabase db, @NonNull String title, @Nullable String description) {
         db.beginTransaction();
         try {
             ReadingList protoList = new ReadingList(title, description);
@@ -96,7 +101,7 @@ public class ReadingListDbHelper {
         updateLists(db, Collections.singletonList(list), queueForSync);
     }
 
-    public void updateList(@NonNull SQLiteDatabase db, @NonNull ReadingList list, boolean queueForSync) {
+    void updateList(@NonNull SQLiteDatabase db, @NonNull ReadingList list, boolean queueForSync) {
         updateLists(db, Collections.singletonList(list), queueForSync);
     }
 
@@ -123,6 +128,10 @@ public class ReadingListDbHelper {
     }
 
     public void deleteList(@NonNull ReadingList list, boolean queueForSync) {
+        if (list.isDefault()) {
+            L.w("Attempted to delete the default list.");
+            return;
+        }
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -416,6 +425,24 @@ public class ReadingListDbHelper {
             }
         }
         return lists;
+    }
+
+    @NonNull
+    ReadingList createDefaultList(@NonNull SQLiteDatabase db) {
+        return createList(db, "",
+                WikipediaApp.getInstance().getString(R.string.default_reading_list_description));
+    }
+
+    @NonNull
+    private ReadingList getDefaultList() {
+        List<ReadingList> lists = getAllListsWithoutContents();
+        for (ReadingList list : lists) {
+            if (list.isDefault()) {
+                return list;
+            }
+        }
+        L.logRemoteErrorIfProd(new RuntimeException("Recreating default list (should not happen)."));
+        return createDefaultList(getWritableDatabase());
     }
 
     @NonNull
