@@ -360,6 +360,8 @@
   <string name="no_user_lists_msg">Crear as listas dos locais para viaxar, temas favoritos, e moito máis</string>
   <string name="reading_list_saved_list_rename">%1$s (creada polo usuario)</string>
   <string name="split_reading_list_message">Hai un límite de 1000 artigos por cada lista de lectura. As listas existentes cun valor superior a este foron divididas en varias listas.</string>
+  <string name="reading_list_article_limit_message">Non se pode engadir a esta lista. Alcanzou o límite de 1,000 artigos por lista para \"%s\".</string>
+  <string name="reading_lists_limit_message">Non se pode crear outra lista. Alcanzou o límite de 100 listas de lectura por conta.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Agora este artigo estará dispoñible sen conexión.</item>
     <item quantity="other">Agora estes artigos estarán dispoñibles sen conexión.</item>
@@ -377,9 +379,9 @@
   <string name="notification_thanks_title">Déronche as grazas!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; agradeceu a túa edición na páxina &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Sincronización</string>
-  <string name="notification_channel_description" fuzzy="true">Avance da sincronización</string>
-  <string name="notification_syncing_title" fuzzy="true">Sincronización de %1$d artigos...</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d artigos restantes</string>
+  <string name="notification_channel_description">Avance da descarga</string>
+  <string name="notification_syncing_title">Descargando %1$d artigo(s)…</string>
+  <string name="notification_syncing_description">%1$d artigo(s) restante(s)</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Continuar</string>
   <string name="notification_syncing_cancel_button">Cancelar</string>

@@ -135,7 +135,7 @@
   <string name="page_protected_sysop">此頁面已受全保護。</string>
   <string name="page_protected_other">此頁面已受到以下層級的保護：%s</string>
   <string name="page_protected_can_not_edit">很抱歉，目前您的帳號沒有足夠權限來編輯此頁面。</string>
-  <string name="page_protected_can_not_edit_anon">抱歉，該頁現在無法暱名編輯。</string>
+  <string name="page_protected_can_not_edit_anon">抱歉，該頁現在無法匿名編輯。</string>
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
@@ -201,7 +201,7 @@
   <string name="alpha_update_notification_text">輕觸下載</string>
   <string name="dialog_close_description">關閉</string>
   <string name="preference_title_show_images">顯示圖片</string>
-  <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的資料流量計劃受限制，則取消選擇本設定。</string>
+  <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的行動數據方案有限制，則取消選擇此設定。</string>
   <string name="read_more_section">延伸閱讀</string>
   <string name="about_article_section">關於此條目</string>
   <string name="menu_gallery_visit_page">前往檔案頁面</string>

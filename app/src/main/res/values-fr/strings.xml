@@ -381,7 +381,7 @@
   <string name="notification_channel_name">Synchronisation</string>
   <string name="notification_channel_description">Avancement du téléchargement</string>
   <string name="notification_syncing_title">Téléchargement de %1$d article(s)…</string>
-  <string name="notification_syncing_description">%1$d article(s) restants</string>
+  <string name="notification_syncing_description">%1$d article(s) restant(s)</string>
   <string name="notification_syncing_pause_button">Pause</string>
   <string name="notification_syncing_resume_button">Reprise</string>
   <string name="notification_syncing_cancel_button">Annulation</string>

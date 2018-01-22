@@ -334,6 +334,7 @@
   <string name="no_user_lists_title">Artikelen a Lëschten organiséieren</string>
   <string name="reading_list_saved_list_rename">%1$s_(vum Benotzer gemaach)</string>
   <string name="reading_list_article_limit_message">Net méiglech op dës Lëscht ze setzen. dir hutt d\'Limitt vun 1 000 Artikele pro Lëscht fir \"%s\" erreecht.</string>
+  <string name="reading_lists_limit_message">Et ka soss keng Lëscht ugeluecht ginn. Dir hutt d\'Limitt vun 100 Lieslëschten erreecht.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dësen Artikel ass elo offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn elo offline disponibel.</item>
@@ -351,9 +352,9 @@
   <string name="notification_thanks_title">Dir krut Merci gesot!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; huet Iech fir Äer Ännerung op der Säit &lt;strong&gt;%2$s&lt;/strong&gt; Merci gesot</string>
   <string name="notification_channel_name">Synchroniséieren</string>
-  <string name="notification_channel_description" fuzzy="true">Fortschrëtt vun der Synchronisatioun</string>
-  <string name="notification_syncing_title" fuzzy="true">Synchronisatioun vun %1$d Artikelen ....</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d Artikele bleiwen</string>
+  <string name="notification_channel_description">Fortschrëtt vum Eroflueden</string>
+  <string name="notification_syncing_title">Erofluede vun %1$d Artikelen ....</string>
+  <string name="notification_syncing_description">%1$d Artikelen iwwreg</string>
   <string name="notification_syncing_pause_button">Paus</string>
   <string name="notification_syncing_resume_button">Virufueren</string>
   <string name="notification_syncing_cancel_button">Ofbriechen</string>

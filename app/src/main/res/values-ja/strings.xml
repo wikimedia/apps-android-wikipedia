@@ -373,7 +373,7 @@
   <string name="notification_thanks_title">感謝されました！</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; が &lt;strong&gt;%2$s&lt;/strong&gt; でのあなたの編集に感謝を示しました。</string>
   <string name="notification_channel_name">同期中</string>
-  <string name="notification_channel_description" fuzzy="true">同期の進行</string>
+  <string name="notification_channel_description">ダウンロードの進行状況</string>
   <string name="notification_syncing_title" fuzzy="true">記事%1$d件を同期中…</string>
   <string name="notification_syncing_description" fuzzy="true">残り%1$d件の記事</string>
   <string name="notification_syncing_pause_button">一時停止</string>

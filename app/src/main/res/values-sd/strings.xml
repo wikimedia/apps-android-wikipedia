@@ -44,7 +44,7 @@
   <string name="edit_history_link_text">ترميمي سوانح</string>
   <string name="map_view_link_text">نقشي تي ڏسو</string>
   <string name="language_count_link_text">%d ٻولين ۾ موجود</string>
-  <string name="content_license_html">مواد موجود آهي &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت نه ته ٻي صورت ۾ نوٽ ٿيل آهي</string>
+  <string name="content_license_html">مواد &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت موجود آھي نہ تہ ٻي صورت ۾ نوٽ ٿيل آهي</string>
   <string name="edit_save_action_license_logged_in">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس جي تحت ڏيڻ تي راضي ٿيو ٿا.</string>
   <string name="edit_save_action_license_anon">سانڍڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ irrevocably پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس تحت ڏيڻ تي راضي ٿيو ٿا. ترميمون توھان جي آءِپي پتي سان لاڳو ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ ذاتيات هوندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻولي</string>
@@ -97,7 +97,7 @@
   <string name="create_account_password_repeat_hint">ڳجھولفظ ورجايو</string>
   <string name="create_account_passwords_mismatch_error">ڳجھالفظ نٿا ملن</string>
   <string name="create_account_email_error">ناقابلِڪار برقٽپال پتو</string>
-  <string name="create_account_username_error">يوزنانءَ ۾ ناقابلڪار نشانيون</string>
+  <string name="create_account_username_error">واپرائيندڙ-نانءَ ۾ ناقابلڪار نشانيون</string>
   <string name="create_account_password_error">ڳجھولفظ ناقابلِڪار آھي</string>
   <string name="create_account_generic_error">کاتو کولي نہ سگھيو</string>
   <string name="create_account_next">اڳيون</string>
@@ -339,6 +339,8 @@
   <string name="reading_list_already_contains_selection">چونڊيل فھرست اڳ ئي چونڊيل صفحا رکي ٿي.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
   <string name="default_reading_list_name">سانڍيل</string>
+  <string name="default_reading_list_description">توھان جي سانڍيل مضمونن لاءَ  پاڻڏنل فھرست</string>
+  <string name="no_user_lists_title">مضمونن کي فھرستن ۾ رکو</string>
   <string name="no_user_lists_msg">گھمڻ جي جڳھن، پسنديده عنوان، ۽ وغيره لاءِ فھرست ٺاھيو</string>
   <string name="reading_list_saved_list_rename">%1$s (واپرائيندڙ سرجيو)</string>
   <plurals name="reading_list_article_offline_message">
@@ -357,7 +359,9 @@
   <string name="notification_reverted">\'\'\'%2$s\'\'\' مضمون تي توھان جي ترميم %1$s پاران ورائي وئي.</string>
   <string name="notification_thanks_title">توھان جي مھرباني ادا ڪئي وئي آھي!</string>
   <string name="notification_thanks">مضمون \'\'\'%2$s\'\'\' تي توھان جي ترميم لاءِ %1$s توھان جي مھرباني ادا ڪئي</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d مضمون رھن ٿا</string>
+  <string name="notification_channel_description">لھڻ جي پيشرفت</string>
+  <string name="notification_syncing_title">%1$d مضمون لاھيندي.،</string>
+  <string name="notification_syncing_description">%1$d مضمون رھن ٿا</string>
   <string name="notification_syncing_pause_button">بيھو</string>
   <string name="notification_syncing_resume_button">ٻيھر ھلو</string>
   <string name="notification_syncing_cancel_button">رد</string>
