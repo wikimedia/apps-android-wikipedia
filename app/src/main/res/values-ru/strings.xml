@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
   <string name="reading_list_deleted">%s удалено</string>
-  <string name="reading_lists_empty">Ещё нет списков для чтения</string>
+  <string name="saved_list_empty_title">Ещё нет списков для чтения</string>
   <string name="reading_lists_empty_message">Добавить статьи в лист для чтения позже, даже когда вы оффлайн.</string>
   <string name="reading_lists_onboarding_intro">Добавьте статьи в список для чтения позже, даже если вы оффлайн!</string>
   <string name="reading_lists_onboarding_for_example">Например</string>

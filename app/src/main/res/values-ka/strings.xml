@@ -272,7 +272,7 @@
   <string name="reading_list_item_deleted">%s წაიშალა სიიდან</string>
   <string name="reading_list_item_delete_undo">გაუქმება</string>
   <string name="reading_list_deleted">%s წაიშალა</string>
-  <string name="reading_lists_empty">წასაკითხი სია ჯერ არაა.</string>
+  <string name="saved_list_empty_title">წასაკითხი სია ჯერ არაა.</string>
   <string name="reading_lists_onboarding_for_example">მაგალითად</string>
   <string name="reading_lists_onboarding_example1">მოსანახულებელი ადგილები</string>
   <string name="reading_lists_onboarding_example2">საყვარელი ცხოველები</string>

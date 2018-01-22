@@ -263,7 +263,7 @@
   <string name="reading_list_item_deleted">%s zerrendatik kendu da</string>
   <string name="reading_list_item_delete_undo">Desegin</string>
   <string name="reading_list_deleted">%s ezabatua</string>
-  <string name="reading_lists_empty">Irakurketa zerrendarik oraindik ez</string>
+  <string name="saved_list_empty_title">Irakurketa zerrendarik oraindik ez</string>
   <string name="reading_lists_empty_message" fuzzy="true">Gorde artikuluak irakurketa zerrenda beranduago ikus ditzazun, nahiz eta offline irakurtzeko ere.</string>
   <string name="reading_lists_onboarding_for_example">Adibidez</string>
   <string name="reading_lists_onboarding_example1">Bisitatu beharreko lekuak</string>

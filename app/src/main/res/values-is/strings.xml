@@ -316,7 +316,7 @@
   <string name="reading_list_items_deleted">%d greinar fjarlægðar af lista</string>
   <string name="reading_list_item_delete_undo">Afturkalla</string>
   <string name="reading_list_deleted">%s eytt</string>
-  <string name="reading_lists_empty">Engir leslistar ennþá</string>
+  <string name="saved_list_empty_title">Engir leslistar ennþá</string>
   <string name="reading_lists_empty_message">Bættu greinum á lista til að lesa þær síðar, jafnvel án nettengingar.</string>
   <string name="reading_lists_onboarding_intro">Bættu greinum á lista til að lesa þær síðar, jafnvel án nettengingar!</string>
   <string name="reading_lists_onboarding_for_example">Til dæmis</string>

@@ -318,7 +318,7 @@
   <string name="reading_list_items_deleted">%d n imagraden ttwakksen seg tebdart</string>
   <string name="reading_list_item_delete_undo">Err-d</string>
   <string name="reading_list_deleted">%s yettwakkes</string>
-  <string name="reading_lists_empty">Ulac yakan tabdart n tɣuri</string>
+  <string name="saved_list_empty_title">Ulac yakan tabdart n tɣuri</string>
   <string name="reading_lists_empty_message" fuzzy="true">Sekles imagraden deg tebdarin n tɣuri akken ad tizmireḍ ad ten-twaliḍ ticki, ɣas s war tuqqna.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Rnu tibdarin n tɣurii yimagraden ara teɣreḍ ticki, ɣas s war tuqqna!</string>
   <string name="reading_lists_onboarding_for_example">Amedya</string>

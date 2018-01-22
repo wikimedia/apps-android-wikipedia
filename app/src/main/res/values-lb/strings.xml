@@ -303,7 +303,7 @@
   <string name="reading_list_items_deleted">%d Artikele vun der Lëscht erofgeholl</string>
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>
-  <string name="reading_lists_empty">Nach keng Lieslëschten!</string>
+  <string name="saved_list_empty_title">Nach keng Lieslëschten!</string>
   <string name="reading_lists_empty_message">Setzt Artikelen op eng Lëscht derbäi fir se spéider ze liesen, esouguer da wann Dir offline sidd.</string>
   <string name="reading_lists_onboarding_intro">Setzt Artikelen op eng Lëscht derbäi fir spéider ze liesen, esouguer wann Dir offline sidd!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispill</string>

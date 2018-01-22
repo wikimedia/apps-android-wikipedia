@@ -233,7 +233,7 @@
   <string name="reading_list_item_deleted">%s uklonjen s popisa</string>
   <string name="reading_list_item_delete_undo">Poništi</string>
   <string name="reading_list_deleted">%s uklonjeno</string>
-  <string name="reading_lists_empty" fuzzy="true">Još nema popisa za čitanje.</string>
+  <string name="saved_list_empty_title" fuzzy="true">Još nema popisa za čitanje.</string>
   <string name="reading_lists_onboarding_for_example">Na primjer</string>
   <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>

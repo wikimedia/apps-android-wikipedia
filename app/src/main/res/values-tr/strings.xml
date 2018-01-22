@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">%d maddesi listeden silindi</string>
   <string name="reading_list_item_delete_undo">Geri al</string>
   <string name="reading_list_deleted">%s silindi</string>
-  <string name="reading_lists_empty">Henüz hiç okuma listesi yok.</string>
+  <string name="saved_list_empty_title">Henüz hiç okuma listesi yok.</string>
   <string name="reading_lists_empty_message">Çevrimdışı olsanız bile daha sonra okumak için listenize maddeler ekleyin.</string>
   <string name="reading_lists_onboarding_intro">Çevrimdışı olduğunuzda bile daha sonra okumak için bir listeye madde ekleyin!</string>
   <string name="reading_lists_onboarding_for_example">Örneğin</string>

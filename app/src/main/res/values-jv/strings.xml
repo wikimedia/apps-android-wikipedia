@@ -314,7 +314,7 @@
   <string name="reading_list_items_deleted">%d artikel dibusak saka pratélan</string>
   <string name="reading_list_item_delete_undo">Balèkaké</string>
   <string name="reading_list_deleted">%s dibusak</string>
-  <string name="reading_lists_empty">Durung ana pratélan wacan</string>
+  <string name="saved_list_empty_title">Durung ana pratélan wacan</string>
   <string name="reading_lists_empty_message" fuzzy="true">Simpen artikel nyang pratélan wacan kanggo diwaca ing tembé, sanajan ing njaban jaringan.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan!</string>
   <string name="reading_lists_onboarding_for_example">Tuladhané</string>

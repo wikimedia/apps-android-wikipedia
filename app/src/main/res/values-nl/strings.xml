@@ -303,7 +303,7 @@
   <string name="reading_list_items_deleted">%d artikelen verwijderd uit de lijst</string>
   <string name="reading_list_item_delete_undo">Ongedaan maken</string>
   <string name="reading_list_deleted">%s verwijderd</string>
-  <string name="reading_lists_empty">Er zijn nog geen leeslijsten aangemaakt</string>
+  <string name="saved_list_empty_title">Er zijn nog geen leeslijsten aangemaakt</string>
   <string name="reading_lists_empty_message" fuzzy="true">Sla de artikels op in uw leeslijst zodat u ze later kunt bekijken, zelf als u offline bent.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Maak leeslijsten van pagina\'s die u later wilt lezen, zelfs als u offline bent!</string>
   <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>

@@ -282,7 +282,7 @@
   <string name="reading_list_items_deleted">%d கட்டுரைகள் பட்டியலில் இருந்து நீக்கப்பட்டது</string>
   <string name="reading_list_item_delete_undo">மீளமை</string>
   <string name="reading_list_deleted">%s நீக்கப்பட்டுவிட்டது</string>
-  <string name="reading_lists_empty">எந்த படிக்கும் பட்டியலும் இல்லை</string>
+  <string name="saved_list_empty_title">எந்த படிக்கும் பட்டியலும் இல்லை</string>
   <string name="reading_lists_onboarding_for_example">எடுத்துக்காட்டிற்கு</string>
   <string name="reading_lists_onboarding_example1">பார்க்கவேண்டிய இடங்கள்</string>
   <string name="reading_lists_onboarding_example2">அபிமான விலங்குகள்</string>

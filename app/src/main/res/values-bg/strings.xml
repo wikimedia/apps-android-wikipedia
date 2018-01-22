@@ -323,7 +323,7 @@
   <string name="reading_list_items_deleted">%d статии са премахнати от списъка</string>
   <string name="reading_list_item_delete_undo">Отмяна</string>
   <string name="reading_list_deleted">%s е изтрит</string>
-  <string name="reading_lists_empty">Все още няма списъци за четене</string>
+  <string name="saved_list_empty_title">Все още няма списъци за четене</string>
   <string name="reading_lists_empty_message">Добавяйте статии в списъци за четене по-късно, дори когато нямате мрежа.</string>
   <string name="reading_lists_onboarding_intro">Добавяйте статии към списък за четене по-късно, дори когато нямате Интернет!</string>
   <string name="reading_lists_onboarding_for_example">Например</string>

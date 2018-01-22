@@ -303,7 +303,7 @@
   <string name="reading_list_items_deleted">ဆောင်းပါး %d ခုကို စာရင်းမှ ဖယ်ရှားခဲ့။</string>
   <string name="reading_list_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="reading_list_deleted">%s ကို ဖျက်ပြီး</string>
-  <string name="reading_lists_empty">စာဖတ်စာရင်း မရှိ။</string>
+  <string name="saved_list_empty_title">စာဖတ်စာရင်း မရှိ။</string>
   <string name="reading_lists_empty_message" fuzzy="true">သင်ကြည့်သော ဆောင်းပါးများအား သင့်စာဖတ်စာရင်းသို့ ထည့်ပါ၊ ဆောင်းပါးအား ဖတ်ရှုနေစဉ် အောက်ခြေ toolbar ရှိ စာညှပ်ပုံအား နှိပ်ပြီး စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ။</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">နောင်မှဖတ်ရှုလိုသည်များအား စာဖတ်စာရင်းအဖြစ် ဖန်တီးပါ။ အော့ဖ်လိုင်း ဖြစ်နေစဉ်တွင်တောင်မှ ဖတ်ရှုနိုင်ပါသည်။</string>
   <string name="reading_lists_onboarding_for_example">နမူနာအားဖြင့်</string>

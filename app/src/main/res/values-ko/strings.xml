@@ -322,7 +322,7 @@
   <string name="reading_list_items_deleted">%d개의 문서가 목록에서 제거됨</string>
   <string name="reading_list_item_delete_undo">실행 취소</string>
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>
-  <string name="reading_lists_empty">아직 읽기 목록이 없습니다</string>
+  <string name="saved_list_empty_title">아직 읽기 목록이 없습니다</string>
   <string name="reading_lists_empty_message">나중에, 심지어는 오프라인 상태에서도 읽을 수 있도록 글들을 목록에 추가합니다.</string>
   <string name="reading_lists_onboarding_intro">나중에, 심지어는 오프라인 상태에서도 읽을 수 있도록 글들을 문서에 추가해보세요!</string>
   <string name="reading_lists_onboarding_for_example">예를 들어</string>

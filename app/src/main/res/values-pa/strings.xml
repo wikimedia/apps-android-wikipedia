@@ -244,7 +244,7 @@
   <string name="reading_list_item_deleted">%s ਨੂੰ ਸੂਚੀ \'ਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="reading_list_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
-  <string name="reading_lists_empty">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
+  <string name="saved_list_empty_title">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
   <string name="reading_lists_onboarding_for_example">ਮਿਸਾਲ ਦੇ ਤੌਰ \'ਤੇ</string>
   <string name="reading_lists_onboarding_example1">ਦੌਰਾ ਕਰਨ ਲਈ ਸਥਾਨ</string>
   <string name="reading_lists_onboarding_example2">ਪਸੰਦੀਦਾ ਜਾਨਵਰ</string>

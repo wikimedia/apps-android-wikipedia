@@ -314,7 +314,7 @@
   <string name="reading_list_items_deleted">%d مضمون فھرست مان ڪڍيل</string>
   <string name="reading_list_item_delete_undo">اڻڪريو</string>
   <string name="reading_list_deleted">%s ڊاھيو ويو</string>
-  <string name="reading_lists_empty">اڃان ڪابہ پڙھڻ جي فھرست ناھي</string>
+  <string name="saved_list_empty_title">اڃان ڪابہ پڙھڻ جي فھرست ناھي</string>
   <string name="reading_lists_empty_message">مضمونن کي بعد ۾ پڙھڻ جي لاءِ ڪنھن پڙھڻ جي فھرست ۾ وجھو تہ، ڀلي جڏھن توھان آف لائين ھجو.</string>
   <string name="reading_lists_onboarding_intro">مضمونن کي بعد ۾ پڙھڻ لاءِ پڙھڻ جي ڪنھن فھرست ۾ وجھو، ڀلي جڏھن توھان آفلائين آھيو!</string>
   <string name="reading_lists_onboarding_for_example">مثال طور</string>

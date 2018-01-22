@@ -322,7 +322,7 @@
   <string name="reading_list_items_deleted">%d artikkelia poistettu listasta</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
-  <string name="reading_lists_empty">Lukuluetteloita ei vielä ole</string>
+  <string name="saved_list_empty_title">Lukuluetteloita ei vielä ole</string>
   <string name="reading_lists_empty_message" fuzzy="true">Tallenna artikkelit lukuluetteloiksi, jotta voit tarkastella niitä myöhemmin. Voit lukea lukuluettelossa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Luo lukuluetteloja artikkeleista, jotka haluat lukea myöhemmin. Voit lukea niitä jopa ilman verkkoyhteyttä!</string>
   <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>

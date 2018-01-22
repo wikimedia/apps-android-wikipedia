@@ -235,7 +235,7 @@ public class ReadingListsFragment extends Fragment {
             emptyMessage.setText(getString(R.string.no_user_lists_msg));
             emptyImage.setImageDrawable(ContextCompat.getDrawable(emptyImage.getContext(), R.drawable.ic_no_user_lists));
         } else {
-            emptyTitle.setText(getString(R.string.reading_lists_empty));
+            emptyTitle.setText(getString(R.string.saved_list_empty_title));
             emptyMessage.setText(getString(R.string.reading_lists_empty_message));
             emptyImage.setImageDrawable(ContextCompat.getDrawable(emptyImage.getContext(), R.drawable.no_lists));
         }

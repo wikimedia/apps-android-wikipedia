@@ -301,7 +301,7 @@
   <string name="reading_list_items_deleted">%d članaka uklonjeno sa spiska</string>
   <string name="reading_list_item_delete_undo">Poništi</string>
   <string name="reading_list_deleted">Spisak \"%s\" obrisan</string>
-  <string name="reading_lists_empty">Zasad nema spiskova za čitanje</string>
+  <string name="saved_list_empty_title">Zasad nema spiskova za čitanje</string>
   <string name="reading_lists_empty_message" fuzzy="true">Sačuvajte članke u spiskove za čitanje da ih kasnije možete čitati, čak i kad niste na mreži.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Napravite spiskove za čitanje od članaka koje želite čitati kasnije, čak i kad ste van mreže!</string>
   <string name="reading_lists_onboarding_for_example">Naprimjer</string>

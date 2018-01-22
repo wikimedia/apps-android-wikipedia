@@ -257,7 +257,7 @@
   <string name="reading_list_items_deleted">%d artikels uit lys verwyder</string>
   <string name="reading_list_item_delete_undo">Ontdaan</string>
   <string name="reading_list_deleted">%s geskrap</string>
-  <string name="reading_lists_empty">Nog geen leeslyste nie</string>
+  <string name="saved_list_empty_title">Nog geen leeslyste nie</string>
   <string name="reading_lists_empty_message" fuzzy="true">Bewaar artikels in die leeslys sodat u dit later kan lees, selfs wanneer u vanlyn is.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Skep ’n leeslys van artikels wat u later wil lees, selfs wanneer u vanlyn is!</string>
   <string name="reading_lists_onboarding_for_example">Byvoorbeeld</string>

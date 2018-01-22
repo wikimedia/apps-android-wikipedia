@@ -304,7 +304,7 @@
   <string name="reading_list_items_deleted">%d статей вилучено зі списку</string>
   <string name="reading_list_item_delete_undo">Скасувати</string>
   <string name="reading_list_deleted">%s видалено</string>
-  <string name="reading_lists_empty">Списки для читання наразі відсутні</string>
+  <string name="saved_list_empty_title">Списки для читання наразі відсутні</string>
   <string name="reading_lists_empty_message" fuzzy="true">Зберігайте статті у списки для читання, щоб їх можна було переглянути пізніше, навіть коли Ви перебуваєте поза мережею.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Створіть списки з статей, які ви хочете прочитати пізніше, навіть коли ви в автономному режимі!</string>
   <string name="reading_lists_onboarding_for_example">Наприклад</string>

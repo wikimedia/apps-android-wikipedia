@@ -141,7 +141,7 @@
   <string name="reading_list_items_deleted">%d člankov izbrisanih iz seznama</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
   <string name="reading_list_deleted">Seznam %s je bil izbrisan</string>
-  <string name="reading_lists_empty">Nimate še bralnih seznamov</string>
+  <string name="saved_list_empty_title">Nimate še bralnih seznamov</string>
   <string name="reading_lists_empty_message" fuzzy="true">Shranite članke v bralne sezname, da jih lahko preberete kasneje tudi brez povezave</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Ustvarite bralne sezname iz člankov, ki jih želite prebrati kasneje, tudi brez povezave!</string>
   <string name="reading_lists_onboarding_for_example">Na primer</string>

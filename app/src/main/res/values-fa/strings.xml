@@ -324,7 +324,7 @@
   <string name="reading_list_items_deleted">%d مقاله از فهرست حذف شد</string>
   <string name="reading_list_item_delete_undo">واگردانی</string>
   <string name="reading_list_deleted">%s حذف شد</string>
-  <string name="reading_lists_empty">هنوز فهرست مطالعه‌ای وجود ندارد.</string>
+  <string name="saved_list_empty_title">هنوز فهرست مطالعه‌ای وجود ندارد.</string>
   <string name="reading_lists_empty_message">مقاله را به لیستی افزوده تا آن را در آینده، همچنین هنگامی که آفلاین هستید، مطالعه نمائید.</string>
   <string name="reading_lists_onboarding_intro">افزودن مقاله ها به لیست، برای مطالعه در آینده، همچنین هنگامی که آفلاین هستید!</string>
   <string name="reading_lists_onboarding_for_example">برای مثال</string>
