@@ -71,6 +71,7 @@ public class SavedPageSyncService extends JobIntentService {
         List<ReadingListPage> pagesToSave = ReadingListDbHelper.instance().getAllPagesToBeSaved();
         List<ReadingListPage> pagesToUnsave = ReadingListDbHelper.instance().getAllPagesToBeUnsaved();
         List<ReadingListPage> pagesToDelete = ReadingListDbHelper.instance().getAllPagesToBeDeleted();
+        boolean shouldSendSyncEvent = false;
 
         try {
             for (ReadingListPage page : pagesToDelete) {
@@ -84,13 +85,18 @@ public class SavedPageSyncService extends JobIntentService {
         } finally {
             if (!pagesToDelete.isEmpty()) {
                 ReadingListDbHelper.instance().purgeDeletedPages();
+                shouldSendSyncEvent = true;
             }
             if (!pagesToUnsave.isEmpty()) {
                 ReadingListDbHelper.instance().resetUnsavedPageStatus();
+                shouldSendSyncEvent = true;
             }
         }
 
         int itemsTotal = pagesToSave.size();
+        if (itemsTotal > 0) {
+            shouldSendSyncEvent = true;
+        }
         int itemsSaved = 0;
         try {
             itemsSaved = savePages(pagesToSave);
@@ -100,7 +106,9 @@ public class SavedPageSyncService extends JobIntentService {
             } else {
                 savedPageSyncNotification.cancelNotification(getApplicationContext());
                 savedPageSyncNotification.setSyncCanceled(false);
-                sendSyncEvent();
+                if (shouldSendSyncEvent) {
+                    sendSyncEvent();
+                }
             }
         }
     }

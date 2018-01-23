@@ -155,10 +155,7 @@ public class PageItemView<T> extends FrameLayout {
         imageView.setVisibility(selected ? GONE : VISIBLE);
         imageSelectedView.setVisibility(selected ? VISIBLE : GONE);
         // TODO: animate?
-        if (selected) {
-            setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
-        } else {
-            setBackground(null);
-        }
+        containerView.setBackgroundColor(getThemedColor(getContext(),
+                selected ? R.attr.multi_select_background_color : R.attr.paper_color));
     }
 }
