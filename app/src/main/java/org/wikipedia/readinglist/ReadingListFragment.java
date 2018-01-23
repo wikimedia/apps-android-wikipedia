@@ -316,9 +316,13 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), message,
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
-            ReadingListDbHelper.instance().addPagesToList(readingList, pages, true);
-            readingList.pages().addAll(pages);
-            update();
+            List<ReadingListPage> newPages = new ArrayList<>();
+            for (ReadingListPage page : pages) {
+                newPages.add(new ReadingListPage(ReadingListPage.toPageTitle(page)));
+            }
+            ReadingListDbHelper.instance().addPagesToList(readingList, newPages, true);
+            readingList.pages().addAll(newPages);
+            updateReadingListData();
         });
         snackbar.show();
     }

@@ -405,9 +405,12 @@ public class ReadingListsFragment extends Fragment {
                 String.format(getString(R.string.reading_list_deleted), readingList.title()),
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
-
             ReadingList newList = ReadingListDbHelper.instance().createList(readingList.title(), readingList.description());
-            ReadingListDbHelper.instance().addPagesToList(newList, readingList.pages(), true);
+            List<ReadingListPage> newPages = new ArrayList<>();
+            for (ReadingListPage page : readingList.pages()) {
+                newPages.add(new ReadingListPage(ReadingListPage.toPageTitle(page)));
+            }
+            ReadingListDbHelper.instance().addPagesToList(newList, newPages, true);
             updateLists();
         });
         snackbar.show();
