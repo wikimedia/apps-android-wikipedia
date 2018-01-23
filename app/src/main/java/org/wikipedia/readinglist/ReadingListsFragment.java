@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -198,13 +199,29 @@ public class ReadingListsFragment extends Fragment {
                     return;
                 }
                 swipeRefreshLayout.setRefreshing(false);
-                readingLists = lists;
+                readingLists = applySearchQuery(searchQuery, lists);
                 maybeShowListLimitMessage();
                 sortLists();
                 updateEmptyState(searchQuery);
                 maybeDeleteListFromIntent();
             }
         });
+    }
+
+    @NonNull
+    private List<ReadingList> applySearchQuery(@Nullable String searchQuery, @NonNull List<ReadingList> lists) {
+        List<ReadingList> newList = new ArrayList<>();
+        if (TextUtils.isEmpty(searchQuery)) {
+            newList.addAll(lists);
+            return newList;
+        }
+        String normalizedQuery = StringUtils.stripAccents(searchQuery).toLowerCase();
+        for (ReadingList list : lists) {
+            if (StringUtils.stripAccents(list.title()).toLowerCase().contains(normalizedQuery)) {
+                newList.add(list);
+            }
+        }
+        return newList;
     }
 
     private void maybeShowListLimitMessage() {
