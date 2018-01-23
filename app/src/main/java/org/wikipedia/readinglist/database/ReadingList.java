@@ -4,6 +4,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.StringUtil;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -60,10 +64,13 @@ public class ReadingList {
     }
 
     @NonNull public String title() {
-        return title;
+        return isDefault() ? WikipediaApp.getInstance().getString(R.string.default_reading_list_name) : title;
     }
     public void title(@NonNull String title) {
         this.title = title;
+    }
+    public String dbTitle() {
+        return title;
     }
 
     @Nullable public String description() {
@@ -119,10 +126,10 @@ public class ReadingList {
     public static void sort(ReadingList list, int sortMode) {
         switch (sortMode) {
             case SORT_BY_NAME_ASC:
-                Collections.sort(list.pages(), (lhs, rhs) -> lhs.title().compareTo(rhs.title()));
+                Collections.sort(list.pages(), (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(lhs.title(), rhs.title()));
                 break;
             case SORT_BY_NAME_DESC:
-                Collections.sort(list.pages(), (lhs, rhs) -> rhs.title().compareTo(lhs.title()));
+                Collections.sort(list.pages(), (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(rhs.title(), lhs.title()));
                 break;
             case SORT_BY_RECENT_ASC:
                 Collections.sort(list.pages(), (lhs, rhs) -> ((Long) lhs.atime()).compareTo(rhs.atime()));
@@ -138,10 +145,10 @@ public class ReadingList {
     public static void sort(List<ReadingList> lists, int sortMode) {
         switch (sortMode) {
             case SORT_BY_NAME_ASC:
-                Collections.sort(lists, (lhs, rhs) -> lhs.title().compareTo(rhs.title()));
+                Collections.sort(lists, (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(lhs.title(), rhs.title()));
                 break;
             case SORT_BY_NAME_DESC:
-                Collections.sort(lists, (lhs, rhs) -> rhs.title().compareTo(lhs.title()));
+                Collections.sort(lists, (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(rhs.title(), lhs.title()));
                 break;
             case SORT_BY_RECENT_ASC:
                 Collections.sort(lists, (lhs, rhs) -> ((Long) lhs.atime()).compareTo(rhs.atime()));

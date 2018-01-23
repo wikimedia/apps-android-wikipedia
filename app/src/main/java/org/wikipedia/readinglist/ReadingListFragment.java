@@ -234,7 +234,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC));
         setSearchQuery(currentSearchQuery);
         if (!articleLimitMessageShown && readingList.pages().size() >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
-            String message = String.format(getString(R.string.reading_list_article_limit_message), readingList.isDefault() ? getString(R.string.default_reading_list_name) : readingList.title());
+            String message = String.format(getString(R.string.reading_list_article_limit_message), readingList.title());
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
             articleLimitMessageShown = true;
         }

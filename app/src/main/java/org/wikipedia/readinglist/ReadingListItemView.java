@@ -156,9 +156,7 @@ public class ReadingListItemView extends FrameLayout {
         }
         defaultListEmptyView.setVisibility((readingList.isDefault() && readingList.pages().size() == 0) ? VISIBLE : GONE);
         imageContainer.setVisibility(defaultListEmptyView.getVisibility() == VISIBLE ? GONE : VISIBLE);
-        titleView.setText(readingList.isDefault()
-                ? getString(R.string.default_reading_list_name)
-                : readingList.title());
+        titleView.setText(readingList.title());
         if (readingList.isDefault()) {
             descriptionView.setText(getContext().getString(R.string.default_reading_list_description));
             descriptionView.setTypeface(descriptionView.getTypeface(), Typeface.NORMAL);
