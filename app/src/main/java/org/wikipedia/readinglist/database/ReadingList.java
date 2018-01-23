@@ -159,5 +159,17 @@ public class ReadingList {
             default:
                 break;
         }
+        // make the Default list sticky on top, regardless of sorting.
+        ReadingList defaultList = null;
+        for (ReadingList list : lists) {
+            if (list.isDefault()) {
+                defaultList = list;
+                break;
+            }
+        }
+        if (defaultList != null) {
+            lists.remove(defaultList);
+            lists.add(0, defaultList);
+        }
     }
 }
