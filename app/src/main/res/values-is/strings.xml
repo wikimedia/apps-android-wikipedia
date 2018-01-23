@@ -8,13 +8,13 @@
   <string name="search_hint_search_history">Leitarferill</string>
   <string name="search_hint_search_my_lists">Leita í listunum mínum</string>
   <string name="search_hint_search_reading_list">Leita í leslista</string>
-  <string name="nav_item_history">Breytingaskrá</string>
+  <string name="nav_item_history">Ferilskrá</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>
   <string name="page_error_back_to_main">Til baka</string>
   <string name="menu_clear_all_history">Hreinsa feril</string>
   <string name="history_item_deleted">%s fjarlægt úr breytingaskrá</string>
-  <string name="history_items_deleted">%d greinar fjarlægðar úr ferilsskrá</string>
+  <string name="history_items_deleted">%d greinar fjarlægðar úr ferilskrá</string>
   <string name="history_item_delete_undo">Afturkalla</string>
   <string name="dialog_title_clear_history">Hreinsa vafurferil</string>
   <string name="dialog_message_clear_history">Þetta mun eyða öllum ferli vafurs þíns um vefinn og loka öllum opnum flipum. Ertu alveg viss?</string>
@@ -190,7 +190,7 @@
   <string name="clear_recent_searches_confirm_yes">Já</string>
   <string name="clear_recent_searches_confirm_no">Nei</string>
   <string name="error_browser_not_found">Gat ekki opnað vefsíðu (fann ekkert vafraforrit).</string>
-  <string name="table_infobox">Staðreyndir í einum hvelli</string>
+  <string name="table_infobox">Staðreyndir strax</string>
   <string name="table_other">Nánari upplýsingar</string>
   <string name="table_close">Loka</string>
   <string name="widget_name_featured_page">Forsíða Wikipedia</string>
@@ -233,6 +233,7 @@
   <string name="tool_tip_select_text">Ýttu og haltu einhversstaðar í textanum til að velja hann svo hægt sé að afrita og deila.</string>
   <string name="tool_tip_share">Þegar áhugavert atriði hefur verið ljómað, prófaðu að deila því á uppáhalds-netinu þínu!</string>
   <string name="page_view_in_browser">Opna síðu í vafra</string>
+  <string name="tool_tip_toc_button">Skoðaðu efnisyfirlitið hvenær sem er með því að ýta á þennan hnapp, eða með því að draga frá hægri brún skjásins.</string>
   <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
   <string name="error_unknown">Óþekkt villa kom upp.</string>
   <string name="format_error_server_message">Skilaboð: \"%s\"</string>
@@ -241,6 +242,7 @@
   <string name="button_continue_to_article">Lesa grein</string>
   <string name="button_add_to_reading_list">Bæta á leslista</string>
   <string name="page_offline_notice_cannot_load_while_offline">Grein er ekki hægt að hlaða inn án nettengingar.</string>
+  <string name="page_offline_notice_add_to_reading_list">Vísbending: Bættu þessari grein á leslista og náð verður í hana þegar þú kemst aftur í netsamband.</string>
   <string name="page_offline_notice_last_date">Þú ert að lesa ónettengda útgáfu greinarinnar sem vistuð er á %s.</string>
   <string name="page_offline_notice_compilation_download_date">Þú ert að lesa útgáfu greinarinnar frá %1$s • %2$s.</string>
   <string name="button_get_directions">Fá leiðsögn</string>
@@ -248,10 +250,12 @@
   <string name="preference_title_show_link_previews">Birta forskoðun tengla</string>
   <string name="preference_summary_show_link_previews">Birta flýtiforskoðun greina þegar bankað er á tengla.</string>
   <string name="nav_item_donate">Styðja Wikipedia</string>
+  <string name="error_voice_search_not_available">Því miður, talgreining er ekki tiltæk.</string>
   <string name="location_service_disabled">Staðsetningarþjónustur eru óvirkar.</string>
   <string name="enable_location_service">Virkja</string>
   <string name="location_permissions_enable_prompt">Virkja heimildir fyrir staðsetningu til að sjá staði í næsta nágrenni.</string>
   <string name="location_permissions_enable_action">Kveikja</string>
+  <string name="error_webview_updating">Verið er að uppfæra Android System WebView í augnablikinu. Prófaðu aftur eftir smástund.</string>
   <string name="multi_select_items_selected">%d valið</string>
   <string name="error_message_generic">Villa kom upp</string>
   <string name="view_link_preview_error_button_dismiss">Vísa frá</string>
@@ -260,6 +264,9 @@
   <string name="reference_title">Heimild %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Dekking mynda (í dökku þema)</string>
   <string name="preference_title_prefer_offline_content">Kjósa helst efni án nettengingar</string>
+  <string name="preference_summary_prefer_offline_content">Sparaðu gagnamagn með því að hlaða inn greinum sem tiltækar eru án nettengingar fremur en að hlaða alltaf inn nýjustu útgáfu greina</string>
+  <string name="preference_title_enable_offline_library">Virkja safn utan nettengingar</string>
+  <string name="preference_summary_enable_offline_library">Fáðu aðgang að Wikipedia-greinapökkum (sýndar sem .ZIM skrár) sem halað hefur verið inn á tækið þitt til lestrar án nettengingar. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Skoða þetta nánar&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Því miður, appið hrundi síðast</string>
   <string name="crash_report_dialog_text">Viltu senda tilkynningu um hrunið til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis?</string>
   <string name="crash_report_dialog_dont_send_button">Sleppa</string>
@@ -279,7 +286,9 @@
   <string name="color_theme_dark">Dökkt</string>
   <string name="color_theme_black">Svart</string>
   <string name="color_theme_test_title">Textadæmi</string>
+  <string name="color_theme_test_text">Dragðu til sleðann til að breyta stærð textans þegar verið er að lesa greinar. Notaðu stærðarbreytingar í stillingum kerfisins til að breyta stærð texta í öðrum hlutum forritsins.</string>
   <string name="preference_title_app_theme">Þema forrits</string>
+  <string name="preference_summary_color_theme">Skipta í dökkt forritsþema</string>
   <string name="text_size_increase">Stækka texta</string>
   <string name="text_size_decrease">Minnka texta</string>
   <string name="text_size_percent_default">%s (sjálfgefið)</string>
@@ -295,7 +304,7 @@
   <string name="format_reading_list_statistical_summary_singular">1 grein, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d greinar, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d af 1 grein tiltækri án nettengingar, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d af %2$d greinum tiltækum án nettengingar, %3$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d af %2$d greinum tiltækum án nettengingar, %3$.2f MB</string>
   <string name="reading_list_sort">Raða</string>
   <string name="reading_list_sort_by_name">Raða eftir nafni</string>
   <string name="reading_list_sort_by_name_desc">Raða eftir nafni (öfugt)</string>
@@ -334,8 +343,12 @@
   <string name="reading_list_confirm_remove_article_from_offline">Fjarlægja úr ónettengdum aðgangi</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Greinin er á mörgum listum</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s verður ekki lengur tiltækt án nettengingar úr öllum leslistum:</string>
+  <string name="reading_list_sync_reminder_title">Slökkt er á samstillingu leslista</string>
+  <string name="reading_list_sync_reminder_text">Hægt er að samstilla leslistana þína við Wikipedia-aðganginn þinn ef þú leyfir samstillingu í stillingum forritsins.</string>
   <string name="reading_list_sync_reminder_action">Kveikja á</string>
   <string name="reading_list_login_reminder_title">Samstilla leslista</string>
+  <string name="reading_list_login_reminder_text">Leslistarnir þínir gætu núna verið vistaðir á Wikipedia-aðganginn þinn. Skráðu þig einfaldlega inn á aðganginn þinn og þá verða leslistarnir þínir samstilltir sjálfkrafa.</string>
+  <string name="reading_lists_confirm_remote_delete">Þetta mun eyða öllum áður samstilltum leslistum af fjartengdu gagnageymslunni. Halda áfram?</string>
   <string name="reading_lists_confirm_remote_delete_yes">Já</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Verið er að sækja þessa grein og verður hún tiltæk án nettengingar þegar því er lokið.</string>
@@ -346,6 +359,9 @@
   <string name="no_user_lists_title">Skipuleggja greinar í lista</string>
   <string name="no_user_lists_msg">Útbúðu lista yfir staði til að heimsækja, eftirlætisumræðuefni og margt fleira</string>
   <string name="reading_list_saved_list_rename">%1$s (gert af notanda)</string>
+  <string name="split_reading_list_message">Leslistar eru takmarkaðir við 1000 greinar. Fyrirliggjandi listum sem hafa fleiri greinar en þau mörk, hefur verið skipt upp í fleiri lista.</string>
+  <string name="reading_list_article_limit_message">Get ekki bætt á þennan lista. Þú hefur náð 1.000 greina takmörkum á hvern lista fyrir \"%s\".</string>
+  <string name="reading_lists_limit_message">Get ekki búið til annan lista. Þú hefur náð 100 leslista takmörkum á hvern notandaaðgang.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Þessi grein verður núna tiltæk án nettengingar.</item>
     <item quantity="other">Þessar greinar verða núna tiltækar án nettengingar.</item>
@@ -363,9 +379,9 @@
   <string name="notification_thanks_title">Þér hefur verið þakkað fyrir!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; þakkaði þér fyrir breytingu þína á &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Samstilling</string>
-  <string name="notification_channel_description" fuzzy="true">Framvinda samstillingar</string>
-  <string name="notification_syncing_title" fuzzy="true">Samstilli %1$d greinar…</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d greinar eftir</string>
+  <string name="notification_channel_description">Framvinda niðurhals</string>
+  <string name="notification_syncing_title">Sæki %1$d grein(ar)…</string>
+  <string name="notification_syncing_description">%1$d grein(ar) eftir</string>
   <string name="notification_syncing_pause_button">Í bið</string>
   <string name="notification_syncing_resume_button">Halda áfram</string>
   <string name="notification_syncing_cancel_button">Hætta við</string>
@@ -384,7 +400,7 @@
   <string name="menu_feed_card_dismissed">Spjald falið.</string>
   <string name="menu_feed_overflow_label">Fleiri valkostir</string>
   <string name="feed_featured_image_share_subject">Forsíðumynd frá Wikimedia Commons</string>
-  <string name="feed">Kanna</string>
+  <string name="feed">Uppgötva</string>
   <string name="most_read_list_card_title">Í umræðunni</string>
   <string name="view_static_card_icon_content_description">Táknmynd spjalds</string>
   <string name="view_card_news_title">Í fréttum</string>
@@ -399,29 +415,71 @@
   <string name="view_featured_article_card_title">Forsíðugrein</string>
   <string name="view_featured_article_footer_save_button_label">Vista</string>
   <string name="view_featured_article_footer_saved_button_label">Vistað</string>
+  <string name="feed_configure_activity_title">Sérsníða streymið</string>
   <string name="feed_configure_menu_reset">Endurheimta sjálfgefna sýn</string>
   <string name="feed_configure_menu_select_all">Velja allt</string>
   <string name="feed_configure_menu_deselect_all">Afvelja allt</string>
+  <string name="feed_item_type_news">Greinar um mál í gangi</string>
+  <string name="feed_item_type_on_this_day">Sögulegir atburðir á þessum degi</string>
+  <string name="feed_item_type_continue_reading">Flýtitengill til baka til að lesa opna grein í einum af flipunum þínum</string>
+  <string name="feed_item_type_because_you_read">Uppástungur byggðar á nýlesnum greinum í ferilskránni þinni</string>
   <string name="feed_item_type_featured_article">Forsíðugrein dagsins á Wikipedia</string>
+  <string name="feed_item_type_trending">Mest lesnu greinar dagsins</string>
   <string name="feed_item_type_featured_image">Forsíðumynd dagsins frá Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Aðalsíða Wikipedia með úrvalsefni dagsins</string>
   <string name="feed_item_type_randomizer">Útbúðu handahófsvaldar greinar til að lesa</string>
   <string name="feed_configure_onboarding_action">Sérsníða</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Sérsníddu \'Uppgötva\'-streymið þitt&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Núna geturðu valið hvað eigi að birta í streyminu þínu auk þess að forgangsraða eftirlætistegundum efnis.</string>
   <string name="description_edit_text_hint">Lýsing á titli</string>
+  <string name="description_edit_save">Birta</string>
   <string name="description_edit_add_description">Bæta við lýsingu á titli</string>
   <string name="description_edit_edit_description">Breyta lýsingu</string>
   <string name="description_edit_cancel_hint">Hætta við</string>
+  <string name="description_edit_help_title">Hjálp: lýsingar titla</string>
   <string name="description_edit_help_about_wikidata">Um Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Leiðarvísir Wikidata fyrir hvernig eigi að skrifa lýsingar</string>
   <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_anon_limit">Takk fyrir viðvarandi áhuga þinn á að vinna með lýsingar. Til að gera fleiri breytingar, ættirðu að skrá þig inn á Wikipedia notandaaðganginn þinn.</string>
+  <string name="description_edit_license_notice">Með því að breyta lýsingu á þessum titli, samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir óafturkræft út framlög þín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
+  <string name="description_edit_success_saved">Lýsing birt!</string>
+  <string name="description_edit_success_encouragement">Þú varst að gera Wikipedia betri fyrir alla</string>
   <string name="description_edit_success_done">Lokið</string>
   <string name="description_edit_success_did_you_know">Vissir þú það?</string>
+  <string name="description_edit_success_article_edit_hint">Þú getur líka breytt greinum innan þessa forrits. Prófaðu að laga stafsetningu og styttri setningar með því að smella á ^1 táknmyndina</string>
   <string name="description_edit_tutorial_title_descriptions">Lýsingar titla</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Tekur saman efni greinar í örfáum orðum til að hjálpa lesendum að skilja umfjöllunarefnið í fljótu bragði</string>
   <string name="description_edit_tutorial_keep_it_short">Vertu stuttorð(ur)</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Helst ein lína, frá tveimur til tólf orða langt</string>
   <string name="description_edit_tutorial_button_label_start_editing">Hefja breytingar</string>
   <string name="description_edit_tutorial_promise">Ef ég byrja, lofa ég að misnota ekki þennan eiginleika.</string>
   <string name="description_edit_help_about_title">Um</string>
+  <string name="description_edit_help_description">Lýsingar á fyrirsögnum draga saman efni greinar í örfáum orðum til að hjálpa lesendum að skilja umfjöllunarefnið í fljótu bragði.</string>
+  <string name="description_edit_help_tips">Ábendingar við að gera lýsingar</string>
+  <string name="description_edit_help_tips_description">Lýsingar ættu helst að komast fyrir á einni línu, og vera frá tveimur til tólf orða langar. Þær eru ekki með hástöfum nema að fyrsta orðið sé sérheiti.</string>
+  <string name="description_edit_help_tips_examples">Til dæmis:</string>
+  <string name="description_edit_help_tips_example1">málverk eftir Leonardo da Vinci</string>
+  <string name="description_edit_help_tips_example1_hint">lýsing á titli fyrir grein um Mónu Lísu</string>
+  <string name="description_edit_help_tips_example2">Hæsta fjall jarðar</string>
+  <string name="description_edit_help_tips_example2_hint">lýsing á titli fyrir grein um Everestfjall</string>
   <string name="description_edit_help_more_info">Nánari upplýsingar</string>
+  <string name="description_edit_help_meta_info">Lýsingar eru geymdar og þeim viðhaldið á Wikidata, verkefnis á vegum Wikimedia Foundation sjálfseignarstofnunarinnar sem sér um frjálsan, ókeypis, margtyngdann, hópunninn gagnagrunn til stuðnings Wikipedia og öðrum slíkum verkefnum.</string>
+  <string name="description_edit_revert_subtitle">Takk fyrir framlag þitt til Wikipedia!</string>
+  <string name="description_edit_revert_intro">Við vitum að þú reyndir þitt besta, en einn í yfirlestrarhópnum var í vafa. Hugsanlegar ástæður fyrir því að breytingunni þinni var hafnað, gætu meðal annars verið:</string>
+  <string name="description_edit_revert_reason1">framlagið þitt fylgdi ekki einhverju atriðanna í &lt;a href=\"%1$s\"&gt;leiðbeiningunum&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">framlagið þitt lítur út eins og tilraunastarfsemi eða jafnvel skemmdarverk.</string>
+  <string name="description_edit_revert_history">Ef þú hefur áhuga, skoðaðu þá &lt;a href=\"%1$s\"&gt;breytingaferilinn&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Engin internettenging. Þegar nettengingu hefur verið komið á, geturðu prófað aftur.</string>
+  <string name="offline_read_permission_rationale">Til að vafra án nettengingar er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins.</string>
+  <string name="offline_read_permission_error">Ekki er heimilað að lesa úr gagnageymslu tækisins.</string>
+  <string name="offline_card_sideloading_text">Þú ert núna að vafra um Wikipedia án nettengingar með greinapökkum úr ónettengda safninu þínu.</string>
+  <string name="offline_my_compilations">Sýsla með ónettengda safnið mitt</string>
+  <string name="offline_compilations_title">Safn utan nettengingar</string>
+  <string name="offline_compilations_search_by_name">Leita að greinapökkum eftir heiti</string>
+  <string name="offline_compilations_found_count">Í ónettengda safninu mínu (%d)</string>
+  <string name="offline_compilations_add">Bæta í ónettengda safnið mitt</string>
+  <string name="remote_compilations_title">Safn utan nettengingar</string>
+  <string name="remote_compilations_description">Með ónettengda safninu geturðu núna sótt pakka af greinum til að lesa þegar engin nettenging er í boði.</string>
   <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
@@ -429,6 +487,7 @@
   <string name="offline_compilation_detail_button_remove">Fjarlægja</string>
   <string name="remote_compilation_download">Sækja</string>
   <string name="storage_size_free_v2">%s laust</string>
+  <string name="storage_used_by_compilations">notað af ónettengda safninu</string>
   <string name="storage_other_apps">Önnur forrit</string>
   <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
@@ -436,17 +495,38 @@
     <item quantity="other">%d mínútur eftir</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Hætta við niðurhal</string>
+  <string name="compilation_download_cancel_confirm">Ertu viss um að þú viljir hætta við að sækja þennan greinapakka?</string>
   <string name="compilation_download_cancel_confirm_yes">Já</string>
   <string name="compilation_download_cancel_confirm_no">Nei</string>
   <string name="compilation_share">Deila</string>
   <string name="compilation_remove">Fjarlægja</string>
+  <string name="compilation_remove_confirm">Viltu fjarlægja þetta úr ónettengda safninu þínu?</string>
+  <string name="offline_library_title">Safn utan nettengingar</string>
+  <string name="offline_library_empty_title">Ekkert í ónettengda safninu þínu</string>
+  <string name="offline_library_empty_description_sideload">“Greinapakkar” í ónettengda safninu þínu eru for-pökkuð sett af greinum sem auðvelt er að geyma á tækinu þínu, þannig að þú getir haldið áfram að lesa þó að nettenging verði ekki til staðar.&lt;br /&gt;&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Skoða þetta nánar&lt;/a&gt;</string>
+  <string name="offline_library_packs_hint">Greinapakkar í safninu þínu haldast tiltækar til lestrar þegar þú ert án nettengingar. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Skoða þetta nánar&lt;/a&gt;</string>
+  <string name="offline_library_data_usage_hint">Viltu spara gagnamagn? Veldu “Kjósa helst efni án nettengingar” í stillingunum til að birta fyrst þær greinar sem tiltækar eru án nettengingar, jafnvel þegar tenging er til staðar. &lt;a href=\"#settings\"&gt;Fara í stillingar&lt;/a&gt;</string>
+  <string name="offline_library_empty_search">Leita í ónettengda safninu</string>
+  <string name="offline_library_search_results_state">Leitarniðurstöður úr ónettengda safninu þínu</string>
   <string name="offline_library_onboarding_button_done">Búið</string>
+  <string name="offline_library_onboarding_build_library_title">Útbúa safn utan nettengingar</string>
+  <string name="offline_library_onboarding_build_library_subtitle">Sæktu Wikipedia-greinapakka núna svo þeir séu tiltækir án gagnanotkunar síðar.</string>
   <string name="offline_library_onboarding_uninterrupted_reading_title">Ótruflaður lestur</string>
+  <string name="offline_library_onboarding_uninterrupted_reading_subtitle">Haltu áfram að lesa og leita á ónettengda safninu þegar þú ert án nettengingar.</string>
+  <string name="offline_library_onboarding_store_knowledge_title">Geyma meiri þekkingu</string>
+  <string name="offline_library_onboarding_store_knowledge_subtitle">Halaðu niður eins miklu af gögnum frá Wikipedia og tækið þitt þolir. Ónettengda safnið getur líka nýtt sér greinapakka á ytri gagnageymslum.</string>
+  <string name="offline_library_main_page_hint_html">Þessi forsíða birtir yfirlit yfir efni þessa greinapakka.&lt;br /&gt;&lt;br /&gt;Þú getur einnig kannað efni hvaða greinapakka sem er í ónettengda safninu þínu með því að leita að tiltækum greinum þegar þú ert utan netsambands.</string>
   <string name="onboarding_skip">Sleppa</string>
   <string name="onboarding_continue">Áfram</string>
   <string name="onboarding_get_started">Komast í gang</string>
   <string name="onboarding_welcome_title">Frjálsa alfræðiorðasafnið</string>
+  <string name="onboarding_welcome_text">Wikipedia er skrifuð í sameiningu af sjálfboðaliðum og samanstendur af meira en 40 milljón greinum á nærri 300 mismunandi tungumálum. &lt;a href=\"#about\"&gt;Sjá meira&lt;/a&gt;</string>
+  <string name="onboarding_explore_title">Nýjar leiðir til að kanna heiminn</string>
+  <string name="onboarding_explore_text">Hentu þér út í djúpu Wikipedia-laugina með \'Uppgötva\'-streymi sem er uppfært í sífellu. &lt;br/&gt;Þú getur &lt;b&gt;sérsniðið&lt;/b&gt; streymið eftir áhugamálum þínum – hvort sem það er til að læra um sögulega atburði í &lt;b&gt;Á þessum degi&lt;/b&gt;, eða með því að taka áhættuna í &lt;b&gt;Slembið&lt;/b&gt;.</string>
+  <string name="onboarding_save_to_reading_lists_title">Vista í leslista</string>
+  <string name="onboarding_save_to_reading_lists_text">Búðu til leslista með greinum til að lesa þær síðar, jafnvel án nettengingar.</string>
   <string name="onboarding_analytics_title">Senda nafnlaus gögn</string>
+  <string name="onboarding_analytics_offline_text">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#offline\"&gt;Vita meira&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Senda upplýsingar um notkun</string>
   <string name="onboarding_create_account_sync">Samstilltu leslistana þína</string>
   <string name="onboarding_create_account_contributions">Halda utan um framlögin þín</string>
@@ -462,5 +542,5 @@
   <string name="events_count_text">%1$s atburðir frá %2$s–%3$d</string>
   <string name="this_year">Á þessu ári</string>
   <string name="back_to_top">Aftur efst</string>
-  <string name="diff_years" fuzzy="true">{{PLURAL:$|one=Á síðasta ári|Fyrir $ ári síðan}}</string>
+  <string name="diff_years">{{PLURAL:$|one=Á síðasta ári|Fyrir %d árum síðan}}</string>
 </resources>

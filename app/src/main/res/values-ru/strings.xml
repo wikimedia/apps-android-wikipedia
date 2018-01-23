@@ -360,6 +360,7 @@
   <string name="no_user_lists_msg">Создавайте списки стаей о местах, где вы бывали, об интересующих вас темах, и так далее.</string>
   <string name="reading_list_saved_list_rename">%1$s (создано участником)</string>
   <string name="split_reading_list_message">Размер списка для чтения ограничен размером в 1000 статей. Существующие списки, превышающие этот лимит, были разделены на несколько списков.</string>
+  <string name="reading_list_article_limit_message">Невозможно добавить в текущий лист. Вы исчерпали лимит 1000 статей для  \"%s\".</string>
   <string name="reading_lists_limit_message">Невозможно открыть новый лист. Лимит для одного аккаунта - 100 листов.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>

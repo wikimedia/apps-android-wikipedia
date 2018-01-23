@@ -355,6 +355,8 @@
   <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
   <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
   <string name="split_reading_list_message">읽기 목록 하나 당 문서 1000개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>
+  <string name="reading_list_article_limit_message">이 목록에 추가할 수 없습니다. \"%s\"에 대해 목록 당 1,000개 문서 제한에 도달했습니다.</string>
+  <string name="reading_lists_limit_message">다른 목록을 만들 수 없습니다. 계정 당 100개 읽기 목록 제한에 도달했습니다.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">이 글은 이제 오프라인에서 읽을 수 있습니다.</item>
     <item quantity="other">이 글들은 이제 오프라인에서 읽을 수 있습니다.</item>
@@ -372,9 +374,9 @@
   <string name="notification_thanks_title">당신은 감사를 받았습니다!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;님이 &lt;strong&gt;%2$s&lt;/strong&gt; 문서에서 당신의 편집에 감사를 표했습니다</string>
   <string name="notification_channel_name">동기화 중</string>
-  <string name="notification_channel_description" fuzzy="true">동기화 진척도</string>
-  <string name="notification_syncing_title" fuzzy="true">문서 %1$d개를 동기화하고 있습니다...</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d개 문서 남음</string>
+  <string name="notification_channel_description">다운로드 진척도</string>
+  <string name="notification_syncing_title">문서 %1$d개를 다운로드하고 있습니다...</string>
+  <string name="notification_syncing_description">%1$d개 문서 남음</string>
   <string name="notification_syncing_pause_button">일시 정지</string>
   <string name="notification_syncing_resume_button">재개</string>
   <string name="notification_syncing_cancel_button">취소</string>

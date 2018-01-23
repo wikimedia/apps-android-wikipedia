@@ -340,7 +340,7 @@
   <string name="notification_thanks_title">Неко Вам се захвалио!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; Вам се захвалио/ла за Вашу измену на страници &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Синхронизација</string>
-  <string name="notification_channel_description" fuzzy="true">Процес синхронизације</string>
+  <string name="notification_channel_description">Процес преузимања</string>
   <string name="notification_syncing_pause_button">Паузирај</string>
   <string name="notification_syncing_resume_button">Настави</string>
   <string name="notification_syncing_cancel_button">Откажи</string>

@@ -346,8 +346,12 @@
   <string name="description_edit_revert_reason2">twój wpis wyglądał na eksperyment lub wandalizm.</string>
   <string name="description_edit_revert_history" fuzzy="true">Jeśli jesteś zainteresowany, zobacz &lt;a href=\"%1$s\"&gt;historię edycji&lt;/a&gt;.</string>
   <string name="offline_compilations_found_count" fuzzy="true">W mojej bibliotece (%d)</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
   <string name="offline_compilation_detail_button_remove">Usuń</string>
   <string name="storage_other_apps">Inne aplikacje</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <string name="compilation_download_widget_button_cancel_hint">Anuluj pobieranie</string>
   <string name="compilation_download_cancel_confirm_yes">Tak</string>
   <string name="compilation_download_cancel_confirm_no">Nie</string>
