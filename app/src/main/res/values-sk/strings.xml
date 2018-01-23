@@ -317,7 +317,7 @@
   <string name="reading_list_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="reading_list_item_delete_undo">Vrátiť</string>
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>
-  <string name="reading_lists_empty">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
+  <string name="saved_list_empty_title">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
   <string name="reading_lists_empty_message" fuzzy="true">Uložte si články do zoznamov na prečítanie, aby ste si ich mohli pozrieť aj neskôr (dokonca aj offline).</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Z článkov, ktoré si chcete prečítať neskôr si môžete vytvoriť zoznamy na prečítanie!</string>
   <string name="reading_lists_onboarding_for_example">Napríklad</string>

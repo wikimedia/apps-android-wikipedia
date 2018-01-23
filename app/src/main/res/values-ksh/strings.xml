@@ -202,7 +202,7 @@
   <string name="reading_list_item_deleted">%s es uß dä Leß jenumme</string>
   <string name="reading_list_item_delete_undo">Retuhr nämme</string>
   <string name="reading_list_deleted">%s es fott jeschmeßße</string>
-  <string name="reading_lists_empty" fuzzy="true">keijn Leß zom Lässe heh.</string>
+  <string name="saved_list_empty_title" fuzzy="true">keijn Leß zom Lässe heh.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Määt Leßte vun Atikelle, di mer schpääder lässe well, sällfs wam_mer off-laijn es.</string>
   <string name="reading_lists_onboarding_for_example">För e Beijschpell</string>
   <string name="reading_lists_onboarding_example1">Pläz zom Besöhke</string>

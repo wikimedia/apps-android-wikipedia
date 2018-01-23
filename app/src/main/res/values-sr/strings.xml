@@ -300,7 +300,7 @@
   <string name="reading_list_items_deleted">%d чланака уклоњено са списка</string>
   <string name="reading_list_item_delete_undo">Опозови</string>
   <string name="reading_list_deleted">Списак %s је избрисан</string>
-  <string name="reading_lists_empty">Нема спискова за читање још увек</string>
+  <string name="saved_list_empty_title">Нема спискова за читање још увек</string>
   <string name="reading_lists_empty_message" fuzzy="true">Спремите чланке на списак за читање тако да их можете погледати касније, чак и када се офлајн.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Направите спискове за читање тако да можете да читате касније, чак и када сте офлајн!</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>

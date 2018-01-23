@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s apagado</string>
-  <string name="reading_lists_empty">Nenhuma lista de leitura ainda</string>
+  <string name="saved_list_empty_title">Nenhuma lista de leitura ainda</string>
   <string name="reading_lists_empty_message">Adicione itens à lista para ler, mesmo quando você está desconectado.</string>
   <string name="reading_lists_onboarding_intro">Adicione artigos a uma lista para ler mais tarde, mesmo quando você está desconectado!</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>

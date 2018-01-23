@@ -303,7 +303,7 @@
   <string name="reading_list_items_deleted">%d pennad lamet a-ziwar ar roll</string>
   <string name="reading_list_item_delete_undo">Dizober</string>
   <string name="reading_list_deleted">%s dilamet</string>
-  <string name="reading_lists_empty">Roll lenn ebet c\'hoazh.</string>
+  <string name="saved_list_empty_title">Roll lenn ebet c\'hoazh.</string>
   <string name="reading_lists_empty_message">Enrollañ pennadoù en ur roll da lenn diwezhatoc\'h evit gallout lenn anezho, ezlinenn zoken.</string>
   <string name="reading_lists_onboarding_intro">Krouiñ rolloù lenn evit ar pennadoù ho peus c\'hoant da lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn !</string>
   <string name="reading_lists_onboarding_for_example">Da skouer</string>

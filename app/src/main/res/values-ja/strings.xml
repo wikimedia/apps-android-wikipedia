@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">リストから%d件の記事を削除しました</string>
   <string name="reading_list_item_delete_undo">取り消す</string>
   <string name="reading_list_deleted">%s は削除されました</string>
-  <string name="reading_lists_empty">あとで読むリストはありません</string>
+  <string name="saved_list_empty_title">あとで読むリストはありません</string>
   <string name="reading_lists_empty_message">記事をリーディングリストに追加すると、ネットに接続していないときでも読むことができます。</string>
   <string name="reading_lists_onboarding_intro">記事を「あとで読む」リストに追加しましょう。オフラインでも読めます！</string>
   <string name="reading_lists_onboarding_for_example">例えば</string>

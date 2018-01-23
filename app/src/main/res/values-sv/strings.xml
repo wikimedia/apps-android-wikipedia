@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">%d artiklar togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
-  <string name="reading_lists_empty">Inga läslistor ännu</string>
+  <string name="saved_list_empty_title">Inga läslistor ännu</string>
   <string name="reading_lists_empty_message">Lägg till artiklar i en lista att läsa senare, även när du är offline.</string>
   <string name="reading_lists_onboarding_intro">Lägg till artiklar i en lista för att läsa senare, även när du är offline.</string>
   <string name="reading_lists_onboarding_for_example">Till exempel</string>

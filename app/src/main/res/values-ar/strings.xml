@@ -309,7 +309,7 @@
   <string name="reading_list_items_deleted">أزيلت %d مقالة من القائمة</string>
   <string name="reading_list_item_delete_undo">تراجع</string>
   <string name="reading_list_deleted">أزيلت %s</string>
-  <string name="reading_lists_empty">لا توجد قوائم قراءة بعد</string>
+  <string name="saved_list_empty_title">لا توجد قوائم قراءة بعد</string>
   <string name="reading_lists_empty_message" fuzzy="true">احفظ المقالات التي تتصفحها في شكل قوائم قراءة حتى تتطلع عليهم لاحقا، حتى وإن كنت غير متصل بالشبكة.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">أنشئ قوائم مطالعة من المقالات التي ترغب في الاطلاع عليها لاحقا، حتى لو كنت غير متصل بالإنترنت!</string>
   <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>

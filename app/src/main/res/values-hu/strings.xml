@@ -320,7 +320,7 @@
   <string name="reading_list_items_deleted">%d szócikk eltávolítva a listáról</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
-  <string name="reading_lists_empty">Még nincsenek olvasólisták</string>
+  <string name="saved_list_empty_title">Még nincsenek olvasólisták</string>
   <string name="reading_lists_empty_message">Adj hozzá szócikkeket egy olvasólistához későbbi elolvasáshoz, akár internetkapcsolat nélkül is.</string>
   <string name="reading_lists_onboarding_intro">Adj hozzá szócikkeket egy olvasólistához későbbi elolvasáshoz, akár internetkapcsolat nélkül is!</string>
   <string name="reading_lists_onboarding_for_example">Például</string>

@@ -350,7 +350,7 @@
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
-    <string name="reading_lists_empty">No reading lists yet</string>
+    <string name="saved_list_empty_title">No saved pages yet</string>
     <string name="reading_lists_empty_message">Add articles to a list for reading later, even when you\'re offline.</string>
     <string name="reading_lists_onboarding_intro">Add articles to a list for reading later, even when you\'re offline!</string>
     <string name="reading_lists_onboarding_for_example">For example</string>

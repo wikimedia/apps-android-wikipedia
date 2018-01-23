@@ -234,7 +234,7 @@
   <string name="reading_list_item_deleted">%s suprimit de la lista</string>
   <string name="reading_list_item_delete_undo">Anullar</string>
   <string name="reading_list_deleted">%s suprimit</string>
-  <string name="reading_lists_empty">Encara i a pas cap de lista de lectura.</string>
+  <string name="saved_list_empty_title">Encara i a pas cap de lista de lectura.</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>
   <string name="reading_lists_onboarding_example1">Endreits a visitar</string>
   <string name="reading_lists_onboarding_example2">Animals favorits</string>

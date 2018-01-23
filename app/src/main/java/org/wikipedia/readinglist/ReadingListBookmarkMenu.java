@@ -58,8 +58,7 @@ public class ReadingListBookmarkMenu {
         menu.setOnMenuItemClickListener(new PageSaveMenuClickListener());
         if (listsContainingPage.size() == 1) {
             MenuItem removeItem = menu.getMenu().findItem(R.id.menu_remove_from_lists);
-            removeItem.setTitle(context.getString(R.string.reading_list_remove_from_list,
-                    listsContainingPage.get(0).title()));
+            removeItem.setTitle(context.getString(R.string.reading_list_remove_from_list, listsContainingPage.get(0).title()));
         }
         menu.show();
     }

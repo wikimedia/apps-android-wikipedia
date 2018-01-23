@@ -57,7 +57,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="20dp"
                     android:gravity="center"
-                    android:text="@string/reading_lists_empty" />
+                    android:text="@string/saved_list_empty_title" />
 
                 <ImageView
                     android:id="@+id/empty_image"

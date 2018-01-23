@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">%d artículos desaniciaos de la llista</string>
   <string name="reading_list_item_delete_undo">Desfacer</string>
   <string name="reading_list_deleted">%s desaniciada</string>
-  <string name="reading_lists_empty">Entá nun hai llistes de llectura.</string>
+  <string name="saved_list_empty_title">Entá nun hai llistes de llectura.</string>
   <string name="reading_lists_empty_message">Añade artículos a una llista pa lleelos sero, anque teas ensin conexón.</string>
   <string name="reading_lists_onboarding_intro">Añade artículos a una llista pa lleelos sero, ¡inclusive anque teas ensin conexón!</string>
   <string name="reading_lists_onboarding_for_example">Por casu</string>

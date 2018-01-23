@@ -316,7 +316,7 @@
   <string name="reading_list_items_deleted">তালিকা থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
   <string name="reading_list_item_delete_undo">পূর্বাবস্থা</string>
   <string name="reading_list_deleted">%s অপসারিত হয়েছে</string>
-  <string name="reading_lists_empty">এখনো কোন পড়ার তালিকা নেই</string>
+  <string name="saved_list_empty_title">এখনো কোন পড়ার তালিকা নেই</string>
   <string name="reading_lists_empty_message" fuzzy="true">পড়ার তালিকায় নিবন্ধ সংরক্ষণ করে এতে আপনি তাদের পরে দেখতে পারেন, এমনকি যখন আপনি অফলাইনে থাকেন।</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">পরে পড়ার জন্য নিবন্ধ থেকে আপনার জন্য পড়ার তালিকা তৈরি করে, এমনকি যখন আপনি অফলাইনে থাকেন!</string>
   <string name="reading_lists_onboarding_for_example">উদাহরণস্বরূপ</string>

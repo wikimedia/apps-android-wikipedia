@@ -181,7 +181,7 @@
   <string name="reading_list_name_hint">ชื่อรายการนี้</string>
   <string name="reading_list_item_deleted">ลบ %s ออกจากรายการแล้ว</string>
   <string name="reading_list_items_deleted">ลบ %d บทความออกจากรายการแล้ว</string>
-  <string name="reading_lists_empty">ยังไม่มีรายการอ่าน</string>
+  <string name="saved_list_empty_title">ยังไม่มีรายการอ่าน</string>
   <string name="reading_lists_empty_message" fuzzy="true">บันทึกบทความลงในรายการอ่านเพื่อให้คุณสามารถกลับมาอ่านบทความภายหลังได้แม้กระทั่งตอนที่คุณออฟไลน์</string>
   <string name="reading_list_empty">คุณไม่ได้เพิ่มบทความใด ๆ ลงในรายการนี้</string>
   <string name="reading_list_add_to_other_list">เพิ่มลงในรายการอ่านอื่น</string>

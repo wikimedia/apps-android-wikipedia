@@ -238,7 +238,7 @@
   <string name="reading_list_sort_by_name_desc">Sortio yn ôl yr enw (z-a)</string>
   <string name="reading_list_sort_by_recent">Sortio yn ôl amser (diweddaraf yn gyntaf)</string>
   <string name="reading_list_sort_by_recent_desc">Sortio yn ôl amser (hen rai yn gyntaf)</string>
-  <string name="reading_lists_empty">Dim rhestrau darllen eto</string>
+  <string name="saved_list_empty_title">Dim rhestrau darllen eto</string>
   <string name="reading_lists_onboarding_got_it">Rwy\'n deall</string>
   <string name="reading_list_no_description">Dim disgrifiad...</string>
   <string name="user_option_sync_label">Dewisiadau</string>

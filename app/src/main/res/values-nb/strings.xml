@@ -324,7 +324,7 @@
   <string name="reading_list_items_deleted">%d artikler ble fjernet fra lista</string>
   <string name="reading_list_item_delete_undo">Angre</string>
   <string name="reading_list_deleted">%s ble slettet</string>
-  <string name="reading_lists_empty">Ingen leselister enda.</string>
+  <string name="saved_list_empty_title">Ingen leselister enda.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Spar på artikler i leselister så du kan lese dem senere, selv når du er offline.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Opprett leselister med artikler du ønsker å lese på et senere tidspunkt, selv når du er uten nettilgang!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>

@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">%d articles esborrats de la llista</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="reading_lists_empty">Encara no hi ha cap llista de lectura.</string>
+  <string name="saved_list_empty_title">Encara no hi ha cap llista de lectura.</string>
   <string name="reading_lists_empty_message">Afegeix articles a una llista per llegir més endavant, fins i tot quan estigueu fora de línia.</string>
   <string name="reading_lists_onboarding_intro">Afegeix articles a una llista per llegir més endavant, fins i tot quan estigueu fora de línia!</string>
   <string name="reading_lists_onboarding_for_example">Per exemple</string>

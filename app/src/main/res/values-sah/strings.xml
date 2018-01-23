@@ -319,7 +319,7 @@
   <string name="reading_list_items_deleted">%d ыстатыйа испииһэктэн сотулунна</string>
   <string name="reading_list_item_delete_undo">Төннөр</string>
   <string name="reading_list_deleted">%s сотуллубут</string>
-  <string name="reading_lists_empty">Испииһэк оҥоһулла илик эбит</string>
+  <string name="saved_list_empty_title">Испииһэк оҥоһулла илик эбит</string>
   <string name="reading_lists_empty_message" fuzzy="true">Ааҕыахтаах ыстатыйаларгын ааҕыы испииһэгэр киллэрии. Оччоҕо ыстатыйаны хойут интэриниэтэ да суох көрүөххэ сөп буолар.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Кэлин интэриниэтэ да суох ааҕарга анаан ыстатыйалар испииһэктэрин оҥоһун!</string>
   <string name="reading_lists_onboarding_for_example">Холобур</string>

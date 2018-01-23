@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
   <string name="reading_list_item_delete_undo">還原</string>
   <string name="reading_list_deleted">%s 已刪除</string>
-  <string name="reading_lists_empty">尚無閱讀清單</string>
+  <string name="saved_list_empty_title">尚無閱讀清單</string>
   <string name="reading_lists_empty_message">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可使用。</string>
   <string name="reading_lists_onboarding_intro">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可閱讀！</string>
   <string name="reading_lists_onboarding_for_example">舉例</string>
