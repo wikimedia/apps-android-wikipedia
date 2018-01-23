@@ -50,7 +50,7 @@ public class ReadingListTable extends DatabaseTable<ReadingList> {
 
     @Override protected ContentValues toContentValues(@NonNull ReadingList row) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ReadingListContract.Col.TITLE.getName(), row.title());
+        contentValues.put(ReadingListContract.Col.TITLE.getName(), row.dbTitle());
         contentValues.put(ReadingListContract.Col.MTIME.getName(), row.mtime());
         contentValues.put(ReadingListContract.Col.ATIME.getName(), row.atime());
         contentValues.put(ReadingListContract.Col.DESCRIPTION.getName(), row.description());
@@ -66,7 +66,7 @@ public class ReadingListTable extends DatabaseTable<ReadingList> {
     }
 
     @Override protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull ReadingList row) {
-        return new String[] {row.title()};
+        return new String[] {row.dbTitle()};
     }
 
     @Override protected int getDBVersionIntroducedAt() {
