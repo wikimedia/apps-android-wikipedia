@@ -132,8 +132,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
 
     private void renameListsWithIdenticalNameAsDefault(SQLiteDatabase db, List<ReadingList> lists) {
         for (ReadingList list : lists) {
-            if (list.title().equalsIgnoreCase(WikipediaApp.getInstance().getString(R.string.default_reading_list_name))) {
-                list.title(String.format(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename), list.title()));
+            if (list.dbTitle().equalsIgnoreCase(WikipediaApp.getInstance().getString(R.string.default_reading_list_name))) {
+                list.title(String.format(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename), list.dbTitle()));
                 ReadingListDbHelper.instance().updateList(db, list, false);
             }
         }
@@ -188,7 +188,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                     }
                     ReadingList origList = null;
                     for (ReadingList list : lists) {
-                        if (listKeys.contains(getListKey(list.title()))) {
+                        if (listKeys.contains(getListKey(list.dbTitle()))) {
                             origList = list;
                             break;
                         }
@@ -202,9 +202,9 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                     while (newList.pages().size() >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
                         shouldShowLargeSplitMessage = true;
                         newList = null;
-                        String newListName = origList.title() + " (" + Integer.toString(++splitListIndex) + ")";
+                        String newListName = origList.dbTitle() + " (" + Integer.toString(++splitListIndex) + ")";
                         for (ReadingList list : lists) {
-                            if (list.title().equals(newListName)) {
+                            if (list.dbTitle().equals(newListName)) {
                                 newList = list;
                                 break;
                             }
