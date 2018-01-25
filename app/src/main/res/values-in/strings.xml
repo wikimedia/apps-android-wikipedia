@@ -360,6 +360,8 @@
   <string name="no_user_lists_msg">Buat daftar untuk tempat yang ingin dikunjungi, topik favorit, dan banyak lagi</string>
   <string name="reading_list_saved_list_rename">%1$s (dibuat pengguna)</string>
   <string name="split_reading_list_message">Ada batas 1000 artikel per daftar bacaan. Daftar yang ada dengan lebih dari batas ini telah dipecah menjadi beberapa daftar.</string>
+  <string name="reading_list_article_limit_message">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas 1.000 artikel per daftar untuk daftar \"%s\".</string>
+  <string name="reading_lists_limit_message">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel ini sekarang akan tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini sekarang akan tersedia secara luring.</item>
@@ -377,9 +379,9 @@
   <string name="notification_thanks_title">Anda telah menerima ucapan terima kasih!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; berterima kasih untuk suntingan Anda pada halaman &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Menyinkronkan</string>
-  <string name="notification_channel_description" fuzzy="true">Kemajuan sinkronisasi</string>
-  <string name="notification_syncing_title" fuzzy="true">Menyinkronkan %1$d artikel...</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d artikel tersisa</string>
+  <string name="notification_channel_description">Kemajuan pengunduhan</string>
+  <string name="notification_syncing_title">Mengunduh %1$d artikel...</string>
+  <string name="notification_syncing_description">%1$d artikel tersisa</string>
   <string name="notification_syncing_pause_button">Jeda</string>
   <string name="notification_syncing_resume_button">Lanjutkan</string>
   <string name="notification_syncing_cancel_button">Batal</string>

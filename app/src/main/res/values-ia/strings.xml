@@ -144,6 +144,7 @@
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Obscur</string>
+  <string name="saved_list_empty_title">Nulle pagina salveguardate ancora</string>
   <string name="more_events_text">Plus sur iste die</string>
   <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
   <string name="back_to_top">Retro al initio</string>

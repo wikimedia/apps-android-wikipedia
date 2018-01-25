@@ -381,7 +381,7 @@
   <string name="notification_channel_name">Sincronització</string>
   <string name="notification_channel_description">Progrés de la baixada</string>
   <string name="notification_syncing_title">S’estan baixant %1$d articles…</string>
-  <string name="notification_syncing_description" fuzzy="true">queden %1$d articles</string>
+  <string name="notification_syncing_description">queda/en %1$d article/s</string>
   <string name="notification_syncing_pause_button">Pausa</string>
   <string name="notification_syncing_resume_button">Reprèn</string>
   <string name="notification_syncing_cancel_button">Cancel·la</string>

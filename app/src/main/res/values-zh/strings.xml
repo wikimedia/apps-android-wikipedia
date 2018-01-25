@@ -325,7 +325,7 @@
   <string name="reading_list_items_deleted">%d个条目已从列表中移除</string>
   <string name="reading_list_item_delete_undo">撤销</string>
   <string name="reading_list_deleted">%s已删除</string>
-  <string name="saved_list_empty_title">目前尚无阅读列表</string>
+  <string name="saved_list_empty_title">目前尚无保存的页面</string>
   <string name="reading_lists_empty_message">添加条目到列表中以便日后阅读，即便当您离线时。</string>
   <string name="reading_lists_onboarding_intro">添加条目到列表中以便日后阅读，即便当您离线时！</string>
   <string name="reading_lists_onboarding_for_example">例如</string>

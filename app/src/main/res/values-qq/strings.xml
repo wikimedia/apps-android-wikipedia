@@ -505,7 +505,7 @@
   <string name="offline_library_empty_title">Message shown when the offline library is empty.</string>
   <string name="offline_library_empty_description_sideload">Quick description of the benefits of offline article packs, with a link to a MediaWiki page with further details about the feature.</string>
   <string name="offline_library_packs_hint">Hint informing the user that article packs remain available for browsing offline, with a link to a MediaWiki page with further details about the feature.</string>
-  <string name="offline_library_data_usage_hint">Hint informing the user that turning on a specific setting will allow the app to default to getting article content from offline packs. The included link will take the user to the Settings screen.</string>
+  <string name="offline_library_data_usage_hint">Hint informing the user that turning on a specific setting will allow the app to default to getting article content from offline packs. The included link will take the user to the Settings screen.\n\n* \"Prefer offline content\" is {{msg-wm|Wikipedia-android-strings-preference title prefer offline content}}\n* \"Settings\" is {{msg-wm|Wikipedia-android-strings-settings item preferences}}</string>
   <string name="offline_library_empty_search">Button label for searching the list of possible article packs to download.</string>
   <string name="offline_library_search_results_state">Label informing the user that the current search results are from one or more offline article packs.</string>
   <string name="offline_library_onboarding_button_done">Label for a button for the user to confirm that the user is done with the tutorial for the Offline Library.\n{{Identical|Done}}</string>
