@@ -360,6 +360,8 @@
   <string name="no_user_lists_msg">Buat senarai tempat untuk pergi ke, topik kegemaran, dan banyak lagi</string>
   <string name="reading_list_saved_list_rename">%1$s (dicipta pengguna)</string>
   <string name="split_reading_list_message">Terdapat had 1000 rencana setiap senarai bacaan. Senarai sedia ada dengan lebih daripada had ini telah dibahagikan kepada beberapa senarai.</string>
+  <string name="reading_list_article_limit_message">Tidak dapat menambah ke senarai ini. Anda telah mencapai had 1.000 rencanabagi setiap senarai untuk senarai \"%s\".</string>
+  <string name="reading_lists_limit_message">Tidak dapat membuat senarai lain. Anda telah mencapai had 100 senarai bacaan setiap akaun.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Rencana ini kini boleh didapati di luar talian.</item>
     <item quantity="other">Rencana-rencana ini kini boleh didapati di luar talian.</item>
@@ -377,9 +379,9 @@
   <string name="notification_thanks_title">Anda telah dihargai!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; menghargai anda untuk suntingan anda pada laman &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Menyelaraskan</string>
-  <string name="notification_channel_description" fuzzy="true">Kemajuan penyegerakan</string>
-  <string name="notification_syncing_title" fuzzy="true">Menyelaraskan %1$d rencana...</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d rencana yang tinggal</string>
+  <string name="notification_channel_description">Kemajuan muat turun</string>
+  <string name="notification_syncing_title">Memuat turun %1$d rencana...</string>
+  <string name="notification_syncing_description">%1$d rencana yang tinggal</string>
   <string name="notification_syncing_pause_button">Jedakan</string>
   <string name="notification_syncing_resume_button">Teruskan</string>
   <string name="notification_syncing_cancel_button">Batalkan</string>

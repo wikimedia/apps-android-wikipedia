@@ -353,6 +353,14 @@
   <string name="reading_list_article_save_in_progress">Artikkelen lastes ned og vil bli tilgjengelig offline når den er ferdig.</string>
   <string name="reading_list_already_contains_selection">Den valgte listen inneholder allerede alle de valgte sidene.</string>
   <string name="reading_list_added_articles_list_titled">La til %1$d artikler i %2$s</string>
+  <string name="default_reading_list_name">Lagret</string>
+  <string name="default_reading_list_description">Standardliste for dine lagrede artikler</string>
+  <string name="no_user_lists_title">Organiser artikler i lister</string>
+  <string name="no_user_lists_msg">Opprett lister for steder du vil reise til, favorittemner og mye mer</string>
+  <string name="reading_list_saved_list_rename">%1$s (bruker opprettet)</string>
+  <string name="split_reading_list_message">Det er en begrensning på 1000 artikler per leseliste. Eksisterende lister som overskrider denne grensa har blitt delt opp i flere lister.</string>
+  <string name="reading_list_article_limit_message">Kan ikke legge til denne lista. Du har nådd grensa på 1000 artikler per liste for «%s».</string>
+  <string name="reading_lists_limit_message">Kan ikke opprette ny liste. Du har nådd grensa på 100 leselister per konto.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Denne artikkelen vil nå være tilgjengelig offline.</item>
     <item quantity="other">Disse artiklene vil nå være tilgjengelig offline.</item>
@@ -370,8 +378,8 @@
   <string name="notification_thanks_title">Du er blitt takket!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; takket for redigeringen din på siden &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Synkroniserer</string>
-  <string name="notification_channel_description" fuzzy="true">Synkroniseringsframgang</string>
-  <string name="notification_syncing_title" fuzzy="true">Synkroniserer %1$d artikler …</string>
+  <string name="notification_channel_description">Nedlastingsstatus</string>
+  <string name="notification_syncing_title">Laster ned %1$d artikler …</string>
   <string name="notification_syncing_description" fuzzy="true">%1$d artikler igjen</string>
   <string name="notification_syncing_pause_button">Pause</string>
   <string name="notification_syncing_resume_button">Fortsett</string>

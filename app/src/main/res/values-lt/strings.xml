@@ -5,13 +5,17 @@
   <string name="app_name_alpha">Vikipedija Alfa</string>
   <string name="wikimedia">Vikimedija</string>
   <string name="search_hint">Paieška Vikipedijoje</string>
+  <string name="search_hint_search_history">Paieškos istorija</string>
   <string name="nav_item_history">Istorija</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="page_error_back_to_main">Grįžti atgal</string>
   <string name="menu_clear_all_history">Valyti istoriją</string>
+  <string name="history_item_delete_undo">Anuliuoti</string>
   <string name="dialog_title_clear_history">Išvalyti naršymo istoriją</string>
   <string name="dialog_message_clear_history">Esate tikri? Tai ištrins visą jūsų naršymo istoriją ir uždarys visus skirtukus.</string>
+  <string name="dialog_message_clear_history_yes">Taip</string>
+  <string name="dialog_message_clear_history_no">Ne</string>
   <string name="share_via">Dalintis per</string>
   <string name="search_redirect_from">Nukreipta iš %s</string>
   <string name="menu_page_show_tabs">Rodyti skirtukus</string>
@@ -32,6 +36,8 @@
   <string name="nearby_zoom_to_location">Priartinti vietą žemėlapyje</string>
   <string name="last_updated_text">Paskutinį kartą atnaujinta %s</string>
   <string name="talk_page_link_text">Aptarimas</string>
+  <string name="edit_history_link_text">Redagavimo istorija</string>
+  <string name="map_view_link_text">Žiūrėti žemėlapyje</string>
   <string name="content_license_html">Turinys prieinamas pagal &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, jei nenurodyta kitaip</string>
   <string name="edit_save_action_license_logged_in">Išsaugodami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
   <string name="preference_title_language">Vikipedijos kalba</string>
@@ -71,12 +77,16 @@
   <string name="delete_selected_items">Ištrinti pasirinktus elementus</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Naudotojo vardas</string>
+  <string name="login_join_wikipedia">Prisijungti prie Vikipedijos</string>
+  <string name="login_forgot_password">Pamiršote savo slaptažodį?</string>
+  <string name="create_account_already_have">Jau turite paskyrą?</string>
   <string name="create_account_activity_title">Kurti paskyrą</string>
   <string name="dialog_create_account_checking_progress">Tikrinama</string>
   <string name="create_account_email_hint">El. paštas (neprivaloma)</string>
   <string name="create_account_password_repeat_hint">Pakartokite slaptažodį</string>
   <string name="create_account_passwords_mismatch_error">Slaptažodžiai nesutampa</string>
   <string name="create_account_email_error">Neteisingas el. pašto adresas</string>
+  <string name="create_account_password_error">Neteisingas slaptažodis</string>
   <string name="create_account_generic_error">Nepavyko sukurti paskyros</string>
   <string name="create_account_next">Kitas</string>
   <string name="create_account_button">Kurti paskyrą</string>
@@ -120,6 +130,8 @@
   <string name="about_wmf">&lt;a href=\"http://m.wikimediafoundation.org/wiki/Home\"&gt;Vikimedijos fondo&lt;/a&gt; produktas</string>
   <string name="about_activity_title">Apie</string>
   <string name="edit_abandon_confirm">Puslapis buvo pakeistas. Ar tikrai norite išeiti neįrašydami pakeitimų?</string>
+  <string name="edit_abandon_confirm_yes">Taip</string>
+  <string name="edit_abandon_confirm_no">Ne</string>
   <string name="user_blocked_from_editing_title">Užblokuota</string>
   <string name="user_logged_in_blocked_from_editing">Jūsų vartotojo paskyra buvo užblokuota nuo redagavimo šiame vikiprojekte.</string>
   <string name="user_anon_blocked_from_editing">Jūsų IP adresas yra užblokuotas nuo redagavimo.</string>
@@ -177,6 +189,8 @@
   <string name="gallery_uploader_unknown">Talpintojas nežinomas</string>
   <string name="menu_new_tab">Naujas skirtukas</string>
   <string name="menu_close_all_tabs">Uždaryti visus skirtukus</string>
+  <string name="close_all_tabs_confirm_yes">Taip</string>
+  <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Uždaryti skirtuką</string>
   <string name="tool_tip_select_text">Paspauskite ir palaikykite bet kur tekste, taip pasirinksite jį kopijavimui arba dalinimuisi.</string>
   <string name="tool_tip_share">Pažymėję įdomų faktą, pabandykite juo pasidalinti savo socialiniuose tinkluose!</string>
