@@ -500,11 +500,18 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void delete() {
-        if (readingList != null) {
-            startActivity(MainActivity.newIntent(getContext())
+        if (readingList == null) {
+            return;
+        }
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setMessage(getString(R.string.reading_list_delete_confirm, readingList.title()));
+        alert.setPositiveButton(android.R.string.yes, (dialog, id) -> {
+            startActivity(MainActivity.newIntent(getActivity())
                     .putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, readingList.title()));
             getActivity().finish();
-        }
+        });
+        alert.setNegativeButton(android.R.string.no, null);
+        alert.create().show();
     }
 
     @Override

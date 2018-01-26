@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
@@ -362,7 +363,11 @@ public class ReadingListsFragment extends Fragment {
 
         @Override
         public void onDelete(@NonNull ReadingList readingList) {
-            deleteList(readingList);
+            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+            alert.setMessage(getString(R.string.reading_list_delete_confirm, readingList.title()));
+            alert.setPositiveButton(android.R.string.yes, (dialog, id) -> deleteList(readingList));
+            alert.setNegativeButton(android.R.string.no, null);
+            alert.create().show();
         }
 
         @Override
@@ -406,7 +411,6 @@ public class ReadingListsFragment extends Fragment {
                 L.w("Attempted to delete default list.");
                 return;
             }
-
             showDeleteListUndoSnackbar(readingList);
 
             ReadingListDbHelper.instance().deleteList(readingList);

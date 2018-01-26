@@ -354,6 +354,7 @@
   <string name="reading_list_article_save_in_progress">Message shown when the article is in the process of being downloaded, and is not yet available for offline access.</string>
   <string name="reading_list_already_contains_selection">Message shown to the user when the user tries to add pages to a reading list but the list already contains all of the chosen pages.</string>
   <string name="reading_list_added_articles_list_titled">Message shown when the user adds articles to a named reading list.  The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
+  <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list. The %s symbol is replaced with the name of the list.</string>
   <string name="default_reading_list_name">Title for default list</string>
   <string name="default_reading_list_description">Short description of the default reading list where articles are saved.</string>
   <string name="no_user_lists_title">Suggestion string for users to Organize articles into lists</string>
