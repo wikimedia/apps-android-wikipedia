@@ -7,8 +7,12 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
+import com.squareup.otto.Subscribe;
+
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
@@ -41,6 +45,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
+    @NonNull private final EventBusMethods eventBusMethods = new EventBusMethods();
 
     public FeaturedArticleCardView(Context context) {
         super(context);
@@ -69,6 +74,18 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         if (getCard() != null) {
             footer(getCard());
         }
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        WikipediaApp.getInstance().getBus().register(eventBusMethods);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        WikipediaApp.getInstance().getBus().unregister(eventBusMethods);
+        super.onDetachedFromWindow();
     }
 
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_text_container})
@@ -186,6 +203,19 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             if (getCallback() != null && getCard() != null) {
                 getCallback().onSharePage(getEntry());
             }
+        }
+    }
+
+    private class EventBusMethods {
+        @Subscribe
+        public void on(@NonNull ArticleSavedOrDeletedEvent event) {
+            ReadingListPage[] pages = event.getPages();
+            for (ReadingListPage page : pages) {
+                if (page.title().equals(getCard().articleTitle())) {
+                   footer(getCard());
+                }
+            }
+
         }
     }
 }
