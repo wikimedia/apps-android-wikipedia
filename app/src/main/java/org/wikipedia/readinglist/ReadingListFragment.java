@@ -182,6 +182,17 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         int sortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC);
         sortByNameItem.setTitle(sortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
         sortByRecentItem.setTitle(sortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+        if (readingList != null && readingList.isDefault()) {
+            if (menu.findItem(R.id.menu_reading_list_rename) != null) {
+                menu.findItem(R.id.menu_reading_list_rename).setVisible(false);
+            }
+            if (menu.findItem(R.id.menu_reading_list_edit_description) != null) {
+                menu.findItem(R.id.menu_reading_list_edit_description).setVisible(false);
+            }
+            if (menu.findItem(R.id.menu_reading_list_delete) != null) {
+                menu.findItem(R.id.menu_reading_list_delete).setVisible(false);
+            }
+        }
     }
 
     @Override
