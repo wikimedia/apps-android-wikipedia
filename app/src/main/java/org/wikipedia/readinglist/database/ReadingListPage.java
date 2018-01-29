@@ -3,6 +3,7 @@ package org.wikipedia.readinglist.database;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
@@ -32,7 +33,8 @@ public class ReadingListPage {
     private long revId;
     private long remoteId;
 
-    private boolean selected;
+    private transient boolean selected;
+    @Nullable private transient String accentAndCaseInvariantTitle;
 
     public ReadingListPage(@NonNull WikiSite wiki, @NonNull Namespace namespace,
                            @NonNull String title, long listId) {
@@ -82,6 +84,13 @@ public class ReadingListPage {
     }
     @NonNull public String title() {
         return title;
+    }
+
+    @NonNull public String accentAndCaseInvariantTitle() {
+        if (accentAndCaseInvariantTitle == null) {
+            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).toLowerCase();
+        }
+        return accentAndCaseInvariantTitle;
     }
 
     @Nullable public String description() {
