@@ -134,6 +134,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     if (!issuesContainer.hasChildNodes()) {
         document.getElementById( "content" ).removeChild(issuesContainer);
     }
+    transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
 });
 
@@ -174,7 +175,7 @@ function applySectionTransforms( content, isLeadSection ) {
         if (isLeadSection) {
             transformer.transform( "moveFirstGoodParagraphUp" );
         }
-        pagelib.RedLinks.hideRedLinks( document, content );
+        pagelib.RedLinks.hideRedLinks( document );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
     } else {
@@ -187,7 +188,6 @@ function applySectionTransforms( content, isLeadSection ) {
         transformer.transform( "hideRefs", content );
     }
     if (!window.isMainPage) {
-        transformer.transform( "hideTables", content );
         transformer.transform( "widenImages", content );
 
         if (!window.isFilePage) {
@@ -223,6 +223,7 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
         window.scrollTo( 0, scrollY );
     }
     document.getElementById( "loading_sections").className = "";
+    transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", { "sequence": sequence });
 }
@@ -378,6 +379,7 @@ bridge.registerListener( "displayFromZim", function( payload ) {
         window.scrollTo( 0, payload.scrollY );
     }
     document.getElementById( "loading_sections").className = "";
+    transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", {
       "sequence": payload.sequence,
