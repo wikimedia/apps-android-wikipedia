@@ -53,13 +53,10 @@ public class CommunicationBridge {
         webView.loadUrl(baseURL); // TODO: remove once we finish the page load experiment
 
         eventListeners = new HashMap<>();
-        this.addListener("DOMLoaded", new JSEventListener() {
-            @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                isDOMReady = true;
-                for (String jsString : pendingJSMessages) {
-                    CommunicationBridge.this.webView.loadUrl(jsString);
-                }
+        this.addListener("DOMLoaded", (messageType, messagePayload) -> {
+            isDOMReady = true;
+            for (String jsString : pendingJSMessages) {
+                CommunicationBridge.this.webView.loadUrl(jsString);
             }
         });
     }

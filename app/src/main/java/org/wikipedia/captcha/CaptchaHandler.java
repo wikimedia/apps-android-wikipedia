@@ -59,27 +59,24 @@ public class CaptchaHandler {
             submitButton.setVisibility(View.VISIBLE);
         }
 
-        captchaImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                captchaProgress.setVisibility(View.VISIBLE);
+        captchaImage.setOnClickListener((v) -> {
+            captchaProgress.setVisibility(View.VISIBLE);
 
-                new CaptchaClient().request(wiki, new CaptchaClient.Callback() {
-                    @Override
-                    public void success(@NonNull Call<Captcha> call, @NonNull CaptchaResult result) {
-                        captchaResult = result;
-                        captchaProgress.setVisibility(View.GONE);
-                        handleCaptcha(true);
-                    }
+            new CaptchaClient().request(wiki, new CaptchaClient.Callback() {
+                @Override
+                public void success(@NonNull Call<Captcha> call, @NonNull CaptchaResult result) {
+                    captchaResult = result;
+                    captchaProgress.setVisibility(View.GONE);
+                    handleCaptcha(true);
+                }
 
-                    @Override
-                    public void failure(@NonNull Call<Captcha> call, @NonNull Throwable caught) {
-                        cancelCaptcha();
-                        captchaProgress.setVisibility(View.GONE);
-                        FeedbackUtil.showError(activity, caught);
-                    }
-                });
-            }
+                @Override
+                public void failure(@NonNull Call<Captcha> call, @NonNull Throwable caught) {
+                    cancelCaptcha();
+                    captchaProgress.setVisibility(View.GONE);
+                    FeedbackUtil.showError(activity, caught);
+                }
+            });
         });
     }
 
