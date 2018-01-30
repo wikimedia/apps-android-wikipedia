@@ -107,6 +107,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
     public void onPerformSync(Account account, Bundle extras, String authority,
                               ContentProviderClient provider, SyncResult syncResult) {
         if (!ReleaseUtil.isPreBetaRelease()  // TODO: remove when ready for beta/production
+                || isDisabledByRemoteConfig()
                 || !AccountUtil.isLoggedIn()
                 || !(Prefs.isReadingListSyncEnabled()
                 || Prefs.isReadingListsRemoteDeletePending())) {
@@ -536,5 +537,9 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
     private RemoteReadingListEntry remoteEntryFromLocalPage(@NonNull ReadingListPage localPage) {
         PageTitle title = ReadingListPage.toPageTitle(localPage);
         return new RemoteReadingListEntry(title.getWikiSite().scheme() + "://" + title.getWikiSite().authority(), title.getPrefixedText());
+    }
+
+    private boolean isDisabledByRemoteConfig() {
+        return WikipediaApp.getInstance().getRemoteConfig().getConfig().optBoolean("disableReadingListSync", false);
     }
 }
