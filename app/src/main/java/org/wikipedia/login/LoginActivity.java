@@ -10,11 +10,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -74,37 +72,19 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        errorView.setBackClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        errorView.setBackClickListener((v) -> onBackPressed());
 
-        errorView.setRetryClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                errorView.setVisibility(View.GONE);
-            }
-        });
+        errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
         // Don't allow user to attempt login until they've put in a username and password
-        new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
-            @Override
-            public void onValidationChanged(boolean isValid) {
-                loginButton.setEnabled(isValid);
-            }
-        }, usernameInput, passwordInput);
+        new NonEmptyValidator((isValid) -> loginButton.setEnabled(isValid), usernameInput, passwordInput);
 
-        passwordInput.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    validateThenLogin();
-                    return true;
-                }
-                return false;
+        passwordInput.getEditText().setOnEditorActionListener((textView, actionId, keyEvent) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                validateThenLogin();
+                return true;
             }
+            return false;
         });
 
         progressDialog = new ProgressDialog(this);
@@ -131,7 +111,7 @@ public class LoginActivity extends BaseActivity {
         validateThenLogin();
     }
 
-    @OnClick(R.id.login_create_ccount_button) void onCreateAccountClick() {
+    @OnClick(R.id.login_create_account_button) void onCreateAccountClick() {
         startCreateAccountActivity();
     }
 

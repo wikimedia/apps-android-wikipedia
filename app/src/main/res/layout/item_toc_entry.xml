@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:paddingTop="@dimen/list_item_vertical_padding"
-              android:paddingRight="@dimen/list_item_horizontal_padding"
-              android:paddingBottom="@dimen/list_item_vertical_padding"
-              android:paddingLeft="@dimen/list_item_horizontal_padding"
-              android:background="?attr/toc_item_background">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/list_item_vertical_padding"
+    android:paddingRight="@dimen/list_item_horizontal_padding"
+    android:paddingBottom="@dimen/list_item_vertical_padding"
+    android:paddingLeft="@dimen/list_item_horizontal_padding"
+    android:background="?attr/toc_item_background">
 
-    <View android:layout_width="0dp"
-          android:layout_height="match_parent"
-          android:id="@+id/page_toc_filler" />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/page_toc_filler" />
 
     <TextView
-            android:id="@+id/page_toc_item_text"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            tools:text="Sample Table of Contents entry" />
+        android:id="@+id/page_toc_item_text"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        tools:text="Sample Table of Contents entry" />
 
 </LinearLayout>

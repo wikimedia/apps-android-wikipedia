@@ -62,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="8dp"
-                android:paddingLeft="12dp"
                 android:paddingStart="12dp">
 
                 <TextView
@@ -85,7 +84,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="8dp"
-                android:paddingLeft="12dp"
                 android:paddingStart="12dp">
 
                 <TextView
@@ -108,7 +106,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="8dp"
-                android:paddingLeft="12dp"
                 android:paddingStart="12dp">
 
                 <TextView
@@ -133,8 +130,7 @@
             app:srcCompat="@drawable/ic_reading_list"
             android:contentDescription="@null"
             android:layout_gravity="center_vertical"
-            android:paddingLeft="30dp"
-            android:paddingStart="30dp" />
+            android:paddingStart="30dp"/>
 
     </LinearLayout>
 

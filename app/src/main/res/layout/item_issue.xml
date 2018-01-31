@@ -31,8 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="16sp"
-            tools:text="Sample issue text"
-            />
+            tools:text="Sample issue text"/>
         <TextView
             android:id="@+id/issue_subtext"
             android:layout_width="match_parent"
@@ -42,8 +41,7 @@
             android:textSize="12sp"
             android:textColor="?attr/material_theme_secondary_color"
             android:textAllCaps="true"
-            tools:text="Sample issue subtext"
-            />
+            tools:text="Sample issue subtext"/>
 
     </LinearLayout>
 

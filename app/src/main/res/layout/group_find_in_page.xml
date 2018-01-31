@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:id="@+id/find_in_page_container"
-              android:layout_gravity="top"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/find_in_page_container"
+    android:layout_gravity="top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
     <org.wikipedia.views.CabSearchView
-            android:id="@+id/find_in_page_input"
-            android:inputType="text"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:hint="@string/menu_page_find_in_page"
-            android:layout_gravity="center_vertical"
-            android:imeOptions="actionSearch|flagNoExtractUi"
-            app:cabEnabled="false"
-            android:maxLines="1" />
+        android:id="@+id/find_in_page_input"
+        android:inputType="text"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:hint="@string/menu_page_find_in_page"
+        android:layout_gravity="center_vertical"
+        android:imeOptions="actionSearch|flagNoExtractUi"
+        app:cabEnabled="false"
+        android:maxLines="1" />
+
     <TextView
-            android:id="@+id/find_in_page_match"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textColor="?attr/page_toolbar_icon_color"
-            tools:text="99/99"
-            style="?android:textAppearanceSmall"/>
+        android:id="@+id/find_in_page_match"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="?attr/page_toolbar_icon_color"
+        tools:text="99/99"
+        style="?android:textAppearanceSmall"/>
+
     <ImageView
-            style="@style/Widget.AppCompat.ImageButton"
-            android:id="@+id/find_in_page_prev"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/find_previous"
-            app:srcCompat="@drawable/ic_expand_less_themed_24dp"/>
+        style="@style/Widget.AppCompat.ImageButton"
+        android:id="@+id/find_in_page_prev"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/find_previous"
+        app:srcCompat="@drawable/ic_expand_less_themed_24dp"/>
+
     <ImageView
-            style="@style/Widget.AppCompat.ImageButton"
-            android:id="@+id/find_in_page_next"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/find_next"
-            app:srcCompat="@drawable/ic_expand_more_themed_24dp"/>
+        style="@style/Widget.AppCompat.ImageButton"
+        android:id="@+id/find_in_page_next"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/find_next"
+        app:srcCompat="@drawable/ic_expand_more_themed_24dp"/>
 </LinearLayout>

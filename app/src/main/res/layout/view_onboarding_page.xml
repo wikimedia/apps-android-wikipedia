@@ -2,7 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="LinearLayout"
+    tools:parentTag="android.widget.LinearLayout"
     tools:orientation="vertical"
     tools:background="@drawable/onboarding_gradient_background_135"
     tools:layout_width="match_parent"

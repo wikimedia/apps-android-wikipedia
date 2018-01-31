@@ -110,6 +110,6 @@
         android:layout_marginTop="8dp"
         android:background="?attr/paper_color"
         android:clipToPadding="false"
-        android:paddingStart="16dp" />
+        android:paddingStart="16dp"/>
 
 </LinearLayout>

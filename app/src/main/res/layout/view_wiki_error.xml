@@ -5,7 +5,7 @@
     tools:layout_height="wrap_content"
     tools:layout_width="wrap_content"
     tools:orientation="vertical"
-    tools:parentTag="LinearLayout">
+    tools:parentTag="android.widget.LinearLayout">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
