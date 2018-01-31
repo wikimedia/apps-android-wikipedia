@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Зачувување во списоци за читање</string>
   <string name="onboarding_save_to_reading_lists_text">Правете списоци за читање од статиите што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
   <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
-  <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#offline\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>
   <string name="onboarding_create_account_sync">Усогласи списоци за читање</string>
   <string name="onboarding_create_account_contributions">Бидете во тек со вашите придонеси</string>

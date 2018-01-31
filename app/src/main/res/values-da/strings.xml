@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Gem til læselister</string>
   <string name="onboarding_save_to_reading_lists_text">Opret læselister fra artikler du ønsker at læse senere, selv når du ikke er på nettet.</string>
   <string name="onboarding_analytics_title">Send anonyme data</string>
-  <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#offline\"&gt;Lær mere&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
   <string name="onboarding_create_account_sync">Synkroniser dine læselister</string>
   <string name="onboarding_create_account_contributions">Hold styr på dine bidrag</string>

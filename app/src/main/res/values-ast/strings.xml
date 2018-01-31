@@ -514,7 +514,7 @@
   <string name="onboarding_save_to_reading_lists_title">Guardar en llistes de llectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea llistes de llectura colos artículos que desees lleer sero, inclusive cuando teas ensin conexón.</string>
   <string name="onboarding_analytics_title">Unviar datos anónimos</string>
-  <string name="onboarding_analytics_offline_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos recoyíos son anónimos. &lt;a href=\"#offline\"&gt;Lleer más&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos recoyíos son anónimos. &lt;a href=\"#privacy\"&gt;Lleer más&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Unviar datos d\'usu</string>
   <string name="onboarding_create_account_sync">Sincronizar les llistes de llectura</string>
   <string name="onboarding_create_account_contributions">Siguir el rastru a les tos contribuciones</string>

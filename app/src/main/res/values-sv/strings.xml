@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Spara till läslistor</string>
   <string name="onboarding_save_to_reading_lists_text">Skapa läslistor av artiklar du vill läsa senare, även när du är offline.</string>
   <string name="onboarding_analytics_title">Skicka anonym data</string>
-  <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#offline\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
   <string name="onboarding_create_account_sync">Synkronisera dina läslistor</string>
   <string name="onboarding_create_account_contributions">Håll koll på dina bidrag</string>

@@ -523,7 +523,7 @@
   <string name="onboarding_save_to_reading_lists_title">Запазване в списъци за четене</string>
   <string name="onboarding_save_to_reading_lists_text">Създавайте списъци за четене от статии, които искате да прочетете по-късно, дори когато сте офлайн.</string>
   <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
-  <string name="onboarding_analytics_offline_text">Помогнете ни да направим приложението по-добро, като ни уведомявате как го използвате. Събираните данни са анонимни. &lt;a href=\"#offline\"&gt;Научете повече&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Помогнете ни да направим приложението по-добро, като ни уведомявате как го използвате. Събираните данни са анонимни. &lt;a href=\"#privacy\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
   <string name="onboarding_create_account_sync">Синхронизация на списъците Ви за четене</string>
   <string name="onboarding_create_account_contributions">Бъдете в течение с приносите си</string>

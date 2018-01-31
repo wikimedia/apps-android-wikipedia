@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Zu den Leselisten speichern</string>
   <string name="onboarding_save_to_reading_lists_text">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist.</string>
   <string name="onboarding_analytics_title">Anonymisierte Daten senden</string>
-  <string name="onboarding_analytics_offline_text">Hilf uns dabei, die App zu verbessern, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#offline\"&gt;Mehr erfahren&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Hilf uns dabei, die App zu verbessern, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#privacy\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
   <string name="onboarding_create_account_sync">Synchronisiere deine Leselisten</string>
   <string name="onboarding_create_account_contributions">Verfolge deine Beiträge</string>

@@ -518,7 +518,7 @@
   <string name="onboarding_save_to_reading_lists_title">あとで読むリストに保存</string>
   <string name="onboarding_save_to_reading_lists_text">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます。</string>
   <string name="onboarding_analytics_title">匿名データを送信</string>
-  <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#offline\"&gt;詳細&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#privacy\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_create_account_sync">あなたのリーディングリストを同期させる</string>
   <string name="onboarding_create_account_contributions">貢献を追跡して見てください</string>

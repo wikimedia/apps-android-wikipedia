@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">儲存至閱讀清單</string>
   <string name="onboarding_save_to_reading_lists_text">建立感興趣條目的閱讀清單，讓您即使在離線時也可閱讀。</string>
   <string name="onboarding_analytics_title">寄送匿名資料</string>
-  <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#offline\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_create_account_sync">同步您的閱讀清單</string>
   <string name="onboarding_create_account_contributions">保持追蹤您的貢獻</string>

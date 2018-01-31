@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Simpan ke senarai bacaan</string>
   <string name="onboarding_save_to_reading_lists_text">Buat senarai bacaan dari rencana yang ingin dibaca kemudian, walaupun semasa anda berada di luar talian.</string>
   <string name="onboarding_analytics_title">Hantar data tanpa nama</string>
-  <string name="onboarding_analytics_offline_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#offline\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>
   <string name="onboarding_create_account_sync">Menyegerakkan senarai bacaan Anda</string>
   <string name="onboarding_create_account_contributions">Jejaki sumbangan anda</string>

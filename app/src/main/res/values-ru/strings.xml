@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Сохранить в списки для чтения</string>
   <string name="onboarding_save_to_reading_lists_text">Создавайте подборки статей, которые хотели бы прочесть позже, когда будете оффлайн.</string>
   <string name="onboarding_analytics_title">Отправка анонимных данных</string>
-  <string name="onboarding_analytics_offline_text">Помогите улучшить это приложение, сообщив нам, как вы его используете. Собранные данные будут анонимны. &lt;a href=\"#offline\"&gt;Узнать подробнее&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Помогите улучшить это приложение, сообщив нам, как вы его используете. Собранные данные будут анонимны. &lt;a href=\"#privacy\"&gt;Узнать подробнее&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Отправлять данные использования</string>
   <string name="onboarding_create_account_sync">Синхронизация списков для чтения</string>
   <string name="onboarding_create_account_contributions">Отслеживание вашего вклада</string>
