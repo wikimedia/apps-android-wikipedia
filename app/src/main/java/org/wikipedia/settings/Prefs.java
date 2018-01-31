@@ -658,7 +658,7 @@ public final class Prefs {
         Set<Long> currentSet = getReadingListsDeletedIds();
         currentSet.addAll(set);
         // TODO: constrain size?
-        setString(R.string.preference_key_reading_lists_deleted_ids, GsonMarshaller.marshal(set));
+        setString(R.string.preference_key_reading_lists_deleted_ids, GsonMarshaller.marshal(currentSet));
     }
 
     @NonNull public static Set<String> getReadingListPagesDeletedIds() {
@@ -679,7 +679,7 @@ public final class Prefs {
         Set<String> currentSet = getReadingListPagesDeletedIds();
         currentSet.addAll(set);
         // TODO: constrain size?
-        setString(R.string.preference_key_reading_list_pages_deleted_ids, GsonMarshaller.marshal(set));
+        setString(R.string.preference_key_reading_list_pages_deleted_ids, GsonMarshaller.marshal(currentSet));
     }
 
     private Prefs() { }
