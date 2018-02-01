@@ -46,6 +46,9 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     private static final String PATH_WIKI = "/wiki/";
     private static final String PATH_CURRENT = "./";
 
+    // Try to get the correct definition from glossary terms: https://en.wiktionary.org/wiki/Appendix:Glossary
+    private static String GLOSSARY_OF_TERMS = ":Glossary";
+
     private static String[] ENABLED_LANGUAGES = {
             "en" // English
     };
@@ -200,13 +203,10 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private LinkMovementMethodExt linkMovementMethod =
-            new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
-                @Override
-                public void onUrlClick(@NonNull String url, @Nullable String notUsed) {
-                    if (url.startsWith(PATH_WIKI) || url.startsWith(PATH_CURRENT)) {
-                        dismiss();
-                        showNewDialogForLink(url);
-                    }
+            new LinkMovementMethodExt((@NonNull String url, @Nullable String notUsed) -> {
+                if (url.startsWith(PATH_WIKI) || url.startsWith(PATH_CURRENT)) {
+                    dismiss();
+                    showNewDialogForLink(url);
                 }
             });
 
@@ -215,7 +215,10 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private String removeLinkFragment(String url) {
-        return url.split("#")[0];
+
+        String[] splitUrl = url.split("#");
+
+        return (splitUrl[0].endsWith(GLOSSARY_OF_TERMS) && splitUrl.length > 1) ? splitUrl[1] : splitUrl[0];
     }
 
     private void showNewDialogForLink(String url) {
