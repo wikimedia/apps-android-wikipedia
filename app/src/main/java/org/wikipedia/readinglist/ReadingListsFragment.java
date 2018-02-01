@@ -153,7 +153,7 @@ public class ReadingListsFragment extends Fragment {
         MenuItem sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent);
         int sortMode = Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
         sortByNameItem.setTitle(sortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
-        sortByRecentItem.setTitle(sortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+        sortByRecentItem.setTitle(sortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_created_desc : R.string.reading_list_sort_by_created);
     }
 
     @Override

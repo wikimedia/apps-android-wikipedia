@@ -333,8 +333,10 @@
     <string name="reading_list_sort">Sort</string>
     <string name="reading_list_sort_by_name">Sort by name</string>
     <string name="reading_list_sort_by_name_desc">Sort by name (reverse)</string>
-    <string name="reading_list_sort_by_recent">Sort by most recent</string>
-    <string name="reading_list_sort_by_recent_desc">Sort by least recent</string>
+    <string name="reading_list_sort_by_recent">Sort by date added (newest)</string>
+    <string name="reading_list_sort_by_recent_desc">Sort by date added (oldest)</string>
+    <string name="reading_list_sort_by_created">Sort by date created (newest)</string>
+    <string name="reading_list_sort_by_created_desc">Sort by date created (oldest)</string>
     <string name="reading_list_menu_delete">Delete list</string>
     <string name="reading_list_menu_rename">Rename</string>
     <string name="reading_list_menu_edit_description">Edit description</string>
