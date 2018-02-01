@@ -21,7 +21,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.AllOf.allOf;
-import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_500;
+import static org.wikipedia.espresso.util.ViewTools.WAIT_FOR_1000;
 import static org.wikipedia.espresso.util.ViewTools.childAtPosition;
 import static org.wikipedia.espresso.util.ViewTools.viewIsDisplayed;
 import static org.wikipedia.espresso.util.ViewTools.waitFor;
@@ -32,7 +32,7 @@ public final class SearchTest {
     public static void searchKeywordAndGo(@NonNull String keyword) {
 
         while (!viewIsDisplayed(R.id.search_container)) {
-            waitFor(WAIT_FOR_500);
+            waitFor(WAIT_FOR_1000);
         }
 
         ViewInteraction linearLayout = onView(
@@ -89,19 +89,12 @@ public final class SearchTest {
 
         // hold until the result fetch
         while (!viewIsDisplayed(R.id.search_results_list)) {
-            waitFor(WAIT_FOR_500);
+            waitFor(WAIT_FOR_1000);
         }
 
         // take screenshot
         ScreenshotTools.snap("SearchSuggestionPage");
 
-        DataInteraction linearLayout3 = onData(anything())
-                .inAdapterView(allOf(withId(R.id.search_results_list),
-                        childAtPosition(
-                                withId(R.id.search_results_container),
-                                1)))
-                .atPosition(0);
-        linearLayout3.perform(click());
     }
 
 
