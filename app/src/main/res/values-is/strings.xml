@@ -542,5 +542,4 @@
   <string name="events_count_text">%1$s atburðir frá %2$s–%3$d</string>
   <string name="this_year">Á þessu ári</string>
   <string name="back_to_top">Aftur efst</string>
-  <string name="diff_years">{{PLURAL:$|one=Á síðasta ári|Fyrir %d árum síðan}}</string>
 </resources>

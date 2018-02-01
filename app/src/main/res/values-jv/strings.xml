@@ -144,6 +144,7 @@
   <string name="terms_of_use_description">Bebakuning Pangguna</string>
   <string name="about_wikipedia_url">https://jv.m.wikipedia.org/wiki/Wikipedia:Bab</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -172,6 +173,8 @@
   <string name="edit_summary_tag_other_hint">Cara liyané panjenengan ndandani kacané</string>
   <string name="find_next">Golèk sabanjuré</string>
   <string name="find_previous">Golèk sadurungé</string>
+  <string name="find_first_occurence">Iki kadadéan pisanan</string>
+  <string name="find_last_occurence">Iki kadadéan pungkasan</string>
   <string name="abusefilter_title_warn">Besutan iki bokmanawa ora mbangun. Panjenengan yakin arep mbabar iki?</string>
   <string name="abusefilter_title_disallow">Panjenengan ora bisa mbabar besutan iki. Mangga balika lan dandanana.</string>
   <string name="abusefilter_text_warn">Saringan otomatis ngonangi yèn besutan iki ngemu surasa sing ora mbangun. Bokmanawa sebabé salah siji saka iki:&lt;br /&gt;&lt;br /&gt;· Tulisané mawa huruf gedhé kabèh&lt;br /&gt;· Ngosongaké artikel utawa nyampah&lt;br /&gt;· Pranala njaba utawa gambar sing ora salaras&lt;br /&gt;· Karakter sing mbolan-mbalèni</string>
@@ -259,7 +262,11 @@
   <string name="error_page_does_not_exist">Kaca iki ora ana.</string>
   <string name="view_wiki_error_message_offline">Ora bisa nggayut Internèt.</string>
   <string name="reference_title">Rujukan %s</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Pangremenging gambar (ing cakrik Peteng)</string>
+  <string name="preference_title_prefer_offline_content">Luwih seneng isèn-isèn \'\'offline\'\'</string>
+  <string name="preference_summary_prefer_offline_content">Simpen panganggoning \'\'data\'\' sarana ngamot artikel sing wis cumepak kanthi \'\'offline\'\' katimbang ngamot artikel mawa vèrsi sing anyar dhéwé.</string>
   <string name="preference_title_enable_offline_library">Urubaké Pabukon Oflèn</string>
+  <string name="preference_summary_enable_offline_library">Bukak pakètan artikel Wikipédia (mawa tetenger barkas .ZIM) sing wis kaundhuh ing pirantiné panjenengan saperlu kawaca mengko nalika \'\'offline\'\'. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Offline_support\"&gt;Waca candhaké&lt;/a&gt;</string>
   <string name="crash_report_dialog_title">Ngapunten, aplikasi mandeg dhéwé</string>
   <string name="crash_report_dialog_text">Punapa panjenengan kersa ngirim laporan kacilakan kanggo HockeyApp / panyedhiya layanan pihak katelu supaya Wikimedia bisa maneh kacilakan lan ndandani bug sing nyebabake?</string>
   <string name="crash_report_dialog_dont_send_button">Langkahi</string>
@@ -277,6 +284,9 @@
   <string name="color_theme_select">Irah-irahan</string>
   <string name="color_theme_light">Padhang</string>
   <string name="color_theme_dark">Peteng</string>
+  <string name="color_theme_black">Ireng</string>
+  <string name="color_theme_test_title">Tulisan conto</string>
+  <string name="preference_title_app_theme">Cakrik aplikasi</string>
   <string name="preference_summary_color_theme">Salin ules werna peteng tumrapé aplikasi</string>
   <string name="text_size_increase">Undhakaké ukurané tulisan</string>
   <string name="text_size_decrease">Udhunaké ukurané tulisan</string>
@@ -315,8 +325,8 @@
   <string name="reading_list_item_delete_undo">Balèkaké</string>
   <string name="reading_list_deleted">%s dibusak</string>
   <string name="saved_list_empty_title">Durung ana pratélan wacan</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Simpen artikel nyang pratélan wacan kanggo diwaca ing tembé, sanajan ing njaban jaringan.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan!</string>
+  <string name="reading_lists_empty_message">Wuwuh artikel ing pratélan saperlu kawaca mengko, kapara nalika \'\'offline\'\'.</string>
+  <string name="reading_lists_onboarding_intro">Wuwuh artikel ing pratélan saperlu kawaca mengko, kapara nalika \'\'offline\'\'!</string>
   <string name="reading_lists_onboarding_for_example">Tuladhané</string>
   <string name="reading_lists_onboarding_example1">Papan-papan supaya ditekani</string>
   <string name="reading_lists_onboarding_example2">Kéwan kalangenan</string>
@@ -341,7 +351,16 @@
   <string name="reading_lists_confirm_remote_delete_yes">Iya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ora</string>
   <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
+  <string name="reading_list_already_contains_selection">Pratélan sing kapilih wis ngemu kabèh kaca sing kapilih.</string>
   <string name="reading_list_added_articles_list_titled">Nambahaké artikel %1$d ing %2$s</string>
+    <string name="default_reading_list_name">Kasimpen</string>
+  <string name="default_reading_list_description">Pratélan baku tumrap artikel-artikelé panjenengan sing kasimpen</string>
+  <string name="no_user_lists_title">Tata artikel dadi pratélan</string>
+  <string name="no_user_lists_msg">Gawé pratélan bab papan-papan sing arep kajajahi, rembug-rembung sing kasenengi, lan liya-liyané.</string>
+  <string name="reading_list_saved_list_rename">%1$s (digawé panganggo)</string>
+  <string name="split_reading_list_message">Ana watesan 1.000 artikel ing saben pratélan wewacan. Pratélan-pratélan sing ana sing isiné munjuli watesan mau wis kapérang dadi sawenèh pratélan.</string>
+  <string name="reading_list_article_limit_message">Ora bisa muwuhi pratélan iki. Panjenengan wis nyandhak watesan 1.000 artikel ing saben pratélan tumrap pratélan \"%s\".</string>
+  <string name="reading_lists_limit_message">Ora bisa nggawé pratélan liyané. Panjenengan wis nyandhak watesan 100 pratélan wewacan ing saben akun.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Artikel iki saiki bakal ana nalika ing njaban jaringan.</item>
     <item quantity="other">Artikel-artikel iki saiki bakal ana nalika ing njaban jaringan.</item>
@@ -358,13 +377,22 @@
   <string name="notification_reverted">Besutané panjenengan tumrap artikel &lt;strong&gt;%2$s&lt;/strong&gt; diwurungaké déning &lt;em&gt;%1$s&lt;/em&gt;.</string>
   <string name="notification_thanks_title">Panjenengan nampa atur panuwun!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; matur nuwun marang panjenengan awit besutané panjenengan ing kaca &lt;strong&gt;%2$s&lt;/strong&gt;</string>
+  <string name="notification_channel_name">Nyinkronisasi</string>
+  <string name="notification_channel_description">Lakuning undhuhan</string>
+  <string name="notification_syncing_title">Ngundhuh %1$d artikel…</string>
+  <string name="notification_syncing_description">Kari %1$d artikel</string>
+  <string name="notification_syncing_pause_button">Lèrèhaké</string>
+  <string name="notification_syncing_resume_button">Banjuraké</string>
   <string name="notification_syncing_cancel_button">Wurung</string>
   <string name="view_continue_reading_card_title">Bacutaké maca</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Maca sembarang artikel Wikipédia</string>
+  <string name="view_random_card_subtitle">Waca sembarang artikelé Wikipédia.</string>
+  <string name="view_random_card_action">Uncalaké dhadhu</string>
+  <string name="view_next_random_article">Mot sembarang artikel siji liyané</string>
   <string name="view_main_page_card_title">Dina iki ing Wikipédia</string>
   <string name="view_main_page_card_subtitle">Kaca tepas ing %s</string>
+  <string name="view_main_page_card_action">Deleng tepas</string>
   <string name="view_featured_image_card_title">Gambar dina iki</string>
   <string name="view_featured_image_card_download">Undhuh</string>
   <string name="menu_feed_card_dismiss">Dhelikaké kertu iki</string>
@@ -380,12 +408,26 @@
     <item quantity="other">%d dina kapungkur</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">dina iki</string>
+  <string name="view_continue_reading_card_subtitle_read_date">Kawaca %s</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
   <string name="view_offline_card_text">Isèn-isèné ora bisa dimot nalika ing njaban jaringan.</string>
   <string name="view_featured_article_card_title">Artikel pinilih</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
-  <string name="feed_configure_onboarding_action">Pasaké</string>
+  <string name="feed_configure_activity_title">Larasaké pakan</string>
+  <string name="feed_configure_menu_reset">Pulihaké sesawangan gawan</string>
+  <string name="feed_configure_menu_select_all">Pilih kabèh</string>
+  <string name="feed_configure_menu_deselect_all">Aja pilih kabèh</string>
+  <string name="feed_item_type_news">Artikel bab kadadéan dinané iki</string>
+  <string name="feed_item_type_on_this_day">Kadadéan duk nguni ing tanggal iki</string>
+  <string name="feed_item_type_because_you_read">Pamrayoga adhedhasar artikel sing mentas kawaca ana ing sujarahé panjenengan</string>
+  <string name="feed_item_type_featured_article">Artikel pinilih padinan ing Wikipédia</string>
+  <string name="feed_item_type_trending">Artikel sing sok kawaca padinan</string>
+  <string name="feed_item_type_featured_image">Gambar pinilih padinan saka Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Tepas Wikipédia mawa isèn-isèn pinilih padinan</string>
+  <string name="feed_item_type_randomizer">Asilaké sembarang artikel saperlu kawaca</string>
+  <string name="feed_configure_onboarding_action">Larasaké</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Larasaké pakan Dlajahé panjenengan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Panjenengan saiki bisa milih apa sing arep katuduhaké ing pakané panjenengan, lan uga tengenaké jinis-jinis isèn-isèn sing panjenengan senengi.</string>
   <string name="description_edit_text_hint">Wedharané sesirah</string>
   <string name="description_edit_save">Babar</string>
   <string name="description_edit_add_description">Tambah wedharané sesirah</string>
@@ -425,28 +467,40 @@
   <string name="description_edit_revert_reason1">kontribusi panjenengan ora ngetutake salah siji &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">kontribusi panjenengan kapandeng kaya pacoban utawa vandalisme.</string>
   <string name="description_edit_revert_history">Yèn panjenengan ngrenani, delengen &lt;a href=\"%1$s\"&gt;sajarahé besutan&lt;/a&gt;.</string>
+  <string name="offline_compilation_download_device_offline">Ora ana sambungan internèt. Pesthèkaké manèh yèn panjenengan \'\'online\'\', banjur jajal manèh.</string>
   <string name="offline_read_permission_rationale">Idin ngakses panyimpenan ing pirantiné panjenengan dibutuhaké kanggo ngluru ing njaban jaringan.</string>
   <string name="offline_read_permission_error">Ora antuk palilah saperlu maca saka panyimpenané piranti.</string>
+  <string name="offline_card_sideloading_text">Panjenengan saiki ngluru Wikipédia kanthi \'\'offline\'\' ing pakètan artikel ing Pabukon \'\'Offline\'\'-é panjenengan.</string>
   <string name="offline_my_compilations">Tata pabukon oflèné panjenengan</string>
   <string name="offline_compilations_title">Pabukon Oflèn</string>
   <string name="offline_compilations_search_by_name">Golèk pakèt artikel miturut jenengé</string>
-  <string name="offline_compilations_found_count" fuzzy="true">Ing pabukonku (%d)</string>
+  <string name="offline_compilations_found_count">Ing Pabukon \'\'Offline\'\'-ku (%d)</string>
   <string name="offline_compilations_add">Tambah ing Pabukon Oflènku</string>
   <string name="remote_compilations_title">Pabukon Oflèn</string>
   <string name="remote_compilations_description">Nganggo Pabukon Oflèn, panjenengan saiki bisa ngundhuh pakèt artikel kanggo diwaca nalika panjenengan lagi ora duwé sambungan internèt.</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2">Undhuh • %s</string>
   <string name="offline_compilation_detail_button_remove">Buwang</string>
   <string name="remote_compilation_download">Undhuh</string>
-  <string name="storage_used_by_compilations" fuzzy="true">dienggo déning Wikipédia</string>
+  <string name="storage_size_free_v2">Cumepak %s</string>
+  <string name="storage_used_by_compilations">kanggo ing Pabukon \'\'Offline\'\'</string>
   <string name="storage_other_apps">Aplikasi liyané</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">kari 1 menit</item>
     <item quantity="other">kari %d menit</item>
   </plurals>
   <string name="compilation_download_widget_button_cancel_hint">Wurung ngundhuh</string>
+  <string name="compilation_download_cancel_confirm">Panjenengan apa yakin ora sida ngundhuh pakètan artikel iki?</string>
   <string name="compilation_download_cancel_confirm_yes">Iya</string>
   <string name="compilation_download_cancel_confirm_no">Ora</string>
   <string name="compilation_share">Dum</string>
   <string name="compilation_remove">Busak</string>
+  <string name="compilation_remove_confirm">Panjenengan apa arep mbusak iki saka Pabukon \'\'Offline\'\'?</string>
+  <string name="offline_library_title">Pabukon \'\'Offline\'\'</string>
+  <string name="offline_library_empty_title">Ora ana apa-apa ing Pabukon \'\'Offline\'\'-é panjenengan</string>
   <string name="offline_library_onboarding_button_done">Rampung</string>
   <string name="offline_library_onboarding_build_library_title">Bangunen Pabukon Oflèné panjenengan</string>
   <string name="onboarding_skip">Langkahi</string>
@@ -454,7 +508,7 @@
   <string name="onboarding_get_started">Miwiti</string>
   <string name="onboarding_explore_title">Cara anyar ndlajah</string>
   <string name="onboarding_explore_text" fuzzy="true">Golèk artikel pilihan, rembug mumbul, lan saran wacan ing lebon Djalah.</string>
-  <string name="onboarding_save_to_reading_lists_title">Simpen menyang pratélan wacan</string>
+  <string name="onboarding_save_to_reading_lists_title">Simpen ing pratélan wewacan</string>
   <string name="onboarding_save_to_reading_lists_text">Gawé pratélan wacan saka artikel sing arep diwaca mengko, kepara nalika ing njaban jaringan.</string>
   <string name="onboarding_analytics_title">Kirim dhata anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim dhata pangguna</string>
@@ -467,7 +521,7 @@
   <string name="app_shortcuts_search">Golèk</string>
   <string name="on_this_day_card_title">Ing dina iki</string>
   <string name="this_year">Taun iki</string>
-  <string name="back_to_top" fuzzy="true">BALI MENYANG NDHUWUR</string>
+  <string name="back_to_top">Bali mandhuwur</string>
   <plurals name="diff_years">
     <item quantity="one">Taun kapungkur</item>
     <item quantity="other">%d taun kapungkur</item>

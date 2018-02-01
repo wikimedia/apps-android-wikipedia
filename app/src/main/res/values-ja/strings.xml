@@ -354,8 +354,14 @@
   <string name="reading_list_article_save_in_progress">記事がダウンロードされ、完了したら記事をオフラインで利用できるようになります。</string>
   <string name="reading_list_already_contains_selection">選択したリストには、すでに選択したすべてのページが含まれています。</string>
   <string name="reading_list_added_articles_list_titled">%1$dに%2$sを追加しました</string>
-  <string name="default_reading_list_name">保存済み</string>
+    <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
+  <string name="no_user_lists_title">記事をリストにまとめる</string>
+  <string name="no_user_lists_msg">行ってみたい場所や好きな話題その他いろいろなリストを作ってみる</string>
+  <string name="reading_list_saved_list_rename">%1$s (ユーザーによる作成)</string>
+  <string name="split_reading_list_message">あとで読むリストに登録できる項目数は1,000件以下です。既存のリストでこの上限をオーバーしたものは分割されました。</string>
+  <string name="reading_list_article_limit_message">リストに追加できません。「%s」はリスト項目の上限1,000件に達しました。</string>
+  <string name="reading_lists_limit_message">これ以上リストを作成できません。は1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">この記事は現在オフラインで利用できるようになります。</item>
     <item quantity="other">これらの記事はオフラインで利用できるようになります。</item>
@@ -374,8 +380,8 @@
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; が &lt;strong&gt;%2$s&lt;/strong&gt; でのあなたの編集に感謝を示しました。</string>
   <string name="notification_channel_name">同期中</string>
   <string name="notification_channel_description">ダウンロードの進行状況</string>
-  <string name="notification_syncing_title" fuzzy="true">記事%1$d件を同期中…</string>
-  <string name="notification_syncing_description" fuzzy="true">残り%1$d件の記事</string>
+  <string name="notification_syncing_title">記事%1$d件をダウンロード中…</string>
+  <string name="notification_syncing_description">残り%1$d件の記事</string>
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
   <string name="notification_syncing_cancel_button">中止</string>
@@ -479,6 +485,7 @@
   <string name="offline_compilation_detail_button_download_v2">ダウンロード • %s</string>
   <string name="offline_compilation_detail_button_remove">削除する</string>
   <string name="remote_compilation_download">ダウンロード</string>
+  <string name="storage_size_free_v2">空き容量%s</string>
   <string name="storage_used_by_compilations">オフラインライブラリで使用している</string>
   <string name="storage_other_apps">他のアプリケーション</string>
   <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>

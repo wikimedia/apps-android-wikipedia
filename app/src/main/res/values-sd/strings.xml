@@ -338,9 +338,9 @@
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>
   <string name="reading_list_already_contains_selection">چونڊيل فھرست اڳ ئي چونڊيل صفحا رکي ٿي.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
-  <string name="default_reading_list_name">سانڍيل</string>
+    <string name="default_reading_list_name">سانڍيل</string>
   <string name="default_reading_list_description">توھان جي سانڍيل مضمونن لاءَ  پاڻڏنل فھرست</string>
-  <string name="no_user_lists_title">مضمونن کي فھرستن ۾ رکو</string>
+  <string name="no_user_lists_title">مضمونن کي فھرستن ۾ ترتيب ڏيو</string>
   <string name="no_user_lists_msg">گھمڻ جي جڳھن، پسنديده عنوان، ۽ وغيره لاءِ فھرست ٺاھيو</string>
   <string name="reading_list_saved_list_rename">%1$s (واپرائيندڙ سرجيو)</string>
   <plurals name="reading_list_article_offline_message">

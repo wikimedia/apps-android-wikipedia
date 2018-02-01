@@ -272,6 +272,7 @@
   <string name="reading_list_name_hint">Nazwa tej listy</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>
+  <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych stron</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Twórz listy artykułów, które chcesz przeczytać później, nawet gdy jesteś offline!</string>
   <string name="reading_lists_onboarding_for_example">Na przykład</string>
   <string name="reading_lists_onboarding_example1">Miejsca do odwiedzenia</string>
@@ -285,7 +286,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_added_articles_list_titled">Dodano %1$d artykułów do %2$s</string>
-  <plurals name="reading_list_article_offline_message">
+    <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły będą teraz dostępne w trybie offline.</item>
   </plurals>

@@ -346,7 +346,7 @@
   <string name="reading_list_article_save_in_progress">लेख का अधोभारण हो रहा है, और यह ऑफलाइन उपलब्ध होगा जब यह पूरा हो जाएगा।</string>
   <string name="reading_list_already_contains_selection">चुनी गयी सूची में चयनित पृष्ठ पहले से ही समाहित हैं।</string>
   <string name="reading_list_added_articles_list_titled">%2$s में %1$d आलेख जोड़े गए</string>
-  <plurals name="reading_list_article_offline_message">
+    <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>
   </plurals>
@@ -363,9 +363,9 @@
   <string name="notification_thanks_title">आपको धन्यवाद दिया गया है!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ने आपको &lt;strong&gt;%2$s&lt;strong&gt; पन्ने पर आपके संपादन के लिए धन्यवाद दिया है</string>
   <string name="notification_channel_name">सिंक हो रहा है</string>
-  <string name="notification_channel_description" fuzzy="true">सिंकिंग प्रगति</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$d लेख सिंक किये जा रहे हैं...</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d लेख बचे</string>
+  <string name="notification_channel_description">सिंकिंग प्रगति</string>
+  <string name="notification_syncing_title">%1$d लेख सिंक किये जा रहे हैं...</string>
+  <string name="notification_syncing_description">%1$d लेख बचे</string>
   <string name="notification_syncing_pause_button" fuzzy="true">पॉज़ करें</string>
   <string name="notification_syncing_resume_button" fuzzy="true">रिज्यूम करें</string>
   <string name="notification_syncing_cancel_button" fuzzy="true">रद्द करें</string>

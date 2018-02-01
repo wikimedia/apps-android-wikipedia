@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
   <string name="reading_list_already_contains_selection">挑選清單已包含所有已選頁面。</string>
   <string name="reading_list_added_articles_list_titled">已添加 %1$d 個條目至%2$s</string>
-  <string name="default_reading_list_name">已儲存</string>
+    <string name="default_reading_list_name">已儲存</string>
   <string name="default_reading_list_description">您的已儲存條目之預設清單</string>
   <string name="no_user_lists_title">組織條目至清單</string>
   <string name="no_user_lists_msg">建立想要去旅行的地點、喜愛的主題，以及更多其它事物的清單</string>

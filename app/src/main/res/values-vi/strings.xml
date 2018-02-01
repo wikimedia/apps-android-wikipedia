@@ -433,7 +433,6 @@
   <string name="remote_compilation_download">Tải về</string>
   <string name="storage_used_by_compilations">được sử dụng bởi Thư viện Ngoại tuyến</string>
   <string name="storage_other_apps">Ứng dụng khác</string>
-  <string name="offline_compilation_download_time_remaining">còn %d phút</string>
   <string name="compilation_download_widget_button_cancel_hint">Hủy bỏ tải về</string>
   <string name="compilation_download_cancel_confirm">Bạn có chắc chắn muốn hủy bỏ tải về gói bài này?</string>
   <string name="compilation_download_cancel_confirm_yes">Có</string>

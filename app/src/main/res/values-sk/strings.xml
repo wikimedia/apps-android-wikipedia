@@ -344,7 +344,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Článok sa preberá. Keď sa preberanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
-  <string name="default_reading_list_name">Uložené</string>
+    <string name="default_reading_list_name">Uložené</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Tento článok teraz bude dostupný bez pripojenia.</item>
     <item quantity="other">Tieto články teraz budú dostupné bez pripojenia.</item>

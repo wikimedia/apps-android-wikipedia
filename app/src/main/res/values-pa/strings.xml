@@ -252,7 +252,7 @@
   <string name="reading_lists_onboarding_got_it">ਸਮਝ ਗਿਆ</string>
   <string name="reading_lists_confirm_remote_delete_yes">ਹਾਂ</string>
   <string name="reading_lists_confirm_remote_delete_no">ਨਹੀਂ</string>
-  <string name="default_reading_list_name">ਸੰਭਾਲਿਆ</string>
+    <string name="default_reading_list_name">ਸੰਭਾਲਿਆ</string>
   <string name="user_option_sync_label">ਤਰਜੀਹਾਂ</string>
   <string name="notification_syncing_cancel_button">ਰੱਦ ਕਰੋ</string>
   <string name="view_continue_reading_card_title">ਪੜ੍ਹਦੇ ਰਹੋ</string>

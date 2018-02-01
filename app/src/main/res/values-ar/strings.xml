@@ -336,7 +336,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
   <string name="reading_lists_confirm_remote_delete_no">لا</string>
   <string name="reading_list_article_save_in_progress">جارٍ تنزيل المقالة، وستكون متاحةً في وضع عدم الاتصال عن الاكتمال.</string>
-  <plurals name="reading_list_article_offline_message">
+    <plurals name="reading_list_article_offline_message">
     <item quantity="one">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</item>
     <item quantity="other">ستصبح هذه المقالات متاحة في حالة عدم الاتصال</item>
   </plurals>

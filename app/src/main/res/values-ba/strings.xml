@@ -241,6 +241,6 @@
   <string name="reading_lists_onboarding_example2">Яратҡан хайуандар</string>
   <string name="reading_lists_onboarding_example3" fuzzy="true">Йыһан!</string>
   <string name="reading_lists_onboarding_got_it">Аңланым</string>
-  <string name="user_option_sync_label">Көйләүҙәр</string>
+    <string name="user_option_sync_label">Көйләүҙәр</string>
   <string name="storage_used_by_compilations">үҙаллы китапхана тарафынан ҡулланыла</string>
 </resources>

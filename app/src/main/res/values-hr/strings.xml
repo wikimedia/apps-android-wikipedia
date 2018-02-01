@@ -239,7 +239,7 @@
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
   <string name="reading_lists_onboarding_example3" fuzzy="true">Svemir!</string>
   <string name="reading_lists_onboarding_got_it">U redu</string>
-  <string name="user_option_sync_label">Postavke</string>
+    <string name="user_option_sync_label">Postavke</string>
   <string name="view_continue_reading_card_title">Nastavite čitati</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>

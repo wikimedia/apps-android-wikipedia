@@ -331,9 +331,8 @@
   <string name="reading_list_article_save_in_progress">Emañ ar pennad o pellgargañ ha gallout a reot kaout anezhañ pa vo echuet.</string>
   <string name="reading_list_already_contains_selection">Er roll emañ an holl bajennoù dibabet dija.</string>
   <string name="reading_list_added_articles_list_titled">%1$d pennad ouzhpennet da %2$s</string>
-  <string name="default_reading_list_name">Enrollet</string>
-  <string name="reading_list_article_offline_message">{[PLURAL|one=Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken|Gallout a reot gwelet ar pennadoù-mañ ezlinenn hiviziken.</string>
-  <plurals name="reading_list_article_not_offline_message">
+    <string name="default_reading_list_name">Enrollet</string>
+    <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Ne c\'hallor ket gwelet ar pennadoù-mañ ezlinenn pelloc\'h</item>
     <item quantity="other">e c\'hallor ket gwelet ar pennad-mañ ezlinenn pelloc\'h.</item>
   </plurals>

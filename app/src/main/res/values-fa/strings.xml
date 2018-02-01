@@ -286,6 +286,7 @@
   <string name="color_theme_dark">تیره</string>
   <string name="color_theme_black">سیاه</string>
   <string name="color_theme_test_title">نمونه متن</string>
+  <string name="color_theme_test_text">لغزاننده را جابجا کنید تا اندازهٔ متن مقالات در زمان خواند تغییر کند. برای تغییر اندازهٔ متن در بقیهٔ بخش‌های اپلیکیشن باید تنظیمات اندازهٔ متن دستگاهتان را تغییر دهید.</string>
   <string name="preference_title_app_theme">تِم برنامه</string>
   <string name="preference_summary_color_theme">سویچ به سبک با رنگ تیره</string>
   <string name="text_size_increase">افزایش اندازه متن</string>
@@ -353,8 +354,14 @@
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
   <string name="reading_list_already_contains_selection">فهرست انتخاب‌شده همیشه شامل همهٔ صفحات انتخاب‌شده‌ است.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مقاله به %2$s اضافه شد</string>
-  <string name="default_reading_list_name">ذخیره</string>
+    <string name="default_reading_list_name">ذخیره</string>
   <string name="default_reading_list_description">لیست پیش فرض برای ذخیره مقاله ها</string>
+  <string name="no_user_lists_title">سامان‌دادن مقالات در فهرست‌ها</string>
+  <string name="no_user_lists_msg">ایجاد فهرستی از جاه‌هایی که قصد سفر یا علاقه دارید.</string>
+  <string name="reading_list_saved_list_rename">%1$s (کاربر ساخته)</string>
+  <string name="split_reading_list_message">محدودیت ۱۰۰۰ مقاله برای هر فهرست وجود دارد. فهرستی که بیش از ۱۰۰۰ مقاله داشته باشد به چند فهرست تقسیم می‌شود.</string>
+  <string name="reading_list_article_limit_message">امکان افزودن به این فهرست نیست. به محدودیت ۱۰۰۰ مقاله برای فهرست  «%s» رسیدید.</string>
+  <string name="reading_lists_limit_message">امکان ایجاد فهرست دیگر نیست. شما به محدودیت ایجاد ۱۰۰ فهرست خواندن برای هر حساب کاربری رسیدید.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">اکنون در حالت آفلاین مقاله در دسترس است.</item>
     <item quantity="other">اکنون در حالت آفلاین این مقالات در دسترس هستند.</item>
@@ -372,16 +379,16 @@
   <string name="notification_thanks_title">از شما تشکر شده‌است!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; ممنون از ویرایش شما در صفحۀ &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">همگام سازی</string>
-  <string name="notification_channel_description" fuzzy="true">پیشرفت همگام سازی</string>
-  <string name="notification_syncing_title" fuzzy="true">همگام سازی %1$d مقاله ها...</string>
-  <string name="notification_syncing_description" fuzzy="true">%1$d مقاله ها باقی مانده اند</string>
+  <string name="notification_channel_description">پیشرفت بارگیری</string>
+  <string name="notification_syncing_title">بارگیری %1$d مقاله(ها)...</string>
+  <string name="notification_syncing_description">%1$d مقاله(ها) باقی مانده اند</string>
   <string name="notification_syncing_pause_button">مکث</string>
   <string name="notification_syncing_resume_button">ادامه</string>
   <string name="notification_syncing_cancel_button">کَنسِل</string>
   <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>
-  <string name="view_random_card_subtitle" fuzzy="true">خواندن مقاله‌ای تصادفی از ویکی‌پدیا</string>
+  <string name="view_random_card_subtitle">زدن بر روی مقالات تصادفی برای خواندن ویکی‌پدیا.</string>
   <string name="view_random_card_action">تاس را بیندازید</string>
   <string name="view_next_random_article">بارگیری مقالهٔ تصادفی دیگر</string>
   <string name="view_main_page_card_title">امروز در ویکی‌پدیا</string>
@@ -397,22 +404,32 @@
   <string name="most_read_list_card_title">گریش‌ها</string>
   <string name="view_static_card_icon_content_description">آیکون کارت</string>
   <string name="view_card_news_title">در اخبار</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">دیروز</item>
     <item quantity="other">%d روز پیش</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">امروز</string>
+  <string name="view_continue_reading_card_subtitle_today">امروز</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s را بخوانید</string>
   <string name="view_announcement_card_negative_action">نه ممنون</string>
   <string name="view_offline_card_text">محتوی در زمان آفلاین در دسترس نیست.</string>
   <string name="view_featured_article_card_title">مقاله برگزیده</string>
   <string name="view_featured_article_footer_save_button_label">ذخیره</string>
   <string name="view_featured_article_footer_saved_button_label">ذخیره شد</string>
-  <string name="feed_configure_activity_title" fuzzy="true">برگه‌های تنظیم کاوش</string>
-  <string name="feed_configure_menu_reset" fuzzy="true">بازگردانی به پیش‌فرض</string>
+  <string name="feed_configure_activity_title">شخصی‌سازی خوراک</string>
+  <string name="feed_configure_menu_reset">بازگردانی نمایش پیش‌فرض</string>
   <string name="feed_configure_menu_select_all">همه را انتخاب کنید</string>
   <string name="feed_configure_menu_deselect_all">از گزینش خارج کردن همه‌</string>
   <string name="feed_item_type_news">مقاله های مربوط به مسائل روز</string>
+  <string name="feed_item_type_on_this_day">رویدادهای تاریخی در این روز</string>
+  <string name="feed_item_type_continue_reading">پیوند سریع بازگشت به خواندن مقالهٔ باز شده در یکی از زبانه‌‌های شما</string>
+  <string name="feed_item_type_because_you_read">پیشنهادها بر پایهٔ مقالاتی که اخیراً خواندید بر پایهٔ تاریخچه</string>
+  <string name="feed_item_type_featured_article">مقالات ویژهٔ هر روز ویکی‌پدیا</string>
+  <string name="feed_item_type_trending">مقالات پربازدید</string>
+  <string name="feed_item_type_featured_image">تصویر روز ویکی‌انبار</string>
+  <string name="feed_item_type_main_page">صفحهٔ اصلی ویکی‌پدیا با متن مقالهٔ روز</string>
+  <string name="feed_item_type_randomizer">مقالهٔ تصادفی برای خواندن</string>
+  <string name="feed_configure_onboarding_action">سفارشی‌کردن</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;شخصی‌سازی فید جستجویتان&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; الان امکان انتخاب مواردی که در فیدتان نشان‌داده شود را دارید و همچنین اولویت‌بندی کردن نوع محتوی را می‌توانید انجام دهید.</string>
   <string name="description_edit_text_hint">توضیحات عنوان</string>
   <string name="description_edit_save">منتشر</string>
   <string name="description_edit_add_description">افزودن توضیحات عنوان</string>
@@ -455,6 +472,7 @@
   <string name="offline_compilation_download_device_offline">ارتباط اینترنتی موجود نیست. مطمئن شوید که آنلاین هستید و دوباره بازگردید.</string>
   <string name="offline_read_permission_rationale">برای ذخیره نسخهٔ آفلاین نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="offline_read_permission_error">اجازه برای خواندن از حافظه دستگاه داده‌نشد.</string>
+  <string name="offline_card_sideloading_text">الان در حال جستجوی ویکی‌پدیا به صورت آفلاین هستید بر پایهٔ بستهٔ مقالات کتابخانهٔ آفلاینتان.</string>
   <string name="offline_my_compilations">مدیریت کتابخانهٔ آفلاین</string>
   <string name="offline_compilations_title">کتابخانه آفلاین</string>
   <string name="offline_compilations_search_by_name">جستجوی بسته مقاله‌ها بر پایهٔ نام</string>
@@ -462,10 +480,16 @@
   <string name="offline_compilations_add">افزودن به کتابخانهٔ آفلاین من</string>
   <string name="remote_compilations_title">کتابخانهٔ آفلاین</string>
   <string name="remote_compilations_description">به کمک کتابخانهٔ آفلاین، برای مواقعی که به اینترنت دسترسی ندارید می‌توانید بسته‌هایی از مقالات برای خواندن دانلود کنید.</string>
+  <string name="offline_compilation_detail_date_size_v2">%1$s • %2$s</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="offline_compilation_detail_button_download_v2">بارگیری • %s</string>
   <string name="offline_compilation_detail_button_remove">حذف</string>
   <string name="remote_compilation_download">بارگیری</string>
+  <string name="storage_size_free_v2">%s خالی</string>
   <string name="storage_used_by_compilations">توسط کتابخانهٔ آفلاین استفاده شده</string>
   <string name="storage_other_apps">سایر نرم‌افزارها</string>
+  <string name="offline_compilation_download_progress_text_v2">%1$s / %2$s</string>
   <plurals name="offline_compilation_download_time_remaining">
     <item quantity="one">۱ دقیقه مانده</item>
     <item quantity="other">%d دقیقه مانده</item>
@@ -498,7 +522,7 @@
   <string name="onboarding_welcome_title">دانشنامه آزاد</string>
   <string name="onboarding_welcome_text">ویکیپدیا با همکاری داوطلبان نوشه شده و شامل بیش از ۴۰ میلیون مقاله نزدیک بر ۳۰۰ زبان گوناگون می باشد. &lt;a href=\"#about\"&gt;Learn more&lt;/a&gt;</string>
   <string name="onboarding_explore_title">روش‌های جدید برای کاوش</string>
-  <string name="onboarding_explore_text" fuzzy="true">کاوش خصوصیات مقالات، رتبه موضوعات و خواندن پیشنهادها در بازخورد کاوش.</string>
+  <string name="onboarding_explore_text">جستجو در ویکی‌پدیا با به‌روزرسانی مداوم فید جستجو.&lt;br/&gt; &lt;b&gt;شخصی‌سازی&lt;/b&gt; فید به صورت دلخواه- به نحوی که در مورد رویدادهای تاریخی &lt;b&gt;در این روز &lt;/b&gt; یا جستجوی &lt;b&gt;تصادفی&lt;/b&gt;</string>
   <string name="onboarding_save_to_reading_lists_title">افزودن به لیست خواندنیها</string>
   <string name="onboarding_save_to_reading_lists_text">تهیه لیست خواندنیها برای مقاله هایی که مایلید در آینده مطالعه نمائید، همچنین هنگامی که آفلاین هستید.</string>
   <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
@@ -507,6 +531,7 @@
   <string name="onboarding_create_account_sync">همسازسازی فهرست‌های مطالعه شما</string>
   <string name="onboarding_create_account_contributions">پیگیری ویرایش‌هایتان</string>
   <string name="onboarding_create_account_preferences">ذخیره ترجیحاتتان</string>
+  <string name="onboarding_got_it">گرفتم</string>
   <string name="app_shortcuts_random">تصادفی</string>
   <string name="app_shortcuts_continue_reading">ادامه دادن به خواندن</string>
   <string name="app_shortcuts_search">جستجو</string>

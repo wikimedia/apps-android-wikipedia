@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">Der Artikel wird derzeit heruntergeladen und wird offline verfügbar sein, wenn der Download abgeschlossen ist.</string>
   <string name="reading_list_already_contains_selection">Die ausgewählte Liste enthält bereits alle der ausgewählten Seiten.</string>
   <string name="reading_list_added_articles_list_titled">%1$d Artikel zu %2$s hinzugefügt</string>
-  <string name="default_reading_list_name">Gespeichert</string>
+    <string name="default_reading_list_name">Gespeichert</string>
   <string name="default_reading_list_description">Standardliste für deine gespeicherten Artikel</string>
   <string name="no_user_lists_title">Organisiere Artikel in Listen</string>
   <string name="no_user_lists_msg">Erstelle Listen für Reiseziele, Lieblingsthemen und vieles mehr</string>

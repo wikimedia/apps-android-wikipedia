@@ -350,7 +350,7 @@
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
   <string name="reading_list_already_contains_selection">Valittu luettelo sisältää jo kaikki valitut sivut.</string>
   <string name="reading_list_added_articles_list_titled">Lisättiin %1$d artikkelia luetteloon %2$s</string>
-  <string name="default_reading_list_name">Tallennettu</string>
+    <string name="default_reading_list_name">Tallennettu</string>
   <string name="default_reading_list_description">Oletuslista tallennetuille artikkeleillesi</string>
   <string name="no_user_lists_title">Järjestä artikkelit luetteloihin</string>
   <string name="no_user_lists_msg">Luo luetteloita matkakohteista, suosikkiaiheista ja paljon muuta</string>
