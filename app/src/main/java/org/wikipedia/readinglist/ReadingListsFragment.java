@@ -62,7 +62,7 @@ public class ReadingListsFragment extends Fragment {
     private Unbinder unbinder;
     @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
-    @BindView(R.id.empty_container) View emptyContainer;
+    @BindView(R.id.empty_container) ViewGroup emptyContainer;
     @BindView(R.id.empty_title) TextView emptyTitle;
     @BindView(R.id.empty_image) ImageView emptyImage;
     @BindView(R.id.empty_message) TextView emptyMessage;
@@ -109,6 +109,8 @@ public class ReadingListsFragment extends Fragment {
         WikipediaApp.getInstance().getBus().register(eventBusMethods);
 
         contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        ((ViewGroup)emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(getContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(ReadingListSyncAdapter::manualSyncWithRefresh);
