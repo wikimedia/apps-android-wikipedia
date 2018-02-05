@@ -308,8 +308,10 @@
   <string name="reading_list_sort">Button label to sort reading lists.\n{{Identical|Sort}}</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>
   <string name="reading_list_sort_by_name_desc">Menu option to sort reading lists by name, in reverse order.</string>
-  <string name="reading_list_sort_by_recent">Menu option to sort reading lists by last-accessed time.</string>
-  <string name="reading_list_sort_by_recent_desc">Menu option to sort reading lists by last-accessed time, in reverse order.</string>
+  <string name="reading_list_sort_by_recent">Menu option to sort reading lists from newest to oldest, based on the date the items were added.</string>
+  <string name="reading_list_sort_by_recent_desc">Menu option to sort reading lists from oldest to newest, based on the date the items were added.</string>
+  <string name="reading_list_sort_by_created">Menu option to sort reading lists from newest to oldest, based on the date the items were created.</string>
+  <string name="reading_list_sort_by_created_desc">Menu option to sort reading lists from oldest to newest, based on the date the items were created.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
   <string name="reading_list_menu_rename">Menu item for changing the name of a reading list.\n{{Identical|Rename}}</string>
   <string name="reading_list_menu_edit_description">Menu item for changing the description of a reading list.</string>

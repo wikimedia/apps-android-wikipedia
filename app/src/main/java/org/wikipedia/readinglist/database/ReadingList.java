@@ -132,10 +132,10 @@ public class ReadingList {
                 Collections.sort(list.pages(), (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(rhs.title(), lhs.title()));
                 break;
             case SORT_BY_RECENT_ASC:
-                Collections.sort(list.pages(), (lhs, rhs) -> ((Long) lhs.atime()).compareTo(rhs.atime()));
+                Collections.sort(list.pages(), (lhs, rhs) -> ((Long) lhs.mtime()).compareTo(rhs.mtime()));
                 break;
             case SORT_BY_RECENT_DESC:
-                Collections.sort(list.pages(), (lhs, rhs) -> ((Long) rhs.atime()).compareTo(lhs.atime()));
+                Collections.sort(list.pages(), (lhs, rhs) -> ((Long) rhs.mtime()).compareTo(lhs.mtime()));
                 break;
             default:
                 break;
@@ -151,10 +151,10 @@ public class ReadingList {
                 Collections.sort(lists, (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(rhs.title(), lhs.title()));
                 break;
             case SORT_BY_RECENT_ASC:
-                Collections.sort(lists, (lhs, rhs) -> ((Long) lhs.atime()).compareTo(rhs.atime()));
+                Collections.sort(lists, (lhs, rhs) -> ((Long) lhs.mtime()).compareTo(rhs.mtime()));
                 break;
             case SORT_BY_RECENT_DESC:
-                Collections.sort(lists, (lhs, rhs) -> ((Long) rhs.atime()).compareTo(lhs.atime()));
+                Collections.sort(lists, (lhs, rhs) -> ((Long) rhs.mtime()).compareTo(lhs.mtime()));
                 break;
             default:
                 break;
