@@ -159,6 +159,9 @@ def find_output_apk_for(label, version_code):
 def main():
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
+    group.add_argument('--alpha',
+                       help='Step 1: Alpha for testing.',
+                       action='store_true')
     group.add_argument('--beta',
                        help='Step 1: Google Play Beta. git checkout BUMPTAG first!',
                        action='store_true')
@@ -176,7 +179,10 @@ def main():
                         action='store_true')
     args = parser.parse_args()
     custom_channel = 'ignore'
-    if args.beta:
+    if args.alpha:
+        flavors = ['alpha']
+        targets = flavors
+    elif args.beta:
         flavors = ['beta']
         targets = flavors
     elif args.prod:
