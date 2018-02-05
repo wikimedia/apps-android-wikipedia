@@ -12,8 +12,6 @@ import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -130,11 +128,6 @@ public final class StringUtil {
         }
         return Normalizer.normalize(str1, Normalizer.Form.NFC)
                 .equals(Normalizer.normalize(str2, Normalizer.Form.NFC));
-    }
-
-    public static int accentCaseInsensitiveCompare(@NonNull String str1, @NonNull String str2) {
-        return StringUtils.stripAccents(str1).toLowerCase()
-                .compareTo(StringUtils.stripAccents(str2).toLowerCase());
     }
 
     /**

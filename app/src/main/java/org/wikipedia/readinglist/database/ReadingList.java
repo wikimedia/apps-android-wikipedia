@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,6 +29,8 @@ public class ReadingList {
     private long sizeBytes;
     private boolean dirty = true;
     private long remoteId;
+
+    @Nullable private transient String accentAndCaseInvariantTitle;
 
     protected ReadingList(@NonNull String title, @Nullable String description) {
         this.title = title;
@@ -71,6 +73,13 @@ public class ReadingList {
     }
     public String dbTitle() {
         return title;
+    }
+
+    @NonNull public String accentAndCaseInvariantTitle() {
+        if (accentAndCaseInvariantTitle == null) {
+            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).toLowerCase();
+        }
+        return accentAndCaseInvariantTitle;
     }
 
     @Nullable public String description() {
@@ -126,10 +135,10 @@ public class ReadingList {
     public static void sort(ReadingList list, int sortMode) {
         switch (sortMode) {
             case SORT_BY_NAME_ASC:
-                Collections.sort(list.pages(), (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(lhs.title(), rhs.title()));
+                Collections.sort(list.pages(), (lhs, rhs) -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()));
                 break;
             case SORT_BY_NAME_DESC:
-                Collections.sort(list.pages(), (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(rhs.title(), lhs.title()));
+                Collections.sort(list.pages(), (lhs, rhs) -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()));
                 break;
             case SORT_BY_RECENT_ASC:
                 Collections.sort(list.pages(), (lhs, rhs) -> ((Long) lhs.mtime()).compareTo(rhs.mtime()));
@@ -145,10 +154,10 @@ public class ReadingList {
     public static void sort(List<ReadingList> lists, int sortMode) {
         switch (sortMode) {
             case SORT_BY_NAME_ASC:
-                Collections.sort(lists, (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(lhs.title(), rhs.title()));
+                Collections.sort(lists, (lhs, rhs) -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()));
                 break;
             case SORT_BY_NAME_DESC:
-                Collections.sort(lists, (lhs, rhs) -> StringUtil.accentCaseInsensitiveCompare(rhs.title(), lhs.title()));
+                Collections.sort(lists, (lhs, rhs) -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()));
                 break;
             case SORT_BY_RECENT_ASC:
                 Collections.sort(lists, (lhs, rhs) -> ((Long) lhs.mtime()).compareTo(rhs.mtime()));
