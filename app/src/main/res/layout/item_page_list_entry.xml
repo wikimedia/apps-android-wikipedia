@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/list_item_vertical_padding"
     android:background="?attr/paper_color"
     android:foreground="?attr/selectableItemBackground"
     android:gravity="top">
@@ -20,10 +19,12 @@
         android:id="@+id/page_list_header_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="@dimen/list_item_horizontal_padding"
-        android:layout_marginRight="@dimen/list_item_horizontal_padding"
+        android:paddingTop="@dimen/list_item_vertical_padding"
+        android:paddingLeft="@dimen/list_item_horizontal_padding"
+        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:paddingBottom="2dp"
         android:gravity="center_vertical"
+        android:background="?attr/paper_color"
         android:textColor="?attr/section_title_color"
         android:visibility="gone"
         tools:visibility="visible"
@@ -33,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/list_item_horizontal_padding"
-        android:layout_marginLeft="@dimen/list_item_horizontal_padding"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="@dimen/list_item_vertical_padding">
 
         <FrameLayout
