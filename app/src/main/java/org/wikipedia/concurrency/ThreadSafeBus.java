@@ -14,19 +14,11 @@ public class ThreadSafeBus extends Bus {
         super();
     }
 
-    public ThreadSafeBus(String identifier) {
-        super(identifier);
-    }
-
     @Override public void post(@NonNull final Object event) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             super.post(event);
         } else {
-            handler.post(new Runnable() {
-                @Override public void run() {
-                    ThreadSafeBus.super.post(event);
-                }
-            });
+            handler.post(() -> ThreadSafeBus.super.post(event));
         }
     }
 }

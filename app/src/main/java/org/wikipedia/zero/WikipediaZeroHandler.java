@@ -133,17 +133,15 @@ public class WikipediaZeroHandler {
             return;
         }
 
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override public void run() {
-                try {
-                    if (newHeader) {
-                        identifyZeroCarrier(xCarrierFromHeader, xCarrierMetaFromHeader);
-                    } else {
-                        zeroOff();
-                    }
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
+        new Handler(Looper.getMainLooper()).post(() -> {
+            try {
+                if (newHeader) {
+                    identifyZeroCarrier(xCarrierFromHeader, xCarrierMetaFromHeader);
+                } else {
+                    zeroOff();
                 }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         });
     }

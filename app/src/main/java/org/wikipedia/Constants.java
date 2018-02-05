@@ -5,7 +5,6 @@ public final class Constants {
     // last created loader is reused.
     public static final int HISTORY_FRAGMENT_LOADER_ID = 100;
     public static final int RECENT_SEARCHES_FRAGMENT_LOADER_ID = 101;
-    public static final int USER_OPTION_ROW_FRAGMENT_LOADER_ID = 102;
 
     public static final String WIKIPEDIA_URL = "https://wikipedia.org/";
     public static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
