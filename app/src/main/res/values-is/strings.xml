@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Vista í leslista</string>
   <string name="onboarding_save_to_reading_lists_text">Búðu til leslista með greinum til að lesa þær síðar, jafnvel án nettengingar.</string>
   <string name="onboarding_analytics_title">Senda nafnlaus gögn</string>
-  <string name="onboarding_analytics_offline_text">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#offline\"&gt;Vita meira&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#privacy\"&gt;Vita meira&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Senda upplýsingar um notkun</string>
   <string name="onboarding_create_account_sync">Samstilltu leslistana þína</string>
   <string name="onboarding_create_account_contributions">Halda utan um framlögin þín</string>

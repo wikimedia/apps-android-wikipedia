@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Enregistrer dans les listes de lecture</string>
   <string name="onboarding_save_to_reading_lists_text">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même hors connexion.</string>
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
-  <string name="onboarding_analytics_offline_text">Aide à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données collectées sont anonymes. &lt;a href=\"#offline\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Aide à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données collectées sont anonymes. &lt;a href=\"#privacy\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
   <string name="onboarding_create_account_sync">Synchroniser vos listes de lecture</string>
   <string name="onboarding_create_account_contributions">Garder trace de vos contributions</string>

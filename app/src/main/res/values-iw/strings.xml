@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">לשמור לרשימת קריאה</string>
   <string name="onboarding_save_to_reading_lists_text">צרו רשימות קריאה מערכים שאתם רוצים לקרוא מאוחר יותר, אפילו בלי חיבור לרשת.</string>
   <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
-  <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את האפליקציה על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בה. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#offline\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את האפליקציה על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בה. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
   <string name="onboarding_create_account_sync">סנכרון רשימות הקריאה שלכם</string>
   <string name="onboarding_create_account_contributions">מעקב אחר התרומות שלך</string>

@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Afegeix a la llista de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea llistes de lectures a partir d\'articles que vulguis llegir en un altre moment, encara que estiguis fora de línia.</string>
   <string name="onboarding_analytics_title">Envia dades anònimes</string>
-  <string name="onboarding_analytics_offline_text">Ajudan\'s a fer una aplicació millor explicant-nos com la fas servir tu. Les dades es recopilen de forma anònima. &lt;a href=\"#offline\"&gt;Aprèn més&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Ajudan\'s a fer una aplicació millor explicant-nos com la fas servir tu. Les dades es recopilen de forma anònima. &lt;a href=\"#privacy\"&gt;Aprèn més&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_create_account_sync">Sincronitza les vostres llistes de lectura</string>
   <string name="onboarding_create_account_contributions">Estigueu al dia de les vostres contribucions</string>

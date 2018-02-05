@@ -510,7 +510,7 @@
   <string name="onboarding_save_to_reading_lists_title">Tallenna lukuluetteloon</string>
   <string name="onboarding_save_to_reading_lists_text">Luo lukuluetteloja artikkeleista, joita haluat lukea myöhemmin, jopa silloin kun olet olet offline-tilassa.</string>
   <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>
-  <string name="onboarding_analytics_offline_text">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#offline\"&gt;Opi lisää&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Auta tekemään sovelluksesta parempi antamalla meidän tietää kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Opi lisää&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
   <string name="onboarding_create_account_sync">Synkronoi lukuluettelosi</string>
   <string name="onboarding_create_account_contributions">Seuraa tekemiäsi muokkauksia</string>

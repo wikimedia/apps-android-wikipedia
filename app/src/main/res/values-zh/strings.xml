@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">保存至阅读列表</string>
   <string name="onboarding_save_to_reading_lists_text">从您希望稍后阅读的条目创建阅读列表，即便当您离线时。</string>
   <string name="onboarding_analytics_title">发送匿名数据</string>
-  <string name="onboarding_analytics_offline_text">通过让我们知道您如何使用它，帮助应用做得更好。数据收集是匿名的。&lt;a href=\"#offline\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">通过让我们知道您如何使用它，帮助应用做得更好。数据收集是匿名的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">发送使用数据</string>
   <string name="onboarding_create_account_sync">同步您的阅读列表</string>
   <string name="onboarding_create_account_contributions">保持追踪您的贡献</string>

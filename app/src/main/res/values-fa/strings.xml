@@ -502,7 +502,7 @@
   <string name="onboarding_save_to_reading_lists_title">افزودن به لیست خواندنیها</string>
   <string name="onboarding_save_to_reading_lists_text">تهیه لیست خواندنیها برای مقاله هایی که مایلید در آینده مطالعه نمائید، همچنین هنگامی که آفلاین هستید.</string>
   <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
-  <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع آوری داده ها بصورت ناشناس انجام می گیرد. &lt;a href=\"#offline\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع آوری داده ها بصورت ناشناس انجام می گیرد. &lt;a href=\"#privacy\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ارسال داده مصرفی</string>
   <string name="onboarding_create_account_sync">همسازسازی فهرست‌های مطالعه شما</string>
   <string name="onboarding_create_account_contributions">پیگیری ویرایش‌هایتان</string>

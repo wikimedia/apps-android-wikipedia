@@ -518,7 +518,7 @@
   <string name="onboarding_save_to_reading_lists_title">읽기 목록에 저장</string>
   <string name="onboarding_save_to_reading_lists_text">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
-  <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#offline\"&gt;더 알아보기&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#privacy\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>
   <string name="onboarding_create_account_sync">읽기 목록 동기화</string>
   <string name="onboarding_create_account_contributions">내 기여를 추적합니다</string>

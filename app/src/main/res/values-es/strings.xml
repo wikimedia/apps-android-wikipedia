@@ -526,7 +526,7 @@
   <string name="onboarding_save_to_reading_lists_title">Guardar en listas de lectura</string>
   <string name="onboarding_save_to_reading_lists_text">Crea listas de lectura con artículos que desees leer más tarde, incluso cuando no tengas conexión.</string>
   <string name="onboarding_analytics_title">Enviar datos anónimos</string>
-  <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#offline\"&gt;Más información&lt;/a&gt;</string>
+  <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#privacy\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
   <string name="onboarding_create_account_sync">Sincronizar tus listas de lectura</string>
   <string name="onboarding_create_account_contributions">Mantente al tanto de tus aportes</string>
