@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -25,6 +23,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
@@ -92,25 +91,19 @@ public class LangLinksActivity extends BaseActivity {
         client = new LangLinksClient();
         fetchLangLinks();
 
-        langLinksError.setRetryClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ViewAnimations.crossFade(langLinksError, langLinksProgress);
-                fetchLangLinks();
-            }
+        langLinksError.setRetryClickListener((v) -> {
+            ViewAnimations.crossFade(langLinksError, langLinksProgress);
+            fetchLangLinks();
         });
 
-        langLinksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
-                app.setMruLanguageCode(langLink.getWikiSite().languageCode());
-                HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
-                Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink);
-                setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
-                hideSoftKeyboard(LangLinksActivity.this);
-                finish();
-            }
+        langLinksList.setOnItemClickListener((parent, view, position, id) -> {
+            PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
+            app.setMruLanguageCode(langLink.getWikiSite().languageCode());
+            HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
+            Intent intent = PageActivity.newIntentForCurrentTab(LangLinksActivity.this, historyEntry, langLink);
+            setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
+            hideSoftKeyboard(LangLinksActivity.this);
+            finish();
         });
 
         langLinksFilter.addTextChangedListener(new TextWatcher() {
@@ -206,13 +199,15 @@ public class LangLinksActivity extends BaseActivity {
                     it.remove();
                     for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                             AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-                        it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode(dialect)));
+
+                        it.add(new PageTitle((title.isMainPage()) ? MainPageNameData.valueFor(dialect) : link.getText(),
+                                WikiSite.forLanguageCode(dialect)));
                     }
                 }
             }
 
             if (!haveChineseEntry) {
-                addChineseEntriesIfNeeded(title.getWikiSite().languageCode(), title.getText(), languageEntries);
+                addChineseEntriesIfNeeded(title, languageEntries);
             }
         }
 
@@ -231,17 +226,18 @@ public class LangLinksActivity extends BaseActivity {
     }
 
     @VisibleForTesting
-    public static void addChineseEntriesIfNeeded(@NonNull String langCode,
-                                                 @Nullable String languageTitle,
+    public static void addChineseEntriesIfNeeded(@NonNull PageTitle title,
                                                  @NonNull List<PageTitle> languageEntries) {
-        // TODO: setup PageTitle in correct variant
-        if (langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
-            if (!langCode.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
-                languageEntries.add(new PageTitle(languageTitle, WikiSite.forLanguageCode(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE)));
-            }
 
-            if (!langCode.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-                languageEntries.add(new PageTitle(languageTitle, WikiSite.forLanguageCode(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)));
+        // TODO: setup PageTitle in correct variant
+        if (title.getWikiSite().languageCode().startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+            String[] chineseLanguageCodes = {AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE, AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE};
+
+            for (String languageCode : chineseLanguageCodes) {
+                if (!title.getWikiSite().languageCode().contains(languageCode)) {
+                    languageEntries.add(new PageTitle((title.isMainPage()) ? MainPageNameData.valueFor(languageCode) : title.getText(),
+                            WikiSite.forLanguageCode(languageCode)));
+                }
             }
         }
     }
