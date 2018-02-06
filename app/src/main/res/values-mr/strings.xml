@@ -256,7 +256,7 @@
   <string name="reading_lists_onboarding_got_it">समजले</string>
   <string name="reading_lists_confirm_remote_delete_yes">होय</string>
   <string name="reading_lists_confirm_remote_delete_no">नाही</string>
-  <string name="reading_list_article_limit_message">या यादीत जोडू शकत नाही. आपण \"%s\" पैकी १,००० लेखांच्या मर्यादेवर पोचला आहात.</string>
+    <string name="reading_list_article_limit_message">या यादीत जोडू शकत नाही. आपण \"%s\" पैकी १,००० लेखांच्या मर्यादेवर पोचला आहात.</string>
   <string name="reading_lists_limit_message">दुसरी यादी तयार करू शकत नाही.प्रत्येक खात्यासाठी असणाऱ्या १०० वाचन यादींच्या मर्यादेवर आपण पोचला आहात.</string>
   <string name="user_option_sync_label">पसंतीक्रम</string>
   <string name="view_continue_reading_card_title">वाचन सुरू ठेवा</string>

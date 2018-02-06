@@ -189,7 +189,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s จะไม่พร้อมใช้งานแบบออฟไลน์อีกต่อไปสำหรับรายการอ่านทั้งหมด:</string>
   <string name="reading_list_sync_reminder_text">คุณสามารถซิงค์รายการอ่านของคุณกับบัญชีวิกิพีเดียของคุณได้ ถ้าคุณเปิดใช้การซิงค์ในการตั้งค่าแอป</string>
   <string name="reading_list_login_reminder_title">ซิงค์รายการอ่าน</string>
-  <string name="view_continue_reading_card_title">อ่านต่อ</string>
+    <string name="view_continue_reading_card_title">อ่านต่อ</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>
   <string name="view_featured_image_card_download">ดาวน์โหลด</string>

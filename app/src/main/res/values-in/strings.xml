@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">Artikel sedang diunduh, dan akan tersedia secara luring saat selesai.</string>
   <string name="reading_list_already_contains_selection">Daftar yang dipilih sudah berisi semua halaman yang dipilih.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ditambahkan ke %2$s</string>
-  <string name="default_reading_list_name">Tersimpan</string>
+    <string name="default_reading_list_name">Tersimpan</string>
   <string name="default_reading_list_description">Daftar baku untuk artikel tersimpan Anda</string>
   <string name="no_user_lists_title">Atur artikel ke dalam daftar</string>
   <string name="no_user_lists_msg">Buat daftar untuk tempat yang ingin dikunjungi, topik favorit, dan banyak lagi</string>

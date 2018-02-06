@@ -240,7 +240,7 @@
   <string name="reading_lists_onboarding_example2">Animals favorits</string>
   <string name="reading_lists_onboarding_example3">Exploracion espaciala</string>
   <string name="reading_lists_onboarding_got_it">L’obténer</string>
-  <string name="user_option_sync_label">Preferéncias</string>
+    <string name="user_option_sync_label">Preferéncias</string>
   <string name="notification_button_view_user">Parlar a l\'utilizaire</string>
   <string name="notification_talk_title">Messatge novèl sus Wikipèdia</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; a daissat un messatge sus vòstra pagina de discussion &lt;strong&gt;%2$s&lt;/strong&gt;</string>

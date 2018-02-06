@@ -235,6 +235,7 @@
   <string name="button_add_to_reading_list">Přidat do seznamu k přečtení</string>
   <string name="page_offline_notice_cannot_load_while_offline">Články nelze načítat bez připojení k internetu.</string>
   <string name="page_offline_notice_add_to_reading_list">Rada: Pokud článek přidáte do seznamu k přečtení, stáhne se, jakmile budete znovu připojeni.</string>
+  <string name="page_offline_notice_last_date">Právě čtete offline verzi tohoto článku, která byla uložena %s.</string>
   <string name="button_get_directions">Najít trasu</string>
   <string name="error_no_maps_app">Nepodařilo se najít žádnou aplikaci, která poskytuje navigaci.</string>
   <string name="preference_title_show_link_previews">Zobrazovat náhledy odkazů</string>
@@ -243,6 +244,9 @@
   <string name="error_voice_search_not_available">Omlouváme se, ale rozpoznávání hlasu není k dispozici.</string>
   <string name="location_service_disabled">Služby zjišťování polohy jsou zakázány.</string>
   <string name="enable_location_service">Povolit</string>
+  <string name="error_page_does_not_exist">Tato stránka neexistuje</string>
+  <string name="view_wiki_error_message_offline">Nelze se připojit k Internetu</string>
+  <string name="reference_title">Reference %s</string>
   <string name="crash_report_dialog_title">Omlouváme se, aplikace minule spadla</string>
   <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
   <string name="crash_report_dialog_dont_send_button">Přeskočit</string>
@@ -260,6 +264,9 @@
   <string name="color_theme_select">Vzhled</string>
   <string name="color_theme_light">Světlý</string>
   <string name="color_theme_dark">Tmavý</string>
+  <string name="color_theme_black">Černý</string>
+  <string name="color_theme_test_title">Vzorový text</string>
+  <string name="preference_title_app_theme">Vzhled aplikace</string>
   <string name="nav_item_reading_lists">Moje seznamy</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
@@ -279,6 +286,7 @@
   <string name="reading_list_name_hint">Název tohoto seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
   <string name="reading_list_item_deleted">Článek %s odebrán ze seznamu</string>
+  <string name="reading_list_items_deleted">%d článků odebráno ze seznamu</string>
   <string name="reading_list_item_delete_undo">Zpět</string>
   <string name="reading_list_deleted">Seznam %s smazán</string>
   <string name="saved_list_empty_title">Zatím žádné seznamy ke čtení</string>
@@ -289,7 +297,7 @@
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
   <string name="reading_lists_onboarding_example3">Průzkum vesmíru</string>
   <string name="reading_lists_onboarding_got_it">Jasně</string>
-  <string name="user_option_sync_label">Nastavení</string>
+    <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_button_view_user">Diskutovat s uživatelem</string>
   <string name="notification_talk_title">Nová zpráva na Wikipedii</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; vám nechal(a) zprávu na vaší diskusní stránce &lt;strong&gt;%2$s&lt;/strong&gt;</string>
@@ -300,7 +308,7 @@
   <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Přečíst si náhodný článek z Wikipedie</string>
+  <string name="view_random_card_subtitle">Procházet náhodné články na Wikipedii ke čtení</string>
   <string name="view_random_card_action">Hodit si kostkou</string>
   <string name="view_next_random_article">Načíst další náhodný článek</string>
   <string name="view_main_page_card_title">Dnes na Wikipedii</string>

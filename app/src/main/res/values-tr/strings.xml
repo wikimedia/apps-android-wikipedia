@@ -360,6 +360,8 @@
   <string name="no_user_lists_msg">Seyahat edilecek yerler, favori konular ve daha pek çok şey için listeler oluşturun</string>
   <string name="reading_list_saved_list_rename">%1$s (kullanıcı oluşturuldu)</string>
   <string name="split_reading_list_message">Okuma listesi başına 1000 madde sınırı vardır. Bu sınırı aşan mevcut listeler birden fazla listeye ayrılmıştır.</string>
+  <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%s\" için liste başına 1000 madde sınırına ulaştınız.</string>
+  <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Bu maddeye artık çevrimdışı olarak erişilebilir.</item>
     <item quantity="other">Bu maddelere artık çevrimdışı olarak erişilebilir.</item>
@@ -377,9 +379,9 @@
   <string name="notification_thanks_title">Size teşekkür edildi!</string>
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt;, &lt;strong&gt;%2$s&lt;/strong&gt; sayfasındaki değişikliğiniz için size teşekkür etti.</string>
   <string name="notification_channel_name">Senkronize ediliyor</string>
-  <string name="notification_channel_description" fuzzy="true">Senkronizasyon ilerleme durumu</string>
-  <string name="notification_syncing_title" fuzzy="true">%1$d madde senkronize ediliyor...</string>
-  <string name="notification_syncing_description" fuzzy="true">Kalan madde sayısı %1$d</string>
+  <string name="notification_channel_description">İndirme ilerleme durumu</string>
+  <string name="notification_syncing_title">%1$d madde indiriliyor...</string>
+  <string name="notification_syncing_description">Kalan madde sayısı %1$d</string>
   <string name="notification_syncing_pause_button">Duraklat</string>
   <string name="notification_syncing_resume_button">Devam et</string>
   <string name="notification_syncing_cancel_button">İptal</string>

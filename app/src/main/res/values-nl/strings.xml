@@ -330,7 +330,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nee</string>
   <string name="reading_list_article_save_in_progress">Het artikel wordt gedownload, het zal offline beschikbaar zijn eens het volledig is.</string>
-  <plurals name="reading_list_article_offline_message">
+    <plurals name="reading_list_article_offline_message">
     <item quantity="one">Dit artikel zal nu beschikbaar zijn in een offline-modus.</item>
     <item quantity="other">Deze artikelen zullen nu beschikbaar zijn in een offline-modus.</item>
   </plurals>

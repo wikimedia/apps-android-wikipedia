@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">Rencana sedang dimuat turun, dan ia akan tersedia di luar talian apabila selesai.</string>
   <string name="reading_list_already_contains_selection">Senarai yang dipilih sudah mengandungi semua halaman yang dipilih.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ditambahkan ke %2$s</string>
-  <string name="default_reading_list_name">Disimpan</string>
+    <string name="default_reading_list_name">Disimpan</string>
   <string name="default_reading_list_description">Senarai lalai untuk rencana anda yang disimpan</string>
   <string name="no_user_lists_title">Atur rencana ke dalam senarai</string>
   <string name="no_user_lists_msg">Buat senarai tempat untuk pergi ke, topik kegemaran, dan banyak lagi</string>

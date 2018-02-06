@@ -269,7 +269,7 @@
   <string name="reading_list_no_description">Nėra aprašymo...</string>
   <string name="reading_list_empty">Neturite pridėtų į sąrašą straipsnių.</string>
   <string name="reading_list_article_make_offline">Versti šį straipsnį būti prieinamam neprisijungus</string>
-  <plurals name="reading_list_article_offline_message">
+    <plurals name="reading_list_article_offline_message">
     <item quantity="one">Šis straipsnis bus prieinamas neprisijungus.</item>
     <item quantity="other">Šie straipsniai bus prieinami neprisijungus.</item>
   </plurals>

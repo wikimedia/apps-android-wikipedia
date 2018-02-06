@@ -10,7 +10,7 @@
   <string name="search_hint_search_reading_list">Cerca a la llista de lectura</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
-  <string name="page_error_retry">Tornar a provar</string>
+  <string name="page_error_retry">Torna a provar</string>
   <string name="page_error_back_to_main">Vés enrere</string>
   <string name="menu_clear_all_history">Esborra l\'historial</string>
   <string name="history_item_deleted">%s eliminat de l\'historial</string>
@@ -48,8 +48,8 @@
   <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En desar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="preference_title_language">Idioma de la Viquipèdia</string>
-  <string name="preference_languages_filter_hint">Cercar</string>
-  <string name="langlinks_filter_hint">Cercar</string>
+  <string name="preference_languages_filter_hint">Cerca</string>
+  <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Aquesta pàgina no està disponible en altres idiomes.</string>
   <string name="langlinks_no_match">No s\'ha trobat cap idioma que coincideixi amb la consulta.</string>
   <string name="langlinks_activity_title">Altres idiomes</string>
@@ -57,11 +57,11 @@
   <string name="dialog_saving_in_progress">S’estan publicant…</string>
   <string name="edit_saved_successfully">Modificació publicada!</string>
   <string name="dialog_message_edit_failed">La modificació no s\'ha desat!</string>
-  <string name="dialog_message_edit_failed_retry">Tornar-ho a provar</string>
-  <string name="dialog_message_edit_failed_cancel">Cancel·lar</string>
+  <string name="dialog_message_edit_failed_retry">Torna-ho a provar</string>
+  <string name="dialog_message_edit_failed_cancel">Cancel·la</string>
   <string name="dialog_message_leaving_edit">Els canvis encara no s\'han desat. Segur que voleu sortir d\'aquesta pàgina?</string>
-  <string name="dialog_message_leaving_edit_leave">Sortir</string>
-  <string name="dialog_message_leaving_edit_stay">Romandre</string>
+  <string name="dialog_message_leaving_edit_leave">Surt</string>
+  <string name="dialog_message_leaving_edit_stay">Roman</string>
   <string name="menu_show_toc">Taula de continguts</string>
   <string name="search_no_results_found">No s\'han trobat resultats</string>
   <string name="search_reading_list_no_results">No s\'ha trobat cap resultat a «%s»</string>
@@ -127,7 +127,7 @@
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permet que l\'aplicació enviï informes d\'error de forma automàtica a HockeyApp / un proveïdor de serveis, de manera que podem revisar-ho i corregir-ho de la manera més fàcil i ràpida.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permet que l’aplicació enviï informes de fallades de forma automàtica a HockeyApp —un proveïdor de serveis extern—, de manera que puguem revisar-los i corregir-los d’una manera més fàcil i ràpida.</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis blocats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
   <string name="history_search_list_hint">Cerca a l\'historial</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>
@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
   <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
   <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
-  <string name="default_reading_list_name">Desats</string>
+    <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
   <string name="no_user_lists_msg">Crear llistes per llocs on viatjar, temes favorits, i molt més</string>

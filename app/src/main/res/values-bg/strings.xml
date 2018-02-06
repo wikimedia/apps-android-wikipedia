@@ -352,14 +352,14 @@
   <string name="reading_list_article_save_in_progress">Статията се изтегля и ще бъде налична офлайн, когато е готова.</string>
   <string name="reading_list_already_contains_selection">Избраният списък вече съдържа всичките избрани страници.</string>
   <string name="reading_list_added_articles_list_titled">Добавени %1$d статии в %2$s</string>
-  <string name="default_reading_list_name">Съхранено</string>
+    <string name="default_reading_list_name">Съхранено</string>
   <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <string name="no_user_lists_title">Организирайте статии в списъци</string>
   <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>
   <string name="reading_list_saved_list_rename">%1$s (направен от потребител)</string>
   <string name="split_reading_list_message">Има ограничение от 1000 статии за списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
   <string name="reading_list_article_limit_message">Не може да бъде добавено към този списък. Достигнали сте ограничението от 1000 статии на списък за „%s“.</string>
-  <string name="reading_lists_limit_message">Не може да бъде създаден друг лист. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
+  <string name="reading_lists_limit_message">Не може да бъде създаден друг списък. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Тази статия вече е налична офлайн.</item>
     <item quantity="other">Тези статии вече са налични офлайн.</item>

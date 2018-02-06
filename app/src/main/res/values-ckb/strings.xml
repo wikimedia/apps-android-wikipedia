@@ -58,7 +58,7 @@
   <string name="edit_saved_successfully">دەستکاری پاشەکەوت کرا!</string>
   <string name="dialog_message_edit_failed">دەستکاری پاشەکەوت کرا!</string>
   <string name="dialog_message_edit_failed_retry">ھەوڵداناوە</string>
-  <string name="dialog_message_edit_failed_cancel">ھەڵیوەشێنەوە</string>
+  <string name="dialog_message_edit_failed_cancel">ھەڵوەشاندنەوە</string>
   <string name="dialog_message_leaving_edit">ھێشتا گۆڕانکارییەکانت پاشەکەوت نەکراون. دڵنیای کە دەتەوێت ئەم پەڕەیە جێبھێڵیت؟</string>
   <string name="dialog_message_leaving_edit_leave">جێھێشتن</string>
   <string name="dialog_message_leaving_edit_stay">مانەوە</string>
@@ -325,9 +325,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">بەڵێ</string>
   <string name="reading_lists_confirm_remote_delete_no">نەخێر</string>
   <string name="reading_list_article_save_in_progress">وتارەکە خەریکە دادەگیرێت. کاتێک داگرتنەکە تەواو بوو، بۆ خوێندنەوەی بێ ئینتەرنێت بەردەست دەبێت.</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
-  <string name="user_option_sync_label">ھەڵبژاردەکان</string>
+    <string name="user_option_sync_label">ھەڵبژاردەکان</string>
   <string name="notification_button_view_user">لێدوان بۆ بەکارھێنەر</string>
   <string name="notification_talk_title">پەیامی نوێ لە ویکیپیدیا</string>
   <string name="notification_talk">&lt;em&gt;%1$s&lt;/em&gt; پەیامێکی جێھێشت لە پەڕەی لێدوانەکەت &lt;strong&gt;%2$s&lt;/strong&gt;</string>

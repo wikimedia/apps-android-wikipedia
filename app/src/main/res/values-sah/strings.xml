@@ -348,7 +348,7 @@
   <string name="reading_list_article_save_in_progress">Сирэй хачайданан бүттэҕинэ ситимэ да суох көрүөххэ сөп буолуо.</string>
   <string name="reading_list_already_contains_selection">Талбыт ыстатыйаҥ испииһэккэ хайыы-үйэ баар эбит.</string>
   <string name="reading_list_added_articles_list_titled">%1$d ыстатыйаны манна киллэр: %2$s</string>
-  <string name="default_reading_list_name">Бигэргэннэ</string>
+    <string name="default_reading_list_name">Бигэргэннэ</string>
   <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Бу ыстатыйаны ситимэ суох ааҕыахха сөп буолла.</item>

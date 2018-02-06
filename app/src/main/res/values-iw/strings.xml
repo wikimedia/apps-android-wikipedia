@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
   <string name="reading_list_already_contains_selection">הרשימה שנבחרה כבר מכילה את כל הדפים שנבחרו.</string>
   <string name="reading_list_added_articles_list_titled">נוספו %1$d ערכים לרשימה %2$s</string>
-  <string name="default_reading_list_name">שמורים</string>
+    <string name="default_reading_list_name">שמורים</string>
   <string name="default_reading_list_description">ברירת מחדל לערכים השמורים שלך</string>
   <string name="no_user_lists_title">ארגנו ערכים לרשימות</string>
   <string name="no_user_lists_msg">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>

@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
   <string name="reading_list_already_contains_selection">A lista escollida xa contén tódalas páxinas seleccionadas.</string>
   <string name="reading_list_added_articles_list_titled">Engadidos %1$d artigos a %2$s</string>
-  <string name="default_reading_list_name">Gardado</string>
+    <string name="default_reading_list_name">Gardado</string>
   <string name="default_reading_list_description">Lista por defecto dos seus artigos gardados</string>
   <string name="no_user_lists_title">Organizar os artigos no formato de listas</string>
   <string name="no_user_lists_msg">Crear as listas dos locais para viaxar, temas favoritos, e moito máis</string>

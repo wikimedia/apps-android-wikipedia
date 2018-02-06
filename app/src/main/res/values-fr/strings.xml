@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
   <string name="reading_list_already_contains_selection">La liste choisie contient déjà toutes les pages sélectionnées.</string>
   <string name="reading_list_added_articles_list_titled">%1$d articles ajoutés à %2$s</string>
-  <string name="default_reading_list_name">Enregistré</string>
+    <string name="default_reading_list_name">Enregistré</string>
   <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
   <string name="no_user_lists_title">Ranger des articles dans des listes</string>
   <string name="no_user_lists_msg">Créer des listes d\'endroits à visiter, des sujets favoris et beaucoup plus</string>

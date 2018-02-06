@@ -353,7 +353,7 @@
   <string name="reading_list_article_save_in_progress">Artikkelen lastes ned og vil bli tilgjengelig offline når den er ferdig.</string>
   <string name="reading_list_already_contains_selection">Den valgte listen inneholder allerede alle de valgte sidene.</string>
   <string name="reading_list_added_articles_list_titled">La til %1$d artikler i %2$s</string>
-  <string name="default_reading_list_name">Lagret</string>
+    <string name="default_reading_list_name">Lagret</string>
   <string name="default_reading_list_description">Standardliste for dine lagrede artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opprett lister for steder du vil reise til, favorittemner og mye mer</string>

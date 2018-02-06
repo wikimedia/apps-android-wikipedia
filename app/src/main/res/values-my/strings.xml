@@ -319,7 +319,7 @@
   <string name="reading_list_sync_reminder_action">ဖွင့်ပါ။</string>
   <string name="reading_lists_confirm_remote_delete_yes">လုပ်မည်။</string>
   <string name="reading_lists_confirm_remote_delete_no">မလုပ်ပါ။</string>
-  <string name="user_option_sync_label">ရွေးချယ်စရာများ</string>
+    <string name="user_option_sync_label">ရွေးချယ်စရာများ</string>
   <string name="notification_button_view_user">အသုံးပြုသူနှင့် ဆွေးနွေးရန်</string>
   <string name="notification_talk_title">ဝီကီပီးဒီးယားရှိ စာတိုအသစ်</string>
   <string name="notification_talk">သင့်ဆွေးနွေးချက် စာမျက်နှာရှိ  \"%2$s\" တွင် %1$s က စာတိုအသစ် ချန်ထားခဲ့သည်</string>

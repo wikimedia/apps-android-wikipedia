@@ -354,7 +354,7 @@
   <string name="reading_list_article_save_in_progress">Artiklen hentes og vil være tilgængelig lokalt når færdig.</string>
   <string name="reading_list_already_contains_selection">Den valgte liste indeholder allerede alle de valgte sider.</string>
   <string name="reading_list_added_articles_list_titled">Tilføjede %1$d artikler til %2$s</string>
-  <string name="default_reading_list_name">Gemt</string>
+    <string name="default_reading_list_name">Gemt</string>
   <string name="default_reading_list_description">Standardliste for dine gemte artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opret lister for steder at rejse til, favoritemner og meget mere</string>
