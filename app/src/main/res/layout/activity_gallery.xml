@@ -25,11 +25,21 @@
         android:id="@+id/gallery_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/gallery_toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp">
-        </android.support.v7.widget.Toolbar>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/gallery_toolbar"
+                android:theme="@style/ToolbarTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black26" />
+            <View
+                android:id="@+id/gallery_toolbar_gradient"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
+        </LinearLayout>
         <ProgressBar
             android:id="@+id/gallery_progressbar"
             android:layout_width="match_parent"
@@ -44,9 +54,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:orientation="vertical"
-        android:paddingBottom="32dp"
-        android:paddingTop="64dp">
+        android:orientation="vertical">
+        <View
+            android:id="@+id/gallery_info_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"/>
         <org.wikipedia.views.AppTextView
             android:id="@+id/gallery_description_text"
             android:layout_width="match_parent"
@@ -58,34 +70,37 @@
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
             android:fadeScrollbars="false"
+            android:background="@color/black38"
             tools:text="Sample image description text"
             android:textColor="@color/base90"
             android:textColorLink="@color/base90"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:background="@color/black38"
             android:gravity="center_vertical">
             <ImageView
                 android:id="@+id/gallery_license_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:padding="5dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 tools:src="@drawable/ic_license_cc"
+                android:tint="@color/white70"
+                android:tintMode="src_in"
                 android:contentDescription="@null"/>
             <org.wikipedia.views.AppTextView
                 android:id="@+id/gallery_credit_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
+                android:paddingStart="8dp"
                 android:textIsSelectable="true"
                 tools:text="Credits"
-                android:textColor="@color/base50"
-                android:textColorLink="@color/base50"
+                android:textColor="@color/white70"
+                android:textColorLink="@color/white70"
                 android:ellipsize="end"
                 android:maxLines="2"/>
         </LinearLayout>
