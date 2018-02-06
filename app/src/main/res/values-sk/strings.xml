@@ -363,8 +363,8 @@
   <string name="notification_thanks">&lt;em&gt;%1$s&lt;/em&gt; vám poďakoval za vašu úpravu stránky &lt;strong&gt;%2$s&lt;/strong&gt;</string>
   <string name="notification_channel_name">Synchronizovanie</string>
   <string name="notification_channel_description" fuzzy="true">Stav synchronizácie</string>
-  <string name="notification_syncing_title" fuzzy="true">Synchronizuje sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
-  <string name="notification_syncing_description" fuzzy="true">Ostáva %1$d {{PLURAL:%1$d|článok|články|článkov}}</string>
+  <string name="notification_syncing_title">Synchronizuje sa %1$d…</string>
+  <string name="notification_syncing_description">Ostáva %1$d</string>
   <string name="notification_syncing_pause_button">Pozastaviť</string>
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>

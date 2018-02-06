@@ -78,7 +78,7 @@
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
-  <string name="history_empty_message">Zde sledujte, co jste dosud {{GENDER:|četl|četla|četl(a)}}.</string>
+  <string name="history_empty_message">Zde sledujte, co jste dosud četl.</string>
   <string name="search_empty_message">Prohledávajte a čtěte otevřenou encyklopedii ve svém jazyce</string>
   <string name="delete_selected_items">Smazat vybrané položky</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
