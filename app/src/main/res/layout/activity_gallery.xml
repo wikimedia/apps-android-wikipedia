@@ -5,7 +5,7 @@
     android:id="@+id/gallery_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/base10">
+    android:background="@android:color/black">
 
     <org.wikipedia.views.WikiErrorView
         android:id="@+id/view_gallery_error"
