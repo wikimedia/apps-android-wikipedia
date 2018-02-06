@@ -46,7 +46,6 @@
                     android:paddingBottom="2dp"
                     android:paddingLeft="9dp"
                     android:paddingRight="9dp"
-                    android:layout_marginRight="8dp"
                     android:layout_marginEnd="8dp"
                     android:id="@+id/search_lang_button_container"
                     android:background="?attr/actionBarItemBackground"

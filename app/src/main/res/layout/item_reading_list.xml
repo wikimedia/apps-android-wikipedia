@@ -26,7 +26,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -37,7 +36,6 @@
                         android:id="@+id/item_image_1"
                         style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                         android:layout_marginEnd="0.5dp"
-                        android:layout_marginRight="0.5dp"
                         app:roundTopLeft="true" />
 
                     <com.facebook.drawee.view.SimpleDraweeView
@@ -55,7 +53,6 @@
                         android:id="@+id/item_image_3"
                         style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
                         android:layout_marginEnd="0.5dp"
-                        android:layout_marginRight="0.5dp"
                         app:roundBottomLeft="true" />
 
                     <com.facebook.drawee.view.SimpleDraweeView
@@ -71,7 +68,6 @@
                 android:layout_height="@dimen/readingListItemSize"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:background="@drawable/button_shape_add_reading_list"
                 android:contentDescription="@null"
                 android:padding="10dp"
@@ -85,7 +81,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_marginTop="-4dp"
-            android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"
             android:orientation="vertical">
 

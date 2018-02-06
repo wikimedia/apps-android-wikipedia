@@ -1,55 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/edit_preview_container"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:background="?android:windowBackground"
-            >
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_preview_container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone"
+    tools:visibility="visible"
+    android:background="?android:windowBackground">
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                >
+                android:layout_margin="16dp">
 
             <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/edit_how_page_improved"
-                    />
+                    android:text="@string/edit_how_page_improved"/>
 
             <org.wikipedia.views.FlowLayout
                     android:id="@+id/edit_summary_tags_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="32dp"
-                    >
-
-            </org.wikipedia.views.FlowLayout>
+                    android:layout_marginBottom="32dp" />
 
         </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                >
+                android:layout_margin="16dp">
 
             <ImageView
                     android:layout_width="20dp"
@@ -89,8 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:focusable="false"
-                android:focusableInTouchMode="false"
-                />
+                android:focusableInTouchMode="false"/>
 
     </LinearLayout>
 

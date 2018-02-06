@@ -10,8 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/tab_item_selector"
-        >
+        android:background="?attr/tab_item_selector">
+
         <com.facebook.drawee.view.SimpleDraweeView
             style="@style/SimpleDraweeViewPlaceholder.Article"
             android:id="@+id/tab_item_thumbnail"

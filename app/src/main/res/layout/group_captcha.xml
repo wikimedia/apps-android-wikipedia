@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/captcha_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:background="?android:windowBackground"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:visibility="gone"
-        tools:visibility="visible"
-        >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/captcha_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="?android:windowBackground"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:visibility="gone"
+    tools:visibility="visible">
+
     <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_section_captcha_message"
-            style="?android:textAppearanceMedium"
-            android:layout_margin="0dp"
-            />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_section_captcha_message"
+        style="?android:textAppearanceMedium"
+        android:layout_margin="0dp"/>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -34,48 +34,49 @@
             app:actualImageScaleType="fitCenter"
             android:contentDescription="@string/captcha_image" />
         <ProgressBar
-                android:id="@+id/captcha_image_progress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:indeterminate="true"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:visibility="gone"
-                tools:visibility="visible" />
-    </FrameLayout>
-    <TextView
+            android:id="@+id/captcha_image_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/edit_section_captcha_reload"
-            style="?android:textAppearanceSmall"
-            android:gravity="center"
-            />
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/captcha_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/edit_section_captcha_hint">
-            <org.wikipedia.views.PlainPasteEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    style="?android:textAppearanceMedium"
-                    android:layout_gravity="center_horizontal"
-                    android:imeOptions="actionDone|flagNoExtractUi"
-                    android:inputType="textVisiblePassword|textNoSuggestions"
-                    android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
-    <TextView
-            android:id="@+id/captcha_submit_button"
-            android:layout_width="match_parent"
-            android:text="@string/create_account_button"
-            style="@style/App.Button.Blue"
-            android:enabled="false"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
+            android:layout_gravity="center_horizontal"
+            android:indeterminate="true"
+            style="?android:attr/progressBarStyleHorizontal"
             android:visibility="gone"
-            tools:visibility="visible"
-            />
+            tools:visibility="visible" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_section_captcha_reload"
+        style="?android:textAppearanceSmall"
+        android:gravity="center"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/captcha_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/edit_section_captcha_hint">
+        <org.wikipedia.views.PlainPasteEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            style="?android:textAppearanceMedium"
+            android:layout_gravity="center_horizontal"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:maxLines="1" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/captcha_submit_button"
+        android:layout_width="match_parent"
+        android:text="@string/create_account_button"
+        style="@style/App.Button.Blue"
+        android:enabled="false"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:visibility="gone"
+        tools:visibility="visible"/>
 
 </LinearLayout>

@@ -96,8 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/MaterialListSubtitle"
-                    android:text="Last edited 4 days ago"
-                    tools:text="Lorem ipsum"/>
+                    tools:text="Last edited 4 days ago"/>
 
             </LinearLayout>
 
