@@ -387,6 +387,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     if (!issuesContainer.hasChildNodes()) {
         document.getElementById( "content" ).removeChild(issuesContainer);
     }
+    transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
 });
 
@@ -427,7 +428,7 @@ function applySectionTransforms( content, isLeadSection ) {
         if (isLeadSection) {
             transformer.transform( "moveFirstGoodParagraphUp" );
         }
-        pagelib.RedLinks.hideRedLinks( document, content );
+        pagelib.RedLinks.hideRedLinks( document );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
     } else {
@@ -440,7 +441,6 @@ function applySectionTransforms( content, isLeadSection ) {
         transformer.transform( "hideRefs", content );
     }
     if (!window.isMainPage) {
-        transformer.transform( "hideTables", content );
         transformer.transform( "widenImages", content );
 
         if (!window.isFilePage) {
@@ -476,6 +476,7 @@ function displayRemainingSections(json, sequence, scrollY, fragment) {
         window.scrollTo( 0, scrollY );
     }
     document.getElementById( "loading_sections").className = "";
+    transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", { "sequence": sequence });
 }
@@ -631,6 +632,7 @@ bridge.registerListener( "displayFromZim", function( payload ) {
         window.scrollTo( 0, payload.scrollY );
     }
     document.getElementById( "loading_sections").className = "";
+    transformer.transform( "hideTables", document );
     lazyLoadTransformer.loadPlaceholders();
     bridge.sendMessage( "pageLoadComplete", {
       "sequence": payload.sequence,
@@ -781,8 +783,8 @@ function toggleCollapseClickCallback() {
     pagelib.CollapseTable.toggleCollapseClickCallback.call(this, scrollWithDecorOffset);
 }
 
-transformer.register( "hideTables", function(content) {
-    pagelib.CollapseTable.collapseTables(window, content, window.pageTitle,
+transformer.register( "hideTables", function(document) {
+    pagelib.CollapseTable.collapseTables(window, document, window.pageTitle,
         window.isMainPage, window.string_table_infobox,
         window.string_table_other, window.string_table_close,
         scrollWithDecorOffset);
@@ -1304,33 +1306,187 @@ var ThemeTransform = {
 };
 
 var SECTION_TOGGLED_EVENT_TYPE = 'section-toggled';
+var ELEMENT_NODE = 1;
+var TEXT_NODE = 3;
+var BREAKING_SPACE = ' ';
+
+/**
+ * Determine if we want to extract text from this header.
+ * @param {!Element} header
+ * @return {!boolean}
+ */
+var isHeaderEligible = function isHeaderEligible(header) {
+  return header.childNodes && Polyfill.querySelectorAll(header, 'a').length < 3;
+};
+
+/**
+ * Determine eligibility of extracted text.
+ * @param {?string} headerText
+ * @return {!boolean}
+ */
+var isHeaderTextEligible = function isHeaderTextEligible(headerText) {
+  return headerText && headerText.replace(/[\s0-9]/g, '').length > 0;
+};
+
+/**
+ * Extracts first word from string. Returns null if for any reason it is unable to do so.
+ * @param  {!string} string
+ * @return {?string}
+ */
+var firstWordFromString = function firstWordFromString(string) {
+  // 'If the global flag (g) is not set, Element zero of the array contains the entire match,
+  // while elements 1 through n contain any submatches.'
+  var matches = string.match(/\w+/); // Only need first match so not using 'g' option.
+  if (!matches) {
+    return undefined;
+  }
+  return matches[0];
+};
+
+/**
+ * Is node's textContent too similar to pageTitle. Checks if the first word of the node's
+ * textContent is found at the beginning of pageTitle.
+ * @param  {!Node} node
+ * @param  {!string} pageTitle
+ * @return {!boolean}
+ */
+var isNodeTextContentSimilarToPageTitle = function isNodeTextContentSimilarToPageTitle(node, pageTitle) {
+  var firstPageTitleWord = firstWordFromString(pageTitle);
+  var firstNodeTextContentWord = firstWordFromString(node.textContent);
+  // Don't claim similarity if 1st words were not extracted.
+  if (!firstPageTitleWord || !firstNodeTextContentWord) {
+    return false;
+  }
+  return firstPageTitleWord.toLowerCase() === firstNodeTextContentWord.toLowerCase();
+};
+
+/**
+ * Determines if a node is an element or text node.
+ * @param  {!Node} node
+ * @return {!boolean}
+ */
+var nodeTypeIsElementOrText = function nodeTypeIsElementOrText(node) {
+  return node.nodeType === ELEMENT_NODE || node.nodeType === TEXT_NODE;
+};
+
+/**
+ * Removes leading and trailing whitespace and normalizes other whitespace - i.e. ensures
+ * non-breaking spaces, tabs, etc are replaced with regular breaking spaces. 
+ * @param  {!string} string
+ * @return {!string}
+ */
+var stringWithNormalizedWhitespace = function stringWithNormalizedWhitespace(string) {
+  return string.trim().replace(/\s/g, BREAKING_SPACE);
+};
+
+/**
+ * Determines if node is a BR.
+ * @param  {!Node}  node
+ * @return {!boolean}
+ */
+var isNodeBreakElement = function isNodeBreakElement(node) {
+  return node.nodeType === ELEMENT_NODE && node.tagName === 'BR';
+};
+
+/**
+ * Replace node with a text node bearing a single breaking space.
+ * @param {!Document} document
+ * @param  {!Node} node
+ * @return {void}
+ */
+var replaceNodeWithBreakingSpaceTextNode = function replaceNodeWithBreakingSpaceTextNode(document, node) {
+  return node.parentNode.replaceChild(document.createTextNode(BREAKING_SPACE), node);
+};
+
+/**
+ * Extracts any header text determined to be eligible.
+ * @param {!Document} document
+ * @param {!Element} header
+ * @param {?string} pageTitle
+ * @return {?string}
+ */
+var extractEligibleHeaderText = function extractEligibleHeaderText(document, header, pageTitle) {
+  if (!isHeaderEligible(header)) {
+    return null;
+  }
+  // Clone header into fragment. This is done so we can remove some elements we don't want
+  // represented when "textContent" is used. Because we've cloned the header into a fragment, we are
+  // free to strip out anything we want without worrying about affecting the visible document.
+  var fragment = document.createDocumentFragment();
+  fragment.appendChild(header.cloneNode(true));
+  var fragmentHeader = fragment.querySelector('th');
+
+  Polyfill.querySelectorAll(fragmentHeader, '.geo, .coordinates, sup.reference, ol, ul').forEach(function (el) {
+    return el.remove();
+  });
+
+  var childNodesArray = Array.prototype.slice.call(fragmentHeader.childNodes);
+  if (pageTitle) {
+    childNodesArray.filter(nodeTypeIsElementOrText).filter(function (node) {
+      return isNodeTextContentSimilarToPageTitle(node, pageTitle);
+    }).forEach(function (node) {
+      return node.remove();
+    });
+  }
+
+  childNodesArray.filter(isNodeBreakElement).forEach(function (node) {
+    return replaceNodeWithBreakingSpaceTextNode(document, node);
+  });
+
+  var headerText = fragmentHeader.textContent;
+  if (isHeaderTextEligible(headerText)) {
+    return stringWithNormalizedWhitespace(headerText);
+  }
+  return null;
+};
+
+/**
+ * Used to sort array of Elements so those containing 'scope' attribute are moved to front of
+ * array. Relative order between 'scope' elements is preserved. Relative order between non 'scope'
+ * elements is preserved.
+ * @param  {!Element} a
+ * @param  {!Element} b
+ * @return {!boolean}
+ */
+var elementScopeComparator = function elementScopeComparator(a, b) {
+  var aHasScope = a.hasAttribute('scope');
+  var bHasScope = b.hasAttribute('scope');
+  if (aHasScope && bHasScope) {
+    return 0;
+  }
+  if (aHasScope) {
+    return -1;
+  }
+  if (bHasScope) {
+    return 1;
+  }
+  return 0;
+};
 
 /**
  * Find an array of table header (TH) contents. If there are no TH elements in
  * the table or the header's link matches pageTitle, an empty array is returned.
+ * @param {!Document} document
  * @param {!Element} element
  * @param {?string} pageTitle Unencoded page title; if this title matches the
  *                            contents of the header exactly, it will be omitted.
  * @return {!Array<string>}
  */
-var getTableHeader = function getTableHeader(element, pageTitle) {
-  var thArray = [];
+var getTableHeaderTextArray = function getTableHeaderTextArray(document, element, pageTitle) {
+  var headerTextArray = [];
   var headers = Polyfill.querySelectorAll(element, 'th');
+  headers.sort(elementScopeComparator);
   for (var i = 0; i < headers.length; ++i) {
-    var header = headers[i];
-    var anchors = Polyfill.querySelectorAll(header, 'a');
-    if (anchors.length < 3) {
-      // Also ignore it if it's identical to the page title.
-      if ((header.textContent && header.textContent.length) > 0 && header.textContent !== pageTitle && header.innerHTML !== pageTitle) {
-        thArray.push(header.textContent);
+    var headerText = extractEligibleHeaderText(document, headers[i], pageTitle);
+    if (headerText && headerTextArray.indexOf(headerText) === -1) {
+      headerTextArray.push(headerText);
+      // 'newCaptionFragment' only ever uses the first 2 items.
+      if (headerTextArray.length === 2) {
+        break;
       }
     }
-    if (thArray.length === 2) {
-      // 'newCaption' only ever uses the first 2 items.
-      break;
-    }
   }
-  return thArray;
+  return headerTextArray;
 };
 
 /**
@@ -1412,14 +1568,14 @@ var isInfobox = function isInfobox(element) {
 
 /**
  * @param {!Document} document
- * @param {?string} content HTML string.
+ * @param {!DocumentFragment} content
  * @return {!HTMLDivElement}
  */
 var newCollapsedHeaderDiv = function newCollapsedHeaderDiv(document, content) {
   var div = document.createElement('div');
   div.classList.add('pagelib_collapse_table_collapsed_container');
   div.classList.add('pagelib_collapse_table_expanded');
-  div.innerHTML = content || '';
+  div.appendChild(content);
   return div;
 };
 
@@ -1437,32 +1593,38 @@ var newCollapsedFooterDiv = function newCollapsedFooterDiv(document, content) {
 };
 
 /**
+ * @param {!Document} document
  * @param {!string} title
  * @param {!Array.<string>} headerText
- * @return {!string} HTML string.
+ * @return {!DocumentFragment}
  */
-var newCaption = function newCaption(title, headerText) {
-  var caption = '<strong>' + title + '</strong>';
+var newCaptionFragment = function newCaptionFragment(document, title, headerText) {
+  var fragment = document.createDocumentFragment();
 
-  caption += '<span class=pagelib_collapse_table_collapse_text>';
+  var strong = document.createElement('strong');
+  strong.innerHTML = title;
+  fragment.appendChild(strong);
+
+  var span = document.createElement('span');
+  span.classList.add('pagelib_collapse_table_collapse_text');
   if (headerText.length > 0) {
-    caption += ': ' + headerText[0];
+    span.appendChild(document.createTextNode(': ' + headerText[0]));
   }
   if (headerText.length > 1) {
-    caption += ', ' + headerText[1];
+    span.appendChild(document.createTextNode(', ' + headerText[1]));
   }
   if (headerText.length > 0) {
-    caption += ' …';
+    span.appendChild(document.createTextNode(' …'));
   }
-  caption += '</span>';
+  fragment.appendChild(span);
 
-  return caption;
+  return fragment;
 };
 
 /**
  * @param {!Window} window
- * @param {!Element} content
- * @param {?string} pageTitle
+ * @param {!Document} document
+ * @param {?string} pageTitle use title for this not `display title` (which can contain tags)
  * @param {?boolean} isMainPage
  * @param {?boolean} isInitiallyCollapsed
  * @param {?string} infoboxTitle
@@ -1471,12 +1633,12 @@ var newCaption = function newCaption(title, headerText) {
  * @param {?FooterDivClickCallback} footerDivClickCallback
  * @return {void}
  */
-var adjustTables = function adjustTables(window, content, pageTitle, isMainPage, isInitiallyCollapsed, infoboxTitle, otherTitle, footerTitle, footerDivClickCallback) {
+var adjustTables = function adjustTables(window, document, pageTitle, isMainPage, isInitiallyCollapsed, infoboxTitle, otherTitle, footerTitle, footerDivClickCallback) {
   if (isMainPage) {
     return;
   }
 
-  var tables = content.querySelectorAll('table');
+  var tables = document.querySelectorAll('table');
 
   var _loop = function _loop(i) {
     var table = tables[i];
@@ -1485,16 +1647,15 @@ var adjustTables = function adjustTables(window, content, pageTitle, isMainPage,
       return 'continue';
     }
 
-    // todo: this is actually an array
-    var headerText = getTableHeader(table, pageTitle);
-    if (!headerText.length && !isInfobox(table)) {
+    var headerTextArray = getTableHeaderTextArray(document, table, pageTitle);
+    if (!headerTextArray.length && !isInfobox(table)) {
       return 'continue';
     }
-    var caption = newCaption(isInfobox(table) ? infoboxTitle : otherTitle, headerText);
+    var captionFragment = newCaptionFragment(document, isInfobox(table) ? infoboxTitle : otherTitle, headerTextArray);
 
     // create the container div that will contain both the original table
     // and the collapsed version.
-    var containerDiv = window.document.createElement('div');
+    var containerDiv = document.createElement('div');
     containerDiv.className = 'pagelib_collapse_table_container';
     table.parentNode.insertBefore(containerDiv, table);
     table.parentNode.removeChild(table);
@@ -1504,10 +1665,10 @@ var adjustTables = function adjustTables(window, content, pageTitle, isMainPage,
     table.style.marginTop = '0px';
     table.style.marginBottom = '0px';
 
-    var collapsedHeaderDiv = newCollapsedHeaderDiv(window.document, caption);
+    var collapsedHeaderDiv = newCollapsedHeaderDiv(document, captionFragment);
     collapsedHeaderDiv.style.display = 'block';
 
-    var collapsedFooterDiv = newCollapsedFooterDiv(window.document, footerTitle);
+    var collapsedFooterDiv = newCollapsedFooterDiv(document, footerTitle);
     collapsedFooterDiv.style.display = 'none';
 
     // add our stuff to the container
@@ -1550,8 +1711,8 @@ var adjustTables = function adjustTables(window, content, pageTitle, isMainPage,
 
 /**
  * @param {!Window} window
- * @param {!Element} content
- * @param {?string} pageTitle
+ * @param {!Document} document
+ * @param {?string} pageTitle use title for this not `display title` (which can contain tags)
  * @param {?boolean} isMainPage
  * @param {?string} infoboxTitle
  * @param {?string} otherTitle
@@ -1559,8 +1720,8 @@ var adjustTables = function adjustTables(window, content, pageTitle, isMainPage,
  * @param {?FooterDivClickCallback} footerDivClickCallback
  * @return {void}
  */
-var collapseTables = function collapseTables(window, content, pageTitle, isMainPage, infoboxTitle, otherTitle, footerTitle, footerDivClickCallback) {
-  adjustTables(window, content, pageTitle, isMainPage, true, infoboxTitle, otherTitle, footerTitle, footerDivClickCallback);
+var collapseTables = function collapseTables(window, document, pageTitle, isMainPage, infoboxTitle, otherTitle, footerTitle, footerDivClickCallback) {
+  adjustTables(window, document, pageTitle, isMainPage, true, infoboxTitle, otherTitle, footerTitle, footerDivClickCallback);
 };
 
 /**
@@ -1594,12 +1755,20 @@ var CollapseTable = {
   adjustTables: adjustTables,
   expandCollapsedTableIfItContainsElement: expandCollapsedTableIfItContainsElement,
   test: {
-    getTableHeader: getTableHeader,
+    elementScopeComparator: elementScopeComparator,
+    extractEligibleHeaderText: extractEligibleHeaderText,
+    firstWordFromString: firstWordFromString,
+    getTableHeaderTextArray: getTableHeaderTextArray,
     shouldTableBeCollapsed: shouldTableBeCollapsed,
+    isHeaderEligible: isHeaderEligible,
+    isHeaderTextEligible: isHeaderTextEligible,
     isInfobox: isInfobox,
     newCollapsedHeaderDiv: newCollapsedHeaderDiv,
     newCollapsedFooterDiv: newCollapsedFooterDiv,
-    newCaption: newCaption
+    newCaptionFragment: newCaptionFragment,
+    isNodeTextContentSimilarToPageTitle: isNodeTextContentSimilarToPageTitle,
+    stringWithNormalizedWhitespace: stringWithNormalizedWhitespace,
+    replaceNodeWithBreakingSpaceTextNode: replaceNodeWithBreakingSpaceTextNode
   }
 };
 
@@ -1979,6 +2148,99 @@ var ElementGeometry = function () {
   }]);
   return ElementGeometry;
 }();
+
+var ELEMENT_NODE$1 = 1;
+
+/**
+ * Determine if paragraph is the one we are interested in.
+ * @param  {!HTMLParagraphElement}  paragraphElement
+ * @return {!boolean}
+ */
+var isParagraphEligible = function isParagraphEligible(paragraphElement) {
+  // Ignore 'coordinates' which are presently hidden. See enwiki 'Bolton Field' and 'Sharya Forest
+  // Museum Railway'. Not counting coordinates towards the eligible P min textContent length
+  // heuristic has dual effect of P's containing only coordinates being rejected, and P's containing
+  // coordinates but also other elements meeting the eligible P min textContent length being
+  // accepted.
+  var coordElement = paragraphElement.querySelector('[id="coordinates"]');
+  var coordTextLength = !coordElement ? 0 : coordElement.textContent.length;
+
+  // Ensures the paragraph has at least a little text. Otherwise silly things like a empty P or P
+  // which only contains a BR tag will get pulled up. See enwiki 'Hawaii', 'United States',
+  // 'Academy (educational institution)', 'Lovászpatona'
+  var minEligibleTextLength = 50;
+  var hasEnoughEligibleText = paragraphElement.textContent.length - coordTextLength >= minEligibleTextLength;
+  return hasEnoughEligibleText;
+};
+
+/**
+ * Nodes we want to move up. This includes the `eligibleParagraph` and everything up to (but not
+ * including) the next paragraph.
+ * @param  {!HTMLParagraphElement} eligibleParagraph
+ * @return {!Array.<Node>} Array of text nodes, elements, etc...
+ */
+var extractLeadIntroductionNodes = function extractLeadIntroductionNodes(eligibleParagraph) {
+  var introNodes = [];
+  var node = eligibleParagraph;
+  do {
+    introNodes.push(node);
+    node = node.nextSibling;
+  } while (node && !(node.nodeType === ELEMENT_NODE$1 && node.tagName === 'P'));
+  return introNodes;
+};
+
+/**
+ * Locate first eligible paragraph. We don't want paragraphs from somewhere in the middle of a
+ * table, so only paragraphs which are direct children of `containerID` element are considered. 
+ * @param  {!Document} document
+ * @param  {!string} containerID ID of the section under examination.
+ * @return {?HTMLParagraphElement}
+ */
+var getEligibleParagraph = function getEligibleParagraph(document, containerID) {
+  return Polyfill.querySelectorAll(document, '#' + containerID + ' > p').find(isParagraphEligible);
+};
+
+/**
+ * Instead of moving the infobox down beneath the first P tag, move the first eligible P tag
+ * (and related elements) up. This ensures some text will appear above infoboxes, tables, images
+ * etc. This method does not do a 'mainpage' check - do so before calling it.
+ * @param  {!Document} document
+ * @param  {!string} containerID ID of the section under examination.
+ * @param  {?Element} afterElement Element after which paragraph will be moved. If not specified
+ * paragraph will be move to top of `containerID` element.
+ * @return {void}
+ */
+var moveLeadIntroductionUp = function moveLeadIntroductionUp(document, containerID, afterElement) {
+  var eligibleParagraph = getEligibleParagraph(document, containerID);
+  if (!eligibleParagraph) {
+    return;
+  }
+
+  // A light-weight fragment to hold everything we want to move up.
+  var fragment = document.createDocumentFragment();
+  // DocumentFragment's `appendChild` attaches the element to the fragment AND removes it from DOM.
+  extractLeadIntroductionNodes(eligibleParagraph).forEach(function (element) {
+    return fragment.appendChild(element);
+  });
+
+  var container = document.getElementById(containerID);
+  var insertBeforeThisElement = !afterElement ? container.firstChild : afterElement.nextSibling;
+
+  // Attach the fragment just before `insertBeforeThisElement`. Conveniently, `insertBefore` on a
+  // DocumentFragment inserts 'the children of the fragment, not the fragment itself.', so no
+  // unnecessary container element is introduced.
+  // https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
+  container.insertBefore(fragment, insertBeforeThisElement);
+};
+
+var LeadIntroductionTransform = {
+  moveLeadIntroductionUp: moveLeadIntroductionUp,
+  test: {
+    isParagraphEligible: isParagraphEligible,
+    extractLeadIntroductionNodes: extractLeadIntroductionNodes,
+    getEligibleParagraph: getEligibleParagraph
+  }
+};
 
 /**
  * Ensures the 'Read more' section header can always be scrolled to the top of the screen.
@@ -3237,18 +3499,17 @@ var configureRedLinkTemplate = function configureRedLinkTemplate(span, anchor) {
 };
 
 /**
- * Finds red links in a document or document fragment.
- * @param {!(Document|DocumentFragment)} content Document or fragment in which to seek red links.
+ * Finds red links in a document.
+ * @param {!Document} content Document in which to seek red links.
  * @return {!Array.<HTMLAnchorElement>} Array of zero or more red link anchors.
  */
-var redLinkAnchorsInContent = function redLinkAnchorsInContent(content) {
+var redLinkAnchorsInDocument = function redLinkAnchorsInDocument(content) {
   return Polyfill.querySelectorAll(content, 'a.new');
 };
 
 /**
  * Makes span to be used as cloning template for red link anchor replacements.
- * @param  {!Document} document Document to use to create span element. Reminder: this can't be a
- * document fragment because fragments don't implement 'createElement'.
+ * @param  {!Document} document Document to use to create span element.
  * @return {!HTMLSpanElement} Span element suitable for use as template for red link anchor
  * replacements.
  */
@@ -3267,17 +3528,13 @@ var replaceAnchorWithSpan = function replaceAnchorWithSpan(anchor, span) {
 };
 
 /**
- * Hides red link anchors in either a document or a document fragment so they are unclickable and
- * unfocusable.
+ * Hides red link anchors in a document so they are unclickable and unfocusable.
  * @param {!Document} document Document in which to hide red links.
- * @param {?DocumentFragment} fragment If specified, red links are hidden in the fragment and the
- * document is used only for span cloning.
  * @return {void}
  */
-var hideRedLinks = function hideRedLinks(document, fragment) {
+var hideRedLinks = function hideRedLinks(document) {
   var spanTemplate = newRedLinkTemplate(document);
-  var content = fragment !== undefined ? fragment : document;
-  redLinkAnchorsInContent(content).forEach(function (redLink) {
+  redLinkAnchorsInDocument(document).forEach(function (redLink) {
     var span = spanTemplate.cloneNode(false);
     configureRedLinkTemplate(span, redLink);
     replaceAnchorWithSpan(redLink, span);
@@ -3288,7 +3545,7 @@ var RedLinks = {
   hideRedLinks: hideRedLinks,
   test: {
     configureRedLinkTemplate: configureRedLinkTemplate,
-    redLinkAnchorsInContent: redLinkAnchorsInContent,
+    redLinkAnchorsInDocument: redLinkAnchorsInDocument,
     newRedLinkTemplate: newRedLinkTemplate,
     replaceAnchorWithSpan: replaceAnchorWithSpan
   }
@@ -3480,6 +3737,7 @@ var pagelib$1 = {
   EditTransform: EditTransform,
   // todo: rename Footer.ContainerTransform, Footer.LegalTransform, Footer.MenuTransform,
   //       Footer.ReadMoreTransform.
+  LeadIntroductionTransform: LeadIntroductionTransform,
   FooterContainer: FooterContainer,
   FooterLegal: FooterLegal,
   FooterMenu: FooterMenu,

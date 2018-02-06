@@ -9,8 +9,8 @@ function toggleCollapseClickCallback() {
     pagelib.CollapseTable.toggleCollapseClickCallback.call(this, scrollWithDecorOffset);
 }
 
-transformer.register( "hideTables", function(content) {
-    pagelib.CollapseTable.collapseTables(window, content, window.pageTitle,
+transformer.register( "hideTables", function(document) {
+    pagelib.CollapseTable.collapseTables(window, document, window.pageTitle,
         window.isMainPage, window.string_table_infobox,
         window.string_table_other, window.string_table_close,
         scrollWithDecorOffset);
