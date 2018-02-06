@@ -14,6 +14,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
+import org.wikipedia.util.log.L;
 
 public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int RESULT_REFRESH_PAGE = 1;
@@ -35,6 +36,10 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     public void startEditingSection(int sectionID, @Nullable String highlightText) {
         if (!currentPage.getPageProperties().canEdit()) {
             showUneditableDialog();
+            return;
+        }
+        if (sectionID < 0 || sectionID >= currentPage.getSections().size()) {
+            L.w("Attempting to edit a mismatched section ID.");
             return;
         }
         Section section = currentPage.getSections().get(sectionID);
